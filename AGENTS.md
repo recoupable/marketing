@@ -40,10 +40,26 @@ content/posts/    — MDX blog posts (one file = one post)
 content/brand/    — Brand context files (read before creating content)
 content/seo/      — SEO strategy + keyword targets
 content/STATUS.md — Current state snapshot (read FIRST every session)
+swipe/            — Reference material (copy, designs, competitors, complaints, trends)
 lib/              — Business logic (posts.ts, seo.ts, attio.ts, config.ts)
 components/       — React components (layout/, blog/, ui/)
 public/brand/     — Logos, fonts, favicon
 ```
+
+## Swipe File (Reference Collection)
+
+Raw research material that informs content, positioning, and copy. One markdown file per item.
+
+```
+swipe/copy/         — Good copy you've seen (headlines, hooks, CTAs)
+swipe/designs/      — Screenshots and visual references
+swipe/competitors/  — What competitors say and do
+swipe/complaints/   — Real pain points from Reddit, forums, reviews
+swipe/trends/       — Industry data and market insights
+```
+
+When adding to swipe, use a descriptive filename (e.g., `reddit-artists-hate-posting.md`).
+Read relevant swipe files before writing copy — real language > made-up language.
 
 ## Context Files (Read Before Creating Content)
 
