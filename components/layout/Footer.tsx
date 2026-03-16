@@ -2,31 +2,28 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 
 /**
- * Site-wide footer with links, legal pages, and social.
- * Included in the root layout — appears on every page.
+ * Site-wide footer — matches live recoupable.com structure:
+ * Logo, tagline, Resources, Legal, copyright, social icons.
  */
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="border-t border-[var(--border)] mt-auto">
       <div className="max-w-5xl mx-auto px-4 py-12">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand column */}
           <div>
-            <h3 className="font-semibold text-[var(--foreground)] mb-3">
-              {siteConfig.name}
+            <h3 className="font-semibold text-lg text-[var(--foreground)] mb-3">
+              🎵 {siteConfig.name}
             </h3>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
-              {siteConfig.tagline}. AI agents that handle your music marketing
-              so you can focus on making music.
+              {siteConfig.tagline}.
             </p>
           </div>
 
-          {/* Navigation column */}
+          {/* Resources column */}
           <div>
             <h3 className="font-semibold text-[var(--foreground)] mb-3">
-              Navigate
+              Resources
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -56,7 +53,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Legal + Social column */}
+          {/* Legal column */}
           <div>
             <h3 className="font-semibold text-[var(--foreground)] mb-3">
               Legal
@@ -64,7 +61,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/privacy"
+                  href="/privacy-policy"
                   className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
                 >
                   Privacy Policy
@@ -72,19 +69,11 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href="/terms-of-use"
                   className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
                 >
-                  Terms of Service
+                  Terms of Use
                 </Link>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${siteConfig.supportEmail}`}
-                  className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-                >
-                  {siteConfig.supportEmail}
-                </a>
               </li>
             </ul>
           </div>
@@ -92,30 +81,44 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-[var(--border)] flex items-center justify-between text-xs text-[var(--muted-foreground)]">
-          <p>
-            &copy; {currentYear} {siteConfig.name}. All rights reserved.
-          </p>
+          <p>&copy; {new Date().getFullYear()} {siteConfig.legalName}</p>
           <div className="flex gap-4">
-            {siteConfig.social.twitter && (
-              <a
-                href={siteConfig.social.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[var(--foreground)] transition-colors"
-              >
-                X / Twitter
-              </a>
-            )}
-            {siteConfig.social.linkedin && (
-              <a
-                href={siteConfig.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[var(--foreground)] transition-colors"
-              >
-                LinkedIn
-              </a>
-            )}
+            <a
+              href={siteConfig.social.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[var(--foreground)] transition-colors"
+              aria-label="X / Twitter"
+            >
+              𝕏
+            </a>
+            <a
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[var(--foreground)] transition-colors"
+              aria-label="Instagram"
+            >
+              IG
+            </a>
+            <a
+              href={siteConfig.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[var(--foreground)] transition-colors"
+              aria-label="LinkedIn"
+            >
+              in
+            </a>
+            <a
+              href={siteConfig.social.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[var(--foreground)] transition-colors"
+              aria-label="YouTube"
+            >
+              YT
+            </a>
           </div>
         </div>
       </div>

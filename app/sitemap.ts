@@ -30,14 +30,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${siteConfig.url}/privacy`,
-      lastModified: new Date("2026-03-16"),
+      url: `${siteConfig.url}/privacy-policy`,
+      lastModified: new Date("2025-07-24"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${siteConfig.url}/terms`,
-      lastModified: new Date("2026-03-16"),
+      url: `${siteConfig.url}/terms-of-use`,
+      lastModified: new Date("2025-07-24"),
       changeFrequency: "yearly",
       priority: 0.3,
     },

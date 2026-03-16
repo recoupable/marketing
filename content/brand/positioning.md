@@ -4,7 +4,15 @@
 
 ## What Recoupable Is
 
-Recoupable is an AI agent platform for music marketing. It automates content creation, social distribution, and audience growth for artists, labels, and managers — so they can focus on making music.
+Recoupable is an AI agent platform for the music industry. It provides AI-powered record label services, music management, and artist services — enabling artists, labels, and managers to automate marketing, content creation, audience analysis, and growth.
+
+## Core Messaging (from recoupable.com)
+
+- **Headline:** "Meet Your New AI Artist Services"
+- **Tagline:** "AI agents made for the music industry."
+- **Sub-heading:** "Spend more time doing what you love. Let agents handle the rest."
+- **Meta description:** "Your AI-powered record label, music management, and artist services."
+- **Product page:** "Unlock the potential of your roster with intelligent, task-focused agents."
 
 ## Who It's For
 
@@ -15,22 +23,32 @@ Recoupable is an AI agent platform for music marketing. It automates content cre
 
 ## Value Proposition
 
-> "Your AI marketing team — always on, always creating, always learning what works."
+> "Spend more time doing what you love. Let agents handle the rest."
 
-Artists spend 10+ hours per week on content and social. Recoupable compresses that to minutes. You provide the direction; the AI agent handles the execution — creating posts, formatting for each platform, scheduling, and learning from performance data.
+Artists and labels spend countless hours on marketing, content, and audience management. Recoupable compresses that with AI agents that Create, Connect, Report, Plan, and Research — task-focused agents built specifically for the music industry.
 
 ## Differentiators
 
 | Us | Them |
 |---|---|
-| AI **agent** that acts autonomously | AI tools that require manual operation |
-| Built for **music** — understands releases, content calendars, fan engagement | Generic social tools adapted for music |
+| AI **agents** that act autonomously with artist context | AI tools that require manual operation |
+| Built for **music** — understands releases, fan engagement, industry workflows | Generic social tools adapted for music |
+| **Multiple agent types** (Create, Connect, Report, Plan, Research) | Point solutions (one capability only) |
 | **Learns** from performance data — gets better over time | Static templates and presets |
-| Full pipeline: create → distribute → measure → improve | Point solutions (one step only) |
+
+## Agent Categories (from product)
+
+| Category | What It Does |
+|---|---|
+| **Create** | Viral content ideas, brand redesign mockups, content calendars |
+| **Connect** | Cross-promotion finder, comment response priority, partnership discovery |
+| **Report** | Brand audit, daily social trends, cross-platform social audit |
+| **Plan** | Content calendar creator, brand redesign planning |
+| **Research** | Competitor analysis, fan segment revenue analysis |
 
 ## What We Are NOT
 
 - We are not a social media scheduler (we create the content too)
 - We are not a record label or distributor
 - We are not replacing the artist's voice — we amplify it
-- We do not do "AI-generated music" — we do AI-driven music *marketing*
+- We do not do "AI-generated music" — we do AI-driven music *services*

@@ -4,19 +4,28 @@
  */
 export const siteConfig = {
   name: "Recoupable",
-  tagline: "AI-Powered Music Marketing",
+  legalName: "Recoupable LLC",
+  tagline: "AI agents made for the music industry",
   description:
-    "Recoupable is the AI agent that handles your music marketing — content, distribution, and growth — so you can focus on making music.",
+    "Your AI-powered record label, music management, and artist services. Spend more time doing what you love. Let agents handle the rest.",
   url: "https://recoupable.com",
   appUrl: "https://chat.recoupable.com",
   apiUrl: "https://recoup-api.vercel.app/api",
   docsUrl: "https://developers.recoupable.com",
-  supportEmail: "agent@recoupable.com",
+
+  /** Contact emails */
+  supportEmail: "support@recoupable.com",
+  contactEmail: "hi@recoupable.com",
+
+  /** Company address — used in legal pages */
+  address: "720 Capitol Square Pl. SW, Washington, DC 20024",
 
   /** Social links */
   social: {
     twitter: "https://x.com/recaboreal",
+    instagram: "https://www.instagram.com/recoupable",
     linkedin: "https://www.linkedin.com/company/recoupable",
+    youtube: "https://www.youtube.com/@recoupable",
   },
 
   /** Brand colors */
@@ -35,9 +44,9 @@ export const siteConfig = {
   /** Default OG / metadata values (overridden per-page via generateMetadata) */
   metadata: {
     titleTemplate: "%s | Recoupable",
-    defaultTitle: "Recoupable — AI-Powered Music Marketing",
+    defaultTitle: "Recoupable — AI Agents Made for the Music Industry",
     defaultDescription:
-      "Recoupable is the AI agent that handles your music marketing — content, distribution, and growth — so you can focus on making music.",
+      "Your AI-powered record label, music management, and artist services. Spend more time doing what you love. Let agents handle the rest.",
     locale: "en_US",
     type: "website",
   },
