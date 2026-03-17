@@ -15,6 +15,8 @@ something, fix it in the same commit.
 1. Read `content/STATUS.md` — current state, focus, what changed, what not to touch
 2. Read this file (you're doing it now)
 3. Read the context file relevant to your task (see Context Files below)
+4. **React/Next.js:** When writing or refactoring components, pages, or data fetching, read and follow **Vercel React best practices** (monorepo: `.agent/skills/vercel-react-best-practices/SKILL.md`; full guide: that folder’s `AGENTS.md`). Prioritize: no barrel imports, no async waterfalls, minimal RSC payload, safe localStorage usage.
+5. **UI / Frontend design:** When building or refining UI (components, pages, layouts, styling, animations), use the **Impeccable** skills in the monorepo `.agents/skills/`. Read the relevant skill before implementing—especially `frontend-design/SKILL.md` for visual design, plus `animate`, `colorize`, `delight`, `polish`, and `adapt` as needed. See https://github.com/pbakaus/impeccable for the full set.
 
 ## Build Commands
 
@@ -43,7 +45,10 @@ content/STATUS.md — Current state snapshot (read FIRST every session)
 swipe/            — Reference material (copy, designs, competitors, complaints, trends)
 lib/              — Business logic (posts.ts, seo.ts, attio.ts, config.ts)
 components/       — React components (layout/, blog/, ui/)
-public/brand/     — Logos, fonts, favicon
+public/brand/     — Logos, word marks, profile/hero image (see public/brand/README.md)
+public/icons/      — Favicons + PWA icons (see public/icons/README.md)
+public/            — site.webmanifest at root
+lib/copy/   — Markdown versions of key pages for “Machine” view (agents); keep in sync with human copy
 ```
 
 ## Swipe File (Reference Collection)
@@ -64,6 +69,7 @@ Read relevant swipe files before writing copy — real language > made-up langua
 ## Context Files (Read Before Creating Content)
 
 ```
+content/brand/website-structure-report.md — Positioning, hero, landing structure, nav (read for site/copy changes)
 content/brand/positioning.md — What we are, for whom, differentiators
 content/brand/voice.md       — How we sound (with WHY on each rule)
 content/brand/founder.md     — Sidney's story (for thought leadership)
@@ -100,10 +106,17 @@ content/posts/INDEX.md       — Published posts + topic gaps
 - Images: always include descriptive alt text
 - Internal links: 3-5 related posts per post
 
+## Dark mode
+
+- **Single place to edit:** `app/globals.css` — the `[data-theme="dark"]` block overrides the same CSS variables (--background, --foreground, --muted, --border, --brand, etc.). Change dark colors only there.
+- **Toggle:** Header (sun/moon icon). Preference is stored in `localStorage` key `recoupable-theme:v1` and respected on load; falls back to `prefers-color-scheme` when no stored value.
+- **No flash:** An inline script in `app/layout.tsx` sets `data-theme` on `<html>` before first paint. Keep its logic in sync with `contexts/ThemeContext.tsx` (storage key and fallback).
+
 ## Brand
 
-- Colors: primary `#345A5D` (defined in `lib/config.ts`)
-- Logos: `public/brand/logo.svg`, `public/brand/logo-dark.svg`
+- **Brand assets** (see `public/brand/README.md`): logo mark `icon-lightmode.svg` / `icon-darkmode.svg`, word mark `wordmark-lightmode.svg` / `wordmark-darkmode.svg`, profile/hero `pfp-sky-bg.png`. Use in UI as `/brand/<filename>`.
+- **Favicons / PWA icons:** `public/icons/` (see that folder’s README)
+- **Page copy:** `lib/copy/` — single source for human pages and machine (markdown) view; edit copy there only so both stay in sync.
 - NEVER hardcode brand values — import from `lib/config.ts`
 
 ## Integrations

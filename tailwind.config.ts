@@ -7,17 +7,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        /* Recoupable brand — import from lib/config.ts in code, not here */
-        brand: {
-          DEFAULT: "#345A5D",
-          light: "#4a7a7d",
-          dark: "#264344",
-        },
-      },
+      // Brand colors defined in globals.css as OKLCH (--brand, --brand-hover, etc.)
       fontFamily: {
-        sans: ["var(--font-geist-sans)"],
-        mono: ["var(--font-geist-mono)"],
+        sans: ["var(--font-body)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-body)", "system-ui", "sans-serif"],
       },
     },
   },

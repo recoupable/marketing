@@ -1,42 +1,49 @@
 # Positioning
 
-> Updated: 2026-03-16
+> Updated: 2026-03-16. Full strategy: see `content/brand/website-structure-report.md`.
 
 ## What Recoupable Is
 
-Recoupable is an AI agent platform for the music industry. It provides AI-powered record label services, music management, and artist services — enabling artists, labels, and managers to automate marketing, content creation, audience analysis, and growth.
+Recoupable is **the platform that enables autonomous music businesses.** We are the system that runs music businesses through agents — not a chatbot, not a tool, not a feature set.
 
-## Core Messaging (from recoupable.com)
+**Category (external):** Run your music business with agents.  
+**Category (internal):** Autonomous Music Infrastructure.
 
-- **Headline:** "Meet Your New AI Artist Services"
-- **Tagline:** "AI agents made for the music industry."
-- **Sub-heading:** "Spend more time doing what you love. Let agents handle the rest."
-- **Meta description:** "Your AI-powered record label, music management, and artist services."
-- **Product page:** "Unlock the potential of your roster with intelligent, task-focused agents."
+## Core Messaging
+
+- **Headline:** Run Your Entire Music Business with Agents
+- **Subheader:** From release strategy to marketing, fan growth, and operations — Recoupable deploys AI agents that do the work for you.
+- **Tagline (supporting):** Spend more time doing what you love. Let agents handle the rest.
+- **Closing anchor:** Music businesses are becoming autonomous. Recoupable is how they run.
 
 ## Who It's For
 
-1. **Independent artists** who need to stay visible on social but hate the content grind
-2. **Small-to-mid labels** managing multiple artists with limited marketing staff
-3. **Artist managers** juggling promotion across platforms for their roster
-4. **Music tech enthusiasts** exploring AI-driven creative workflows
+1. **Artists** — Run your career without a team. Replace managers, marketers, analysts.
+2. **Labels / Distributors / Catalog owners** — Scale operations without scaling headcount. Standardize execution across roster.
+3. **Developers / AI builders** — Build on music-specific agent infrastructure. API, CLI, integrations.
 
 ## Value Proposition
 
-> "Spend more time doing what you love. Let agents handle the rest."
-
-Artists and labels spend countless hours on marketing, content, and audience management. Recoupable compresses that with AI agents that Create, Connect, Report, Plan, and Research — task-focused agents built specifically for the music industry.
+Agents run your music operations. Outcomes: release execution, audience research, marketing actions, catalog optimization, revenue tracking. We show outcome, not feature.
 
 ## Differentiators
 
 | Us | Them |
 |---|---|
-| AI **agents** that act autonomously with artist context | AI tools that require manual operation |
-| Built for **music** — understands releases, fan engagement, industry workflows | Generic social tools adapted for music |
-| **Multiple agent types** (Create, Connect, Report, Plan, Research) | Point solutions (one capability only) |
-| **Learns** from performance data — gets better over time | Static templates and presets |
+| **System** that runs music businesses | Chatbot or single tool |
+| AI **agents** that execute autonomously | AI tools that require manual operation |
+| Built for **music** — releases, fan engagement, workflows | Generic tools adapted for music |
+| **Multiple entry points** (web, Slack, email, CLI) = one system | Point solutions or separate SKUs |
 
-## Agent Categories (from product)
+## What We Are NOT
+
+- Not a chatbot
+- Not a tool or feature bundle
+- Not a social media scheduler (we create and execute)
+- Not a record label or distributor — we enable those who run them
+- Web app, Slack, Email are **entry points** into the same system, not separate products
+
+## Agent Categories (product layer)
 
 | Category | What It Does |
 |---|---|
@@ -45,10 +52,3 @@ Artists and labels spend countless hours on marketing, content, and audience man
 | **Report** | Brand audit, daily social trends, cross-platform social audit |
 | **Plan** | Content calendar creator, brand redesign planning |
 | **Research** | Competitor analysis, fan segment revenue analysis |
-
-## What We Are NOT
-
-- We are not a social media scheduler (we create the content too)
-- We are not a record label or distributor
-- We are not replacing the artist's voice — we amplify it
-- We do not do "AI-generated music" — we do AI-driven music *services*

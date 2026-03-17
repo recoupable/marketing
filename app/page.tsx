@@ -1,134 +1,163 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
+import { homeCopy } from "@/lib/copy/home";
 import { getAllPosts } from "@/lib/posts";
 import { PostCard } from "@/components/blog/PostCard";
 import { SubscribeForm } from "@/components/ui/SubscribeForm";
 
 /**
- * Homepage — matches live recoupable.com positioning:
- * "Meet Your New AI Artist Services"
- * "Spend more time doing what you love. Let agents handle the rest."
+ * Homepage — copy from lib/copy/home (single source for human + machine view).
+ * Layout: asymmetric, editorial rhythm, no generic card grids (Impeccable frontend-design).
  */
 export default function HomePage() {
-  // Show up to 4 latest posts on the homepage
+  const c = homeCopy;
   const latestPosts = getAllPosts().slice(0, 4);
 
   return (
-    <div className="max-w-5xl mx-auto px-4">
-      {/* ── Hero Section ── */}
-      <section className="py-24 text-center">
-        {/* Badge — matches "Artist Intelligence | See how it works →" */}
-        <div className="inline-flex items-center gap-2 bg-[var(--foreground)] text-white rounded-full px-4 py-2 text-sm mb-8">
-          <span className="font-medium">🌐 Artist Intelligence</span>
-          <Link
-            href={siteConfig.appUrl}
-            className="border-l border-white/30 pl-2 hover:underline"
-          >
-            See how it works ↗
-          </Link>
-        </div>
-
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-[var(--foreground)] mb-2 max-w-3xl mx-auto leading-tight">
-          Meet Your New AI
+    <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      {/* Hero — left-aligned, asymmetric */}
+      <section className="section-spacing max-w-3xl">
+        <h1 className="text-display font-bold tracking-tight text-[var(--foreground)] mb-6 leading-tight">
+          {c.hero.headline}
         </h1>
-        <p className="text-5xl md:text-6xl font-serif italic text-[var(--foreground)] mb-6">
-          Artist Services
+        <p className="text-lead text-[var(--muted-foreground)] mb-10 max-w-xl leading-relaxed">
+          {c.hero.subheader}
         </p>
-        <p className="text-xl text-[var(--muted-foreground)] mb-10 max-w-2xl mx-auto leading-relaxed">
-          Spend more time doing what you love. Let agents handle the rest.
-        </p>
-
-        {/* CTA buttons */}
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex flex-wrap items-center gap-3">
           <Link
-            href={siteConfig.appUrl}
-            className="bg-[var(--foreground)] text-white px-8 py-3 rounded-full text-base font-medium hover:bg-[var(--foreground)]/90 transition-colors"
+            href={c.hero.ctaHref}
+            className="inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-full text-base font-medium hover:bg-black/90 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
           >
-            Sign Up
-          </Link>
-          <Link
-            href={siteConfig.appUrl}
-            className="border border-[var(--border)] text-[var(--foreground)] px-8 py-3 rounded-full text-base font-medium hover:bg-[var(--muted)] transition-colors"
-          >
-            Sign In
+            {c.hero.ctaPrimary}
           </Link>
         </div>
       </section>
 
-      {/* ── What Agents Do ── */}
-      <section className="py-16 border-t border-[var(--border)]">
-        <h2 className="text-3xl font-bold text-center mb-4">
-          Unlock the potential of your roster
+      {/* Pain — list with rhythm, not centered block */}
+      <section className="section-spacing-tight border-t border-[var(--border)]">
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">
+          {c.pain.title}
         </h2>
-        <p className="text-center text-[var(--muted-foreground)] mb-12 max-w-xl mx-auto">
-          Intelligent, task-focused agents that Create, Connect, Report, Plan,
-          and Research — so you can focus on the music.
+        <ul className="grid gap-3 sm:grid-cols-2 max-w-2xl text-[var(--muted-foreground)] text-body">
+          {c.pain.items.map((item) => (
+            <li key={item} className="flex gap-2">
+              <span className="text-[var(--brand)] shrink-0" aria-hidden>—</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* What we do — asymmetric: one outcome emphasized, rest in list/grid mix */}
+      <section className="section-spacing border-t border-[var(--border)]">
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-2">
+          {c.whatWeDo.title}
+        </h2>
+        <p className="text-[var(--muted-foreground)] text-body mb-10 max-w-xl">
+          {c.whatWeDo.subtitle}
         </p>
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            {
-              category: "Create",
-              title: "Content & Creative",
-              description:
-                "Generate viral content ideas, brand redesigns, content calendars, and visual mockups.",
-            },
-            {
-              category: "Connect",
-              title: "Growth & Engagement",
-              description:
-                "Find cross-promotion partners, prioritize comments, and discover corporate partnerships.",
-            },
-            {
-              category: "Research",
-              title: "Intelligence & Insights",
-              description:
-                "Audit competitors, track daily social trends, and analyze fan segment revenue.",
-            },
-          ].map((agent) => (
+        <div className="grid gap-6 sm:grid-cols-2">
+          {c.whatWeDo.outcomes.map((item, i) => (
             <div
-              key={agent.category}
-              className="border border-[var(--border)] rounded-lg p-6 hover:border-[var(--brand)] transition-colors"
+              key={item.title}
+              className={
+                i === 0
+                  ? "sm:col-span-2 border-l-4 border-[var(--brand)] pl-5 pr-4 py-4 bg-[var(--muted)]/50 rounded-r-lg"
+                  : "border border-[var(--border)] rounded-lg p-5 hover:border-[var(--brand-muted)] transition-colors duration-200"
+              }
             >
-              <span className="inline-block text-xs font-medium uppercase tracking-wider text-[var(--brand)] mb-2">
-                {agent.category}
-              </span>
-              <h3 className="font-semibold text-lg mb-2">{agent.title}</h3>
-              <p className="text-sm text-[var(--muted-foreground)]">
-                {agent.description}
+              <h3 className="font-semibold text-lg text-[var(--foreground)] mb-1">
+                {item.title}
+              </h3>
+              <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
+                {item.description}
               </p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── Social Proof ── */}
-      <section className="py-16 border-t border-[var(--border)]">
-        <div className="bg-[var(--muted)] rounded-lg p-8 md:p-12 text-center">
-          <blockquote className="text-lg md:text-xl italic text-[var(--foreground)] max-w-2xl mx-auto mb-4">
-            &ldquo;I sat down at 10pm to make content. By midnight I had 22
-            finished videos. Captioned. Formatted. Queued. I didn&apos;t edit a
-            single one.&rdquo;
+      {/* Use cases — horizontal segments, not identical cards */}
+      <section className="section-spacing border-t border-[var(--border)]">
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-8">
+          {c.useCases.title}
+        </h2>
+        <div className="grid gap-8 md:grid-cols-3">
+          {c.useCases.segments.map((seg) => (
+            <div key={seg.title} className="md:first:pt-0">
+              <h3 className="font-semibold text-lg text-[var(--foreground)] mb-2">
+                {seg.title}
+              </h3>
+              <p className="text-body text-[var(--muted-foreground)]">
+                {seg.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* How it works — numbered steps, minimal chrome */}
+      <section className="section-spacing border-t border-[var(--border)]">
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-8">
+          {c.howItWorks.title}
+        </h2>
+        <div className="grid gap-8 sm:grid-cols-3 max-w-3xl">
+          {c.howItWorks.steps.map((step, i) => (
+            <div key={step.title} className="flex gap-4">
+              <span
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black text-white text-sm font-semibold"
+                aria-hidden
+              >
+                {i + 1}
+              </span>
+              <div>
+                <h3 className="font-semibold text-[var(--foreground)] mb-1">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="mt-8">
+          <Link
+            href={c.howItWorks.platformLink}
+            className="text-body font-medium text-[var(--brand)] hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:ring-offset-2 rounded"
+          >
+            {c.howItWorks.platformLinkLabel} →
+          </Link>
+        </p>
+      </section>
+
+      {/* Proof — editorial blockquote, no generic card */}
+      <section className="section-spacing border-t border-[var(--border)]">
+        <div className="max-w-2xl">
+          <blockquote className="text-lead italic text-[var(--foreground)] border-l-4 border-[var(--brand)] pl-6 py-2">
+            &ldquo;{c.proof.quote}&rdquo;
           </blockquote>
-          <p className="text-sm text-[var(--muted-foreground)]">
-            — Sidney Swift, Founder
+          <p className="text-sm text-[var(--muted-foreground)] mt-4">
+            {c.proof.attribution}
           </p>
         </div>
       </section>
 
-      {/* ── Latest from the Blog ── */}
       {latestPosts.length > 0 && (
-        <section className="py-16 border-t border-[var(--border)]">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold">Latest from the Blog</h2>
+        <section className="section-spacing border-t border-[var(--border)]">
+          <div className="flex flex-wrap items-baseline justify-between gap-4 mb-6">
+            <h2 className="text-2xl font-bold text-[var(--foreground)]">
+              {c.blog.title}
+            </h2>
             <Link
-              href="/blog"
-              className="text-sm text-[var(--brand)] hover:underline"
+              href={c.blog.viewAllHref}
+              className="text-body font-medium text-[var(--brand)] hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:ring-offset-2 rounded"
             >
-              View all →
+              {c.blog.viewAllLabel} →
             </Link>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2">
             {latestPosts.map((post) => (
               <PostCard key={post.slug} post={post} />
             ))}
@@ -136,18 +165,35 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* ── Subscribe Section ── */}
-      <section className="py-20 text-center border-t border-[var(--border)]">
-        <h2 className="text-3xl font-bold mb-4">Stay in the loop</h2>
-        <p className="text-lg text-[var(--muted-foreground)] mb-8 max-w-xl mx-auto">
-          Get insights on AI-powered music marketing, product updates, and
-          artist growth strategies.
+      {/* Subscribe — clear CTA, single column */}
+      <section className="section-spacing border-t border-[var(--border)]">
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-2">
+          {c.subscribe.title}
+        </h2>
+        <p className="text-lead text-[var(--muted-foreground)] mb-8 max-w-xl">
+          {c.subscribe.description}
         </p>
-        <div className="max-w-md mx-auto">
+        <div className="max-w-md">
           <Suspense fallback={<div className="h-12" />}>
             <SubscribeForm />
           </Suspense>
         </div>
+      </section>
+
+      {/* Closing — confident one-liner */}
+      <section className="section-spacing border-t border-[var(--border)]">
+        <p className="text-lead font-medium text-[var(--foreground)]">
+          {c.closing.line1}
+        </p>
+        <p className="text-body text-[var(--muted-foreground)] mt-1">
+          {c.closing.line2}
+        </p>
+        <Link
+          href={c.closing.ctaHref}
+          className="inline-flex items-center justify-center mt-6 bg-black text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-black/90 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+        >
+          {c.closing.ctaLabel}
+        </Link>
       </section>
     </div>
   );

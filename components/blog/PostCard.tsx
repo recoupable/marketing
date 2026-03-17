@@ -13,8 +13,11 @@ export function PostCard({ post }: { post: PostFrontmatter }) {
   });
 
   return (
-    <article className="group border border-[var(--border)] rounded-lg p-6 hover:border-[var(--brand)] transition-colors">
-      <Link href={`/blog/${post.slug}`} className="block">
+    <article className="group border border-[var(--border)] rounded-lg p-6 hover:border-[var(--brand-muted)] transition-colors duration-200 border-l-4 border-l-[var(--brand)]">
+      <Link
+        href={`/blog/${post.slug}`}
+        className="block focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:ring-inset rounded-lg"
+      >
         {/* Post type badge */}
         <span className="inline-block text-xs font-medium uppercase tracking-wider text-[var(--brand)] mb-2">
           {post.type}

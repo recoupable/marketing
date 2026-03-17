@@ -5,9 +5,9 @@
 export const siteConfig = {
   name: "Recoupable",
   legalName: "Recoupable LLC",
-  tagline: "AI agents made for the music industry",
+  tagline: "AI agents for music",
   description:
-    "Your AI-powered record label, music management, and artist services. Spend more time doing what you love. Let agents handle the rest.",
+    "Your label. Run by agents. You create. They run strategy, content, revenue.",
   url: "https://recoupable.com",
   appUrl: "https://chat.recoupable.com",
   apiUrl: "https://recoup-api.vercel.app/api",
@@ -28,13 +28,6 @@ export const siteConfig = {
     youtube: "https://www.youtube.com/@recoupable",
   },
 
-  /** Brand colors */
-  colors: {
-    primary: "#345A5D",
-    primaryLight: "#4a7a7d",
-    primaryDark: "#264344",
-  },
-
   /** Plausible analytics — privacy-friendly, no cookie banner needed */
   plausible: {
     domain: "recoupable.com",
@@ -44,9 +37,9 @@ export const siteConfig = {
   /** Default OG / metadata values (overridden per-page via generateMetadata) */
   metadata: {
     titleTemplate: "%s | Recoupable",
-    defaultTitle: "Recoupable — AI Agents Made for the Music Industry",
+    defaultTitle: "Recoupable — Your label. Run by agents.",
     defaultDescription:
-      "Your AI-powered record label, music management, and artist services. Spend more time doing what you love. Let agents handle the rest.",
+      "You create. Agents run strategy, content, fans, revenue. One system for artists, labels, distributors.",
     locale: "en_US",
     type: "website",
   },
