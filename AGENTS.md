@@ -1,59 +1,155 @@
 # AGENTS.md
 
-Guidance for AI agents working in the Recoupable **marketing** repo.
+This is the Recoupable marketing GTM engine — website, blog, content system,
+CRM integration, and the foundations for a full marketing funnel.
 
-## Repo purpose
+## You Are Allowed To Improve This System
 
-This repo contains the marketing site (Next.js), content (blog, copy, SEO), and supporting context used for GTM, positioning, and all marketing output.
+If you find a better way to organize files, schemas, processes, or code —
+do it. Update this file to reflect your changes. The only rule: run
+`pnpm build` after changes. If it passes, ship it. If your change breaks
+something, fix it in the same commit.
 
----
+## First Steps (Every Session)
+
+1. Read `content/STATUS.md` — current state, focus, what changed, what not to touch
+2. Read this file (you're doing it now)
+3. Read the context file relevant to your task (see Context Files below)
+4. **React/Next.js:** When writing or refactoring components, pages, or data fetching, read and follow **Vercel React best practices** (monorepo: `.agent/skills/vercel-react-best-practices/SKILL.md`; full guide: that folder’s `AGENTS.md`). Prioritize: no barrel imports, no async waterfalls, minimal RSC payload, safe localStorage usage.
+5. **UI / Frontend design:** When building or refining UI (components, pages, layouts, styling, animations), use the **Impeccable** skills in the monorepo `.agents/skills/`. Read the relevant skill before implementing—especially `frontend-design/SKILL.md` for visual design, plus `animate`, `colorize`, `delight`, `polish`, and `adapt` as needed. See https://github.com/pbakaus/impeccable for the full set.
+
+## Build Commands
+
+```bash
+pnpm install    # Install dependencies
+pnpm dev        # Dev server
+pnpm build      # Production build (MUST pass before committing)
+pnpm lint       # Fix lint issues
+pnpm format     # Run prettier
+```
+
+## Git Workflow
+
+- Feature branches only — NEVER push to main
+- PRs target main — `gh pr create --base main`
+- Commit and push after every task
+
+## Architecture
+
+```
+app/              — Next.js pages + API routes
+content/posts/    — MDX blog posts (one file = one post)
+content/brand/    — Brand context files (read before creating content)
+content/seo/      — SEO strategy + keyword targets
+content/STATUS.md — Current state snapshot (read FIRST every session)
+transcripts/      — Call transcripts (eng, customers, leads) for positioning/copy context
+swipe/            — Reference material (copy, designs, competitors, complaints, trends)
+lib/              — Business logic (posts.ts, seo.ts, attio.ts, config.ts)
+components/       — React components (layout/, blog/, ui/)
+public/brand/     — Logos, word marks, profile/hero image (see public/brand/README.md)
+public/icons/      — Favicons + PWA icons (see public/icons/README.md)
+public/            — site.webmanifest at root
+lib/copy/   — Markdown versions of key pages for "Machine" view (agents); keep in sync with human copy
+```
 
 ## Transcripts folder
 
-### Location and purpose
-
 - **Path:** `transcripts/`
-- **Purpose:** Store call transcripts (engineering, customers, leads) so they can be used as **context for marketing work** — positioning, copy, GTM funnels, assets, videos, lead magnets, blogs, posts, etc.
+- **Purpose:** Store call transcripts (engineering, customers, leads) for **context for marketing work** — positioning, copy, GTM funnels, assets, videos, lead magnets, blogs, posts.
 
-When working on marketing copy, positioning, or GTM assets in this repo, **read relevant transcripts** for voice-of-customer, pain language, proof points, and decisions.
+When working on marketing copy, positioning, or GTM assets, **read relevant transcripts** for voice-of-customer, pain language, proof points, and decisions.
 
-### Naming convention: `subject-date.md`
+**Naming convention: `subject-date.md`**
 
-**All transcript files must use this format:**
+All transcript files must use: `<subject>-<YYYY-MM-DD>.md` (e.g. `customer-acme-2026-03-18.md`, `eng-standup-sweets-sid-2026-03-18.md`). Subject = short lowercase slug; date = ISO. This keeps the most recent obvious and makes `grep` across transcripts easy.
+
+**When the user gives you a transcript:** Create a new file in `transcripts/`, name it `subject-date.md`, paste the transcript, commit. See `transcripts/README.md` for details.
+
+## Swipe File (Reference Collection)
+
+Raw research material that informs content, positioning, and copy. One markdown file per item.
 
 ```
-<subject>-<YYYY-MM-DD>.md
+swipe/copy/         — Good copy you've seen (headlines, hooks, CTAs)
+swipe/designs/      — Screenshots and visual references
+swipe/competitors/  — What competitors say and do
+swipe/complaints/   — Real pain points from Reddit, forums, reviews
+swipe/trends/       — Industry data and market insights
 ```
 
-- **Subject:** Short, lowercase slug describing the call (e.g. `customer-acme`, `lead-demo-indie-label`, `eng-positioning-sync`). Use hyphens; no spaces.
-- **Date:** ISO date of the call: `YYYY-MM-DD`.
+When adding to swipe, use a descriptive filename (e.g., `reddit-artists-hate-posting.md`).
+Read relevant swipe files before writing copy — real language > made-up language.
 
-**Examples:**
+## Context Files (Read Before Creating Content)
 
-- `customer-acme-2026-03-18.md`
-- `lead-demo-indie-label-2026-03-17.md`
-- `eng-positioning-sync-2026-03-16.md`
+```
+content/brand/website-structure-report.md — Positioning, hero, landing structure, nav (read for site/copy changes)
+content/brand/positioning.md — What we are, for whom, differentiators
+content/brand/voice.md       — How we sound (with WHY on each rule)
+content/brand/founder.md     — Sidney's story (for thought leadership)
+content/brand/product.md     — Features, stats (check updated date)
+content/brand/audience.md    — Customer personas (structured format)
+content/brand/examples.md    — Approved + rejected copy with reasons
+content/seo/pillars.md       — Topic clusters, target keywords
+content/posts/INDEX.md       — Published posts + topic gaps
+```
 
-**Why this format:**
+## Adding a Blog Post
 
-- **Recency:** Filenames sort by date; the same subject over time (e.g. `eng-positioning-sync-2026-03-16.md`, `eng-positioning-sync-2026-03-18.md`) makes the **most recent** transcript obvious.
-- **Grep-friendly:** You can `grep` across `transcripts/` for decisions, keywords, or context and quickly see which file (and date) they came from. Prefer this over one big blob of transcripts.
+1. Read `content/STATUS.md` + `content/posts/INDEX.md` (check gaps)
+2. Read `content/brand/voice.md` + relevant context files
+3. Create `content/posts/[slug].mdx` with ALL frontmatter fields
+4. Set `status: "draft"` — run `pnpm build` to validate schema
+5. Update `content/posts/INDEX.md`
 
-### When the user gives you a transcript
+## Content Types
 
-1. **Create a new file** in `transcripts/` (do not append to an existing file unless the user asks).
-2. **Name it** using the convention above: `subject-date.md`. Infer subject from the call (e.g. customer name, “lead demo”, “eng positioning”) and use the call date; if no date is given, use today’s date.
-3. **Paste the transcript** into the file. Optionally add a one-line heading with subject and date.
-4. **Commit** the new file so it’s versioned and easy to grep later.
+| Type | Description | JSON-LD |
+|------|-------------|---------|
+| `article` | Thought leadership | Article |
+| `case-study` | Social proof | Article |
+| `tutorial` | Step-by-step how-to | HowTo |
+| `announcement` | Product news | NewsArticle |
+| `pillar` | Comprehensive guide | Article |
 
-### Finding current context
+## SEO Rules
 
-- **Most recent transcripts:** List or sort files in `transcripts/` by name; later dates = more recent.
-- **Decisions or themes:** `grep -r "decision\|we decided\|agreed\|positioning\|pain" transcripts/` (or similar terms) to find the latest, most relevant context for copy and positioning.
+- Every page: unique title (50-60 chars) + description (120-160 chars)
+- Every post: JSON-LD structured data + canonical URL
+- H1 = post title. Use H2-H4. Never skip heading levels.
+- Images: always include descriptive alt text
+- Internal links: 3-5 related posts per post
 
----
+## Dark mode
 
-## Other context
+- **Single place to edit:** `app/globals.css` — the `[data-theme="dark"]` block overrides the same CSS variables (--background, --foreground, --muted, --border, --brand, etc.). Change dark colors only there.
+- **Toggle:** Header (sun/moon icon). Preference is stored in `localStorage` key `recoupable-theme:v1` and respected on load; falls back to `prefers-color-scheme` when no stored value.
+- **No flash:** An inline script in `app/layout.tsx` sets `data-theme` on `<html>` before first paint. Keep its logic in sync with `contexts/ThemeContext.tsx` (storage key and fallback).
 
-- **Brand/positioning:** See `content/brand/` and related context files (e.g. positioning, voice, audience) referenced in this repo.
-- **Copy:** Site and campaign copy often lives in `lib/copy/` or content modules; keep voice and positioning consistent with brand docs and transcripts.
+## Brand
+
+- **Brand assets** (see `public/brand/README.md`): logo mark `icon-lightmode.svg` / `icon-darkmode.svg`, word mark `wordmark-lightmode.svg` / `wordmark-darkmode.svg`, profile/hero `pfp-sky-bg.png`. Use in UI as `/brand/<filename>`.
+- **Favicons / PWA icons:** `public/icons/` (see that folder’s README)
+- **Page copy:** `lib/copy/` — single source for human pages and machine (markdown) view; edit copy there only so both stay in sync.
+- NEVER hardcode brand values — import from `lib/config.ts`
+
+## Integrations
+
+- **Attio CRM:** `lib/attio.ts` — contacts with UTM attribution + lifecycle stage
+- **Analytics:** Plausible script in `app/layout.tsx` — do NOT remove
+
+## Code Principles
+
+- SRP: one function per file
+- DRY: no duplication
+- KISS: simple > clever
+- Zod for all validation
+- Comments explain WHY, not WHAT
+- No console.log in production
+
+## Updating This File
+
+When you add files, integrations, commands, or context:
+- Update the relevant section of this file
+- Commit the AGENTS.md update with your code changes
+- This file must always reflect the current state of the repo

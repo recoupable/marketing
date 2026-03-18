@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/*
+ * Recoupable marketing — global styles
+ * Design: .impeccable.md (teal primary #345A5D, tinted neutrals, no pure B/W)
+ */
+
+@layer base {
+  :root {
+    /* Brand primary — AGENTS.md #345A5D as OKLCH (teal/slate) */
+    --brand: oklch(0.42 0.04 198);
+    --brand-hover: oklch(0.36 0.04 198);
+    --brand-muted: oklch(0.55 0.03 198);
+
+    /* Surfaces — tinted toward brand hue (198), no pure white/black */
+    --background: oklch(0.99 0.004 198);
+    --foreground: oklch(0.22 0.02 198);
+    --muted: oklch(0.97 0.006 198);
+    --muted-foreground: oklch(0.48 0.02 198);
+    --border: oklch(0.91 0.01 198);
+  }
+
+  /*
+   * Dark mode — override the same variables. Edit only this block to change dark theme.
+   * Applied when <html data-theme="dark"> (set by ThemeProvider + inline script).
+   * Neutral black/gray (chroma 0 = no green/teal tint).
+   */
+  [data-theme="dark"] {
+    --background: oklch(0.14 0 0);
+    --foreground: oklch(0.97 0 0);
+    --muted: oklch(0.2 0 0);
+    --muted-foreground: oklch(0.62 0 0);
+    --border: oklch(0.28 0 0);
+    /* Brand accent stays teal for contrast on dark */
+    --brand: oklch(0.55 0.05 198);
+    --brand-hover: oklch(0.62 0.05 198);
+    --brand-muted: oklch(0.45 0.04 198);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+  }
+}
+
+/* Fluid type scale — clamp for readable hierarchy */
+@layer base {
+  .text-display {
+    font-size: clamp(2.25rem, 5vw + 1.5rem, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .text-lead {
+    font-size: clamp(1.125rem, 1.5vw + 0.75rem, 1.25rem);
+    line-height: 1.5;
+  }
+
+  .text-body {
+    font-size: clamp(1rem, 0.5vw + 0.9rem, 1.0625rem);
+    line-height: 1.6;
+  }
+}
+
+/* Spacing rhythm — fluid section padding */
+@layer utilities {
+  .section-spacing {
+    padding-top: clamp(3rem, 8vw, 5rem);
+    padding-bottom: clamp(3rem, 8vw, 5rem);
+  }
+
+  .section-spacing-tight {
+    padding-top: clamp(2rem, 5vw, 3rem);
+    padding-bottom: clamp(2rem, 5vw, 3rem);
+  }
+}
+
+/* Prose / typography overrides for blog content */
+@layer components {
+  .prose {
+    --tw-prose-links: var(--brand);
+  }
+
+  .prose a {
+    text-decoration-color: var(--brand-muted);
+    text-underline-offset: 3px;
+  }
+
+  .prose a:hover {
+    text-decoration-color: var(--brand);
+  }
+}
