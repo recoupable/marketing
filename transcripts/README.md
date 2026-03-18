@@ -25,12 +25,21 @@ Transcripts are **context for marketing work**. Use them when creating or refini
 - **Humans:** Drop new transcript files here (e.g. `.md`, `.txt`, or dated folders).
 - **Agents/AI:** When working on marketing copy, positioning, or GTM assets in this repo, read relevant transcripts for voice-of-customer, pain language, and proof points.
 
-## Naming
+## Naming: `subject-date.md`
 
-Use clear, consistent names so content is easy to find, e.g.:
+Use this format so the most recent transcripts are obvious and easy to grep:
 
-- `2025-03-18_customer_acme.md`
-- `2025-03-17_lead_demo_indie-label.md`
-- `2025-03-16_eng_positioning-sync.md`
+```
+<subject>-<YYYY-MM-DD>.md
+```
 
-Optional: group by type in subfolders (`customers/`, `leads/`, `eng/`) if volume grows.
+**Examples:**
+
+- `customer-acme-2026-03-18.md`
+- `lead-demo-indie-label-2026-03-17.md`
+- `eng-positioning-sync-2026-03-16.md`
+
+- **Subject:** Short lowercase slug (who/what). Hyphens, no spaces.
+- **Date:** Call date in ISO form `YYYY-MM-DD`.
+
+Sorting by filename shows recency; `grep` across the folder for decisions, positioning, or pain language. Agents creating transcript files from user-provided content must use this convention (see repo `AGENTS.md`).
