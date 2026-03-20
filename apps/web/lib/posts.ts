@@ -3,8 +3,11 @@ import path from "path";
 import matter from "gray-matter";
 import { postFrontmatterSchema, type Post } from "./post-schema";
 
-/** Directory where MDX blog posts live */
-const POSTS_DIR = path.join(process.cwd(), "content", "posts");
+/**
+ * Blog posts stay at the marketing repo root so both public and internal
+ * apps can share the same content system.
+ */
+const POSTS_DIR = path.join(process.cwd(), "..", "..", "content", "posts");
 
 /**
  * Read and parse a single MDX post by slug.

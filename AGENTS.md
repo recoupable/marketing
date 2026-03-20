@@ -1,7 +1,8 @@
 # AGENTS.md
 
-This is the Recoupable marketing GTM engine — website, blog, content system,
-CRM integration, and the foundations for a full marketing funnel.
+This is the Recoupable marketing workspace — public website, internal
+marketing apps, shared content/context, CRM integration, and the foundations
+for the full marketing funnel.
 
 ## You Are Allowed To Improve This System
 
@@ -22,9 +23,12 @@ something, fix it in the same commit.
 
 ```bash
 pnpm install    # Install dependencies
-pnpm dev        # Dev server
-pnpm build      # Production build (MUST pass before committing)
-pnpm lint       # Fix lint issues
+pnpm dev        # Public website dev server (apps/web)
+pnpm dev:web    # Public website dev server
+pnpm dev:ops    # Internal marketing ops dev server
+pnpm build      # Public website production build (MUST pass before committing)
+pnpm build:ops  # Internal app production build
+pnpm lint       # Fix public website lint issues
 pnpm format     # Run prettier
 ```
 
@@ -37,20 +41,29 @@ pnpm format     # Run prettier
 ## Architecture
 
 ```
-app/              — Next.js pages + API routes
+apps/web/         — Public Next.js website, blog, SEO pages, subscribe flow
+apps/ops/         — Internal Next.js app for private marketing workflows
 content/posts/    — MDX blog posts (one file = one post)
 content/brand/    — Brand context files (read before creating content)
 content/seo/      — SEO strategy + keyword targets
 content/STATUS.md — Current state snapshot (read FIRST every session)
 transcripts/      — Call transcripts (eng, customers, leads) for positioning/copy context
 swipe/            — Reference material (copy, designs, competitors, complaints, trends)
-lib/              — Business logic (posts.ts, seo.ts, attio.ts, config.ts)
-components/       — React components (layout/, blog/, ui/)
-public/brand/     — Logos, word marks, profile/hero image (see public/brand/README.md)
-public/icons/      — Favicons + PWA icons (see public/icons/README.md)
-public/            — site.webmanifest at root
-lib/copy/   — Markdown versions of key pages for "Machine" view (agents); keep in sync with human copy
+workflows/        — Shared non-UI automation for funnels, sync, and reporting
+docs/plans/       — Architecture and implementation plans
+apps/web/lib/     — Public site logic (posts.ts, seo.ts, attio.ts, config.ts)
+apps/web/components/ — Public site React components (layout/, blog/, ui/)
+apps/web/public/brand/ — Logos, word marks, profile/hero image
+apps/web/public/icons/ — Favicons + PWA icons
+apps/web/lib/copy/ — Markdown versions of key pages for "Machine" view
 ```
+
+## Deployment
+
+- Public Vercel project: repo `recoupable/marketing`, root directory `apps/web`
+- Internal Vercel project: optional separate project with root directory `apps/ops`
+- Keep public and internal apps as separate deployments, even though they live in
+  the same repo
 
 ## Transcripts folder
 
@@ -122,21 +135,21 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 ## Dark mode
 
-- **Single place to edit:** `app/globals.css` — the `[data-theme="dark"]` block overrides the same CSS variables (--background, --foreground, --muted, --border, --brand, etc.). Change dark colors only there.
+- **Single place to edit:** `apps/web/app/globals.css` — the `[data-theme="dark"]` block overrides the same CSS variables (--background, --foreground, --muted, --border, --brand, etc.). Change dark colors only there.
 - **Toggle:** Header (sun/moon icon). Preference is stored in `localStorage` key `recoupable-theme:v1` and respected on load; falls back to `prefers-color-scheme` when no stored value.
-- **No flash:** An inline script in `app/layout.tsx` sets `data-theme` on `<html>` before first paint. Keep its logic in sync with `contexts/ThemeContext.tsx` (storage key and fallback).
+- **No flash:** An inline script in `apps/web/app/layout.tsx` sets `data-theme` on `<html>` before first paint. Keep its logic in sync with `apps/web/contexts/ThemeContext.tsx` (storage key and fallback).
 
 ## Brand
 
-- **Brand assets** (see `public/brand/README.md`): logo mark `icon-lightmode.svg` / `icon-darkmode.svg`, word mark `wordmark-lightmode.svg` / `wordmark-darkmode.svg`, profile/hero `pfp-sky-bg.png`. Use in UI as `/brand/<filename>`.
-- **Favicons / PWA icons:** `public/icons/` (see that folder’s README)
-- **Page copy:** `lib/copy/` — single source for human pages and machine (markdown) view; edit copy there only so both stay in sync.
-- NEVER hardcode brand values — import from `lib/config.ts`
+- **Brand assets** (see `apps/web/public/brand/README.md`): logo mark `icon-lightmode.svg` / `icon-darkmode.svg`, word mark `wordmark-lightmode.svg` / `wordmark-darkmode.svg`, profile/hero `pfp-sky-bg.png`. Use in UI as `/brand/<filename>`.
+- **Favicons / PWA icons:** `apps/web/public/icons/` (see that folder’s README)
+- **Page copy:** `apps/web/lib/copy/` — single source for human pages and machine (markdown) view; edit copy there only so both stay in sync.
+- NEVER hardcode brand values — import from `apps/web/lib/config.ts`
 
 ## Integrations
 
-- **Attio CRM:** `lib/attio.ts` — contacts with UTM attribution + lifecycle stage
-- **Analytics:** Plausible script in `app/layout.tsx` — do NOT remove
+- **Attio CRM:** `apps/web/lib/attio.ts` — contacts with UTM attribution + lifecycle stage
+- **Analytics:** Plausible script in `apps/web/app/layout.tsx` — do NOT remove
 
 ## Code Principles
 
