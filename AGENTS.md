@@ -71,7 +71,7 @@ apps/web/lib/copy/ — Markdown versions of key pages for "Machine" view
 - **`apps/web`** — The public-facing marketing site at `recoupable.com`. SEO-optimized, publicly accessible, handles the blog, landing pages, and subscriber/lead capture.
 - **`apps/ops`** — Internal marketing operations tooling. Private workflows, CRM automation, and reporting dashboards not meant for the public. Deployed as a separate Vercel project so it can be access-controlled independently.
 
-They share the same repo for convenience (shared brand context, content files, transcripts) but are otherwise independent apps with their own builds and deployments.
+They share the same repo for convenience (shared brand context, content files, transcripts) but are deployment/runtime independent, while sharing workspace tooling (pnpm workspaces, shared configs).
 
 ## Transcripts folder
 
