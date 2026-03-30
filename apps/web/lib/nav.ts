@@ -3,7 +3,21 @@
  * Single source of truth for header and footer links.
  */
 
-export const nav = {
+type NavItem = { readonly label: string; readonly href: string };
+
+type NavSection = {
+  readonly label: string;
+  readonly href: string;
+  readonly items: readonly NavItem[];
+};
+
+export const nav: {
+  platform: NavSection;
+  solutions: NavSection;
+  developers: NavSection;
+  learn: NavSection;
+  company: NavSection;
+} = {
   platform: {
     label: "Platform",
     href: "/platform",
@@ -36,14 +50,9 @@ export const nav = {
     ],
   },
   learn: {
-    label: "Learn",
-    href: "/learn",
-    items: [
-      { label: "Blog", href: "/blog" },
-      { label: "Use Cases", href: "/learn/use-cases" },
-      { label: "Playbooks", href: "/learn/playbooks" },
-      { label: "Demos", href: "/learn/demos" },
-    ],
+    label: "Blog",
+    href: "/blog",
+    items: [],
   },
   company: {
     label: "Company",
@@ -54,6 +63,6 @@ export const nav = {
       { label: "About", href: "/company/about" },
     ],
   },
-} as const;
+};
 
 export const navOrder = ["platform", "solutions", "developers", "learn", "company"] as const;

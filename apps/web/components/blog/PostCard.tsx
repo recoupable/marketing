@@ -40,7 +40,7 @@ export function PostCard({ post }: { post: PostFrontmatter }) {
             {post.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="bg-[var(--muted)] px-2 py-0.5 rounded-full"
+                className="bg-[var(--border)] px-2 py-0.5 rounded-full"
               >
                 {tag}
               </span>

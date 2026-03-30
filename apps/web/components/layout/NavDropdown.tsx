@@ -58,6 +58,15 @@ export function NavDropdown({
 
   const isActive = pathname === href || pathname.startsWith(href + "/");
   const linkClass = `text-sm transition-colors ${isActive ? (dark ? darkActive : lightActive) : (dark ? darkInactive : lightInactive)}`;
+
+  if (items.length === 0) {
+    return (
+      <Link href={href} className={linkClass}>
+        {label}
+      </Link>
+    );
+  }
+
   const panelClass = dark
     ? "min-w-[180px] rounded-md border border-[#30363d] bg-[#0d1117] py-1 shadow-lg"
     : "min-w-[180px] rounded-md border border-[var(--border)] bg-[var(--background)] py-1 shadow-lg";

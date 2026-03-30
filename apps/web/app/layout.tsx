@@ -71,7 +71,7 @@ export default function RootLayout({
         {/* Theme: set before first paint to avoid flash (must match ThemeContext logic) */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var k='recoupable-theme:v1';var s=typeof localStorage!='undefined'&&(localStorage.getItem(k)==='dark'||localStorage.getItem(k)==='light')?localStorage.getItem(k):(typeof window!='undefined'&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',s);})();`,
+            __html: `(function(){var k='recoupable-theme:v1';var s=typeof localStorage!='undefined'&&localStorage.getItem(k);if(!s)s='dark';document.documentElement.setAttribute('data-theme',s);})();`,
           }}
         />
         {/* Plausible analytics — privacy-friendly, no cookie banner needed */}

@@ -91,7 +91,7 @@ export function SubscribeForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-black/90 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 disabled:opacity-50"
+        className="bg-[var(--brand)] text-black px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:ring-offset-2 disabled:opacity-50"
       >
         {status === "loading" ? "Subscribing..." : "Subscribe"}
       </button>

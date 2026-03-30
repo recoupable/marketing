@@ -8,10 +8,8 @@ import { HumanMachineToggle } from "./HumanMachineToggle";
  */
 export function ViewModeBar() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 flex justify-center pb-6 pointer-events-none z-40">
-      <div className="pointer-events-auto">
-        <HumanMachineToggle />
-      </div>
+    <div className="hidden">
+      <HumanMachineToggle />
     </div>
   );
 }

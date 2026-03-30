@@ -39,7 +39,7 @@ export const siteConfig = {
     titleTemplate: "%s | Recoupable",
     defaultTitle: "Recoupable — Your label. Run by agents.",
     defaultDescription:
-      "You create. Agents run strategy, content, fans, revenue. One system for artists, labels, distributors.",
+      "AI-native record label and agent infrastructure. We algorithmicize A&R, automate content at scale, and execute artist growth through autonomous agents.",
     locale: "en_US",
     type: "website",
   },

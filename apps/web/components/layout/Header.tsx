@@ -83,14 +83,14 @@ export function Header() {
           </Link>
           <Link
             href={siteConfig.appUrl}
-            className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-black/90 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+            className="bg-[var(--brand)] text-black px-4 py-2 rounded-full text-sm font-bold hover:opacity-90 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:ring-offset-2"
           >
             Sign up
           </Link>
         </div>
       </div>
 
-      {/* Mobile: simple links to main sections + blog */}
+      {/* Mobile: Platform, Solutions, Developers, Blog, Company (matches desktop) */}
       <nav
         className={`md:hidden border-t px-4 py-3 flex flex-wrap items-center gap-4 text-sm ${
           isMachine
