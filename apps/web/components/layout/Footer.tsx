@@ -16,7 +16,7 @@ export function Footer() {
               {siteConfig.name}
             </h3>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
-              Run your music business with agents.
+              AI-native label infrastructure. You create. Agents run the rest.
             </p>
           </div>
 

@@ -46,6 +46,7 @@ apps/ops/         — Internal Next.js app for private marketing workflows
 content/posts/    — MDX blog posts (one file = one post)
 content/brand/    — Brand context files (read before creating content)
 content/seo/      — SEO strategy + keyword targets
+content/email/    — Email drip sequence templates for trial onboarding (NOT code — plain text copy)
 content/STATUS.md — Current state snapshot (read FIRST every session)
 transcripts/      — Call transcripts (eng, customers, leads) for positioning/copy context
 swipe/            — Reference material (copy, designs, competitors, complaints, trends)
@@ -106,6 +107,16 @@ content/brand/examples.md    — Approved + rejected copy with reasons
 content/seo/pillars.md       — Topic clusters, target keywords
 content/posts/INDEX.md       — Published posts + topic gaps
 ```
+
+## Email Drip Sequence
+
+- **Path:** `content/email/`
+- **Purpose:** Plain-text email templates for the free trial onboarding drip campaign. These are **copy documents** — not code, not HTML templates, not blog posts about email.
+- **Overview:** `content/email/sequence-overview.md` — the full 30-day sequence plan, timing, and principles
+- **What they are:** Each file is one email in the trial onboarding sequence, with the template copy, personalization instructions, and design decision notes
+- **What they are NOT:** These are not automated email templates (no HTML/MJML/React Email). They are not marketing content about email. They are not part of the website build.
+- **When to read:** If working on trial user communication, onboarding emails, or drip campaign automation
+- **Automation:** When ready to automate sending, build that logic in `workflows/` and reference these templates as the source of truth for copy
 
 ## Adding a Blog Post
 

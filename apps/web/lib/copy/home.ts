@@ -1,107 +1,85 @@
-/**
- * Homepage copy — single source for human UI and machine markdown.
- * Edit here only; both views stay in sync.
- */
 import { siteConfig } from "@/lib/config";
 
 export const homeCopy = {
   hero: {
-    headline: "Your label. Run by agents.",
     subheader:
-      "You create. Agents run strategy, content, fans, revenue. One system.",
-    ctaPrimary: "Get started",
+      "I sat down at 10pm to make content for the album. By midnight I had 22 finished videos. Captioned. Formatted. Queued. I didn't edit one. That's what agents do.",
+    ctaPrimary: "Try Recoupable",
     ctaHref: siteConfig.appUrl,
+    ctaSecondary: "Read the docs",
+    ctaSecondaryHref: siteConfig.docsUrl,
   },
-  pain: {
-    title: "Hustle by default. Systems by design.",
-    items: [
-      "Every hat: creator, A&R, marketer, analyst",
-      "Scaling with bodies, not systems",
-      "Data in ten places. Decisions from gut feel.",
-      "You got into music. You're stuck in ops.",
-    ],
-  },
-  whatWeDo: {
-    title: "Infrastructure. Outcomes.",
-    subtitle:
-      "Not a chatbot. Not a scheduler. One system. Agents run it.",
-    outcomes: [
-      {
-        title: "Release execution",
-        description:
-          "Plan and ship. Agents handle strategy, timelines, execution.",
-      },
-      {
-        title: "Audience research",
-        description:
-          "Know your fans. Where they are. Agents surface it. You decide.",
-      },
-      {
-        title: "Marketing that runs",
-        description:
-          "Content, campaigns, growth. Agents run it. No spreadsheets.",
-      },
-      {
-        title: "Catalog and revenue",
-        description: "Agents work it. You see the picture.",
-      },
-    ],
-  },
-  useCases: {
-    title: "For everyone who runs music",
-    segments: [
-      {
-        title: "Artists",
-        description:
-          "Your operation. No full team. Agents replace manager, marketer, analyst.",
-      },
-      {
-        title: "Labels and distributors",
-        description:
-          "Scale without headcount. One system. Same execution across the roster.",
-      },
-      {
-        title: "Developers",
-        description:
-          "Music-native infrastructure. API, CLI, integrations. Build on the stack.",
-      },
-    ],
-  },
-  howItWorks: {
-    title: "How it works",
-    steps: [
-      {
-        title: "Connect your data",
-        description:
-          "Catalog, socials, distribution. One pipe. No chasing.",
-      },
-      {
-        title: "Set the direction",
-        description: "Releases, marketing, growth. You call shots. Agents get the brief.",
-      },
-      {
-        title: "Agents run it",
-        description: "They execute. You create.",
-      },
-    ],
-    platformLink: "/platform",
-    platformLinkLabel: "See the platform",
-  },
+  modules: [
+    {
+      num: 1,
+      tag: "01",
+      title: "Know your artist",
+      description:
+        "Spotify data, audio analysis, peer benchmarks, fan segments. The system ingests everything — songs, images, brand docs, audience data — and builds a context layer that makes every output artist-specific. Not generic. Yours.",
+    },
+    {
+      num: 2,
+      tag: "02",
+      title: "Create at scale",
+      description:
+        "Album visualizers, social posts, lyric videos. From one song, agents produce a content pack — using your artist's face, voice, and brand. 22 videos in one session. Output that's ready to post.",
+    },
+    {
+      num: 3,
+      tag: "03",
+      title: "Run the operation",
+      description:
+        "Marketing campaigns, release execution, fan engagement, catalog management. Agents handle the operation. You handle the music. Web, Slack, email, CLI — one system, every entry point.",
+    },
+  ],
   proof: {
-    quote:
-      "10pm: sit down to make content. Midnight: 22 finished videos. Captioned. Formatted. Queued. I didn't edit one.",
-    attribution: "— Sidney Swift, Founder. We run our label on it.",
+    stat: "22",
+    label: "finished videos. One session. Zero editing.",
+    attribution: "Sidney Swift, Founder",
+    aside: "We run our own label on this system.",
+  },
+  ingestFeed: {
+    title: "LIVE INGEST FEED",
+    status: "REC",
+    lines: [
+      { time: "14:02:11", label: "SCAN:", value: "Spotify_Viral_50" },
+      {
+        time: "14:02:14",
+        label: "DETECTED:",
+        value: "ISRC_USRC12345678",
+        highlight: true,
+      },
+      { time: "14:02:15", label: "ANALYZE:", value: "Acoustic_Features..." },
+      {
+        time: "14:02:18",
+        label: "SCORE:",
+        value: "87.4 (HIGH_VELOCITY)",
+        highlight: true,
+      },
+      {
+        time: "14:02:19",
+        label: "ACTION:",
+        value: "Generate_Contract_Draft",
+      },
+      { time: "14:02:22", label: "SCAN:", value: "TikTok_Audio_Trending" },
+      { time: "14:02:25", label: "DETECTED:", value: "User_Upload_Anon" },
+      {
+        time: "14:02:26",
+        label: "MATCH:",
+        value: "Fingerprint_Found",
+        highlight: true,
+      },
+    ],
+  },
+  cta: {
+    headline: "Your label. Run by agents.",
+    ctaLabel: "Try Recoupable",
+    ctaHref: siteConfig.appUrl,
+    installCmd: "npm install -g recoup",
   },
   subscribe: {
     title: "Stay in the loop",
-    description:
-      "Music ops. Agent infrastructure. Run a label without burnout.",
-  },
-  closing: {
-    line1: "Music's going autonomous. Recoupable's the infrastructure.",
-    line2: "Build your label. Run it with agents.",
-    ctaLabel: "Get started",
-    ctaHref: siteConfig.appUrl,
+    description: "One email per week. What we shipped. What we learned.",
   },
   blog: {
     title: "Latest",
@@ -113,10 +91,10 @@ export const homeCopy = {
 export type HomeCopy = typeof homeCopy;
 
 export function homeToMarkdown(c: HomeCopy): string {
-  const lines: string[] = [
+  return [
     "# Recoupable",
     "",
-    `**${c.hero.headline}**`,
+    "Your label. Run by agents.",
     "",
     c.hero.subheader,
     "",
@@ -124,55 +102,15 @@ export function homeToMarkdown(c: HomeCopy): string {
     "",
     "---",
     "",
-    `## ${c.pain.title}`,
-    "",
-    ...c.pain.items.map((i) => `- ${i}`),
-    "",
+    ...c.modules.flatMap((m) => [`## ${m.tag} ${m.title}`, "", m.description, ""]),
     "---",
     "",
-    `## ${c.whatWeDo.title}`,
+    `**${c.proof.stat}** ${c.proof.label}`,
     "",
-    c.whatWeDo.subtitle,
+    `— ${c.proof.attribution}`,
     "",
-    ...c.whatWeDo.outcomes.map(
-      (o) => `### ${o.title}\n${o.description}`
-    ),
+    `[${c.cta.ctaLabel}](${c.cta.ctaHref})`,
     "",
-    "---",
-    "",
-    `## ${c.useCases.title}`,
-    "",
-    ...c.useCases.segments.map(
-      (s) => `### ${s.title}\n${s.description}`
-    ),
-    "",
-    "---",
-    "",
-    `## ${c.howItWorks.title}`,
-    "",
-    ...c.howItWorks.steps.map(
-      (s, i) => `${i + 1}. **${s.title}** — ${s.description}`
-    ),
-    "",
-    `[${c.howItWorks.platformLinkLabel}](${c.howItWorks.platformLink})`,
-    "",
-    "---",
-    "",
-    "## Proof",
-    "",
-    `"${c.proof.quote}"`,
-    "",
-    c.proof.attribution,
-    "",
-    "---",
-    "",
-    "## Closing",
-    "",
-    c.closing.line1,
-    "",
-    c.closing.line2,
-    "",
-    `[${c.closing.ctaLabel}](${c.closing.ctaHref})`,
-  ];
-  return lines.join("\n");
+    `\`${c.cta.installCmd}\``,
+  ].join("\n");
 }

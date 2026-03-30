@@ -1,41 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/*
- * Recoupable marketing — global styles
- * Design: .impeccable.md (teal primary #345A5D, tinted neutrals, no pure B/W)
- */
-
 @layer base {
   :root {
-    /* Brand primary — AGENTS.md #345A5D as OKLCH (teal/slate) */
-    --brand: oklch(0.42 0.04 198);
-    --brand-hover: oklch(0.36 0.04 198);
-    --brand-muted: oklch(0.55 0.03 198);
-
-    /* Surfaces — tinted toward brand hue (198), no pure white/black */
-    --background: oklch(0.99 0.004 198);
-    --foreground: oklch(0.22 0.02 198);
-    --muted: oklch(0.97 0.006 198);
-    --muted-foreground: oklch(0.48 0.02 198);
-    --border: oklch(0.91 0.01 198);
+    --brand: #d4a843;
+    --brand-hover: #c49a3a;
+    --brand-muted: #a8863a;
+    --background: #0c0f14;
+    --foreground: #f0ebe3;
+    --muted: #141820;
+    --muted-foreground: #8a8680;
+    --border: #252a35;
+    --font-pixel: 'Silkscreen', cursive;
+    --font-serif: 'Instrument Serif', Georgia, serif;
   }
 
-  /*
-   * Dark mode — override the same variables. Edit only this block to change dark theme.
-   * Applied when <html data-theme="dark"> (set by ThemeProvider + inline script).
-   * Neutral black/gray (chroma 0 = no green/teal tint).
-   */
   [data-theme="dark"] {
-    --background: oklch(0.14 0 0);
-    --foreground: oklch(0.97 0 0);
-    --muted: oklch(0.2 0 0);
-    --muted-foreground: oklch(0.62 0 0);
-    --border: oklch(0.28 0 0);
-    /* Brand accent stays teal for contrast on dark */
-    --brand: oklch(0.55 0.05 198);
-    --brand-hover: oklch(0.62 0.05 198);
-    --brand-muted: oklch(0.45 0.04 198);
+    --brand: #d4a843;
+    --brand-hover: #c49a3a;
+    --brand-muted: #a8863a;
+    --background: #0c0f14;
+    --foreground: #f0ebe3;
+    --muted: #141820;
+    --muted-foreground: #8a8680;
+    --border: #252a35;
+  }
+
+  [data-theme="light"] {
+    --background: #f8f5f0;
+    --foreground: #1a1815;
+    --muted: #f0ece5;
+    --muted-foreground: #6b6560;
+    --border: #ddd8d0;
+    --brand: #b8922e;
+    --brand-hover: #a07d25;
+    --brand-muted: #c4a048;
   }
 
   body {
@@ -49,16 +50,22 @@
   }
 }
 
-/* Fluid type scale — clamp for readable hierarchy */
+/* ── Fluid type scale ──────────────────────────────────────── */
 @layer base {
   .text-display {
-    font-size: clamp(2.25rem, 5vw + 1.5rem, 3.5rem);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.5rem, 6vw + 1.5rem, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+
+  .text-hero {
+    font-size: clamp(3.5rem, 12vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
   }
 
   .text-lead {
-    font-size: clamp(1.125rem, 1.5vw + 0.75rem, 1.25rem);
+    font-size: clamp(1.125rem, 1.5vw + 0.75rem, 1.375rem);
     line-height: 1.5;
   }
 
@@ -68,23 +75,108 @@
   }
 }
 
-/* Spacing rhythm — fluid section padding */
-@layer utilities {
-  .section-spacing {
-    padding-top: clamp(3rem, 8vw, 5rem);
-    padding-bottom: clamp(3rem, 8vw, 5rem);
-  }
-
-  .section-spacing-tight {
-    padding-top: clamp(2rem, 5vw, 3rem);
-    padding-bottom: clamp(2rem, 5vw, 3rem);
+/* ── Editorial serif (warm, italic, musical) ──────────────── */
+@layer components {
+  .text-editorial {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.02em;
   }
 }
 
-/* Prose / typography overrides for blog content */
+/* ── Mixed typography (serif italic × sans bold tension) ──── */
+@layer components {
+  .mix {
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+  }
+
+  .mix .s {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none;
+  }
+
+  .mix .p {
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 900;
+    color: var(--foreground);
+  }
+}
+
+/* ── Section spacing ───────────────────────────────────────── */
+@layer utilities {
+  .section-spacing {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .section-spacing-tight {
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+    padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  }
+}
+
+/* ── Grid background texture (warm navy) ──────────────────── */
+@layer utilities {
+  .grid-bg {
+    background-size: 60px 60px;
+    background-image: linear-gradient(to right, rgba(240, 235, 227, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(240, 235, 227, 0.03) 1px, transparent 1px);
+  }
+}
+
+/* ── Marquee animation ─────────────────────────────────────── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* ── Blink animation ───────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ── Code block styling ────────────────────────────────────── */
+@layer components {
+  .code-block {
+    background: var(--muted);
+    border: 1px solid rgba(212, 168, 67, 0.25);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.875rem;
+    color: var(--brand);
+    overflow-x: auto;
+  }
+}
+
+/* ── Prose / typography overrides ──────────────────────────── */
 @layer components {
   .prose {
     --tw-prose-links: var(--brand);
+    --tw-prose-body: var(--foreground);
+    --tw-prose-headings: var(--foreground);
   }
 
   .prose a {
@@ -95,4 +187,74 @@
   .prose a:hover {
     text-decoration-color: var(--brand);
   }
+}
+
+/* ── Scroll-driven fade-in (progressive enhancement) ──────── */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .fade-in-up {
+    animation: fade-in-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+}
+
+/* ── Brand accent glow (amber) ────────────────────────────── */
+.glow-brand {
+  box-shadow: 0 0 40px rgba(212, 168, 67, 0.1), 0 0 80px rgba(212, 168, 67, 0.05);
+}
+
+/* ── Noise texture (film grain) ───────────────────────────── */
+.noise-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ── Glass-morphism card (warm tint) ─────────────────────── */
+.glass-card {
+  background: rgba(240, 235, 227, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(240, 235, 227, 0.06);
+  border-radius: 12px;
+}
+
+/* ── Stagger delays for child elements ────────────────────── */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* ── Scan lines (CRT/monitor effect) ──────────────────────── */
+.scan-lines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
 }
