@@ -1,0 +1,17 @@
+Recoupable-Illustration-Style-Guide
+
+{
+  "prompt": "A semi-anime, semi-realistic illustrated world that blends soft painterly detail with anime-inspired composition. The environment mixes lush natural landscapes and futuristic architecture, depicted with gentle brushwork, smooth gradients, and subtle atmospheric haze. The style balances realism with illustrated charm — not overly cartoony, but still dreamlike and imaginative. Subjects, whether people, objects, or environments, always feel integrated into this world’s harmony of nature and technology.",
+  "negative_prompt": "overly cartoonish or cel-shaded, exaggerated anime features, gritty hyperrealism, neon cyberpunk palettes, cluttered or dystopian chaos, low fidelity, flat 2D look, harsh outlines",
+  "style": "anime-influenced semi-realism with painterly gradients, clean architectural lines, and Ghibli/Shinkai-inspired landscapes",
+  "camera": "varied cinematic illustration angles (wide, medium, close-up), digital painting perspective, no extreme fisheye distortion, soft depth-of-field when appropriate",
+  "composition": "layered depth with foreground, midground, and background; subjects often framed by natural elements (flowers, hills, clouds) or architectural structures; balanced symmetry with occasional asymmetry for dynamism; scenes designed to feel expansive and immersive",
+  "lighting": "soft natural daylight with diffused glow, light haze, gentle bloom on highlights; night scenes illuminated with subtle reflections and atmospheric glow; overall lighting maintains a luminous, optimistic tone",
+  "colors": "fresh greens (#7FB875), pale sky blues (#BBDCF4), warm floral yellows/oranges (#F5C66E, #F5A14E), soft whites (#F9F9F9), muted grays (#D3D3D3), occasional pastel accents; palette is bright but not oversaturated",
+  "mood": "hopeful, contemplative, harmonious, utopian with a touch of dreamlike wonder",
+  "effects": "watercolor-like gradients, atmospheric haze, light grain or painterly texture, subtle bloom; avoids heavy outlines or noisy overprocessing",
+  "scene_behavior": "subjects appear natural and integrated — reflective, calm, or gently active; no exaggerated manga poses; interactions feel organic and lived-in",
+  "imperfection_policy": "stylized imperfections like brush texture or atmospheric softness are preserved for charm; no harsh glitches, messy sketch lines, or unfinished elements",
+  "references": "Studio Ghibli background paintings, Makoto Shinkai films (Your Name, Weathering With You), utopian concept art, semi-realistic manga illustration",
+  "typography_overlay": "if applied, text should resemble film poster or manga chapter title aesthetics: clean sans-serif or elegant serif, white or light gray, placed subtly in corners or negative space"
+}

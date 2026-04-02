@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import { siteConfig } from "@/lib/config";
 import { HumanMachineProvider } from "@/contexts/HumanMachineContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
@@ -9,9 +11,6 @@ import { MachineContent } from "@/components/layout/MachineContent";
 import { ViewModeBar } from "@/components/layout/ViewModeBar";
 import "./globals.css";
 
-/**
- * Global metadata defaults — overridden per-page via generateMetadata().
- */
 export const metadata: Metadata = {
   title: {
     default: siteConfig.metadata.defaultTitle,
@@ -43,20 +42,18 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Root layout — wraps every page with fonts, header, footer,
- * and Plausible analytics. Do NOT remove the analytics script.
- */
-const dmSans = DM_Sans({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-body",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-display",
   display: "swap",
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: "700",
-  variable: "--font-display",
+  weight: ["500", "600", "700"],
+  variable: "--font-ui",
   display: "swap",
 });
 
@@ -66,15 +63,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${plusJakartaSans.variable}`}>
+    <html
+      lang="en"
+      className={`${instrumentSerif.variable} ${plusJakartaSans.variable} ${GeistSans.variable} ${GeistMono.variable}`}
+    >
       <head>
-        {/* Theme: set before first paint to avoid flash (must match ThemeContext logic) */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){var k='recoupable-theme:v1';var s=typeof localStorage!='undefined'&&(localStorage.getItem(k)==='dark'||localStorage.getItem(k)==='light')?localStorage.getItem(k):(typeof window!='undefined'&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',s);})();`,
           }}
         />
-        {/* Plausible analytics — privacy-friendly, no cookie banner needed */}
         <script
           defer
           data-domain={siteConfig.plausible.domain}
@@ -83,14 +81,14 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col antialiased">
         <ThemeProvider>
-        <HumanMachineProvider>
-          <Header />
-          <main className="flex-1">
-            <MachineContent>{children}</MachineContent>
-          </main>
-          <Footer />
-          <ViewModeBar />
-        </HumanMachineProvider>
+          <HumanMachineProvider>
+            <Header />
+            <main className="flex-1">
+              <MachineContent>{children}</MachineContent>
+            </main>
+            <Footer />
+            <ViewModeBar />
+          </HumanMachineProvider>
         </ThemeProvider>
       </body>
     </html>

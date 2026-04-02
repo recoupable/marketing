@@ -85,13 +85,13 @@ export function SubscribeForm() {
         placeholder="Enter your email"
         required
         disabled={status === "loading"}
-        className="flex-1 px-4 py-3 rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:border-[var(--brand-muted)] disabled:opacity-50"
+        className="flex-1 px-4 py-3 rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--foreground)] focus:border-[var(--foreground)]/30 disabled:opacity-50"
         aria-label="Email address"
       />
       <button
         type="submit"
         disabled={status === "loading"}
-        className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-black/90 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 disabled:opacity-50"
+        className="bg-[var(--foreground)] text-[var(--background)] px-6 py-3 rounded-lg font-ui font-semibold hover:opacity-90 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--foreground)] focus:ring-offset-2 disabled:opacity-50"
       >
         {status === "loading" ? "Subscribing..." : "Subscribe"}
       </button>
