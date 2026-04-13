@@ -38,7 +38,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              {...("external" in item && item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="px-4 py-2 text-[14px] font-ui font-medium text-(--foreground)/60 hover:text-(--foreground) transition-colors rounded-full hover:bg-(--foreground)/5"
             >
               {item.label}
@@ -91,7 +91,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...("external" in item && item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="block px-3 py-2.5 text-sm font-ui font-semibold text-(--foreground) rounded-lg hover:bg-(--muted) transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
