@@ -1,0 +1,44 @@
+# Recoupable
+
+> Music intelligence platform — research, content, and automation for labels, distributors, and every team in music. API, CLI, and MCP server. 40+ agent tools.
+
+## Getting Started
+
+- [Quickstart](https://developers.recoupable.com/quickstart): Install the CLI, get an API key, and make your first API call in 2 minutes
+- [Agent Signup](https://developers.recoupable.com/agents): Programmatic signup — POST to /api/agents/signup with an agent+name@recoupable.com email, get an API key instantly with no verification
+- [Authentication](https://developers.recoupable.com/authentication): API key via x-api-key header or Bearer token — covers key creation, verification, and org access
+
+## Install
+
+- CLI: `npm install -g @recoupable/cli` — then set `RECOUP_API_KEY` in your shell profile
+- Verify: `recoup whoami` — confirms your key works and shows your account
+- Skills: `npx skills add recoupable/skills` — installs music industry agent skills
+
+## Access Methods
+
+- [MCP Server](https://developers.recoupable.com/mcp): Connect any AI tool (Claude, ChatGPT, Cursor) — URL: `https://recoup-api.vercel.app/mcp`, auth via Bearer token (your API key)
+- [REST API](https://developers.recoupable.com/api-reference): Base URL: `https://recoup-api.vercel.app/api`, auth via `x-api-key` header
+- [CLI](https://developers.recoupable.com/cli): `recoup research "Artist Name"`, `recoup content create`, `recoup predictions`, and more
+
+## What You Can Do
+
+- Research any artist across 14 platforms (Spotify, Instagram, TikTok, YouTube, and more)
+- Generate short-form videos, images, and captions from artist catalogs
+- Analyze streaming data, audience demographics, and playlist placements
+- Automate reports, content pipelines, and catalog analysis
+- Predict content engagement with AI brain encoding models
+
+## Skills
+
+- [Recoupable Skills](https://github.com/recoupable/skills): AI agent skills for music — getting started, content creation, research, release management, songwriting, and more
+
+## Full API Reference
+
+- [Complete API Documentation](https://developers.recoupable.com/llms.txt): All 150+ endpoints with descriptions — auto-generated, always up to date
+
+## Contact
+
+- Support: agent@recoupable.com
+- Website: https://recoupable.com
+- App: https://chat.recoupable.com
+- Docs: https://developers.recoupable.com
