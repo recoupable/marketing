@@ -365,12 +365,9 @@ export default function HomePage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-[0.04] pointer-events-none" aria-hidden="true" style={{ background: "radial-gradient(circle, white 0%, transparent 60%)" }} />
 
         <div ref={cta.ref} className={`max-w-[700px] mx-auto px-6 text-center relative z-10 ${cta.cls}`}>
-          <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.9] text-white mb-6">
-            The agentic music industry<br />runs on Recoupable.
+          <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.95] text-white mb-12">
+            The agentic music industry runs on Recoupable.
           </h2>
-          <p className="text-white/30 text-[15px] mb-12 max-w-sm mx-auto leading-relaxed">
-            Atlantic, Parlophone, and Rostrum already use it. Your free account is waiting.
-          </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href={siteConfig.appUrl} className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:-translate-y-0.5">
               Get started free
