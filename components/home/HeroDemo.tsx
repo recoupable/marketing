@@ -28,8 +28,29 @@ interface SpotifyArtist {
   followers: number;
 }
 
-const SUGGESTIONS = ["Research Drake", "Analyze Billie Eilish", "Who is SZA?"];
+const PROMPT_SUGGESTIONS = ["Audit releases", "Research report", "Similar artists", "Campaign plan"];
+const PLACEHOLDERS = ["Search any artist...", "Audit Drake's releases...", "Find R&B artists under 50K...", "Plan a campaign for Tyla..."];
 const transport = new DefaultChatTransport({ api: "/api/demo" });
+
+function useCyclingPlaceholder(phrases: string[], intervalMs = 4000) {
+  const [idx, setIdx] = useState(0);
+  const [displayed, setDisplayed] = useState(phrases[0]);
+  const [fading, setFading] = useState(false);
+
+  useEffect(() => {
+    const iv = setInterval(() => {
+      setFading(true);
+      setTimeout(() => {
+        setIdx(i => (i + 1) % phrases.length);
+        setDisplayed(phrases[(idx + 1) % phrases.length]);
+        setFading(false);
+      }, 200);
+    }, intervalMs);
+    return () => clearInterval(iv);
+  }, [idx, phrases, intervalMs]);
+
+  return { text: displayed, fading };
+}
 
 const THINKING_PHRASES = [
   "Summoning the data gods…",
@@ -62,22 +83,66 @@ function formatFollowers(n: number): string {
   return String(n);
 }
 
+const searchCache = new Map<string, SpotifyArtist[]>();
+const LETTERS = "abcdefghijklmnopqrstuvwxyz".split("");
+
+function prefetchLetters() {
+  if (searchCache.size > 0) return;
+  LETTERS.forEach((letter) => {
+    fetch(`/api/spotify/search?q=${letter}&limit=10`)
+      .then((r) => r.json())
+      .then((data) => { searchCache.set(letter, data.artists ?? []); })
+      .catch(() => {});
+  });
+}
+
+function getCachedApprox(query: string): SpotifyArtist[] {
+  const q = query.toLowerCase();
+  const exact = searchCache.get(q);
+  if (exact) return exact;
+
+  for (let len = q.length - 1; len >= 1; len--) {
+    const prefix = q.slice(0, len);
+    const cached = searchCache.get(prefix);
+    if (cached) {
+      return cached.filter((a) => a.name.toLowerCase().includes(q));
+    }
+  }
+  return [];
+}
+
 function useSpotifySearch(query: string) {
   const [results, setResults] = useState<SpotifyArtist[]>([]);
   const [loading, setLoading] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
+    prefetchLetters();
+  }, []);
+
+  useEffect(() => {
     if (query.length < 1) {
       setResults([]);
+      setLoading(false);
       return;
     }
+
+    const q = query.toLowerCase();
+    const exact = searchCache.get(q);
+    if (exact) {
+      setResults(exact);
+      setLoading(false);
+      return;
+    }
+
+    const approx = getCachedApprox(q);
+    if (approx.length > 0) setResults(approx);
+    setLoading(true);
 
     const timeout = setTimeout(async () => {
       abortRef.current?.abort();
       const controller = new AbortController();
       abortRef.current = controller;
-      setLoading(true);
 
       try {
         const res = await fetch(`/api/spotify/search?q=${encodeURIComponent(query)}&limit=10`, {
@@ -85,14 +150,16 @@ function useSpotifySearch(query: string) {
         });
         const data = await res.json();
         if (!controller.signal.aborted) {
-          setResults(data.artists ?? []);
+          const artists = data.artists ?? [];
+          searchCache.set(q, artists);
+          setResults(artists);
         }
       } catch {
         if (!controller.signal.aborted) setResults([]);
       } finally {
         if (!controller.signal.aborted) setLoading(false);
       }
-    }, 250);
+    }, 80);
 
     return () => {
       clearTimeout(timeout);
@@ -105,8 +172,10 @@ function useSpotifySearch(query: string) {
 
 export function HeroDemo() {
   const { messages, sendMessage, status } = useChat({ transport });
+  const placeholder = useCyclingPlaceholder(PLACEHOLDERS, 3500);
   const [revealed, setRevealed] = useState(false);
   const [pulse, setPulse] = useState(false);
+  const [islandPulse, setIslandPulse] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedIdx, setSelectedIdx] = useState(-1);
@@ -114,6 +183,7 @@ export function HeroDemo() {
   const hasMessages = messages.length > 0;
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const prevExpandedRef = useRef(false);
 
   const searchQuery = pinnedArtist ? "" : inputValue;
   const { results, loading } = useSpotifySearch(searchQuery);
@@ -129,15 +199,25 @@ export function HeroDemo() {
   }, [hasMessages, revealed]);
 
   useEffect(() => {
-    setShowDropdown(results.length > 0 && searchQuery.length >= 1 && !pinnedArtist);
+    if (!pinnedArtist) {
+      setShowDropdown((results.length > 0 || loading) && searchQuery.length >= 1);
+    }
     setSelectedIdx(-1);
-  }, [results, inputValue]);
+  }, [results, inputValue, loading, searchQuery, pinnedArtist]);
+
+  const [closing, setClosing] = useState(false);
 
   const selectArtist = useCallback((artist: SpotifyArtist) => {
-    setPinnedArtist(artist);
-    setInputValue("");
-    setShowDropdown(false);
-    setTimeout(() => inputRef.current?.focus(), 0);
+    setClosing(true);
+    setTimeout(() => {
+      setPinnedArtist(artist);
+      setInputValue("");
+      setTimeout(() => {
+        setShowDropdown(false);
+        setClosing(false);
+        inputRef.current?.focus();
+      }, 80);
+    }, 120);
   }, []);
 
   useEffect(() => {
@@ -197,84 +277,121 @@ export function HeroDemo() {
 
   const isLoading = status === "submitted" || status === "streaming";
 
+  const isExpanded = revealed || showDropdown;
+
+  useEffect(() => {
+    if (isExpanded !== prevExpandedRef.current) {
+      setIslandPulse(true);
+      const t = setTimeout(() => setIslandPulse(false), 400);
+      prevExpandedRef.current = isExpanded;
+      return () => clearTimeout(t);
+    }
+  }, [isExpanded]);
+
   return (
-    <div className="w-full flex flex-col gap-3">
-      {/* Chat window */}
+    <div
+      className="flex flex-col mx-auto"
+      data-chat-open={revealed}
+      style={{
+        width: "100%",
+        maxWidth: revealed ? "1200px" : "460px",
+        transition: "max-width 500ms cubic-bezier(0.25, 1, 0.5, 1)",
+      }}
+    >
+      {/* === THE ISLAND === */}
       <div
-        className={`w-full rounded-xl border bg-(--background) overflow-hidden transition-all duration-[800ms] ease-[cubic-bezier(.22,1,.36,1)] origin-bottom ${
-          revealed
-            ? "max-h-[500px] opacity-100 border-(--border) shadow-lg"
-            : "max-h-0 opacity-0 border-transparent shadow-none"
-        }`}
+        ref={dropdownRef}
+        className="w-full bg-(--background)"
+        style={{
+          borderRadius: isExpanded ? "16px" : "9999px",
+          boxShadow: revealed
+            ? "0px 0px 0px 1px var(--border), 0px 8px 32px rgba(0,0,0,0.12)"
+            : showDropdown
+              ? "0px 0px 0px 1px var(--border), 0px 4px 20px rgba(0,0,0,0.10)"
+              : "0px 0px 0px 1px var(--border), 0px 2px 12px rgba(0,0,0,0.06)",
+          transition: "box-shadow 400ms ease",
+          overflow: "hidden",
+        }}
       >
-        <div className="h-[380px] lg:h-[420px]">
-          <Conversation className="flex-1 h-full">
-            <ConversationContent className="gap-4 p-4 text-left">
-              {messages.map((msg) => {
-                if (msg.role === "user") {
-                  const text = msg.parts
-                    .filter((p) => p.type === "text")
-                    .map((p) => ("text" in p ? p.text : ""))
-                    .join("");
-                  if (!text) return null;
+        {/* Chat content — grows into the island */}
+        <div
+          className="grid"
+          style={{
+            gridTemplateRows: revealed ? "1fr" : "0fr",
+            transition: "grid-template-rows 500ms cubic-bezier(0.25, 1, 0.5, 1)",
+          }}
+        >
+          <div className="overflow-hidden min-h-0">
+          <div className="h-[450px] lg:h-[540px]">
+            <Conversation className="flex-1 h-full">
+              <ConversationContent className="gap-4 p-4 text-left">
+                {messages.map((msg) => {
+                  if (msg.role === "user") {
+                    const text = msg.parts
+                      .filter((p) => p.type === "text")
+                      .map((p) => ("text" in p ? p.text : ""))
+                      .join("");
+                    if (!text) return null;
+                    return (
+                      <Message key={msg.id} from="user" className="max-w-[85%]">
+                        <MessageContent className="bg-(--foreground)/8 text-(--foreground) rounded-2xl rounded-br-sm px-4 py-2.5 text-[13px]">
+                          <p>{text}</p>
+                        </MessageContent>
+                      </Message>
+                    );
+                  }
+
+                  const textParts = msg.parts.filter((p) => p.type === "text");
+                  const reasoningParts = msg.parts.filter((p) => p.type === "reasoning");
+                  const text = textParts.map((p) => ("text" in p ? p.text : "")).join("");
+                  const reasoningText = reasoningParts.map((p) => ("reasoning" in p ? p.reasoning : "")).join("");
+                  const isLastMsg = msg.id === messages[messages.length - 1]?.id;
+                  const isThisStreaming = isLoading && isLastMsg;
+
                   return (
-                    <Message key={msg.id} from="user" className="max-w-[85%]">
-                      <MessageContent className="bg-(--foreground)/8 text-(--foreground) rounded-2xl rounded-br-sm px-4 py-2.5 text-[13px]">
-                        <p>{text}</p>
+                    <Message key={msg.id} from="assistant" className="max-w-[95%]">
+                      <MessageContent className="text-[13px] leading-[1.8] text-(--foreground)/70 text-left space-y-2">
+                        {reasoningText && (
+                          <Reasoning isStreaming={isThisStreaming && !text}>
+                            <ReasoningTrigger />
+                            <ReasoningContent>{reasoningText}</ReasoningContent>
+                          </Reasoning>
+                        )}
+                        {text ? (
+                          <MessageResponse isAnimating={isThisStreaming}>
+                            {text}
+                          </MessageResponse>
+                        ) : isThisStreaming && !reasoningText ? (
+                          <ThinkingIndicator />
+                        ) : null}
                       </MessageContent>
                     </Message>
                   );
-                }
+                })}
 
-                const textParts = msg.parts.filter((p) => p.type === "text");
-                const reasoningParts = msg.parts.filter((p) => p.type === "reasoning");
-                const text = textParts.map((p) => ("text" in p ? p.text : "")).join("");
-                const reasoningText = reasoningParts.map((p) => ("reasoning" in p ? p.reasoning : "")).join("");
-                const isLastMsg = msg.id === messages[messages.length - 1]?.id;
-                const isThisStreaming = isLoading && isLastMsg;
+                {status === "submitted" && messages[messages.length - 1]?.role === "user" && (
+                  <ThinkingIndicator />
+                )}
+              </ConversationContent>
+            </Conversation>
+          </div>
 
-                return (
-                  <Message key={msg.id} from="assistant" className="max-w-[95%]">
-                    <MessageContent className="text-[13px] leading-[1.8] text-(--foreground)/70 text-left space-y-2">
-                      {reasoningText && (
-                        <Reasoning isStreaming={isThisStreaming && !text}>
-                          <ReasoningTrigger />
-                          <ReasoningContent>{reasoningText}</ReasoningContent>
-                        </Reasoning>
-                      )}
-                      {text ? (
-                        <MessageResponse isAnimating={isThisStreaming}>
-                          {text}
-                        </MessageResponse>
-                      ) : isThisStreaming && !reasoningText ? (
-                        <ThinkingIndicator />
-                      ) : null}
-                    </MessageContent>
-                  </Message>
-                );
-              })}
-
-              {status === "submitted" && messages[messages.length - 1]?.role === "user" && (
-                <ThinkingIndicator />
-              )}
-            </ConversationContent>
-          </Conversation>
+            <div className="h-px" style={{ background: "var(--border)", opacity: revealed ? 1 : 0, transition: "opacity 200ms ease 150ms" }} />
+          </div>
         </div>
-      </div>
 
-      {/* Input with autocomplete */}
-      <div className="relative" ref={dropdownRef}>
+        {/* Input — always visible, part of the island */}
         <form
           onSubmit={handleSubmit}
-          className={`w-full rounded-full border border-(--border) bg-(--background) flex items-center gap-2 px-5 py-3 shadow-[0_2px_12px_rgba(0,0,0,0.08)] transition-all duration-200 ${
-            pulse ? "scale-[1.02] shadow-[0_4px_20px_rgba(0,0,0,0.12)]" : ""
-          } ${showDropdown ? "rounded-b-none rounded-t-2xl border-b-transparent" : ""}`}
+          className={`w-full flex items-center gap-2 px-5 py-3 transition-all duration-200 ${
+            pulse ? "scale-[1.01]" : ""
+          }`}
         >
           {pinnedArtist && (
             <button
               type="button"
               onClick={() => { setPinnedArtist(null); inputRef.current?.focus(); }}
-              className="shrink-0 flex items-center gap-1.5 pl-1 pr-2.5 py-1 rounded-full bg-(--foreground)/8 hover:bg-(--foreground)/12 transition-colors"
+              className="shrink-0 flex items-center gap-1.5 pl-1 pr-2.5 py-1 rounded-full bg-(--foreground)/8 hover:bg-(--foreground)/12 transition-colors pill-pop-in"
             >
               {pinnedArtist.image ? (
                 <Image
@@ -306,21 +423,37 @@ export function HeroDemo() {
             onKeyDown={handleKeyDown}
             onFocus={() => { if (results.length > 0 && !pinnedArtist) setShowDropdown(true); }}
             placeholder={isLoading ? "Thinking…" : pinnedArtist ? "Type a prompt…" : "Search any artist…"}
-            className="flex-1 bg-transparent text-[14px] text-(--foreground) placeholder:text-(--foreground)/40 outline-none disabled:opacity-40 font-ui min-w-0"
+            className="flex-1 bg-transparent text-[14px] text-(--foreground) placeholder:text-(--foreground)/30 outline-none disabled:opacity-40 font-ui min-w-0"
           />
           <button
             type="submit"
             disabled={isLoading}
-            className="shrink-0 w-8 h-8 rounded-full bg-(--foreground) text-(--background) flex items-center justify-center hover:opacity-80 active:scale-95 transition-all disabled:opacity-20"
+            className="shrink-0 w-8 h-8 rounded-full bg-(--foreground)/80 text-(--background) flex items-center justify-center hover:bg-(--foreground) active:scale-95 transition-all disabled:opacity-20"
             aria-label="Send"
           >
             <ArrowUp size={15} />
           </button>
         </form>
 
-        {/* Spotify autocomplete dropdown */}
-        {showDropdown && (
-          <div className="absolute left-0 right-0 top-full z-50 border border-t-0 border-(--border) bg-(--background) rounded-b-2xl shadow-lg overflow-y-auto max-h-[200px]">
+        {/* Autocomplete results — grows inside the island */}
+        <div
+          className="grid"
+          style={{
+            gridTemplateRows: showDropdown ? "1fr" : "0fr",
+            transition: showDropdown
+              ? "grid-template-rows 300ms cubic-bezier(0.25, 1, 0.5, 1)"
+              : "grid-template-rows 150ms ease",
+          }}
+        >
+          <div className="overflow-hidden min-h-0">
+            <div className="h-px mx-4" style={{ background: "var(--border)", opacity: showDropdown ? 1 : 0, transition: "opacity 150ms ease" }} />
+            <div className="overflow-y-auto max-h-[232px]" style={{ opacity: showDropdown && !closing ? 1 : 0, transform: closing ? "scale(0.97)" : "scale(1)", transition: closing ? "opacity 100ms ease, transform 100ms ease" : showDropdown ? "opacity 150ms ease 80ms, transform 150ms ease 80ms" : "opacity 80ms ease, transform 80ms ease" }}>
+            {loading && results.length === 0 && (
+              <div className="flex items-center gap-2.5 px-5 py-3 text-[13px] text-(--foreground)/30">
+                <span className="w-4 h-4 rounded-full border-2 border-(--foreground)/10 border-t-(--foreground)/30 animate-spin" />
+                Searching...
+              </div>
+            )}
             {results.map((artist, i) => (
               <button
                 key={artist.id}
@@ -353,23 +486,41 @@ export function HeroDemo() {
                 </div>
               </button>
             ))}
+            </div>
           </div>
-        )}
+        </div>
+
+        {/* Prompt suggestions — single line inside the island */}
+        <div
+          className="grid"
+          style={{
+            gridTemplateRows: pinnedArtist && !hasMessages && !inputValue && !showDropdown ? "1fr" : "0fr",
+            transition: "grid-template-rows 250ms cubic-bezier(0.25, 1, 0.5, 1)",
+          }}
+        >
+          <div className="overflow-hidden min-h-0">
+            <div className="flex items-center justify-center gap-1 px-4 pb-3 pt-1 text-[11px] font-ui text-(--foreground)/30">
+              {PROMPT_SUGGESTIONS.map((s, i) => (
+                <span key={s} style={{ animation: pinnedArtist && !hasMessages ? `pill-pop 180ms ease ${60 + i * 30}ms both` : "none" }}>
+                  {i > 0 && <span className="text-(--foreground)/15 mx-0.5">·</span>}
+                  <button
+                    type="button"
+                    onClick={() => send(s)}
+                    className="hover:text-(--foreground)/60 transition-colors"
+                  >
+                    {s}
+                  </button>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Suggestions — use invisible instead of unmounting to prevent layout shift */}
-      {!hasMessages && (
-        <div className={`flex items-center justify-center gap-2 flex-wrap transition-opacity duration-150 ${showDropdown ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
-          {SUGGESTIONS.map((s) => (
-            <button
-              key={s}
-              onClick={() => send(s)}
-              className="px-3 py-1.5 rounded-full border border-(--border) text-[12px] font-ui font-medium text-(--foreground)/50 hover:text-(--foreground) hover:border-(--foreground)/30 hover:shadow-sm transition-all whitespace-nowrap"
-            >
-              {s} →
-            </button>
-          ))}
-        </div>
+      {!hasMessages && !showDropdown && !pinnedArtist && (
+        <p className="text-center mt-3 text-[11px] font-pixel text-(--foreground)/20 uppercase tracking-[0.12em]">
+          No signup required
+        </p>
       )}
     </div>
   );

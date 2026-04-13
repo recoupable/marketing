@@ -1,57 +1,44 @@
 /**
- * Site navigation structure — per content/brand/website-structure-report.md.
+ * Site navigation — simple direct links, no dropdowns.
  * Single source of truth for header and footer links.
  */
+import { siteConfig } from "@/lib/config";
 
-export const nav = {
-  platform: {
-    label: "Platform",
-    href: "/platform",
+export const nav = [
+  { label: "Resources", href: "/resources" },
+  { label: "Records", href: "/records" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Docs", href: siteConfig.docsUrl, external: true },
+] as const;
+
+export const footerNav = {
+  product: {
+    label: "Product",
     items: [
-      { label: "Agents", href: "/platform#agents" },
-      { label: "Workflows", href: "/platform#workflows" },
-      { label: "Integrations", href: "/platform#integrations" },
-      { label: "Data Layer", href: "/platform#data-layer" },
-      { label: "API & CLI", href: "/platform#api-cli" },
+      { label: "Platform", href: "/platform" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Docs", href: siteConfig.docsUrl, external: true },
     ],
   },
-  solutions: {
-    label: "Solutions",
-    href: "/solutions",
+  resources: {
+    label: "Resources",
     items: [
-      { label: "Artists", href: "/solutions#artists" },
-      { label: "Labels", href: "/solutions#labels" },
-      { label: "Distributors", href: "/solutions#distributors" },
-      { label: "Catalog Owners", href: "/solutions#catalog-owners" },
-    ],
-  },
-  developers: {
-    label: "Developers",
-    href: "/developers",
-    items: [
-      { label: "API", href: "/developers#api" },
-      { label: "CLI", href: "/developers#cli" },
-      { label: "Docs", href: "/developers#docs" },
-      { label: "Use Cases", href: "/developers#use-cases" },
-    ],
-  },
-  learn: {
-    label: "Learn",
-    href: "/learn",
-    items: [
-      { label: "Blog", href: "/blog" },
-      { label: "Use Cases", href: "/learn/use-cases" },
-      { label: "Playbooks", href: "/learn/playbooks" },
-      { label: "Demos", href: "/learn/demos" },
+      { label: "Blog", href: "/resources" },
+      { label: "Records", href: "/records" },
     ],
   },
   company: {
     label: "Company",
-    href: "/company",
     items: [
-      { label: "Vision", href: "/company/vision" },
-      { label: "Recoupable Records", href: "/company/recoupable-records" },
-      { label: "About", href: "/company/about" },
+      { label: "About", href: "/about" },
+      { label: "Vision", href: "/vision" },
+    ],
+  },
+  legal: {
+    label: "Legal",
+    items: [
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms of Use", href: "/terms-of-use" },
     ],
   },
 } as const;

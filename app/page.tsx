@@ -14,6 +14,9 @@ import {
   MessageSquare,
   Cpu,
   Zap,
+  Copy,
+  CheckCheck,
+  X,
 } from "lucide-react";
 
 function useReveal() {
@@ -48,37 +51,88 @@ function useStagger(n: number, ms = 130) {
   };
 }
 
+const CYCLE_HOLD_MS = 2200;
+const TYPE_SPEED_MS = 80;
+const DELETE_SPEED_MS = 50;
+
+function CyclingWord({ words }: { words: string[] }) {
+  const [displayed, setDisplayed] = useState(words[0]);
+  const longest = words.reduce((a, b) => (a.length > b.length ? a : b), "");
+  const idxRef = useRef(0);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+  useEffect(() => {
+    function schedule(fn: () => void, ms: number) {
+      timerRef.current = setTimeout(fn, ms);
+    }
+
+    function typeWord(word: string, charIdx: number) {
+      if (charIdx > word.length) {
+        schedule(() => deleteWord(word, word.length), CYCLE_HOLD_MS);
+        return;
+      }
+      setDisplayed(word.slice(0, charIdx));
+      schedule(() => typeWord(word, charIdx + 1), TYPE_SPEED_MS);
+    }
+
+    function deleteWord(word: string, charIdx: number) {
+      if (charIdx < 0) {
+        idxRef.current = (idxRef.current + 1) % words.length;
+        typeWord(words[idxRef.current], 0);
+        return;
+      }
+      setDisplayed(word.slice(0, charIdx));
+      schedule(() => deleteWord(word, charIdx - 1), DELETE_SPEED_MS);
+    }
+
+    schedule(() => deleteWord(words[0], words[0].length), CYCLE_HOLD_MS);
+
+    return () => clearTimeout(timerRef.current);
+  }, []);
+
+  return (
+    <span className="inline-flex justify-center relative align-bottom">
+      <span className="invisible whitespace-pre">{longest}</span>
+      <span className="absolute inset-0 flex justify-center items-start whitespace-nowrap">
+        {displayed}
+        <span className="inline-block w-[0.05em] bg-current animate-blink ml-[0.05em] align-baseline" style={{ height: "0.8em" }} />
+      </span>
+    </span>
+  );
+}
+
 const LOGOS = ["Atlantic", "Rostrum", "300", "Warner", "Parlophone", "Fat Beats"];
 
 const FLOATING_AGENTS = [
-  { label: "Artist Research", x: "8%", y: "18%", delay: 200, size: "text-[12px]" },
-  { label: "Content Creator", x: "82%", y: "14%", delay: 400, size: "text-[13px]" },
-  { label: "Fan Segments", x: "5%", y: "45%", delay: 600, size: "text-[11px]" },
-  { label: "Release Report", x: "88%", y: "42%", delay: 300, size: "text-[12px]" },
-  { label: "Catalog Analyzer", x: "12%", y: "72%", delay: 800, size: "text-[11px]" },
-  { label: "Social Poster", x: "85%", y: "70%", delay: 500, size: "text-[12px]" },
-  { label: "Genre Trends", x: "20%", y: "30%", delay: 700, size: "text-[11px]" },
-  { label: "Comment Checker", x: "78%", y: "28%", delay: 900, size: "text-[11px]" },
-  { label: "Playlist Pitcher", x: "3%", y: "58%", delay: 1000, size: "text-[12px]" },
-  { label: "Fan Newsletter", x: "90%", y: "56%", delay: 450, size: "text-[11px]" },
-  { label: "Lookalike Audiences", x: "15%", y: "84%", delay: 1100, size: "text-[12px]" },
-  { label: "Community Manager", x: "80%", y: "84%", delay: 650, size: "text-[11px]" },
+  { label: "Artist Research", x: "8%", y: "18%", delay: 200, size: "text-[12px]", opacity: 0.35 },
+  { label: "Content Creator", x: "78%", y: "14%", delay: 400, size: "text-[12px]", opacity: 0.32 },
+  { label: "Fan Segments", x: "7%", y: "44%", delay: 600, size: "text-[11px]", opacity: 0.28 },
+  { label: "Release Report", x: "83%", y: "40%", delay: 300, size: "text-[12px]", opacity: 0.35 },
+  { label: "Catalog Analyzer", x: "11%", y: "66%", delay: 800, size: "text-[11px]", opacity: 0.28 },
+  { label: "Social Poster", x: "82%", y: "64%", delay: 500, size: "text-[11px]", opacity: 0.3 },
+  { label: "Genre Trends", x: "19%", y: "28%", delay: 700, size: "text-[11px]", opacity: 0.25 },
+  { label: "Comment Checker", x: "74%", y: "26%", delay: 900, size: "text-[11px]", opacity: 0.25 },
+  { label: "Playlist Pitcher", x: "6%", y: "56%", delay: 1000, size: "text-[11px]", opacity: 0.28 },
+  { label: "Fan Newsletter", x: "86%", y: "54%", delay: 450, size: "text-[11px]", opacity: 0.28 },
+  { label: "Revenue Tracker", x: "16%", y: "74%", delay: 1100, size: "text-[11px]", opacity: 0.22 },
+  { label: "A&R Scanner", x: "76%", y: "74%", delay: 650, size: "text-[11px]", opacity: 0.22 },
 ];
 
 function FloatingPills({ show }: { show: boolean }) {
   return (
-    <div className="absolute inset-0 z-[1] pointer-events-none hidden lg:block" aria-hidden="true">
+    <div className="absolute inset-x-0 top-0 h-screen z-[1] pointer-events-none hidden lg:block" aria-hidden="true">
       {FLOATING_AGENTS.map((agent, i) => (
         <span
           key={agent.label}
-          className={`absolute px-3 py-1.5 rounded-full border border-(--foreground)/[0.08] bg-(--background)/80 backdrop-blur-sm ${agent.size} font-ui font-medium text-(--foreground)/25 transition-all duration-[1200ms] ease-[cubic-bezier(.16,1,.3,1)] hover:text-(--foreground)/40 hover:border-(--foreground)/15 pointer-events-auto cursor-default select-none`}
+          className={`absolute ${agent.size} font-pixel transition-all duration-[1400ms] ease-[cubic-bezier(.16,1,.3,1)] cursor-default select-none`}
           style={{
             left: agent.x,
             top: agent.y,
             transitionDelay: show ? `${agent.delay}ms` : "0ms",
-            opacity: show ? 1 : 0,
-            transform: show ? "translateY(0)" : "translateY(12px)",
-            animation: show ? `float-pill ${3 + (i % 3)}s ease-in-out ${agent.delay}ms infinite alternate` : "none",
+            opacity: show ? agent.opacity : 0,
+            color: `rgba(10,10,10, ${agent.opacity})`,
+            transform: show ? "translateY(0)" : "translateY(14px)",
+            animation: show ? `float-pill ${4 + (i % 4)}s ease-in-out ${agent.delay}ms infinite alternate` : "none",
           }}
         >
           {agent.label}
@@ -88,12 +142,71 @@ function FloatingPills({ show }: { show: boolean }) {
   );
 }
 
+const CLI_COMMAND = "npm install -g @recoupable/cli";
+
+function TerminalChip() {
+  const [copied, setCopied] = useState(false);
+
+  function copy() {
+    navigator.clipboard.writeText(CLI_COMMAND);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={copy}
+      className="group inline-flex items-center gap-3 mb-6 px-4 py-2.5 rounded-lg border border-(--foreground)/10 bg-(--foreground)/[0.03] hover:bg-(--foreground)/[0.06] hover:border-(--foreground)/20 transition-all cursor-pointer"
+    >
+      <span className="text-(--foreground)/25 text-[13px]" style={{ fontFamily: "var(--font-geist-mono), monospace" }}>$</span>
+      <code className="text-[13px] text-(--foreground)/70 tracking-tight" style={{ fontFamily: "var(--font-geist-mono), monospace" }}>
+        {CLI_COMMAND}
+      </code>
+      {copied ? (
+        <CheckCheck size={13} className="text-green-500/70 shrink-0" />
+      ) : (
+        <Copy size={13} className="text-(--foreground)/20 group-hover:text-(--foreground)/40 transition-colors shrink-0" />
+      )}
+    </button>
+  );
+}
+
+function TerminalChipDark({ command, label }: { command: string; label?: string }) {
+  const [copied, setCopied] = useState(false);
+
+  function copy() {
+    navigator.clipboard.writeText(command);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={copy}
+      className="group w-full flex items-center gap-3 px-5 py-3.5 rounded-lg border border-white/8 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/15 transition-all cursor-pointer text-left"
+    >
+      <span className="text-white/25 text-[12px] font-pixel">$</span>
+      <code className="text-[12px] text-white/55 tracking-tight font-pixel flex-1">
+        {command}
+      </code>
+      {copied ? (
+        <CheckCheck size={13} className="text-green-400/70 shrink-0" />
+      ) : (
+        <Copy size={13} className="text-white/15 group-hover:text-white/35 transition-colors shrink-0" />
+      )}
+    </button>
+  );
+}
+
 export default function HomePage() {
   const [show, setShow] = useState(false);
   useEffect(() => { const t = setTimeout(() => setShow(true), 100); return () => clearTimeout(t); }, []);
 
   const intel = useReveal();
   const intelCards = useStagger(2, 150);
+  const modes = useStagger(3, 120);
   const research = useReveal();
   const content = useReveal();
   const arch = useReveal();
@@ -107,35 +220,36 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           1. HERO
           ══════════════════════════════════════ */}
-      <section className="relative min-h-[100vh] flex flex-col justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.05]" aria-hidden="true" style={{
+      <section className="relative pt-36 sm:pt-44 pb-16 sm:pb-20 flex flex-col justify-center">
+        <div className="absolute inset-0 z-0" aria-hidden="true" style={{
           backgroundImage: `linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)`,
           backgroundSize: "64px 64px",
+          opacity: 0.04,
+          maskImage: "radial-gradient(ellipse 70% 60% at 50% 42%, black 20%, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 42%, black 20%, transparent 80%)",
         }} />
 
-        <div className={`relative z-10 w-full max-w-[700px] mx-auto px-6 sm:px-10 transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}>
-          <div className="pt-28 sm:pt-36 pb-12 flex flex-col items-center text-center">
-            <Link
-              href="/platform"
-              className="inline-flex items-center gap-2 mb-6 px-1.5 py-1.5 pr-4 rounded-full bg-(--foreground) text-(--background) text-[13px] font-ui font-medium hover:opacity-90 transition-opacity"
-            >
-              <span className="px-2.5 py-1 rounded-full bg-(--background) text-(--foreground) text-[12px] font-semibold">New</span>
-              <span>Recoup 2.1</span>
-              <ArrowUpRight size={14} />
-            </Link>
-            <h1
-              className="text-[clamp(2.75rem,8vw,5.5rem)] text-(--foreground) leading-[1.05] tracking-[-0.01em] mb-5 whitespace-nowrap"
-              style={{ fontFamily: "var(--font-geist-pixel-square), monospace" }}
-            >
-              <span className="block">Your agents&apos; favorite</span>
-              <span className="block">music company.</span>
-            </h1>
+        <FloatingPills show={show} />
 
-            <p className="text-(--foreground)/45 text-[clamp(1.0625rem,1.6vw,1.25rem)] max-w-[600px] mb-7 leading-[1.75]" style={{ fontFamily: "var(--font-geist-mono), monospace" }}>
-              AI infrastructure for artists &amp; labels.
-            </p>
+        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 sm:px-10">
+          <div className="pb-8 flex flex-col items-center text-center">
 
-            <div className="w-full max-w-[520px] mb-4">
+            <div className="hero-text max-w-[800px] mx-auto flex flex-col items-center transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] origin-top">
+              <span className={`inline-flex items-center gap-2.5 mb-5 px-4 py-2 rounded-full text-[12px] uppercase tracking-[0.16em] font-pixel text-(--foreground)/50 transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ transitionDelay: "200ms", boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 15%, transparent)" }}>
+                <span className="w-2 h-2 rounded-full bg-green-500/70 animate-pulse" />
+                40+ agent tools
+              </span>
+
+              <h1 className={`font-pixel text-[clamp(3rem,9vw,6rem)] text-(--foreground) leading-[0.95] tracking-[-0.01em] mb-4 transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
+                Music intelligence.
+              </h1>
+
+              <p className={`text-(--foreground)/50 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.6] font-display italic transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
+                For labels, distributors, and every team in music.
+              </p>
+            </div>
+
+            <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "750ms" : "0ms" }} id="hero-demo-wrapper">
               <HeroDemo />
             </div>
           </div>
@@ -159,48 +273,50 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           3. INTELLIGENCE — differentiator
           ══════════════════════════════════════ */}
-      <section className="py-24 sm:py-32">
+      <section className="py-28 sm:py-36 bg-(--muted)/30">
         <div ref={intel.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${intel.cls}`}>
-          <div className="text-center mb-16">
-            <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight mb-4">
-              Music intelligence that works everywhere.
+          <div className="text-center mb-20">
+            <p className="font-pixel text-[11px] text-(--foreground)/25 uppercase tracking-[0.2em] mb-5">Open by design</p>
+            <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-[-0.02em] mb-5">
+              It works where you&nbsp;work.
             </h2>
-            <p className="text-[15px] text-(--foreground)/45 max-w-lg mx-auto leading-relaxed">
-              Other platforms lock you in.<br className="hidden sm:block" /> Recoupable works inside the tools you already use.
+            <p className="text-[15px] text-(--foreground)/40 max-w-md mx-auto leading-relaxed">
+              Other platforms lock you in. Recoupable lives inside the tools you already use.
             </p>
           </div>
 
           {/* Competitive framing — two cards */}
-          <div ref={intelCards.ref} className="grid md:grid-cols-2 gap-5 mb-20">
-            <div {...intelCards.item(0)} className={`rounded-2xl border border-(--border) bg-(--muted)/60 p-8 ${intelCards.item(0).className}`} style={intelCards.item(0).style}>
-              <p className="font-ui text-xs text-(--foreground)/25 mb-6 uppercase tracking-[0.15em]">Other platforms</p>
-              <ul className="space-y-4">
+          <div ref={intelCards.ref} className="grid md:grid-cols-2 gap-5 mb-14">
+            <div {...intelCards.item(0)} className={`rounded-2xl bg-(--muted)/50 p-9 ${intelCards.item(0).className}`} style={{ ...intelCards.item(0).style, boxShadow: "0px 0px 0px 1px var(--border)" }}>
+              <p className="font-ui font-semibold text-[11px] text-(--foreground)/20 mb-7 uppercase tracking-[0.15em]">Other platforms</p>
+              <ul className="space-y-5">
                 {[
-                  "Another app to learn",
+                  "Yet another app to learn",
                   "Their dashboard, their rules",
-                  "You do the work in their UI",
+                  "Manual work in their UI",
                   "Locked ecosystem",
-                  "One interface",
+                  "One rigid interface",
                 ].map(line => (
-                  <li key={line} className="flex items-start gap-3 text-[14px] text-(--foreground)/30">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-(--foreground)/12 shrink-0" />
-                    {line}
+                  <li key={line} className="flex items-start gap-3.5 text-[15px] text-(--foreground)/25">
+                    <X size={15} className="mt-0.5 shrink-0 text-(--foreground)/12" />
+                    <span className="line-through decoration-(--foreground)/10">{line}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div {...intelCards.item(1)} className={`rounded-2xl border border-(--foreground)/10 bg-(--background) p-8 shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.04)] ${intelCards.item(1).className}`} style={intelCards.item(1).style}>
-              <p className="font-pixel text-xs text-(--foreground) mb-6 uppercase tracking-[0.15em]">Recoupable</p>
-              <ul className="space-y-4">
+            <div {...intelCards.item(1)} className={`rounded-2xl bg-(--background) p-9 relative overflow-hidden ${intelCards.item(1).className}`} style={{ ...intelCards.item(1).style, boxShadow: "0px 0px 0px 1px var(--border), 0px 4px 16px rgba(0,0,0,0.06)" }}>
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-(--foreground)" />
+              <p className="font-pixel text-[11px] text-(--foreground) mb-7 uppercase tracking-[0.15em]">Recoupable</p>
+              <ul className="space-y-5">
                 {[
-                  "Works inside tools you already use",
-                  "Your workflow, your way",
-                  "Your agents do the work for you",
-                  "Open intelligence layer",
-                  "Every interface",
+                  "Lives inside tools you already use",
+                  "Your workflow stays your workflow",
+                  "Agents do the work for you",
+                  "Open platform, no lock-in",
+                  "Works in every interface",
                 ].map(line => (
-                  <li key={line} className="flex items-start gap-3 text-[14px] text-(--foreground)/80 font-medium">
+                  <li key={line} className="flex items-start gap-3.5 text-[15px] text-(--foreground)/80 font-medium">
                     <Check size={15} className="mt-0.5 shrink-0 text-(--foreground)/50" />
                     {line}
                   </li>
@@ -210,18 +326,27 @@ export default function HomePage() {
           </div>
 
           {/* Three capability modes */}
-          <div className="grid md:grid-cols-3 gap-4">
+          <p className="font-pixel text-[11px] text-(--foreground)/20 uppercase tracking-[0.2em] mb-6 text-center">Three ways to access it</p>
+          <div ref={modes.ref} className="grid md:grid-cols-3 gap-5">
             {[
-              { title: "You ask, we answer", desc: "Use our chat. Research any artist, create content, plan a release.", Icon: MessageSquare, accent: false },
-              { title: "Your AI asks, we answer", desc: "Connect Claude, ChatGPT, or any AI tool. They get music superpowers.", Icon: Cpu, accent: false },
-              { title: "Nobody asks, it just runs", desc: "Automate reports, content pipelines, catalog analysis. Runs while you sleep.", Icon: Zap, accent: true },
-            ].map(m => (
-              <div key={m.title} className={`rounded-xl p-6 text-center ${m.accent ? "bg-(--foreground) text-(--background) border border-(--foreground)" : "border border-(--border) bg-(--background)"}`}>
-                <div className={`w-11 h-11 rounded-xl flex items-center justify-center mx-auto mb-4 ${m.accent ? "bg-white/10" : "bg-(--muted) border border-(--border)"}`}>
-                  <m.Icon size={20} className={m.accent ? "text-(--background)/70" : "text-(--foreground)/40"} />
+              { num: "01", title: "You ask, we answer", desc: "Use our chat. Research any artist, create content, plan a release.", Icon: MessageSquare, accent: false },
+              { num: "02", title: "Your AI asks, we answer", desc: "Connect Claude, ChatGPT, or any AI tool. They get music superpowers.", Icon: Cpu, accent: false },
+              { num: "03", title: "Nobody asks, it just runs", desc: "Automate reports, content pipelines, catalog analysis. Runs while you sleep.", Icon: Zap, accent: true },
+            ].map((m, i) => (
+              <div
+                key={m.title}
+                {...modes.item(i)}
+                className={`group rounded-2xl p-8 transition-all duration-300 ${m.accent ? "bg-(--foreground) text-(--background)" : "bg-(--background) hover:-translate-y-1 hover:shadow-[0px_0px_0px_1px_var(--border),0px_8px_24px_rgba(0,0,0,0.08)]"} ${modes.item(i).className}`}
+                style={{ ...modes.item(i).style, boxShadow: m.accent ? "none" : "0px 0px 0px 1px var(--border), 0px 2px 4px rgba(0,0,0,0.04)" }}
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${m.accent ? "bg-white/10" : "bg-(--muted)"}`} style={m.accent ? {} : { boxShadow: "0px 0px 0px 1px var(--border)" }}>
+                    <m.Icon size={18} className={m.accent ? "text-(--background)/60" : "text-(--foreground)/35"} />
+                  </div>
+                  <span className={`font-pixel text-[11px] tracking-[0.1em] ${m.accent ? "text-(--background)/25" : "text-(--foreground)/15"}`}>{m.num}</span>
                 </div>
-                <h3 className="font-pixel text-[13px] mb-2 tracking-tight">{m.title}</h3>
-                <p className={`text-[13px] leading-relaxed ${m.accent ? "text-(--background)/50" : "text-(--foreground)/40"}`}>{m.desc}</p>
+                <h3 className="font-ui font-bold text-[15px] mb-2 tracking-[-0.01em]">{m.title}</h3>
+                <p className={`text-[14px] leading-relaxed ${m.accent ? "text-(--background)/45" : "text-(--foreground)/40"}`}>{m.desc}</p>
               </div>
             ))}
           </div>
@@ -298,8 +423,9 @@ export default function HomePage() {
 
           <ArchitectureDiagram />
 
-          {/* Small terminal snippet below */}
-          <div className="max-w-md mx-auto mt-12">
+          {/* Terminal install + usage */}
+          <div className="max-w-lg mx-auto mt-12 space-y-2">
+            <TerminalChipDark command="npm install -g @recoupable/cli" label="Install" />
             <div className="rounded-lg border border-white/8 bg-white/[0.02] px-5 py-3.5 font-pixel text-[12px]">
               <span className="text-white/25">$</span>{" "}
               <span className="text-white/55">recoup research</span>{" "}
@@ -375,7 +501,7 @@ export default function HomePage() {
 
         <div ref={cta.ref} className={`max-w-[700px] mx-auto px-6 text-center relative z-10 ${cta.cls}`}>
           <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.9] text-white mb-6">
-            The music industry<br />runs on Recoupable.
+            The music industry<br />runs on Recoup.
           </h2>
           <p className="text-white/30 text-[15px] mb-12 max-w-sm mx-auto leading-relaxed">
             Atlantic, Parlophone, and Rostrum already use it. Your free account is waiting.

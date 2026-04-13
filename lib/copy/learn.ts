@@ -1,14 +1,17 @@
 /**
- * Learn page copy — single source for machine markdown.
- * Human view is just link list; copy here for consistent machine view.
+ * Learn/Resources page copy — single source for machine markdown.
  */
-import { nav } from "@/lib/nav";
+
+const RESOURCE_LINKS = [
+  { label: "Blog", href: "/resources" },
+  { label: "Records", href: "/records" },
+];
 
 export const learnCopy = {
-  title: "Learn",
+  title: "Resources",
   description:
     "Blog, use cases, playbooks, demos. Run your music business with agents.",
-  links: nav.learn.items,
+  links: RESOURCE_LINKS,
 } as const;
 
 export function learnToMarkdown(c: typeof learnCopy): string {

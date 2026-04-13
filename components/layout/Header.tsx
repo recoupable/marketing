@@ -1,108 +1,51 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/config";
 import { nav } from "@/lib/nav";
 import { useTheme } from "@/contexts/ThemeContext";
-import { Sun, Moon, ChevronDown } from "lucide-react";
-
-type NavKey = keyof typeof nav;
-const NAV_KEYS: NavKey[] = [
-  "platform",
-  "solutions",
-  "developers",
-  "learn",
-  "company",
-];
+import { Sun, Moon } from "lucide-react";
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
-  const [openDropdown, setOpenDropdown] = useState<NavKey | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  function handleEnter(key: NavKey) {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setOpenDropdown(key);
-  }
-
-  function handleLeave() {
-    closeTimer.current = setTimeout(() => setOpenDropdown(null), 150);
-  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (closeTimer.current) clearTimeout(closeTimer.current);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-(--background)/80 backdrop-blur-xl border-b border-(--border)/50" : "border-b border-transparent"}`}>
-      <div className="max-w-[1200px] mx-auto px-6 h-14 flex items-center justify-between">
-        {/* Logo */}
+      <div className="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="shrink-0">
           <Image
-            src={theme === "dark" ? "/brand/recoup-wordmark-white.svg" : "/brand/recoup-wordmark-black.svg"}
+            src={theme === "dark" ? "/brand/recoupable-wordmark-white.svg" : "/brand/recoupable-wordmark-black.svg"}
             alt={siteConfig.name}
             width={140}
             height={28}
             priority
-            className="h-9 w-auto"
+            className="h-7 w-auto"
           />
         </Link>
 
-        {/* Desktop nav — centered */}
-        <nav className="hidden md:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2" role="navigation">
-          {NAV_KEYS.map((key) => {
-            const section = nav[key];
-            const isOpen = openDropdown === key;
-
-            return (
-              <div
-                key={key}
-                className="relative"
-                onMouseEnter={() => handleEnter(key)}
-                onMouseLeave={handleLeave}
-              >
-                <Link
-                  href={section.href}
-                  className="flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-ui font-medium text-(--foreground)/60 hover:text-(--foreground) transition-colors rounded-full hover:bg-(--foreground)/5"
-                >
-                  {section.label}
-                  <ChevronDown
-                    size={12}
-                    className={`opacity-40 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-                  />
-                </Link>
-
-                {isOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
-                    <div className="bg-(--background) border border-(--border) rounded-xl shadow-lg py-1.5 min-w-[180px]">
-                      {section.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-4 py-2 text-[13px] font-ui text-(--muted-foreground) hover:text-(--foreground) hover:bg-(--muted) transition-colors"
-                          onClick={() => setOpenDropdown(null)}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+        <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2" role="navigation">
+          {nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="px-4 py-2 text-[14px] font-ui font-medium text-(--foreground)/60 hover:text-(--foreground) transition-colors rounded-full hover:bg-(--foreground)/5"
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
-        {/* Right side */}
         <div className="flex items-center gap-2">
           <button
             onClick={toggleTheme}
@@ -112,7 +55,6 @@ export function Header() {
             {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
           </button>
 
-          {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-1.5 rounded-full text-(--muted-foreground) hover:text-(--foreground) hover:bg-(--foreground)/5 transition-colors"
@@ -129,52 +71,36 @@ export function Header() {
 
           <Link
             href={siteConfig.appUrl}
-            className="hidden sm:inline-block text-[13px] font-ui font-medium text-(--foreground)/50 hover:text-(--foreground) transition-colors px-3 py-1.5"
+            className="hidden sm:inline-block text-[14px] font-ui font-medium text-(--foreground)/70 hover:text-(--foreground) transition-colors px-4 py-1.5 rounded-full border border-(--border) hover:border-(--foreground)/20"
           >
             Sign In
           </Link>
           <Link
             href={siteConfig.appUrl}
-            className="bg-(--foreground) text-(--background) px-4 py-1.5 rounded-full text-[13px] font-ui font-semibold hover:opacity-90 transition-opacity"
+            className="bg-(--foreground) text-(--background) px-5 py-2 rounded-full text-[14px] font-ui font-semibold hover:opacity-90 transition-opacity"
           >
             Sign Up
           </Link>
         </div>
       </div>
 
-      {/* Mobile nav panel */}
       {mobileOpen && (
         <div className="md:hidden border-t border-(--border) bg-(--background)/95 backdrop-blur-lg">
-          <div className="max-w-[1200px] mx-auto px-6 py-4 space-y-1">
-            {NAV_KEYS.map((key) => {
-              const section = nav[key];
-              return (
-                <div key={key}>
-                  <Link
-                    href={section.href}
-                    className="block px-3 py-2 text-sm font-ui font-semibold text-(--foreground) rounded-lg hover:bg-(--muted) transition-colors"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {section.label}
-                  </Link>
-                  <div className="pl-4">
-                    {section.items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block px-3 py-1.5 text-sm font-ui text-(--muted-foreground) hover:text-(--foreground) rounded-lg hover:bg-(--muted) transition-colors"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
+          <div className="max-w-[1280px] mx-auto px-6 py-4 space-y-1">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="block px-3 py-2.5 text-sm font-ui font-semibold text-(--foreground) rounded-lg hover:bg-(--muted) transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
             <Link
               href={siteConfig.appUrl}
-              className="block px-3 py-2 text-sm font-ui font-medium text-(--foreground)/70 sm:hidden"
+              className="block px-3 py-2.5 text-sm font-ui font-medium text-(--foreground)/70 sm:hidden"
               onClick={() => setMobileOpen(false)}
             >
               Sign In

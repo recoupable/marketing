@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { buildPageMetadata } from "@/lib/seo";
-import { nav } from "@/lib/nav";
+const COMPANY_LINKS = [
+  { label: "Vision", href: "/vision" },
+  { label: "Recoupable Records", href: "/records" },
+  { label: "About", href: "/about" },
+];
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Company | Recoupable",
@@ -10,11 +14,8 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/company",
 });
 
-/**
- * Company index — Vision, Recoupable Records, About.
- */
 export default function CompanyPage() {
-  const links = nav.company.items;
+  const links = COMPANY_LINKS;
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">

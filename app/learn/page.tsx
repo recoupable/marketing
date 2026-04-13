@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { buildPageMetadata } from "@/lib/seo";
-import { nav } from "@/lib/nav";
+import { learnCopy } from "@/lib/copy/learn";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Learn | Recoupable",
+  title: "Resources | Recoupable",
   description:
     "Blog, use cases, playbooks, and demos. How to run your music business with agents.",
   path: "/learn",
 });
 
-/**
- * Learn index — entry point to Blog, Use Cases, Playbooks, Demos.
- */
 export default function LearnPage() {
-  const links = nav.learn.items;
+  const links = learnCopy.links;
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">
