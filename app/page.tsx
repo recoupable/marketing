@@ -279,10 +279,10 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <p className="text-[11px] font-semibold text-white/20 uppercase tracking-[0.2em] mb-4" style={{ fontFamily: "var(--font-bitmap), monospace" }}>Open platform</p>
             <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight text-white mb-5">
-              One install. Every AI tool.
+              It works where you work.
             </h2>
-            <p className="text-[15px] text-white/35 max-w-md mx-auto leading-relaxed">
-              Connect Claude, ChatGPT, Cursor, or your own agent. One API key gives them all music superpowers.
+            <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
+              Use our chat, connect your own agent, or build with the API, MCP, and CLI. One platform, every interface.
             </p>
           </div>
 
