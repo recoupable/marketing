@@ -1,8 +1,8 @@
 # AGENTS.md
 
-This is the Recoupable marketing workspace — public website, internal
-marketing apps, shared content/context, CRM integration, and the foundations
-for the full marketing funnel.
+This is the Recoupable marketing site — public website, blog, SEO pages,
+subscribe flow, CRM integration, and shared content/context for the full
+marketing funnel.
 
 ## You Are Allowed To Improve This System
 
@@ -16,20 +16,18 @@ something, fix it in the same commit.
 1. Read `content/STATUS.md` — current state, focus, what changed, what not to touch
 2. Read this file (you're doing it now)
 3. Read the context file relevant to your task (see Context Files below)
-4. **React/Next.js:** When writing or refactoring components, pages, or data fetching, read and follow **Vercel React best practices** (monorepo: `.agent/skills/vercel-react-best-practices/SKILL.md`; full guide: that folder’s `AGENTS.md`). Prioritize: no barrel imports, no async waterfalls, minimal RSC payload, safe localStorage usage.
+4. **React/Next.js:** When writing or refactoring components, pages, or data fetching, read and follow **Vercel React best practices** (monorepo: `.agent/skills/vercel-react-best-practices/SKILL.md`; full guide: that folder's `AGENTS.md`). Prioritize: no barrel imports, no async waterfalls, minimal RSC payload, safe localStorage usage.
 5. **UI / Frontend design:** When building or refining UI (components, pages, layouts, styling, animations), use the **Impeccable** skills in the monorepo `.agents/skills/`. Read the relevant skill before implementing—especially `frontend-design/SKILL.md` for visual design, plus `animate`, `colorize`, `delight`, `polish`, and `adapt` as needed. See https://github.com/pbakaus/impeccable for the full set.
 
 ## Build Commands
 
 ```bash
 pnpm install    # Install dependencies
-pnpm dev        # Public website dev server (apps/web)
-pnpm dev:web    # Public website dev server
-pnpm dev:ops    # Internal marketing ops dev server
-pnpm build      # Public website production build (MUST pass before committing)
-pnpm build:ops  # Internal app production build
-pnpm lint       # Fix public website lint issues
-pnpm format     # Run prettier
+pnpm dev        # Dev server (Turbopack)
+pnpm build      # Production build (MUST pass before committing)
+pnpm start      # Start production server
+pnpm lint       # Fix lint issues
+pnpm format     # Run prettier + lint
 ```
 
 ## Git Workflow
@@ -41,8 +39,11 @@ pnpm format     # Run prettier
 ## Architecture
 
 ```
-apps/web/         — Public Next.js website, blog, SEO pages, subscribe flow
-apps/ops/         — Internal Next.js app for private marketing workflows
+app/              — Next.js App Router pages, layouts, API routes
+components/       — React components (layout/, blog/, home/)
+contexts/         — React context providers (theme, human/machine view)
+lib/              — Site logic (posts.ts, seo.ts, attio.ts, config.ts, copy/)
+public/           — Static assets (brand/, icons/, images/)
 content/posts/    — MDX blog posts (one file = one post)
 content/brand/    — Brand context files (read before creating content)
 content/seo/      — SEO strategy + keyword targets
@@ -51,19 +52,11 @@ transcripts/      — Call transcripts (eng, customers, leads) for positioning/c
 swipe/            — Reference material (copy, designs, competitors, complaints, trends)
 workflows/        — Shared non-UI automation for funnels, sync, and reporting
 docs/plans/       — Architecture and implementation plans
-apps/web/lib/     — Public site logic (posts.ts, seo.ts, attio.ts, config.ts)
-apps/web/components/ — Public site React components (layout/, blog/, ui/)
-apps/web/public/brand/ — Logos, word marks, profile/hero image
-apps/web/public/icons/ — Favicons + PWA icons
-apps/web/lib/copy/ — Markdown versions of key pages for "Machine" view
 ```
 
 ## Deployment
 
-- Public Vercel project: repo `recoupable/marketing`, root directory `apps/web`
-- Internal Vercel project: optional separate project with root directory `apps/ops`
-- Keep public and internal apps as separate deployments, even though they live in
-  the same repo
+- Vercel project: repo `recoupable/marketing`, root directory `.`
 
 ## Transcripts folder
 
@@ -135,21 +128,21 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 ## Dark mode
 
-- **Single place to edit:** `apps/web/app/globals.css` — the `[data-theme="dark"]` block overrides the same CSS variables (--background, --foreground, --muted, --border, --brand, etc.). Change dark colors only there.
+- **Single place to edit:** `app/globals.css` — the `[data-theme="dark"]` block overrides the same CSS variables (--background, --foreground, --muted, --border, --brand, etc.). Change dark colors only there.
 - **Toggle:** Header (sun/moon icon). Preference is stored in `localStorage` key `recoupable-theme:v1` and respected on load; falls back to `prefers-color-scheme` when no stored value.
-- **No flash:** An inline script in `apps/web/app/layout.tsx` sets `data-theme` on `<html>` before first paint. Keep its logic in sync with `apps/web/contexts/ThemeContext.tsx` (storage key and fallback).
+- **No flash:** An inline script in `app/layout.tsx` sets `data-theme` on `<html>` before first paint. Keep its logic in sync with `contexts/ThemeContext.tsx` (storage key and fallback).
 
 ## Brand
 
-- **Brand assets** (see `apps/web/public/brand/README.md`): logo mark `icon-lightmode.svg` / `icon-darkmode.svg`, word mark `wordmark-lightmode.svg` / `wordmark-darkmode.svg`, profile/hero `pfp-sky-bg.png`. Use in UI as `/brand/<filename>`.
-- **Favicons / PWA icons:** `apps/web/public/icons/` (see that folder’s README)
-- **Page copy:** `apps/web/lib/copy/` — single source for human pages and machine (markdown) view; edit copy there only so both stay in sync.
-- NEVER hardcode brand values — import from `apps/web/lib/config.ts`
+- **Brand assets** (see `public/brand/README.md`): logo mark `icon-lightmode.svg` / `icon-darkmode.svg`, word mark `wordmark-lightmode.svg` / `wordmark-darkmode.svg`, profile/hero `pfp-sky-bg.png`. Use in UI as `/brand/<filename>`.
+- **Favicons / PWA icons:** `public/icons/` (see that folder's README)
+- **Page copy:** `lib/copy/` — single source for human pages and machine (markdown) view; edit copy there only so both stay in sync.
+- NEVER hardcode brand values — import from `lib/config.ts`
 
 ## Integrations
 
-- **Attio CRM:** `apps/web/lib/attio.ts` — contacts with UTM attribution + lifecycle stage
-- **Analytics:** Plausible script in `apps/web/app/layout.tsx` — do NOT remove
+- **Attio CRM:** `lib/attio.ts` — contacts with UTM attribution + lifecycle stage
+- **Analytics:** Plausible script in `app/layout.tsx` — do NOT remove
 
 ## Code Principles
 

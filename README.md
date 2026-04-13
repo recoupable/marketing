@@ -1,36 +1,33 @@
 # marketing
 
-Recoupable's marketing workspace.
+Recoupable's public marketing website — Next.js 16, React 19, Tailwind CSS v4.
 
-## Apps
+## Structure
 
-- `apps/web` — public-facing marketing website, blog, SEO pages, and lead capture
-- `apps/ops` — internal marketing operations app for private tools and workflows
-
-## Shared Context
-
-- `content/` — brand docs, SEO plans, post sources, and status
-- `transcripts/` — call transcripts for voice-of-customer context
-- `swipe/` — reference copy, designs, competitor notes, and trends
-- `workflows/` — shared non-UI automation for funnels, syncs, and reporting
+- `app/` — Pages, layouts, API routes (Next.js App Router)
+- `components/` — React components (layout, blog, home)
+- `lib/` — Site logic (posts, SEO, Attio CRM, config, copy registry)
+- `contexts/` — React context providers (theme, human/machine view)
+- `public/` — Static assets (brand logos, icons, images)
+- `content/` — Brand docs, SEO plans, blog posts (MDX), status
+- `transcripts/` — Call transcripts for voice-of-customer context
+- `swipe/` — Reference copy, designs, competitor notes, trends
+- `workflows/` — Shared non-UI automation for funnels, sync, reporting
 
 ## Commands
 
 ```bash
-pnpm install
-pnpm dev       # runs the public website in apps/web
-pnpm dev:web
-pnpm dev:ops
-pnpm build     # builds the public website in apps/web
-pnpm build:ops
+pnpm install   # Install dependencies
+pnpm dev       # Dev server (Turbopack)
+pnpm build     # Production build
+pnpm start     # Start production server
+pnpm lint      # Fix lint issues
+pnpm format    # Prettier + lint
 ```
 
 ## Vercel
 
-Deploy the public website as a Vercel project with:
+Deploy as a Vercel project with:
 
 - Repository: `recoupable/marketing`
-- Root Directory: `apps/web`
-
-If you later deploy the internal app separately, create a second Vercel project
-pointed at `apps/ops`.
+- Root Directory: `.`
