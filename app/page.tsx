@@ -277,12 +277,12 @@ export default function HomePage() {
       <section className="py-24 sm:py-32 dark-section text-white relative overflow-hidden">
         <div ref={arch.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 relative z-10 ${arch.cls}`}>
           <div className="text-center mb-12">
-            <p className="text-[11px] font-semibold text-white/30 uppercase tracking-[0.2em] mb-4" style={{ fontFamily: "var(--font-bitmap), monospace" }}>Architecture</p>
-            <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight text-white mb-4">
-              We work where you work.
+            <p className="text-[11px] font-semibold text-white/20 uppercase tracking-[0.2em] mb-4" style={{ fontFamily: "var(--font-bitmap), monospace" }}>Open platform</p>
+            <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight text-white mb-5">
+              One install. Every AI tool.
             </h2>
-            <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
-              Point any AI tool at our docs. It gets music superpowers. No migration, no lock-in — just connect.
+            <p className="text-[15px] text-white/35 max-w-md mx-auto leading-relaxed">
+              Connect Claude, ChatGPT, Cursor, or your own agent. One API key gives them all music superpowers.
             </p>
           </div>
 
