@@ -5,11 +5,13 @@
 import { siteConfig } from "@/lib/config";
 
 export const nav = [
-  { label: "Resources", href: "/resources" },
-  { label: "Records", href: "/records" },
-  { label: "Pricing", href: "/pricing" },
   { label: "Docs", href: siteConfig.docsUrl, external: true },
 ] as const;
+
+// Unhide when pages are ready:
+// { label: "Resources", href: "/resources" },
+// { label: "Records", href: "/records" },
+// { label: "Pricing", href: "/pricing" },
 
 export const footerNav = {
   product: {
