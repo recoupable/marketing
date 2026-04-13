@@ -9,12 +9,8 @@ import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
 import {
   Check,
   ArrowUpRight,
-  MessageSquare,
-  Cpu,
-  Zap,
   Copy,
   CheckCheck,
-  X,
 } from "lucide-react";
 
 function useReveal() {
@@ -152,9 +148,6 @@ export default function HomePage() {
   const [show, setShow] = useState(false);
   useEffect(() => { const t = setTimeout(() => setShow(true), 100); return () => clearTimeout(t); }, []);
 
-  const intel = useReveal();
-  const intelCards = useStagger(2, 150);
-  const modes = useStagger(3, 120);
   const research = useReveal();
   const content = useReveal();
   const arch = useReveal();
@@ -227,91 +220,7 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          3. INTELLIGENCE — differentiator
-          ══════════════════════════════════════ */}
-      <section className="py-28 sm:py-36 bg-(--muted)/30">
-        <div ref={intel.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${intel.cls}`}>
-          <div className="text-center mb-20">
-            <p className="font-pixel text-[11px] text-(--foreground)/25 uppercase tracking-[0.2em] mb-5">Open by design</p>
-            <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-[-0.02em] mb-5">
-              It works where you&nbsp;work.
-            </h2>
-            <p className="text-[15px] text-(--foreground)/40 max-w-md mx-auto leading-relaxed">
-              Other platforms lock you in. Recoupable lives inside the tools you already use.
-            </p>
-          </div>
-
-          {/* Competitive framing — two cards */}
-          <div ref={intelCards.ref} className="grid md:grid-cols-2 gap-5 mb-14">
-            <div {...intelCards.item(0)} className={`rounded-2xl bg-(--muted)/50 p-9 ${intelCards.item(0).className}`} style={{ ...intelCards.item(0).style, boxShadow: "0px 0px 0px 1px var(--border)" }}>
-              <p className="font-ui font-semibold text-[11px] text-(--foreground)/20 mb-7 uppercase tracking-[0.15em]">Other platforms</p>
-              <ul className="space-y-5">
-                {[
-                  "Yet another app to learn",
-                  "Their dashboard, their rules",
-                  "Manual work in their UI",
-                  "Locked ecosystem",
-                  "One rigid interface",
-                ].map(line => (
-                  <li key={line} className="flex items-start gap-3.5 text-[15px] text-(--foreground)/25">
-                    <X size={15} className="mt-0.5 shrink-0 text-(--foreground)/12" />
-                    <span className="line-through decoration-(--foreground)/10">{line}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div {...intelCards.item(1)} className={`rounded-2xl bg-(--background) p-9 relative overflow-hidden ${intelCards.item(1).className}`} style={{ ...intelCards.item(1).style, boxShadow: "0px 0px 0px 1px var(--border), 0px 4px 16px rgba(0,0,0,0.06)" }}>
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-(--foreground)" />
-              <p className="font-pixel text-[11px] text-(--foreground) mb-7 uppercase tracking-[0.15em]">Recoupable</p>
-              <ul className="space-y-5">
-                {[
-                  "Lives inside tools you already use",
-                  "Your workflow stays your workflow",
-                  "Agents do the work for you",
-                  "Open platform, no lock-in",
-                  "Works in every interface",
-                ].map(line => (
-                  <li key={line} className="flex items-start gap-3.5 text-[15px] text-(--foreground)/80 font-medium">
-                    <Check size={15} className="mt-0.5 shrink-0 text-(--foreground)/50" />
-                    {line}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Three capability modes */}
-          <p className="font-pixel text-[11px] text-(--foreground)/20 uppercase tracking-[0.2em] mb-6 text-center">Three ways to access it</p>
-          <div ref={modes.ref} className="grid md:grid-cols-3 gap-5">
-            {[
-              { num: "01", title: "You ask, we answer", desc: "Use our chat. Research any artist, create content, plan a release.", Icon: MessageSquare, accent: false },
-              { num: "02", title: "Your AI asks, we answer", desc: "Connect Claude, ChatGPT, or any AI tool. They get music superpowers.", Icon: Cpu, accent: false },
-              { num: "03", title: "Nobody asks, it just runs", desc: "Automate reports, content pipelines, catalog analysis. Runs while you sleep.", Icon: Zap, accent: true },
-            ].map((m, i) => (
-              <div
-                key={m.title}
-                {...modes.item(i)}
-                className={`group rounded-2xl p-8 transition-all duration-300 ${m.accent ? "bg-(--foreground) text-(--background)" : "bg-(--background) hover:-translate-y-1 hover:shadow-[0px_0px_0px_1px_var(--border),0px_8px_24px_rgba(0,0,0,0.08)]"} ${modes.item(i).className}`}
-                style={{ ...modes.item(i).style, boxShadow: m.accent ? "none" : "0px 0px 0px 1px var(--border), 0px 2px 4px rgba(0,0,0,0.04)" }}
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${m.accent ? "bg-white/10" : "bg-(--muted)"}`} style={m.accent ? {} : { boxShadow: "0px 0px 0px 1px var(--border)" }}>
-                    <m.Icon size={18} className={m.accent ? "text-(--background)/60" : "text-(--foreground)/35"} />
-                  </div>
-                  <span className={`font-pixel text-[11px] tracking-[0.1em] ${m.accent ? "text-(--background)/25" : "text-(--foreground)/15"}`}>{m.num}</span>
-                </div>
-                <h3 className="font-ui font-bold text-[15px] mb-2 tracking-[-0.01em]">{m.title}</h3>
-                <p className={`text-[14px] leading-relaxed ${m.accent ? "text-(--background)/45" : "text-(--foreground)/40"}`}>{m.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* ══════════════════════════════════════
-          4. RESEARCH — show don't tell
+          3. RESEARCH — show don't tell
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 bg-(--muted)/40">
         <div ref={research.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${research.cls}`}>
