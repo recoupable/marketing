@@ -3,12 +3,10 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
-import { HeroDemo } from "@/components/home/HeroDemo";
 import { ResearchCard } from "@/components/home/ResearchCard";
 import { ContentGrid } from "@/components/home/ContentGrid";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
 import {
-  ArrowRight,
   Check,
   ArrowUpRight,
   MessageSquare,
@@ -49,56 +47,6 @@ function useStagger(n: number, ms = 130) {
       style: { transitionDelay: go ? `${i * ms}ms` : "0ms" } as React.CSSProperties,
     }),
   };
-}
-
-const CYCLE_HOLD_MS = 2200;
-const TYPE_SPEED_MS = 80;
-const DELETE_SPEED_MS = 50;
-
-function CyclingWord({ words }: { words: string[] }) {
-  const [displayed, setDisplayed] = useState(words[0]);
-  const longest = words.reduce((a, b) => (a.length > b.length ? a : b), "");
-  const idxRef = useRef(0);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
-
-  useEffect(() => {
-    function schedule(fn: () => void, ms: number) {
-      timerRef.current = setTimeout(fn, ms);
-    }
-
-    function typeWord(word: string, charIdx: number) {
-      if (charIdx > word.length) {
-        schedule(() => deleteWord(word, word.length), CYCLE_HOLD_MS);
-        return;
-      }
-      setDisplayed(word.slice(0, charIdx));
-      schedule(() => typeWord(word, charIdx + 1), TYPE_SPEED_MS);
-    }
-
-    function deleteWord(word: string, charIdx: number) {
-      if (charIdx < 0) {
-        idxRef.current = (idxRef.current + 1) % words.length;
-        typeWord(words[idxRef.current], 0);
-        return;
-      }
-      setDisplayed(word.slice(0, charIdx));
-      schedule(() => deleteWord(word, charIdx - 1), DELETE_SPEED_MS);
-    }
-
-    schedule(() => deleteWord(words[0], words[0].length), CYCLE_HOLD_MS);
-
-    return () => clearTimeout(timerRef.current);
-  }, []);
-
-  return (
-    <span className="inline-flex justify-center relative align-bottom">
-      <span className="invisible whitespace-pre">{longest}</span>
-      <span className="absolute inset-0 flex justify-center items-start whitespace-nowrap">
-        {displayed}
-        <span className="inline-block w-[0.05em] bg-current animate-blink ml-[0.05em] align-baseline" style={{ height: "0.8em" }} />
-      </span>
-    </span>
-  );
 }
 
 const LOGOS = ["Atlantic", "Rostrum", "300", "Warner", "Parlophone", "Fat Beats"];
@@ -249,8 +197,16 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "750ms" : "0ms" }} id="hero-demo-wrapper">
-              <HeroDemo />
+            <div className={`w-full max-w-[480px] mx-auto transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "700ms" : "0ms" }}>
+              <TerminalChip />
+              <div className={`flex items-center justify-center gap-4 mt-6 transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ transitionDelay: show ? "900ms" : "0ms" }}>
+                <Link href={siteConfig.appUrl} className="font-ui font-semibold bg-(--foreground) text-(--background) px-7 py-3 rounded-full text-[14px] hover:opacity-90 transition-opacity">
+                  Get started free
+                </Link>
+                <Link href={siteConfig.docsUrl} className="font-ui font-medium text-[14px] text-(--foreground)/40 hover:text-(--foreground)/70 transition-colors flex items-center gap-1.5">
+                  Docs <ArrowUpRight size={14} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
