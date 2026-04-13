@@ -366,7 +366,7 @@ export default function HomePage() {
 
         <div ref={cta.ref} className={`max-w-[700px] mx-auto px-6 text-center relative z-10 ${cta.cls}`}>
           <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.9] text-white mb-6">
-            The music industry<br />runs on Recoup.
+            The agentic music industry<br />runs on Recoupable.
           </h2>
           <p className="text-white/30 text-[15px] mb-12 max-w-sm mx-auto leading-relaxed">
             Atlantic, Parlophone, and Rostrum already use it. Your free account is waiting.
