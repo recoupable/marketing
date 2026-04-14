@@ -4,7 +4,8 @@
  */
 import { siteConfig } from "@/lib/config";
 
-export const nav = [] as const;
+export const nav: readonly { label: string; href: string; external?: boolean }[] = [];
+
 
 // Unhide when pages are ready:
 // { label: "Resources", href: "/resources" },

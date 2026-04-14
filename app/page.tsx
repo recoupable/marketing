@@ -116,34 +116,6 @@ function TerminalChip() {
   );
 }
 
-function TerminalChipDark({ command, label }: { command: string; label?: string }) {
-  const [copied, setCopied] = useState(false);
-
-  function copy() {
-    navigator.clipboard.writeText(command);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
-
-  return (
-    <button
-      type="button"
-      onClick={copy}
-      className="group w-full flex items-center gap-3 px-5 py-3.5 rounded-lg border border-white/8 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/15 transition-all cursor-pointer text-left"
-    >
-      <span className="text-white/25 text-[12px] font-pixel">$</span>
-      <code className="text-[12px] text-white/55 tracking-tight font-pixel flex-1">
-        {command}
-      </code>
-      {copied ? (
-        <CheckCheck size={13} className="text-green-400/70 shrink-0" />
-      ) : (
-        <Copy size={13} className="text-white/15 group-hover:text-white/35 transition-colors shrink-0" />
-      )}
-    </button>
-  );
-}
-
 export default function HomePage() {
   const [show, setShow] = useState(false);
   useEffect(() => { const t = setTimeout(() => setShow(true), 100); return () => clearTimeout(t); }, []);
@@ -291,17 +263,6 @@ export default function HomePage() {
           </div>
 
           <ArchitectureDiagram />
-
-          {/* Terminal install + usage */}
-          <div className="max-w-lg mx-auto mt-12 space-y-2">
-            <TerminalChipDark command="npm install -g @recoupable/cli" label="Install" />
-            <div className="rounded-lg border border-white/8 bg-white/[0.02] px-5 py-3.5 font-pixel text-[12px]">
-              <span className="text-white/25">$</span>{" "}
-              <span className="text-white/55">recoup research</span>{" "}
-              <span className="text-amber-300/70">&quot;Any Artist&quot;</span>
-              <span className="text-white/20 ml-3">← that&apos;s it. From anywhere.</span>
-            </div>
-          </div>
         </div>
       </section>
 
