@@ -124,7 +124,7 @@ export default function HomePage() {
   const content = useReveal();
   const arch = useReveal();
   const price = useReveal();
-  const priceC = useStagger(2);
+  const priceC = useStagger(3);
   const cta = useReveal();
 
   return (
@@ -271,43 +271,78 @@ export default function HomePage() {
           7. PRICING
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 bg-(--muted)/60">
-        <div ref={price.ref} className={`max-w-[900px] mx-auto px-6 sm:px-10 ${price.cls}`}>
+        <div ref={price.ref} className={`max-w-[1200px] mx-auto px-6 sm:px-10 ${price.cls}`}>
           <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-3">
             Start free. Scale when ready.
           </h2>
           <p className="text-[15px] text-(--foreground)/40 mb-14">
-            No credit card required.
+            No credit card required. Add credits anytime.
           </p>
 
-          <div ref={priceC.ref} className="grid md:grid-cols-2 gap-5 items-start">
-            <Link href={siteConfig.appUrl} className={`group block rounded-2xl bg-(--background) p-8 transition-all duration-300 hover:-translate-y-1 ${priceC.item(0).className}`} style={{ ...priceC.item(0).style, boxShadow: "0px 0px 0px 1px var(--border)" }}>
+          <div ref={priceC.ref} className="grid md:grid-cols-3 gap-5 items-start">
+            {/* Free */}
+            <Link href={siteConfig.appUrl} className={`group block rounded-2xl bg-(--background) p-7 transition-all duration-300 hover:-translate-y-1 ${priceC.item(0).className}`} style={{ ...priceC.item(0).style, boxShadow: "0px 0px 0px 1px var(--border)" }}>
               <h3 className="font-ui font-bold text-lg mb-0.5">Free</h3>
-              <p className="text-[10px] text-(--foreground)/30 mb-5 uppercase tracking-wide font-pixel">For individuals</p>
+              <p className="text-[10px] text-(--foreground)/30 mb-5 uppercase tracking-wide font-pixel">For artists</p>
               <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7">$0</p>
-              <ul className="space-y-3 text-[14px] text-(--foreground)/50 mb-8">
-                {["100 API requests / month", "CLI + MCP + REST access", "Research any artist", "Community support"].map(f => (
-                  <li key={f} className="flex items-start gap-2.5"><Check size={14} className="mt-0.5 shrink-0 text-(--foreground)/25" />{f}</li>
+              <ul className="space-y-2.5 text-[13px] text-(--foreground)/50 mb-8">
+                {["1 artist workspace", "Limited credits", "Limited models", "Community support"].map(f => (
+                  <li key={f} className="flex items-start gap-2"><Check size={13} className="mt-0.5 shrink-0 text-(--foreground)/20" />{f}</li>
                 ))}
               </ul>
               <span className="font-ui font-semibold border border-(--border) text-(--foreground) text-center py-3 rounded-xl text-sm group-hover:bg-(--foreground) group-hover:text-(--background) group-hover:border-(--foreground) transition-all duration-300 block">Get started</span>
             </Link>
 
-            <Link href={siteConfig.appUrl} className={`group block bg-[#080808] text-white rounded-2xl p-8 relative transition-all duration-300 hover:-translate-y-1 ${priceC.item(1).className}`} style={{ ...priceC.item(1).style, boxShadow: "0 25px 60px -15px rgba(0,0,0,0.5)" }}>
-              <h3 className="font-ui font-bold text-lg mb-0.5">Pro</h3>
-              <p className="text-[10px] text-white/25 mb-5 uppercase tracking-wide font-pixel">For teams</p>
+            {/* Pro */}
+            <Link href={siteConfig.appUrl} className={`group block bg-[#080808] text-white rounded-2xl p-7 md:-mt-3 md:mb-[-12px] relative transition-all duration-300 hover:-translate-y-2 ${priceC.item(1).className}`} style={{ ...priceC.item(1).style, boxShadow: "0 25px 60px -15px rgba(0,0,0,0.5)" }}>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <span className="text-[9px] uppercase tracking-wider bg-white text-black px-4 py-1.5 rounded-full shadow-lg font-pixel">Popular</span>
+              </div>
+              <h3 className="font-ui font-bold text-lg mb-0.5 mt-1">Pro</h3>
+              <p className="text-[10px] text-white/25 mb-5 uppercase tracking-wide font-pixel">For managers</p>
               <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7 text-white">$99<span className="text-base text-white/20 font-ui not-italic">/mo</span></p>
-              <ul className="space-y-3 text-[14px] text-white/50 mb-8">
-                {["Unlimited API requests", "Content generation pipeline", "Priority support", "Team seats + org management"].map(f => (
-                  <li key={f} className="flex items-start gap-2.5"><Check size={14} className="mt-0.5 shrink-0 text-white/35" />{f}</li>
+              <ul className="space-y-2.5 text-[13px] text-white/50 mb-8">
+                {["Full artist roster", "More credits", "All models", "Unlimited seats", "Priority support"].map(f => (
+                  <li key={f} className="flex items-start gap-2"><Check size={13} className="mt-0.5 shrink-0 text-white/35" />{f}</li>
                 ))}
               </ul>
               <span className="font-ui font-semibold bg-white text-black text-center py-3 rounded-xl text-sm group-hover:bg-white/90 transition-colors block">Start 14-day trial</span>
             </Link>
+
+            {/* Partner */}
+            <Link href={siteConfig.appUrl} className={`group block rounded-2xl bg-(--background) p-7 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 ${priceC.item(2).className}`} style={{ ...priceC.item(2).style, boxShadow: "0px 0px 0px 1px var(--border)" }}>
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-(--foreground)" />
+              <h3 className="font-ui font-bold text-lg mb-0.5">Partner</h3>
+              <p className="text-[10px] text-(--foreground)/30 mb-5 uppercase tracking-wide font-pixel">For labels</p>
+              <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7">$499<span className="text-base text-(--foreground)/20 font-ui not-italic">/mo</span></p>
+              <ul className="space-y-2.5 text-[13px] text-(--foreground)/50 mb-8">
+                {["Everything in Pro", "High-volume credits", "Customized agents", "Unlimited seats", "Dedicated support"].map(f => (
+                  <li key={f} className="flex items-start gap-2"><Check size={13} className="mt-0.5 shrink-0 text-(--foreground)/20" />{f}</li>
+                ))}
+              </ul>
+              <span className="font-ui font-semibold border border-(--border) text-(--foreground) text-center py-3 rounded-xl text-sm group-hover:bg-(--foreground) group-hover:text-(--background) group-hover:border-(--foreground) transition-all duration-300 block">Get started</span>
+            </Link>
           </div>
 
-          <p className="text-center text-[13px] text-(--foreground)/30 mt-8">
-            Need more? <Link href={`mailto:${siteConfig.contactEmail}`} className="underline hover:text-(--foreground)/50 transition-colors">Talk to us</Link> about custom plans.
-          </p>
+          {/* Enterprise banner */}
+          <div className={`mt-8 rounded-2xl bg-(--background) p-8 sm:p-10 relative overflow-hidden transition-all duration-700 ${price.cls}`} style={{ boxShadow: "0px 0px 0px 1px var(--border), 0px 4px 24px rgba(0,0,0,0.04)" }}>
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-(--foreground)/20 via-(--foreground) to-(--foreground)/20" />
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+              <div className="flex-1">
+                <p className="text-[10px] text-(--foreground)/30 uppercase tracking-wide font-pixel mb-2">Enterprise</p>
+                <h3 className="font-ui font-bold text-lg mb-3">Built around your catalog and workflows.</h3>
+                <p className="text-[14px] text-(--foreground)/45 leading-relaxed max-w-xl">
+                  Custom solutions tailored to your roster. Dedicated infrastructure, co-created campaigns, strategic support, and integrations designed for how your team works. Everything in Partner, scaled to your operation.
+                </p>
+              </div>
+              <Link
+                href={`mailto:${siteConfig.contactEmail}`}
+                className="shrink-0 font-ui font-semibold border border-(--border) text-(--foreground) px-7 py-3 rounded-xl text-sm hover:bg-(--foreground) hover:text-(--background) hover:border-(--foreground) transition-all duration-300 text-center"
+              >
+                Talk to sales
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
