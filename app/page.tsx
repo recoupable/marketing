@@ -162,7 +162,7 @@ export default function HomePage() {
               </h1>
 
               <p className={`text-(--foreground)/50 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.6] font-display italic transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
-                AI agents that run your music business.
+                Your record label, run by AI agents.
               </p>
             </div>
 
