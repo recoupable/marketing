@@ -11,6 +11,10 @@ import {
   ArrowUpRight,
   Copy,
   CheckCheck,
+  User,
+  Users,
+  Building2,
+  ArrowRight,
 } from "lucide-react";
 
 function useReveal() {
@@ -281,7 +285,10 @@ export default function HomePage() {
 
           <div ref={priceC.ref} className="grid md:grid-cols-3 gap-5 items-start">
             {/* Free */}
-            <Link href={siteConfig.appUrl} className={`group block rounded-2xl bg-(--background) p-7 transition-all duration-300 hover:-translate-y-1 ${priceC.item(0).className}`} style={{ ...priceC.item(0).style, boxShadow: "0px 0px 0px 1px var(--border)" }}>
+            <Link href={siteConfig.appUrl} className={`group block rounded-2xl bg-(--background) p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_0px_1px_var(--border),0px_8px_24px_rgba(0,0,0,0.08)] ${priceC.item(0).className}`} style={{ ...priceC.item(0).style, boxShadow: "0px 0px 0px 1px var(--border)" }}>
+              <div className="w-10 h-10 rounded-xl bg-(--muted) flex items-center justify-center mb-5" style={{ boxShadow: "0px 0px 0px 1px var(--border)" }}>
+                <User size={18} className="text-(--foreground)/35" />
+              </div>
               <h3 className="font-ui font-bold text-lg mb-0.5">Free</h3>
               <p className="text-[10px] text-(--foreground)/30 mb-5 uppercase tracking-wide font-pixel">For artists</p>
               <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7">$0</p>
@@ -298,7 +305,10 @@ export default function HomePage() {
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <span className="text-[9px] uppercase tracking-wider bg-white text-black px-4 py-1.5 rounded-full shadow-lg font-pixel">Popular</span>
               </div>
-              <h3 className="font-ui font-bold text-lg mb-0.5 mt-1">Pro</h3>
+              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center mb-5 mt-1">
+                <Users size={18} className="text-white/50" />
+              </div>
+              <h3 className="font-ui font-bold text-lg mb-0.5">Pro</h3>
               <p className="text-[10px] text-white/25 mb-5 uppercase tracking-wide font-pixel">For managers</p>
               <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7 text-white">$99<span className="text-base text-white/20 font-ui not-italic">/mo</span></p>
               <ul className="space-y-2.5 text-[13px] text-white/50 mb-8">
@@ -310,8 +320,11 @@ export default function HomePage() {
             </Link>
 
             {/* Partner */}
-            <Link href={siteConfig.appUrl} className={`group block rounded-2xl bg-(--background) p-7 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 ${priceC.item(2).className}`} style={{ ...priceC.item(2).style, boxShadow: "0px 0px 0px 1px var(--border)" }}>
+            <Link href={siteConfig.appUrl} className={`group block rounded-2xl bg-(--muted)/40 p-7 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_0px_1px_var(--border),0px_8px_24px_rgba(0,0,0,0.08)] ${priceC.item(2).className}`} style={{ ...priceC.item(2).style, boxShadow: "0px 0px 0px 1px var(--border), 0px 4px 16px rgba(0,0,0,0.04)" }}>
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-(--foreground)" />
+              <div className="w-10 h-10 rounded-xl bg-(--foreground)/8 flex items-center justify-center mb-5" style={{ boxShadow: "0px 0px 0px 1px var(--border)" }}>
+                <Building2 size={18} className="text-(--foreground)/45" />
+              </div>
               <h3 className="font-ui font-bold text-lg mb-0.5">Partner</h3>
               <p className="text-[10px] text-(--foreground)/30 mb-5 uppercase tracking-wide font-pixel">For labels</p>
               <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7">$499<span className="text-base text-(--foreground)/20 font-ui not-italic">/mo</span></p>
@@ -325,21 +338,36 @@ export default function HomePage() {
           </div>
 
           {/* Enterprise banner */}
-          <div className={`mt-8 rounded-2xl bg-(--background) p-8 sm:p-10 relative overflow-hidden transition-all duration-700 ${price.cls}`} style={{ boxShadow: "0px 0px 0px 1px var(--border), 0px 4px 24px rgba(0,0,0,0.04)" }}>
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-(--foreground)/20 via-(--foreground) to-(--foreground)/20" />
-            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+          <div className={`mt-8 rounded-2xl bg-[#080808] text-white p-8 sm:p-10 relative overflow-hidden transition-all duration-700 ${price.cls}`} style={{ boxShadow: "0 25px 60px -15px rgba(0,0,0,0.4)" }}>
+            <div className="absolute inset-0 opacity-[0.03]" aria-hidden="true" style={{
+              backgroundImage: "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+            }} />
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-8">
               <div className="flex-1">
-                <p className="text-[10px] text-(--foreground)/30 uppercase tracking-wide font-pixel mb-2">Enterprise</p>
-                <h3 className="font-ui font-bold text-lg mb-3">Built around your catalog and workflows.</h3>
-                <p className="text-[14px] text-(--foreground)/45 leading-relaxed max-w-xl">
-                  Custom solutions tailored to your roster. Dedicated infrastructure, co-created campaigns, strategic support, and integrations designed for how your team works. Everything in Partner, scaled to your operation.
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                    <Building2 size={18} className="text-white/50" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-white/25 uppercase tracking-wide font-pixel">Enterprise</p>
+                  </div>
+                </div>
+                <h3 className="font-ui font-bold text-xl mb-3">Built around your catalog and workflows.</h3>
+                <p className="text-[14px] text-white/40 leading-relaxed max-w-lg mb-5">
+                  Custom solutions tailored to your roster. Dedicated infrastructure, co-created campaigns, strategic support, and integrations designed for how your team works.
                 </p>
+                <div className="flex flex-wrap gap-2">
+                  {["Custom agents", "Co-created IP", "Dedicated team", "White-glove onboarding"].map(tag => (
+                    <span key={tag} className="text-[11px] font-ui text-white/35 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03]">{tag}</span>
+                  ))}
+                </div>
               </div>
               <Link
                 href={`mailto:${siteConfig.contactEmail}`}
-                className="shrink-0 font-ui font-semibold border border-(--border) text-(--foreground) px-7 py-3 rounded-xl text-sm hover:bg-(--foreground) hover:text-(--background) hover:border-(--foreground) transition-all duration-300 text-center"
+                className="shrink-0 font-ui font-semibold bg-white text-black px-8 py-3.5 rounded-xl text-sm hover:bg-white/90 transition-all duration-300 text-center flex items-center justify-center gap-2"
               >
-                Talk to sales
+                Talk to sales <ArrowRight size={14} />
               </Link>
             </div>
           </div>
