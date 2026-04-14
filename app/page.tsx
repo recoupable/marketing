@@ -3,14 +3,13 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
+import { HeroDemo } from "@/components/home/HeroDemo";
 import { ResearchCard } from "@/components/home/ResearchCard";
 import { ContentGrid } from "@/components/home/ContentGrid";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
 import {
   Check,
   ArrowUpRight,
-  Copy,
-  CheckCheck,
   User,
   Users,
   Building2,
@@ -90,36 +89,6 @@ function FloatingPills({ show }: { show: boolean }) {
   );
 }
 
-const CLI_COMMAND = "npm install -g @recoupable/cli";
-
-function TerminalChip() {
-  const [copied, setCopied] = useState(false);
-
-  function copy() {
-    navigator.clipboard.writeText(CLI_COMMAND);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
-
-  return (
-    <button
-      type="button"
-      onClick={copy}
-      className="group inline-flex items-center gap-3 mb-6 px-4 py-2.5 rounded-lg border border-(--foreground)/10 bg-(--foreground)/[0.03] hover:bg-(--foreground)/[0.06] hover:border-(--foreground)/20 transition-all cursor-pointer"
-    >
-      <span className="text-(--foreground)/25 text-[13px]" style={{ fontFamily: "var(--font-geist-mono), monospace" }}>$</span>
-      <code className="text-[13px] text-(--foreground)/70 tracking-tight" style={{ fontFamily: "var(--font-geist-mono), monospace" }}>
-        {CLI_COMMAND}
-      </code>
-      {copied ? (
-        <CheckCheck size={13} className="text-green-500/70 shrink-0" />
-      ) : (
-        <Copy size={13} className="text-(--foreground)/20 group-hover:text-(--foreground)/40 transition-colors shrink-0" />
-      )}
-    </button>
-  );
-}
-
 export default function HomePage() {
   const [show, setShow] = useState(false);
   useEffect(() => { const t = setTimeout(() => setShow(true), 100); return () => clearTimeout(t); }, []);
@@ -166,16 +135,8 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className={`w-full max-w-[480px] mx-auto transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "700ms" : "0ms" }}>
-              <TerminalChip />
-              <div className={`flex items-center justify-center gap-4 mt-6 transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ transitionDelay: show ? "900ms" : "0ms" }}>
-                <Link href={siteConfig.appUrl} className="font-ui font-semibold bg-(--foreground) text-(--background) px-7 py-3 rounded-full text-[14px] hover:opacity-90 transition-opacity">
-                  Get started free
-                </Link>
-                <Link href={siteConfig.docsUrl} className="font-ui font-medium text-[14px] text-(--foreground)/40 hover:text-(--foreground)/70 transition-colors flex items-center gap-1.5">
-                  Docs <ArrowUpRight size={14} />
-                </Link>
-              </div>
+            <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "750ms" : "0ms" }} id="hero-demo-wrapper">
+              <HeroDemo />
             </div>
           </div>
         </div>
