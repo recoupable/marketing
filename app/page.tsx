@@ -277,12 +277,16 @@ export default function HomePage() {
       <section className="py-24 sm:py-32 dark-section text-white relative overflow-hidden">
         <div ref={arch.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 relative z-10 ${arch.cls}`}>
           <div className="text-center mb-12">
-            <p className="text-[11px] font-semibold text-white/20 uppercase tracking-[0.2em] mb-4" style={{ fontFamily: "var(--font-bitmap), monospace" }}>Open platform</p>
+            <div className="flex items-center justify-center gap-3 mb-5">
+              {["API", "MCP", "CLI"].map(m => (
+                <span key={m} className="text-[10px] font-pixel text-white/30 uppercase tracking-[0.15em] px-3 py-1.5 rounded-full border border-white/10">{m}</span>
+              ))}
+            </div>
             <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight text-white mb-5">
               It works where you work.
             </h2>
             <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
-              Use our chat, connect your own agent, or build with the API, MCP, and CLI. One platform, every interface.
+              Works with Claude, ChatGPT, Cursor, Windsurf, and any MCP-compatible agent. Or just use our chat.
             </p>
           </div>
 
