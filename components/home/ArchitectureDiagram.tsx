@@ -275,32 +275,22 @@ export function ArchitectureDiagram() {
       <div
         className={`rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
       >
-        <div className="relative">
-          {/* Terminal */}
+        <div className="relative" style={{ minHeight: "480px" }}>
           <div
-            className="transition-opacity duration-300"
+            className="absolute inset-0 transition-opacity duration-300"
             style={{
               opacity: activeTab === "terminal" ? 1 : 0,
               pointerEvents: activeTab === "terminal" ? "auto" : "none",
-              position: activeTab === "terminal" ? "relative" : "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
             }}
           >
             <TerminalView visible={visible && activeTab === "terminal"} />
           </div>
 
-          {/* Claude Cowork */}
           <div
-            className="transition-opacity duration-300"
+            className="absolute inset-0 transition-opacity duration-300"
             style={{
               opacity: activeTab === "claude" ? 1 : 0,
               pointerEvents: activeTab === "claude" ? "auto" : "none",
-              position: activeTab === "claude" ? "relative" : "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
             }}
           >
             <ClaudeCoworkView />
