@@ -8,7 +8,7 @@ import { PostCard } from "@/components/blog/PostCard";
  * SEO metadata for the blog index page.
  */
 export const metadata: Metadata = buildPageMetadata({
-  title: `Music Marketing Blog — AI Agents & Artist Growth | ${siteConfig.name}`,
+  title: `Blog — AI Music Agents, Artist Growth & Music Ops | ${siteConfig.name}`,
   description:
     "Insights on AI-powered music marketing, content creation, and artist growth. Tutorials, case studies, and building-in-public updates from the Recoup team.",
   path: "/blog",
