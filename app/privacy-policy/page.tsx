@@ -3,9 +3,8 @@ import { buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Privacy Policy | Recoupable",
-  description:
-    "How Recoupable collects, uses, and protects your information.",
+  title: `Privacy Policy — How We Protect Your Data | ${siteConfig.name}`,
+  description: `How ${siteConfig.name} collects, uses, and protects your information. GDPR rights, cookies, data retention, and security practices for users and agents.`,
   path: "/privacy-policy",
 });
 
@@ -26,7 +25,7 @@ export default function PrivacyPolicyPage() {
       <div className="prose prose-lg max-w-none text-[var(--foreground)]">
         <h2>Introduction</h2>
         <p>
-          At Recoupable (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or
+          At Recoup (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or
           &ldquo;us&rdquo;), we are committed to protecting your privacy and
           ensuring the security of your personal information. This Privacy Policy
           explains how we collect, use, disclose, and safeguard your information

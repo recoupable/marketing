@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 const COMPANY_LINKS = [
-  { label: "Vision", href: "/vision" },
-  { label: "Recoupable Records", href: "/records" },
-  { label: "About", href: "/about" },
+  { label: "Vision", href: "/company/vision" },
+  { label: `${siteConfig.name} Records`, href: "/company/recoup-records" },
+  { label: "About", href: "/company/about" },
 ];
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Company | Recoupable",
-  description:
-    "Vision, Recoupable Records, and about. The company building the future of music operations.",
+  title: `Company — Vision, ${siteConfig.name} Records & Story | ${siteConfig.name}`,
+  description: `Meet ${siteConfig.name} — vision, ${siteConfig.name} Records, and what we're building. The company behind the AI-powered autonomous music operations platform.`,
   path: "/company",
 });
 
@@ -24,7 +24,7 @@ export default function CompanyPage() {
           Company
         </h1>
         <p className="text-xl text-[var(--muted-foreground)]">
-          Vision, Recoupable Records, and who we are.
+          Vision, {siteConfig.name} Records, and who we are.
         </p>
       </header>
 

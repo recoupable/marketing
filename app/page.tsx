@@ -344,7 +344,7 @@ export default function HomePage() {
 
         <div ref={cta.ref} className={`max-w-[700px] mx-auto px-6 text-center relative z-10 ${cta.cls}`}>
           <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.95] text-white mb-12">
-            The agentic music industry runs on Recoupable.
+            The agentic music industry runs on {siteConfig.name}.
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href={siteConfig.appUrl} className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:-translate-y-0.5">

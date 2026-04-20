@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/config";
 const API_KEY =
   process.env.RECOUP_PROD_API_KEY || process.env.RECOUP_DEV_API_KEY;
 
-const SYSTEM_PROMPT = `You are a music industry AI assistant on the Recoupable website demo. Keep responses concise (under 200 words). Always format with rich markdown:
+const SYSTEM_PROMPT = `You are a music industry AI assistant on the ${siteConfig.name} website demo. Keep responses concise (under 200 words). Always format with rich markdown:
 
 - Use **bold** for artist names, numbers, and key metrics
 - Use bullet points (- ) for lists

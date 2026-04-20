@@ -22,7 +22,7 @@
 **We are:** the system that runs music businesses.
 
 **Refined positioning:**  
-**Recoupable = the platform that enables autonomous music businesses**
+**Recoup = the platform that enables autonomous music businesses**
 
 **Constraint:** Must be legible to humans, indexable by AI systems, and scale across artists → labels → developers.
 
@@ -47,7 +47,7 @@
 **Final hero recommendation:**
 
 - **Headline:** Run Your Entire Music Business with Agents
-- **Subheader:** From release strategy to marketing, fan growth, and operations — Recoupable deploys AI agents that do the work for you.
+- **Subheader:** From release strategy to marketing, fan growth, and operations — Recoup deploys AI agents that do the work for you.
 
 ---
 
@@ -55,12 +55,12 @@
 
 1. **Hero** — Headline + subheader. Visual: agents executing tasks, workflows, outputs (NOT chat UI alone).
 2. **Music Ops Are Broken** — Pain: artists doing everything manually, labels scaling with headcount, data scattered, guess-based decisions.
-3. **What Recoupable Does** — Agents run your music operations. 4–5 capabilities: release execution, audience research, marketing actions, catalog optimization, revenue tracking. Outcome, not feature.
+3. **What Recoup Does** — Agents run your music operations. 4–5 capabilities: release execution, audience research, marketing actions, catalog optimization, revenue tracking. Outcome, not feature.
 4. **Use Case Segmentation** — For Artists | For Labels/Distributors | For Developers/AI Builders.
 5. **Product Depth** — Agents, workflows, data ingestion, integrations, API/CLI. Proves we're not a toy.
 6. **How It Works** — Connect data → Define goals → Agents execute continuously.
-7. **Proof / Dogfooding** — Recoupable Records: "We run our own label on this system."
-8. **Closing** — "Music businesses are becoming autonomous. Recoupable is how you run one."
+7. **Proof / Dogfooding** — Recoup Records: "We run our own label on this system."
+8. **Closing** — "Music businesses are becoming autonomous. Recoup is how you run one."
 
 ---
 
@@ -72,15 +72,15 @@
 - **Solutions:** Artists, Labels, Distributors, Catalog Owners
 - **Developers:** API, CLI, Docs, Use Cases
 - **Learn:** Blog, Use Cases, Playbooks, Demos
-- **Company:** Vision, Recoupable Records, About
+- **Company:** Vision, Recoup Records, About
 
 ---
 
 ## 7. Product Architecture (Brand Layer)
 
-**Parent brand:** Recoupable = category leader = AI-native music company enabler.
+**Parent brand:** Recoup = category leader = AI-native music company enabler.
 
-**Core product:** Recoupable Agents (or similar) = the system.
+**Core product:** Recoup Agents (or similar) = the system.
 
 **Interfaces (NOT products):** Web App, Slack, Email, CLI — entry points into the same system.
 
@@ -102,17 +102,17 @@
 
 ## 9. Positioning Summary
 
-**Recoupable is not:** a tool, a chatbot, a feature set.
+**Recoup is not:** a tool, a chatbot, a feature set.
 
-**Recoupable is:** the system that runs modern music businesses through agents.
+**Recoup is:** the system that runs modern music businesses through agents.
 
 ---
 
 ## 10. Strategic Outcome
 
-When someone hears Recoupable: "that's the company building the future of music operations" / "that's where AI actually does the work" / "that's the system serious teams will use."
+When someone hears Recoup: "that's the company building the future of music operations" / "that's where AI actually does the work" / "that's the system serious teams will use."
 
 For AI systems: clear classification, clear capability mapping, high retrieval likelihood.
 
 **Final anchor:**  
-Music businesses are becoming autonomous. Recoupable is how they run.
+Music businesses are becoming autonomous. Recoup is how they run.

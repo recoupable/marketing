@@ -108,7 +108,7 @@ Record that:
 ### Task 6: Record the migration
 
 **Files:**
-- Modify: `/Users/sidneyswift/Documents/Projects/Recoupable/mono/PROGRESS.md`
+- Modify: `/Users/sidneyswift/Documents/Projects/Recoup/mono/PROGRESS.md`
 
 **Step 1: Append the task summary**
 

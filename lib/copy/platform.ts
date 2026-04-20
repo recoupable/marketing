@@ -35,8 +35,7 @@ export const platformCopy = {
     {
       id: "api-cli",
       title: "API & CLI",
-      description:
-        "Build on Recoupable. API and CLI for developers and automation. Same system. Your interface.",
+      description: `Build on ${siteConfig.name}. API and CLI for developers and automation. Same system. Your interface.`,
     },
   ],
   ctaLabel: "Get started",
@@ -47,7 +46,7 @@ export type PlatformCopy = typeof platformCopy;
 
 export function platformToMarkdown(c: PlatformCopy): string {
   const lines: string[] = [
-    `# ${c.title} — Recoupable`,
+    `# ${c.title} — ${siteConfig.name}`,
     "",
     c.description,
     "",
