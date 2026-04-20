@@ -9,8 +9,8 @@ const COMPANY_LINKS = [
 ];
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `Company | ${siteConfig.name}`,
-  description: `Vision, ${siteConfig.name} Records, and about. The company building the future of music operations.`,
+  title: `Company — Vision, ${siteConfig.name} Records & Story | ${siteConfig.name}`,
+  description: `Meet ${siteConfig.name} — vision, ${siteConfig.name} Records, and what we're building. The company behind the AI-powered autonomous music operations platform.`,
   path: "/company",
 });
 

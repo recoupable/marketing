@@ -4,9 +4,9 @@ import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `Playbooks | Learn | ${siteConfig.name}`,
+  title: `Playbooks — Music Agent Workflows & Strategies | ${siteConfig.name}`,
   description:
-    "Step-by-step playbooks for music operations with agents. Release strategy, content, growth.",
+    "Step-by-step playbooks for music operations with AI agents. Release strategy, content creation, fan growth, and end-to-end workflows for artists and labels.",
   path: "/learn/playbooks",
 });
 

@@ -5,9 +5,9 @@ import { buildPageMetadata } from "@/lib/seo";
 import { learnCopy } from "@/lib/copy/learn";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `Resources | ${siteConfig.name}`,
+  title: `Learn — Music Ops With AI Agents | Resources | ${siteConfig.name}`,
   description:
-    "Blog, use cases, playbooks, and demos. How to run your music business with agents.",
+    "Blog, use cases, playbooks, and demos. How to run your music business with AI agents — release strategy, content, fan growth, and operations.",
   path: "/learn",
 });
 

@@ -5,8 +5,8 @@ import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `Vision | Company | ${siteConfig.name}`,
-  description: companyVisionCopy.anchor,
+  title: `Vision — Autonomous Music Businesses, Run by AI | ${siteConfig.name}`,
+  description: `The platform for autonomous music operations. Our vision — artists and labels running release strategy, marketing, fans, and revenue with AI agents on ${siteConfig.name}.`,
   path: "/company/vision",
 });
 

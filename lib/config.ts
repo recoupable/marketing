@@ -37,9 +37,9 @@ export const siteConfig = {
   /** Default OG / metadata values (overridden per-page via generateMetadata) */
   metadata: {
     titleTemplate: "%s | Recoup",
-    defaultTitle: "Recoup — Your label. Run by agents.",
+    defaultTitle: "Recoup — Your Label, Run by AI Agents for Music Ops",
     defaultDescription:
-      "You create. Agents run strategy, content, fans, revenue. One system for artists, labels, distributors.",
+      "You create. AI agents run strategy, content, fans, and revenue. One system for artists, labels, distributors, and catalog owners.",
     locale: "en_US",
     type: "website",
   },

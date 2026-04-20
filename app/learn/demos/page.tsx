@@ -4,8 +4,8 @@ import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `Demos | Learn | ${siteConfig.name}`,
-  description: `See ${siteConfig.name} in action. Demos and walkthroughs of agents running music operations.`,
+  title: `Demos — See Music Agents in Action | Learn | ${siteConfig.name}`,
+  description: `See ${siteConfig.name} in action. Demos and walkthroughs of AI agents running music operations — releases, marketing, fan growth, and catalog analysis.`,
   path: "/learn/demos",
 });
 

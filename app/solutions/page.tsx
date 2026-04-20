@@ -5,8 +5,9 @@ import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `Solutions | ${siteConfig.name}`,
-  description: solutionsCopy.description,
+  title: `Solutions — For Artists, Labels & Distributors | ${siteConfig.name}`,
+  description:
+    "AI-powered solutions for artists, labels, distributors, and catalog owners. One system. Agents run your music operations — strategy, content, and fans.",
   path: "/solutions",
 });
 

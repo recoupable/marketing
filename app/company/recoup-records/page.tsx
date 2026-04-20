@@ -5,8 +5,8 @@ import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `${siteConfig.name} Records | Company | ${siteConfig.name}`,
-  description: companyRecoupRecordsCopy.subtitle,
+  title: `${siteConfig.name} Records — Our AI-Run Music Label | ${siteConfig.name}`,
+  description: `${siteConfig.name} Records runs on our own platform. Every release, marketing push, and piece of content executed by AI agents — the proof the system works.`,
   path: "/company/recoup-records",
 });
 

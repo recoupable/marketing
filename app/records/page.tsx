@@ -3,9 +3,8 @@ import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `${siteConfig.name} Records | ${siteConfig.name}`,
-  description:
-    "Our label. Run entirely by agents. The proof that the platform works.",
+  title: `${siteConfig.name} Records — A Label Run Entirely by AI Agents`,
+  description: `${siteConfig.name} Records — our in-house music label, run entirely by AI agents. The proof the platform works: releases, marketing, and content all automated.`,
   path: "/records",
 });
 
