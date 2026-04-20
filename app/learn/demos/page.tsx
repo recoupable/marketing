@@ -4,9 +4,8 @@ import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Demos | Learn | Recoup",
-  description:
-    "See Recoup in action. Demos and walkthroughs of agents running music operations.",
+  title: `Demos | Learn | ${siteConfig.name}`,
+  description: `See ${siteConfig.name} in action. Demos and walkthroughs of agents running music operations.`,
   path: "/learn/demos",
 });
 
@@ -27,7 +26,7 @@ export default function DemosPage() {
           Demos
         </h1>
         <p className="text-xl text-[var(--muted-foreground)]">
-          See Recoup in action. Agents running music operations.
+          See {siteConfig.name} in action. Agents running music operations.
         </p>
       </header>
       <div className="border border-[var(--border)] rounded-lg p-6">
@@ -38,7 +37,7 @@ export default function DemosPage() {
           href={siteConfig.appUrl}
           className="inline-block bg-[var(--foreground)] text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-[var(--foreground)]/90 transition-colors"
         >
-          Try Recoup
+          Try {siteConfig.name}
         </Link>
       </div>
     </div>

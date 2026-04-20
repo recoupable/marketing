@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { platformCopy } from "@/lib/copy/platform";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Platform | Recoup",
+  title: `Platform | ${siteConfig.name}`,
   description: platformCopy.description,
   path: "/platform",
 });

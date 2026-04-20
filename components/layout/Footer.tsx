@@ -29,7 +29,7 @@ const FOOTER_NAV = [
     links: [
       { href: "/company/about", label: "About" },
       { href: "/company/vision", label: "Vision" },
-      { href: "/company/recoup-records", label: "Recoup Records" },
+      { href: "/company/recoup-records", label: `${siteConfig.name} Records` },
       { href: `mailto:${siteConfig.contactEmail}`, label: "Contact" },
     ],
   },

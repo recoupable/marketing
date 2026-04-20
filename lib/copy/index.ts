@@ -3,6 +3,7 @@
  * Human pages import copy from here; machine view gets markdown via getMarkdownForPath.
  * Edit copy in lib/copy/<page>.ts only; both views stay in sync.
  */
+import { siteConfig } from "@/lib/config";
 import { homeCopy, homeToMarkdown } from "./home";
 import { platformCopy, platformToMarkdown } from "./platform";
 import { solutionsCopy, solutionsToMarkdown } from "./solutions";
@@ -53,7 +54,7 @@ export function getMarkdownForPath(pathname: string): string {
   const key = pathToKey(pathname);
   const entry = registry[key];
   if (!entry) {
-    return `# Recoup\n\nMachine-readable view for \`${pathname}\` is not yet available.\n\n[Back to site](/)`;
+    return `# ${siteConfig.name}\n\nMachine-readable view for \`${pathname}\` is not yet available.\n\n[Back to site](/)`;
   }
   const copy = entry.getCopy();
   return entry.toMarkdown(copy);

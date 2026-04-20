@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Use Cases | Learn | Recoup",
+  title: `Use Cases | Learn | ${siteConfig.name}`,
   description:
     "Real examples of running music operations with agents. Release automation, marketing, catalog management.",
   path: "/learn/use-cases",

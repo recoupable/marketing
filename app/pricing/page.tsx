@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Pricing | Recoup",
+  title: `Pricing | ${siteConfig.name}`,
   description:
     "Start free. Scale when ready. Plans for artists, managers, and labels.",
   path: "/pricing",

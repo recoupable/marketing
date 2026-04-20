@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { companyAboutCopy } from "@/lib/copy/company";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About | Company | Recoup",
+  title: `About | Company | ${siteConfig.name}`,
   description: companyAboutCopy.description,
   path: "/company/about",
 });

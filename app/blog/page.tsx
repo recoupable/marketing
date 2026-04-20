@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/posts";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 import { PostCard } from "@/components/blog/PostCard";
 
@@ -7,7 +8,7 @@ import { PostCard } from "@/components/blog/PostCard";
  * SEO metadata for the blog index page.
  */
 export const metadata: Metadata = buildPageMetadata({
-  title: "Blog | Recoup",
+  title: `Blog | ${siteConfig.name}`,
   description:
     "Insights on AI-powered music marketing, content creation, and artist growth. Tutorials, case studies, and building-in-public updates.",
   path: "/blog",

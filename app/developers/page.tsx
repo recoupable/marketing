@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { developersCopy } from "@/lib/copy/developers";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Developers | Recoup",
+  title: `Developers | ${siteConfig.name}`,
   description: developersCopy.description,
   path: "/developers",
 });

@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useHumanMachine } from "@/contexts/HumanMachineContext";
+import { siteConfig } from "@/lib/config";
 import { useEffect, useState } from "react";
 
 /**
@@ -47,8 +48,8 @@ export function MachineContent({ children }: { children: React.ReactNode }) {
           </pre>
         )}
         <p className="mt-8 pt-6 border-t border-[#30363d] text-xs text-[#8b949e]">
-          Recoup — machine-readable view for agents. Same content as the
-          human page, in Markdown.
+          {siteConfig.name} — machine-readable view for agents. Same content
+          as the human page, in Markdown.
         </p>
       </div>
     </div>

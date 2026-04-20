@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Playbooks | Learn | Recoup",
+  title: `Playbooks | Learn | ${siteConfig.name}`,
   description:
     "Step-by-step playbooks for music operations with agents. Release strategy, content, growth.",
   path: "/learn/playbooks",

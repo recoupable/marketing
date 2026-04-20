@@ -3,8 +3,8 @@ import { buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Terms of Use | Recoup",
-  description: "Terms and conditions for using Recoup services.",
+  title: `Terms of Use | ${siteConfig.name}`,
+  description: `Terms and conditions for using ${siteConfig.name} services.`,
   path: "/terms-of-use",
 });
 

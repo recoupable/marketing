@@ -3,9 +3,8 @@ import { buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Privacy Policy | Recoup",
-  description:
-    "How Recoup collects, uses, and protects your information.",
+  title: `Privacy Policy | ${siteConfig.name}`,
+  description: `How ${siteConfig.name} collects, uses, and protects your information.`,
   path: "/privacy-policy",
 });
 

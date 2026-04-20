@@ -11,8 +11,7 @@ export const developersCopy = {
     {
       id: "api",
       title: "API",
-      description:
-        "Agents, workflows, data. Programmatic access. Integrate Recoup into your tools and pipelines.",
+      description: `Agents, workflows, data. Programmatic access. Integrate ${siteConfig.name} into your tools and pipelines.`,
       linkLabel: "API reference",
       linkHref: siteConfig.docsUrl,
     },
@@ -45,7 +44,7 @@ export type DevelopersCopy = typeof developersCopy;
 
 export function developersToMarkdown(c: DevelopersCopy): string {
   const lines: string[] = [
-    `# ${c.title} — Recoup`,
+    `# ${c.title} — ${siteConfig.name}`,
     "",
     c.description,
     "",

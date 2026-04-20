@@ -1,6 +1,7 @@
 /**
  * Learn/Resources page copy — single source for machine markdown.
  */
+import { siteConfig } from "@/lib/config";
 
 const RESOURCE_LINKS = [
   { label: "Blog", href: "/resources" },
@@ -16,7 +17,7 @@ export const learnCopy = {
 
 export function learnToMarkdown(c: typeof learnCopy): string {
   return [
-    `# ${c.title} — Recoup`,
+    `# ${c.title} — ${siteConfig.name}`,
     "",
     c.description,
     "",

@@ -45,7 +45,7 @@ export type SolutionsCopy = typeof solutionsCopy;
 
 export function solutionsToMarkdown(c: SolutionsCopy): string {
   const lines: string[] = [
-    `# ${c.title} — Recoup`,
+    `# ${c.title} — ${siteConfig.name}`,
     "",
     c.description,
     "",
