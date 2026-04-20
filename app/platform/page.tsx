@@ -4,7 +4,7 @@ import { platformCopy } from "@/lib/copy/platform";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Platform | Recoupable",
+  title: "Platform | Recoup",
   description: platformCopy.description,
   path: "/platform",
 });

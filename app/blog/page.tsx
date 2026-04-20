@@ -7,7 +7,7 @@ import { PostCard } from "@/components/blog/PostCard";
  * SEO metadata for the blog index page.
  */
 export const metadata: Metadata = buildPageMetadata({
-  title: "Blog | Recoupable",
+  title: "Blog | Recoup",
   description:
     "Insights on AI-powered music marketing, content creation, and artist growth. Tutorials, case studies, and building-in-public updates.",
   path: "/blog",

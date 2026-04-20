@@ -29,7 +29,7 @@ const FOOTER_NAV = [
     links: [
       { href: "/company/about", label: "About" },
       { href: "/company/vision", label: "Vision" },
-      { href: "/company/recoupable-records", label: "Recoupable Records" },
+      { href: "/company/recoup-records", label: "Recoup Records" },
       { href: `mailto:${siteConfig.contactEmail}`, label: "Contact" },
     ],
   },
@@ -52,7 +52,7 @@ export function Footer() {
                 height={24}
                 className="h-6 w-6"
               />
-              <span className="font-ui font-bold text-[15px] text-(--foreground)">Recoupable</span>
+              <span className="font-ui font-bold text-[15px] text-(--foreground)">Recoup</span>
             </Link>
             <p className="text-[13px] text-(--foreground)/35 leading-relaxed max-w-[260px] mb-6">
               The AI-native platform for the music industry.

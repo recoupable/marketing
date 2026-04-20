@@ -4,7 +4,7 @@ import { solutionsCopy } from "@/lib/copy/solutions";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Solutions | Recoupable",
+  title: "Solutions | Recoup",
   description: solutionsCopy.description,
   path: "/solutions",
 });

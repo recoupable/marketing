@@ -45,7 +45,7 @@ export type SolutionsCopy = typeof solutionsCopy;
 
 export function solutionsToMarkdown(c: SolutionsCopy): string {
   const lines: string[] = [
-    `# ${c.title} — Recoupable`,
+    `# ${c.title} — Recoup`,
     "",
     c.description,
     "",

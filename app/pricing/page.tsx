@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Pricing | Recoupable",
+  title: "Pricing | Recoup",
   description:
     "Start free. Scale when ready. Plans for artists, managers, and labels.",
   path: "/pricing",

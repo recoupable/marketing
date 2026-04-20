@@ -4,7 +4,7 @@ import { developersCopy } from "@/lib/copy/developers";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Developers | Recoupable",
+  title: "Developers | Recoup",
   description: developersCopy.description,
   path: "/developers",
 });

@@ -4,7 +4,7 @@ import { buildPageMetadata } from "@/lib/seo";
 import { learnCopy } from "@/lib/copy/learn";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Resources | Recoupable",
+  title: "Resources | Recoup",
   description:
     "Blog, use cases, playbooks, and demos. How to run your music business with agents.",
   path: "/learn",

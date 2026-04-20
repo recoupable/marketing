@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Resources | Recoupable",
+  title: "Resources | Recoup",
   description:
     "Blog, use cases, playbooks, and demos. Learn how to run your music business with AI agents.",
   path: "/resources",

@@ -4,7 +4,7 @@ import { companyAboutCopy } from "@/lib/copy/company";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About | Company | Recoupable",
+  title: "About | Company | Recoup",
   description: companyAboutCopy.description,
   path: "/company/about",
 });

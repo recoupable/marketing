@@ -3,7 +3,7 @@
  * URLs, and metadata defaults. Import from here, never hardcode.
  */
 export const siteConfig = {
-  name: "Recoupable",
+  name: "Recoup",
   legalName: "Recoupable LLC",
   tagline: "AI agents for music",
   description:
@@ -36,8 +36,8 @@ export const siteConfig = {
 
   /** Default OG / metadata values (overridden per-page via generateMetadata) */
   metadata: {
-    titleTemplate: "%s | Recoupable",
-    defaultTitle: "Recoupable — Your label. Run by agents.",
+    titleTemplate: "%s | Recoup",
+    defaultTitle: "Recoup — Your label. Run by agents.",
     defaultDescription:
       "You create. Agents run strategy, content, fans, revenue. One system for artists, labels, distributors.",
     locale: "en_US",

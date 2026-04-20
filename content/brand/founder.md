@@ -4,7 +4,7 @@
 
 ## Who
 
-Sidney Swift — founder of Recoupable. Builder, musician, and AI-curious technologist who started asking: "What if an AI could handle the marketing grind for artists?"
+Sidney Swift — founder of Recoup. Builder, musician, and AI-curious technologist who started asking: "What if an AI could handle the marketing grind for artists?"
 
 ## The Origin
 
@@ -12,7 +12,7 @@ Sidney experienced the content grind firsthand. Creating social content, formatt
 
 ## The Gatsby Grace Experiment
 
-The proof point that validated everything. Sidney created Gatsby Grace — an AI-driven artist persona — and used Recoupable to run her entire content pipeline:
+The proof point that validated everything. Sidney created Gatsby Grace — an AI-driven artist persona — and used Recoup to run her entire content pipeline:
 
 - 22 finished videos in one session
 - Captioned, formatted, and queued — zero manual editing
@@ -31,7 +31,7 @@ This wasn't a demo. It was a working system. And it proved that AI agents could 
 
 ## Milestones
 
-- Built Recoupable platform (chat + API + tasks infrastructure)
+- Built Recoup platform (chat + API + tasks infrastructure)
 - Gatsby Grace experiment: validated AI content pipeline end-to-end
 - CLI tool published to npm (`recoup` command)
 - Skills system: modular AI agent capabilities

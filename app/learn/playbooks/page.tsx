@@ -3,7 +3,7 @@ import Link from "next/link";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Playbooks | Learn | Recoupable",
+  title: "Playbooks | Learn | Recoup",
   description:
     "Step-by-step playbooks for music operations with agents. Release strategy, content, growth.",
   path: "/learn/playbooks",

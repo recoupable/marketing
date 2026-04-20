@@ -3,14 +3,14 @@ import Link from "next/link";
 import { buildPageMetadata } from "@/lib/seo";
 const COMPANY_LINKS = [
   { label: "Vision", href: "/vision" },
-  { label: "Recoupable Records", href: "/records" },
+  { label: "Recoup Records", href: "/records" },
   { label: "About", href: "/about" },
 ];
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Company | Recoupable",
+  title: "Company | Recoup",
   description:
-    "Vision, Recoupable Records, and about. The company building the future of music operations.",
+    "Vision, Recoup Records, and about. The company building the future of music operations.",
   path: "/company",
 });
 
@@ -24,7 +24,7 @@ export default function CompanyPage() {
           Company
         </h1>
         <p className="text-xl text-[var(--muted-foreground)]">
-          Vision, Recoupable Records, and who we are.
+          Vision, Recoup Records, and who we are.
         </p>
       </header>
 

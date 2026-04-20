@@ -1,6 +1,6 @@
 # marketing
 
-Recoupable's public marketing website — Next.js 16, React 19, Tailwind CSS v4.
+Recoup's public marketing website — Next.js 16, React 19, Tailwind CSS v4.
 
 ## Structure
 

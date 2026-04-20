@@ -2,9 +2,9 @@
 
 > Updated: 2026-03-16. Full strategy: see `content/brand/website-structure-report.md`.
 
-## What Recoupable Is
+## What Recoup Is
 
-Recoupable is **the platform that enables autonomous music businesses.** We are the system that runs music businesses through agents — not a chatbot, not a tool, not a feature set.
+Recoup is **the platform that enables autonomous music businesses.** We are the system that runs music businesses through agents — not a chatbot, not a tool, not a feature set.
 
 **Category (external):** Run your music business with agents.  
 **Category (internal):** Autonomous Music Infrastructure.
@@ -12,9 +12,9 @@ Recoupable is **the platform that enables autonomous music businesses.** We are 
 ## Core Messaging
 
 - **Headline:** Run Your Entire Music Business with Agents
-- **Subheader:** From release strategy to marketing, fan growth, and operations — Recoupable deploys AI agents that do the work for you.
+- **Subheader:** From release strategy to marketing, fan growth, and operations — Recoup deploys AI agents that do the work for you.
 - **Tagline (supporting):** Spend more time doing what you love. Let agents handle the rest.
-- **Closing anchor:** Music businesses are becoming autonomous. Recoupable is how they run.
+- **Closing anchor:** Music businesses are becoming autonomous. Recoup is how they run.
 
 ## Who It's For
 

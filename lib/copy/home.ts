@@ -98,7 +98,7 @@ export const homeCopy = {
       "Music ops. Agent infrastructure. Run a label without burnout.",
   },
   closing: {
-    line1: "Music's going autonomous. Recoupable's the infrastructure.",
+    line1: "Music's going autonomous. Recoup's the infrastructure.",
     line2: "Build your label. Run it with agents.",
     ctaLabel: "Get started",
     ctaHref: siteConfig.appUrl,
@@ -114,7 +114,7 @@ export type HomeCopy = typeof homeCopy;
 
 export function homeToMarkdown(c: HomeCopy): string {
   const lines: string[] = [
-    "# Recoupable",
+    "# Recoup",
     "",
     `**${c.hero.headline}**`,
     "",

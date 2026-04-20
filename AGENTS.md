@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This is the Recoupable marketing site — public website, blog, SEO pages,
+This is the Recoup marketing site — public website, blog, SEO pages,
 subscribe flow, CRM integration, and shared content/context for the full
 marketing funnel.
 

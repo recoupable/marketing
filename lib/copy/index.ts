@@ -15,8 +15,8 @@ import {
   companyVisionToMarkdown,
   companyAboutCopy,
   companyAboutToMarkdown,
-  companyRecoupableRecordsCopy,
-  companyRecoupableRecordsToMarkdown,
+  companyRecoupRecordsCopy,
+  companyRecoupRecordsToMarkdown,
 } from "./company";
 
 /** Pathname (no trailing slash) -> copy getter + toMarkdown */
@@ -32,9 +32,9 @@ const registry: Record<
   company: { getCopy: () => companyIndexCopy, toMarkdown: (c) => companyIndexToMarkdown(c as typeof companyIndexCopy) },
   "company/vision": { getCopy: () => companyVisionCopy, toMarkdown: (c) => companyVisionToMarkdown(c as typeof companyVisionCopy) },
   "company/about": { getCopy: () => companyAboutCopy, toMarkdown: (c) => companyAboutToMarkdown(c as typeof companyAboutCopy) },
-  "company/recoupable-records": {
-    getCopy: () => companyRecoupableRecordsCopy,
-    toMarkdown: (c) => companyRecoupableRecordsToMarkdown(c as typeof companyRecoupableRecordsCopy),
+  "company/recoup-records": {
+    getCopy: () => companyRecoupRecordsCopy,
+    toMarkdown: (c) => companyRecoupRecordsToMarkdown(c as typeof companyRecoupRecordsCopy),
   },
 };
 
@@ -53,7 +53,7 @@ export function getMarkdownForPath(pathname: string): string {
   const key = pathToKey(pathname);
   const entry = registry[key];
   if (!entry) {
-    return `# Recoupable\n\nMachine-readable view for \`${pathname}\` is not yet available.\n\n[Back to site](/)`;
+    return `# Recoup\n\nMachine-readable view for \`${pathname}\` is not yet available.\n\n[Back to site](/)`;
   }
   const copy = entry.getCopy();
   return entry.toMarkdown(copy);
@@ -67,7 +67,7 @@ export { developersCopy } from "./developers";
 export {
   companyVisionCopy,
   companyAboutCopy,
-  companyRecoupableRecordsCopy,
+  companyRecoupRecordsCopy,
   companyIndexCopy,
 } from "./company";
 export { learnCopy } from "./learn";

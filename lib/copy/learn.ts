@@ -16,7 +16,7 @@ export const learnCopy = {
 
 export function learnToMarkdown(c: typeof learnCopy): string {
   return [
-    `# ${c.title} — Recoupable`,
+    `# ${c.title} — Recoup`,
     "",
     c.description,
     "",

@@ -4,7 +4,7 @@ import { companyVisionCopy } from "@/lib/copy/company";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Vision | Company | Recoupable",
+  title: "Vision | Company | Recoup",
   description: companyVisionCopy.anchor,
   path: "/company/vision",
 });
