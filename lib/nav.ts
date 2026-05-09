@@ -4,13 +4,11 @@
  */
 import { siteConfig } from "@/lib/config";
 
-export const nav: readonly { label: string; href: string; external?: boolean }[] = [];
-
-
-// Unhide when pages are ready:
-// { label: "Resources", href: "/resources" },
-// { label: "Records", href: "/records" },
-// { label: "Pricing", href: "/pricing" },
+export const nav: readonly { label: string; href: string; external?: boolean }[] = [
+  { label: "Pricing", href: "/pricing" },
+  { label: "Advisory", href: "/advisory" },
+  { label: "Blog", href: "/blog" },
+];
 
 export const footerNav = {
   product: {
