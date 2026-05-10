@@ -47,12 +47,20 @@ export function PlaybookForm() {
       <div className="rounded-2xl border border-green-500/20 bg-green-500/5 p-8 text-center">
         <div className="text-3xl mb-3">🎉</div>
         <h3 className="text-xl font-bold mb-2">You&apos;re in.</h3>
-        <p className="text-[var(--muted-foreground)] text-sm">
-          Check your inbox — the playbook is on its way. While you wait, check out our{" "}
+        <p className="text-[var(--muted-foreground)] text-sm mb-4">
+          Your playbook is ready.
+        </p>
+        <a
+          href="/playbook/download"
+          className="inline-block rounded-lg bg-[var(--foreground)] text-[var(--background)] px-6 py-3 text-sm font-semibold hover:opacity-90 transition-opacity"
+        >
+          Read the Playbook →
+        </a>
+        <p className="text-[var(--muted-foreground)] text-xs mt-3">
+          Want hands-on help?{" "}
           <a href="/advisory" className="underline hover:text-[var(--foreground)]">
-            advisory services
-          </a>{" "}
-          for hands-on AI strategy help.
+            Book an advisory session
+          </a>
         </p>
       </div>
     );
