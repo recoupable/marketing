@@ -4,7 +4,7 @@
 
 ## Core Voice
 
-Recoupable sounds like a smart, no-BS friend who works in music tech. Not a corporation. Not a hype machine. Someone who's been in the studio at 2am AND understands marketing analytics.
+Recoup sounds like a smart, no-BS friend who works in music tech. Not a corporation. Not a hype machine. Someone who's been in the studio at 2am AND understands marketing analytics.
 
 ## Rules
 

@@ -41,7 +41,7 @@
 
 ## Bad Example (Rejected ❌)
 
-> Recoupable is a revolutionary AI platform that leverages cutting-edge
+> Recoup is a revolutionary AI platform that leverages cutting-edge
 > technology to transform the music industry!
 
 **WHY REJECTED:** "Revolutionary" — empty superlative. "Leverages" — corporate jargon (say "uses"). "Cutting-edge" — cliché that signals nothing new to say. "Transform the music industry" — grandiose claim with no proof. Exclamation mark — shouting because the words aren't doing the work. Violates every rule in voice.md.
@@ -51,7 +51,7 @@
 ## Bad Example (Rejected ❌)
 
 > In today's fast-paced digital landscape, artists need innovative solutions
-> to stay competitive. Recoupable offers a comprehensive suite of AI-powered
+> to stay competitive. Recoup offers a comprehensive suite of AI-powered
 > tools designed to maximize your marketing potential.
 
 **WHY REJECTED:** "In today's fast-paced..." — the most generic opening in AI-generated content. "Innovative solutions" — says nothing specific. "Comprehensive suite" — corporate catalog language. "Maximize your marketing potential" — what does this even mean? A reader learns nothing from this paragraph. Compare to the approved intro — by the end of three lines, you know exactly what happened and why it matters.

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { solutionsCopy } from "@/lib/copy/solutions";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Solutions | Recoupable",
-  description: solutionsCopy.description,
+  title: `Solutions — For Artists, Labels & Distributors | ${siteConfig.name}`,
+  description:
+    "AI-powered solutions for artists, labels, distributors, and catalog owners. One system. Agents run your music operations — strategy, content, and fans.",
   path: "/solutions",
 });
 

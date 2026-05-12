@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { platformCopy } from "@/lib/copy/platform";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Platform | Recoupable",
-  description: platformCopy.description,
+  title: `Platform — Agents, Workflows & API for Music Ops | ${siteConfig.name}`,
+  description:
+    "Agents, workflows, integrations, data, and API — one system that runs your music business. Not a chatbot. Not a feature bundle. Music-first infrastructure.",
   path: "/platform",
 });
 

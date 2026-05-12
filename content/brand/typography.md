@@ -4,7 +4,7 @@
 
 ## Design Principle
 
-Recoupable uses a **four-font system** where each typeface represents a layer of the brand:
+Recoup uses a **four-font system** where each typeface represents a layer of the brand:
 
 | Font | Represents | Feeling |
 |------|-----------|---------|
@@ -284,7 +284,7 @@ h3, h4, h5, h6 {
 
 **Why four fonts works here (when it usually doesn't):**
 
-Most sites should stick to 2 fonts. Recoupable gets away with 4 because each serves a non-overlapping role:
+Most sites should stick to 2 fonts. Recoup gets away with 4 because each serves a non-overlapping role:
 
 1. **Instrument Serif** never appears below H2 — it's the "voice" of the brand
 2. **Plus Jakarta Sans** handles everything that's clickable or structural — the "hands"
@@ -325,4 +325,4 @@ If you removed any one of these, the hierarchy would collapse or the personality
 | CSS variables & scale | `marketing/apps/web/app/globals.css` |
 | Local font files | `marketing/apps/web/public/fonts/` |
 | Brand logos | `marketing/apps/web/public/brand/` |
-| Illustration style | `marketing/apps/web/public/Recoupable-Illustration-Style-Guide.txt` |
+| Illustration style | `marketing/apps/web/public/Recoup-Illustration-Style-Guide.txt` |

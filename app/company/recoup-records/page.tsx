@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { companyRecoupableRecordsCopy } from "@/lib/copy/company";
+import { companyRecoupRecordsCopy } from "@/lib/copy/company";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Recoupable Records | Company | Recoupable",
-  description: companyRecoupableRecordsCopy.subtitle,
-  path: "/company/recoupable-records",
+  title: `${siteConfig.name} Records — Our AI-Run Music Label | ${siteConfig.name}`,
+  description: `${siteConfig.name} Records runs on our own platform. Every release, marketing push, and piece of content executed by AI agents — the proof the system works.`,
+  path: "/company/recoup-records",
 });
 
 /**
- * Company: Recoupable Records — copy from lib/copy/company (single source for human + machine view).
+ * Company: Recoup Records — copy from lib/copy/company (single source for human + machine view).
  */
-export default function RecoupableRecordsPage() {
-  const c = companyRecoupableRecordsCopy;
+export default function RecoupRecordsPage() {
+  const c = companyRecoupRecordsCopy;
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">

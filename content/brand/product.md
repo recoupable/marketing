@@ -4,7 +4,7 @@
 
 ## What It Does
 
-Recoupable is an AI agent platform that handles music marketing end-to-end: content creation, social distribution, audience analysis, and campaign management.
+Recoup is an AI agent platform that handles music marketing end-to-end: content creation, social distribution, audience analysis, and campaign management.
 
 ## How It Works
 
@@ -49,4 +49,4 @@ chat.recoupable.com (frontend) → recoup-api (backend) → Supabase (database)
 
 ## What Makes It Different
 
-Other tools help you _make_ content. Recoupable _is_ your marketing team. The AI agent doesn't just generate — it plans, creates, distributes, measures, and improves. Context-aware, learning, autonomous.
+Other tools help you _make_ content. Recoup _is_ your marketing team. The AI agent doesn't just generate — it plans, creates, distributes, measures, and improves. Context-aware, learning, autonomous.

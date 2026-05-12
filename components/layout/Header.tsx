@@ -24,7 +24,7 @@ export function Header() {
       <div className="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="shrink-0">
           <Image
-            src={theme === "dark" ? "/brand/recoupable-wordmark-white.svg" : "/brand/recoupable-wordmark-black.svg"}
+            src={theme === "dark" ? "/brand/recoup-wordmark-white.svg" : "/brand/recoup-wordmark-black.svg"}
             alt={siteConfig.name}
             width={140}
             height={28}

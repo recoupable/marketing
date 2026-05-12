@@ -29,28 +29,17 @@ interface SpotifyArtist {
 }
 
 const PROMPT_SUGGESTIONS = ["Audit releases", "Research report", "Similar artists", "Campaign plan"];
-const PLACEHOLDERS = ["Search any artist...", "Audit Drake's releases...", "Find R&B artists under 50K...", "Plan a campaign for Tyla..."];
+const FEATURED_ARTIST_NAMES = ["Drake", "Tyla", "SZA", "Doja Cat"];
+const CYCLE_INTERVAL_MS = 3500;
 const transport = new DefaultChatTransport({ api: "/api/demo" });
 
-function useCyclingPlaceholder(phrases: string[], intervalMs = 4000) {
-  const [idx, setIdx] = useState(0);
-  const [displayed, setDisplayed] = useState(phrases[0]);
-  const [fading, setFading] = useState(false);
-
-  useEffect(() => {
-    const iv = setInterval(() => {
-      setFading(true);
-      setTimeout(() => {
-        setIdx(i => (i + 1) % phrases.length);
-        setDisplayed(phrases[(idx + 1) % phrases.length]);
-        setFading(false);
-      }, 200);
-    }, intervalMs);
-    return () => clearInterval(iv);
-  }, [idx, phrases, intervalMs]);
-
-  return { text: displayed, fading };
-}
+// Follow-up action pills that appear under the latest assistant response.
+// Kept generic so they fit any response shape (research, similar artists, campaign, etc.).
+const RESPONSE_FOLLOWUPS = [
+  { label: "Tell me more", prompt: "Tell me more about this." },
+  { label: "Build a playlist", prompt: "Build a playlist from this." },
+  { label: "Plan a campaign", prompt: "Build a campaign brief from this." },
+];
 
 const THINKING_PHRASES = [
   "Summoning the data gods…",
@@ -172,7 +161,6 @@ function useSpotifySearch(query: string) {
 
 export function HeroDemo() {
   const { messages, sendMessage, status } = useChat({ transport });
-  const placeholder = useCyclingPlaceholder(PLACEHOLDERS, 3500);
   const [revealed, setRevealed] = useState(false);
   const [pulse, setPulse] = useState(false);
   const [islandPulse, setIslandPulse] = useState(false);
@@ -180,13 +168,60 @@ export function HeroDemo() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedIdx, setSelectedIdx] = useState(-1);
   const [pinnedArtist, setPinnedArtist] = useState<SpotifyArtist | null>(null);
+  const [featuredArtists, setFeaturedArtists] = useState<SpotifyArtist[]>([]);
+  const [autoCycle, setAutoCycle] = useState(true);
+  const [cycleIdx, setCycleIdx] = useState(0);
+  const [isInputFocused, setIsInputFocused] = useState(false);
   const hasMessages = messages.length > 0;
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const prevExpandedRef = useRef(false);
+  const prevStatusRef = useRef(status);
 
   const searchQuery = pinnedArtist ? "" : inputValue;
   const { results, loading } = useSpotifySearch(searchQuery);
+
+  const stopCycle = useCallback(() => {
+    setAutoCycle(false);
+  }, []);
+
+  // Fetch featured artists once so the cycling pills have real avatars + names.
+  // Falls back to no-op if Spotify search is unavailable — hero stays usable.
+  useEffect(() => {
+    let cancelled = false;
+    async function loadFeatured() {
+      const results = await Promise.all(
+        FEATURED_ARTIST_NAMES.map((name) =>
+          fetch(`/api/spotify/search?q=${encodeURIComponent(name)}&limit=1`)
+            .then((r) => r.json())
+            .then((d) => (d.artists?.[0] as SpotifyArtist | undefined))
+            .catch(() => undefined),
+        ),
+      );
+      if (cancelled) return;
+      const valid = results.filter((a): a is SpotifyArtist => Boolean(a));
+      if (valid.length > 0) setFeaturedArtists(valid);
+    }
+    loadFeatured();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Advance cycleIdx on an interval while auto-cycling.
+  useEffect(() => {
+    if (!autoCycle || featuredArtists.length === 0 || hasMessages) return;
+    const iv = setInterval(() => {
+      setCycleIdx((i) => i + 1);
+    }, CYCLE_INTERVAL_MS);
+    return () => clearInterval(iv);
+  }, [autoCycle, featuredArtists.length, hasMessages]);
+
+  // Sync the visible pinned artist to the current cycle position.
+  useEffect(() => {
+    if (!autoCycle || featuredArtists.length === 0 || hasMessages) return;
+    setPinnedArtist(featuredArtists[cycleIdx % featuredArtists.length]);
+  }, [autoCycle, featuredArtists, cycleIdx, hasMessages]);
 
   useEffect(() => {
     if (hasMessages && !revealed) {
@@ -208,6 +243,7 @@ export function HeroDemo() {
   const [closing, setClosing] = useState(false);
 
   const selectArtist = useCallback((artist: SpotifyArtist) => {
+    setAutoCycle(false);
     setClosing(true);
     setTimeout(() => {
       setPinnedArtist(artist);
@@ -240,6 +276,7 @@ export function HeroDemo() {
       full = text.trim();
     }
     if (!full || status === "streaming" || status === "submitted") return;
+    setAutoCycle(false);
     setInputValue("");
     setPinnedArtist(null);
     setShowDropdown(false);
@@ -287,6 +324,17 @@ export function HeroDemo() {
       return () => clearTimeout(t);
     }
   }, [isExpanded]);
+
+  // Auto-focus the input the moment a streaming response finishes — reinforces
+  // "ready for your next prompt" without the user having to click.
+  useEffect(() => {
+    const wasStreaming = prevStatusRef.current === "submitted" || prevStatusRef.current === "streaming";
+    const isDone = status !== "submitted" && status !== "streaming";
+    if (wasStreaming && isDone && hasMessages) {
+      inputRef.current?.focus();
+    }
+    prevStatusRef.current = status;
+  }, [status, hasMessages]);
 
   return (
     <div
@@ -348,23 +396,52 @@ export function HeroDemo() {
                   const isLastMsg = msg.id === messages[messages.length - 1]?.id;
                   const isThisStreaming = isLoading && isLastMsg;
 
+                  const showFooter = isLastMsg && !isThisStreaming && Boolean(text);
                   return (
                     <Message key={msg.id} from="assistant" className="max-w-[95%]">
-                      <MessageContent className="text-[13px] leading-[1.8] text-(--foreground)/70 text-left space-y-2">
-                        {reasoningText && (
-                          <Reasoning isStreaming={isThisStreaming && !text}>
-                            <ReasoningTrigger />
-                            <ReasoningContent>{reasoningText}</ReasoningContent>
-                          </Reasoning>
+                      <div className="w-full rounded-2xl bg-(--muted)/50 text-left overflow-hidden" style={{ boxShadow: "0 0 0 1px var(--border)" }}>
+                        {/* Card header — small chip identifying the response surface */}
+                        <div className="flex items-center gap-1.5 px-4 pt-3 pb-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-(--foreground)/40" />
+                          <span className="text-[10px] font-pixel uppercase tracking-[0.14em] text-(--foreground)/40">
+                            Recoup Agent
+                          </span>
+                          {isThisStreaming && (
+                            <span className="ml-auto w-1.5 h-1.5 rounded-full bg-(--foreground)/50 animate-pulse" aria-label="streaming" />
+                          )}
+                        </div>
+                        {/* Card body — existing markdown + reasoning rendering */}
+                        <div className="text-[13px] leading-[1.8] text-(--foreground)/80 space-y-2 px-4 py-2">
+                          {reasoningText && (
+                            <Reasoning isStreaming={isThisStreaming && !text}>
+                              <ReasoningTrigger />
+                              <ReasoningContent>{reasoningText}</ReasoningContent>
+                            </Reasoning>
+                          )}
+                          {text ? (
+                            <MessageResponse isAnimating={isThisStreaming}>
+                              {text}
+                            </MessageResponse>
+                          ) : isThisStreaming && !reasoningText ? (
+                            <ThinkingIndicator />
+                          ) : null}
+                        </div>
+                        {/* Card footer — follow-up action pills (only on latest completed reply) */}
+                        {showFooter && (
+                          <div className="flex flex-wrap gap-1.5 px-4 pb-3 pt-1">
+                            {RESPONSE_FOLLOWUPS.map((action) => (
+                              <button
+                                key={action.label}
+                                type="button"
+                                onClick={() => send(action.prompt)}
+                                className="text-[11px] font-ui px-2.5 py-1 rounded-full bg-(--foreground)/5 hover:bg-(--foreground)/10 text-(--foreground)/60 hover:text-(--foreground)/90 transition-colors"
+                              >
+                                {action.label}
+                              </button>
+                            ))}
+                          </div>
                         )}
-                        {text ? (
-                          <MessageResponse isAnimating={isThisStreaming}>
-                            {text}
-                          </MessageResponse>
-                        ) : isThisStreaming && !reasoningText ? (
-                          <ThinkingIndicator />
-                        ) : null}
-                      </MessageContent>
+                      </div>
                     </Message>
                   );
                 })}
@@ -388,10 +465,10 @@ export function HeroDemo() {
           }`}
         >
           {pinnedArtist && (
-            <button
-              type="button"
-              onClick={() => { setPinnedArtist(null); inputRef.current?.focus(); }}
-              className="shrink-0 flex items-center gap-1.5 pl-1 pr-2.5 py-1 rounded-full bg-(--foreground)/8 hover:bg-(--foreground)/12 transition-colors pill-pop-in"
+            <div
+              key={pinnedArtist.id}
+              onClick={() => { stopCycle(); inputRef.current?.focus(); }}
+              className="shrink-0 flex items-center gap-1.5 pl-1 pr-1 py-1 rounded-full bg-(--foreground)/8 pill-pop-in cursor-pointer hover:bg-(--foreground)/12 transition-colors"
             >
               {pinnedArtist.image ? (
                 <Image
@@ -406,25 +483,61 @@ export function HeroDemo() {
                   <span className="text-[8px] text-(--foreground)/30">♪</span>
                 </div>
               )}
-              <span className="text-[13px] font-medium text-(--foreground)">{pinnedArtist.name}</span>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-(--foreground)/30">
-                <path d="M18 6 6 18" /><path d="m6 6 12 12" />
-              </svg>
-            </button>
+              <span className="text-[13px] font-medium text-(--foreground) pr-1">{pinnedArtist.name}</span>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setAutoCycle(false);
+                  setPinnedArtist(null);
+                  inputRef.current?.focus();
+                }}
+                aria-label={`Remove ${pinnedArtist.name}`}
+                className="w-4 h-4 rounded-full flex items-center justify-center text-(--foreground)/30 hover:text-(--foreground)/70 hover:bg-(--foreground)/8 transition-colors"
+              >
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <path d="M18 6 6 18" /><path d="m6 6 12 12" />
+                </svg>
+              </button>
+            </div>
           )}
-          <input
-            ref={inputRef}
-            name="prompt"
-            type="text"
-            autoComplete="off"
-            disabled={isLoading}
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            onKeyDown={handleKeyDown}
-            onFocus={() => { if (results.length > 0 && !pinnedArtist) setShowDropdown(true); }}
-            placeholder={isLoading ? "Thinking…" : pinnedArtist ? "Type a prompt…" : "Search any artist…"}
-            className="flex-1 bg-transparent text-[14px] text-(--foreground) placeholder:text-(--foreground)/30 outline-none disabled:opacity-40 font-ui min-w-0"
-          />
+          <div className="relative flex-1 min-w-0 flex items-center">
+            <input
+              ref={inputRef}
+              name="prompt"
+              type="text"
+              autoComplete="off"
+              disabled={isLoading}
+              value={inputValue}
+              onChange={(e) => { stopCycle(); setInputValue(e.target.value); }}
+              onKeyDown={(e) => { stopCycle(); handleKeyDown(e); }}
+              onMouseDown={stopCycle}
+              onFocus={() => {
+                stopCycle();
+                setIsInputFocused(true);
+                if (results.length > 0 && !pinnedArtist) setShowDropdown(true);
+              }}
+              onBlur={() => setIsInputFocused(false)}
+              placeholder={
+                isLoading
+                  ? "Thinking…"
+                  : pinnedArtist
+                    ? "Type a prompt…"
+                    : hasMessages
+                      ? ""
+                      : "Search any artist…"
+              }
+              className="w-full bg-transparent text-[14px] text-(--foreground) placeholder:text-(--foreground)/30 outline-none disabled:opacity-40 font-ui"
+            />
+            {/* Blinking caret — replaces placeholder in post-message mode so the
+                input always feels "live and ready" even when not focused. */}
+            {hasMessages && !pinnedArtist && !inputValue && !isLoading && !isInputFocused && (
+              <span
+                aria-hidden
+                className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-4 bg-(--foreground)/60 animate-blink pointer-events-none"
+              />
+            )}
+          </div>
           <button
             type="submit"
             disabled={isLoading}

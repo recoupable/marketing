@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Pricing | Recoupable",
-  description:
-    "Start free. Scale when ready. Plans for artists, managers, and labels.",
+  title: `Pricing — Plans for Artists, Managers & Labels | ${siteConfig.name}`,
+  description: `Start free. Scale when ready. ${siteConfig.name} pricing for artists, managers, labels, and developers building on AI music agent infrastructure.`,
   path: "/pricing",
 });
 

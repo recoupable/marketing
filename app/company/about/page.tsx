@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { companyAboutCopy } from "@/lib/copy/company";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About | Company | Recoupable",
-  description: companyAboutCopy.description,
+  title: `About ${siteConfig.name} — The Team Behind the Music Agent Platform`,
+  description: `Meet the team behind ${siteConfig.name} — building the platform that runs music businesses through AI agents. For artists, labels, distributors, and catalog owners.`,
   path: "/company/about",
 });
 

@@ -26,7 +26,7 @@ The primary topic cluster. Everything about how AI agents change music promotion
 
 ## Pillar 2: Building in Public
 
-Sidney's journey building Recoupable. Thought leadership + transparency.
+Sidney's journey building Recoup. Thought leadership + transparency.
 
 **Target keywords:**
 - "building in public"
@@ -43,7 +43,7 @@ Sidney's journey building Recoupable. Thought leadership + transparency.
 
 ## Pillar 3: Music Release Strategy
 
-How artists plan and execute releases — where Recoupable fits into the workflow.
+How artists plan and execute releases — where Recoup fits into the workflow.
 
 **Target keywords:**
 - "music release strategy"

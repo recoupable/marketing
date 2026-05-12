@@ -1,4 +1,4 @@
-Recoupable-Illustration-Style-Guide
+Recoup-Illustration-Style-Guide
 
 {
   "prompt": "A semi-anime, semi-realistic illustrated world that blends soft painterly detail with anime-inspired composition. The environment mixes lush natural landscapes and futuristic architecture, depicted with gentle brushwork, smooth gradients, and subtle atmospheric haze. The style balances realism with illustrated charm — not overly cartoony, but still dreamlike and imaginative. Subjects, whether people, objects, or environments, always feel integrated into this world’s harmony of nature and technology.",

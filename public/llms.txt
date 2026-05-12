@@ -1,4 +1,4 @@
-# Recoupable
+# Recoup
 
 > Music intelligence platform — research, content, and automation for labels, distributors, and every team in music. API, CLI, and MCP server. 40+ agent tools.
 
@@ -30,7 +30,7 @@
 
 ## Skills
 
-- [Recoupable Skills](https://github.com/recoupable/skills): AI agent skills for music — getting started, content creation, research, release management, songwriting, and more
+- [Recoup Skills](https://github.com/recoupable/skills): AI agent skills for music — getting started, content creation, research, release management, songwriting, and more
 
 ## Full API Reference
 

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Resources | Recoupable",
+  title: `Resources — Blog, Use Cases, Playbooks & Demos | ${siteConfig.name}`,
   description:
-    "Blog, use cases, playbooks, and demos. Learn how to run your music business with AI agents.",
+    "Blog posts, use cases, playbooks, and demos. Everything you need to run your music business with AI agents — strategy, content, fans, and operations.",
   path: "/resources",
 });
 

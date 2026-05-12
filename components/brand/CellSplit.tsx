@@ -1,6 +1,6 @@
 /**
  * The cell-split motif — two rounded squares pulling apart like a dividing cell.
- * Mirrors the Recoupable logo shape at different scales and animation states.
+ * Mirrors the Recoup logo shape at different scales and animation states.
  */
 
 const SIZES = {

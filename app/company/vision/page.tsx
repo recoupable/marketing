@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { companyVisionCopy } from "@/lib/copy/company";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Vision | Company | Recoupable",
-  description: companyVisionCopy.anchor,
+  title: `Vision — Autonomous Music Businesses, Run by AI | ${siteConfig.name}`,
+  description: `The platform for autonomous music operations. Our vision — artists and labels running release strategy, marketing, fans, and revenue with AI agents on ${siteConfig.name}.`,
   path: "/company/vision",
 });
 

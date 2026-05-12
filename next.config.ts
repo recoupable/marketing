@@ -10,6 +10,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/company/recoupable-records",
+        destination: "/company/recoup-records",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
