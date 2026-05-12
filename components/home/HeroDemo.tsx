@@ -19,6 +19,11 @@ import {
   ReasoningTrigger,
   ReasoningContent,
 } from "@/components/ai-elements/reasoning";
+import {
+  ToolPart,
+  isToolPart,
+  type ToolPartLike,
+} from "@/components/tool-call/tool-part";
 
 interface SpotifyArtist {
   id: string;
@@ -389,14 +394,19 @@ export function HeroDemo() {
                     );
                   }
 
-                  const textParts = msg.parts.filter((p) => p.type === "text");
-                  const reasoningParts = msg.parts.filter((p) => p.type === "reasoning");
-                  const text = textParts.map((p) => ("text" in p ? p.text : "")).join("");
-                  const reasoningText = reasoningParts.map((p) => ("reasoning" in p ? p.reasoning : "")).join("");
                   const isLastMsg = msg.id === messages[messages.length - 1]?.id;
                   const isThisStreaming = isLoading && isLastMsg;
-
-                  const showFooter = isLastMsg && !isThisStreaming && Boolean(text);
+                  const lastTextIdx = msg.parts.findLastIndex(
+                    (p) => p.type === "text",
+                  );
+                  const hasRenderableContent = msg.parts.some(
+                    (p) =>
+                      (p.type === "text" && Boolean(p.text)) ||
+                      (p.type === "reasoning" && Boolean(p.text)) ||
+                      isToolPart(p),
+                  );
+                  const showFooter =
+                    isLastMsg && !isThisStreaming && hasRenderableContent;
                   return (
                     <Message key={msg.id} from="assistant" className="max-w-[95%]">
                       <div className="w-full rounded-2xl bg-(--muted)/50 text-left overflow-hidden" style={{ boxShadow: "0 0 0 1px var(--border)" }}>
@@ -410,21 +420,46 @@ export function HeroDemo() {
                             <span className="ml-auto w-1.5 h-1.5 rounded-full bg-(--foreground)/50 animate-pulse" aria-label="streaming" />
                           )}
                         </div>
-                        {/* Card body — existing markdown + reasoning rendering */}
-                        <div className="text-[13px] leading-[1.8] text-(--foreground)/80 space-y-2 px-4 py-2">
-                          {reasoningText && (
-                            <Reasoning isStreaming={isThisStreaming && !text}>
-                              <ReasoningTrigger />
-                              <ReasoningContent>{reasoningText}</ReasoningContent>
-                            </Reasoning>
-                          )}
-                          {text ? (
-                            <MessageResponse isAnimating={isThisStreaming}>
-                              {text}
-                            </MessageResponse>
-                          ) : isThisStreaming && !reasoningText ? (
+                        {/* Card body — render parts in their actual order so
+                            tool calls interleave correctly with text + reasoning */}
+                        <div className="text-[13px] leading-[1.8] text-(--foreground)/80 space-y-3 px-4 py-2">
+                          {msg.parts.map((part, idx) => {
+                            if (part.type === "text") {
+                              if (!part.text) return null;
+                              return (
+                                <MessageResponse
+                                  key={idx}
+                                  isAnimating={isThisStreaming && idx === lastTextIdx}
+                                >
+                                  {part.text}
+                                </MessageResponse>
+                              );
+                            }
+                            if (part.type === "reasoning") {
+                              if (!part.text) return null;
+                              return (
+                                <Reasoning
+                                  key={idx}
+                                  isStreaming={isThisStreaming && lastTextIdx === -1}
+                                >
+                                  <ReasoningTrigger />
+                                  <ReasoningContent>{part.text}</ReasoningContent>
+                                </Reasoning>
+                              );
+                            }
+                            if (isToolPart(part)) {
+                              return (
+                                <ToolPart
+                                  key={idx}
+                                  part={part as unknown as ToolPartLike}
+                                />
+                              );
+                            }
+                            return null;
+                          })}
+                          {isThisStreaming && !hasRenderableContent && (
                             <ThinkingIndicator />
-                          ) : null}
+                          )}
                         </div>
                         {/* Card footer — follow-up action pills (only on latest completed reply) */}
                         {showFooter && (
