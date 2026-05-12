@@ -9,9 +9,13 @@
 | ai-music-marketing-roi | The ROI of AI Music Marketing: What the Numbers Say | article | ai-marketing | published |
 | independent-artist-marketing-guide | The Independent Artist's Marketing Guide | article | release-strategy | published |
 
+| ai-for-record-labels | AI for Record Labels: How Smart Labels Are Cutting Costs and Scaling Output | article | ai-marketing | published |
+| ai-music-manager-tools | The Best AI Tools for Music Managers in 2026 | article | ai-marketing | published |
+| how-labels-use-ai | How Labels Use AI in 2026: From Catalog Reactivation to Autonomous Marketing | article | ai-marketing | published |
+
 ## Gaps (topics with no posts yet)
 
-- "How labels use AI" (pillar 1, cluster) — no posts
+- ~~"How labels use AI" (pillar 1, cluster) — no posts~~ ✅ Published
 - "Building in public" (pillar 2) — no posts (pillar page needed)
 - "Gatsby Grace case study" (pillar 1, case-study) — planned
 - "How to set up an AI content pipeline" (pillar 1, tutorial) — planned
