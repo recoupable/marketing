@@ -38,12 +38,31 @@ const FEATURED_ARTIST_NAMES = ["Drake", "Tyla", "SZA", "Doja Cat"];
 const CYCLE_INTERVAL_MS = 3500;
 const transport = new DefaultChatTransport({ api: "/api/demo" });
 
-// Follow-up action pills that appear under the latest assistant response.
-// Kept generic so they fit any response shape (research, similar artists, campaign, etc.).
-const RESPONSE_FOLLOWUPS = [
-  { label: "Tell me more", prompt: "Tell me more about this." },
-  { label: "Build a playlist", prompt: "Build a playlist from this." },
-  { label: "Plan a campaign", prompt: "Build a campaign brief from this." },
+// Follow-up action pills under the latest assistant response. Every option
+// has to map to behavior we can actually deliver — either by re-using the
+// data already in the prior `similar_artists` tool result (no new tool call
+// needed, just analysis) or by graduating the user to the full product at
+// chat.recoupable.com. Never advertise capabilities the demo doesn't have.
+type FollowupAction =
+  | { kind: "prompt"; label: string; prompt: string }
+  | { kind: "link"; label: string; href: string };
+
+const RESPONSE_FOLLOWUPS: FollowupAction[] = [
+  {
+    kind: "prompt",
+    label: "Who's the sleeper?",
+    prompt: "Of those, who's the sleeper?",
+  },
+  {
+    kind: "prompt",
+    label: "Show only independents",
+    prompt: "Show only the independents from that list.",
+  },
+  {
+    kind: "link",
+    label: "Open in Recoup →",
+    href: "https://chat.recoupable.com",
+  },
 ];
 
 const THINKING_PHRASES = [
@@ -464,16 +483,28 @@ export function HeroDemo() {
                         {/* Card footer — follow-up action pills (only on latest completed reply) */}
                         {showFooter && (
                           <div className="flex flex-wrap gap-1.5 px-4 pb-3 pt-1">
-                            {RESPONSE_FOLLOWUPS.map((action) => (
-                              <button
-                                key={action.label}
-                                type="button"
-                                onClick={() => send(action.prompt)}
-                                className="text-[11px] font-ui px-2.5 py-1 rounded-full bg-(--foreground)/5 hover:bg-(--foreground)/10 text-(--foreground)/60 hover:text-(--foreground)/90 transition-colors"
-                              >
-                                {action.label}
-                              </button>
-                            ))}
+                            {RESPONSE_FOLLOWUPS.map((action) =>
+                              action.kind === "prompt" ? (
+                                <button
+                                  key={action.label}
+                                  type="button"
+                                  onClick={() => send(action.prompt)}
+                                  className="text-[11px] font-ui px-2.5 py-1 rounded-full bg-(--foreground)/5 hover:bg-(--foreground)/10 text-(--foreground)/60 hover:text-(--foreground)/90 transition-colors"
+                                >
+                                  {action.label}
+                                </button>
+                              ) : (
+                                <a
+                                  key={action.label}
+                                  href={action.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-[11px] font-ui px-2.5 py-1 rounded-full bg-(--foreground) hover:bg-(--foreground)/85 text-(--background) transition-colors"
+                                >
+                                  {action.label}
+                                </a>
+                              ),
+                            )}
                           </div>
                         )}
                       </div>

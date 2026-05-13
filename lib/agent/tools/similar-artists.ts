@@ -1,5 +1,6 @@
 import { tool } from "ai";
 import { z } from "zod";
+import { siteConfig } from "@/lib/config";
 
 const similarArtistInputSchema = z.object({
   artist: z
@@ -7,6 +8,14 @@ const similarArtistInputSchema = z.object({
     .min(1)
     .describe("The reference artist's name to find similar artists for"),
 });
+
+const careerStageSchema = z
+  .enum(["superstar", "mainstream", "mid_level", "developing", "early"])
+  .describe("Recoup career-stage classification");
+
+const momentumSchema = z
+  .enum(["growth", "stable", "decline"])
+  .describe("Trailing-window momentum signal");
 
 const similarArtistItemSchema = z.object({
   name: z.string(),
@@ -16,10 +25,23 @@ const similarArtistItemSchema = z.object({
     .int()
     .nonnegative()
     .describe("Monthly Spotify listeners"),
+  spotifyFollowers: z
+    .number()
+    .int()
+    .nonnegative()
+    .describe("Spotify followers"),
   primaryGenre: z.string(),
+  careerStage: careerStageSchema.nullable(),
+  momentum: momentumSchema.nullable(),
+  similarity: z
+    .number()
+    .min(0)
+    .max(1)
+    .describe("0-1 similarity score from Recoup's similarity model"),
+  label: z.string().nullable(),
   matchReason: z
     .string()
-    .describe("One-line explanation of why this artist is similar"),
+    .describe("Short data-driven explanation of why this artist matches"),
 });
 
 const similarArtistsOutputSchema = z.object({
@@ -31,279 +53,151 @@ export type SimilarArtistsInput = z.infer<typeof similarArtistInputSchema>;
 export type SimilarArtistsOutput = z.infer<typeof similarArtistsOutputSchema>;
 export type SimilarArtist = SimilarArtistsOutput["similar"][number];
 
+interface RawRecoupSimilarArtist {
+  name?: string;
+  image_url?: string | null;
+  sp_monthly_listeners?: number;
+  sp_followers?: number;
+  primary_genre_smart?: { name?: string } | null;
+  genres?: { name?: string }[];
+  career_stage?: string | null;
+  recent_momentum?: string | null;
+  similarity?: number;
+  label?: string | null;
+}
+
+interface RawRecoupSimilarResponse {
+  status?: string;
+  artists?: RawRecoupSimilarArtist[];
+}
+
+const VALID_CAREER_STAGES = new Set([
+  "superstar",
+  "mainstream",
+  "mid_level",
+  "developing",
+  "early",
+]);
+
+const VALID_MOMENTUM = new Set(["growth", "stable", "decline"]);
+
 /**
- * Phase 1 ships with hand-curated mock data for the four featured artists in
- * the hero demo (SZA, Drake, Tyla, Doja Cat) so the demo lands well on first
- * impression. Phase 2 will replace this with the real Spotify Related Artists
- * API (or Recoup's own similarity model when ready).
- *
- * Mocks are intentionally specific: real artist names, plausible listener
- * counts (early 2026 ballpark), and genuine genre lineage. The match-reason
- * lines are written like a label A&R might write them — opinionated, not
- * generic.
+ * Synthesize a short, data-driven match reason from Recoup's structured
+ * similarity output. We deliberately avoid LLM-generated prose here so the
+ * one-liner stays factual and consistent across calls.
  */
-function getSimilarArtistsForReference(reference: string): SimilarArtistsOutput {
-  const lower = reference.toLowerCase();
+function buildMatchReason(a: RawRecoupSimilarArtist): string {
+  const matchPct = a.similarity != null ? Math.round(a.similarity * 100) : null;
+  const stage = a.career_stage?.replace("_", "-") ?? null;
+  const momentumIcon =
+    a.recent_momentum === "growth"
+      ? "rising"
+      : a.recent_momentum === "decline"
+        ? "cooling"
+        : a.recent_momentum === "stable"
+          ? "steady"
+          : null;
+  const genre = a.primary_genre_smart?.name ?? a.genres?.[0]?.name ?? null;
 
-  if (lower.includes("sza")) {
-    return {
-      reference,
-      similar: [
-        {
-          name: "Summer Walker",
-          image: null,
-          monthlyListeners: 21_400_000,
-          primaryGenre: "Alt-R&B",
-          matchReason:
-            "Same confessional, post-2020 alt-R&B lane — heavy on quiet-storm production.",
-        },
-        {
-          name: "Jhené Aiko",
-          image: null,
-          monthlyListeners: 24_800_000,
-          primaryGenre: "R&B",
-          matchReason:
-            "Predecessor of the introspective R&B sound SZA scaled — overlapping fan base.",
-        },
-        {
-          name: "Kehlani",
-          image: null,
-          monthlyListeners: 18_900_000,
-          primaryGenre: "R&B",
-          matchReason:
-            "Same generation, similar emotional register, frequent shared listener pools.",
-        },
-        {
-          name: "H.E.R.",
-          image: null,
-          monthlyListeners: 17_600_000,
-          primaryGenre: "R&B / Soul",
-          matchReason:
-            "Acoustic-leaning R&B with similar Grammy-tier production quality.",
-        },
-        {
-          name: "Snoh Aalegra",
-          image: null,
-          monthlyListeners: 7_200_000,
-          primaryGenre: "R&B",
-          matchReason:
-            "Quieter, soul-forward neighbor — strong overlap with SZA's CTRL-era listeners.",
-        },
-        {
-          name: "Ravyn Lenae",
-          image: null,
-          monthlyListeners: 5_800_000,
-          primaryGenre: "Alt-R&B",
-          matchReason:
-            "Same alt-R&B production aesthetic, growing audience overlap.",
-        },
-      ],
-    };
+  const parts: string[] = [];
+  if (matchPct != null) parts.push(`${matchPct}% match`);
+  if (stage && genre) parts.push(`${stage} in ${genre}`);
+  else if (genre) parts.push(genre);
+  else if (stage) parts.push(stage);
+  if (momentumIcon) parts.push(momentumIcon);
+
+  if (!parts.length) return "Sonically and audience-adjacent.";
+  return parts.join(" · ");
+}
+
+function normalizeCareerStage(raw: string | null | undefined) {
+  if (!raw) return null;
+  return VALID_CAREER_STAGES.has(raw)
+    ? (raw as SimilarArtist["careerStage"])
+    : null;
+}
+
+function normalizeMomentum(raw: string | null | undefined) {
+  if (!raw) return null;
+  return VALID_MOMENTUM.has(raw) ? (raw as SimilarArtist["momentum"]) : null;
+}
+
+/**
+ * Calls Recoup's similarity model via `GET /api/research/similar`. The
+ * upstream response includes the reference artist itself with similarity=1,
+ * so we filter that out and take the next 6 most similar.
+ *
+ * If the API errors or returns no usable matches, the tool throws — the
+ * agent loop then composes a plain-prose fallback ("I couldn't pull live
+ * similarity data right now") rather than rendering an empty card.
+ */
+async function fetchSimilarArtists(
+  reference: string,
+): Promise<SimilarArtistsOutput> {
+  const apiKey = process.env.RECOUP_API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      "RECOUP_API_KEY missing — cannot call /research/similar from marketing demo",
+    );
   }
 
-  if (lower.includes("drake")) {
-    return {
-      reference,
-      similar: [
-        {
-          name: "PartyNextDoor",
-          image: null,
-          monthlyListeners: 17_900_000,
-          primaryGenre: "R&B / Hip-Hop",
-          matchReason:
-            "OVO labelmate and frequent collaborator — shares the moody after-hours aesthetic.",
-        },
-        {
-          name: "Future",
-          image: null,
-          monthlyListeners: 39_400_000,
-          primaryGenre: "Hip-Hop",
-          matchReason:
-            "Closest peer in the melodic-trap lane — joint albums prove the overlap.",
-        },
-        {
-          name: "The Weeknd",
-          image: null,
-          monthlyListeners: 95_200_000,
-          primaryGenre: "Pop / R&B",
-          matchReason:
-            "Same Toronto pipeline, same late-night-radio sonic palette.",
-        },
-        {
-          name: "Bryson Tiller",
-          image: null,
-          monthlyListeners: 14_300_000,
-          primaryGenre: "R&B / Hip-Hop",
-          matchReason:
-            "Drake-aligned R&B/rap blend — strong overlap with the Take Care fan base.",
-        },
-        {
-          name: "Tory Lanez",
-          image: null,
-          monthlyListeners: 12_100_000,
-          primaryGenre: "Hip-Hop / R&B",
-          matchReason:
-            "Toronto-adjacent, same melodic rap-singing approach.",
-        },
-        {
-          name: "Roddy Ricch",
-          image: null,
-          monthlyListeners: 22_800_000,
-          primaryGenre: "Hip-Hop",
-          matchReason:
-            "Generation-younger inheritor of Drake's melodic hook formula.",
-        },
-      ],
-    };
+  const params = new URLSearchParams({
+    artist: reference,
+    limit: "10",
+  });
+  const url = `${siteConfig.apiUrl}/research/similar?${params}`;
+
+  const res = await fetch(url, {
+    headers: { "x-api-key": apiKey },
+    next: { revalidate: 600 },
+  });
+
+  if (!res.ok) {
+    throw new Error(
+      `/research/similar failed: ${res.status} ${res.statusText}`,
+    );
   }
 
-  if (lower.includes("tyla")) {
-    return {
-      reference,
-      similar: [
-        {
-          name: "Uncle Waffles",
-          image: null,
-          monthlyListeners: 6_400_000,
-          primaryGenre: "Amapiano",
-          matchReason:
-            "Defining voice of the same amapiano wave Tyla broke globally with.",
-        },
-        {
-          name: "Tems",
-          image: null,
-          monthlyListeners: 26_800_000,
-          primaryGenre: "Afro-Fusion / R&B",
-          matchReason:
-            "Closest African-export peer — both bridge to U.S. R&B audiences.",
-        },
-        {
-          name: "Ayra Starr",
-          image: null,
-          monthlyListeners: 18_200_000,
-          primaryGenre: "Afrobeats",
-          matchReason:
-            "Same Gen-Z African pop lane, similar streaming trajectory.",
-        },
-        {
-          name: "Pheelz",
-          image: null,
-          monthlyListeners: 4_900_000,
-          primaryGenre: "Afrobeats",
-          matchReason:
-            "Amapiano-adjacent production sensibility, overlapping playlist placements.",
-        },
-        {
-          name: "Asake",
-          image: null,
-          monthlyListeners: 13_700_000,
-          primaryGenre: "Afrobeats",
-          matchReason:
-            "Same era of African pop crossover — strong shared discovery surface.",
-        },
-        {
-          name: "Libianca",
-          image: null,
-          monthlyListeners: 8_100_000,
-          primaryGenre: "Afro-Soul",
-          matchReason:
-            "Similar genre-blurring instinct, same TikTok-fueled rise.",
-        },
-      ],
-    };
+  const data = (await res.json()) as RawRecoupSimilarResponse;
+  const raw = data.artists ?? [];
+
+  // Filter out the reference artist (similarity = 1) and any rows that lack
+  // the bare-minimum fields the renderer needs.
+  const filtered = raw.filter(
+    (a) =>
+      a.name &&
+      typeof a.sp_monthly_listeners === "number" &&
+      typeof a.similarity === "number" &&
+      a.similarity < 1,
+  );
+
+  const similar: SimilarArtist[] = filtered.slice(0, 6).map((a) => ({
+    name: a.name as string,
+    image: a.image_url ?? null,
+    monthlyListeners: a.sp_monthly_listeners ?? 0,
+    spotifyFollowers: a.sp_followers ?? 0,
+    primaryGenre:
+      a.primary_genre_smart?.name ?? a.genres?.[0]?.name ?? "—",
+    careerStage: normalizeCareerStage(a.career_stage),
+    momentum: normalizeMomentum(a.recent_momentum),
+    similarity: a.similarity ?? 0,
+    label: a.label ?? null,
+    matchReason: buildMatchReason(a),
+  }));
+
+  if (similar.length === 0) {
+    throw new Error("No similar artists returned from Recoup");
   }
 
-  if (lower.includes("doja")) {
-    return {
-      reference,
-      similar: [
-        {
-          name: "Nicki Minaj",
-          image: null,
-          monthlyListeners: 39_600_000,
-          primaryGenre: "Hip-Hop / Pop",
-          matchReason:
-            "Same lineage of genre-fluid female rap-pop performers.",
-        },
-        {
-          name: "Megan Thee Stallion",
-          image: null,
-          monthlyListeners: 28_300_000,
-          primaryGenre: "Hip-Hop",
-          matchReason:
-            "Direct peer — overlapping fan base and joint-release history.",
-        },
-        {
-          name: "Ariana Grande",
-          image: null,
-          monthlyListeners: 78_900_000,
-          primaryGenre: "Pop",
-          matchReason:
-            "Pop-side neighbor when Doja leans melodic — duet history proves the affinity.",
-        },
-        {
-          name: "Saweetie",
-          image: null,
-          monthlyListeners: 11_200_000,
-          primaryGenre: "Hip-Hop / Pop",
-          matchReason:
-            "Same pop-rap crossover lane, similar visual-forward branding.",
-        },
-        {
-          name: "Tinashe",
-          image: null,
-          monthlyListeners: 9_400_000,
-          primaryGenre: "Alt-R&B / Pop",
-          matchReason:
-            "Pop-R&B hybrid neighbor — strong sonic overlap with Doja's deep cuts.",
-        },
-      ],
-    };
-  }
-
-  // Generic fallback. Names below are intentionally chart-stable so the
-  // hero demo never looks broken if someone types a less-mainstream artist.
-  return {
-    reference,
-    similar: [
-      {
-        name: "Olivia Dean",
-        image: null,
-        monthlyListeners: 8_400_000,
-        primaryGenre: "Pop / Soul",
-        matchReason: "Closest neighbor by audio-feature analysis.",
-      },
-      {
-        name: "Tate McRae",
-        image: null,
-        monthlyListeners: 32_100_000,
-        primaryGenre: "Pop",
-        matchReason: "Highest listener overlap by Spotify co-listening signal.",
-      },
-      {
-        name: "Sabrina Carpenter",
-        image: null,
-        monthlyListeners: 64_700_000,
-        primaryGenre: "Pop",
-        matchReason: "Frequent co-occurrence in user-generated playlists.",
-      },
-      {
-        name: "Chappell Roan",
-        image: null,
-        monthlyListeners: 28_900_000,
-        primaryGenre: "Pop",
-        matchReason: "Similar release cadence and genre signature.",
-      },
-    ],
-  };
+  return { reference, similar };
 }
 
 export const similarArtistsTool = tool({
   description:
-    "Find artists similar to a given artist. Returns up to 6 sonically and audience-adjacent artists with monthly listener counts, primary genre, and a one-line A&R-style match reason. Use whenever the user asks for similar artists, comparable acts, alternatives, sonic neighbors, or anything in that family.",
+    "Find artists similar to a given artist using Recoup's audience + genre similarity model. Returns up to 6 sonically and audience-adjacent artists with monthly listener counts, primary genre, career stage, momentum, label, and a similarity score. Use whenever the user asks for similar artists, comparable acts, alternatives, sonic neighbors, or anything in that family.",
   inputSchema: similarArtistInputSchema,
   outputSchema: similarArtistsOutputSchema,
   execute: async ({ artist }) => {
-    return getSimilarArtistsForReference(artist);
+    return fetchSimilarArtists(artist);
   },
 });
