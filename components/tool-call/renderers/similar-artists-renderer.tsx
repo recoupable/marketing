@@ -33,9 +33,11 @@ interface TopTrackResponse {
 
 /**
  * Renders the `similar_artists` tool output as a 2-column grid of artist
- * cards with inline 30s audio previews. Each card is enriched client-side
- * via two Spotify proxies:
- *   1. `/api/spotify/search?q=<name>` → artist id + image
+ * cards with inline 30s audio previews. Image URLs come pre-baked from
+ * Recoup's similarity API (so the card snaps in instantly), but we still
+ * need a Spotify artist id to fetch a playable preview track. The audio
+ * enrichment runs client-side after first paint:
+ *   1. `/api/spotify/search?q=<name>` → spotify artist id
  *   2. `/api/spotify/artist-top-track?id=<id>` → first playable preview URL
  *      (iterates top 5 tracks; ~10% of artists have no preview on any track)
  *
@@ -48,7 +50,11 @@ export function SimilarArtistsRenderer({
 }: {
   output: SimilarArtistsOutput;
 }) {
-  const [enriched, setEnriched] = useState<EnrichedArtist[]>(output.similar);
+  const [enriched, setEnriched] = useState<EnrichedArtist[]>(() =>
+    // Seed with whatever real data is already present so the grid renders
+    // immediately while audio enrichment runs in the background.
+    output.similar.map((a) => ({ ...a, resolvedImage: a.image })),
+  );
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playingName, setPlayingName] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
@@ -57,19 +63,15 @@ export function SimilarArtistsRenderer({
     let cancelled = false;
 
     async function enrichOne(artist: SimilarArtist): Promise<EnrichedArtist> {
+      const resolvedImage = artist.image ?? null;
       let spotifyId: string | null = null;
-      let resolvedImage = artist.image ?? null;
 
       try {
         const res = await fetch(
           `/api/spotify/search?q=${encodeURIComponent(artist.name)}&limit=1`,
         );
         const data = (await res.json()) as SpotifySearchResponse;
-        const first = data.artists?.[0];
-        if (first) {
-          spotifyId = first.id;
-          if (!resolvedImage) resolvedImage = first.image ?? null;
-        }
+        spotifyId = data.artists?.[0]?.id ?? null;
       } catch {
         // network errors fall through to silent card
       }
