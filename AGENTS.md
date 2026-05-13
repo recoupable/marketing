@@ -49,7 +49,6 @@ content/brand/    — Brand context files (read before creating content)
 content/seo/      — SEO strategy + keyword targets
 content/STATUS.md — Current state snapshot (read FIRST every session)
 transcripts/      — Call transcripts (eng, customers, leads) for positioning/copy context
-swipe/            — Reference material (copy, designs, competitors, complaints, trends)
 workflows/        — Shared non-UI automation for funnels, sync, and reporting
 docs/plans/       — Architecture and implementation plans
 ```
@@ -70,21 +69,6 @@ When working on marketing copy, positioning, or GTM assets, **read relevant tran
 All transcript files must use: `<subject>-<YYYY-MM-DD>.md` (e.g. `customer-acme-2026-03-18.md`, `eng-standup-sweets-sid-2026-03-18.md`). Subject = short lowercase slug; date = ISO. This keeps the most recent obvious and makes `grep` across transcripts easy.
 
 **When the user gives you a transcript:** Create a new file in `transcripts/`, name it `subject-date.md`, paste the transcript, commit. See `transcripts/README.md` for details.
-
-## Swipe File (Reference Collection)
-
-Raw research material that informs content, positioning, and copy. One markdown file per item.
-
-```
-swipe/copy/         — Good copy you've seen (headlines, hooks, CTAs)
-swipe/designs/      — Screenshots and visual references
-swipe/competitors/  — What competitors say and do
-swipe/complaints/   — Real pain points from Reddit, forums, reviews
-swipe/trends/       — Industry data and market insights
-```
-
-When adding to swipe, use a descriptive filename (e.g., `reddit-artists-hate-posting.md`).
-Read relevant swipe files before writing copy — real language > made-up language.
 
 ## Context Files (Read Before Creating Content)
 

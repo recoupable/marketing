@@ -11,7 +11,6 @@ Recoup's public marketing website — Next.js 16, React 19, Tailwind CSS v4.
 - `public/` — Static assets (brand logos, icons, images)
 - `content/` — Brand docs, SEO plans, blog posts (MDX), status
 - `transcripts/` — Call transcripts for voice-of-customer context
-- `swipe/` — Reference copy, designs, competitor notes, trends
 - `workflows/` — Shared non-UI automation for funnels, sync, reporting
 
 ## Commands
