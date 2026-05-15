@@ -22,6 +22,9 @@ export const footerNav = {
     label: "Resources",
     items: [
       { label: "Blog", href: "/resources" },
+      { label: "AI Playbook", href: "/playbook" },
+      { label: "ROI Calculator", href: "/calculator" },
+      { label: "AI Readiness Audit", href: "/audit" },
       { label: "Records", href: "/records" },
     ],
   },

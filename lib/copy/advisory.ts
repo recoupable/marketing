@@ -69,7 +69,7 @@ export const advisoryCopy = {
         "30-day email follow-up for questions",
       ],
       ctaLabel: "Book a Session",
-      ctaHref: "mailto:hi@recoupable.com?subject=Advisory%20Session",
+      ctaHref: "/advisory/book?package=strategy-session",
       highlighted: false,
     },
     {
@@ -86,7 +86,7 @@ export const advisoryCopy = {
         "90-day email and Slack support",
       ],
       ctaLabel: "Get Started",
-      ctaHref: "mailto:hi@recoupable.com?subject=AI%20Transformation%20Package",
+      ctaHref: "/advisory/book?package=ai-transformation",
       highlighted: true,
     },
     {
@@ -102,7 +102,7 @@ export const advisoryCopy = {
         "Custom agent development priority",
       ],
       ctaLabel: "Let's Talk",
-      ctaHref: "mailto:hi@recoupable.com?subject=Retained%20Advisory",
+      ctaHref: "/advisory/book?package=retained-advisor",
       highlighted: false,
     },
   ],
@@ -158,6 +158,6 @@ export const advisoryCopy = {
     subheadline:
       "AI is already changing how music businesses operate. The question isn't whether to adopt it — it's how fast you can move. Let's build your strategy.",
     ctaLabel: "Book Your Strategy Session",
-    ctaHref: "mailto:hi@recoupable.com?subject=Advisory%20Inquiry",
+    ctaHref: "/advisory/book",
   },
 };
