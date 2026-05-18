@@ -13,6 +13,10 @@
 | ai-music-manager-tools | The Best AI Tools for Music Managers in 2026 | article | ai-marketing | published |
 | how-labels-use-ai | How Labels Use AI in 2026: From Catalog Reactivation to Autonomous Marketing | article | ai-marketing | published |
 
+| ai-ar-artist-discovery | AI A&R: How Labels Are Using AI to Find the Next Hit Artist | article | ai-marketing | published |
+| ai-music-distribution-automation | AI for Music Distributors: Automate the Ops That Are Killing Your Margins | article | ai-marketing | published |
+| music-executive-guide-ai-agents | The Music Executive's Guide to AI Agents: What to Buy, What to Build, What to Ignore | article | ai-marketing | published |
+
 ## Gaps (topics with no posts yet)
 
 - ~~"How labels use AI" (pillar 1, cluster) — no posts~~ ✅ Published
