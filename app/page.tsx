@@ -49,81 +49,11 @@ function useStagger(n: number, ms = 130) {
   };
 }
 
-const HERO_WORDS = ["Music", "Catalog", "Artist", "Fan"] as const;
-
-interface PixelCharFragment {
-  offsetX: number;
-  offsetY: number;
-  inverseOffsetX: number;
-  inverseOffsetY: number;
-  delayMs: number;
-  sliceTop: number;
-  sliceBottom: number;
-}
-
-function buildPixelFragments(word: string): PixelCharFragment[] {
-  return word
-    .split("")
-    .map((_, index) => ({
-      offsetX: Math.floor(Math.random() * 7) - 3,
-      offsetY: 0,
-      inverseOffsetX: Math.floor(Math.random() * 7) - 3,
-      inverseOffsetY: 0,
-      delayMs: index * 14 + Math.floor(Math.random() * 90),
-      sliceTop: Math.floor(Math.random() * 55),
-      sliceBottom: Math.floor(Math.random() * 55),
-    }));
-}
-
 export default function HomePage() {
   const [show, setShow] = useState(false);
-  const [heroWordIndex, setHeroWordIndex] = useState(0);
-  const [heroDisplayWord, setHeroDisplayWord] = useState<string>(HERO_WORDS[0]);
-  const [heroWordClassName, setHeroWordClassName] = useState("pixel-swap-in");
-  const [heroPixelFragments, setHeroPixelFragments] = useState<PixelCharFragment[]>(() =>
-    buildPixelFragments(HERO_WORDS[0]),
-  );
-  const heroWordSwapTimeoutRef = useRef<number | null>(null);
-  const heroWordShuffleIntervalRef = useRef<number | null>(null);
-  const heroWordIndexRef = useRef(0);
-  useEffect(() => { const t = setTimeout(() => setShow(true), 100); return () => clearTimeout(t); }, []);
   useEffect(() => {
-    heroWordIndexRef.current = heroWordIndex;
-  }, [heroWordIndex]);
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      const currentWordIndex = heroWordIndexRef.current;
-      setHeroWordClassName("pixel-swap-out");
-      setHeroPixelFragments(buildPixelFragments(HERO_WORDS[currentWordIndex]));
-      if (heroWordShuffleIntervalRef.current) {
-        window.clearInterval(heroWordShuffleIntervalRef.current);
-      }
-      heroWordShuffleIntervalRef.current = window.setInterval(() => {
-        setHeroPixelFragments(buildPixelFragments(HERO_WORDS[currentWordIndex]));
-      }, 65);
-      heroWordSwapTimeoutRef.current = window.setTimeout(() => {
-        if (heroWordShuffleIntervalRef.current) {
-          window.clearInterval(heroWordShuffleIntervalRef.current);
-          heroWordShuffleIntervalRef.current = null;
-        }
-        const nextIndex = (currentWordIndex + 1) % HERO_WORDS.length;
-        heroWordIndexRef.current = nextIndex;
-        setHeroWordIndex(nextIndex);
-        setHeroDisplayWord(HERO_WORDS[nextIndex]);
-        setHeroPixelFragments(buildPixelFragments(HERO_WORDS[nextIndex]));
-        setHeroWordClassName("pixel-swap-in");
-      }, 300);
-    }, 2500);
-
-    return () => {
-      window.clearInterval(interval);
-      if (heroWordShuffleIntervalRef.current) {
-        window.clearInterval(heroWordShuffleIntervalRef.current);
-      }
-      if (heroWordSwapTimeoutRef.current) {
-        window.clearTimeout(heroWordSwapTimeoutRef.current);
-      }
-    };
+    const t = setTimeout(() => setShow(true), 100);
+    return () => clearTimeout(t);
   }, []);
 
   const problem = useReveal();
@@ -155,47 +85,36 @@ export default function HomePage() {
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 sm:px-10">
           <div className="pb-8 flex flex-col items-center text-center">
 
-            <div className="hero-text max-w-[800px] mx-auto flex flex-col items-center transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] origin-top">
-              <span className={`inline-flex items-center gap-2.5 mb-5 px-4 py-2 rounded-full text-[12px] uppercase tracking-[0.16em] font-pixel text-(--foreground)/50 transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ transitionDelay: "200ms", boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 15%, transparent)" }}>
-                <span className="w-2 h-2 rounded-full bg-green-500/70 animate-pulse" />
-                Works in Claude, Codex, Cursor
+            <div className="hero-text max-w-[820px] mx-auto flex flex-col items-center transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] origin-top">
+              <span className={`inline-flex items-center gap-2.5 mb-6 px-4 py-2 rounded-full text-[12px] uppercase tracking-[0.16em] font-pixel text-(--foreground)/50 transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ transitionDelay: "200ms", boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 15%, transparent)" }}>
+                For labels, managers, and artists
               </span>
 
-              <h1 className={`font-pixel text-[clamp(3rem,9vw,6rem)] text-(--foreground) leading-[0.95] tracking-[-0.01em] mb-4 transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
-                <span
-                  className={`pixel-word-cycle inline-block min-w-[7ch] text-center ${heroWordClassName}`}
-                >
-                  {heroDisplayWord.split("").map((char, index) => {
-                    const fragment = heroPixelFragments[index];
-                    const fragmentStyle = {
-                      "--pixel-delay": `${fragment?.delayMs ?? index * 25}ms`,
-                      "--pixel-x": `${fragment?.offsetX ?? 0}px`,
-                      "--pixel-y": `${fragment?.offsetY ?? 0}px`,
-                      "--pixel-x-inverse": `${fragment?.inverseOffsetX ?? 0}px`,
-                      "--pixel-y-inverse": `${fragment?.inverseOffsetY ?? 0}px`,
-                      "--pixel-top": `${fragment?.sliceTop ?? 20}%`,
-                      "--pixel-bottom": `${fragment?.sliceBottom ?? 20}%`,
-                    } as React.CSSProperties;
-
-                    return (
-                      <span key={`${heroDisplayWord}-${index}-${fragment?.delayMs ?? index}`} className="pixel-char" style={fragmentStyle}>
-                        <span className="pixel-char-main">{char}</span>
-                        <span className="pixel-char-noise" aria-hidden>
-                          {char}
-                        </span>
-                      </span>
-                    );
-                  })}
-                </span>
-                <span className="block">Intelligence</span>
+              <h1 className={`font-pixel text-[clamp(3rem,9vw,6rem)] text-(--foreground) leading-[0.95] tracking-[-0.01em] mb-5 transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
+                Music agents<br />inside your AI.
               </h1>
 
-              <p className={`text-(--foreground)/50 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.6] font-display italic transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
-                Music agents for the AI your team already uses.
+              <p className={`text-(--foreground)/55 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.6] transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
+                Install Recoup in Claude, Codex, or Cursor.
               </p>
+
+              <div className={`flex flex-col sm:flex-row items-center gap-3 mb-12 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "650ms" }}>
+                <Link
+                  href={siteConfig.appUrl}
+                  className="font-ui font-semibold bg-(--foreground) text-(--background) px-7 py-3.5 rounded-full text-[14px] hover:opacity-90 transition-opacity"
+                >
+                  Install free
+                </Link>
+                <Link
+                  href="#pricing"
+                  className="font-ui font-medium text-(--foreground)/70 hover:text-(--foreground) px-4 py-3.5 text-[14px] flex items-center gap-1.5 transition-colors"
+                >
+                  See pricing <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
 
-            <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "750ms" : "0ms" }} id="hero-demo-wrapper">
+            <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "850ms" : "0ms" }} id="hero-demo-wrapper">
               <HeroDemo />
             </div>
           </div>
@@ -446,7 +365,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           8. PRICING
           ══════════════════════════════════════ */}
-      <section className="py-24 sm:py-32 bg-(--muted)/60">
+      <section id="pricing" className="py-24 sm:py-32 bg-(--muted)/60 scroll-mt-20">
         <div ref={price.ref} className={`max-w-[1200px] mx-auto px-6 sm:px-10 ${price.cls}`}>
           <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-3">
             One artist to a full roster.
