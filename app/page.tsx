@@ -103,7 +103,7 @@ export default function HomePage() {
                   href={siteConfig.appUrl}
                   className="font-ui font-semibold bg-(--foreground) text-(--background) px-7 py-3.5 rounded-full text-[14px] hover:opacity-90 transition-opacity"
                 >
-                  Install free
+                  Install in Claude
                 </Link>
                 <Link
                   href="#pricing"
@@ -114,7 +114,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "850ms" : "0ms" }} id="hero-demo-wrapper">
+            <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "750ms" : "0ms" }} id="hero-demo-wrapper">
               <HeroDemo />
             </div>
           </div>
@@ -163,9 +163,38 @@ export default function HomePage() {
             <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
               Install once. Available in any MCP-compatible agent.
             </p>
+
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+              {[
+                { v: "40+", k: "agent tools" },
+                { v: "50+", k: "research sources" },
+                { v: "22 / 2h", k: "videos at Fat Beats" },
+                { v: "9", k: "music customers" },
+              ].map((stat) => (
+                <div key={stat.k} className="text-center">
+                  <p className="font-pixel text-[28px] text-white leading-none mb-1">{stat.v}</p>
+                  <p className="text-[10px] font-pixel text-white/40 uppercase tracking-[0.15em]">{stat.k}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           <ArchitectureDiagram />
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
+          3b. PULL QUOTE — real customer voice
+          ══════════════════════════════════════ */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
+          <p className="font-display italic text-(--foreground)/80 text-[clamp(1.5rem,3vw,2rem)] leading-[1.4] mb-6">
+            &ldquo;Catalog diligence is one of the biggest pain points I have. If we can cut that into five minutes, this is really interesting.&rdquo;
+          </p>
+          <p className="font-ui text-[12px] text-(--foreground)/40 uppercase tracking-[0.16em]">
+            Founder, Rostrum Records
+          </p>
         </div>
       </section>
 
@@ -231,12 +260,12 @@ export default function HomePage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {[
-              { k: "Artist context", v: "A living folder per artist." },
-              { k: "Catalog data", v: "Splits, royalties, deal terms." },
-              { k: "Research", v: "50+ sources, one call." },
-              { k: "Content", v: "Videos, images, captions, press." },
-              { k: "Diligence", v: "Deal room to 80% in minutes." },
-              { k: "Guardrails", v: "Acts inside each user\u2019s permissions." },
+              { k: "Artist context", v: "A living folder per artist.", stat: "Bio, sound, sacred rules" },
+              { k: "Catalog data", v: "Splits, royalties, deal terms.", stat: "Every track, one source" },
+              { k: "Research", v: "50+ sources, one call.", stat: "Streams to fan psychology" },
+              { k: "Content", v: "Videos, images, captions, press.", stat: "22 videos in 2 hours" },
+              { k: "Diligence", v: "Deal rooms to 80% pass.", stat: "Weeks of analyst work \u2192 minutes" },
+              { k: "Guardrails", v: "Acts inside each user\u2019s permissions.", stat: "Human-approves destructive actions" },
             ].map((item) => (
               <div
                 key={item.k}
@@ -244,7 +273,8 @@ export default function HomePage() {
                 style={{ boxShadow: "0px 0px 0px 1px var(--border)" }}
               >
                 <p className="font-ui font-bold text-[14px] text-(--foreground) mb-1.5">{item.k}</p>
-                <p className="text-[13px] text-(--foreground)/55 leading-relaxed">{item.v}</p>
+                <p className="text-[13px] text-(--foreground)/55 leading-relaxed mb-3">{item.v}</p>
+                <p className="text-[11px] text-(--foreground)/35 font-ui">{item.stat}</p>
               </div>
             ))}
           </div>
@@ -473,9 +503,17 @@ export default function HomePage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-[0.04] pointer-events-none" aria-hidden="true" style={{ background: "radial-gradient(circle, white 0%, transparent 60%)" }} />
 
         <div ref={cta.ref} className={`max-w-[760px] mx-auto px-6 text-center relative z-10 ${cta.cls}`}>
-          <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.95] text-white mb-12">
+          <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.95] text-white mb-8">
             Install {siteConfig.name} in your agent.
           </h2>
+
+          <div className="flex items-center justify-center gap-2 mb-10">
+            <code className="font-mono text-[12px] text-white/70 bg-white/[0.06] px-3 py-1.5 rounded-md border border-white/10">
+              <span className="text-white/35">$</span> npx skills add recoupable/skills
+            </code>
+            <span className="text-[11px] text-white/35 font-ui">~30s</span>
+          </div>
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href={siteConfig.appUrl} className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:-translate-y-0.5">
               Get started free
