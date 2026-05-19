@@ -192,11 +192,15 @@ export default function HomePage() {
                 <span className="block">Intelligence</span>
               </h1>
 
-              <p className={`text-(--foreground)/55 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.6] max-w-[520px] mx-auto transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
+              <p className={`text-(--foreground) text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-3 leading-[1.4] max-w-[520px] mx-auto font-ui font-medium transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
                 The open source AI lab for the music industry.
               </p>
 
-              <div className={`mb-12 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "650ms" }}>
+              <p className={`text-(--foreground)/45 text-[14px] mb-9 leading-[1.5] max-w-[520px] mx-auto transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "600ms" }}>
+                Skills, plugins, and custom builds for Claude, Codex, and Cursor.
+              </p>
+
+              <div className={`mb-12 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "700ms" }}>
                 <Link
                   href={siteConfig.appUrl}
                   className="font-ui font-semibold bg-(--foreground) text-(--background) px-7 py-3.5 rounded-full text-[14px] hover:opacity-90 transition-opacity"
