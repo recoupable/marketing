@@ -75,45 +75,6 @@ function buildPixelFragments(word: string): PixelCharFragment[] {
     }));
 }
 
-const FLOATING_AGENTS = [
-  { label: "Artist Research", x: "8%", y: "18%", delay: 200, size: "text-[12px]", opacity: 0.35 },
-  { label: "Content Creator", x: "78%", y: "14%", delay: 400, size: "text-[12px]", opacity: 0.32 },
-  { label: "Fan Segments", x: "7%", y: "44%", delay: 600, size: "text-[11px]", opacity: 0.28 },
-  { label: "Release Report", x: "83%", y: "40%", delay: 300, size: "text-[12px]", opacity: 0.35 },
-  { label: "Catalog Analyzer", x: "11%", y: "66%", delay: 800, size: "text-[11px]", opacity: 0.28 },
-  { label: "Social Poster", x: "82%", y: "64%", delay: 500, size: "text-[11px]", opacity: 0.3 },
-  { label: "Genre Trends", x: "19%", y: "28%", delay: 700, size: "text-[11px]", opacity: 0.25 },
-  { label: "Comment Checker", x: "74%", y: "26%", delay: 900, size: "text-[11px]", opacity: 0.25 },
-  { label: "Playlist Pitcher", x: "6%", y: "56%", delay: 1000, size: "text-[11px]", opacity: 0.28 },
-  { label: "Fan Newsletter", x: "86%", y: "54%", delay: 450, size: "text-[11px]", opacity: 0.28 },
-  { label: "Revenue Tracker", x: "16%", y: "74%", delay: 1100, size: "text-[11px]", opacity: 0.22 },
-  { label: "A&R Scanner", x: "76%", y: "74%", delay: 650, size: "text-[11px]", opacity: 0.22 },
-];
-
-function FloatingPills({ show }: { show: boolean }) {
-  return (
-    <div className="absolute inset-x-0 top-0 h-screen z-[1] pointer-events-none hidden lg:block" aria-hidden="true">
-      {FLOATING_AGENTS.map((agent, i) => (
-        <span
-          key={agent.label}
-          className={`absolute ${agent.size} font-pixel transition-all duration-[1400ms] ease-[cubic-bezier(.16,1,.3,1)] cursor-default select-none`}
-          style={{
-            left: agent.x,
-            top: agent.y,
-            transitionDelay: show ? `${agent.delay}ms` : "0ms",
-            opacity: show ? agent.opacity : 0,
-            color: `rgba(10,10,10, ${agent.opacity})`,
-            transform: show ? "translateY(0)" : "translateY(14px)",
-            animation: show ? `float-pill ${4 + (i % 4)}s ease-in-out ${agent.delay}ms infinite alternate` : "none",
-          }}
-        >
-          {agent.label}
-        </span>
-      ))}
-    </div>
-  );
-}
-
 export default function HomePage() {
   const [show, setShow] = useState(false);
   const [heroWordIndex, setHeroWordIndex] = useState(0);
@@ -166,6 +127,7 @@ export default function HomePage() {
   }, []);
 
   const problem = useReveal();
+  const how = useReveal();
   const layer = useReveal();
   const catalog = useReveal();
   const research = useReveal();
@@ -189,8 +151,6 @@ export default function HomePage() {
           maskImage: "radial-gradient(ellipse 70% 60% at 50% 42%, black 20%, transparent 80%)",
           WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 42%, black 20%, transparent 80%)",
         }} />
-
-        <FloatingPills show={show} />
 
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 sm:px-10">
           <div className="pb-8 flex flex-col items-center text-center">
@@ -268,7 +228,31 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          3. PROBLEM — the gap agent tools leave
+          3. ARCHITECTURE — proves agent-layer claim early
+          ══════════════════════════════════════ */}
+      <section className="py-24 sm:py-32 dark-section text-white relative overflow-hidden">
+        <div ref={arch.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 relative z-10 ${arch.cls}`}>
+          <div className="text-center mb-12">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-5">
+              {["Claude", "Codex", "Cursor", "Slack", "MCP", "API"].map(m => (
+                <span key={m} className="text-[10px] font-pixel text-white/30 uppercase tracking-[0.15em] px-3 py-1.5 rounded-full border border-white/10">{m}</span>
+              ))}
+            </div>
+            <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight text-white mb-5">
+              Works inside the agents<br />your team already uses.
+            </h2>
+            <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
+              Install once. Available in any MCP-compatible agent.
+            </p>
+          </div>
+
+          <ArchitectureDiagram />
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
+          4. PROBLEM — the gap agent tools leave
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32">
         <div ref={problem.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${problem.cls}`}>
@@ -294,7 +278,30 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          4. RECOUP LAYER — what we add on top
+          5. HOW IT WORKS — 3 steps
+          ══════════════════════════════════════ */}
+      <section className="py-16 sm:py-24 border-t border-(--border)">
+        <div ref={how.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${how.cls}`}>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-10 text-center">How it works</p>
+          <div className="grid sm:grid-cols-3 gap-x-10 gap-y-10">
+            {[
+              { n: "01", k: "Install", v: "Add Recoup to Claude, Codex, or Cursor in one command." },
+              { n: "02", k: "Connect", v: "Wire up your roster, catalog, and team permissions." },
+              { n: "03", k: "Ask", v: "Your agent now does the music work, with the right context." },
+            ].map((step) => (
+              <div key={step.n}>
+                <p className="font-pixel text-[14px] text-(--foreground)/25 tracking-tight mb-3">{step.n}</p>
+                <p className="font-ui font-bold text-[16px] text-(--foreground) mb-1.5">{step.k}</p>
+                <p className="text-[14px] text-(--foreground)/55 leading-relaxed">{step.v}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
+          6. RECOUP LAYER — what we add on top
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 bg-(--muted)/40">
         <div ref={layer.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${layer.cls}`}>
@@ -327,9 +334,15 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          5. RESEARCH — show don't tell
+          7. USE CASES — Research / Diligence / Content
           ══════════════════════════════════════ */}
-      <section className="py-24 sm:py-32">
+      <section className="pt-24 sm:pt-32 pb-6 sm:pb-8">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-10 text-center">
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em]">Use cases</p>
+        </div>
+      </section>
+
+      <section className="py-12 sm:py-16">
         <div ref={research.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${research.cls}`}>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
@@ -350,9 +363,9 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          6. CATALOG DILIGENCE — Benjy's pain point
+          7b. CATALOG DILIGENCE — Benjy's pain point
           ══════════════════════════════════════ */}
-      <section className="py-24 sm:py-32 bg-(--muted)/40">
+      <section className="py-12 sm:py-16 bg-(--muted)/40">
         <div ref={catalog.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${catalog.cls}`}>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
@@ -408,9 +421,9 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          5. CONTENT — show don't tell
+          7c. CONTENT — show don't tell
           ══════════════════════════════════════ */}
-      <section className="py-24 sm:py-32">
+      <section className="py-12 sm:py-16">
         <div ref={content.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${content.cls}`}>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
@@ -431,31 +444,7 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          6. ARCHITECTURE — we come to you
-          ══════════════════════════════════════ */}
-      <section className="py-24 sm:py-32 dark-section text-white relative overflow-hidden">
-        <div ref={arch.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 relative z-10 ${arch.cls}`}>
-          <div className="text-center mb-12">
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-5">
-              {["Claude", "Codex", "Cursor", "Slack", "MCP", "API"].map(m => (
-                <span key={m} className="text-[10px] font-pixel text-white/30 uppercase tracking-[0.15em] px-3 py-1.5 rounded-full border border-white/10">{m}</span>
-              ))}
-            </div>
-            <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight text-white mb-5">
-              Works inside the agents<br />your team already uses.
-            </h2>
-            <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
-              Install once. Available in any MCP-compatible agent.
-            </p>
-          </div>
-
-          <ArchitectureDiagram />
-        </div>
-      </section>
-
-
-      {/* ══════════════════════════════════════
-          7. PRICING
+          8. PRICING
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 bg-(--muted)/60">
         <div ref={price.ref} className={`max-w-[1200px] mx-auto px-6 sm:px-10 ${price.cls}`}>
@@ -476,11 +465,11 @@ export default function HomePage() {
               <p className="text-[10px] text-(--foreground)/30 mb-5 uppercase tracking-wide font-pixel">For artists</p>
               <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7">$0</p>
               <ul className="space-y-2.5 text-[13px] text-(--foreground)/50 mb-8">
-                {["1 artist workspace", "Limited credits", "Limited models", "Community support"].map(f => (
+                {["1 artist workspace", "Limited credits", "Community support"].map(f => (
                   <li key={f} className="flex items-start gap-2"><Check size={13} className="mt-0.5 shrink-0 text-(--foreground)/20" />{f}</li>
                 ))}
               </ul>
-              <span className="font-ui font-semibold border border-(--border) text-(--foreground) text-center py-3 rounded-xl text-sm group-hover:bg-(--foreground) group-hover:text-(--background) group-hover:border-(--foreground) transition-all duration-300 block">Get started</span>
+              <span className="font-ui font-semibold border border-(--border) text-(--foreground) text-center py-3 rounded-xl text-sm group-hover:bg-(--foreground) group-hover:text-(--background) group-hover:border-(--foreground) transition-all duration-300 block">Start free</span>
             </Link>
 
             {/* Pro */}
@@ -499,7 +488,7 @@ export default function HomePage() {
                   <li key={f} className="flex items-start gap-2"><Check size={13} className="mt-0.5 shrink-0 text-white/35" />{f}</li>
                 ))}
               </ul>
-              <span className="font-ui font-semibold bg-white text-black text-center py-3 rounded-xl text-sm group-hover:bg-white/90 transition-colors block">Start 30-day trial</span>
+              <span className="font-ui font-semibold bg-white text-black text-center py-3 rounded-xl text-sm group-hover:bg-white/90 transition-colors block">Start 30-day free trial</span>
             </Link>
 
             {/* Partner */}
@@ -512,11 +501,11 @@ export default function HomePage() {
               <p className="text-[10px] text-(--foreground)/30 mb-5 uppercase tracking-wide font-pixel">For labels</p>
               <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7">$499<span className="text-base text-(--foreground)/20 font-ui not-italic">/mo</span></p>
               <ul className="space-y-2.5 text-[13px] text-(--foreground)/50 mb-8">
-                {["Everything in Pro", "High-volume credits", "Customized agents", "Unlimited seats", "Dedicated support"].map(f => (
+                {["Everything in Pro", "High-volume credits", "Custom skills", "Unlimited seats", "Dedicated support"].map(f => (
                   <li key={f} className="flex items-start gap-2"><Check size={13} className="mt-0.5 shrink-0 text-(--foreground)/20" />{f}</li>
                 ))}
               </ul>
-              <span className="font-ui font-semibold border border-(--border) text-(--foreground) text-center py-3 rounded-xl text-sm group-hover:bg-(--foreground) group-hover:text-(--background) group-hover:border-(--foreground) transition-all duration-300 block">Get started</span>
+              <span className="font-ui font-semibold border border-(--border) text-(--foreground) text-center py-3 rounded-xl text-sm group-hover:bg-(--foreground) group-hover:text-(--background) group-hover:border-(--foreground) transition-all duration-300 block">Start Partner plan</span>
             </Link>
           </div>
 
