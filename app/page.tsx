@@ -272,21 +272,16 @@ export default function HomePage() {
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32">
         <div ref={problem.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${problem.cls}`}>
-          <div className="max-w-[820px]">
-            <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The gap</p>
-            <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight mb-6 leading-[1.05]">
-              Your team has Claude.<br />It still can&apos;t do the work.
-            </h2>
-            <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px]">
-              General agents don&apos;t know your catalog, your roster, or your workflows. They can&apos;t safely reach into the tools your team already pays for. They guess. Your team copies and pastes. Nothing gets shipped.
-            </p>
-          </div>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The gap</p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05]">
+            Your team has Claude.<br />It still can&apos;t do the work.
+          </h2>
 
-          <div className="grid sm:grid-cols-3 gap-x-10 gap-y-8 mt-14">
+          <div className="grid sm:grid-cols-3 gap-x-10 gap-y-6 mt-14">
             {[
-              { k: "No music context", v: "Agents don't know your roster, catalog, or release strategy. Every prompt starts from scratch." },
-              { k: "No safe access", v: "Drives, distributors, royalty systems, social — agents can't reach them without IT review." },
-              { k: "No music workflows", v: "Diligence, content batches, fan reports, A&R — the work that matters isn't built into general tools." },
+              { k: "No music context", v: "Doesn\u2019t know your roster or catalog." },
+              { k: "No safe access", v: "Can\u2019t touch Drive, royalties, distributors." },
+              { k: "No music workflows", v: "Diligence, content, A&R — none of it built in." },
             ].map((item) => (
               <div key={item.k}>
                 <p className="font-ui text-[11px] font-semibold text-(--foreground)/40 uppercase tracking-[0.18em] mb-2">{item.k}</p>
@@ -303,24 +298,19 @@ export default function HomePage() {
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 bg-(--muted)/40">
         <div ref={layer.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${layer.cls}`}>
-          <div className="max-w-[820px] mb-14">
-            <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The layer</p>
-            <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight mb-6 leading-[1.05]">
-              Recoup is the music layer<br />for your agents.
-            </h2>
-            <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px]">
-              Install once. Recoup adds music-specific context, skills, and tools to whatever agent your team uses — and respects the permissions your team already has.
-            </p>
-          </div>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The layer</p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight mb-14 leading-[1.05]">
+            Recoup is the music layer<br />for your agents.
+          </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {[
-              { k: "Artist context", v: "A living folder per artist. Bio, audience, sound, comparables, sacred rules. Updated as your roster grows." },
-              { k: "Catalog data", v: "Splits, royalties, deal terms, anomalies. Available to your agent the moment it needs them." },
-              { k: "Research APIs", v: "Streaming metrics, audience demographics, playlist placements, social traction — 50+ sources, one call." },
-              { k: "Content workflows", v: "Videos, images, captions, press — generated in batches from your catalog and brand." },
-              { k: "Catalog diligence", v: "Drop in a deal room. Get an 80% pass before a human ever opens the file." },
-              { k: "Approvals & guardrails", v: "Agents act inside the permissions each user already has. Destructive actions require a human click." },
+              { k: "Artist context", v: "A living folder per artist." },
+              { k: "Catalog data", v: "Splits, royalties, deal terms." },
+              { k: "Research", v: "50+ sources, one call." },
+              { k: "Content", v: "Videos, images, captions, press." },
+              { k: "Diligence", v: "Deal room to 80% in minutes." },
+              { k: "Guardrails", v: "Acts inside each user\u2019s permissions." },
             ].map((item) => (
               <div
                 key={item.k}
@@ -347,11 +337,8 @@ export default function HomePage() {
               <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-4">
                 Know everything about any artist.
               </h2>
-              <p className="text-[15px] text-(--foreground)/45 leading-relaxed mb-6 max-w-md">
-                Streaming metrics, audience demographics, playlist placements, social traction, career history — pulled from 50+ sources and delivered in seconds.
-              </p>
-              <p className="text-[13px] text-(--foreground)/30 italic">
-                Available from Claude, Codex, Cursor, or any MCP-compatible agent.
+              <p className="text-[15px] text-(--foreground)/45 leading-relaxed max-w-md">
+                Streams, audience, playlists, socials. 50+ sources, one call.
               </p>
             </div>
             <div>
@@ -369,15 +356,12 @@ export default function HomePage() {
         <div ref={catalog.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${catalog.cls}`}>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Catalog diligence</p>
+              <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Diligence</p>
               <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-4">
-                Turn a deal room into an 80% diligence pass.
+                Deal room to 80% pass.
               </h2>
-              <p className="text-[15px] text-(--foreground)/45 leading-relaxed mb-6 max-w-md">
-                Drop in royalty statements, summaries, and financials. Recoup parses every file, flags missing requirements, catches publisher and master conflicts, and models downside, base, and upside cases.
-              </p>
-              <p className="text-[13px] text-(--foreground)/30 italic">
-                Two-to-four week analyst work, ready for human review in minutes.
+              <p className="text-[15px] text-(--foreground)/45 leading-relaxed max-w-md">
+                Parses files, flags conflicts, models the deal. Minutes, not weeks.
               </p>
             </div>
             <div>
@@ -435,13 +419,10 @@ export default function HomePage() {
             <div className="order-1 lg:order-2">
               <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Content</p>
               <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-4">
-                Create the content you&apos;d hire a team for.
+                Content you&apos;d hire a team for.
               </h2>
-              <p className="text-[15px] text-(--foreground)/45 leading-relaxed mb-6 max-w-md">
-                Videos, images, captions, press copy — generated in batches from the catalog and brand Recoup already knows. Fat Beats created 22 finished videos in 2 hours with zero editing.
-              </p>
-              <p className="text-[13px] text-(--foreground)/30 italic">
-                One prompt. Dozens of assets. Ready to post.
+              <p className="text-[15px] text-(--foreground)/45 leading-relaxed max-w-md">
+                Fat Beats: 22 finished videos in 2 hours.
               </p>
             </div>
           </div>
@@ -461,10 +442,10 @@ export default function HomePage() {
               ))}
             </div>
             <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight text-white mb-5">
-              Works inside the agent tools<br />your team already uses.
+              Works inside the agents<br />your team already uses.
             </h2>
             <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
-              Install once. Recoup&apos;s skills, context, and tools become available in any MCP-compatible agent — without changing how your team works.
+              Install once. Available in any MCP-compatible agent.
             </p>
           </div>
 
@@ -479,10 +460,10 @@ export default function HomePage() {
       <section className="py-24 sm:py-32 bg-(--muted)/60">
         <div ref={price.ref} className={`max-w-[1200px] mx-auto px-6 sm:px-10 ${price.cls}`}>
           <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-3">
-            Start with one artist. Scale to a roster.
+            One artist to a full roster.
           </h2>
           <p className="text-[15px] text-(--foreground)/40 mb-14">
-            No credit card required. Add credits anytime. Bring your own agent.
+            No card. Bring your own agent.
           </p>
 
           <div ref={priceC.ref} className="grid md:grid-cols-3 gap-5 items-start">
@@ -557,7 +538,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="font-ui font-bold text-xl mb-3">We set up your music AI layer with you.</h3>
                 <p className="text-[14px] text-white/40 leading-relaxed max-w-lg mb-5">
-                  For labels and distributors. We install Recoup into your agent stack, wire up roster and catalog context, define team permissions, and ship the music-specific skills your team actually uses.
+                  For labels and distributors. We install Recoup, wire up your context, and ship the skills your team uses.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["Custom agents", "Co-created IP", "Dedicated team", "White-glove onboarding"].map(tag => (
@@ -584,12 +565,9 @@ export default function HomePage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-[0.04] pointer-events-none" aria-hidden="true" style={{ background: "radial-gradient(circle, white 0%, transparent 60%)" }} />
 
         <div ref={cta.ref} className={`max-w-[760px] mx-auto px-6 text-center relative z-10 ${cta.cls}`}>
-          <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.95] text-white mb-6">
-            Install {siteConfig.name} in your agent of choice.
+          <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.95] text-white mb-12">
+            Install {siteConfig.name} in your agent.
           </h2>
-          <p className="text-[15px] text-white/40 max-w-[520px] mx-auto mb-12">
-            Music-specific context, skills, and tools — wherever your team is already working.
-          </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href={siteConfig.appUrl} className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:-translate-y-0.5">
               Get started free
