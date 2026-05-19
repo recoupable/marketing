@@ -254,10 +254,10 @@ export default function HomePage() {
               ))}
             </div>
             <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight text-white mb-5">
-              Works inside the agents<br />your team already uses.
+              Bring your own agent.<br />The lab plugs in.
             </h2>
             <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
-              Install once. Available in any MCP-compatible agent.
+              One install. Available in any MCP-compatible agent — including the ones your team will adopt next.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
@@ -330,8 +330,8 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-3 gap-x-10 gap-y-10">
             {[
               { n: "01", k: "Install", v: "Add Recoup to Claude, Codex, or Cursor in one command." },
-              { n: "02", k: "Connect", v: "Wire up your roster, catalog, and team permissions." },
-              { n: "03", k: "Ask", v: "Your agent now does the music work, with the right context." },
+              { n: "02", k: "Wire it up", v: "Connect your roster, catalog, and the tools your team already pays for." },
+              { n: "03", k: "Let it run", v: "Your agent researches artists, audits catalogs, builds content, and reports back." },
             ].map((step) => (
               <div key={step.n}>
                 <p className="font-pixel text-[14px] text-(--foreground)/25 tracking-tight mb-3">{step.n}</p>
@@ -349,9 +349,9 @@ export default function HomePage() {
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 bg-(--muted)/40">
         <div ref={layer.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${layer.cls}`}>
-          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The layer</p>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">In the box</p>
           <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight mb-14 leading-[1.05]">
-            Recoup is the music layer<br />for your agents.
+            Six skills the lab ships<br />to your agent.
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -489,19 +489,19 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          7d. WHAT IS RECOUP — company identity
+          7d. DOGFOODING — the proof you can't fake
           ══════════════════════════════════════ */}
       <section className="py-20 sm:py-28 border-t border-(--border)">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10">
-          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">What is Recoup</p>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The proof</p>
           <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-6">
-            The open source AI lab<br />for the music industry.
+            We run our own labels.
           </h2>
           <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px] mb-5">
-            We open source the skills, plugins, and data your agent uses to run a label. For teams that need more, we build custom AI workflows against your roster, catalog, and ops.
+            Recoup Records and Gatsby Grace use the lab every day. The skills we ship are the ones our team uses to write release plans, audit catalogs, pitch playlists, and run the business.
           </p>
           <p className="text-[14px] text-(--foreground)/40 leading-relaxed max-w-[640px]">
-            We run our own labels and artists so the work ships into production every day, not into slides.
+            The work goes into production, not slides. Every skill in this site has shipped against a real roster before it shipped here.
           </p>
         </div>
       </section>
@@ -513,10 +513,10 @@ export default function HomePage() {
       <section id="pricing" className="py-24 sm:py-32 bg-(--muted)/60 scroll-mt-20">
         <div ref={price.ref} className={`max-w-[1200px] mx-auto px-6 sm:px-10 ${price.cls}`}>
           <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-3">
-            One artist to a full roster.
+            Three ways to use the lab.
           </h2>
           <p className="text-[15px] text-(--foreground)/40 mb-14">
-            No card. Bring your own agent.
+            From free skills to a custom build for your roster.
           </p>
 
           <div ref={priceC.ref} className="grid md:grid-cols-3 gap-5 items-start">
@@ -619,7 +619,7 @@ export default function HomePage() {
 
         <div ref={cta.ref} className={`max-w-[760px] mx-auto px-6 text-center relative z-10 ${cta.cls}`}>
           <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.95] text-white mb-8">
-            Install {siteConfig.name} in your agent.
+            One command.<br />The lab is yours.
           </h2>
 
           <div className="flex items-center justify-center gap-2 mb-10">
