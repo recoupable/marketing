@@ -257,7 +257,7 @@ export default function HomePage() {
               Bring your own agent.<br />The lab plugs in.
             </h2>
             <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
-              One install. Available in any MCP-compatible agent — including the ones your team will adopt next.
+              One install. Available in any agent — including the ones your team will adopt next.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
