@@ -477,6 +477,25 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
+          7d. WHAT IS RECOUP — company identity
+          ══════════════════════════════════════ */}
+      <section className="py-20 sm:py-28 border-t border-(--border)">
+        <div className="max-w-[820px] mx-auto px-6 sm:px-10">
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">What is Recoup</p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-6">
+            The open source AI lab<br />for the music industry.
+          </h2>
+          <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px] mb-5">
+            We open source the skills, plugins, and data your agent uses to run a label. For teams that need more, we build custom AI workflows against your roster, catalog, and ops.
+          </p>
+          <p className="text-[14px] text-(--foreground)/40 leading-relaxed max-w-[640px]">
+            We run our own labels and artists so the work ships into production every day, not into slides.
+          </p>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
           8. PRICING
           ══════════════════════════════════════ */}
       <section id="pricing" className="py-24 sm:py-32 bg-(--muted)/60 scroll-mt-20">
@@ -555,15 +574,15 @@ export default function HomePage() {
                     <Building2 size={18} className="text-white/50" />
                   </div>
                   <div>
-                    <p className="text-[10px] text-white/25 uppercase tracking-wide font-pixel">Enterprise</p>
+                    <p className="text-[10px] text-white/25 uppercase tracking-wide font-pixel">Custom build</p>
                   </div>
                 </div>
-                <h3 className="font-ui font-bold text-xl mb-3">We set up your music AI layer with you.</h3>
+                <h3 className="font-ui font-bold text-xl mb-3">Bring the lab in-house.</h3>
                 <p className="text-[14px] text-white/40 leading-relaxed max-w-lg mb-5">
-                  For labels and distributors. We install Recoup, wire up your context, and ship the skills your team uses.
+                  For labels and funds. We embed with your team, build custom skills against your catalog, and ship the AI workflows your business runs on.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {["Custom agents", "Co-created IP", "Dedicated team", "White-glove onboarding"].map(tag => (
+                  {["Custom skills", "Catalog-specific agents", "Embedded team", "3\u20136 month engagements"].map(tag => (
                     <span key={tag} className="text-[11px] font-ui text-white/35 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03]">{tag}</span>
                   ))}
                 </div>
