@@ -223,7 +223,7 @@ export default function HomePage() {
           ══════════════════════════════════════ */}
       <section className="py-8 border-y border-(--border)">
         <div className="max-w-[1100px] mx-auto px-6 flex items-center justify-center gap-x-4 sm:gap-x-5">
-          <span className="shrink-0 font-ui text-[10px] text-(--foreground)/35 uppercase tracking-[0.15em]">Used by</span>
+          <span className="shrink-0 font-ui text-[10px] text-(--foreground)/35 uppercase tracking-[0.15em]">Used by teams at</span>
           {CUSTOMER_LOGOS.map((logo) => (
             <span
               key={logo.slug}
