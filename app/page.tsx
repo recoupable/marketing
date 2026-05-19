@@ -7,6 +7,7 @@ import { HeroDemo } from "@/components/home/HeroDemo";
 import { ResearchCard } from "@/components/home/ResearchCard";
 import { ContentGrid } from "@/components/home/ContentGrid";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
+import { CUSTOMER_LOGOS } from "@/lib/customerLogos";
 import {
   Check,
   ArrowUpRight,
@@ -48,7 +49,31 @@ function useStagger(n: number, ms = 130) {
   };
 }
 
-const LOGOS = ["Atlantic", "Rostrum", "300", "Warner", "Parlophone", "Fat Beats"];
+const HERO_WORDS = ["Music", "Catalog", "Artist", "Fan"] as const;
+
+interface PixelCharFragment {
+  offsetX: number;
+  offsetY: number;
+  inverseOffsetX: number;
+  inverseOffsetY: number;
+  delayMs: number;
+  sliceTop: number;
+  sliceBottom: number;
+}
+
+function buildPixelFragments(word: string): PixelCharFragment[] {
+  return word
+    .split("")
+    .map((_, index) => ({
+      offsetX: Math.floor(Math.random() * 7) - 3,
+      offsetY: 0,
+      inverseOffsetX: Math.floor(Math.random() * 7) - 3,
+      inverseOffsetY: 0,
+      delayMs: index * 14 + Math.floor(Math.random() * 90),
+      sliceTop: Math.floor(Math.random() * 55),
+      sliceBottom: Math.floor(Math.random() * 55),
+    }));
+}
 
 const FLOATING_AGENTS = [
   { label: "Artist Research", x: "8%", y: "18%", delay: 200, size: "text-[12px]", opacity: 0.35 },
@@ -91,7 +116,54 @@ function FloatingPills({ show }: { show: boolean }) {
 
 export default function HomePage() {
   const [show, setShow] = useState(false);
+  const [heroWordIndex, setHeroWordIndex] = useState(0);
+  const [heroDisplayWord, setHeroDisplayWord] = useState<string>(HERO_WORDS[0]);
+  const [heroWordClassName, setHeroWordClassName] = useState("pixel-swap-in");
+  const [heroPixelFragments, setHeroPixelFragments] = useState<PixelCharFragment[]>(() =>
+    buildPixelFragments(HERO_WORDS[0]),
+  );
+  const heroWordSwapTimeoutRef = useRef<number | null>(null);
+  const heroWordShuffleIntervalRef = useRef<number | null>(null);
+  const heroWordIndexRef = useRef(0);
   useEffect(() => { const t = setTimeout(() => setShow(true), 100); return () => clearTimeout(t); }, []);
+  useEffect(() => {
+    heroWordIndexRef.current = heroWordIndex;
+  }, [heroWordIndex]);
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      const currentWordIndex = heroWordIndexRef.current;
+      setHeroWordClassName("pixel-swap-out");
+      setHeroPixelFragments(buildPixelFragments(HERO_WORDS[currentWordIndex]));
+      if (heroWordShuffleIntervalRef.current) {
+        window.clearInterval(heroWordShuffleIntervalRef.current);
+      }
+      heroWordShuffleIntervalRef.current = window.setInterval(() => {
+        setHeroPixelFragments(buildPixelFragments(HERO_WORDS[currentWordIndex]));
+      }, 65);
+      heroWordSwapTimeoutRef.current = window.setTimeout(() => {
+        if (heroWordShuffleIntervalRef.current) {
+          window.clearInterval(heroWordShuffleIntervalRef.current);
+          heroWordShuffleIntervalRef.current = null;
+        }
+        const nextIndex = (currentWordIndex + 1) % HERO_WORDS.length;
+        heroWordIndexRef.current = nextIndex;
+        setHeroWordIndex(nextIndex);
+        setHeroDisplayWord(HERO_WORDS[nextIndex]);
+        setHeroPixelFragments(buildPixelFragments(HERO_WORDS[nextIndex]));
+        setHeroWordClassName("pixel-swap-in");
+      }, 300);
+    }, 2500);
+
+    return () => {
+      window.clearInterval(interval);
+      if (heroWordShuffleIntervalRef.current) {
+        window.clearInterval(heroWordShuffleIntervalRef.current);
+      }
+      if (heroWordSwapTimeoutRef.current) {
+        window.clearTimeout(heroWordSwapTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const research = useReveal();
   const content = useReveal();
@@ -127,7 +199,31 @@ export default function HomePage() {
               </span>
 
               <h1 className={`font-pixel text-[clamp(3rem,9vw,6rem)] text-(--foreground) leading-[0.95] tracking-[-0.01em] mb-4 transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
-                Music
+                <span
+                  className={`pixel-word-cycle inline-block min-w-[7ch] text-center ${heroWordClassName}`}
+                >
+                  {heroDisplayWord.split("").map((char, index) => {
+                    const fragment = heroPixelFragments[index];
+                    const fragmentStyle = {
+                      "--pixel-delay": `${fragment?.delayMs ?? index * 25}ms`,
+                      "--pixel-x": `${fragment?.offsetX ?? 0}px`,
+                      "--pixel-y": `${fragment?.offsetY ?? 0}px`,
+                      "--pixel-x-inverse": `${fragment?.inverseOffsetX ?? 0}px`,
+                      "--pixel-y-inverse": `${fragment?.inverseOffsetY ?? 0}px`,
+                      "--pixel-top": `${fragment?.sliceTop ?? 20}%`,
+                      "--pixel-bottom": `${fragment?.sliceBottom ?? 20}%`,
+                    } as React.CSSProperties;
+
+                    return (
+                      <span key={`${heroDisplayWord}-${index}-${fragment?.delayMs ?? index}`} className="pixel-char" style={fragmentStyle}>
+                        <span className="pixel-char-main">{char}</span>
+                        <span className="pixel-char-noise" aria-hidden>
+                          {char}
+                        </span>
+                      </span>
+                    );
+                  })}
+                </span>
                 <span className="block">Intelligence</span>
               </h1>
 
@@ -148,10 +244,21 @@ export default function HomePage() {
           2. LOGOS
           ══════════════════════════════════════ */}
       <section className="py-8 border-y border-(--border)">
-        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-center flex-wrap gap-x-8 gap-y-3">
-          <span className="font-ui text-[10px] text-(--foreground)/20 uppercase tracking-[0.15em]">Used by</span>
-          {LOGOS.map(n => (
-            <span key={n} className="font-ui font-bold text-[12px] text-(--foreground)/20 uppercase tracking-[0.06em] select-none">{n}</span>
+        <div className="max-w-[1100px] mx-auto px-6 flex items-center justify-center gap-x-4 sm:gap-x-5">
+          <span className="shrink-0 font-ui text-[10px] text-(--foreground)/35 uppercase tracking-[0.15em]">Used by</span>
+          {CUSTOMER_LOGOS.map((logo) => (
+            <span
+              key={logo.slug}
+              className="flex h-8 w-12 sm:w-16 items-center justify-center"
+            >
+              <img
+                src={`/api/customer-logos/${logo.slug}`}
+                alt={logo.alt}
+                className={`${logo.className ?? "max-h-5 sm:max-h-6"} customer-logo-image`}
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
           ))}
         </div>
       </section>

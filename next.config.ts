@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    "/api/customer-logos/[slug]": ["./design/logos/customers/**/*.svg"],
+  },
   images: {
     remotePatterns: [
       {
