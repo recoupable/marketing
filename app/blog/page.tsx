@@ -3,6 +3,7 @@ import { getAllPosts } from "@/lib/posts";
 import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 import { PostCard } from "@/components/blog/PostCard";
+import { BlogCTA } from "@/components/blog/BlogCTA";
 
 /**
  * SEO metadata for the blog index page.
@@ -45,6 +46,8 @@ export default function BlogIndexPage() {
           No posts yet. Check back soon.
         </p>
       )}
+      {/* Email capture */}
+      <BlogCTA />
     </div>
   );
 }
