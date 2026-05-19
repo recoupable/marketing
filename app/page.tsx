@@ -49,11 +49,84 @@ function useStagger(n: number, ms = 130) {
   };
 }
 
+const HERO_WORDS = ["Music", "Catalog", "Artist", "Fan"] as const;
+
+interface PixelCharFragment {
+  offsetX: number;
+  offsetY: number;
+  inverseOffsetX: number;
+  inverseOffsetY: number;
+  delayMs: number;
+  sliceTop: number;
+  sliceBottom: number;
+}
+
+function buildPixelFragments(word: string): PixelCharFragment[] {
+  return word
+    .split("")
+    .map((_, index) => ({
+      offsetX: Math.floor(Math.random() * 7) - 3,
+      offsetY: 0,
+      inverseOffsetX: Math.floor(Math.random() * 7) - 3,
+      inverseOffsetY: 0,
+      delayMs: index * 14 + Math.floor(Math.random() * 90),
+      sliceTop: Math.floor(Math.random() * 55),
+      sliceBottom: Math.floor(Math.random() * 55),
+    }));
+}
+
 export default function HomePage() {
   const [show, setShow] = useState(false);
+  const [heroWordIndex, setHeroWordIndex] = useState(0);
+  const [heroDisplayWord, setHeroDisplayWord] = useState<string>(HERO_WORDS[0]);
+  const [heroWordClassName, setHeroWordClassName] = useState("pixel-swap-in");
+  const [heroPixelFragments, setHeroPixelFragments] = useState<PixelCharFragment[]>(() =>
+    buildPixelFragments(HERO_WORDS[0]),
+  );
+  const heroWordSwapTimeoutRef = useRef<number | null>(null);
+  const heroWordShuffleIntervalRef = useRef<number | null>(null);
+  const heroWordIndexRef = useRef(0);
   useEffect(() => {
     const t = setTimeout(() => setShow(true), 100);
     return () => clearTimeout(t);
+  }, []);
+  useEffect(() => {
+    heroWordIndexRef.current = heroWordIndex;
+  }, [heroWordIndex]);
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      const currentWordIndex = heroWordIndexRef.current;
+      setHeroWordClassName("pixel-swap-out");
+      setHeroPixelFragments(buildPixelFragments(HERO_WORDS[currentWordIndex]));
+      if (heroWordShuffleIntervalRef.current) {
+        window.clearInterval(heroWordShuffleIntervalRef.current);
+      }
+      heroWordShuffleIntervalRef.current = window.setInterval(() => {
+        setHeroPixelFragments(buildPixelFragments(HERO_WORDS[currentWordIndex]));
+      }, 65);
+      heroWordSwapTimeoutRef.current = window.setTimeout(() => {
+        if (heroWordShuffleIntervalRef.current) {
+          window.clearInterval(heroWordShuffleIntervalRef.current);
+          heroWordShuffleIntervalRef.current = null;
+        }
+        const nextIndex = (currentWordIndex + 1) % HERO_WORDS.length;
+        heroWordIndexRef.current = nextIndex;
+        setHeroWordIndex(nextIndex);
+        setHeroDisplayWord(HERO_WORDS[nextIndex]);
+        setHeroPixelFragments(buildPixelFragments(HERO_WORDS[nextIndex]));
+        setHeroWordClassName("pixel-swap-in");
+      }, 300);
+    }, 2500);
+
+    return () => {
+      window.clearInterval(interval);
+      if (heroWordShuffleIntervalRef.current) {
+        window.clearInterval(heroWordShuffleIntervalRef.current);
+      }
+      if (heroWordSwapTimeoutRef.current) {
+        window.clearTimeout(heroWordSwapTimeoutRef.current);
+      }
+    };
   }, []);
 
   const problem = useReveal();
@@ -91,11 +164,36 @@ export default function HomePage() {
               </span>
 
               <h1 className={`font-pixel text-[clamp(3rem,9vw,6rem)] text-(--foreground) leading-[0.95] tracking-[-0.01em] mb-5 transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
-                Music agents<br />inside your AI.
+                <span
+                  className={`pixel-word-cycle inline-block min-w-[7ch] text-center ${heroWordClassName}`}
+                >
+                  {heroDisplayWord.split("").map((char, index) => {
+                    const fragment = heroPixelFragments[index];
+                    const fragmentStyle = {
+                      "--pixel-delay": `${fragment?.delayMs ?? index * 25}ms`,
+                      "--pixel-x": `${fragment?.offsetX ?? 0}px`,
+                      "--pixel-y": `${fragment?.offsetY ?? 0}px`,
+                      "--pixel-x-inverse": `${fragment?.inverseOffsetX ?? 0}px`,
+                      "--pixel-y-inverse": `${fragment?.inverseOffsetY ?? 0}px`,
+                      "--pixel-top": `${fragment?.sliceTop ?? 20}%`,
+                      "--pixel-bottom": `${fragment?.sliceBottom ?? 20}%`,
+                    } as React.CSSProperties;
+
+                    return (
+                      <span key={`${heroDisplayWord}-${index}-${fragment?.delayMs ?? index}`} className="pixel-char" style={fragmentStyle}>
+                        <span className="pixel-char-main">{char}</span>
+                        <span className="pixel-char-noise" aria-hidden>
+                          {char}
+                        </span>
+                      </span>
+                    );
+                  })}
+                </span>
+                <span className="block">Intelligence</span>
               </h1>
 
-              <p className={`text-(--foreground)/55 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.6] transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
-                Install Recoup in Claude, Codex, or Cursor.
+              <p className={`text-(--foreground)/55 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.6] max-w-[640px] mx-auto transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
+                Skills and plugins that give Claude, Codex, and Cursor music industry expertise.
               </p>
 
               <div className={`flex flex-col sm:flex-row items-center gap-3 mb-12 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "650ms" }}>
