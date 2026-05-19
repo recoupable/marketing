@@ -160,7 +160,7 @@ export default function HomePage() {
 
             <div className="hero-text max-w-[820px] mx-auto flex flex-col items-center transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] origin-top">
               <span className={`inline-flex items-center gap-2.5 mb-6 px-4 py-2 rounded-full text-[12px] uppercase tracking-[0.16em] font-pixel text-(--foreground)/50 transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ transitionDelay: "200ms", boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 15%, transparent)" }}>
-                For labels, managers, and artists
+                For labels, managers, artists, and funds
               </span>
 
               <h1 className={`font-pixel text-[clamp(3rem,9vw,6rem)] text-(--foreground) leading-[0.95] tracking-[-0.01em] mb-5 transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
