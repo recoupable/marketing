@@ -196,20 +196,6 @@ export default function HomePage() {
                 Skills and plugins that give Claude, Codex, and Cursor music industry expertise.
               </p>
 
-              <div className={`flex flex-col sm:flex-row items-center gap-3 mb-12 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "650ms" }}>
-                <Link
-                  href={siteConfig.appUrl}
-                  className="font-ui font-semibold bg-(--foreground) text-(--background) px-7 py-3.5 rounded-full text-[14px] hover:opacity-90 transition-opacity"
-                >
-                  Install in Claude
-                </Link>
-                <Link
-                  href="#pricing"
-                  className="font-ui font-medium text-(--foreground)/70 hover:text-(--foreground) px-4 py-3.5 text-[14px] flex items-center gap-1.5 transition-colors"
-                >
-                  See pricing <ArrowRight size={14} />
-                </Link>
-              </div>
             </div>
 
             <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "750ms" : "0ms" }} id="hero-demo-wrapper">
