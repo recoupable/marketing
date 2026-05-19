@@ -5,6 +5,7 @@ import { buildPostMetadata, buildPostJsonLd } from "@/lib/seo";
 import { markdownToHtml } from "@/lib/markdown";
 import { PostBody } from "@/components/blog/PostBody";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
+import { BlogCTA } from "@/components/blog/BlogCTA";
 
 /**
  * Generate static params for all posts — enables SSG.
@@ -103,6 +104,9 @@ export default async function BlogPostPage({
             </span>
           ))}
         </div>
+
+        {/* Email capture CTA */}
+        <BlogCTA postSlug={slug} />
 
         {/* Related posts */}
         <RelatedPosts posts={relatedPosts} />
