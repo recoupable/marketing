@@ -390,25 +390,176 @@ export default function HomePage() {
             Six skills we ship<br />to your agent.
           </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[
-              { k: "Artist context", v: "A living folder per artist.", stat: "Bio, sound, sacred rules" },
-              { k: "Catalog data", v: "Splits, royalties, deal terms.", stat: "Every track, one source" },
-              { k: "Research", v: "50+ sources, one call.", stat: "Streams to fan psychology" },
-              { k: "Content", v: "Videos, images, captions, press.", stat: "22 videos in 2 hours" },
-              { k: "Diligence", v: "Deal rooms to 80% pass.", stat: "Weeks of analyst work \u2192 minutes" },
-              { k: "Guardrails", v: "Acts inside each user\u2019s permissions.", stat: "Human-approves destructive actions" },
-            ].map((item) => (
-              <div
-                key={item.k}
-                className="bg-(--background) rounded-xl p-5"
-                style={{ boxShadow: "0px 0px 0px 1px var(--border)" }}
-              >
-                <p className="font-ui font-bold text-[14px] text-(--foreground) mb-1.5">{item.k}</p>
-                <p className="text-[13px] text-(--foreground)/55 leading-relaxed mb-3">{item.v}</p>
-                <p className="text-[11px] text-(--foreground)/35 font-ui">{item.stat}</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-5 auto-rows-fr">
+            {/* CONTENT — feature card (wide, dark) */}
+            <div
+              className="bg-[#0f0f10] dark:bg-[#1a1a1c] text-white rounded-2xl p-6 overflow-hidden relative sm:col-span-2 lg:col-span-3 row-span-2 flex flex-col"
+              style={{ boxShadow: "0 0 0 1px rgba(255,255,255,0.06), 0 30px 60px -30px rgba(0,0,0,0.45)" }}
+            >
+              <div className="flex-1 grid grid-cols-3 gap-2.5 mb-6">
+                {[
+                  { bg: "from-violet-500/35 to-violet-700/20", icon: "▶" },
+                  { bg: "from-blue-500/35 to-blue-700/20", icon: "▶" },
+                  { bg: "from-amber-500/35 to-amber-700/20", icon: "■" },
+                  { bg: "from-rose-500/35 to-rose-700/20", icon: "▶" },
+                  { bg: "from-emerald-500/35 to-emerald-700/20", icon: "T" },
+                  { bg: "from-pink-500/35 to-pink-700/20", icon: "▶" },
+                ].map((tile, i) => (
+                  <div
+                    key={i}
+                    className={`bg-gradient-to-br ${tile.bg} rounded-xl aspect-square flex items-center justify-center text-white/55 text-[20px]`}
+                  >
+                    {tile.icon}
+                  </div>
+                ))}
               </div>
-            ))}
+              <div>
+                <p className="font-pixel text-[10px] text-white/40 uppercase tracking-[0.18em] mb-2">Content</p>
+                <p className="font-ui font-bold text-[18px] mb-1.5">Videos, images, captions, press.</p>
+                <p className="text-[13px] text-white/45 leading-relaxed">22 finished videos in 2 hours at Fat Beats. One prompt, dozens of assets.</p>
+              </div>
+            </div>
+
+            {/* ARTIST CONTEXT */}
+            <div
+              className="bg-(--background) rounded-2xl p-5 overflow-hidden relative sm:col-span-1 lg:col-span-3 flex flex-col"
+              style={{ boxShadow: "0px 0px 0px 1px var(--border)" }}
+            >
+              <div className="h-36 sm:h-36 mb-5 rounded-xl bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-(--muted)/40 p-4 flex flex-col justify-end relative overflow-hidden">
+                <div className="bg-(--background) rounded-lg p-3" style={{ boxShadow: "0 0 0 1px var(--border)" }}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-pink-400 to-purple-400" />
+                    <div className="flex flex-col">
+                      <span className="text-[11px] font-ui font-semibold text-(--foreground) leading-tight">Gatsby Grace</span>
+                      <span className="text-[9px] font-pixel uppercase tracking-wider text-(--foreground)/35">12.4k monthly</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    {["indie-pop", "bedroom-pop", "intimate"].map((tag) => (
+                      <span key={tag} className="text-[9px] font-ui text-(--foreground)/50 bg-(--muted) px-1.5 py-0.5 rounded">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-2">Artist context</p>
+                <p className="font-ui font-bold text-[15px] text-(--foreground) mb-1">A living folder per artist.</p>
+                <p className="text-[12px] text-(--foreground)/50 leading-relaxed">Bio, sound, comparables, sacred rules — updated as your roster grows.</p>
+              </div>
+            </div>
+
+            {/* CATALOG DATA */}
+            <div
+              className="bg-(--background) rounded-2xl p-5 overflow-hidden relative sm:col-span-1 lg:col-span-3 flex flex-col"
+              style={{ boxShadow: "0px 0px 0px 1px var(--border)" }}
+            >
+              <div className="h-36 sm:h-36 mb-5 rounded-xl bg-gradient-to-br from-emerald-500/8 via-blue-500/8 to-(--muted)/40 p-3 flex flex-col justify-center">
+                <div className="bg-(--background) rounded-lg overflow-hidden" style={{ boxShadow: "0 0 0 1px var(--border)" }}>
+                  <div className="grid grid-cols-3 text-[8px] font-pixel uppercase tracking-wider text-(--foreground)/35 px-3 py-1 border-b border-(--border)">
+                    <span>Track</span><span>Splits</span><span className="text-right">Royalty</span>
+                  </div>
+                  {[
+                    { t: "Hiccups", s: "50/30/20", r: "$1.2K" },
+                    { t: "Sundown", s: "70/30", r: "$840" },
+                    { t: "All In", s: "100", r: "$520" },
+                  ].map((row) => (
+                    <div key={row.t} className="grid grid-cols-3 text-[10px] font-ui px-3 py-1 border-b border-(--border) last:border-b-0">
+                      <span className="text-(--foreground)/70">{row.t}</span>
+                      <span className="text-(--foreground)/50">{row.s}</span>
+                      <span className="text-(--foreground) text-right font-medium">{row.r}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-2">Catalog data</p>
+                <p className="font-ui font-bold text-[15px] text-(--foreground) mb-1">Splits, royalties, deal terms.</p>
+                <p className="text-[12px] text-(--foreground)/50 leading-relaxed">Every track, every right, in one place your agent can read.</p>
+              </div>
+            </div>
+
+            {/* RESEARCH */}
+            <div
+              className="bg-(--background) rounded-2xl p-5 overflow-hidden relative sm:col-span-1 lg:col-span-2 flex flex-col"
+              style={{ boxShadow: "0px 0px 0px 1px var(--border)" }}
+            >
+              <div className="h-28 mb-5 rounded-xl bg-gradient-to-br from-(--muted)/60 to-(--muted)/20 flex items-center justify-center p-3 overflow-hidden">
+                <div className="grid grid-cols-10 gap-1.5">
+                  {Array.from({ length: 50 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="w-1.5 h-1.5 rounded-full bg-(--foreground)"
+                      style={{ opacity: 0.15 + ((i * 7) % 80) / 100 }}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-2">Research</p>
+                <p className="font-ui font-bold text-[15px] text-(--foreground) mb-1">50+ sources, one call.</p>
+                <p className="text-[12px] text-(--foreground)/50 leading-relaxed">Streams to fan psychology.</p>
+              </div>
+            </div>
+
+            {/* DILIGENCE */}
+            <div
+              className="bg-(--background) rounded-2xl p-5 overflow-hidden relative sm:col-span-1 lg:col-span-2 flex flex-col"
+              style={{ boxShadow: "0px 0px 0px 1px var(--border)" }}
+            >
+              <div className="h-28 mb-5 rounded-xl bg-gradient-to-br from-emerald-500/12 via-(--muted)/40 to-(--muted)/20 p-3 flex items-center justify-center relative overflow-hidden">
+                <div className="grid grid-cols-3 gap-1 w-full relative">
+                  {[
+                    { l: "Down", v: "$1.8M", c: "text-(--foreground)/45" },
+                    { l: "Base", v: "$2.4M", c: "text-(--foreground)" },
+                    { l: "Up", v: "$3.1M", c: "text-emerald-600 dark:text-emerald-400" },
+                  ].map((m) => (
+                    <div key={m.l} className="text-center">
+                      <p className={`font-pixel text-[18px] sm:text-[19px] leading-none mb-1 ${m.c}`}>{m.v}</p>
+                      <p className="text-[8px] font-pixel uppercase tracking-wider text-(--foreground)/35">{m.l}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-2">Diligence</p>
+                <p className="font-ui font-bold text-[15px] text-(--foreground) mb-1">Deal rooms to 80% pass.</p>
+                <p className="text-[12px] text-(--foreground)/50 leading-relaxed">Weeks of analyst work → minutes.</p>
+              </div>
+            </div>
+
+            {/* GUARDRAILS */}
+            <div
+              className="bg-(--background) rounded-2xl p-5 overflow-hidden relative sm:col-span-2 lg:col-span-2 flex flex-col"
+              style={{ boxShadow: "0px 0px 0px 1px var(--border)" }}
+            >
+              <div className="h-28 mb-5 rounded-xl bg-gradient-to-br from-(--muted)/50 to-amber-500/8 p-3 flex flex-col justify-center gap-1.5">
+                {[
+                  { k: "Read roster", ok: true },
+                  { k: "Write to Drive", ok: true },
+                  { k: "Delete catalog", ok: false },
+                  { k: "Send invoices", ok: false },
+                ].map((row) => (
+                  <div key={row.k} className="flex items-center gap-2 text-[11px] font-ui bg-(--background)/70 px-2.5 py-1 rounded-md" style={{ boxShadow: "0 0 0 1px var(--border)" }}>
+                    {row.ok ? (
+                      <Check size={11} className="text-emerald-500 shrink-0" />
+                    ) : (
+                      <span className="w-2.5 h-2.5 rounded-full border border-amber-500 shrink-0 flex items-center justify-center">
+                        <span className="w-0.5 h-0.5 rounded-full bg-amber-500" />
+                      </span>
+                    )}
+                    <span className="text-(--foreground)/65 truncate">{row.k}</span>
+                    <span className={`ml-auto text-[9px] font-pixel uppercase tracking-wider ${row.ok ? "text-emerald-600" : "text-amber-600"}`}>
+                      {row.ok ? "auto" : "ask"}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div>
+                <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-2">Guardrails</p>
+                <p className="font-ui font-bold text-[15px] text-(--foreground) mb-1">Acts inside each user&apos;s permissions.</p>
+                <p className="text-[12px] text-(--foreground)/50 leading-relaxed">Destructive actions need a human click.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
