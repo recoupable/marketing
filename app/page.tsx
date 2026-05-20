@@ -160,7 +160,7 @@ export default function HomePage() {
           <div className="pb-8 flex flex-col items-center text-center">
 
             <div className="hero-text max-w-[820px] mx-auto flex flex-col items-center transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] origin-top">
-              <h1 className={`font-pixel text-[clamp(3rem,9vw,6rem)] text-(--foreground) leading-[0.95] tracking-[-0.01em] mb-5 transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
+              <h1 className={`font-pixel text-[clamp(3.5rem,10vw,7rem)] text-(--foreground) leading-[0.95] tracking-[-0.01em] mb-5 transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
                 <span
                   className={`pixel-word-cycle inline-block min-w-[7ch] text-center ${heroWordClassName}`}
                 >
