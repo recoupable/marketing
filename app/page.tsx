@@ -193,8 +193,8 @@ export default function HomePage() {
                 <span className="block">Intelligence</span>
               </h1>
 
-              <p className={`text-(--foreground)/55 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.5] max-w-[560px] mx-auto transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
-                AI tools for the music industry.
+              <p className={`text-(--foreground) text-[clamp(1.25rem,2vw,1.5rem)] mb-9 leading-[1.35] max-w-[640px] mx-auto font-ui font-semibold transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
+                AI research and tools for the music industry.
               </p>
 
             </div>
