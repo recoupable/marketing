@@ -192,12 +192,12 @@ export default function HomePage() {
                 <span className="block">Intelligence</span>
               </h1>
 
-              <p className={`text-(--foreground) text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-3 leading-[1.4] max-w-[520px] mx-auto font-ui font-medium transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
-                The open source AI lab for the music industry.
+              <p className={`text-(--foreground) text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-3 leading-[1.4] max-w-[560px] mx-auto font-ui font-medium transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
+                AI agents for the music industry.
               </p>
 
-              <p className={`text-(--foreground)/45 text-[14px] mb-9 leading-[1.5] max-w-[520px] mx-auto transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "600ms" }}>
-                Agent skills, plugins, and custom builds for artists, managers, labels, and funds.
+              <p className={`text-(--foreground)/45 text-[14px] mb-9 leading-[1.5] max-w-[560px] mx-auto transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "600ms" }}>
+                Open source skills, paid APIs, and custom builds for music businesses and the developers building for them.
               </p>
 
               <div className={`mb-12 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "700ms" }}>
@@ -211,7 +211,18 @@ export default function HomePage() {
             </div>
 
             <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "750ms" : "0ms" }} id="hero-demo-wrapper">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/80 animate-pulse" />
+                <span className="font-pixel text-[10px] text-(--foreground)/45 uppercase tracking-[0.18em]">
+                  Live · recoup-research skill
+                </span>
+              </div>
+
               <HeroDemo />
+
+              <p className="text-center mt-4 text-[12px] text-(--foreground)/40 font-ui max-w-[520px] mx-auto leading-relaxed">
+                One of our open source skills, running live. Install it in your agent to get the same thing.
+              </p>
             </div>
           </div>
         </div>
@@ -254,7 +265,7 @@ export default function HomePage() {
               ))}
             </div>
             <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight text-white mb-5">
-              Bring your own agent.<br />The lab plugs in.
+              Bring your own agent.<br />Recoup plugs in.
             </h2>
             <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
               One install. Available in any agent — including the ones your team will adopt next.
@@ -351,7 +362,7 @@ export default function HomePage() {
         <div ref={layer.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${layer.cls}`}>
           <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">In the box</p>
           <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight mb-14 leading-[1.05]">
-            Six skills the lab ships<br />to your agent.
+            Six skills we ship<br />to your agent.
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -498,7 +509,7 @@ export default function HomePage() {
             We run our own labels.
           </h2>
           <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px] mb-5">
-            Recoup Records and Gatsby Grace use the lab every day. The skills we ship are the ones our team uses to write release plans, audit catalogs, pitch playlists, and run the business.
+            Recoup Records and Gatsby Grace run on our own skills every day. The same skills we ship publicly are what our team uses to write release plans, audit catalogs, pitch playlists, and run the business.
           </p>
           <p className="text-[14px] text-(--foreground)/40 leading-relaxed max-w-[640px]">
             The work goes into production, not slides. Every skill in this site has shipped against a real roster before it shipped here.
@@ -513,7 +524,7 @@ export default function HomePage() {
       <section id="pricing" className="py-24 sm:py-32 bg-(--muted)/60 scroll-mt-20">
         <div ref={price.ref} className={`max-w-[1200px] mx-auto px-6 sm:px-10 ${price.cls}`}>
           <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-3">
-            Three ways to use the lab.
+            Three ways to work with Recoup.
           </h2>
           <p className="text-[15px] text-(--foreground)/40 mb-14">
             From free skills to a custom build for your roster.
@@ -589,7 +600,7 @@ export default function HomePage() {
                     <p className="text-[10px] text-white/25 uppercase tracking-wide font-pixel">Custom build</p>
                   </div>
                 </div>
-                <h3 className="font-ui font-bold text-xl mb-3">Bring the lab in-house.</h3>
+                <h3 className="font-ui font-bold text-xl mb-3">We build it with you.</h3>
                 <p className="text-[14px] text-white/40 leading-relaxed max-w-lg mb-5">
                   For labels and funds. We embed with your team, build custom skills against your catalog, and ship the AI workflows your business runs on.
                 </p>
@@ -619,7 +630,7 @@ export default function HomePage() {
 
         <div ref={cta.ref} className={`max-w-[760px] mx-auto px-6 text-center relative z-10 ${cta.cls}`}>
           <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.95] text-white mb-8">
-            One command.<br />The lab is yours.
+            One command.<br />Music agents, installed.
           </h2>
 
           <div className="flex items-center justify-center gap-2 mb-10">

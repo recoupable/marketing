@@ -55,7 +55,7 @@ export function Footer() {
               <span className="font-ui font-bold text-[15px] text-(--foreground)">Recoup</span>
             </Link>
             <p className="text-[13px] text-(--foreground)/35 leading-relaxed max-w-[260px] mb-6">
-              The open source AI lab for the music industry. Skills, plugins, and data your agent uses to run a label.
+              AI agents for the music industry. Open source skills, paid APIs, and custom builds for music businesses and the developers building for them.
             </p>
             <div className="flex items-center gap-4 text-[12px] font-ui text-(--foreground)/20">
               <a href={siteConfig.social.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-(--foreground)/50 transition-colors" aria-label="X / Twitter">𝕏</a>
