@@ -192,12 +192,8 @@ export default function HomePage() {
                 <span className="block">Intelligence</span>
               </h1>
 
-              <p className={`text-(--foreground) text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-3 leading-[1.4] max-w-[560px] mx-auto font-ui font-medium transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
-                AI agents for the music industry.
-              </p>
-
-              <p className={`text-(--foreground)/45 text-[14px] mb-9 leading-[1.5] max-w-[560px] mx-auto transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "600ms" }}>
-                Open source skills, paid APIs, and custom builds for music businesses and the developers building for them.
+              <p className={`text-(--foreground)/55 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.5] max-w-[560px] mx-auto transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
+                Open source skills, paid APIs, and custom builds for the music industry.
               </p>
 
               <div className={`mb-12 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "700ms" }}>
@@ -219,10 +215,6 @@ export default function HomePage() {
               </div>
 
               <HeroDemo />
-
-              <p className="text-center mt-4 text-[12px] text-(--foreground)/40 font-ui max-w-[520px] mx-auto leading-relaxed">
-                One of our open source skills, running live. Install it in your agent to get the same thing.
-              </p>
             </div>
           </div>
         </div>
