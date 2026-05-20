@@ -129,6 +129,7 @@ export default function HomePage() {
     };
   }, []);
 
+  const pillars = useReveal();
   const problem = useReveal();
   const how = useReveal();
   const layer = useReveal();
@@ -193,7 +194,7 @@ export default function HomePage() {
               </h1>
 
               <p className={`text-(--foreground)/55 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.5] max-w-[560px] mx-auto transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
-                Open source skills, paid APIs, and custom builds for the music industry.
+                The AI partner for music. Built in production. Open sourced for everyone.
               </p>
 
             </div>
@@ -231,6 +232,71 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
+          2b. STAT BAR + THREE PILLARS — the funnel as ladder
+          ══════════════════════════════════════ */}
+      <section className="py-20 sm:py-28 border-b border-(--border)">
+        <div ref={pillars.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${pillars.cls}`}>
+          {/* Stat bar */}
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 mb-16">
+            {[
+              { v: "9", k: "labels in production" },
+              { v: "50+", k: "research sources" },
+              { v: "40+", k: "agent tools" },
+              { v: "22 / 2h", k: "videos at Fat Beats" },
+            ].map((stat) => (
+              <div key={stat.k} className="text-center">
+                <p className="font-pixel text-[24px] text-(--foreground) leading-none mb-1">{stat.v}</p>
+                <p className="text-[10px] font-pixel text-(--foreground)/40 uppercase tracking-[0.15em]">{stat.k}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Three pillars */}
+          <div className="grid sm:grid-cols-3 gap-x-10 gap-y-12">
+            {[
+              {
+                eyebrow: "Open source",
+                k: "Skills",
+                v: "All skills, plugins, and agents. MIT licensed. Install in any agent your team uses.",
+                cta: "Browse skills",
+                href: "/platform",
+              },
+              {
+                eyebrow: "Pay as you go",
+                k: "API",
+                v: "Real-time music data and intelligence. Top up credits. Used by every skill.",
+                cta: "Get an API key",
+                href: siteConfig.docsUrl,
+                external: true,
+              },
+              {
+                eyebrow: "White glove",
+                k: "Services",
+                v: "Custom skills built against your roster. Embedded with your team. 3\u20136 month engagements.",
+                cta: "Talk to us",
+                href: `mailto:${siteConfig.contactEmail}`,
+              },
+            ].map((pillar) => (
+              <Link
+                key={pillar.k}
+                href={pillar.href}
+                {...(pillar.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="group block"
+              >
+                <p className="font-ui text-[11px] font-semibold text-(--foreground)/40 uppercase tracking-[0.18em] mb-3">{pillar.eyebrow}</p>
+                <h3 className="font-pixel text-[clamp(1.5rem,2.5vw,2rem)] tracking-tight mb-3 leading-[1.05] text-(--foreground)">{pillar.k}</h3>
+                <p className="text-[14px] text-(--foreground)/55 leading-relaxed mb-4">{pillar.v}</p>
+                <span className="text-[13px] font-ui font-medium text-(--foreground)/70 group-hover:text-(--foreground) transition-colors inline-flex items-center gap-1.5">
+                  {pillar.cta} <ArrowRight size={13} />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
           3. ARCHITECTURE — proves agent-layer claim early
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 dark-section text-white relative overflow-hidden">
@@ -247,20 +313,6 @@ export default function HomePage() {
             <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
               One install. Available in any agent — including the ones your team will adopt next.
             </p>
-
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-              {[
-                { v: "40+", k: "agent tools" },
-                { v: "50+", k: "research sources" },
-                { v: "22 / 2h", k: "videos at Fat Beats" },
-                { v: "9", k: "music customers" },
-              ].map((stat) => (
-                <div key={stat.k} className="text-center">
-                  <p className="font-pixel text-[28px] text-white leading-none mb-1">{stat.v}</p>
-                  <p className="text-[10px] font-pixel text-white/40 uppercase tracking-[0.15em]">{stat.k}</p>
-                </div>
-              ))}
-            </div>
           </div>
 
           <ArchitectureDiagram />
@@ -481,10 +533,18 @@ export default function HomePage() {
           ══════════════════════════════════════ */}
       <section className="py-20 sm:py-28 border-t border-(--border)">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10">
-          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The proof</p>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Our mission</p>
           <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-6">
-            We run our own labels.
+            Make every music business<br />AI-native.
           </h2>
+          <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px] mb-8">
+            Skills are free so anyone can start. The API and services exist for teams ready to ship faster.
+          </p>
+
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4 mt-12">The proof</p>
+          <h3 className="font-ui font-bold text-[clamp(1.25rem,2vw,1.5rem)] tracking-tight leading-tight mb-4">
+            We run our own labels.
+          </h3>
           <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px] mb-5">
             Recoup Records and Gatsby Grace run on our own skills every day. The same skills we ship publicly are what our team uses to write release plans, audit catalogs, pitch playlists, and run the business.
           </p>
