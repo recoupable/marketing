@@ -207,13 +207,6 @@ export default function HomePage() {
             </div>
 
             <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "750ms" : "0ms" }} id="hero-demo-wrapper">
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/80 animate-pulse" />
-                <span className="font-pixel text-[10px] text-(--foreground)/45 uppercase tracking-[0.18em]">
-                  Live · recoup-research skill
-                </span>
-              </div>
-
               <HeroDemo />
             </div>
           </div>
