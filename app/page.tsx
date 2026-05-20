@@ -194,7 +194,7 @@ export default function HomePage() {
               </h1>
 
               <p className={`text-(--foreground)/55 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.5] max-w-[560px] mx-auto transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
-                The AI partner for music. Built in production. Open sourced for everyone.
+                The AI partner for music. Built for real labels. Free and open source.
               </p>
 
             </div>
@@ -239,7 +239,7 @@ export default function HomePage() {
           {/* Stat bar */}
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 mb-16">
             {[
-              { v: "9", k: "labels in production" },
+              { v: "9", k: "labels using Recoup" },
               { v: "50+", k: "research sources" },
               { v: "40+", k: "agent tools" },
               { v: "22 / 2h", k: "videos at Fat Beats" },
@@ -549,7 +549,7 @@ export default function HomePage() {
             Recoup Records and Gatsby Grace run on our own skills every day. The same skills we ship publicly are what our team uses to write release plans, audit catalogs, pitch playlists, and run the business.
           </p>
           <p className="text-[14px] text-(--foreground)/40 leading-relaxed max-w-[640px]">
-            The work goes into production, not slides. Every skill in this site has shipped against a real roster before it shipped here.
+            The work goes into campaigns, not slides. Every skill in this site has shipped against a real roster before it shipped here.
           </p>
         </div>
       </section>
