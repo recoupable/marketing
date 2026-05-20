@@ -194,7 +194,7 @@ export default function HomePage() {
               </h1>
 
               <p className={`text-(--foreground)/55 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.5] max-w-[560px] mx-auto transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
-                The AI partner for music. Built for real labels. Free and open source.
+                AI tools for the music industry.
               </p>
 
             </div>
@@ -632,7 +632,7 @@ export default function HomePage() {
 
         <div ref={cta.ref} className={`max-w-[760px] mx-auto px-6 text-center relative z-10 ${cta.cls}`}>
           <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.95] text-white mb-8">
-            One command.<br />Music agents, installed.
+            One command.<br />Music AI, installed.
           </h2>
 
           <div className="flex items-center justify-center gap-2 mb-10">
