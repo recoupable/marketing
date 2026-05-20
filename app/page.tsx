@@ -11,8 +11,8 @@ import { CUSTOMER_LOGOS } from "@/lib/customerLogos";
 import {
   Check,
   ArrowUpRight,
-  User,
-  Users,
+  Package,
+  Code2,
   Building2,
   ArrowRight,
 } from "lucide-react";
@@ -524,99 +524,64 @@ export default function HomePage() {
       <section id="pricing" className="py-24 sm:py-32 bg-(--muted)/60 scroll-mt-20">
         <div ref={price.ref} className={`max-w-[1200px] mx-auto px-6 sm:px-10 ${price.cls}`}>
           <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-3">
-            Three ways to work with Recoup.
+            Three ways in.
           </h2>
           <p className="text-[15px] text-(--foreground)/40 mb-14">
-            From free skills to a custom build for your roster.
+            Install free skills · Pay per API call · Hire us to build it with you.
           </p>
 
           <div ref={priceC.ref} className="grid md:grid-cols-3 gap-5 items-start">
-            {/* Free */}
-            <Link href={siteConfig.appUrl} className={`group block rounded-2xl bg-(--background) p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_0px_1px_var(--border),0px_8px_24px_rgba(0,0,0,0.08)] ${priceC.item(0).className}`} style={{ ...priceC.item(0).style, boxShadow: "0px 0px 0px 1px var(--border)" }}>
+            {/* SKILLS — free, open source, install yourself */}
+            <Link href="/platform" className={`group block rounded-2xl bg-(--background) p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_0px_1px_var(--border),0px_8px_24px_rgba(0,0,0,0.08)] ${priceC.item(0).className}`} style={{ ...priceC.item(0).style, boxShadow: "0px 0px 0px 1px var(--border)" }}>
               <div className="w-10 h-10 rounded-xl bg-(--muted) flex items-center justify-center mb-5" style={{ boxShadow: "0px 0px 0px 1px var(--border)" }}>
-                <User size={18} className="text-(--foreground)/35" />
+                <Package size={18} className="text-(--foreground)/35" />
               </div>
-              <h3 className="font-ui font-bold text-lg mb-0.5">Free</h3>
-              <p className="text-[10px] text-(--foreground)/30 mb-5 uppercase tracking-wide font-pixel">For artists</p>
-              <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7">$0</p>
+              <h3 className="font-ui font-bold text-lg mb-0.5">Skills</h3>
+              <p className="text-[10px] text-(--foreground)/30 mb-5 uppercase tracking-wide font-pixel">Open source</p>
+              <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7">Free</p>
               <ul className="space-y-2.5 text-[13px] text-(--foreground)/50 mb-8">
-                {["1 artist workspace", "Limited credits", "Community support"].map(f => (
+                {["All skills, plugins, and agents", "Install in any agent", "MIT licensed", "Community support"].map(f => (
                   <li key={f} className="flex items-start gap-2"><Check size={13} className="mt-0.5 shrink-0 text-(--foreground)/20" />{f}</li>
                 ))}
               </ul>
-              <span className="font-ui font-semibold border border-(--border) text-(--foreground) text-center py-3 rounded-xl text-sm group-hover:bg-(--foreground) group-hover:text-(--background) group-hover:border-(--foreground) transition-all duration-300 block">Start free</span>
+              <span className="font-ui font-semibold border border-(--border) text-(--foreground) text-center py-3 rounded-xl text-sm group-hover:bg-(--foreground) group-hover:text-(--background) group-hover:border-(--foreground) transition-all duration-300 block">Install free</span>
             </Link>
 
-            {/* Pro */}
-            <Link href={`${siteConfig.appUrl}?intent=subscribe&plan=pro`} className={`group block bg-[#080808] text-white rounded-2xl p-7 md:-mt-3 md:mb-[-12px] relative transition-all duration-300 hover:-translate-y-2 ${priceC.item(1).className}`} style={{ ...priceC.item(1).style, boxShadow: "0 25px 60px -15px rgba(0,0,0,0.5)" }}>
+            {/* API — pay as you go, the conversion point */}
+            <Link href={siteConfig.docsUrl} target="_blank" rel="noopener noreferrer" className={`group block bg-[#080808] text-white rounded-2xl p-7 md:-mt-3 md:mb-[-12px] relative transition-all duration-300 hover:-translate-y-2 ${priceC.item(1).className}`} style={{ ...priceC.item(1).style, boxShadow: "0 25px 60px -15px rgba(0,0,0,0.5)" }}>
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <span className="text-[9px] uppercase tracking-wider bg-white text-black px-4 py-1.5 rounded-full shadow-lg font-pixel">Popular</span>
+                <span className="text-[9px] uppercase tracking-wider bg-white text-black px-4 py-1.5 rounded-full shadow-lg font-pixel">For builders</span>
               </div>
               <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center mb-5 mt-1">
-                <Users size={18} className="text-white/50" />
+                <Code2 size={18} className="text-white/50" />
               </div>
-              <h3 className="font-ui font-bold text-lg mb-0.5">Pro</h3>
-              <p className="text-[10px] text-white/25 mb-5 uppercase tracking-wide font-pixel">For managers</p>
-              <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7 text-white">$99<span className="text-base text-white/20 font-ui not-italic">/mo</span></p>
+              <h3 className="font-ui font-bold text-lg mb-0.5">API</h3>
+              <p className="text-[10px] text-white/25 mb-5 uppercase tracking-wide font-pixel">Pay as you go</p>
+              <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7 text-white">$20<span className="text-base text-white/20 font-ui not-italic"> starter</span></p>
               <ul className="space-y-2.5 text-[13px] text-white/50 mb-8">
-                {["Full artist roster", "More credits", "All models", "Unlimited seats", "Priority support"].map(f => (
+                {["Top up credits anytime", "Real-time music data", "Per-call transparency", "No subscription required", "Used by your skills"].map(f => (
                   <li key={f} className="flex items-start gap-2"><Check size={13} className="mt-0.5 shrink-0 text-white/35" />{f}</li>
                 ))}
               </ul>
-              <span className="font-ui font-semibold bg-white text-black text-center py-3 rounded-xl text-sm group-hover:bg-white/90 transition-colors block">Start 30-day free trial</span>
+              <span className="font-ui font-semibold bg-white text-black text-center py-3 rounded-xl text-sm group-hover:bg-white/90 transition-colors block">Get an API key</span>
             </Link>
 
-            {/* Partner */}
-            <Link href={siteConfig.appUrl} className={`group block rounded-2xl bg-(--muted)/40 p-7 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_0px_1px_var(--border),0px_8px_24px_rgba(0,0,0,0.08)] ${priceC.item(2).className}`} style={{ ...priceC.item(2).style, boxShadow: "0px 0px 0px 1px var(--border), 0px 4px 16px rgba(0,0,0,0.04)" }}>
+            {/* SERVICES — custom builds */}
+            <Link href={`mailto:${siteConfig.contactEmail}`} className={`group block rounded-2xl bg-(--muted)/40 p-7 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_0px_1px_var(--border),0px_8px_24px_rgba(0,0,0,0.08)] ${priceC.item(2).className}`} style={{ ...priceC.item(2).style, boxShadow: "0px 0px 0px 1px var(--border), 0px 4px 16px rgba(0,0,0,0.04)" }}>
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-(--foreground)" />
               <div className="w-10 h-10 rounded-xl bg-(--foreground)/8 flex items-center justify-center mb-5" style={{ boxShadow: "0px 0px 0px 1px var(--border)" }}>
                 <Building2 size={18} className="text-(--foreground)/45" />
               </div>
-              <h3 className="font-ui font-bold text-lg mb-0.5">Partner</h3>
-              <p className="text-[10px] text-(--foreground)/30 mb-5 uppercase tracking-wide font-pixel">For labels</p>
-              <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7">$499<span className="text-base text-(--foreground)/20 font-ui not-italic">/mo</span></p>
+              <h3 className="font-ui font-bold text-lg mb-0.5">Services</h3>
+              <p className="text-[10px] text-(--foreground)/30 mb-5 uppercase tracking-wide font-pixel">White glove</p>
+              <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7">Custom</p>
               <ul className="space-y-2.5 text-[13px] text-(--foreground)/50 mb-8">
-                {["Everything in Pro", "High-volume credits", "Custom skills", "Unlimited seats", "Dedicated support"].map(f => (
+                {["Custom skills for your roster", "Embedded with your team", "Integrates with your stack", "3\u20136 month engagements", "Direct line to Sid"].map(f => (
                   <li key={f} className="flex items-start gap-2"><Check size={13} className="mt-0.5 shrink-0 text-(--foreground)/20" />{f}</li>
                 ))}
               </ul>
-              <span className="font-ui font-semibold border border-(--border) text-(--foreground) text-center py-3 rounded-xl text-sm group-hover:bg-(--foreground) group-hover:text-(--background) group-hover:border-(--foreground) transition-all duration-300 block">Start Partner plan</span>
+              <span className="font-ui font-semibold border border-(--border) text-(--foreground) text-center py-3 rounded-xl text-sm group-hover:bg-(--foreground) group-hover:text-(--background) group-hover:border-(--foreground) transition-all duration-300 flex items-center justify-center gap-1.5">Talk to us <ArrowRight size={13} /></span>
             </Link>
-          </div>
-
-          {/* Enterprise banner */}
-          <div className={`mt-8 rounded-2xl bg-[#080808] text-white p-8 sm:p-10 relative overflow-hidden transition-all duration-700 ${price.cls}`} style={{ boxShadow: "0 25px 60px -15px rgba(0,0,0,0.4)" }}>
-            <div className="absolute inset-0 opacity-[0.03]" aria-hidden="true" style={{
-              backgroundImage: "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
-              backgroundSize: "48px 48px",
-            }} />
-            <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-8">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                    <Building2 size={18} className="text-white/50" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-white/25 uppercase tracking-wide font-pixel">Custom build</p>
-                  </div>
-                </div>
-                <h3 className="font-ui font-bold text-xl mb-3">We build it with you.</h3>
-                <p className="text-[14px] text-white/40 leading-relaxed max-w-lg mb-5">
-                  For labels and funds. We embed with your team, build custom skills against your catalog, and ship the AI workflows your business runs on.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {["Custom skills", "Catalog-specific agents", "Embedded team", "3\u20136 month engagements"].map(tag => (
-                    <span key={tag} className="text-[11px] font-ui text-white/35 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03]">{tag}</span>
-                  ))}
-                </div>
-              </div>
-              <Link
-                href={`mailto:${siteConfig.contactEmail}`}
-                className="shrink-0 font-ui font-semibold bg-white text-black px-8 py-3.5 rounded-xl text-sm hover:bg-white/90 transition-all duration-300 text-center flex items-center justify-center gap-2"
-              >
-                Talk to sales <ArrowRight size={14} />
-              </Link>
-            </div>
           </div>
         </div>
       </section>
