@@ -196,14 +196,6 @@ export default function HomePage() {
                 Open source skills, paid APIs, and custom builds for the music industry.
               </p>
 
-              <div className={`mb-12 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "700ms" }}>
-                <Link
-                  href={siteConfig.appUrl}
-                  className="font-ui font-semibold bg-(--foreground) text-(--background) px-7 py-3.5 rounded-full text-[14px] hover:opacity-90 transition-opacity"
-                >
-                  Install in Claude
-                </Link>
-              </div>
             </div>
 
             <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "750ms" : "0ms" }} id="hero-demo-wrapper">
