@@ -4,8 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 import { HeroDemo } from "@/components/home/HeroDemo";
-import { ResearchCard } from "@/components/home/ResearchCard";
-import { ContentGrid } from "@/components/home/ContentGrid";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
 import { CUSTOMER_LOGOS } from "@/lib/customerLogos";
 import {
@@ -129,14 +127,12 @@ export default function HomePage() {
     };
   }, []);
 
-  const pillars = useReveal();
+  const stats = useReveal();
   const problem = useReveal();
+  const arch = useReveal();
   const how = useReveal();
   const layer = useReveal();
-  const catalog = useReveal();
-  const research = useReveal();
-  const content = useReveal();
-  const arch = useReveal();
+  const proof = useReveal();
   const price = useReveal();
   const priceC = useStagger(3);
   const cta = useReveal();
@@ -228,12 +224,11 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          2b. STAT BAR + THREE PILLARS — the funnel as ladder
+          3. STAT BAR — at-a-glance proof
           ══════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 border-b border-(--border)">
-        <div ref={pillars.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${pillars.cls}`}>
-          {/* Stat bar */}
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 mb-16">
+      <section className="py-16 sm:py-20 border-b border-(--border)">
+        <div ref={stats.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${stats.cls}`}>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
             {[
               { v: "9", k: "labels using Recoup" },
               { v: "50+", k: "research sources" },
@@ -246,46 +241,30 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Three pillars */}
-          <div className="grid sm:grid-cols-3 gap-x-10 gap-y-12">
+
+      {/* ══════════════════════════════════════
+          4. PROBLEM — state the gap first
+          ══════════════════════════════════════ */}
+      <section className="py-24 sm:py-32">
+        <div ref={problem.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${problem.cls}`}>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The gap</p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05]">
+            Your team has Claude.<br />It still can&apos;t do the work.
+          </h2>
+
+          <div className="grid sm:grid-cols-3 gap-x-10 gap-y-6 mt-14">
             {[
-              {
-                eyebrow: "Open source",
-                k: "Skills",
-                v: "All skills, plugins, and agents. MIT licensed. Install in any agent your team uses.",
-                cta: "Browse skills",
-                href: "/platform",
-              },
-              {
-                eyebrow: "Pay as you go",
-                k: "API",
-                v: "Real-time music data and intelligence. Top up credits. Used by every skill.",
-                cta: "Get an API key",
-                href: siteConfig.docsUrl,
-                external: true,
-              },
-              {
-                eyebrow: "White glove",
-                k: "Services",
-                v: "Custom skills built against your roster. Embedded with your team. 3\u20136 month engagements.",
-                cta: "Talk to us",
-                href: `mailto:${siteConfig.contactEmail}`,
-              },
-            ].map((pillar) => (
-              <Link
-                key={pillar.k}
-                href={pillar.href}
-                {...(pillar.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="group block"
-              >
-                <p className="font-ui text-[11px] font-semibold text-(--foreground)/40 uppercase tracking-[0.18em] mb-3">{pillar.eyebrow}</p>
-                <h3 className="font-pixel text-[clamp(1.5rem,2.5vw,2rem)] tracking-tight mb-3 leading-[1.05] text-(--foreground)">{pillar.k}</h3>
-                <p className="text-[14px] text-(--foreground)/55 leading-relaxed mb-4">{pillar.v}</p>
-                <span className="text-[13px] font-ui font-medium text-(--foreground)/70 group-hover:text-(--foreground) transition-colors inline-flex items-center gap-1.5">
-                  {pillar.cta} <ArrowRight size={13} />
-                </span>
-              </Link>
+              { k: "No music context", v: "Doesn\u2019t know your roster or catalog." },
+              { k: "No safe access", v: "Can\u2019t touch Google Drive, royalty data, or distributors." },
+              { k: "No music workflows", v: "Diligence, content, talent scouting \u2014 none of it built in." },
+            ].map((item) => (
+              <div key={item.k}>
+                <p className="font-ui text-[11px] font-semibold text-(--foreground)/40 uppercase tracking-[0.18em] mb-2">{item.k}</p>
+                <p className="text-[14px] text-(--foreground)/55 leading-relaxed">{item.v}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -293,13 +272,13 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          3. ARCHITECTURE — proves agent-layer claim early
+          5. ARCHITECTURE — here's how we fit in
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 dark-section text-white relative overflow-hidden">
         <div ref={arch.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 relative z-10 ${arch.cls}`}>
           <div className="text-center mb-12">
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-5">
-              {["Claude", "Codex", "Cursor", "Slack", "MCP", "API"].map(m => (
+              {["Claude", "Codex", "Cursor", "Slack"].map(m => (
                 <span key={m} className="text-[10px] font-pixel text-white/30 uppercase tracking-[0.15em] px-3 py-1.5 rounded-full border border-white/10">{m}</span>
               ))}
             </div>
@@ -307,7 +286,7 @@ export default function HomePage() {
               Bring your own agent.<br />Recoup plugs in.
             </h2>
             <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
-              One install. Available in any agent — including the ones your team will adopt next.
+              One install. Available in every agent your team uses.
             </p>
           </div>
 
@@ -317,7 +296,7 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          3b. PULL QUOTE — real customer voice
+          6. PULL QUOTE — real customer voice
           ══════════════════════════════════════ */}
       <section className="py-20 sm:py-28">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
@@ -332,33 +311,7 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          4. PROBLEM — the gap agent tools leave
-          ══════════════════════════════════════ */}
-      <section className="py-24 sm:py-32">
-        <div ref={problem.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${problem.cls}`}>
-          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The gap</p>
-          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05]">
-            Your team has Claude.<br />It still can&apos;t do the work.
-          </h2>
-
-          <div className="grid sm:grid-cols-3 gap-x-10 gap-y-6 mt-14">
-            {[
-              { k: "No music context", v: "Doesn\u2019t know your roster or catalog." },
-              { k: "No safe access", v: "Can\u2019t touch Drive, royalties, distributors." },
-              { k: "No music workflows", v: "Diligence, content, A&R — none of it built in." },
-            ].map((item) => (
-              <div key={item.k}>
-                <p className="font-ui text-[11px] font-semibold text-(--foreground)/40 uppercase tracking-[0.18em] mb-2">{item.k}</p>
-                <p className="text-[14px] text-(--foreground)/55 leading-relaxed">{item.v}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* ══════════════════════════════════════
-          5. HOW IT WORKS — 3 steps
+          7. HOW IT WORKS — 3 steps
           ══════════════════════════════════════ */}
       <section className="py-16 sm:py-24 border-t border-(--border)">
         <div ref={how.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${how.cls}`}>
@@ -366,7 +319,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-3 gap-x-10 gap-y-10">
             {[
               { n: "01", k: "Install", v: "Add Recoup to Claude, Codex, or Cursor in one command." },
-              { n: "02", k: "Wire it up", v: "Connect your roster, catalog, and the tools your team already pays for." },
+              { n: "02", k: "Wire it up", v: "Connect your roster, catalog, Google Drive, and the tools your team already pays for." },
               { n: "03", k: "Let it run", v: "Your agent researches artists, audits catalogs, builds content, and reports back." },
             ].map((step) => (
               <div key={step.n}>
@@ -381,7 +334,7 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          6. RECOUP LAYER — what we add on top
+          8. BENTO — six skills we ship
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 bg-(--muted)/40">
         <div ref={layer.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${layer.cls}`}>
@@ -416,7 +369,7 @@ export default function HomePage() {
               <div>
                 <p className="font-pixel text-[10px] text-white/40 uppercase tracking-[0.18em] mb-2">Content</p>
                 <p className="font-ui font-bold text-[18px] mb-1.5">Videos, images, captions, press.</p>
-                <p className="text-[13px] text-white/45 leading-relaxed">22 finished videos in 2 hours at Fat Beats. One prompt, dozens of assets.</p>
+                <p className="text-[13px] text-white/45 leading-relaxed">One prompt, dozens of finished assets.</p>
               </div>
             </div>
 
@@ -430,7 +383,7 @@ export default function HomePage() {
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-7 h-7 rounded-full bg-gradient-to-br from-pink-400 to-purple-400" />
                     <div className="flex flex-col">
-                      <span className="text-[11px] font-ui font-semibold text-(--foreground) leading-tight">Gatsby Grace</span>
+                      <span className="text-[11px] font-ui font-semibold text-(--foreground) leading-tight">Static Bloom</span>
                       <span className="text-[9px] font-pixel uppercase tracking-wider text-(--foreground)/35">12.4k monthly</span>
                     </div>
                   </div>
@@ -444,7 +397,7 @@ export default function HomePage() {
               <div>
                 <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-2">Artist context</p>
                 <p className="font-ui font-bold text-[15px] text-(--foreground) mb-1">A living folder per artist.</p>
-                <p className="text-[12px] text-(--foreground)/50 leading-relaxed">Bio, sound, comparables, sacred rules — updated as your roster grows.</p>
+                <p className="text-[12px] text-(--foreground)/50 leading-relaxed">Bio, sound, comparables, and the rules each artist plays by &mdash; updated as your roster grows.</p>
               </div>
             </div>
 
@@ -497,7 +450,7 @@ export default function HomePage() {
               <div>
                 <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-2">Research</p>
                 <p className="font-ui font-bold text-[15px] text-(--foreground) mb-1">50+ sources, one call.</p>
-                <p className="text-[12px] text-(--foreground)/50 leading-relaxed">Streams to fan psychology.</p>
+                <p className="text-[12px] text-(--foreground)/50 leading-relaxed">From DSP data through to fan psychology.</p>
               </div>
             </div>
 
@@ -522,8 +475,8 @@ export default function HomePage() {
               </div>
               <div>
                 <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-2">Diligence</p>
-                <p className="font-ui font-bold text-[15px] text-(--foreground) mb-1">Deal rooms to 80% pass.</p>
-                <p className="text-[12px] text-(--foreground)/50 leading-relaxed">Weeks of analyst work → minutes.</p>
+                <p className="font-ui font-bold text-[15px] text-(--foreground) mb-1">Catalog diligence in minutes.</p>
+                <p className="text-[12px] text-(--foreground)/50 leading-relaxed">Weeks of analyst work &rarr; minutes.</p>
               </div>
             </div>
 
@@ -556,7 +509,7 @@ export default function HomePage() {
               </div>
               <div>
                 <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-2">Guardrails</p>
-                <p className="font-ui font-bold text-[15px] text-(--foreground) mb-1">Acts inside each user&apos;s permissions.</p>
+                <p className="font-ui font-bold text-[15px] text-(--foreground) mb-1">Respects each user&apos;s role.</p>
                 <p className="text-[12px] text-(--foreground)/50 leading-relaxed">Destructive actions need a human click.</p>
               </div>
             </div>
@@ -566,144 +519,23 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          7. USE CASES — Research / Diligence / Content
-          ══════════════════════════════════════ */}
-      <section className="pt-24 sm:pt-32 pb-6 sm:pb-8">
-        <div className="max-w-[1100px] mx-auto px-6 sm:px-10 text-center">
-          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em]">Use cases</p>
-        </div>
-      </section>
-
-      <section className="py-12 sm:py-16">
-        <div ref={research.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${research.cls}`}>
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
-              <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Research</p>
-              <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-4">
-                Know everything about any artist.
-              </h2>
-              <p className="text-[15px] text-(--foreground)/45 leading-relaxed max-w-md">
-                Streams, audience, playlists, socials. 50+ sources, one call.
-              </p>
-            </div>
-            <div>
-              <ResearchCard />
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ══════════════════════════════════════
-          7b. CATALOG DILIGENCE — Benjy's pain point
-          ══════════════════════════════════════ */}
-      <section className="py-12 sm:py-16 bg-(--muted)/40">
-        <div ref={catalog.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${catalog.cls}`}>
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
-              <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Diligence</p>
-              <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-4">
-                Deal room to 80% pass.
-              </h2>
-              <p className="text-[15px] text-(--foreground)/45 leading-relaxed max-w-md">
-                Parses files, flags conflicts, models the deal. Minutes, not weeks.
-              </p>
-            </div>
-            <div>
-              <div
-                className="rounded-xl bg-(--background) p-5"
-                style={{ boxShadow: "0px 0px 0px 1px var(--border)" }}
-              >
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-(--border)">
-                  <p className="font-ui font-bold text-[14px] text-(--foreground)">Q4 publishing catalog</p>
-                  <span className="text-[10px] font-pixel uppercase tracking-wider text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-full">Ready</span>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3 mb-4">
-                  {[
-                    { l: "Downside", v: "$1.8M", c: "text-(--foreground)/50" },
-                    { l: "Base", v: "$2.4M", c: "text-(--foreground)" },
-                    { l: "Upside", v: "$3.1M", c: "text-emerald-500" },
-                  ].map((m) => (
-                    <div key={m.l}>
-                      <p className="text-[10px] font-ui text-(--foreground)/30 uppercase tracking-wider mb-1">{m.l}</p>
-                      <p className={`font-pixel text-[20px] leading-none ${m.c}`}>{m.v}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="space-y-2 text-[12px]">
-                  {[
-                    { k: "147 songs parsed", ok: true },
-                    { k: "3 publisher share conflicts flagged", ok: false },
-                    { k: "12 missing recording ledgers", ok: false },
-                    { k: "Top track concentration: 14%", ok: true },
-                  ].map((row) => (
-                    <div key={row.k} className="flex items-center gap-2">
-                      <span className={`w-1.5 h-1.5 rounded-full ${row.ok ? "bg-emerald-500" : "bg-amber-500"}`} />
-                      <span className="text-(--foreground)/65">{row.k}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ══════════════════════════════════════
-          7c. CONTENT — show don't tell
-          ══════════════════════════════════════ */}
-      <section className="py-12 sm:py-16">
-        <div ref={content.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${content.cls}`}>
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <ContentGrid />
-            </div>
-            <div className="order-1 lg:order-2">
-              <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Content</p>
-              <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-4">
-                Content you&apos;d hire a team for.
-              </h2>
-              <p className="text-[15px] text-(--foreground)/45 leading-relaxed max-w-md">
-                Fat Beats: 22 finished videos in 2 hours.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ══════════════════════════════════════
-          7d. DOGFOODING — the proof you can't fake
+          9. PROOF — we run our own labels
           ══════════════════════════════════════ */}
       <section className="py-20 sm:py-28 border-t border-(--border)">
-        <div className="max-w-[820px] mx-auto px-6 sm:px-10">
-          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Our mission</p>
+        <div ref={proof.ref} className={`max-w-[820px] mx-auto px-6 sm:px-10 ${proof.cls}`}>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The proof</p>
           <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-6">
-            Make every music business<br />AI-native.
-          </h2>
-          <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px] mb-8">
-            Skills are free so anyone can start. The API and services exist for teams ready to ship faster.
-          </p>
-
-          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4 mt-12">The proof</p>
-          <h3 className="font-ui font-bold text-[clamp(1.25rem,2vw,1.5rem)] tracking-tight leading-tight mb-4">
             We run our own labels.
-          </h3>
-          <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px] mb-5">
-            Recoup Records and Gatsby Grace run on our own skills every day. The same skills we ship publicly are what our team uses to write release plans, audit catalogs, pitch playlists, and run the business.
-          </p>
-          <p className="text-[14px] text-(--foreground)/40 leading-relaxed max-w-[640px]">
-            The work goes into campaigns, not slides. Every skill in this site has shipped against a real roster before it shipped here.
+          </h2>
+          <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px]">
+            Recoup Records and our artist Gatsby Grace use these same skills every day &mdash; to write release plans, audit catalogs, pitch playlists, and run the business. Every skill on this site has shipped against a real roster before it shipped here.
           </p>
         </div>
       </section>
 
 
       {/* ══════════════════════════════════════
-          8. PRICING
+          10. PRICING — three ways in
           ══════════════════════════════════════ */}
       <section id="pricing" className="py-24 sm:py-32 bg-(--muted)/60 scroll-mt-20">
         <div ref={price.ref} className={`max-w-[1200px] mx-auto px-6 sm:px-10 ${price.cls}`}>
@@ -711,7 +543,7 @@ export default function HomePage() {
             Three ways in.
           </h2>
           <p className="text-[15px] text-(--foreground)/40 mb-14">
-            Install free skills · Pay per API call · Hire us to build it with you.
+            Install free skills &middot; Pay per API call &middot; Hire us to build it with you.
           </p>
 
           <div ref={priceC.ref} className="grid md:grid-cols-3 gap-5 items-start">
@@ -741,9 +573,9 @@ export default function HomePage() {
               </div>
               <h3 className="font-ui font-bold text-lg mb-0.5">API</h3>
               <p className="text-[10px] text-white/25 mb-5 uppercase tracking-wide font-pixel">Pay as you go</p>
-              <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7 text-white">$20<span className="text-base text-white/20 font-ui not-italic"> starter</span></p>
+              <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7 text-white">$20<span className="text-base text-white/20 font-ui not-italic"> credit pack</span></p>
               <ul className="space-y-2.5 text-[13px] text-white/50 mb-8">
-                {["Top up credits anytime", "Real-time music data", "Per-call transparency", "No subscription required", "Used by your skills"].map(f => (
+                {["Top up credits anytime", "Real-time music data", "Per-call transparency", "No subscription required", "Used by every skill"].map(f => (
                   <li key={f} className="flex items-start gap-2"><Check size={13} className="mt-0.5 shrink-0 text-white/35" />{f}</li>
                 ))}
               </ul>
@@ -760,7 +592,7 @@ export default function HomePage() {
               <p className="text-[10px] text-(--foreground)/30 mb-5 uppercase tracking-wide font-pixel">White glove</p>
               <p className="font-pixel text-[3rem] tracking-tight leading-none mb-7">Custom</p>
               <ul className="space-y-2.5 text-[13px] text-(--foreground)/50 mb-8">
-                {["Custom skills for your roster", "Embedded with your team", "Integrates with your stack", "3\u20136 month engagements", "Direct line to Sid"].map(f => (
+                {["Custom skills for your roster", "Embedded with your team", "Integrates with your stack", "3\u20136 month engagements", "Direct line to the founder"].map(f => (
                   <li key={f} className="flex items-start gap-2"><Check size={13} className="mt-0.5 shrink-0 text-(--foreground)/20" />{f}</li>
                 ))}
               </ul>
@@ -772,7 +604,7 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          8. CTA
+          11. CTA — one command, music AI installed
           ══════════════════════════════════════ */}
       <section className="relative py-32 sm:py-44 overflow-hidden dark-section-cta">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-[0.04] pointer-events-none" aria-hidden="true" style={{ background: "radial-gradient(circle, white 0%, transparent 60%)" }} />
@@ -790,8 +622,8 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href={siteConfig.appUrl} className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:-translate-y-0.5">
-              Get started free
+            <Link href="/platform" className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:-translate-y-0.5">
+              Browse skills
             </Link>
             <Link href={siteConfig.docsUrl} className="font-ui font-medium text-sm text-white/25 hover:text-white/50 transition-colors flex items-center gap-1.5">
               Read the docs <ArrowUpRight size={14} />
