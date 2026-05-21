@@ -76,6 +76,32 @@
 
 /* Dark sections — elevated in dark mode so they don't blend */
 @layer components {
+  .customer-logo-image {
+    max-width: 100%;
+    object-fit: contain;
+    opacity: 0.72;
+    filter: none;
+    transition:
+      filter 200ms ease,
+      opacity 200ms ease;
+  }
+
+  .customer-logo-image:hover {
+    opacity: 1;
+    filter: none;
+  }
+
+  [data-theme="dark"] .customer-logo-image {
+    opacity: 0.9;
+    filter: invert(1) hue-rotate(180deg) brightness(1.08) contrast(1.05);
+    mix-blend-mode: screen;
+  }
+
+  [data-theme="dark"] .customer-logo-image:hover {
+    opacity: 1;
+    filter: invert(1) hue-rotate(180deg) brightness(1.08) contrast(1.05);
+  }
+
   .dark-section {
     background: radial-gradient(ellipse 80% 50% at 50% 0%, #111 0%, #060606 100%);
   }
@@ -405,6 +431,126 @@
 
   .poof-in {
     animation: poof-in 0.3s ease-out forwards;
+  }
+
+  .pixel-word-cycle {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    min-height: 1em;
+  }
+
+  .pixel-char {
+    position: relative;
+    display: inline-block;
+    min-width: 0.5em;
+    will-change: transform, filter, opacity;
+  }
+
+  .pixel-char-main {
+    display: block;
+    transform-origin: center;
+  }
+
+  .pixel-char-noise {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    line-height: 1;
+    opacity: 0;
+    pointer-events: none;
+    color: color-mix(in srgb, var(--foreground) 90%, transparent);
+    clip-path: inset(var(--pixel-top, 18%) 0 var(--pixel-bottom, 18%) 0);
+    filter: contrast(1.6);
+    transform-origin: center;
+  }
+
+  @keyframes pixel-char-out {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0px) contrast(1);
+    }
+    100% {
+      opacity: 0.25;
+      transform: scale(1.03);
+      filter: blur(0.7px) contrast(1.9);
+    }
+  }
+
+  @keyframes pixel-char-in {
+    0% {
+      opacity: 0.25;
+      transform: scale(0.96);
+      filter: blur(0.7px) contrast(1.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0px) contrast(1);
+    }
+  }
+
+  @keyframes pixel-noise-out {
+    0% {
+      opacity: 0;
+      transform: translate(0, 0) scale(0.92);
+    }
+    35% {
+      opacity: 0.85;
+      transform: translate(var(--pixel-x), 0) scale(1.08);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(var(--pixel-x-inverse), 0) scale(0.95);
+    }
+  }
+
+  @keyframes pixel-noise-in {
+    0% {
+      opacity: 0;
+      transform: translate(var(--pixel-x-inverse), 0) scale(0.95);
+    }
+    45% {
+      opacity: 0.8;
+      transform: translate(var(--pixel-x), 0) scale(1.08);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(0, 0) scale(0.92);
+    }
+  }
+
+  .pixel-word-cycle.pixel-swap-out .pixel-char-main {
+    animation: pixel-char-out 260ms steps(4, end) both;
+    animation-delay: var(--pixel-delay, 0ms);
+  }
+
+  .pixel-word-cycle.pixel-swap-in .pixel-char-main {
+    animation: pixel-char-in 280ms steps(4, end) both;
+    animation-delay: var(--pixel-delay, 0ms);
+  }
+
+  .pixel-word-cycle.pixel-swap-out .pixel-char-noise {
+    animation: pixel-noise-out 260ms steps(6, end) both;
+    animation-delay: var(--pixel-delay, 0ms);
+  }
+
+  .pixel-word-cycle.pixel-swap-in .pixel-char-noise {
+    animation: pixel-noise-in 280ms steps(6, end) both;
+    animation-delay: var(--pixel-delay, 0ms);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pixel-word-cycle.pixel-swap-out .pixel-char-main,
+    .pixel-word-cycle.pixel-swap-in .pixel-char-main,
+    .pixel-word-cycle.pixel-swap-out .pixel-char-noise,
+    .pixel-word-cycle.pixel-swap-in .pixel-char-noise {
+      animation: none;
+    }
   }
 }
 
