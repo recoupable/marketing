@@ -19,8 +19,6 @@ const FOOTER_NAV = [
     title: "Resources",
     links: [
       { href: "/blog", label: "Blog" },
-      { href: "/learn/use-cases", label: "Use Cases" },
-      { href: "/learn/playbooks", label: "Playbooks" },
       { href: "/learn/demos", label: "Demos" },
     ],
   },
