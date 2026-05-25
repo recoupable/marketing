@@ -11,7 +11,7 @@ const RESOURCE_LINKS = [
 export const learnCopy = {
   title: "Resources",
   description:
-    "Blog, use cases, playbooks, demos. Run your music business with agents.",
+    "Blog and demos. Run your music business with agents.",
   links: RESOURCE_LINKS,
 } as const;
 

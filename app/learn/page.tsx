@@ -7,7 +7,7 @@ import { learnCopy } from "@/lib/copy/learn";
 export const metadata: Metadata = buildPageMetadata({
   title: `Learn — Music Ops With AI Agents | Resources | ${siteConfig.name}`,
   description:
-    "Blog, use cases, playbooks, and demos. How to run your music business with AI agents — release strategy, content, fan growth, and operations.",
+    "Blog and demos. How to run your music business with AI agents — release strategy, content, fan growth, and operations.",
   path: "/learn",
 });
 
@@ -21,8 +21,7 @@ export default function LearnPage() {
           Learn
         </h1>
         <p className="text-xl text-[var(--muted-foreground)]">
-          Blog, use cases, playbooks, and demos. How to run your music
-          business with agents.
+          Blog and demos. How to run your music business with agents.
         </p>
       </header>
 
