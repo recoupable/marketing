@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
+import { Suspense } from "react";
 import { BookingForm } from "./BookingForm";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -23,7 +24,9 @@ export default function BookPage() {
           Tell us about your business and we&apos;ll get back to you within 24
           hours to schedule your call.
         </p>
-        <BookingForm />
+        <Suspense fallback={<div className="animate-pulse h-96" />}>
+          <BookingForm />
+        </Suspense>
       </section>
     </main>
   );
