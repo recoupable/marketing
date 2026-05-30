@@ -44,11 +44,20 @@ interface InsightEntry {
   insight?: string;
 }
 
+interface WebResult {
+  title?: string;
+  url?: string;
+  snippet?: string;
+}
+
 interface DemoResult {
   profile: ProfileData | null;
   cities: CityEntry[] | { cities?: CityEntry[] } | null;
   similar: SimilarArtist[] | { similar?: SimilarArtist[] } | null;
   insights: InsightEntry[] | { insights?: InsightEntry[] } | null;
+  web?: { results?: WebResult[] } | null;
+  source?: "live" | "web";
+  artistQuery?: string;
 }
 
 /* ---------- helpers ---------- */
@@ -213,7 +222,62 @@ export function ArtistIntelligenceDemo() {
       {/* Loading */}
       {loading && <SkeletonBlock />}
 
-      {/* Results */}
+      {/* Web fallback results */}
+      {result && result.source === "web" && (
+        <div className="mt-8">
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold">{result.artistQuery}</h2>
+            <p className="text-sm text-[var(--muted-foreground)] mt-1">
+              Live analytics temporarily unavailable — showing web intelligence results.
+            </p>
+          </div>
+
+          <SectionHeader>Web Intelligence</SectionHeader>
+          <div className="space-y-4">
+            {(result.web as { results?: WebResult[] })?.results?.slice(0, 5).map((r: WebResult, i: number) => (
+              <div
+                key={i}
+                className="border border-[var(--border)] rounded-lg p-4"
+              >
+                <a
+                  href={r.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-[var(--foreground)] hover:underline"
+                >
+                  {r.title}
+                </a>
+                <p className="text-xs text-[var(--muted-foreground)] mt-1">
+                  {r.snippet}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 border border-[var(--border)] rounded-lg p-4 bg-[var(--border)]/10">
+            <p className="text-sm text-[var(--muted-foreground)]">
+              <strong className="text-[var(--foreground)]">With the full Recoup plugin,</strong>{" "}
+              your agent gets structured streaming analytics, audience demographics,
+              playlist intelligence, competitive positioning, and AI insights — not just web results.
+            </p>
+          </div>
+
+          {/* CTA */}
+          <div className="mt-12 pt-8 border-t border-[var(--border)] text-center">
+            <p className="text-[var(--muted-foreground)] mb-4">
+              Want structured intelligence like this across your entire roster?
+            </p>
+            <Link
+              href="/pricing"
+              className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              See Pricing →
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Full results */}
       {result && profile && (
         <div className="mt-8">
           {/* Artist header */}
