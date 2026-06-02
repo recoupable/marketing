@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { siteConfig } from "@/lib/config";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
 import { ResearchCard } from "@/components/home/ResearchCard";
+import { CUSTOMER_LOGOS } from "@/lib/customerLogos";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 
 /* ──────────────────────────────────────────────────────────────────────
@@ -149,8 +150,6 @@ function useReveal() {
 
 /* ── Static content ────────────────────────────────────────────────────── */
 
-const LOGOS = ["Atlantic", "Rostrum", "300", "Warner", "Parlophone", "Fat Beats"];
-
 const LANES = [
   {
     k: "Research",
@@ -239,10 +238,18 @@ export default function HomePage() {
           2. LOGOS
           ══════════════════════════════════════ */}
       <section className="py-8 border-y border-(--border)">
-        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-center flex-wrap gap-x-8 gap-y-3">
-          <span className="font-ui text-[10px] text-(--foreground)/25 uppercase tracking-[0.15em]">Trusted by teams at</span>
-          {LOGOS.map((n) => (
-            <span key={n} className="font-ui font-bold text-[12px] text-(--foreground)/25 uppercase tracking-[0.06em] select-none">{n}</span>
+        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-center flex-wrap gap-x-5 sm:gap-x-7 gap-y-4">
+          <span className="shrink-0 font-ui text-[10px] text-(--foreground)/35 uppercase tracking-[0.15em]">Used by teams at</span>
+          {CUSTOMER_LOGOS.map((logo) => (
+            <span key={logo.slug} className="flex h-8 w-12 sm:w-16 items-center justify-center">
+              <img
+                src={`/api/customer-logos/${logo.slug}`}
+                alt={logo.alt}
+                className={`${logo.className ?? "max-h-5 sm:max-h-6"} customer-logo-image`}
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
           ))}
         </div>
       </section>

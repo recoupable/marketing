@@ -76,6 +76,33 @@
 
 /* Dark sections — elevated in dark mode so they don't blend */
 @layer components {
+  /* Customer logo strip — achromatic in light, inverted to read on dark */
+  .customer-logo-image {
+    max-width: 100%;
+    object-fit: contain;
+    opacity: 0.72;
+    filter: none;
+    transition:
+      filter 200ms ease,
+      opacity 200ms ease;
+  }
+
+  .customer-logo-image:hover {
+    opacity: 1;
+    filter: none;
+  }
+
+  [data-theme="dark"] .customer-logo-image {
+    opacity: 0.9;
+    filter: invert(1) hue-rotate(180deg) brightness(1.08) contrast(1.05);
+    mix-blend-mode: screen;
+  }
+
+  [data-theme="dark"] .customer-logo-image:hover {
+    opacity: 1;
+    filter: invert(1) hue-rotate(180deg) brightness(1.08) contrast(1.05);
+  }
+
   .dark-section {
     background: radial-gradient(ellipse 80% 50% at 50% 0%, #111 0%, #060606 100%);
   }
