@@ -12,50 +12,59 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 /* ──────────────────────────────────────────────────────────────────────
    Open tools shelf (mid-page builder proof). Ported from the agent-layer
    branch; reframed here as "what we build in the open," not the hero.
+
+   Every pack below maps to a REAL skill folder in github.com/recoupable/skills.
+   One install command (`npx skills add recoupable/skills`) pulls the whole
+   open repo; each card deep-links to its skill on GitHub so the claim is
+   verifiable on first contact.
    ────────────────────────────────────────────────────────────────────── */
+
+const SKILLS_REPO = "https://github.com/recoupable/skills";
+const SKILLS_INSTALL = "npx skills add recoupable/skills";
 
 interface SkillPack {
   id: string;
   title: [string, string];
   desc: string;
-  install: string;
+  /** Real skill folder name in recoupable/skills */
+  skill: string;
   gradient: string;
 }
 
 const SKILL_PACKS: readonly SkillPack[] = [
   {
-    id: "diligence",
-    title: ["Agentic", "Diligence"],
-    desc: "Skills, agents, and templates for catalog audits and deal rooms.",
-    install: "npx skills add recoupable/diligence",
+    id: "research",
+    title: ["Music", "Research"],
+    desc: "Artist analytics, people search, competitive analysis, and web intelligence — the groundwork for catalog and deal research.",
+    skill: "music-industry-research",
     gradient: "linear-gradient(135deg, #14b8a6 0%, #0d9488 60%, #115e59 100%)",
   },
   {
-    id: "ar",
-    title: ["Agentic", "A&R"],
-    desc: "Scouting and signing workflows for artist research.",
-    install: "npx skills add recoupable/ar",
+    id: "chartmetric",
+    title: ["Chart", "Metrics"],
+    desc: "Query and analyze streaming, chart, and audience data to scout, track, and compare artists.",
+    skill: "chart-metric",
     gradient: "linear-gradient(135deg, #60a5fa 0%, #2563eb 60%, #1e3a8a 100%)",
   },
   {
     id: "content",
-    title: ["Agentic", "Content"],
-    desc: "Videos, images, captions, and press from your catalog.",
-    install: "npx skills add recoupable/content",
+    title: ["Content", "Creation"],
+    desc: "Generate social videos, TikToks, Reels, and visual content from your catalog.",
+    skill: "content-creation",
     gradient: "linear-gradient(135deg, #fb923c 0%, #ea580c 60%, #9a3412 100%)",
   },
   {
-    id: "operator",
-    title: ["Agentic", "Operator"],
-    desc: "The day-to-day of running a label, wired for agents.",
-    install: "npx skills add recoupable/operator",
+    id: "release",
+    title: ["Release", "Management"],
+    desc: "Plan and execute release campaigns end to end — the day-to-day of running a label, wired for agents.",
+    skill: "release-management",
     gradient: "linear-gradient(135deg, #fb7185 0%, #e11d48 60%, #881337 100%)",
   },
   {
-    id: "fan",
-    title: ["Agentic", "Fan"],
-    desc: "Fan analytics and audience growth playbooks.",
-    install: "npx skills add recoupable/fan",
+    id: "growth",
+    title: ["Streaming", "Growth"],
+    desc: "Grow a new artist past the streaming milestones that unlock platform tools and audience.",
+    skill: "streaming-growth",
     gradient: "linear-gradient(135deg, #c084fc 0%, #9333ea 60%, #581c87 100%)",
   },
 ] as const;
@@ -230,6 +239,9 @@ export default function HomePage() {
               Read our research <ArrowUpRight size={15} />
             </Link>
           </div>
+          <p className={`font-ui text-[12px] text-(--foreground)/40 mt-7 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "850ms" }}>
+            You own what we build. We never train on your data.
+          </p>
         </div>
       </section>
 
@@ -359,9 +371,29 @@ export default function HomePage() {
             <p className="text-[15px] text-white/40 max-w-xl mx-auto leading-relaxed">
               Chat is a hosted workspace. The API and open skills are how you embed music intelligence in Claude, Cursor, and your own tools — bring your own agent, Recoup plugs in.
             </p>
+            <p className="text-[13px] text-white/30 max-w-xl mx-auto leading-relaxed mt-3">
+              <span className="text-white/45 font-medium">MCP</span> is the open standard that lets any agent — Claude, Cursor, or one you built — securely call Recoup&apos;s music tools without custom glue code.
+            </p>
           </div>
 
           <ArchitectureDiagram />
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+            <a
+              href={siteConfig.docsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-ui font-semibold bg-white text-[#0a0a0a] px-7 py-3 rounded-full text-[14px] hover:bg-white/90 transition-colors inline-flex items-center gap-1.5"
+            >
+              Read the API docs <ArrowUpRight size={14} />
+            </a>
+            <Link
+              href="/partners"
+              className="font-ui font-medium text-[14px] text-white/55 hover:text-white transition-colors inline-flex items-center gap-1.5"
+            >
+              Talk to partnerships <ArrowRight size={14} />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -377,7 +409,11 @@ export default function HomePage() {
               The tools we build, free to install.
             </h2>
             <p className="text-[15px] text-(--foreground)/50 max-w-lg mx-auto leading-relaxed">
-              Every engagement sharpens the open skills we ship. Pick a pack, install in seconds, see how we work.
+              Open-source skills our own agents run every day. Install them into Claude, Cursor, or your own stack in seconds. Your private work stays yours —{" "}
+              <Link href="/trust" className="underline decoration-(--foreground)/20 underline-offset-2 hover:text-(--foreground) hover:decoration-(--foreground)/50 transition-colors">
+                we never train on your data
+              </Link>
+              .
             </p>
           </div>
 
@@ -397,8 +433,15 @@ export default function HomePage() {
           <div className="max-w-[560px] mx-auto">
             <div className="bg-(--muted)/60 rounded-xl px-5 py-4 sm:px-6 sm:py-5 text-left" style={{ boxShadow: "0 0 0 1px var(--border)" }}>
               <div className="flex items-baseline justify-between gap-3 mb-2">
-                <p className="font-ui font-bold text-[15px]">Install Recoup {activePack.title[1]}</p>
-                <span className="text-[10px] font-pixel text-(--foreground)/40 uppercase tracking-wider whitespace-nowrap">open source</span>
+                <p className="font-ui font-bold text-[15px]">{activePack.title.join(" ")}</p>
+                <a
+                  href={`${SKILLS_REPO}/tree/main/skills/${activePack.skill}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] font-ui font-semibold text-(--foreground)/55 hover:text-(--foreground) transition-colors inline-flex items-center gap-1 whitespace-nowrap"
+                >
+                  View on GitHub <ArrowUpRight size={12} />
+                </a>
               </div>
               <AnimatePresence mode="wait">
                 <motion.p
@@ -412,20 +455,43 @@ export default function HomePage() {
                   {activePack.desc}
                 </motion.p>
               </AnimatePresence>
-              <AnimatePresence mode="wait">
-                <motion.code
-                  key={`${activePack.id}-install`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="block font-mono text-[12px] bg-(--background) px-3 py-2.5 rounded-md text-(--foreground)/80"
-                  style={{ boxShadow: "0 0 0 1px var(--border)" }}
-                >
-                  <span className="text-(--foreground)/35">$</span> {activePack.install}
-                </motion.code>
-              </AnimatePresence>
+              <code
+                className="block font-mono text-[12px] bg-(--background) px-3 py-2.5 rounded-md text-(--foreground)/80"
+                style={{ boxShadow: "0 0 0 1px var(--border)" }}
+              >
+                <span className="text-(--foreground)/35">$</span> {SKILLS_INSTALL}
+              </code>
             </div>
+            <p className="text-center text-[12px] text-(--foreground)/40 mt-4">
+              One command installs the whole open repo.{" "}
+              <a
+                href={SKILLS_REPO}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors inline-flex items-center gap-1"
+              >
+                Browse all skills <ArrowUpRight size={12} />
+              </a>
+            </p>
+            <p className="text-center text-[12px] text-(--foreground)/40 mt-2">
+              Not technical? The same skills run inside{" "}
+              <a
+                href={siteConfig.appUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors"
+              >
+                Chat
+              </a>
+              , or{" "}
+              <Link
+                href="/consulting"
+                className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors"
+              >
+                we&apos;ll set them up for you
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>
@@ -458,9 +524,12 @@ export default function HomePage() {
           <p className="font-display italic text-(--foreground)/80 text-[clamp(1.5rem,3vw,2rem)] leading-[1.4] mb-6">
             &ldquo;Catalog diligence is one of the biggest pain points I have. Cut it down to minutes and it changes how we buy.&rdquo;
           </p>
-          <p className="font-ui text-[12px] text-(--foreground)/40 uppercase tracking-[0.16em]">
+          <p className="font-ui text-[12px] text-(--foreground)/40 uppercase tracking-[0.16em] mb-8">
             Catalog fund operator
           </p>
+          <Link href="/audit" className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
+            See what an AI readiness audit surfaces <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+          </Link>
         </div>
       </section>
 

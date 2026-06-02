@@ -65,6 +65,10 @@ const faq = [
     a: "It depends on where you are. Some companies need a single strategy session to get clarity. Others want a multi-week implementation sprint with their team. We'll scope it together on the first call.",
   },
   {
+    q: "Who owns what we build — and do you train on our data?",
+    a: "You do. The agents, skills, and workflows we build in your engagement are yours, and they live in your stack or a repo your organization controls. We never train models on your catalog, royalty, or proprietary data, and your private work is never folded into the open skills we publish.",
+  },
+  {
     q: "Do I need technical expertise on my team?",
     a: "No. Sidney translates between the technical and business sides — that's the whole point. You'll leave with a plan your team can actually execute, regardless of their technical background.",
   },

@@ -23,7 +23,7 @@ export const siteConfig = {
 
   /** Social links */
   social: {
-    twitter: "https://x.com/recaboreal",
+    twitter: "https://x.com/recoupable",
     instagram: "https://www.instagram.com/recoupable",
     linkedin: "https://www.linkedin.com/company/recoupable",
     youtube: "https://www.youtube.com/@recoupable",

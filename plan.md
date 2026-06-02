@@ -15,8 +15,14 @@ sections deferred to v1.1 to ship faster. Order as built:
 · 9. Anon pull quote · 10. Records proof · 11. Final CTA.
 
 **Deferred to v1.1 (not yet built):** recent-research dated cards, themed research rails,
-3 work tiles (F7). **Nav:** B+ shipped; Sign In/Sign Up removed entirely (header → "Talk to us";
-footer restructured to Work with us / Build / Company — no auth links). `/advisory` → `/consulting` 301 live.
+3 work tiles (F7). **Nav:** B+ → now B (Platform + Pricing added to header after the userjourney
+audit); Sign In/Sign Up removed entirely (header → "Talk to us"; footer restructured to
+Work with us / Build / Company). `/advisory` → `/consulting` 301 live.
+
+**userjourney fixes layered on (2026-06-01):** shelf now uses real `recoupable/skills` folders with
+GitHub links + a working install; `/company/recoup-records` is a real proof page (`/records` 301'd in);
+ownership/no-train in hero + `/consulting` + new `/trust` page; new `/partners` page; pull quote → `/audit`;
+`/platform` CTA → `/partners`; X handle fixed. Full log in `userjourney.md` → "Fixes applied".
 
 ---
 

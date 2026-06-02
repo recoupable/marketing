@@ -23,6 +23,12 @@ const nextConfig: NextConfig = {
         destination: "/consulting",
         permanent: true,
       },
+      {
+        // Duplicate "Coming soon" stub folded into the real proof page.
+        source: "/records",
+        destination: "/company/recoup-records",
+        permanent: true,
+      },
     ];
   },
 };

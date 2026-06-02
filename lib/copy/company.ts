@@ -54,9 +54,32 @@ export function companyAboutToMarkdown(c: typeof companyAboutCopy): string {
 
 export const companyRecoupRecordsCopy = {
   title: `${siteConfig.name} Records`,
-  subtitle: "Our label runs on this system.",
-  body: `${siteConfig.name} Records is the label — run entirely on ${siteConfig.name}. Every release, marketing push, content run: agents execute. Same platform we sell. That's how we know it works.`,
-  footer: "Real outputs. Real growth loops. Real proof.",
+  subtitle: "Our own label and artist run on the same tools we sell.",
+  intro: `${siteConfig.name} Records is our in-house label, and Gatsby Grace is the artist we develop on it. Everything we ship to clients earns its keep here first — the open skills, the agents, and the platform all run a real roster before we ever recommend them to yours.`,
+  /** How the label actually uses the system, each tied to a real open skill. */
+  runsOn: [
+    {
+      title: "Release planning",
+      body: "Agents draft and run release campaigns end to end — timelines, assets, and the checklist of who does what before drop day.",
+      skill: "release-management",
+    },
+    {
+      title: "Artist & catalog research",
+      body: "Artist analytics, audience breakdowns, and competitive analysis pulled together into briefs we actually act on.",
+      skill: "music-industry-research",
+    },
+    {
+      title: "Content production",
+      body: "Social videos, short-form clips, and visual content generated from the catalog — the same content engine our clients install.",
+      skill: "content-creation",
+    },
+    {
+      title: "Audience growth",
+      body: "Tracking Gatsby Grace toward the streaming milestones that unlock playlisting and platform tools.",
+      skill: "streaming-growth",
+    },
+  ],
+  footer: `If a skill can't carry weight on our own roster, we don't publish it — and we don't sell it.`,
 } as const;
 
 export function companyRecoupRecordsToMarkdown(
@@ -69,7 +92,10 @@ export function companyRecoupRecordsToMarkdown(
     "",
     "---",
     "",
-    c.body,
+    c.intro,
+    "",
+    ...c.runsOn.flatMap((r) => [`## ${r.title}`, "", r.body, ""]),
+    "---",
     "",
     c.footer,
   ].join("\n");

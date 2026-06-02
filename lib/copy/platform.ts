@@ -38,8 +38,8 @@ export const platformCopy = {
       description: `Build on ${siteConfig.name}. API and CLI for developers and automation. Same system. Your interface.`,
     },
   ],
-  ctaLabel: "Get started",
-  ctaHref: siteConfig.appUrl,
+  ctaLabel: "Talk to partnerships",
+  ctaHref: "/partners",
 } as const;
 
 export type PlatformCopy = typeof platformCopy;

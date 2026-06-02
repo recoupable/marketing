@@ -4,6 +4,7 @@ updated: "2026-06-01"
 
 ## Now
 
+- **userjourney fixes (P0–P2) SHIPPED** (2026-06-01) on **`feat/research-consulting-site`** — real open-tools shelf (live GitHub skills + working install), built-out `/company/recoup-records` proof page, ownership/no-train messaging, new `/partners` + `/trust` pages, Platform+Pricing in header. See `userjourney.md` for the audit + fix log.
 - **Repositioning v1 SHIPPED** (2026-06-01) on **`feat/research-consulting-site`** — PR open to `marketing/main`. Research + consulting for the agentic music industry.
 - Website still live on **`marketing/main`** → recoupable.com (old Music Intelligence hero) **until PR merges**
 - Old WIP **`feat/agent-layer-positioning`** (skill-packs hero) — superseded by the new branch; do not merge
@@ -26,6 +27,7 @@ updated: "2026-06-01"
 
 ## Recently Changed
 
+- 2026-06-01: userjourney P0–P2 fixes — shelf now maps to real `recoupable/skills` folders (`music-industry-research`, `chart-metric`, `content-creation`, `release-management`, `streaming-growth`) with per-card GitHub links + one working `npx skills add recoupable/skills`; killed the IP-leak "engagements sharpen our skills" line; hero + `/consulting` FAQ now state ownership/no-train; `/company/recoup-records` rebuilt into a real dogfooding proof page; `/records` 301→`/company/recoup-records`; new `/partners` and `/trust` pages; Platform+Pricing promoted into header; Build §6 got docs/partnerships CTAs + plain-English MCP line; pull quote wired to `/audit`; `/platform` CTA no longer dumps into the chat app; X handle `recaboreal`→`recoupable`.
 - 2026-06-01: Repositioning v1 — rewrote `app/page.tsx` (research+consulting storyboard), B+ nav (`lib/nav.ts` + Header → "Talk to us", removed Sign In/Up), Footer restructured (Work with us / Build / Company), `/advisory`→`/consulting` 301, new `researchUrl` config + metadata. Branch `feat/research-consulting-site`.
 - 2026-04-05: YAGNI cleanup — flattened from pnpm workspace (apps/web + apps/ops) to single Next.js app at root. Deleted unused components (NavDropdown, ThemeToggle, SubscribeForm). Deleted empty ops app.
 - 2026-03-30: Brand context files, copy registry, machine view API

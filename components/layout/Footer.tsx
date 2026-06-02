@@ -19,6 +19,7 @@ const FOOTER_NAV = [
     title: "Build",
     links: [
       { href: "/platform", label: "Platform" },
+      { href: "/partners", label: "Partners" },
       { href: "/developers", label: "Developers" },
       { href: siteConfig.docsUrl, label: "API Docs" },
       { href: "/pricing", label: "Pricing" },
@@ -29,6 +30,7 @@ const FOOTER_NAV = [
     links: [
       { href: "/company/about", label: "About" },
       { href: "/company/vision", label: "Vision" },
+      { href: "/trust", label: "Trust & Governance" },
       { href: siteConfig.appUrl, label: "Open app" },
     ],
   },
