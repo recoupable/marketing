@@ -197,6 +197,15 @@
     --tw-prose-links: var(--brand);
   }
 
+  /* In-body section headings use the UI font (Plus Jakarta Sans), not the
+     global serif h1/h2 rule. The article title above the body is the only
+     display element; section headers should read as clean, modern UI. This
+     wins over the @layer base `h1, h2 { serif }` rule by layer order. */
+  .prose :where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-ui), system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
   .prose a {
     text-decoration-color: var(--brand-muted);
     text-underline-offset: 3px;

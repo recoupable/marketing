@@ -33,14 +33,18 @@ export default async function BlogIndexPage({
       {/* Page header */}
       <header className="mb-12">
         <p className="font-pixel text-[10px] uppercase tracking-[0.22em] text-[var(--foreground)]/45 mb-5">
-          Writing
+          Research &amp; Field Notes
         </p>
-        <h1 className="font-pixel text-[clamp(2.25rem,5vw,3.5rem)] tracking-tight leading-[1.05] text-[var(--foreground)] mb-4">
-          Research, in the open.
+        <h1 className="font-pixel text-[clamp(2.25rem,5vw,3.5rem)] tracking-tight leading-[1.05] text-[var(--foreground)] mb-5">
+          The agentic music industry, in the open.
         </h1>
-        <p className="text-lg text-[var(--muted-foreground)] max-w-xl">
-          Essays, guides, and tutorials on AI agents for music — what we learn
-          building infrastructure and running our own label.
+        <p className="text-lg leading-relaxed text-[var(--muted-foreground)] max-w-2xl">
+          Essays on where music and AI are heading — plus guides and tutorials
+          you can ship today. Straight from the team building the agent
+          infrastructure and running our own label.
+        </p>
+        <p className="mt-6 font-pixel text-[10px] uppercase tracking-[0.22em] text-[var(--foreground)]/35">
+          {entries.length} pieces · research, guides &amp; tutorials
         </p>
       </header>
 

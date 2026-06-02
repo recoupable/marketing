@@ -65,12 +65,12 @@ export function BlogCTA({ postSlug }: { postSlug?: string }) {
   }
 
   return (
-    <div className="my-12 rounded-2xl border border-[var(--border)] bg-[#080808] p-8">
+    <div className="my-12 rounded-2xl bg-[#080808] p-8">
       <div className="max-w-lg mx-auto text-center">
-        <h3 className="font-pixel text-xl tracking-tight mb-2">
+        <h3 className="font-pixel text-xl tracking-tight mb-2 text-white">
           AI is changing the music business fast.
         </h3>
-        <p className="text-sm text-[var(--muted-foreground)] mb-6">
+        <p className="text-sm text-white/55 mb-6">
           Notes on AI agents for music — research, open tools, and what we learn
           running our own label. For labels, managers, and distributors.
         </p>
@@ -84,20 +84,21 @@ export function BlogCTA({ postSlug }: { postSlug?: string }) {
             placeholder="you@label.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--foreground)]/20"
+            className="flex-1 rounded-lg bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-white/30"
+            style={{ boxShadow: "0 0 0 1px rgba(255,255,255,0.14)" }}
           />
           <button
             type="submit"
             disabled={status === "loading"}
-            className="rounded-lg bg-[var(--foreground)] text-[var(--background)] px-6 py-3 text-sm font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 whitespace-nowrap"
+            className="rounded-lg bg-white text-[#0a0a0a] px-6 py-3 text-sm font-semibold hover:bg-white/90 transition-colors disabled:opacity-50 whitespace-nowrap"
           >
             {status === "loading" ? "..." : "Subscribe →"}
           </button>
         </form>
         {status === "error" && (
-          <p className="text-red-500 text-xs mt-2">{errorMsg}</p>
+          <p className="text-red-400 text-xs mt-2">{errorMsg}</p>
         )}
-        <p className="text-[10px] text-[var(--muted-foreground)]/60 mt-3">
+        <p className="text-[10px] text-white/40 mt-3">
           No spam. Unsubscribe anytime.
         </p>
       </div>

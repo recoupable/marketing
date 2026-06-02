@@ -15,7 +15,7 @@ import {
   timestampToISODate,
   sanitizeParagraphHtml,
 } from "@/lib/paragraph/helpers";
-import { markdownToHtml } from "@/lib/markdown";
+import { markdownToHtml, stripLeadingH1 } from "@/lib/markdown";
 import { buildPostMetadata, buildPostJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/config";
 import { ContentArticle } from "@/components/content/ContentArticle";
@@ -123,7 +123,8 @@ export default async function ContentPostPage({
   // MDX pipelines (blog posts + in-repo research essays)
   if (resolution.kind === "post" || resolution.kind === "research-mdx") {
     const { post } = resolution;
-    const html = await markdownToHtml(post.content);
+    // The body repeats the title as a leading H1; the header already shows it.
+    const html = await markdownToHtml(stripLeadingH1(post.content));
     const jsonLd = buildPostJsonLd(post);
     const eyebrow =
       CONTENT_CATEGORY_LABELS[
