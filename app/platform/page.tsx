@@ -76,6 +76,15 @@ export default function PlatformPage() {
               </a>
             </p>
           </div>
+          <p className="text-center text-[12px] text-(--foreground)/40 mt-4">
+            Prefer ready-made bundles?{" "}
+            <a
+              href="#plugins"
+              className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors"
+            >
+              Browse the plugins marketplace ↓
+            </a>
+          </p>
         </div>
       </section>
 

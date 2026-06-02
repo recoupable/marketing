@@ -50,24 +50,24 @@ export const platformCopy = {
   plugins: {
     heading: "Plugins marketplace",
     description:
-      "Curated plugin bundles — skills, commands, and workflows packaged for Claude Code, Cowork, and Codex. Add the marketplace once, then install any plugin.",
+      "Native bundles for Claude Code, Cowork, Codex, and Cursor — the open skills plus commands, subagents, and deeper API-backed research and catalog workflows. Add the marketplace once, then install any plugin.",
     repo: "https://github.com/recoupable/marketplace",
     install: "/plugin marketplace add recoupable/marketplace",
     items: [
       {
         name: "Research",
         description:
-          "Artist analytics, audience insights, playlist intelligence, competitive analysis, trend detection, and outreach.",
+          "API-backed artist analytics, audience insights, playlist intelligence, competitive analysis, trend detection, and outreach — deeper than the open research skill.",
+      },
+      {
+        name: "Catalog deals",
+        description:
+          "Buy-side and seller-prep diligence: data-room ingestion, royalty normalization, rights checks, IC memos, and valuation analysis.",
       },
       {
         name: "Content",
         description:
           "Draft, edit, and publish content for artists across every surface — built for the way labels actually ship.",
-      },
-      {
-        name: "Catalog deals",
-        description:
-          "Data-room ingestion, royalty normalization, rights checks, and valuation analysis for buy-side and seller prep.",
       },
       {
         name: "Platform",
