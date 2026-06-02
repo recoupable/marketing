@@ -125,33 +125,44 @@ Both consume the **same open Agent Skills standard** (`SKILL.md`), so one skill 
 2. **"API-backed" is a per-skill property, not a plugin property.** Research and catalog skills call the (paid/gated) Recoup API today; **content can be API-backed too** — those endpoints exist, the skills just haven't been authored yet. So the split is NOT "shallow open skills vs. deep plugin skills." It's: *every skill is authored once, and some skills call the paid API.*
 3. **The only real "tier" is commercial, and it's gated at the API** (the key the skill calls), independent of which channel ships the skill.
 
-### Chosen approach (refined 2026-06-02): One library + self-contained rich plugins + one registry
+### Chosen approach (final, 2026-06-02): ONE repo — library + plugins + registry in one tree
 
-A reasoning pass killed the machinery in the earlier Option 2. The broken assumption was **"a plugin must re-bundle the generic skills it uses."** It doesn't: the real `recoup-artist-research` skill is self-contained — it **inlines** its API usage (base URL, `x-api-key`, endpoints) and does not depend on the `recoup-api` skill. So plugins never need to copy library skills, which eliminates the need for submodules, sync scripts, or a build step. The platform/content plugins copied generic skills to "look complete," not because they needed them.
+Two reasoning passes simplified this twice. **Pass 1** killed the referencing machinery: the broken assumption was *"a plugin must re-bundle the generic skills it uses."* It doesn't — the real `recoup-artist-research` skill is self-contained, it **inlines** its API usage (base URL, `x-api-key`, endpoints) and does not depend on the `recoup-api` skill. So plugins never copy library skills → no submodules, sync, or build step. **Pass 2** killed the multi-repo split: the three reasons to keep research/catalog as separate repos all failed — clone weight is negligible (a few MB of markdown/scripts; large fixtures get `.gitignore`d), per-plugin semver is YAGNI for a small team, and the catalog moat is the **API + data room, not the `SKILL.md`** (so the skills can be public like everything else). The only thing that would force a separate repo is a genuinely **closed-source** plugin.
 
-**The architecture:**
+**The architecture — a single repo that is library, plugins, and registry at once:**
 
-| Layer | Repo(s) | Contains | Installed by |
-|---|---|---|---|
-| **Skills library** | `recoupable/skills` (public) | Every lightweight, generic, public skill — authored once, flat `skills/` | `npx skills add recoupable/skills` *or* one plugin via its `marketplace.json` |
-| **Rich plugins** | `recoupable/recoup-research-plugin`, `recoupable/recoup-catalogs-plugin` (content only if it gains real commands/agents) | Domain skills + commands + agents + hooks; **self-contained**, inline their own API usage | `/plugin install …@recoup-marketplace` or by URL |
-| **Registry** | `recoupable/marketplace` (the one) | Lists the library + the rich plugins | `/plugin marketplace add recoupable/marketplace` |
+```
+recoupable/skills/
+├── skills/                          ← the open library (flat). `npx skills add` reads this.
+│   └── <skill>/SKILL.md  …
+├── plugins/                         ← rich bundles as folders, each self-contained
+│   ├── research/{.claude-plugin,.codex-plugin}/plugin.json + skills/ commands/ agents/ evals/
+│   └── catalog/{.claude-plugin,.codex-plugin}/plugin.json + skills/ commands/ agents/ hooks/
+├── .claude-plugin/marketplace.json  ← lists library + research + catalog by relative ./path
+└── .agents/plugins/marketplace.json ← same, for Codex
+```
+
+**All install paths work from this one repo:**
+- `npx skills add recoupable/skills` → installs the top-level `skills/` library.
+- `/plugin marketplace add recoupable/skills` → lists library + research + catalog; install any (Claude Code supports relative-path plugin sources in a registry repo — the old `recoupable/plugins` already did this with `"source": "./music-catalog-diligence"`).
+- Codex reads `.agents/plugins/marketplace.json`; Cursor adds the repo.
 
 **Four rules (zero machinery):**
-1. A skill's `SKILL.md` exists in **exactly one** repo.
-2. A plugin **never copies** a library skill — it inlines what it needs (as research already does) or assumes the library is installed.
-3. **Heavy or proprietary → its own plugin repo. Lightweight/generic/public → the library.** (Not "API-backed vs not" — that never matters.)
-4. **One** registry.
+1. A skill's `SKILL.md` exists in **exactly one** folder.
+2. A plugin **never copies** a library skill — it inlines what it needs (as research already does).
+3. **Public/generic/lightweight → `skills/`. Rich domain bundle → `plugins/<name>/`. Closed-source → its own private repo** (the only reason to leave the monorepo). Not "API-backed vs not" — that never matters.
+4. **One** repo, **one** registry.
 
-**Why not the alternatives:** one giant monorepo bloats every lightweight `npx` install with heavy catalog tooling (clone weight); a build step (old "Option 4") only existed to let plugins re-expose library skills — unnecessary once plugins are self-contained; "reference via submodule" (old "Option 2") solves a non-problem.
+**Why one repo wins:** one CI, one README, one PR surface, no submodule-pointer churn; author-once is enforced by the filesystem (every `SKILL.md` is one folder in one tree). Earlier objections to a monorepo (clone weight, versioning) were overweighted; the build step and submodule approaches solved a non-problem.
 
 **Migration from today:**
-- **Delete `recoup-platform-plugin`** — 100% duplicate of the library (skills + README, no commands/agents). Replace with "install `recoupable/skills`."
-- **Move** `content-creation` + `short-video` to library-only; keep a `content` plugin only if it has real commands/agents (else fold `recoup-content-create` into the library).
-- **Research & catalog stay** as their own self-contained repos.
-- **Collapse** three registries to one (`recoupable/marketplace`); retire `recoupable/plugins`; repoint the monorepo `plugins/` submodule.
+- **Merge** `recoup-research-plugin` + `recoup-catalogs-plugin` repos into `plugins/research/` and `plugins/catalog/` folders of `recoupable/skills`.
+- **Delete `recoup-platform-plugin`** — 100% duplicate of the library (skills + README, no commands/agents).
+- **Fold** content's generic skills (`content-creation`, `short-video`) into `skills/`; keep a `plugins/content/` only if it has real commands/agents.
+- **One `marketplace.json`** pointing at relative paths; retire `recoupable/plugins` AND the separate `recoupable/marketplace` registry; repoint the monorepo `plugins/` submodule (or drop it in favor of `skills`).
 - **Gate premium at the API key**, not at packaging or repo location.
-- Fix the open repo's README ↔ folders mismatch + add a CI check.
+- Fix the README ↔ folders mismatch + add a CI check that fails when they disagree.
+- **Verify during execution:** whether `npx skills` reads only top-level `skills/` or recurses into `plugins/*/skills/`. Either behavior is fine (library-only vs install-everything); not a blocker.
 
 ---
 
