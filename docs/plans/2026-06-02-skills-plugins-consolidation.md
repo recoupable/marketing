@@ -125,9 +125,9 @@ Both consume the **same open Agent Skills standard** (`SKILL.md`), so one skill 
 
 ### Chosen approach: Option 2 now, door open to Option 4
 
-- **Author every skill exactly once.** Generic skills → the open `recoupable/skills` repo. API-backed/deep skills (research, catalog, and future content-API skills) → their plugin repos, which are their authoring home.
-- **Plugins reference, never copy.** `platform` / `content` plugins must pull generic skills from the open repo (submodule or sync/build step), not hold duplicate files.
-- **Gate premium at the API**, not at packaging.
+- **Author every skill exactly once.** Where a skill is authored is decided by **(a) public vs. proprietary** and **(b) which domain bundle it ships in** — NOT by whether it calls the API. API-backed is irrelevant to build/package/distribute (proof: `recoup-api` lives in the open repo and is fully API-backed). Public skills can live in `recoupable/skills`; proprietary skills live only in their (private) plugin repo.
+- **Plugins reference, never copy.** A plugin that bundles a skill authored elsewhere must pull it (submodule or sync/build step), not hold a duplicate file. This is the actual drift bug today (`platform` / `content` plugins copy open skills).
+- **Gate premium at the API key**, not at packaging or repo location. A skill does nothing without a valid `RECOUP_API_KEY` regardless of where it lives.
 - **Door open to Option 4** (one skills monorepo → multiple outputs) if plugin packaging later becomes the primary distribution channel.
 - Pair with the Part C cross-cutting cleanup: collapse to one registry (`recoupable/marketplace`), repoint the monorepo `plugins/` submodule, and fix the open repo's README ↔ folders mismatch.
 
