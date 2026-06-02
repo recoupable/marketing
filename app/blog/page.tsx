@@ -1,62 +1,57 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { getAllPosts } from "@/lib/posts";
+import { getAllContent } from "@/lib/content";
 import { buildPageMetadata } from "@/lib/seo";
-import { PostCard } from "@/components/blog/PostCard";
+import { ContentList } from "@/components/content/ContentList";
 import { BlogCTA } from "@/components/blog/BlogCTA";
 
 /**
- * SEO metadata for the blog index page.
+ * SEO metadata for the unified content hub.
  */
 export const metadata: Metadata = buildPageMetadata({
-  title: "Blog — AI Music Agents, Artist Growth & Music Ops",
+  title: "Blog — Research, Guides & Tutorials on AI for Music",
   description:
-    "Insights on AI-powered music marketing, content creation, and artist growth. Tutorials, case studies, and building-in-public updates from the Recoup team.",
+    "Essays, guides, and tutorials on AI agents for music — research from working with labels and catalogs, open tools, and what we learn running our own label.",
   path: "/blog",
 });
 
 /**
- * Blog index page — lists all published posts, newest first.
+ * Unified content hub — one source of truth for every essay, guide, tutorial,
+ * and update across all three pipelines (blog MDX, research MDX, and
+ * Paragraph-synced essays). Readers filter by type; the nav can deep-link a
+ * category via ?type= (e.g. "Research" → ?type=essay).
  */
-export default function BlogIndexPage() {
-  const posts = getAllPosts();
+export default async function BlogIndexPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ type?: string }>;
+}) {
+  const { type } = await searchParams;
+  const entries = getAllContent();
 
   return (
     <div className="max-w-4xl mx-auto px-4 pt-36 sm:pt-44 pb-16">
       {/* Page header */}
       <header className="mb-12">
         <p className="font-pixel text-[10px] uppercase tracking-[0.22em] text-[var(--foreground)]/45 mb-5">
-          Blog
+          Writing
         </p>
         <h1 className="font-pixel text-[clamp(2.25rem,5vw,3.5rem)] tracking-tight leading-[1.05] text-[var(--foreground)] mb-4">
-          Building in public.
+          Research, in the open.
         </h1>
         <p className="text-lg text-[var(--muted-foreground)] max-w-xl">
-          Notes on AI agents for music — research, open tools, and what we learn
-          running our own label.
+          Essays, guides, and tutorials on AI agents for music — what we learn
+          building infrastructure and running our own label.
         </p>
-        <Link
-          href="/research"
-          className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-(--foreground) transition-colors hover:text-(--brand)"
-        >
-          Want the deeper essays? Read our research
-          <ArrowRight className="h-4 w-4" />
-        </Link>
       </header>
 
-      {/* Post grid */}
-      {posts.length > 0 ? (
-        <div className="grid gap-6 md:grid-cols-2">
-          {posts.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
-        </div>
+      {entries.length > 0 ? (
+        <ContentList entries={entries} initialType={type} />
       ) : (
         <p className="text-[var(--muted-foreground)]">
-          No posts yet. Check back soon.
+          Nothing published yet. Check back soon.
         </p>
       )}
+
       {/* Email capture */}
       <BlogCTA />
     </div>

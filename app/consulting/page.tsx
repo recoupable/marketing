@@ -297,7 +297,7 @@ export default function ConsultingPage() {
               Talk to us
             </a>
             <Link
-              href="/research"
+              href="/blog?type=essay"
               className="font-ui font-medium text-sm text-white/40 hover:text-white/70 transition-colors flex items-center gap-1.5"
             >
               Read our research <ArrowRight size={14} />

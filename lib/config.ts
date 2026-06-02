@@ -12,7 +12,8 @@ export const siteConfig = {
   appUrl: "https://chat.recoupable.com",
   apiUrl: "https://recoup-api.vercel.app/api",
   docsUrl: "https://developers.recoupable.com",
-  researchUrl: "https://research.recoupable.com",
+  /** Research/essays now live as a filter on the unified /blog hub. */
+  researchUrl: "/blog?type=essay",
 
   /** Contact emails */
   supportEmail: "support@recoupable.com",

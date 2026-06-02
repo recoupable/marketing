@@ -10,7 +10,13 @@ export function buildPostMetadata(
   post: PostFrontmatter,
   pathPrefix: string = "blog",
 ): Metadata {
-  const title = post.seo.title || post.title;
+  // The root layout's titleTemplate already appends " | Recoup". Some posts
+  // hardcode that suffix in seo.title, which would double it — strip it here.
+  const suffix = ` | ${siteConfig.name}`;
+  const rawTitle = post.seo.title || post.title;
+  const title = rawTitle.endsWith(suffix)
+    ? rawTitle.slice(0, -suffix.length)
+    : rawTitle;
   const description = post.seo.description || post.excerpt;
   const canonical =
     post.seo.canonical || `${siteConfig.url}/${pathPrefix}/${post.slug}`;

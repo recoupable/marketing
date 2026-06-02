@@ -81,6 +81,18 @@ const nextConfig: NextConfig = {
         destination: "/blog",
         permanent: true,
       },
+      {
+        // Research folded into the unified /blog hub (essays are a filter now).
+        source: "/research",
+        destination: "/blog?type=essay",
+        permanent: true,
+      },
+      {
+        // Every research essay keeps its slug under the unified hub.
+        source: "/research/:slug",
+        destination: "/blog/:slug",
+        permanent: true,
+      },
     ];
   },
 };

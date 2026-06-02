@@ -10,7 +10,7 @@ const FOOTER_NAV = [
     title: "Work with us",
     links: [
       { href: "/consulting", label: "Consulting" },
-      { href: "/research", label: "Research" },
+      { href: "/blog", label: "Blog" },
       { href: "/company/recoup-records", label: `${siteConfig.name} Records` },
       { href: `mailto:${siteConfig.contactEmail}`, label: "Contact" },
     ],

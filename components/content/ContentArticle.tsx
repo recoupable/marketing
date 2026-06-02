@@ -1,30 +1,38 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import type { ReactNode } from "react";
 import { stripHtml, calculateReadingTime } from "@/lib/paragraph/helpers";
 
-interface ResearchArticleProps {
+interface ContentArticleProps {
+  /** Category label shown above the title (e.g. "Essay", "Guide"). */
+  eyebrow?: string;
   title: string;
   subtitle?: string;
   author?: string;
   /** ISO date string */
   date: string;
   imageUrl?: string;
-  /** Pre-rendered HTML body (from Paragraph or markdown→html) */
+  /** Pre-rendered HTML body (from Paragraph or markdown→html). */
   html: string;
+  /** Footer slot — tags, email CTA, related content. */
+  children?: ReactNode;
 }
 
 /**
- * Shared detail renderer for a research essay — used by both pipelines
- * (Paragraph-synced and in-repo MDX) so they look identical.
+ * Shared detail layout for every /blog entry, whatever the pipeline
+ * (blog MDX, research MDX, or Paragraph-synced). Renders the back link,
+ * header, optional hero image, prose body, then a footer slot.
  */
-export function ResearchArticle({
+export function ContentArticle({
+  eyebrow,
   title,
   subtitle,
   author,
   date,
   imageUrl,
   html,
-}: ResearchArticleProps) {
+  children,
+}: ContentArticleProps) {
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -35,14 +43,19 @@ export function ResearchArticle({
   return (
     <article className="mx-auto max-w-3xl px-4 pt-36 pb-16 sm:pt-44">
       <Link
-        href="/research"
+        href="/blog"
         className="inline-flex items-center gap-1.5 text-sm text-(--muted-foreground) transition-colors hover:text-(--foreground)"
       >
         <ArrowLeft className="h-4 w-4" />
-        Research
+        Blog
       </Link>
 
       <header className="mt-8 mb-10">
+        {eyebrow ? (
+          <p className="font-pixel text-[10px] uppercase tracking-[0.22em] text-(--foreground)/45 mb-5">
+            {eyebrow}
+          </p>
+        ) : null}
         <h1 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-(--foreground)">
           {title}
         </h1>
@@ -78,6 +91,8 @@ export function ResearchArticle({
         className="prose prose-lg max-w-none prose-headings:text-[var(--foreground)] prose-headings:font-ui prose-p:text-[var(--foreground)]/85 prose-a:text-[var(--brand)] prose-strong:text-[var(--foreground)] prose-li:text-[var(--foreground)]/85"
         dangerouslySetInnerHTML={{ __html: html }}
       />
+
+      {children}
     </article>
   );
 }

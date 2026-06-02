@@ -166,7 +166,7 @@ const LANES = [
     v: "Field notes from working with labels, catalogs, and platforms — shared in public, not behind a sales call.",
     href: siteConfig.researchUrl,
     cta: "Read our research",
-    external: true,
+    external: false,
   },
   {
     k: "Build",
@@ -235,7 +235,7 @@ export default function HomePage() {
             <Link href="/consulting" className="cta-pulse font-ui font-semibold bg-(--foreground) text-(--background) px-9 py-4 rounded-full text-[15px] hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5">
               Talk to us
             </Link>
-            <Link href={siteConfig.researchUrl} target="_blank" rel="noopener noreferrer" className="font-ui font-medium text-[15px] text-(--foreground)/55 hover:text-(--foreground) transition-colors flex items-center gap-1.5">
+            <Link href={siteConfig.researchUrl} className="font-ui font-medium text-[15px] text-(--foreground)/55 hover:text-(--foreground) transition-colors flex items-center gap-1.5">
               Read our research <ArrowUpRight size={15} />
             </Link>
           </div>
@@ -316,7 +316,7 @@ export default function HomePage() {
               <p className="text-[15px] text-(--foreground)/50 leading-relaxed mb-6 max-w-md">
                 Catalog diligence, label operations, agent rollouts — we publish what actually works (and what doesn&apos;t) as we build with labels and catalogs.
               </p>
-              <Link href={siteConfig.researchUrl} target="_blank" rel="noopener noreferrer" className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
+              <Link href={siteConfig.researchUrl} className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
                 Read the latest <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
@@ -567,7 +567,7 @@ export default function HomePage() {
             <Link href="/consulting" className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:-translate-y-0.5">
               Talk to us
             </Link>
-            <Link href={siteConfig.researchUrl} target="_blank" rel="noopener noreferrer" className="font-ui font-medium text-sm text-white/40 hover:text-white/70 transition-colors flex items-center gap-1.5">
+            <Link href={siteConfig.researchUrl} className="font-ui font-medium text-sm text-white/40 hover:text-white/70 transition-colors flex items-center gap-1.5">
               Read our research <ArrowUpRight size={14} />
             </Link>
           </div>

@@ -7,7 +7,7 @@
  * lives in the footer (see components/layout/Footer.tsx). See marketing/plan.md §3A.
  */
 export const nav: readonly { label: string; href: string; external?: boolean }[] = [
-  { label: "Research", href: "/research" },
+  { label: "Research", href: "/blog?type=essay" },
   { label: "Platform", href: "/platform" },
   { label: "Pricing", href: "/pricing" },
   { label: "Consulting", href: "/consulting" },
