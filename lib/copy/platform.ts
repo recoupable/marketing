@@ -42,6 +42,39 @@ export const platformCopy = {
         "Not technical? Chat is a hosted workspace where the same skills run for your team — no setup, no terminal. The on-ramp for everyone who isn't building agents themselves.",
     },
   ],
+  /**
+   * Curated plugin bundles published to the recoupable/marketplace registry.
+   * Distinct from the raw skills repo: each plugin packages skills + commands +
+   * workflows and installs into Claude Code, Cowork, and Codex.
+   */
+  plugins: {
+    heading: "Plugins marketplace",
+    description:
+      "Curated plugin bundles — skills, commands, and workflows packaged for Claude Code, Cowork, and Codex. Add the marketplace once, then install any plugin.",
+    repo: "https://github.com/recoupable/marketplace",
+    install: "/plugin marketplace add recoupable/marketplace",
+    items: [
+      {
+        name: "Research",
+        description:
+          "Artist analytics, audience insights, playlist intelligence, competitive analysis, trend detection, and outreach.",
+      },
+      {
+        name: "Content",
+        description:
+          "Draft, edit, and publish content for artists across every surface — built for the way labels actually ship.",
+      },
+      {
+        name: "Catalog deals",
+        description:
+          "Data-room ingestion, royalty normalization, rights checks, and valuation analysis for buy-side and seller prep.",
+      },
+      {
+        name: "Platform",
+        description: `Cross-cutting skills and workflows for working with ${siteConfig.name}'s chat, API, and platform surface.`,
+      },
+    ],
+  },
   ctaLabel: "Read the API docs",
   ctaHref: siteConfig.docsUrl,
 } as const;
@@ -59,6 +92,16 @@ export function platformToMarkdown(c: PlatformCopy): string {
     "---",
     "",
     ...c.sections.flatMap((s) => [`## ${s.title}`, "", s.description, ""]),
+    "---",
+    "",
+    `## ${c.plugins.heading}`,
+    "",
+    c.plugins.description,
+    "",
+    `Install: \`${c.plugins.install}\` — ${c.plugins.repo}`,
+    "",
+    ...c.plugins.items.map((p) => `- **${p.name}** — ${p.description}`),
+    "",
     "---",
     "",
     `[${c.ctaLabel}](${c.ctaHref})`,

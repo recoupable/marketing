@@ -102,6 +102,56 @@ export default function PlatformPage() {
         </div>
       </section>
 
+      {/* Plugins marketplace */}
+      <section id="plugins" className="pb-16 sm:pb-24 scroll-mt-24">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-10">
+          <div className="max-w-[640px] mb-10">
+            <p className="font-pixel text-[10px] uppercase tracking-[0.22em] text-(--foreground)/45 mb-4">
+              {c.plugins.heading}
+            </p>
+            <p className="text-(--foreground)/60 text-[clamp(1rem,1.4vw,1.1875rem)] font-ui leading-[1.55]">
+              {c.plugins.description}
+            </p>
+            <code
+              className="mt-6 block font-mono text-[12px] bg-(--muted)/60 px-3.5 py-2.5 rounded-md text-(--foreground)/80"
+              style={{ boxShadow: "0 0 0 1px var(--border)" }}
+            >
+              <span className="text-(--foreground)/35">$</span>{" "}
+              {c.plugins.install}
+            </code>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
+            {c.plugins.items.map((plugin) => (
+              <div
+                key={plugin.name}
+                className="flex flex-col rounded-2xl bg-(--background) p-7"
+                style={{ boxShadow: "0 0 0 1px var(--border)" }}
+              >
+                <h3 className="font-ui font-bold text-[17px] text-(--foreground) mb-2 leading-snug">
+                  {plugin.name}
+                </h3>
+                <p className="text-[14px] text-(--foreground)/55 leading-relaxed">
+                  {plugin.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-[13px] text-(--foreground)/40 mt-8">
+            Works with Claude Code, Cowork, and Codex.{" "}
+            <a
+              href={c.plugins.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors inline-flex items-center gap-1"
+            >
+              Browse the marketplace <ArrowUpRight size={12} />
+            </a>
+          </p>
+        </div>
+      </section>
+
       {/* Closing CTA */}
       <section className="relative py-28 sm:py-36 overflow-hidden dark-section-cta">
         <div className="max-w-[760px] mx-auto px-6 text-center relative z-10">
