@@ -7,19 +7,21 @@ import { useTheme } from "@/contexts/ThemeContext";
 
 const FOOTER_NAV = [
   {
-    title: "Product",
+    title: "Work with us",
     links: [
-      { href: "/platform", label: "Platform" },
-      { href: "/solutions", label: "Solutions" },
-      { href: "/developers", label: "Developers" },
-      { href: siteConfig.docsUrl, label: "API Docs" },
+      { href: "/consulting", label: "Consulting" },
+      { href: siteConfig.researchUrl, label: "Research" },
+      { href: "/company/recoup-records", label: `${siteConfig.name} Records` },
+      { href: `mailto:${siteConfig.contactEmail}`, label: "Contact" },
     ],
   },
   {
-    title: "Resources",
+    title: "Build",
     links: [
-      { href: "/blog", label: "Blog" },
-      { href: "/learn/demos", label: "Demos" },
+      { href: "/platform", label: "Platform" },
+      { href: "/developers", label: "Developers" },
+      { href: siteConfig.docsUrl, label: "API Docs" },
+      { href: "/pricing", label: "Pricing" },
     ],
   },
   {
@@ -27,8 +29,7 @@ const FOOTER_NAV = [
     links: [
       { href: "/company/about", label: "About" },
       { href: "/company/vision", label: "Vision" },
-      { href: "/company/recoup-records", label: `${siteConfig.name} Records` },
-      { href: `mailto:${siteConfig.contactEmail}`, label: "Contact" },
+      { href: siteConfig.appUrl, label: "Open app" },
     ],
   },
 ];
@@ -53,7 +54,7 @@ export function Footer() {
               <span className="font-ui font-bold text-[15px] text-(--foreground)">Recoup</span>
             </Link>
             <p className="text-[13px] text-(--foreground)/35 leading-relaxed max-w-[260px] mb-6">
-              The AI-native platform for the music industry.
+              Research, open tools, and hands-on implementation for the agentic music industry.
             </p>
             <div className="flex items-center gap-4 text-[12px] font-ui text-(--foreground)/20">
               <a href={siteConfig.social.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-(--foreground)/50 transition-colors" aria-label="X / Twitter">𝕏</a>

@@ -73,10 +73,6 @@ const faq = [
     a: "Not at all. Consulting covers the full AI landscape relevant to music — tools, workflows, strategy, build-vs-buy decisions. If Recoupable's platform is the right fit, great. If not, you'll still walk away with a clear plan.",
   },
   {
-    q: "How is this different from the Advisory page?",
-    a: "Advisory is a structured, ongoing engagement with defined packages. Consulting is flexible — book a session, get a plan, go execute. Start here if you want to explore before committing to a retained relationship.",
-  },
-  {
     q: "What's the time commitment?",
     a: "Sessions are typically 60–90 minutes. Implementation plans take 1–2 weeks to deliver after the initial session. Training can be a single half-day or spread across multiple sessions.",
   },

@@ -17,6 +17,12 @@ const nextConfig: NextConfig = {
         destination: "/company/recoup-records",
         permanent: true,
       },
+      {
+        // Advisory folded into Consulting for the research+consulting positioning.
+        source: "/advisory",
+        destination: "/consulting",
+        permanent: true,
+      },
     ];
   },
 };

@@ -5,13 +5,14 @@
 export const siteConfig = {
   name: "Recoup",
   legalName: "Recoupable LLC",
-  tagline: "AI agents for music",
+  tagline: "Research & implementation for the agentic music industry",
   description:
-    "Your label. Run by agents. You create. They run strategy, content, revenue.",
+    "Recoup is a research lab and implementation partner for labels, catalogs, and platforms — from strategy to the custom agents that run in your stack.",
   url: "https://recoupable.com",
   appUrl: "https://chat.recoupable.com",
   apiUrl: "https://recoup-api.vercel.app/api",
   docsUrl: "https://developers.recoupable.com",
+  researchUrl: "https://research.recoupable.com",
 
   /** Contact emails */
   supportEmail: "support@recoupable.com",
@@ -37,9 +38,9 @@ export const siteConfig = {
   /** Default OG / metadata values (overridden per-page via generateMetadata) */
   metadata: {
     titleTemplate: "%s | Recoup",
-    defaultTitle: "Recoup — Your Label, Run by AI Agents for Music Ops",
+    defaultTitle: "Recoup — Research & AI Implementation for Music",
     defaultDescription:
-      "You create. AI agents run strategy, content, fans, and revenue. One system for artists, labels, distributors, and catalog owners.",
+      "A research lab and implementation partner for labels, catalogs, and platforms — from strategy to the custom agents that run in your stack.",
     locale: "en_US",
     type: "website",
   },
