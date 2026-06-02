@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { companyAboutCopy } from "@/lib/copy/company";
 import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `About ${siteConfig.name} — The Team Behind the Music Agent Platform`,
-  description: `Meet the team behind ${siteConfig.name} — building the platform that runs music businesses through AI agents. For artists, labels, distributors, and catalog owners.`,
+  title: `About ${siteConfig.name} — Research Lab & Implementation Partner`,
+  description: `${siteConfig.name} is a research lab and implementation partner for the agentic music industry — open-source skills, an API, and MCP integrations, put to work inside labels, catalogs, and platforms.`,
   path: "/company/about",
 });
 
@@ -17,42 +18,52 @@ export default function AboutPage() {
   const c = companyAboutCopy;
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-16">
-      <header className="mb-12">
-        <Link
-          href="/company"
-          className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] mb-4 inline-block"
-        >
-          ← Company
-        </Link>
-        <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] mb-4">
-          {c.title}
-        </h1>
-        <p className="text-xl text-[var(--muted-foreground)]">
-          {c.description}
-        </p>
-      </header>
-      <div className="prose prose-lg max-w-none text-[var(--foreground)] space-y-6">
-        <p className="leading-relaxed">{c.body}</p>
-        <p className="leading-relaxed">
-          <a
-            href={`mailto:${c.contactEmail}`}
-            className="text-[var(--brand)] hover:underline"
+    <main className="bg-(--background) text-(--foreground)">
+      <section className="pt-36 sm:pt-44 pb-24">
+        <div className="max-w-[760px] mx-auto px-6 sm:px-10">
+          <Link
+            href="/company"
+            className="inline-flex items-center gap-1.5 font-ui text-[13px] text-(--foreground)/45 hover:text-(--foreground) transition-colors mb-10"
           >
-            {c.contactEmail}
-          </a>{" "}
-          ·{" "}
-          <a
-            href={`mailto:${c.supportEmail}`}
-            className="text-[var(--brand)] hover:underline"
+            <ArrowLeft size={14} /> Company
+          </Link>
+
+          <p className="font-pixel text-[10px] uppercase tracking-[0.22em] text-(--foreground)/45 mb-6">
+            {c.title}
+          </p>
+          <h1 className="font-pixel text-[clamp(2.25rem,5vw,3.5rem)] leading-[1.05] tracking-tight mb-8">
+            {c.description}
+          </h1>
+
+          <p className="font-ui text-[clamp(1rem,1.4vw,1.1875rem)] leading-[1.6] text-(--foreground)/65 max-w-[640px] mb-12">
+            {c.body}
+          </p>
+
+          <div
+            className="rounded-2xl p-7 bg-(--background)"
+            style={{ boxShadow: "0 0 0 1px var(--border)" }}
           >
-            {c.supportEmail}
-          </a>
-        </p>
-        <p className="text-sm text-[var(--muted-foreground)]">
-          {c.legal}
-        </p>
-      </div>
-    </div>
+            <p className="font-pixel text-[10px] uppercase tracking-[0.18em] text-(--foreground)/40 mb-4">
+              Contact
+            </p>
+            <div className="flex flex-col gap-2 font-ui text-[15px]">
+              <a
+                href={`mailto:${c.contactEmail}`}
+                className="text-(--foreground) hover:opacity-70 transition-opacity"
+              >
+                {c.contactEmail}
+              </a>
+              <a
+                href={`mailto:${c.supportEmail}`}
+                className="text-(--foreground) hover:opacity-70 transition-opacity"
+              >
+                {c.supportEmail}
+              </a>
+            </div>
+            <p className="font-ui text-[12px] text-(--foreground)/40 mt-5">{c.legal}</p>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

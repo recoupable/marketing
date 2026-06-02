@@ -1,227 +1,309 @@
 import type { Metadata } from "next";
-import { Check } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "AI Consulting for Music Companies | Recoupable",
+  title: "Consulting — AI Implementation for Music Companies",
   description:
-    "Work directly with Sidney Swift on AI strategy for your label, distributor, or music company. From implementation plans to team training.",
+    "Work with the team that builds Recoup. Strategy, rollout, and custom agents that run in your stack — for labels, catalogs, distributors, and platforms. You own what we build; we never train on your data.",
   path: "/consulting",
 });
 
+const CONTACT = `mailto:${siteConfig.contactEmail}?subject=Consulting%20Inquiry`;
+
 /* ── Data ──────────────────────────────────────────────────────────── */
 
-const credentials = [
-  { stat: "10+", label: "Platinum Records", detail: "Grammy-winning production credits" },
-  { stat: "$2.5M", label: "D2F Campaign", detail: "Direct-to-fan revenue generated" },
-  { stat: "US", label: "Patent Holder", detail: "AI-driven music technology" },
-  { stat: "1000+", label: "Artists Served", detail: "Through Recoupable's AI agents" },
-];
+/** What an engagement actually delivers. */
+const engagements = [
+  {
+    k: "Strategy",
+    title: "AI strategy session",
+    body: "A working session that maps where AI fits your operation — A&R, catalog, marketing, ops — and what to build first. You leave with a prioritized plan, not a deck.",
+  },
+  {
+    k: "Implementation",
+    title: "Implementation sprint",
+    body: "We build the workflows with your team: agents and skills wired into your data and tools, running in your stack. Scoped to your roster and catalog.",
+  },
+  {
+    k: "Custom agents",
+    title: "Custom agents & skills",
+    body: "Private, organization-owned skills for the work generic tools can't do — diligence, royalty analysis, release ops. They live in a repo you control.",
+  },
+  {
+    k: "Partnership",
+    title: "Training & ongoing support",
+    body: "Get your team fluent in the tools that matter, then keep us on retainer for monthly check-ins, async support, and priority access as the stack evolves.",
+  },
+] as const;
 
-const offerings = [
-  {
-    title: "1:1 Strategy Sessions",
-    description:
-      "Work directly with Sidney to map out how AI fits into your operation — no generic playbooks, just tailored strategy based on what you're actually building.",
-  },
-  {
-    title: "Custom AI Implementation Plans",
-    description:
-      "A concrete roadmap for integrating AI into your workflows. Artist development, catalog management, marketing automation — scoped to your team and catalog.",
-  },
-  {
-    title: "Team Training",
-    description:
-      "Get your team fluent in the tools that matter. Hands-on sessions covering AI workflows, prompt engineering, and the platforms reshaping the industry.",
-  },
-  {
-    title: "Ongoing Advisory",
-    description:
-      "Retained access for companies that want a strategic partner, not a one-off consultant. Monthly check-ins, async support, and priority access.",
-  },
-];
-
+/** Who we work with — note: platforms added (homepage parity). */
 const audiences = [
-  { title: "Labels", description: "From indie imprints to majors looking to modernize A&R, marketing, and catalog strategy with AI." },
-  { title: "Distributors", description: "Streamline operations, surface insights from your catalog data, and give your clients a competitive edge." },
-  { title: "Management Companies", description: "Scale what your team can do for artists without scaling headcount. AI-assisted strategy, content, and revenue ops." },
-  { title: "Catalog Owners", description: "Unlock value from your masters with AI-driven marketing, sync licensing intelligence, and audience development." },
-];
+  { title: "Labels", body: "Modernize A&R, marketing, and catalog strategy — from indie imprints to majors." },
+  { title: "Catalogs & rights owners", body: "Diligence, royalty intelligence, and audience development on top of the data you already hold." },
+  { title: "Distributors & platforms", body: "Give your artists and clients music-aware agents without standing up a model team of your own." },
+  { title: "Management companies", body: "Scale what your team does for artists — strategy, content, and revenue ops — without scaling headcount." },
+] as const;
 
-const socialProof = [
-  "Founded Recoupable — AI agent infrastructure for music businesses",
-  "Interned for Lil Wayne at Young Money / Cash Money",
-  "Produced for Beyoncé, Nicki Minaj",
-  "10+ platinum records, Grammy wins",
-  "Ran a $2.5M direct-to-fan campaign",
-  "US patent holder in AI music technology",
-  "Built the AI agent stack used by artists and labels daily",
-];
+/** Why work with the people who build the tools (replaces the personal résumé). */
+const why = [
+  {
+    title: "We build the tools we recommend",
+    body: "Open-source skills, an API, and MCP integrations — not vendor-neutral slideware. You can read exactly what we ship before we ship it to you.",
+  },
+  {
+    title: "We run our own label on it",
+    body: "Recoup Records and our artist Gatsby Grace run on the same agents and skills. Every workflow earns its keep on a real roster before we recommend it.",
+  },
+  {
+    title: "You own what we build",
+    body: "Agents, skills, and workflows live in your stack or a repo your organization controls. We never train models on your catalog, royalty, or proprietary data.",
+  },
+] as const;
 
 const faq = [
   {
-    q: "What does a typical consulting engagement look like?",
-    a: "It depends on where you are. Some companies need a single strategy session to get clarity. Others want a multi-week implementation sprint with their team. We'll scope it together on the first call.",
+    q: "What does a typical engagement look like?",
+    a: "It depends on where you are. Some teams need a single strategy session to get clarity; others want a multi-week implementation sprint alongside their team. We scope it together on the first call — no fixed package required.",
   },
   {
     q: "Who owns what we build — and do you train on our data?",
-    a: "You do. The agents, skills, and workflows we build in your engagement are yours, and they live in your stack or a repo your organization controls. We never train models on your catalog, royalty, or proprietary data, and your private work is never folded into the open skills we publish.",
+    a: "You do. The agents, skills, and workflows we build are yours, and they live in your stack or a repo your organization controls. We never train models on your catalog, royalty, or proprietary data, and your private work never folds into the open skills we publish.",
   },
   {
-    q: "Do I need technical expertise on my team?",
-    a: "No. Sidney translates between the technical and business sides — that's the whole point. You'll leave with a plan your team can actually execute, regardless of their technical background.",
+    q: "Do I need technical people on my team?",
+    a: "No. We translate between the technical and business sides — that's the point. You leave with a plan your team can actually run, and the same skills work whether your team lives in spreadsheets or in a terminal.",
   },
   {
-    q: "Is this just about Recoupable's products?",
-    a: "Not at all. Consulting covers the full AI landscape relevant to music — tools, workflows, strategy, build-vs-buy decisions. If Recoupable's platform is the right fit, great. If not, you'll still walk away with a clear plan.",
+    q: "Is this just about Recoup's products?",
+    a: "No. We cover the full AI landscape relevant to music — tools, workflows, and build-vs-buy decisions. If Recoup's platform is the right fit, great; if not, you still leave with a clear plan you can execute anywhere.",
   },
   {
     q: "What's the time commitment?",
-    a: "Sessions are typically 60–90 minutes. Implementation plans take 1–2 weeks to deliver after the initial session. Training can be a single half-day or spread across multiple sessions.",
+    a: "Sessions run 60–90 minutes. Implementation sprints take one to a few weeks depending on scope. Training can be a single half-day or spread across sessions.",
   },
-];
-
-/* ── Components ────────────────────────────────────────────────────── */
-
-function CredentialCard({ stat, label, detail }: { stat: string; label: string; detail: string }) {
-  return (
-    <div className="text-center p-6">
-      <div className="text-4xl font-bold mb-1" style={{ fontFamily: "var(--font-bitmap), monospace" }}>
-        {stat}
-      </div>
-      <div className="text-sm font-semibold uppercase tracking-wide mb-2">{label}</div>
-      <p className="text-xs text-[var(--muted)]">{detail}</p>
-    </div>
-  );
-}
+] as const;
 
 /* ── Page ───────────────────────────────────────────────────────────── */
 
 export default function ConsultingPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-24">
+    <main className="bg-(--background) text-(--foreground)">
       {/* Hero */}
-      <section className="text-center mb-20">
-        <p
-          className="text-[10px] uppercase tracking-widest text-[var(--muted)] mb-4"
-          style={{ fontFamily: "var(--font-bitmap), monospace" }}
-        >
-          Consulting
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-          AI Strategy for Music Companies
-        </h1>
-        <p className="text-lg text-[var(--muted)] max-w-2xl mx-auto leading-relaxed">
-          Sidney Swift built the AI infrastructure that runs music businesses.
-          Now you can work with him directly — whether you need a strategy
-          session, an implementation plan, or a partner who speaks both AI and
-          A&amp;R.
-        </p>
-      </section>
-
-      {/* Credentials */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24 border border-[var(--border)] rounded-2xl py-8">
-        {credentials.map((c) => (
-          <CredentialCard key={c.label} {...c} />
-        ))}
-      </section>
-
-      {/* What You Get */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-center mb-12">What You Get</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {offerings.map((item) => (
-            <div key={item.title} className="border border-[var(--border)] rounded-xl p-6">
-              <h3 className="font-bold mb-2">{item.title}</h3>
-              <p className="text-sm text-[var(--muted)] leading-relaxed">{item.description}</p>
-            </div>
-          ))}
+      <section className="pt-36 sm:pt-44 pb-20 sm:pb-24">
+        <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
+          <p className="font-pixel text-[10px] uppercase tracking-[0.22em] text-(--foreground)/45 mb-6">
+            Consulting
+          </p>
+          <h1 className="font-pixel text-[clamp(2.5rem,6vw,4.25rem)] leading-[1.03] tracking-tight mb-6">
+            We implement AI inside<br className="hidden sm:block" /> your music business.
+          </h1>
+          <p className="text-(--foreground)/60 text-[clamp(1.0625rem,1.5vw,1.25rem)] font-ui leading-[1.55] max-w-[620px] mx-auto mb-9">
+            Recoup is a research lab and implementation partner. Work directly
+            with the team that builds the tools — on strategy, rollout, and
+            custom agents that run in your stack. Not slide decks.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={CONTACT}
+              className="cta-pulse font-ui font-semibold bg-(--foreground) text-(--background) px-9 py-4 rounded-full text-[15px] hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Talk to us
+            </a>
+            <Link
+              href="/platform"
+              className="font-ui font-medium text-[15px] text-(--foreground)/55 hover:text-(--foreground) transition-colors flex items-center gap-1.5"
+            >
+              See the open tools <ArrowRight size={15} />
+            </Link>
+          </div>
+          <p className="font-ui text-[12px] text-(--foreground)/40 mt-7">
+            You own what we build.{" "}
+            <Link
+              href="/trust"
+              className="underline decoration-(--foreground)/25 underline-offset-2 hover:text-(--foreground) hover:decoration-(--foreground)/50 transition-colors"
+            >
+              We never train on your data
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
-      {/* Who This Is For */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-center mb-12">Who This Is For</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {audiences.map((w) => (
-            <div key={w.title} className="flex gap-4">
-              <div className="shrink-0 w-1 bg-[var(--foreground)] rounded-full" />
-              <div>
-                <h3 className="font-bold mb-1">{w.title}</h3>
-                <p className="text-sm text-[var(--muted)]">{w.description}</p>
+      {/* What working with us delivers */}
+      <section className="py-20 sm:py-28 border-t border-(--border)">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-10">
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">
+            What you get
+          </p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-14 max-w-[640px]">
+            Strategy, built into your stack.
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {engagements.map((e) => (
+              <div
+                key={e.title}
+                className="flex flex-col rounded-2xl bg-(--background) p-7"
+                style={{ boxShadow: "0 0 0 1px var(--border)" }}
+              >
+                <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-3">
+                  {e.k}
+                </p>
+                <h3 className="font-ui font-bold text-[19px] text-(--foreground) mb-2 leading-snug">
+                  {e.title}
+                </h3>
+                <p className="text-[14px] text-(--foreground)/55 leading-relaxed">
+                  {e.body}
+                </p>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="mb-24 text-center">
-        <div className="border border-[var(--border)] rounded-2xl p-12 max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold mb-4">Start a Conversation</h2>
-          <p className="text-[var(--muted)] mb-2 leading-relaxed">
-            Sessions start at <span className="font-semibold text-[var(--foreground)]">$500</span>.
-            Scope and pricing depend on what you need — one call, an implementation sprint, or ongoing advisory.
-          </p>
-          <p className="text-sm text-[var(--muted)] mb-8">
-            No pitch deck required. Just tell us what you&apos;re working on.
-          </p>
-          <a
-            href={`mailto:${siteConfig.contactEmail}?subject=Consulting%20Inquiry`}
-            className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-          >
-            Book a Call
-          </a>
-        </div>
-      </section>
-
-      {/* Social Proof */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-center mb-12">Sidney Swift</h2>
-        <div className="max-w-2xl mx-auto">
-          <ul className="space-y-3">
-            {socialProof.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <Check size={16} className="mt-0.5 shrink-0 text-[var(--foreground)]" />
-                <span className="text-sm text-[var(--muted)]">{item}</span>
-              </li>
             ))}
-          </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Who we work with */}
+      <section className="py-20 sm:py-28 bg-(--muted)/40">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-10">
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">
+            Who we work with
+          </p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-14 max-w-[640px]">
+            Built for the teams running music.
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-10">
+            {audiences.map((a) => (
+              <div key={a.title} className="flex gap-4">
+                <div className="shrink-0 w-1 rounded-full bg-(--foreground)/80" />
+                <div>
+                  <h3 className="font-ui font-bold text-[17px] mb-1.5">{a.title}</h3>
+                  <p className="text-[14px] text-(--foreground)/55 leading-relaxed">{a.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why work with us */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-10">
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">
+            Why us
+          </p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-14 max-w-[640px]">
+            Work with the people who build the tools.
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {why.map((w) => (
+              <div
+                key={w.title}
+                className="flex flex-col rounded-2xl bg-(--background) p-7"
+                style={{ boxShadow: "0 0 0 1px var(--border)" }}
+              >
+                <h3 className="font-ui font-bold text-[18px] text-(--foreground) mb-2 leading-snug">
+                  {w.title}
+                </h3>
+                <p className="text-[14px] text-(--foreground)/55 leading-relaxed">{w.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3">
+            <Link
+              href="/company/recoup-records"
+              className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group"
+            >
+              See how we dogfood <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+            </Link>
+            <Link
+              href="/trust"
+              className="font-ui font-semibold text-[14px] text-(--foreground)/60 hover:text-(--foreground) transition-colors inline-flex items-center gap-1.5"
+            >
+              Read our trust &amp; governance
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Engagement / pricing band */}
+      <section className="py-20 sm:py-28 bg-(--muted)/40">
+        <div className="max-w-[640px] mx-auto px-6 sm:px-10 text-center">
+          <div
+            className="rounded-2xl bg-(--background) p-10 sm:p-12"
+            style={{ boxShadow: "0 0 0 1px var(--border)" }}
+          >
+            <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">
+              Start here
+            </p>
+            <h2 className="font-pixel text-[clamp(1.75rem,3.5vw,2.5rem)] tracking-tight leading-[1.08] mb-4">
+              Start with a conversation.
+            </h2>
+            <p className="text-[15px] text-(--foreground)/60 leading-relaxed mb-2">
+              Sessions start at{" "}
+              <span className="font-semibold text-(--foreground)">$500</span>. Scope
+              and pricing depend on what you need — one call, an implementation
+              sprint, or ongoing support.
+            </p>
+            <p className="text-[13px] text-(--foreground)/45 mb-8">
+              No pitch deck required. Just tell us what you&apos;re working on.
+            </p>
+            <a
+              href={CONTACT}
+              className="font-ui font-semibold bg-(--foreground) text-(--background) px-8 py-3.5 rounded-full text-[15px] hover:opacity-90 transition-opacity inline-flex items-center gap-2"
+            >
+              Talk to us <ArrowRight size={15} />
+            </a>
+          </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="mb-24 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-        <div className="space-y-6">
-          {faq.map((item) => (
-            <details key={item.q} className="group border-b border-[var(--border)] pb-4">
-              <summary className="cursor-pointer font-medium text-sm flex items-center justify-between">
-                {item.q}
-                <span className="ml-4 text-[var(--muted)] group-open:rotate-45 transition-transform text-lg">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-sm text-[var(--muted)] leading-relaxed">{item.a}</p>
-            </details>
-          ))}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[720px] mx-auto px-6 sm:px-10">
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4 text-center">
+            FAQ
+          </p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3rem)] tracking-tight leading-[1.05] mb-12 text-center">
+            Questions, answered.
+          </h2>
+          <div className="space-y-2">
+            {faq.map((item) => (
+              <details key={item.q} className="group border-b border-(--border) py-4">
+                <summary className="cursor-pointer font-ui font-semibold text-[15px] flex items-center justify-between gap-4 list-none">
+                  {item.q}
+                  <span className="shrink-0 text-(--foreground)/40 group-open:rotate-45 transition-transform text-xl leading-none">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-[14px] text-(--foreground)/55 leading-relaxed">{item.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Closing CTA */}
-      <section className="text-center py-16 border-t border-[var(--border)]">
-        <h2 className="text-3xl font-bold mb-4">Ready to move?</h2>
-        <p className="text-[var(--muted)] max-w-xl mx-auto mb-8 leading-relaxed">
-          The music industry is adopting AI whether you&apos;re ready or not.
-          The question is whether you lead or catch up.
-        </p>
-        <a
-          href={`mailto:${siteConfig.contactEmail}?subject=Consulting%20Inquiry`}
-          className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-        >
-          Get in Touch
-        </a>
+      <section className="relative py-28 sm:py-36 overflow-hidden dark-section-cta">
+        <div className="max-w-[760px] mx-auto px-6 text-center relative z-10">
+          <h2 className="font-pixel text-[clamp(2.25rem,6vw,4rem)] tracking-tight leading-[0.98] text-white mb-9">
+            Let&apos;s build it<br />in your stack.
+          </h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={CONTACT}
+              className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Talk to us
+            </a>
+            <Link
+              href="/research"
+              className="font-ui font-medium text-sm text-white/40 hover:text-white/70 transition-colors flex items-center gap-1.5"
+            >
+              Read our research <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
       </section>
     </main>
   );

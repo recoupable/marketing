@@ -24,9 +24,61 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        // Old advisory booking flow → the single Consulting contact path.
+        source: "/advisory/book",
+        destination: "/consulting",
+        permanent: true,
+      },
+      {
         // Duplicate "Coming soon" stub folded into the real proof page.
         source: "/records",
         destination: "/company/recoup-records",
+        permanent: true,
+      },
+      {
+        // Off-brand SaaS-era "solutions" page → the canonical product story.
+        source: "/solutions",
+        destination: "/platform",
+        permanent: true,
+      },
+      {
+        // Old case-studies page with unverifiable claims → real proof page.
+        source: "/results",
+        destination: "/company/recoup-records",
+        permanent: true,
+      },
+      {
+        // "Coming soon" resources stub → developer surface.
+        source: "/resources",
+        destination: "/developers",
+        permanent: true,
+      },
+      {
+        // ROI calculator carried stale pricing/savings claims → consulting.
+        source: "/calculator",
+        destination: "/consulting",
+        permanent: true,
+      },
+      {
+        // Off-brand lead-magnet playbook → the real open tools.
+        source: "/playbook",
+        destination: "/platform",
+        permanent: true,
+      },
+      {
+        source: "/playbook/download",
+        destination: "/platform",
+        permanent: true,
+      },
+      {
+        // "Learn" hub folded into the blog (the live content surface).
+        source: "/learn",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/learn/demos",
+        destination: "/blog",
         permanent: true,
       },
     ];

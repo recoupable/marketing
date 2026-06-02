@@ -3,7 +3,7 @@ import { buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `Privacy Policy — How We Protect Your Data | ${siteConfig.name}`,
+  title: "Privacy Policy — How We Protect Your Data",
   description: `How ${siteConfig.name} collects, uses, and protects your information. GDPR rights, cookies, data retention, and security practices for users and agents.`,
   path: "/privacy-policy",
 });

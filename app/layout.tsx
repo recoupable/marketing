@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Instrument_Serif, Silkscreen } from "next/font/google";
+import { Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { GeistPixelSquare, GeistPixelTriangle } from "geist/font/pixel";
@@ -58,13 +58,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const silkscreen = Silkscreen({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-bitmap",
-  display: "swap",
-});
-
 export default function RootLayout({
   children,
 }: {
@@ -73,7 +66,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${plusJakartaSans.variable} ${silkscreen.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelTriangle.variable}`}
+      className={`${instrumentSerif.variable} ${plusJakartaSans.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelTriangle.variable}`}
     >
       <head>
         <script

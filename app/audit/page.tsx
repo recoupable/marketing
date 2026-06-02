@@ -4,7 +4,7 @@ import { auditCopy } from "@/lib/copy/audit";
 import { AuditForm } from "@/components/audit/AuditForm";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Free AI Readiness Audit for Music Companies | Recoup",
+  title: "Free AI Readiness Audit for Music Companies",
   description: auditCopy.description,
   path: "/audit",
 });
@@ -17,10 +17,7 @@ export default function AuditPage() {
         <div className="inline-block rounded-full border border-[var(--border)] px-4 py-1.5 text-xs font-medium tracking-wide uppercase mb-6">
           Free — Takes 2 Minutes
         </div>
-        <h1
-          className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-tight leading-[1.1] mb-4"
-          style={{ fontFamily: "var(--font-bitmap), monospace" }}
-        >
+        <h1 className="font-pixel text-[clamp(2rem,5vw,3.5rem)] tracking-tight leading-[1.1] mb-4">
           {auditCopy.headline}
         </h1>
         <p className="text-[15px] text-[var(--muted-foreground)] max-w-xl mx-auto">
@@ -33,49 +30,29 @@ export default function AuditPage() {
 
       {/* Trust signals */}
       <div className="mt-20 pt-12 border-t border-[var(--border)]">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div>
-            <div
-              className="text-2xl font-bold mb-1"
-              style={{ fontFamily: "var(--font-bitmap), monospace" }}
-            >
-              10+
+            <div className="font-pixel text-xl mb-1">
+              You own it
             </div>
             <p className="text-xs text-[var(--muted-foreground)]">
-              Platinum records
+              Agents and skills live in your stack
             </p>
           </div>
           <div>
-            <div
-              className="text-2xl font-bold mb-1"
-              style={{ fontFamily: "var(--font-bitmap), monospace" }}
-            >
-              Grammy
+            <div className="font-pixel text-xl mb-1">
+              No training
             </div>
             <p className="text-xs text-[var(--muted-foreground)]">
-              Award-winning
+              We never train on your data
             </p>
           </div>
           <div>
-            <div
-              className="text-2xl font-bold mb-1"
-              style={{ fontFamily: "var(--font-bitmap), monospace" }}
-            >
-              US Patent
+            <div className="font-pixel text-xl mb-1">
+              Proven on a roster
             </div>
             <p className="text-xs text-[var(--muted-foreground)]">
-              AI innovation
-            </p>
-          </div>
-          <div>
-            <div
-              className="text-2xl font-bold mb-1"
-              style={{ fontFamily: "var(--font-bitmap), monospace" }}
-            >
-              $2.5M
-            </div>
-            <p className="text-xs text-[var(--muted-foreground)]">
-              D2F campaign
+              The same tools run our own label
             </p>
           </div>
         </div>

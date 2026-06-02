@@ -6,11 +6,14 @@ import type { PostFrontmatter, PostType } from "./post-schema";
  * Build Next.js Metadata for a blog post.
  * Reads SEO fields from post frontmatter + site config defaults.
  */
-export function buildPostMetadata(post: PostFrontmatter): Metadata {
+export function buildPostMetadata(
+  post: PostFrontmatter,
+  pathPrefix: string = "blog",
+): Metadata {
   const title = post.seo.title || post.title;
   const description = post.seo.description || post.excerpt;
   const canonical =
-    post.seo.canonical || `${siteConfig.url}/blog/${post.slug}`;
+    post.seo.canonical || `${siteConfig.url}/${pathPrefix}/${post.slug}`;
 
   return {
     title,
@@ -101,7 +104,10 @@ function jsonLdTypeForPost(type: PostType): string {
  * Build JSON-LD structured data for a blog post.
  * Returns a script-ready object to embed in the page <head>.
  */
-export function buildPostJsonLd(post: PostFrontmatter): Record<string, unknown> {
+export function buildPostJsonLd(
+  post: PostFrontmatter,
+  pathPrefix: string = "blog",
+): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": jsonLdTypeForPost(post.type),
@@ -118,7 +124,7 @@ export function buildPostJsonLd(post: PostFrontmatter): Record<string, unknown> 
     },
     datePublished: post.date,
     dateModified: post.updatedAt || post.date,
-    url: post.seo.canonical || `${siteConfig.url}/blog/${post.slug}`,
+    url: post.seo.canonical || `${siteConfig.url}/${pathPrefix}/${post.slug}`,
     ...(post.coverImage && {
       image: `${siteConfig.url}${post.coverImage}`,
     }),

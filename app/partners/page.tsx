@@ -1,53 +1,54 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `Partners — Embed Music Intelligence in Your Product | ${siteConfig.name}`,
+  title: "Partners — Embed Music Intelligence in Your Product",
   description:
     "For distributors, creator tools, and platforms: embed Recoup's music agents and API in your product. Usage-based and rev-share models, MCP-native, you keep your customer relationship.",
   path: "/partners",
 });
 
+const CONTACT = `mailto:${siteConfig.contactEmail}?subject=Partnership%20Inquiry`;
+
 /* ── Data ──────────────────────────────────────────────────────────── */
 
 const audiences = [
   {
+    k: "Distribution",
     title: "Distributors & DSPs",
-    description:
-      "Give your artists and labels AI workflows — release planning, analytics, content — without building a model team.",
+    body: "Give your artists and labels AI workflows — release planning, analytics, content — without building a model team.",
   },
   {
+    k: "Creator tools",
     title: "Creator & artist tools",
-    description:
-      "Add music-aware agents to the product your users already log into, instead of sending them somewhere else.",
+    body: "Add music-aware agents to the product your users already log into, instead of sending them somewhere else.",
   },
   {
+    k: "Catalog",
     title: "Catalog & rights platforms",
-    description:
-      "Surface diligence, royalty, and audience intelligence on top of the data you already hold.",
+    body: "Surface diligence, royalty, and audience intelligence on top of the data you already hold.",
   },
-];
+] as const;
 
 const models = [
   {
+    k: "Embed",
     title: "Embed / OEM",
-    description:
-      "Run Recoup agents behind your own UI and brand. Your users never leave your product; you keep the customer relationship and the data boundary.",
+    body: "Run Recoup agents behind your own UI and brand. Your users never leave your product; you keep the customer relationship and the data boundary.",
   },
   {
+    k: "API & MCP",
     title: "API & MCP",
-    description:
-      "Call the Recoup API directly, or connect over MCP so any agent — yours or your customers' — can use our music tools with no custom glue code.",
+    body: "Call the Recoup API directly, or connect over MCP so any agent — yours or your customers' — can use our music tools with no custom glue code.",
   },
   {
+    k: "Co-built",
     title: "Co-built agents",
-    description:
-      "We build the workflows with your team for your roster and stack, then hand them off into a repo your organization controls.",
+    body: "We build the workflows with your team for your roster and stack, then hand them off into a repo your organization controls.",
   },
-];
+] as const;
 
 const commercials = [
   {
@@ -66,113 +67,159 @@ const commercials = [
     q: "What about agent discovery?",
     a: "Because the skills are open and MCP-native, agents can discover and call your integration the way they discover any tool — so you show up where your customers' agents already work, not just inside one app.",
   },
-];
+] as const;
 
 /* ── Page ───────────────────────────────────────────────────────────── */
 
 export default function PartnersPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-24">
+    <main className="bg-(--background) text-(--foreground)">
       {/* Hero */}
-      <section className="text-center mb-20">
-        <p
-          className="text-[10px] uppercase tracking-widest text-[var(--muted)] mb-4"
-          style={{ fontFamily: "var(--font-bitmap), monospace" }}
-        >
-          Partners
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-          Put music intelligence inside your product.
-        </h1>
-        <p className="text-lg text-[var(--muted)] max-w-2xl mx-auto leading-relaxed">
-          Recoup is built to plug in. If you run a distributor, a creator tool,
-          or a catalog platform, you can offer your users music-aware agents
-          without standing up a model team — and keep your brand, your customer,
-          and your data boundary.
-        </p>
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href={`mailto:${siteConfig.contactEmail}?subject=Partnership%20Inquiry`}
-            className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
-          >
-            Talk to partnerships
-          </a>
-          <a
-            href={siteConfig.docsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--foreground)]/70 hover:text-[var(--foreground)] transition-colors"
-          >
-            Read the API docs <ArrowUpRight size={14} />
-          </a>
+      <section className="pt-36 sm:pt-44 pb-20 sm:pb-24">
+        <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
+          <p className="font-pixel text-[10px] uppercase tracking-[0.22em] text-(--foreground)/45 mb-6">
+            Partners
+          </p>
+          <h1 className="font-pixel text-[clamp(2.5rem,6vw,4.25rem)] leading-[1.03] tracking-tight mb-6">
+            Put music intelligence<br className="hidden sm:block" /> inside your product.
+          </h1>
+          <p className="text-(--foreground)/60 text-[clamp(1.0625rem,1.5vw,1.25rem)] font-ui leading-[1.55] max-w-[640px] mx-auto mb-9">
+            Recoup is built to plug in. If you run a distributor, a creator tool,
+            or a catalog platform, you can offer your users music-aware agents
+            without standing up a model team — and keep your brand, your
+            customer, and your data boundary.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={CONTACT}
+              className="cta-pulse font-ui font-semibold bg-(--foreground) text-(--background) px-9 py-4 rounded-full text-[15px] hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Talk to partnerships
+            </a>
+            <a
+              href={siteConfig.docsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-ui font-medium text-[15px] text-(--foreground)/55 hover:text-(--foreground) transition-colors flex items-center gap-1.5"
+            >
+              Read the API docs <ArrowUpRight size={15} />
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Who it's for */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-center mb-12">Who partners with us</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {audiences.map((a) => (
-            <div
-              key={a.title}
-              className="rounded-xl p-6"
-              style={{ boxShadow: "0 0 0 1px var(--border)" }}
-            >
-              <h3 className="font-bold mb-2">{a.title}</h3>
-              <p className="text-sm text-[var(--muted)] leading-relaxed">{a.description}</p>
-            </div>
-          ))}
+      {/* Who partners with us */}
+      <section className="py-20 sm:py-28 border-t border-(--border)">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-10">
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">
+            Who partners with us
+          </p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-14 max-w-[640px]">
+            Built for teams with users.
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {audiences.map((a) => (
+              <div
+                key={a.title}
+                className="flex flex-col rounded-2xl bg-(--background) p-7"
+                style={{ boxShadow: "0 0 0 1px var(--border)" }}
+              >
+                <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-3">
+                  {a.k}
+                </p>
+                <h3 className="font-ui font-bold text-[18px] text-(--foreground) mb-2 leading-snug">
+                  {a.title}
+                </h3>
+                <p className="text-[14px] text-(--foreground)/55 leading-relaxed">
+                  {a.body}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Ways to partner */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-center mb-12">Ways to partner</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {models.map((m) => (
-            <div
-              key={m.title}
-              className="rounded-xl p-6"
-              style={{ boxShadow: "0 0 0 1px var(--border)" }}
-            >
-              <h3 className="font-bold mb-2">{m.title}</h3>
-              <p className="text-sm text-[var(--muted)] leading-relaxed">{m.description}</p>
-            </div>
-          ))}
+      <section className="py-20 sm:py-28 bg-(--muted)/40">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-10">
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">
+            Ways to partner
+          </p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-14 max-w-[640px]">
+            Three ways to plug in.
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {models.map((m) => (
+              <div
+                key={m.title}
+                className="flex flex-col rounded-2xl bg-(--background) p-7"
+                style={{ boxShadow: "0 0 0 1px var(--border)" }}
+              >
+                <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-3">
+                  {m.k}
+                </p>
+                <h3 className="font-ui font-bold text-[18px] text-(--foreground) mb-2 leading-snug">
+                  {m.title}
+                </h3>
+                <p className="text-[14px] text-(--foreground)/55 leading-relaxed">
+                  {m.body}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Commercials */}
-      <section className="mb-24 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-12">Commercials &amp; data</h2>
-        <div className="space-y-6">
-          {commercials.map((item) => (
-            <details key={item.q} className="group border-b border-[var(--border)] pb-4">
-              <summary className="cursor-pointer font-medium text-sm flex items-center justify-between">
-                {item.q}
-                <span className="ml-4 text-[var(--muted)] group-open:rotate-45 transition-transform text-lg">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-sm text-[var(--muted)] leading-relaxed">{item.a}</p>
-            </details>
-          ))}
+      {/* Commercials & data */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[720px] mx-auto px-6 sm:px-10">
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4 text-center">
+            Commercials &amp; data
+          </p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3rem)] tracking-tight leading-[1.05] mb-12 text-center">
+            How a deal comes together.
+          </h2>
+          <div className="space-y-2">
+            {commercials.map((item) => (
+              <details key={item.q} className="group border-b border-(--border) py-4">
+                <summary className="cursor-pointer font-ui font-semibold text-[15px] flex items-center justify-between gap-4 list-none">
+                  {item.q}
+                  <span className="shrink-0 text-(--foreground)/40 group-open:rotate-45 transition-transform text-xl leading-none">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-[14px] text-(--foreground)/55 leading-relaxed">
+                  {item.a}
+                </p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Closing CTA */}
-      <section className="text-center py-16 border-t border-[var(--border)]">
-        <h2 className="text-3xl font-bold mb-4">Let&apos;s scope an integration.</h2>
-        <p className="text-[var(--muted)] max-w-xl mx-auto mb-8 leading-relaxed">
-          Tell us what your users need and how you want to package it. We&apos;ll
-          come back with the simplest way to embed it.
-        </p>
-        <a
-          href={`mailto:${siteConfig.contactEmail}?subject=Partnership%20Inquiry`}
-          className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
-        >
-          Talk to partnerships
-        </a>
+      <section className="relative py-28 sm:py-36 overflow-hidden dark-section-cta">
+        <div className="max-w-[760px] mx-auto px-6 text-center relative z-10">
+          <h2 className="font-pixel text-[clamp(2.25rem,6vw,4rem)] tracking-tight leading-[0.98] text-white mb-9">
+            Let&apos;s scope<br />an integration.
+          </h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={CONTACT}
+              className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Talk to partnerships
+            </a>
+            <a
+              href={siteConfig.docsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-ui font-medium text-sm text-white/40 hover:text-white/70 transition-colors flex items-center gap-1.5"
+            >
+              Read the API docs <ArrowUpRight size={14} />
+            </a>
+          </div>
+        </div>
       </section>
     </main>
   );

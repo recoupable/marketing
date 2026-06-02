@@ -6,11 +6,12 @@ import { siteConfig } from "@/lib/config";
 
 export const companyVisionCopy = {
   title: "Vision",
-  anchor: `Music businesses are going autonomous. ${siteConfig.name} is how they run.`,
+  anchor:
+    "The music industry is going agentic. We're building the layer it runs on.",
   paragraphs: [
-    "Not a chatbot. Not a tool. The system that runs music businesses through agents. Artists, labels, distributors, catalog owners — too much time on ops that AI can run: release strategy, marketing, audience research, catalog. One platform: define goals, connect data, agents do the work.",
-    `When someone hears ${siteConfig.name}: the company building the future of music operations. Where AI actually does the work. The system serious teams use.`,
-    `The future of music runs itself. ${siteConfig.name} makes it possible.`,
+    `${siteConfig.name} is a research lab and implementation partner for the agentic music industry. We work with labels, catalogs, and platforms — researching what AI can actually do for music, building the open tools to do it, and implementing them inside real teams' stacks.`,
+    "The winners won't be the teams with the flashiest chatbot. They'll be the ones whose agents have real music context, safe access to their systems, and workflows built for how the business actually runs. That's what we build — in the open, and alongside you.",
+    `We run our own label on the same tools we sell. If a workflow can't carry weight on a real roster, we don't publish it — and we don't recommend it to yours. You own what we build, and we never train on your data.`,
   ],
 } as const;
 
@@ -29,8 +30,8 @@ export function companyVisionToMarkdown(c: typeof companyVisionCopy): string {
 
 export const companyAboutCopy = {
   title: "About",
-  description: "The company building the future of music operations.",
-  body: `${siteConfig.name} is the platform for autonomous music businesses. The system that runs music operations through agents — for artists, labels, distributors, developers.`,
+  description: "A research lab and implementation partner for the agentic music industry.",
+  body: `${siteConfig.name} builds the music layer for AI agents — open-source skills, an API, and MCP integrations — and works hands-on with labels, catalogs, and platforms to put them to work inside their own stacks. We run our own label on the same tools. You own what we build, and we never train on your data.`,
   contactEmail: siteConfig.contactEmail,
   supportEmail: siteConfig.supportEmail,
   legal: `${siteConfig.legalName} · ${siteConfig.address}`,
