@@ -1,6 +1,6 @@
 # Skills × Plugins Consolidation + Website Ship Plan
 
-> **Status:** DRAFT — needs one decision from Sidney (see Part D) before the consolidation track starts. The website track (Part A) can ship immediately and does **not** depend on that decision.
+> **Status:** Website track (Part A) SHIPPED. Architecture decision (Part D) RESOLVED 2026-06-02 — vendor-grounded: a plugin is packaging, a skill is the authoring unit, "API-backed" is a per-skill property. Consolidation track (Option 2) ready to be expanded into its own implementation plan.
 
 **Goal:** Ship the marketing site fast *without* baking in a skills/plugins story we'll have to redo, and separately fix the real problem — our skills and plugins are drifting because the same skill content is hand-maintained in multiple repos.
 
@@ -107,18 +107,29 @@ The atomic unit across every channel is a `skills/<name>/SKILL.md` folder. Every
 
 ---
 
-# PART D — Decision needed (one question)
+# PART D — Decision (RESOLVED, vendor-grounded)
 
-The right option hinges on a single product question:
+**Decided 2026-06-02.** The earlier "packaging vs. product tier" question is resolved by how Anthropic and OpenAI define these primitives — and they define them identically.
 
-> **Is a "plugin" just packaging for skills, or is it a product tier (e.g., API-backed / premium) that's meant to diverge from the open skills?**
+**Anthropic (Claude Code):** a skill is "the most flexible extension… a markdown file"; a plugin is **"the packaging layer"** that bundles skills + hooks + subagents + MCP for sharing/versioning/marketplace distribution. ([features-overview](https://code.claude.com/docs/en/features-overview), [skills](https://code.claude.com/docs/en/skills))
 
-- **If plugins are just packaging** → there should be ONE source of truth and a build that emits both channels. **Option 4** (or Option 2 as a lighter first step) wins. Duplicated files are pure liability.
-- **If plugins are a product tier** → divergence is intentional for the *deep* skills (`recoup-research-*`, `recoup-catalog-*`), and we only need to de-dupe the *generic* skills that got copied into `platform`/`content` plugins. **Option 2 or 5** wins, and we should stop copying generic skills into plugins at all.
+**OpenAI (Codex):** **"Skills remain the authoring format; plugins are the installable distribution unit."** ([skills](https://developers.openai.com/codex/skills), [plugins](https://developers.openai.com/codex/plugins))
 
-**My recommendation (yours to overrule):** Plugins are a product tier *for the deep skills*, but the generic ones got copied by accident. So: **Option 2 now** (open `skills` = source of truth for generic skills; `platform`/`content` plugins reference rather than copy; `research`/`catalog` plugins keep owning their net-new skills), **leaving the door open to Option 4** later if plugin packaging becomes the primary channel. Pair it with the Part C cross-cutting cleanup (one registry, fix the README).
+Both consume the **same open Agent Skills standard** (`SKILL.md`), so one skill works across both ecosystems.
 
-I'm flagging this as a recommendation, not a conclusion — the decision is yours and changes the work below.
+### Conclusion
+
+1. **A plugin is packaging, not a tier.** There is no "packaging tier" to preserve. The duplicate generic skills hand-copied into `recoup-platform-plugin` / `recoup-content-plugin` are an anti-pattern by both vendors' own definitions.
+2. **"API-backed" is a per-skill property, not a plugin property.** Research and catalog skills call the (paid/gated) Recoup API today; **content can be API-backed too** — those endpoints exist, the skills just haven't been authored yet. So the split is NOT "shallow open skills vs. deep plugin skills." It's: *every skill is authored once, and some skills call the paid API.*
+3. **The only real "tier" is commercial, and it's gated at the API** (the key the skill calls), independent of which channel ships the skill.
+
+### Chosen approach: Option 2 now, door open to Option 4
+
+- **Author every skill exactly once.** Generic skills → the open `recoupable/skills` repo. API-backed/deep skills (research, catalog, and future content-API skills) → their plugin repos, which are their authoring home.
+- **Plugins reference, never copy.** `platform` / `content` plugins must pull generic skills from the open repo (submodule or sync/build step), not hold duplicate files.
+- **Gate premium at the API**, not at packaging.
+- **Door open to Option 4** (one skills monorepo → multiple outputs) if plugin packaging later becomes the primary distribution channel.
+- Pair with the Part C cross-cutting cleanup: collapse to one registry (`recoupable/marketplace`), repoint the monorepo `plugins/` submodule, and fix the open repo's README ↔ folders mismatch.
 
 ---
 
