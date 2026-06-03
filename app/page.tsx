@@ -275,7 +275,33 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          3. LANES — Research / Build / Partner
+          3. PROBLEM — state the gap (problem-led)
+          ══════════════════════════════════════ */}
+      <section className="py-24 sm:py-32">
+        <div ref={problem.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${problem.cls}`}>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The gap</p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05]">
+            Your team has Claude.<br />It still can&apos;t do the work.
+          </h2>
+
+          <div className="grid sm:grid-cols-3 gap-x-10 gap-y-6 mt-14">
+            {[
+              { k: "No music context", v: "It doesn\u2019t know your roster, catalog, or deal terms." },
+              { k: "No safe access", v: "It can\u2019t touch Drive, royalty data, or distributors on its own." },
+              { k: "No music workflows", v: "Diligence, A&R, content ops — none of it built in." },
+            ].map((item) => (
+              <div key={item.k}>
+                <p className="font-ui text-[11px] font-semibold text-(--foreground)/40 uppercase tracking-[0.18em] mb-2">{item.k}</p>
+                <p className="text-[14px] text-(--foreground)/55 leading-relaxed">{item.v}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
+          4. LANES — Research / Build / Partner (the answer)
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32">
         <div ref={lanes.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${lanes.cls}`}>
@@ -310,7 +336,7 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          4. RESEARCH — what we publish
+          5. RESEARCH — what we publish
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 bg-(--muted)/40">
         <div ref={research.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${research.cls}`}>
@@ -336,32 +362,6 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          5. PROBLEM — state the gap
-          ══════════════════════════════════════ */}
-      <section className="py-24 sm:py-32">
-        <div ref={problem.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${problem.cls}`}>
-          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The gap</p>
-          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05]">
-            Your team has Claude.<br />It still can&apos;t do the work.
-          </h2>
-
-          <div className="grid sm:grid-cols-3 gap-x-10 gap-y-6 mt-14">
-            {[
-              { k: "No music context", v: "It doesn\u2019t know your roster, catalog, or deal terms." },
-              { k: "No safe access", v: "It can\u2019t touch Drive, royalty data, or distributors on its own." },
-              { k: "No music workflows", v: "Diligence, A&R, content ops — none of it built in." },
-            ].map((item) => (
-              <div key={item.k}>
-                <p className="font-ui text-[11px] font-semibold text-(--foreground)/40 uppercase tracking-[0.18em] mb-2">{item.k}</p>
-                <p className="text-[14px] text-(--foreground)/55 leading-relaxed">{item.v}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* ══════════════════════════════════════
           6. BUILD — one harness, many workflows
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 dark-section text-white relative overflow-hidden">
@@ -376,7 +376,7 @@ export default function HomePage() {
               One harness, many workflows.
             </h2>
             <p className="text-[15px] text-white/40 max-w-xl mx-auto leading-relaxed">
-              Chat is a hosted workspace. The API and open skills are how you embed music intelligence in Claude, Cursor, and your own tools — bring your own agent, Recoup plugs in.
+              This is the engine behind every implementation. Chat is a hosted workspace; the API and open skills let your team — or ours — embed music intelligence into Claude, Cursor, and your own stack.
             </p>
             <p className="text-[13px] text-white/30 max-w-xl mx-auto leading-relaxed mt-3">
               <span className="text-white/45 font-medium">MCP</span> is the open standard that lets any agent — Claude, Cursor, or one you built — securely call Recoup&apos;s music tools without custom glue code.
@@ -480,8 +480,8 @@ export default function HomePage() {
                 Browse all skills <ArrowUpRight size={12} />
               </a>
             </p>
-            <p className="text-center text-[12px] text-(--foreground)/40 mt-2">
-              Not technical? The same skills run inside{" "}
+            <p className="text-center text-[13px] text-(--foreground)/55 mt-3">
+              Prefer it done for you? The same skills run inside{" "}
               <a
                 href={siteConfig.appUrl}
                 target="_blank"
@@ -495,7 +495,7 @@ export default function HomePage() {
                 href="/consulting"
                 className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors"
               >
-                we&apos;ll set them up for you
+                our team sets them up in your stack
               </Link>
               .
             </p>
@@ -505,7 +505,26 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          8. CONSULTING BAND — D's tension hook
+          8. PROOF — we run our own labels (dogfood)
+          ══════════════════════════════════════ */}
+      <section className="py-20 sm:py-28 border-t border-(--border)">
+        <div ref={proof.ref} className={`max-w-[820px] mx-auto px-6 sm:px-10 ${proof.cls}`}>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The proof</p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-6">
+            We run our own labels.
+          </h2>
+          <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px] mb-6">
+            Recoup Records and our artist Gatsby Grace use these same tools every day — to write release plans, audit catalogs, pitch playlists, and run the business. Every skill we publish earns its keep on a real roster first.
+          </p>
+          <Link href="/company/recoup-records" className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
+            See how we dogfood <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
+          9. CONSULTING BAND — start executing
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 bg-(--muted)/60">
         <div ref={consulting.ref} className={`max-w-[820px] mx-auto px-6 sm:px-10 text-center ${consulting.cls}`}>
@@ -524,7 +543,7 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          9. PULL QUOTE — anonymized
+          10. PULL QUOTE — operator voice
           ══════════════════════════════════════ */}
       <section className="py-20 sm:py-28">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
@@ -536,25 +555,6 @@ export default function HomePage() {
           </p>
           <Link href="/audit" className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
             See what an AI readiness audit surfaces <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-          </Link>
-        </div>
-      </section>
-
-
-      {/* ══════════════════════════════════════
-          10. PROOF — we run our own labels
-          ══════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 border-t border-(--border)">
-        <div ref={proof.ref} className={`max-w-[820px] mx-auto px-6 sm:px-10 ${proof.cls}`}>
-          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The proof</p>
-          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-6">
-            We run our own labels.
-          </h2>
-          <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px] mb-6">
-            Recoup Records and our artist Gatsby Grace use these same tools every day — to write release plans, audit catalogs, pitch playlists, and run the business. Every skill we publish earns its keep on a real roster first.
-          </p>
-          <Link href="/company/recoup-records" className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
-            See how we dogfood <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>
       </section>
