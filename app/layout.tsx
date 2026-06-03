@@ -66,6 +66,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      // The inline <head> script sets data-theme before hydration so there is no
+      // theme flash; that makes the <html> attributes intentionally differ from the
+      // server markup. Suppress the (expected) warning for this element only —
+      // children are still hydration-checked. See React docs: hydration-mismatch.
+      suppressHydrationWarning
       className={`${instrumentSerif.variable} ${plusJakartaSans.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelTriangle.variable}`}
     >
       <head>
