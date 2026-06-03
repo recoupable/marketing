@@ -2,7 +2,7 @@
 
 > **Status:** Plan v2, 2026-06-02. **Phases 1–2 COMPLETE** (all 42 skills portable; lint + drift + manifests green; CI wired). Supersedes the "two-channel / coupling-allowed" v1. Executes the recommendations from `2026-06-02-skills-plugins-packaging-landscape.md` with one overriding directive: **make every skill cross-harness portable.**
 >
-> **Done (2026-06-02):** portability lint / drift check / manifest validator built (`scripts/`); 10 research + 17 catalog + 14 library + 1 content skills made self-contained (174 vendored copies, drift-checked across 27 groups); markdown links → backtick paths; CI workflow `.github/workflows/validate.yml`. Vendored catalog scripts verified to execute from the skill dir.
+> **Done (2026-06-02):** portability lint / drift check / manifest validator built (`scripts/`); 10 research + 17 catalog + 14 library + 1 content skills made self-contained (94 vendored copies, drift-checked across 27 groups); markdown links → backtick paths; CI workflow `.github/workflows/validate.yml`. Catalog scripts vendored as **per-skill dependency closures** (not the full 17-set) — each skill ships only the scripts it invokes plus their transitive `subprocess`/`importlib`/`_helpers` deps; verified to execute from the skill dir.
 >
 > **Open (needs live CLI/network):** declare `skills[]` in plugin manifests + verify `npx skills add` surfaces plugin skills (Task 2.5); live install spot-check; Phase 3 productization.
 > **Target:** worktree at `/Users/sidneyswift/Documents/Projects/Recoup/skills-worktree`, branch `feat/unified-skills-marketplace` (off `recoupable/skills`).
