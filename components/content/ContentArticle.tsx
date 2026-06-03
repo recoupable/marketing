@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 import { stripHtml, calculateReadingTime } from "@/lib/paragraph/helpers";
+import { sanitizeContentHtml } from "@/lib/sanitizeContentHtml";
 
 interface ContentArticleProps {
   /** Category label shown above the title (e.g. "Essay", "Guide"). */
@@ -38,7 +39,8 @@ export function ContentArticle({
     month: "long",
     day: "numeric",
   });
-  const readingTime = calculateReadingTime(stripHtml(html));
+  const safeHtml = sanitizeContentHtml(html);
+  const readingTime = calculateReadingTime(stripHtml(safeHtml));
 
   return (
     <article className="mx-auto max-w-3xl px-4 pt-36 pb-16 sm:pt-44">
@@ -89,7 +91,7 @@ export function ContentArticle({
 
       <div
         className="prose prose-lg max-w-none prose-headings:text-[var(--foreground)] prose-headings:font-ui prose-p:text-[var(--foreground)]/85 prose-a:text-[var(--brand)] prose-strong:text-[var(--foreground)] prose-li:text-[var(--foreground)]/85"
-        dangerouslySetInnerHTML={{ __html: html }}
+        dangerouslySetInnerHTML={{ __html: safeHtml }}
       />
 
       {children}

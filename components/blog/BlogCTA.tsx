@@ -90,7 +90,7 @@ export function BlogCTA({ postSlug }: { postSlug?: string }) {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="rounded-lg bg-white text-[#0a0a0a] px-6 py-3 text-sm font-semibold hover:bg-white/90 transition-colors disabled:opacity-50 whitespace-nowrap"
+            className="rounded-lg bg-white text-(--background) px-6 py-3 text-sm font-semibold hover:bg-white/90 transition-colors disabled:opacity-50 whitespace-nowrap"
           >
             {status === "loading" ? "..." : "Subscribe →"}
           </button>

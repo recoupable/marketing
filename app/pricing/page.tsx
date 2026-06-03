@@ -6,9 +6,9 @@ import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Pricing — Open Tools, Chat & Implementation",
+  title: "Pricing — Open Tools, Hosted Chat & Custom Builds",
   description:
-    "Three ways to work with Recoup: free open-source skills and API, a hosted Chat workspace from $19/mo, and custom implementation for labels, catalogs, and platforms.",
+    "Free open-source skills and API, hosted Chat workspace from $19/mo, and custom implementation for labels, catalogs, and platforms.",
   path: "/pricing",
 });
 
@@ -94,7 +94,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 /* ── Main page ─────────────────────────────────────────────────────── */
 export default function PricingPage() {
   return (
-    <main className="bg-(--background) text-(--foreground)">
+    <div className="bg-(--background) text-(--foreground)">
       {/* Hero */}
       <section className="pt-36 sm:pt-44 pb-14 sm:pb-16">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
@@ -159,7 +159,7 @@ export default function PricingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/consulting"
-              className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
+              className="cta-pulse font-ui font-semibold bg-white text-(--background) px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
             >
               Talk to us
             </Link>
@@ -174,6 +174,6 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

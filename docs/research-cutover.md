@@ -11,16 +11,16 @@ essays filter (`/blog?type=essay`).
 
 ## The three content pipelines (all feed `/blog`)
 
-`marketing/lib/content.ts` is the unified data layer. It merges:
+`lib/content.ts` is the unified data layer. It merges:
 
-1. **Blog MDX** — `marketing/content/posts/*.mdx` (tactical guides, tutorials).
-2. **Research MDX** — `marketing/content/research/*.mdx` (in-repo essays).
+1. **Blog MDX** — `content/posts/*.mdx` (tactical guides, tutorials).
+2. **Research MDX** — `content/research/*.mdx` (in-repo essays).
 3. **Paragraph-synced essays** — body lives on paragraph.com, fetched live
    (ISR 1h). Card metadata is cached in `PARAGRAPH_RESEARCH` in `content.ts`.
 
 Each entry is normalized to a `ContentEntry` and bucketed into a
 `ContentCategory` (essay / guide / tutorial / update) so the index can offer one
-filterable list. Pure types/constants live in `marketing/lib/content-types.ts`
+filterable list. Pure types/constants live in `lib/content-types.ts`
 (node-free) so client components can import them without pulling the server-only
 loader into the browser bundle.
 
@@ -35,15 +35,16 @@ Slugs are preserved 1:1 across every hop.
 | `research.recoupable.com/` (subdomain)                     | → `/research` → `/blog?type=essay`               |
 | `research.recoupable.com/blog/:slug` (subdomain)           | → `/research/:slug` → `/blog/:slug`              |
 
-The `/research → /blog` 301s live in `marketing/next.config.ts` → `redirects()`.
+The `/research → /blog` 301s live in `next.config.ts` → `redirects()`.
 
 ## ⚠️ Redirect chain to flatten
 
 The old subdomain (`research.recoupable.com`) still 301s to `/research` via
-`blog/next.config.mjs`. Now that `/research` itself 301s to `/blog`, old
+the retired research app deployment's `next.config.mjs` (outside this marketing
+repo). Now that `/research` itself 301s to `/blog`, old
 subdomain URLs hop **twice** (subdomain → `/research/:slug` → `/blog/:slug`).
 
-To keep it a single hop, update the redirects in `blog/next.config.mjs` to point
+To keep it a single hop, update the retired research app redirects to point
 straight at the unified hub:
 
 - `/` and `/blog` → `https://recoupable.com/blog?type=essay`
@@ -58,8 +59,8 @@ clean-up, not a blocker.
    `/blog/[slug]` rendering all three pipelines, `/research → /blog` 301s, nav +
    footer + homepage + consulting links repointed, sitemap + `feed.xml` rebuilt
    off `getAllContent()`. ✅
-2. **Flatten the subdomain redirects** in `blog/next.config.mjs` (see above), then
-   redeploy `blog/`. Keep that deployment alive so the subdomain keeps 301ing.
+2. **Flatten the subdomain redirects** in the retired research app deployment
+   (see above), then redeploy it. Keep that deployment alive so the subdomain keeps 301ing.
 3. **Verify** old URLs land on the canonical `/blog/*`:
    ```bash
    curl -sI https://recoupable.com/research/open-labels | grep -i location
@@ -76,7 +77,7 @@ clean-up, not a blocker.
 
 ## New Paragraph essays after cutover
 
-Add a row to `PARAGRAPH_RESEARCH` in `marketing/lib/content.ts` with the
+Add a row to `PARAGRAPH_RESEARCH` in `lib/content.ts` with the
 `paragraphId`, `slug`, and card metadata. The detail page fetches the body live.
 (Authoring still happens in paragraph.com — workflow unchanged.) New in-repo
 posts go in `content/posts/*.mdx` (guides/tutorials) or `content/research/*.mdx`

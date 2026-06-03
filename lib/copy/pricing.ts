@@ -47,7 +47,7 @@ export const pricingCopy = {
         "Community support",
       ],
       cta: "Browse the skills",
-      ctaHref: "https://github.com/recoupable/skills",
+      ctaHref: siteConfig.skillsRepoUrl,
     },
     {
       id: "chat",
@@ -83,7 +83,7 @@ export const pricingCopy = {
         "Custom, organization-owned skills",
         "Embed / OEM & API at scale",
         "You own what we build",
-        "We never train on your data",
+        "Scoped data boundaries",
         "Dedicated partner & SLA options",
       ],
       cta: "Talk to us",
@@ -101,8 +101,8 @@ export const pricingCopy = {
       a: "ChatGPT is a general chatbot. Recoup is the music layer — skills, an API, and MCP integrations built specifically for music work like research, release ops, and catalog analysis. Point your own agent at it, or use the hosted workspace.",
     },
     {
-      q: "Who owns what we build — and do you train on our data?",
-      a: "You do. In any implementation engagement, the agents, skills, and workflows live in your stack or a repo your organization controls. We never train models on your catalog, royalty, or proprietary data.",
+      q: "Who owns what we build — and how is our data handled?",
+      a: "You do. In any implementation engagement, the agents, skills, and workflows live in your stack or a repo your organization controls. We scope data access and reuse terms before work starts.",
     },
     {
       q: "What if I'm a label, distributor, or platform?",
@@ -110,7 +110,7 @@ export const pricingCopy = {
     },
     {
       q: "Is my data safe?",
-      a: "Your data is encrypted in transit and at rest, and agents only touch the systems you explicitly connect — which you can revoke at any time. We never share or train on your data.",
+      a: "Your data is encrypted in transit and at rest, and agents only touch the systems you explicitly connect — which you can revoke at any time.",
     },
   ] as PricingFAQ[],
 } as const;

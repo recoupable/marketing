@@ -11,7 +11,7 @@ export const companyVisionCopy = {
   paragraphs: [
     `${siteConfig.name} is a research lab and implementation partner for the agentic music industry. We work with labels, catalogs, and platforms — researching what AI can actually do for music, building the open tools to do it, and implementing them inside real teams' stacks.`,
     "The winners won't be the teams with the flashiest chatbot. They'll be the ones whose agents have real music context, safe access to their systems, and workflows built for how the business actually runs. That's what we build — in the open, and alongside you.",
-    `We run our own label on the same tools we sell. If a workflow can't carry weight on a real roster, we don't publish it — and we don't recommend it to yours. You own what we build, and we never train on your data.`,
+    `We run our own label on the same tools we sell. If a workflow can't carry weight on a real roster, we don't publish it — and we don't recommend it to yours. You own what we build, with data boundaries scoped before implementation starts.`,
   ],
 } as const;
 
@@ -31,7 +31,7 @@ export function companyVisionToMarkdown(c: typeof companyVisionCopy): string {
 export const companyAboutCopy = {
   title: "About",
   description: "A research lab and implementation partner for the agentic music industry.",
-  body: `${siteConfig.name} builds the music layer for AI agents — open-source skills, an API, and MCP integrations — and works hands-on with labels, catalogs, and platforms to put them to work inside their own stacks. We run our own label on the same tools. You own what we build, and we never train on your data.`,
+  body: `${siteConfig.name} builds the music layer for AI agents — open-source skills, an API, and MCP integrations — and works hands-on with labels, catalogs, and platforms to put them to work inside their own stacks. We run our own label on the same tools. You own what we build, with data boundaries scoped before implementation starts.`,
   contactEmail: siteConfig.contactEmail,
   supportEmail: siteConfig.supportEmail,
   legal: `${siteConfig.legalName} · ${siteConfig.address}`,

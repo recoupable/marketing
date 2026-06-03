@@ -2,7 +2,11 @@
  * Convert a Paragraph epoch-millisecond timestamp string to an ISO date.
  */
 export function timestampToISODate(timestamp: string): string {
-  return new Date(parseInt(timestamp, 10)).toISOString();
+  const milliseconds = Number(timestamp);
+  if (!Number.isFinite(milliseconds)) return "";
+
+  const date = new Date(milliseconds);
+  return Number.isNaN(date.getTime()) ? "" : date.toISOString();
 }
 
 /**
@@ -34,17 +38,17 @@ const CALLOUT_ICON_SVG =
   '<circle cx="12" cy="7.75" r="1.25" fill="currentColor"/></svg>';
 
 /**
- * Sanitize Paragraph's pre-rendered HTML for use on our domain.
+ * Normalize Paragraph's pre-rendered HTML for use on our domain.
  *
  * Paragraph embeds some assets from its own editor host
  * (`paragraph.com/editor/*`) that are gated behind login — e.g. the callout
  * info icon — so they 307 → login page and render as broken images for us.
  * We (1) strip `<link rel="preload">` tags (they reference those gated assets
  * and are meaningless mid-body) and (2) swap the gated callout icon for an
- * inline SVG. Content images (Google Storage `papyrus_images/*`) are public and
- * left untouched.
+ * inline SVG. This is not XSS sanitization; `ContentArticle` sanitizes the final
+ * HTML immediately before rendering.
  */
-export function sanitizeParagraphHtml(html: string): string {
+export function normalizeParagraphHtml(html: string): string {
   return (
     html
       // Drop preload <link> tags (gated asset hints, invalid inside body).

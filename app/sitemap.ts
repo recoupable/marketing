@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/config";
 export default function sitemap(): MetadataRoute.Sitemap {
   const contentEntries: MetadataRoute.Sitemap = getAllContent().map((entry) => ({
     url: `${siteConfig.url}/blog/${entry.slug}`,
-    lastModified: new Date(entry.date),
+    lastModified: new Date(entry.updatedAt || entry.date),
     changeFrequency: "monthly",
     priority: entry.category === "essay" ? 0.8 : 0.7,
   }));

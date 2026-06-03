@@ -5,9 +5,9 @@ import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Consulting — AI Implementation for Music Companies",
+  title: "Consulting — Custom AI Implementation for Music Teams",
   description:
-    "Work with the team that builds Recoup. Strategy, rollout, and custom agents that run in your stack — for labels, catalogs, distributors, and platforms. You own what we build; we never train on your data.",
+    "Plan, roll out, and ship custom AI agents in your stack for labels, catalogs, distributors, and platforms with the team behind Recoup.",
   path: "/consulting",
 });
 
@@ -59,7 +59,7 @@ const why = [
   },
   {
     title: "You own what we build",
-    body: "Agents, skills, and workflows live in your stack or a repo your organization controls. We never train models on your catalog, royalty, or proprietary data.",
+    body: "Agents, skills, and workflows live in your stack or a repo your organization controls, with data boundaries scoped before we build.",
   },
 ] as const;
 
@@ -69,8 +69,8 @@ const faq = [
     a: "It depends on where you are. Some teams need a single strategy session to get clarity; others want a multi-week implementation sprint alongside their team. We scope it together on the first call — no fixed package required.",
   },
   {
-    q: "Who owns what we build — and do you train on our data?",
-    a: "You do. The agents, skills, and workflows we build are yours, and they live in your stack or a repo your organization controls. We never train models on your catalog, royalty, or proprietary data, and your private work never folds into the open skills we publish.",
+    q: "Who owns what we build — and how is our data handled?",
+    a: "You do. The agents, skills, and workflows we build are yours, and they live in your stack or a repo your organization controls. We scope data access and reuse terms before work starts, and your private work is not folded into public skills without approval.",
   },
   {
     q: "Do I need technical people on my team?",
@@ -90,7 +90,7 @@ const faq = [
 
 export default function ConsultingPage() {
   return (
-    <main className="bg-(--background) text-(--foreground)">
+    <div className="bg-(--background) text-(--foreground)">
       {/* Hero */}
       <section className="pt-36 sm:pt-44 pb-20 sm:pb-24">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
@@ -125,7 +125,7 @@ export default function ConsultingPage() {
               href="/trust"
               className="underline decoration-(--foreground)/25 underline-offset-2 hover:text-(--foreground) hover:decoration-(--foreground)/50 transition-colors"
             >
-              We never train on your data
+              See our data boundary
             </Link>
             .
           </p>
@@ -292,12 +292,12 @@ export default function ConsultingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={CONTACT}
-              className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
+              className="cta-pulse font-ui font-semibold bg-white text-(--background) px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
             >
               Talk to us
             </a>
             <Link
-              href="/blog?type=essay"
+              href={siteConfig.researchUrl}
               className="font-ui font-medium text-sm text-white/40 hover:text-white/70 transition-colors flex items-center gap-1.5"
             >
               Read our research <ArrowRight size={14} />
@@ -305,6 +305,6 @@ export default function ConsultingPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

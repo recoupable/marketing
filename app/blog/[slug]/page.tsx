@@ -13,7 +13,7 @@ import {
 import { getParagraphPost } from "@/lib/paragraph/api";
 import {
   timestampToISODate,
-  sanitizeParagraphHtml,
+  normalizeParagraphHtml,
 } from "@/lib/paragraph/helpers";
 import { markdownToHtml, stripLeadingH1 } from "@/lib/markdown";
 import { buildPostMetadata, buildPostJsonLd } from "@/lib/seo";
@@ -22,7 +22,7 @@ import { ContentArticle } from "@/components/content/ContentArticle";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { BlogCTA } from "@/components/blog/BlogCTA";
 
-/** ISR — Paragraph-synced essays revalidate hourly; MDX is fully static. */
+/** ISR — Paragraph-synced essays revalidate hourly; MDX content still shares route-level revalidation. */
 export const revalidate = 3600;
 
 /**
@@ -155,23 +155,51 @@ export default async function ContentPostPage({
   const { config } = resolution;
   const post = await getParagraphPost(config.paragraphId);
   if (!post || !post.staticHtml) notFound();
+  const publishedAt = timestampToISODate(post.publishedAt);
+  if (!publishedAt) notFound();
+  const modifiedAt = timestampToISODate(post.updatedAt) || publishedAt;
 
   const eyebrow =
     CONTENT_CATEGORY_LABELS[
       categoryFor({ tags: config.tags, source: "paragraph" })
     ];
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.subtitle || config.excerpt,
+    author: {
+      "@type": "Person",
+      name: config.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    datePublished: publishedAt,
+    dateModified: modifiedAt,
+    url: `${siteConfig.url}/blog/${slug}`,
+    ...(post.imageUrl ? { image: post.imageUrl } : {}),
+  };
 
   return (
-    <ContentArticle
-      eyebrow={eyebrow}
-      title={post.title}
-      subtitle={post.subtitle}
-      author={config.author}
-      date={timestampToISODate(post.publishedAt)}
-      imageUrl={post.imageUrl}
-      html={sanitizeParagraphHtml(post.staticHtml)}
-    >
-      <ArticleFooter tags={config.tags} slug={slug} related={related} />
-    </ContentArticle>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ContentArticle
+        eyebrow={eyebrow}
+        title={post.title}
+        subtitle={post.subtitle}
+        author={config.author}
+        date={publishedAt}
+        imageUrl={post.imageUrl}
+        html={normalizeParagraphHtml(post.staticHtml)}
+      >
+        <ArticleFooter tags={config.tags} slug={slug} related={related} />
+      </ContentArticle>
+    </>
   );
 }

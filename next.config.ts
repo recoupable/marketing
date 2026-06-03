@@ -24,12 +24,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        // Old advisory booking flow → the single Consulting contact path.
-        source: "/advisory/book",
-        destination: "/consulting",
-        permanent: true,
-      },
-      {
         // Duplicate "Coming soon" stub folded into the real proof page.
         source: "/records",
         destination: "/company/recoup-records",

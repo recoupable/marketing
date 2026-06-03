@@ -3,7 +3,7 @@ import { buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Terms of Use — User Agreement & Service Terms",
+  title: `Terms of Use — User Agreement & Service Terms | ${siteConfig.name}`,
   description: `Terms and conditions for using ${siteConfig.name} services — user agreement, acceptable use, intellectual property, and service availability rules.`,
   path: "/terms-of-use",
 });

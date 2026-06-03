@@ -1,4 +1,4 @@
-import { CUSTOMER_LOGOS } from "@/lib/customerLogos";
+import { CUSTOMER_LOGOS, type CustomerLogo } from "@/lib/customerLogos";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
@@ -9,7 +9,7 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
-  const logo = CUSTOMER_LOGOS.find((entry) => entry.slug === slug);
+  const logo: CustomerLogo | undefined = CUSTOMER_LOGOS.find((entry) => entry.slug === slug);
 
   if (!logo) {
     return new Response("Not found", { status: 404 });
@@ -50,7 +50,8 @@ export async function GET(
         "Cache-Control": "public, max-age=86400, stale-while-revalidate=604800",
       },
     });
-  } catch {
-    return new Response("Not found", { status: 404 });
+  } catch (error) {
+    console.error(`Failed to load customer logo ${slug}:`, error);
+    return new Response("Failed to load logo", { status: 500 });
   }
 }

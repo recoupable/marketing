@@ -6,12 +6,10 @@ import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `${siteConfig.name} Records — Our AI-Run Music Label`,
+  title: `${siteConfig.name} Records — AI-Run Label Proof & Workflows`,
   description: `${siteConfig.name} Records runs on our own platform. Every release, marketing push, and piece of content executed by AI agents — the proof the system works.`,
   path: "/company/recoup-records",
 });
-
-const SKILLS_REPO = "https://github.com/recoupable/skills";
 
 /**
  * Company: Recoup Records — the dogfooding proof page. Copy from lib/copy/company
@@ -22,7 +20,7 @@ export default function RecoupRecordsPage() {
   const c = companyRecoupRecordsCopy;
 
   return (
-    <main className="bg-(--background) text-(--foreground)">
+    <div className="bg-(--background) text-(--foreground)">
       {/* Hero */}
       <section className="pt-36 sm:pt-44 pb-20 sm:pb-24">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10">
@@ -61,7 +59,7 @@ export default function RecoupRecordsPage() {
             {c.runsOn.map((item) => (
               <a
                 key={item.skill}
-                href={`${SKILLS_REPO}/tree/main/skills/${item.skill}`}
+                href={`${siteConfig.skillsRepoUrl}/tree/main/skills/${item.skill}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex flex-col rounded-2xl bg-(--background) p-7 transition-colors hover:bg-(--muted)/40"
@@ -102,7 +100,7 @@ export default function RecoupRecordsPage() {
               Run this on your roster <ArrowRight size={15} />
             </Link>
             <a
-              href={SKILLS_REPO}
+              href={siteConfig.skillsRepoUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="font-ui font-medium text-[15px] text-(--foreground)/55 hover:text-(--foreground) transition-colors flex items-center gap-1.5"
@@ -112,6 +110,6 @@ export default function RecoupRecordsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

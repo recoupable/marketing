@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useState } from "react";
 import { ContentCard } from "./ContentCard";
+import { FilterTab } from "./FilterTab";
 import {
   CONTENT_CATEGORY_ORDER,
   CONTENT_CATEGORY_TAB_LABELS,
@@ -45,6 +46,9 @@ export function ContentList({
       : "all";
 
   const [filter, setFilter] = useState<Filter>(initial);
+  useEffect(() => {
+    setFilter(initial);
+  }, [initial]);
 
   const visible =
     filter === "all"
@@ -78,30 +82,5 @@ export function ContentList({
         <p className="text-(--muted-foreground)">Nothing here yet.</p>
       )}
     </>
-  );
-}
-
-function FilterTab({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`font-ui rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-        active
-          ? "bg-(--foreground) text-(--background)"
-          : "text-(--muted-foreground) hover:text-(--foreground)"
-      }`}
-      style={active ? undefined : { boxShadow: "0 0 0 1px var(--border)" }}
-    >
-      {children}
-    </button>
   );
 }

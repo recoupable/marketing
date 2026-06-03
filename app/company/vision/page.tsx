@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Vision — The Layer the Agentic Music Industry Runs On",
-  description: `${siteConfig.name} is a research lab and implementation partner for the agentic music industry — building the open music layer for AI agents and putting it to work inside labels, catalogs, and platforms.`,
+  description: `${siteConfig.name} builds the open music layer for AI agents and helps labels, catalogs, and platforms put it to work inside real teams.`,
   path: "/company/vision",
 });
 
@@ -18,7 +18,7 @@ export default function VisionPage() {
   const c = companyVisionCopy;
 
   return (
-    <main className="bg-(--background) text-(--foreground)">
+    <div className="bg-(--background) text-(--foreground)">
       <section className="pt-36 sm:pt-44 pb-24">
         <div className="max-w-[760px] mx-auto px-6 sm:px-10">
           <Link
@@ -62,6 +62,6 @@ export default function VisionPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

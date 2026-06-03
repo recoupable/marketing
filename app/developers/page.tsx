@@ -18,7 +18,7 @@ export default function DevelopersPage() {
   const c = developersCopy;
 
   return (
-    <main className="bg-(--background) text-(--foreground)">
+    <div className="bg-(--background) text-(--foreground)">
       {/* Hero */}
       <section className="pt-36 sm:pt-44 pb-12 sm:pb-16">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
@@ -103,12 +103,12 @@ export default function DevelopersPage() {
             href={c.ctaHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5 inline-block"
+            className="cta-pulse font-ui font-semibold bg-white text-(--background) px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5 inline-block"
           >
             {c.ctaLabel}
           </a>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

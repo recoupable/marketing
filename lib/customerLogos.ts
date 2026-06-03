@@ -6,7 +6,7 @@ export interface CustomerLogo {
   className?: string;
 }
 
-export const CUSTOMER_LOGOS: readonly CustomerLogo[] = [
+export const CUSTOMER_LOGOS = [
   {
     slug: "atlantic-records",
     fileName: "atlantic-records.svg",
@@ -58,6 +58,6 @@ export const CUSTOMER_LOGOS: readonly CustomerLogo[] = [
     viewBoxOverride: "118 352 573 105",
     className: "max-h-4.5 sm:max-h-5.5",
   },
-] as const;
+] as const satisfies readonly CustomerLogo[];
 
 export type CustomerLogoSlug = (typeof CUSTOMER_LOGOS)[number]["slug"];

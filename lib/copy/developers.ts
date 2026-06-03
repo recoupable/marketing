@@ -7,7 +7,7 @@ export const developersCopy = {
   title: "Developers",
   description:
     "The music layer for your agents — open skills, a music-native API, and MCP. Build on the same system Recoup Records runs on.",
-  installCommand: "npx skills add recoupable/skills",
+  installCommand: siteConfig.skillsInstallCommand,
   installNote: "Installs the open skills into Claude, Cursor, or your own stack.",
   sections: [
     {
@@ -16,7 +16,7 @@ export const developersCopy = {
       description:
         "Open-source skills our own agents run every day — music research, chart metrics, content creation, release management, streaming growth. Install the whole repo with one command.",
       linkLabel: "Browse the skills",
-      linkHref: "https://github.com/recoupable/skills",
+      linkHref: siteConfig.skillsRepoUrl,
     },
     {
       id: "api",

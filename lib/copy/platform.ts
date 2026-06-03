@@ -50,7 +50,7 @@ export const platformCopy = {
   plugins: {
     heading: "Plugins marketplace",
     description:
-      "Native bundles for Claude Code, Cowork, Codex, and Cursor — the open skills plus commands, subagents, and deeper API-backed research and catalog workflows. Add the marketplace once, then install any plugin.",
+      "Native bundles for Claude Code, Cowork, and Codex — the open skills plus commands, subagents, and deeper API-backed research and catalog workflows. Add the marketplace once, then install any plugin.",
     repo: "https://github.com/recoupable/marketplace",
     install: "/plugin marketplace add recoupable/marketplace",
     items: [

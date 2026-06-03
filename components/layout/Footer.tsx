@@ -21,7 +21,7 @@ const FOOTER_NAV = [
       { href: "/platform", label: "Platform" },
       { href: "/partners", label: "Partners" },
       { href: "/developers", label: "Developers" },
-      { href: siteConfig.docsUrl, label: "API Docs" },
+      { href: siteConfig.docsUrl, label: "API Docs", external: true },
       { href: "/pricing", label: "Pricing" },
     ],
   },
@@ -31,7 +31,7 @@ const FOOTER_NAV = [
       { href: "/company/about", label: "About" },
       { href: "/company/vision", label: "Vision" },
       { href: "/trust", label: "Trust & Governance" },
-      { href: siteConfig.appUrl, label: "Open app" },
+      { href: siteConfig.appUrl, label: "Open app", external: true },
     ],
   },
 ];
@@ -75,12 +75,23 @@ export function Footer() {
               <ul className="space-y-2.5">
                 {section.links.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-[13px] text-(--foreground)/40 hover:text-(--foreground)/70 transition-colors"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.external || link.href.startsWith("mailto:") ? (
+                      <a
+                        href={link.href}
+                        target={link.external ? "_blank" : undefined}
+                        rel={link.external ? "noopener noreferrer" : undefined}
+                        className="text-[13px] text-(--foreground)/40 hover:text-(--foreground)/70 transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-[13px] text-(--foreground)/40 hover:text-(--foreground)/70 transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

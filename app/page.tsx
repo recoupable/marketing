@@ -2,11 +2,11 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { siteConfig } from "@/lib/config";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
 import { ResearchCard } from "@/components/home/ResearchCard";
-import { CUSTOMER_LOGOS } from "@/lib/customerLogos";
+import { CUSTOMER_LOGOS, type CustomerLogo } from "@/lib/customerLogos";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 
 /* ──────────────────────────────────────────────────────────────────────
@@ -18,9 +18,6 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
    open repo; each card deep-links to its skill on GitHub so the claim is
    verifiable on first contact.
    ────────────────────────────────────────────────────────────────────── */
-
-const SKILLS_REPO = "https://github.com/recoupable/skills";
-const SKILLS_INSTALL = "npx skills add recoupable/skills";
 
 interface SkillPack {
   id: string;
@@ -80,10 +77,12 @@ function Book({
   isActive: boolean;
   onClick: (id: string) => void;
 }) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.button
-      layout
-      transition={{ layout: BOOK_TRANSITION }}
+      layout={!shouldReduceMotion}
+      transition={shouldReduceMotion ? { duration: 0 } : { layout: BOOK_TRANSITION }}
       onClick={() => onClick(pack.id)}
       aria-label={`Show ${pack.title.join(" ")} pack`}
       aria-pressed={isActive}
@@ -96,7 +95,7 @@ function Book({
           ? "inset -14px 0 18px -14px rgba(0,0,0,0.55), 0 30px 60px -15px rgba(0,0,0,0.35)"
           : "inset -5px 0 8px -5px rgba(0,0,0,0.5), 0 15px 30px -10px rgba(0,0,0,0.25)",
       }}
-      whileHover={{ y: -6 }}
+      whileHover={shouldReduceMotion ? undefined : { y: -6 }}
     >
       <div className="absolute left-0 top-0 bottom-0 w-2 bg-black/15" aria-hidden="true" />
 
@@ -104,9 +103,13 @@ function Book({
         {isActive ? (
           <motion.div
             key="cover"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { delay: 0.25, duration: 0.3 } }}
-            exit={{ opacity: 0, transition: { duration: 0.1 } }}
+            initial={shouldReduceMotion ? false : { opacity: 0 }}
+            animate={
+              shouldReduceMotion
+                ? { opacity: 1 }
+                : { opacity: 1, transition: { delay: 0.25, duration: 0.3 } }
+            }
+            exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, transition: { duration: 0.1 } }}
             className="absolute inset-0"
           >
             <div className="absolute top-4 left-5 sm:top-5 sm:left-6">
@@ -121,9 +124,13 @@ function Book({
         ) : (
           <motion.div
             key="spine"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { delay: 0.25, duration: 0.3 } }}
-            exit={{ opacity: 0, transition: { duration: 0.1 } }}
+            initial={shouldReduceMotion ? false : { opacity: 0 }}
+            animate={
+              shouldReduceMotion
+                ? { opacity: 1 }
+                : { opacity: 1, transition: { delay: 0.25, duration: 0.3 } }
+            }
+            exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, transition: { duration: 0.1 } }}
             className="absolute inset-0"
           >
             <div className="absolute top-3 left-1/2 -translate-x-1/2 sm:top-4">
@@ -240,7 +247,7 @@ export default function HomePage() {
             </Link>
           </div>
           <p className={`font-ui text-[12px] text-(--foreground)/40 mt-7 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "850ms" }}>
-            You own what we build. We never train on your data.
+            You own what we build, with data boundaries scoped before implementation starts.
           </p>
         </div>
       </section>
@@ -252,7 +259,7 @@ export default function HomePage() {
       <section className="py-8 border-y border-(--border)">
         <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-center flex-wrap gap-x-5 sm:gap-x-7 gap-y-4">
           <span className="shrink-0 font-ui text-[10px] text-(--foreground)/35 uppercase tracking-[0.15em]">Used by teams at</span>
-          {CUSTOMER_LOGOS.map((logo) => (
+          {CUSTOMER_LOGOS.map((logo: CustomerLogo) => (
             <span key={logo.slug} className="flex h-8 w-12 sm:w-16 items-center justify-center">
               <img
                 src={`/api/customer-logos/${logo.slug}`}
@@ -383,7 +390,7 @@ export default function HomePage() {
               href={siteConfig.docsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-ui font-semibold bg-white text-[#0a0a0a] px-7 py-3 rounded-full text-[14px] hover:bg-white/90 transition-colors inline-flex items-center gap-1.5"
+              className="font-ui font-semibold bg-white text-(--background) px-7 py-3 rounded-full text-[14px] hover:bg-white/90 transition-colors inline-flex items-center gap-1.5"
             >
               Read the API docs <ArrowUpRight size={14} />
             </a>
@@ -411,7 +418,7 @@ export default function HomePage() {
             <p className="text-[15px] text-(--foreground)/50 max-w-lg mx-auto leading-relaxed">
               Open-source skills our own agents run every day. Install them into Claude, Cursor, or your own stack in seconds. Your private work stays yours —{" "}
               <Link href="/trust" className="underline decoration-(--foreground)/20 underline-offset-2 hover:text-(--foreground) hover:decoration-(--foreground)/50 transition-colors">
-                we never train on your data
+                review our data boundary
               </Link>
               .
             </p>
@@ -435,7 +442,7 @@ export default function HomePage() {
               <div className="flex items-baseline justify-between gap-3 mb-2">
                 <p className="font-ui font-bold text-[15px]">{activePack.title.join(" ")}</p>
                 <a
-                  href={`${SKILLS_REPO}/tree/main/skills/${activePack.skill}`}
+                  href={`${siteConfig.skillsRepoUrl}/tree/main/skills/${activePack.skill}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[11px] font-ui font-semibold text-(--foreground)/55 hover:text-(--foreground) transition-colors inline-flex items-center gap-1 whitespace-nowrap"
@@ -459,13 +466,13 @@ export default function HomePage() {
                 className="block font-mono text-[12px] bg-(--background) px-3 py-2.5 rounded-md text-(--foreground)/80"
                 style={{ boxShadow: "0 0 0 1px var(--border)" }}
               >
-                <span className="text-(--foreground)/35">$</span> {SKILLS_INSTALL}
+                <span className="text-(--foreground)/35">$</span> {siteConfig.skillsInstallCommand}
               </code>
             </div>
             <p className="text-center text-[12px] text-(--foreground)/40 mt-4">
               One command installs the whole open repo.{" "}
               <a
-                href={SKILLS_REPO}
+                href={siteConfig.skillsRepoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors inline-flex items-center gap-1"
@@ -564,7 +571,7 @@ export default function HomePage() {
             Let&apos;s build it<br />in your stack.
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/consulting" className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:-translate-y-0.5">
+            <Link href="/consulting" className="cta-pulse font-ui font-semibold bg-white text-(--background) px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:-translate-y-0.5">
               Talk to us
             </Link>
             <Link href={siteConfig.researchUrl} className="font-ui font-medium text-sm text-white/40 hover:text-white/70 transition-colors flex items-center gap-1.5">

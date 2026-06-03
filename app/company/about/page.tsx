@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: `About ${siteConfig.name} — Research Lab & Implementation Partner`,
-  description: `${siteConfig.name} is a research lab and implementation partner for the agentic music industry — open-source skills, an API, and MCP integrations, put to work inside labels, catalogs, and platforms.`,
+  description: `${siteConfig.name} researches, builds, and implements AI agents for music teams, from open skills and APIs to custom workflows in your stack.`,
   path: "/company/about",
 });
 
@@ -18,7 +18,7 @@ export default function AboutPage() {
   const c = companyAboutCopy;
 
   return (
-    <main className="bg-(--background) text-(--foreground)">
+    <div className="bg-(--background) text-(--foreground)">
       <section className="pt-36 sm:pt-44 pb-24">
         <div className="max-w-[760px] mx-auto px-6 sm:px-10">
           <Link
@@ -64,6 +64,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

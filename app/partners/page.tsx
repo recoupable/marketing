@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Partners — Embed Music Intelligence in Your Product",
   description:
-    "For distributors, creator tools, and platforms: embed Recoup's music agents and API in your product. Usage-based and rev-share models, MCP-native, you keep your customer relationship.",
+    "Embed music agents in your product for distributors, creator tools, and platforms. Usage-based pricing, MCP-native, and you keep the customer.",
   path: "/partners",
 });
 
@@ -60,8 +60,8 @@ const commercials = [
     a: "Your choice. You can bring your own model keys and pay providers directly, fold usage into your existing plans, or have us meter and bill it back. We're transparent about per-run cost either way.",
   },
   {
-    q: "Do you train on our or our users' data?",
-    a: "No. We never train models on your catalog, your users' data, or anything that runs through a partnership. Your data stays inside your boundary.",
+    q: "How do you handle our or our users' data?",
+    a: "We scope data access and reuse terms before integration work starts. Your data stays inside the agreed boundary, and private partnership work is not folded into public skills without approval.",
   },
   {
     q: "What about agent discovery?",
@@ -73,7 +73,7 @@ const commercials = [
 
 export default function PartnersPage() {
   return (
-    <main className="bg-(--background) text-(--foreground)">
+    <div className="bg-(--background) text-(--foreground)">
       {/* Hero */}
       <section className="pt-36 sm:pt-44 pb-20 sm:pb-24">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
@@ -206,7 +206,7 @@ export default function PartnersPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={CONTACT}
-              className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
+              className="cta-pulse font-ui font-semibold bg-white text-(--background) px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
             >
               Talk to partnerships
             </a>
@@ -221,6 +221,6 @@ export default function PartnersPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

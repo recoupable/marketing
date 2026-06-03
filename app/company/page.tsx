@@ -23,14 +23,14 @@ const COMPANY_LINKS = [
 ];
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `Company — Vision, ${siteConfig.name} Records & About`,
+  title: `Company — Research, Records & Music AI Team at ${siteConfig.name}`,
   description: `Meet ${siteConfig.name} — a research lab and implementation partner for the agentic music industry. Our vision, our own label, and who we are.`,
   path: "/company",
 });
 
 export default function CompanyPage() {
   return (
-    <main className="bg-(--background) text-(--foreground)">
+    <div className="bg-(--background) text-(--foreground)">
       <section className="pt-36 sm:pt-44 pb-24">
         <div className="max-w-[760px] mx-auto px-6 sm:px-10">
           <p className="font-pixel text-[10px] uppercase tracking-[0.22em] text-(--foreground)/45 mb-6">
@@ -67,6 +67,6 @@ export default function CompanyPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

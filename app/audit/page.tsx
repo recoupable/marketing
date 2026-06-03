@@ -41,10 +41,10 @@ export default function AuditPage() {
           </div>
           <div>
             <div className="font-pixel text-xl mb-1">
-              No training
+              Scoped access
             </div>
             <p className="text-xs text-[var(--muted-foreground)]">
-              We never train on your data
+              Data boundaries are set up front
             </p>
           </div>
           <div>

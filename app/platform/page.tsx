@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { platformCopy } from "@/lib/copy/platform";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -11,9 +12,6 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/platform",
 });
 
-const SKILLS_REPO = "https://github.com/recoupable/skills";
-const SKILLS_INSTALL = "npx skills add recoupable/skills";
-
 /**
  * Platform page — copy from lib/copy/platform (single source for human + machine view).
  */
@@ -21,7 +19,7 @@ export default function PlatformPage() {
   const c = platformCopy;
 
   return (
-    <main className="bg-(--background) text-(--foreground)">
+    <div className="bg-(--background) text-(--foreground)">
       {/* Hero */}
       <section className="pt-36 sm:pt-44 pb-16 sm:pb-20">
         <div className="max-w-[860px] mx-auto px-6 sm:px-10 text-center">
@@ -62,12 +60,12 @@ export default function PlatformPage() {
               className="block font-mono text-[12px] bg-(--background) px-3 py-2.5 rounded-md text-(--foreground)/80"
               style={{ boxShadow: "0 0 0 1px var(--border)" }}
             >
-              <span className="text-(--foreground)/35">$</span> {SKILLS_INSTALL}
+              <span className="text-(--foreground)/35">$</span> {siteConfig.skillsInstallCommand}
             </code>
             <p className="text-center text-[12px] text-(--foreground)/40 mt-3">
               One command installs the whole open repo.{" "}
               <a
-                href={SKILLS_REPO}
+                href={siteConfig.skillsRepoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors inline-flex items-center gap-1"
@@ -172,7 +170,7 @@ export default function PlatformPage() {
               href={c.ctaHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5 inline-flex items-center gap-1.5"
+              className="cta-pulse font-ui font-semibold bg-white text-(--background) px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5 inline-flex items-center gap-1.5"
             >
               {c.ctaLabel} <ArrowUpRight size={15} />
             </a>
@@ -185,6 +183,6 @@ export default function PlatformPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -1,3 +1,4 @@
+import { z } from "zod";
 import type { ParagraphPost } from "./types";
 
 /**
@@ -6,6 +7,24 @@ import type { ParagraphPost } from "./types";
  * so paragraph.com stays the single source of truth for the body.
  */
 const PARAGRAPH_API_BASE = "https://public.api.paragraph.com/api/v1";
+
+const optionalStringSchema = z
+  .string()
+  .nullable()
+  .optional()
+  .transform((value) => value ?? undefined);
+
+const paragraphPostSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  subtitle: optionalStringSchema,
+  slug: z.string(),
+  imageUrl: optionalStringSchema,
+  publishedAt: z.union([z.string(), z.number()]).transform(String),
+  updatedAt: z.union([z.string(), z.number()]).transform(String),
+  staticHtml: optionalStringSchema,
+  markdown: optionalStringSchema,
+});
 
 /**
  * Fetch a single Paragraph post by its 20-char post ID.
@@ -26,7 +45,15 @@ export async function getParagraphPost(
       return null;
     }
 
-    return response.json();
+    const payload: unknown = await response.json();
+    const parsed = paragraphPostSchema.safeParse(payload);
+
+    if (!parsed.success) {
+      console.error(`Invalid Paragraph post payload ${postId}:`, parsed.error);
+      return null;
+    }
+
+    return parsed.data satisfies ParagraphPost;
   } catch (error) {
     console.error(`Error fetching Paragraph post ${postId}:`, error);
     return null;

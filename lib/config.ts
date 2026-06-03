@@ -14,6 +14,8 @@ export const siteConfig = {
   docsUrl: "https://developers.recoupable.com",
   /** Research/essays now live as a filter on the unified /blog hub. */
   researchUrl: "/blog?type=essay",
+  skillsRepoUrl: "https://github.com/recoupable/skills",
+  skillsInstallCommand: "npx skills add recoupable/skills",
 
   /** Contact emails */
   supportEmail: "support@recoupable.com",

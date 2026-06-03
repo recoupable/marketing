@@ -5,9 +5,9 @@ import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Trust & Governance — Data, Ownership, No-Train",
+  title: "Trust & Governance — Data, Ownership & AI Access",
   description:
-    "How Recoup handles your data: you own what we build, we never train on your data, and your skills live in repos your organization controls.",
+    "How Recoup handles your data: you own what we build, access is scoped before work starts, and private skills live in your repos.",
   path: "/trust",
 });
 
@@ -22,9 +22,9 @@ const principles = [
     body: "Agents, skills, and workflows built in your engagement are yours. They live in your stack or a repository your organization controls — not locked inside our platform.",
   },
   {
-    k: "Training",
-    title: "We never train on your data",
-    body: "Your catalog, royalty figures, contracts, and audience data are never used to train models, and never fold into the open skills we publish. Private work stays private.",
+    k: "Data use",
+    title: "Data boundaries are scoped up front",
+    body: "Your catalog, royalty figures, contracts, and audience data stay inside the agreed engagement boundary. Private work is not folded into public skills without approval.",
   },
   {
     k: "Repositories",
@@ -52,7 +52,7 @@ const principles = [
 
 export default function TrustPage() {
   return (
-    <main className="bg-(--background) text-(--foreground)">
+    <div className="bg-(--background) text-(--foreground)">
       {/* Hero */}
       <section className="pt-36 sm:pt-44 pb-20 sm:pb-24">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
@@ -149,6 +149,6 @@ export default function TrustPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

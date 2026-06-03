@@ -140,6 +140,7 @@ function postToEntry(post: Post, source: ContentSource): ContentEntry {
     title: post.title,
     excerpt: post.excerpt,
     date: post.date,
+    updatedAt: post.updatedAt,
     author: post.author,
     tags: post.tags,
     category: categoryFor({ type: post.type, tags: post.tags, source }),

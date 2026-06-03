@@ -42,6 +42,7 @@ export interface ContentEntry {
   title: string;
   excerpt: string;
   date: string;
+  updatedAt?: string;
   author: string;
   tags: string[];
   category: ContentCategory;
