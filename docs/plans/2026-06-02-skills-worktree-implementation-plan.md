@@ -1,6 +1,6 @@
 # Skills Worktree — Implementation Plan (Portability-Everything)
 
-> **Status:** Plan v2, 2026-06-02. **Phases 1–2 COMPLETE** (all 42 skills portable; lint + drift + manifests green; CI wired). Supersedes the "two-channel / coupling-allowed" v1. Executes the recommendations from `2026-06-02-skills-plugins-packaging-landscape.md` with one overriding directive: **make every skill cross-harness portable.**
+> **Status:** Plan v2, 2026-06-02. **Phase 1 COMPLETE; Phase 2 functionally complete pending Task 2.5 live install verification** (all 42 skills portable; lint + drift + manifests green; CI wired). Supersedes the "two-channel / coupling-allowed" v1. Executes the recommendations from `2026-06-02-skills-plugins-packaging-landscape.md` with one overriding directive: **make every skill cross-harness portable.**
 >
 > **Done (2026-06-02):** portability lint / drift check / manifest validator built (`scripts/`); 10 research + 17 catalog + 14 library + 1 content skills made self-contained (94 vendored copies, drift-checked across 27 groups); markdown links → backtick paths; CI workflow `.github/workflows/validate.yml`. Catalog scripts vendored as **per-skill dependency closures** (not the full 17-set) — each skill ships only the scripts it invokes plus their transitive `subprocess`/`importlib`/`_helpers` deps; verified to execute from the skill dir.
 >
@@ -102,10 +102,10 @@ Catalog script facts (verified): scripts import siblings via `Path(__file__).res
 - **Cross-skill dep:** `recoup-royalty-audit/SKILL.md:22` reads `recoup-catalog-analysis/references/pro-performance-income.md` → copy that file into `recoup-royalty-audit/references/`, repoint to backtick local path, add to `vendored.json`.
 - **Acceptance:** `grep -rn "skills/recoup-catalog-analysis\|\.\./\.\./references" plugins/catalog/skills` → empty; drift covers the copies.
 
-### Task 2.4 — Catalog scripts (heaviest: co-locate the production script set)
-- Because scripts cross-invoke siblings via `__file__` + import `_helpers.py`, each **script-bearing** skill must carry the **full production script set** (all non-`test-*` scripts incl. `_helpers.py`), not a partial subset. Copy `plugins/catalog/scripts/*` (production only) into each of: `recoup-catalog-{analyze,dashboard,deal,ingest,kickoff,package,qc,report}/scripts/` (+`recoup-catalog-analysis` if it invokes any).
+### Task 2.4 — Catalog scripts (heaviest: co-locate per-skill dependency closures)
+- Because scripts cross-invoke siblings via `__file__` + import `_helpers.py`, each **script-bearing** skill must carry the scripts it invokes plus transitive sibling/helper dependencies. Do **not** vendor the full production script set into every skill; use the smallest per-skill dependency closure that executes from the skill directory.
 - SKILL.md script refs are **already** `scripts/foo.py` → now correct, co-located. Add a one-line body note: "Scripts ship alongside this skill in `scripts/`; run them from the skill directory."
-- Keep `plugins/catalog/scripts/` as the **canonical** source; register every co-located copy in `vendored.json` so the drift check keeps them in lockstep.
+- Keep `plugins/catalog/scripts/` as the **canonical** source; register every co-located dependency-closure copy in `vendored.json` so the drift check keeps them in lockstep.
 - Vendor any `templates/`/`fixtures/` a skill reads into that skill (same drift treatment).
 - **Acceptance:** lint passes all 17 catalog skills; `grep -rn "python3 scripts/" plugins/catalog/skills` still matches (now resolving to in-skill copies); drift check green across all duplicated scripts.
 

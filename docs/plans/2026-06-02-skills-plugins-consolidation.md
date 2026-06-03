@@ -27,7 +27,7 @@ The only place the website touches this topic is *how it describes* skills vs. p
 ## A.1 The framing that survives any outcome
 
 - **Open skills** (hero, `npx skills add recoupable/skills`) = portable skills you drop into *any* agent — Claude, Cursor, Codex, your own stack. The universal quick start.
-- **Plugins / marketplace** (section) = native bundles that add **commands, subagents, and the deeper API-backed research & catalog workflows**, packaged for Claude Code, Cowork, Codex, and Cursor.
+- **Plugins / marketplace** (section) = native bundles that add **commands, subagents, and the deeper API-backed research & catalog workflows**, packaged for Claude Code, Cowork, and Codex. Cursor stays covered by the portable open-skills install until its plugin packaging path is verified.
 
 Why this is safe: it describes the two by **what the user gets** (portable skills vs. richer native bundles), not by **where the files live**. Whatever we decide in Part D, this stays true.
 
@@ -40,7 +40,7 @@ Why this is safe: it describes the two by **what the user gets** (portable skill
 **Task A1 — Reframe the marketplace section so it reads as "deeper," not "duplicate."**
 - Modify: `marketing/lib/copy/platform.ts` (the `plugins` block, lines ~50–77).
 - Sharpen `plugins.description` to emphasize the delta over raw skills, e.g.:
-  > "Native bundles for Claude Code, Cowork, Codex, and Cursor — the open skills **plus** commands, subagents, and deeper API-backed research and catalog workflows. Add the marketplace once, then install any plugin."
+  > "Native bundles for Claude Code, Cowork, and Codex — the open skills **plus** commands, subagents, and deeper API-backed research and catalog workflows. Add the marketplace once, then install any plugin."
 - Keep the four items; make `Research` and `Catalog deals` explicitly "API-backed" / "buy-side" so the unique value is legible.
 
 **Task A2 — Add a one-line connector between the two installs.**
