@@ -180,6 +180,68 @@ recoupable/skills/
 
 ---
 
+## Catalog → Deals rename + naming cleanup (DONE 2026-06-02)
+
+**Verdict (shipped):** renamed plugin `catalog` → `deals` ("Recoup Deals"). The job is *executing deals*; the catalog is the asset. Skills already wrote to `deals/{deal-id}/`; marketplace keywords already included `catalog-deals`.
+
+**Decisions locked (user vote 2026-06-02):**
+- **Path A — skills-only.** Dropped all `commands/*.md`; slash commands are auto-exposed from skill names. Maximizes cross-harness portability.
+- **Plugin = "Recoup Deals"** (`recoup-deals-plugin`), dir `plugins/deals/`.
+- **Singular `recoup-deal-*`** — the user analyzes one deal at a time.
+- **Plain-English, self-evident slugs** (final naming pass) — names optimize purely for "a busy user reads the slash menu and knows what each does," not grammar consistency. The full-run orchestrator is `recoup-deal-get-started` (the one entry point users actually invoke; workspace-setup-only is not a thing anyone runs standalone).
+
+**Problem this solved:** the 17 catalog skills were two indistinguishable layers — 9 command skills + 8 library skills — with two prefixes and 3 near-twin stub↔logic collisions (`catalog-analyze`↔`catalog-analysis`, `catalog-kickoff`↔`deal-kickoff`, `catalog-package`↔`ic-memo-package`). Path A removes the stub layer entirely; the 3 collisions merged into single skills. Result: **17 → 14 skills**, one prefix, no layer ambiguity.
+
+**Final map (executed):**
+
+| Was (catalog) | → Final slug | Note |
+|---|---|---|
+| `recoup-catalog-deal` | `recoup-deal-get-started` | orchestrator (full run) |
+| `recoup-catalog-kickoff` + `recoup-deal-kickoff` | `recoup-deal-workspace-setup` | **merged** |
+| `recoup-catalog-analyze` + `recoup-catalog-analysis` | `recoup-deal-valuation-analyzer` | **merged** |
+| `recoup-catalog-package` + `recoup-ic-memo-package` | `recoup-deal-memo-maker` | **merged** |
+| `recoup-catalog-ingest` | `recoup-deal-data-cleaner` | rename |
+| `recoup-catalog-dashboard` | `recoup-deal-dashboard-creator` | rename |
+| `recoup-catalog-qc` | `recoup-deal-quality-checker` | rename |
+| `recoup-catalog-report` | `recoup-deal-report-generator` | rename |
+| `recoup-catalog-demo` | `recoup-deal-demo-run` | rename |
+| `recoup-royalty-audit` | `recoup-deal-royalties-auditor` | rename |
+| `recoup-rights-review` | `recoup-deal-rights-reviewer` | rename |
+| `recoup-financing-underwrite` | `recoup-deal-financing-underwriter` | rename |
+| `recoup-seller-prep` | `recoup-deal-seller-prep` | rename |
+| `recoup-post-close-admin` | `recoup-deal-post-close-admin` | rename |
+
+**Slug naming rule (locked):** Path A auto-exposes each skill `name` as the slash command, so the slug must be understandable on its own (the `description` carries trigger phrases). **One rule: optimize each name so a busy user reading the slash menu instantly knows what it does — clarity over grammar consistency.** Use descriptive object+role names (`valuation-analyzer`, `dashboard-creator`, `memo-maker`, `report-generator`, `data-cleaner`, `quality-checker`, `rights-reviewer`, `royalties-auditor`, `financing-underwriter`); only stay terse when the bare word is already plain-English (`seller-prep`, `post-close-admin`). The full pipeline is `get-started` because that is the natural "begin here" entry. Bare nouns that left the reader guessing (the old `check`) were the failure mode this pass fixed.
+
+**Surface touched:** skill dirs + `name:` frontmatter, deleted `commands/`, all 3 `plugin.json` variants + both `marketplace.json`s (name/displayName "Recoup Deals", `commands` key removed), `scripts/vendored.json` copy paths, cross-skill body references, eval `skill_name` fields, and de-`Catalog`-ed all skill H1 headers. Also fixed a prior global-replace that had corrupted the `seller-prep` **workflow enum** value to `recoup-seller-prep`.
+
+**Verified green:** `check_vendored.py` (92 copies / 26 groups), `validate_manifests.py` (13 files, dual-manifest parity), `portability_lint.py` (39 skills portable). Worktree-wide sweep: zero lingering `recoup-catalog-*` / `plugins/catalog` references; runtime smoke confirmed vendored scripts' sibling imports resolve.
+
+---
+
+## 14 → 6 workflow-stage fold (DONE 2026-06-03)
+
+**Verdict (shipped):** collapsed the 14 deal skills into **6 workflow-stage skills**. The user's priority shifted from per-skill trigger words to *customer experience in the slash menu* — fewer, broader steps that read as a natural workflow. Most users only run the orchestrator anyway, so granular skills became modes, parameters, and bundled reference playbooks inside the survivors.
+
+**Final 6 skills:**
+
+| Skill | Stage | Absorbed |
+|---|---|---|
+| `recoup-deal-start` | orchestrator + setup | `recoup-deal-workspace-setup`; carries deal-type modes (buy-side / seller-prep / financing / post-close) |
+| `recoup-deal-ingest` | data-room normalization | (rename of `data-cleaner`) |
+| `recoup-deal-analysis` | rights + royalty + valuation diligence | `rights-reviewer`, `royalties-auditor`, `financing-underwriter`, `seller-prep`, `post-close-admin` → bundled as `references/*.md` playbooks |
+| `recoup-deal-dashboard` | DASHBOARD.html + pre-share QC gate | `quality-checker` (run-deal-checks battery) |
+| `recoup-deal-report` | memo + shareable PDF | `memo-maker` (owns written narrative + packages) |
+| `recoup-deal-demo` | end-to-end on synthetic data | (rename of `demo-run`) |
+
+**Technique:** "modes + bundled references." Deal-type-specific logic became a `--workflow` parameter on `start` that selects an analysis deep-dive + report package; the folded skills' prose moved into the survivor's `references/` (progressive disclosure), their evals merged (ID-prefixed) into the survivor's `evals.json`, and their vendored scripts/templates re-pointed at the survivor via a slug-remap of `vendored.json` (self-copies dropped, copies deduped — auto-deriving the correct closure).
+
+**Surface touched:** 6 survivor dirs renamed (`git mv`); 8 absorbed dirs `git rm`'d; analysis gained `rights-review / royalty-audit / financing-underwrite / seller-prep / post-close-admin / red-flags` references; dashboard gained the QC-gate section + validator scripts; report gained the memo-assembly section + memo templates; `start` rewrote phases (setup folded in, sub-skill calls renamed, deal-type modes table, escape hatches → 6); `hooks.json` Gate B fixed (removed the `workspace-setup→start` collision from the single-phase list); plugin `README.md` command + skill tables rewritten from the mechanically-collapsed duplicates to the true 6.
+
+**Verified green:** `portability_lint.py` (31 skills portable), `check_vendored.py` (85 copies / 25 groups), `validate_manifests.py` (13 files, dual-manifest parity). Worktree + repo-wide sweep: zero lingering old deal slugs (`get-started`, `data-cleaner`, `valuation-analyzer`, `dashboard-creator`, `report-generator`, `demo-run`, `workspace-setup`, `quality-checker`, `memo-maker`, `rights-reviewer`, `royalties-auditor`, `financing-underwriter`).
+
+---
+
 ## Appendix — commands used to gather evidence
 
 ```bash
