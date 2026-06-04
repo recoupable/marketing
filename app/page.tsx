@@ -233,10 +233,10 @@ export default function HomePage() {
             Building the agentic music industry
           </p>
           <h1 className={`font-pixel text-[clamp(2.75rem,7vw,5.25rem)] leading-[1.02] tracking-tight mb-6 text-(--foreground) transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
-            Put AI to work inside<br className="hidden sm:block" /> your music business.
+            AI agents that know<br className="hidden sm:block" /> your catalog, royalties,<br className="hidden sm:block" /> and roster.
           </h1>
           <p className={`text-(--foreground)/60 text-[clamp(1.0625rem,1.5vw,1.3rem)] font-ui leading-[1.55] max-w-[680px] mx-auto mb-10 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
-            Recoup is a research lab and implementation partner for labels, catalogs, and platforms — from strategy to the custom agents that run in your stack.
+            Recoup is a research lab and implementation partner for labels, catalogs, and platforms. We build custom AI agents that run where your team already works — and you own every one.
           </p>
           <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "700ms" }}>
             <Link href="/consulting" className="cta-pulse font-ui font-semibold bg-(--foreground) text-(--background) px-9 py-4 rounded-full text-[15px] hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5">
@@ -247,7 +247,7 @@ export default function HomePage() {
             </Link>
           </div>
           <p className={`font-ui text-[12px] text-(--foreground)/40 mt-7 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "850ms" }}>
-            You own what we build, with data boundaries scoped before implementation starts.
+            Your data stays yours — we never train on it. Boundaries scoped before we build.
           </p>
         </div>
       </section>
@@ -283,12 +283,15 @@ export default function HomePage() {
           <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05]">
             Your team has Claude.<br />It still can&apos;t do the work.
           </h2>
+          <p className="text-[16px] sm:text-[17px] text-(--foreground)/55 leading-relaxed max-w-[580px] mt-6">
+            General AI knows everything about the world and nothing about your business. So the work that actually moves money — diligence, royalties, A&amp;R — still lands on your team.
+          </p>
 
           <div className="grid sm:grid-cols-3 gap-x-10 gap-y-6 mt-14">
             {[
-              { k: "No music context", v: "It doesn\u2019t know your roster, catalog, or deal terms." },
-              { k: "No safe access", v: "It can\u2019t touch Drive, royalty data, or distributors on its own." },
-              { k: "No music workflows", v: "Diligence, A&R, content ops — none of it built in." },
+              { k: "It doesn\u2019t know you", v: "Never seen your roster, your catalog, or your deal terms — so every answer is generic." },
+              { k: "It can\u2019t reach in", v: "Can\u2019t open a royalty statement, query a distributor, or touch Drive without you driving every step." },
+              { k: "It can\u2019t do the job", v: "Catalog diligence, royalty ops, A&R, content batches — none of the real workflows are built in." },
             ].map((item) => (
               <div key={item.k}>
                 <p className="font-ui text-[11px] font-semibold text-(--foreground)/40 uppercase tracking-[0.18em] mb-2">{item.k}</p>
@@ -373,7 +376,7 @@ export default function HomePage() {
               ))}
             </div>
             <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight text-white mb-5">
-              One harness, many workflows.
+              One engine behind every workflow.
             </h2>
             <p className="text-[15px] text-white/40 max-w-xl mx-auto leading-relaxed">
               This is the engine behind every implementation. Chat is a hosted workspace; the API and open skills let your team — or ours — embed music intelligence into Claude, Cursor, and your own stack.
