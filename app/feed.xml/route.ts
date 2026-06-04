@@ -1,24 +1,24 @@
-import { getAllPosts } from "@/lib/posts";
+import { getAllContent } from "@/lib/content";
 import { siteConfig } from "@/lib/config";
 
 /**
- * RSS feed — generated from all published posts.
- * Accessible at /feed.xml
+ * RSS feed — generated from every entry in the unified content hub
+ * (essays, guides, tutorials, updates). Accessible at /feed.xml
  */
 export function GET() {
-  const posts = getAllPosts();
+  const entries = getAllContent();
 
-  const itemsXml = posts
+  const itemsXml = entries
     .map(
-      (post) => `
+      (entry) => `
     <item>
-      <title><![CDATA[${post.title}]]></title>
-      <link>${siteConfig.url}/blog/${post.slug}</link>
-      <guid isPermaLink="true">${siteConfig.url}/blog/${post.slug}</guid>
-      <description><![CDATA[${post.excerpt}]]></description>
-      <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-      <author>${post.author}</author>
-      ${post.tags.map((tag) => `<category>${tag}</category>`).join("\n      ")}
+      <title><![CDATA[${entry.title}]]></title>
+      <link>${siteConfig.url}/blog/${entry.slug}</link>
+      <guid isPermaLink="true">${siteConfig.url}/blog/${entry.slug}</guid>
+      <description><![CDATA[${entry.excerpt}]]></description>
+      <pubDate>${new Date(entry.date).toUTCString()}</pubDate>
+      <author>${entry.author}</author>
+      ${entry.tags.map((tag) => `<category>${tag}</category>`).join("\n      ")}
     </item>`,
     )
     .join("");

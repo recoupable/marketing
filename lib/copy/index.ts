@@ -6,9 +6,7 @@
 import { siteConfig } from "@/lib/config";
 import { homeCopy, homeToMarkdown } from "./home";
 import { platformCopy, platformToMarkdown } from "./platform";
-import { solutionsCopy, solutionsToMarkdown } from "./solutions";
 import { developersCopy, developersToMarkdown } from "./developers";
-import { learnCopy, learnToMarkdown } from "./learn";
 import {
   companyIndexCopy,
   companyIndexToMarkdown,
@@ -27,9 +25,7 @@ const registry: Record<
 > = {
   "": { getCopy: () => homeCopy, toMarkdown: (c) => homeToMarkdown(c as typeof homeCopy) },
   platform: { getCopy: () => platformCopy, toMarkdown: (c) => platformToMarkdown(c as typeof platformCopy) },
-  solutions: { getCopy: () => solutionsCopy, toMarkdown: (c) => solutionsToMarkdown(c as typeof solutionsCopy) },
   developers: { getCopy: () => developersCopy, toMarkdown: (c) => developersToMarkdown(c as typeof developersCopy) },
-  learn: { getCopy: () => learnCopy, toMarkdown: (c) => learnToMarkdown(c as typeof learnCopy) },
   company: { getCopy: () => companyIndexCopy, toMarkdown: (c) => companyIndexToMarkdown(c as typeof companyIndexCopy) },
   "company/vision": { getCopy: () => companyVisionCopy, toMarkdown: (c) => companyVisionToMarkdown(c as typeof companyVisionCopy) },
   "company/about": { getCopy: () => companyAboutCopy, toMarkdown: (c) => companyAboutToMarkdown(c as typeof companyAboutCopy) },
@@ -63,7 +59,6 @@ export function getMarkdownForPath(pathname: string): string {
 /** Export copy for direct use in pages */
 export { homeCopy } from "./home";
 export { platformCopy } from "./platform";
-export { solutionsCopy } from "./solutions";
 export { developersCopy } from "./developers";
 export {
   companyVisionCopy,
@@ -71,4 +66,3 @@ export {
   companyRecoupRecordsCopy,
   companyIndexCopy,
 } from "./company";
-export { learnCopy } from "./learn";

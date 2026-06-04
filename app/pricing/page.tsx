@@ -1,33 +1,37 @@
 import type { Metadata } from "next";
-import { Check } from "lucide-react";
+import Link from "next/link";
+import { Check, ArrowUpRight } from "lucide-react";
 import { pricingCopy, type PricingPlan } from "@/lib/copy/pricing";
+import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Pricing | Recoupable",
+  title: "Pricing — Open Tools, Hosted Chat & Custom Builds",
   description:
-    "Start free. Scale when ready. AI agents for artists, managers, and labels — from $19/mo.",
+    "Free open-source skills and API, hosted Chat workspace from $19/mo, and custom implementation for labels, catalogs, and platforms.",
   path: "/pricing",
 });
 
 /* ── Plan card ─────────────────────────────────────────────────────── */
 function PlanCard({ plan }: { plan: PricingPlan }) {
   const hl = plan.highlighted;
+  const isExternal = plan.ctaHref.startsWith("http");
 
   return (
     <div
       className={`relative flex flex-col rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 ${
-        hl
-          ? "bg-[#080808] text-white md:-mt-4 md:mb-[-16px]"
-          : "border border-[var(--border)] bg-[var(--background)]"
+        hl ? "dark-section text-white md:-mt-4 md:mb-[-16px]" : "bg-(--background)"
       }`}
-      style={hl ? { boxShadow: "0 25px 60px -15px rgba(0,0,0,0.5)" } : undefined}
+      style={
+        hl
+          ? { boxShadow: "0 25px 60px -15px rgba(0,0,0,0.45)" }
+          : { boxShadow: "0 0 0 1px var(--border)" }
+      }
     >
       {plan.badge && (
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <span
-            className="text-[9px] uppercase tracking-wider bg-white text-black px-4 py-1.5 rounded-full shadow-lg"
-            style={{ fontFamily: "var(--font-bitmap), monospace" }}
+            className="text-[9px] uppercase tracking-wider bg-white text-black px-4 py-1.5 rounded-full shadow-lg font-pixel"
           >
             {plan.badge}
           </span>
@@ -35,26 +39,25 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       )}
 
       <p
-        className={`text-[10px] uppercase tracking-widest mb-1 ${
-          hl ? "text-white/50" : "text-[var(--muted)]"
+        className={`font-pixel text-[10px] uppercase tracking-[0.18em] mb-2 ${
+          hl ? "text-white/55" : "text-(--foreground)/40"
         }`}
-        style={{ fontFamily: "var(--font-bitmap), monospace" }}
       >
         {plan.audience}
       </p>
-      <h3 className="text-xl font-bold mb-1">{plan.name}</h3>
+      <h3 className="font-ui font-bold text-[20px] mb-1">{plan.name}</h3>
       <p
-        className={`text-sm mb-6 leading-relaxed ${
-          hl ? "text-white/70" : "text-[var(--muted)]"
+        className={`text-[13px] mb-6 leading-relaxed ${
+          hl ? "text-white/70" : "text-(--foreground)/55"
         }`}
       >
         {plan.description}
       </p>
 
       <div className="mb-6">
-        <span className="text-4xl font-bold">{plan.price}</span>
+        <span className="font-pixel text-[2.25rem] leading-none">{plan.price}</span>
         {plan.period && (
-          <span className={`text-sm ${hl ? "text-white/50" : "text-[var(--muted)]"}`}>
+          <span className={`text-sm ${hl ? "text-white/50" : "text-(--foreground)/45"}`}>
             {plan.period}
           </span>
         )}
@@ -62,23 +65,25 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 
       <ul className="space-y-3 mb-8 flex-1">
         {plan.features.map((f) => (
-          <li key={f} className="flex items-start gap-2 text-sm">
+          <li key={f} className="flex items-start gap-2 text-[13px]">
             <Check
-              size={16}
-              className={`mt-0.5 shrink-0 ${hl ? "text-white" : "text-[var(--foreground)]"}`}
+              size={15}
+              className={`mt-0.5 shrink-0 ${hl ? "text-white" : "text-(--foreground)"}`}
             />
-            <span className={hl ? "text-white/90" : "text-[var(--muted)]"}>{f}</span>
+            <span className={hl ? "text-white/90" : "text-(--foreground)/65"}>{f}</span>
           </li>
         ))}
       </ul>
 
       <a
         href={plan.ctaHref}
-        className={`block w-full text-center py-3 rounded-lg text-sm font-medium transition-colors ${
+        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        className={`block w-full text-center py-3 rounded-full text-sm font-ui font-semibold transition-all ${
           hl
             ? "bg-white text-black hover:bg-white/90"
-            : "border border-[var(--border)] hover:bg-[var(--foreground)] hover:text-[var(--background)]"
+            : "text-(--foreground) hover:-translate-y-0.5"
         }`}
+        style={hl ? undefined : { boxShadow: "0 0 0 1px var(--border)" }}
       >
         {plan.cta}
       </a>
@@ -89,74 +94,86 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 /* ── Main page ─────────────────────────────────────────────────────── */
 export default function PricingPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-24">
+    <div className="bg-(--background) text-(--foreground)">
       {/* Hero */}
-      <section className="text-center mb-16">
-        <p
-          className="text-[10px] uppercase tracking-widest text-[var(--muted)] mb-4"
-          style={{ fontFamily: "var(--font-bitmap), monospace" }}
-        >
-          Pricing
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
-          {pricingCopy.title}
-        </h1>
-        <p className="text-lg text-[var(--muted)] max-w-2xl mx-auto leading-relaxed">
-          {pricingCopy.description}
-        </p>
-        <p
-          className="text-xs text-[var(--muted)] mt-3"
-          style={{ fontFamily: "var(--font-bitmap), monospace" }}
-        >
-          {pricingCopy.annualDiscount}
-        </p>
+      <section className="pt-36 sm:pt-44 pb-14 sm:pb-16">
+        <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
+          <p className="font-pixel text-[10px] uppercase tracking-[0.22em] text-(--foreground)/45 mb-6">
+            Pricing
+          </p>
+          <h1 className="font-pixel text-[clamp(2.5rem,6vw,4.25rem)] leading-[1.03] tracking-tight mb-6">
+            {pricingCopy.title}
+          </h1>
+          <p className="text-(--foreground)/60 text-[clamp(1.0625rem,1.5vw,1.25rem)] font-ui leading-[1.55] max-w-[620px] mx-auto">
+            {pricingCopy.description}
+          </p>
+        </div>
       </section>
 
       {/* Plan cards */}
-      <section className="grid md:grid-cols-3 gap-6 items-start mb-24">
-        {pricingCopy.plans.map((plan) => (
-          <PlanCard key={plan.id} plan={plan} />
-        ))}
-      </section>
-
-      {/* FAQ */}
-      <section className="max-w-2xl mx-auto mb-24">
-        <h2 className="text-2xl font-bold text-center mb-12">
-          Frequently Asked Questions
-        </h2>
-        <div className="space-y-6">
-          {pricingCopy.faq.map((item) => (
-            <details
-              key={item.q}
-              className="group border-b border-[var(--border)] pb-4"
-            >
-              <summary className="cursor-pointer font-medium text-sm flex items-center justify-between">
-                {item.q}
-                <span className="ml-4 text-[var(--muted)] group-open:rotate-45 transition-transform text-lg">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-sm text-[var(--muted)] leading-relaxed">
-                {item.a}
-              </p>
-            </details>
+      <section className="pb-24">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-10 grid md:grid-cols-3 gap-6 items-start">
+          {pricingCopy.plans.map((plan) => (
+            <PlanCard key={plan.id} plan={plan} />
           ))}
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="text-center py-16 border-t border-[var(--border)]">
-        <h2 className="text-3xl font-bold mb-4">Ready to let AI run your marketing?</h2>
-        <p className="text-[var(--muted)] max-w-xl mx-auto mb-8 leading-relaxed">
-          Start free. No credit card required. Your AI agents are ready.
-        </p>
-        <a
-          href="https://chat.recoupable.com"
-          className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-        >
-          Get started free
-        </a>
+      {/* FAQ */}
+      <section className="pb-24">
+        <div className="max-w-[720px] mx-auto px-6 sm:px-10">
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4 text-center">
+            FAQ
+          </p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3rem)] tracking-tight leading-[1.05] mb-12 text-center">
+            Questions, answered.
+          </h2>
+          <div className="space-y-2">
+            {pricingCopy.faq.map((item) => (
+              <details key={item.q} className="group border-b border-(--border) py-4">
+                <summary className="cursor-pointer font-ui font-semibold text-[15px] flex items-center justify-between gap-4 list-none">
+                  {item.q}
+                  <span className="shrink-0 text-(--foreground)/40 group-open:rotate-45 transition-transform text-xl leading-none">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-[14px] text-(--foreground)/55 leading-relaxed">
+                  {item.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
       </section>
-    </main>
+
+      {/* Bottom CTA */}
+      <section className="relative py-28 sm:py-36 overflow-hidden dark-section-cta">
+        <div className="max-w-[760px] mx-auto px-6 text-center relative z-10">
+          <h2 className="font-pixel text-[clamp(2rem,5vw,3.5rem)] tracking-tight leading-[1.02] text-white mb-9">
+            Not sure which fits?
+          </h2>
+          <p className="text-white/45 text-[15px] max-w-md mx-auto mb-9 leading-relaxed font-ui">
+            Tell us what you&apos;re running and we&apos;ll point you at the
+            simplest way to start — open tools, Chat, or a custom build.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/consulting"
+              className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Talk to us
+            </Link>
+            <a
+              href={siteConfig.appUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-ui font-medium text-sm text-white/45 hover:text-white/80 transition-colors flex items-center gap-1.5"
+            >
+              Open the app <ArrowUpRight size={14} />
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

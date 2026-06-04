@@ -1,16 +1,16 @@
 /**
- * Free AI Audit landing page copy — lead gen funnel between
- * /playbook (free content) and /advisory ($2,500+ engagement).
+ * Free AI readiness audit — a lead-gen quiz that scores where AI agents
+ * could help a music team, then routes into a Consulting conversation.
  */
 
 export const auditCopy = {
-  headline: "Is Your Label Leaving Money on the Table?",
+  headline: "Where could AI actually help your music business?",
   subheadline:
-    "Answer 7 questions. Get a personalized AI readiness score and a custom report showing exactly where AI agents could save your team 20+ hours per week.",
+    "Answer 7 questions. Get a readiness score and a short, specific read on where agents could save your team time — and where they couldn't.",
   description:
-    "Free AI readiness audit for labels, distributors, and music managers. Find out where AI can cut costs and scale your operation.",
+    "Free AI readiness audit for labels, distributors, catalogs, and managers. A specific read on where AI can help your operation — and where it can't.",
 
-  socialProof: "500+ music companies are already using AI agents to run marketing, content, and catalog operations.",
+  socialProof: "Scored against the same workflows we run on our own label and with implementation clients.",
 
   questions: [
     {
@@ -102,28 +102,28 @@ export const auditCopy = {
       score: "Early Stage",
       color: "#f59e0b",
       summary:
-        "You're in the early stages of AI adoption. The good news: there's massive upside. Companies at your stage typically see 3-5x ROI within 90 days of deploying AI agents.",
+        "You're early in AI adoption — which means the biggest, easiest wins are still ahead of you. The first step is knowing which workflows are worth automating and which aren't.",
       recommendation:
-        "Start with our free playbook to understand the landscape, then book a strategy session to build your roadmap.",
-      ctaPrimary: { label: "Get the Free Playbook", href: "/playbook" },
+        "Start in the open: install the skills and try the hosted workspace. When you're ready to put it to work inside your stack, talk to us.",
+      ctaPrimary: { label: "Start in the open", href: "/platform" },
       ctaSecondary: {
-        label: "Book a Strategy Session — $2,500",
-        href: "/advisory",
+        label: "Talk to us",
+        href: "/consulting",
       },
     },
     mid: {
       score: "Ready to Scale",
       color: "#22c55e",
       summary:
-        "You have the volume and the pain points that AI agents solve best. You're leaving 20-40 hours per week on the table — and likely $5,000-$15,000/month in operational costs that AI can eliminate.",
+        "You have the volume and the bottlenecks that agents handle well — research, content, and release ops. The opportunity is real; the question is implementation inside your stack.",
       recommendation:
-        "You're the perfect fit for an AI Transformation engagement. We'll audit your workflows, deploy agents, and measure results over 90 days.",
+        "This is what our implementation work is built for: scope the workflows, build agents you own, and measure results on your own roster.",
       ctaPrimary: {
-        label: "Book AI Transformation — $10,000",
-        href: "mailto:hi@recoupable.com?subject=AI%20Transformation%20Inquiry",
+        label: "Talk to us about implementation",
+        href: "/consulting",
       },
       ctaSecondary: {
-        label: "Try Recoup Free",
+        label: "Try Recoup in Chat",
         href: "https://chat.recoupable.com",
       },
     },
@@ -131,15 +131,15 @@ export const auditCopy = {
       score: "AI-Ready Leader",
       color: "#3b82f6",
       summary:
-        "You're already thinking about AI — now it's time to operationalize it. At your scale, the difference between 'using ChatGPT sometimes' and 'AI agents running your operation' is hundreds of thousands in annual savings.",
+        "You already think in agents — now it's about operationalizing them with real music context and safe access to your systems. At your scale, that's a meaningful edge.",
       recommendation:
-        "Let's talk about a Partner engagement. Custom AI agents, dedicated support, and enterprise-grade infrastructure for your operation.",
+        "Let's talk about a custom build or partnership: organization-owned agents, dedicated support, and the API at scale.",
       ctaPrimary: {
-        label: "Talk to Us About Partnership",
-        href: "mailto:hi@recoupable.com?subject=Partner%20Inquiry",
+        label: "Talk to us",
+        href: "/consulting",
       },
       ctaSecondary: {
-        label: "See Pricing",
+        label: "See pricing",
         href: "/pricing",
       },
     },

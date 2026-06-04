@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix",
+    "lint": "eslint . --fix",
     "format": "prettier --write . && pnpm lint"
   },
   "dependencies": {
@@ -34,6 +34,7 @@
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.0",
     "remark-html": "^16.0.1",
+    "sanitize-html": "^2.17.4",
     "shiki": "^4.0.2",
     "streamdown": "^2.5.0",
     "tailwind-merge": "^2.6.0",
@@ -46,6 +47,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/sanitize-html": "^2.16.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.13",
     "postcss": "^8",

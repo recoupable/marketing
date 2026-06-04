@@ -1,48 +1,16 @@
-/**
- * Site navigation — simple direct links, no dropdowns.
- * Single source of truth for header and footer links.
- */
 import { siteConfig } from "@/lib/config";
 
+/**
+ * Header navigation — single source of truth for the top nav.
+ *
+ * Positioning (2026-06): research + consulting first, but product/self-serve
+ * visitors need an info scent without scrolling the whole homepage, so Platform
+ * and Pricing are promoted into the header (userjourney P1.5). Everything else
+ * lives in the footer (see components/layout/Footer.tsx). See plan.md §3A.
+ */
 export const nav: readonly { label: string; href: string; external?: boolean }[] = [
-  { label: "Results", href: "/results" },
+  { label: "Research", href: siteConfig.researchUrl },
+  { label: "Platform", href: "/platform" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Docs", href: siteConfig.docsUrl, external: true },
-  { label: "Blog", href: "/blog" },
+  { label: "Consulting", href: "/consulting" },
 ];
-
-export const footerNav = {
-  product: {
-    label: "Product",
-    items: [
-      { label: "Platform", href: "/platform" },
-      { label: "Pricing", href: "/pricing" },
-      { label: "Docs", href: siteConfig.docsUrl, external: true },
-    ],
-  },
-  resources: {
-    label: "Resources",
-    items: [
-      { label: "Results", href: "/results" },
-      { label: "Blog", href: "/resources" },
-      { label: "AI Playbook", href: "/playbook" },
-      { label: "ROI Calculator", href: "/calculator" },
-      { label: "AI Readiness Audit", href: "/audit" },
-      { label: "Records", href: "/records" },
-    ],
-  },
-  company: {
-    label: "Company",
-    items: [
-      { label: "About", href: "/about" },
-      { label: "Vision", href: "/vision" },
-    ],
-  },
-  legal: {
-    label: "Legal",
-    items: [
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms of Use", href: "/terms-of-use" },
-    ],
-  },
-} as const;

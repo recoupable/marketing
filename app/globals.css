@@ -76,6 +76,33 @@
 
 /* Dark sections — elevated in dark mode so they don't blend */
 @layer components {
+  /* Customer logo strip — achromatic in light, inverted to read on dark */
+  .customer-logo-image {
+    max-width: 100%;
+    object-fit: contain;
+    opacity: 0.72;
+    filter: none;
+    transition:
+      filter 200ms ease,
+      opacity 200ms ease;
+  }
+
+  .customer-logo-image:hover {
+    opacity: 1;
+    filter: none;
+  }
+
+  [data-theme="dark"] .customer-logo-image {
+    opacity: 0.9;
+    filter: invert(1) hue-rotate(180deg) brightness(1.08) contrast(1.05);
+    mix-blend-mode: screen;
+  }
+
+  [data-theme="dark"] .customer-logo-image:hover {
+    opacity: 1;
+    filter: invert(1) hue-rotate(180deg) brightness(1.08) contrast(1.05);
+  }
+
   .dark-section {
     background: radial-gradient(ellipse 80% 50% at 50% 0%, #111 0%, #060606 100%);
   }
@@ -170,6 +197,15 @@
     --tw-prose-links: var(--brand);
   }
 
+  /* In-body section headings use the UI font (Plus Jakarta Sans), not the
+     global serif h1/h2 rule. The article title above the body is the only
+     display element; section headers should read as clean, modern UI. This
+     wins over the @layer base `h1, h2 { serif }` rule by layer order. */
+  .prose :where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-ui), system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
   .prose a {
     text-decoration-color: var(--brand-muted);
     text-underline-offset: 3px;
@@ -177,6 +213,48 @@
 
   .prose a:hover {
     text-decoration-color: var(--brand);
+  }
+
+  /* Paragraph callouts (info boxes embedded in research essays). The source
+     icon is login-gated and gets swapped for an inline SVG in
+     sanitizeParagraphHtml(); this styles the box to match our design. */
+  .prose .callout-base {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    background: var(--muted);
+    box-shadow: 0 0 0 1px var(--border);
+  }
+
+  .prose .callout-base [data-callout-icon] {
+    flex: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.1875rem;
+    color: var(--brand);
+  }
+
+  .prose .callout-content {
+    min-width: 0;
+  }
+}
+
+/* Zero the typography plugin's paragraph margins inside callouts. The prose-lg
+   `p` margin lives in Tailwind's `utilities` layer, so a reset in `components`
+   loses on layer order regardless of specificity — this reset must also be in
+   `utilities` (and outspecify prose) to win. Without it, the ~1.33em top/bottom
+   margins push the callout text below the icon and inflate the box height. */
+@layer utilities {
+  .prose .callout-content :where(p, ul, ol, h1, h2, h3, h4, h5, h6) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .prose .callout-content > * + * {
+    margin-top: 0.75rem;
   }
 }
 

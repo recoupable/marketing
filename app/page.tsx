@@ -2,12 +2,154 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { siteConfig } from "@/lib/config";
-import { HeroDemo } from "@/components/home/HeroDemo";
-import { ResearchCard } from "@/components/home/ResearchCard";
-import { ContentGrid } from "@/components/home/ContentGrid";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
-import { ArrowUpRight } from "lucide-react";
+import { ResearchCard } from "@/components/home/ResearchCard";
+import { CUSTOMER_LOGOS, type CustomerLogo } from "@/lib/customerLogos";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
+
+/* ──────────────────────────────────────────────────────────────────────
+   Open tools shelf (mid-page builder proof). Ported from the agent-layer
+   branch; reframed here as "what we build in the open," not the hero.
+
+   Every pack below maps to a REAL skill folder in github.com/recoupable/skills.
+   One install command (`npx skills add recoupable/skills`) pulls the whole
+   open repo; each card deep-links to its skill on GitHub so the claim is
+   verifiable on first contact.
+   ────────────────────────────────────────────────────────────────────── */
+
+interface SkillPack {
+  id: string;
+  title: [string, string];
+  desc: string;
+  /** Real skill folder name in recoupable/skills */
+  skill: string;
+  gradient: string;
+}
+
+const SKILL_PACKS: readonly SkillPack[] = [
+  {
+    id: "research",
+    title: ["Music", "Research"],
+    desc: "Artist analytics, people search, competitive analysis, and web intelligence — the groundwork for catalog and deal research.",
+    skill: "music-industry-research",
+    gradient: "linear-gradient(135deg, #14b8a6 0%, #0d9488 60%, #115e59 100%)",
+  },
+  {
+    id: "chartmetric",
+    title: ["Chart", "Metrics"],
+    desc: "Query and analyze streaming, chart, and audience data to scout, track, and compare artists.",
+    skill: "chart-metric",
+    gradient: "linear-gradient(135deg, #60a5fa 0%, #2563eb 60%, #1e3a8a 100%)",
+  },
+  {
+    id: "content",
+    title: ["Content", "Creation"],
+    desc: "Generate social videos, TikToks, Reels, and visual content from your catalog.",
+    skill: "content-creation",
+    gradient: "linear-gradient(135deg, #fb923c 0%, #ea580c 60%, #9a3412 100%)",
+  },
+  {
+    id: "release",
+    title: ["Release", "Management"],
+    desc: "Plan and execute release campaigns end to end — the day-to-day of running a label, wired for agents.",
+    skill: "release-management",
+    gradient: "linear-gradient(135deg, #fb7185 0%, #e11d48 60%, #881337 100%)",
+  },
+  {
+    id: "growth",
+    title: ["Streaming", "Growth"],
+    desc: "Grow a new artist past the streaming milestones that unlock platform tools and audience.",
+    skill: "streaming-growth",
+    gradient: "linear-gradient(135deg, #c084fc 0%, #9333ea 60%, #581c87 100%)",
+  },
+] as const;
+
+const BOOK_TRANSITION = { duration: 0.55, ease: [0.16, 1, 0.3, 1] as const };
+
+function Book({
+  pack,
+  isActive,
+  onClick,
+}: {
+  pack: SkillPack;
+  isActive: boolean;
+  onClick: (id: string) => void;
+}) {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <motion.button
+      layout={!shouldReduceMotion}
+      transition={shouldReduceMotion ? { duration: 0 } : { layout: BOOK_TRANSITION }}
+      onClick={() => onClick(pack.id)}
+      aria-label={`Show ${pack.title.join(" ")} pack`}
+      aria-pressed={isActive}
+      className={`relative h-[280px] sm:h-[340px] rounded-r-md shrink-0 overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--background) ${
+        isActive ? "w-[200px] sm:w-[260px]" : "w-9 sm:w-11"
+      }`}
+      style={{
+        background: pack.gradient,
+        boxShadow: isActive
+          ? "inset -14px 0 18px -14px rgba(0,0,0,0.55), 0 30px 60px -15px rgba(0,0,0,0.35)"
+          : "inset -5px 0 8px -5px rgba(0,0,0,0.5), 0 15px 30px -10px rgba(0,0,0,0.25)",
+      }}
+      whileHover={shouldReduceMotion ? undefined : { y: -6 }}
+    >
+      <div className="absolute left-0 top-0 bottom-0 w-2 bg-black/15" aria-hidden="true" />
+
+      <AnimatePresence mode="wait" initial={false}>
+        {isActive ? (
+          <motion.div
+            key="cover"
+            initial={shouldReduceMotion ? false : { opacity: 0 }}
+            animate={
+              shouldReduceMotion
+                ? { opacity: 1 }
+                : { opacity: 1, transition: { delay: 0.25, duration: 0.3 } }
+            }
+            exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, transition: { duration: 0.1 } }}
+            className="absolute inset-0"
+          >
+            <div className="absolute top-4 left-5 sm:top-5 sm:left-6">
+              <div className="w-3 h-3 rounded-full border border-white/65" />
+            </div>
+            <div className="absolute bottom-5 left-6 right-6 text-white">
+              <p className="font-display italic text-[20px] sm:text-[24px] leading-[1.05] mb-0.5 opacity-90">{pack.title[0]}</p>
+              <p className="font-display italic text-[30px] sm:text-[40px] leading-none font-medium">{pack.title[1]}</p>
+              <p className="text-[10px] sm:text-[11px] font-ui mt-3 opacity-65">Open source</p>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="spine"
+            initial={shouldReduceMotion ? false : { opacity: 0 }}
+            animate={
+              shouldReduceMotion
+                ? { opacity: 1 }
+                : { opacity: 1, transition: { delay: 0.25, duration: 0.3 } }
+            }
+            exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, transition: { duration: 0.1 } }}
+            className="absolute inset-0"
+          >
+            <div className="absolute top-3 left-1/2 -translate-x-1/2 sm:top-4">
+              <div className="w-2 h-2 rounded-full border border-white/65" />
+            </div>
+            <div
+              className="absolute top-1/2 left-1/2 text-white text-[11px] sm:text-[12px] font-display italic whitespace-nowrap tracking-wide"
+              style={{ writingMode: "vertical-rl", transform: "translate(-50%, -50%) rotate(180deg)" }}
+            >
+              {pack.title.join(" ")}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.button>
+  );
+}
+
+/* ── Scroll-reveal helper ──────────────────────────────────────────────── */
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,82 +164,62 @@ function useReveal() {
   return { ref, cls: `transition-all duration-[900ms] ease-[cubic-bezier(.16,1,.3,1)] ${v ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}` };
 }
 
-function useStagger(n: number, ms = 130) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [go, setGo] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setGo(true); io.disconnect(); } }, { threshold: 0.08 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-  return {
-    ref,
-    item: (i: number) => ({
-      className: `transition-all duration-[800ms] ease-[cubic-bezier(.16,1,.3,1)] ${go ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`,
-      style: { transitionDelay: go ? `${i * ms}ms` : "0ms" } as React.CSSProperties,
-    }),
-  };
-}
+/* ── Static content ────────────────────────────────────────────────────── */
 
-const LOGOS = ["Atlantic", "Rostrum", "300", "Warner", "Parlophone", "Fat Beats"];
-
-const FLOATING_AGENTS = [
-  { label: "Artist Research", x: "8%", y: "18%", delay: 200, size: "text-[12px]", opacity: 0.35 },
-  { label: "Content Creator", x: "78%", y: "14%", delay: 400, size: "text-[12px]", opacity: 0.32 },
-  { label: "Fan Segments", x: "7%", y: "44%", delay: 600, size: "text-[11px]", opacity: 0.28 },
-  { label: "Release Report", x: "83%", y: "40%", delay: 300, size: "text-[12px]", opacity: 0.35 },
-  { label: "Catalog Analyzer", x: "11%", y: "66%", delay: 800, size: "text-[11px]", opacity: 0.28 },
-  { label: "Social Poster", x: "82%", y: "64%", delay: 500, size: "text-[11px]", opacity: 0.3 },
-  { label: "Genre Trends", x: "19%", y: "28%", delay: 700, size: "text-[11px]", opacity: 0.25 },
-  { label: "Comment Checker", x: "74%", y: "26%", delay: 900, size: "text-[11px]", opacity: 0.25 },
-  { label: "Playlist Pitcher", x: "6%", y: "56%", delay: 1000, size: "text-[11px]", opacity: 0.28 },
-  { label: "Fan Newsletter", x: "86%", y: "54%", delay: 450, size: "text-[11px]", opacity: 0.28 },
-  { label: "Revenue Tracker", x: "16%", y: "74%", delay: 1100, size: "text-[11px]", opacity: 0.22 },
-  { label: "A&R Scanner", x: "76%", y: "74%", delay: 650, size: "text-[11px]", opacity: 0.22 },
-];
-
-function FloatingPills({ show }: { show: boolean }) {
-  return (
-    <div className="absolute inset-x-0 top-0 h-screen z-[1] pointer-events-none hidden lg:block" aria-hidden="true">
-      {FLOATING_AGENTS.map((agent, i) => (
-        <span
-          key={agent.label}
-          className={`absolute ${agent.size} font-pixel transition-all duration-[1400ms] ease-[cubic-bezier(.16,1,.3,1)] cursor-default select-none`}
-          style={{
-            left: agent.x,
-            top: agent.y,
-            transitionDelay: show ? `${agent.delay}ms` : "0ms",
-            opacity: show ? agent.opacity : 0,
-            color: `rgba(10,10,10, ${agent.opacity})`,
-            transform: show ? "translateY(0)" : "translateY(14px)",
-            animation: show ? `float-pill ${4 + (i % 4)}s ease-in-out ${agent.delay}ms infinite alternate` : "none",
-          }}
-        >
-          {agent.label}
-        </span>
-      ))}
-    </div>
-  );
-}
+const LANES = [
+  {
+    k: "Research",
+    h: "We publish what we learn.",
+    v: "Field notes from working with labels, catalogs, and platforms — shared in public, not behind a sales call.",
+    href: siteConfig.researchUrl,
+    cta: "Read our research",
+    external: false,
+  },
+  {
+    k: "Build",
+    h: "We ship tools in the open.",
+    v: "Open skills, plugins, and an API so your team can put music intelligence into Claude, Cursor, and your own stack.",
+    href: "/platform",
+    cta: "See the tools",
+    external: false,
+  },
+  {
+    k: "Partner",
+    h: "We implement it with you.",
+    v: "When you want us in the room: strategy, rollout, and custom agents built for your roster and workflows.",
+    href: "/consulting",
+    cta: "Talk to us",
+    external: false,
+  },
+] as const;
 
 export default function HomePage() {
   const [show, setShow] = useState(false);
-  useEffect(() => { const t = setTimeout(() => setShow(true), 100); return () => clearTimeout(t); }, []);
+  useEffect(() => {
+    const t = setTimeout(() => setShow(true), 100);
+    return () => clearTimeout(t);
+  }, []);
 
+  const [activePackId, setActivePackId] = useState<string>(SKILL_PACKS[0].id);
+  const activePack = SKILL_PACKS.find((p) => p.id === activePackId) ?? SKILL_PACKS[0];
+  const orderedPacks = [activePack, ...SKILL_PACKS.filter((p) => p.id !== activePack.id)];
+
+  const lanes = useReveal();
   const research = useReveal();
-  const content = useReveal();
+  const problem = useReveal();
   const arch = useReveal();
+  const shelf = useReveal();
+  const consulting = useReveal();
+  const proof = useReveal();
   const cta = useReveal();
 
   return (
     <div className="bg-(--background) text-(--foreground) overflow-x-hidden">
 
       {/* ══════════════════════════════════════
-          1. HERO
+          1. HERO — H-text, consulting-first
           ══════════════════════════════════════ */}
-      <section className="relative pt-36 sm:pt-44 pb-16 sm:pb-20 flex flex-col justify-center">
+      <section className="relative pt-40 sm:pt-52 pb-20 sm:pb-28 flex flex-col justify-center">
         <div className="absolute inset-0 z-0" aria-hidden="true" style={{
           backgroundImage: `linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)`,
           backgroundSize: "64px 64px",
@@ -106,31 +228,27 @@ export default function HomePage() {
           WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 42%, black 20%, transparent 80%)",
         }} />
 
-        <FloatingPills show={show} />
-
-        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 sm:px-10">
-          <div className="pb-8 flex flex-col items-center text-center">
-
-            <div className="hero-text max-w-[800px] mx-auto flex flex-col items-center transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] origin-top">
-              <span className={`inline-flex items-center gap-2.5 mb-5 px-4 py-2 rounded-full text-[12px] uppercase tracking-[0.16em] font-pixel text-(--foreground)/50 transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ transitionDelay: "200ms", boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 15%, transparent)" }}>
-                <span className="w-2 h-2 rounded-full bg-green-500/70 animate-pulse" />
-                40+ agent tools
-              </span>
-
-              <h1 className={`font-pixel text-[clamp(3rem,9vw,6rem)] text-(--foreground) leading-[0.95] tracking-[-0.01em] mb-4 transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
-                Music
-                <span className="block">Intelligence</span>
-              </h1>
-
-              <p className={`text-(--foreground)/50 text-[clamp(1.0625rem,1.6vw,1.25rem)] mb-9 leading-[1.6] font-display italic transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
-                Your record label, run by AI agents.
-              </p>
-            </div>
-
-            <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "750ms" : "0ms" }} id="hero-demo-wrapper">
-              <HeroDemo />
-            </div>
+        <div className="relative z-10 w-full max-w-[1100px] mx-auto px-6 sm:px-10 text-center">
+          <p className={`font-pixel text-[10px] uppercase tracking-[0.22em] text-(--foreground)/45 mb-6 transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ transitionDelay: "200ms" }}>
+            Building the agentic music industry
+          </p>
+          <h1 className={`font-pixel text-[clamp(2.25rem,5vw,3.5rem)] leading-[1.06] tracking-tight mb-6 text-(--foreground) transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
+            AI agents that know your catalog,<br className="hidden sm:block" /> royalties, and roster.
+          </h1>
+          <p className={`text-(--foreground)/60 text-[clamp(1.0625rem,1.5vw,1.25rem)] font-ui leading-[1.5] max-w-[560px] mx-auto mb-9 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
+            A research lab and implementation partner. We build custom agents into your stack — and you own every one.
+          </p>
+          <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "700ms" }}>
+            <Link href="/consulting" className="cta-pulse font-ui font-semibold bg-(--foreground) text-(--background) px-9 py-4 rounded-full text-[15px] hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5">
+              Talk to us
+            </Link>
+            <Link href={siteConfig.researchUrl} className="font-ui font-medium text-[15px] text-(--foreground)/55 hover:text-(--foreground) transition-colors flex items-center gap-1.5">
+              Read our research <ArrowUpRight size={15} />
+            </Link>
           </div>
+          <p className={`font-ui text-[12px] text-(--foreground)/40 mt-7 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "850ms" }}>
+            Your data stays yours — we never train on it.
+          </p>
         </div>
       </section>
 
@@ -139,32 +257,104 @@ export default function HomePage() {
           2. LOGOS
           ══════════════════════════════════════ */}
       <section className="py-8 border-y border-(--border)">
-        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-center flex-wrap gap-x-8 gap-y-3">
-          <span className="font-ui text-[10px] text-(--foreground)/20 uppercase tracking-[0.15em]">Used by</span>
-          {LOGOS.map(n => (
-            <span key={n} className="font-ui font-bold text-[12px] text-(--foreground)/20 uppercase tracking-[0.06em] select-none">{n}</span>
+        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-center flex-wrap gap-x-5 sm:gap-x-7 gap-y-4">
+          <span className="shrink-0 font-ui text-[10px] text-(--foreground)/35 uppercase tracking-[0.15em]">Used by teams at</span>
+          {CUSTOMER_LOGOS.map((logo: CustomerLogo) => (
+            <span key={logo.slug} className="flex h-8 w-12 sm:w-16 items-center justify-center">
+              <img
+                src={`/api/customer-logos/${logo.slug}`}
+                alt={logo.alt}
+                className={`${logo.className ?? "max-h-5 sm:max-h-6"} customer-logo-image`}
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
           ))}
         </div>
       </section>
 
 
       {/* ══════════════════════════════════════
-          3. RESEARCH — show don't tell
+          3. PROBLEM — state the gap (problem-led)
+          ══════════════════════════════════════ */}
+      <section className="py-24 sm:py-32">
+        <div ref={problem.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${problem.cls}`}>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The gap</p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05]">
+            Your team has Claude.<br />It still can&apos;t do the work.
+          </h2>
+          <p className="text-[16px] sm:text-[17px] text-(--foreground)/55 leading-relaxed max-w-[580px] mt-6">
+            General AI knows everything about the world and nothing about your business. So the work that actually moves money — diligence, royalties, A&amp;R — still lands on your team.
+          </p>
+
+          <div className="grid sm:grid-cols-3 gap-x-10 gap-y-6 mt-14">
+            {[
+              { k: "It doesn\u2019t know you", v: "Never seen your roster, your catalog, or your deal terms — so every answer is generic." },
+              { k: "It can\u2019t reach in", v: "Can\u2019t open a royalty statement, query a distributor, or touch Drive without you driving every step." },
+              { k: "It can\u2019t do the job", v: "Catalog diligence, royalty ops, A&R, content batches — none of the real workflows are built in." },
+            ].map((item) => (
+              <div key={item.k}>
+                <p className="font-ui text-[11px] font-semibold text-(--foreground)/40 uppercase tracking-[0.18em] mb-2">{item.k}</p>
+                <p className="text-[14px] text-(--foreground)/55 leading-relaxed">{item.v}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
+          4. LANES — Research / Build / Partner (the answer)
+          ══════════════════════════════════════ */}
+      <section className="py-24 sm:py-32">
+        <div ref={lanes.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${lanes.cls}`}>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">How we work</p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-14 max-w-[720px]">
+            We research it, build it, and run it in your stack.
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {LANES.map((lane) => (
+              <div
+                key={lane.k}
+                className="flex flex-col rounded-2xl bg-(--background) p-7"
+                style={{ boxShadow: "0 0 0 1px var(--border)" }}
+              >
+                <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-3">{lane.k}</p>
+                <h3 className="font-ui font-bold text-[19px] text-(--foreground) mb-2 leading-snug">{lane.h}</h3>
+                <p className="text-[14px] text-(--foreground)/55 leading-relaxed mb-6 flex-1">{lane.v}</p>
+                <Link
+                  href={lane.href}
+                  {...(lane.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="font-ui font-semibold text-[13px] text-(--foreground) inline-flex items-center gap-1.5 group"
+                >
+                  {lane.cta}
+                  <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
+          5. RESEARCH — what we publish
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 bg-(--muted)/40">
         <div ref={research.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${research.cls}`}>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Research</p>
-              <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-4">
-                Know everything about any artist.
+              <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-4 leading-[1.05]">
+                What&apos;s actually working in AI for music.
               </h2>
-              <p className="text-[15px] text-(--foreground)/45 leading-relaxed mb-6 max-w-md">
-                Streaming metrics, audience demographics, playlist placements, social traction, career history — pulled from 50+ sources and delivered in seconds.
+              <p className="text-[15px] text-(--foreground)/50 leading-relaxed mb-6 max-w-md">
+                Catalog diligence, label operations, agent rollouts — we publish what actually works (and what doesn&apos;t) as we build with labels and catalogs.
               </p>
-              <p className="text-[13px] text-(--foreground)/30 italic">
-                Works from our chat, your AI assistant, or a single API call.
-              </p>
+              <Link href={siteConfig.researchUrl} className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
+                Read the latest <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
             </div>
             <div>
               <ResearchCard />
@@ -175,71 +365,220 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          5. CONTENT — show don't tell
-          ══════════════════════════════════════ */}
-      <section className="py-24 sm:py-32">
-        <div ref={content.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${content.cls}`}>
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <ContentGrid />
-            </div>
-            <div className="order-1 lg:order-2">
-              <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Content</p>
-              <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-4">
-                Create content that would take a team weeks.
-              </h2>
-              <p className="text-[15px] text-(--foreground)/45 leading-relaxed mb-6 max-w-md">
-                Videos, images, captions, press copy — generated in batches from your catalog. Fat Beats created 22 finished videos in 2 hours with zero editing.
-              </p>
-              <p className="text-[13px] text-(--foreground)/30 italic">
-                One prompt. Dozens of assets. Ready to post.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ══════════════════════════════════════
-          6. ARCHITECTURE — we come to you
+          6. BUILD — one harness, many workflows
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 dark-section text-white relative overflow-hidden">
         <div ref={arch.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 relative z-10 ${arch.cls}`}>
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-5">
-              {["API", "MCP", "CLI"].map(m => (
+            <p className="font-ui text-[11px] font-semibold text-white/30 uppercase tracking-[0.2em] mb-4">Build</p>
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-5">
+              {["Claude", "Cursor", "API", "MCP", "Chat"].map((m) => (
                 <span key={m} className="text-[10px] font-pixel text-white/30 uppercase tracking-[0.15em] px-3 py-1.5 rounded-full border border-white/10">{m}</span>
               ))}
             </div>
             <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight text-white mb-5">
-              It works where you work.
+              One engine behind every workflow.
             </h2>
-            <p className="text-[15px] text-white/35 max-w-lg mx-auto leading-relaxed">
-              Works with Claude, ChatGPT, Cursor, Windsurf, and any MCP-compatible agent. Or just use our chat.
+            <p className="text-[15px] text-white/40 max-w-xl mx-auto leading-relaxed">
+              This is the engine behind every implementation. Chat is a hosted workspace; the API and open skills let your team — or ours — embed music intelligence into Claude, Cursor, and your own stack.
+            </p>
+            <p className="text-[13px] text-white/30 max-w-xl mx-auto leading-relaxed mt-3">
+              <span className="text-white/45 font-medium">MCP</span> is the open standard that lets any agent — Claude, Cursor, or one you built — securely call Recoup&apos;s music tools without custom glue code.
             </p>
           </div>
 
           <ArchitectureDiagram />
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+            <a
+              href={siteConfig.docsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-ui font-semibold bg-white text-[#0a0a0a] px-7 py-3 rounded-full text-[14px] hover:bg-white/90 transition-colors inline-flex items-center gap-1.5"
+            >
+              Read the API docs <ArrowUpRight size={14} />
+            </a>
+            <Link
+              href="/partners"
+              className="font-ui font-medium text-[14px] text-white/55 hover:text-white transition-colors inline-flex items-center gap-1.5"
+            >
+              Talk to partnerships <ArrowRight size={14} />
+            </Link>
+          </div>
         </div>
       </section>
 
 
       {/* ══════════════════════════════════════
-          7. CTA
+          6b. BUILD (cont.) — the open skills the engine runs
+          ══════════════════════════════════════ */}
+      <section className="pt-16 pb-24 sm:pt-20 sm:pb-32">
+        <div ref={shelf.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${shelf.cls}`}>
+          <div className="text-center mb-12 sm:mb-14">
+            <h2 className="font-pixel text-[clamp(1.5rem,3vw,2.125rem)] tracking-tight leading-[1.1] mb-4">
+              The open skills it runs — free to install.
+            </h2>
+            <p className="text-[15px] text-(--foreground)/50 max-w-lg mx-auto leading-relaxed">
+              Open-source skills our own agents run every day. Install them into Claude, Cursor, or your own stack in seconds. Your private work stays yours —{" "}
+              <Link href="/trust" className="underline decoration-(--foreground)/20 underline-offset-2 hover:text-(--foreground) hover:decoration-(--foreground)/50 transition-colors">
+                review our data boundary
+              </Link>
+              .
+            </p>
+          </div>
+
+          {/* Interactive shelf */}
+          <div className="flex items-end justify-center gap-2 sm:gap-3 mb-10">
+            {orderedPacks.map((pack) => (
+              <Book
+                key={pack.id}
+                pack={pack}
+                isActive={pack.id === activePack.id}
+                onClick={setActivePackId}
+              />
+            ))}
+          </div>
+
+          {/* Active pack install */}
+          <div className="max-w-[560px] mx-auto">
+            <div className="bg-(--muted)/60 rounded-xl px-5 py-4 sm:px-6 sm:py-5 text-left" style={{ boxShadow: "0 0 0 1px var(--border)" }}>
+              <div className="flex items-baseline justify-between gap-3 mb-2">
+                <p className="font-ui font-bold text-[15px]">{activePack.title.join(" ")}</p>
+                <a
+                  href={`${siteConfig.skillsRepoUrl}/tree/main/skills/${activePack.skill}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] font-ui font-semibold text-(--foreground)/55 hover:text-(--foreground) transition-colors inline-flex items-center gap-1 whitespace-nowrap"
+                >
+                  View on GitHub <ArrowUpRight size={12} />
+                </a>
+              </div>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={`${activePack.id}-desc`}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.25 }}
+                  className="text-[12px] text-(--foreground)/55 mb-4"
+                >
+                  {activePack.desc}
+                </motion.p>
+              </AnimatePresence>
+              <code
+                className="block font-mono text-[12px] bg-(--background) px-3 py-2.5 rounded-md text-(--foreground)/80"
+                style={{ boxShadow: "0 0 0 1px var(--border)" }}
+              >
+                <span className="text-(--foreground)/35">$</span> {siteConfig.skillsInstallCommand}
+              </code>
+            </div>
+            <p className="text-center text-[12px] text-(--foreground)/40 mt-4">
+              One command installs the whole open repo.{" "}
+              <a
+                href={siteConfig.skillsRepoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors inline-flex items-center gap-1"
+              >
+                Browse all skills <ArrowUpRight size={12} />
+              </a>
+            </p>
+            <p className="text-center text-[13px] text-(--foreground)/55 mt-3">
+              Prefer it done for you? The same skills run inside{" "}
+              <a
+                href={siteConfig.appUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors"
+              >
+                Chat
+              </a>
+              , or{" "}
+              <Link
+                href="/consulting"
+                className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors"
+              >
+                our team sets them up in your stack
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
+          8. PROOF — we run our own labels (dogfood)
+          ══════════════════════════════════════ */}
+      <section className="py-20 sm:py-28 border-t border-(--border)">
+        <div ref={proof.ref} className={`max-w-[820px] mx-auto px-6 sm:px-10 ${proof.cls}`}>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Proof</p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-6">
+            We run our own labels.
+          </h2>
+          <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[640px] mb-6">
+            Recoup Records and our artist Gatsby Grace use these same tools every day — to write release plans, audit catalogs, pitch playlists, and run the business. Every skill we publish earns its keep on a real roster first.
+          </p>
+          <Link href="/company/recoup-records" className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
+            See how we dogfood <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
+          9. CONSULTING BAND — start executing
+          ══════════════════════════════════════ */}
+      <section className="py-24 sm:py-32 bg-(--muted)/60">
+        <div ref={consulting.ref} className={`max-w-[820px] mx-auto px-6 sm:px-10 text-center ${consulting.cls}`}>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-5">Partner</p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.08] mb-5">
+            Most music teams are still <span className="italic font-display">planning</span> their AI strategy. Start executing it.
+          </h2>
+          <p className="text-[16px] text-(--foreground)/55 leading-relaxed max-w-[560px] mx-auto mb-9">
+            Training and implementation from operators who build the tools — not slide decks. We work with labels, catalogs, and platforms inside their own stack.
+          </p>
+          <Link href="/consulting" className="font-ui font-semibold bg-(--foreground) text-(--background) px-8 py-3.5 rounded-full text-[15px] hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+            Talk to us <ArrowRight size={15} />
+          </Link>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
+          10. PULL QUOTE — operator voice
+          ══════════════════════════════════════ */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
+          <p className="font-display italic text-(--foreground)/80 text-[clamp(1.5rem,3vw,2rem)] leading-[1.4] mb-6">
+            &ldquo;Catalog diligence is one of the biggest pain points I have. Cut it down to minutes and it changes how we buy.&rdquo;
+          </p>
+          <p className="font-ui text-[12px] text-(--foreground)/40 uppercase tracking-[0.16em] mb-8">
+            Catalog fund operator
+          </p>
+          <Link href="/audit" className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
+            See what an AI readiness audit surfaces <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
+          11. FINAL CTA — consulting + research
           ══════════════════════════════════════ */}
       <section className="relative py-32 sm:py-44 overflow-hidden dark-section-cta">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-[0.04] pointer-events-none" aria-hidden="true" style={{ background: "radial-gradient(circle, white 0%, transparent 60%)" }} />
 
-        <div ref={cta.ref} className={`max-w-[700px] mx-auto px-6 text-center relative z-10 ${cta.cls}`}>
-          <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.95] text-white mb-12">
-            The agentic music industry runs on {siteConfig.name}.
+        <div ref={cta.ref} className={`max-w-[760px] mx-auto px-6 text-center relative z-10 ${cta.cls}`}>
+          <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.95] text-white mb-10">
+            Let&apos;s build it<br />in your stack.
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href={siteConfig.appUrl} className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:-translate-y-0.5">
-              Get started free
+            <Link href="/consulting" className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:-translate-y-0.5">
+              Talk to us
             </Link>
-            <Link href={siteConfig.docsUrl} className="font-ui font-medium text-sm text-white/25 hover:text-white/50 transition-colors flex items-center gap-1.5">
-              Documentation <ArrowUpRight size={14} />
+            <Link href={siteConfig.researchUrl} className="font-ui font-medium text-sm text-white/40 hover:text-white/70 transition-colors flex items-center gap-1.5">
+              Read our research <ArrowUpRight size={14} />
             </Link>
           </div>
         </div>

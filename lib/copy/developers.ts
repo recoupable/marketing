@@ -6,37 +6,47 @@ import { siteConfig } from "@/lib/config";
 export const developersCopy = {
   title: "Developers",
   description:
-    "Music-specific agent infrastructure. API, CLI, integrations.",
+    "The music layer for your agents — open skills, a music-native API, and MCP. Build on the same system Recoup Records runs on.",
+  installCommand: siteConfig.skillsInstallCommand,
+  installNote: "Installs the open skills into Claude, Cursor, or your own stack.",
   sections: [
+    {
+      id: "skills",
+      title: "Open skills",
+      description:
+        "Open-source skills our own agents run every day — music research, chart metrics, content creation, release management, streaming growth. Install the whole repo with one command.",
+      linkLabel: "Browse the skills",
+      linkHref: siteConfig.skillsRepoUrl,
+    },
     {
       id: "api",
       title: "API",
-      description: `Agents, workflows, data. Programmatic access. Integrate ${siteConfig.name} into your tools and pipelines.`,
+      description: `A music-native API for agents and automation. Trigger workflows, sync catalog and audience data, and build on the same system ${siteConfig.name} Records runs on.`,
       linkLabel: "API reference",
       linkHref: siteConfig.docsUrl,
+    },
+    {
+      id: "mcp",
+      title: "MCP",
+      description:
+        "Connect over the Model Context Protocol so any agent — yours, your team's, or your customers' — can securely call Recoup's music tools with no custom glue code.",
     },
     {
       id: "cli",
       title: "CLI",
       description:
-        "Automation, scripting, CI. Same capabilities as the app. From your terminal.",
+        "Drive the same capabilities from your terminal — automation, scripting, and CI pipelines.",
     },
     {
       id: "docs",
       title: "Docs",
       description:
-        "API, authentication, use cases. Full documentation.",
+        "API reference, authentication, and use cases — the full, LLM-readable documentation.",
       linkLabel: "developers.recoupable.com",
       linkHref: siteConfig.docsUrl,
     },
-    {
-      id: "use-cases",
-      title: "Use Cases",
-      description:
-        "Trigger agents from your app. Sync catalog. Build dashboards. More in Learn.",
-    },
   ],
-  ctaLabel: "View docs",
+  ctaLabel: "Read the docs",
   ctaHref: siteConfig.docsUrl,
 } as const;
 
@@ -47,6 +57,12 @@ export function developersToMarkdown(c: DevelopersCopy): string {
     `# ${c.title} — ${siteConfig.name}`,
     "",
     c.description,
+    "",
+    "```",
+    c.installCommand,
+    "```",
+    "",
+    c.installNote,
     "",
     "---",
     "",

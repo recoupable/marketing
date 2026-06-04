@@ -1,5 +1,8 @@
 /**
- * Pricing page copy — single source of truth for plans, features, and FAQ.
+ * Pricing page copy — single source of truth for engagement tiers + FAQ.
+ * Positioning (2026-06): three ways to work with Recoup — Open (free tools),
+ * Chat (hosted product), and Implementation (consulting / partnerships).
+ * Mirrors the homepage Research / Build / Partner lanes.
  */
 import { siteConfig } from "@/lib/config";
 
@@ -23,111 +26,91 @@ export interface PricingFAQ {
 }
 
 export const pricingCopy = {
-  title: "Simple pricing. No surprises.",
+  title: "Start in the open. Scale with us.",
   description:
-    "Start free. Upgrade when your roster grows. Every plan includes AI agents that actually do the work — research, content, strategy, reporting.",
+    "Recoup is a research lab and implementation partner. The tools are open, the hosted workspace is simple, and bigger builds are scoped to you. Three ways to work with us.",
 
   plans: [
     {
-      id: "plus",
-      name: "Plus",
-      audience: "For independent artists",
-      price: "$19",
+      id: "open",
+      name: "Open",
+      audience: "For builders & developers",
+      price: "Free",
+      period: "",
+      description:
+        "Install the open-source skills our own agents run on, and build on the API and MCP in your own stack.",
+      features: [
+        "Open-source skills — one-command install",
+        "Music-native API & full docs",
+        "MCP integrations for any agent",
+        "Use in Claude, Cursor, or your own tools",
+        "Community support",
+      ],
+      cta: "Browse the skills",
+      ctaHref: siteConfig.skillsRepoUrl,
+    },
+    {
+      id: "chat",
+      name: "Chat",
+      audience: "For artists, managers & teams",
+      price: "From $19",
       period: "/mo",
       description:
-        "Everything you need to run your own marketing with AI. Research your audience, generate content, plan releases.",
+        "A hosted workspace where the same skills run for your team — research, content, and release planning, no setup or terminal required.",
       features: [
-        "1 artist profile",
-        "100 AI credits / month",
-        "Artist research & audience insights",
+        "Artist profiles & audience research",
         "AI content generation",
         "Release planning tools",
         "Analytics dashboard",
-        "Community support",
-      ],
-      cta: "Start free",
-      ctaHref: siteConfig.appUrl,
-    },
-    {
-      id: "pro",
-      name: "Pro",
-      audience: "For managers & small teams",
-      price: "$99",
-      period: "/mo",
-      description:
-        "Manage your entire roster with AI agents. Unlimited artists, deeper insights, priority everything.",
-      features: [
-        "Unlimited artist profiles",
-        "1,000 AI credits / month",
-        "Everything in Plus",
-        "Train agents on your catalog data",
-        "Multi-artist campaign planning",
-        "Advanced audience segmentation",
+        "Pro plans add roster management & API access",
         "Priority support",
-        "API access",
       ],
-      cta: "Start 30-day trial",
+      cta: "Start in Chat",
       ctaHref: siteConfig.appUrl,
       highlighted: true,
       badge: "Most popular",
     },
     {
-      id: "partner",
-      name: "Partner",
-      audience: "For labels & enterprises",
+      id: "implementation",
+      name: "Implementation",
+      audience: "For labels, catalogs & platforms",
       price: "Custom",
       period: "",
       description:
-        "White-glove onboarding, dedicated support, and the full platform tailored to your operation.",
+        "Consulting, custom agents, and embed / partner deals — scoped to your roster, catalog, and volume.",
       features: [
-        "Everything in Pro",
-        "25,000+ chats / month",
-        "Team seats & role management",
-        "Custom agent training",
-        "Dedicated account manager",
-        "SLA & uptime guarantees",
-        "Custom integrations",
-        "Invoice billing",
+        "AI strategy & implementation sprints",
+        "Custom, organization-owned skills",
+        "Embed / OEM & API at scale",
+        "You own what we build",
+        "Scoped data boundaries",
+        "Dedicated partner & SLA options",
       ],
       cta: "Talk to us",
-      ctaHref: `mailto:${siteConfig.contactEmail}?subject=Recoupable%20Partner%20Plan`,
+      ctaHref: "/consulting",
     },
   ] as PricingPlan[],
 
   faq: [
     {
-      q: "What are AI credits?",
-      a: "Each interaction with an AI agent uses credits — a research query, a content draft, an audience report. Most actions cost 1 credit. Heavy operations (deep research, long-form content) may cost 2-5.",
-    },
-    {
-      q: "Can I try before I buy?",
-      a: "Yes. Sign up and use the platform free with limited credits. Pro plans include a 30-day free trial — no credit card required.",
-    },
-    {
-      q: "What happens if I run out of credits?",
-      a: "You can upgrade your plan or purchase additional credit packs. We'll notify you when you're running low so there are no surprises.",
-    },
-    {
-      q: "Can I switch plans anytime?",
-      a: "Absolutely. Upgrade, downgrade, or cancel anytime. Changes take effect at the start of your next billing cycle.",
-    },
-    {
-      q: "Is my data safe?",
-      a: "Your data is encrypted in transit and at rest. We never share your artist data, audience insights, or content with other users. Your competitive advantage stays yours.",
-    },
-    {
-      q: "Do you offer annual billing?",
-      a: "Yes — annual plans save 20%. Contact us or toggle to annual billing in your account settings.",
-    },
-    {
-      q: "What integrations are included?",
-      a: "All plans include core integrations: Spotify, Apple Music, social platforms, and email. Pro and Partner plans add API access and custom integrations.",
+      q: "Can I try it before I buy anything?",
+      a: "Yes. The open skills, API, and docs are free — install them and build today. The hosted Chat workspace also has a free tier so you can use the agents before upgrading.",
     },
     {
       q: "How is this different from ChatGPT?",
-      a: "ChatGPT is a general chatbot. Recoupable agents are built specifically for the music business — they understand artists, releases, audiences, and campaigns. They don't just answer questions, they execute strategy.",
+      a: "ChatGPT is a general chatbot. Recoup is the music layer — skills, an API, and MCP integrations built specifically for music work like research, release ops, and catalog analysis. Point your own agent at it, or use the hosted workspace.",
+    },
+    {
+      q: "Who owns what we build — and how is our data handled?",
+      a: "You do. In any implementation engagement, the agents, skills, and workflows live in your stack or a repo your organization controls. We scope data access and reuse terms before work starts.",
+    },
+    {
+      q: "What if I'm a label, distributor, or platform?",
+      a: "That's the Implementation tier. We scope strategy, custom agents, and embed / partner deals to your volume — nothing here is a fixed public price. Start a conversation and we'll come back with the simplest way to do it.",
+    },
+    {
+      q: "Is my data safe?",
+      a: "Your data is encrypted in transit and at rest, and agents only touch the systems you explicitly connect — which you can revoke at any time.",
     },
   ] as PricingFAQ[],
-
-  annualDiscount: "Save 20% with annual billing",
 } as const;

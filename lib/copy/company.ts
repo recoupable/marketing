@@ -6,11 +6,12 @@ import { siteConfig } from "@/lib/config";
 
 export const companyVisionCopy = {
   title: "Vision",
-  anchor: `Music businesses are going autonomous. ${siteConfig.name} is how they run.`,
+  anchor:
+    "The music industry is going agentic. We're building the layer it runs on.",
   paragraphs: [
-    "Not a chatbot. Not a tool. The system that runs music businesses through agents. Artists, labels, distributors, catalog owners — too much time on ops that AI can run: release strategy, marketing, audience research, catalog. One platform: define goals, connect data, agents do the work.",
-    `When someone hears ${siteConfig.name}: the company building the future of music operations. Where AI actually does the work. The system serious teams use.`,
-    `The future of music runs itself. ${siteConfig.name} makes it possible.`,
+    `${siteConfig.name} is a research lab and implementation partner for the agentic music industry. We work with labels, catalogs, and platforms — researching what AI can actually do for music, building the open tools to do it, and implementing them inside real teams' stacks.`,
+    "The winners won't be the teams with the flashiest chatbot. They'll be the ones whose agents have real music context, safe access to their systems, and workflows built for how the business actually runs. That's what we build — in the open, and alongside you.",
+    `We run our own label on the same tools we sell. If a workflow can't carry weight on a real roster, we don't publish it — and we don't recommend it to yours. You own what we build, with data boundaries scoped before implementation starts.`,
   ],
 } as const;
 
@@ -29,8 +30,8 @@ export function companyVisionToMarkdown(c: typeof companyVisionCopy): string {
 
 export const companyAboutCopy = {
   title: "About",
-  description: "The company building the future of music operations.",
-  body: `${siteConfig.name} is the platform for autonomous music businesses. The system that runs music operations through agents — for artists, labels, distributors, developers.`,
+  description: "A research lab and implementation partner for the agentic music industry.",
+  body: `${siteConfig.name} builds the music layer for AI agents — open-source skills, an API, and MCP integrations — and works hands-on with labels, catalogs, and platforms to put them to work inside their own stacks. We run our own label on the same tools. You own what we build, with data boundaries scoped before implementation starts.`,
   contactEmail: siteConfig.contactEmail,
   supportEmail: siteConfig.supportEmail,
   legal: `${siteConfig.legalName} · ${siteConfig.address}`,
@@ -54,9 +55,32 @@ export function companyAboutToMarkdown(c: typeof companyAboutCopy): string {
 
 export const companyRecoupRecordsCopy = {
   title: `${siteConfig.name} Records`,
-  subtitle: "Our label runs on this system.",
-  body: `${siteConfig.name} Records is the label — run entirely on ${siteConfig.name}. Every release, marketing push, content run: agents execute. Same platform we sell. That's how we know it works.`,
-  footer: "Real outputs. Real growth loops. Real proof.",
+  subtitle: "Our own label and artist run on the same tools we sell.",
+  intro: `${siteConfig.name} Records is our in-house label, and Gatsby Grace is the artist we develop on it. Everything we ship to clients earns its keep here first — the open skills, the agents, and the platform all run a real roster before we ever recommend them to yours.`,
+  /** How the label actually uses the system, each tied to a real open skill. */
+  runsOn: [
+    {
+      title: "Release planning",
+      body: "Agents draft and run release campaigns end to end — timelines, assets, and the checklist of who does what before drop day.",
+      skill: "release-management",
+    },
+    {
+      title: "Artist & catalog research",
+      body: "Artist analytics, audience breakdowns, and competitive analysis pulled together into briefs we actually act on.",
+      skill: "music-industry-research",
+    },
+    {
+      title: "Content production",
+      body: "Social videos, short-form clips, and visual content generated from the catalog — the same content engine our clients install.",
+      skill: "content-creation",
+    },
+    {
+      title: "Audience growth",
+      body: "Tracking Gatsby Grace toward the streaming milestones that unlock playlisting and platform tools.",
+      skill: "streaming-growth",
+    },
+  ],
+  footer: `If a skill can't carry weight on our own roster, we don't publish it — and we don't sell it.`,
 } as const;
 
 export function companyRecoupRecordsToMarkdown(
@@ -69,7 +93,10 @@ export function companyRecoupRecordsToMarkdown(
     "",
     "---",
     "",
-    c.body,
+    c.intro,
+    "",
+    ...c.runsOn.flatMap((r) => [`## ${r.title}`, "", r.body, ""]),
+    "---",
     "",
     c.footer,
   ].join("\n");

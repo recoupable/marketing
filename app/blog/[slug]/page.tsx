@@ -1,21 +1,40 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getPostBySlug, getAllPostSlugs, getRelatedPosts } from "@/lib/posts";
+import {
+  resolveContent,
+  getAllContentSlugs,
+  getRelatedContent,
+  categoryFor,
+} from "@/lib/content";
+import {
+  CONTENT_CATEGORY_LABELS,
+  type ContentEntry,
+} from "@/lib/content-types";
+import { getParagraphPost } from "@/lib/paragraph/api";
+import {
+  timestampToISODate,
+  normalizeParagraphHtml,
+} from "@/lib/paragraph/helpers";
+import { markdownToHtml, stripLeadingH1 } from "@/lib/markdown";
 import { buildPostMetadata, buildPostJsonLd } from "@/lib/seo";
-import { markdownToHtml } from "@/lib/markdown";
-import { PostBody } from "@/components/blog/PostBody";
-import { RelatedPosts } from "@/components/blog/RelatedPosts";
+import { siteConfig } from "@/lib/config";
+import { ContentArticle } from "@/components/content/ContentArticle";
+import { RelatedContent } from "@/components/content/RelatedContent";
 import { BlogCTA } from "@/components/blog/BlogCTA";
 
+/** ISR — Paragraph-synced essays revalidate hourly; MDX content still shares route-level revalidation. */
+export const revalidate = 3600;
+
 /**
- * Generate static params for all posts — enables SSG.
+ * Static params across all three pipelines (blog MDX, research MDX, Paragraph).
  */
 export function generateStaticParams() {
-  return getAllPostSlugs().map((slug) => ({ slug }));
+  return getAllContentSlugs().map((slug) => ({ slug }));
 }
 
 /**
- * Generate per-post SEO metadata (title, description, OG tags, canonical).
+ * Per-entry SEO metadata. MDX pipelines reuse buildPostMetadata; Paragraph
+ * essays build metadata from the live post (canonical points at /blog).
  */
 export async function generateMetadata({
   params,
@@ -23,79 +42,54 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  try {
-    const post = getPostBySlug(slug);
-    return buildPostMetadata(post);
-  } catch {
-    return { title: "Post Not Found" };
+  const resolution = resolveContent(slug);
+  if (!resolution) return { title: "Post Not Found" };
+
+  if (resolution.kind === "post" || resolution.kind === "research-mdx") {
+    return buildPostMetadata(resolution.post);
   }
+
+  const canonical = `${siteConfig.url}/blog/${slug}`;
+  const post = await getParagraphPost(resolution.config.paragraphId);
+  if (!post) return { title: resolution.config.title };
+
+  const description = post.subtitle || resolution.config.excerpt;
+  return {
+    title: post.title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      title: post.title,
+      description,
+      url: canonical,
+      siteName: siteConfig.name,
+      type: "article",
+      images: post.imageUrl ? [post.imageUrl] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description,
+      images: post.imageUrl ? [post.imageUrl] : [],
+    },
+  };
 }
 
-/**
- * Blog post page — renders MDX content with full SEO + JSON-LD.
- */
-export default async function BlogPostPage({
-  params,
+/** Footer slot shared across pipelines — tags, email CTA, related content. */
+function ArticleFooter({
+  tags,
+  slug,
+  related,
 }: {
-  params: Promise<{ slug: string }>;
+  tags: string[];
+  slug: string;
+  related: ContentEntry[];
 }) {
-  const { slug } = await params;
-
-  let post;
-  try {
-    post = getPostBySlug(slug);
-  } catch {
-    notFound();
-  }
-
-  // Convert markdown to HTML
-  const htmlContent = await markdownToHtml(post.content);
-
-  // Get related posts for the sidebar/footer
-  const relatedPosts = getRelatedPosts(slug);
-
-  // Build JSON-LD structured data
-  const jsonLd = buildPostJsonLd(post);
-
-  const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
   return (
     <>
-      {/* JSON-LD structured data for search engines */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      <article className="max-w-3xl mx-auto px-4 py-12">
-        {/* Post header */}
-        <header className="mb-10">
-          <span className="inline-block text-xs font-medium uppercase tracking-wider text-[var(--brand)] mb-3">
-            {post.type}
-          </span>
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] mb-4">
-            {post.title}
-          </h1>
-          <p className="text-lg text-[var(--muted-foreground)] mb-4">
-            {post.excerpt}
-          </p>
-          <div className="flex items-center gap-4 text-sm text-[var(--muted-foreground)]">
-            <span>{post.author}</span>
-            <span>·</span>
-            <time dateTime={post.date}>{formattedDate}</time>
-          </div>
-        </header>
-
-        {/* Post body */}
-        <PostBody content={htmlContent} />
-
-        {/* Tags */}
+      {tags.length > 0 ? (
         <div className="mt-10 flex flex-wrap gap-2">
-          {post.tags.map((tag) => (
+          {tags.map((tag) => (
             <span
               key={tag}
               className="text-xs bg-[var(--muted)] text-[var(--muted-foreground)] px-3 py-1 rounded-full"
@@ -104,13 +98,108 @@ export default async function BlogPostPage({
             </span>
           ))}
         </div>
+      ) : null}
+      <BlogCTA postSlug={slug} />
+      <RelatedContent entries={related} />
+    </>
+  );
+}
 
-        {/* Email capture CTA */}
-        <BlogCTA postSlug={slug} />
+/**
+ * Content detail — resolves the slug to its pipeline and renders all three
+ * through the shared ContentArticle layout.
+ */
+export default async function ContentPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const resolution = resolveContent(slug);
+  if (!resolution) notFound();
 
-        {/* Related posts */}
-        <RelatedPosts posts={relatedPosts} />
-      </article>
+  const related = getRelatedContent(slug);
+
+  // MDX pipelines (blog posts + in-repo research essays)
+  if (resolution.kind === "post" || resolution.kind === "research-mdx") {
+    const { post } = resolution;
+    // The body repeats the title as a leading H1; the header already shows it.
+    const html = await markdownToHtml(stripLeadingH1(post.content));
+    const jsonLd = buildPostJsonLd(post);
+    const eyebrow =
+      CONTENT_CATEGORY_LABELS[
+        categoryFor({ type: post.type, tags: post.tags, source: resolution.kind })
+      ];
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <ContentArticle
+          eyebrow={eyebrow}
+          title={post.title}
+          subtitle={post.excerpt}
+          author={post.author}
+          date={post.date}
+          html={html}
+        >
+          <ArticleFooter tags={post.tags} slug={slug} related={related} />
+        </ContentArticle>
+      </>
+    );
+  }
+
+  // Paragraph-synced pipeline (body fetched live)
+  const { config } = resolution;
+  const post = await getParagraphPost(config.paragraphId);
+  if (!post || !post.staticHtml) notFound();
+  const publishedAt = timestampToISODate(post.publishedAt);
+  if (!publishedAt) notFound();
+  const modifiedAt = timestampToISODate(post.updatedAt) || publishedAt;
+
+  const eyebrow =
+    CONTENT_CATEGORY_LABELS[
+      categoryFor({ tags: config.tags, source: "paragraph" })
+    ];
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.subtitle || config.excerpt,
+    author: {
+      "@type": "Person",
+      name: config.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    datePublished: publishedAt,
+    dateModified: modifiedAt,
+    url: `${siteConfig.url}/blog/${slug}`,
+    ...(post.imageUrl ? { image: post.imageUrl } : {}),
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ContentArticle
+        eyebrow={eyebrow}
+        title={post.title}
+        subtitle={post.subtitle}
+        author={config.author}
+        date={publishedAt}
+        imageUrl={post.imageUrl}
+        html={normalizeParagraphHtml(post.staticHtml)}
+      >
+        <ArticleFooter tags={config.tags} slug={slug} related={related} />
+      </ContentArticle>
     </>
   );
 }

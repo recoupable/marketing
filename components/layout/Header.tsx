@@ -70,16 +70,10 @@ export function Header() {
           </button>
 
           <Link
-            href={siteConfig.appUrl}
-            className="hidden sm:inline-block text-[14px] font-ui font-medium text-(--foreground)/70 hover:text-(--foreground) transition-colors px-4 py-1.5 rounded-full border border-(--border) hover:border-(--foreground)/20"
-          >
-            Sign In
-          </Link>
-          <Link
-            href={siteConfig.appUrl}
+            href="/consulting"
             className="bg-(--foreground) text-(--background) px-5 py-2 rounded-full text-[14px] font-ui font-semibold hover:opacity-90 transition-opacity"
           >
-            Sign Up
+            Talk to us
           </Link>
         </div>
       </div>
@@ -99,11 +93,11 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href={siteConfig.appUrl}
-              className="block px-3 py-2.5 text-sm font-ui font-medium text-(--foreground)/70 sm:hidden"
+              href="/consulting"
+              className="block px-3 py-2.5 text-sm font-ui font-semibold text-(--background) bg-(--foreground) rounded-lg text-center"
               onClick={() => setMobileOpen(false)}
             >
-              Sign In
+              Talk to us
             </Link>
           </div>
         </div>
