@@ -232,11 +232,11 @@ export default function HomePage() {
           <p className={`font-pixel text-[10px] uppercase tracking-[0.22em] text-(--foreground)/45 mb-6 transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ transitionDelay: "200ms" }}>
             Building the agentic music industry
           </p>
-          <h1 className={`font-pixel text-[clamp(2.75rem,7vw,5.25rem)] leading-[1.02] tracking-tight mb-6 text-(--foreground) transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
-            AI agents that know<br className="hidden sm:block" /> your catalog, royalties,<br className="hidden sm:block" /> and roster.
+          <h1 className={`font-pixel text-[clamp(2.25rem,5vw,3.5rem)] leading-[1.06] tracking-tight mb-6 text-(--foreground) transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
+            AI agents that know your catalog,<br className="hidden sm:block" /> royalties, and roster.
           </h1>
-          <p className={`text-(--foreground)/60 text-[clamp(1.0625rem,1.5vw,1.3rem)] font-ui leading-[1.55] max-w-[680px] mx-auto mb-10 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
-            Recoup is a research lab and implementation partner for labels, catalogs, and platforms. We build custom AI agents that run where your team already works — and you own every one.
+          <p className={`text-(--foreground)/60 text-[clamp(1.0625rem,1.5vw,1.25rem)] font-ui leading-[1.5] max-w-[560px] mx-auto mb-9 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
+            A research lab and implementation partner. We build custom agents into your stack — and you own every one.
           </p>
           <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "700ms" }}>
             <Link href="/consulting" className="cta-pulse font-ui font-semibold bg-(--foreground) text-(--background) px-9 py-4 rounded-full text-[15px] hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5">
@@ -247,7 +247,7 @@ export default function HomePage() {
             </Link>
           </div>
           <p className={`font-ui text-[12px] text-(--foreground)/40 mt-7 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "850ms" }}>
-            Your data stays yours — we never train on it. Boundaries scoped before we build.
+            Your data stays yours — we never train on it.
           </p>
         </div>
       </section>
@@ -310,7 +310,7 @@ export default function HomePage() {
         <div ref={lanes.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${lanes.cls}`}>
           <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">How we work</p>
           <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-14 max-w-[720px]">
-            Research in public. Tools in the open. Implementation with your team.
+            We research it, build it, and run it in your stack.
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
@@ -347,7 +347,7 @@ export default function HomePage() {
             <div>
               <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Research</p>
               <h2 className="font-pixel text-[clamp(2rem,4vw,3rem)] tracking-tight mb-4 leading-[1.05]">
-                We learn in the open, with real operators.
+                What&apos;s actually working in AI for music.
               </h2>
               <p className="text-[15px] text-(--foreground)/50 leading-relaxed mb-6 max-w-md">
                 Catalog diligence, label operations, agent rollouts — we publish what actually works (and what doesn&apos;t) as we build with labels and catalogs.
@@ -370,6 +370,7 @@ export default function HomePage() {
       <section className="py-24 sm:py-32 dark-section text-white relative overflow-hidden">
         <div ref={arch.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 relative z-10 ${arch.cls}`}>
           <div className="text-center mb-12">
+            <p className="font-ui text-[11px] font-semibold text-white/30 uppercase tracking-[0.2em] mb-4">Build</p>
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-5">
               {["Claude", "Cursor", "API", "MCP", "Chat"].map((m) => (
                 <span key={m} className="text-[10px] font-pixel text-white/30 uppercase tracking-[0.15em] px-3 py-1.5 rounded-full border border-white/10">{m}</span>
@@ -409,14 +410,13 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          7. OPEN TOOLS SHELF — builder proof (C′)
+          6b. BUILD (cont.) — the open skills the engine runs
           ══════════════════════════════════════ */}
-      <section className="py-24 sm:py-32 border-t border-(--border)">
+      <section className="pt-16 pb-24 sm:pt-20 sm:pb-32">
         <div ref={shelf.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${shelf.cls}`}>
           <div className="text-center mb-12 sm:mb-14">
-            <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">In the open</p>
-            <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-4">
-              The tools we build, free to install.
+            <h2 className="font-pixel text-[clamp(1.5rem,3vw,2.125rem)] tracking-tight leading-[1.1] mb-4">
+              The open skills it runs — free to install.
             </h2>
             <p className="text-[15px] text-(--foreground)/50 max-w-lg mx-auto leading-relaxed">
               Open-source skills our own agents run every day. Install them into Claude, Cursor, or your own stack in seconds. Your private work stays yours —{" "}
@@ -512,7 +512,7 @@ export default function HomePage() {
           ══════════════════════════════════════ */}
       <section className="py-20 sm:py-28 border-t border-(--border)">
         <div ref={proof.ref} className={`max-w-[820px] mx-auto px-6 sm:px-10 ${proof.cls}`}>
-          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">The proof</p>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">Proof</p>
           <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-6">
             We run our own labels.
           </h2>
@@ -531,7 +531,7 @@ export default function HomePage() {
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 bg-(--muted)/60">
         <div ref={consulting.ref} className={`max-w-[820px] mx-auto px-6 sm:px-10 text-center ${consulting.cls}`}>
-          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-5">Consulting</p>
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-5">Partner</p>
           <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.08] mb-5">
             Most music teams are still <span className="italic font-display">planning</span> their AI strategy. Start executing it.
           </h2>
