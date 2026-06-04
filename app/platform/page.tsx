@@ -170,7 +170,7 @@ export default function PlatformPage() {
               href={c.ctaHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-pulse font-ui font-semibold bg-white text-(--background) px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5 inline-flex items-center gap-1.5"
+              className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5 inline-flex items-center gap-1.5"
             >
               {c.ctaLabel} <ArrowUpRight size={15} />
             </a>

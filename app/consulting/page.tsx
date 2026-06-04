@@ -292,7 +292,7 @@ export default function ConsultingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={CONTACT}
-              className="cta-pulse font-ui font-semibold bg-white text-(--background) px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
+              className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
             >
               Talk to us
             </a>
