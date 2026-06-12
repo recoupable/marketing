@@ -8,6 +8,7 @@ type Result = {
   state: string;
   trackCount: number;
   albumCount: number;
+  capturedAlbums: number;
   totalStreams: number;
   catalogAgeYears: number;
   valueBand: Band;
@@ -60,9 +61,11 @@ export function CatalogValuation() {
 
       setProgress(`Measuring play counts across ${started.albumCount} releases…`);
 
-      // cheap probe poll on one album until captures land, then one full read
-      const probeIds = started.albumIds.slice(0, 1);
-      for (let attempt = 0; attempt < 40; attempt++) {
+      // cheap probe (first 2 albums) until anything lands — bounded at ~90s;
+      // some albums never produce playcounts (no ISRCs / hidden counts), so
+      // we value what's measured rather than waiting for 100% coverage
+      const probeIds = started.albumIds.slice(0, 2);
+      for (let attempt = 0; attempt < 15; attempt++) {
         await new Promise(r => setTimeout(r, 6000));
         const probe = await fetch("/api/valuation/result", {
           method: "POST",
@@ -84,7 +87,23 @@ export function CatalogValuation() {
           earliestReleaseDate: started.earliestReleaseDate,
         }),
       }).then(r => r.json());
-      if (final.state !== "done") throw new Error("capture incomplete — try again in a minute");
+      if (final.state !== "done") {
+        // nothing measured yet — one more patient read before giving up
+        await new Promise(r => setTimeout(r, 20000));
+        const retry = await fetch("/api/valuation/result", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            albumIds: started.albumIds,
+            earliestReleaseDate: started.earliestReleaseDate,
+          }),
+        }).then(r => r.json());
+        if (retry.state !== "done")
+          throw new Error("we couldn't measure this catalog yet — try again in a few minutes");
+        setResult(retry);
+        setPhase("done");
+        return;
+      }
 
       setResult(final);
       setPhase("done");
@@ -195,7 +214,13 @@ export function CatalogValuation() {
                 ),
               },
               { label: "Tracks measured", value: String(result.trackCount) },
-              { label: "Releases", value: String(result.albumCount) },
+              {
+                label: "Releases measured",
+                value:
+                  result.capturedAlbums < result.albumCount
+                    ? `${result.capturedAlbums} of ${result.albumCount}`
+                    : String(result.albumCount),
+              },
             ].map(s => (
               <div key={s.label} className="bg-(--foreground)/[0.03] px-4 py-4">
                 <dt className="text-[10px] font-pixel uppercase tracking-[0.14em] text-(--foreground)/40">

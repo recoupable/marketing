@@ -9,8 +9,11 @@ export const maxDuration = 60;
  * POST /api/valuation/result { albumIds, earliestReleaseDate, probe? }
  *
  * probe: true reads only the given (small) album subset to check capture
- * progress cheaply; the full read aggregates everything and returns the
- * valuation band. Reads charge 5 credits/album to the marketing org.
+ * progress cheaply. The full read aggregates every album that has landed and
+ * values what's measured — albums whose tracks lack ISRCs or displayed counts
+ * never return playcounts, so requiring 100% coverage would hang real indie
+ * catalogs (found live: LA EQUIS). Coverage is reported as capturedAlbums /
+ * albumCount. Reads charge 5 credits/album to the marketing org.
  */
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => ({}));
@@ -22,9 +25,9 @@ export async function POST(req: NextRequest) {
   try {
     const counts = await getCatalogPlaycounts(albumIds);
 
-    if (body.probe || counts.captured < counts.total) {
+    if (body.probe || counts.captured === 0) {
       return NextResponse.json({
-        state: counts.captured === counts.total ? "captured" : "capturing",
+        state: counts.captured > 0 ? "captured" : "capturing",
         captured: counts.captured,
         total: counts.total,
       });
@@ -38,6 +41,7 @@ export async function POST(req: NextRequest) {
       state: "done",
       trackCount: counts.trackCount,
       albumCount: counts.total,
+      capturedAlbums: counts.captured,
       ...valuation,
     });
   } catch (error) {
