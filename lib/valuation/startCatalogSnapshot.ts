@@ -1,6 +1,10 @@
 import { siteConfig } from "@/lib/config";
 
-const MAX_ALBUMS = 50;
+// Spotify caps the artist-albums endpoint at 50 per page; we paginate up to
+// 200 releases — full coverage for virtually every artist, bounded against
+// compilation-heavy catalogs (each album costs actor spend + 5 credits/read)
+const PAGE_SIZE = 50;
+const MAX_ALBUMS = 200;
 
 export type StartedAlbum = {
   id: string;
@@ -27,21 +31,29 @@ export type StartedSnapshot = {
  * @param artistId - Spotify artist id
  * @returns snapshot id + album ids + earliest release date (for catalog age)
  */
+type SpotifyAlbumItem = {
+  id: string;
+  name?: string;
+  release_date?: string;
+  images?: Array<{ url: string }>;
+};
+
 export async function startCatalogSnapshot(artistId: string): Promise<StartedSnapshot> {
-  const params = new URLSearchParams({
-    id: artistId,
-    include_groups: "album,single",
-    limit: String(MAX_ALBUMS),
-  });
-  const albumsRes = await fetch(`${siteConfig.apiUrl}/spotify/artist/albums?${params}`);
-  if (!albumsRes.ok) throw new Error(`albums lookup failed: ${albumsRes.status}`);
-  const albumsData = await albumsRes.json();
-  const items: Array<{
-    id: string;
-    name?: string;
-    release_date?: string;
-    images?: Array<{ url: string }>;
-  }> = albumsData.items ?? albumsData.albums?.items ?? [];
+  const items: SpotifyAlbumItem[] = [];
+  for (let offset = 0; offset < MAX_ALBUMS; offset += PAGE_SIZE) {
+    const params = new URLSearchParams({
+      id: artistId,
+      include_groups: "album,single",
+      limit: String(PAGE_SIZE),
+      offset: String(offset),
+    });
+    const albumsRes = await fetch(`${siteConfig.apiUrl}/spotify/artist/albums?${params}`);
+    if (!albumsRes.ok) throw new Error(`albums lookup failed: ${albumsRes.status}`);
+    const albumsData = await albumsRes.json();
+    const page: SpotifyAlbumItem[] = albumsData.items ?? albumsData.albums?.items ?? [];
+    items.push(...page);
+    if (page.length < PAGE_SIZE) break;
+  }
   if (items.length === 0) throw new Error("artist has no albums on Spotify");
 
   const albumById = new Map(

@@ -221,19 +221,29 @@ export function CatalogValuation() {
                             </span>
                           </summary>
                           <ul className="pb-2">
-                            {album.tracks.map((track, i) => (
-                              <li
-                                key={`${album.id}-${i}`}
-                                className="flex items-center gap-3.5 py-1.5 pr-4 pl-[4.375rem]"
-                              >
-                                <span className="min-w-0 flex-1 truncate text-[13px] text-(--foreground)/70">
-                                  {track.name ?? "Untitled track"}
-                                </span>
-                                <span className="text-[12px] tabular-nums text-(--foreground)/45">
-                                  {compact(track.streams)}
-                                </span>
-                              </li>
-                            ))}
+                            {album.tracks.map((track, i) => {
+                              const trackValue =
+                                result.totalStreams > 0
+                                  ? result.valueBand.central *
+                                    (track.streams / result.totalStreams)
+                                  : 0;
+                              return (
+                                <li
+                                  key={`${album.id}-${i}`}
+                                  className="flex items-center gap-3.5 py-1.5 pr-4 pl-[4.375rem]"
+                                >
+                                  <span className="min-w-0 flex-1 truncate text-[13px] text-(--foreground)/70">
+                                    {track.name ?? "Untitled track"}
+                                  </span>
+                                  <span className="text-[12px] font-medium tabular-nums text-(--foreground)/70">
+                                    {usd(trackValue)}
+                                  </span>
+                                  <span className="w-20 text-right text-[11px] tabular-nums text-(--foreground)/40">
+                                    {compact(track.streams)}
+                                  </span>
+                                </li>
+                              );
+                            })}
                           </ul>
                         </details>
                       </li>

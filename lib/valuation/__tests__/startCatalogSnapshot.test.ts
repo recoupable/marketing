@@ -54,4 +54,63 @@ describe("startCatalogSnapshot", () => {
 
     await expect(startCatalogSnapshot("artist_x")).rejects.toThrow("no albums");
   });
+
+  it("paginates past the Spotify 50-per-page limit until a short page", async () => {
+    const page = (start: number, count: number) => ({
+      ok: true,
+      json: async () => ({
+        items: Array.from({ length: count }, (_, i) => ({
+          id: `a${start + i}`,
+          release_date: "2020-01-01",
+          name: `Album ${start + i}`,
+          images: [],
+        })),
+      }),
+    });
+    mockFetch
+      .mockResolvedValueOnce(page(0, 50) as never)
+      .mockResolvedValueOnce(page(50, 3) as never)
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 202,
+        json: async () => ({ snapshot_id: "snap_2" }),
+      } as never);
+
+    const r = await startCatalogSnapshot("artist_big");
+
+    expect(mockFetch.mock.calls[0][0]).toContain("offset=0");
+    expect(mockFetch.mock.calls[1][0]).toContain("offset=50");
+    expect(mockFetch.mock.calls[2][0]).toContain("/research/snapshots");
+    expect(r.albumCount).toBe(53);
+  });
+
+  it("stops paginating at the 200-album cap", async () => {
+    const fullPage = (start: number) => ({
+      ok: true,
+      json: async () => ({
+        items: Array.from({ length: 50 }, (_, i) => ({
+          id: `a${start + i}`,
+          release_date: "2020-01-01",
+          name: `Album ${start + i}`,
+          images: [],
+        })),
+      }),
+    });
+    mockFetch
+      .mockResolvedValueOnce(fullPage(0) as never)
+      .mockResolvedValueOnce(fullPage(50) as never)
+      .mockResolvedValueOnce(fullPage(100) as never)
+      .mockResolvedValueOnce(fullPage(150) as never)
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 202,
+        json: async () => ({ snapshot_id: "snap_3" }),
+      } as never);
+
+    const r = await startCatalogSnapshot("artist_huge");
+
+    expect(r.albumCount).toBe(200);
+    // 4 album pages + 1 snapshot POST — no fifth page fetch past the cap
+    expect(mockFetch).toHaveBeenCalledTimes(5);
+  });
 });
