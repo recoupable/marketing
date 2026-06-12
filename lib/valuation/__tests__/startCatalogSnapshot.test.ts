@@ -10,14 +10,19 @@ describe("startCatalogSnapshot", () => {
     process.env.RECOUP_API_KEY = "k";
   });
 
-  it("resolves albums, fires the snapshot, returns ids + earliest release", async () => {
+  it("resolves albums, fires the snapshot, returns ids + earliest release + album metadata", async () => {
     mockFetch
       .mockResolvedValueOnce({
         ok: true,
         json: async () => ({
           items: [
-            { id: "a1", release_date: "2016-06-12", name: "Old" },
-            { id: "a2", release_date: "2021-01-01", name: "New" },
+            {
+              id: "a1",
+              release_date: "2016-06-12",
+              name: "Old",
+              images: [{ url: "old-640.jpg" }, { url: "old-300.jpg" }],
+            },
+            { id: "a2", release_date: "2021-01-01", name: "New", images: [] },
           ],
         }),
       } as never)
@@ -37,6 +42,10 @@ describe("startCatalogSnapshot", () => {
       albumIds: ["a1", "a2"],
       earliestReleaseDate: "2016-06-12",
       albumCount: 2,
+      albums: [
+        { id: "a1", name: "Old", image: "old-300.jpg", releaseDate: "2016-06-12" },
+        { id: "a2", name: "New", image: null, releaseDate: "2021-01-01" },
+      ],
     });
   });
 

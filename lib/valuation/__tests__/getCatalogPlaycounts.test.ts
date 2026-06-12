@@ -17,8 +17,8 @@ describe("getCatalogPlaycounts", () => {
           ok: true,
           json: async () => ({
             playcounts: [
-              { platform_displayed_play_count: 100 },
-              { platform_displayed_play_count: 50 },
+              { name: "Track One", platform_displayed_play_count: 100 },
+              { name: "Track Two", platform_displayed_play_count: 50 },
             ],
           }),
         };
@@ -27,6 +27,21 @@ describe("getCatalogPlaycounts", () => {
 
     const r = await getCatalogPlaycounts(["a1", "a2"]);
 
-    expect(r).toEqual({ captured: 1, total: 2, totalStreams: 150, trackCount: 2 });
+    expect(r).toEqual({
+      captured: 1,
+      total: 2,
+      totalStreams: 150,
+      trackCount: 2,
+      albums: [
+        {
+          id: "a1",
+          streams: 150,
+          tracks: [
+            { name: "Track One", streams: 100 },
+            { name: "Track Two", streams: 50 },
+          ],
+        },
+      ],
+    });
   });
 });

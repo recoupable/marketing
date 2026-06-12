@@ -4,6 +4,17 @@ import { useRef, useState } from "react";
 
 type Artist = { id: string; name: string; image?: string; followers?: number };
 type Band = { low: number; central: number; high: number };
+type StartedAlbum = {
+  id: string;
+  name: string | null;
+  image: string | null;
+  releaseDate: string | null;
+};
+type MeasuredAlbum = {
+  id: string;
+  streams: number;
+  tracks: Array<{ name: string | null; streams: number }>;
+};
 type Result = {
   state: string;
   trackCount: number;
@@ -14,6 +25,7 @@ type Result = {
   valueBand: Band;
   annualNls: Band;
   assumptions: { runRateBasis: string; multiple: Band };
+  albums: MeasuredAlbum[];
 };
 
 const usd = (n: number) =>
@@ -23,10 +35,13 @@ const usd = (n: number) =>
       ? `$${Math.round(n / 1_000)}K`
       : `$${Math.round(n)}`;
 
+const compact = (n: number) => Intl.NumberFormat("en", { notation: "compact" }).format(n);
+
 export function CatalogValuation() {
   const [query, setQuery] = useState("");
   const [artists, setArtists] = useState<Artist[]>([]);
   const [picked, setPicked] = useState<Artist | null>(null);
+  const [catalogAlbums, setCatalogAlbums] = useState<StartedAlbum[]>([]);
   const [phase, setPhase] = useState<"idle" | "running" | "done" | "error">("idle");
   const [progress, setProgress] = useState("");
   const [result, setResult] = useState<Result | null>(null);
@@ -58,6 +73,7 @@ export function CatalogValuation() {
       });
       const started = await startRes.json();
       if (!startRes.ok) throw new Error(started.error ?? "start failed");
+      setCatalogAlbums(started.albums ?? []);
 
       setProgress(`Measuring play counts across ${started.albumCount} releases…`);
 
@@ -191,6 +207,31 @@ export function CatalogValuation() {
             boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 15%, transparent)",
           }}
         >
+          {picked && (
+            <div className="mb-7 flex items-center gap-4">
+              {picked.image && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={picked.image}
+                  alt={picked.name}
+                  className="h-16 w-16 rounded-full object-cover"
+                  style={{
+                    boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 12%, transparent)",
+                  }}
+                />
+              )}
+              <div>
+                <p className="font-pixel text-[clamp(1.25rem,3vw,1.75rem)] leading-tight tracking-[-0.01em] text-(--foreground)">
+                  {picked.name}
+                </p>
+                {typeof picked.followers === "number" && (
+                  <p className="mt-0.5 text-[12px] font-pixel uppercase tracking-[0.1em] text-(--foreground)/40">
+                    {compact(picked.followers)} followers
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
           <p className="text-[11px] font-pixel uppercase tracking-[0.16em] text-(--foreground)/45">
             Estimated catalog value
           </p>
@@ -239,6 +280,70 @@ export function CatalogValuation() {
             {result.assumptions.multiple.high}× market multiple. Real statements
             collapse the range.
           </p>
+          {result.albums.length > 0 && (
+            <div className="mt-9">
+              <p className="text-[11px] font-pixel uppercase tracking-[0.16em] text-(--foreground)/45">
+                What we measured
+              </p>
+              <ul
+                className="mt-4 overflow-hidden rounded-xl"
+                style={{
+                  boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 10%, transparent)",
+                }}
+              >
+                {[...result.albums]
+                  .sort((a, b) => b.streams - a.streams)
+                  .map(album => {
+                    const meta = catalogAlbums.find(a => a.id === album.id);
+                    return (
+                      <li key={album.id} className="group/album bg-(--foreground)/[0.02]">
+                        <details>
+                          <summary className="flex cursor-pointer list-none items-center gap-3.5 px-4 py-3 transition-colors duration-200 hover:bg-(--foreground)/[0.04] [&::-webkit-details-marker]:hidden">
+                            {meta?.image && (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img
+                                src={meta.image}
+                                alt=""
+                                className="h-12 w-12 rounded-lg object-cover"
+                              />
+                            )}
+                            <span className="min-w-0 flex-1">
+                              <span className="block truncate text-[14px] font-semibold text-(--foreground)">
+                                {meta?.name ?? album.id}
+                              </span>
+                              <span className="block text-[11px] text-(--foreground)/40">
+                                {meta?.releaseDate?.slice(0, 4)}
+                                {meta?.releaseDate ? " · " : ""}
+                                {album.tracks.length}{" "}
+                                {album.tracks.length === 1 ? "track" : "tracks"}
+                              </span>
+                            </span>
+                            <span className="text-[13px] font-semibold tabular-nums text-(--foreground)/70">
+                              {compact(album.streams)}
+                            </span>
+                          </summary>
+                          <ul className="pb-2">
+                            {album.tracks.map((track, i) => (
+                              <li
+                                key={`${album.id}-${i}`}
+                                className="flex items-center gap-3.5 py-1.5 pr-4 pl-[4.375rem]"
+                              >
+                                <span className="min-w-0 flex-1 truncate text-[13px] text-(--foreground)/70">
+                                  {track.name ?? "Untitled track"}
+                                </span>
+                                <span className="text-[12px] tabular-nums text-(--foreground)/45">
+                                  {compact(track.streams)}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </details>
+                      </li>
+                    );
+                  })}
+              </ul>
+            </div>
+          )}
           <a
             href="https://chat.recoupable.com"
             className="cta-pulse mt-8 block w-full rounded-full bg-(--foreground) px-9 py-4 text-center font-ui text-[15px] font-semibold text-(--background) transition-all duration-300 hover:shadow-[0_0_40px_color-mix(in_srgb,var(--foreground)_12%,transparent)] hover:-translate-y-0.5"

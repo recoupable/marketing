@@ -42,6 +42,7 @@ export async function POST(req: NextRequest) {
       trackCount: counts.trackCount,
       albumCount: counts.total,
       capturedAlbums: counts.captured,
+      albums: counts.albums,
       ...valuation,
     });
   } catch (error) {

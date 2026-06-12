@@ -2,11 +2,19 @@ import { siteConfig } from "@/lib/config";
 
 const MAX_ALBUMS = 50;
 
+export type StartedAlbum = {
+  id: string;
+  name: string | null;
+  image: string | null;
+  releaseDate: string | null;
+};
+
 export type StartedSnapshot = {
   snapshotId: string;
   albumIds: string[];
   earliestReleaseDate: string | null;
   albumCount: number;
+  albums: StartedAlbum[];
 };
 
 /**
@@ -28,11 +36,28 @@ export async function startCatalogSnapshot(artistId: string): Promise<StartedSna
   const albumsRes = await fetch(`${siteConfig.apiUrl}/spotify/artist/albums?${params}`);
   if (!albumsRes.ok) throw new Error(`albums lookup failed: ${albumsRes.status}`);
   const albumsData = await albumsRes.json();
-  const items: Array<{ id: string; release_date?: string }> =
-    albumsData.items ?? albumsData.albums?.items ?? [];
+  const items: Array<{
+    id: string;
+    name?: string;
+    release_date?: string;
+    images?: Array<{ url: string }>;
+  }> = albumsData.items ?? albumsData.albums?.items ?? [];
   if (items.length === 0) throw new Error("artist has no albums on Spotify");
 
-  const albumIds = [...new Set(items.map(a => a.id))];
+  const albumById = new Map(
+    items.map(a => [
+      a.id,
+      {
+        id: a.id,
+        name: a.name ?? null,
+        // images are largest-first; the mid size is plenty for a list thumbnail
+        image: a.images?.[1]?.url ?? a.images?.[0]?.url ?? null,
+        releaseDate: a.release_date ?? null,
+      },
+    ]),
+  );
+  const albums = [...albumById.values()];
+  const albumIds = albums.map(a => a.id);
   const releaseDates = items.map(a => a.release_date).filter(Boolean) as string[];
   const earliestReleaseDate = releaseDates.length ? releaseDates.sort()[0] : null;
 
@@ -52,5 +77,6 @@ export async function startCatalogSnapshot(artistId: string): Promise<StartedSna
     albumIds,
     earliestReleaseDate,
     albumCount: albumIds.length,
+    albums,
   };
 }
