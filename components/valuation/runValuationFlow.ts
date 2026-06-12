@@ -1,13 +1,7 @@
 import type { Result, StartedAlbum } from "@/components/valuation/types";
+import { readResult } from "@/components/valuation/readResult";
 
 type FlowOutcome = { catalogAlbums: StartedAlbum[]; result: Result };
-
-const readResult = (albumIds: string[], earliestReleaseDate: string | null) =>
-  fetch("/api/valuation/result", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ albumIds, earliestReleaseDate }),
-  }).then(r => r.json());
 
 /**
  * Client flow for one valuation run: start the snapshot, probe-poll until the

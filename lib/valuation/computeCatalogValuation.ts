@@ -10,20 +10,23 @@
  * result as a directional model with assumptions visible.
  */
 
+import {
+  nlsBandFromSpotifyGross,
+  GROSS_UP,
+  DISTRIBUTION_FEE,
+  ROYALTY_SHARE,
+  type Band,
+} from "@/lib/valuation/nlsBandFromSpotifyGross";
+
 /** methodology.md §1 — public Spotify per-stream rate (2025 default). */
 const SPOTIFY_PER_STREAM_USD = 0.0035;
-/** methodology.md §1 — other-DSP gross-up as a share of Spotify gross. */
-const GROSS_UP = { low: 1.25, central: 1.4, high: 1.6 };
-/** methodology.md §2 — distribution fee + blended artist/producer royalties. */
-const DISTRIBUTION_FEE = 0.15;
-const ROYALTY_SHARE = 0.25;
 /** methodology.md §4 — master-catalog NLS multiple band. */
 const MULTIPLE = { low: 10, central: 13, high: 16 };
 
 const DEFAULT_AGE_YEARS = 5;
 const YEAR_MS = 365.25 * 24 * 60 * 60 * 1000;
 
-export type Band = { low: number; central: number; high: number };
+export type { Band } from "@/lib/valuation/nlsBandFromSpotifyGross";
 
 export type CatalogValuation = {
   totalStreams: number;
@@ -42,15 +45,6 @@ export type CatalogValuation = {
     ageSource: "earliest_release" | "default_5y";
   };
 };
-
-function nlsBandFromSpotifyGross(spotifyGross: number): Band {
-  const net = (1 - DISTRIBUTION_FEE) * (1 - ROYALTY_SHARE);
-  return {
-    low: spotifyGross * GROSS_UP.low * net,
-    central: spotifyGross * GROSS_UP.central * net,
-    high: spotifyGross * GROSS_UP.high * net,
-  };
-}
 
 export function computeCatalogValuation(params: {
   totalStreams: number;

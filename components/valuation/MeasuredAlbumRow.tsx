@@ -1,6 +1,7 @@
 import type { MeasuredAlbum, StartedAlbum } from "@/components/valuation/useCatalogValuation";
 import { formatUsd } from "@/lib/valuation/formatUsd";
 import { formatCompact } from "@/lib/valuation/formatCompact";
+import { proportionalShare } from "@/lib/valuation/proportionalShare";
 
 type MeasuredAlbumRowProps = {
   album: MeasuredAlbum;
@@ -8,9 +9,6 @@ type MeasuredAlbumRowProps = {
   centralValue: number;
   totalStreams: number;
 };
-
-const share = (streams: number, totalStreams: number, centralValue: number) =>
-  totalStreams > 0 ? centralValue * (streams / totalStreams) : 0;
 
 /**
  * One release in the "What we measured" breakdown: artwork, year, value, and
@@ -39,7 +37,7 @@ export function MeasuredAlbumRow(props: MeasuredAlbumRowProps) {
           </span>
           <span className="text-right">
             <span className="block text-[13px] font-semibold tabular-nums text-(--foreground)">
-              {formatUsd(share(album.streams, totalStreams, centralValue))}
+              {formatUsd(proportionalShare(album.streams, totalStreams, centralValue))}
             </span>
             <span className="block text-[11px] tabular-nums text-(--foreground)/40">
               {formatCompact(album.streams)} streams
@@ -56,7 +54,7 @@ export function MeasuredAlbumRow(props: MeasuredAlbumRowProps) {
                 {track.name ?? "Untitled track"}
               </span>
               <span className="text-[12px] font-medium tabular-nums text-(--foreground)/70">
-                {formatUsd(share(track.streams, totalStreams, centralValue))}
+                {formatUsd(proportionalShare(track.streams, totalStreams, centralValue))}
               </span>
               <span className="w-20 text-right text-[11px] tabular-nums text-(--foreground)/40">
                 {formatCompact(track.streams)}
