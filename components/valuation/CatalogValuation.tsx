@@ -1,264 +1,33 @@
 "use client";
 
 import { useCatalogValuation } from "@/components/valuation/useCatalogValuation";
+import { ArtistSearch } from "@/components/valuation/ArtistSearch";
+import { ValuationResult } from "@/components/valuation/ValuationResult";
 
-const usd = (n: number) =>
-  n >= 1_000_000
-    ? `$${(n / 1_000_000).toFixed(1)}M`
-    : n >= 1_000
-      ? `$${Math.round(n / 1_000)}K`
-      : `$${Math.round(n)}`;
-
-const compact = (n: number) => Intl.NumberFormat("en", { notation: "compact" }).format(n);
-
+/**
+ * The one-click catalog valuation flow: search → run → shareable result card.
+ */
 export function CatalogValuation() {
-  const {
-    query,
-    artists,
-    picked,
-    catalogAlbums,
-    phase,
-    progress,
-    result,
-    error,
-    onQueryChange,
-    pick,
-    run,
-  } = useCatalogValuation();
+  const v = useCatalogValuation();
 
   return (
     <div className="mt-12 w-full max-w-[560px] text-left">
-      {phase !== "done" && (
-        <>
-          <div
-            className="rounded-2xl p-1.5 transition-shadow"
-            style={{
-              boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 15%, transparent)",
-            }}
-          >
-            <input
-              value={query}
-              onChange={e => onQueryChange(e.target.value)}
-              placeholder="Search your artist name…"
-              className="w-full rounded-xl bg-transparent px-5 py-4 text-[17px] text-(--foreground) placeholder:text-(--foreground)/35 focus:outline-none"
-              disabled={phase === "running"}
-            />
-          </div>
-          {!picked && artists.length > 0 && (
-            <ul
-              className="mt-3 overflow-hidden rounded-2xl"
-              style={{
-                boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 12%, transparent)",
-              }}
-            >
-              {artists.map(a => (
-                <li key={a.id}>
-                  <button
-                    className="flex w-full items-center gap-3.5 px-5 py-3.5 text-left transition-colors duration-200 hover:bg-(--foreground)/[0.04]"
-                    onClick={() => pick(a)}
-                  >
-                    {a.image && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={a.image} alt="" className="h-11 w-11 rounded-full object-cover" />
-                    )}
-                    <span className="font-semibold text-[15px] text-(--foreground)">{a.name}</span>
-                    {typeof a.followers === "number" && (
-                      <span className="ml-auto text-[12px] font-pixel uppercase tracking-[0.1em] text-(--foreground)/40">
-                        {compact(a.followers)} followers
-                      </span>
-                    )}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-          <button
-            onClick={run}
-            disabled={!picked || phase === "running"}
-            className="cta-pulse mt-7 w-full font-ui font-semibold bg-(--foreground) text-(--background) px-9 py-4 rounded-full text-[15px] transition-all duration-300 hover:shadow-[0_0_40px_color-mix(in_srgb,var(--foreground)_12%,transparent)] hover:-translate-y-0.5 disabled:opacity-30 disabled:hover:translate-y-0 disabled:hover:shadow-none"
-          >
-            {phase === "running" ? (
-              <span className="inline-flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-green-500/80 animate-pulse" />
-                {progress}
-              </span>
-            ) : (
-              "Value my catalog"
-            )}
-          </button>
-          {phase === "error" && (
-            <p className="mt-4 text-center text-[13px] text-red-500/90">{error}</p>
-          )}
-        </>
-      )}
-
-      {phase === "done" && result && (
-        <div
-          className="rounded-2xl p-8 sm:p-10"
-          style={{
-            boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 15%, transparent)",
-          }}
-        >
-          {picked && (
-            <div className="mb-7 flex items-center gap-4">
-              {picked.image && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={picked.image}
-                  alt={picked.name}
-                  className="h-16 w-16 rounded-full object-cover"
-                  style={{
-                    boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 12%, transparent)",
-                  }}
-                />
-              )}
-              <div>
-                <p className="font-pixel text-[clamp(1.25rem,3vw,1.75rem)] leading-tight tracking-[-0.01em] text-(--foreground)">
-                  {picked.name}
-                </p>
-                {typeof picked.followers === "number" && (
-                  <p className="mt-0.5 text-[12px] font-pixel uppercase tracking-[0.1em] text-(--foreground)/40">
-                    {compact(picked.followers)} followers
-                  </p>
-                )}
-              </div>
-            </div>
-          )}
-          <p className="text-[11px] font-pixel uppercase tracking-[0.16em] text-(--foreground)/45">
-            Estimated catalog value
-          </p>
-          <p className="mt-3 font-pixel text-[clamp(3rem,8vw,4.5rem)] leading-[0.95] tracking-[-0.01em] text-(--foreground)">
-            {usd(result.valueBand.central)}
-          </p>
-          <p className="mt-2 text-[14px] text-(--foreground)/55">
-            range {usd(result.valueBand.low)} – {usd(result.valueBand.high)}
-          </p>
-          <dl
-            className="mt-8 grid grid-cols-3 gap-px overflow-hidden rounded-xl"
-            style={{
-              boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 10%, transparent)",
-            }}
-          >
-            {[
-              { label: "Lifetime streams", value: compact(result.totalStreams) },
-              { label: "Tracks measured", value: String(result.trackCount) },
-              {
-                label: "Releases measured",
-                value:
-                  result.capturedAlbums < result.albumCount
-                    ? `${result.capturedAlbums} of ${result.albumCount}`
-                    : String(result.albumCount),
-              },
-            ].map(s => (
-              <div key={s.label} className="bg-(--foreground)/[0.03] px-4 py-4">
-                <dt className="text-[10px] font-pixel uppercase tracking-[0.14em] text-(--foreground)/40">
-                  {s.label}
-                </dt>
-                <dd className="mt-1.5 text-[19px] font-semibold text-(--foreground)">{s.value}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="mt-7 text-[12px] leading-relaxed text-(--foreground)/45">
-            Directional model, not an appraisal: live platform-displayed Spotify
-            play counts (measured today), other platforms approximated as a
-            labeled share of Spotify, annual run-rate from your catalog&apos;s
-            lifetime average over ~{result.catalogAgeYears} years, master-side
-            NLS × an {result.assumptions.multiple.low}–
-            {result.assumptions.multiple.high}× market multiple. Real statements
-            collapse the range.
-          </p>
-          {result.albums.length > 0 && (
-            <div className="mt-9">
-              <p className="text-[11px] font-pixel uppercase tracking-[0.16em] text-(--foreground)/45">
-                What we measured
-              </p>
-              <ul
-                className="mt-4 overflow-hidden rounded-xl"
-                style={{
-                  boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 10%, transparent)",
-                }}
-              >
-                {[...result.albums]
-                  .sort((a, b) => b.streams - a.streams)
-                  .map(album => {
-                    const meta = catalogAlbums.find(a => a.id === album.id);
-                    // proportional share of the central estimate, so album
-                    // values visibly sum back to the headline number
-                    const albumValue =
-                      result.totalStreams > 0
-                        ? result.valueBand.central * (album.streams / result.totalStreams)
-                        : 0;
-                    return (
-                      <li key={album.id} className="group/album bg-(--foreground)/[0.02]">
-                        <details>
-                          <summary className="flex cursor-pointer list-none items-center gap-3.5 px-4 py-3 transition-colors duration-200 hover:bg-(--foreground)/[0.04] [&::-webkit-details-marker]:hidden">
-                            {meta?.image && (
-                              // eslint-disable-next-line @next/next/no-img-element
-                              <img
-                                src={meta.image}
-                                alt=""
-                                className="h-12 w-12 rounded-lg object-cover"
-                              />
-                            )}
-                            <span className="min-w-0 flex-1">
-                              <span className="block truncate text-[14px] font-semibold text-(--foreground)">
-                                {meta?.name ?? album.id}
-                              </span>
-                              <span className="block text-[11px] text-(--foreground)/40">
-                                {meta?.releaseDate?.slice(0, 4)}
-                                {meta?.releaseDate ? " · " : ""}
-                                {album.tracks.length}{" "}
-                                {album.tracks.length === 1 ? "track" : "tracks"}
-                              </span>
-                            </span>
-                            <span className="text-right">
-                              <span className="block text-[13px] font-semibold tabular-nums text-(--foreground)">
-                                {usd(albumValue)}
-                              </span>
-                              <span className="block text-[11px] tabular-nums text-(--foreground)/40">
-                                {compact(album.streams)} streams
-                              </span>
-                            </span>
-                          </summary>
-                          <ul className="pb-2">
-                            {album.tracks.map((track, i) => {
-                              const trackValue =
-                                result.totalStreams > 0
-                                  ? result.valueBand.central *
-                                    (track.streams / result.totalStreams)
-                                  : 0;
-                              return (
-                                <li
-                                  key={`${album.id}-${i}`}
-                                  className="flex items-center gap-3.5 py-1.5 pr-4 pl-[4.375rem]"
-                                >
-                                  <span className="min-w-0 flex-1 truncate text-[13px] text-(--foreground)/70">
-                                    {track.name ?? "Untitled track"}
-                                  </span>
-                                  <span className="text-[12px] font-medium tabular-nums text-(--foreground)/70">
-                                    {usd(trackValue)}
-                                  </span>
-                                  <span className="w-20 text-right text-[11px] tabular-nums text-(--foreground)/40">
-                                    {compact(track.streams)}
-                                  </span>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </details>
-                      </li>
-                    );
-                  })}
-              </ul>
-            </div>
-          )}
-          <a
-            href="https://chat.recoupable.com"
-            className="cta-pulse mt-8 block w-full rounded-full bg-(--foreground) px-9 py-4 text-center font-ui text-[15px] font-semibold text-(--background) transition-all duration-300 hover:shadow-[0_0_40px_color-mix(in_srgb,var(--foreground)_12%,transparent)] hover:-translate-y-0.5"
-          >
-            Get the full report with Recoup →
-          </a>
-        </div>
+      {v.phase !== "done" ? (
+        <ArtistSearch
+          query={v.query}
+          artists={v.artists}
+          picked={v.picked}
+          running={v.phase === "running"}
+          progress={v.progress}
+          error={v.phase === "error" ? v.error : ""}
+          onQueryChange={v.onQueryChange}
+          onPick={v.pick}
+          onRun={v.run}
+        />
+      ) : (
+        v.result && (
+          <ValuationResult artist={v.picked} result={v.result} catalogAlbums={v.catalogAlbums} />
+        )
       )}
     </div>
   );

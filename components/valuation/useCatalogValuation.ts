@@ -1,32 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
+import type { Artist, Result, StartedAlbum } from "@/components/valuation/types";
+import { runValuationFlow } from "@/components/valuation/runValuationFlow";
 
-export type Artist = { id: string; name: string; image?: string; followers?: number };
-export type Band = { low: number; central: number; high: number };
-export type StartedAlbum = {
-  id: string;
-  name: string | null;
-  image: string | null;
-  releaseDate: string | null;
-};
-export type MeasuredAlbum = {
-  id: string;
-  streams: number;
-  tracks: Array<{ name: string | null; streams: number }>;
-};
-export type Result = {
-  state: string;
-  trackCount: number;
-  albumCount: number;
-  capturedAlbums: number;
-  totalStreams: number;
-  catalogAgeYears: number;
-  valueBand: Band;
-  annualNls: Band;
-  assumptions: { runRateBasis: string; multiple: Band };
-  albums: MeasuredAlbum[];
-};
+export type { Artist, Result, StartedAlbum, MeasuredAlbum } from "@/components/valuation/types";
 
 export type CatalogValuationState = {
   query: string;
@@ -43,8 +21,8 @@ export type CatalogValuationState = {
 };
 
 /**
- * All state + flow for the one-click catalog valuation: debounced artist
- * search, the start → probe-poll → full-read run, and the captured album
+ * All state for the one-click catalog valuation: debounced artist search,
+ * the run flow (delegated to runValuationFlow), and the captured album
  * metadata the results breakdown renders against.
  */
 export function useCatalogValuation(): CatalogValuationState {
@@ -80,64 +58,10 @@ export function useCatalogValuation(): CatalogValuationState {
     if (!picked) return;
     setPhase("running");
     setError("");
-    setProgress("Finding your releases…");
     try {
-      const startRes = await fetch("/api/valuation/start", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ artistId: picked.id }),
-      });
-      const started = await startRes.json();
-      if (!startRes.ok) throw new Error(started.error ?? "start failed");
-      setCatalogAlbums(started.albums ?? []);
-
-      setProgress(`Measuring play counts across ${started.albumCount} releases…`);
-
-      // cheap probe (first 2 albums) until anything lands — bounded at ~90s;
-      // some albums never produce playcounts (no ISRCs / hidden counts), so
-      // we value what's measured rather than waiting for 100% coverage
-      const probeIds = started.albumIds.slice(0, 2);
-      for (let attempt = 0; attempt < 15; attempt++) {
-        await new Promise(r => setTimeout(r, 6000));
-        const probe = await fetch("/api/valuation/result", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ albumIds: probeIds, probe: true }),
-        }).then(r => r.json());
-        if (probe.state === "captured") break;
-        setProgress(
-          `Measuring play counts across ${started.albumCount} releases… (still capturing)`,
-        );
-      }
-
-      setProgress("Computing your valuation…");
-      const final = await fetch("/api/valuation/result", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          albumIds: started.albumIds,
-          earliestReleaseDate: started.earliestReleaseDate,
-        }),
-      }).then(r => r.json());
-      if (final.state !== "done") {
-        // nothing measured yet — one more patient read before giving up
-        await new Promise(r => setTimeout(r, 20000));
-        const retry = await fetch("/api/valuation/result", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            albumIds: started.albumIds,
-            earliestReleaseDate: started.earliestReleaseDate,
-          }),
-        }).then(r => r.json());
-        if (retry.state !== "done")
-          throw new Error("we couldn't measure this catalog yet — try again in a few minutes");
-        setResult(retry);
-        setPhase("done");
-        return;
-      }
-
-      setResult(final);
+      const outcome = await runValuationFlow(picked.id, setProgress);
+      setCatalogAlbums(outcome.catalogAlbums);
+      setResult(outcome.result);
       setPhase("done");
     } catch (e) {
       setError(e instanceof Error ? e.message : "something went wrong");
