@@ -1,32 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
-
-type Artist = { id: string; name: string; image?: string; followers?: number };
-type Band = { low: number; central: number; high: number };
-type StartedAlbum = {
-  id: string;
-  name: string | null;
-  image: string | null;
-  releaseDate: string | null;
-};
-type MeasuredAlbum = {
-  id: string;
-  streams: number;
-  tracks: Array<{ name: string | null; streams: number }>;
-};
-type Result = {
-  state: string;
-  trackCount: number;
-  albumCount: number;
-  capturedAlbums: number;
-  totalStreams: number;
-  catalogAgeYears: number;
-  valueBand: Band;
-  annualNls: Band;
-  assumptions: { runRateBasis: string; multiple: Band };
-  albums: MeasuredAlbum[];
-};
+import { useCatalogValuation } from "@/components/valuation/useCatalogValuation";
 
 const usd = (n: number) =>
   n >= 1_000_000
@@ -38,96 +12,19 @@ const usd = (n: number) =>
 const compact = (n: number) => Intl.NumberFormat("en", { notation: "compact" }).format(n);
 
 export function CatalogValuation() {
-  const [query, setQuery] = useState("");
-  const [artists, setArtists] = useState<Artist[]>([]);
-  const [picked, setPicked] = useState<Artist | null>(null);
-  const [catalogAlbums, setCatalogAlbums] = useState<StartedAlbum[]>([]);
-  const [phase, setPhase] = useState<"idle" | "running" | "done" | "error">("idle");
-  const [progress, setProgress] = useState("");
-  const [result, setResult] = useState<Result | null>(null);
-  const [error, setError] = useState("");
-  const searchTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-
-  function onQueryChange(q: string) {
-    setQuery(q);
-    setPicked(null);
-    clearTimeout(searchTimer.current);
-    if (q.length < 2) return setArtists([]);
-    searchTimer.current = setTimeout(async () => {
-      const res = await fetch(`/api/spotify/search?q=${encodeURIComponent(q)}&limit=5`);
-      const data = await res.json().catch(() => ({ artists: [] }));
-      setArtists(data.artists ?? []);
-    }, 300);
-  }
-
-  async function run() {
-    if (!picked) return;
-    setPhase("running");
-    setError("");
-    setProgress("Finding your releases…");
-    try {
-      const startRes = await fetch("/api/valuation/start", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ artistId: picked.id }),
-      });
-      const started = await startRes.json();
-      if (!startRes.ok) throw new Error(started.error ?? "start failed");
-      setCatalogAlbums(started.albums ?? []);
-
-      setProgress(`Measuring play counts across ${started.albumCount} releases…`);
-
-      // cheap probe (first 2 albums) until anything lands — bounded at ~90s;
-      // some albums never produce playcounts (no ISRCs / hidden counts), so
-      // we value what's measured rather than waiting for 100% coverage
-      const probeIds = started.albumIds.slice(0, 2);
-      for (let attempt = 0; attempt < 15; attempt++) {
-        await new Promise(r => setTimeout(r, 6000));
-        const probe = await fetch("/api/valuation/result", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ albumIds: probeIds, probe: true }),
-        }).then(r => r.json());
-        if (probe.state === "captured") break;
-        setProgress(
-          `Measuring play counts across ${started.albumCount} releases… (still capturing)`,
-        );
-      }
-
-      setProgress("Computing your valuation…");
-      const final = await fetch("/api/valuation/result", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          albumIds: started.albumIds,
-          earliestReleaseDate: started.earliestReleaseDate,
-        }),
-      }).then(r => r.json());
-      if (final.state !== "done") {
-        // nothing measured yet — one more patient read before giving up
-        await new Promise(r => setTimeout(r, 20000));
-        const retry = await fetch("/api/valuation/result", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            albumIds: started.albumIds,
-            earliestReleaseDate: started.earliestReleaseDate,
-          }),
-        }).then(r => r.json());
-        if (retry.state !== "done")
-          throw new Error("we couldn't measure this catalog yet — try again in a few minutes");
-        setResult(retry);
-        setPhase("done");
-        return;
-      }
-
-      setResult(final);
-      setPhase("done");
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "something went wrong");
-      setPhase("error");
-    }
-  }
+  const {
+    query,
+    artists,
+    picked,
+    catalogAlbums,
+    phase,
+    progress,
+    result,
+    error,
+    onQueryChange,
+    pick,
+    run,
+  } = useCatalogValuation();
 
   return (
     <div className="mt-12 w-full max-w-[560px] text-left">
@@ -158,11 +55,7 @@ export function CatalogValuation() {
                 <li key={a.id}>
                   <button
                     className="flex w-full items-center gap-3.5 px-5 py-3.5 text-left transition-colors duration-200 hover:bg-(--foreground)/[0.04]"
-                    onClick={() => {
-                      setPicked(a);
-                      setQuery(a.name);
-                      setArtists([]);
-                    }}
+                    onClick={() => pick(a)}
                   >
                     {a.image && (
                       // eslint-disable-next-line @next/next/no-img-element
@@ -171,8 +64,7 @@ export function CatalogValuation() {
                     <span className="font-semibold text-[15px] text-(--foreground)">{a.name}</span>
                     {typeof a.followers === "number" && (
                       <span className="ml-auto text-[12px] font-pixel uppercase tracking-[0.1em] text-(--foreground)/40">
-                        {Intl.NumberFormat("en", { notation: "compact" }).format(a.followers)}{" "}
-                        followers
+                        {compact(a.followers)} followers
                       </span>
                     )}
                   </button>
@@ -248,12 +140,7 @@ export function CatalogValuation() {
             }}
           >
             {[
-              {
-                label: "Lifetime streams",
-                value: Intl.NumberFormat("en", { notation: "compact" }).format(
-                  result.totalStreams,
-                ),
-              },
+              { label: "Lifetime streams", value: compact(result.totalStreams) },
               { label: "Tracks measured", value: String(result.trackCount) },
               {
                 label: "Releases measured",
@@ -295,6 +182,12 @@ export function CatalogValuation() {
                   .sort((a, b) => b.streams - a.streams)
                   .map(album => {
                     const meta = catalogAlbums.find(a => a.id === album.id);
+                    // proportional share of the central estimate, so album
+                    // values visibly sum back to the headline number
+                    const albumValue =
+                      result.totalStreams > 0
+                        ? result.valueBand.central * (album.streams / result.totalStreams)
+                        : 0;
                     return (
                       <li key={album.id} className="group/album bg-(--foreground)/[0.02]">
                         <details>
@@ -318,8 +211,13 @@ export function CatalogValuation() {
                                 {album.tracks.length === 1 ? "track" : "tracks"}
                               </span>
                             </span>
-                            <span className="text-[13px] font-semibold tabular-nums text-(--foreground)/70">
-                              {compact(album.streams)}
+                            <span className="text-right">
+                              <span className="block text-[13px] font-semibold tabular-nums text-(--foreground)">
+                                {usd(albumValue)}
+                              </span>
+                              <span className="block text-[11px] tabular-nums text-(--foreground)/40">
+                                {compact(album.streams)} streams
+                              </span>
                             </span>
                           </summary>
                           <ul className="pb-2">
