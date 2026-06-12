@@ -95,22 +95,34 @@ export function CatalogValuation() {
   }
 
   return (
-    <div className="mt-10">
+    <div className="mt-12 w-full max-w-[560px] text-left">
       {phase !== "done" && (
         <>
-          <input
-            value={query}
-            onChange={e => onQueryChange(e.target.value)}
-            placeholder="Search your artist name…"
-            className="w-full rounded-lg px-4 py-3 text-lg shadow-[0_0_0_1px_rgba(0,0,0,0.15)] focus:shadow-[0_0_0_2px_rgba(0,0,0,0.6)] focus:outline-none dark:bg-neutral-900 dark:shadow-[0_0_0_1px_rgba(255,255,255,0.2)]"
-            disabled={phase === "running"}
-          />
+          <div
+            className="rounded-2xl p-1.5 transition-shadow"
+            style={{
+              boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 15%, transparent)",
+            }}
+          >
+            <input
+              value={query}
+              onChange={e => onQueryChange(e.target.value)}
+              placeholder="Search your artist name…"
+              className="w-full rounded-xl bg-transparent px-5 py-4 text-[17px] text-(--foreground) placeholder:text-(--foreground)/35 focus:outline-none"
+              disabled={phase === "running"}
+            />
+          </div>
           {!picked && artists.length > 0 && (
-            <ul className="mt-2 overflow-hidden rounded-lg shadow-[0_0_0_1px_rgba(0,0,0,0.1)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.15)]">
+            <ul
+              className="mt-3 overflow-hidden rounded-2xl"
+              style={{
+                boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 12%, transparent)",
+              }}
+            >
               {artists.map(a => (
                 <li key={a.id}>
                   <button
-                    className="flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                    className="flex w-full items-center gap-3.5 px-5 py-3.5 text-left transition-colors duration-200 hover:bg-(--foreground)/[0.04]"
                     onClick={() => {
                       setPicked(a);
                       setQuery(a.name);
@@ -119,11 +131,11 @@ export function CatalogValuation() {
                   >
                     {a.image && (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={a.image} alt="" className="h-10 w-10 rounded-full object-cover" />
+                      <img src={a.image} alt="" className="h-11 w-11 rounded-full object-cover" />
                     )}
-                    <span className="font-medium">{a.name}</span>
+                    <span className="font-semibold text-[15px] text-(--foreground)">{a.name}</span>
                     {typeof a.followers === "number" && (
-                      <span className="ml-auto text-sm text-neutral-500">
+                      <span className="ml-auto text-[12px] font-pixel uppercase tracking-[0.1em] text-(--foreground)/40">
                         {Intl.NumberFormat("en", { notation: "compact" }).format(a.followers)}{" "}
                         followers
                       </span>
@@ -136,42 +148,64 @@ export function CatalogValuation() {
           <button
             onClick={run}
             disabled={!picked || phase === "running"}
-            className="mt-6 w-full rounded-lg bg-black px-6 py-4 text-lg font-semibold text-white disabled:opacity-40 dark:bg-white dark:text-black"
+            className="cta-pulse mt-7 w-full font-ui font-semibold bg-(--foreground) text-(--background) px-9 py-4 rounded-full text-[15px] transition-all duration-300 hover:shadow-[0_0_40px_color-mix(in_srgb,var(--foreground)_12%,transparent)] hover:-translate-y-0.5 disabled:opacity-30 disabled:hover:translate-y-0 disabled:hover:shadow-none"
           >
-            {phase === "running" ? progress : "Value my catalog"}
+            {phase === "running" ? (
+              <span className="inline-flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-green-500/80 animate-pulse" />
+                {progress}
+              </span>
+            ) : (
+              "Value my catalog"
+            )}
           </button>
-          {phase === "error" && <p className="mt-3 text-sm text-red-600">{error}</p>}
+          {phase === "error" && (
+            <p className="mt-4 text-center text-[13px] text-red-500/90">{error}</p>
+          )}
         </>
       )}
 
       {phase === "done" && result && (
-        <div className="rounded-xl p-8 shadow-[0_0_0_1px_rgba(0,0,0,0.15)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.2)]">
-          <p className="text-sm uppercase tracking-wide text-neutral-500">
+        <div
+          className="rounded-2xl p-8 sm:p-10"
+          style={{
+            boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 15%, transparent)",
+          }}
+        >
+          <p className="text-[11px] font-pixel uppercase tracking-[0.16em] text-(--foreground)/45">
             Estimated catalog value
           </p>
-          <p className="mt-2 text-5xl font-bold tracking-tight">
+          <p className="mt-3 font-pixel text-[clamp(3rem,8vw,4.5rem)] leading-[0.95] tracking-[-0.01em] text-(--foreground)">
             {usd(result.valueBand.central)}
           </p>
-          <p className="mt-1 text-neutral-600 dark:text-neutral-400">
+          <p className="mt-2 text-[14px] text-(--foreground)/55">
             range {usd(result.valueBand.low)} – {usd(result.valueBand.high)}
           </p>
-          <dl className="mt-6 grid grid-cols-3 gap-4 text-sm">
-            <div>
-              <dt className="text-neutral-500">Lifetime streams</dt>
-              <dd className="mt-1 text-lg font-semibold">
-                {Intl.NumberFormat("en", { notation: "compact" }).format(result.totalStreams)}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-neutral-500">Tracks measured</dt>
-              <dd className="mt-1 text-lg font-semibold">{result.trackCount}</dd>
-            </div>
-            <div>
-              <dt className="text-neutral-500">Releases</dt>
-              <dd className="mt-1 text-lg font-semibold">{result.albumCount}</dd>
-            </div>
+          <dl
+            className="mt-8 grid grid-cols-3 gap-px overflow-hidden rounded-xl"
+            style={{
+              boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 10%, transparent)",
+            }}
+          >
+            {[
+              {
+                label: "Lifetime streams",
+                value: Intl.NumberFormat("en", { notation: "compact" }).format(
+                  result.totalStreams,
+                ),
+              },
+              { label: "Tracks measured", value: String(result.trackCount) },
+              { label: "Releases", value: String(result.albumCount) },
+            ].map(s => (
+              <div key={s.label} className="bg-(--foreground)/[0.03] px-4 py-4">
+                <dt className="text-[10px] font-pixel uppercase tracking-[0.14em] text-(--foreground)/40">
+                  {s.label}
+                </dt>
+                <dd className="mt-1.5 text-[19px] font-semibold text-(--foreground)">{s.value}</dd>
+              </div>
+            ))}
           </dl>
-          <p className="mt-6 text-xs leading-relaxed text-neutral-500">
+          <p className="mt-7 text-[12px] leading-relaxed text-(--foreground)/45">
             Directional model, not an appraisal: live platform-displayed Spotify
             play counts (measured today), other platforms approximated as a
             labeled share of Spotify, annual run-rate from your catalog&apos;s
@@ -182,7 +216,7 @@ export function CatalogValuation() {
           </p>
           <a
             href="https://chat.recoupable.com"
-            className="mt-6 block w-full rounded-lg bg-black px-6 py-4 text-center text-lg font-semibold text-white dark:bg-white dark:text-black"
+            className="cta-pulse mt-8 block w-full rounded-full bg-(--foreground) px-9 py-4 text-center font-ui text-[15px] font-semibold text-(--background) transition-all duration-300 hover:shadow-[0_0_40px_color-mix(in_srgb,var(--foreground)_12%,transparent)] hover:-translate-y-0.5"
           >
             Get the full report with Recoup →
           </a>
