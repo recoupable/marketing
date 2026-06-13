@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/pricing`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/developers`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/partners`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
+    { url: `${siteConfig.url}/diligence`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteConfig.url}/audit`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${siteConfig.url}/trust`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${siteConfig.url}/company`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
 import { ContactForm } from "@/components/marketing/ContactForm";
@@ -29,6 +30,8 @@ const audiences = [
     k: "Catalog",
     title: "Catalog & rights platforms",
     body: "Surface diligence, royalty, and audience intelligence on top of the data you already hold.",
+    href: "/diligence",
+    hrefLabel: "See a sample diligence report",
   },
 ] as const;
 
@@ -137,6 +140,15 @@ export default function PartnersPage() {
                 <p className="text-[14px] text-(--foreground)/55 leading-relaxed">
                   {a.body}
                 </p>
+                {"href" in a ? (
+                  <Link
+                    href={a.href}
+                    className="mt-4 font-ui font-semibold text-[13px] text-(--foreground) inline-flex items-center gap-1.5 group"
+                  >
+                    {a.hrefLabel}
+                    <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                ) : null}
               </div>
             ))}
           </div>

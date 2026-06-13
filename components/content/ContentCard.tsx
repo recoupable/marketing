@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { CONTENT_CATEGORY_LABELS, type ContentEntry } from "@/lib/content-types";
+import { beatForSlug } from "@/lib/beats";
 
 /**
  * Unified index card for any content entry (blog post, research essay,
  * tutorial). One visual language across the whole /blog hub: shadow-as-border,
- * pixel date eyebrow, font-ui title.
+ * pixel date eyebrow, font-ui title. Cards carry their editorial beat (W-26) as
+ * a colored top accent + kicker (W-28's lightweight art-direction system).
  */
 export function ContentCard({ entry }: { entry: ContentEntry }) {
   const formattedDate = new Date(entry.date).toLocaleDateString("en-US", {
@@ -13,14 +15,31 @@ export function ContentCard({ entry }: { entry: ContentEntry }) {
     month: "long",
     day: "numeric",
   });
+  const beat = beatForSlug(entry.slug);
 
   return (
     <Link
       href={`/blog/${entry.slug}`}
-      className="group flex flex-col rounded-2xl p-6 transition-shadow duration-200 hover:shadow-[0_0_0_1px_var(--foreground)]"
+      className="group relative flex flex-col overflow-hidden rounded-2xl p-6 pt-7 transition-shadow duration-200 hover:shadow-[0_0_0_1px_var(--foreground)]"
       style={{ boxShadow: "0 0 0 1px var(--border)" }}
     >
-      <div className="mb-4 flex items-center gap-2">
+      {beat ? (
+        <span
+          aria-hidden
+          className="absolute inset-x-0 top-0 h-1"
+          style={{ backgroundColor: beat.color }}
+        />
+      ) : null}
+      <div className="mb-4 flex flex-wrap items-center gap-2">
+        {beat ? (
+          <span
+            className="font-pixel text-[10px] uppercase tracking-[0.16em]"
+            style={{ color: beat.color }}
+          >
+            {beat.name}
+          </span>
+        ) : null}
+        {beat ? <span aria-hidden className="text-(--foreground)/25">·</span> : null}
         <span className="font-pixel text-[10px] uppercase tracking-[0.18em] text-(--foreground)/45">
           {formattedDate}
         </span>

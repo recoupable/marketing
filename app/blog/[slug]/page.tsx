@@ -20,6 +20,7 @@ import { buildPostMetadata, buildPostJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/config";
 import { ContentArticle } from "@/components/content/ContentArticle";
 import { RelatedContent } from "@/components/content/RelatedContent";
+import { AuthorByline } from "@/components/content/AuthorByline";
 import { BlogCTA } from "@/components/blog/BlogCTA";
 
 /** ISR — Paragraph-synced essays revalidate hourly; MDX content still shares route-level revalidation. */
@@ -79,10 +80,12 @@ export async function generateMetadata({
 function ArticleFooter({
   tags,
   slug,
+  author,
   related,
 }: {
   tags: string[];
   slug: string;
+  author?: string;
   related: ContentEntry[];
 }) {
   return (
@@ -99,6 +102,7 @@ function ArticleFooter({
           ))}
         </div>
       ) : null}
+      <AuthorByline author={author} />
       <BlogCTA postSlug={slug} />
       <RelatedContent entries={related} />
     </>
@@ -145,7 +149,7 @@ export default async function ContentPostPage({
           date={post.date}
           html={html}
         >
-          <ArticleFooter tags={post.tags} slug={slug} related={related} />
+          <ArticleFooter tags={post.tags} slug={slug} author={post.author} related={related} />
         </ContentArticle>
       </>
     );
@@ -198,7 +202,7 @@ export default async function ContentPostPage({
         imageUrl={post.imageUrl}
         html={normalizeParagraphHtml(post.staticHtml)}
       >
-        <ArticleFooter tags={config.tags} slug={slug} related={related} />
+        <ArticleFooter tags={config.tags} slug={slug} author={config.author} related={related} />
       </ContentArticle>
     </>
   );

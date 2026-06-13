@@ -28,6 +28,8 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 interface SkillPack {
   id: string;
   title: [string, string];
+  /** One verb per pack (W-31) — the stamp identity, Every-style. */
+  verb: string;
   desc: string;
   /** Real skill folder name in recoupable/skills */
   skill: string;
@@ -38,6 +40,7 @@ const SKILL_PACKS: readonly SkillPack[] = [
   {
     id: "research",
     title: ["Music", "Research"],
+    verb: "Research",
     desc: "Artist analytics, people search, competitive analysis, and web intelligence — the groundwork for catalog and deal research.",
     skill: "music-industry-research",
     gradient: "linear-gradient(135deg, #14b8a6 0%, #0d9488 60%, #115e59 100%)",
@@ -45,6 +48,7 @@ const SKILL_PACKS: readonly SkillPack[] = [
   {
     id: "chartmetric",
     title: ["Chart", "Metrics"],
+    verb: "Track",
     desc: "Query and analyze streaming, chart, and audience data to scout, track, and compare artists.",
     skill: "chart-metric",
     gradient: "linear-gradient(135deg, #60a5fa 0%, #2563eb 60%, #1e3a8a 100%)",
@@ -52,6 +56,7 @@ const SKILL_PACKS: readonly SkillPack[] = [
   {
     id: "content",
     title: ["Content", "Creation"],
+    verb: "Create",
     desc: "Generate social videos, TikToks, Reels, and visual content from your catalog.",
     skill: "content-creation",
     gradient: "linear-gradient(135deg, #fb923c 0%, #ea580c 60%, #9a3412 100%)",
@@ -59,6 +64,7 @@ const SKILL_PACKS: readonly SkillPack[] = [
   {
     id: "release",
     title: ["Release", "Management"],
+    verb: "Release",
     desc: "Plan and execute release campaigns end to end — the day-to-day of running a label, wired for agents.",
     skill: "release-management",
     gradient: "linear-gradient(135deg, #fb7185 0%, #e11d48 60%, #881337 100%)",
@@ -66,6 +72,7 @@ const SKILL_PACKS: readonly SkillPack[] = [
   {
     id: "growth",
     title: ["Streaming", "Growth"],
+    verb: "Grow",
     desc: "Grow a new artist past the streaming milestones that unlock platform tools and audience.",
     skill: "streaming-growth",
     gradient: "linear-gradient(135deg, #c084fc 0%, #9333ea 60%, #581c87 100%)",
@@ -118,8 +125,9 @@ function Book({
             exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, transition: { duration: 0.1 } }}
             className="absolute inset-0"
           >
-            <div className="absolute top-4 left-5 sm:top-5 sm:left-6">
+            <div className="absolute top-4 left-5 right-5 sm:top-5 sm:left-6 sm:right-6 flex items-center justify-between">
               <div className="w-3 h-3 rounded-full border border-white/65" />
+              <span className="font-pixel text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-white/70">{pack.verb}</span>
             </div>
             <div className="absolute bottom-5 left-6 right-6 text-white">
               <p className="font-display italic text-[20px] sm:text-[24px] leading-[1.05] mb-0.5 opacity-90">{pack.title[0]}</p>
@@ -603,8 +611,8 @@ export default function HomePage() {
         <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
           <Testimonials />
           <div className="mt-8">
-            <Link href="/platform#plugins" className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
-              See the catalog-diligence workflow <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+            <Link href="/diligence" className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
+              See a sample diligence report <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>

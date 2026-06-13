@@ -4,6 +4,7 @@ import { Check, ArrowUpRight } from "lucide-react";
 import { pricingCopy, type PricingPlan } from "@/lib/copy/pricing";
 import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
+import { buildFaqJsonLd } from "@/lib/faqJsonLd";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Pricing — Open Tools, Hosted Chat & Custom Builds",
@@ -95,6 +96,10 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 export default function PricingPage() {
   return (
     <div className="bg-(--background) text-(--foreground)">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(pricingCopy.faq)) }}
+      />
       {/* Hero */}
       <section className="pt-36 sm:pt-44 pb-14 sm:pb-16">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">

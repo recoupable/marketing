@@ -61,6 +61,8 @@ export const postFrontmatterSchema = z.object({
   seo: seoSchema,
   tags: z.array(z.string()),
   category: z.string(),
+  /** Optional editorial beat (W-26) — see lib/beats.ts BeatId values. */
+  series: z.string().optional(),
   cluster: clusterSchema.optional(),
   status: postStatusSchema,
   performance: performanceSchema,
