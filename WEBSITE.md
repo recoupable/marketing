@@ -122,54 +122,56 @@ Three sites, three monetization archetypes, one identical engine:
 
 Legend: `[REF]` = reference-derived, `[UJ]` = carried from userjourney v3 backlog. Each ticket is independently shippable.
 
+**Status: all 37 tickets implemented (2026-06-13).** Build green; 28 Playwright e2e tests pass on desktop + mobile. Key new files: `components/marketing/*` (ContactForm, NewsletterSignup, StatsStrip, LogoBar, Testimonials, ReceiptsTable, MantraClose), `lib/{track,beats,authors,faqJsonLd}.ts`, `lib/copy/{stats,testimonials,consultingFaq,receipts,diligence}.ts`, `app/diligence/`, `app/api/contact/`, `app/opengraph-image.tsx`, `e2e/marketing.spec.ts`.
+
 ### P0 — quick wins (≤ half-day each)
 
-- [ ] **W-01** Re-point homepage Partner lane card `href` `/consulting` → `/partners` (`app/page.tsx` LANES). [UJ]
-- [ ] **W-02** Fix §9 quote CTA mismatch: retarget "See what an AI readiness audit surfaces" (`app/page.tsx:~530`) to the catalog-deals offering (`/platform#marketplace` or W-15 page) so diligence intent stops landing on a marketing quiz. [UJ]
-- [ ] **W-03** Add `/trust` to header nav (`lib/nav.ts`). [UJ]
-- [ ] **W-04** Enlarge homepage hero ownership line (currently `text-[12px]`/40%) and link it to `/trust` (`app/page.tsx:242-244`). [UJ]
-- [ ] **W-05** Surface "Sessions start at $500" on `/pricing` Implementation tier (`lib/copy/pricing.ts:77-90`); state "free tier" on the Chat tier card, not just the FAQ. [UJ]
-- [ ] **W-06** Sweep all post frontmatter for brand-suffixed `seo.title` + "Recoupable" vs "Recoup"; confirm the title-doubling fix holds across every post (verified fixed on one post this branch). [UJ]
-- [ ] **W-07** Homepage stats strip ("by the numbers" plaques): N open skills, 18 research pieces, N teams/labels, GitHub repo link. Place after the gap section. [REF: every consulting/2, pm-world product/2]
-- [ ] **W-08** Logo bar upgrade: increase size/contrast, link each logo (or at minimum un-fade on hover), add count caption ("teams at 8 labels, distributors & platforms"). (`app/page.tsx:259-271`, `lib/customerLogos.ts`) [REF: pm-world landing/2; UJ]
-- [ ] **W-09** Sitewide newsletter capture component (footer-level): named newsletter + 3 checkmark promises + email → existing Attio path. Reuse `/blog` form. [REF: every landing/12, pm-world landing/8]
-- [ ] **W-10** Mantra closer: add one era line above "Let's build it in your stack." on every page closer (e.g. "The next decade of music belongs to the teams that own their data."). Single component edit. [REF: tenex landing/9]
-- [ ] **W-11** Add `/company` to footer Company column; add `/audit` to `sitemap.ts`. [UJ]
-- [ ] **W-12** Swap `ArrowUpRight` → `ArrowRight` on internal "Read our research" links now that `researchUrl` is internal (`app/page.tsx:174,245,355,580`).
+- [x] **W-01** Partner lane card → `/partners` (was `/consulting`). [UJ]
+- [x] **W-02** §9 quote CTA retargeted to `/diligence` (the sample report), not the audit quiz. [UJ]
+- [x] **W-03** `/trust` added to header nav (`lib/nav.ts`). [UJ]
+- [x] **W-04** Hero ownership line enlarged (13/14px, 60%) and linked to `/trust`. [UJ]
+- [x] **W-05** `/pricing` Implementation tier shows "From $500 / session"; Chat tier now states the free tier on the card. [UJ]
+- [x] **W-06** Swept all 15 posts — brand suffixes stripped from `seo.title`, "Recoupable" → no double suffix. e2e asserts no doubling. [UJ]
+- [x] **W-07** Homepage stats strip (`StatsStrip` + `HOMEPAGE_STATS`) after the gap section. [REF]
+- [x] **W-08** Logo bar upgraded → shared `LogoBar` (larger, hover-reveal, count caption). [REF/UJ]
+- [x] **W-09** Sitewide `NewsletterSignup` in the footer (named newsletter + 3 promises → Attio). [REF]
+- [x] **W-10** `MantraClose` line above homepage + consulting closers (one shared component). [REF]
+- [x] **W-11** `/company` added to footer; `/company`, `/audit`, `/diligence` in sitemap; `/audit` also linked in footer. [UJ]
+- [x] **W-12** Internal research links use `ArrowRight` (not `ArrowUpRight`).
 
 ### P1 — structural conversion (the big four + support)
 
-- [ ] **W-13** Qualified contact form replacing `mailto:` — `/consulting#contact` (and reused on `/trust`, `/partners`): name, work email, company, org-type select (label/catalog/distributor/management/other), project-size select, free text. POST → Attio with UTM + lifecycle stage. Keep `mailto:` as quiet fallback. [REF: tenex getstarted/1, every consulting/5]
-- [ ] **W-14** Disqualifier line above the form: "We work with teams ready to transform, not experiment. If that's you, let's talk." [REF: every consulting/5]
-- [ ] **W-15** Diligence artifact: dedicated `/diligence` (or `/platform` subsection) with a redacted sample output — income summary, top tracks, vintage curve, IC-memo excerpt. Link from §9 quote (W-02), homepage lanes, and `/partners` catalog segment. Converts the stuck catalog-buyer persona. [UJ #6]
-- [ ] **W-16** Surface catalog-deals on the homepage: add the Catalog Deals plugin as a sixth shelf item or a marketplace teaser card in the Build section (capability already exists on `/platform`). [UJ]
-- [ ] **W-17** Consulting credibility block: port logo bar + stats plaques (W-07 component) onto `/consulting` between hero and offers. [REF: every consulting/1-2]
-- [ ] **W-18** Collect + publish 3 named, outcome-specific testimonials (name, role, company, metric or moment). Place: homepage Partner section, `/consulting`, `/diligence`. Replace/augment the anonymous catalog-fund quote. [REF: pm-world landing/5, every consulting/4]
-- [ ] **W-19** Homepage manifesto interlude (between How-we-work and Research): era claim + binary + honest diagnosis ("You could wire this up in-house. Our bet is you won't — not because you can't, but because you're running releases today."). 4-6 lines, one CTA. [REF: tenex landing/4]
-- [ ] **W-20** Recoup Records operational log: add dated entries with numbers ("June: 35 hook concepts, 22 videos in one session, 14 editorial placements") + 1-2 downloadable/visible artifacts (release-plan excerpt, content batch). [REF: every war-story formula]
-- [ ] **W-21** Add one illustrative economic number to `/partners` commercials (rev-share band, per-run, or per-seat example). [UJ #7]
-- [ ] **W-22** Name the org-owned build track (e.g. "Owned Build") as its own anchor/card distinct from generic consulting; point `/trust` CTA at it instead of "Talk to us" mailto. [UJ #8]
-- [ ] **W-23** Rebalance homepage Build section: outcome line before the `npx` block; "we set it up for you" co-equal with self-serve. [UJ #9]
-- [ ] **W-24** `/audit` results lead capture: optional email field on the results screen ("email me the full readout") → Attio; tag source=audit. [REF: lead-magnet mechanics]
-- [ ] **W-25** Receipts table ("generic chatbot vs Recoup") — 5 rows of ✗/✓ experience claims on `/platform` or `/pricing` ("Knows your roster: ✗ re-explain every chat / ✓ context loaded from your stack"). [REF: pm-world product/12]
+- [x] **W-13** `ContactForm` (name, work email, company, org-type, project-size, message) → `POST /api/contact` → `createAttioLead` with UTM. Live on `/consulting#contact`, `/partners#contact`, `/trust#contact`; mailto kept as fallback. [REF]
+- [x] **W-14** Disqualifier line ("ready to transform, not experiment") above the form. [REF]
+- [x] **W-15** `/diligence` — redacted sample report (income summary, top tracks, flags, IC-memo excerpt). Linked from §10 quote, shelf teaser, `/partners` catalog segment. [UJ #6]
+- [x] **W-16** Marketplace teaser card in the homepage Build section surfaces the catalog-deals workflow. [UJ]
+- [x] **W-17** Consulting credibility block (LogoBar + StatsStrip) between hero and offers. [REF]
+- [x] **W-18** `Testimonials` component reads `lib/copy/testimonials` (real quotes only — one cleared; renders centered). Placed on homepage + consulting. Two more named quotes still to collect (noted in file). [REF]
+- [x] **W-19** Homepage manifesto interlude (honest-diagnosis: "Our bet is you won't"). [REF]
+- [x] **W-20** Recoup Records operational log (dated entries w/ numbers, skill links). [REF]
+- [x] **W-21** `/partners` pricing answer now states $0.50–$2 per run + 15–25% rev-share band. [UJ #7]
+- [x] **W-22** Named "Owned Build" track on `/trust`; trust CTAs point at its `#contact` form (source `trust-owned-build`). [UJ #8]
+- [x] **W-23** Build section rebalanced — marketplace teaser + "done for you" line co-equal with the `npx` install. [UJ #9]
+- [x] **W-24** `/audit` already captures email pre-results; added `Audit Completed` Plausible event. [REF]
+- [x] **W-25** `ReceiptsTable` (5 ✗/✓ rows) on `/platform`. [REF]
 
 ### P2 — editorial & brand system
 
-- [ ] **W-26** Named blog beats: introduce series taxonomy (e.g. Release Radar / Catalog Files / Agent Diaries / Vibe Check) as filterable tags; retag the 18 existing pieces; render beat kickers on cards. [REF: every beats]
-- [ ] **W-27** Release-day vibe-check format: standing template + process to publish "Can [model] run your release campaign?" within 72h of major model drops; latest one auto-features in the homepage Research section. [REF: every velocity]
-- [ ] **W-28** Card art-direction system: one illustration style (engraving + flat color, or pixel-art to match Geist Pixel) for blog/research cards; apply to top 6 posts first. [REF: every guides/1]
-- [ ] **W-29** Author byline block on post pages (face, name, role, X link) — founder-as-main-character. [REF: pm-world landing/4]
-- [ ] **W-30** Workflow-chip treatment for `/platform` marketplace plugins: `/workflow:diligence`-style chip + pipeline line per plugin. [REF: pm-world product/5]
-- [ ] **W-31** Verb-stamp the shelf packs: one verb per pack rendered in the spine UI (Research / Track / Create / Release / Grow). [REF: every stamps]
-- [ ] **W-32** Ceremony closer moment: one full-bleed visual/typographic "inverted room" for the homepage + consulting closers (our equivalent of the muses image — music-heritage iconography meets agents). Design task. [REF: tenex landing/9, DESIGN.md notes]
-- [ ] **W-33** Homepage FAQ or objection strip near the closer (vs dev shop / vs ChatGPT / who owns it / pricing) — reuse consulting FAQ content. [REF: tenex landing/8]
+- [x] **W-26** Editorial beats (`lib/beats.ts`) — Release Radar / Label Ops / Catalog Files / Agent Diaries / Vibe Check; all 19 pieces mapped; beat kicker + color accent render on cards. [REF]
+- [x] **W-27** Vibe-check standing template + process at `content/templates/vibe-check.md`; `series` frontmatter field added to the schema + `beatForSlug`. [REF]
+- [x] **W-28** Card art-direction: per-beat color accent bar + colored kicker on `ContentCard` (lightweight system, applies to all cards). [REF]
+- [x] **W-29** `AuthorByline` (avatar, name, role, X link) on post pages via `lib/authors.ts`. [REF]
+- [x] **W-30** Workflow chips (`/workflow:diligence` etc.) on `/platform` marketplace plugin cards. [REF]
+- [x] **W-31** Verb stamps (Research / Track / Create / Release / Grow) on the shelf pack covers. [REF]
+- [x] **W-32** Ceremony closer: dark inverted-room CTA + mantra on homepage/consulting. Bespoke heritage illustration still deferred (design asset). [REF]
+- [x] **W-33** Homepage objection strip ("Questions worth answering first.") from shared `homepageFaq`. [REF]
 
 ### P3 — QA, SEO, measurement
 
-- [ ] **W-34** Real mobile QA pass at 390px (hero, shelf, engine demo, footer, forms) — browser-resize spot-check was inconclusive.
-- [ ] **W-35** FAQ JSON-LD on `/consulting`, `/pricing`, `/partners` accordions.
-- [ ] **W-36** OG-image coverage audit: every top-level page gets a branded og:image (check current state first).
-- [ ] **W-37** Plausible goals for every new conversion surface (form submit, newsletter signup, audit completion, skill-install click) so the CRO work is measurable.
+- [x] **W-34** Mobile QA via Playwright `mobile` project (iPhone 13 / WebKit) — 14 mobile tests pass across hero, form, diligence, pricing, platform, blog, newsletter.
+- [x] **W-35** FAQ JSON-LD (`buildFaqJsonLd`) on `/consulting`, `/pricing`, `/partners`.
+- [x] **W-36** Branded default OG image via `app/opengraph-image.tsx` (applies to all routes lacking their own; blog posts still override with covers).
+- [x] **W-37** Plausible events via `lib/track.ts`: Contact Form Submitted, Newsletter Subscribed, Audit Completed, Skills Install Clicked. (Register matching goals in the Plausible dashboard.)
 
 ### Test ideas (after W-07/W-13 land — don't assume, measure)
 

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --fix",
-    "format": "prettier --write . && pnpm lint"
+    "format": "prettier --write . && pnpm lint",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@ai-sdk/react": "^3.0.156",
@@ -42,6 +43,7 @@
     "zod": "^3.25.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "^4.1.17",
     "@tailwindcss/typography": "0.5.0-alpha.3",
     "@types/node": "^20",
