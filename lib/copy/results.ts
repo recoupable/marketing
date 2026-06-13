@@ -3,9 +3,6 @@
  */
 
 export const resultsCopy = {
-  title: "Results | Recoup",
-  description:
-    "See how AI agents are transforming music marketing operations. Real numbers from real campaigns.",
   headline: "We don't pitch theory. We ship results.",
   subheadline:
     "Every number on this page comes from real campaigns, real rosters, and real revenue. Here's what happens when AI agents actually do the work.",
