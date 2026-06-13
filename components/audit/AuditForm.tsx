@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { auditCopy } from "@/lib/copy/audit";
+import { track } from "@/lib/track";
 
 type Step = "questions" | "contact" | "results";
 
@@ -96,6 +97,7 @@ export function AuditForm() {
       // Don't block results on API failure
     }
 
+    track("Audit Completed", { tier: result });
     setSubmitting(false);
     setStep("results");
   }

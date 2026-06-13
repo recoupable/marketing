@@ -56,21 +56,25 @@ export const platformCopy = {
     items: [
       {
         name: "Research",
+        command: "/workflow:research",
         description:
           "API-backed artist analytics, audience insights, playlist intelligence, competitive analysis, trend detection, and outreach — deeper than the open research skill.",
       },
       {
         name: "Catalog deals",
+        command: "/workflow:diligence",
         description:
           "Buy-side and seller-prep diligence: data-room ingestion, royalty normalization, rights checks, IC memos, and valuation analysis.",
       },
       {
         name: "Content",
+        command: "/workflow:content",
         description:
           "Draft, edit, and publish content for artists across every surface — built for the way labels actually ship.",
       },
       {
         name: "Platform",
+        command: "/workflow:platform",
         description: `Cross-cutting skills and workflows for working with ${siteConfig.name}'s chat, API, and platform surface.`,
       },
     ],

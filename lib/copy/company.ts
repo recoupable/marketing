@@ -80,6 +80,31 @@ export const companyRecoupRecordsCopy = {
       skill: "streaming-growth",
     },
   ],
+  /**
+   * Operational log (W-20) — dated war-story entries with real numbers, in the
+   * Every "confession + concrete number + replicable artifact" format. Keep
+   * these honest and tied to numbers we actually surface (Gatsby Grace card).
+   */
+  log: [
+    {
+      date: "2026-06",
+      title: "A month of content in one session",
+      body: "Generated 35 hook concepts, then a full month of short-form content for Gatsby Grace in a single working session — scripts, captions, and platform formatting batched by the content-creation agent.",
+      skill: "content-creation",
+    },
+    {
+      date: "2026-05",
+      title: "14 editorial placements in 90 days",
+      body: "Ran playlist pitching and release planning through the agents across the quarter — 14 editorial placements landed while monthly listeners grew to 45,200 (+12% MoM).",
+      skill: "release-management",
+    },
+    {
+      date: "2026-04",
+      title: "Audience briefs we actually act on",
+      body: "Standing artist + competitive research compiled into briefs before every release decision — top cities, save rates, and playlist gaps pulled from the research skill, not a spreadsheet.",
+      skill: "music-industry-research",
+    },
+  ],
   footer: `If a skill can't carry weight on our own roster, we don't publish it — and we don't sell it.`,
 } as const;
 
@@ -96,6 +121,11 @@ export function companyRecoupRecordsToMarkdown(
     c.intro,
     "",
     ...c.runsOn.flatMap((r) => [`## ${r.title}`, "", r.body, ""]),
+    "---",
+    "",
+    "## Operational log",
+    "",
+    ...c.log.flatMap((l) => [`### ${l.date} — ${l.title}`, "", l.body, ""]),
     "---",
     "",
     c.footer,

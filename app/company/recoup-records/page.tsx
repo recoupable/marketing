@@ -86,8 +86,45 @@ export default function RecoupRecordsPage() {
         </div>
       </section>
 
-      {/* Editorial pull-quote + CTA */}
+      {/* Operational log (W-20) */}
       <section className="py-20 sm:py-28 bg-(--muted)/40">
+        <div className="max-w-[820px] mx-auto px-6 sm:px-10">
+          <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">
+            Operational log
+          </p>
+          <h2 className="font-pixel text-[clamp(2rem,4.5vw,3.25rem)] tracking-tight leading-[1.05] mb-14 max-w-[640px]">
+            What it actually shipped.
+          </h2>
+          <div className="space-y-8">
+            {c.log.map((entry) => (
+              <div key={entry.title} className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                <p className="shrink-0 font-pixel text-[12px] text-(--foreground)/40 uppercase tracking-[0.16em] sm:w-24 sm:pt-1">
+                  {entry.date}
+                </p>
+                <div className="flex-1">
+                  <h3 className="font-ui font-bold text-[17px] text-(--foreground) mb-1.5 leading-snug">
+                    {entry.title}
+                  </h3>
+                  <p className="text-[14px] text-(--foreground)/60 leading-relaxed mb-2">
+                    {entry.body}
+                  </p>
+                  <a
+                    href={`${siteConfig.skillsRepoUrl}/tree/main/skills/${entry.skill}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-[11px] text-(--foreground)/40 hover:text-(--foreground)/70 transition-colors inline-flex items-center gap-1"
+                  >
+                    {entry.skill} <ArrowUpRight size={11} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Editorial pull-quote + CTA */}
+      <section className="py-20 sm:py-28">
         <div className="max-w-[720px] mx-auto px-6 sm:px-10 text-center">
           <p className="font-display italic text-[clamp(1.375rem,3vw,1.875rem)] leading-[1.35] text-(--foreground) mb-10">
             {c.footer}

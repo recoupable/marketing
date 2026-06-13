@@ -6,7 +6,7 @@ import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { siteConfig } from "@/lib/config";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
 import { ResearchCard } from "@/components/home/ResearchCard";
-import { CUSTOMER_LOGOS, type CustomerLogo } from "@/lib/customerLogos";
+import { LogoBar } from "@/components/marketing/LogoBar";
 import { StatsStrip } from "@/components/marketing/StatsStrip";
 import { Testimonials } from "@/components/marketing/Testimonials";
 import { MantraClose } from "@/components/marketing/MantraClose";
@@ -267,21 +267,8 @@ export default function HomePage() {
           2. LOGOS
           ══════════════════════════════════════ */}
       <section className="py-10 border-y border-(--border)">
-        <p className="text-center font-ui text-[10px] text-(--foreground)/45 uppercase tracking-[0.18em] mb-6">
-          Used by teams at {CUSTOMER_LOGOS.length} labels, distributors &amp; platforms
-        </p>
-        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-center flex-wrap gap-x-7 sm:gap-x-10 gap-y-5">
-          {CUSTOMER_LOGOS.map((logo: CustomerLogo) => (
-            <span key={logo.slug} className="flex h-9 w-16 sm:w-20 items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-              <img
-                src={`/api/customer-logos/${logo.slug}`}
-                alt={logo.alt}
-                className={`${logo.className ?? "max-h-6 sm:max-h-7"} customer-logo-image`}
-                loading="lazy"
-                decoding="async"
-              />
-            </span>
-          ))}
+        <div className="max-w-[1200px] mx-auto px-6">
+          <LogoBar />
         </div>
       </section>
 

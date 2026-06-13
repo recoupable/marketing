@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
+import { ContactForm } from "@/components/marketing/ContactForm";
+import { buildFaqJsonLd } from "@/lib/faqJsonLd";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Partners — Embed Music Intelligence in Your Product",
@@ -9,8 +11,6 @@ export const metadata: Metadata = buildPageMetadata({
     "Embed music agents in your product for distributors, creator tools, and platforms. Usage-based pricing, MCP-native, and you keep the customer.",
   path: "/partners",
 });
-
-const CONTACT = `mailto:${siteConfig.contactEmail}?subject=Partnership%20Inquiry`;
 
 /* ── Data ──────────────────────────────────────────────────────────── */
 
@@ -53,7 +53,7 @@ const models = [
 const commercials = [
   {
     q: "How does pricing work?",
-    a: "Usage-based by default — you pay for what your users actually run. For embed/OEM deals we also do rev-share or platform licensing. We scope it to your volume on the first call; nothing here is a fixed public tier.",
+    a: "Usage-based by default — you pay for what your users actually run, typically in the range of $0.50–$2 per active workflow run depending on volume and depth. For embed/OEM deals we also do rev-share (commonly 15–25%) or a flat platform license. We scope it to your volume on the first call; nothing here is a fixed public tier.",
   },
   {
     q: "Who pays for tokens?",
@@ -74,6 +74,10 @@ const commercials = [
 export default function PartnersPage() {
   return (
     <div className="bg-(--background) text-(--foreground)">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(commercials)) }}
+      />
       {/* Hero */}
       <section className="pt-36 sm:pt-44 pb-20 sm:pb-24">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
@@ -91,7 +95,7 @@ export default function PartnersPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href={CONTACT}
+              href="#contact"
               className="cta-pulse font-ui font-semibold bg-(--foreground) text-(--background) px-9 py-4 rounded-full text-[15px] hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5"
             >
               Talk to partnerships
@@ -197,27 +201,22 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section className="relative py-28 sm:py-36 overflow-hidden dark-section-cta">
-        <div className="max-w-[760px] mx-auto px-6 text-center relative z-10">
-          <h2 className="font-pixel text-[clamp(2.25rem,6vw,4rem)] tracking-tight leading-[0.98] text-white mb-9">
-            Let&apos;s scope<br />an integration.
-          </h2>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={CONTACT}
-              className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
-            >
-              Talk to partnerships
-            </a>
-            <a
-              href={siteConfig.docsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-ui font-medium text-sm text-white/40 hover:text-white/70 transition-colors flex items-center gap-1.5"
-            >
-              Read the API docs <ArrowUpRight size={14} />
-            </a>
+      {/* Contact form (W-13) */}
+      <section id="contact" className="py-20 sm:py-28 bg-(--muted)/40 scroll-mt-24">
+        <div className="max-w-[640px] mx-auto px-6 sm:px-10">
+          <div className="text-center mb-8">
+            <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">
+              Start here
+            </p>
+            <h2 className="font-pixel text-[clamp(1.75rem,3.5vw,2.5rem)] tracking-tight leading-[1.08]">
+              Let&apos;s scope an integration.
+            </h2>
+          </div>
+          <div
+            className="rounded-2xl bg-(--background) p-7 sm:p-9"
+            style={{ boxShadow: "0 0 0 1px var(--border)" }}
+          >
+            <ContactForm source="partners" />
           </div>
         </div>
       </section>

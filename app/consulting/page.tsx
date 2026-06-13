@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
+import { LogoBar } from "@/components/marketing/LogoBar";
+import { StatsStrip } from "@/components/marketing/StatsStrip";
+import { Testimonials } from "@/components/marketing/Testimonials";
+import { ContactForm } from "@/components/marketing/ContactForm";
+import { MantraClose } from "@/components/marketing/MantraClose";
+import { HOMEPAGE_STATS } from "@/lib/copy/stats";
+import { consultingFaq } from "@/lib/copy/consultingFaq";
+import { buildFaqJsonLd } from "@/lib/faqJsonLd";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Consulting — Custom AI Implementation for Music Teams",
@@ -10,8 +17,6 @@ export const metadata: Metadata = buildPageMetadata({
     "Plan, roll out, and ship custom AI agents in your stack for labels, catalogs, distributors, and platforms with the team behind Recoup.",
   path: "/consulting",
 });
-
-const CONTACT = `mailto:${siteConfig.contactEmail}?subject=Consulting%20Inquiry`;
 
 /* ── Data ──────────────────────────────────────────────────────────── */
 
@@ -63,34 +68,15 @@ const why = [
   },
 ] as const;
 
-const faq = [
-  {
-    q: "What does a typical engagement look like?",
-    a: "It depends on where you are. Some teams need a single strategy session to get clarity; others want a multi-week implementation sprint alongside their team. We scope it together on the first call — no fixed package required.",
-  },
-  {
-    q: "Who owns what we build — and how is our data handled?",
-    a: "You do. The agents, skills, and workflows we build are yours, and they live in your stack or a repo your organization controls. We scope data access and reuse terms before work starts, and your private work is not folded into public skills without approval.",
-  },
-  {
-    q: "Do I need technical people on my team?",
-    a: "No. We translate between the technical and business sides — that's the point. You leave with a plan your team can actually run, and the same skills work whether your team lives in spreadsheets or in a terminal.",
-  },
-  {
-    q: "Is this just about Recoup's products?",
-    a: "No. We cover the full AI landscape relevant to music — tools, workflows, and build-vs-buy decisions. If Recoup's platform is the right fit, great; if not, you still leave with a clear plan you can execute anywhere.",
-  },
-  {
-    q: "What's the time commitment?",
-    a: "Sessions run 60–90 minutes. Implementation sprints take one to a few weeks depending on scope. Training can be a single half-day or spread across sessions.",
-  },
-] as const;
-
 /* ── Page ───────────────────────────────────────────────────────────── */
 
 export default function ConsultingPage() {
   return (
     <div className="bg-(--background) text-(--foreground)">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(consultingFaq)) }}
+      />
       {/* Hero */}
       <section className="pt-36 sm:pt-44 pb-20 sm:pb-24">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
@@ -107,7 +93,7 @@ export default function ConsultingPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href={CONTACT}
+              href="#contact"
               className="cta-pulse font-ui font-semibold bg-(--foreground) text-(--background) px-9 py-4 rounded-full text-[15px] hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5"
             >
               Talk to us
@@ -129,6 +115,16 @@ export default function ConsultingPage() {
             </Link>
             .
           </p>
+        </div>
+      </section>
+
+      {/* Credibility block — logos + stats (W-17) */}
+      <section className="pb-8">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-10">
+          <LogoBar />
+          <div className="mt-12">
+            <StatsStrip items={HOMEPAGE_STATS} />
+          </div>
         </div>
       </section>
 
@@ -226,34 +222,35 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* Engagement / pricing band */}
-      <section className="py-20 sm:py-28 bg-(--muted)/40">
-        <div className="max-w-[640px] mx-auto px-6 sm:px-10 text-center">
-          <div
-            className="rounded-2xl bg-(--background) p-10 sm:p-12"
-            style={{ boxShadow: "0 0 0 1px var(--border)" }}
-          >
+      {/* Testimonial */}
+      <section className="py-16 sm:py-20">
+        <div className="max-w-[760px] mx-auto px-6 sm:px-10">
+          <Testimonials />
+        </div>
+      </section>
+
+      {/* Contact form (W-13 / W-14) */}
+      <section id="contact" className="py-20 sm:py-28 bg-(--muted)/40 scroll-mt-24">
+        <div className="max-w-[640px] mx-auto px-6 sm:px-10">
+          <div className="text-center mb-8">
             <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">
               Start here
             </p>
             <h2 className="font-pixel text-[clamp(1.75rem,3.5vw,2.5rem)] tracking-tight leading-[1.08] mb-4">
               Start with a conversation.
             </h2>
-            <p className="text-[15px] text-(--foreground)/60 leading-relaxed mb-2">
+            <p className="text-[15px] text-(--foreground)/60 leading-relaxed">
               Sessions start at{" "}
               <span className="font-semibold text-(--foreground)">$500</span>. Scope
               and pricing depend on what you need — one call, an implementation
               sprint, or ongoing support.
             </p>
-            <p className="text-[13px] text-(--foreground)/45 mb-8">
-              No pitch deck required. Just tell us what you&apos;re working on.
-            </p>
-            <a
-              href={CONTACT}
-              className="font-ui font-semibold bg-(--foreground) text-(--background) px-8 py-3.5 rounded-full text-[15px] hover:opacity-90 transition-opacity inline-flex items-center gap-2"
-            >
-              Talk to us <ArrowRight size={15} />
-            </a>
+          </div>
+          <div
+            className="rounded-2xl bg-(--background) p-7 sm:p-9"
+            style={{ boxShadow: "0 0 0 1px var(--border)" }}
+          >
+            <ContactForm source="consulting" />
           </div>
         </div>
       </section>
@@ -268,7 +265,7 @@ export default function ConsultingPage() {
             Questions, answered.
           </h2>
           <div className="space-y-2">
-            {faq.map((item) => (
+            {consultingFaq.map((item) => (
               <details key={item.q} className="group border-b border-(--border) py-4">
                 <summary className="cursor-pointer font-ui font-semibold text-[15px] flex items-center justify-between gap-4 list-none">
                   {item.q}
@@ -286,22 +283,17 @@ export default function ConsultingPage() {
       {/* Closing CTA */}
       <section className="relative py-28 sm:py-36 overflow-hidden dark-section-cta">
         <div className="max-w-[760px] mx-auto px-6 text-center relative z-10">
+          <MantraClose tone="dark" />
           <h2 className="font-pixel text-[clamp(2.25rem,6vw,4rem)] tracking-tight leading-[0.98] text-white mb-9">
             Let&apos;s build it<br />in your stack.
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href={CONTACT}
+              href="#contact"
               className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
             >
               Talk to us
             </a>
-            <Link
-              href={siteConfig.researchUrl}
-              className="font-ui font-medium text-sm text-white/40 hover:text-white/70 transition-colors flex items-center gap-1.5"
-            >
-              Read our research <ArrowRight size={14} />
-            </Link>
           </div>
         </div>
       </section>

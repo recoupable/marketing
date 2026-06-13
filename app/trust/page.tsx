@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
+import { ContactForm } from "@/components/marketing/ContactForm";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Trust & Governance — Data, Ownership & AI Access",
@@ -10,8 +8,6 @@ export const metadata: Metadata = buildPageMetadata({
     "How Recoup handles your data: you own what we build, access is scoped before work starts, and private skills live in your repos.",
   path: "/trust",
 });
-
-const CONTACT = `mailto:${siteConfig.contactEmail}?subject=Trust%20%26%20Governance`;
 
 /* ── Data ──────────────────────────────────────────────────────────── */
 
@@ -68,17 +64,11 @@ export default function TrustPage() {
             the guarantees we work under.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/consulting"
+            <a
+              href="#contact"
               className="cta-pulse font-ui font-semibold bg-(--foreground) text-(--background) px-9 py-4 rounded-full text-[15px] hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5"
             >
-              Talk to us
-            </Link>
-            <a
-              href={CONTACT}
-              className="font-ui font-medium text-[15px] text-(--foreground)/55 hover:text-(--foreground) transition-colors flex items-center gap-1.5"
-            >
-              Email us a requirement <ArrowRight size={15} />
+              Start an Owned Build
             </a>
           </div>
         </div>
@@ -115,37 +105,63 @@ export default function TrustPage() {
         </div>
       </section>
 
-      {/* Closing band */}
-      <section className="py-20 sm:py-28 bg-(--muted)/40">
-        <div className="max-w-[640px] mx-auto px-6 sm:px-10 text-center">
+      {/* Owned Build track (W-22) */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-[820px] mx-auto px-6 sm:px-10">
           <div
-            className="rounded-2xl bg-(--background) p-10 sm:p-12"
+            className="rounded-2xl bg-(--muted)/40 p-8 sm:p-10"
             style={{ boxShadow: "0 0 0 1px var(--border)" }}
           >
+            <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-3">
+              The engagement
+            </p>
+            <h2 className="font-pixel text-[clamp(1.5rem,3vw,2.25rem)] tracking-tight leading-[1.1] mb-4">
+              Owned Build
+            </h2>
+            <p className="text-[15px] text-(--foreground)/60 leading-relaxed max-w-[620px] mb-6">
+              Our build engagement is structured so the guarantees above are the
+              default, not an add-on. We scope the data boundary first, build the
+              agents and skills into a repository your organization owns, and hand
+              over full control — so nothing is locked inside our platform and
+              nothing walks out the door when an engagement ends.
+            </p>
+            <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[14px] text-(--foreground)/70">
+              {[
+                "Org-owned private repo from day one",
+                "Data boundary scoped and signed before work starts",
+                "Scoped, revocable access to your systems",
+                "Everything stays yours at offboarding",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span aria-hidden className="text-(--foreground)/40 mt-0.5">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact form (W-13) */}
+      <section id="contact" className="py-20 sm:py-28 bg-(--muted)/40 scroll-mt-24">
+        <div className="max-w-[640px] mx-auto px-6 sm:px-10">
+          <div className="text-center mb-8">
             <p className="font-ui text-[11px] font-semibold text-(--foreground)/30 uppercase tracking-[0.2em] mb-4">
               Have a requirement?
             </p>
             <h2 className="font-pixel text-[clamp(1.75rem,3.5vw,2.5rem)] tracking-tight leading-[1.08] mb-4">
               We&apos;ll put it in writing.
             </h2>
-            <p className="text-[15px] text-(--foreground)/60 leading-relaxed mb-8">
+            <p className="text-[15px] text-(--foreground)/60 leading-relaxed">
               Specific data, security, or ownership needs? Tell us before any
               engagement starts and we&apos;ll commit to it on paper.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/consulting"
-                className="font-ui font-semibold bg-(--foreground) text-(--background) px-8 py-3.5 rounded-full text-[15px] hover:opacity-90 transition-opacity inline-flex items-center gap-2"
-              >
-                Talk to us <ArrowRight size={15} />
-              </Link>
-              <a
-                href={CONTACT}
-                className="font-ui font-medium text-[15px] text-(--foreground)/55 hover:text-(--foreground) transition-colors"
-              >
-                Email us a requirement
-              </a>
-            </div>
+          </div>
+          <div
+            className="rounded-2xl bg-(--background) p-7 sm:p-9"
+            style={{ boxShadow: "0 0 0 1px var(--border)" }}
+          >
+            <ContactForm source="trust-owned-build" />
           </div>
         </div>
       </section>

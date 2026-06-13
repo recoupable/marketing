@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { platformCopy } from "@/lib/copy/platform";
 import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
+import { ReceiptsTable } from "@/components/marketing/ReceiptsTable";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Platform — Open Skills, API & MCP for Music Agents",
@@ -135,9 +136,14 @@ export default function PlatformPage() {
                 className="flex flex-col rounded-2xl bg-(--background) p-7"
                 style={{ boxShadow: "0 0 0 1px var(--border)" }}
               >
-                <h3 className="font-ui font-bold text-[17px] text-(--foreground) mb-2 leading-snug">
-                  {plugin.name}
-                </h3>
+                <div className="flex items-center justify-between gap-3 mb-2">
+                  <h3 className="font-ui font-bold text-[17px] text-(--foreground) leading-snug">
+                    {plugin.name}
+                  </h3>
+                  <code className="font-mono text-[11px] text-(--foreground)/55 bg-(--muted)/60 px-2 py-1 rounded">
+                    {plugin.command}
+                  </code>
+                </div>
                 <p className="text-[14px] text-(--foreground)/55 leading-relaxed">
                   {plugin.description}
                 </p>
@@ -156,6 +162,20 @@ export default function PlatformPage() {
               Browse the marketplace <ArrowUpRight size={12} />
             </a>
           </p>
+        </div>
+      </section>
+
+      {/* Receipts — generic chatbot vs Recoup (W-25) */}
+      <section className="pb-16 sm:pb-24">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-10">
+          <h2 className="font-pixel text-[clamp(1.75rem,4vw,2.75rem)] tracking-tight leading-[1.05] mb-3">
+            What you actually get.
+          </h2>
+          <p className="text-[15px] text-(--foreground)/55 leading-relaxed max-w-[560px] mb-10">
+            The difference between a general chatbot and the music layer, line
+            by line.
+          </p>
+          <ReceiptsTable />
         </div>
       </section>
 
