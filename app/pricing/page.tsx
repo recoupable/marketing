@@ -32,7 +32,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       {plan.badge && (
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <span
-            className="text-[9px] uppercase tracking-wider bg-white text-black px-4 py-1.5 rounded-full shadow-lg font-pixel"
+            className="text-[9px] uppercase tracking-wider bg-(--accent) text-(--accent-foreground) px-4 py-1.5 rounded-full shadow-lg font-pixel"
           >
             {plan.badge}
           </span>
@@ -56,7 +56,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       </p>
 
       <div className="mb-6">
-        <span className="font-pixel text-[2.25rem] leading-none">{plan.price}</span>
+        <span className={`font-pixel text-[2.25rem] leading-none ${hl ? "text-(--accent)" : ""}`}>{plan.price}</span>
         {plan.period && (
           <span className={`text-sm ${hl ? "text-white/50" : "text-(--foreground)/45"}`}>
             {plan.period}
@@ -69,7 +69,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
           <li key={f} className="flex items-start gap-2 text-[13px]">
             <Check
               size={15}
-              className={`mt-0.5 shrink-0 ${hl ? "text-white" : "text-(--foreground)"}`}
+              className={`mt-0.5 shrink-0 ${hl ? "text-(--accent)" : "text-(--foreground)"}`}
             />
             <span className={hl ? "text-white/90" : "text-(--foreground)/65"}>{f}</span>
           </li>
@@ -81,7 +81,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
         className={`block w-full text-center py-3 rounded-full text-sm font-ui font-semibold transition-all ${
           hl
-            ? "bg-white text-black hover:bg-white/90"
+            ? "bg-(--accent) text-(--accent-foreground) hover:bg-(--accent-hover)"
             : "text-(--foreground) hover:-translate-y-0.5"
         }`}
         style={hl ? undefined : { boxShadow: "0 0 0 1px var(--border)" }}

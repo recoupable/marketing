@@ -19,7 +19,7 @@ export function StatsStrip({ items }: { items: readonly StatItem[] }) {
       {items.map((item) => {
         const body = (
           <>
-            <p className="font-pixel text-[clamp(1.5rem,3vw,2.125rem)] tracking-tight text-(--foreground) leading-none mb-2">
+            <p className="font-pixel text-[clamp(1.5rem,3vw,2.125rem)] tracking-tight text-(--accent) leading-none mb-2">
               {item.value}
             </p>
             <p className="font-ui text-[11px] text-(--foreground)/45 uppercase tracking-[0.14em] leading-snug">

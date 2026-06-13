@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { companyAboutCopy } from "@/lib/copy/company";
 import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
+import { FounderCard } from "@/components/marketing/FounderCard";
 
 export const metadata: Metadata = buildPageMetadata({
   title: `About ${siteConfig.name} — Research Lab & Implementation Partner`,
@@ -35,9 +36,13 @@ export default function AboutPage() {
             {c.description}
           </h1>
 
-          <p className="font-ui text-[clamp(1rem,1.4vw,1.1875rem)] leading-[1.6] text-(--foreground)/65 max-w-[640px] mb-12">
+          <p className="font-ui text-[clamp(1rem,1.4vw,1.1875rem)] leading-[1.6] text-(--foreground)/65 max-w-[640px] mb-10">
             {c.body}
           </p>
+
+          <div className="mb-12">
+            <FounderCard blurb="Recoup is led by Sidney Swift. We research what AI can do for music, build the open tools to do it, and run our own label on the same stack before we put it in yours." />
+          </div>
 
           <div
             className="rounded-2xl p-7 bg-(--background)"

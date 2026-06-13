@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { CONTENT_CATEGORY_LABELS, type ContentEntry } from "@/lib/content-types";
 import { beatForSlug } from "@/lib/beats";
@@ -20,16 +21,26 @@ export function ContentCard({ entry }: { entry: ContentEntry }) {
   return (
     <Link
       href={`/blog/${entry.slug}`}
-      className="group relative flex flex-col overflow-hidden rounded-2xl p-6 pt-7 transition-shadow duration-200 hover:shadow-[0_0_0_1px_var(--foreground)]"
+      className="group relative flex flex-col overflow-hidden rounded-2xl transition-shadow duration-200 hover:shadow-[0_0_0_1px_var(--foreground)]"
       style={{ boxShadow: "0 0 0 1px var(--border)" }}
     >
       {beat ? (
-        <span
-          aria-hidden
-          className="absolute inset-x-0 top-0 h-1"
-          style={{ backgroundColor: beat.color }}
-        />
+        <div className="relative aspect-[3/2] w-full overflow-hidden bg-(--muted)">
+          <Image
+            src={beat.cover}
+            alt=""
+            fill
+            sizes="(max-width: 768px) 100vw, 600px"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+          <span
+            aria-hidden
+            className="absolute inset-x-0 bottom-0 h-1"
+            style={{ backgroundColor: beat.color }}
+          />
+        </div>
       ) : null}
+      <div className={`flex flex-col flex-1 p-6 ${beat ? "pt-5" : "pt-7"}`}>
       <div className="mb-4 flex flex-wrap items-center gap-2">
         {beat ? (
           <span
@@ -60,7 +71,7 @@ export function ContentCard({ entry }: { entry: ContentEntry }) {
       </p>
 
       <div
-        className="mt-6 flex items-center justify-between pt-4"
+        className="mt-auto flex items-center justify-between pt-4"
         style={{ boxShadow: "inset 0 1px 0 0 var(--border)" }}
       >
         <span className="text-xs text-(--muted-foreground)">{entry.author}</span>
@@ -68,6 +79,7 @@ export function ContentCard({ entry }: { entry: ContentEntry }) {
           Read
           <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </span>
+      </div>
       </div>
     </Link>
   );

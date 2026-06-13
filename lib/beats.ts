@@ -25,6 +25,8 @@ export interface Beat {
   promise: string;
   /** Card cover color (light theme); pairs with white type. */
   color: string;
+  /** Cover illustration (D-01) — engraving + flat-color-block system. */
+  cover: string;
 }
 
 export const BEATS: Record<BeatId, Beat> = {
@@ -33,30 +35,35 @@ export const BEATS: Record<BeatId, Beat> = {
     name: "Release Radar",
     promise: "Release, marketing & content playbooks you can run this week.",
     color: "#ea580c",
+    cover: "/art/beat-release-radar.jpg",
   },
   "label-ops": {
     id: "label-ops",
     name: "Label Ops",
     promise: "How labels, distributors & managers actually deploy AI.",
     color: "#2563eb",
+    cover: "/art/beat-label-ops.jpg",
   },
   "catalog-files": {
     id: "catalog-files",
     name: "Catalog Files",
     promise: "Catalog, diligence & royalty intelligence.",
     color: "#0d9488",
+    cover: "/art/beat-catalog-files.jpg",
   },
   "agent-diaries": {
     id: "agent-diaries",
     name: "Agent Diaries",
     promise: "Operational notes from running our own label on agents.",
     color: "#9333ea",
+    cover: "/art/beat-agent-diaries.jpg",
   },
   "vibe-check": {
     id: "vibe-check",
     name: "Vibe Check",
     promise: "Model & tool verdicts for music teams, on release day.",
     color: "#16a34a",
+    cover: "/art/beat-vibe-check.jpg",
   },
 };
 

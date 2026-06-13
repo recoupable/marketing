@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { siteConfig } from "@/lib/config";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
@@ -267,6 +268,21 @@ export default function HomePage() {
             </Link>
             .
           </p>
+
+          {/* Hero showpiece — the committed illustration system (D-01) */}
+          <div
+            className={`mt-16 sm:mt-20 mx-auto max-w-[900px] overflow-hidden rounded-2xl transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            style={{ boxShadow: "0 0 0 1px var(--border), 0 30px 60px -25px rgba(0,0,0,0.35)", transitionDelay: "950ms" }}
+          >
+            <Image
+              src="/art/art-hero-composer.jpg"
+              alt="A marble composer bust in studio headphones beside a vintage tape machine and mixing console — music heritage meets AI agents."
+              width={1800}
+              height={1013}
+              priority
+              className="w-full h-auto block"
+            />
+          </div>
         </div>
       </section>
 

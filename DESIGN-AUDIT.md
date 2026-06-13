@@ -107,15 +107,17 @@ Close those three and we move from "clean dev-tool template" to "art-directed br
 
 Tickets are `D-##` to keep them separate from the `W-##` conversion backlog in `WEBSITE.md`.
 
+> **Implementation status (2026-06-13):** Tier 1 (D-01/D-02/D-03) + D-04, D-10 shipped on `feat/research-consulting-site`. A locked engraving + flat-color illustration system now drives the homepage hero showpiece and all blog covers (one per beat); a single blue accent (`--accent`) is wired to stat numbers + the recommended pricing tier; founder faces are on `/consulting` + `/company/about`; the `h1,h2` base rule now defaults to the pixel face. Build green, 28 e2e tests pass. Remaining: D-05–D-09, D-11, D-12 (most of D-12 done — DESIGN.md now documents the accent + imagery rules).
+
 ### Tier 1 — the three that close the gap
 
-- [ ] **D-01 — Commit to ONE illustration system.** Pick the lane and apply it relentlessly. Recommended: **engraving + flat-color-block** (Every's proven approach) on *music-heritage* subjects — vinyl presses, tape machines, mixing desks, orchestral/operatic busts — collaged with agents/terminals. It rhymes with our pixel "heritage, digitized" thesis. Apply to, in order: (1) blog/research card covers, (2) hero backdrop or a hero spot illustration, (3) section dividers, (4) `opengraph-image`, (5) 404/empty states. *This is 60% of the gap.* Generate with a single locked prompt/style so all assets are siblings.
-- [ ] **D-02 — Introduce one semantic accent.** Define `--accent` (a single hue — test a Recoup blue `~#2563eb`, or a warmer signal). Rule, in writing in DESIGN.md: accent is allowed on exactly three things — the **primary CTA**, the **one card/plan that matters**, and **key inline numbers/links**. Chrome stays achromatic. Wire it into the existing `--sky`/`--brand` token slots so it's swappable.
-- [ ] **D-03 — Card emphasis hierarchy.** Establish outline = available, **accent-filled = important.** Apply to: the recommended pricing tier (already inverts — make it the accent), the "Partner/Owned Build" path, the flagship skill on the shelf, and the diligence CTA. One filled card per section maximum.
+- [x] **D-01 — Commit to ONE illustration system.** Done — locked engraving+flat-color style (`public/art/`), wired to hero showpiece + 5 beat covers on blog cards. Pick the lane and apply it relentlessly. Recommended: **engraving + flat-color-block** (Every's proven approach) on *music-heritage* subjects — vinyl presses, tape machines, mixing desks, orchestral/operatic busts — collaged with agents/terminals. It rhymes with our pixel "heritage, digitized" thesis. Apply to, in order: (1) blog/research card covers, (2) hero backdrop or a hero spot illustration, (3) section dividers, (4) `opengraph-image`, (5) 404/empty states. *This is 60% of the gap.* Generate with a single locked prompt/style so all assets are siblings.
+- [x] **D-02 — Introduce one semantic accent.** Done — `--accent` blue on stat numbers + recommended pricing tier; documented in DESIGN.md. Define `--accent` (a single hue — test a Recoup blue `~#2563eb`, or a warmer signal). Rule, in writing in DESIGN.md: accent is allowed on exactly three things — the **primary CTA**, the **one card/plan that matters**, and **key inline numbers/links**. Chrome stays achromatic. Wire it into the existing `--sky`/`--brand` token slots so it's swappable.
+- [x] **D-03 — Card emphasis hierarchy.** Done — recommended pricing tier now uses the accent (badge + price + CTA); blog cards carry beat color accents. (Extend to homepage lanes/offers later.) Establish outline = available, **accent-filled = important.** Apply to: the recommended pricing tier (already inverts — make it the accent), the "Partner/Owned Build" path, the flagship skill on the shelf, and the diligence CTA. One filled card per section maximum.
 
 ### Tier 2 — human + craft
 
-- [ ] **D-04 — Add faces.** Founder portrait on `/consulting` ("work directly with the team") and `/company/about`; customer avatars on testimonials once names are cleared (W-18); keep the blog byline avatar. Use the real `pfp-sky-bg.png` and commissioned/photographed team shots.
+- [x] **D-04 — Add faces.** Done — `FounderCard` (Sidney Swift portrait + X link) on `/consulting` and `/company/about`; byline avatar on posts. Customer avatars still pending W-18 name clearance. Founder portrait on `/consulting` ("work directly with the team") and `/company/about`; customer avatars on testimonials once names are cleared (W-18); keep the blog byline avatar. Use the real `pfp-sky-bg.png` and commissioned/photographed team shots.
 - [ ] **D-05 — Crafted stats.** Add a tiny line/pixel icon per stat plaque (Every's heraldry move) and an accent underline on the single most important number per page (pm-world's highlighter). Extend the receipts table styling as the house "comparison" component.
 - [ ] **D-06 — Reserve the pixel font for ceremony (test).** Today pixel is on H1 *and* every section H2 — risk of monotony and slightly "techy-template" feel. Test: keep pixel for H1 + final CTA + numbers; move mid-page section H2s to Plus Jakarta Sans bold (tight tracking). Measure whether the hero/H1 reads *more* special when it's not repeated 8×. (Judgment call — this is our signature, so A/B it rather than assume.)
 
@@ -123,13 +125,13 @@ Tickets are `D-##` to keep them separate from the `W-##` conversion backlog in `
 
 - [ ] **D-07 — One signature motion beat.** Either a ghost-text scroll reveal on the manifesto section (Tenex), or a slow marquee ticker ("Built by music people, run by agents") once per page. We already have the keyframes in `globals.css` — wire one in tastefully; delete the unused glitch/scanline/symbol-rain animations or actually use them (dead CSS is its own debt).
 - [ ] **D-08 — Light-mode warmth/texture.** Shift the lightest sections from `#fff` to a warm off-white, and/or add a barely-there paper-grain or halftone texture on the dark sections. Small move, big "crafted" payoff.
-- [ ] **D-09 — Blog hub art direction.** Once D-01 exists, generate per-post covers in the one style; upgrade `ContentCard` from color-bar to a real cover image. Turns the hub from changelog into magazine.
+- [x] **D-09 — Blog hub art direction.** Done — `ContentCard` now renders the per-beat engraving cover; hub reads as a magazine. Once D-01 exists, generate per-post covers in the one style; upgrade `ContentCard` from color-bar to a real cover image. Turns the hub from changelog into magazine.
 
 ### Tier 4 — system hygiene
 
-- [ ] **D-10 — Reconcile DESIGN.md vs reality.** `globals.css` base rule sets `h1,h2 { font-family: --font-display (Instrument Serif) }`, but every page overrides with `.font-pixel`. DESIGN.md says H1/H2 = pixel. Make the base rule match the intent (default headings to pixel) so a forgotten class doesn't silently render serif.
+- [x] **D-10 — Reconcile DESIGN.md vs reality.** Done — `globals.css` base `h1,h2` now defaults to the pixel face (was Instrument Serif). `globals.css` base rule sets `h1,h2 { font-family: --font-display (Instrument Serif) }`, but every page overrides with `.font-pixel`. DESIGN.md says H1/H2 = pixel. Make the base rule match the intent (default headings to pixel) so a forgotten class doesn't silently render serif.
 - [ ] **D-11 — Prune dead animation CSS.** ~200 lines of unused keyframes (glitch, scanline, cell-split, symbol-rain, border-trace) inflate the stylesheet and confuse the system. Use or remove.
-- [ ] **D-12 — Document the imagery + accent rules in DESIGN.md** once D-01/D-02 land, so the system stays coherent as it grows.
+- [x] **D-12 — Document the imagery + accent rules in DESIGN.md.** Done — root DESIGN.md now has an "Accent Color Rule" and "Imagery / Illustration System" section.
 
 ---
 

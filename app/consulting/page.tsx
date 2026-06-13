@@ -6,6 +6,7 @@ import { LogoBar } from "@/components/marketing/LogoBar";
 import { StatsStrip } from "@/components/marketing/StatsStrip";
 import { Testimonials } from "@/components/marketing/Testimonials";
 import { ContactForm } from "@/components/marketing/ContactForm";
+import { FounderCard } from "@/components/marketing/FounderCard";
 import { MantraClose } from "@/components/marketing/MantraClose";
 import { HOMEPAGE_STATS } from "@/lib/copy/stats";
 import { consultingFaq } from "@/lib/copy/consultingFaq";
@@ -204,6 +205,9 @@ export default function ConsultingPage() {
                 <p className="text-[14px] text-(--foreground)/55 leading-relaxed">{w.body}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-10 max-w-[560px]">
+            <FounderCard />
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3">
             <Link

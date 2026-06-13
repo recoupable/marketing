@@ -6,7 +6,13 @@
     --brand: #000000;
     --brand-hover: #1a1a1a;
     --brand-muted: #6b6b6b;
-    --accent: #0a0a0a;
+    /* Semantic accent (D-02). Single hue, used ONLY for emphasis: key numbers,
+       the one card/plan that matters, and accent links. Chrome stays achromatic;
+       primary CTAs stay max-contrast black/white. Swappable here. */
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-foreground: #ffffff;
+    --accent-soft: #eaf0fe;
     --accent-light: #404040;
 
     --background: #ffffff;
@@ -33,7 +39,10 @@
     --brand: #ffffff;
     --brand-hover: #e5e5e5;
     --brand-muted: #999999;
-    --accent: #ededed;
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --accent-foreground: #0a0a0a;
+    --accent-soft: #11203a;
     --accent-light: #a0a0a0;
 
     --background: #0a0a0a;
@@ -61,9 +70,13 @@
     font-family: var(--font-geist-sans), system-ui, sans-serif;
   }
 
+  /* D-10: headlines default to the pixel signature face (matches DESIGN.md
+     intent). Pages still apply .font-pixel explicitly; this base rule keeps a
+     forgotten class from silently rendering serif. Editorial serif is opt-in
+     via .font-display (blog titles, pull quotes). */
   h1,
   h2 {
-    font-family: var(--font-display), Georgia, serif;
+    font-family: var(--font-geist-pixel-square), var(--font-geist-mono), "Courier New", monospace;
   }
 
   h3,
