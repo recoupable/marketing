@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/config";
 import { useTheme } from "@/contexts/ThemeContext";
+import { NewsletterSignup } from "@/components/marketing/NewsletterSignup";
 
 const FOOTER_NAV = [
   {
@@ -11,6 +12,7 @@ const FOOTER_NAV = [
     links: [
       { href: "/consulting", label: "Consulting" },
       { href: "/blog", label: "Blog" },
+      { href: "/audit", label: "AI readiness audit" },
       { href: "/company/recoup-records", label: `${siteConfig.name} Records` },
       { href: `mailto:${siteConfig.contactEmail}`, label: "Contact" },
     ],
@@ -28,6 +30,7 @@ const FOOTER_NAV = [
   {
     title: "Company",
     links: [
+      { href: "/company", label: "Company" },
       { href: "/company/about", label: "About" },
       { href: "/company/vision", label: "Vision" },
       { href: "/trust", label: "Trust & Governance" },
@@ -42,6 +45,20 @@ export function Footer() {
   return (
     <footer className="border-t border-(--border)">
       <div className="max-w-[1200px] mx-auto px-6">
+        {/* Newsletter capture (W-09) */}
+        <div className="py-12 border-b border-(--border) grid lg:grid-cols-[1fr_minmax(320px,420px)] gap-8 items-center">
+          <div>
+            <h3 className="font-pixel text-[clamp(1.25rem,2.5vw,1.75rem)] tracking-tight leading-[1.1] mb-2">
+              Stay at the edge of AI for music.
+            </h3>
+            <p className="text-[14px] text-(--foreground)/50 leading-relaxed max-w-[420px]">
+              What we learn building and running agents on a real label — for
+              labels, managers, distributors, and catalogs.
+            </p>
+          </div>
+          <NewsletterSignup variant="footer" />
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 py-16">
           {/* Brand */}
           <div className="col-span-2">

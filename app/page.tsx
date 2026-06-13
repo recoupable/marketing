@@ -7,6 +7,12 @@ import { siteConfig } from "@/lib/config";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
 import { ResearchCard } from "@/components/home/ResearchCard";
 import { CUSTOMER_LOGOS, type CustomerLogo } from "@/lib/customerLogos";
+import { StatsStrip } from "@/components/marketing/StatsStrip";
+import { Testimonials } from "@/components/marketing/Testimonials";
+import { MantraClose } from "@/components/marketing/MantraClose";
+import { HOMEPAGE_STATS } from "@/lib/copy/stats";
+import { homepageFaq } from "@/lib/copy/consultingFaq";
+import { track } from "@/lib/track";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 
 /* ──────────────────────────────────────────────────────────────────────
@@ -187,8 +193,8 @@ const LANES = [
     k: "Partner",
     h: "We implement it with you.",
     v: "When you want us in the room: strategy, rollout, and custom agents built for your roster and workflows.",
-    href: "/consulting",
-    cta: "Talk to us",
+    href: "/partners",
+    cta: "See how we partner",
     external: false,
   },
 ] as const;
@@ -243,11 +249,15 @@ export default function HomePage() {
               Talk to us
             </Link>
             <Link href={siteConfig.researchUrl} className="font-ui font-medium text-[15px] text-(--foreground)/55 hover:text-(--foreground) transition-colors flex items-center gap-1.5">
-              Read our research <ArrowUpRight size={15} />
+              Read our research <ArrowRight size={15} />
             </Link>
           </div>
-          <p className={`font-ui text-[12px] text-(--foreground)/40 mt-7 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "850ms" }}>
-            Your data stays yours — we never train on it.
+          <p className={`font-ui text-[13px] sm:text-[14px] text-(--foreground)/60 mt-7 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "850ms" }}>
+            Your data stays yours — we never train on it.{" "}
+            <Link href="/trust" className="underline decoration-(--foreground)/25 underline-offset-2 hover:text-(--foreground) hover:decoration-(--foreground)/50 transition-colors">
+              See our data boundary
+            </Link>
+            .
           </p>
         </div>
       </section>
@@ -256,15 +266,17 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           2. LOGOS
           ══════════════════════════════════════ */}
-      <section className="py-8 border-y border-(--border)">
-        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-center flex-wrap gap-x-5 sm:gap-x-7 gap-y-4">
-          <span className="shrink-0 font-ui text-[10px] text-(--foreground)/35 uppercase tracking-[0.15em]">Used by teams at</span>
+      <section className="py-10 border-y border-(--border)">
+        <p className="text-center font-ui text-[10px] text-(--foreground)/45 uppercase tracking-[0.18em] mb-6">
+          Used by teams at {CUSTOMER_LOGOS.length} labels, distributors &amp; platforms
+        </p>
+        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-center flex-wrap gap-x-7 sm:gap-x-10 gap-y-5">
           {CUSTOMER_LOGOS.map((logo: CustomerLogo) => (
-            <span key={logo.slug} className="flex h-8 w-12 sm:w-16 items-center justify-center">
+            <span key={logo.slug} className="flex h-9 w-16 sm:w-20 items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
               <img
                 src={`/api/customer-logos/${logo.slug}`}
                 alt={logo.alt}
-                className={`${logo.className ?? "max-h-5 sm:max-h-6"} customer-logo-image`}
+                className={`${logo.className ?? "max-h-6 sm:max-h-7"} customer-logo-image`}
                 loading="lazy"
                 decoding="async"
               />
@@ -298,6 +310,10 @@ export default function HomePage() {
                 <p className="text-[14px] text-(--foreground)/55 leading-relaxed">{item.v}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-16">
+            <StatsStrip items={HOMEPAGE_STATS} />
           </div>
         </div>
       </section>
@@ -339,6 +355,32 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
+          4b. MANIFESTO — the honest diagnosis (W-19)
+          ══════════════════════════════════════ */}
+      <section className="py-24 sm:py-32 bg-(--muted)/60">
+        <div className="max-w-[820px] mx-auto px-6 sm:px-10">
+          <p className="font-pixel text-[clamp(1.5rem,3.5vw,2.5rem)] tracking-tight leading-[1.12] mb-8">
+            You could wire this up in-house. Our bet is{" "}
+            <span className="italic font-display">you won&apos;t.</span>
+          </p>
+          <div className="space-y-5 text-[16px] sm:text-[17px] text-(--foreground)/60 leading-relaxed max-w-[640px]">
+            <p>
+              Not because your team isn&apos;t good enough — because they&apos;re
+              shipping releases today. The model team, the data plumbing, the
+              eval loop: it&apos;s a project that never reaches the top of the
+              list when there&apos;s a record to put out this week.
+            </p>
+            <p>
+              That&apos;s the work we do. We research what&apos;s working, build
+              it in the open, and run it on our own label first — so the agents
+              that land in your stack are already proven on a real roster.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
           5. RESEARCH — what we publish
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32 bg-(--muted)/40">
@@ -353,7 +395,7 @@ export default function HomePage() {
                 Catalog diligence, label operations, agent rollouts — we publish what actually works (and what doesn&apos;t) as we build with labels and catalogs.
               </p>
               <Link href={siteConfig.researchUrl} className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
-                Read the latest <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                Read the latest <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
             <div>
@@ -478,6 +520,7 @@ export default function HomePage() {
                 href={siteConfig.skillsRepoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track("Skills Install Clicked", { source: "home-shelf" })}
                 className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors inline-flex items-center gap-1"
               >
                 Browse all skills <ArrowUpRight size={12} />
@@ -503,6 +546,27 @@ export default function HomePage() {
               .
             </p>
           </div>
+
+          {/* Marketplace teaser — surfaces the deeper API-backed plugins,
+              incl. catalog diligence (W-16) */}
+          <Link
+            href="/platform#plugins"
+            className="group mt-12 max-w-[640px] mx-auto flex items-center justify-between gap-4 rounded-2xl bg-(--background) p-6 transition-colors hover:bg-(--muted)/40"
+            style={{ boxShadow: "0 0 0 1px var(--border)" }}
+          >
+            <div>
+              <p className="font-pixel text-[10px] text-(--foreground)/35 uppercase tracking-[0.18em] mb-2">
+                Plugins marketplace
+              </p>
+              <p className="font-ui font-bold text-[16px] text-(--foreground) leading-snug mb-1">
+                Going deeper? The native plugins add API-backed research and catalog-diligence workflows.
+              </p>
+              <p className="text-[13px] text-(--foreground)/55 leading-relaxed">
+                Data-room ingestion, royalty normalization, IC memos, and valuation analysis — for Claude Code, Cowork, and Codex.
+              </p>
+            </div>
+            <ArrowRight size={18} className="shrink-0 text-(--foreground)/40 transition-transform group-hover:translate-x-0.5" />
+          </Link>
         </div>
       </section>
 
@@ -546,19 +610,41 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          10. PULL QUOTE — operator voice
+          10. PULL QUOTE — operator voice (W-18 component, W-02 CTA fix)
           ══════════════════════════════════════ */}
       <section className="py-20 sm:py-28">
         <div className="max-w-[820px] mx-auto px-6 sm:px-10 text-center">
-          <p className="font-display italic text-(--foreground)/80 text-[clamp(1.5rem,3vw,2rem)] leading-[1.4] mb-6">
-            &ldquo;Catalog diligence is one of the biggest pain points I have. Cut it down to minutes and it changes how we buy.&rdquo;
-          </p>
-          <p className="font-ui text-[12px] text-(--foreground)/40 uppercase tracking-[0.16em] mb-8">
-            Catalog fund operator
-          </p>
-          <Link href="/audit" className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
-            See what an AI readiness audit surfaces <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-          </Link>
+          <Testimonials />
+          <div className="mt-8">
+            <Link href="/platform#plugins" className="font-ui font-semibold text-[14px] text-(--foreground) inline-flex items-center gap-1.5 group">
+              See the catalog-diligence workflow <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════
+          10b. OBJECTIONS — answer the top questions (W-33)
+          ══════════════════════════════════════ */}
+      <section className="py-20 sm:py-28 bg-(--muted)/40">
+        <div className="max-w-[720px] mx-auto px-6 sm:px-10">
+          <h2 className="font-pixel text-[clamp(1.75rem,4vw,2.75rem)] tracking-tight leading-[1.05] mb-10 text-center">
+            Questions worth answering first.
+          </h2>
+          <div className="space-y-2">
+            {homepageFaq.map((item) => (
+              <details key={item.q} className="group border-b border-(--border) py-4">
+                <summary className="cursor-pointer font-ui font-semibold text-[15px] flex items-center justify-between gap-4 list-none">
+                  {item.q}
+                  <span className="shrink-0 text-(--foreground)/40 group-open:rotate-45 transition-transform text-xl leading-none">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-[14px] text-(--foreground)/55 leading-relaxed">{item.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -570,6 +656,7 @@ export default function HomePage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-[0.04] pointer-events-none" aria-hidden="true" style={{ background: "radial-gradient(circle, white 0%, transparent 60%)" }} />
 
         <div ref={cta.ref} className={`max-w-[760px] mx-auto px-6 text-center relative z-10 ${cta.cls}`}>
+          <MantraClose tone="dark" />
           <h2 className="font-pixel text-[clamp(2.5rem,7vw,5rem)] tracking-tight leading-[0.95] text-white mb-10">
             Let&apos;s build it<br />in your stack.
           </h2>
@@ -578,7 +665,7 @@ export default function HomePage() {
               Talk to us
             </Link>
             <Link href={siteConfig.researchUrl} className="font-ui font-medium text-sm text-white/40 hover:text-white/70 transition-colors flex items-center gap-1.5">
-              Read our research <ArrowUpRight size={14} />
+              Read our research <ArrowRight size={14} />
             </Link>
           </div>
         </div>

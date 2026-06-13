@@ -67,3 +67,83 @@ export async function createAttioContact(
     return { success: false, error: message };
   }
 }
+
+/** Shape of a qualified lead from the contact form (W-13). */
+export interface AttioLeadInput {
+  email: string;
+  name: string;
+  company?: string;
+  /** label | catalog | distributor | management | other */
+  orgType?: string;
+  /** Project size band, e.g. "one-session" | "sprint" | "ongoing". */
+  projectSize?: string;
+  message?: string;
+  /** Which page the form was submitted from, e.g. "consulting". */
+  source?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+}
+
+/**
+ * Create or update a qualified lead in Attio. Reuses the people object and the
+ * email assert pattern; the qualification fields (org type, project size,
+ * message) ride along as a note-style description so we don't depend on custom
+ * Attio attributes existing. Falls back gracefully if the API key is missing.
+ */
+export async function createAttioLead(
+  input: AttioLeadInput,
+): Promise<{ success: boolean; error?: string }> {
+  const apiKey = process.env.ATTIO_API_KEY;
+
+  if (!apiKey) {
+    return { success: false, error: "ATTIO_API_KEY not configured" };
+  }
+
+  try {
+    const response = await fetch(`${ATTIO_BASE_URL}/objects/people/records`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          values: {
+            email_addresses: [{ email_address: input.email }],
+            ...(input.name && { name: [{ first_name: input.name }] }),
+            ...(input.company && {
+              description: [
+                {
+                  value: [
+                    `Company: ${input.company}`,
+                    input.orgType ? `Type: ${input.orgType}` : null,
+                    input.projectSize ? `Project: ${input.projectSize}` : null,
+                    input.source ? `Source: ${input.source}` : null,
+                    input.message ? `Message: ${input.message}` : null,
+                  ]
+                    .filter(Boolean)
+                    .join(" | "),
+                },
+              ],
+            }),
+          },
+        },
+        matching_attribute: "email_addresses",
+      }),
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.text();
+      return {
+        success: false,
+        error: `Attio API error: ${response.status} — ${errorBody}`,
+      };
+    }
+
+    return { success: true };
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Unknown error";
+    return { success: false, error: message };
+  }
+}

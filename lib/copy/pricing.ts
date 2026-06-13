@@ -56,8 +56,9 @@ export const pricingCopy = {
       price: "From $19",
       period: "/mo",
       description:
-        "A hosted workspace where the same skills run for your team — research, content, and release planning, no setup or terminal required.",
+        "A hosted workspace where the same skills run for your team — research, content, and release planning, no setup or terminal required. Free tier to start; paid plans from $19/mo.",
       features: [
+        "Free tier — use the agents before upgrading",
         "Artist profiles & audience research",
         "AI content generation",
         "Release planning tools",
@@ -74,10 +75,10 @@ export const pricingCopy = {
       id: "implementation",
       name: "Implementation",
       audience: "For labels, catalogs & platforms",
-      price: "Custom",
-      period: "",
+      price: "From $500",
+      period: "/ session",
       description:
-        "Consulting, custom agents, and embed / partner deals — scoped to your roster, catalog, and volume.",
+        "Consulting, custom agents, and embed / partner deals — sessions start at $500; sprints and partner deals are scoped to your roster, catalog, and volume.",
       features: [
         "AI strategy & implementation sprints",
         "Custom, organization-owned skills",

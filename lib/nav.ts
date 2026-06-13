@@ -12,5 +12,6 @@ export const nav: readonly { label: string; href: string; external?: boolean }[]
   { label: "Research", href: siteConfig.researchUrl },
   { label: "Platform", href: "/platform" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Trust", href: "/trust" },
   { label: "Consulting", href: "/consulting" },
 ];
