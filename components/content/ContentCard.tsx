@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { CONTENT_CATEGORY_LABELS, type ContentEntry } from "@/lib/content-types";
 import { beatForSlug } from "@/lib/beats";
+import { postCoverForSlug } from "@/lib/postCovers";
 
 /**
  * Unified index card for any content entry (blog post, research essay,
@@ -17,6 +18,8 @@ export function ContentCard({ entry }: { entry: ContentEntry }) {
     day: "numeric",
   });
   const beat = beatForSlug(entry.slug);
+  // Prefer a bespoke per-post illustration; fall back to the shared beat cover.
+  const cover = postCoverForSlug(entry.slug) ?? beat?.cover;
 
   return (
     <Link
@@ -24,23 +27,25 @@ export function ContentCard({ entry }: { entry: ContentEntry }) {
       className="group relative flex flex-col overflow-hidden rounded-2xl transition-shadow duration-200 hover:shadow-[0_0_0_1px_var(--foreground)]"
       style={{ boxShadow: "0 0 0 1px var(--border)" }}
     >
-      {beat ? (
+      {cover ? (
         <div className="relative aspect-[3/2] w-full overflow-hidden bg-(--muted)">
           <Image
-            src={beat.cover}
+            src={cover}
             alt=""
             fill
             sizes="(max-width: 768px) 100vw, 600px"
             className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
-          <span
-            aria-hidden
-            className="absolute inset-x-0 bottom-0 h-1"
-            style={{ backgroundColor: beat.color }}
-          />
+          {beat ? (
+            <span
+              aria-hidden
+              className="absolute inset-x-0 bottom-0 h-1"
+              style={{ backgroundColor: beat.color }}
+            />
+          ) : null}
         </div>
       ) : null}
-      <div className={`flex flex-col flex-1 p-6 ${beat ? "pt-5" : "pt-7"}`}>
+      <div className={`flex flex-col flex-1 p-6 ${cover ? "pt-5" : "pt-7"}`}>
       <div className="mb-4 flex flex-wrap items-center gap-2">
         {beat ? (
           <span
