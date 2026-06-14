@@ -1,8 +1,8 @@
 /**
  * Pricing page copy — single source of truth for engagement tiers + FAQ.
- * Positioning (2026-06): three ways to work with Recoup — Open (free tools),
- * Chat (hosted product), and Implementation (consulting / partnerships).
- * Mirrors the homepage Research / Build / Partner lanes.
+ * Positioning (2026-06): the value ladder across the Products offering —
+ * Open (free skills), Recoup OS (paid bundle), Chat (hosted), and
+ * Implementation (consulting). Mirrors the Resources/Products/Consulting funnel.
  */
 import { siteConfig } from "@/lib/config";
 

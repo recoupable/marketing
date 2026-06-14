@@ -145,7 +145,7 @@ export default function DiligencePage() {
               Talk to us
             </Link>
             <Link
-              href="/platform#plugins"
+              href="/skills#plugins"
               className="font-ui font-medium text-sm text-white/45 hover:text-white/80 transition-colors flex items-center gap-1.5"
             >
               See the catalog-deals plugin <ArrowRight size={14} />

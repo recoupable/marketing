@@ -1,7 +1,7 @@
 /**
  * "Receipts" comparison rows (W-25) — generic chatbot vs Recoup, in the
  * pm-world product/12 format: numbered experience claims, ✗ alternative vs
- * ✓ ours. Rendered on /platform.
+ * ✓ ours. Rendered on /chat.
  */
 
 export interface ReceiptRow {

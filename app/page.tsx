@@ -328,7 +328,7 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════
-          4. LANES — Research / Build / Partner (the answer)
+          4. LANES — Resources / Products / Consulting (the funnel)
           ══════════════════════════════════════ */}
       <section className="py-24 sm:py-32">
         <div ref={lanes.ref} className={`max-w-[1100px] mx-auto px-6 sm:px-10 ${lanes.cls}`}>
@@ -558,7 +558,7 @@ export default function HomePage() {
           {/* Marketplace teaser — surfaces the deeper API-backed plugins,
               incl. catalog diligence (W-16) */}
           <Link
-            href="/platform#plugins"
+            href="/skills#plugins"
             className="group mt-12 max-w-[640px] mx-auto flex items-center justify-between gap-4 rounded-2xl bg-(--background) p-6 transition-colors hover:bg-(--muted)/40"
             style={{ boxShadow: "0 0 0 1px var(--border)" }}
           >
