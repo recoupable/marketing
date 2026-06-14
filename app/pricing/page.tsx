@@ -117,7 +117,7 @@ export default function PricingPage() {
 
       {/* Plan cards */}
       <section className="pb-24">
-        <div className="max-w-[1100px] mx-auto px-6 sm:px-10 grid md:grid-cols-3 gap-6 items-start">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
           {pricingCopy.plans.map((plan) => (
             <PlanCard key={plan.id} plan={plan} />
           ))}

@@ -105,7 +105,7 @@ export const auditCopy = {
         "You're early in AI adoption — which means the biggest, easiest wins are still ahead of you. The first step is knowing which workflows are worth automating and which aren't.",
       recommendation:
         "Start in the open: install the skills and try the hosted workspace. When you're ready to put it to work inside your stack, talk to us.",
-      ctaPrimary: { label: "Start in the open", href: "/platform" },
+      ctaPrimary: { label: "Start in the open", href: "/skills" },
       ctaSecondary: {
         label: "Talk to us",
         href: "/consulting",

@@ -30,9 +30,15 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        // Old "Platform" page split into Products → Skills + Chat (see IA-PLAN.md).
+        source: "/platform",
+        destination: "/skills",
+        permanent: true,
+      },
+      {
         // Off-brand SaaS-era "solutions" page → the canonical product story.
         source: "/solutions",
-        destination: "/platform",
+        destination: "/skills",
         permanent: true,
       },
       {
@@ -56,12 +62,12 @@ const nextConfig: NextConfig = {
       {
         // Off-brand lead-magnet playbook → the real open tools.
         source: "/playbook",
-        destination: "/platform",
+        destination: "/skills",
         permanent: true,
       },
       {
         source: "/playbook/download",
-        destination: "/platform",
+        destination: "/skills",
         permanent: true,
       },
       {

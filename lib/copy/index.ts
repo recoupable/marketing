@@ -5,7 +5,9 @@
  */
 import { siteConfig } from "@/lib/config";
 import { homeCopy, homeToMarkdown } from "./home";
-import { platformCopy, platformToMarkdown } from "./platform";
+import { skillsCopy, skillsToMarkdown } from "./skills";
+import { chatCopy, chatToMarkdown } from "./chat";
+import { recoupOsCopy, recoupOsToMarkdown } from "./recoupOs";
 import { developersCopy, developersToMarkdown } from "./developers";
 import {
   companyIndexCopy,
@@ -24,7 +26,9 @@ const registry: Record<
   { getCopy: () => unknown; toMarkdown: (c: unknown) => string }
 > = {
   "": { getCopy: () => homeCopy, toMarkdown: (c) => homeToMarkdown(c as typeof homeCopy) },
-  platform: { getCopy: () => platformCopy, toMarkdown: (c) => platformToMarkdown(c as typeof platformCopy) },
+  skills: { getCopy: () => skillsCopy, toMarkdown: (c) => skillsToMarkdown(c as typeof skillsCopy) },
+  chat: { getCopy: () => chatCopy, toMarkdown: (c) => chatToMarkdown(c as typeof chatCopy) },
+  "recoup-os": { getCopy: () => recoupOsCopy, toMarkdown: (c) => recoupOsToMarkdown(c as typeof recoupOsCopy) },
   developers: { getCopy: () => developersCopy, toMarkdown: (c) => developersToMarkdown(c as typeof developersCopy) },
   company: { getCopy: () => companyIndexCopy, toMarkdown: (c) => companyIndexToMarkdown(c as typeof companyIndexCopy) },
   "company/vision": { getCopy: () => companyVisionCopy, toMarkdown: (c) => companyVisionToMarkdown(c as typeof companyVisionCopy) },
@@ -58,7 +62,9 @@ export function getMarkdownForPath(pathname: string): string {
 
 /** Export copy for direct use in pages */
 export { homeCopy } from "./home";
-export { platformCopy } from "./platform";
+export { skillsCopy } from "./skills";
+export { chatCopy } from "./chat";
+export { recoupOsCopy } from "./recoupOs";
 export { developersCopy } from "./developers";
 export {
   companyVisionCopy,

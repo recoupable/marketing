@@ -9,7 +9,9 @@ import { test, expect } from "@playwright/test";
 test.describe("homepage", () => {
   test("renders hero, stats, logos, manifesto, objections, mantra", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("heading", { level: 1 })).toContainText("catalog");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(
+      "agentic",
+    );
     // W-07 stats strip
     await expect(page.getByTestId("stats-strip").first()).toBeVisible();
     // W-08 logo bar
@@ -36,11 +38,14 @@ test.describe("homepage", () => {
     await expect(cta).toHaveAttribute("href", "/diligence");
   });
 
-  test("partner lane links to /partners, not /consulting (W-01)", async ({ page }) => {
+  test("offering lanes follow the funnel (Products → Skills, Consulting)", async ({ page }) => {
     await page.goto("/");
     await expect(
-      page.getByRole("link", { name: /See how we partner/i }),
-    ).toHaveAttribute("href", "/partners");
+      page.getByRole("link", { name: /Explore products/i }),
+    ).toHaveAttribute("href", "/skills");
+    await expect(
+      page.getByRole("link", { name: /Work with us/i }).first(),
+    ).toHaveAttribute("href", "/consulting");
   });
 });
 
@@ -53,6 +58,15 @@ test.describe("navigation", () => {
       await page.getByRole("button", { name: /toggle menu/i }).click();
     }
     await expect(trust.first()).toBeVisible();
+  });
+
+  test("Products group shows Recoup OS / Skills / Chat in the menu", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: /toggle menu/i }).click();
+    const menu = page.locator("#site-menu");
+    await expect(menu.getByRole("link", { name: "Recoup OS" })).toBeVisible();
+    await expect(menu.getByRole("link", { name: "Skills", exact: true })).toBeVisible();
+    await expect(menu.getByRole("link", { name: "Chat", exact: true })).toBeVisible();
   });
 });
 
@@ -104,11 +118,37 @@ test.describe("pricing (W-05)", () => {
   });
 });
 
-test.describe("platform (W-25/W-30)", () => {
-  test("renders receipts table and workflow chips", async ({ page }) => {
-    await page.goto("/platform");
-    await expect(page.getByTestId("receipts-table")).toBeVisible();
+test.describe("products", () => {
+  test("skills renders workflow chips (W-30)", async ({ page }) => {
+    await page.goto("/skills");
     await expect(page.getByText("/workflow:diligence")).toBeVisible();
+  });
+
+  test("skills features Recoup OS", async ({ page }) => {
+    await page.goto("/skills");
+    await expect(
+      page.getByRole("link", { name: /Explore Recoup OS/i }),
+    ).toHaveAttribute("href", "/recoup-os");
+  });
+
+  test("chat renders the receipts table (W-25)", async ({ page }) => {
+    await page.goto("/chat");
+    await expect(page.getByTestId("receipts-table")).toBeVisible();
+  });
+
+  test("recoup-os renders hero + get CTA", async ({ page }) => {
+    await page.goto("/recoup-os");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(
+      /operating system/i,
+    );
+    await expect(
+      page.getByRole("link", { name: /Get Recoup OS/i }).first(),
+    ).toBeVisible();
+  });
+
+  test("/platform redirects to /skills", async ({ page }) => {
+    await page.goto("/platform");
+    await expect(page).toHaveURL(/\/skills$/);
   });
 });
 

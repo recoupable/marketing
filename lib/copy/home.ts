@@ -84,8 +84,8 @@ export const homeCopy = {
         description: "They execute. You create.",
       },
     ],
-    platformLink: "/platform",
-    platformLinkLabel: "See the platform",
+    platformLink: "/skills",
+    platformLinkLabel: "Explore the products",
   },
   proof: {
     quote:

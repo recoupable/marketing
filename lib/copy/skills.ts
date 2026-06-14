@@ -1,16 +1,19 @@
 /**
- * Platform page copy — single source for human UI and machine markdown.
- * Positioning (2026-06): the open "music layer for agents" — skills, API, MCP,
- * integrations, and a hosted workspace. Not a self-serve SaaS feature bundle.
+ * Skills page copy — the "build it yourself" half of the old Platform page.
+ *
+ * This is the open building-block surface: free individual skills, the plugins
+ * marketplace, a music-native API, and MCP. Recoup OS (the paid mega-plugin) is
+ * featured from here; Chat (the hosted app) is its own page.
  */
 import { siteConfig } from "@/lib/config";
 
-export const platformCopy = {
-  title: "The music layer for agents.",
+export const skillsCopy = {
+  title: "Open skills for music agents.",
   description:
-    "Open skills, an API, and MCP integrations that put music intelligence into Claude, Cursor, Chat, and your own stack. One harness, many workflows — bring your own agent, Recoup plugs in.",
-  /** The surfaces an agent can run through. */
-  surfaces: ["Claude", "Cursor", "API", "MCP", "Chat"],
+    "The building blocks our own agents run every day — music research, chart metrics, content, release management, and growth. Free to install into Claude, Cursor, or your own stack. Want all of them, wired together? That's Recoup OS.",
+  install: siteConfig.skillsInstallCommand,
+  surfaces: ["Claude", "Cursor", "API", "MCP"],
+
   sections: [
     {
       id: "skills",
@@ -35,18 +38,8 @@ export const platformCopy = {
       description:
         "Slack, email, socials, catalog, distribution, Drive. Connect what you use; agents work across one context and only touch the systems you explicitly allow.",
     },
-    {
-      id: "chat",
-      title: "Chat",
-      description:
-        "Not technical? Chat is a hosted workspace where the same skills run for your team — no setup, no terminal. The on-ramp for everyone who isn't building agents themselves.",
-    },
   ],
-  /**
-   * Curated plugin bundles published to the recoupable/marketplace registry.
-   * Distinct from the raw skills repo: each plugin packages skills + commands +
-   * workflows and installs into Claude Code, Cowork, and Codex.
-   */
+
   plugins: {
     heading: "Plugins marketplace",
     description:
@@ -79,19 +72,21 @@ export const platformCopy = {
       },
     ],
   },
+
   ctaLabel: "Read the API docs",
   ctaHref: siteConfig.docsUrl,
 } as const;
 
-export type PlatformCopy = typeof platformCopy;
+export type SkillsCopy = typeof skillsCopy;
 
-export function platformToMarkdown(c: PlatformCopy): string {
+export function skillsToMarkdown(c: SkillsCopy): string {
   const lines: string[] = [
     `# ${c.title} — ${siteConfig.name}`,
     "",
     c.description,
     "",
     `Surfaces: ${c.surfaces.join(", ")}`,
+    `Install: \`${c.install}\``,
     "",
     "---",
     "",
@@ -104,7 +99,7 @@ export function platformToMarkdown(c: PlatformCopy): string {
     "",
     `Install: \`${c.plugins.install}\` — ${c.plugins.repo}`,
     "",
-    ...c.plugins.items.map((p) => `- **${p.name}** — ${p.description}`),
+    ...c.plugins.items.map((p) => `- **${p.name}** (\`${p.command}\`) — ${p.description}`),
     "",
     "---",
     "",

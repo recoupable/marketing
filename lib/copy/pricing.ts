@@ -28,7 +28,7 @@ export interface PricingFAQ {
 export const pricingCopy = {
   title: "Start in the open. Scale with us.",
   description:
-    "Recoup is a research lab and implementation partner. The tools are open, the hosted workspace is simple, and bigger builds are scoped to you. Three ways to work with us.",
+    "Recoup is a research lab and implementation partner. The tools are open, Recoup OS bundles them, the hosted workspace is simple, and bigger builds are scoped to you.",
 
   plans: [
     {
@@ -48,6 +48,26 @@ export const pricingCopy = {
       ],
       cta: "Browse the skills",
       ctaHref: siteConfig.skillsRepoUrl,
+    },
+    {
+      id: "recoup-os",
+      name: "Recoup OS",
+      audience: "For power users & small labels",
+      // NOTE: placeholder price (IA-PLAN.md §6.4) — matches lib/copy/recoupOs.ts.
+      price: "$499",
+      period: "one-time",
+      description:
+        "Every Recoup skill in one installable plugin — the whole operating system for the modern label, wired to work together.",
+      features: [
+        "All skills bundled — one install",
+        "Research, diligence, content, release ops & growth",
+        "Runs in Claude Code, Cursor, Cowork & Codex",
+        "Cross-skill workflows, updated as one product",
+        "Free updates for a year",
+        "You run it in your own environment",
+      ],
+      cta: "Get Recoup OS",
+      ctaHref: "/recoup-os",
     },
     {
       id: "chat",

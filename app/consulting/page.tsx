@@ -100,7 +100,7 @@ export default function ConsultingPage() {
               Talk to us
             </a>
             <Link
-              href="/platform"
+              href="/skills"
               className="font-ui font-medium text-[15px] text-(--foreground)/55 hover:text-(--foreground) transition-colors flex items-center gap-1.5"
             >
               See the open tools <ArrowRight size={15} />

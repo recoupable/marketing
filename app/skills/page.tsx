@@ -1,31 +1,29 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { platformCopy } from "@/lib/copy/platform";
+import { skillsCopy } from "@/lib/copy/skills";
+import { recoupOsCopy } from "@/lib/copy/recoupOs";
 import { siteConfig } from "@/lib/config";
 import { buildPageMetadata } from "@/lib/seo";
-import { ReceiptsTable } from "@/components/marketing/ReceiptsTable";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Platform — Open Skills, API & MCP for Music Agents",
+  title: "Skills — Open Skills, Plugins, API & MCP for Music",
   description:
-    "The music layer for agents: open-source skills, a music-native API, and MCP integrations that put music intelligence into Claude, Cursor, Chat, and your own stack.",
-  path: "/platform",
+    "The open building blocks for music agents: free skills, a plugins marketplace, a music-native API, and MCP. Install into Claude, Cursor, or your own stack — or get them all in Recoup OS.",
+  path: "/skills",
 });
 
-/**
- * Platform page — copy from lib/copy/platform (single source for human + machine view).
- */
-export default function PlatformPage() {
-  const c = platformCopy;
+/** Skills page — the open building-block surface (copy from lib/copy/skills). */
+export default function SkillsPage() {
+  const c = skillsCopy;
 
   return (
     <div className="bg-(--background) text-(--foreground)">
       {/* Hero */}
-      <section className="pt-36 sm:pt-44 pb-16 sm:pb-20">
+      <section className="pt-36 sm:pt-44 pb-12 sm:pb-16">
         <div className="max-w-[860px] mx-auto px-6 sm:px-10 text-center">
           <p className="font-pixel text-[10px] uppercase tracking-[0.22em] text-(--foreground)/45 mb-6">
-            Platform
+            Products · Skills
           </p>
           <h1 className="font-pixel text-[clamp(2.5rem,6vw,4.25rem)] leading-[1.03] tracking-tight mb-6">
             {c.title}
@@ -61,7 +59,7 @@ export default function PlatformPage() {
               className="block font-mono text-[12px] bg-(--background) px-3 py-2.5 rounded-md text-(--foreground)/80"
               style={{ boxShadow: "0 0 0 1px var(--border)" }}
             >
-              <span className="text-(--foreground)/35">$</span> {siteConfig.skillsInstallCommand}
+              <span className="text-(--foreground)/35">$</span> {c.install}
             </code>
             <p className="text-center text-[12px] text-(--foreground)/40 mt-3">
               One command installs the whole open repo.{" "}
@@ -75,20 +73,39 @@ export default function PlatformPage() {
               </a>
             </p>
           </div>
-          <p className="text-center text-[12px] text-(--foreground)/40 mt-4">
-            Prefer ready-made bundles?{" "}
-            <a
-              href="#plugins"
-              className="font-ui font-semibold text-(--foreground)/70 hover:text-(--foreground) transition-colors"
-            >
-              Browse the plugins marketplace ↓
-            </a>
-          </p>
+        </div>
+      </section>
+
+      {/* Recoup OS feature band */}
+      <section className="pb-8">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-10">
+          <Link
+            href="/recoup-os"
+            className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl bg-(--accent-soft) px-7 py-6 transition-shadow"
+            style={{ boxShadow: "0 0 0 1px var(--accent)" }}
+          >
+            <div>
+              <p className="font-pixel text-[10px] uppercase tracking-[0.22em] text-(--accent) mb-2">
+                {recoupOsCopy.eyebrow}
+              </p>
+              <p className="font-ui font-bold text-[18px] text-(--foreground) leading-snug">
+                Want every skill in one install?
+              </p>
+              <p className="text-[14px] text-(--foreground)/60 leading-relaxed mt-1 max-w-[560px]">
+                Recoup OS bundles all of them — wired to work together, updated as
+                one product. The whole operating system for the modern label.
+              </p>
+            </div>
+            <span className="shrink-0 inline-flex items-center gap-1.5 font-ui font-semibold text-[14px] text-(--accent)">
+              Explore Recoup OS
+              <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </Link>
         </div>
       </section>
 
       {/* Sections */}
-      <section className="py-16 sm:py-24">
+      <section className="py-12 sm:py-20">
         <div className="max-w-[1100px] mx-auto px-6 sm:px-10">
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {c.sections.map((section) => (
@@ -124,8 +141,7 @@ export default function PlatformPage() {
               className="mt-6 block font-mono text-[12px] bg-(--muted)/60 px-3.5 py-2.5 rounded-md text-(--foreground)/80"
               style={{ boxShadow: "0 0 0 1px var(--border)" }}
             >
-              <span className="text-(--foreground)/35">$</span>{" "}
-              {c.plugins.install}
+              <span className="text-(--foreground)/35">$</span> {c.plugins.install}
             </code>
           </div>
 
@@ -165,20 +181,6 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* Receipts — generic chatbot vs Recoup (W-25) */}
-      <section className="pb-16 sm:pb-24">
-        <div className="max-w-[1100px] mx-auto px-6 sm:px-10">
-          <h2 className="font-pixel text-[clamp(1.75rem,4vw,2.75rem)] tracking-tight leading-[1.05] mb-3">
-            What you actually get.
-          </h2>
-          <p className="text-[15px] text-(--foreground)/55 leading-relaxed max-w-[560px] mb-10">
-            The difference between a general chatbot and the music layer, line
-            by line.
-          </p>
-          <ReceiptsTable />
-        </div>
-      </section>
-
       {/* Closing CTA */}
       <section className="relative py-28 sm:py-36 overflow-hidden dark-section-cta">
         <div className="max-w-[760px] mx-auto px-6 text-center relative z-10">
@@ -186,20 +188,20 @@ export default function PlatformPage() {
             Build on the music layer.
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/recoup-os"
+              className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5 inline-flex items-center gap-1.5"
+            >
+              Get Recoup OS
+            </Link>
             <a
               href={c.ctaHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5 inline-flex items-center gap-1.5"
-            >
-              {c.ctaLabel} <ArrowUpRight size={15} />
-            </a>
-            <Link
-              href="/partners"
               className="font-ui font-medium text-sm text-white/45 hover:text-white/80 transition-colors flex items-center gap-1.5"
             >
-              Talk to partnerships <ArrowRight size={14} />
-            </Link>
+              {c.ctaLabel} <ArrowUpRight size={14} />
+            </a>
           </div>
         </div>
       </section>

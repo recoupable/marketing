@@ -183,27 +183,27 @@ function useReveal() {
 
 const LANES = [
   {
-    k: "Research",
-    h: "We publish what we learn.",
-    v: "Field notes from working with labels, catalogs, and platforms — shared in public, not behind a sales call.",
+    k: "Resources",
+    h: "Learn what's working.",
+    v: "Research, playbooks, and field notes from working with labels, catalogs, and platforms — shared in public, not behind a sales call.",
     href: siteConfig.researchUrl,
     cta: "Read our research",
     external: false,
   },
   {
-    k: "Build",
-    h: "We ship tools in the open.",
-    v: "Open skills, plugins, and an API so your team can put music intelligence into Claude, Cursor, and your own stack.",
-    href: "/platform",
-    cta: "See the tools",
+    k: "Products",
+    h: "Build it yourself, or use the hosted version.",
+    v: "Recoup OS and open skills to run in your own stack — or Chat, the hosted workspace with nothing to install.",
+    href: "/skills",
+    cta: "Explore products",
     external: false,
   },
   {
-    k: "Partner",
+    k: "Consulting",
     h: "We implement it with you.",
     v: "When you want us in the room: strategy, rollout, and custom agents built for your roster and workflows.",
-    href: "/partners",
-    cta: "See how we partner",
+    href: "/consulting",
+    cta: "Work with us",
     external: false,
   },
 ] as const;
@@ -244,11 +244,8 @@ export default function HomePage() {
         }} />
 
         <div className="relative z-10 w-full max-w-[1100px] mx-auto px-6 sm:px-10 text-center">
-          <p className={`font-pixel text-[10px] uppercase tracking-[0.22em] text-(--foreground)/45 mb-6 transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ transitionDelay: "200ms" }}>
-            Building the agentic music industry
-          </p>
-          <h1 className={`font-pixel text-[clamp(2.25rem,5vw,3.5rem)] leading-[1.06] tracking-tight mb-6 text-(--foreground) transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "350ms" }}>
-            AI agents that know your catalog,<br className="hidden sm:block" /> royalties, and roster.
+          <h1 className={`font-pixel text-[clamp(2.5rem,6vw,4.25rem)] leading-[1.04] tracking-tight mb-6 text-(--foreground) transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "250ms" }}>
+            Building the agentic<br className="hidden sm:block" /> music industry.
           </h1>
           <p className={`text-(--foreground)/60 text-[clamp(1.0625rem,1.5vw,1.25rem)] font-ui leading-[1.5] max-w-[560px] mx-auto mb-9 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
             A research lab and implementation partner. We build custom agents into your stack — and you own every one.

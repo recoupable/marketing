@@ -8,33 +8,32 @@ import { NewsletterSignup } from "@/components/marketing/NewsletterSignup";
 
 const FOOTER_NAV = [
   {
-    title: "Work with us",
+    title: "Products",
     links: [
-      { href: "/consulting", label: "Consulting" },
-      { href: "/blog", label: "Blog" },
-      { href: "/audit", label: "AI readiness audit" },
-      { href: "/company/recoup-records", label: `${siteConfig.name} Records` },
-      { href: `mailto:${siteConfig.contactEmail}`, label: "Contact" },
+      { href: "/recoup-os", label: "Recoup OS" },
+      { href: "/skills", label: "Skills" },
+      { href: "/chat", label: "Chat" },
+      { href: "/pricing", label: "Pricing" },
     ],
   },
   {
-    title: "Build",
+    title: "Resources",
     links: [
-      { href: "/platform", label: "Platform" },
-      { href: "/partners", label: "Partners" },
+      { href: "/blog", label: "Blog" },
       { href: "/developers", label: "Developers" },
       { href: siteConfig.docsUrl, label: "API Docs", external: true },
-      { href: "/pricing", label: "Pricing" },
+      { href: "/audit", label: "AI readiness audit" },
     ],
   },
   {
     title: "Company",
     links: [
-      { href: "/company", label: "Company" },
+      { href: "/consulting", label: "Consulting" },
+      { href: "/partners", label: "Partners" },
+      { href: "/company/recoup-records", label: `${siteConfig.name} Records` },
       { href: "/company/about", label: "About" },
-      { href: "/company/vision", label: "Vision" },
       { href: "/trust", label: "Trust & Governance" },
-      { href: siteConfig.appUrl, label: "Open app", external: true },
+      { href: `mailto:${siteConfig.contactEmail}`, label: "Contact" },
     ],
   },
 ];
