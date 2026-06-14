@@ -1,0 +1,198 @@
+---
+title: "A Definitive Guide to Using Midjourney"
+subtitle: "Everything you need to know about generating AI Images"
+author: "Lucas Crespo"
+date: 2023-08-15
+column: p
+url: https://every.to/p/a-definitive-guide-to-using-midjourney
+paywalled: true
+scraped_at: 2026-06-11T16:08:15.544Z
+---
+
+# A Definitive Guide to Using Midjourney
+
+*Everything you need to know about generating AI Images*
+
+#### Sponsored By: AE Studio
+
+This essay is brought to you by [AE Studio](https://ae.studio/ai-solutions?utm_source=every&utm_medium=email&utm_campaign=every-1), your custom software development, and AI Partner. Built for founders, AE helps you achieve rapid success with custom MVPs, drive innovation, and maximize ROI.
+
+[Schedule a Free Scoping Session](https://ae.studio/ai-solutions?utm_source=every&utm_medium=email&utm_campaign=every-1)
+
+[Want to sponsor Every? Click here](https://every.to/cdn-cgi/l/email-protection#790a0916170a160b0a1110090a391c0f1c0b00570d16).
+
+If you have to regularly generate images using an AI-powered tool like Midjourney, you’re probably familiar with the challenges. Perhaps you ask it for an illustration of people at work, and it serves up solely *Mad Men-*era shots overladen with testosterone. Maybe you tell it to make you a bouquet without roses, and it gives you a flower quadrant worthy of [Beauty and the Beast](https://disney.fandom.com/wiki/The_Enchanted_Rose). During one particularly funny week at Every, we discovered that Midjourney’s ultimate Achilles heel was “*person dreaming of piggybank*.” The AI could not wrap its “head” around that concept, regardless of what details we fed it. (The results were nightmare fuel.)
+
+I’ve spent a lot of time experimenting with Midjourney’s capabilities in recent months—I come from an advertising design background, so I’m particularly motivated to master the new medium. I waded through Midjourney’s [detailed](https://docs.midjourney.com/) technical documentation, [followed](https://twitter.com/nickfloats?s=21&t=3TCBon93zI_RfsDho7VRnA) smart [creators](https://twitter.com/icreatelife?s=21&t=3TCBon93zI_RfsDho7VRnA) tweeting [Midjourney](https://twitter.com/prompt_mastery?s=21&t=3TCBon93zI_RfsDho7VRnA) tips, and stalked public channels in [Midjourney’s Discord](https://discord.com/invite/midjourney).
+
+I learned that there are nearly infinite possibilities for directing Midjourney’s output. It’s incredibly powerful and adaptable, and you can exert much more control over the results than you’d think from just looking at Midjourney’s UI. It’s not an intuitive interface though—it takes research and practice to make full use of Midjourney’s command language (much like mastering keyboard shortcuts in your favorite apps).
+
+At Every, we rely on Midjourney to generate our article images, so I pulled together a guide for our internal use. When we realized it might be a helpful resource for others, we decided to publish it for our subscribers.
+
+In this article, I’ll walk you through the most powerful and useful techniques I’ve come across. We’ll cover:
+
+- Getting started in Midjourney
+
+- Understanding Midjourney’s quirks with interpreting prompts
+
+- Customizing Midjourney’s image outputs after the fact
+
+- Experimenting with a range of styles and content
+
+- Uploading and combining images to make new ones via image injections
+
+- Brainstorming art options with parameters like “chaos” and “weird”
+
+- Finalizing your Midjourney output’s aspect ratio
+
+And much more.
+
+## Getting started (for beginners)
+
+The most challenging part about using Midjourney is that there’s no official web app yet, and the whole front-end user experience happens through [Discord](https://www.pcmag.com/how-to/what-is-discord-and-how-do-you-use-it). So the order of operations to get set up is a little convoluted, and you have to create your Midjourney images through Discord chatrooms (channels).
+
+If you already have some basic familiarity with Midjourney and its UI, you may want to jump ahead to the “Promptwork” section. If you’re a beginner, [follow Midjourney’s quick start instructions](https://docs.midjourney.com/docs/quick-start) to get set up. Before you move on in this guide, just make sure:
+
+1. You’ve created a Discord account
+
+2. You’ve subscribed to Midjourney (there is no free trial anymore unfortunately)
+
+3. You’ve joined Midjourney’s Discord server
+
+4. You’ve joined a “newbies” channel in Midjourney’s Discord server
+
+In whatever newbie channel you choose to join, you will see thousands of other people submitting prompts, and the images Midjourney generates for them. I learned a lot in the beginning just from studying other people’s approaches.
+
+#### Private Midjourney access
+
+If your company or community has its own Discord server, then you can [add a Midjourney bot](https://docs.midjourney.com/docs/invite-the-bot) for internal use. That way, you can generate images without working in a cluttered, public newbies channel, and you can more easily peruse the images generated by your co-workers or direct community. (Note: Midjourney still reserves the right to serve up your images in other places, like their [showcase page](https://www.midjourney.com/showcase/recent/).) You can also enable Direct Messages with a Midjourney bot if you prefer to work privately (so only you can see them).
+
+So, now that you’re all set up, how do you use Midjourney?
+
+#### The magic happens with /imagine
+
+To interact with Midjourney you must first type a **Command** in whatever Discord newbies channel you’ve joined**. **A Command refers to the action that you want Midjourney to perform. The most common one is ***/imagine**** *followed by your text prompt telling Midjourney what kind of image to create.
+
+**/imagine <your text prompt>**
+
+You can be as specific or as vague as you want in your prompt. Then hit enter to see what the model cooks up. In less than a minute you should see a grid of 4 images that Midjourney sent back to you. Here’s an example you can try:
+
+**/imagine cute robot, white background**
+
+[![](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized_gw4IlekSlAEJmijHS5syvnlLmBZeI06vWotP8zWfg7MmBVfBpTEBLbfW1cSeKyqs3ZhG6doZvZzy_IbIvs7u4gaOSbme5bNtTDZY5afxeZ-RQ_uP4qLb7EjJDQu8.png)](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized_gw4IlekSlAEJmijHS5syvnlLmBZeI06vWotP8zWfg7MmBVfBpTEBLbfW1cSeKyqs3ZhG6doZvZzy_IbIvs7u4gaOSbme5bNtTDZY5afxeZ-RQ_uP4qLb7EjJDQu8.png)
+
+After getting the grid output you will see a few options beneath it.
+
+- U → Upscale: Selects one of the four and makes it big / improves its resolution so you can use it.
+
+- V → Variate: Generates variations from the selected output
+
+- 🔄 → Rerun: Use this option if you you like to rerun the same prompt again and see more results
+
+The options apply in a clockwise direction. So if you really like the top right image (2), then you would click **U2**. and get the upscaled version almost instantly. To download the upscaled image: click on it to open it to full size, and then right-click and choose save image.
+
+Congratulations, now you know how to use Midjourney like 95% of its users. If you want to learn what the other 5% knows, keep reading.
+
+#### So you generated an image, now what?
+
+After an image is upscaled you are presented with a few options.
+
+[![](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized_sEnjAjNN4jJSxV5Ioc2g4YsyYNzURnWTEY2KsnXkGrMoSQaiGe0Zj74U1SVczksL4_sdd4tRBim3g-S1WlLPVVzLp63-TJeqVuzhH0wFRa-c0QJS7PkCjDRWbgJO.png)](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized_sEnjAjNN4jJSxV5Ioc2g4YsyYNzURnWTEY2KsnXkGrMoSQaiGe0Zj74U1SVczksL4_sdd4tRBim3g-S1WlLPVVzLp63-TJeqVuzhH0wFRa-c0QJS7PkCjDRWbgJO.png)
+
+***Variation:***
+
+The first row of buttons allows you to regenerate new options that can vary subtly or strongly from the original depending on what you are looking for. It’s an easy way to riff and brainstorm.
+
+***Zoom out:***
+
+The middle row of buttons allows you to zoom out from your output and generate additional visual context surrounding it. In other words, Midjourney will add more of the “background scene” behind the main subject in your image.
+
+***Panning:***
+
+The last row of buttons lets you expand your image as implied by the buttons, left, right, up and down. It generates more of the scene in a specific direction (the same way panning your camera would in the real world). This also gives your images new aspect ratios.
+
+## Promptwork: Where the magic happens
+
+I usually recommend starting with a simple prompt so you understand how Midjourney interprets the concept. Your prompt can be a sentence, a word, a letter, or even just an emoji.
+
+The fewer words you include, the more influence every word has on the output. It gives the language descending priority—so if you write a whole paragraph, the words and phrases at the start of the prompt will shape the output the most.
+
+You don’t need to include explicit instructions like “make me an image” or “create an illustration.” Instead, get right to the point of describing the visual you want. For example:
+
+[![](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized_ikZZV9pMTMPumqnfwNv9VsAxfVQ6mrOQd_Nh--3v-Zq3s6l_t3EeFu0_8F3zlbxhJ41si8or2zp5YINS2u3lDL3muXKI71p03kRk5TgVcGJuSO7dyOtUD-ctKXfn.png)](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized_ikZZV9pMTMPumqnfwNv9VsAxfVQ6mrOQd_Nh--3v-Zq3s6l_t3EeFu0_8F3zlbxhJ41si8or2zp5YINS2u3lDL3muXKI71p03kRk5TgVcGJuSO7dyOtUD-ctKXfn.png)
+
+The model then grabs each “token” you write (i.e., Elmo, skydiving, jungle) and compares them to its training data to generate the desired image.
+
+[![](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized_Training%20Data.png)](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized_Training%20Data.png)
+
+Less specific prompts are great for experimenting and gathering unexpected results—it’s fun to see how the mysterious black box of AI interprets a prompt like “heartache” or “sustenance.”
+
+More detailed prompts give you greater control over the end product. “Cooking pasta” will differ dramatically from “old Italian man making fettuccine, 1950s kitchen photography.” I usually take the “[design squiggle](https://thedesignsquiggle.com/)” approach to image generation, coming up with a bunch of options via simple prompts in the beginning, then honing in on a particular approach by adding more detail.
+
+[![](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized_HY3POZiPR6QWo019ktnOEon6kCISifNK1jwJfijdyABwzygX0BUaIqPMBNILoeQEPy0lqawEOnGpWeWUX7mmiWBC_772Y7XsPtDA3rSTbJoffwx9fzQkuZap-Mlw.png)](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized_HY3POZiPR6QWo019ktnOEon6kCISifNK1jwJfijdyABwzygX0BUaIqPMBNILoeQEPy0lqawEOnGpWeWUX7mmiWBC_772Y7XsPtDA3rSTbJoffwx9fzQkuZap-Mlw.png)
+
+Changing just one token in the prompt can reshape the image dramatically. Case in point: *Banana Factory*, *Banana Machine*, *Banana Toy*, and *Banana Art.*
+
+[![](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized_pVFX0JEd1H-MV9kCc1J1kVCtk2GCc9k-DND4nslxhyl8OjwZY-jwtB1s3FZbq90f6IKMHTbG6XzWn60yxMVfWKbW0eG7WTrJp4H60y1im-RZMUWesWLjtzH9LOj8.png)](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized_pVFX0JEd1H-MV9kCc1J1kVCtk2GCc9k-DND4nslxhyl8OjwZY-jwtB1s3FZbq90f6IKMHTbG6XzWn60yxMVfWKbW0eG7WTrJp4H60y1im-RZMUWesWLjtzH9LOj8.png)
+
+#### Gettin’ picky with it (the prompts, that is)
+
+You can experiment with a range of aesthetic and content variables to generate different kinds of images. Just remember that the more concepts you include, the more data that Midjourney has to consider when generating an output.
+
+Some options:
+
+-
+**Subject:** person, animal, character, location, object, etc.
+
+-
+**Medium:** photograph, painting, illustration, sculpture, cartoon, doodle, tapestry, watercolor, 3D render, etc.
+
+-
+**Environment:** indoors, outdoors, on the moon, in Narnia, underwater, the Emerald City, etc.
+
+-
+**Lighting:** soft, ambient, overcast, neon, studio lights, warm, etc
+
+-
+**Color:** vibrant, desaturated, muted, bright, monochromatic, colorful, black and white, pastel, etc.
+
+-
+**Atmosphere**: foggy, sunny, misty, cold, dirty, etc.
+
+-
+**Mood:** sedate, calm, dramatic, raucous, minimalist, energetic, etc.
+
+-
+**Composition:** portrait, macro, scan, headshot, closeup, birds-eye view, etc.
+
+- **Style: Wes Anderson, minimalist, Van Gogh, Anime, Solarpunk, gothic, graffiti, medieval, etc..**
+
+To play with the look and feel of an image, add the phrase “in the style of” to your prompt, like “NYC in the style of stained glass” or “banana toy in the style of Andy Warhol.” The options are endless—you can channel styles of painting, cinematography, periods in history, and more. For inspiration check out this [extensive list](https://metaroids.com/lists/midjourney-art-styles-gigapack-free-200-prompt-keywords/)made by Metaroids.
+
+[![](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized__-jcfn43a4rAiICuY3UVMiEVEhhnbgcJKalmWsl8koFjyr5UItIifBYopnu3nO1K_gZuU0hK6EaDLXoIXBcnbihhi3QImervvos-lKi8UtKXguDmkzX3vkhsK5rT.png)](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/2727/optimized__-jcfn43a4rAiICuY3UVMiEVEhhnbgcJKalmWsl8koFjyr5UItIifBYopnu3nO1K_gZuU0hK6EaDLXoIXBcnbihhi3QImervvos-lKi8UtKXguDmkzX3vkhsK5rT.png)
+
+*Caption: Midjourney outputs for the prompt “NYC in the style of Pixar / Basquiat / stained glass.”**** ***
+
+#### A common mistake: Midjourney doesn’t understand ‘no’
+
+Midjourney isn’t always the most intuitive user experience...
+
+---
+
+*This post continues for paid subscribers. It's a 4,000 word bible covering: *
+
+- *Understanding Midjourney’s quirks with interpreting prompts *
+
+- *Customizing Midjourney’s image outputs after the fact*
+
+- *Experimenting with a range of styles and content*
+
+- *Uploading and combining images to make new ones via image injections*
+
+- *Brainstorming art options with parameters like “chaos” and “weird”*
+
+- *Finalizing your Midjourney output’s aspect ratio*
+
+*Curious? Subscribe below.*
+
+[PAYWALL]

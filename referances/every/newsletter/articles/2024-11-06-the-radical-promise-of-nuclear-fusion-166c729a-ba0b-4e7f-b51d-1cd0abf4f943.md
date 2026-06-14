@@ -1,0 +1,129 @@
+---
+title: "The Radical Promise of Nuclear Fusion"
+subtitle: "After years hidden under top-secret status, fusion research is finally flourishing"
+author: "Anna-Sofia Lesiv"
+date: 2024-11-06
+column: p
+url: https://every.to/p/the-radical-promise-of-nuclear-fusion-166c729a-ba0b-4e7f-b51d-1cd0abf4f943
+paywalled: false
+scraped_at: 2026-06-11T16:07:54.956Z
+---
+
+# The Radical Promise of Nuclear Fusion
+
+*After years hidden under top-secret status, fusion research is finally flourishing*
+
+*The artificial intelligence boom has sent Silicon Valley scrambling for energy. The data centers necessary to train AI models and run their applications require massive amounts of electricity. In order to get all of the energy they need—and reduce their toll on the environment—big tech companies such as Amazon, Google, and Microsoft have recently started *[striking deals](https://www.nytimes.com/2024/10/16/business/energy-environment/amazon-google-microsoft-nuclear-energy.html)* for nuclear energy—a so-called “clean” energy source because it doesn’t emit significant amounts of carbon into the atmosphere. In that spirit, we thought it was high time to republish a *[critical essay](https://every.to/p/the-radical-promise-of-nuclear-fusion)* by ****Anna-Sofia Lesiv**** about the promise of nuclear fusion and the path the U.S. took to get there.—*[Kate Lee](https://every.to/news/kate-lee-joins-every-as-editor-in-chief)
+*Was this newsletter forwarded to you? *[Sign up](https://every.to/account)* to get it in your inbox.*
+
+---
+
+On December 5, 2022, we learned that fusion was possible on Earth.
+The Lawrence Livermore Laboratory’s National Ignition Facility (NIF) lies about 50 miles east of San Francisco. A multibillion-dollar undertaking of the U.S. Department of Energy, the NIF is the largest and most powerful laser on Earth. Actually, it’s not just one laser—it’s 192 lasers lined up next to one another, spanning the length of two football fields. The light from these lasers is accelerated and amplified six times before being converted into ultraviolet light and targeted precisely onto a metal cavity that contains a tiny capsule filled with hydrogen isotopes. The lasers are shot at the capsule for a billionth of a second and produce a temperature 10 times hotter than that of the Sun’s center.
+
+[![](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/3304/optimized_IMG_4078.jpeg)](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/3304/optimized_IMG_4078.jpeg)
+At about 100 million degrees Celsius, hydrogen isotopes are colliding into each other with such immense speed that they begin to fuse. As they do, they release a blast of energy so powerful it pushes other hydrogen isotopes to fuse until all the fuel in the capsule is used up.
+This process of heating up the capsule to the point that all its fuel is consumed in a fusion reaction is called ignition. The concept is nearly equivalent to the act of producing enough friction to light a match. It sounds simple enough, but it has taken decades, billions of dollars, and hundreds of attempts to get right. For years, the NIF’s failed attempts led to it being [ridiculed](https://www.youtube.com/watch?v=2kh6Ik4-yag) as the “Never Ignition Facility” or the “Nearly Ignition Facility,” so you can imagine the relief that ensued when the then 13-year-old, [$3.5 billion](https://www.youtube.com/watch?v=2kh6Ik4-yag) laser system [finally managed to light fusion’s match](https://www.llnl.gov/news/national-ignition-facility-achieves-fusion-ignition). Upon hearing the news, [Tammy Ma](https://www.linkedin.com/in/tammy-ma-8050832/), who heads the fusion initiative and had worked at the Lawrence Livermore lab for over 14 years, [burst into tears](https://www.youtube.com/watch?v=2kh6Ik4-yag)while waiting to board a plane.
+Ultimately, the NIF laser beamed 2.05 megajoules of ultraviolet light at the fuel capsule, inducing a fusion reaction that released 3.15 megajoules of energy.
+Three-point-one-five megajoules is not even one percent of what a nuclear power plant produces every hour. In fact, it’s just about the amount of energy required to boil two pots of water. However, the NIF was not built to be a functioning power plant; it was built as a laboratory experiment with the explicit purpose of achieving fusion ignition. That effort was a resounding success, and it has placed the coveted milestone of achieving ignition into our rearview mirror once and for all.
+The coming challenge for the scientific community devoted to making fusion power a reality now lies in figuring out how to scale this process to an industrial level. Achieving feasible fusion power is a massive design problem that currently presents more questions than answers.
+Luckily, tracing the history of fusion technology can introduce us to the main concepts, bottlenecks, and opportunities scientists and entrepreneurs will be wrestling with to finally unlock star power on Earth.
+
+#### Sponsored by: Every
+
+[![](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/advertisements/747/optimized_Screenshot%202025-01-17%20at%2010.15.07%20AM.png)](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/advertisements/747/optimized_Screenshot%202025-01-17%20at%2010.15.07%20AM.png)
+
+##### Tools for a new generation of builders
+
+When you write a lot about AI like we do, it’s hard not to see opportunities. We build tools for our team to become faster and better. When they work well, we bring them to our readers, too. We have a hunch: If you like reading Every, you’ll like what we’ve made.
+
+- Automate repeat writing with [Spiral](https://www.spiral.computer/?utm_source=everyad).
+
+- Organize your computer with [Sparkle](https://www.makeitsparkle.co/?utm_source=everyad).
+
+- Write something new—and great—with [Lex](https://lex.page/?utm_source=everyad).
+
+- Deliver yourself from email with [Cora](https://cora.computer).
+
+[Want to sponsor Every? Click here](https://every.to/cdn-cgi/l/email-protection#4437342b2a372b36372c2d343704213221363d6a302b).
+
+## The astonishing discovery of fusion
+
+The secret behind the Sun’s endless power was a deep, cosmic mystery for a long time. Ironically, it was a quest into the nature of the very small that unlocked insights into the very big.
+In 1919, Francis Aston, a precocious British chemist, was determined to measure the weight of an atom. It was just a year after the end of the First World War, for which he had enlisted in the army servicing some of Britain’s earliest air force fleet. The war had thwarted his desire to burrow away in a lab and focus exclusively on research, and he returned to Cambridge to conduct his experiments in peace.
+The early 20th century was an exciting time in chemistry. There was a firm understanding that all matter was composed of elements—particles of an essential nature, which could not be transformed from their fundamental state. Centuries of discovering solid elements like [metals](https://contrary.com/blog/metallurgy), and distilling various liquids and gasses, resulted in humanity collecting a list of such fundamental elements—gold, silver, sodium, oxygen, and hydrogen. Various forms of chemical analysis helped establish the approximate relative weights between the elements, which allowed [Dmitry Mendeleev](https://en.wikipedia.org/wiki/Dmitri_Mendeleev) to organize them according to their mass in a table—today’s periodic table.
+At the time, the properties of elements and their relationships were understood only approximately, but Aston was not satisfied with approximation. He wanted to measure the precise weights of the atoms themselves.
+His method was a clever trick, analogous to determining someone’s height by measuring their shadow. He figured that if he could run ionized atoms through a magnet that deflected the path of their flow, he could determine the weight of ions by the amount the magnet deflected them. The lightest atoms were easiest to deflect, and the heavier atoms were the hardest.
+The device created to enable this measurement is known as a mass spectrometer, and it revealed something weird about the weights of the individual atoms. Aston found that the elements were not perfect multiples of hydrogen’s weight; they always weighed slightly less than a perfect multiple of hydrogen. For example, helium wasn’t four times the weight of a hydrogen atom—it was actually 3.97 times its weight. This discrepancy carried a clue.
+The results of Aston’s experiments caught the attention of an astronomer and physicist named [Arthur Eddington](https://en.wikipedia.org/wiki/Arthur_Eddington). Years before, Eddington had read Albert Einstein’s 1905 paper, which claimed that there was an equivalence between mass and energy: E=mc^2. The mystery of the missing mass could mean only one thing in Eddington’s mind: the conversion of mass into energy. Eddington was preoccupied with thoughts of stars, planets, and galaxies, and this insight from a chemist opened his eyes to the mechanism that makes the Sun shine.
+Eddington [announced his reflections](https://www.nature.com/articles/106014a0.epdf?sharing_token=1TzCSgDzSkxHeOhr3UTU0tRgN0jAjWel9jnR3ZoTv0PgZ0lfNAOKsBrz3ma2i_DVW4mZqBUkaaHkxGmhqSsbHu8Kd_cDNDV2C3krKruTkHjxSMGLoG1hi69yYbbMsdf3kBhg_eqg9HxcXSIdZmhjHA==) from Aston’s experiment at a conference, saying:
+
+> “Aston has further shown conclusively that the mass of the helium atom is less than the sum of the masses of the four hydrogen atoms which enter into it and in this at least the chemists agree with him. [...] Now mass cannot be annihilated and the deficit can only represent the mass of the electrical energy liberated when helium is made out of hydrogen. If 5 percent of a star’s mass consists initially of hydrogen atoms, which are gradually being combined to form more complex elements, the total heat liberated will more than suffice for our demands, and we need look no further for the source of a star’s energy.”
+
+The year was 1920. A hunch had clued Eddington into the fact that the fusion of hydrogen atoms into more complex elements was secretly powering the Sun. It was a guess that predated the existence of quantum mechanics, and even predated our understanding of the atomic structure—but it was basically spot on. The only thing Eddington got wrong was the assumption that only 5 percent of the Sun’s mass consisted of hydrogen. It was actually 100 percent.
+The dream of fusion power on Earth was born then and there. "If, indeed, the subatomic energy in the stars is being freely used to maintain their furnaces, it seems to bring a little nearer to fulfillment our dream of controlling this latent power for the well-being of the human race—or for its suicide,” [said](https://www.nature.com/articles/106014a0.epdf?sharing_token=1TzCSgDzSkxHeOhr3UTU0tRgN0jAjWel9jnR3ZoTv0PgZ0lfNAOKsBrz3ma2i_DVW4mZqBUkaaHkxGmhqSsbHu8Kd_cDNDV2C3krKruTkHjxSMGLoG1hi69yYbbMsdf3kBhg_eqg9HxcXSIdZmhjHA==) Eddington.
+The discovery of this process was the first time that scientists stopped looking at atomic elements as rigid and unchanging and began looking at them as dynamic particles in the universe, capable of being fused or broken up into smaller parts under the right circumstances. It was also the first time they realized just how much energy was locked inside even the smallest of particles.
+Measuring the weights of all the atomic elements revealed an interesting trend. Atoms lighter than iron weighed progressively less than the sum of their constituent particles. It seemed that whenever lighter atoms fused to form a heavier element, energy was released. However, that pattern only held for atoms lighter than iron.
+Atoms heavier than iron needed energy injected to help them fuse. Elements as heavy as uranium, with 92 protons and anywhere from 141–146 neutrons, were so heavy they naturally wanted to come apart. These atoms were so unstable that they became radioactive, releasing energy as protons, and neutrons naturally broke away from the precarious core.
+
+[![](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/3304/optimized_IMG_4079.jpeg)](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/3304/optimized_IMG_4079.jpeg)
+While more energy was released when two small atoms fused than when one heavy atom fissioned, the activation energy required to get an already heavy and radioactive element to break apart was way lower than the energy required to force two hydrogen atoms to fuse into helium. Doing that would require conditions as hot and dense as in the center of the Sun.
+
+## From nuclear theory to fusion in practice
+
+In the core of the Sun, temperatures reach 10 million degrees Celsius. At this temperature, the atoms get so hot they form a plasma. Plasma is a gas that becomes so hot, its electrons start roaming around freely and the entire plasma starts conducting electricity.
+The process of fusion begins with two protons. Protons are positively charged and, under normal circumstances, repel each other. However, inside a hot plasma, particles are flying into each other so fast that they overcome electromagnetic repulsion and instead fuse together. Once this happens, one of the protons becomes a neutron and together, they form an atom called deuterium—just a hydrogen atom with an extra neutron. The resulting deuterium is then involved in a second fusion reaction: It fuses again with more deuterium, or with tritium (hydrogen but with two extra neutrons), to produce helium.
+The energy released during the constant fusing of hydrogen atoms creates enormous outward pressure that is 400 billion times higher than the atmospheric pressure on Earth. However, due to the Sun’s enormous mass, its gravity is strong enough to counteract the outward pressure and keep the hot, fusing plasma compact in a sphere.
+Trying to recreate the Sun on Earth was a good first blueprint for designing a fusion plant. In theory, the concept was clear—heat hydrogen gas to the point that it becomes a plasma, wait until the hydrogen atoms start fusing, and collect the energy produced. The fusion between deuterium and tritium requires less energy to initiate than the fusion of two protons, so this reaction became the focus of fusion efforts on earth. British physicist [George Thomson](https://en.wikipedia.org/wiki/George_Paget_Thomson), whose father [J. J. Thomson](https://en.wikipedia.org/wiki/J._J._Thomson) discovered the electron, and was the first to propose an idea for a fusion plant along these principles.
+The only problem is that plasma is extremely unstable. In the Sun, the explosive energy released by fusion reactions is contained by its massive gravitational force. On Earth, the task of stabilizing an exploding, hot plasma has been [compared](https://www.amazon.com/Fusion-Energy-Universe-Garry-McCracken/dp/0123846560) to “holding jelly with elastic bands.”
+The plasma must be kept stabilized during the course of the fusion reaction so that all of the fuel can be used. Otherwise, an unstable fusion reaction would blow the plasma up and spew perfectly good hydrogen fuel all over the place. More importantly, though, the hot plasma would instantly melt any part of the reactor it physically touched.
+One approach to solving this problem was by taking advantage of the fact that plasma conducts electricity. The laws of electromagnetism state that every electric field induces a magnetic field, and vice versa. So a sufficiently powerful magnetic field interacting with the plasma might be able to control its shape and keep it contained. This approach was called magnetic confinement, but over the past 50 years, holding plasma together for a long enough time to induce a protracted fusion reaction has been unsuccessful.
+
+[![](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/3304/optimized_IMG_4080.jpeg)](https://d24ovhgu8s7341.cloudfront.net/uploads/editor/posts/3304/optimized_IMG_4080.jpeg)
+In the 1970s, having failed to realize fusion via magnetic confinement for many years, physicists began looking for other approaches. Rather than heating a plasma and stabilizing it while all its hydrogen atoms fused, they wondered if a small fusion reaction could be induced that was so fast the problem of holding the plasma together wouldn’t be a factor. The amount of fuel used would be smaller, but the reaction would happen so quickly that all the fuel would instantly be used up.
+The [inaugural paper](https://www.nature.com/articles/239139a0) for this approach, called inertial confinement, was co-authored by John Nuckolls in 1972. Years later, Nuckolls became the director of the Livermore Laboratory, which started building experimental equipment to test this new approach. Planning for the National Ignition Facility began under Nuckolls’s directorship in the early 1990s, but ground wasn’t broken until 1997, and the facility didn’t become operational until 2009. This excruciatingly slow timeline is a telling detail that lends partial insight into why fusion has taken this long to mature.
+After decades spent under top-secret status due to fusion’s close ties with national security and the construction of nuclear weapons, fusion research managed to blossom despite the stigmas and bureaucratic obstacles that surrounded it. Finally, fusion ignition was achieved on Earth. It did not happen by magnetic confinement but by inertial confinement, in the same lab where the approach was initially developed some 50 years earlier.
+
+## The massive challenges of mass production
+
+Fusion is one of the only means of generating energy where the abundance of fuel is not a concern. Unlike wood, coal, natural gas, or even uranium, which are all limited in supply, deuterium and tritium are easily obtained. Deuterium is just an isotope of hydrogen, and roughly one in every 7,000 hydrogen atoms is exactly the deuterium isotope we need. Deuterium can easily be distilled from water, and tritium, the hydrogen isotope with two neutrons, can be produced by reacting neutrons with lithium in a fission reaction.
+However, whereas igniting fuels like wood or coal is straightforward, the process of igniting hydrogen isotopes has taken decades. Now that we’ve finally achieved the milestone of ignition, the work begins to build a fusion plant that can generate enough energy to power a city. Here’s how a large-scale fusion plant should run:
+
+-
+**Fuel is heated by an external source.** Deuterium and tritium fuel would be heated from an external energy source until they fused. The fusion reaction would produce a helium nucleus and a neutron. Eighty percent of the energy released during the reaction would be carried by the neutron, and the other 20 percent would be carried by the helium nucleus.
+
+-
+**Fuel reaches ignition temperature.** Helium nuclei are stripped of their electrons and thus have a positive charge. When produced by the fusion reaction, they would be trapped by the magnetic field surrounding the reaction, and their energy would be used to heat the plasma further and ignite more fusion reactions. Eventually, more and more of these trapped helium nuclei would provide the energy required to continue the fusion reaction until the entire reaction becomes self-sustaining, which is the goal of ignition.
+
+-
+**Energy is collected from the reaction.** The neutron carrying 80 percent of the reaction’s energy lacks any electric charge and would not be confined by the magnetic field. It would fly outward, into a surrounding structure containing lithium, where it would react in a fission reaction with the lithium to produce more tritium fuel and generate a great amount of heat.
+
+-
+**Collected energy is converted into electricity.** The heat given off would boil water, which would produce steam and power a turbine that would generate electricity, just like any major power plant.
+
+Though we have a good sense of how the picture should work as a whole, many details are still unresolved and pose massive engineering challenges for the coming generation of physicists and engineers. Some of the most immediate problems that would need to be solved, provided we stick with the inertial confinement approach, are:
+
+-
+**Finding a repeatable way to heat the fuel capsule.** The external source of energy used to heat the fuel capsule is called the driver. The National Ignition Facility used lasers as its driver to heat the fuel. However, its lasers can only be fired once a day, since doing it more often would damage them. This cadence is problematic because a fusion plant using the inertial confinement method would need to drive the reaction approximately 10 times every second.
+
+-
+**Finding an energy-efficient way to power the driver. **The NIF’s laser requires 300 megajoules of energy to power a 2 megajoule laser blast—so its driver system converts only one percent of its energy into heating the target. The 2 megajoule blast is capable of igniting a 3 megajoule fusion reaction, but relative to the energy required to power the laser in the first place, the total fusion reaction in the laboratory amounts to a big energy loss.
+
+-
+**Designing a reactor structure that could withstand the effects of neutron bombardment.** The neutrons flying out of the reaction chamber slam into surrounding walls, putting strain on the reactor walls and structure overtime. A feasible reactor would need to withstand this kind of bombardment for years, while maintaining its structural integrity. Over time, the reactor structure would become radioactive, with its internal atoms being destabilized by the neutrons. At the end of the reactor’s lifetime, the structure would need to be sealed to protect from its radioactive effects.
+
+## Commercializing our nuclear future
+
+There are dozens of private companies working on solving these problems. Some, like [First Light Fusion](https://firstlightfusion.com/), are developing a new type of driver system, which would heat the fuel capsule by blasting it with ions at incredibly high speeds. The company calls this amended version of inertial confinement “projectile fusion.”
+It’s unclear, though, if inertial confinement can be successfully commercialized. It could be that a completely new direction might prove more practical in the long run. The nine-year-old startup [Helion](https://www.helionenergy.com/), for instance, has developed a unique reactor design around the principles of both magnetic and inertial confinement. On either ends of its seventh-generation “Trenta” reactor, two symmetrical discs of hot plasma are generated before being slammed into each other and compressed by strong magnets to induce a fusion reaction.
+The most interesting part of Helion's design is that its reactor can generate electricity directly from the reaction. When fusion begins to occur and the plasma starts creating outward pressure, it causes changes in the magnetic field that can be directly recaptured as electricity. No water has to be boiled, and no steam-powered turbines are required to generate electricity. Though these are the traditional methods every major power plant uses, Helion has brilliantly designed a mechanism that reimagines what a large-scale fusion reactor could be capable of. It’s due to complete building its eighth-generation reactor, “Polaris,” in 2024, which should be capable of converting fusion energy directly into electricity.
+Finally, [Commonwealth Fusion Systems](https://cfs.energy/), located in Cambridge, Massachusetts, is working on perfecting a compact yet powerful magnetic confinement reactor it calls [SPARC](https://cfs.energy/technology#sparc-fusion-energy-demonstration). It’s a tall task, since the sole example of fusion ignition thus far has been achieved by inertial confinement. However, the company has developed new kinds of super magnets that it claims will be powerful enough to contain fusing, hot plasma for long enough to achieve net energy gain. Its [goal](https://www.fastcompany.com/90779799/the-frontrunners-in-the-trillion-dollar-race-for-limitless-fusion-power?curius=1159) is to demonstrate power generation by 2025.
+Despite these efforts, it’s not obvious when fusion will be ready for commercial use. Optimists say we’re only about a decade away, while skeptics say we could be waiting 50 years or more. Whenever fusion power comes online, there’s no telling what a fusion-enabled society will look like. The promises of abundant energy and nearly infinite stores of fuel could open up the feasibility of everything from interplanetary travel to developing a functioning artificial general intelligence. The only thing that’s certain is the cone of possibilities for humanity will widen immensely.
+
+---
+
+***Anna-Sofia Lesiv**** is a writer at venture capital firm *[Contrary](https://contrary.com/)*, where she originally published *[this piece](https://contrary.com/blog/promise-of-fusion)*. She graduated from Stanford with a degree in economics, and has worked at Bridgewater, Founders Fund, and 8VC.*
+*To read more essays like this, subscribe to *[Every](https://every.to/subscribe)*, and follow us on X at *[@every](http://twitter.com/every)* and on *[LinkedIn](https://www.linkedin.com/company/everyinc/)*.*
+*We also *[build AI tools](https://every.to/studio)* for readers like you. Automate repeat writing with *[Spiral](https://spiral.computer/?utm_source=everyfooter)*. Organize files automatically with *[Sparkle](https://makeitsparkle.co/?utm_source=everyfooter)*. Write something great with *[Lex](https://lex.page/?utm_source=everyfooter)*.*
+
+[Upgrade to paid](https://every.to/subscribe)
