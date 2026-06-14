@@ -257,13 +257,6 @@ export default function HomePage() {
               Read our research <ArrowRight size={15} />
             </Link>
           </div>
-          <p className={`font-ui text-[13px] sm:text-[14px] text-(--foreground)/60 mt-7 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "850ms" }}>
-            Your data stays yours — we never train on it.{" "}
-            <Link href="/trust" className="underline decoration-(--foreground)/25 underline-offset-2 hover:text-(--foreground) hover:decoration-(--foreground)/50 transition-colors">
-              See our data boundary
-            </Link>
-            .
-          </p>
         </div>
       </section>
 

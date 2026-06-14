@@ -26,12 +26,6 @@ test.describe("homepage", () => {
     await expect(page.getByTestId("mantra").first()).toBeVisible();
   });
 
-  test("hero ownership line links to /trust (W-04)", async ({ page }) => {
-    await page.goto("/");
-    const link = page.getByRole("link", { name: "See our data boundary" }).first();
-    await expect(link).toHaveAttribute("href", "/trust");
-  });
-
   test("§10 testimonial CTA points to the diligence sample (W-02/W-15)", async ({ page }) => {
     await page.goto("/");
     const cta = page.getByRole("link", { name: /sample diligence report/i });
