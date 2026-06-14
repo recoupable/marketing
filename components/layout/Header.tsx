@@ -79,26 +79,25 @@ export function Header() {
 
       {menuOpen && (
         <>
-          {/* Click-outside backdrop closes the menu. */}
+          {/* Dimmed backdrop closes the menu (Every-style). */}
           <button
             type="button"
             aria-label="Close menu"
             title="Close menu"
             tabIndex={-1}
             onClick={() => setMenuOpen(false)}
-            className="fixed inset-0 top-16 z-40 cursor-default bg-transparent"
+            className="fixed inset-0 top-16 z-40 cursor-default bg-black/40 animate-[menu-backdrop-in_0.2s_ease-out]"
           />
+          {/* Left sidebar drawer. */}
           <div
             id="site-menu"
-            className="relative z-50 border-t border-(--border) bg-(--background)/95 backdrop-blur-lg"
+            className="fixed top-16 bottom-0 left-0 z-50 flex w-72 max-w-[80vw] flex-col overflow-y-auto bg-(--background) animate-[menu-panel-in_0.28s_cubic-bezier(.16,1,.3,1)]"
+            style={{ boxShadow: "1px 0 0 0 var(--border)" }}
           >
-            <nav
-              className="max-w-[1280px] mx-auto px-6 py-4 space-y-1"
-              role="navigation"
-            >
+            <nav className="flex flex-1 flex-col px-4 py-6 space-y-0.5" role="navigation">
               {nav.map((item) =>
                 isNavGroup(item) ? (
-                  <div key={item.label} className="pt-2">
+                  <div key={item.label} className="pt-3 first:pt-0">
                     <p className="px-3 pb-1 font-ui text-[11px] font-semibold uppercase tracking-[0.14em] text-(--foreground)/35">
                       {item.label}
                     </p>
@@ -107,7 +106,7 @@ export function Header() {
                         key={child.href}
                         href={child.href}
                         {...(child.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                        className="block px-3 py-2.5 text-sm font-ui font-semibold text-(--foreground) rounded-lg hover:bg-(--muted) transition-colors"
+                        className="block px-3 py-2.5 text-[15px] font-ui font-semibold text-(--foreground) rounded-lg hover:bg-(--muted) transition-colors"
                         onClick={() => setMenuOpen(false)}
                       >
                         {child.label}
@@ -119,21 +118,23 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="block px-3 py-2.5 text-sm font-ui font-semibold text-(--foreground) rounded-lg hover:bg-(--muted) transition-colors"
+                    className="block px-3 py-2.5 text-[15px] font-ui font-semibold text-(--foreground) rounded-lg hover:bg-(--muted) transition-colors"
                     onClick={() => setMenuOpen(false)}
                   >
                     {item.label}
                   </Link>
                 ),
               )}
+            </nav>
+            <div className="px-4 pb-6 pt-2">
               <Link
                 href="/consulting"
-                className="mt-2 block px-3 py-2.5 text-sm font-ui font-semibold text-(--background) bg-(--foreground) rounded-lg text-center"
+                className="block px-3 py-3 text-sm font-ui font-semibold text-(--background) bg-(--foreground) rounded-lg text-center"
                 onClick={() => setMenuOpen(false)}
               >
                 Talk to us
               </Link>
-            </nav>
+            </div>
           </div>
         </>
       )}

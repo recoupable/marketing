@@ -573,3 +573,14 @@ section:has([data-chat-open="true"]) .hero-text h1 {
 .animate-blink {
   animation: blink 0.8s step-end infinite;
 }
+
+/* Left sidebar menu (Every-style drawer) */
+@keyframes menu-panel-in {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes menu-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
