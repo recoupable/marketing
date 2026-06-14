@@ -139,7 +139,7 @@ test.describe("products", () => {
   test("recoup-os renders hero + get CTA", async ({ page }) => {
     await page.goto("/recoup-os");
     await expect(page.getByRole("heading", { level: 1 })).toContainText(
-      /operating system/i,
+      /output of/i,
     );
     await expect(
       page.getByRole("link", { name: /Get Recoup OS/i }).first(),
