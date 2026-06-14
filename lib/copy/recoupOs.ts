@@ -17,10 +17,10 @@ export const recoupOsCopy = {
   eyebrow: "Recoup OS",
 
   hero: {
-    // Rendered as: "One label." / "The output of [10]."
-    lead: "One label.",
-    trail: "The output of",
-    highlight: "10.",
+    // Rendered as: "A record label" / "in a [box.]"
+    lead: "A record label",
+    trail: "in a",
+    highlight: "box.",
     description:
       "Recoup OS is an AI workspace for Claude Code, Cursor, Cowork, and Codex — every Recoup skill, wired together and ready to run on your roster, your catalog, and your release calendar.",
     worksWith: "Works with Claude Code, Cursor, Cowork & Codex. Install in minutes.",
@@ -55,7 +55,7 @@ export const recoupOsCopy = {
   /** The big product card. */
   product: {
     eyebrow: "The product",
-    title: "A label team in a box.",
+    title: "Everything your label runs on.",
     description:
       "Every Recoup skill — research, catalog diligence, content, release ops, and growth — plus the workflows that connect them. It knows your roster, your catalog, and your calendar.",
     cta: { label: "Get Recoup OS", href: "/pricing" },
