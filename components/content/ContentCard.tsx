@@ -11,7 +11,14 @@ import { postCoverForSlug } from "@/lib/postCovers";
  * pixel date eyebrow, font-ui title. Cards carry their editorial beat (W-26) as
  * a colored top accent + kicker (W-28's lightweight art-direction system).
  */
-export function ContentCard({ entry }: { entry: ContentEntry }) {
+export function ContentCard({
+  entry,
+  priority = false,
+}: {
+  entry: ContentEntry;
+  /** Eager-load + prioritize this cover (use for above-the-fold cards). */
+  priority?: boolean;
+}) {
   const formattedDate = new Date(entry.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -28,12 +35,20 @@ export function ContentCard({ entry }: { entry: ContentEntry }) {
       style={{ boxShadow: "0 0 0 1px var(--border)" }}
     >
       {cover ? (
-        <div className="relative aspect-[3/2] w-full overflow-hidden bg-(--muted)">
+        <div
+          className="relative aspect-[3/2] w-full overflow-hidden bg-(--muted)"
+          // Beat-colored placeholder so the card never flashes an empty white
+          // box while the (lazy) cover decodes — it reads as an intentional
+          // colored block that the illustration fades over.
+          style={beat ? { backgroundColor: beat.color } : undefined}
+        >
           <Image
             src={cover}
             alt=""
             fill
             sizes="(max-width: 768px) 100vw, 600px"
+            priority={priority}
+            loading={priority ? "eager" : "lazy"}
             className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
           {beat ? (

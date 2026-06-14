@@ -74,8 +74,8 @@ export function ContentList({
 
       {visible.length > 0 ? (
         <div className="grid gap-6 md:grid-cols-2">
-          {visible.map((entry) => (
-            <ContentCard key={entry.slug} entry={entry} />
+          {visible.map((entry, i) => (
+            <ContentCard key={entry.slug} entry={entry} priority={i < 4} />
           ))}
         </div>
       ) : (
