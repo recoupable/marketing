@@ -53,9 +53,9 @@ export const pricingCopy = {
       id: "recoup-os",
       name: "Recoup OS",
       audience: "For power users & small labels",
-      // NOTE: placeholder price (IA-PLAN.md §6.4) — matches lib/copy/recoupOs.ts.
-      price: "$499",
-      period: "one-time",
+      // Price kept in sync with lib/copy/recoupOs.ts.
+      price: "$99",
+      period: "/year",
       description:
         "Every Recoup skill in one installable plugin — the whole operating system for the modern label, wired to work together.",
       features: [
@@ -63,7 +63,7 @@ export const pricingCopy = {
         "Research, diligence, content, release ops & growth",
         "Runs in Claude Code, Cursor, Cowork & Codex",
         "Cross-skill workflows, updated as one product",
-        "Free updates for a year",
+        "Updates included, cancel anytime",
         "You run it in your own environment",
       ],
       cta: "Get Recoup OS",

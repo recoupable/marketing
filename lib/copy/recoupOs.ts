@@ -6,7 +6,6 @@
  * SKU — the "buy the whole operating system" option, sitting above the free
  * individual skills and below the hosted Chat app in the value ladder.
  *
- * NOTE: `price` is a PLACEHOLDER pending a real number (IA-PLAN.md §6.4).
  */
 import { siteConfig } from "@/lib/config";
 
@@ -15,10 +14,9 @@ export const recoupOsCopy = {
   title: "The operating system for the modern label.",
   description:
     "Every Recoup skill — research, catalog diligence, content, release ops, and growth — in one installable plugin. The whole stack your agents run on, in a single download.",
-  /** Placeholder pricing — replace with the real number when set. */
-  price: "$499",
-  priceUnit: "one-time",
-  priceNote: "Free updates for a year. Open skills stay free individually.",
+  price: "$99",
+  priceUnit: "/year",
+  priceNote: "Updates included, cancel anytime. Open skills stay free individually.",
   primaryCta: { label: "Get Recoup OS", href: "/pricing" },
   secondaryCta: { label: "See what's inside", href: "#inside" },
 
@@ -91,7 +89,7 @@ export function recoupOsToMarkdown(c: RecoupOsCopy): string {
     "",
     c.description,
     "",
-    `Price: ${c.price} ${c.priceUnit}. ${c.priceNote}`,
+    `Price: ${c.price}${c.priceUnit}. ${c.priceNote}`,
     `Runs in: ${c.hosts.join(", ")}`,
     "",
     "## What's inside",

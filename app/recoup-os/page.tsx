@@ -53,8 +53,11 @@ export default function RecoupOsPage() {
             </Link>
           </div>
           <p className="font-ui text-[13px] text-(--foreground)/45 mt-6">
-            <span className="font-pixel text-(--foreground)/70">{c.price}</span>{" "}
-            {c.priceUnit} · {c.priceNote}
+            <span className="font-pixel text-(--foreground)/70">
+              {c.price}
+              {c.priceUnit}
+            </span>{" "}
+            · {c.priceNote}
           </p>
         </div>
       </section>

@@ -5,8 +5,8 @@
 > header-nav rationale in `lib/nav.ts` and the bundled `/platform` page.
 >
 > Shipped defaults: dropdown-only Products (no `/products` page), `/developers`
-> kept standalone, `/blog` URL kept (nav labeled "Resources"), Recoup OS pricing
-> is a $499 placeholder. `/platform` 301-redirects to `/skills`.
+> kept standalone, `/blog` URL kept (nav labeled "Resources"), Recoup OS priced
+> at $99/year. `/platform` 301-redirects to `/skills`.
 
 ---
 
