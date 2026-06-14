@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { siteConfig } from "@/lib/config";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
@@ -231,29 +232,36 @@ export default function HomePage() {
     <div className="bg-(--background) text-(--foreground) overflow-x-hidden">
 
       {/* ══════════════════════════════════════
-          1. HERO — H-text, consulting-first
+          1. HERO — full-bleed cinematic
           ══════════════════════════════════════ */}
-      <section className="relative pt-40 sm:pt-52 pb-20 sm:pb-28 flex flex-col justify-center">
-        <div className="absolute inset-0 z-0" aria-hidden="true" style={{
-          backgroundImage: `linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)`,
-          backgroundSize: "64px 64px",
-          opacity: 0.04,
-          maskImage: "radial-gradient(ellipse 70% 60% at 50% 42%, black 20%, transparent 80%)",
-          WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 42%, black 20%, transparent 80%)",
-        }} />
+      <section className="relative min-h-[100svh] flex flex-col justify-start overflow-hidden">
+        {/* Background image */}
+        <Image
+          src="/art/hero-horizon.jpg"
+          alt="A music creator in headphones and a friendly AI agent on a hillside at golden hour, looking out over a valley toward a distant skyline."
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Scrim for headline legibility */}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-transparent"
+        />
 
-        <div className="relative z-10 w-full max-w-[1100px] mx-auto px-6 sm:px-10 text-center">
-          <h1 className={`font-pixel text-[clamp(2.5rem,6vw,4.25rem)] leading-[1.04] tracking-tight mb-6 text-(--foreground) transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "250ms" }}>
+        <div className="relative z-10 w-full max-w-[1100px] mx-auto px-6 sm:px-10 text-center pt-[19vh] sm:pt-[20vh]">
+          <h1 className={`font-pixel text-[clamp(2.75rem,7vw,5rem)] leading-[1.02] tracking-tight mb-6 text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.45)] transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "250ms" }}>
             Building the agentic<br className="hidden sm:block" /> music industry.
           </h1>
-          <p className={`text-(--foreground)/60 text-[clamp(1.0625rem,1.5vw,1.25rem)] font-ui leading-[1.5] max-w-[560px] mx-auto mb-9 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
+          <p className={`text-white/85 text-[clamp(1.0625rem,1.5vw,1.25rem)] font-ui leading-[1.5] max-w-[560px] mx-auto mb-9 [text-shadow:0_1px_12px_rgba(0,0,0,0.4)] transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "550ms" }}>
             A research lab and implementation partner. We build custom agents into your stack — and you own every one.
           </p>
           <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-900 ease-[cubic-bezier(.16,1,.3,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "700ms" }}>
-            <Link href="/consulting" className="cta-pulse font-ui font-semibold bg-(--foreground) text-(--background) px-9 py-4 rounded-full text-[15px] hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5">
+            <Link href="/consulting" className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5">
               Talk to us
             </Link>
-            <Link href={siteConfig.researchUrl} className="font-ui font-medium text-[15px] text-(--foreground)/55 hover:text-(--foreground) transition-colors flex items-center gap-1.5">
+            <Link href={siteConfig.researchUrl} className="font-ui font-medium text-[15px] text-white/75 hover:text-white transition-colors flex items-center gap-1.5">
               Read our research <ArrowRight size={15} />
             </Link>
           </div>
