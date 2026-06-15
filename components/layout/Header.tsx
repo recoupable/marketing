@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/config";
 import { nav, isNavGroup } from "@/lib/nav";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -10,8 +11,18 @@ import { Sun, Moon } from "lucide-react";
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // The homepage has a full-bleed dark hero; while sitting over it (before any
+  // scroll), the header goes light for contrast, then reverts once scrolled
+  // onto the white sections below.
+  const overHero = pathname === "/" && !scrolled;
+  const whiteLogo = overHero || theme === "dark";
+  const iconButton = overHero
+    ? "text-white/80 hover:text-white hover:bg-white/10"
+    : "text-(--muted-foreground) hover:text-(--foreground) hover:bg-(--foreground)/5";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -34,7 +45,7 @@ export function Header() {
       <div className="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="shrink-0">
           <Image
-            src={theme === "dark" ? "/brand/recoup-wordmark-white.svg" : "/brand/recoup-wordmark-black.svg"}
+            src={whiteLogo ? "/brand/recoup-wordmark-white.svg" : "/brand/recoup-wordmark-black.svg"}
             alt={siteConfig.name}
             width={140}
             height={28}
@@ -46,7 +57,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <button
             onClick={toggleTheme}
-            className="p-1.5 rounded-full text-(--muted-foreground) hover:text-(--foreground) hover:bg-(--foreground)/5 transition-colors"
+            className={`p-1.5 rounded-full transition-colors ${iconButton}`}
             aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
           >
             {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
@@ -54,16 +65,20 @@ export function Header() {
 
           <Link
             href="/consulting"
-            className="hidden sm:inline-flex bg-(--foreground) text-(--background) px-5 py-2 rounded-full text-[14px] font-ui font-semibold hover:opacity-90 transition-opacity"
+            className={`hidden sm:inline-flex px-5 py-2 rounded-full text-[14px] font-ui font-semibold transition-colors ${
+              overHero
+                ? "bg-white text-[#0a0a0a] hover:bg-white/90"
+                : "bg-(--foreground) text-(--background) hover:opacity-90"
+            }`}
           >
             Talk to us
           </Link>
 
           <button
             onClick={() => setMenuOpen((open) => !open)}
-            className="p-1.5 rounded-full text-(--muted-foreground) hover:text-(--foreground) hover:bg-(--foreground)/5 transition-colors"
+            className={`p-1.5 rounded-full transition-colors ${iconButton}`}
             aria-label="Toggle menu"
-            aria-expanded={menuOpen ? "true" : "false"}
+            {...{ "aria-expanded": menuOpen }}
             aria-controls="site-menu"
           >
             <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
