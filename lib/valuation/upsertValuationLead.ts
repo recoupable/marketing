@@ -2,6 +2,10 @@ import type { Band } from "@/components/valuation/types";
 
 const ATTIO_BASE_URL = "https://api.attio.com/v2";
 const LIST_SLUG = "valuation_leads";
+// Stable id of the "Valuation Leads" list — the per-record entries endpoint
+// reports membership by list id, not slug. Attio is one workspace (shared by
+// preview + prod), so this id is constant.
+const LIST_ID = "f5abf9c0-b0a0-4d47-a6b1-37072e415e65";
 
 export type ValuationLeadInput = {
   email: string;
@@ -70,13 +74,15 @@ export async function upsertValuationLead(
   // untouched. A failure here doesn't undo the qualified person record.
   if (recordId) {
     try {
-      const existing = await fetch(`${ATTIO_BASE_URL}/lists/${LIST_SLUG}/entries/query`, {
-        method: "POST",
-        headers,
-        body: JSON.stringify({ filter: { parent_record_id: recordId } }),
-      });
-      const entries = existing.ok ? (await existing.json())?.data ?? [] : [];
-      if (entries.length === 0) {
+      const existing = await fetch(
+        `${ATTIO_BASE_URL}/objects/people/records/${recordId}/entries`,
+        { headers },
+      );
+      const entries: Array<{ list_id?: string; id?: { list_id?: string } }> = existing.ok
+        ? ((await existing.json())?.data ?? [])
+        : [];
+      const onBoard = entries.some(e => (e.list_id ?? e.id?.list_id) === LIST_ID);
+      if (!onBoard) {
         const res = await fetch(`${ATTIO_BASE_URL}/lists/${LIST_SLUG}/entries`, {
           method: "POST",
           headers,

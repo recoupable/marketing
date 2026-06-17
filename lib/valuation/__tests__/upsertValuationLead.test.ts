@@ -10,11 +10,13 @@ const lead = {
   followerCount: 13_000_000,
 };
 
+const LIST_ID = "f5abf9c0-b0a0-4d47-a6b1-37072e415e65";
 const personOk = () =>
   new Response(JSON.stringify({ data: { id: { record_id: "rec_123" } } }), { status: 200 });
-const queryEmpty = () => new Response(JSON.stringify({ data: [] }), { status: 200 });
-const queryFound = () =>
-  new Response(JSON.stringify({ data: [{ id: { entry_id: "ent_1" } }] }), { status: 200 });
+// GET /objects/people/records/{id}/entries — record's list memberships
+const entriesEmpty = () => new Response(JSON.stringify({ data: [] }), { status: 200 });
+const entriesOnBoard = () =>
+  new Response(JSON.stringify({ data: [{ list_id: LIST_ID }] }), { status: 200 });
 const entryOk = () => new Response(JSON.stringify({ data: {} }), { status: 200 });
 
 describe("upsertValuationLead", () => {
@@ -28,7 +30,7 @@ describe("upsertValuationLead", () => {
     const fetchMock = vi
       .fn()
       .mockResolvedValueOnce(personOk())
-      .mockResolvedValueOnce(queryEmpty())
+      .mockResolvedValueOnce(entriesEmpty())
       .mockResolvedValueOnce(entryOk());
     vi.stubGlobal("fetch", fetchMock);
 
@@ -56,16 +58,15 @@ describe("upsertValuationLead", () => {
     const fetchMock = vi
       .fn()
       .mockResolvedValueOnce(personOk())
-      .mockResolvedValueOnce(queryEmpty())
+      .mockResolvedValueOnce(entriesEmpty())
       .mockResolvedValueOnce(entryOk());
     vi.stubGlobal("fetch", fetchMock);
 
     await upsertValuationLead(lead);
 
-    // call[1] = query existing entries for the parent record
-    const [queryUrl, queryInit] = fetchMock.mock.calls[1];
-    expect(String(queryUrl)).toContain("/lists/valuation_leads/entries/query");
-    expect(JSON.parse(queryInit.body).filter.parent_record_id).toBe("rec_123");
+    // call[1] = look up the record's existing list memberships
+    const [entriesUrl] = fetchMock.mock.calls[1];
+    expect(String(entriesUrl)).toContain("/objects/people/records/rec_123/entries");
 
     // call[2] = create the entry at stage New
     const [createUrl, createInit] = fetchMock.mock.calls[2];
@@ -80,19 +81,19 @@ describe("upsertValuationLead", () => {
     const fetchMock = vi
       .fn()
       .mockResolvedValueOnce(personOk())
-      .mockResolvedValueOnce(queryFound());
+      .mockResolvedValueOnce(entriesOnBoard());
     vi.stubGlobal("fetch", fetchMock);
 
     const res = await upsertValuationLead(lead);
     expect(res.success).toBe(true);
-    expect(fetchMock).toHaveBeenCalledTimes(2); // assert + query, NO create
+    expect(fetchMock).toHaveBeenCalledTimes(2); // assert + membership check, NO create
   });
 
   it("omits follower_count when it is not known", async () => {
     const fetchMock = vi
       .fn()
       .mockResolvedValueOnce(personOk())
-      .mockResolvedValueOnce(queryEmpty())
+      .mockResolvedValueOnce(entriesEmpty())
       .mockResolvedValueOnce(entryOk());
     vi.stubGlobal("fetch", fetchMock);
 
