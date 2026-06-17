@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { ValuationAuthProvider } from "@/app/valuation/ValuationAuthProvider";
 
-// Rendered per-request (matches chat's app/page.tsx): the Privy provider is
-// client-initialized at runtime, so the build never statically prerenders it.
-// The env requirement is enforced at runtime (ValuationAuthProvider throws if
-// NEXT_PUBLIC_PRIVY_APP_ID is unset), not at build — so local builds pass.
+// Privy is client-initialized at runtime; force-dynamic keeps the build from
+// prerendering it (matches chat's app/page.tsx).
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {

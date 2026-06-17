@@ -5,9 +5,7 @@ import { ArtistSearch } from "@/components/valuation/ArtistSearch";
 import { ValuationResult } from "@/components/valuation/ValuationResult";
 
 /**
- * The catalog valuation flow: search → (sign-in gate) → run → result card.
- * Rendered inside `PrivyProvider` (ValuationAuthProvider), so the hook reads
- * Privy auth directly (chat#1798).
+ * The one-click catalog valuation flow: search → run → shareable result card.
  */
 export function CatalogValuation() {
   const v = useCatalogValuation();
