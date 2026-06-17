@@ -1,59 +1,86 @@
 import type { Result, StartedAlbum } from "@/components/valuation/types";
-import { readResult } from "@/components/valuation/readResult";
+import { siteConfig } from "@/lib/config";
+import { resolveArtistAlbums } from "@/lib/valuation/resolveArtistAlbums";
+import { readCatalogMeasurements } from "@/lib/valuation/readCatalogMeasurements";
+import { computeCatalogValuation } from "@/lib/valuation/computeCatalogValuation";
 
 type FlowOutcome = { catalogAlbums: StartedAlbum[]; result: Result };
 
+const POLL_ATTEMPTS = 15;
+const POLL_INTERVAL_MS = 6000;
+
 /**
- * Client flow for one valuation run: start the snapshot, probe-poll until the
- * capture starts landing, then read the full result. Throws with a
- * user-facing message when nothing could be measured.
+ * Client flow for one valuation run (Option B, chat#1798): the browser calls
+ * the consolidated, bearer-authed recoup-api endpoints directly —
+ *   1. resolve the artist's releases (auth-free Spotify proxy),
+ *   2. `POST /research/measurement-jobs { source:"current" }` to kick the
+ *      Apify capture under the signed-in account,
+ *   3. poll per-album `GET /research/albums/{id}/measurements` until counts land,
+ *   4. compute the valuation band client-side.
+ *
+ * Values what's measured rather than waiting for 100% coverage; a `402` mid-read
+ * (credits exhausted) yields a **partial** result rather than an error.
  *
  * @param artistId - Spotify artist id
  * @param onProgress - Progress copy for the running button
- * @param getToken - Privy access token getter; the gated flow runs under the
- *   signed-in account (chat#1798). Threaded through now; the direct-to-recoup-api
- *   calls that use it land in the Option-B retarget (follow-up PR).
+ * @param getToken - Privy access-token getter (the bearer); the run executes
+ *   under the signed-in account and spends its credits.
  */
 export async function runValuationFlow(
   artistId: string,
   onProgress: (message: string) => void,
   getToken?: () => Promise<string | null>,
 ): Promise<FlowOutcome> {
-  void getToken;
   onProgress("Finding your releases…");
-  const startRes = await fetch("/api/valuation/start", {
+  const { albums, albumIds, earliestReleaseDate } = await resolveArtistAlbums(artistId);
+
+  onProgress(`Measuring play counts across ${albumIds.length} releases…`);
+  const token = getToken ? await getToken() : null;
+  const startRes = await fetch(`${siteConfig.apiUrl}/research/measurement-jobs`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ artistId }),
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+    body: JSON.stringify({
+      source: "current",
+      scope: { album_ids: albumIds },
+      platforms: ["spotify"],
+    }),
   });
-  const started = await startRes.json();
-  if (!startRes.ok) throw new Error(started.error ?? "start failed");
-
-  onProgress(`Measuring play counts across ${started.albumCount} releases…`);
-
-  // cheap probe (first 2 albums) until anything lands — bounded at ~90s;
-  // some albums never produce playcounts (no ISRCs / hidden counts), so we
-  // value what's measured rather than waiting for 100% coverage
-  const probeIds = started.albumIds.slice(0, 2);
-  for (let attempt = 0; attempt < 15; attempt++) {
-    await new Promise(r => setTimeout(r, 6000));
-    const probe = await fetch("/api/valuation/result", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ albumIds: probeIds, probe: true }),
-    }).then(r => r.json());
-    if (probe.state === "captured") break;
-    onProgress(`Measuring play counts across ${started.albumCount} releases… (still capturing)`);
+  if (!startRes.ok) {
+    const err = await startRes.json().catch(() => ({}));
+    throw new Error(err.error ?? `couldn't start the measurement (${startRes.status})`);
   }
 
-  onProgress("Computing your valuation…");
-  const final = await readResult(started.albumIds, started.earliestReleaseDate);
-  if (final.state === "done") return { catalogAlbums: started.albums ?? [], result: final };
+  // Poll the per-album reads until anything lands (bounded ~90s). Some albums
+  // never produce counts (no ISRCs / hidden counts), so we stop at first data
+  // rather than waiting for full coverage.
+  const build = (counts: Awaited<ReturnType<typeof readCatalogMeasurements>>): Result =>
+    ({
+      state: "done",
+      trackCount: counts.trackCount,
+      albumCount: counts.total,
+      capturedAlbums: counts.captured,
+      albums: counts.albums,
+      ...computeCatalogValuation({ totalStreams: counts.totalStreams, earliestReleaseDate }),
+    }) as Result;
 
-  // nothing measured yet — one more patient read before giving up
+  for (let attempt = 0; attempt < POLL_ATTEMPTS; attempt++) {
+    await new Promise(r => setTimeout(r, POLL_INTERVAL_MS));
+    const counts = await readCatalogMeasurements(albumIds, getToken);
+    if (counts.captured > 0 || counts.creditsExhausted) {
+      onProgress("Computing your valuation…");
+      return { catalogAlbums: albums, result: build(counts) };
+    }
+    onProgress(`Measuring play counts across ${albumIds.length} releases… (still capturing)`);
+  }
+
+  // nothing measured yet — one patient final read before giving up
   await new Promise(r => setTimeout(r, 20000));
-  const retry = await readResult(started.albumIds, started.earliestReleaseDate);
-  if (retry.state !== "done")
+  const counts = await readCatalogMeasurements(albumIds, getToken);
+  if (counts.captured === 0)
     throw new Error("we couldn't measure this catalog yet — try again in a few minutes");
-  return { catalogAlbums: started.albums ?? [], result: retry };
+  onProgress("Computing your valuation…");
+  return { catalogAlbums: albums, result: build(counts) };
 }
