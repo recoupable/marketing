@@ -32,7 +32,13 @@ export async function POST(request: Request) {
 
   const { email, artistName, artistId, valueBand } = parsed.data;
 
-  await createAttioContact({ email, source: "catalog-valuation" });
+  // Attio is the system of record. Don't fail the (fire-and-forget) request on
+  // an Attio error — the user's valuation already succeeded — but log it so a
+  // dropped lead is observable rather than silently lost.
+  const attio = await createAttioContact({ email, source: "catalog-valuation" });
+  if (!attio.success) {
+    console.error("[valuation/lead] Attio upsert failed:", attio.error);
+  }
 
   await sendTelegramMessage(
     `💰 Valuation lead\n` +

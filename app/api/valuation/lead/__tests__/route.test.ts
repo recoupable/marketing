@@ -49,4 +49,21 @@ describe("POST /api/valuation/lead", () => {
     const res = await POST(req(noBand));
     expect(res.status).toBe(400);
   });
+
+  it("still 200s but logs when the Attio upsert fails (lead must not be silently lost)", async () => {
+    vi.mocked(createAttioContact).mockResolvedValueOnce({
+      success: false,
+      error: "Attio API error: 401",
+    });
+    const errSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+
+    const res = await POST(req(validLead));
+
+    expect(res.status).toBe(200);
+    expect(errSpy).toHaveBeenCalledWith(
+      "[valuation/lead] Attio upsert failed:",
+      "Attio API error: 401",
+    );
+    errSpy.mockRestore();
+  });
 });
