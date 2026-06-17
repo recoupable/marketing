@@ -23,19 +23,18 @@ const POLL_INTERVAL_MS = 6000;
  *
  * @param artistId - Spotify artist id
  * @param onProgress - Progress copy for the running button
- * @param getToken - Privy access-token getter (the bearer); the run executes
- *   under the signed-in account and spends its credits.
+ * @param token - Privy access token (the bearer); the run executes under the
+ *   signed-in account and spends its credits.
  */
 export async function runValuationFlow(
   artistId: string,
   onProgress: (message: string) => void,
-  getToken?: () => Promise<string | null>,
+  token?: string | null,
 ): Promise<FlowOutcome> {
   onProgress("Finding your releases…");
   const { albums, albumIds, earliestReleaseDate } = await resolveArtistAlbums(artistId);
 
   onProgress(`Measuring play counts across ${albumIds.length} releases…`);
-  const token = getToken ? await getToken() : null;
   const startRes = await fetch(`${siteConfig.apiUrl}/research/measurement-jobs`, {
     method: "POST",
     headers: {
@@ -68,7 +67,7 @@ export async function runValuationFlow(
 
   for (let attempt = 0; attempt < POLL_ATTEMPTS; attempt++) {
     await new Promise(r => setTimeout(r, POLL_INTERVAL_MS));
-    const counts = await readCatalogMeasurements(albumIds, getToken);
+    const counts = await readCatalogMeasurements(albumIds, token);
     if (counts.captured > 0 || counts.creditsExhausted) {
       onProgress("Computing your valuation…");
       return { catalogAlbums: albums, result: build(counts) };
@@ -78,7 +77,7 @@ export async function runValuationFlow(
 
   // nothing measured yet — one patient final read before giving up
   await new Promise(r => setTimeout(r, 20000));
-  const counts = await readCatalogMeasurements(albumIds, getToken);
+  const counts = await readCatalogMeasurements(albumIds, token);
   if (counts.captured === 0)
     throw new Error("we couldn't measure this catalog yet — try again in a few minutes");
   onProgress("Computing your valuation…");

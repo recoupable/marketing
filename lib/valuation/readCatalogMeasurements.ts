@@ -34,13 +34,12 @@ type MeasurementRow = {
  * once, claimed by its largest release, so lifetime streams aren't inflated.
  *
  * @param albumIds - Spotify album ids from the resolved catalog
- * @param getToken - Privy access-token getter (the bearer)
+ * @param token - Privy access token (the bearer)
  */
 export async function readCatalogMeasurements(
   albumIds: string[],
-  getToken?: () => Promise<string | null>,
+  token?: string | null,
 ): Promise<CatalogMeasurements> {
-  const token = getToken ? await getToken() : null;
   const auth: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : {};
 
   const readable: Array<{ id: string; rows: MeasurementRow[] }> = [];

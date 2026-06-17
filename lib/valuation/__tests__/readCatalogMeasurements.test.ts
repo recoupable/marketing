@@ -18,7 +18,7 @@ describe("readCatalogMeasurements", () => {
       ok([{ isrc: "A", name: "t1", value: 100 }, { isrc: "B", name: "t2", value: 50 }]) as never,
     );
 
-    const out = await readCatalogMeasurements(["alb1"], async () => "tok");
+    const out = await readCatalogMeasurements(["alb1"], "tok");
 
     expect(out.captured).toBe(1);
     expect(out.total).toBe(1);
@@ -37,7 +37,7 @@ describe("readCatalogMeasurements", () => {
         ok([{ isrc: "X", name: "hit", value: 999 }, { isrc: "Y", name: "b", value: 10 }]) as never,
       ); // album (2 tracks → claims X)
 
-    const out = await readCatalogMeasurements(["single", "album"], async () => "tok");
+    const out = await readCatalogMeasurements(["single", "album"], "tok");
 
     // X counted once (by the larger release), so total = 999 + 10, not 999*2 + 10
     expect(out.totalStreams).toBe(1009);
@@ -49,7 +49,7 @@ describe("readCatalogMeasurements", () => {
       .mockResolvedValueOnce(ok([{ isrc: "A", name: "t", value: 100 }]) as never) // album1 lands
       .mockResolvedValueOnce(status(402) as never); // album2 → out of credits
 
-    const out = await readCatalogMeasurements(["a1", "a2", "a3"], async () => "tok");
+    const out = await readCatalogMeasurements(["a1", "a2", "a3"], "tok");
 
     expect(out.creditsExhausted).toBe(true);
     expect(out.captured).toBe(1); // only a1 measured
@@ -64,7 +64,7 @@ describe("readCatalogMeasurements", () => {
       .mockResolvedValueOnce(status(404) as never)
       .mockResolvedValueOnce(ok([{ isrc: "A", name: "t", value: 42 }]) as never);
 
-    const out = await readCatalogMeasurements(["a1", "a2"], async () => "tok");
+    const out = await readCatalogMeasurements(["a1", "a2"], "tok");
 
     expect(out.captured).toBe(1);
     expect(out.totalStreams).toBe(42);

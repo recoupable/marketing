@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePrivy } from "@privy-io/react-auth";
 import type { Artist, Result, StartedAlbum } from "@/components/valuation/types";
 import { useArtistSearch } from "@/components/valuation/useArtistSearch";
-import { runValuationFlow } from "@/components/valuation/runValuationFlow";
+import { runValuationFlow } from "@/lib/valuation/runValuationFlow";
 
 export type { Artist, Result, StartedAlbum, MeasuredAlbum } from "@/components/valuation/types";
 
@@ -46,7 +46,8 @@ export function useCatalogValuation(): CatalogValuationState {
     setPhase("running");
     setError("");
     try {
-      const outcome = await runValuationFlow(artist.id, setProgress, getAccessToken);
+      const token = await getAccessToken();
+      const outcome = await runValuationFlow(artist.id, setProgress, token);
       setCatalogAlbums(outcome.catalogAlbums);
       setResult(outcome.result);
       setPhase("done");
