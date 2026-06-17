@@ -1,7 +1,10 @@
 import type { Band } from "@/components/valuation/types";
 import { usd } from "@/lib/format/usd";
+import { assertPersonByEmail } from "@/lib/attio/assertPersonByEmail";
+import { createNote } from "@/lib/attio/createNote";
+import { isRecordInList } from "@/lib/attio/isRecordInList";
+import { addRecordToList } from "@/lib/attio/addRecordToList";
 
-const ATTIO_BASE_URL = "https://api.attio.com/v2";
 const ATTIO_WORKSPACE = "recoup";
 const LIST_SLUG = "valuation_leads";
 // Stable id of the "Valuation Leads" list — the per-record entries endpoint
@@ -18,127 +21,74 @@ export type ValuationLeadInput = {
   followerCount?: number;
 };
 
-/**
- * Persist a valuation lead to Attio as a qualified, pipeline-staged record with
- * a running activity log (chat#1798). Per run:
- *   1. assert the Person by email and set the qualifying attributes (these hold
- *      the *latest* run — source, est. value/lead-score, artist, streams, …);
- *   2. attach a timestamped Note — fires on *every* run, including re-runs, so
- *      the record keeps a chronology of what the person valued and when;
- *   3. drop them onto the "Valuation Leads" pipeline at **New** if not already
- *      on it (check-then-create — never duplicates a card or resets its stage).
- *
- * Best-effort and never throws — the caller's valuation already succeeded, so a
- * CRM failure is logged, not surfaced. Returns the person-assert outcome plus a
- * deep link to the record (for the Telegram ping).
- */
-export async function upsertValuationLead(
-  lead: ValuationLeadInput,
-): Promise<{ success: boolean; error?: string; recordUrl?: string }> {
-  const apiKey = process.env.ATTIO_API_KEY;
-  if (!apiKey) return { success: false, error: "ATTIO_API_KEY not configured" };
-
-  const headers = {
-    Authorization: `Bearer ${apiKey}`,
-    "Content-Type": "application/json",
-  };
-  const today = new Date().toISOString().slice(0, 10);
-
-  // The band's central estimate is the number sales sorts the board by — the
-  // lead score. Attributes overwrite each run; the Note (below) keeps history.
+/** Attribute values for the Person assert — the *latest* run's snapshot. */
+function leadAttributes(lead: ValuationLeadInput, today: string): Record<string, unknown> {
   const values: Record<string, unknown> = {
     email_addresses: [{ email_address: lead.email }],
     lead_source: "Catalog Valuation",
-    est_catalog_value: lead.valueBand.central,
+    est_catalog_value: lead.valueBand.central, // band central = the lead score
     looked_up_artist: lead.artistName,
     spotify_artist_url: `https://open.spotify.com/artist/${lead.artistId}`,
     lifetime_streams: lead.lifetimeStreams,
     valued_at: today,
   };
   if (typeof lead.followerCount === "number") values.follower_count = lead.followerCount;
+  return values;
+}
 
-  let recordId: string | undefined;
-  try {
-    const res = await fetch(
-      `${ATTIO_BASE_URL}/objects/people/records?matching_attribute=email_addresses`,
-      { method: "PUT", headers, body: JSON.stringify({ data: { values } }) },
-    );
-    if (!res.ok) {
-      return { success: false, error: `Attio person assert failed: ${res.status} — ${await res.text()}` };
-    }
-    const data = await res.json();
-    recordId = data?.data?.id?.record_id;
-  } catch (err) {
-    return { success: false, error: err instanceof Error ? err.message : "Unknown error" };
+/** Markdown body for one run's activity note. */
+function leadNoteContent(lead: ValuationLeadInput, today: string): string {
+  const b = lead.valueBand;
+  const followers =
+    typeof lead.followerCount === "number"
+      ? `\n- Followers: ${lead.followerCount.toLocaleString("en-US")}`
+      : "";
+  return (
+    `Valued [${lead.artistName}](https://open.spotify.com/artist/${lead.artistId}) at ` +
+    `**${usd(b.central)}** (range ${usd(b.low)}–${usd(b.high)}).\n\n` +
+    `- Lifetime streams: ${lead.lifetimeStreams.toLocaleString("en-US")}${followers}\n` +
+    `- Run date: ${today}`
+  );
+}
+
+/**
+ * Persist a valuation lead to Attio as a qualified, pipeline-staged record with
+ * a running activity log (chat#1798). Orchestrates the Attio primitives in
+ * `lib/attio`:
+ *   1. assert the Person by email + qualifying attributes (latest run);
+ *   2. attach a timestamped Note — every run, incl. re-runs → a chronology;
+ *   3. add to the "Valuation Leads" pipeline at **New** only if not already on
+ *      it (never duplicates a card or resets its stage).
+ *
+ * Best-effort and never throws. Returns the person-assert outcome plus a deep
+ * link to the record (for the Telegram ping).
+ */
+export async function upsertValuationLead(
+  lead: ValuationLeadInput,
+): Promise<{ success: boolean; error?: string; recordUrl?: string }> {
+  if (!process.env.ATTIO_API_KEY) {
+    return { success: false, error: "ATTIO_API_KEY not configured" };
   }
 
+  const today = new Date().toISOString().slice(0, 10);
+  const { recordId, error } = await assertPersonByEmail(leadAttributes(lead, today));
+  if (error) return { success: false, error };
   if (!recordId) return { success: true };
+
   const recordUrl = `https://app.attio.com/${ATTIO_WORKSPACE}/person/${recordId}/overview`;
 
   // Activity log: one note per run (every run, incl. re-runs) for a chronology.
-  try {
-    const band = lead.valueBand;
-    const followers =
-      typeof lead.followerCount === "number"
-        ? `\n- Followers: ${lead.followerCount.toLocaleString("en-US")}`
-        : "";
-    const content =
-      `Valued [${lead.artistName}](https://open.spotify.com/artist/${lead.artistId}) at ` +
-      `**${usd(band.central)}** (range ${usd(band.low)}–${usd(band.high)}).\n\n` +
-      `- Lifetime streams: ${lead.lifetimeStreams.toLocaleString("en-US")}${followers}\n` +
-      `- Run date: ${today}`;
-    const res = await fetch(`${ATTIO_BASE_URL}/notes`, {
-      method: "POST",
-      headers,
-      body: JSON.stringify({
-        data: {
-          parent_object: "people",
-          parent_record_id: recordId,
-          title: `Catalog valuation — ${lead.artistName} (${today})`,
-          format: "markdown",
-          content,
-        },
-      }),
-    });
-    if (!res.ok) {
-      console.error(`[valuation/lead] note create failed: ${res.status} — ${await res.text()}`);
-    }
-  } catch (err) {
-    console.error("[valuation/lead] note create error:", err);
-  }
+  await createNote({
+    parentObject: "people",
+    parentRecordId: recordId,
+    title: `Catalog valuation — ${lead.artistName} (${today})`,
+    content: leadNoteContent(lead, today),
+  });
 
-  // Drop the lead onto the pipeline — but only if it isn't already there. The
-  // route fires on every run; a blind create would litter the board with
-  // duplicate cards, and asserting would reset a card sales already advanced
-  // past "New". So check-then-create: leave any existing entry (and its stage)
-  // untouched.
-  try {
-    const existing = await fetch(
-      `${ATTIO_BASE_URL}/objects/people/records/${recordId}/entries`,
-      { headers },
-    );
-    const entries: Array<{ list_id?: string; id?: { list_id?: string } }> = existing.ok
-      ? ((await existing.json())?.data ?? [])
-      : [];
-    const onBoard = entries.some(e => (e.list_id ?? e.id?.list_id) === LIST_ID);
-    if (!onBoard) {
-      const res = await fetch(`${ATTIO_BASE_URL}/lists/${LIST_SLUG}/entries`, {
-        method: "POST",
-        headers,
-        body: JSON.stringify({
-          data: {
-            parent_object: "people",
-            parent_record_id: recordId,
-            entry_values: { stage: ["New"] },
-          },
-        }),
-      });
-      if (!res.ok) {
-        console.error(`[valuation/lead] pipeline add failed: ${res.status} — ${await res.text()}`);
-      }
-    }
-  } catch (err) {
-    console.error("[valuation/lead] pipeline add error:", err);
+  // Pipeline: add at New only if absent — re-runs must not duplicate the card
+  // or reset a stage sales already advanced.
+  if (!(await isRecordInList("people", recordId, LIST_ID))) {
+    await addRecordToList(LIST_SLUG, "people", recordId, { stage: ["New"] });
   }
 
   return { success: true, recordUrl };
