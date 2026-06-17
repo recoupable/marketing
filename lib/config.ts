@@ -1,4 +1,16 @@
 /**
+ * Recoup API base. Preview/dev builds talk to the test API so a Privy bearer
+ * (minted by the preview Privy app) verifies against the matching app; only
+ * production talks to the production API. Mirrors chat's IS_PROD split
+ * (chat/lib/consts.ts). NEXT_PUBLIC_VERCEL_ENV is inlined from VERCEL_ENV in
+ * next.config.ts so this resolves correctly in the client bundle too.
+ */
+const apiUrl =
+  process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
+    ? "https://recoup-api.vercel.app/api"
+    : "https://test-recoup-api.vercel.app/api";
+
+/**
  * Site-wide configuration — the single source of truth for brand values,
  * URLs, and metadata defaults. Import from here, never hardcode.
  */
@@ -10,7 +22,7 @@ export const siteConfig = {
     "Your label. Run by agents. You create. They run strategy, content, revenue.",
   url: "https://recoupable.com",
   appUrl: "https://chat.recoupable.com",
-  apiUrl: "https://recoup-api.vercel.app/api",
+  apiUrl,
   docsUrl: "https://developers.recoupable.com",
 
   /** Contact emails */
