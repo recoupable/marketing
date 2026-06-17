@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { ValuationAuthProvider } from "@/app/valuation/ValuationAuthProvider";
 
+// Privy is client-initialized at runtime; force-dynamic keeps the build from
+// prerendering it (matches chat's app/page.tsx).
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "What's Your Catalog Worth? | Recoup",
   description:

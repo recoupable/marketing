@@ -28,6 +28,12 @@ export const siteConfig = {
     youtube: "https://www.youtube.com/@recoupable",
   },
 
+  /** Brand styling — used by the Privy auth modal on the valuation gate */
+  brand: {
+    accentColor: "#003199",
+    privyLogo: "/brand/wordmark-lightmode.svg",
+  },
+
   /** Plausible analytics — privacy-friendly, no cookie banner needed */
   plausible: {
     domain: "recoupable.com",
