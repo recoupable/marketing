@@ -4,7 +4,10 @@ import { upsertValuationLead } from "@/lib/valuation/upsertValuationLead";
 import { sendTelegramMessage } from "@/lib/telegram";
 
 vi.mock("@/lib/valuation/upsertValuationLead", () => ({
-  upsertValuationLead: vi.fn().mockResolvedValue({ success: true }),
+  upsertValuationLead: vi.fn().mockResolvedValue({
+    success: true,
+    recordUrl: "https://app.attio.com/recoup/person/rec_123/overview",
+  }),
 }));
 vi.mock("@/lib/telegram", () => ({ sendTelegramMessage: vi.fn().mockResolvedValue(true) }));
 
@@ -43,6 +46,7 @@ describe("POST /api/valuation/lead", () => {
     expect(text).toContain("artist@example.com");
     expect(text).toContain("Artist: Mac Miller\n"); // name only — no artist-id suffix
     expect(text).toContain("$2,000,000");
+    expect(text).toContain("https://app.attio.com/recoup/person/rec_123/overview"); // CRM link
   });
 
   it("400s on an invalid email and does not notify", async () => {

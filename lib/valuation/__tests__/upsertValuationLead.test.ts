@@ -13,11 +13,21 @@ const lead = {
 const LIST_ID = "f5abf9c0-b0a0-4d47-a6b1-37072e415e65";
 const personOk = () =>
   new Response(JSON.stringify({ data: { id: { record_id: "rec_123" } } }), { status: 200 });
+const noteOk = () => new Response(JSON.stringify({ data: { id: { note_id: "note_1" } } }), { status: 200 });
 // GET /objects/people/records/{id}/entries — record's list memberships
 const entriesEmpty = () => new Response(JSON.stringify({ data: [] }), { status: 200 });
 const entriesOnBoard = () =>
   new Response(JSON.stringify({ data: [{ list_id: LIST_ID }] }), { status: 200 });
 const entryOk = () => new Response(JSON.stringify({ data: {} }), { status: 200 });
+
+// Default happy path: person assert, note, membership (empty), entry create.
+const happyPath = () =>
+  vi
+    .fn()
+    .mockResolvedValueOnce(personOk())
+    .mockResolvedValueOnce(noteOk())
+    .mockResolvedValueOnce(entriesEmpty())
+    .mockResolvedValueOnce(entryOk());
 
 describe("upsertValuationLead", () => {
   beforeEach(() => vi.stubEnv("ATTIO_API_KEY", "test-key"));
@@ -26,16 +36,13 @@ describe("upsertValuationLead", () => {
     vi.unstubAllEnvs();
   });
 
-  it("asserts the person by email and writes the qualifying attributes", async () => {
-    const fetchMock = vi
-      .fn()
-      .mockResolvedValueOnce(personOk())
-      .mockResolvedValueOnce(entriesEmpty())
-      .mockResolvedValueOnce(entryOk());
+  it("asserts the person by email, writes the attributes, and returns the record link", async () => {
+    const fetchMock = happyPath();
     vi.stubGlobal("fetch", fetchMock);
 
     const res = await upsertValuationLead(lead);
     expect(res.success).toBe(true);
+    expect(res.recordUrl).toBe("https://app.attio.com/recoup/person/rec_123/overview");
 
     const [url, init] = fetchMock.mock.calls[0];
     expect(String(url)).toContain("/objects/people/records");
@@ -54,22 +61,35 @@ describe("upsertValuationLead", () => {
     expect(values.valued_at).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 
-  it("adds the person to the pipeline at New when they're not already on it", async () => {
-    const fetchMock = vi
-      .fn()
-      .mockResolvedValueOnce(personOk())
-      .mockResolvedValueOnce(entriesEmpty())
-      .mockResolvedValueOnce(entryOk());
+  it("attaches a chronology note for this run (every run, incl. re-runs)", async () => {
+    const fetchMock = happyPath();
     vi.stubGlobal("fetch", fetchMock);
 
     await upsertValuationLead(lead);
 
-    // call[1] = look up the record's existing list memberships
-    const [entriesUrl] = fetchMock.mock.calls[1];
+    const [noteUrl, noteInit] = fetchMock.mock.calls[1];
+    expect(String(noteUrl)).toMatch(/\/notes$/);
+    const note = JSON.parse(noteInit.body).data;
+    expect(note.parent_object).toBe("people");
+    expect(note.parent_record_id).toBe("rec_123");
+    expect(note.format).toBe("markdown");
+    expect(note.title).toContain("Mac Miller");
+    expect(note.content).toContain("Mac Miller");
+    expect(note.content).toContain("$54,600,000");
+  });
+
+  it("adds the person to the pipeline at New when they're not already on it", async () => {
+    const fetchMock = happyPath();
+    vi.stubGlobal("fetch", fetchMock);
+
+    await upsertValuationLead(lead);
+
+    // call[2] = look up the record's existing list memberships
+    const [entriesUrl] = fetchMock.mock.calls[2];
     expect(String(entriesUrl)).toContain("/objects/people/records/rec_123/entries");
 
-    // call[2] = create the entry at stage New
-    const [createUrl, createInit] = fetchMock.mock.calls[2];
+    // call[3] = create the entry at stage New
+    const [createUrl, createInit] = fetchMock.mock.calls[3];
     expect(String(createUrl)).toMatch(/\/lists\/valuation_leads\/entries$/);
     const data = JSON.parse(createInit.body).data;
     expect(data.parent_object).toBe("people");
@@ -77,24 +97,22 @@ describe("upsertValuationLead", () => {
     expect(data.entry_values.stage).toEqual(["New"]);
   });
 
-  it("does NOT add a duplicate card (or reset the stage) when already on the board", async () => {
+  it("notes the re-run but does NOT add a duplicate card or reset the stage", async () => {
     const fetchMock = vi
       .fn()
       .mockResolvedValueOnce(personOk())
+      .mockResolvedValueOnce(noteOk())
       .mockResolvedValueOnce(entriesOnBoard());
     vi.stubGlobal("fetch", fetchMock);
 
     const res = await upsertValuationLead(lead);
     expect(res.success).toBe(true);
-    expect(fetchMock).toHaveBeenCalledTimes(2); // assert + membership check, NO create
+    // assert + note + membership check, but NO create-entry call
+    expect(fetchMock).toHaveBeenCalledTimes(3);
   });
 
   it("omits follower_count when it is not known", async () => {
-    const fetchMock = vi
-      .fn()
-      .mockResolvedValueOnce(personOk())
-      .mockResolvedValueOnce(entriesEmpty())
-      .mockResolvedValueOnce(entryOk());
+    const fetchMock = happyPath();
     vi.stubGlobal("fetch", fetchMock);
 
     const { followerCount: _omit, ...noFollowers } = lead;
@@ -115,13 +133,13 @@ describe("upsertValuationLead", () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it("fails fast (no list work) when the person assert errors", async () => {
+  it("fails fast (no note, no list work) when the person assert errors", async () => {
     const fetchMock = vi.fn().mockResolvedValueOnce(new Response("bad", { status: 400 }));
     vi.stubGlobal("fetch", fetchMock);
 
     const res = await upsertValuationLead(lead);
     expect(res.success).toBe(false);
     expect(res.error).toContain("400");
-    expect(fetchMock).toHaveBeenCalledTimes(1); // did not query or create an entry
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 });
