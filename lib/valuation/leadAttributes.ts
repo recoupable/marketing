@@ -12,7 +12,9 @@ export function leadAttributes(
   const values: Record<string, unknown> = {
     email_addresses: [{ email_address: lead.email }],
     lead_source: "Catalog Valuation",
-    est_catalog_value: lead.valueBand.central,
+    // Whole dollars — Attio's currency attribute rejects >4 decimal places, and
+    // the real valuation band is fractional.
+    est_catalog_value: Math.round(lead.valueBand.central),
     looked_up_artist: lead.artistName,
     spotify_artist_url: `https://open.spotify.com/artist/${lead.artistId}`,
     lifetime_streams: lead.lifetimeStreams,

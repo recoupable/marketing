@@ -27,4 +27,9 @@ describe("leadAttributes", () => {
     const { followerCount: _omit, ...noFollowers } = lead;
     expect(leadAttributes(noFollowers, "2026-06-17")).not.toHaveProperty("follower_count");
   });
+
+  it("rounds est_catalog_value to a whole number (Attio currency rejects >4 decimals)", () => {
+    const fractional = { ...lead, valueBand: { low: 1, central: 33_512_367.0588, high: 2 } };
+    expect(leadAttributes(fractional, "2026-06-17").est_catalog_value).toBe(33_512_367);
+  });
 });
