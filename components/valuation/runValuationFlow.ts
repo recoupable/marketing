@@ -10,11 +10,16 @@ type FlowOutcome = { catalogAlbums: StartedAlbum[]; result: Result };
  *
  * @param artistId - Spotify artist id
  * @param onProgress - Progress copy for the running button
+ * @param getToken - Privy access token getter; the gated flow runs under the
+ *   signed-in account (chat#1798). Threaded through now; the direct-to-recoup-api
+ *   calls that use it land in the Option-B retarget (follow-up PR).
  */
 export async function runValuationFlow(
   artistId: string,
   onProgress: (message: string) => void,
+  getToken?: () => Promise<string | null>,
 ): Promise<FlowOutcome> {
+  void getToken;
   onProgress("Finding your releases…");
   const startRes = await fetch("/api/valuation/start", {
     method: "POST",

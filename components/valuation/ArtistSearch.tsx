@@ -6,6 +6,8 @@ type ArtistSearchProps = {
   artists: Artist[];
   picked: Artist | null;
   running: boolean;
+  /** True when a pick is made but the user must sign in before the run fires. */
+  needsAuth: boolean;
   progress: string;
   error: string;
   onQueryChange: (q: string) => void;
@@ -61,6 +63,38 @@ export function ArtistSearch(props: ArtistSearchProps) {
           ))}
         </ul>
       )}
+      {props.picked && !props.running && (
+        // Pre-run teaser built from search data only — confirms the artist and
+        // nudges sign-in, no valuation number, no measured-catalog call (chat#1798).
+        <div
+          className="mt-6 flex items-center gap-3.5 rounded-2xl px-5 py-4"
+          style={{ boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 12%, transparent)" }}
+        >
+          {props.picked.image && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={props.picked.image}
+              alt=""
+              className="h-12 w-12 rounded-full object-cover"
+            />
+          )}
+          <span className="text-left">
+            <span className="block font-semibold text-[15px] text-(--foreground)">
+              {props.picked.name}
+            </span>
+            {typeof props.picked.followers === "number" && (
+              <span className="block text-[12px] font-pixel uppercase tracking-[0.1em] text-(--foreground)/40">
+                {formatCompact(props.picked.followers)} followers
+              </span>
+            )}
+          </span>
+          {props.needsAuth && (
+            <span className="ml-auto text-[12px] text-(--foreground)/45 max-w-[160px] text-right leading-snug">
+              Sign in to measure your catalog&apos;s value
+            </span>
+          )}
+        </div>
+      )}
       <button
         onClick={props.onRun}
         disabled={!props.picked || props.running}
@@ -71,6 +105,8 @@ export function ArtistSearch(props: ArtistSearchProps) {
             <span className="w-2 h-2 rounded-full bg-green-500/80 animate-pulse" />
             {props.progress}
           </span>
+        ) : props.needsAuth ? (
+          "Sign in to value my catalog"
         ) : (
           "Value my catalog"
         )}

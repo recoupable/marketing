@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CatalogValuation } from "@/components/valuation/CatalogValuation";
+import { ValuationAuthProvider } from "@/app/valuation/ValuationAuthProvider";
 
 export const metadata: Metadata = {
   title: "What's Your Catalog Worth? | Recoup",
@@ -28,7 +28,7 @@ export default function ValuationPage() {
           catalog and turn them into a valuation band — one click, no uploads,
           no statements.
         </p>
-        <CatalogValuation />
+        <ValuationAuthProvider />
       </div>
     </main>
   );

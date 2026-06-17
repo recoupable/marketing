@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint --fix",
     "format": "prettier --write . && pnpm lint",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@ai-sdk/react": "^3.0.156",
+    "@privy-io/react-auth": "^3.31.0",
     "@radix-ui/react-use-controllable-state": "^1.2.2",
     "@streamdown/cjk": "^1.0.3",
     "@streamdown/code": "^1.1.1",
