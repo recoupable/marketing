@@ -68,10 +68,16 @@ export async function runValuationFlow(
   for (let attempt = 0; attempt < POLL_ATTEMPTS; attempt++) {
     await new Promise(r => setTimeout(r, POLL_INTERVAL_MS));
     const counts = await readCatalogMeasurements(albumIds, token);
-    if (counts.captured > 0 || counts.creditsExhausted) {
+    // Value what landed the moment anything does — partial coverage is fine,
+    // including a partial that stopped on credit exhaustion.
+    if (counts.captured > 0) {
       onProgress("Computing your valuation…");
       return { catalogAlbums: albums, result: build(counts) };
     }
+    // Credits ran out before a single album landed — nothing to value, so
+    // surface it rather than returning a misleading $0 "done" result.
+    if (counts.creditsExhausted)
+      throw new Error("we couldn't measure this catalog — not enough credits to capture it");
     onProgress(`Measuring play counts across ${albumIds.length} releases… (still capturing)`);
   }
 
