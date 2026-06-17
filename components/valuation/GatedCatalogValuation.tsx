@@ -10,10 +10,15 @@ import { CatalogValuation } from "@/components/valuation/CatalogValuation";
  * and the access-token getter — down to the run (chat#1798).
  */
 export function GatedCatalogValuation() {
-  const { authenticated, login, getAccessToken } = usePrivy();
+  const { authenticated, login, getAccessToken, user } = usePrivy();
   return (
     <CatalogValuation
-      gate={{ authed: authenticated, login: () => login(), getToken: getAccessToken }}
+      gate={{
+        authed: authenticated,
+        login: () => login(),
+        getToken: getAccessToken,
+        email: user?.email?.address,
+      }}
     />
   );
 }

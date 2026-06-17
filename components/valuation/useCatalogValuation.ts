@@ -14,6 +14,8 @@ export type ValuationGate = {
   authed: boolean;
   login: () => void;
   getToken: () => Promise<string | null>;
+  /** Signed-in user's email — captured as the valuation lead (chat#1798). */
+  email?: string;
 };
 
 export type CatalogValuationState = {
@@ -79,6 +81,20 @@ export function useCatalogValuation(gate?: ValuationGate): CatalogValuationState
       setCatalogAlbums(outcome.catalogAlbums);
       setResult(outcome.result);
       setPhase("done");
+      // Capture the lead on every successful run — email + artist + value band
+      // → Attio + Telegram (fire-and-forget; must not affect the result).
+      if (gate?.email && outcome.result.valueBand) {
+        void fetch("/api/valuation/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: gate.email,
+            artistName: artist.name,
+            artistId: artist.id,
+            valueBand: outcome.result.valueBand,
+          }),
+        }).catch(() => {});
+      }
     } catch (e) {
       setError(e instanceof Error ? e.message : "something went wrong");
       setPhase("error");
