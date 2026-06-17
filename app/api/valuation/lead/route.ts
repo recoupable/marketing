@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { upsertValuationLead } from "@/lib/valuation/upsertValuationLead";
 import { sendTelegramMessage } from "@/lib/telegram";
+import { usd } from "@/lib/format/usd";
 
 const bandSchema = z.object({ low: z.number(), central: z.number(), high: z.number() });
 
@@ -13,9 +14,6 @@ const leadSchema = z.object({
   lifetimeStreams: z.number(),
   followerCount: z.number().optional(),
 });
-
-const usd = (n: number) =>
-  `$${Math.round(n).toLocaleString("en-US")}`;
 
 /**
  * POST /api/valuation/lead — capture a valuation lead on run success (chat#1798).

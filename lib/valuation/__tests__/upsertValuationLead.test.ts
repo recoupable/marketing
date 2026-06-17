@@ -10,22 +10,26 @@ const lead = {
   followerCount: 13_000_000,
 };
 
-// Person assert returns a record id; list-entry POST returns ok.
 const personOk = () =>
   new Response(JSON.stringify({ data: { id: { record_id: "rec_123" } } }), { status: 200 });
+const queryEmpty = () => new Response(JSON.stringify({ data: [] }), { status: 200 });
+const queryFound = () =>
+  new Response(JSON.stringify({ data: [{ id: { entry_id: "ent_1" } }] }), { status: 200 });
 const entryOk = () => new Response(JSON.stringify({ data: {} }), { status: 200 });
 
 describe("upsertValuationLead", () => {
-  beforeEach(() => {
-    vi.stubEnv("ATTIO_API_KEY", "test-key");
-  });
+  beforeEach(() => vi.stubEnv("ATTIO_API_KEY", "test-key"));
   afterEach(() => {
     vi.unstubAllGlobals();
     vi.unstubAllEnvs();
   });
 
   it("asserts the person by email and writes the qualifying attributes", async () => {
-    const fetchMock = vi.fn().mockResolvedValueOnce(personOk()).mockResolvedValueOnce(entryOk());
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(personOk())
+      .mockResolvedValueOnce(queryEmpty())
+      .mockResolvedValueOnce(entryOk());
     vi.stubGlobal("fetch", fetchMock);
 
     const res = await upsertValuationLead(lead);
@@ -48,22 +52,48 @@ describe("upsertValuationLead", () => {
     expect(values.valued_at).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 
-  it("adds the person to the Valuation Leads pipeline at stage New", async () => {
-    const fetchMock = vi.fn().mockResolvedValueOnce(personOk()).mockResolvedValueOnce(entryOk());
+  it("adds the person to the pipeline at New when they're not already on it", async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(personOk())
+      .mockResolvedValueOnce(queryEmpty())
+      .mockResolvedValueOnce(entryOk());
     vi.stubGlobal("fetch", fetchMock);
 
     await upsertValuationLead(lead);
 
-    const [url, init] = fetchMock.mock.calls[1];
-    expect(String(url)).toContain("/lists/valuation_leads/entries");
-    const data = JSON.parse(init.body).data;
+    // call[1] = query existing entries for the parent record
+    const [queryUrl, queryInit] = fetchMock.mock.calls[1];
+    expect(String(queryUrl)).toContain("/lists/valuation_leads/entries/query");
+    expect(JSON.parse(queryInit.body).filter.parent_record_id).toBe("rec_123");
+
+    // call[2] = create the entry at stage New
+    const [createUrl, createInit] = fetchMock.mock.calls[2];
+    expect(String(createUrl)).toMatch(/\/lists\/valuation_leads\/entries$/);
+    const data = JSON.parse(createInit.body).data;
     expect(data.parent_object).toBe("people");
     expect(data.parent_record_id).toBe("rec_123");
     expect(data.entry_values.stage).toEqual(["New"]);
   });
 
+  it("does NOT add a duplicate card (or reset the stage) when already on the board", async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(personOk())
+      .mockResolvedValueOnce(queryFound());
+    vi.stubGlobal("fetch", fetchMock);
+
+    const res = await upsertValuationLead(lead);
+    expect(res.success).toBe(true);
+    expect(fetchMock).toHaveBeenCalledTimes(2); // assert + query, NO create
+  });
+
   it("omits follower_count when it is not known", async () => {
-    const fetchMock = vi.fn().mockResolvedValueOnce(personOk()).mockResolvedValueOnce(entryOk());
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(personOk())
+      .mockResolvedValueOnce(queryEmpty())
+      .mockResolvedValueOnce(entryOk());
     vi.stubGlobal("fetch", fetchMock);
 
     const { followerCount: _omit, ...noFollowers } = lead;
@@ -84,13 +114,13 @@ describe("upsertValuationLead", () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it("fails fast (no list add) when the person assert errors", async () => {
+  it("fails fast (no list work) when the person assert errors", async () => {
     const fetchMock = vi.fn().mockResolvedValueOnce(new Response("bad", { status: 400 }));
     vi.stubGlobal("fetch", fetchMock);
 
     const res = await upsertValuationLead(lead);
     expect(res.success).toBe(false);
     expect(res.error).toContain("400");
-    expect(fetchMock).toHaveBeenCalledTimes(1); // did not attempt the list entry
+    expect(fetchMock).toHaveBeenCalledTimes(1); // did not query or create an entry
   });
 });

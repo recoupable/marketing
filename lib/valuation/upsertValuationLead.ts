@@ -63,23 +63,34 @@ export async function upsertValuationLead(
     return { success: false, error: err instanceof Error ? err.message : "Unknown error" };
   }
 
-  // Drop the lead onto the pipeline. A failure here doesn't undo the qualified
-  // person record, so log via the returned error but still count the lead saved.
+  // Drop the lead onto the pipeline — but only if it isn't already there.
+  // The route fires on every run; a blind create would litter the board with
+  // duplicate cards, and asserting would reset a card sales already advanced
+  // past "New". So check-then-create: leave any existing entry (and its stage)
+  // untouched. A failure here doesn't undo the qualified person record.
   if (recordId) {
     try {
-      const res = await fetch(`${ATTIO_BASE_URL}/lists/${LIST_SLUG}/entries`, {
+      const existing = await fetch(`${ATTIO_BASE_URL}/lists/${LIST_SLUG}/entries/query`, {
         method: "POST",
         headers,
-        body: JSON.stringify({
-          data: {
-            parent_object: "people",
-            parent_record_id: recordId,
-            entry_values: { stage: ["New"] },
-          },
-        }),
+        body: JSON.stringify({ filter: { parent_record_id: recordId } }),
       });
-      if (!res.ok) {
-        console.error(`[valuation/lead] pipeline add failed: ${res.status} — ${await res.text()}`);
+      const entries = existing.ok ? (await existing.json())?.data ?? [] : [];
+      if (entries.length === 0) {
+        const res = await fetch(`${ATTIO_BASE_URL}/lists/${LIST_SLUG}/entries`, {
+          method: "POST",
+          headers,
+          body: JSON.stringify({
+            data: {
+              parent_object: "people",
+              parent_record_id: recordId,
+              entry_values: { stage: ["New"] },
+            },
+          }),
+        });
+        if (!res.ok) {
+          console.error(`[valuation/lead] pipeline add failed: ${res.status} — ${await res.text()}`);
+        }
       }
     } catch (err) {
       console.error("[valuation/lead] pipeline add error:", err);
