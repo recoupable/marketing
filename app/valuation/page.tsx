@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { CatalogValuation } from "@/components/valuation/CatalogValuation";
+import { ValuationAuthProvider } from "@/app/valuation/ValuationAuthProvider";
+
+// Privy is client-initialized at runtime; force-dynamic keeps the build from
+// prerendering it (matches chat's app/page.tsx).
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "What's Your Catalog Worth? | Recoup",
@@ -28,7 +32,7 @@ export default function ValuationPage() {
           catalog and turn them into a valuation band — one click, no uploads,
           no statements.
         </p>
-        <CatalogValuation />
+        <ValuationAuthProvider />
       </div>
     </main>
   );

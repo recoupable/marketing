@@ -1,5 +1,9 @@
-import type { Artist } from "@/components/valuation/useCatalogValuation";
+"use client";
+
+import { usePrivy } from "@privy-io/react-auth";
+import type { Artist } from "@/components/valuation/types";
 import { formatCompact } from "@/lib/valuation/formatCompact";
+import { SelectedArtistTeaser } from "@/components/valuation/SelectedArtistTeaser";
 
 type ArtistSearchProps = {
   query: string;
@@ -14,9 +18,13 @@ type ArtistSearchProps = {
 };
 
 /**
- * Artist search input, debounced result dropdown, and the run CTA.
+ * Artist search input, debounced result dropdown, and the run CTA. Reads Privy
+ * auth directly to label the CTA (sign-in gate, chat#1798).
  */
 export function ArtistSearch(props: ArtistSearchProps) {
+  const { ready, authenticated } = usePrivy();
+  const needsAuth = ready && !authenticated && Boolean(props.picked);
+
   return (
     <>
       <div
@@ -61,6 +69,7 @@ export function ArtistSearch(props: ArtistSearchProps) {
           ))}
         </ul>
       )}
+      {props.picked && !props.running && <SelectedArtistTeaser artist={props.picked} />}
       <button
         onClick={props.onRun}
         disabled={!props.picked || props.running}
@@ -71,6 +80,8 @@ export function ArtistSearch(props: ArtistSearchProps) {
             <span className="w-2 h-2 rounded-full bg-green-500/80 animate-pulse" />
             {props.progress}
           </span>
+        ) : needsAuth ? (
+          "Sign in to value my catalog"
         ) : (
           "Value my catalog"
         )}
