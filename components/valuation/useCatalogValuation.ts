@@ -5,6 +5,7 @@ import { usePrivy } from "@privy-io/react-auth";
 import type { Artist, Result, StartedAlbum } from "@/components/valuation/types";
 import { useArtistSearch } from "@/components/valuation/useArtistSearch";
 import { runValuationFlow } from "@/lib/valuation/runValuationFlow";
+import { captureValuationLead } from "@/lib/valuation/captureValuationLead";
 
 export type { Artist, Result, StartedAlbum, MeasuredAlbum } from "@/components/valuation/types";
 
@@ -30,7 +31,7 @@ export type CatalogValuationState = {
  * `PrivyProvider` (see ValuationAuthProvider).
  */
 export function useCatalogValuation(): CatalogValuationState {
-  const { authenticated, login, getAccessToken } = usePrivy();
+  const { authenticated, login, getAccessToken, user } = usePrivy();
   const { query, artists, picked, onQueryChange, pick } = useArtistSearch();
 
   const [catalogAlbums, setCatalogAlbums] = useState<StartedAlbum[]>([]);
@@ -51,6 +52,17 @@ export function useCatalogValuation(): CatalogValuationState {
       setCatalogAlbums(outcome.catalogAlbums);
       setResult(outcome.result);
       setPhase("done");
+      // Capture the lead on every successful run — email + artist + value band
+      // → Attio + Telegram (fire-and-forget; must not affect the result).
+      const email = user?.email?.address;
+      if (email && outcome.result.valueBand) {
+        captureValuationLead({
+          email,
+          artistName: artist.name,
+          artistId: artist.id,
+          valueBand: outcome.result.valueBand,
+        });
+      }
     } catch (e) {
       setError(e instanceof Error ? e.message : "something went wrong");
       setPhase("error");
