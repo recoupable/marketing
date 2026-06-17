@@ -36,22 +36,27 @@ export async function createAttioContact(
   }
 
   try {
-    const response = await fetch(`${ATTIO_BASE_URL}/objects/people/records`, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        data: {
-          values: {
-            email_addresses: [{ email_address: input.email }],
-            ...(input.name && { name: [{ first_name: input.name }] }),
-          },
+    // Attio's assert endpoint takes `matching_attribute` as a QUERY param, not
+    // in the body — sending it in the body 400s ("Query params validation
+    // error"). https://docs.attio.com/rest-api/endpoint-reference/objects/assert-a-record
+    const response = await fetch(
+      `${ATTIO_BASE_URL}/objects/people/records?matching_attribute=email_addresses`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
         },
-        matching_attribute: "email_addresses",
-      }),
-    });
+        body: JSON.stringify({
+          data: {
+            values: {
+              email_addresses: [{ email_address: input.email }],
+              ...(input.name && { name: [{ first_name: input.name }] }),
+            },
+          },
+        }),
+      },
+    );
 
     if (!response.ok) {
       const errorBody = await response.text();
