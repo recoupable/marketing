@@ -1,9 +1,12 @@
-import type { Band } from "@/components/valuation/types";
-import { usd } from "@/lib/format/usd";
+import type { ValuationLeadInput } from "@/lib/valuation/valuationLeadInput";
+import { leadAttributes } from "@/lib/valuation/leadAttributes";
+import { leadNoteContent } from "@/lib/valuation/leadNoteContent";
 import { assertPersonByEmail } from "@/lib/attio/assertPersonByEmail";
 import { createNote } from "@/lib/attio/createNote";
 import { isRecordInList } from "@/lib/attio/isRecordInList";
 import { addRecordToList } from "@/lib/attio/addRecordToList";
+
+export type { ValuationLeadInput } from "@/lib/valuation/valuationLeadInput";
 
 const ATTIO_WORKSPACE = "recoup";
 const LIST_SLUG = "valuation_leads";
@@ -11,45 +14,6 @@ const LIST_SLUG = "valuation_leads";
 // reports membership by list id, not slug. Attio is one workspace (shared by
 // preview + prod), so this id is constant.
 const LIST_ID = "f5abf9c0-b0a0-4d47-a6b1-37072e415e65";
-
-export type ValuationLeadInput = {
-  email: string;
-  artistName: string;
-  artistId: string;
-  valueBand: Band;
-  lifetimeStreams: number;
-  followerCount?: number;
-};
-
-/** Attribute values for the Person assert — the *latest* run's snapshot. */
-function leadAttributes(lead: ValuationLeadInput, today: string): Record<string, unknown> {
-  const values: Record<string, unknown> = {
-    email_addresses: [{ email_address: lead.email }],
-    lead_source: "Catalog Valuation",
-    est_catalog_value: lead.valueBand.central, // band central = the lead score
-    looked_up_artist: lead.artistName,
-    spotify_artist_url: `https://open.spotify.com/artist/${lead.artistId}`,
-    lifetime_streams: lead.lifetimeStreams,
-    valued_at: today,
-  };
-  if (typeof lead.followerCount === "number") values.follower_count = lead.followerCount;
-  return values;
-}
-
-/** Markdown body for one run's activity note. */
-function leadNoteContent(lead: ValuationLeadInput, today: string): string {
-  const b = lead.valueBand;
-  const followers =
-    typeof lead.followerCount === "number"
-      ? `\n- Followers: ${lead.followerCount.toLocaleString("en-US")}`
-      : "";
-  return (
-    `Valued [${lead.artistName}](https://open.spotify.com/artist/${lead.artistId}) at ` +
-    `**${usd(b.central)}** (range ${usd(b.low)}–${usd(b.high)}).\n\n` +
-    `- Lifetime streams: ${lead.lifetimeStreams.toLocaleString("en-US")}${followers}\n` +
-    `- Run date: ${today}`
-  );
-}
 
 /**
  * Persist a valuation lead to Attio as a qualified, pipeline-staged record with
