@@ -47,12 +47,15 @@ export async function POST(request: Request) {
     console.error("[valuation/lead] Attio enrichment failed:", attio.error);
   }
 
+  // Deep-link the Attio record so the channel can open the lead in one tap.
+  const attioLink = attio.recordUrl ? `\nAttio: ${attio.recordUrl}` : "";
   await sendTelegramMessage(
     `💰 Valuation lead\n` +
       `Email: ${email}\n` +
       `Artist: ${artistName}\n` +
       `Estimated catalog value: ${usd(valueBand.central)} ` +
-      `(range ${usd(valueBand.low)}–${usd(valueBand.high)})`,
+      `(range ${usd(valueBand.low)}–${usd(valueBand.high)})` +
+      attioLink,
   );
 
   return NextResponse.json({ success: true });
