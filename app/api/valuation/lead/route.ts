@@ -8,7 +8,6 @@ const bandSchema = z.object({ low: z.number(), central: z.number(), high: z.numb
 const leadSchema = z.object({
   email: z.string().email("a valid email is required"),
   artistName: z.string().min(1, "artistName is required"),
-  artistId: z.string().min(1, "artistId is required"),
   valueBand: bandSchema,
 });
 
@@ -30,7 +29,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: parsed.error.issues[0].message }, { status: 400 });
   }
 
-  const { email, artistName, artistId, valueBand } = parsed.data;
+  const { email, artistName, valueBand } = parsed.data;
 
   // Attio is the system of record. Don't fail the (fire-and-forget) request on
   // an Attio error — the user's valuation already succeeded — but log it so a
@@ -43,7 +42,7 @@ export async function POST(request: Request) {
   await sendTelegramMessage(
     `💰 Valuation lead\n` +
       `Email: ${email}\n` +
-      `Artist: ${artistName} (${artistId})\n` +
+      `Artist: ${artistName}\n` +
       `Estimated catalog value: ${usd(valueBand.central)} ` +
       `(range ${usd(valueBand.low)}–${usd(valueBand.high)})`,
   );

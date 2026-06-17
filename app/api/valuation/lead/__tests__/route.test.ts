@@ -16,7 +16,6 @@ const req = (body: unknown) =>
 const validLead = {
   email: "artist@example.com",
   artistName: "Mac Miller",
-  artistId: "abc123",
   valueBand: { low: 1_000_000, central: 2_000_000, high: 3_000_000 },
 };
 
@@ -33,7 +32,7 @@ describe("POST /api/valuation/lead", () => {
     });
     const text = vi.mocked(sendTelegramMessage).mock.calls[0][0];
     expect(text).toContain("artist@example.com");
-    expect(text).toContain("Mac Miller");
+    expect(text).toContain("Artist: Mac Miller\n"); // name only — no artist-id suffix
     expect(text).toContain("$2,000,000");
   });
 

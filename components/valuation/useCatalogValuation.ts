@@ -59,7 +59,6 @@ export function useCatalogValuation(): CatalogValuationState {
         captureValuationLead({
           email,
           artistName: artist.name,
-          artistId: artist.id,
           valueBand: outcome.result.valueBand,
         });
       }

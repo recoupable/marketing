@@ -4,7 +4,6 @@ import { captureValuationLead } from "@/lib/valuation/captureValuationLead";
 const lead = {
   email: "artist@example.com",
   artistName: "Mac Miller",
-  artistId: "abc123",
   valueBand: { low: 1_000_000, central: 2_000_000, high: 3_000_000 },
 };
 
