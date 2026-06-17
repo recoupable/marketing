@@ -20,7 +20,6 @@ export function CatalogValuation() {
           artists={v.artists}
           picked={v.picked}
           running={v.phase === "running"}
-          needsAuth={v.needsAuth}
           progress={v.progress}
           error={v.phase === "error" ? v.error : ""}
           onQueryChange={v.onQueryChange}

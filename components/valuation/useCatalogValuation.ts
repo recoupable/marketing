@@ -17,8 +17,6 @@ export type CatalogValuationState = {
   progress: string;
   result: Result | null;
   error: string;
-  /** True when a pick is made but the user must sign in before the run fires. */
-  needsAuth: boolean;
   onQueryChange: (q: string) => void;
   pick: (artist: Artist) => void;
   run: () => Promise<void>;
@@ -32,7 +30,7 @@ export type CatalogValuationState = {
  * `PrivyProvider` (see ValuationAuthProvider).
  */
 export function useCatalogValuation(): CatalogValuationState {
-  const { ready, authenticated, login } = usePrivy();
+  const { authenticated, login } = usePrivy();
   const { query, artists, picked, onQueryChange, pick } = useArtistSearch();
 
   const [catalogAlbums, setCatalogAlbums] = useState<StartedAlbum[]>([]);
@@ -88,8 +86,6 @@ export function useCatalogValuation(): CatalogValuationState {
     progress,
     result,
     error,
-    // `ready` guard avoids a needsAuth flash before Privy initializes.
-    needsAuth: ready && !authenticated && Boolean(picked),
     onQueryChange,
     pick,
     run,

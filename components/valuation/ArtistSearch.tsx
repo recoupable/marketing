@@ -1,15 +1,15 @@
-import type { Artist } from "@/components/valuation/useCatalogValuation";
+"use client";
+
+import { usePrivy } from "@privy-io/react-auth";
+import type { Artist } from "@/components/valuation/types";
 import { formatCompact } from "@/lib/valuation/formatCompact";
 import { SelectedArtistTeaser } from "@/components/valuation/SelectedArtistTeaser";
-import { valuationCopy } from "@/lib/copy/valuation";
 
 type ArtistSearchProps = {
   query: string;
   artists: Artist[];
   picked: Artist | null;
   running: boolean;
-  /** True when a pick is made but the user must sign in before the run fires. */
-  needsAuth: boolean;
   progress: string;
   error: string;
   onQueryChange: (q: string) => void;
@@ -18,9 +18,13 @@ type ArtistSearchProps = {
 };
 
 /**
- * Artist search input, debounced result dropdown, and the run CTA.
+ * Artist search input, debounced result dropdown, and the run CTA. Reads Privy
+ * auth directly to label the CTA (sign-in gate, chat#1798).
  */
 export function ArtistSearch(props: ArtistSearchProps) {
+  const { ready, authenticated } = usePrivy();
+  const needsAuth = ready && !authenticated && Boolean(props.picked);
+
   return (
     <>
       <div
@@ -32,7 +36,7 @@ export function ArtistSearch(props: ArtistSearchProps) {
         <input
           value={props.query}
           onChange={e => props.onQueryChange(e.target.value)}
-          placeholder={valuationCopy.searchPlaceholder}
+          placeholder="Search your artist name…"
           className="w-full rounded-xl bg-transparent px-5 py-4 text-[17px] text-(--foreground) placeholder:text-(--foreground)/35 focus:outline-none"
           disabled={props.running}
         />
@@ -65,9 +69,7 @@ export function ArtistSearch(props: ArtistSearchProps) {
           ))}
         </ul>
       )}
-      {props.picked && !props.running && (
-        <SelectedArtistTeaser artist={props.picked} needsAuth={props.needsAuth} />
-      )}
+      {props.picked && !props.running && <SelectedArtistTeaser artist={props.picked} />}
       <button
         onClick={props.onRun}
         disabled={!props.picked || props.running}
@@ -78,10 +80,10 @@ export function ArtistSearch(props: ArtistSearchProps) {
             <span className="w-2 h-2 rounded-full bg-green-500/80 animate-pulse" />
             {props.progress}
           </span>
-        ) : props.needsAuth ? (
-          valuationCopy.ctaSignedOut
+        ) : needsAuth ? (
+          "Sign in to value my catalog"
         ) : (
-          valuationCopy.cta
+          "Value my catalog"
         )}
       </button>
       {props.error && <p className="mt-4 text-center text-[13px] text-red-500/90">{props.error}</p>}

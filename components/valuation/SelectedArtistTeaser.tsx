@@ -1,19 +1,18 @@
+"use client";
+
+import { usePrivy } from "@privy-io/react-auth";
 import type { Artist } from "@/components/valuation/types";
 import { formatCompact } from "@/lib/valuation/formatCompact";
-import { valuationCopy } from "@/lib/copy/valuation";
 
 /**
  * Pre-run teaser shown after an artist is selected (chat#1798). Built from
- * search data only — artist image + name + follower count + a sign-in nudge.
- * No valuation number and no measured-catalog call until the run fires.
+ * search data only — artist image + name + follower count + a sign-in nudge
+ * (shown until the user is authenticated). No valuation number and no
+ * measured-catalog call until the run fires.
  */
-export function SelectedArtistTeaser({
-  artist,
-  needsAuth,
-}: {
-  artist: Artist;
-  needsAuth: boolean;
-}) {
+export function SelectedArtistTeaser({ artist }: { artist: Artist }) {
+  const { ready, authenticated } = usePrivy();
+
   return (
     <div
       className="mt-6 flex items-center gap-3.5 rounded-2xl px-5 py-4"
@@ -35,9 +34,9 @@ export function SelectedArtistTeaser({
           </span>
         )}
       </span>
-      {needsAuth && (
+      {ready && !authenticated && (
         <span className="ml-auto text-[12px] text-(--foreground)/45 max-w-[160px] text-right leading-snug">
-          {valuationCopy.teaserSignInPrompt}
+          Sign in to measure your catalog&apos;s value
         </span>
       )}
     </div>
