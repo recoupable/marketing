@@ -3,7 +3,10 @@ import type { Band } from "@/components/valuation/types";
 export type ValuationLead = {
   email: string;
   artistName: string;
+  artistId: string;
   valueBand: Band;
+  lifetimeStreams: number;
+  followerCount?: number;
 };
 
 /**

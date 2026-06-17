@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { createAttioContact } from "@/lib/attio";
+import { upsertValuationLead } from "@/lib/valuation/upsertValuationLead";
 import { sendTelegramMessage } from "@/lib/telegram";
 
 const bandSchema = z.object({ low: z.number(), central: z.number(), high: z.number() });
@@ -8,7 +8,10 @@ const bandSchema = z.object({ low: z.number(), central: z.number(), high: z.numb
 const leadSchema = z.object({
   email: z.string().email("a valid email is required"),
   artistName: z.string().min(1, "artistName is required"),
+  artistId: z.string().min(1, "artistId is required"),
   valueBand: bandSchema,
+  lifetimeStreams: z.number(),
+  followerCount: z.number().optional(),
 });
 
 const usd = (n: number) =>
@@ -17,10 +20,10 @@ const usd = (n: number) =>
 /**
  * POST /api/valuation/lead — capture a valuation lead on run success (chat#1798).
  *
- * Persists the contact to Attio (system of record) and pings the internal
- * Telegram channel with the email + looked-up artist + value band. Fires on
- * every successful valuation; the Telegram send is best-effort and never fails
- * the request.
+ * Persists a qualified, pipeline-staged lead to Attio (system of record) and
+ * pings the internal Telegram channel with the email + looked-up artist + value
+ * band. Fires on every successful valuation; both writes are best-effort and
+ * never fail the (fire-and-forget) request.
  */
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
@@ -29,14 +32,21 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: parsed.error.issues[0].message }, { status: 400 });
   }
 
-  const { email, artistName, valueBand } = parsed.data;
+  const { email, artistName, artistId, valueBand, lifetimeStreams, followerCount } = parsed.data;
 
-  // Attio is the system of record. Don't fail the (fire-and-forget) request on
-  // an Attio error — the user's valuation already succeeded — but log it so a
-  // dropped lead is observable rather than silently lost.
-  const attio = await createAttioContact({ email, source: "catalog-valuation" });
+  // Attio is the system of record. Don't fail the request on an Attio error —
+  // the user's valuation already succeeded — but log it so a dropped lead is
+  // observable rather than silently lost.
+  const attio = await upsertValuationLead({
+    email,
+    artistName,
+    artistId,
+    valueBand,
+    lifetimeStreams,
+    followerCount,
+  });
   if (!attio.success) {
-    console.error("[valuation/lead] Attio upsert failed:", attio.error);
+    console.error("[valuation/lead] Attio enrichment failed:", attio.error);
   }
 
   await sendTelegramMessage(

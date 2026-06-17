@@ -4,7 +4,10 @@ import { captureValuationLead } from "@/lib/valuation/captureValuationLead";
 const lead = {
   email: "artist@example.com",
   artistName: "Mac Miller",
+  artistId: "4LLpKhyESsyAXpc4laK94U",
   valueBand: { low: 1_000_000, central: 2_000_000, high: 3_000_000 },
+  lifetimeStreams: 22_000_000_000,
+  followerCount: 13_000_000,
 };
 
 describe("captureValuationLead", () => {
