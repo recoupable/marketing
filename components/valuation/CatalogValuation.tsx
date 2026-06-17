@@ -1,15 +1,16 @@
 "use client";
 
-import { useCatalogValuation, type ValuationGate } from "@/components/valuation/useCatalogValuation";
+import { useCatalogValuation } from "@/components/valuation/useCatalogValuation";
 import { ArtistSearch } from "@/components/valuation/ArtistSearch";
 import { ValuationResult } from "@/components/valuation/ValuationResult";
 
 /**
- * The one-click catalog valuation flow: search → run → shareable result card.
- * `gate` (when present) holds the run behind Privy sign-in (chat#1798).
+ * The catalog valuation flow: search → (sign-in gate) → run → result card.
+ * Rendered inside `PrivyProvider` (ValuationAuthProvider), so the hook reads
+ * Privy auth directly (chat#1798).
  */
-export function CatalogValuation({ gate }: { gate?: ValuationGate }) {
-  const v = useCatalogValuation(gate);
+export function CatalogValuation() {
+  const v = useCatalogValuation();
 
   return (
     <div className="mt-12 w-full max-w-[560px] text-left">

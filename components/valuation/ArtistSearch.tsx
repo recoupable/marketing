@@ -1,5 +1,7 @@
 import type { Artist } from "@/components/valuation/useCatalogValuation";
 import { formatCompact } from "@/lib/valuation/formatCompact";
+import { SelectedArtistTeaser } from "@/components/valuation/SelectedArtistTeaser";
+import { valuationCopy } from "@/lib/copy/valuation";
 
 type ArtistSearchProps = {
   query: string;
@@ -30,7 +32,7 @@ export function ArtistSearch(props: ArtistSearchProps) {
         <input
           value={props.query}
           onChange={e => props.onQueryChange(e.target.value)}
-          placeholder="Search your artist name…"
+          placeholder={valuationCopy.searchPlaceholder}
           className="w-full rounded-xl bg-transparent px-5 py-4 text-[17px] text-(--foreground) placeholder:text-(--foreground)/35 focus:outline-none"
           disabled={props.running}
         />
@@ -64,36 +66,7 @@ export function ArtistSearch(props: ArtistSearchProps) {
         </ul>
       )}
       {props.picked && !props.running && (
-        // Pre-run teaser built from search data only — confirms the artist and
-        // nudges sign-in, no valuation number, no measured-catalog call (chat#1798).
-        <div
-          className="mt-6 flex items-center gap-3.5 rounded-2xl px-5 py-4"
-          style={{ boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 12%, transparent)" }}
-        >
-          {props.picked.image && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={props.picked.image}
-              alt=""
-              className="h-12 w-12 rounded-full object-cover"
-            />
-          )}
-          <span className="text-left">
-            <span className="block font-semibold text-[15px] text-(--foreground)">
-              {props.picked.name}
-            </span>
-            {typeof props.picked.followers === "number" && (
-              <span className="block text-[12px] font-pixel uppercase tracking-[0.1em] text-(--foreground)/40">
-                {formatCompact(props.picked.followers)} followers
-              </span>
-            )}
-          </span>
-          {props.needsAuth && (
-            <span className="ml-auto text-[12px] text-(--foreground)/45 max-w-[160px] text-right leading-snug">
-              Sign in to measure your catalog&apos;s value
-            </span>
-          )}
-        </div>
+        <SelectedArtistTeaser artist={props.picked} needsAuth={props.needsAuth} />
       )}
       <button
         onClick={props.onRun}
@@ -106,9 +79,9 @@ export function ArtistSearch(props: ArtistSearchProps) {
             {props.progress}
           </span>
         ) : props.needsAuth ? (
-          "Sign in to value my catalog"
+          valuationCopy.ctaSignedOut
         ) : (
-          "Value my catalog"
+          valuationCopy.cta
         )}
       </button>
       {props.error && <p className="mt-4 text-center text-[13px] text-red-500/90">{props.error}</p>}

@@ -1,20 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePrivy } from "@privy-io/react-auth";
 import type { Artist, Result, StartedAlbum } from "@/components/valuation/types";
+import { useArtistSearch } from "@/components/valuation/useArtistSearch";
 import { runValuationFlow } from "@/components/valuation/runValuationFlow";
 
 export type { Artist, Result, StartedAlbum, MeasuredAlbum } from "@/components/valuation/types";
-
-/**
- * Auth gate injected by the Privy boundary (chat#1798). Absent when Privy isn't
- * configured (`NEXT_PUBLIC_PRIVY_APP_ID` unset) — the flow then runs un-gated.
- */
-export type ValuationGate = {
-  authed: boolean;
-  login: () => void;
-  getToken: () => Promise<string | null>;
-};
 
 export type CatalogValuationState = {
   query: string;
@@ -33,49 +25,30 @@ export type CatalogValuationState = {
 };
 
 /**
- * All state for the one-click catalog valuation: debounced artist search, the
- * run flow (delegated to runValuationFlow), and the captured album metadata the
- * results breakdown renders against.
- *
- * When a `gate` is provided (Privy configured), the run is held behind sign-in:
- * "Value my catalog" opens the Privy modal, and on a successful login the run
- * auto-fires for the already-selected artist (chat#1798).
+ * Drives the catalog valuation: composes the debounced artist search and runs
+ * the valuation behind the Privy sign-in gate (chat#1798). "Value my catalog"
+ * opens the Privy modal when signed out and, on a successful login, auto-fires
+ * the run for the **originally** selected artist. Must be rendered inside
+ * `PrivyProvider` (see ValuationAuthProvider).
  */
-export function useCatalogValuation(gate?: ValuationGate): CatalogValuationState {
-  const [query, setQuery] = useState("");
-  const [artists, setArtists] = useState<Artist[]>([]);
-  const [picked, setPicked] = useState<Artist | null>(null);
+export function useCatalogValuation(): CatalogValuationState {
+  const { ready, authenticated, login } = usePrivy();
+  const { query, artists, picked, onQueryChange, pick } = useArtistSearch();
+
   const [catalogAlbums, setCatalogAlbums] = useState<StartedAlbum[]>([]);
   const [phase, setPhase] = useState<"idle" | "running" | "done" | "error">("idle");
   const [progress, setProgress] = useState("");
   const [result, setResult] = useState<Result | null>(null);
   const [error, setError] = useState("");
-  const searchTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-  const pendingRun = useRef(false);
-
-  function onQueryChange(q: string) {
-    setQuery(q);
-    setPicked(null);
-    clearTimeout(searchTimer.current);
-    if (q.length < 2) return setArtists([]);
-    searchTimer.current = setTimeout(async () => {
-      const res = await fetch(`/api/spotify/search?q=${encodeURIComponent(q)}&limit=5`);
-      const data = await res.json().catch(() => ({ artists: [] }));
-      setArtists(data.artists ?? []);
-    }, 300);
-  }
-
-  function pick(artist: Artist) {
-    setPicked(artist);
-    setQuery(artist.name);
-    setArtists([]);
-  }
+  // Holds the artist to run once login completes — the *selected-at-click* one,
+  // so a selection change while the modal is open can't retarget the run.
+  const pendingRun = useRef<Artist | null>(null);
 
   async function doRun(artist: Artist) {
     setPhase("running");
     setError("");
     try {
-      const outcome = await runValuationFlow(artist.id, setProgress, gate?.getToken);
+      const outcome = await runValuationFlow(artist.id, setProgress);
       setCatalogAlbums(outcome.catalogAlbums);
       setResult(outcome.result);
       setPhase("done");
@@ -87,23 +60,24 @@ export function useCatalogValuation(gate?: ValuationGate): CatalogValuationState
 
   async function run() {
     if (!picked) return;
-    // Gate: un-authenticated → open Privy and defer the run to a successful login.
-    if (gate && !gate.authed) {
-      pendingRun.current = true;
-      gate.login();
+    // Gate: signed out → open Privy and defer the run to a successful login.
+    if (!authenticated) {
+      pendingRun.current = picked;
+      login();
       return;
     }
     await doRun(picked);
   }
 
-  // Auto-fire the deferred run once the user signs in (chat#1798).
+  // Auto-fire the deferred run once the user signs in, for the stored artist.
   useEffect(() => {
-    if (gate?.authed && pendingRun.current && picked) {
-      pendingRun.current = false;
-      void doRun(picked);
+    if (authenticated && pendingRun.current) {
+      const artist = pendingRun.current;
+      pendingRun.current = null;
+      void doRun(artist);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gate?.authed]);
+  }, [authenticated]);
 
   return {
     query,
@@ -114,7 +88,8 @@ export function useCatalogValuation(gate?: ValuationGate): CatalogValuationState
     progress,
     result,
     error,
-    needsAuth: Boolean(gate) && !gate?.authed && Boolean(picked),
+    // `ready` guard avoids a needsAuth flash before Privy initializes.
+    needsAuth: ready && !authenticated && Boolean(picked),
     onQueryChange,
     pick,
     run,
