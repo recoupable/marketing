@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetFullReport } from "@/components/valuation/useGetFullReport";
+import { useGetFullReport } from "@/hooks/useGetFullReport";
 
 type GetFullReportCtaProps = {
   snapshotId?: string;
