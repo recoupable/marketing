@@ -2,8 +2,8 @@ import { siteConfig } from "@/lib/config";
 
 /**
  * Materializes the just-measured valuation run into an account-owned catalog by
- * calling `POST /api/catalogs { from: { snapshot_id } }` under the signed-in
- * user's Privy bearer. The owning account is derived from the bearer server-side
+ * calling `POST /api/catalogs { snapshot }` under the signed-in user's Privy
+ * bearer. The owning account is derived from the bearer server-side
  * (never the body), and re-claiming the same snapshot is idempotent — so a
  * second click returns the same catalog rather than creating a duplicate.
  *
@@ -25,7 +25,7 @@ export async function claimCatalog(params: {
     },
     body: JSON.stringify({
       ...(params.name ? { name: params.name } : {}),
-      from: { snapshot_id: params.snapshotId },
+      snapshot: params.snapshotId,
     }),
   });
 
