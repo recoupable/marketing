@@ -17,6 +17,8 @@ export type MeasuredAlbum = {
 
 export type Result = {
   state: string;
+  /** Playcount snapshot id for this run; lets the CTA materialize a catalog. */
+  snapshotId?: string;
   trackCount: number;
   albumCount: number;
   capturedAlbums: number;

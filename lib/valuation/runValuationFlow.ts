@@ -51,6 +51,11 @@ export async function runValuationFlow(
     const err = await startRes.json().catch(() => ({}));
     throw new Error(err.error ?? `couldn't start the measurement (${startRes.status})`);
   }
+  // The job response carries the playcount snapshot id (`id` === snapshot_id for
+  // source:"current"). Keep it so the result CTA can materialize this exact run
+  // into a catalog via POST /api/catalogs { from: { snapshot_id } }.
+  const startJob = await startRes.json().catch(() => null);
+  const snapshotId: string | undefined = startJob?.id ?? undefined;
 
   // Poll the per-album reads until anything lands (bounded ~90s). Some albums
   // never produce counts (no ISRCs / hidden counts), so we stop at first data
@@ -62,6 +67,7 @@ export async function runValuationFlow(
       albumCount: counts.total,
       capturedAlbums: counts.captured,
       albums: counts.albums,
+      snapshotId,
       ...computeCatalogValuation({ totalStreams: counts.totalStreams, earliestReleaseDate }),
     }) as Result;
 
