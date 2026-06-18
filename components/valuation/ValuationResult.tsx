@@ -2,6 +2,7 @@ import type { Artist, Result, StartedAlbum } from "@/components/valuation/useCat
 import { ArtistHeader } from "@/components/valuation/ArtistHeader";
 import { ValuationStats } from "@/components/valuation/ValuationStats";
 import { MeasuredCatalog } from "@/components/valuation/MeasuredCatalog";
+import { GetFullReportCta } from "@/components/valuation/GetFullReportCta";
 import { formatUsd } from "@/lib/valuation/formatUsd";
 
 type ValuationResultProps = {
@@ -47,12 +48,7 @@ export function ValuationResult({ artist, result, catalogAlbums }: ValuationResu
         centralValue={result.valueBand.central}
         totalStreams={result.totalStreams}
       />
-      <a
-        href="https://chat.recoupable.com"
-        className="cta-pulse mt-8 block w-full rounded-full bg-(--foreground) px-9 py-4 text-center font-ui text-[15px] font-semibold text-(--background) transition-all duration-300 hover:shadow-[0_0_40px_color-mix(in_srgb,var(--foreground)_12%,transparent)] hover:-translate-y-0.5"
-      >
-        Get the full report with Recoup →
-      </a>
+      <GetFullReportCta snapshotId={result.snapshotId} artistName={artist?.name} />
     </div>
   );
 }
