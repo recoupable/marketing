@@ -24,6 +24,7 @@ import {
   isToolPart,
   type ToolPartLike,
 } from "@/components/tool-call/tool-part";
+import { AgentTree } from "@/components/tool-call/agent-tree";
 
 interface SpotifyArtist {
   id: string;
@@ -37,6 +38,65 @@ const PROMPT_SUGGESTIONS = ["Audit releases", "Research report", "Similar artist
 const FEATURED_ARTIST_NAMES = ["Drake", "Tyla", "SZA", "Doja Cat"];
 const CYCLE_INTERVAL_MS = 3500;
 const transport = new DefaultChatTransport({ api: "/api/demo" });
+
+// Discriminated union of "things to render" once we've grouped consecutive
+// tool parts. A run of 2+ tool parts collapses into a single "agent-tree"
+// group so it renders as a grid; a lone tool part stays inline.
+type RenderGroup =
+  | { kind: "text"; text: string; idx: number }
+  | { kind: "reasoning"; text: string; idx: number }
+  | { kind: "single-tool"; part: ToolPartLike; idx: number }
+  | { kind: "agent-tree"; tools: ToolPartLike[]; idx: number };
+
+/**
+ * Walk an assistant message's parts in order and bucket them into
+ * RenderGroups so the renderer can decide where to slot an AgentTree
+ * (multi-tool fan-out) vs. a single-tool inline card vs. text vs.
+ * reasoning. Empty text parts (mid-stream placeholders) are dropped.
+ */
+function groupParts(parts: readonly unknown[]): RenderGroup[] {
+  const groups: RenderGroup[] = [];
+  let toolBuffer: { part: ToolPartLike; idx: number }[] = [];
+
+  function flushTools() {
+    if (toolBuffer.length === 0) return;
+    if (toolBuffer.length === 1) {
+      groups.push({
+        kind: "single-tool",
+        part: toolBuffer[0].part,
+        idx: toolBuffer[0].idx,
+      });
+    } else {
+      groups.push({
+        kind: "agent-tree",
+        tools: toolBuffer.map((t) => t.part),
+        idx: toolBuffer[0].idx,
+      });
+    }
+    toolBuffer = [];
+  }
+
+  parts.forEach((rawPart, idx) => {
+    const part = rawPart as { type?: string; text?: string };
+    if (typeof part.type !== "string") return;
+
+    if (isToolPart(part as { type: string })) {
+      toolBuffer.push({ part: part as unknown as ToolPartLike, idx });
+      return;
+    }
+
+    flushTools();
+
+    if (part.type === "text" && part.text) {
+      groups.push({ kind: "text", text: part.text, idx });
+    } else if (part.type === "reasoning" && part.text) {
+      groups.push({ kind: "reasoning", text: part.text, idx });
+    }
+  });
+
+  flushTools();
+  return groups;
+}
 
 // Follow-up action pills under the latest assistant response. Every option
 // has to map to behavior we can actually deliver — either by re-using the
@@ -439,42 +499,38 @@ export function HeroDemo() {
                             <span className="ml-auto w-1.5 h-1.5 rounded-full bg-(--foreground)/50 animate-pulse" aria-label="streaming" />
                           )}
                         </div>
-                        {/* Card body — render parts in their actual order so
-                            tool calls interleave correctly with text + reasoning */}
+                        {/* Card body — render parts in their actual order, but
+                            group consecutive tool parts so a multi-agent fan-out
+                            renders as a single AgentTree (grid) instead of
+                            stacked individual cards. */}
                         <div className="text-[13px] leading-[1.8] text-(--foreground)/80 space-y-3 px-4 py-2">
-                          {msg.parts.map((part, idx) => {
-                            if (part.type === "text") {
-                              if (!part.text) return null;
+                          {groupParts(msg.parts).map((g, gi) => {
+                            if (g.kind === "text") {
                               return (
                                 <MessageResponse
-                                  key={idx}
-                                  isAnimating={isThisStreaming && idx === lastTextIdx}
+                                  key={gi}
+                                  isAnimating={isThisStreaming && g.idx === lastTextIdx}
                                 >
-                                  {part.text}
+                                  {g.text}
                                 </MessageResponse>
                               );
                             }
-                            if (part.type === "reasoning") {
-                              if (!part.text) return null;
+                            if (g.kind === "reasoning") {
                               return (
                                 <Reasoning
-                                  key={idx}
+                                  key={gi}
                                   isStreaming={isThisStreaming && lastTextIdx === -1}
                                 >
                                   <ReasoningTrigger />
-                                  <ReasoningContent>{part.text}</ReasoningContent>
+                                  <ReasoningContent>{g.text}</ReasoningContent>
                                 </Reasoning>
                               );
                             }
-                            if (isToolPart(part)) {
-                              return (
-                                <ToolPart
-                                  key={idx}
-                                  part={part as unknown as ToolPartLike}
-                                />
-                              );
+                            if (g.kind === "single-tool") {
+                              return <ToolPart key={gi} part={g.part} />;
                             }
-                            return null;
+                            // g.kind === "agent-tree"
+                            return <AgentTree key={gi} tools={g.tools} />;
                           })}
                           {isThisStreaming && !hasRenderableContent && (
                             <ThinkingIndicator />
