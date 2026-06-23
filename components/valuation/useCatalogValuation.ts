@@ -3,23 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import { usePrivy } from "@privy-io/react-auth";
 import type { Artist, Result, StartedAlbum } from "@/components/valuation/types";
-import { useArtistSearch } from "@/components/valuation/useArtistSearch";
 import { runValuationFlow } from "@/lib/valuation/runValuationFlow";
 import { captureValuationLead } from "@/lib/valuation/captureValuationLead";
 
 export type { Artist, Result, StartedAlbum, MeasuredAlbum } from "@/components/valuation/types";
 
 export type CatalogValuationState = {
-  query: string;
-  artists: Artist[];
   picked: Artist | null;
   catalogAlbums: StartedAlbum[];
   phase: "idle" | "running" | "done" | "error";
   progress: string;
   result: Result | null;
   error: string;
-  onQueryChange: (q: string) => void;
   pick: (artist: Artist) => void;
+  clearPick: () => void;
   run: () => Promise<void>;
 };
 
@@ -32,7 +29,7 @@ export type CatalogValuationState = {
  */
 export function useCatalogValuation(): CatalogValuationState {
   const { authenticated, login, getAccessToken, user } = usePrivy();
-  const { query, artists, picked, onQueryChange, pick } = useArtistSearch();
+  const [picked, setPicked] = useState<Artist | null>(null);
 
   const [catalogAlbums, setCatalogAlbums] = useState<StartedAlbum[]>([]);
   const [phase, setPhase] = useState<"idle" | "running" | "done" | "error">("idle");
@@ -93,16 +90,14 @@ export function useCatalogValuation(): CatalogValuationState {
   }, [authenticated]);
 
   return {
-    query,
-    artists,
     picked,
     catalogAlbums,
     phase,
     progress,
     result,
     error,
-    onQueryChange,
-    pick,
+    pick: setPicked,
+    clearPick: () => setPicked(null),
     run,
   };
 }

@@ -2,24 +2,29 @@
 
 import { usePrivy } from "@privy-io/react-auth";
 import type { Artist } from "@/components/valuation/types";
-import { formatCompact } from "@/lib/valuation/formatCompact";
+import type { SpotifyArtist } from "@/components/shared/useSpotifyArtistSearch";
+import { ArtistSearchBox } from "@/components/shared/ArtistSearchBox";
 import { SelectedArtistTeaser } from "@/components/valuation/SelectedArtistTeaser";
 
 type ArtistSearchProps = {
-  query: string;
-  artists: Artist[];
   picked: Artist | null;
   running: boolean;
   progress: string;
   error: string;
-  onQueryChange: (q: string) => void;
   onPick: (artist: Artist) => void;
+  onClear: () => void;
   onRun: () => void;
 };
 
+function toArtist(a: SpotifyArtist): Artist {
+  return { id: a.id, name: a.name, image: a.image ?? undefined, followers: a.followers };
+}
+
 /**
- * Artist search input, debounced result dropdown, and the run CTA. Reads Privy
- * auth directly to label the CTA (sign-in gate, chat#1798).
+ * Valuation step 1: the shared (home-page) artist search island plus the
+ * valuation run CTA. Reads Privy auth directly to label the CTA as a sign-in
+ * gate when signed out (chat#1798). Search + selection UI is the shared
+ * ArtistSearchBox (DRY, chat#1814); this owns only the run CTA and teaser.
  */
 export function ArtistSearch(props: ArtistSearchProps) {
   const { ready, authenticated } = usePrivy();
@@ -27,48 +32,14 @@ export function ArtistSearch(props: ArtistSearchProps) {
 
   return (
     <>
-      <div
-        className="rounded-2xl p-1.5 transition-shadow"
-        style={{
-          boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 15%, transparent)",
+      <ArtistSearchBox
+        placeholder="Search your artist name…"
+        disabled={props.running}
+        onSelect={a => props.onPick(toArtist(a))}
+        onQueryChange={() => {
+          if (props.picked) props.onClear();
         }}
-      >
-        <input
-          value={props.query}
-          onChange={e => props.onQueryChange(e.target.value)}
-          placeholder="Search your artist name…"
-          className="w-full rounded-xl bg-transparent px-5 py-4 text-[17px] text-(--foreground) placeholder:text-(--foreground)/35 focus:outline-none"
-          disabled={props.running}
-        />
-      </div>
-      {!props.picked && props.artists.length > 0 && (
-        <ul
-          className="mt-3 overflow-hidden rounded-2xl"
-          style={{
-            boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 12%, transparent)",
-          }}
-        >
-          {props.artists.map(a => (
-            <li key={a.id}>
-              <button
-                className="flex w-full items-center gap-3.5 px-5 py-3.5 text-left transition-colors duration-200 hover:bg-(--foreground)/[0.04]"
-                onClick={() => props.onPick(a)}
-              >
-                {a.image && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={a.image} alt="" className="h-11 w-11 rounded-full object-cover" />
-                )}
-                <span className="font-semibold text-[15px] text-(--foreground)">{a.name}</span>
-                {typeof a.followers === "number" && (
-                  <span className="ml-auto text-[12px] font-pixel uppercase tracking-[0.1em] text-(--foreground)/40">
-                    {formatCompact(a.followers)} followers
-                  </span>
-                )}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+      />
       {props.picked && !props.running && <SelectedArtistTeaser artist={props.picked} />}
       <button
         onClick={props.onRun}

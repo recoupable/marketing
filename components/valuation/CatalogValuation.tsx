@@ -14,14 +14,12 @@ export function CatalogValuation() {
     <div className="mt-12 w-full max-w-[560px] text-left">
       {v.phase !== "done" ? (
         <ArtistSearch
-          query={v.query}
-          artists={v.artists}
           picked={v.picked}
           running={v.phase === "running"}
           progress={v.progress}
           error={v.phase === "error" ? v.error : ""}
-          onQueryChange={v.onQueryChange}
           onPick={v.pick}
+          onClear={v.clearPick}
           onRun={v.run}
         />
       ) : (
