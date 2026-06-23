@@ -1,4 +1,4 @@
-import type { Artist, Result, StartedAlbum } from "@/components/valuation/useCatalogValuation";
+import type { Artist, Result, StartedAlbum } from "@/components/valuation/types";
 import { ArtistHeader } from "@/components/valuation/ArtistHeader";
 import { ValuationStats } from "@/components/valuation/ValuationStats";
 import { MeasuredCatalog } from "@/components/valuation/MeasuredCatalog";

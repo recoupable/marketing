@@ -1,4 +1,4 @@
-import type { MeasuredAlbum, StartedAlbum } from "@/components/valuation/useCatalogValuation";
+import type { MeasuredAlbum, StartedAlbum } from "@/components/valuation/types";
 import { MeasuredAlbumRow } from "@/components/valuation/MeasuredAlbumRow";
 
 type MeasuredCatalogProps = {

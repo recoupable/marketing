@@ -2,16 +2,20 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePrivy } from "@privy-io/react-auth";
-import type { Artist, Result, StartedAlbum } from "@/components/valuation/types";
+import type {
+  Artist,
+  Result,
+  StartedAlbum,
+} from "@/components/valuation/types";
 import { runValuationFlow } from "@/lib/valuation/runValuationFlow";
-import { captureValuationLead } from "@/lib/valuation/captureValuationLead";
+import { captureRunLead } from "@/lib/valuation/captureRunLead";
 
-export type { Artist, Result, StartedAlbum, MeasuredAlbum } from "@/components/valuation/types";
+type Phase = "idle" | "running" | "done" | "error";
 
 export type CatalogValuationState = {
   picked: Artist | null;
   catalogAlbums: StartedAlbum[];
-  phase: "idle" | "running" | "done" | "error";
+  phase: Phase;
   progress: string;
   result: Result | null;
   error: string;
@@ -21,23 +25,21 @@ export type CatalogValuationState = {
 };
 
 /**
- * Drives the catalog valuation: composes the debounced artist search and runs
- * the valuation behind the Privy sign-in gate (chat#1798). "Value my catalog"
- * opens the Privy modal when signed out and, on a successful login, auto-fires
- * the run for the **originally** selected artist. Must be rendered inside
- * `PrivyProvider` (see ValuationAuthProvider).
+ * Drives the catalog valuation behind the Privy sign-in gate (chat#1798). The
+ * run trigger opens Privy when signed out and, on login, auto-fires the run for
+ * the **originally** selected artist. Render inside `PrivyProvider`.
  */
 export function useCatalogValuation(): CatalogValuationState {
   const { authenticated, login, getAccessToken, user } = usePrivy();
   const [picked, setPicked] = useState<Artist | null>(null);
 
   const [catalogAlbums, setCatalogAlbums] = useState<StartedAlbum[]>([]);
-  const [phase, setPhase] = useState<"idle" | "running" | "done" | "error">("idle");
+  const [phase, setPhase] = useState<Phase>("idle");
   const [progress, setProgress] = useState("");
   const [result, setResult] = useState<Result | null>(null);
   const [error, setError] = useState("");
-  // Holds the artist to run once login completes — the *selected-at-click* one,
-  // so a selection change while the modal is open can't retarget the run.
+  // The *selected-at-click* artist to run once login completes (so a selection
+  // change while the modal is open can't retarget the run).
   const pendingRun = useRef<Artist | null>(null);
 
   async function doRun(artist: Artist) {
@@ -49,19 +51,7 @@ export function useCatalogValuation(): CatalogValuationState {
       setCatalogAlbums(outcome.catalogAlbums);
       setResult(outcome.result);
       setPhase("done");
-      // Capture the lead on every successful run — email + artist + value band
-      // → Attio + Telegram (fire-and-forget; must not affect the result).
-      const email = user?.email?.address;
-      if (email && outcome.result.valueBand) {
-        captureValuationLead({
-          email,
-          artistName: artist.name,
-          artistId: artist.id,
-          valueBand: outcome.result.valueBand,
-          lifetimeStreams: outcome.result.totalStreams,
-          followerCount: artist.followers,
-        });
-      }
+      captureRunLead(user, artist, outcome.result);
     } catch (e) {
       setError(e instanceof Error ? e.message : "something went wrong");
       setPhase("error");
