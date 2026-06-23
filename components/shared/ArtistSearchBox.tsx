@@ -41,10 +41,12 @@ export function ArtistSearchBox({
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Reset the keyboard highlight whenever the result set changes. Dropdown
+  // visibility is driven by user intent (typing/focus) below, NOT by results —
+  // otherwise setting the query to the picked name would re-open the dropdown.
   useEffect(() => {
-    setShowDropdown((results.length > 0 || loading) && query.length >= 1);
     setSelectedIdx(-1);
-  }, [results, loading, query]);
+  }, [results]);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -58,6 +60,7 @@ export function ArtistSearchBox({
 
   function handleQueryChange(value: string) {
     setQuery(value);
+    setShowDropdown(true);
     onQueryChange?.(value);
   }
 
@@ -106,7 +109,7 @@ export function ArtistSearchBox({
         />
       </div>
 
-      {showDropdown && (
+      {showDropdown && query.length >= 1 && (results.length > 0 || loading) && (
         <ul
           className="mt-3 max-h-[280px] overflow-y-auto overflow-x-hidden rounded-2xl"
           style={{ boxShadow: "0 0 0 1px color-mix(in srgb, var(--foreground) 12%, transparent)" }}
