@@ -1,6 +1,6 @@
 "use client";
 
-import { ArtistResultRow } from "@/components/shared/ArtistResultRow";
+import { ArtistResultRow } from "@/components/search/ArtistResultRow";
 import type { SpotifyArtist } from "@/lib/spotify/types";
 
 type ArtistSearchResultsProps = {

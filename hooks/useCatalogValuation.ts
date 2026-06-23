@@ -87,7 +87,10 @@ export function useCatalogValuation(): CatalogValuationState {
     result,
     error,
     pick: setPicked,
-    clearPick: () => setPicked(null),
+    clearPick: () => {
+      pendingRun.current = null; // also drop a deferred signed-out run
+      setPicked(null);
+    },
     run,
   };
 }

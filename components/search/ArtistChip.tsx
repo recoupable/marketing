@@ -29,7 +29,12 @@ export function ArtistChip({
         />
       ) : (
         <div className="flex h-5 w-5 items-center justify-center rounded-full bg-(--muted)">
-          <span className="text-[8px] text-(--foreground)/30">♪</span>
+          <span
+            aria-hidden="true"
+            className="text-[8px] text-(--foreground)/30"
+          >
+            ♪
+          </span>
         </div>
       )}
       <span className="pr-1 text-[13px] font-medium text-(--foreground)">

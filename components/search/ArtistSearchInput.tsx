@@ -2,13 +2,15 @@
 
 import type { KeyboardEvent, RefObject } from "react";
 import { ArrowUp } from "lucide-react";
-import { ArtistChip } from "@/components/shared/ArtistChip";
+import { ArtistChip } from "@/components/search/ArtistChip";
 
 type PickedArtist = { name: string; image?: string | null };
 
 type ArtistSearchInputProps = {
   picked: PickedArtist | null;
   placeholder: string;
+  /** Accessible name for the send button (varies per page). */
+  submitLabel: string;
   disabled?: boolean;
   running?: boolean;
   progress?: string;
@@ -29,7 +31,7 @@ export function ArtistSearchInput(p: ArtistSearchInputProps) {
         <ArtistChip
           name={p.picked.name}
           image={p.picked.image}
-          disabled={p.running}
+          disabled={p.disabled || p.running}
           onRemove={p.onClear}
         />
       )}
@@ -54,8 +56,8 @@ export function ArtistSearchInput(p: ArtistSearchInputProps) {
       <button
         type="button"
         onClick={p.onSubmit}
-        disabled={!p.picked || p.running}
-        aria-label="Value my catalog"
+        disabled={!p.picked || p.disabled || p.running}
+        aria-label={p.submitLabel}
         className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-(--foreground)/80 text-(--background) transition-all hover:bg-(--foreground) active:scale-95 disabled:opacity-20"
       >
         {p.running ? (
