@@ -1,4 +1,4 @@
-import type { MeasuredAlbum, StartedAlbum } from "@/components/valuation/useCatalogValuation";
+import type { MeasuredAlbum, StartedAlbum } from "@/components/valuation/types";
 import { formatUsd } from "@/lib/valuation/formatUsd";
 import { formatCompact } from "@/lib/valuation/formatCompact";
 import { proportionalShare } from "@/lib/valuation/proportionalShare";

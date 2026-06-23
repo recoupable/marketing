@@ -1,6 +1,6 @@
 "use client";
 
-import { useCatalogValuation } from "@/components/valuation/useCatalogValuation";
+import { useCatalogValuation } from "@/hooks/useCatalogValuation";
 import { ArtistSearch } from "@/components/valuation/ArtistSearch";
 import { ValuationResult } from "@/components/valuation/ValuationResult";
 
