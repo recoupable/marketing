@@ -9,18 +9,41 @@ export type LinkArtistInput = {
 };
 
 /**
- * Fire-and-forget: link the looked-up artist to the signed-in account on run
- * success (recoupable/chat#1814). POSTs the Spotify id to the api
- * `POST /api/artists/spotify-link` route, which resolve-or-creates the artist
- * account and links it to the bearer's account via `account_artist_ids`
- * (idempotent). Best-effort — a link failure must never affect the rendered
- * valuation, so this never awaits or throws. No token → nothing to link.
+ * Fire-and-forget: add the looked-up artist to the signed-in account's roster on
+ * run success (recoupable/chat#1814). Reuses the same api endpoints the chat
+ * artist-settings popup uses — no bespoke endpoint:
+ *   1. POST  /api/artists            → create the artist account + link it to the
+ *      bearer's account (via account_artist_ids).
+ *   2. PATCH /api/artists/{id}       → attach its Spotify social (profileUrls).
+ * Best-effort: never throws. No token → nothing to link (the account is derived
+ * from the bearer). Note: POST /api/artists has no dedup, so repeat runs may
+ * create duplicate artist accounts — accepted for now (top-of-funnel lead flow).
  */
-export function linkArtistToAccount({ artistId, artistName, token }: LinkArtistInput): void {
+export async function linkArtistToAccount({
+  artistId,
+  artistName,
+  token,
+}: LinkArtistInput): Promise<void> {
   if (!token) return;
-  void fetch(`${siteConfig.apiUrl}/artists/spotify-link`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-    body: JSON.stringify({ spotify_id: artistId, name: artistName }),
-  }).catch(() => {});
+  const headers = { "Content-Type": "application/json", Authorization: `Bearer ${token}` };
+  try {
+    const res = await fetch(`${siteConfig.apiUrl}/artists`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ name: artistName }),
+    });
+    if (!res.ok) return;
+    const { artist } = await res.json();
+    const id = artist?.account_id;
+    if (!id) return;
+    await fetch(`${siteConfig.apiUrl}/artists/${id}`, {
+      method: "PATCH",
+      headers,
+      body: JSON.stringify({
+        profileUrls: { SPOTIFY: `https://open.spotify.com/artist/${artistId}` },
+      }),
+    });
+  } catch {
+    // best-effort — a failed link must never affect the rendered valuation
+  }
 }

@@ -53,7 +53,7 @@ export function useCatalogValuation(): CatalogValuationState {
       // Link the looked-up artist to the signed-in account's roster so it shows
       // up in the app (and the account is discoverable in Attio) — not just
       // mirrored to the CRM (chat#1814). Fire-and-forget; never affects result.
-      linkArtistToAccount({ artistId: artist.id, artistName: artist.name, token });
+      void linkArtistToAccount({ artistId: artist.id, artistName: artist.name, token });
       // Capture the lead on every successful run — email + artist + value band
       // → Attio + Telegram (fire-and-forget; must not affect the result).
       const email = user?.email?.address;
