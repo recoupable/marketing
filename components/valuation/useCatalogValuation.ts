@@ -5,6 +5,7 @@ import { usePrivy } from "@privy-io/react-auth";
 import type { Artist, Result, StartedAlbum } from "@/components/valuation/types";
 import { runValuationFlow } from "@/lib/valuation/runValuationFlow";
 import { captureValuationLead } from "@/lib/valuation/captureValuationLead";
+import { linkArtistToAccount } from "@/lib/valuation/linkArtistToAccount";
 
 export type { Artist, Result, StartedAlbum, MeasuredAlbum } from "@/components/valuation/types";
 
@@ -49,6 +50,10 @@ export function useCatalogValuation(): CatalogValuationState {
       setCatalogAlbums(outcome.catalogAlbums);
       setResult(outcome.result);
       setPhase("done");
+      // Link the looked-up artist to the signed-in account's roster so it shows
+      // up in the app (and the account is discoverable in Attio) — not just
+      // mirrored to the CRM (chat#1814). Fire-and-forget; never affects result.
+      linkArtistToAccount({ artistId: artist.id, artistName: artist.name, token });
       // Capture the lead on every successful run — email + artist + value band
       // → Attio + Telegram (fire-and-forget; must not affect the result).
       const email = user?.email?.address;
