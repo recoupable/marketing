@@ -15,7 +15,7 @@ export function CatalogValuation() {
   const running = v.phase === "running";
 
   return (
-    <div className="mt-12 w-full max-w-[560px] text-left">
+    <div className="mx-auto mt-12 w-full max-w-[560px] text-left">
       {v.phase !== "done" ? (
         <>
           <ArtistSearchBox
