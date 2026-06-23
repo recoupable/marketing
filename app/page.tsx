@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
-import { HeroDemo } from "@/components/home/HeroDemo";
+import { HomeValuationHero } from "@/components/home/HomeValuationHero";
 import { ResearchCard } from "@/components/home/ResearchCard";
 import { ContentGrid } from "@/components/home/ContentGrid";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
@@ -127,8 +127,8 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "750ms" : "0ms" }} id="hero-demo-wrapper">
-              <HeroDemo />
+            <div className={`w-full transition-all duration-500 ease-[cubic-bezier(.25,1,.5,1)] ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: show ? "750ms" : "0ms" }} id="hero-valuation-wrapper">
+              <HomeValuationHero />
             </div>
           </div>
         </div>
