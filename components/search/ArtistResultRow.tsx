@@ -28,7 +28,7 @@ export function ArtistResultRow({
       {artist.image ? (
         <Image
           src={artist.image}
-          alt=""
+          alt={`${artist.name} profile image`}
           width={36}
           height={36}
           className="h-9 w-9 shrink-0 rounded-full object-cover"

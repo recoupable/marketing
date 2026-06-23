@@ -7,7 +7,6 @@ import { createSearchKeyDown } from "@/lib/spotify/searchKeyDown";
 import type { SpotifyArtist } from "@/lib/spotify/types";
 
 type UseArtistSearchBoxParams = {
-  /** Whether an artist is currently selected (drives the derived states). */
   hasPicked: boolean;
   running?: boolean;
   onSelect: (artist: SpotifyArtist) => void;
@@ -60,7 +59,8 @@ export function useArtistSearchBox({
   }
 
   function handleFocus() {
-    if (results.length > 0) setShowDropdown(true);
+    // Re-open only while actively searching, so Enter still submits when picked.
+    if (query.length > 0 && results.length > 0) setShowDropdown(true);
   }
 
   const handleKeyDown = createSearchKeyDown({

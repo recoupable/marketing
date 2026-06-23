@@ -1,7 +1,7 @@
 "use client";
 
 import type { Artist } from "@/components/valuation/types";
-import { ArtistSearchBox } from "@/components/shared/ArtistSearchBox";
+import { ArtistSearchBox } from "@/components/search/ArtistSearchBox";
 import { toArtist } from "@/lib/valuation/toArtist";
 
 type ArtistSearchProps = {
