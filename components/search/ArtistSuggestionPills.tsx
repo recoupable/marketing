@@ -1,9 +1,9 @@
 "use client";
 
 type ArtistSuggestionPillsProps = {
-  suggestions: string[];
+  suggestions: readonly string[];
   show: boolean;
-  onSelect: () => void;
+  onSelect: (suggestion: string) => void;
 };
 
 /**
@@ -33,7 +33,7 @@ export function ArtistSuggestionPills({
               )}
               <button
                 type="button"
-                onClick={onSelect}
+                onClick={() => onSelect(s)}
                 className="transition-colors hover:text-(--foreground)/60"
               >
                 {s}

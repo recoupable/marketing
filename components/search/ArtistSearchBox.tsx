@@ -1,17 +1,11 @@
 "use client";
 
 import { useArtistSearchBox } from "@/hooks/useArtistSearchBox";
-import { ArtistSearchInput } from "@/components/shared/ArtistSearchInput";
-import { ArtistSearchResults } from "@/components/shared/ArtistSearchResults";
-import { ArtistSuggestionPills } from "@/components/shared/ArtistSuggestionPills";
+import { ArtistSearchInput } from "@/components/search/ArtistSearchInput";
+import { ArtistSearchResults } from "@/components/search/ArtistSearchResults";
+import { ArtistSuggestionPills } from "@/components/search/ArtistSuggestionPills";
+import { siteConfig } from "@/lib/config";
 import type { SpotifyArtist } from "@/lib/spotify/types";
-
-const DEFAULT_SUGGESTIONS = [
-  "Audit releases",
-  "Research report",
-  "Similar artists",
-  "Campaign plan",
-];
 
 type PickedArtist = { name: string; image?: string | null };
 
@@ -20,11 +14,15 @@ type ArtistSearchBoxProps = {
   onSelect: (artist: SpotifyArtist) => void;
   onClear: () => void;
   onSubmit: () => void;
+  /** Per-page label for the send button (accessible name). */
+  submitLabel?: string;
+  /** Handle a suggestion pill by its label; defaults to running the submit. */
+  onSuggestion?: (suggestion: string) => void;
   placeholder?: string;
   disabled?: boolean;
   running?: boolean;
   progress?: string;
-  suggestions?: string[];
+  suggestions?: readonly string[];
 };
 
 /**
@@ -37,11 +35,13 @@ export function ArtistSearchBox({
   onSelect,
   onClear,
   onSubmit,
+  submitLabel = "Value my catalog",
+  onSuggestion,
   placeholder = "Search any artist…",
   disabled,
   running,
   progress,
-  suggestions = DEFAULT_SUGGESTIONS,
+  suggestions = siteConfig.searchSuggestions,
 }: ArtistSearchBoxProps) {
   const box = useArtistSearchBox({
     hasPicked: Boolean(picked),
@@ -68,6 +68,7 @@ export function ArtistSearchBox({
         <ArtistSearchInput
           picked={picked}
           placeholder={placeholder}
+          submitLabel={submitLabel}
           disabled={disabled}
           running={running}
           progress={progress}
@@ -89,7 +90,7 @@ export function ArtistSearchBox({
         <ArtistSuggestionPills
           suggestions={suggestions}
           show={box.showSuggestions}
-          onSelect={box.submit}
+          onSelect={onSuggestion ?? (() => box.submit())}
         />
       </div>
     </div>

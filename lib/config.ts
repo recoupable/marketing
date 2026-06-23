@@ -25,6 +25,14 @@ export const siteConfig = {
   apiUrl,
   docsUrl: "https://developers.recoupable.com",
 
+  /** Suggestion pills shown under the artist search once an artist is selected. */
+  searchSuggestions: [
+    "Audit releases",
+    "Research report",
+    "Similar artists",
+    "Campaign plan",
+  ],
+
   /** Contact emails */
   supportEmail: "support@recoupable.com",
   contactEmail: "hi@recoupable.com",
