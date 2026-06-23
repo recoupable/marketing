@@ -1,4 +1,4 @@
-import type { Result } from "@/components/valuation/useCatalogValuation";
+import type { Result } from "@/components/valuation/types";
 import { formatCompact } from "@/lib/valuation/formatCompact";
 
 /**

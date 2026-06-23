@@ -1,39 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { filterArtistsByName } from "@/lib/spotify/filterArtistsByName";
+import { searchCache } from "@/lib/spotify/searchCache";
+import { prefetchLetters } from "@/lib/spotify/prefetchLetters";
+import { getCachedApprox } from "@/lib/spotify/getCachedApprox";
 import type { SpotifyArtist } from "@/lib/spotify/types";
-
-export type { SpotifyArtist } from "@/lib/spotify/types";
-
-// Module-level cache shared across every mount so the dropdown feels instant
-// after the first keystrokes — prefetched single letters seed it, and each live
-// query result is memoized by its lowercased string.
-const searchCache = new Map<string, SpotifyArtist[]>();
-const LETTERS = "abcdefghijklmnopqrstuvwxyz".split("");
-
-function prefetchLetters() {
-  if (searchCache.size > 0) return;
-  LETTERS.forEach(letter => {
-    fetch(`/api/spotify/search?q=${letter}&limit=10`)
-      .then(r => r.json())
-      .then(data => {
-        searchCache.set(letter, data.artists ?? []);
-      })
-      .catch(() => {});
-  });
-}
-
-function getCachedApprox(query: string): SpotifyArtist[] {
-  const q = query.toLowerCase();
-  const exact = searchCache.get(q);
-  if (exact) return exact;
-  for (let len = q.length - 1; len >= 1; len--) {
-    const cached = searchCache.get(q.slice(0, len));
-    if (cached) return filterArtistsByName(cached, q);
-  }
-  return [];
-}
 
 export type SpotifyArtistSearch = {
   query: string;
@@ -44,8 +15,8 @@ export type SpotifyArtistSearch = {
 
 /**
  * Debounced, cached Spotify artist search powering the shared ArtistSearchBox.
- * Extracted from the home hero so the home page and the valuation page share one
- * search implementation (DRY, recoupable/chat#1814).
+ * Cache + prefetch + approximation live in lib/spotify; this hook owns only the
+ * query/results state and the debounced network fetch (recoupable/chat#1814).
  */
 export function useSpotifyArtistSearch(): SpotifyArtistSearch {
   const [query, setQuery] = useState("");
@@ -81,9 +52,12 @@ export function useSpotifyArtistSearch(): SpotifyArtistSearch {
       const controller = new AbortController();
       abortRef.current = controller;
       try {
-        const res = await fetch(`/api/spotify/search?q=${encodeURIComponent(query)}&limit=10`, {
-          signal: controller.signal,
-        });
+        const res = await fetch(
+          `/api/spotify/search?q=${encodeURIComponent(query)}&limit=10`,
+          {
+            signal: controller.signal,
+          },
+        );
         const data = await res.json();
         if (!controller.signal.aborted) {
           const artists: SpotifyArtist[] = data.artists ?? [];

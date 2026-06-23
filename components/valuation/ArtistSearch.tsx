@@ -1,8 +1,8 @@
 "use client";
 
 import type { Artist } from "@/components/valuation/types";
-import type { SpotifyArtist } from "@/components/shared/useSpotifyArtistSearch";
 import { ArtistSearchBox } from "@/components/shared/ArtistSearchBox";
+import { toArtist } from "@/lib/valuation/toArtist";
 
 type ArtistSearchProps = {
   picked: Artist | null;
@@ -13,10 +13,6 @@ type ArtistSearchProps = {
   onClear: () => void;
   onRun: () => void;
 };
-
-function toArtist(a: SpotifyArtist): Artist {
-  return { id: a.id, name: a.name, image: a.image ?? undefined, followers: a.followers };
-}
 
 /**
  * Valuation step 1: the shared home-island artist search. Selecting an artist
@@ -31,11 +27,15 @@ export function ArtistSearch(props: ArtistSearchProps) {
         running={props.running}
         progress={props.progress}
         placeholder="Search your artist name…"
-        onSelect={a => props.onPick(toArtist(a))}
-        onClear={props.onClear}
+        onSelect={(a) => props.onPick(toArtist(a))}
+        onClear={props.running ? () => {} : props.onClear}
         onSubmit={props.onRun}
       />
-      {props.error && <p className="mt-4 text-center text-[13px] text-red-500/90">{props.error}</p>}
+      {props.error && (
+        <p className="mt-4 text-center text-[13px] text-red-500/90">
+          {props.error}
+        </p>
+      )}
     </>
   );
 }
