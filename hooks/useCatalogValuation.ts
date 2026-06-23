@@ -9,6 +9,7 @@ import type {
 } from "@/components/valuation/types";
 import { runValuationFlow } from "@/lib/valuation/runValuationFlow";
 import { captureRunLead } from "@/lib/valuation/captureRunLead";
+import { linkArtistToAccount } from "@/lib/valuation/linkArtistToAccount";
 
 type Phase = "idle" | "running" | "done" | "error";
 
@@ -51,6 +52,8 @@ export function useCatalogValuation(): CatalogValuationState {
       setCatalogAlbums(outcome.catalogAlbums);
       setResult(outcome.result);
       setPhase("done");
+      // Link the looked-up artist to the account roster (chat#1814); best-effort.
+      void linkArtistToAccount(artist, token);
       captureRunLead(user, artist, outcome.result);
     } catch (e) {
       setError(e instanceof Error ? e.message : "something went wrong");
