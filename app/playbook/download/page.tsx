@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { buildPageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Your AI Music Marketing Playbook | Recoupable",
@@ -292,7 +293,7 @@ Total daily time per artist: ~10–15 minutes. Down from 2–4 hours.`,
 
 **Book at:** recoupable.com/advisory
 
-Or start with the product: **chat.recoupable.com** — try Recoupable's AI agents free.`,
+Or start with the product: **chat.recoupable.dev** — try Recoupable's AI agents free.`,
       },
     ],
   },
@@ -394,7 +395,7 @@ export default function PlaybookDownloadPage() {
             Book Advisory Session →
           </Link>
           <Link
-            href="https://chat.recoupable.com"
+            href={siteConfig.appUrl}
             className="rounded-lg border border-[var(--border)] px-6 py-3 text-sm font-semibold hover:bg-white/5 transition-colors"
           >
             Try Recoupable Free

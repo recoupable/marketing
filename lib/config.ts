@@ -23,7 +23,7 @@ export const siteConfig = {
   url: "https://recoupable.com",
   appUrl: "https://chat.recoupable.dev",
   apiUrl,
-  docsUrl: "https://developers.recoupable.com",
+  docsUrl: "https://docs.recoupable.dev",
 
   /** Suggestion pills shown under the artist search once an artist is selected. */
   searchSuggestions: [

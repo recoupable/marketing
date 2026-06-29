@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { pricingCopy, type PricingPlan } from "@/lib/copy/pricing";
 import { buildPageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Pricing | Recoupable",
@@ -151,7 +152,7 @@ export default function PricingPage() {
           Start free. No credit card required. Your AI agents are ready.
         </p>
         <a
-          href="https://chat.recoupable.com"
+          href={siteConfig.appUrl}
           className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
         >
           Get started free
