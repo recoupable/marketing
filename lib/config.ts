@@ -20,7 +20,7 @@ export const siteConfig = {
   tagline: "AI agents for music",
   description:
     "Your label. Run by agents. You create. They run strategy, content, revenue.",
-  url: "https://recoupable.com",
+  url: "https://recoupable.dev",
   appUrl: "https://chat.recoupable.dev",
   apiUrl,
   docsUrl: "https://docs.recoupable.dev",
@@ -56,7 +56,7 @@ export const siteConfig = {
 
   /** Plausible analytics — privacy-friendly, no cookie banner needed */
   plausible: {
-    domain: "recoupable.com",
+    domain: "recoupable.dev",
     src: "https://plausible.io/js/script.js",
   },
 
