@@ -15,6 +15,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MachineContent } from "@/components/layout/MachineContent";
 import { ViewModeBar } from "@/components/layout/ViewModeBar";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -105,6 +106,7 @@ export default function RootLayout({
             <ViewModeBar />
           </HumanMachineProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
