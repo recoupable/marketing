@@ -34,8 +34,8 @@ export const siteConfig = {
   ],
 
   /** Contact emails */
-  supportEmail: "support@recoupable.com",
-  contactEmail: "hi@recoupable.com",
+  supportEmail: "support@recoupable.dev",
+  contactEmail: "hi@recoupable.dev",
 
   /** Company address — used in legal pages */
   address: "720 Capitol Square Pl. SW, Washington, DC 20024",
