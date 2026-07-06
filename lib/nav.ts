@@ -6,6 +6,7 @@ import { siteConfig } from "@/lib/config";
 
 export const nav: readonly { label: string; href: string; external?: boolean }[] = [
   { label: "Plugins", href: "/plugins" },
+  { label: "Compare", href: "/compare" },
   { label: "Results", href: "/results" },
   { label: "Pricing", href: "/pricing" },
   { label: "Docs", href: siteConfig.docsUrl, external: true },
@@ -30,6 +31,7 @@ export const footerNav = {
       { label: "AI Playbook", href: "/playbook" },
       { label: "ROI Calculator", href: "/calculator" },
       { label: "AI Readiness Audit", href: "/audit" },
+      { label: "BYOA vs Dashboards", href: "/compare" },
       { label: "Records", href: "/records" },
     ],
   },
