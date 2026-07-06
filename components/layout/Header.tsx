@@ -6,6 +6,8 @@ import Image from "next/image";
 import { siteConfig } from "@/lib/config";
 import { nav } from "@/lib/nav";
 import { useTheme } from "@/contexts/ThemeContext";
+import { HeaderAuth } from "@/components/layout/HeaderAuth";
+import { MobileSignInLink } from "@/components/layout/MobileSignInLink";
 import { Sun, Moon } from "lucide-react";
 
 export function Header() {
@@ -69,18 +71,7 @@ export function Header() {
             </svg>
           </button>
 
-          <Link
-            href={siteConfig.appUrl}
-            className="hidden sm:inline-block text-[14px] font-ui font-medium text-(--foreground)/70 hover:text-(--foreground) transition-colors px-4 py-1.5 rounded-full border border-(--border) hover:border-(--foreground)/20"
-          >
-            Sign In
-          </Link>
-          <Link
-            href={siteConfig.appUrl}
-            className="bg-(--foreground) text-(--background) px-5 py-2 rounded-full text-[14px] font-ui font-semibold hover:opacity-90 transition-opacity"
-          >
-            Sign Up
-          </Link>
+          <HeaderAuth />
         </div>
       </div>
 
@@ -98,13 +89,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href={siteConfig.appUrl}
-              className="block px-3 py-2.5 text-sm font-ui font-medium text-(--foreground)/70 sm:hidden"
-              onClick={() => setMobileOpen(false)}
-            >
-              Sign In
-            </Link>
+            <MobileSignInLink onNavigate={() => setMobileOpen(false)} />
           </div>
         </div>
       )}

@@ -6,7 +6,8 @@ import { siteConfig } from "@/lib/config";
 
 /**
  * App-wide Privy auth provider (email-only, brand-themed). Rendered once at the
- * root (app/layout.tsx) so any page can use the valuation flow directly — no
+ * root (app/layout.tsx), wrapping the header too, so any page can use the
+ * valuation flow directly and the header can reflect the session — no
  * per-page wrapper. Privy initializes on the client; the provider renders a
  * plain context on the server, so pages stay statically prerenderable
  * (chat#1798, chat#1814). Build fails if `NEXT_PUBLIC_PRIVY_APP_ID` is unset, so
