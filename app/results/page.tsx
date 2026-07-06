@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
-import { resultsCopy } from "@/lib/copy/results";
+import { resultsCopy, caseStudySummaries } from "@/lib/copy/results";
+import { ArrowRight as ArrowRightIcon } from "lucide-react";
 
 /* ── reveal-on-scroll helper ── */
 function useReveal() {
@@ -118,6 +119,40 @@ export default function ResultsPage() {
           {resultsCopy.caseStudies.map((study, i) => (
             <CaseStudy key={study.id} study={study} index={i} />
           ))}
+        </div>
+      </section>
+
+      {/* Detailed Case Studies */}
+      <section className="pb-20 px-6">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-2 text-center">
+            Deep Dives
+          </h2>
+          <p className="text-neutral-400 text-center mb-10">
+            Full breakdowns with before/after numbers, implementation details, and lessons learned.
+          </p>
+          <div className="space-y-4">
+            {caseStudySummaries.map((cs) => (
+              <Link
+                key={cs.slug}
+                href={`/results/${cs.slug}`}
+                className="group block rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8 hover:border-white/[0.12] transition-colors"
+              >
+                <span className="inline-block text-xs font-medium tracking-wider uppercase text-neutral-500 mb-2">
+                  {cs.tag}
+                </span>
+                <div className="flex items-center justify-between gap-4">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight">
+                    {cs.title}
+                  </h3>
+                  <ArrowRightIcon className="w-5 h-5 text-neutral-500 group-hover:text-white group-hover:translate-x-1 transition-all flex-shrink-0" />
+                </div>
+                <p className="text-sm text-neutral-400 mt-2 max-w-xl">
+                  {cs.description}
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

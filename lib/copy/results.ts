@@ -2,6 +2,8 @@
  * Results / case studies page copy — social proof for advisory and SaaS conversion.
  */
 
+export { caseStudySummaries } from "./case-studies";
+
 export const resultsCopy = {
   title: "Results | Recoup",
   description:
