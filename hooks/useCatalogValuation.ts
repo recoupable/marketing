@@ -9,7 +9,6 @@ import type {
 } from "@/components/valuation/types";
 import { runValuationFlow } from "@/lib/valuation/runValuationFlow";
 import { captureRunLead } from "@/lib/valuation/captureRunLead";
-import { linkArtistToAccount } from "@/lib/valuation/linkArtistToAccount";
 
 type Phase = "idle" | "running" | "done" | "error";
 
@@ -52,8 +51,10 @@ export function useCatalogValuation(): CatalogValuationState {
       setCatalogAlbums(outcome.catalogAlbums);
       setResult(outcome.result);
       setPhase("done");
-      // Link the looked-up artist to the account roster (chat#1814); best-effort.
-      void linkArtistToAccount(artist, token);
+      // Roster attach happens server-side when the run is claimed into a
+      // catalog (POST /api/catalogs resolves the canonical artist through the
+      // songs graph, chat#1850 P1) — the old client-side POST /api/artists
+      // minted a duplicate, song-less roster artist per signup.
       captureRunLead(user, artist, outcome.result);
     } catch (e) {
       setError(e instanceof Error ? e.message : "something went wrong");
