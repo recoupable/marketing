@@ -10,6 +10,9 @@ import type {
 import { runValuationFlow } from "@/lib/valuation/runValuationFlow";
 import { captureRunLead } from "@/lib/valuation/captureRunLead";
 import { linkArtistToAccount } from "@/lib/valuation/linkArtistToAccount";
+import { savePendingIntent } from "@/lib/valuation/savePendingIntent";
+import { readPendingIntent } from "@/lib/valuation/readPendingIntent";
+import { clearPendingIntent } from "@/lib/valuation/clearPendingIntent";
 
 type Phase = "idle" | "running" | "done" | "error";
 
@@ -28,7 +31,10 @@ export type CatalogValuationState = {
 /**
  * Drives the catalog valuation behind the Privy sign-in gate (chat#1798). The
  * run trigger opens Privy when signed out and, on login, auto-fires the run for
- * the **originally** selected artist. Render inside `PrivyProvider`.
+ * the **originally** selected artist. The deferred intent is persisted to
+ * sessionStorage — not just a ref — because fresh-signup auth churn can remount
+ * this hook's component mid-auth and a ref dies with its instance (chat#1850
+ * post-auth intent drop). Render inside `PrivyProvider`.
  */
 export function useCatalogValuation(): CatalogValuationState {
   const { authenticated, login, getAccessToken, user } = usePrivy();
@@ -65,20 +71,25 @@ export function useCatalogValuation(): CatalogValuationState {
     if (!picked) return;
     // Gate: signed out → open Privy and defer the run to a successful login.
     if (!authenticated) {
-      pendingRun.current = picked;
+      pendingRun.current = picked; // fast path when this instance survives auth
+      savePendingIntent(picked); // source of truth: survives remount + reload
       login();
       return;
     }
     await doRun(picked);
   }
 
-  // Auto-fire the deferred run once the user signs in, for the stored artist.
+  // Auto-fire the deferred run once `authenticated` is true — on the sign-in
+  // flip when this instance survives, or on mount of a fresh instance after an
+  // auth-churn remount / full reload (then the intent comes from storage).
   useEffect(() => {
-    if (authenticated && pendingRun.current) {
-      const artist = pendingRun.current;
-      pendingRun.current = null;
-      void doRun(artist);
-    }
+    if (!authenticated) return;
+    const artist = pendingRun.current ?? readPendingIntent();
+    pendingRun.current = null;
+    clearPendingIntent(); // consume-once: never re-fire on later mounts
+    if (!artist) return;
+    setPicked(artist); // a remount lost `picked`; restore it for the result UI
+    void doRun(artist);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authenticated]);
 
@@ -92,6 +103,7 @@ export function useCatalogValuation(): CatalogValuationState {
     pick: setPicked,
     clearPick: () => {
       pendingRun.current = null; // also drop a deferred signed-out run
+      clearPendingIntent(); // …including its persisted copy
       setPicked(null);
     },
     run,
