@@ -9,6 +9,8 @@ import type {
 } from "@/components/valuation/types";
 import { runValuationFlow } from "@/lib/valuation/runValuationFlow";
 import { captureRunLead } from "@/lib/valuation/captureRunLead";
+import { fetchSpotifyArtist } from "@/lib/spotify/fetchArtist";
+import { toArtist } from "@/lib/valuation/toArtist";
 
 type Phase = "idle" | "running" | "done" | "error";
 
@@ -28,10 +30,16 @@ export type CatalogValuationState = {
  * Drives the catalog valuation behind the Privy sign-in gate (chat#1798). The
  * run trigger opens Privy when signed out and, on login, auto-fires the run for
  * the **originally** selected artist. Render inside `PrivyProvider`.
+ *
+ * When `initialArtistId` is provided (shareable URL), auto-fetches the artist
+ * and queues the valuation run on mount.
  */
-export function useCatalogValuation(): CatalogValuationState {
+export function useCatalogValuation(
+  initialArtistId?: string,
+): CatalogValuationState {
   const { authenticated, login, getAccessToken, user } = usePrivy();
   const [picked, setPicked] = useState<Artist | null>(null);
+  const initialFetched = useRef(false);
 
   const [catalogAlbums, setCatalogAlbums] = useState<StartedAlbum[]>([]);
   const [phase, setPhase] = useState<Phase>("idle");
@@ -82,6 +90,26 @@ export function useCatalogValuation(): CatalogValuationState {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authenticated]);
+
+  // Shareable URL: fetch artist by Spotify ID and auto-trigger the run.
+  useEffect(() => {
+    if (!initialArtistId || initialFetched.current) return;
+    initialFetched.current = true;
+    void (async () => {
+      const spotify = await fetchSpotifyArtist(initialArtistId);
+      if (!spotify) return;
+      const artist = toArtist(spotify);
+      setPicked(artist);
+      // If already authenticated, run immediately; otherwise queue for login.
+      if (authenticated) {
+        void doRun(artist);
+      } else {
+        pendingRun.current = artist;
+        login();
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialArtistId]);
 
   return {
     picked,

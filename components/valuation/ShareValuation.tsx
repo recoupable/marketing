@@ -5,6 +5,7 @@ import { formatUsd } from "@/lib/valuation/formatUsd";
 
 type ShareValuationProps = {
   artistName: string | null;
+  artistId: string | null;
   centralValue: number;
 };
 
@@ -41,10 +42,12 @@ function LinkedInIcon() {
   );
 }
 
-export function ShareValuation({ artistName, centralValue }: ShareValuationProps) {
+export function ShareValuation({ artistName, artistId, centralValue }: ShareValuationProps) {
   const [copied, setCopied] = useState(false);
 
-  const url = "https://recoupable.dev/valuation";
+  const url = artistId
+    ? `https://recoupable.dev/valuation/${artistId}`
+    : "https://recoupable.dev/valuation";
   const value = formatUsd(centralValue);
   const name = artistName ?? "My artist";
 

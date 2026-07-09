@@ -50,7 +50,7 @@ export function ValuationResult({ artist, result, catalogAlbums }: ValuationResu
         totalStreams={result.totalStreams}
       />
       <GetFullReportCta snapshotId={result.snapshotId} artistName={artist?.name} />
-      <ShareValuation artistName={artist?.name ?? null} centralValue={result.valueBand.central} />
+      <ShareValuation artistName={artist?.name ?? null} artistId={artist?.id ?? null} centralValue={result.valueBand.central} />
     </div>
   );
 }
