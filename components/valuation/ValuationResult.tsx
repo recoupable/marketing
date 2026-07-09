@@ -3,6 +3,7 @@ import { ArtistHeader } from "@/components/valuation/ArtistHeader";
 import { ValuationStats } from "@/components/valuation/ValuationStats";
 import { MeasuredCatalog } from "@/components/valuation/MeasuredCatalog";
 import { GetFullReportCta } from "@/components/valuation/GetFullReportCta";
+import { ShareValuation } from "@/components/valuation/ShareValuation";
 import { formatUsd } from "@/lib/valuation/formatUsd";
 
 type ValuationResultProps = {
@@ -49,6 +50,7 @@ export function ValuationResult({ artist, result, catalogAlbums }: ValuationResu
         totalStreams={result.totalStreams}
       />
       <GetFullReportCta snapshotId={result.snapshotId} artistName={artist?.name} />
+      <ShareValuation artistName={artist?.name ?? null} artistId={artist?.id ?? null} centralValue={result.valueBand.central} />
     </div>
   );
 }

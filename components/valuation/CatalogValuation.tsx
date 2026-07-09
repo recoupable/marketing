@@ -5,13 +5,18 @@ import { ArtistSearchBox } from "@/components/search/ArtistSearchBox";
 import { ValuationResult } from "@/components/valuation/ValuationResult";
 import { toArtist } from "@/lib/valuation/toArtist";
 
+type CatalogValuationProps = {
+  /** Spotify artist ID from a shareable URL — auto-selects and runs. */
+  initialArtistId?: string;
+};
+
 /**
  * The one-click catalog valuation flow: search → run → shareable result card.
  * Adapts the shared ArtistSearchBox to the valuation domain inline — Spotify→
  * Artist mapping, the clear-while-running guard, and error chrome (chat#1814).
  */
-export function CatalogValuation() {
-  const v = useCatalogValuation();
+export function CatalogValuation({ initialArtistId }: CatalogValuationProps = {}) {
+  const v = useCatalogValuation(initialArtistId);
   const running = v.phase === "running";
 
   return (
