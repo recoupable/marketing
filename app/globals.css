@@ -84,6 +84,51 @@
     background: radial-gradient(ellipse 80% 50% at 50% 0%, #1c1c1c 0%, #111 100%);
   }
 
+  /* ROI Calculator slider */
+  .roi-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 9999px;
+    background: linear-gradient(
+      to right,
+      var(--foreground) 0%,
+      var(--foreground) var(--slider-pct, 50%),
+      var(--border) var(--slider-pct, 50%),
+      var(--border) 100%
+    );
+    outline: none;
+    cursor: pointer;
+  }
+
+  .roi-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--foreground);
+    border: 2px solid var(--background);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    cursor: grab;
+    transition: transform 0.15s;
+  }
+
+  .roi-slider::-webkit-slider-thumb:active {
+    cursor: grabbing;
+    transform: scale(1.15);
+  }
+
+  .roi-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--foreground);
+    border: 2px solid var(--background);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    cursor: grab;
+  }
+
   .dark-section-cta {
     background: radial-gradient(ellipse 80% 60% at 50% 100%, #0f0f0f 0%, #060606 100%);
   }
