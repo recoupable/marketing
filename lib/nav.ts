@@ -6,6 +6,7 @@ import { siteConfig } from "@/lib/config";
 
 export const nav: readonly { label: string; href: string; external?: boolean }[] = [
   { label: "Results", href: "/results" },
+  { label: "Compare", href: "/compare" },
   { label: "Pricing", href: "/pricing" },
   { label: "Docs", href: siteConfig.docsUrl, external: true },
   { label: "Blog", href: "/blog" },
@@ -24,6 +25,7 @@ export const footerNav = {
     label: "Resources",
     items: [
       { label: "Results", href: "/results" },
+      { label: "Compare", href: "/compare" },
       { label: "Blog", href: "/resources" },
       { label: "AI Playbook", href: "/playbook" },
       { label: "ROI Calculator", href: "/calculator" },
