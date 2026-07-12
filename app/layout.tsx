@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Instrument_Serif, Silkscreen } from "next/font/google";
+import {
+  Plus_Jakarta_Sans,
+  Instrument_Serif,
+  Silkscreen,
+} from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { GeistPixelSquare, GeistPixelTriangle } from "geist/font/pixel";
 import { siteConfig } from "@/lib/config";
 import { HumanMachineProvider } from "@/contexts/HumanMachineContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { PrivyAuthProvider } from "@/contexts/PrivyAuthProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MachineContent } from "@/components/layout/MachineContent";
 import { ViewModeBar } from "@/components/layout/ViewModeBar";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -91,13 +97,16 @@ export default function RootLayout({
         <ThemeProvider>
           <HumanMachineProvider>
             <Header />
-            <main className="flex-1">
-              <MachineContent>{children}</MachineContent>
-            </main>
+            <PrivyAuthProvider>
+              <main className="flex-1">
+                <MachineContent>{children}</MachineContent>
+              </main>
+            </PrivyAuthProvider>
             <Footer />
             <ViewModeBar />
           </HumanMachineProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

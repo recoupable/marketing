@@ -26,7 +26,7 @@ export const developersCopy = {
       title: "Docs",
       description:
         "API, authentication, use cases. Full documentation.",
-      linkLabel: "developers.recoupable.com",
+      linkLabel: "docs.recoupable.dev",
       linkHref: siteConfig.docsUrl,
     },
     {

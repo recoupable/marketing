@@ -2,6 +2,7 @@
  * Free AI Audit landing page copy — lead gen funnel between
  * /playbook (free content) and /advisory ($2,500+ engagement).
  */
+import { siteConfig } from "@/lib/config";
 
 export const auditCopy = {
   headline: "Is Your Label Leaving Money on the Table?",
@@ -120,11 +121,11 @@ export const auditCopy = {
         "You're the perfect fit for an AI Transformation engagement. We'll audit your workflows, deploy agents, and measure results over 90 days.",
       ctaPrimary: {
         label: "Book AI Transformation — $10,000",
-        href: "mailto:hi@recoupable.com?subject=AI%20Transformation%20Inquiry",
+        href: "mailto:hi@recoupable.dev?subject=AI%20Transformation%20Inquiry",
       },
       ctaSecondary: {
         label: "Try Recoup Free",
-        href: "https://chat.recoupable.com",
+        href: siteConfig.appUrl,
       },
     },
     high: {
@@ -136,7 +137,7 @@ export const auditCopy = {
         "Let's talk about a Partner engagement. Custom AI agents, dedicated support, and enterprise-grade infrastructure for your operation.",
       ctaPrimary: {
         label: "Talk to Us About Partnership",
-        href: "mailto:hi@recoupable.com?subject=Partner%20Inquiry",
+        href: "mailto:hi@recoupable.dev?subject=Partner%20Inquiry",
       },
       ctaSecondary: {
         label: "See Pricing",
