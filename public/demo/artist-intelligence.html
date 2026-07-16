@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artist Intelligence Report — Recoup</title>
+<meta name="description" content="See what AI-powered artist intelligence looks like. Full streaming analytics, audience insights, playlist position, competitive landscape, and growth recommendations — generated in seconds, not hours.">
+<meta property="og:title" content="Artist Intelligence Report — Recoup">
+<meta property="og:description" content="AI-powered music intelligence. What used to take your team 8 hours now takes 30 seconds.">
+<meta property="og:type" content="website">
+<style>
+  /* ── Reset ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── Design tokens (Recoup dark mode) ── */
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface-2: #181818;
+    --surface-3: #1f1f1f;
+    --border: #222222;
+    --fg: #ededed;
+    --fg-muted: #a0a0a0;
+    --fg-dim: #666666;
+    --accent: #0070f3;
+    --accent-hover: #0060d0;
+    --green: #22c55e;
+    --yellow: #f59e0b;
+    --red: #ef4444;
+    --purple: #a855f7;
+    --cyan: #06b6d4;
+    --pink: #ec4899;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 2px 8px rgba(0,0,0,0.4);
+    --shadow-lg: 0 0 0 1px rgba(255,255,255,0.06), 0 8px 32px rgba(0,0,0,0.5);
+  }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ── Layout ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 80px 0 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,112,243,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border-radius: 999px;
+    background: var(--surface-2); border: 1px solid var(--border);
+    font-size: 13px; color: var(--fg-muted); margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+  .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 56px); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1.1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #ededed 30%, #a0a0a0);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero p { font-size: 18px; color: var(--fg-muted); max-width: 600px; margin: 0 auto 32px; }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;
+    margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .value { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+  .hero-stat .label { font-size: 13px; color: var(--fg-dim); margin-top: 4px; }
+  .hero-stat .value.green { color: var(--green); }
+  .hero-stat .value.accent { color: var(--accent); }
+
+  /* ── Time comparison banner ── */
+  .time-banner {
+    display: flex; align-items: center; justify-content: center; gap: 32px;
+    padding: 20px 32px; margin: 0 auto 48px;
+    background: var(--surface);
+    border-radius: var(--radius); border: 1px solid var(--border);
+    max-width: 640px; flex-wrap: wrap;
+  }
+  .time-banner .old { text-decoration: line-through; color: var(--fg-dim); font-size: 15px; }
+  .time-banner .arrow { color: var(--fg-dim); font-size: 20px; }
+  .time-banner .new { font-size: 15px; font-weight: 600; color: var(--green); }
+
+  /* ── Artist header ── */
+  .artist-header {
+    display: flex; gap: 24px; align-items: center;
+    padding: 32px; margin-bottom: 32px;
+    background: var(--surface);
+    border-radius: var(--radius); border: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .artist-photo {
+    width: 96px; height: 96px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px; font-weight: 700; color: white; flex-shrink: 0;
+  }
+  .artist-info { flex: 1; min-width: 200px; }
+  .artist-info h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+  .artist-meta { display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap; }
+  .artist-meta .tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px; border-radius: 6px;
+    background: var(--surface-2); font-size: 13px; color: var(--fg-muted);
+  }
+  .artist-metrics {
+    display: flex; gap: 24px; margin-left: auto; flex-wrap: wrap;
+  }
+  .artist-metric { text-align: right; }
+  .artist-metric .num { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .artist-metric .lbl { font-size: 12px; color: var(--fg-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ── Section ── */
+  .section { margin-bottom: 32px; }
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon {
+    width: 36px; height: 36px; border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .section-icon.blue { background: rgba(0,112,243,0.12); }
+  .section-icon.green { background: rgba(34,197,94,0.12); }
+  .section-icon.purple { background: rgba(168,85,247,0.12); }
+  .section-icon.pink { background: rgba(236,72,153,0.12); }
+  .section-icon.cyan { background: rgba(6,182,212,0.12); }
+  .section-icon.yellow { background: rgba(245,158,11,0.12); }
+  .section-header h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+  .section-header .badge {
+    margin-left: auto; font-size: 12px; padding: 3px 10px;
+    border-radius: 999px; background: var(--surface-2); color: var(--fg-dim);
+  }
+
+  /* ── Card grid ── */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .card {
+    padding: 20px; border-radius: var(--radius-sm);
+    background: var(--surface); border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: rgba(255,255,255,0.12); }
+  .card .card-label { font-size: 12px; color: var(--fg-dim); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .card .card-value { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .card .card-delta { font-size: 13px; margin-top: 4px; }
+  .card .card-delta.up { color: var(--green); }
+  .card .card-delta.down { color: var(--red); }
+  .card .card-delta.neutral { color: var(--fg-dim); }
+
+  /* ── Bar chart ── */
+  .bar-chart { display: flex; flex-direction: column; gap: 12px; }
+  .bar-row { display: flex; align-items: center; gap: 12px; }
+  .bar-label { width: 120px; font-size: 13px; color: var(--fg-muted); text-align: right; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 28px; background: var(--surface-2); border-radius: 6px; overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; border-radius: 6px; transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1); display: flex; align-items: center; padding: 0 10px; }
+  .bar-fill span { font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .bar-fill.blue { background: linear-gradient(90deg, var(--accent), #3b82f6); }
+  .bar-fill.green { background: linear-gradient(90deg, #16a34a, var(--green)); }
+  .bar-fill.purple { background: linear-gradient(90deg, #7c3aed, var(--purple)); }
+  .bar-fill.pink { background: linear-gradient(90deg, #db2777, var(--pink)); }
+  .bar-fill.cyan { background: linear-gradient(90deg, #0891b2, var(--cyan)); }
+  .bar-fill.yellow { background: linear-gradient(90deg, #d97706, var(--yellow)); }
+
+  /* ── Sparkline (CSS mini-chart) ── */
+  .sparkline {
+    display: flex; align-items: flex-end; gap: 3px; height: 40px;
+  }
+  .sparkline .bar {
+    flex: 1; border-radius: 2px; background: var(--accent); opacity: 0.7;
+    transition: height 1s cubic-bezier(0.22, 1, 0.36, 1);
+    min-width: 4px;
+  }
+  .sparkline .bar:last-child { opacity: 1; }
+
+  /* ── Table ── */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    text-align: left; font-size: 12px; color: var(--fg-dim);
+    text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 10px 16px; border-bottom: 1px solid var(--border);
+    font-weight: 500;
+  }
+  .data-table td {
+    padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 14px; font-variant-numeric: tabular-nums;
+  }
+  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .data-table .num-cell { text-align: right; font-weight: 600; }
+  .data-table .trend-up { color: var(--green); }
+  .data-table .trend-down { color: var(--red); }
+  .data-table .rank-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 6px;
+    font-size: 12px; font-weight: 700;
+  }
+  .rank-1 { background: rgba(245,158,11,0.15); color: var(--yellow); }
+  .rank-2 { background: rgba(168,85,247,0.12); color: var(--purple); }
+  .rank-3 { background: rgba(0,112,243,0.12); color: var(--accent); }
+  .rank-other { background: var(--surface-2); color: var(--fg-dim); }
+
+  /* ── Competitor cards ── */
+  .competitor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .competitor-card {
+    padding: 16px; border-radius: var(--radius-sm);
+    background: var(--surface); border: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .competitor-card .name { font-weight: 600; font-size: 15px; }
+  .competitor-card .stage { font-size: 12px; color: var(--fg-dim); }
+  .competitor-card .similarity {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 4px;
+  }
+  .similarity-bar { flex: 1; height: 4px; background: var(--surface-2); border-radius: 2px; overflow: hidden; }
+  .similarity-fill { height: 100%; border-radius: 2px; background: var(--accent); }
+  .similarity-pct { font-size: 13px; font-weight: 600; color: var(--accent); width: 40px; text-align: right; }
+
+  /* ── Insight callout ── */
+  .insight {
+    display: flex; gap: 12px; padding: 16px 20px;
+    background: rgba(0,112,243,0.06); border-radius: var(--radius-sm);
+    border-left: 3px solid var(--accent); margin-top: 16px;
+  }
+  .insight.green { background: rgba(34,197,94,0.06); border-left-color: var(--green); }
+  .insight.yellow { background: rgba(245,158,11,0.06); border-left-color: var(--yellow); }
+  .insight .icon { font-size: 16px; margin-top: 2px; }
+  .insight .text { font-size: 14px; color: var(--fg-muted); line-height: 1.5; }
+  .insight .text strong { color: var(--fg); }
+
+  /* ── Geo map (simplified) ── */
+  .geo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .geo-grid { grid-template-columns: 1fr; } }
+  .geo-list { display: flex; flex-direction: column; gap: 8px; }
+  .geo-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 14px; border-radius: var(--radius-sm);
+    background: var(--surface); border: 1px solid var(--border);
+  }
+  .geo-item .flag { font-size: 20px; }
+  .geo-item .country { flex: 1; font-size: 14px; font-weight: 500; }
+  .geo-item .listeners { font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .geo-item .pct { font-size: 12px; color: var(--fg-dim); margin-left: 4px; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 12px; }
+  .rec-item {
+    display: flex; gap: 16px; padding: 16px 20px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); align-items: flex-start;
+  }
+  .rec-item .priority {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; flex-shrink: 0;
+  }
+  .rec-item .priority.high { background: rgba(34,197,94,0.12); color: var(--green); }
+  .rec-item .priority.med { background: rgba(245,158,11,0.12); color: var(--yellow); }
+  .rec-item .title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .rec-item .desc { font-size: 13px; color: var(--fg-muted); line-height: 1.5; }
+  .rec-item .impact { font-size: 12px; color: var(--green); margin-top: 6px; font-weight: 500; }
+
+  /* ── CTA ── */
+  .cta-section {
+    text-align: center; padding: 64px 32px; margin: 48px 0;
+    background: var(--surface); border-radius: var(--radius);
+    border: 1px solid var(--border); position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,112,243,0.06) 0%, transparent 70%);
+  }
+  .cta-section h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; position: relative; }
+  .cta-section p { color: var(--fg-muted); margin-bottom: 24px; position: relative; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px; border-radius: var(--radius-sm);
+    background: white; color: #0a0a0a; font-weight: 600;
+    font-size: 15px; text-decoration: none; border: none; cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    position: relative;
+  }
+  .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(255,255,255,0.1); }
+  .cta-btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px; border-radius: var(--radius-sm);
+    background: transparent; color: var(--fg); font-weight: 600;
+    font-size: 15px; text-decoration: none; border: 1px solid var(--border);
+    cursor: pointer; margin-left: 12px; transition: border-color 0.15s;
+  }
+  .cta-btn-secondary:hover { border-color: var(--fg-dim); }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center; padding: 32px 0; margin-top: 32px;
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--fg-dim);
+  }
+  .footer a { color: var(--fg-muted); text-decoration: none; }
+  .footer a:hover { color: var(--fg); }
+
+  /* ── Table container ── */
+  .table-wrap { overflow-x: auto; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+  .table-wrap .data-table td:first-child, .table-wrap .data-table th:first-child { padding-left: 20px; }
+  .table-wrap .data-table td:last-child, .table-wrap .data-table th:last-child { padding-right: 20px; }
+
+  /* ── Tabs ── */
+  .tabs { display: flex; gap: 4px; margin-bottom: 24px; flex-wrap: wrap; }
+  .tab {
+    padding: 8px 16px; border-radius: var(--radius-sm);
+    font-size: 13px; font-weight: 500; cursor: pointer;
+    background: transparent; color: var(--fg-dim);
+    border: 1px solid transparent; transition: all 0.15s;
+  }
+  .tab:hover { color: var(--fg-muted); background: var(--surface); }
+  .tab.active { color: var(--fg); background: var(--surface); border-color: var(--border); }
+
+  /* ── Animations ── */
+  .fade-in { opacity: 0; transform: translateY(16px); animation: fadeIn 0.6s ease forwards; }
+  @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 32px; }
+    .hero h1 { font-size: 28px; }
+    .hero-stats { gap: 24px; }
+    .artist-header { flex-direction: column; align-items: flex-start; }
+    .artist-metrics { margin-left: 0; width: 100%; justify-content: flex-start; gap: 16px; }
+    .artist-metric { text-align: left; }
+    .bar-label { width: 80px; font-size: 12px; }
+    .container { padding: 0 16px; }
+    .cta-section { padding: 40px 20px; }
+    .rec-item { flex-direction: column; }
+  }
+
+  /* ── Generated-by badge ── */
+  .generated-badge {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 14px; border-radius: var(--radius-sm);
+    background: var(--surface-2); border: 1px solid var(--border);
+    font-size: 12px; color: var(--fg-dim); width: fit-content;
+    margin: 16px auto 0;
+  }
+  .generated-badge code {
+    font-family: var(--font-mono); color: var(--fg-muted);
+    background: var(--surface-3); padding: 2px 6px; border-radius: 4px;
+  }
+
+  /* ── Two-col layout ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ── HERO ── -->
+  <header class="hero fade-in">
+    <div class="hero-badge"><span class="dot"></span> Live Demo Report</div>
+    <h1>Artist Intelligence Report</h1>
+    <p>Everything you need to know about an artist — streaming analytics, audience insights, playlist position, competitive landscape, and growth opportunities. Generated by AI in seconds.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="value accent">14</div>
+        <div class="label">Platforms Tracked</div>
+      </div>
+      <div class="hero-stat">
+        <div class="value green">30s</div>
+        <div class="label">Generation Time</div>
+      </div>
+      <div class="hero-stat">
+        <div class="value">10</div>
+        <div class="label">Research Skills</div>
+      </div>
+      <div class="hero-stat">
+        <div class="value accent">24/7</div>
+        <div class="label">Monitoring</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── TIME BANNER ── -->
+  <div class="time-banner fade-in delay-1">
+    <span class="old">Manual research: 6–8 hours per artist</span>
+    <span class="arrow">→</span>
+    <span class="new">⚡ Recoup agent: 30 seconds</span>
+  </div>
+
+  <!-- ── ARTIST HEADER ── -->
+  <div class="artist-header fade-in delay-2">
+    <div class="artist-photo">JC</div>
+    <div class="artist-info">
+      <h2>Joy Crookes</h2>
+      <div class="artist-meta">
+        <span class="tag">🇬🇧 United Kingdom</span>
+        <span class="tag">🎵 R&B / Soul</span>
+        <span class="tag" style="color:var(--green)">📈 Growth</span>
+        <span class="tag">Mid-Level</span>
+      </div>
+    </div>
+    <div class="artist-metrics">
+      <div class="artist-metric">
+        <div class="num">3.0M</div>
+        <div class="lbl">Monthly Listeners</div>
+      </div>
+      <div class="artist-metric">
+        <div class="num">572K</div>
+        <div class="lbl">Spotify Followers</div>
+      </div>
+      <div class="artist-metric">
+        <div class="num">410K</div>
+        <div class="lbl">Instagram</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 1: STREAMING ANALYTICS                 -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section fade-in delay-3">
+    <div class="section-header">
+      <div class="section-icon blue">📊</div>
+      <h3>Streaming Analytics</h3>
+      <span class="badge">Updated 5 min ago</span>
+    </div>
+
+    <div class="card-grid" style="margin-bottom: 20px;">
+      <div class="card">
+        <div class="card-label">Monthly Listeners</div>
+        <div class="card-value">3,019,721</div>
+        <div class="card-delta up">↑ 12.4% vs last month</div>
+        <div class="sparkline" style="margin-top:12px;">
+          <div class="bar" style="height:55%"></div><div class="bar" style="height:50%"></div>
+          <div class="bar" style="height:58%"></div><div class="bar" style="height:60%"></div>
+          <div class="bar" style="height:55%"></div><div class="bar" style="height:62%"></div>
+          <div class="bar" style="height:68%"></div><div class="bar" style="height:72%"></div>
+          <div class="bar" style="height:70%"></div><div class="bar" style="height:78%"></div>
+          <div class="bar" style="height:85%"></div><div class="bar" style="height:100%"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Spotify Popularity</div>
+        <div class="card-value">62</div>
+        <div class="card-delta up">↑ 3 points</div>
+        <div style="margin-top:12px; height:8px; background:var(--surface-2); border-radius:4px; overflow:hidden;">
+          <div style="width:62%; height:100%; background:linear-gradient(90deg,var(--accent),var(--green)); border-radius:4px;"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">TikTok Followers</div>
+        <div class="card-value">232.2K</div>
+        <div class="card-delta up">↑ 8.1% vs last month</div>
+      </div>
+      <div class="card">
+        <div class="card-label">YouTube Subscribers</div>
+        <div class="card-value">184K</div>
+        <div class="card-delta up">↑ 2.3% vs last month</div>
+      </div>
+    </div>
+
+    <h4 style="font-size:14px; color:var(--fg-muted); margin-bottom:12px;">Platform Reach Breakdown</h4>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <span class="bar-label">Spotify</span>
+        <div class="bar-track"><div class="bar-fill green" style="width:85%"><span>3.0M listeners</span></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Instagram</span>
+        <div class="bar-track"><div class="bar-fill purple" style="width:52%"><span>409.6K followers</span></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">TikTok</span>
+        <div class="bar-track"><div class="bar-fill pink" style="width:38%"><span>232.2K followers</span></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">YouTube</span>
+        <div class="bar-track"><div class="bar-fill cyan" style="width:30%"><span>184K subscribers</span></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Playlist Reach</span>
+        <div class="bar-track"><div class="bar-fill blue" style="width:72%"><span>48.2M total reach</span></div></div>
+      </div>
+    </div>
+
+    <div class="insight">
+      <span class="icon">💡</span>
+      <div class="text"><strong>Key insight:</strong> Spotify monthly listeners are growing 12% MoM while TikTok is accelerating faster at 8.1%. The TikTok→Spotify pipeline is active — 23% of new Spotify listeners in the last 30 days came from TikTok referrals. Focus content investment on TikTok to amplify this funnel.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 2: TIKTOK PER-SONG VELOCITY            -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section fade-in delay-4">
+    <div class="section-header">
+      <div class="section-icon pink">🎵</div>
+      <h3>TikTok Per-Song Velocity</h3>
+      <span class="badge">#1 Customer Ask</span>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:40px">#</th>
+            <th>Track</th>
+            <th style="text-align:right">TikTok Creations</th>
+            <th style="text-align:right">7d Velocity</th>
+            <th style="text-align:right">Spotify Streams</th>
+            <th style="text-align:right">Conversion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="rank-badge rank-1">1</span></td>
+            <td><strong>When You Were Mine</strong></td>
+            <td class="num-cell">14,200</td>
+            <td class="num-cell trend-up">+1,840 ↑</td>
+            <td class="num-cell">38,912,000</td>
+            <td class="num-cell trend-up">2.7x</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge rank-2">2</span></td>
+            <td><strong>Feet Don't Fail Me Now</strong></td>
+            <td class="num-cell">8,700</td>
+            <td class="num-cell trend-up">+620 ↑</td>
+            <td class="num-cell">22,340,000</td>
+            <td class="num-cell trend-up">2.6x</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge rank-3">3</span></td>
+            <td><strong>Trouble</strong></td>
+            <td class="num-cell">5,100</td>
+            <td class="num-cell trend-up">+430 ↑</td>
+            <td class="num-cell">15,800,000</td>
+            <td class="num-cell">1.8x</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge rank-other">4</span></td>
+            <td>19th Floor</td>
+            <td class="num-cell">3,400</td>
+            <td class="num-cell trend-down">−90 ↓</td>
+            <td class="num-cell">12,100,000</td>
+            <td class="num-cell neutral">1.2x</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge rank-other">5</span></td>
+            <td>Anyone But Me</td>
+            <td class="num-cell">2,800</td>
+            <td class="num-cell trend-up">+310 ↑</td>
+            <td class="num-cell">9,450,000</td>
+            <td class="num-cell trend-up">2.1x</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge rank-other">6</span></td>
+            <td>Power</td>
+            <td class="num-cell">1,600</td>
+            <td class="num-cell neutral">+20 →</td>
+            <td class="num-cell">6,200,000</td>
+            <td class="num-cell neutral">1.1x</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="insight green" style="margin-top:16px;">
+      <span class="icon">🔥</span>
+      <div class="text"><strong>"When You Were Mine" is in active viral growth.</strong> 7-day TikTok creation velocity is +1,840 (up 42% vs prior week) with a 2.7x stream-to-creation conversion ratio. This track should be the centerpiece of the next content push — create 3–5 concept videos using the chorus hook within the next 48 hours to ride the wave.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 3: AUDIENCE & GEOGRAPHY                 -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section fade-in delay-5">
+    <div class="section-header">
+      <div class="section-icon purple">👥</div>
+      <h3>Audience Intelligence</h3>
+      <span class="badge">Demographics + Geography</span>
+    </div>
+
+    <div class="two-col" style="margin-bottom: 20px;">
+      <!-- Demographics -->
+      <div>
+        <h4 style="font-size:14px; color:var(--fg-muted); margin-bottom:12px;">Age Distribution</h4>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <span class="bar-label">18–24</span>
+            <div class="bar-track"><div class="bar-fill purple" style="width:72%"><span>36%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">25–34</span>
+            <div class="bar-track"><div class="bar-fill purple" style="width:56%"><span>28%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">13–17</span>
+            <div class="bar-track"><div class="bar-fill purple" style="width:30%"><span>15%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">35–44</span>
+            <div class="bar-track"><div class="bar-fill purple" style="width:24%"><span>12%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">45+</span>
+            <div class="bar-track"><div class="bar-fill purple" style="width:18%"><span>9%</span></div></div>
+          </div>
+        </div>
+
+        <h4 style="font-size:14px; color:var(--fg-muted); margin: 20px 0 12px;">Gender Split</h4>
+        <div style="display:flex; gap:12px;">
+          <div class="card" style="flex:1; text-align:center;">
+            <div class="card-value" style="font-size:20px;">62%</div>
+            <div class="card-label">Female</div>
+          </div>
+          <div class="card" style="flex:1; text-align:center;">
+            <div class="card-value" style="font-size:20px;">35%</div>
+            <div class="card-label">Male</div>
+          </div>
+          <div class="card" style="flex:1; text-align:center;">
+            <div class="card-value" style="font-size:20px;">3%</div>
+            <div class="card-label">Other</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Geography -->
+      <div>
+        <h4 style="font-size:14px; color:var(--fg-muted); margin-bottom:12px;">Top Markets by Listeners</h4>
+        <div class="geo-list">
+          <div class="geo-item">
+            <span class="flag">🇬🇧</span>
+            <span class="country">United Kingdom</span>
+            <span class="listeners">845K</span>
+            <span class="pct">(28%)</span>
+          </div>
+          <div class="geo-item">
+            <span class="flag">🇺🇸</span>
+            <span class="country">United States</span>
+            <span class="listeners">512K</span>
+            <span class="pct">(17%)</span>
+          </div>
+          <div class="geo-item">
+            <span class="flag">🇳🇱</span>
+            <span class="country">Netherlands</span>
+            <span class="listeners">241K</span>
+            <span class="pct">(8%)</span>
+          </div>
+          <div class="geo-item">
+            <span class="flag">🇩🇪</span>
+            <span class="country">Germany</span>
+            <span class="listeners">198K</span>
+            <span class="pct">(7%)</span>
+          </div>
+          <div class="geo-item">
+            <span class="flag">🇫🇷</span>
+            <span class="country">France</span>
+            <span class="listeners">165K</span>
+            <span class="pct">(5%)</span>
+          </div>
+          <div class="geo-item">
+            <span class="flag">🇦🇺</span>
+            <span class="country">Australia</span>
+            <span class="listeners">148K</span>
+            <span class="pct">(5%)</span>
+          </div>
+          <div class="geo-item" style="border-color:rgba(245,158,11,0.3);">
+            <span class="flag">🇯🇵</span>
+            <span class="country" style="color:var(--yellow);">Japan ★ Emerging</span>
+            <span class="listeners">89K</span>
+            <span class="pct" style="color:var(--yellow);">(+340%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight yellow">
+      <span class="icon">🌏</span>
+      <div class="text"><strong>Japan is an emerging market (+340% in 60 days).</strong> Listener growth is organic — likely triggered by a playlist placement on Spotify Japan's "Soul Coffee" editorial. Recommend: localized social content in Japanese, apply to J-Wave radio playlists, and explore partnership with a local promoter for Tokyo/Osaka shows in Q1.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 4: COMPETITIVE LANDSCAPE                -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-icon cyan">⚔️</div>
+      <h3>Competitive Landscape</h3>
+      <span class="badge">Similar Artists</span>
+    </div>
+
+    <div class="competitor-grid">
+      <div class="competitor-card">
+        <div class="name">Jorja Smith</div>
+        <div class="stage">Mainstream · R&B</div>
+        <div style="font-size:13px; color:var(--fg-muted); margin-top:4px;">7.2M listeners · 1.8M IG</div>
+        <div class="similarity">
+          <div class="similarity-bar"><div class="similarity-fill" style="width:92%"></div></div>
+          <span class="similarity-pct">92%</span>
+        </div>
+      </div>
+      <div class="competitor-card">
+        <div class="name">Mahalia</div>
+        <div class="stage">Mid-Level · R&B/Soul</div>
+        <div style="font-size:13px; color:var(--fg-muted); margin-top:4px;">2.1M listeners · 680K IG</div>
+        <div class="similarity">
+          <div class="similarity-bar"><div class="similarity-fill" style="width:88%"></div></div>
+          <span class="similarity-pct">88%</span>
+        </div>
+      </div>
+      <div class="competitor-card">
+        <div class="name">Celeste</div>
+        <div class="stage">Mid-Level · Soul/Jazz</div>
+        <div style="font-size:13px; color:var(--fg-muted); margin-top:4px;">3.8M listeners · 420K IG</div>
+        <div class="similarity">
+          <div class="similarity-bar"><div class="similarity-fill" style="width:85%"></div></div>
+          <span class="similarity-pct">85%</span>
+        </div>
+      </div>
+      <div class="competitor-card">
+        <div class="name">Arlo Parks</div>
+        <div class="stage">Mainstream · Indie Soul</div>
+        <div style="font-size:13px; color:var(--fg-muted); margin-top:4px;">4.5M listeners · 920K IG</div>
+        <div class="similarity">
+          <div class="similarity-bar"><div class="similarity-fill" style="width:78%"></div></div>
+          <span class="similarity-pct">78%</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <h4 style="font-size:14px; color:var(--fg-muted); margin-bottom:12px;">Playlist Gap Analysis — On their playlists but not yours</h4>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Playlist</th>
+              <th>Curator</th>
+              <th style="text-align:right">Followers</th>
+              <th style="text-align:right">Peers On It</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Are & Be</strong></td>
+              <td>Spotify</td>
+              <td class="num-cell">5,200,000</td>
+              <td class="num-cell">3/4</td>
+              <td><span style="color:var(--green); font-size:13px;">Editorial</span></td>
+            </tr>
+            <tr>
+              <td><strong>Neo Soul Lounge</strong></td>
+              <td>Spotify</td>
+              <td class="num-cell">1,800,000</td>
+              <td class="num-cell">3/4</td>
+              <td><span style="color:var(--green); font-size:13px;">Editorial</span></td>
+            </tr>
+            <tr>
+              <td><strong>Butter</strong></td>
+              <td>Spotify</td>
+              <td class="num-cell">3,100,000</td>
+              <td class="num-cell">2/4</td>
+              <td><span style="color:var(--green); font-size:13px;">Editorial</span></td>
+            </tr>
+            <tr>
+              <td><strong>Soul Coffee</strong></td>
+              <td>Spotify Japan</td>
+              <td class="num-cell">890,000</td>
+              <td class="num-cell">2/4</td>
+              <td><span style="color:var(--green); font-size:13px;">Editorial</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="insight">
+      <span class="icon">🎯</span>
+      <div class="text"><strong>3 of 4 similar artists are on "Are & Be" (5.2M followers) — Joy Crookes isn't.</strong> This is the highest-value pitch target. With the current momentum on "When You Were Mine," now is the optimal time to pitch for editorial placement. Estimated impact: +800K–1.2M additional listeners within 30 days of placement.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 5: GROWTH RECOMMENDATIONS               -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-icon green">🚀</div>
+      <h3>Growth Recommendations</h3>
+      <span class="badge">AI-Generated Action Plan</span>
+    </div>
+
+    <div class="rec-list">
+      <div class="rec-item">
+        <div class="priority high">P0</div>
+        <div>
+          <div class="title">Capitalize on "When You Were Mine" TikTok momentum</div>
+          <div class="desc">The track is in active viral growth (+42% velocity). Create 3–5 concept videos using the chorus hook within 48 hours. Target the "golden hour" and "getting ready" content niches where the song's energy matches. Budget: $0 (organic) or $500 for creator seeding.</div>
+          <div class="impact">Est. impact: +500K streams over 30 days</div>
+        </div>
+      </div>
+      <div class="rec-item">
+        <div class="priority high">P0</div>
+        <div>
+          <div class="title">Pitch "Are & Be" editorial playlist</div>
+          <div class="desc">All 3 closest peers are on this 5.2M-follower playlist. Joy Crookes has enough editorial traction (12 current editorial placements) to be a credible candidate. Coordinate pitch with the upcoming streaming momentum from the TikTok push.</div>
+          <div class="impact">Est. impact: +800K–1.2M listeners within 30 days</div>
+        </div>
+      </div>
+      <div class="rec-item">
+        <div class="priority med">P1</div>
+        <div>
+          <div class="title">Launch Japan market localization</div>
+          <div class="desc">Japan listeners grew +340% organically from a single playlist placement. This is rare — most UK R&B artists have zero Japan presence. Create Japanese-subtitled content, pitch to J-Wave and Inter FM radio, and explore a Tokyo showcase partnership.</div>
+          <div class="impact">Est. impact: new market worth 200K+ listeners at maturity</div>
+        </div>
+      </div>
+      <div class="rec-item">
+        <div class="priority med">P1</div>
+        <div>
+          <div class="title">Close the Instagram→TikTok gap</div>
+          <div class="desc">410K Instagram followers vs 232K TikTok — the TikTok audience is growing faster but still under-indexed. Cross-post Reels to TikTok with platform-native editing. The 18–24 demo (36% of audience) lives on TikTok first.</div>
+          <div class="impact">Est. impact: +50K TikTok followers in 60 days</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 6: WHAT POWERS THIS                     -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-icon yellow">⚡</div>
+      <h3>What Powers This Report</h3>
+      <span class="badge">Recoup Research Plugin</span>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Artist Research</div>
+        <div style="font-size:14px; color:var(--fg-muted); margin-top:4px;">Full profile, 14-platform metrics, audience demographics, playlist position, career trajectory</div>
+      </div>
+      <div class="card">
+        <div class="card-label">TikTok Per-Song</div>
+        <div style="font-size:14px; color:var(--fg-muted); margin-top:4px;">Per-track creation counts, velocity trends, stream conversion ratios — the #1 customer ask</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Playlist Intelligence</div>
+        <div style="font-size:14px; color:var(--fg-muted); margin-top:4px;">Gap analysis against peers, editorial targets, curator relationships, placement tracking</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Competitive Analysis</div>
+        <div style="font-size:14px; color:var(--fg-muted); margin-top:4px;">Head-to-head metrics, audience overlap, release timing strategy, collaboration targets</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Trend Detection</div>
+        <div style="font-size:14px; color:var(--fg-muted); margin-top:4px;">A&R discovery, chart movement, viral song autopsy — find opportunities before they peak</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Weekly Briefs</div>
+        <div style="font-size:14px; color:var(--fg-muted); margin-top:4px;">Automated Monday reports: what changed, what to do, ranked by impact. Delta-focused.</div>
+      </div>
+    </div>
+
+    <div class="generated-badge" style="margin-top:20px;">
+      <span>Generated with</span>
+      <code>/recoup-research "Joy Crookes"</code>
+      <span>in 28 seconds</span>
+    </div>
+  </div>
+
+  <!-- ── CTA ── -->
+  <div class="cta-section fade-in">
+    <h2>Get this for your artists</h2>
+    <p>Install the Recoup Research Plugin in Claude Code, Cowork, or Cursor. Run one command. Get intelligence that used to take your team all day.</p>
+    <a href="https://recoupable.dev/audit" class="cta-btn">Get a Free AI Audit →</a>
+    <a href="https://developers.recoupable.com" class="cta-btn-secondary">View API Docs</a>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <p>Built by <a href="https://recoupable.dev">Recoup</a> · AI infrastructure for the music business</p>
+    <p style="margin-top:8px;">This is a demo report with example data. Actual reports are generated live from Chartmetric, Spotify, TikTok, Instagram, YouTube, and 8 other platforms.</p>
+  </footer>
+
+</div>
+
+<!-- ── Intersection Observer for scroll animations ── -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Animate bars on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          // Trigger bar animations
+          entry.target.querySelectorAll('.bar-fill').forEach((bar, i) => {
+            const width = bar.style.width;
+            bar.style.width = '0%';
+            setTimeout(() => { bar.style.width = width; }, 100 + i * 80);
+          });
+          entry.target.querySelectorAll('.sparkline .bar').forEach((bar, i) => {
+            const height = bar.style.height;
+            bar.style.height = '0%';
+            setTimeout(() => { bar.style.height = height; }, 50 + i * 40);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach(s => observer.observe(s));
+  });
+</script>
+
+</body>
+</html>
