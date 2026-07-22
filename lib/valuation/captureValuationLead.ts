@@ -5,7 +5,7 @@ export type ValuationLead = {
   artistName: string;
   artistId: string;
   valueBand: Band;
-  lifetimeStreams: number;
+  lifetimeStreams?: number;
   followerCount?: number;
 };
 

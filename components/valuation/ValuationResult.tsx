@@ -1,21 +1,20 @@
-import type { Artist, Result, StartedAlbum } from "@/components/valuation/types";
+import type { Artist, Result } from "@/components/valuation/types";
 import { ArtistHeader } from "@/components/valuation/ArtistHeader";
-import { ValuationStats } from "@/components/valuation/ValuationStats";
-import { MeasuredCatalog } from "@/components/valuation/MeasuredCatalog";
 import { GetFullReportCta } from "@/components/valuation/GetFullReportCta";
 import { formatUsd } from "@/lib/valuation/formatUsd";
 
 type ValuationResultProps = {
   artist: Artist | null;
   result: Result;
-  catalogAlbums: StartedAlbum[];
 };
 
 /**
- * The full result card: artist identity, valuation band, stats, honest-limits
- * disclosure, measured-catalog breakdown, and the product CTA.
+ * The full result card: artist identity, valuation band, what-we-measured
+ * signal, honest-limits disclosure, and the product CTA. The valuation runs
+ * fully server-side (`POST /api/valuation`, docs#272), which returns the band
+ * and the number of tracks measured — no per-release breakdown to render.
  */
-export function ValuationResult({ artist, result, catalogAlbums }: ValuationResultProps) {
+export function ValuationResult({ artist, result }: ValuationResultProps) {
   return (
     <div
       className="rounded-2xl p-8 sm:p-10"
@@ -28,27 +27,23 @@ export function ValuationResult({ artist, result, catalogAlbums }: ValuationResu
         Estimated catalog value
       </p>
       <p className="mt-3 font-pixel text-[clamp(3rem,8vw,4.5rem)] leading-[0.95] tracking-[-0.01em] text-(--foreground)">
-        {formatUsd(result.valueBand.central)}
+        {formatUsd(result.band.central)}
       </p>
       <p className="mt-2 text-[14px] text-(--foreground)/55">
-        range {formatUsd(result.valueBand.low)} – {formatUsd(result.valueBand.high)}
+        range {formatUsd(result.band.low)} – {formatUsd(result.band.high)}
       </p>
-      <ValuationStats result={result} />
+      <p className="mt-6 text-[13px] font-pixel uppercase tracking-[0.14em] text-(--foreground)/45">
+        Valued across {result.songsMeasured}{" "}
+        {result.songsMeasured === 1 ? "measured track" : "measured tracks"}
+      </p>
       <p className="mt-7 text-[12px] leading-relaxed text-(--foreground)/45">
         Directional model, not an appraisal: live platform-displayed Spotify
         play counts (measured today), other platforms approximated as a labeled
         share of Spotify, annual run-rate from your catalog&apos;s lifetime
-        average over ~{result.catalogAgeYears} years, master-side NLS × an{" "}
-        {result.assumptions.multiple.low}–{result.assumptions.multiple.high}×
-        market multiple. Real statements collapse the range.
+        average, master-side NLS × a 10–16× market multiple. Real statements
+        collapse the range.
       </p>
-      <MeasuredCatalog
-        albums={result.albums}
-        catalogAlbums={catalogAlbums}
-        centralValue={result.valueBand.central}
-        totalStreams={result.totalStreams}
-      />
-      <GetFullReportCta snapshotId={result.snapshotId} artistName={artist?.name} />
+      <GetFullReportCta catalogId={result.catalogId} />
     </div>
   );
 }

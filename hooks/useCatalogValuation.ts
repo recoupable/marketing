@@ -2,19 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePrivy } from "@privy-io/react-auth";
-import type {
-  Artist,
-  Result,
-  StartedAlbum,
-} from "@/components/valuation/types";
-import { runValuationFlow } from "@/lib/valuation/runValuationFlow";
+import type { Artist, Result } from "@/components/valuation/types";
+import { runValuation } from "@/lib/valuation/runValuation";
 import { captureRunLead } from "@/lib/valuation/captureRunLead";
 
 type Phase = "idle" | "running" | "done" | "error";
 
 export type CatalogValuationState = {
   picked: Artist | null;
-  catalogAlbums: StartedAlbum[];
   phase: Phase;
   progress: string;
   result: Result | null;
@@ -23,6 +18,17 @@ export type CatalogValuationState = {
   clearPick: () => void;
   run: () => Promise<void>;
 };
+
+// `POST /api/valuation` is one synchronous call (resolve → measure → materialize
+// → value, typically under two minutes), so it can't stream per-step progress.
+// Advance this staged copy on a timer to keep the run button alive; it stalls on
+// the last line until the call resolves.
+const PROGRESS_STAGES = [
+  "Finding your releases…",
+  "Measuring play counts…",
+  "Computing your valuation…",
+];
+const PROGRESS_INTERVAL_MS = 9000;
 
 /**
  * Drives the catalog valuation behind the Privy sign-in gate (chat#1798). The
@@ -33,7 +39,6 @@ export function useCatalogValuation(): CatalogValuationState {
   const { authenticated, login, getAccessToken, user } = usePrivy();
   const [picked, setPicked] = useState<Artist | null>(null);
 
-  const [catalogAlbums, setCatalogAlbums] = useState<StartedAlbum[]>([]);
   const [phase, setPhase] = useState<Phase>("idle");
   const [progress, setProgress] = useState("");
   const [result, setResult] = useState<Result | null>(null);
@@ -41,24 +46,43 @@ export function useCatalogValuation(): CatalogValuationState {
   // The *selected-at-click* artist to run once login completes (so a selection
   // change while the modal is open can't retarget the run).
   const pendingRun = useRef<Artist | null>(null);
+  const progressTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  function stopProgress() {
+    if (progressTimer.current) {
+      clearInterval(progressTimer.current);
+      progressTimer.current = null;
+    }
+  }
+
+  function startProgress() {
+    let stage = 0;
+    setProgress(PROGRESS_STAGES[0]);
+    stopProgress();
+    progressTimer.current = setInterval(() => {
+      stage = Math.min(stage + 1, PROGRESS_STAGES.length - 1);
+      setProgress(PROGRESS_STAGES[stage]);
+    }, PROGRESS_INTERVAL_MS);
+  }
 
   async function doRun(artist: Artist) {
     setPhase("running");
     setError("");
+    startProgress();
     try {
       const token = await getAccessToken();
-      const outcome = await runValuationFlow(artist.id, setProgress, token);
-      setCatalogAlbums(outcome.catalogAlbums);
-      setResult(outcome.result);
+      // One bearer-authed call materializes the catalog, links the artist to the
+      // roster, and returns the value band (docs#272) — the browser no longer
+      // orchestrates, links, or claims.
+      const runResult = await runValuation(artist.id, token);
+      setResult(runResult);
       setPhase("done");
-      // Roster attach happens server-side when the run is claimed into a
-      // catalog (POST /api/catalogs resolves the canonical artist through the
-      // songs graph, chat#1850 P1) — the old client-side POST /api/artists
-      // minted a duplicate, song-less roster artist per signup.
-      captureRunLead(user, artist, outcome.result);
+      captureRunLead(user, artist, runResult);
     } catch (e) {
       setError(e instanceof Error ? e.message : "something went wrong");
       setPhase("error");
+    } finally {
+      stopProgress();
     }
   }
 
@@ -83,9 +107,11 @@ export function useCatalogValuation(): CatalogValuationState {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authenticated]);
 
+  // Clear the progress ticker if the component unmounts mid-run.
+  useEffect(() => stopProgress, []);
+
   return {
     picked,
-    catalogAlbums,
     phase,
     progress,
     result,
