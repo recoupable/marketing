@@ -2,30 +2,17 @@ export type Artist = { id: string; name: string; image?: string; followers?: num
 
 export type Band = { low: number; central: number; high: number };
 
-export type StartedAlbum = {
-  id: string;
-  name: string | null;
-  image: string | null;
-  releaseDate: string | null;
-};
-
-export type MeasuredAlbum = {
-  id: string;
-  streams: number;
-  tracks: Array<{ name: string | null; streams: number }>;
-};
-
+/**
+ * A completed valuation run, as returned by `POST /api/valuation` (docs#272)
+ * and mapped in `lib/valuation/runValuation`. The endpoint materializes the
+ * catalog and computes the band server-side, so the client only carries what
+ * the result card renders — no per-album/per-track breakdown is returned.
+ */
 export type Result = {
-  state: string;
-  /** Playcount snapshot id for this run; lets the CTA materialize a catalog. */
-  snapshotId?: string;
-  trackCount: number;
-  albumCount: number;
-  capturedAlbums: number;
-  totalStreams: number;
-  catalogAgeYears: number;
-  valueBand: Band;
-  annualNls: Band;
-  assumptions: { runRateBasis: string; multiple: Band };
-  albums: MeasuredAlbum[];
+  /** Materialized, account-owned catalog id — deep-links the full-report CTA. */
+  catalogId: string;
+  /** Estimated catalog value band (USD). */
+  band: Band;
+  /** Tracks with a captured play count that were materialized into the catalog. */
+  songsMeasured: number;
 };

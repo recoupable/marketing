@@ -34,13 +34,7 @@ export function CatalogValuation() {
           )}
         </>
       ) : (
-        v.result && (
-          <ValuationResult
-            artist={v.picked}
-            result={v.result}
-            catalogAlbums={v.catalogAlbums}
-          />
-        )
+        v.result && <ValuationResult artist={v.picked} result={v.result} />
       )}
     </div>
   );

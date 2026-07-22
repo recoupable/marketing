@@ -1,27 +1,29 @@
 "use client";
 
-import { useGetFullReport } from "@/hooks/useGetFullReport";
+import { siteConfig } from "@/lib/config";
 
 type GetFullReportCtaProps = {
-  snapshotId?: string;
-  artistName?: string | null;
+  /** The catalog materialized by `POST /api/valuation`; deep-links into chat. */
+  catalogId?: string;
 };
 
 /**
- * The "Get the full report" CTA. Presentational only — the claim + redirect
- * logic and loading state live in `useGetFullReport`.
+ * The "Get the full report" CTA. The valuation endpoint already materialized an
+ * account-owned catalog, so this just deep-links to it in chat (no client-side
+ * claim). A missing id falls back to the plain app URL so the user is never
+ * blocked.
  */
-export function GetFullReportCta({ snapshotId, artistName }: GetFullReportCtaProps) {
-  const { loading, onGetFullReport } = useGetFullReport({ snapshotId, artistName });
+export function GetFullReportCta({ catalogId }: GetFullReportCtaProps) {
+  const href = catalogId
+    ? `${siteConfig.appUrl}/catalogs/${catalogId}`
+    : siteConfig.appUrl;
 
   return (
-    <button
-      type="button"
-      onClick={onGetFullReport}
-      disabled={loading}
-      className="cta-pulse mt-8 block w-full rounded-full bg-(--foreground) px-9 py-4 text-center font-ui text-[15px] font-semibold text-(--background) transition-all duration-300 hover:shadow-[0_0_40px_color-mix(in_srgb,var(--foreground)_12%,transparent)] hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
+    <a
+      href={href}
+      className="cta-pulse mt-8 block w-full rounded-full bg-(--foreground) px-9 py-4 text-center font-ui text-[15px] font-semibold text-(--background) transition-all duration-300 hover:shadow-[0_0_40px_color-mix(in_srgb,var(--foreground)_12%,transparent)] hover:-translate-y-0.5"
     >
-      {loading ? "Preparing your report…" : "Get the full report with Recoup →"}
-    </button>
+      Get the full report with Recoup →
+    </a>
   );
 }

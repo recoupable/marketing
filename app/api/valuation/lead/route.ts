@@ -11,7 +11,9 @@ const leadSchema = z.object({
   artistName: z.string().min(1, "artistName is required"),
   artistId: z.string().min(1, "artistId is required"),
   valueBand: bandSchema,
-  lifetimeStreams: z.number(),
+  // Optional: the server-side valuation endpoint (docs#272) returns a band but
+  // no lifetime-stream total, so a lead may arrive without one.
+  lifetimeStreams: z.number().optional(),
   followerCount: z.number().optional(),
 });
 

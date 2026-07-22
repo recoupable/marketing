@@ -17,9 +17,9 @@ export function leadAttributes(
     est_catalog_value: Math.round(lead.valueBand.central),
     looked_up_artist: lead.artistName,
     spotify_artist_url: `https://open.spotify.com/artist/${lead.artistId}`,
-    lifetime_streams: lead.lifetimeStreams,
     valued_at: today,
   };
+  if (typeof lead.lifetimeStreams === "number") values.lifetime_streams = lead.lifetimeStreams;
   if (typeof lead.followerCount === "number") values.follower_count = lead.followerCount;
   return values;
 }
