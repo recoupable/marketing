@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { usePrivy } from "@privy-io/react-auth";
 import type { Artist, Result } from "@/components/valuation/types";
 import { runValuation } from "@/lib/valuation/runValuation";
-import { captureRunLead } from "@/lib/valuation/captureRunLead";
 
 type Phase = "idle" | "running" | "done" | "error";
 
@@ -36,7 +35,7 @@ const PROGRESS_INTERVAL_MS = 9000;
  * the **originally** selected artist. Render inside `PrivyProvider`.
  */
 export function useCatalogValuation(): CatalogValuationState {
-  const { authenticated, login, getAccessToken, user } = usePrivy();
+  const { authenticated, login, getAccessToken } = usePrivy();
   const [picked, setPicked] = useState<Artist | null>(null);
 
   const [phase, setPhase] = useState<Phase>("idle");
@@ -77,7 +76,9 @@ export function useCatalogValuation(): CatalogValuationState {
       const runResult = await runValuation(artist.id, token);
       setResult(runResult);
       setPhase("done");
-      captureRunLead(user, artist, runResult);
+      // Lead-capture (Attio + team Telegram) now fires server-side from
+      // POST /api/valuation for every caller (api#785 / chat#1885) — the
+      // browser no longer pings, so a funnel valuation captures exactly one lead.
     } catch (e) {
       setError(e instanceof Error ? e.message : "something went wrong");
       setPhase("error");
