@@ -96,14 +96,14 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col antialiased">
         <ThemeProvider>
           <HumanMachineProvider>
-            <Header />
             <PrivyAuthProvider>
+              <Header />
               <main className="flex-1">
                 <MachineContent>{children}</MachineContent>
               </main>
+              <Footer />
+              <ViewModeBar />
             </PrivyAuthProvider>
-            <Footer />
-            <ViewModeBar />
           </HumanMachineProvider>
         </ThemeProvider>
         <Analytics />
