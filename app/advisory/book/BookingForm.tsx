@@ -107,7 +107,7 @@ export function BookingForm() {
         >
           Request received
         </h2>
-        <p className="text-[var(--muted)] text-lg max-w-md mx-auto">
+        <p className="text-[var(--muted-foreground)] text-lg max-w-md mx-auto">
           Sidney will review your info and get back to you within 24 hours to
           schedule your{" "}
           {packages.find((p) => p.id === selectedPkg)?.name?.toLowerCase() ||
@@ -145,7 +145,7 @@ export function BookingForm() {
                       Most Popular
                     </span>
                   )}
-                  <p className="text-sm text-[var(--muted)] mt-0.5">
+                  <p className="text-sm text-[var(--muted-foreground)] mt-0.5">
                     {pkg.desc}
                   </p>
                 </div>
@@ -283,7 +283,7 @@ export function BookingForm() {
         )}
       </button>
 
-      <p className="text-xs text-[var(--muted)] text-center">
+      <p className="text-xs text-[var(--muted-foreground)] text-center">
         No commitment. Sidney reviews every request personally and responds
         within 24 hours.
       </p>

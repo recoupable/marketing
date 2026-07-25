@@ -37,6 +37,13 @@ export const siteConfig = {
   supportEmail: "support@recoupable.dev",
   contactEmail: "hi@recoupable.dev",
 
+  /**
+   * Booking link for enterprise and partner conversations.
+   * Calendly derives the slug from the event name, so renaming the event in
+   * Calendly breaks this URL. Verify it still resolves after any rename.
+   */
+  bookingUrl: "https://calendly.com/sweetman-recoupable/roster",
+
   /** Company address — used in legal pages */
   address: "720 Capitol Square Pl. SW, Washington, DC 20024",
 
