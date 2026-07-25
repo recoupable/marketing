@@ -2,6 +2,7 @@
  * Pricing page copy — single source of truth for plans, features, and FAQ.
  */
 import { siteConfig } from "@/lib/config";
+import { buildChatUrl } from "@/lib/buildChatUrl";
 
 export interface PricingPlan {
   id: string;
@@ -12,7 +13,8 @@ export interface PricingPlan {
   description: string;
   features: string[];
   cta: string;
-  ctaHref: string;
+  /** Absent on the Pro plan, whose CTA starts checkout instead of linking out. */
+  ctaHref?: string;
   highlighted?: boolean;
   badge?: string;
 }
@@ -46,7 +48,7 @@ export const pricingCopy = {
         "Community support",
       ],
       cta: "Start free",
-      ctaHref: siteConfig.appUrl,
+      ctaHref: buildChatUrl({ campaign: "free" }),
     },
     {
       id: "pro",
@@ -67,7 +69,6 @@ export const pricingCopy = {
         "API access",
       ],
       cta: "Start 30-day trial",
-      ctaHref: siteConfig.appUrl,
       highlighted: true,
       badge: "Most popular",
     },

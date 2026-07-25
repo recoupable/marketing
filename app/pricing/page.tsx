@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { pricingCopy, type PricingPlan } from "@/lib/copy/pricing";
 import { buildPageMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/config";
+import { buildChatUrl } from "@/lib/buildChatUrl";
+import { ProCheckoutButton } from "@/components/pricing/ProCheckoutButton";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Pricing | Recoupable",
@@ -14,6 +15,11 @@ export const metadata: Metadata = buildPageMetadata({
 /* ── Plan card ─────────────────────────────────────────────────────── */
 function PlanCard({ plan }: { plan: PricingPlan }) {
   const hl = plan.highlighted;
+  const ctaClasses = `block w-full text-center py-3 rounded-lg text-sm font-medium transition-colors ${
+    hl
+      ? "bg-white text-black hover:bg-white/90"
+      : "border border-[var(--border)] hover:bg-[var(--foreground)] hover:text-[var(--background)]"
+  }`;
 
   return (
     <div
@@ -73,16 +79,13 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         ))}
       </ul>
 
-      <a
-        href={plan.ctaHref}
-        className={`block w-full text-center py-3 rounded-lg text-sm font-medium transition-colors ${
-          hl
-            ? "bg-white text-black hover:bg-white/90"
-            : "border border-[var(--border)] hover:bg-[var(--foreground)] hover:text-[var(--background)]"
-        }`}
-      >
-        {plan.cta}
-      </a>
+      {plan.id === "pro" ? (
+        <ProCheckoutButton label={plan.cta} className={ctaClasses} />
+      ) : (
+        <a href={plan.ctaHref} className={ctaClasses}>
+          {plan.cta}
+        </a>
+      )}
     </div>
   );
 }
@@ -152,7 +155,7 @@ export default function PricingPage() {
           Start free. No credit card required. Your AI agents are ready.
         </p>
         <a
-          href={siteConfig.appUrl}
+          href={buildChatUrl({ campaign: "free" })}
           className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
         >
           Get started free
