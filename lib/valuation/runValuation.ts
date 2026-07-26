@@ -11,10 +11,12 @@ type ValuationResponse = {
 
 /** Friendly copy for the error states the endpoint reports. */
 function messageForStatus(status: number): string {
-  if (status === 402) return "we couldn't measure this catalog — not enough credits to capture it";
-  if (status === 404) return "we couldn't find any releases for this artist";
-  if (status === 504) return "we couldn't measure this catalog yet — try again in a few minutes";
-  return `couldn't run the valuation (${status})`;
+  if (status === 402)
+    return "We couldn't measure this catalog. Not enough credits to capture it.";
+  if (status === 404) return "We couldn't find any releases for this artist.";
+  if (status === 504)
+    return "We couldn't measure this catalog yet. Try again in a few minutes.";
+  return `We couldn't run the valuation (${status}).`;
 }
 
 /**
