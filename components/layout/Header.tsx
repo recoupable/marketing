@@ -3,22 +3,17 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePrivy } from "@privy-io/react-auth";
 import { siteConfig } from "@/lib/config";
 import { nav } from "@/lib/nav";
 import { useTheme } from "@/contexts/ThemeContext";
-import { Sun, Moon, LogOut } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
+import { HeaderAuthActions } from "@/components/layout/HeaderAuthActions";
+import { HeaderMobileAuthLinks } from "@/components/layout/HeaderMobileAuthLinks";
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
-  const { ready, authenticated, logout } = usePrivy();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  // Only trust the auth state once Privy has resolved on the client. Until
-  // then (and on the server) `ready` is false, so both first renders show the
-  // signed-out CTAs — no hydration mismatch, then it swaps in place.
-  const signedIn = ready && authenticated;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -76,43 +71,7 @@ export function Header() {
             </svg>
           </button>
 
-          {signedIn ? (
-            <>
-              {/* Icon-only, matching the theme toggle — the header's chrome is
-                  achromatic and text-free, and "Open app" stays the only CTA
-                  with weight. Labelled for screen readers and on hover, since
-                  a bare glyph carries no accessible name. */}
-              <button
-                onClick={() => logout()}
-                className="p-1.5 rounded-full text-(--muted-foreground) hover:text-(--foreground) hover:bg-(--foreground)/5 transition-colors"
-                aria-label="Log out"
-                title="Log out"
-              >
-                <LogOut size={16} />
-              </button>
-              <Link
-                href={siteConfig.appUrl}
-                className="bg-(--foreground) text-(--background) px-5 py-2 rounded-full text-[14px] font-ui font-semibold hover:opacity-90 transition-opacity"
-              >
-                Open app
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link
-                href={siteConfig.appUrl}
-                className="hidden sm:inline-block text-[14px] font-ui font-medium text-(--foreground)/70 hover:text-(--foreground) transition-colors px-4 py-1.5 rounded-full border border-(--border) hover:border-(--foreground)/20"
-              >
-                Sign In
-              </Link>
-              <Link
-                href={siteConfig.appUrl}
-                className="bg-(--foreground) text-(--background) px-5 py-2 rounded-full text-[14px] font-ui font-semibold hover:opacity-90 transition-opacity"
-              >
-                Sign Up
-              </Link>
-            </>
-          )}
+          <HeaderAuthActions />
         </div>
       </div>
 
@@ -130,27 +89,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href={siteConfig.appUrl}
-              className="block px-3 py-2.5 text-sm font-ui font-medium text-(--foreground)/70 sm:hidden"
-              onClick={() => setMobileOpen(false)}
-            >
-              {signedIn ? "Open app" : "Sign In"}
-            </Link>
-            {/* Carries a label rather than the bare glyph used in the desktop
-                header — an icon-only row reads as decoration in a text menu. */}
-            {signedIn && (
-              <button
-                onClick={() => {
-                  setMobileOpen(false);
-                  void logout();
-                }}
-                className="flex w-full items-center gap-2 px-3 py-2.5 text-sm font-ui font-medium text-(--foreground)/70 sm:hidden"
-              >
-                <LogOut size={16} />
-                Log out
-              </button>
-            )}
+            <HeaderMobileAuthLinks onNavigate={() => setMobileOpen(false)} />
           </div>
         </div>
       )}
