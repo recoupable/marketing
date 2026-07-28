@@ -7,11 +7,11 @@ import { usePrivy } from "@privy-io/react-auth";
 import { siteConfig } from "@/lib/config";
 import { nav } from "@/lib/nav";
 import { useTheme } from "@/contexts/ThemeContext";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, LogOut } from "lucide-react";
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
-  const { ready, authenticated } = usePrivy();
+  const { ready, authenticated, logout } = usePrivy();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -77,12 +77,26 @@ export function Header() {
           </button>
 
           {signedIn ? (
-            <Link
-              href={siteConfig.appUrl}
-              className="bg-(--foreground) text-(--background) px-5 py-2 rounded-full text-[14px] font-ui font-semibold hover:opacity-90 transition-opacity"
-            >
-              Open app
-            </Link>
+            <>
+              {/* Icon-only, matching the theme toggle — the header's chrome is
+                  achromatic and text-free, and "Open app" stays the only CTA
+                  with weight. Labelled for screen readers and on hover, since
+                  a bare glyph carries no accessible name. */}
+              <button
+                onClick={() => logout()}
+                className="p-1.5 rounded-full text-(--muted-foreground) hover:text-(--foreground) hover:bg-(--foreground)/5 transition-colors"
+                aria-label="Log out"
+                title="Log out"
+              >
+                <LogOut size={16} />
+              </button>
+              <Link
+                href={siteConfig.appUrl}
+                className="bg-(--foreground) text-(--background) px-5 py-2 rounded-full text-[14px] font-ui font-semibold hover:opacity-90 transition-opacity"
+              >
+                Open app
+              </Link>
+            </>
           ) : (
             <>
               <Link
@@ -123,6 +137,20 @@ export function Header() {
             >
               {signedIn ? "Open app" : "Sign In"}
             </Link>
+            {/* Carries a label rather than the bare glyph used in the desktop
+                header — an icon-only row reads as decoration in a text menu. */}
+            {signedIn && (
+              <button
+                onClick={() => {
+                  setMobileOpen(false);
+                  void logout();
+                }}
+                className="flex w-full items-center gap-2 px-3 py-2.5 text-sm font-ui font-medium text-(--foreground)/70 sm:hidden"
+              >
+                <LogOut size={16} />
+                Log out
+              </button>
+            )}
           </div>
         </div>
       )}
