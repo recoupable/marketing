@@ -7,6 +7,8 @@ import { siteConfig } from "@/lib/config";
 import { nav } from "@/lib/nav";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Sun, Moon } from "lucide-react";
+import { HeaderAuthActions } from "@/components/layout/HeaderAuthActions";
+import { HeaderMobileAuthLinks } from "@/components/layout/HeaderMobileAuthLinks";
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -69,18 +71,7 @@ export function Header() {
             </svg>
           </button>
 
-          <Link
-            href={siteConfig.appUrl}
-            className="hidden sm:inline-block text-[14px] font-ui font-medium text-(--foreground)/70 hover:text-(--foreground) transition-colors px-4 py-1.5 rounded-full border border-(--border) hover:border-(--foreground)/20"
-          >
-            Sign In
-          </Link>
-          <Link
-            href={siteConfig.appUrl}
-            className="bg-(--foreground) text-(--background) px-5 py-2 rounded-full text-[14px] font-ui font-semibold hover:opacity-90 transition-opacity"
-          >
-            Sign Up
-          </Link>
+          <HeaderAuthActions />
         </div>
       </div>
 
@@ -98,13 +89,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href={siteConfig.appUrl}
-              className="block px-3 py-2.5 text-sm font-ui font-medium text-(--foreground)/70 sm:hidden"
-              onClick={() => setMobileOpen(false)}
-            >
-              Sign In
-            </Link>
+            <HeaderMobileAuthLinks onNavigate={() => setMobileOpen(false)} />
           </div>
         </div>
       )}
