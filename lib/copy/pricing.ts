@@ -15,6 +15,8 @@ export interface PricingPlan {
   cta: string;
   /** Absent on the Pro plan, whose CTA starts checkout instead of linking out. */
   ctaHref?: string;
+  /** Opens the CTA in a new tab, so the pricing page survives the click. */
+  ctaExternal?: boolean;
   highlighted?: boolean;
   badge?: string;
 }
@@ -90,8 +92,9 @@ export const pricingCopy = {
         "Custom integrations",
         "Invoice billing",
       ],
-      cta: "Talk to us",
-      ctaHref: `mailto:${siteConfig.contactEmail}?subject=Recoupable%20Partner%20Plan`,
+      cta: "Book a call",
+      ctaHref: siteConfig.bookingUrl,
+      ctaExternal: true,
     },
   ] as PricingPlan[],
 

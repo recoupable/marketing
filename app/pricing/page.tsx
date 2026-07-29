@@ -82,7 +82,12 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       {plan.id === "pro" ? (
         <ProCheckoutButton label={plan.cta} className={ctaClasses} />
       ) : (
-        <a href={plan.ctaHref} className={ctaClasses}>
+        <a
+          href={plan.ctaHref}
+          target={plan.ctaExternal ? "_blank" : undefined}
+          rel={plan.ctaExternal ? "noopener noreferrer" : undefined}
+          className={ctaClasses}
+        >
           {plan.cta}
         </a>
       )}
