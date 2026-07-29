@@ -105,7 +105,7 @@ export const pricingCopy = {
     },
     {
       q: "Can I try before I buy?",
-      a: "Yes. Sign up and use the platform free with limited credits. Pro plans include a 30-day free trial — no credit card required.",
+      a: "Yes. Sign up and use the platform free with monthly credits at no cost. Pro includes a 30-day free trial, and you enter a card when you start it so nothing interrupts your agents when the trial ends. You can cancel before day 30 and pay nothing.",
     },
     {
       q: "What happens if I run out of credits?",
