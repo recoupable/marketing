@@ -4,6 +4,7 @@ import { pricingCopy, type PricingPlan } from "@/lib/copy/pricing";
 import { buildPageMetadata } from "@/lib/seo";
 import { buildChatUrl } from "@/lib/buildChatUrl";
 import { ProCheckoutButton } from "@/components/pricing/ProCheckoutButton";
+import { CardOnFileButton } from "@/components/pricing/CardOnFileButton";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Pricing | Recoupable",
@@ -81,8 +82,15 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 
       {plan.id === "pro" ? (
         <ProCheckoutButton label={plan.cta} className={ctaClasses} />
+      ) : plan.id === "plus" ? (
+        <CardOnFileButton label={plan.cta} className={ctaClasses} />
       ) : (
-        <a href={plan.ctaHref} className={ctaClasses}>
+        <a
+          href={plan.ctaHref}
+          target={plan.ctaExternal ? "_blank" : undefined}
+          rel={plan.ctaExternal ? "noopener noreferrer" : undefined}
+          className={ctaClasses}
+        >
           {plan.cta}
         </a>
       )}
@@ -152,7 +160,7 @@ export default function PricingPage() {
       <section className="text-center py-16 border-t border-[var(--border)]">
         <h2 className="text-3xl font-bold mb-4">Ready to let AI run your marketing?</h2>
         <p className="text-[var(--muted)] max-w-xl mx-auto mb-8 leading-relaxed">
-          Start free. No credit card required. Your AI agents are ready.
+          Start free. Your AI agents are ready.
         </p>
         <a
           href={buildChatUrl({ campaign: "free" })}
