@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePrivy } from "@privy-io/react-auth";
 import type { Artist, Result } from "@/components/valuation/types";
 import { runValuation } from "@/lib/valuation/runValuation";
+import { trackEvent } from "@/lib/analytics/trackEvent";
 
 type Phase = "idle" | "running" | "done" | "error";
 
@@ -68,6 +69,8 @@ export function useCatalogValuation(): CatalogValuationState {
     setPhase("running");
     setError("");
     startProgress();
+    trackEvent("valuation_run");
+    const startedAt = Date.now();
     try {
       const token = await getAccessToken();
       // One bearer-authed call materializes the catalog, links the artist to the
@@ -76,6 +79,10 @@ export function useCatalogValuation(): CatalogValuationState {
       const runResult = await runValuation(artist.id, token);
       setResult(runResult);
       setPhase("done");
+      trackEvent("valuation_completed", {
+        tracks_measured: runResult.songsMeasured,
+        duration_ms: Date.now() - startedAt,
+      });
       // Lead-capture (Attio + team Telegram) now fires server-side from
       // POST /api/valuation for every caller (api#785 / chat#1885) — the
       // browser no longer pings, so a funnel valuation captures exactly one lead.

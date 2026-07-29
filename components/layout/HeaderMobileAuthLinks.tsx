@@ -5,6 +5,7 @@ import { usePrivy } from "@privy-io/react-auth";
 import { LogOut } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { useSignedIn } from "@/hooks/useSignedIn";
+import { trackEvent } from "@/lib/analytics/trackEvent";
 
 /**
  * The auth-dependent rows inside the mobile menu. Counterpart to
@@ -29,7 +30,10 @@ export function HeaderMobileAuthLinks({
       <Link
         href={siteConfig.appUrl}
         className="block px-3 py-2.5 text-sm font-ui font-medium text-(--foreground)/70 sm:hidden"
-        onClick={onNavigate}
+        onClick={() => {
+          if (signedIn) trackEvent("open_app_clicked");
+          onNavigate();
+        }}
       >
         {signedIn ? "Open app" : "Sign In"}
       </Link>
