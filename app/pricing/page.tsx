@@ -44,7 +44,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 
       <p
         className={`text-[10px] uppercase tracking-widest mb-1 ${
-          hl ? "text-white/50" : "text-[var(--muted)]"
+          hl ? "text-white/50" : "text-[var(--muted-foreground)]"
         }`}
         style={{ fontFamily: "var(--font-bitmap), monospace" }}
       >
@@ -53,7 +53,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       <h3 className="text-xl font-bold mb-1">{plan.name}</h3>
       <p
         className={`text-sm mb-6 leading-relaxed ${
-          hl ? "text-white/70" : "text-[var(--muted)]"
+          hl ? "text-white/70" : "text-[var(--muted-foreground)]"
         }`}
       >
         {plan.description}
@@ -62,7 +62,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       <div className="mb-6">
         <span className="text-4xl font-bold">{plan.price}</span>
         {plan.period && (
-          <span className={`text-sm ${hl ? "text-white/50" : "text-[var(--muted)]"}`}>
+          <span className={`text-sm ${hl ? "text-white/50" : "text-[var(--muted-foreground)]"}`}>
             {plan.period}
           </span>
         )}
@@ -75,7 +75,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
               size={16}
               className={`mt-0.5 shrink-0 ${hl ? "text-white" : "text-[var(--foreground)]"}`}
             />
-            <span className={hl ? "text-white/90" : "text-[var(--muted)]"}>{f}</span>
+            <span className={hl ? "text-white/90" : "text-[var(--muted-foreground)]"}>{f}</span>
           </li>
         ))}
       </ul>
@@ -105,7 +105,7 @@ export default function PricingPage() {
       {/* Hero */}
       <section className="text-center mb-16">
         <p
-          className="text-[10px] uppercase tracking-widest text-[var(--muted)] mb-4"
+          className="text-[10px] uppercase tracking-widest text-[var(--muted-foreground)] mb-4"
           style={{ fontFamily: "var(--font-bitmap), monospace" }}
         >
           Pricing
@@ -113,11 +113,11 @@ export default function PricingPage() {
         <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
           {pricingCopy.title}
         </h1>
-        <p className="text-lg text-[var(--muted)] max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto leading-relaxed">
           {pricingCopy.description}
         </p>
         <p
-          className="text-xs text-[var(--muted)] mt-3"
+          className="text-xs text-[var(--muted-foreground)] mt-3"
           style={{ fontFamily: "var(--font-bitmap), monospace" }}
         >
           {pricingCopy.annualDiscount}
@@ -144,11 +144,11 @@ export default function PricingPage() {
             >
               <summary className="cursor-pointer font-medium text-sm flex items-center justify-between">
                 {item.q}
-                <span className="ml-4 text-[var(--muted)] group-open:rotate-45 transition-transform text-lg">
+                <span className="ml-4 text-[var(--muted-foreground)] group-open:rotate-45 transition-transform text-lg">
                   +
                 </span>
               </summary>
-              <p className="mt-3 text-sm text-[var(--muted)] leading-relaxed">
+              <p className="mt-3 text-sm text-[var(--muted-foreground)] leading-relaxed">
                 {item.a}
               </p>
             </details>
@@ -159,7 +159,7 @@ export default function PricingPage() {
       {/* Bottom CTA */}
       <section className="text-center py-16 border-t border-[var(--border)]">
         <h2 className="text-3xl font-bold mb-4">Ready to let AI run your marketing?</h2>
-        <p className="text-[var(--muted)] max-w-xl mx-auto mb-8 leading-relaxed">
+        <p className="text-[var(--muted-foreground)] max-w-xl mx-auto mb-8 leading-relaxed">
           Start free. Your AI agents are ready.
         </p>
         <a

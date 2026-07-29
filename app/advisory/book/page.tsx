@@ -20,7 +20,7 @@ export default function BookPage() {
         >
           Book Your Session
         </h1>
-        <p className="text-[var(--muted)] mb-10 text-lg">
+        <p className="text-[var(--muted-foreground)] mb-10 text-lg">
           Tell us about your business and we&apos;ll get back to you within 24
           hours to schedule your call.
         </p>
