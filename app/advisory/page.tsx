@@ -30,7 +30,7 @@ function CredentialCard({
       <div className="text-sm font-semibold uppercase tracking-wide mb-2">
         {label}
       </div>
-      <p className="text-xs text-[var(--muted)]">{detail}</p>
+      <p className="text-xs text-[var(--muted-foreground)]">{detail}</p>
     </div>
   );
 }
@@ -70,7 +70,7 @@ function PackageCard({
       <h3 className="font-bold text-lg mb-0.5">{pkg.name}</h3>
       <p
         className={`text-[10px] uppercase tracking-wide mb-4 ${
-          isHighlighted ? "text-white/60" : "text-[var(--muted)]"
+          isHighlighted ? "text-white/60" : "text-[var(--muted-foreground)]"
         }`}
       >
         {pkg.description}
@@ -90,7 +90,7 @@ function PackageCard({
               }`}
             />
             <span
-              className={isHighlighted ? "text-white/90" : "text-[var(--muted)]"}
+              className={isHighlighted ? "text-white/90" : "text-[var(--muted-foreground)]"}
             >
               {f}
             </span>
@@ -119,7 +119,7 @@ export default function AdvisoryPage() {
       {/* Hero */}
       <section className="text-center mb-20">
         <p
-          className="text-[10px] uppercase tracking-widest text-[var(--muted)] mb-4"
+          className="text-[10px] uppercase tracking-widest text-[var(--muted-foreground)] mb-4"
           style={{ fontFamily: "var(--font-bitmap), monospace" }}
         >
           AI Advisory
@@ -127,7 +127,7 @@ export default function AdvisoryPage() {
         <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
           {advisoryCopy.headline}
         </h1>
-        <p className="text-lg text-[var(--muted)] max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto leading-relaxed">
           {advisoryCopy.subheadline}
         </p>
       </section>
@@ -149,7 +149,7 @@ export default function AdvisoryPage() {
               className="border border-[var(--border)] rounded-xl p-6"
             >
               <h3 className="font-bold mb-2">{item.title}</h3>
-              <p className="text-sm text-[var(--muted)] leading-relaxed">
+              <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
                 {item.description}
               </p>
             </div>
@@ -166,7 +166,7 @@ export default function AdvisoryPage() {
               <div className="shrink-0 w-1 bg-[var(--foreground)] rounded-full" />
               <div>
                 <h3 className="font-bold mb-1">{w.title}</h3>
-                <p className="text-sm text-[var(--muted)]">{w.description}</p>
+                <p className="text-sm text-[var(--muted-foreground)]">{w.description}</p>
               </div>
             </div>
           ))}
@@ -196,11 +196,11 @@ export default function AdvisoryPage() {
             >
               <summary className="cursor-pointer font-medium text-sm flex items-center justify-between">
                 {item.q}
-                <span className="ml-4 text-[var(--muted)] group-open:rotate-45 transition-transform text-lg">
+                <span className="ml-4 text-[var(--muted-foreground)] group-open:rotate-45 transition-transform text-lg">
                   +
                 </span>
               </summary>
-              <p className="mt-3 text-sm text-[var(--muted)] leading-relaxed">
+              <p className="mt-3 text-sm text-[var(--muted-foreground)] leading-relaxed">
                 {item.a}
               </p>
             </details>
@@ -213,7 +213,7 @@ export default function AdvisoryPage() {
         <h2 className="text-3xl font-bold mb-4">
           {advisoryCopy.closingCta.headline}
         </h2>
-        <p className="text-[var(--muted)] max-w-xl mx-auto mb-8 leading-relaxed">
+        <p className="text-[var(--muted-foreground)] max-w-xl mx-auto mb-8 leading-relaxed">
           {advisoryCopy.closingCta.subheadline}
         </p>
         <a
