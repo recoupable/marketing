@@ -80,7 +80,7 @@ export function useCatalogValuation(): CatalogValuationState {
       // POST /api/valuation for every caller (api#785 / chat#1885) — the
       // browser no longer pings, so a funnel valuation captures exactly one lead.
     } catch (e) {
-      setError(e instanceof Error ? e.message : "something went wrong");
+      setError(e instanceof Error ? e.message : "Something went wrong.");
       setPhase("error");
     } finally {
       stopProgress();

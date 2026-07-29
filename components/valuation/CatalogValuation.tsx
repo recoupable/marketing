@@ -2,6 +2,8 @@
 
 import { useCatalogValuation } from "@/hooks/useCatalogValuation";
 import { ArtistSearchBox } from "@/components/search/ArtistSearchBox";
+import { ValuationProgress } from "@/components/valuation/ValuationProgress";
+import { ValuationError } from "@/components/valuation/ValuationError";
 import { ValuationResult } from "@/components/valuation/ValuationResult";
 import { toArtist } from "@/lib/valuation/toArtist";
 
@@ -27,11 +29,10 @@ export function CatalogValuation() {
             onClear={running ? () => {} : v.clearPick}
             onSubmit={v.run}
           />
-          {v.phase === "error" && (
-            <p className="mt-4 text-center text-[13px] text-red-500/90">
-              {v.error}
-            </p>
-          )}
+          {running ? <ValuationProgress stage={v.progress} /> : null}
+          {v.phase === "error" ? (
+            <ValuationError message={v.error} onRetry={() => void v.run()} />
+          ) : null}
         </>
       ) : (
         v.result && <ValuationResult artist={v.picked} result={v.result} />
