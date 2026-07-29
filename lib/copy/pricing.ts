@@ -29,21 +29,19 @@ export const pricingCopy = {
 
   plans: [
     {
-      id: "plus",
-      name: "Plus",
+      id: "free",
+      name: "Free",
       audience: "For independent artists",
-      price: "$19",
-      period: "/mo",
+      price: "$0",
+      period: "",
       description:
-        "Everything you need to run your own marketing with AI. Research your audience, generate content, plan releases.",
+        "Everything you need to try Recoupable for real. Value your catalog, put the agents to work, and upgrade only when you need more.",
       features: [
-        "1 artist profile",
-        "100 AI credits / month",
-        "Artist research & audience insights",
-        "AI content generation",
-        "Release planning tools",
-        "Analytics dashboard",
-        "Community support",
+        "333 AI credits per month",
+        "Artist profiles",
+        "Catalog valuation",
+        "Core agent tools for research and content",
+        "No credit card required",
       ],
       cta: "Start free",
       ctaHref: siteConfig.appUrl,
@@ -59,7 +57,7 @@ export const pricingCopy = {
       features: [
         "Unlimited artist profiles",
         "1,000 AI credits / month",
-        "Everything in Plus",
+        "Everything in Free",
         "Train agents on your catalog data",
         "Multi-artist campaign planning",
         "Advanced audience segmentation",
@@ -101,7 +99,7 @@ export const pricingCopy = {
     },
     {
       q: "Can I try before I buy?",
-      a: "Yes. Sign up and use the platform free with limited credits. Pro plans include a 30-day free trial — no credit card required.",
+      a: "Yes. The Free plan gives you 333 AI credits every month at no cost, no credit card required. When you are ready for more, Pro includes a 30-day free trial.",
     },
     {
       q: "What happens if I run out of credits?",

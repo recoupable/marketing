@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/config";
 export const metadata: Metadata = buildPageMetadata({
   title: "Pricing | Recoupable",
   description:
-    "Start free. Scale when ready. AI agents for artists, managers, and labels — from $19/mo.",
+    "Start free. Scale when ready. AI agents for artists, managers, and labels. Pro is $99/mo with a 30-day free trial.",
   path: "/pricing",
 });
 
