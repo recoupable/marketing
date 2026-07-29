@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import { pricingCopy, type PricingPlan } from "@/lib/copy/pricing";
 import { buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/config";
+import { PricingCtaLink } from "@/components/pricing/PricingCtaLink";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Pricing | Recoupable",
@@ -73,7 +74,8 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         ))}
       </ul>
 
-      <a
+      <PricingCtaLink
+        plan={plan.id}
         href={plan.ctaHref}
         className={`block w-full text-center py-3 rounded-lg text-sm font-medium transition-colors ${
           hl
@@ -82,7 +84,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         }`}
       >
         {plan.cta}
-      </a>
+      </PricingCtaLink>
     </div>
   );
 }
@@ -151,12 +153,13 @@ export default function PricingPage() {
         <p className="text-[var(--muted)] max-w-xl mx-auto mb-8 leading-relaxed">
           Start free. No credit card required. Your AI agents are ready.
         </p>
-        <a
+        <PricingCtaLink
+          plan="free"
           href={siteConfig.appUrl}
           className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
         >
           Get started free
-        </a>
+        </PricingCtaLink>
       </section>
     </main>
   );
