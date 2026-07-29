@@ -1,18 +1,18 @@
 /**
- * Build a chat app URL that carries purchase intent and UTM attribution
- * from marketing pages (the chat app's intent param handler consumes it).
+ * Build a chat app URL that carries UTM attribution from marketing pages,
+ * optionally flagging a completed checkout (the Stripe success redirect).
  */
 import { siteConfig } from "@/lib/config";
 
 export function buildChatUrl({
-  intent,
+  checkout,
   campaign,
 }: {
-  intent?: string;
+  checkout?: string;
   campaign: string;
 }): string {
   const params = new URLSearchParams();
-  if (intent) params.set("intent", intent);
+  if (checkout) params.set("checkout", checkout);
   params.set("utm_source", "marketing");
   params.set("utm_medium", "pricing");
   params.set("utm_campaign", campaign);

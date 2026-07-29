@@ -13,7 +13,8 @@ export interface PricingPlan {
   description: string;
   features: string[];
   cta: string;
-  ctaHref: string;
+  /** Absent on the Pro plan, whose CTA starts checkout instead of linking out. */
+  ctaHref?: string;
   highlighted?: boolean;
   badge?: string;
 }
@@ -68,7 +69,6 @@ export const pricingCopy = {
         "API access",
       ],
       cta: "Start 30-day trial",
-      ctaHref: buildChatUrl({ intent: "pro-trial", campaign: "pro-trial" }),
       highlighted: true,
       badge: "Most popular",
     },
