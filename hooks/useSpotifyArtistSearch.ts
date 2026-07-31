@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { searchCache } from "@/lib/spotify/searchCache";
-import { prefetchLetters } from "@/lib/spotify/prefetchLetters";
 import { getCachedApprox } from "@/lib/spotify/getCachedApprox";
 import type { SpotifyArtist } from "@/lib/spotify/types";
 
@@ -15,18 +14,16 @@ export type SpotifyArtistSearch = {
 
 /**
  * Debounced, cached Spotify artist search powering the shared ArtistSearchBox.
- * Cache + prefetch + approximation live in lib/spotify; this hook owns only the
+ * Cache + approximation live in lib/spotify; this hook owns only the
  * query/results state and the debounced network fetch (recoupable/chat#1814).
+ * Fetches are lazy: nothing hits /api/spotify/search until the first keystroke
+ * (recoupable/chat#1902 removed the a-z alphabet prefetch).
  */
 export function useSpotifyArtistSearch(): SpotifyArtistSearch {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SpotifyArtist[]>([]);
   const [loading, setLoading] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
-
-  useEffect(() => {
-    prefetchLetters();
-  }, []);
 
   useEffect(() => {
     if (query.length < 1) {
