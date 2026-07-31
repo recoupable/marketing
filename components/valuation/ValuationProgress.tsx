@@ -2,6 +2,7 @@
 
 import { useElapsedSeconds } from "@/hooks/useElapsedSeconds";
 import { formatElapsedSeconds } from "@/lib/valuation/formatElapsedSeconds";
+import { MEASURING_BODY, MEASURING_TITLE } from "@/lib/valuation/measuringCopy";
 
 type ValuationProgressProps = {
   /** Current staged progress line from useCatalogValuation. */
@@ -30,15 +31,14 @@ export function ValuationProgress({ stage }: ValuationProgressProps) {
       <div className="flex items-center gap-3">
         <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-(--foreground)/70" />
         <span className="font-ui text-[14px] text-(--foreground)/80">
-          {stage || "Measuring your catalog"}
+          {stage || MEASURING_TITLE}
         </span>
         <span className="ml-auto font-mono text-[13px] tabular-nums text-(--foreground)/50">
           {formatElapsedSeconds(elapsed)}
         </span>
       </div>
       <p className="mt-2 text-[13px] leading-relaxed text-(--foreground)/50">
-        Measuring live play counts across your catalog. Large catalogs can take
-        a minute or two.
+        {MEASURING_BODY}
       </p>
     </div>
   );
