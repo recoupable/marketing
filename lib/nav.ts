@@ -6,9 +6,10 @@
 import { siteConfig } from "@/lib/config";
 
 export const nav: readonly { label: string; href: string; external?: boolean }[] = [
+  { label: "Solutions", href: "/solutions" },
   { label: "Valuation", href: "/valuation" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Docs", href: siteConfig.docsUrl, external: true },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Blog", href: "/blog" },
+  { label: "Compare", href: "/compare" },
+  { label: "Docs", href: siteConfig.docsUrl, external: true },
 ];
