@@ -11,5 +11,6 @@ export const nav: readonly { label: string; href: string; external?: boolean }[]
   { label: "Pricing", href: "/pricing" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Compare", href: "/compare" },
+  { label: "ROI Calculator", href: "/roi" },
   { label: "Docs", href: siteConfig.docsUrl, external: true },
 ];

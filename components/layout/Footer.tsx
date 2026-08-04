@@ -20,6 +20,7 @@ const FOOTER_NAV = [
     links: [
       { href: "/blog", label: "Blog" },
       { href: "/case-studies", label: "Case Studies" },
+      { href: "/roi", label: "ROI Calculator" },
       { href: "/learn/demos", label: "Demos" },
     ],
   },
