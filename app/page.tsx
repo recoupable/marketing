@@ -62,13 +62,11 @@ function useStagger(n: number, ms = 130) {
   };
 }
 
+// Only names with a verified paying relationship belong here.
+// Removed 2026-08-05: Atlantic, 300, Warner, Parlophone, Fat Beats — none has
+// ever paid an invoice (verified against livemode Stripe, all-time).
 const LOGOS = [
-  "Atlantic",
   "Rostrum",
-  "300",
-  "Warner",
-  "Parlophone",
-  "Fat Beats",
 ];
 
 const FLOATING_AGENTS = [
