@@ -6,9 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "next lint --fix",
+    "lint": "eslint .",
     "format": "prettier --write . && pnpm lint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@privy-io/react-auth": "^3.31.0",
@@ -40,8 +41,8 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.13",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.3.0",
     "postcss": "^8",
     "prettier": "3.3.3",
     "tailwindcss": "^4.1.17",
