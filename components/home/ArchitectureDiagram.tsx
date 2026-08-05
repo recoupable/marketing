@@ -334,7 +334,7 @@ const CYCLE_MS = 6000;
 export function ArchitectureDiagram() {
   const { ref, visible } = useRevealIn();
   const [activeTab, setActiveTab] = useState<TabId>("terminal");
-  const timerRef = useRef<ReturnType<typeof setInterval>>();
+  const timerRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
 
   const startCycle = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);

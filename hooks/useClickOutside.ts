@@ -4,7 +4,7 @@ import { useEffect, useRef, type RefObject } from "react";
 
 /** Invoke `onOutside` on a mousedown outside the referenced element. */
 export function useClickOutside<T extends HTMLElement>(
-  ref: RefObject<T>,
+  ref: RefObject<T | null>,
   onOutside: () => void,
 ) {
   const cb = useRef(onOutside);

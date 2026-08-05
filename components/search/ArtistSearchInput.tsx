@@ -15,7 +15,7 @@ type ArtistSearchInputProps = {
   running?: boolean;
   progress?: string;
   query: string;
-  inputRef: RefObject<HTMLInputElement>;
+  inputRef: RefObject<HTMLInputElement | null>;
   onQueryChange: (value: string) => void;
   onKeyDown: (e: KeyboardEvent) => void;
   onFocus: () => void;
