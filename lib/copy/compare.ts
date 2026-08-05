@@ -82,29 +82,15 @@ export const compareCopy = {
 
   costTitle: "The real cost of alternatives",
   costDescription:
-    "These aren't hypothetical. They're from real labels who switched to Recoup.",
+    "Measured with a label running on Recoup today.",
 
   costs: [
-    {
-      label: "Creative Director",
-      traditional: "$10,000/mo",
-      recoup: "72-hour campaign delivery",
-      savings: "$10K saved on a single campaign",
-      source: "Fat Beats",
-    },
     {
       label: "Content Agency",
       traditional: "$5,000/mo",
       recoup: "Same price, 10× the output",
       savings: "Agency eliminated + new AI artist co-created",
       source: "Rostrum Records",
-    },
-    {
-      label: "Manual Reporting",
-      traditional: "40+ staff hours/mo",
-      recoup: "Automated, $0 marginal cost",
-      savings: "$3K–$5K/mo in staff time",
-      source: "Parlophone (Warner)",
     },
   ] satisfies CostRow[],
 

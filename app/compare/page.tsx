@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/config";
 export const metadata: Metadata = buildPageMetadata({
   title: `Why Recoup? — Compare AI Music Agents vs Agencies & Generic AI | ${siteConfig.name}`,
   description:
-    "See how Recoup's purpose-built music agents compare to hiring staff, creative agencies, and generic AI like ChatGPT. Real cost savings from real labels.",
+    "See how Recoup's purpose-built music agents compare to hiring staff, creative agencies, and generic AI like ChatGPT. Cost comparisons drawn from real usage.",
   path: "/compare",
 });
 
