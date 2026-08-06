@@ -19,6 +19,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: siteConfig.url, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
     { url: `${siteConfig.url}/blog`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
+    { url: `${siteConfig.url}/advisory`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${siteConfig.url}/audit`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteConfig.url}/compare`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteConfig.url}/pricing`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteConfig.url}/valuation`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteConfig.url}/platform`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/solutions`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.url}/developers`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },

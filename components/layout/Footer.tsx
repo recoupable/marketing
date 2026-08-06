@@ -10,6 +10,7 @@ const FOOTER_NAV = [
     title: "Product",
     links: [
       { href: "/platform", label: "Platform" },
+      { href: "/advisory", label: "Advisory" },
       { href: "/solutions", label: "Solutions" },
       { href: "/developers", label: "Developers" },
       { href: siteConfig.docsUrl, label: "API Docs" },
@@ -19,6 +20,8 @@ const FOOTER_NAV = [
     title: "Resources",
     links: [
       { href: "/blog", label: "Blog" },
+      { href: "/audit", label: "AI Readiness Audit" },
+      { href: "/compare", label: "Compare" },
       { href: "/learn/demos", label: "Demos" },
     ],
   },
