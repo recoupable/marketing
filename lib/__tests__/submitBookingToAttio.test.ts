@@ -2,9 +2,13 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { submitBookingToAttio } from "@/lib/submitBookingToAttio";
 import { createAttioContact } from "@/lib/attio";
 import { createAttioNote } from "@/lib/createAttioNote";
+import { notifyLeadCaptured } from "@/lib/notifyLeadCaptured";
 
 vi.mock("@/lib/attio", () => ({ createAttioContact: vi.fn() }));
 vi.mock("@/lib/createAttioNote", () => ({ createAttioNote: vi.fn() }));
+vi.mock("@/lib/notifyLeadCaptured", () => ({
+  notifyLeadCaptured: vi.fn().mockResolvedValue(undefined),
+}));
 
 const submission = {
   name: "Ada Lovelace",
@@ -19,6 +23,7 @@ describe("submitBookingToAttio", () => {
   beforeEach(() => {
     vi.mocked(createAttioContact).mockReset();
     vi.mocked(createAttioNote).mockReset();
+    vi.mocked(notifyLeadCaptured).mockClear();
   });
 
   it("reports success once the person and the note both land", async () => {
@@ -78,5 +83,37 @@ describe("submitBookingToAttio", () => {
     expect(createAttioContact).toHaveBeenCalledWith(
       expect.objectContaining({ email: "ada@example.com", name: "Ada Lovelace" }),
     );
+  });
+
+  it("pages a human once the lead is stored, carrying the triage fields", async () => {
+    vi.mocked(createAttioContact).mockResolvedValue({ success: true, recordId: "rec_1" });
+    vi.mocked(createAttioNote).mockResolvedValue({ success: true });
+
+    await submitBookingToAttio(submission);
+    expect(notifyLeadCaptured).toHaveBeenCalledWith(
+      expect.objectContaining({
+        email: "ada@example.com",
+        source: "/advisory/book",
+        company: "Test Co",
+        role: "Label Owner / GM",
+        package: "Retained Advisor ($5,000/mo)",
+      }),
+    );
+  });
+
+  it("does not page a human when the lead was never stored", async () => {
+    vi.mocked(createAttioContact).mockResolvedValue({ success: false, error: "400" });
+
+    await submitBookingToAttio(submission);
+    expect(notifyLeadCaptured).not.toHaveBeenCalled();
+  });
+
+  // A paging outage must not undo a successful capture.
+  it("still reports success when paging fails", async () => {
+    vi.mocked(createAttioContact).mockResolvedValue({ success: true, recordId: "rec_1" });
+    vi.mocked(createAttioNote).mockResolvedValue({ success: true });
+    vi.mocked(notifyLeadCaptured).mockRejectedValueOnce(new Error("api down"));
+
+    expect(await submitBookingToAttio(submission)).toEqual({ ok: true });
   });
 });

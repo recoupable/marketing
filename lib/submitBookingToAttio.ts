@@ -1,6 +1,7 @@
 import { createAttioContact } from "./attio";
 import { createAttioNote } from "./createAttioNote";
 import { buildBookingNote, type BookingNoteInput } from "./buildBookingNote";
+import { notifyLeadCaptured } from "./notifyLeadCaptured";
 
 /** A validated advisory booking submission. */
 export interface BookingSubmission extends BookingNoteInput {
@@ -44,6 +45,19 @@ export async function submitBookingToAttio(
   if (!written.success) {
     return { ok: false, error: written.error ?? "Attio note was not created" };
   }
+
+  // Paging is announcement, not capture: the lead is already stored, so a
+  // notifier outage must not turn a successful submission into an error.
+  await notifyLeadCaptured({
+    email,
+    source: "/advisory/book",
+    name,
+    company: booking.company,
+    role: booking.role,
+    package: note.title.replace(/^Advisory Inquiry: /, ""),
+    rosterSize: booking.rosterSize,
+    message: booking.message,
+  }).catch(() => {});
 
   return { ok: true };
 }
