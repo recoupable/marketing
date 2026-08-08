@@ -9,10 +9,18 @@ import { submitSubscriberToAttio } from "@/lib/submitSubscriberToAttio";
 const subscribeBodySchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   name: z.string().optional(),
+  company: z.string().optional(),
   utm_source: z.string().optional(),
   utm_medium: z.string().optional(),
   utm_campaign: z.string().optional(),
   source_post_slug: z.string().optional(),
+  // Qualifying data from the audit and the ROI calculator. Undeclared keys are
+  // stripped by Zod, which is how a completed audit's answers were captured by
+  // the form and then binned by the server (recoupable/chat#1800).
+  audit_score: z.string().optional(),
+  audit_answers: z.record(z.string(), z.string()).optional(),
+  roi_inputs: z.record(z.string(), z.number()).optional(),
+  roi_results: z.record(z.string(), z.union([z.string(), z.number()])).optional(),
 });
 
 /**
