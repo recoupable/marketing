@@ -141,10 +141,10 @@ export function AuditForm() {
     return (
       <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
         <h3 className="text-xl font-semibold text-center mb-2">
-          Almost done — where should we send your report?
+          Last step. Who are we scoring?
         </h3>
         <p className="text-sm text-[var(--muted-foreground)] text-center mb-6">
-          We&apos;ll email you a detailed breakdown with specific recommendations for your operation.
+          Your score and our recommendation appear on the next screen.
         </p>
         {(["name", "email", "company"] as const).map((field) => (
           <div key={field}>
@@ -177,7 +177,7 @@ export function AuditForm() {
           {submitting ? "Analyzing..." : "Get My Free Report →"}
         </button>
         <p className="text-xs text-center text-[var(--muted-foreground)]/60">
-          No spam. We&apos;ll send your report and that&apos;s it.
+          No spam. We use this to follow up only if we can help.
         </p>
       </form>
     );
