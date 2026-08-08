@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { createAttioContact } from "@/lib/attio";
+import { submitSubscriberToAttio } from "@/lib/submitSubscriberToAttio";
 
 /**
  * Zod schema for subscribe request body.
@@ -18,8 +18,12 @@ const subscribeBodySchema = z.object({
 /**
  * POST /api/subscribe
  *
- * Captures a new email subscriber with UTM attribution and sends
- * the contact to Attio CRM. Called by the SubscribeForm component.
+ * Captures a subscriber with UTM attribution, stores the contact in Attio and
+ * pages a human that a lead arrived. Called by SubscribeForm, BlogCTA,
+ * PlaybookForm, AuditForm and ROICalculator.
+ *
+ * Returns 502 when the lead could not be stored — the caller must surface that
+ * rather than discard it (recoupable/chat#1800).
  */
 export async function POST(request: Request) {
   try {
@@ -27,39 +31,21 @@ export async function POST(request: Request) {
     const parsed = subscribeBodySchema.safeParse(body);
 
     if (!parsed.success) {
-      return NextResponse.json(
-        { error: parsed.error.issues[0].message },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: parsed.error.issues[0].message }, { status: 400 });
     }
 
-    const { email, name, utm_source, utm_medium, utm_campaign, source_post_slug } =
-      parsed.data;
+    const result = await submitSubscriberToAttio(parsed.data);
 
-    // Create contact in Attio with attribution data
-    const result = await createAttioContact({
-      email,
-      name,
-      source: utm_source || "website",
-      utm_source,
-      utm_medium,
-      utm_campaign,
-      source_post_slug,
-    });
-
-    if (!result.success) {
-      // Log the error server-side but return a generic message to the client
+    if (!result.ok) {
+      console.error("[subscribe] lead was not captured:", result.error);
       return NextResponse.json(
-        { error: "Something went wrong. Please try again." },
-        { status: 500 },
+        { error: "We could not save your details. Please try again." },
+        { status: 502 },
       );
     }
 
     return NextResponse.json({ success: true });
   } catch {
-    return NextResponse.json(
-      { error: "Invalid request body" },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 }
