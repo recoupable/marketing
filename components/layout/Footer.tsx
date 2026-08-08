@@ -9,6 +9,8 @@ const FOOTER_NAV = [
   {
     title: "Product",
     links: [
+      { href: "/valuation", label: "Valuation" },
+      { href: "/pricing", label: "Pricing" },
       { href: "/platform", label: "Platform" },
       { href: "/solutions", label: "Solutions" },
       { href: "/developers", label: "Developers" },
