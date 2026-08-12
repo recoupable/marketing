@@ -10,7 +10,6 @@ const lead = {
 
 describe("notifyLeadCaptured", () => {
   beforeEach(() => {
-    vi.stubEnv("INTERNAL_API_SECRET", "s3cr3t");
     vi.stubEnv("RECOUP_API_URL", "https://api.example.dev");
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(null, { status: 200 })));
     vi.spyOn(console, "error").mockImplementation(() => {});
@@ -21,15 +20,12 @@ describe("notifyLeadCaptured", () => {
     vi.restoreAllMocks();
   });
 
-  it("posts the lead to the notification endpoint with the internal bearer token", async () => {
+  it("posts the lead to the notification endpoint", async () => {
     await notifyLeadCaptured(lead);
 
     const [url, init] = vi.mocked(fetch).mock.calls[0];
     expect(String(url)).toBe("https://api.example.dev/api/notifications/lead");
     expect(init?.method).toBe("POST");
-    expect(
-      (init?.headers as Record<string, string>)?.Authorization,
-    ).toBe("Bearer s3cr3t");
     expect(JSON.parse(String(init?.body))).toMatchObject({
       email: "ada@example.com",
       source: "/advisory/book",
@@ -51,24 +47,11 @@ describe("notifyLeadCaptured", () => {
     expect(console.error).toHaveBeenCalled();
   });
 
-  it("skips the call and warns when INTERNAL_API_SECRET is unset", async () => {
-    vi.stubEnv("INTERNAL_API_SECRET", "");
-    await expect(notifyLeadCaptured(lead)).resolves.toBeUndefined();
-    expect(fetch).not.toHaveBeenCalled();
-    expect(console.error).toHaveBeenCalled();
-  });
-
   it("falls back to the production api host when RECOUP_API_URL is unset", async () => {
     vi.stubEnv("RECOUP_API_URL", "");
     await notifyLeadCaptured(lead);
     expect(String(vi.mocked(fetch).mock.calls[0][0])).toBe(
       "https://api.recoupable.dev/api/notifications/lead",
     );
-  });
-
-  it("never puts the secret in the request body", async () => {
-    await notifyLeadCaptured(lead);
-    const [, init] = vi.mocked(fetch).mock.calls[0];
-    expect(String(init?.body)).not.toContain("s3cr3t");
   });
 });

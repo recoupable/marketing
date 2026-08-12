@@ -19,24 +19,19 @@ export interface CapturedLead {
  * visitor whose submission actually succeeded — it is logged instead. The
  * capture endpoint's own status stays the honest signal (recoupable/chat#1800).
  *
+ * Unauthenticated by decision (chat#1800, 2026-08-12): the forms feeding this
+ * call are public anyway, so a shared secret added setup without adding
+ * protection. Revisit if the channel gets spammed.
+ *
  * @param lead - The lead that was just stored.
  */
 export async function notifyLeadCaptured(lead: CapturedLead): Promise<void> {
-  const secret = process.env.INTERNAL_API_SECRET;
-  if (!secret) {
-    console.error("[notify-lead] INTERNAL_API_SECRET is not configured — lead not announced");
-    return;
-  }
-
   const baseUrl = process.env.RECOUP_API_URL || "https://api.recoupable.dev";
 
   try {
     const response = await fetch(`${baseUrl}/api/notifications/lead`, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${secret}`,
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(lead),
     });
 
