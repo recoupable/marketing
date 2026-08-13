@@ -80,6 +80,13 @@ export function BookingForm({
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
+  // Success replaces the tall form with a short block; without this the scroll
+  // position stays where the submit button was and the visitor stares at the
+  // footer while "Request received" sits above the fold (chat#1800 row 10).
+  useEffect(() => {
+    if (status === "success") window.scrollTo(0, 0);
+  }, [status]);
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setStatus("loading");
