@@ -15,7 +15,7 @@ describe("createCheckoutSession", () => {
   });
 
   it("posts the success URL to the subscriptions sessions endpoint with the bearer", async () => {
-    const url = await createCheckoutSession("https://chat.recoupable.dev/?checkout=success", "tok_privy");
+    const url = await createCheckoutSession("https://teams.recoupable.dev/?checkout=success", "tok_privy");
 
     expect(url).toBe(SESSION.url);
     const [endpoint, init] = vi.mocked(fetch).mock.calls[0];
@@ -23,7 +23,7 @@ describe("createCheckoutSession", () => {
     expect(init?.method).toBe("POST");
     expect(new Headers(init?.headers).get("Authorization")).toBe("Bearer tok_privy");
     expect(JSON.parse(String(init?.body))).toEqual({
-      successUrl: "https://chat.recoupable.dev/?checkout=success",
+      successUrl: "https://teams.recoupable.dev/?checkout=success",
     });
   });
 

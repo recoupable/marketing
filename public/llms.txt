@@ -40,5 +40,5 @@
 
 - Support: agent@recoupable.com
 - Website: https://recoupable.com
-- App: https://chat.recoupable.com
+- App: https://teams.recoupable.dev
 - Docs: https://developers.recoupable.com

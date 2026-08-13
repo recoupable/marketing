@@ -10,7 +10,7 @@ The product has multiple frontends:
 
 | App | Role | URL |
 |-----|------|-----|
-| `chat` | Main product — AI chat + agent tools | chat.recoupable.com |
+| `chat` | Main product — AI chat + agent tools | teams.recoupable.dev |
 | `marketing` | Public website, blog, landing pages | recoupable.com |
 | `admin` | Internal dashboard | (internal) |
 | `docs` | API documentation | developers.recoupable.com |
@@ -409,7 +409,7 @@ In the chat interface, the type system simplifies — Geist Pixel remains the di
 
 ## 11. App-Specific Notes
 
-### chat (chat.recoupable.com)
+### chat (teams.recoupable.dev)
 
 The chat app is the **primary product**. Its design language is stripped-down but keeps the pixel identity:
 - Geist Pixel Square for page titles and section labels — maintains brand consistency

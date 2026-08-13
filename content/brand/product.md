@@ -8,7 +8,7 @@ Recoup is an AI agent platform that handles music marketing end-to-end: content 
 
 ## How It Works
 
-1. **Chat with your agent** at `chat.recoupable.com` — tell it what you need
+1. **Chat with your agent** at `teams.recoupable.dev` — tell it what you need
 2. **The agent acts** — creates content, analyzes your audience, generates posts
 3. **Content gets distributed** — across Instagram, TikTok, X, LinkedIn via PostBridge
 4. **Performance is tracked** — the agent learns what works and adapts
@@ -29,7 +29,7 @@ Recoup is an AI agent platform that handles music marketing end-to-end: content 
 ## Platform Architecture
 
 ```
-chat.recoupable.com (frontend) → recoup-api (backend) → Supabase (database)
+teams.recoupable.dev (frontend) → recoup-api (backend) → Supabase (database)
                                                        → Trigger.dev (async tasks)
                                                        → PostBridge (social distribution)
 ```

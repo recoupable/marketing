@@ -293,7 +293,7 @@ Total daily time per artist: ~10–15 minutes. Down from 2–4 hours.`,
 
 **Book at:** recoupable.com/advisory
 
-Or start with the product: **chat.recoupable.dev** — try Recoupable's AI agents free.`,
+Or start with the product: **teams.recoupable.dev** — try Recoupable's AI agents free.`,
       },
     ],
   },
