@@ -1,11 +1,12 @@
 "use client";
 
+import { postCapture } from "@/lib/postCapture";
 import { useState, type FormEvent } from "react";
 
 /**
  * Inline email capture CTA for blog posts.
  * Appears after the post body, before related posts.
- * Posts to /api/subscribe with utm_campaign=blog-cta.
+ * Captures via the Recoup api (postCapture) with utm_campaign=blog-cta.
  */
 export function BlogCTA({ postSlug }: { postSlug?: string }) {
   const [email, setEmail] = useState("");
@@ -20,21 +21,18 @@ export function BlogCTA({ postSlug }: { postSlug?: string }) {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          utm_source: "website",
-          utm_medium: "blog-cta",
-          utm_campaign: "blog-cta",
-          source_post_slug: postSlug,
-        }),
+      const captured = await postCapture({
+        kind: "subscribe",
+        source: postSlug ? `/blog/${postSlug}` : "/blog",
+        email,
+        utm_source: "website",
+        utm_medium: "blog-cta",
+        utm_campaign: "blog-cta",
+        source_post_slug: postSlug,
       });
 
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Something went wrong");
+      if (!captured.ok) {
+        throw new Error(captured.error);
       }
 
       setStatus("success");

@@ -48,7 +48,9 @@ export function ROICalculator() {
     // The calculator result is already on screen; persisting the lead is a
     // separate concern and its failure must be surfaced, not discarded
     // (recoupable/chat#1800).
-    const captured = await postCapture("/api/subscribe", {
+    const captured = await postCapture({
+      kind: "subscribe",
+      source: "/roi",
       email: contact.email,
       name: contact.name,
       company: contact.company,

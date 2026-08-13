@@ -83,7 +83,9 @@ export function AuditForm() {
     // Rendering the result and persisting the lead are independent concerns:
     // the visitor still gets their score, and a failed capture is surfaced
     // rather than discarded (recoupable/chat#1800).
-    const captured = await postCapture("/api/subscribe", {
+    const captured = await postCapture({
+      kind: "subscribe",
+      source: "/audit",
       email: contact.email,
       name: contact.name,
       company: contact.company,

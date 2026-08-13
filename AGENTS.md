@@ -42,7 +42,7 @@ pnpm format     # Run prettier + lint
 app/              — Next.js App Router pages, layouts, API routes
 components/       — React components (layout/, blog/, home/)
 contexts/         — React context providers (theme, human/machine view)
-lib/              — Site logic (posts.ts, seo.ts, attio.ts, config.ts, copy/)
+lib/              — Site logic (posts.ts, seo.ts, postCapture.ts, config.ts, copy/)
 public/           — Static assets (brand/, icons/, images/)
 content/posts/    — MDX blog posts (one file = one post)
 content/brand/    — Brand context files (read before creating content)
@@ -141,7 +141,7 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 ## Integrations
 
-- **Attio CRM:** `lib/attio.ts` — contacts with UTM attribution + lifecycle stage
+- **Lead capture:** `lib/postCapture.ts` — every form posts to `POST /api/leads` on the Recoup api, which owns Attio storage, the triage note, and the Telegram page (chat#1800). Marketing holds no Attio client and no `ATTIO_API_KEY`. `NEXT_PUBLIC_RECOUP_API_URL` overrides the api base for previews.
 - **Analytics:** Plausible script in `app/layout.tsx` — do NOT remove
 
 ## Code Principles

@@ -1,10 +1,11 @@
 "use client";
 
+import { postCapture } from "@/lib/postCapture";
 import { useState, type FormEvent } from "react";
 
 /**
  * Email capture form for the AI Music Marketing Playbook lead magnet.
- * Posts to /api/subscribe with utm_campaign=ai-playbook.
+ * Captures via the Recoup api (postCapture) with utm_campaign=ai-playbook.
  */
 export function PlaybookForm() {
   const [email, setEmail] = useState("");
@@ -18,21 +19,18 @@ export function PlaybookForm() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          name: name || undefined,
-          utm_source: "website",
-          utm_medium: "lead-magnet",
-          utm_campaign: "ai-playbook",
-        }),
+      const captured = await postCapture({
+        kind: "subscribe",
+        source: "/playbook",
+        email,
+        name: name || undefined,
+        utm_source: "website",
+        utm_medium: "lead-magnet",
+        utm_campaign: "ai-playbook",
       });
 
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Something went wrong");
+      if (!captured.ok) {
+        throw new Error(captured.error);
       }
 
       setStatus("success");
