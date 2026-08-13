@@ -8,7 +8,9 @@
  *   source_post_slug, lifecycle_stage, tags, subscribed_at
  */
 
-const ATTIO_BASE_URL = "https://api.attio.com/v2";
+import { buildAttioName } from "./buildAttioName";
+
+export const ATTIO_BASE_URL = "https://api.attio.com/v2";
 
 /** Shape of a new contact being sent to Attio */
 export interface AttioContactInput {
@@ -28,12 +30,14 @@ export interface AttioContactInput {
  */
 export async function createAttioContact(
   input: AttioContactInput,
-): Promise<{ success: boolean; error?: string }> {
+): Promise<{ success: boolean; recordId?: string; error?: string }> {
   const apiKey = process.env.ATTIO_API_KEY;
 
   if (!apiKey) {
     return { success: false, error: "ATTIO_API_KEY not configured" };
   }
+
+  const name = buildAttioName(input.name);
 
   try {
     // Attio's assert endpoint takes `matching_attribute` as a QUERY param, not
@@ -51,7 +55,7 @@ export async function createAttioContact(
           data: {
             values: {
               email_addresses: [{ email_address: input.email }],
-              ...(input.name && { name: [{ first_name: input.name }] }),
+              ...(name && { name }),
             },
           },
         }),
@@ -66,7 +70,8 @@ export async function createAttioContact(
       };
     }
 
-    return { success: true };
+    const created = await response.json().catch(() => null);
+    return { success: true, recordId: created?.data?.id?.record_id };
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error";
     return { success: false, error: message };
