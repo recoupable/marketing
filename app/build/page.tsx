@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { buildCopy } from "@/lib/copy/build";
 import { buildPageMetadata } from "@/lib/seo";
 import { BuildTierCard } from "@/components/build/BuildTierCard";
+import { LinkedText } from "@/components/build/LinkedText";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Custom AI Technology for Music Businesses | Recoupable",
@@ -102,7 +103,7 @@ export default function BuildPage() {
               </div>
               <h3 className="font-bold mb-2">{s.title}</h3>
               <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
-                {s.description}
+                <LinkedText text={s.description} phrase="Strategy Session" href="/advisory" />
               </p>
             </div>
           ))}
@@ -140,7 +141,9 @@ export default function BuildPage() {
                   +
                 </span>
               </summary>
-              <p className="mt-3 text-sm text-[var(--muted-foreground)] leading-relaxed">{item.a}</p>
+              <p className="mt-3 text-sm text-[var(--muted-foreground)] leading-relaxed">
+                <LinkedText text={item.a} phrase="Strategy Session" href="/advisory" />
+              </p>
             </details>
           ))}
         </div>

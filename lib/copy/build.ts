@@ -22,7 +22,7 @@ export const buildCopy = {
     {
       title: "Integrations",
       description:
-        "Your DSP data, CRM, royalty statements, and internal tools connected into one system. Spotify, Attio, Stripe, Google Workspace, Telegram, and whatever else you run on.",
+        "Your DSP data, CRM, royalty statements, and internal tools connected into one system. Spotify, Google Workspace, Stripe, Chartmetric, Attio, and whatever else you run on.",
     },
     {
       title: "Dashboards & Reporting",
