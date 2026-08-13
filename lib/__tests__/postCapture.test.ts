@@ -61,9 +61,16 @@ describe("postCapture", () => {
     if (!result.ok) expect(result.error).toContain("could not save");
   });
 
-  it("reports rather than throws when the network call rejects", async () => {
+  // A visitor should never read "Failed to fetch" — transport errors get the
+  // friendly message; the real error goes to the console for the operator.
+  it("reports a friendly message, not the raw error, when the network call rejects", async () => {
     vi.mocked(fetch).mockRejectedValueOnce(new Error("socket hang up"));
     const result = await postCapture({ kind: "subscribe", source: "/roi" });
-    expect(result).toEqual({ ok: false, error: "socket hang up" });
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.error).toContain("could not save");
+      expect(result.error).not.toContain("socket hang up");
+    }
+    expect(console.error).toHaveBeenCalled();
   });
 });

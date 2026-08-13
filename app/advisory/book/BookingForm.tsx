@@ -120,8 +120,8 @@ export function BookingForm({
           Request received
         </h2>
         <p className="text-[var(--muted-foreground)] text-lg max-w-md mx-auto">
-          Sidney will review your info and get back to you within 24 hours to
-          schedule your{" "}
+          The Recoup team will review your info and get back to you within 24
+          hours to schedule your{" "}
           {packages.find((p) => p.id === selectedPkg)?.name?.toLowerCase() ||
             "session"}
           .
@@ -145,15 +145,15 @@ export function BookingForm({
               onClick={() => setSelectedPkg(pkg.id)}
               className={`text-left p-4 rounded-lg border transition-all ${
                 selectedPkg === pkg.id
-                  ? "border-white bg-white/5"
-                  : "border-[var(--border)] hover:border-white/30"
+                  ? "border-[var(--foreground)] border-2 bg-[var(--foreground)]/5"
+                  : "border-[var(--border)] hover:border-[var(--foreground)]/30"
               }`}
             >
               <div className="flex items-center justify-between">
                 <div>
                   <span className="font-semibold">{pkg.name}</span>
                   {"popular" in pkg && pkg.popular && (
-                    <span className="ml-2 text-xs bg-white text-black px-2 py-0.5 rounded-full font-medium">
+                    <span className="ml-2 text-xs bg-[var(--foreground)] text-[var(--background)] px-2 py-0.5 rounded-full font-medium">
                       Most Popular
                     </span>
                   )}
@@ -185,7 +185,7 @@ export function BookingForm({
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[var(--border)] focus:border-white focus:outline-none transition-colors"
+            className="w-full px-4 py-3 rounded-lg bg-[var(--foreground)]/5 border border-[var(--border)] focus:border-[var(--foreground)] focus:outline-none transition-colors"
             placeholder="Jane Smith"
           />
         </div>
@@ -199,7 +199,7 @@ export function BookingForm({
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[var(--border)] focus:border-white focus:outline-none transition-colors"
+            className="w-full px-4 py-3 rounded-lg bg-[var(--foreground)]/5 border border-[var(--border)] focus:border-[var(--foreground)] focus:outline-none transition-colors"
             placeholder="jane@label.com"
           />
         </div>
@@ -216,7 +216,7 @@ export function BookingForm({
             required
             value={company}
             onChange={(e) => setCompany(e.target.value)}
-            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[var(--border)] focus:border-white focus:outline-none transition-colors"
+            className="w-full px-4 py-3 rounded-lg bg-[var(--foreground)]/5 border border-[var(--border)] focus:border-[var(--foreground)] focus:outline-none transition-colors"
             placeholder="Acme Records"
           />
         </div>
@@ -228,7 +228,7 @@ export function BookingForm({
             id="role"
             value={role}
             onChange={(e) => setRole(e.target.value)}
-            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[var(--border)] focus:border-white focus:outline-none transition-colors appearance-none"
+            className="w-full px-4 py-3 rounded-lg bg-[var(--foreground)]/5 border border-[var(--border)] focus:border-[var(--foreground)] focus:outline-none transition-colors appearance-none"
           >
             <option value="">Select...</option>
             {roles.map((r) => (
@@ -248,7 +248,7 @@ export function BookingForm({
           id="roster"
           value={rosterSize}
           onChange={(e) => setRosterSize(e.target.value)}
-          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[var(--border)] focus:border-white focus:outline-none transition-colors appearance-none"
+          className="w-full px-4 py-3 rounded-lg bg-[var(--foreground)]/5 border border-[var(--border)] focus:border-[var(--foreground)] focus:outline-none transition-colors appearance-none"
         >
           <option value="">Select...</option>
           {rosterSizes.map((s) => (
@@ -268,7 +268,7 @@ export function BookingForm({
           rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[var(--border)] focus:border-white focus:outline-none transition-colors resize-none"
+          className="w-full px-4 py-3 rounded-lg bg-[var(--foreground)]/5 border border-[var(--border)] focus:border-[var(--foreground)] focus:outline-none transition-colors resize-none"
           placeholder="Tell us about your current operations and what you'd like to automate..."
         />
       </div>
@@ -280,7 +280,7 @@ export function BookingForm({
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-white text-black font-semibold hover:bg-white/90 transition-colors disabled:opacity-50"
+        className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-[var(--foreground)] text-[var(--background)] font-semibold hover:opacity-90 transition-colors disabled:opacity-50"
       >
         {status === "loading" ? (
           <>
@@ -296,8 +296,8 @@ export function BookingForm({
       </button>
 
       <p className="text-xs text-[var(--muted-foreground)] text-center">
-        No commitment. Sidney reviews every request personally and responds
-        within 24 hours.
+        No commitment. The Recoup team reviews every request personally and
+        responds within 24 hours.
       </p>
     </form>
   );

@@ -92,7 +92,9 @@ export function AuditForm() {
       utm_campaign: "ai-audit",
       utm_medium: "lead-magnet",
       audit_answers: answers,
-      audit_score: result,
+      // The human label ("Ready to Scale"), not the internal tier key ("mid") —
+      // this string becomes the Attio note title and the Telegram ping.
+      audit_score: auditCopy.results[result].score,
     });
 
     setCaptureError(captured.ok ? "" : captured.error);
@@ -123,7 +125,7 @@ export function AuditForm() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <a
             href={r.ctaPrimary.href}
-            className="inline-flex items-center justify-center rounded-full bg-white text-black px-6 py-3 text-sm font-medium hover:bg-white/90 transition-colors"
+            className="inline-flex items-center justify-center rounded-full bg-[var(--foreground)] text-[var(--background)] px-6 py-3 text-sm font-medium hover:opacity-90 transition-colors"
           >
             {r.ctaPrimary.label}
           </a>
@@ -159,7 +161,7 @@ export function AuditForm() {
               onChange={(e) =>
                 setContact({ ...contact, [field]: e.target.value })
               }
-              className="w-full rounded-lg border border-[var(--border)] bg-transparent px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-white/20"
+              className="w-full rounded-lg border border-[var(--border)] bg-transparent px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--foreground)]/20"
               placeholder={
                 field === "email"
                   ? "you@label.com"
@@ -173,9 +175,9 @@ export function AuditForm() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full rounded-full bg-white text-black py-3 text-sm font-medium hover:bg-white/90 transition-colors disabled:opacity-50"
+          className="w-full rounded-full bg-[var(--foreground)] text-[var(--background)] py-3 text-sm font-medium hover:opacity-90 transition-colors disabled:opacity-50"
         >
-          {submitting ? "Analyzing..." : "Get My Free Report →"}
+          {submitting ? "Analyzing..." : "See My Score →"}
         </button>
         <p className="text-xs text-center text-[var(--muted-foreground)]/60">
           No spam. We use this to follow up only if we can help.
@@ -191,7 +193,7 @@ export function AuditForm() {
       {/* Progress bar */}
       <div className="w-full h-1 rounded-full bg-[var(--border)] mb-8">
         <div
-          className="h-1 rounded-full bg-white transition-all duration-500"
+          className="h-1 rounded-full bg-[var(--foreground)] transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -206,7 +208,7 @@ export function AuditForm() {
           <button
             key={opt}
             onClick={() => handleAnswer(opt)}
-            className="w-full text-left rounded-xl border border-[var(--border)] px-5 py-3.5 text-sm hover:bg-[var(--hover)] hover:border-white/30 transition-all"
+            className="w-full text-left rounded-xl border border-[var(--border)] px-5 py-3.5 text-sm hover:bg-[var(--hover)] hover:border-[var(--foreground)]/30 transition-all"
           >
             {opt}
           </button>
