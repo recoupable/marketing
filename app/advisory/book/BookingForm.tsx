@@ -5,7 +5,17 @@ import { useState, useEffect, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 
-const packages = [
+/** A selectable package tile. Defaults are the advisory tiers; the /build
+ * funnel passes its own list plus its own capture `source` (chat#1800). */
+export interface BookingPackage {
+  id: string;
+  name: string;
+  price: string;
+  desc: string;
+  popular?: boolean;
+}
+
+const ADVISORY_PACKAGES: readonly BookingPackage[] = [
   {
     id: "strategy-session",
     name: "Strategy Session",
@@ -25,7 +35,7 @@ const packages = [
     price: "$5,000/mo",
     desc: "Ongoing strategic partnership",
   },
-] as const;
+];
 
 const roles = [
   "Label Owner / GM",
@@ -45,18 +55,22 @@ const rosterSizes = [
   "200+ artists",
 ];
 
-type PackageId = (typeof packages)[number]["id"];
-
-export function BookingForm() {
+export function BookingForm({
+  packages = ADVISORY_PACKAGES,
+  source = "/advisory/book",
+}: {
+  packages?: readonly BookingPackage[];
+  source?: string;
+} = {}) {
   const searchParams = useSearchParams();
-  const [selectedPkg, setSelectedPkg] = useState<PackageId>("strategy-session");
+  const [selectedPkg, setSelectedPkg] = useState<string>(packages[0].id);
 
   useEffect(() => {
     const p = searchParams.get("package");
     if (p && packages.some((pkg) => pkg.id === p)) {
-      setSelectedPkg(p as PackageId);
+      setSelectedPkg(p);
     }
-  }, [searchParams]);
+  }, [searchParams, packages]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
@@ -74,7 +88,7 @@ export function BookingForm() {
     try {
       const captured = await postCapture({
         kind: "booking",
-        source: "/advisory/book",
+        source,
         name,
         email,
         company,

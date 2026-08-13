@@ -153,6 +153,13 @@ export const advisoryCopy = {
     },
   ],
 
+  crossLink: {
+    label: "Want it built for you?",
+    text: "We also build custom, customer-owned technology: agents, integrations, and full applications. Your repo, your infrastructure, no lock-in.",
+    ctaLabel: "See Custom Builds",
+    ctaHref: "/build",
+  },
+
   closingCta: {
     headline: "The labels that move first win.",
     subheadline:

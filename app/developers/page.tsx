@@ -489,6 +489,13 @@ export default function DevelopersPage() {
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+          <p className="mt-6 text-sm text-[var(--muted-foreground)]">
+            Rather have us build it for you?{" "}
+            <Link href="/build" className="underline underline-offset-4 hover:opacity-70">
+              Custom, customer-owned builds
+            </Link>
+            .
+          </p>
         </div>
       </section>
     </div>

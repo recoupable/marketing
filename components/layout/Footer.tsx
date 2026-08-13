@@ -11,6 +11,7 @@ const FOOTER_NAV = [
     links: [
       { href: "/platform", label: "Platform" },
       { href: "/advisory", label: "Advisory" },
+      { href: "/build", label: "Custom Builds" },
       { href: "/solutions", label: "Solutions" },
       { href: "/developers", label: "Developers" },
       { href: siteConfig.docsUrl, label: "API Docs" },
