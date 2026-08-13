@@ -1,5 +1,6 @@
 "use client";
 
+import { postCapture } from "@/lib/postCapture";
 import { useState, useEffect, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
@@ -71,23 +72,20 @@ export function BookingForm() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/book", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          company,
-          role,
-          package: selectedPkg,
-          rosterSize,
-          message,
-        }),
+      const captured = await postCapture({
+        kind: "booking",
+        source: "/advisory/book",
+        name,
+        email,
+        company,
+        role: role || undefined,
+        package: selectedPkg,
+        rosterSize: rosterSize || undefined,
+        message: message || undefined,
       });
 
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || "Something went wrong");
+      if (!captured.ok) {
+        throw new Error(captured.error);
       }
 
       setStatus("success");
