@@ -19,7 +19,7 @@ describe("createCardOnFileSession", () => {
 
   it("posts the success URL to the card-on-file endpoint with the bearer", async () => {
     const url = await createCardOnFileSession(
-      "https://chat.recoupable.dev/?checkout=card-saved",
+      "https://teams.recoupable.dev/?checkout=card-saved",
       "tok_privy",
     );
 
@@ -29,7 +29,7 @@ describe("createCardOnFileSession", () => {
     expect(init?.method).toBe("POST");
     expect(new Headers(init?.headers).get("Authorization")).toBe("Bearer tok_privy");
     expect(JSON.parse(String(init?.body))).toEqual({
-      successUrl: "https://chat.recoupable.dev/?checkout=card-saved",
+      successUrl: "https://teams.recoupable.dev/?checkout=card-saved",
     });
   });
 
@@ -40,7 +40,7 @@ describe("createCardOnFileSession", () => {
     );
 
     await expect(
-      createCardOnFileSession("https://chat.recoupable.dev/", "bad_token"),
+      createCardOnFileSession("https://teams.recoupable.dev/", "bad_token"),
     ).rejects.toThrow("unauthorized");
   });
 
@@ -51,7 +51,7 @@ describe("createCardOnFileSession", () => {
     );
 
     await expect(
-      createCardOnFileSession("https://chat.recoupable.dev/", "tok"),
+      createCardOnFileSession("https://teams.recoupable.dev/", "tok"),
     ).rejects.toThrow(/couldn't start card setup/);
   });
 
@@ -62,7 +62,7 @@ describe("createCardOnFileSession", () => {
     );
 
     await expect(
-      createCardOnFileSession("https://chat.recoupable.dev/", "tok"),
+      createCardOnFileSession("https://teams.recoupable.dev/", "tok"),
     ).rejects.toThrow(/504/);
   });
 });

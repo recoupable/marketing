@@ -21,7 +21,7 @@ export const siteConfig = {
   description:
     "Your label. Run by agents. You create. They run strategy, content, revenue.",
   url: "https://recoupable.dev",
-  appUrl: "https://chat.recoupable.dev",
+  appUrl: "https://teams.recoupable.dev",
   apiUrl,
   docsUrl: "https://docs.recoupable.dev",
 
