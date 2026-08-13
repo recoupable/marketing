@@ -183,6 +183,20 @@ export default function AdvisoryPage() {
         </div>
       </section>
 
+      {/* Build cross-link */}
+      <section className="mb-24 text-center border border-[var(--border)] rounded-2xl py-8 px-6">
+        <p className="font-bold mb-1">{advisoryCopy.crossLink.label}</p>
+        <p className="text-sm text-[var(--muted-foreground)] mb-4 max-w-xl mx-auto">
+          {advisoryCopy.crossLink.text}
+        </p>
+        <a
+          href={advisoryCopy.crossLink.ctaHref}
+          className="text-sm font-medium underline underline-offset-4"
+        >
+          {advisoryCopy.crossLink.ctaLabel} →
+        </a>
+      </section>
+
       {/* FAQ */}
       <section className="mb-24 max-w-2xl mx-auto">
         <h2 className="text-2xl font-bold text-center mb-12">

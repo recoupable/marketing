@@ -217,6 +217,13 @@ export default function SolutionsPage() {
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+          <p className="mt-6 text-sm text-[var(--muted-foreground)]">
+            Need something the platform doesn&apos;t do?{" "}
+            <Link href="/build" className="underline underline-offset-4 hover:opacity-70">
+              We build custom, customer-owned technology
+            </Link>
+            .
+          </p>
         </div>
       </section>
     </div>
