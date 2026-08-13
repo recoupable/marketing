@@ -10,6 +10,8 @@ import {
 } from "@/lib/copy/roi";
 import { ArrowRight, TrendingUp, Clock, DollarSign, Zap } from "lucide-react";
 import { siteConfig } from "@/lib/config";
+import { postCapture } from "@/lib/postCapture";
+import { CaptureErrorNotice } from "@/components/lead-capture/CaptureErrorNotice";
 
 /* ── helpers ───────────────────────────────────────────────────────── */
 
@@ -31,6 +33,7 @@ export function ROICalculator() {
   const [contact, setContact] = useState({ name: "", email: "", company: "" });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [captureError, setCaptureError] = useState("");
 
   const results = calculateROI(inputs);
 
@@ -42,30 +45,26 @@ export function ROICalculator() {
     e.preventDefault();
     setSubmitting(true);
 
-    try {
-      await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: contact.email,
-          name: contact.name,
-          company: contact.company,
-          utm_campaign: "roi-calculator",
-          utm_medium: "lead-magnet",
-          roi_inputs: inputs,
-          roi_results: {
-            annualSavings: results.annualSavings,
-            monthlySavings: results.monthlySavings,
-            hoursSaved: results.hoursSavedPerMonth,
-            roi: results.roiPercent,
-            recommendedPlan: results.recommendedPlan,
-          },
-        }),
-      });
-    } catch {
-      // Don't block on API failure
-    }
+    // The calculator result is already on screen; persisting the lead is a
+    // separate concern and its failure must be surfaced, not discarded
+    // (recoupable/chat#1800).
+    const captured = await postCapture("/api/subscribe", {
+      email: contact.email,
+      name: contact.name,
+      company: contact.company,
+      utm_campaign: "roi-calculator",
+      utm_medium: "lead-magnet",
+      roi_inputs: inputs,
+      roi_results: {
+        annualSavings: results.annualSavings,
+        monthlySavings: results.monthlySavings,
+        hoursSaved: results.hoursSavedPerMonth,
+        roi: results.roiPercent,
+        recommendedPlan: results.recommendedPlan,
+      },
+    });
 
+    setCaptureError(captured.ok ? "" : captured.error);
     setSubmitting(false);
     setSubmitted(true);
   }
@@ -301,6 +300,10 @@ export function ROICalculator() {
             </button>
           </form>
         </div>
+      ) : captureError ? (
+        <div className="max-w-lg mx-auto">
+          <CaptureErrorNotice message={captureError} />
+        </div>
       ) : (
         <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-8 md:p-10 text-center max-w-lg mx-auto">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/15 text-emerald-400 mb-4">
@@ -310,11 +313,10 @@ export function ROICalculator() {
             className="text-xl font-bold mb-2"
             style={{ fontFamily: "var(--font-bitmap), monospace" }}
           >
-            Report on its way!
+            Your numbers are saved
           </h3>
           <p className="text-sm text-neutral-400 mb-6">
-            We&apos;ll send your personalized savings breakdown shortly.
-            In the meantime:
+            We have your details and will be in touch. In the meantime:
           </p>
           <a
             href={siteConfig.bookingUrl}
