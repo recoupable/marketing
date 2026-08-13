@@ -2,6 +2,8 @@
 
 import { useState, FormEvent } from "react";
 import { auditCopy } from "@/lib/copy/audit";
+import { postCapture } from "@/lib/postCapture";
+import { CaptureErrorNotice } from "@/components/lead-capture/CaptureErrorNotice";
 
 type Step = "questions" | "contact" | "results";
 
@@ -50,6 +52,7 @@ export function AuditForm() {
   const [contact, setContact] = useState({ name: "", email: "", company: "" });
   const [submitting, setSubmitting] = useState(false);
   const [tier, setTier] = useState<"low" | "mid" | "high">("mid");
+  const [captureError, setCaptureError] = useState("");
 
   const questions = auditCopy.questions;
   const progress = step === "questions"
@@ -77,25 +80,22 @@ export function AuditForm() {
     const result = scoreAnswers(answers);
     setTier(result);
 
-    // Send to Attio CRM via existing subscribe endpoint
-    try {
-      await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: contact.email,
-          name: contact.name,
-          company: contact.company,
-          utm_campaign: "ai-audit",
-          utm_medium: "lead-magnet",
-          audit_answers: answers,
-          audit_score: result,
-        }),
-      });
-    } catch {
-      // Don't block results on API failure
-    }
+    // Rendering the result and persisting the lead are independent concerns:
+    // the visitor still gets their score, and a failed capture is surfaced
+    // rather than discarded (recoupable/chat#1800).
+    const captured = await postCapture({
+      kind: "subscribe",
+      source: "/audit",
+      email: contact.email,
+      name: contact.name,
+      company: contact.company,
+      utm_campaign: "ai-audit",
+      utm_medium: "lead-magnet",
+      audit_answers: answers,
+      audit_score: result,
+    });
 
+    setCaptureError(captured.ok ? "" : captured.error);
     setSubmitting(false);
     setStep("results");
   }
@@ -104,6 +104,7 @@ export function AuditForm() {
     const r = auditCopy.results[tier];
     return (
       <div className="max-w-xl mx-auto text-center">
+        {captureError && <CaptureErrorNotice message={captureError} />}
         <div
           className="inline-block rounded-full px-5 py-2 text-sm font-bold mb-6"
           style={{ backgroundColor: r.color + "20", color: r.color }}
@@ -141,10 +142,10 @@ export function AuditForm() {
     return (
       <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
         <h3 className="text-xl font-semibold text-center mb-2">
-          Almost done — where should we send your report?
+          Last step. Who are we scoring?
         </h3>
         <p className="text-sm text-[var(--muted-foreground)] text-center mb-6">
-          We&apos;ll email you a detailed breakdown with specific recommendations for your operation.
+          Your score and our recommendation appear on the next screen.
         </p>
         {(["name", "email", "company"] as const).map((field) => (
           <div key={field}>
@@ -177,7 +178,7 @@ export function AuditForm() {
           {submitting ? "Analyzing..." : "Get My Free Report →"}
         </button>
         <p className="text-xs text-center text-[var(--muted-foreground)]/60">
-          No spam. We&apos;ll send your report and that&apos;s it.
+          No spam. We use this to follow up only if we can help.
         </p>
       </form>
     );
