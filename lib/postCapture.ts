@@ -34,7 +34,9 @@ export async function postCapture(
 
     return { ok: true };
   } catch (err) {
-    const message = err instanceof Error ? err.message : "Unknown error";
-    return { ok: false, error: message };
+    // Transport failure (offline, DNS, CORS): the visitor gets the friendly
+    // message, the operator gets the real error in the console (chat#1800).
+    console.error("[postCapture] network failure:", err);
+    return { ok: false, error: "We could not save your details. Please try again." };
   }
 }
