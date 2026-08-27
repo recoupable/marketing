@@ -143,6 +143,10 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 - **Lead capture:** `lib/postCapture.ts` — every form posts to `POST /api/leads` on the Recoup api, which owns Attio storage, the triage note, and the Telegram page (chat#1800). Marketing holds no Attio client and no `ATTIO_API_KEY`. `NEXT_PUBLIC_RECOUP_API_URL` overrides the api base for previews.
 - **Analytics:** Plausible script in `app/layout.tsx` — do NOT remove
+- **Attribution:** `components/AttributionCapture.tsx` uses the published
+  `@vizuh/clicktrail` parser to retain explicit first-touch campaign fields in
+  the host-owned `rcp_attr` cookie. It does not send network events or infer
+  attribution from referrers.
 
 ## Code Principles
 
