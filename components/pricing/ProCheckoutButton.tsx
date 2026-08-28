@@ -1,6 +1,7 @@
 "use client";
 
 import { useProCheckout } from "@/hooks/useProCheckout";
+import { trackEvent } from "@/lib/analytics/trackEvent";
 
 /**
  * The Pro plan CTA. Starts Stripe checkout directly from the pricing page
@@ -24,7 +25,10 @@ export function ProCheckoutButton({
     <div>
       <button
         type="button"
-        onClick={() => void startCheckout()}
+        onClick={() => {
+          trackEvent("pricing_cta_clicked", { plan: "pro" });
+          void startCheckout();
+        }}
         disabled={isPending}
         className={`${className} disabled:opacity-70 disabled:cursor-wait`}
       >
