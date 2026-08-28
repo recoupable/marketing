@@ -15,8 +15,6 @@ export interface PricingPlan {
   cta: string;
   /** Absent on the Pro plan, whose CTA starts checkout instead of linking out. */
   ctaHref?: string;
-  /** Opens the CTA in a new tab, so the pricing page survives the click. */
-  ctaExternal?: boolean;
   highlighted?: boolean;
   badge?: string;
 }
@@ -29,27 +27,26 @@ export interface PricingFAQ {
 export const pricingCopy = {
   title: "Simple pricing. No surprises.",
   description:
-    "Start free. Upgrade when your roster grows. Every plan includes AI agents that actually do the work — research, content, strategy, reporting.",
+    "Start free. Upgrade when your roster grows. Every plan includes AI agents that actually do the work: research, content, strategy, reporting.",
 
   plans: [
     {
-      id: "plus",
-      name: "Plus",
+      id: "free",
+      name: "Free",
       audience: "For independent artists",
-      price: "$19",
-      period: "/mo",
+      price: "$0",
+      period: "",
       description:
-        "Everything you need to run your own marketing with AI. Research your audience, generate content, plan releases.",
+        "Everything you need to try Recoupable for real. Value your catalog, put the agents to work, and upgrade only when you need more.",
       features: [
-        "1 artist profile",
-        "100 AI credits / month",
-        "Artist research & audience insights",
-        "AI content generation",
-        "Release planning tools",
-        "Analytics dashboard",
-        "Community support",
+        "$3.33 in agent credits every month",
+        "Artist profiles for your whole roster",
+        "Catalog valuation",
+        "Agent chat for research and content",
+        "Scheduled reports to your own inbox",
+        "No credit card required",
       ],
-      cta: "Start free",
+      cta: "Get started free",
       ctaHref: buildChatUrl({ campaign: "free" }),
     },
     {
@@ -63,7 +60,7 @@ export const pricingCopy = {
       features: [
         "Unlimited artist profiles",
         "1,000 AI credits / month",
-        "Everything in Plus",
+        "Everything in Free",
         "Train agents on your catalog data",
         "Multi-artist campaign planning",
         "Advanced audience segmentation",
@@ -74,29 +71,14 @@ export const pricingCopy = {
       highlighted: true,
       badge: "Most popular",
     },
-    {
-      id: "partner",
-      name: "Partner",
-      audience: "For labels & enterprises",
-      price: "Custom",
-      period: "",
-      description:
-        "White-glove onboarding, dedicated support, and the full platform tailored to your operation.",
-      features: [
-        "Everything in Pro",
-        "25,000+ chats / month",
-        "Team seats & role management",
-        "Custom agent training",
-        "Dedicated account manager",
-        "SLA & uptime guarantees",
-        "Custom integrations",
-        "Invoice billing",
-      ],
-      cta: "Book a call",
-      ctaHref: siteConfig.bookingUrl,
-      ctaExternal: true,
-    },
   ] as PricingPlan[],
+
+  /** Labels and distributors skip self-serve and book a call. */
+  partnerLine: {
+    text: "Labels and distributors: team seats, custom agents, invoice billing.",
+    cta: "Book a call",
+    href: siteConfig.bookingUrl,
+  },
 
   faq: [
     {

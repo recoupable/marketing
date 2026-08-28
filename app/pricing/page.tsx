@@ -4,12 +4,11 @@ import { pricingCopy, type PricingPlan } from "@/lib/copy/pricing";
 import { buildPageMetadata } from "@/lib/seo";
 import { buildChatUrl } from "@/lib/buildChatUrl";
 import { ProCheckoutButton } from "@/components/pricing/ProCheckoutButton";
-import { CardOnFileButton } from "@/components/pricing/CardOnFileButton";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Pricing | Recoupable",
   description:
-    "Start free. Scale when ready. AI agents for artists, managers, and labels — from $19/mo.",
+    "Free to start. Pro is $99/mo with a 30-day trial. AI agents for artists, managers, and labels.",
   path: "/pricing",
 });
 
@@ -82,15 +81,8 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
 
       {plan.id === "pro" ? (
         <ProCheckoutButton label={plan.cta} className={ctaClasses} />
-      ) : plan.id === "plus" ? (
-        <CardOnFileButton label={plan.cta} className={ctaClasses} />
       ) : (
-        <a
-          href={plan.ctaHref}
-          target={plan.ctaExternal ? "_blank" : undefined}
-          rel={plan.ctaExternal ? "noopener noreferrer" : undefined}
-          className={ctaClasses}
-        >
+        <a href={plan.ctaHref} className={ctaClasses}>
           {plan.cta}
         </a>
       )}
@@ -125,10 +117,25 @@ export default function PricingPage() {
       </section>
 
       {/* Plan cards */}
-      <section className="grid md:grid-cols-3 gap-6 items-start mb-24">
+      <section className="grid md:grid-cols-2 gap-6 items-start max-w-3xl mx-auto mb-8">
         {pricingCopy.plans.map((plan) => (
           <PlanCard key={plan.id} plan={plan} />
         ))}
+      </section>
+
+      {/* Labels: book a call */}
+      <section className="max-w-3xl mx-auto mb-24 flex flex-col sm:flex-row items-center justify-between gap-3 rounded-xl px-6 py-4 text-sm shadow-[0_0_0_1px_var(--border)]">
+        <p className="text-[var(--muted-foreground)] text-center sm:text-left">
+          {pricingCopy.partnerLine.text}
+        </p>
+        <a
+          href={pricingCopy.partnerLine.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 font-medium underline underline-offset-4 hover:opacity-80"
+        >
+          {pricingCopy.partnerLine.cta}
+        </a>
       </section>
 
       {/* FAQ */}
