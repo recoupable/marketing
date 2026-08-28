@@ -10,9 +10,12 @@ import { useProCheckout } from "@/hooks/useProCheckout";
  */
 export function ProCheckoutButton({
   label,
+  note,
   className,
 }: {
   label: string;
+  /** Disclosed under the button so the sign-in and card steps are no surprise. */
+  note?: string;
   className: string;
 }) {
   const { startCheckout, isPending, error } = useProCheckout();
@@ -27,6 +30,11 @@ export function ProCheckoutButton({
       >
         {isPending ? "Starting checkout..." : label}
       </button>
+      {note && (
+        <p className="mt-2 text-xs text-white/60 text-center leading-relaxed">
+          {note}
+        </p>
+      )}
       {error && (
         <p role="alert" className="mt-2 text-xs text-red-300 text-center">
           {error}. Click the button to retry.

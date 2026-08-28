@@ -28,6 +28,13 @@ describe("pricingCopy plans", () => {
     expect(pro.features.some((f) => f.startsWith("$99.99 in agent credits"))).toBe(true);
   });
 
+  it("discloses the checkout path under the Pro CTA", () => {
+    const pro = pricingCopy.plans.find((p) => p.id === "pro");
+    expect(pro?.ctaNote).toMatch(/\$0 today/);
+    expect(pro?.ctaNote).toMatch(/card required/i);
+    expect(pro?.ctaNote).toMatch(/sign in/i);
+  });
+
   it("keeps a book-a-call path for labels", () => {
     expect(pricingCopy.partnerLine.href).toMatch(/^https?:\/\//);
     expect(pricingCopy.partnerLine.cta.length).toBeGreaterThan(0);
