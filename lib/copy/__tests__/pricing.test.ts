@@ -22,6 +22,12 @@ describe("pricingCopy plans", () => {
     }
   });
 
+  it("prices credits from the real allotments, as dollars", () => {
+    const [free, pro] = pricingCopy.plans;
+    expect(free.features.some((f) => f.startsWith("$3.33 in agent credits"))).toBe(true);
+    expect(pro.features.some((f) => f.startsWith("$99.99 in agent credits"))).toBe(true);
+  });
+
   it("keeps a book-a-call path for labels", () => {
     expect(pricingCopy.partnerLine.href).toMatch(/^https?:\/\//);
     expect(pricingCopy.partnerLine.cta.length).toBeGreaterThan(0);

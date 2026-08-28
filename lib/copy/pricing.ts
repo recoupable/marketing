@@ -3,6 +3,12 @@
  */
 import { siteConfig } from "@/lib/config";
 import { buildChatUrl } from "@/lib/buildChatUrl";
+import { formatCreditsBullet } from "@/lib/pricing/formatCreditsBullet";
+import {
+  FREE_CREDITS_USD,
+  MEDIAN_REPORT_RUN_USD,
+  PRO_CREDITS_USD,
+} from "@/lib/pricing/const";
 
 export interface PricingPlan {
   id: string;
@@ -39,7 +45,7 @@ export const pricingCopy = {
       description:
         "Everything you need to try Recoupable for real. Value your catalog, put the agents to work, and upgrade only when you need more.",
       features: [
-        "$3.33 in agent credits every month",
+        formatCreditsBullet(FREE_CREDITS_USD, MEDIAN_REPORT_RUN_USD),
         "Artist profiles for your whole roster",
         "Catalog valuation",
         "Agent chat for research and content",
@@ -56,16 +62,13 @@ export const pricingCopy = {
       price: "$99",
       period: "/mo",
       description:
-        "Manage your entire roster with AI agents. Unlimited artists, deeper insights, priority everything.",
+        "Run your whole roster on agents. Thirty times the budget, daily monitoring, reports delivered to anyone you choose.",
       features: [
-        "Unlimited artist profiles",
-        "1,000 AI credits / month",
         "Everything in Free",
-        "Train agents on your catalog data",
-        "Multi-artist campaign planning",
-        "Advanced audience segmentation",
-        "Priority support",
-        "API access",
+        formatCreditsBullet(PRO_CREDITS_USD, MEDIAN_REPORT_RUN_USD),
+        "Daily social monitoring for every artist on your roster",
+        "Scheduled reports emailed to your team and artists, not just you",
+        "API keys for your own agents and scripts",
       ],
       cta: "Start 30-day trial",
       highlighted: true,
