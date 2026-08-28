@@ -2,6 +2,7 @@
  * Pricing page copy — single source of truth for plans, features, and FAQ.
  */
 import { siteConfig } from "@/lib/config";
+import { homeCopy } from "@/lib/copy/home";
 import { buildChatUrl } from "@/lib/buildChatUrl";
 import { formatCreditsBullet } from "@/lib/pricing/formatCreditsBullet";
 import {
@@ -87,6 +88,20 @@ export const pricingCopy = {
     href: siteConfig.bookingUrl,
   },
 
+  /** The one product proof on the page: a real report plus the homepage quote. */
+  proof: {
+    eyebrow: "What a scheduled report looks like",
+    title: "Every Monday, in your inbox, without asking.",
+    body:
+      "Real Spotify play deltas per track, audience numbers, top posts, and one recommendation. This one ran on the Free plan.",
+    image: "/images/pricing/weekly-report.png",
+    imageWidth: 680,
+    imageHeight: 700,
+    alt: "A weekly report email for an artist: stream gains per track over eight days, total plays, follower counts across Spotify, Instagram, TikTok and YouTube",
+    quote: homeCopy.proof.quote,
+    attribution: homeCopy.proof.attribution,
+  },
+
   faq: [
     {
       q: "What are AI credits?",
@@ -121,6 +136,12 @@ export const pricingCopy = {
       a: "ChatGPT is a general chatbot. Recoupable agents are built specifically for the music business — they understand artists, releases, audiences, and campaigns. They don't just answer questions, they execute strategy.",
     },
   ] as PricingFAQ[],
+
+  /** Bottom CTA, in the homepage's voice. */
+  closing: {
+    title: homeCopy.closing.line2,
+    body: "Start free. Agents run the ops; you make the music.",
+  },
 
   annualDiscount: "Save 20% with annual billing",
 } as const;
