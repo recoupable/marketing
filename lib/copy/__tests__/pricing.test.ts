@@ -39,4 +39,21 @@ describe("pricingCopy plans", () => {
     expect(pricingCopy.partnerLine.href).toMatch(/^https?:\/\//);
     expect(pricingCopy.partnerLine.cta.length).toBeGreaterThan(0);
   });
+
+  it("makes no claims the product cannot keep", () => {
+    const text = JSON.stringify(pricingCopy).toLowerCase();
+    expect(text).not.toContain("annual");
+    expect(text).not.toContain("switch plans");
+    expect(text).not.toContain("1 credit");
+  });
+
+  it("uses no em or en dashes in visitor-facing copy", () => {
+    expect(JSON.stringify(pricingCopy)).not.toMatch(/[\u2013\u2014]/);
+  });
+
+  it("sends both free CTAs to the same place with the same label", () => {
+    const free = pricingCopy.plans.find((p) => p.id === "free");
+    expect(pricingCopy.closing.cta).toBe(free?.cta);
+    expect(pricingCopy.closing.href).toBe(free?.ctaHref);
+  });
 });

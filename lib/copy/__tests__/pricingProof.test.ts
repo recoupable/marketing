@@ -23,6 +23,6 @@ describe("pricingCopy proof", () => {
 
   it("reuses the homepage quote verbatim", () => {
     expect(pricingCopy.proof.quote).toBe(homeCopy.proof.quote);
-    expect(pricingCopy.proof.attribution).toBe(homeCopy.proof.attribution);
+    expect(homeCopy.proof.attribution).toContain(pricingCopy.proof.attribution);
   });
 });

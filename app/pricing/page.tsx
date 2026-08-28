@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { pricingCopy, type PricingPlan } from "@/lib/copy/pricing";
 import { buildPageMetadata } from "@/lib/seo";
-import { buildChatUrl } from "@/lib/buildChatUrl";
 import { ProCheckoutButton } from "@/components/pricing/ProCheckoutButton";
 import { PricingCtaLink } from "@/components/pricing/PricingCtaLink";
 import { ProofBlock } from "@/components/pricing/ProofBlock";
@@ -110,12 +109,6 @@ export default function PricingPage() {
         <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto leading-relaxed">
           {pricingCopy.description}
         </p>
-        <p
-          className="text-xs text-[var(--muted-foreground)] mt-3"
-          style={{ fontFamily: "var(--font-bitmap), monospace" }}
-        >
-          {pricingCopy.annualDiscount}
-        </p>
       </section>
 
       {/* Plan cards */}
@@ -176,10 +169,10 @@ export default function PricingPage() {
         </p>
         <PricingCtaLink
           plan="free"
-          href={buildChatUrl({ campaign: "free" })}
+          href={pricingCopy.closing.href}
           className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
         >
-          Get started free
+          {pricingCopy.closing.cta}
         </PricingCtaLink>
       </section>
     </main>
