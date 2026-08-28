@@ -5,6 +5,7 @@ import { buildPageMetadata } from "@/lib/seo";
 import { buildChatUrl } from "@/lib/buildChatUrl";
 import { ProCheckoutButton } from "@/components/pricing/ProCheckoutButton";
 import { PricingCtaLink } from "@/components/pricing/PricingCtaLink";
+import { ProofBlock } from "@/components/pricing/ProofBlock";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Pricing | Recoupable",
@@ -139,6 +140,9 @@ export default function PricingPage() {
         </a>
       </section>
 
+      {/* Proof */}
+      <ProofBlock />
+
       {/* FAQ */}
       <section className="max-w-2xl mx-auto mb-24">
         <h2 className="text-2xl font-bold text-center mb-12">
@@ -166,9 +170,9 @@ export default function PricingPage() {
 
       {/* Bottom CTA */}
       <section className="text-center py-16 border-t border-[var(--border)]">
-        <h2 className="text-3xl font-bold mb-4">Ready to let AI run your marketing?</h2>
+        <h2 className="text-3xl font-bold mb-4">{pricingCopy.closing.title}</h2>
         <p className="text-[var(--muted-foreground)] max-w-xl mx-auto mb-8 leading-relaxed">
-          Start free. Your AI agents are ready.
+          {pricingCopy.closing.body}
         </p>
         <PricingCtaLink
           plan="free"
