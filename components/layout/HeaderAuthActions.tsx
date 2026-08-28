@@ -5,6 +5,7 @@ import { usePrivy } from "@privy-io/react-auth";
 import { LogOut } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { useSignedIn } from "@/hooks/useSignedIn";
+import { trackEvent } from "@/lib/analytics/trackEvent";
 
 /**
  * The header's auth-dependent actions on desktop: "Open app" plus a log-out
@@ -39,6 +40,7 @@ export function HeaderAuthActions() {
         <Link
           href={siteConfig.appUrl}
           className="bg-(--foreground) text-(--background) px-5 py-2 rounded-full text-[14px] font-ui font-semibold hover:opacity-90 transition-opacity"
+          onClick={() => trackEvent("open_app_clicked")}
         >
           Open app
         </Link>

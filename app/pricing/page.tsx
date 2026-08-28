@@ -4,6 +4,7 @@ import { pricingCopy, type PricingPlan } from "@/lib/copy/pricing";
 import { buildPageMetadata } from "@/lib/seo";
 import { buildChatUrl } from "@/lib/buildChatUrl";
 import { ProCheckoutButton } from "@/components/pricing/ProCheckoutButton";
+import { PricingCtaLink } from "@/components/pricing/PricingCtaLink";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Pricing | Recoupable",
@@ -82,9 +83,9 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       {plan.id === "pro" ? (
         <ProCheckoutButton label={plan.cta} note={plan.ctaNote} className={ctaClasses} />
       ) : (
-        <a href={plan.ctaHref} className={ctaClasses}>
+        <PricingCtaLink plan={plan.id} href={plan.ctaHref ?? "#"} className={ctaClasses}>
           {plan.cta}
-        </a>
+        </PricingCtaLink>
       )}
     </div>
   );
@@ -169,12 +170,13 @@ export default function PricingPage() {
         <p className="text-[var(--muted-foreground)] max-w-xl mx-auto mb-8 leading-relaxed">
           Start free. Your AI agents are ready.
         </p>
-        <a
+        <PricingCtaLink
+          plan="free"
           href={buildChatUrl({ campaign: "free" })}
           className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
         >
           Get started free
-        </a>
+        </PricingCtaLink>
       </section>
     </main>
   );

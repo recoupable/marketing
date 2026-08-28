@@ -6,6 +6,7 @@ import { ValuationProgress } from "@/components/valuation/ValuationProgress";
 import { ValuationError } from "@/components/valuation/ValuationError";
 import { ValuationResult } from "@/components/valuation/ValuationResult";
 import { toArtist } from "@/lib/valuation/toArtist";
+import { trackEvent } from "@/lib/analytics/trackEvent";
 
 /**
  * The one-click catalog valuation flow: search → run → shareable result card.
@@ -25,7 +26,13 @@ export function CatalogValuation() {
             running={running}
             progress={v.progress}
             placeholder="Search your artist name…"
-            onSelect={(a) => v.pick(toArtist(a))}
+            onSelect={(a) => {
+              const artist = toArtist(a);
+              trackEvent("valuation_artist_selected", {
+                artist_name: artist.name,
+              });
+              v.pick(artist);
+            }}
             onClear={running ? () => {} : v.clearPick}
             onSubmit={v.run}
           />
