@@ -99,13 +99,14 @@ export const pricingCopy = {
     imageHeight: 700,
     alt: "A weekly report email for an artist: stream gains per track over eight days, total plays, follower counts across Spotify, Instagram, TikTok and YouTube",
     quote: homeCopy.proof.quote,
-    attribution: homeCopy.proof.attribution,
+    // The homepage prefixes a dash; this page sets the quote off with a rule instead.
+    attribution: homeCopy.proof.attribution.replace(/^\u2014\s*/, ""),
   },
 
   faq: [
     {
       q: "What are AI credits?",
-      a: "Each interaction with an AI agent uses credits — a research query, a content draft, an audience report. Most actions cost 1 credit. Heavy operations (deep research, long-form content) may cost 2-5.",
+      a: `Credits are a dollar budget for agent work. Free accounts get $${FREE_CREDITS_USD.toFixed(2)} a month, Pro accounts $${PRO_CREDITS_USD.toFixed(2)}. A scheduled report run costs about $${MEDIAN_REPORT_RUN_USD.toFixed(2)}; a chat turn costs a few cents.`,
     },
     {
       q: "Can I try before I buy?",
@@ -113,27 +114,19 @@ export const pricingCopy = {
     },
     {
       q: "What happens if I run out of credits?",
-      a: "You can upgrade your plan or purchase additional credit packs. We'll notify you when you're running low so there are no surprises.",
-    },
-    {
-      q: "Can I switch plans anytime?",
-      a: "Absolutely. Upgrade, downgrade, or cancel anytime. Changes take effect at the start of your next billing cycle.",
+      a: "Add a card and top up any amount, or start the Pro trial. Your artists, catalogs, and scheduled tasks stay where they are.",
     },
     {
       q: "Is my data safe?",
       a: "Your data is encrypted in transit and at rest. We never share your artist data, audience insights, or content with other users. Your competitive advantage stays yours.",
     },
     {
-      q: "Do you offer annual billing?",
-      a: "Yes — annual plans save 20%. Contact us or toggle to annual billing in your account settings.",
-    },
-    {
       q: "What integrations are included?",
-      a: "All plans include core integrations: Spotify, Apple Music, social platforms, and email. Pro and Partner plans add API access and custom integrations.",
+      a: "Every account connects Spotify, Apple Music, social profiles, and email. Pro adds API keys for your own agents. Labels get custom integrations through a call.",
     },
     {
       q: "How is this different from ChatGPT?",
-      a: "ChatGPT is a general chatbot. Recoupable agents are built specifically for the music business — they understand artists, releases, audiences, and campaigns. They don't just answer questions, they execute strategy.",
+      a: "ChatGPT is a general chatbot. Recoupable agents are built for the music business: they understand artists, releases, audiences, and campaigns. They don't just answer questions, they execute strategy.",
     },
   ] as PricingFAQ[],
 
@@ -141,7 +134,7 @@ export const pricingCopy = {
   closing: {
     title: homeCopy.closing.line2,
     body: "Start free. Agents run the ops; you make the music.",
+    cta: "Get started free",
+    href: buildChatUrl({ campaign: "free" }),
   },
-
-  annualDiscount: "Save 20% with annual billing",
 } as const;
