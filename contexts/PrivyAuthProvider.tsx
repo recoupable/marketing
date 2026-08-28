@@ -28,6 +28,10 @@ export function PrivyAuthProvider({ children }: { children: ReactNode }) {
           theme: "light",
           accentColor: siteConfig.brand.accentColor,
           logo: siteConfig.brand.privyLogo,
+          // Both marketing flows (valuation, Pro trial) open this modal after a
+          // click elsewhere; say why it opened and that nothing is charged here.
+          loginMessage:
+            "Enter your email for a one-time code. Nothing is charged at this step.",
         },
         loginMethods: ["email"],
       }}

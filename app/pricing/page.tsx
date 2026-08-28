@@ -80,7 +80,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
       </ul>
 
       {plan.id === "pro" ? (
-        <ProCheckoutButton label={plan.cta} className={ctaClasses} />
+        <ProCheckoutButton label={plan.cta} note={plan.ctaNote} className={ctaClasses} />
       ) : (
         <a href={plan.ctaHref} className={ctaClasses}>
           {plan.cta}

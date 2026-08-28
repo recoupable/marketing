@@ -21,6 +21,8 @@ export interface PricingPlan {
   cta: string;
   /** Absent on the Pro plan, whose CTA starts checkout instead of linking out. */
   ctaHref?: string;
+  /** Rendered under the CTA: what happens after the click, before it happens. */
+  ctaNote?: string;
   highlighted?: boolean;
   badge?: string;
 }
@@ -71,6 +73,8 @@ export const pricingCopy = {
         "API keys for your own agents and scripts",
       ],
       cta: "Start 30-day trial",
+      ctaNote:
+        "$0 today. Card required, cancel anytime before day 30. You will sign in with your email first.",
       highlighted: true,
       badge: "Most popular",
     },
