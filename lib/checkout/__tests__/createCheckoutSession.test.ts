@@ -14,8 +14,12 @@ describe("createCheckoutSession", () => {
     vi.unstubAllGlobals();
   });
 
-  it("posts the success URL to the subscriptions sessions endpoint with the bearer", async () => {
-    const url = await createCheckoutSession("https://teams.recoupable.dev/?checkout=success", "tok_privy");
+  it("posts the success URL and plan to the subscriptions sessions endpoint with the bearer", async () => {
+    const url = await createCheckoutSession(
+      "https://teams.recoupable.dev/?checkout=success",
+      "tok_privy",
+      "pro",
+    );
 
     expect(url).toBe(SESSION.url);
     const [endpoint, init] = vi.mocked(fetch).mock.calls[0];
@@ -24,28 +28,35 @@ describe("createCheckoutSession", () => {
     expect(new Headers(init?.headers).get("Authorization")).toBe("Bearer tok_privy");
     expect(JSON.parse(String(init?.body))).toEqual({
       successUrl: "https://teams.recoupable.dev/?checkout=success",
+      plan: "pro",
     });
+  });
+
+  it("posts plan starter for the Starter checkout", async () => {
+    await createCheckoutSession("https://x.example", "tok", "starter");
+    const [, init] = vi.mocked(fetch).mock.calls[0];
+    expect(JSON.parse(String(init?.body)).plan).toBe("starter");
   });
 
   it("surfaces the API error message on a non-ok response", async () => {
     vi.mocked(fetch).mockResolvedValueOnce(
       Response.json({ error: "unauthorized" }, { status: 401 }),
     );
-    await expect(createCheckoutSession("https://x.example", "tok")).rejects.toThrow(
+    await expect(createCheckoutSession("https://x.example", "tok", "pro")).rejects.toThrow(
       "unauthorized",
     );
   });
 
   it("throws a friendly error when a non-ok response has no error body", async () => {
     vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 500 }));
-    await expect(createCheckoutSession("https://x.example", "tok")).rejects.toThrow(
+    await expect(createCheckoutSession("https://x.example", "tok", "pro")).rejects.toThrow(
       /couldn't start checkout \(500\)/,
     );
   });
 
   it("throws when the response has no checkout URL", async () => {
     vi.mocked(fetch).mockResolvedValueOnce(Response.json({ id: "cs_1" }, { status: 200 }));
-    await expect(createCheckoutSession("https://x.example", "tok")).rejects.toThrow(
+    await expect(createCheckoutSession("https://x.example", "tok", "pro")).rejects.toThrow(
       /couldn't start checkout/,
     );
   });

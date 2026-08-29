@@ -3,14 +3,15 @@ import { Check } from "lucide-react";
 import { pricingCopy, type PricingPlan } from "@/lib/copy/pricing";
 import { buildPageMetadata } from "@/lib/seo";
 import { getPlanCardClasses } from "@/lib/pricing/getPlanCardClasses";
-import { ProCheckoutButton } from "@/components/pricing/ProCheckoutButton";
+import { PlanCheckoutButton } from "@/components/pricing/PlanCheckoutButton";
+import { ComparisonTable } from "@/components/pricing/ComparisonTable";
 import { PricingCtaLink } from "@/components/pricing/PricingCtaLink";
 import { ProofBlock } from "@/components/pricing/ProofBlock";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Pricing | Recoupable",
   description:
-    "Free to start. Pro is $99/mo with a 30-day trial. AI agents for artists, managers, and labels.",
+    "Free to start. Starter is $19/mo, Pro is $99/mo with a 30-day trial. AI agents for artists, managers, and labels.",
   path: "/pricing",
 });
 
@@ -57,8 +58,13 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         ))}
       </ul>
 
-      {plan.id === "pro" ? (
-        <ProCheckoutButton label={plan.cta} note={plan.ctaNote} className={ctaClasses} />
+      {plan.id !== "free" ? (
+        <PlanCheckoutButton
+          plan={plan.id}
+          label={plan.cta}
+          note={plan.ctaNote}
+          className={ctaClasses}
+        />
       ) : (
         <PricingCtaLink plan={plan.id} href={plan.ctaHref ?? "#"} className={ctaClasses}>
           {plan.cta}
@@ -89,14 +95,14 @@ export default function PricingPage() {
       </section>
 
       {/* Plan cards */}
-      <section className="grid md:grid-cols-2 gap-6 items-start max-w-3xl mx-auto mb-8">
+      <section className="grid md:grid-cols-3 gap-6 items-start max-w-5xl mx-auto mb-8">
         {pricingCopy.plans.map((plan) => (
           <PlanCard key={plan.id} plan={plan} />
         ))}
       </section>
 
       {/* Labels: book a call */}
-      <section className="max-w-3xl mx-auto mb-24 flex flex-col sm:flex-row items-center justify-between gap-3 rounded-xl px-6 py-4 text-sm shadow-[0_0_0_1px_var(--border)]">
+      <section className="max-w-3xl mx-auto mb-16 flex flex-col sm:flex-row items-center justify-between gap-3 rounded-xl px-6 py-4 text-sm shadow-[0_0_0_1px_var(--border)]">
         <p className="text-[var(--muted-foreground)] text-center sm:text-left">
           {pricingCopy.partnerLine.text}
         </p>
@@ -109,6 +115,9 @@ export default function PricingPage() {
           {pricingCopy.partnerLine.cta}
         </a>
       </section>
+
+      {/* Comparison */}
+      <ComparisonTable />
 
       {/* Proof */}
       <ProofBlock />
