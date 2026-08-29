@@ -9,6 +9,7 @@ import {
   FREE_CREDITS_USD,
   MEDIAN_REPORT_RUN_USD,
   PRO_CREDITS_USD,
+  PROOF_NUMBERS,
   STARTER_CREDITS_USD,
 } from "@/lib/pricing/const";
 import type { PlanId } from "@/lib/pricing/entitlements";
@@ -17,6 +18,7 @@ import {
   COMPARISON_COLUMNS,
 } from "@/lib/pricing/buildComparisonRows";
 import { formatTasksBullet } from "@/lib/pricing/formatTasksBullet";
+import { buildProofStats } from "@/lib/pricing/buildProofStats";
 
 export interface PricingPlan {
   id: PlanId;
@@ -80,7 +82,7 @@ export const pricingCopy = {
         formatTasksBullet("starter"),
       ],
       cta: "Start Starter",
-      ctaNote: "$19 today. Cancel anytime.",
+      ctaNote: "$19 today. Cancel anytime. Sign in with your email after checkout.",
     },
     {
       id: "pro",
@@ -98,7 +100,8 @@ export const pricingCopy = {
         "Scheduled reports emailed to your team and artists, not just you",
       ],
       cta: "Start 30-day trial",
-      ctaNote: "$0 today. Card required, cancel anytime before day 30.",
+      ctaNote:
+        "$0 today. Card required, cancel anytime before day 30. Sign in with your email after checkout.",
       highlighted: true,
       badge: "Most popular",
     },
@@ -131,6 +134,18 @@ export const pricingCopy = {
     quote: homeCopy.proof.quote,
     // The homepage prefixes a dash; this page sets the quote off with a rule instead.
     attribution: homeCopy.proof.attribution.replace(/^\u2014\s*/, ""),
+    /** Dated production counts; the query lives next to `PROOF_NUMBERS`. */
+    stats: buildProofStats(PROOF_NUMBERS),
+    statsNote: `Production numbers as of ${PROOF_NUMBERS.asOf}.`,
+  },
+
+  /** Above the cards when the visitor is signed in: current plan and the next step. */
+  signedIn: {
+    planLabel: (plan: PlanId) => `Your plan: ${plan.charAt(0).toUpperCase()}${plan.slice(1)}`,
+    upgradeCta: "Upgrade to Pro",
+    upgradeNote: "Straight to Stripe. Your account is already linked.",
+    openAppCta: "Open the app",
+    openAppHref: siteConfig.appUrl,
   },
 
   faq: [

@@ -15,3 +15,24 @@ export const PRO_CREDITS_USD = PLAN_ENTITLEMENTS.pro.credits_usd;
  * Re-measure when the report prompts or models change.
  */
 export const MEDIAN_REPORT_RUN_USD = 0.766;
+
+export interface ProofNumbers {
+  /** `email_send_log` rows with status sent in the 30 days to `asOf`. */
+  reportsSent30d: number;
+  /** Distinct `artist_account_id` on enabled `scheduled_actions` at `asOf`. */
+  artistsOnReports: number;
+  /** ISO date the two counts were read from production. */
+  asOf: string;
+}
+
+/**
+ * Production snapshot for the proof block, re-run monthly:
+ *   select count(*) from email_send_log
+ *     where status = 'sent' and created_at >= now() - interval '30 days';
+ *   select count(distinct artist_account_id) from scheduled_actions where enabled;
+ */
+export const PROOF_NUMBERS: ProofNumbers = {
+  reportsSent30d: 790,
+  artistsOnReports: 69,
+  asOf: "2026-08-29",
+};

@@ -28,6 +28,15 @@ export function ProofBlock() {
         </p>
         <h2 className="text-2xl md:text-3xl font-bold leading-tight mb-4">{p.title}</h2>
         <p className="text-[var(--muted-foreground)] leading-relaxed mb-8">{p.body}</p>
+        <dl className="grid grid-cols-2 gap-4 mb-2">
+          {p.stats.map((s) => (
+            <div key={s.label} className="rounded-xl px-4 py-3 shadow-[0_0_0_1px_var(--border)]">
+              <dd className="text-2xl font-bold leading-none mb-1">{s.value}</dd>
+              <dt className="text-xs text-[var(--muted-foreground)] leading-snug">{s.label}</dt>
+            </div>
+          ))}
+        </dl>
+        <p className="text-[11px] text-[var(--muted-foreground)] mb-8">{p.statsNote}</p>
         <blockquote className="pl-4 shadow-[inset_2px_0_0_var(--foreground)]">
           <p className="text-sm leading-relaxed mb-2">{p.quote}</p>
           <footer className="text-xs text-[var(--muted-foreground)]">{p.attribution}</footer>
