@@ -42,11 +42,15 @@ describe("pricingCopy plans", () => {
     expect(byId("pro")?.features).toContain("Unlimited scheduled tasks, hourly at most");
   });
 
-  it("discloses the checkout path under each paid CTA", () => {
+  it("discloses the checkout path under each paid CTA: pay first, sign in after", () => {
     expect(byId("pro")?.ctaNote).toMatch(/\$0 today/);
     expect(byId("pro")?.ctaNote).toMatch(/card required/i);
     expect(byId("starter")?.ctaNote).toMatch(/\$19 today/);
     expect(byId("starter")?.ctaNote).toMatch(/cancel anytime/i);
+    for (const id of ["starter", "pro"]) {
+      expect(byId(id)?.ctaNote).toMatch(/sign in .* after/i);
+      expect(byId(id)?.ctaNote).not.toMatch(/first/i);
+    }
   });
 
   it("keeps a book-a-call path for labels", () => {

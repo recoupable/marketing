@@ -80,7 +80,7 @@ export const pricingCopy = {
         formatTasksBullet("starter"),
       ],
       cta: "Start Starter",
-      ctaNote: "$19 today. Cancel anytime. You will sign in with your email first.",
+      ctaNote: "$19 today. Cancel anytime. Sign in with your email after checkout.",
     },
     {
       id: "pro",
@@ -99,7 +99,7 @@ export const pricingCopy = {
       ],
       cta: "Start 30-day trial",
       ctaNote:
-        "$0 today. Card required, cancel anytime before day 30. You will sign in with your email first.",
+        "$0 today. Card required, cancel anytime before day 30. Sign in with your email after checkout.",
       highlighted: true,
       badge: "Most popular",
     },

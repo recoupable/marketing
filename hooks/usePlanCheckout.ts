@@ -1,8 +1,13 @@
 "use client";
 
-import { buildChatUrl } from "@/lib/buildChatUrl";
-import { createCheckoutSession, type CheckoutPlan } from "@/lib/checkout/createCheckoutSession";
-import { useGatedStripeRedirect } from "@/hooks/useGatedStripeRedirect";
+import { useState } from "react";
+import { usePrivy } from "@privy-io/react-auth";
+import { siteConfig } from "@/lib/config";
+import { buildCheckoutSuccessUrl } from "@/lib/checkout/buildCheckoutSuccessUrl";
+import {
+  createDirectCheckoutSession,
+  type CheckoutPlan,
+} from "@/lib/checkout/createDirectCheckoutSession";
 import { trackEvent } from "@/lib/analytics/trackEvent";
 
 export type PlanCheckoutState = {
@@ -11,26 +16,38 @@ export type PlanCheckoutState = {
   error: string;
 };
 
-/** UTM campaign per paid plan, so the app-side success redirect keeps attribution. */
-const CAMPAIGN: Record<CheckoutPlan, string> = { starter: "starter", pro: "pro-trial" };
-
 /**
- * Drives a paid plan's subscription checkout from the pricing page, behind
- * the shared Privy sign-in gate (useGatedStripeRedirect). On success the
- * browser navigates to the Stripe-hosted checkout page; Stripe then sends the
- * buyer into the chat app with attribution preserved.
+ * Drives a paid plan's checkout from the pricing page straight to Stripe: no
+ * sign-in modal first (app#2044 decision 1). A signed-in visitor's Privy
+ * bearer rides along so the subscription attaches to their account; everyone
+ * else signs in after paying and the api links the account by billing email.
+ * Stays pending through the navigation to the Stripe-hosted page.
  */
 export function usePlanCheckout(plan: CheckoutPlan): PlanCheckoutState {
-  const { start, isPending, error } = useGatedStripeRedirect(async (token) => {
-    const url = await createCheckoutSession(
-      buildChatUrl({ checkout: "success", campaign: CAMPAIGN[plan] }),
-      token,
-      plan,
-    );
-    // The session exists and the browser is about to leave for Stripe.
-    trackEvent("checkout_opened", { plan });
-    return url;
-  });
+  const { ready, authenticated, getAccessToken } = usePrivy();
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState("");
 
-  return { startCheckout: start, isPending, error };
+  async function startCheckout() {
+    if (isPending) return;
+    setIsPending(true);
+    setError("");
+    try {
+      const token = ready && authenticated ? ((await getAccessToken()) ?? undefined) : undefined;
+      const url = await createDirectCheckoutSession({
+        plan,
+        successUrl: buildCheckoutSuccessUrl(plan),
+        cancelUrl: `${siteConfig.url}/pricing`,
+        token,
+      });
+      // The session exists and the browser is about to leave for Stripe.
+      trackEvent("checkout_opened", { plan });
+      window.location.href = url;
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "something went wrong");
+      setIsPending(false);
+    }
+  }
+
+  return { startCheckout, isPending, error };
 }
