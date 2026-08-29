@@ -35,12 +35,12 @@ export function ProCheckoutButton({
         {isPending ? "Starting checkout..." : label}
       </button>
       {note && (
-        <p className="mt-2 text-xs text-white/60 text-center leading-relaxed">
+        <p className="mt-2 text-xs opacity-70 text-center leading-relaxed">
           {note}
         </p>
       )}
       {error && (
-        <p role="alert" className="mt-2 text-xs text-red-300 text-center">
+        <p role="alert" className="mt-2 text-xs text-red-500 text-center">
           {error}. Click the button to retry.
         </p>
       )}
