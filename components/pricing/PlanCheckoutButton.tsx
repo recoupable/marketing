@@ -3,6 +3,7 @@
 import { usePlanCheckout } from "@/hooks/usePlanCheckout";
 import type { CheckoutPlan } from "@/lib/checkout/createDirectCheckoutSession";
 import { trackEvent } from "@/lib/analytics/trackEvent";
+import type { PricingSurface } from "@/lib/analytics/pricingSurface";
 
 /**
  * A paid plan's CTA. Opens Stripe checkout straight from the pricing page,
@@ -11,11 +12,13 @@ import { trackEvent } from "@/lib/analytics/trackEvent";
  */
 export function PlanCheckoutButton({
   plan,
+  surface,
   label,
   note,
   className,
 }: {
   plan: CheckoutPlan;
+  surface: PricingSurface;
   label: string;
   /** Disclosed under the button so the sign-in and card steps are no surprise. */
   note?: string;
@@ -28,7 +31,7 @@ export function PlanCheckoutButton({
       <button
         type="button"
         onClick={() => {
-          trackEvent("pricing_cta_clicked", { plan });
+          trackEvent("pricing_cta_clicked", { plan, surface });
           void startCheckout();
         }}
         disabled={isPending}
