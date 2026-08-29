@@ -81,13 +81,24 @@ describe("pricingCopy comparison table", () => {
       "Scheduled tasks",
       "Shortest cadence",
       "Report recipients",
-      "Roster monitoring",
       "API keys",
+      "Roster monitoring",
       "Card required",
     ]);
     for (const row of pricingCopy.comparison.rows) {
       expect(row.values).toHaveLength(3);
     }
+  });
+
+  it("keeps the table to what every plan actually gets, in the approved wording", () => {
+    const byLabel = Object.fromEntries(pricingCopy.comparison.rows.map((r) => [r.label, r.values]));
+    expect(byLabel["API keys"]).toEqual(["Yes", "Yes", "Yes"]);
+    expect(byLabel["Card required"]).toEqual(["No", "Yes", "Yes"]);
+    expect(byLabel["Report recipients"]).toEqual(["You", "You", "Anyone"]);
+    for (const v of byLabel["Report runs that buys"]) expect(v).toMatch(/^~\d+$/);
+    const pro = pricingCopy.plans.find((p) => p.id === "pro")!;
+    expect(pro.features.some((f) => /api key/i.test(f))).toBe(false);
+    expect(JSON.stringify(pricingCopy.faq)).not.toMatch(/Pro adds API keys/);
   });
 
   it("derives the numeric rows from the entitlement table", () => {
@@ -96,6 +107,6 @@ describe("pricingCopy comparison table", () => {
     expect(row("Monthly credits")).toEqual(["$3.33", "$20.00", "$300.00"]);
     expect(row("Scheduled tasks")).toEqual(["1", "3", "Unlimited"]);
     expect(row("Shortest cadence")).toEqual(["Weekly", "Daily", "Hourly"]);
-    expect(row("Card required")).toEqual(["No", "Yes", "Yes, $0 for 30 days"]);
+    expect(row("Card required")).toEqual(["No", "Yes", "Yes"]);
   });
 });

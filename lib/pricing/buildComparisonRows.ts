@@ -12,7 +12,8 @@ const perPlan = (f: (id: (typeof PLAN_IDS)[number]) => string) => PLAN_IDS.map(f
 /**
  * The comparison table under the plan cards. Numeric rows derive from the
  * entitlement table so the page cannot drift from the gate; the yes/no rows
- * name the Pro-only gates in the api (roster scrape, recipients, API keys).
+ * name the Pro-only gates in the api (roster scrape, recipients). API keys
+ * are open to every plan, agent signup mints one with no card.
  */
 export function buildComparisonRows(reportRunUsd: number): ComparisonRow[] {
   return [
@@ -23,7 +24,7 @@ export function buildComparisonRows(reportRunUsd: number): ComparisonRow[] {
     {
       label: "Report runs that buys",
       values: perPlan(
-        (id) => `About ${Math.floor(PLAN_ENTITLEMENTS[id].credits_usd / reportRunUsd)}`,
+        (id) => `~${Math.floor(PLAN_ENTITLEMENTS[id].credits_usd / reportRunUsd)}`,
       ),
     },
     {
@@ -37,9 +38,9 @@ export function buildComparisonRows(reportRunUsd: number): ComparisonRow[] {
       label: "Shortest cadence",
       values: perPlan((id) => formatCadence(PLAN_ENTITLEMENTS[id].min_cadence_minutes)),
     },
-    { label: "Report recipients", values: ["You", "You", "Anyone you choose"] },
+    { label: "Report recipients", values: ["You", "You", "Anyone"] },
+    { label: "API keys", values: ["Yes", "Yes", "Yes"] },
     { label: "Roster monitoring", values: ["No", "No", "Daily, every artist"] },
-    { label: "API keys", values: ["No", "No", "Yes"] },
-    { label: "Card required", values: ["No", "Yes", "Yes, $0 for 30 days"] },
+    { label: "Card required", values: ["No", "Yes", "Yes"] },
   ];
 }

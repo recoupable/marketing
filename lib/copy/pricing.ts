@@ -101,7 +101,6 @@ export const pricingCopy = {
         formatTasksBullet("pro"),
         "Daily social monitoring for every artist on your roster",
         "Scheduled reports emailed to your team and artists, not just you",
-        "API keys for your own agents and scripts",
       ],
       cta: "Start 30-day trial",
       ctaNote:
@@ -159,7 +158,7 @@ export const pricingCopy = {
     },
     {
       q: "What integrations are included?",
-      a: "Every account connects Spotify, Apple Music, social profiles, and email. Pro adds API keys for your own agents. Labels get custom integrations through a call.",
+      a: "Every account connects Spotify, Apple Music, social profiles, and email, and every plan gets API keys for your own agents. Labels get custom integrations through a call.",
     },
     {
       q: "How is this different from ChatGPT?",
