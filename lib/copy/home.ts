@@ -9,8 +9,10 @@ export const homeCopy = {
     headline: "Your label. Run by agents.",
     subheader:
       "You create. Agents run strategy, content, fans, revenue. One system.",
-    ctaPrimary: "Get started",
-    ctaHref: siteConfig.appUrl,
+    ctaPrimary: "Value your catalog free",
+    ctaHref: `${siteConfig.url}/valuation`,
+    ctaSecondary: "Get started",
+    ctaSecondaryHref: siteConfig.appUrl,
   },
   pain: {
     title: "Hustle by default. Systems by design.",
@@ -97,11 +99,20 @@ export const homeCopy = {
     description:
       "Music ops. Agent infrastructure. Run a label without burnout.",
   },
+  /** Three plan cards above the closing pitch; the full comparison lives on /pricing. */
+  pricingStrip: {
+    eyebrow: "Pricing",
+    title: "Start free. Step up when your reports need to run more often.",
+    compareLabel: "Compare plans",
+    compareHref: "/pricing",
+  },
   closing: {
     line1: `Music's going autonomous. ${siteConfig.name}'s the infrastructure.`,
     line2: "Build your label. Run it with agents.",
-    ctaLabel: "Get started",
-    ctaHref: siteConfig.appUrl,
+    ctaLabel: "Value your catalog free",
+    ctaHref: `${siteConfig.url}/valuation`,
+    ctaSecondaryLabel: "Get started free",
+    ctaSecondaryHref: siteConfig.appUrl,
   },
   blog: {
     title: "Latest",
@@ -121,6 +132,8 @@ export function homeToMarkdown(c: HomeCopy): string {
     c.hero.subheader,
     "",
     `[${c.hero.ctaPrimary}](${c.hero.ctaHref})`,
+    "",
+    `[${c.hero.ctaSecondary}](${c.hero.ctaSecondaryHref})`,
     "",
     "---",
     "",
@@ -166,6 +179,14 @@ export function homeToMarkdown(c: HomeCopy): string {
     "",
     "---",
     "",
+    "## Pricing",
+    "",
+    c.pricingStrip.title,
+    "",
+    `[${c.pricingStrip.compareLabel}](${siteConfig.url}${c.pricingStrip.compareHref})`,
+    "",
+    "---",
+    "",
     "## Closing",
     "",
     c.closing.line1,
@@ -173,6 +194,8 @@ export function homeToMarkdown(c: HomeCopy): string {
     c.closing.line2,
     "",
     `[${c.closing.ctaLabel}](${c.closing.ctaHref})`,
+    "",
+    `[${c.closing.ctaSecondaryLabel}](${c.closing.ctaSecondaryHref})`,
   ];
   return lines.join("\n");
 }

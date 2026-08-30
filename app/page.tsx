@@ -7,6 +7,8 @@ import { CatalogValuation } from "@/components/valuation/CatalogValuation";
 import { ResearchCard } from "@/components/home/ResearchCard";
 import { ContentGrid } from "@/components/home/ContentGrid";
 import { ArchitectureDiagram } from "@/components/home/ArchitectureDiagram";
+import { PricingStrip } from "@/components/pricing/PricingStrip";
+import { homeCopy } from "@/lib/copy/home";
 import { ArrowUpRight } from "lucide-react";
 
 function useReveal() {
@@ -391,7 +393,12 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════
-          7. CTA
+          7. PRICING — the three plans, same copy as /pricing
+          ══════════════════════════════════════ */}
+      <PricingStrip />
+
+      {/* ══════════════════════════════════════
+          8. CTA
           ══════════════════════════════════════ */}
       <section className="relative py-32 sm:py-44 overflow-hidden dark-section-cta">
         <div
@@ -411,16 +418,16 @@ export default function HomePage() {
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href={siteConfig.appUrl}
+              href={homeCopy.closing.ctaHref}
               className="cta-pulse font-ui font-semibold bg-white text-[#0a0a0a] px-9 py-4 rounded-full text-[15px] hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:-translate-y-0.5"
             >
-              Get started free
+              {homeCopy.closing.ctaLabel}
             </Link>
             <Link
-              href={siteConfig.docsUrl}
-              className="font-ui font-medium text-sm text-white/25 hover:text-white/50 transition-colors flex items-center gap-1.5"
+              href={homeCopy.closing.ctaSecondaryHref}
+              className="font-ui font-medium text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1.5"
             >
-              Documentation <ArrowUpRight size={14} />
+              {homeCopy.closing.ctaSecondaryLabel} <ArrowUpRight size={14} />
             </Link>
           </div>
         </div>

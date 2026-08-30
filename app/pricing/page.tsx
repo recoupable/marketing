@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Check } from "lucide-react";
-import { pricingCopy, type PricingPlan } from "@/lib/copy/pricing";
+import { pricingCopy } from "@/lib/copy/pricing";
 import { buildPageMetadata } from "@/lib/seo";
-import { getPlanCardClasses } from "@/lib/pricing/getPlanCardClasses";
-import { PlanCheckoutButton } from "@/components/pricing/PlanCheckoutButton";
+import { PlanCard } from "@/components/pricing/PlanCard";
 import { ComparisonTable } from "@/components/pricing/ComparisonTable";
 import { PricingCtaLink } from "@/components/pricing/PricingCtaLink";
 import { ProofBlock } from "@/components/pricing/ProofBlock";
@@ -14,65 +12,6 @@ export const metadata: Metadata = buildPageMetadata({
     "Free to start. Starter is $19/mo, Pro is $99/mo with a 30-day trial. AI agents for artists, managers, and labels, built for autonomous music operations.",
   path: "/pricing",
 });
-
-/* ── Plan card ─────────────────────────────────────────────────────── */
-function PlanCard({ plan }: { plan: PricingPlan }) {
-  const c = getPlanCardClasses(Boolean(plan.highlighted));
-  const ctaClasses = `block w-full text-center py-3 rounded-lg text-sm font-medium transition-colors ${c.cta}`;
-
-  return (
-    <div
-      className={`relative flex flex-col rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 ${c.card}`}
-    >
-      {plan.badge && (
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <span
-            className={`text-[9px] uppercase tracking-wider px-4 py-1.5 rounded-full ${c.badge}`}
-            style={{ fontFamily: "var(--font-bitmap), monospace" }}
-          >
-            {plan.badge}
-          </span>
-        </div>
-      )}
-
-      <p
-        className={`text-[10px] uppercase tracking-widest mb-1 ${c.eyebrow}`}
-        style={{ fontFamily: "var(--font-bitmap), monospace" }}
-      >
-        {plan.audience}
-      </p>
-      <h3 className="text-xl font-bold mb-1">{plan.name}</h3>
-      <p className={`text-sm mb-6 leading-relaxed ${c.description}`}>{plan.description}</p>
-
-      <div className="mb-6">
-        <span className="text-4xl font-bold">{plan.price}</span>
-        {plan.period && <span className={`text-sm ${c.period}`}>{plan.period}</span>}
-      </div>
-
-      <ul className="space-y-3 mb-8 flex-1">
-        {plan.features.map((f) => (
-          <li key={f} className="flex items-start gap-2 text-sm">
-            <Check size={16} className={`mt-0.5 shrink-0 ${c.check}`} />
-            <span className={c.feature}>{f}</span>
-          </li>
-        ))}
-      </ul>
-
-      {plan.id !== "free" ? (
-        <PlanCheckoutButton
-          plan={plan.id}
-          label={plan.cta}
-          note={plan.ctaNote}
-          className={ctaClasses}
-        />
-      ) : (
-        <PricingCtaLink plan={plan.id} href={plan.ctaHref ?? "#"} className={ctaClasses}>
-          {plan.cta}
-        </PricingCtaLink>
-      )}
-    </div>
-  );
-}
 
 /* ── Main page ─────────────────────────────────────────────────────── */
 export default function PricingPage() {
@@ -97,7 +36,7 @@ export default function PricingPage() {
       {/* Plan cards */}
       <section className="grid md:grid-cols-3 gap-6 items-start max-w-5xl mx-auto mb-8">
         {pricingCopy.plans.map((plan) => (
-          <PlanCard key={plan.id} plan={plan} />
+          <PlanCard key={plan.id} plan={plan} surface="pricing" />
         ))}
       </section>
 
@@ -155,6 +94,7 @@ export default function PricingPage() {
         </p>
         <PricingCtaLink
           plan="free"
+          surface="pricing"
           href={pricingCopy.closing.href}
           className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
         >
