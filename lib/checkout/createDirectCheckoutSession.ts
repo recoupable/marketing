@@ -4,7 +4,7 @@ import type { PlanId } from "@/lib/pricing/entitlements";
 /** The plans the checkout endpoint sells; Free never reaches checkout. */
 export type CheckoutPlan = Exclude<PlanId, "free">;
 
-/** Raw `POST /api/subscriptions/checkout` envelope. */
+/** Raw `POST /api/subscriptions/sessions` envelope. */
 type CheckoutResponse = {
   id?: string;
   url?: string;
@@ -12,11 +12,11 @@ type CheckoutResponse = {
 };
 
 /**
- * Create a Stripe checkout session for a paid plan through the recoup-api
- * endpoint that needs no sign-in (`POST /api/subscriptions/checkout`,
- * app#2044 row 8). Signed-out visitors go straight to Stripe and the webhook
- * creates or links their account from the billing email; a signed-in
- * visitor's bearer attaches the subscription to their account directly.
+ * Create a Stripe checkout session for a paid plan through
+ * `POST /api/subscriptions/sessions` (optional auth; app#2044). Signed-out
+ * visitors go straight to Stripe and the webhook creates or links their
+ * account from the billing email; a signed-in visitor's bearer attaches the
+ * subscription to their account directly.
  *
  * @returns The Stripe-hosted checkout URL.
  */
@@ -35,7 +35,7 @@ export async function createDirectCheckoutSession({
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   if (token) headers.Authorization = `Bearer ${token}`;
 
-  const res = await fetch(`${siteConfig.apiUrl}/subscriptions/checkout`, {
+  const res = await fetch(`${siteConfig.apiUrl}/subscriptions/sessions`, {
     method: "POST",
     headers,
     body: JSON.stringify({ plan, successUrl, cancelUrl }),

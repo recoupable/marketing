@@ -18,7 +18,7 @@ describe("createDirectCheckoutSession", () => {
 
     expect(url).toBe(SESSION.url);
     const [endpoint, init] = vi.mocked(fetch).mock.calls[0];
-    expect(String(endpoint)).toMatch(/\/api\/subscriptions\/checkout$/);
+    expect(String(endpoint)).toMatch(/\/api\/subscriptions\/sessions$/);
     expect(init?.method).toBe("POST");
     expect(new Headers(init?.headers).has("Authorization")).toBe(false);
     expect(JSON.parse(String(init?.body))).toEqual({ plan: "pro", successUrl: SUCCESS, cancelUrl: CANCEL });
