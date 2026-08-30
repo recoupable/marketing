@@ -29,18 +29,22 @@ export function usePlanCheckout(plan: CheckoutPlan): PlanCheckoutState {
   const [error, setError] = useState("");
 
   async function startCheckout() {
-    if (isPending) return;
+    if (isPending || !ready) return;
     setIsPending(true);
     setError("");
     try {
-      const token = ready && authenticated ? ((await getAccessToken()) ?? undefined) : undefined;
+      // Wait for Privy hydrate before deciding signed-in vs signed-out, or a
+      // signed-in click drops the bearer and links via billing email instead.
+      const token = authenticated
+        ? ((await getAccessToken()) ?? undefined)
+        : undefined;
       const url = await createDirectCheckoutSession({
         plan,
         successUrl: buildCheckoutSuccessUrl(plan),
         cancelUrl: `${siteConfig.url}/pricing`,
         token,
       });
-      // The session exists and the browser is about to leave for Stripe.
+      // Session exists; fire before navigate so the beacon can flush.
       trackEvent("checkout_opened", { plan });
       window.location.href = url;
     } catch (e) {
@@ -49,5 +53,5 @@ export function usePlanCheckout(plan: CheckoutPlan): PlanCheckoutState {
     }
   }
 
-  return { startCheckout, isPending, error };
+  return { startCheckout, isPending: isPending || !ready, error };
 }

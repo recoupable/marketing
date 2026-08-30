@@ -42,7 +42,7 @@ export function PlanCheckoutButton({
         </p>
       )}
       {error && (
-        <p role="alert" className="mt-2 text-xs text-red-500 text-center">
+        <p role="alert" className="mt-2 text-xs text-destructive text-center">
           {error}. Click the button to retry.
         </p>
       )}
