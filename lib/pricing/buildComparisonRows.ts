@@ -9,17 +9,21 @@ export interface ComparisonRow {
 
 const perPlan = (f: (id: (typeof PLAN_IDS)[number]) => string) => PLAN_IDS.map(f);
 
+/** Match app `/plan` (`lib/plan/planTable.ts`): `$20` not `$20.00`. */
+const formatCreditsCell = (usd: number) =>
+  `$${usd.toFixed(2).replace(/\.00$/, "")}`;
+
 /**
- * The comparison table under the plan cards. Numeric rows derive from the
- * entitlement table so the page cannot drift from the gate; the yes/no rows
- * name the Pro-only gates in the api (roster scrape, recipients). API keys
- * are open to every plan, agent signup mints one with no card.
+ * The comparison table under the plan cards. Labels and cell wording match
+ * the app `/plan` table (`PLAN_TABLE_ROWS` in `lib/plan/planTable.ts`) so the
+ * two surfaces stay in sync. Numeric rows still derive from `PLAN_ENTITLEMENTS`
+ * (mirrors the api gate). `check` / `dash` render as icons in ComparisonTable.
  */
 export function buildComparisonRows(reportRunUsd: number): ComparisonRow[] {
   return [
     {
-      label: "Monthly credits",
-      values: perPlan((id) => `$${PLAN_ENTITLEMENTS[id].credits_usd.toFixed(2)}`),
+      label: "Agent credits every month",
+      values: perPlan((id) => formatCreditsCell(PLAN_ENTITLEMENTS[id].credits_usd)),
     },
     {
       label: "Report runs that buys",
@@ -35,12 +39,12 @@ export function buildComparisonRows(reportRunUsd: number): ComparisonRow[] {
       }),
     },
     {
-      label: "Shortest cadence",
+      label: "Fastest cadence",
       values: perPlan((id) => formatCadence(PLAN_ENTITLEMENTS[id].min_cadence_minutes)),
     },
-    { label: "Report recipients", values: ["You", "You", "Anyone"] },
-    { label: "API keys", values: ["Yes", "Yes", "Yes"] },
-    { label: "Roster monitoring", values: ["No", "No", "Daily, every artist"] },
+    { label: "Reports emailed to", values: ["You", "You", "Anyone"] },
+    { label: "API keys", values: ["check", "check", "check"] },
+    { label: "Daily social monitoring", values: ["dash", "dash", "check"] },
     { label: "Card required", values: ["No", "Yes", "Yes"] },
   ];
 }

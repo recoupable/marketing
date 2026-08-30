@@ -1,10 +1,11 @@
+import { ComparisonCell } from "@/components/pricing/ComparisonCell";
 import { pricingCopy } from "@/lib/copy/pricing";
 
 /**
  * Side-by-side entitlements under the plan cards, so a visitor can answer
- * "which plan is me?" without reading three bullet lists. Rows come from the
- * same entitlement table the cards use. Scrolls inside its own container on
- * narrow screens; the page never scrolls sideways.
+ * "which plan is me?" without reading three bullet lists. Rows match the app
+ * `/plan` table wording. Scrolls inside its own container on narrow screens;
+ * the page never scrolls sideways.
  */
 export function ComparisonTable() {
   const { title, columns, rows } = pricingCopy.comparison;
@@ -32,8 +33,11 @@ export function ComparisonTable() {
                   {row.label}
                 </th>
                 {row.values.map((v, i) => (
-                  <td key={columns[i]} className="px-4 py-3 text-[var(--muted-foreground)]">
-                    {v}
+                  <td
+                    key={columns[i]}
+                    className="px-4 py-3 text-center text-[var(--muted-foreground)]"
+                  >
+                    <ComparisonCell value={v} />
                   </td>
                 ))}
               </tr>
