@@ -1,4 +1,12 @@
 import { ComparisonCell } from "@/components/pricing/ComparisonCell";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { pricingCopy } from "@/lib/copy/pricing";
 
 /**
@@ -12,38 +20,48 @@ export function ComparisonTable() {
   return (
     <section className="max-w-3xl mx-auto mb-24">
       <h2 className="text-2xl font-bold text-center mb-8">{title}</h2>
-      <div className="overflow-x-auto rounded-xl shadow-[0_0_0_1px_var(--border)]">
-        <table className="w-full min-w-[520px] text-sm">
-          <thead>
-            <tr className="text-left">
-              <th scope="col" className="px-4 py-3 font-medium text-[var(--muted-foreground)]">
+      <div className="rounded-xl shadow-[0_0_0_1px_var(--border)]">
+        <Table className="min-w-[520px]">
+          <TableHeader>
+            <TableRow className="hover:bg-transparent">
+              <TableHead
+                scope="col"
+                className="px-4 py-3 whitespace-normal text-muted-foreground"
+              >
                 Plan
-              </th>
+              </TableHead>
               {columns.map((c) => (
-                <th key={c} scope="col" className="px-4 py-3 font-semibold">
+                <TableHead
+                  key={c}
+                  scope="col"
+                  className="px-4 py-3 whitespace-normal font-semibold text-foreground"
+                >
                   {c}
-                </th>
+                </TableHead>
               ))}
-            </tr>
-          </thead>
-          <tbody>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
             {rows.map((row) => (
-              <tr key={row.label} className="border-t border-[var(--border)]">
-                <th scope="row" className="px-4 py-3 font-medium text-left">
+              <TableRow key={row.label} className="hover:bg-transparent">
+                <TableHead
+                  scope="row"
+                  className="px-4 py-3 whitespace-normal font-medium text-foreground"
+                >
                   {row.label}
-                </th>
+                </TableHead>
                 {row.values.map((v, i) => (
-                  <td
+                  <TableCell
                     key={columns[i]}
-                    className="px-4 py-3 text-center text-[var(--muted-foreground)]"
+                    className="px-4 py-3 whitespace-normal text-center text-muted-foreground"
                   >
                     <ComparisonCell value={v} />
-                  </td>
+                  </TableCell>
                 ))}
-              </tr>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
     </section>
   );
