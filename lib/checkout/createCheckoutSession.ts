@@ -1,4 +1,8 @@
 import { siteConfig } from "@/lib/config";
+import type { PlanId } from "@/lib/pricing/entitlements";
+
+/** The plans the sessions endpoint sells; Free never reaches checkout. */
+export type CheckoutPlan = Exclude<PlanId, "free">;
 
 /** Raw `POST /api/subscriptions/sessions` envelope. */
 type CheckoutSessionResponse = {
@@ -8,7 +12,7 @@ type CheckoutSessionResponse = {
 };
 
 /**
- * Create a Stripe checkout session for the Pro subscription through the
+ * Create a Stripe checkout session for a paid plan through the
  * bearer-authed recoup-api endpoint (`POST /api/subscriptions/sessions`,
  * handler api/app/api/subscriptions/sessions/route.ts). The endpoint resolves
  * the account from the Privy bearer (auto-provisioning brand-new users) and
@@ -17,11 +21,13 @@ type CheckoutSessionResponse = {
  *
  * @param successUrl - Where Stripe sends the buyer after paying.
  * @param token - Privy access token (the bearer).
+ * @param plan - Which paid plan the session sells (`starter` or `pro`).
  * @returns The Stripe-hosted checkout URL.
  */
 export async function createCheckoutSession(
   successUrl: string,
   token: string,
+  plan: CheckoutPlan,
 ): Promise<string> {
   const res = await fetch(`${siteConfig.apiUrl}/subscriptions/sessions`, {
     method: "POST",
@@ -29,7 +35,7 @@ export async function createCheckoutSession(
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ successUrl }),
+    body: JSON.stringify({ successUrl, plan }),
   });
 
   const data: CheckoutSessionResponse | null = await res.json().catch(() => null);
