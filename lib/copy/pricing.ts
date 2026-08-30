@@ -12,7 +12,10 @@ import {
   STARTER_CREDITS_USD,
 } from "@/lib/pricing/const";
 import type { PlanId } from "@/lib/pricing/entitlements";
-import { buildComparisonRows } from "@/lib/pricing/buildComparisonRows";
+import {
+  buildComparisonRows,
+  COMPARISON_COLUMNS,
+} from "@/lib/pricing/buildComparisonRows";
 import { formatTasksBullet } from "@/lib/pricing/formatTasksBullet";
 
 export interface PricingPlan {
@@ -105,7 +108,7 @@ export const pricingCopy = {
   /** Side-by-side entitlements under the cards, derived from the same table. */
   comparison: {
     title: "Compare plans",
-    columns: ["Free", "Starter", "Pro"],
+    columns: COMPARISON_COLUMNS,
     rows: buildComparisonRows(MEDIAN_REPORT_RUN_USD),
   },
 

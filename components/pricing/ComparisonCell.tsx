@@ -10,7 +10,7 @@ export function ComparisonCell({ value }: { value: string }) {
   }
   if (value === "dash") {
     return (
-      <span className="text-[var(--muted-foreground)]/60" aria-label="Not included">
+      <span className="text-muted-foreground/60" aria-label="Not included">
         &ndash;
       </span>
     );

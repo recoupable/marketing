@@ -74,7 +74,16 @@ describe("pricingCopy plans", () => {
 
 describe("pricingCopy comparison table", () => {
   it("matches the app /plan table labels (lib/plan/planTable.ts)", () => {
-    expect(pricingCopy.comparison.columns).toEqual(["Free", "Starter", "Pro"]);
+    expect(pricingCopy.comparison.columns.map((c) => c.name)).toEqual([
+      "Free",
+      "Starter",
+      "Pro",
+    ]);
+    expect(pricingCopy.comparison.columns.map((c) => c.price)).toEqual([
+      "$0",
+      "$19/mo",
+      "$99/mo, 3x credits",
+    ]);
     expect(pricingCopy.comparison.rows.map((r) => r.label)).toEqual([
       "Agent credits every month",
       "Report runs that buys",
@@ -83,6 +92,16 @@ describe("pricingCopy comparison table", () => {
       "Reports emailed to",
       "API keys",
       "Daily social monitoring",
+      "Card required",
+    ]);
+    expect(pricingCopy.comparison.rows.map((r) => r.mobileLabel)).toEqual([
+      "Credits a month",
+      "Report runs",
+      "Tasks",
+      "Fastest cadence",
+      "Reports emailed to",
+      "API keys",
+      "Social monitoring",
       "Card required",
     ]);
     for (const row of pricingCopy.comparison.rows) {

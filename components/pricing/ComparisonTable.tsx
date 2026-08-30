@@ -9,58 +9,73 @@ import {
 } from "@/components/ui/table";
 import { pricingCopy } from "@/lib/copy/pricing";
 
+/** Hairline under each cell — same shadow-as-border as app `PlanTable`. */
+const cellRule = "shadow-[0_1px_0_var(--border)]";
+
 /**
- * Side-by-side entitlements under the plan cards, so a visitor can answer
- * "which plan is me?" without reading three bullet lists. Rows match the app
- * `/plan` table wording. On mobile, `table-fixed` + a narrow feature column
- * keeps Free / Starter / Pro on-screen with no horizontal scroll (same idea as
- * app `PlanTable`).
+ * Side-by-side entitlements under the plan cards. Layout, type scale, and
+ * hairlines match app `/plan` (`PlanTable` / `PlanTableHeader` / `PlanTableRows`).
+ * On mobile, `table-fixed` + colgroup keeps all three plans on-screen.
  */
 export function ComparisonTable() {
   const { title, columns, rows } = pricingCopy.comparison;
   return (
     <section className="max-w-3xl mx-auto mb-24">
-      <h2 className="text-2xl font-bold text-center mb-8">{title}</h2>
+      <h2 className="sr-only">{title}</h2>
       <div className="overflow-hidden rounded-xl shadow-[0_0_0_1px_var(--border)]">
-        <Table className="table-fixed sm:table-auto">
+        <Table className="table-fixed border-collapse sm:table-auto">
           <colgroup className="sm:hidden">
-            <col className="w-[28%]" />
-            <col className="w-[24%]" />
-            <col className="w-[24%]" />
-            <col className="w-[24%]" />
+            <col className="w-[34%]" />
+            <col className="w-[20%]" />
+            <col className="w-[21%]" />
+            <col className="w-[25%]" />
           </colgroup>
-          <TableHeader>
-            <TableRow className="hover:bg-transparent">
+          <TableHeader className="[&_tr]:border-0">
+            <TableRow className="border-0 hover:bg-transparent">
               <TableHead
                 scope="col"
-                className="px-2 py-2 text-xs whitespace-normal text-muted-foreground sm:px-4 sm:py-3 sm:text-sm"
+                className={`h-auto px-3 py-3 text-left text-[11px] font-medium whitespace-normal text-muted-foreground sm:px-4 sm:py-4 sm:text-xs ${cellRule}`}
               >
-                Plan
+                <span className="sm:hidden">Compare</span>
+                <span className="hidden sm:inline">Compare plans</span>
               </TableHead>
-              {columns.map((c) => (
+              {columns.map((column) => (
                 <TableHead
-                  key={c}
+                  key={column.name}
                   scope="col"
-                  className="px-1 py-2 text-center text-xs whitespace-normal font-semibold text-foreground sm:px-4 sm:py-3 sm:text-left sm:text-sm"
+                  className={`h-auto px-1 py-3 text-center whitespace-normal sm:px-4 sm:py-4 ${cellRule}`}
                 >
-                  {c}
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-sm font-semibold text-foreground sm:text-base">
+                      {column.name}
+                    </span>
+                    <span className="text-[11px] font-normal text-muted-foreground sm:text-[13px]">
+                      <span className="sm:hidden">
+                        {column.mobilePrice ?? column.price}
+                      </span>
+                      <span className="hidden sm:inline">{column.price}</span>
+                    </span>
+                  </div>
                 </TableHead>
               ))}
             </TableRow>
           </TableHeader>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.label} className="hover:bg-transparent">
-                <TableHead
-                  scope="row"
-                  className="px-2 py-2 text-xs whitespace-normal font-medium leading-snug text-foreground sm:px-4 sm:py-3 sm:text-sm"
+              <TableRow
+                key={row.label}
+                className="border-0 hover:bg-transparent"
+              >
+                <TableCell
+                  className={`px-3 py-2.5 text-left text-xs whitespace-normal text-muted-foreground sm:px-4 sm:py-3 sm:text-sm ${cellRule}`}
                 >
-                  {row.label}
-                </TableHead>
+                  <span className="sm:hidden">{row.mobileLabel}</span>
+                  <span className="hidden sm:inline">{row.label}</span>
+                </TableCell>
                 {row.values.map((v, i) => (
                   <TableCell
-                    key={columns[i]}
-                    className="px-1 py-2 text-center text-xs whitespace-normal text-muted-foreground sm:px-4 sm:py-3 sm:text-sm"
+                    key={columns[i].name}
+                    className={`px-1 py-2.5 text-center text-xs whitespace-normal sm:px-4 sm:py-3 sm:text-sm ${cellRule}`}
                   >
                     <ComparisonCell value={v} />
                   </TableCell>
