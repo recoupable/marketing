@@ -11,7 +11,7 @@ import { ProofBlock } from "@/components/pricing/ProofBlock";
 export const metadata: Metadata = buildPageMetadata({
   title: "Pricing | Recoupable",
   description:
-    "Free to start. Starter is $19/mo, Pro is $99/mo with a 30-day trial. AI agents for artists, managers, and labels.",
+    "Free to start. Starter is $19/mo, Pro is $99/mo with a 30-day trial. AI agents for artists, managers, and labels, built for autonomous music operations.",
   path: "/pricing",
 });
 

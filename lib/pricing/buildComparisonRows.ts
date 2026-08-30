@@ -43,7 +43,7 @@ export function buildComparisonRows(reportRunUsd: number): ComparisonRow[] {
       values: perPlan((id) => formatCreditsCell(PLAN_ENTITLEMENTS[id].credits_usd)),
     },
     {
-      label: "Report runs that buys",
+      label: "Report runs it buys",
       mobileLabel: "Report runs",
       values: perPlan(
         (id) => `~${Math.floor(PLAN_ENTITLEMENTS[id].credits_usd / reportRunUsd)}`,

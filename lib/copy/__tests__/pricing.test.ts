@@ -42,11 +42,11 @@ describe("pricingCopy plans", () => {
     expect(byId("pro")?.features).toContain("Unlimited scheduled tasks, hourly at most");
   });
 
-  it("discloses the checkout path under each paid CTA", () => {
-    expect(byId("pro")?.ctaNote).toMatch(/\$0 today/);
-    expect(byId("pro")?.ctaNote).toMatch(/card required/i);
-    expect(byId("starter")?.ctaNote).toMatch(/\$19 today/);
-    expect(byId("starter")?.ctaNote).toMatch(/cancel anytime/i);
+  it("discloses price and cancel terms under each paid CTA", () => {
+    expect(byId("pro")?.ctaNote).toBe(
+      "$0 today. Card required, cancel anytime before day 30.",
+    );
+    expect(byId("starter")?.ctaNote).toBe("$19 today. Cancel anytime.");
   });
 
   it("keeps a book-a-call path for labels", () => {
@@ -86,7 +86,7 @@ describe("pricingCopy comparison table", () => {
     ]);
     expect(pricingCopy.comparison.rows.map((r) => r.label)).toEqual([
       "Agent credits every month",
-      "Report runs that buys",
+      "Report runs it buys",
       "Scheduled tasks",
       "Fastest cadence",
       "Reports emailed to",
@@ -112,7 +112,7 @@ describe("pricingCopy comparison table", () => {
   it("keeps the table to the app-approved cell wording", () => {
     const byLabel = Object.fromEntries(pricingCopy.comparison.rows.map((r) => [r.label, r.values]));
     expect(byLabel["Agent credits every month"]).toEqual(["$3.33", "$20", "$300"]);
-    expect(byLabel["Report runs that buys"]).toEqual(["~4", "~26", "~391"]);
+    expect(byLabel["Report runs it buys"]).toEqual(["~4", "~26", "~391"]);
     expect(byLabel["Scheduled tasks"]).toEqual(["1", "3", "Unlimited"]);
     expect(byLabel["Fastest cadence"]).toEqual(["Weekly", "Daily", "Hourly"]);
     expect(byLabel["Reports emailed to"]).toEqual(["You", "You", "Anyone"]);

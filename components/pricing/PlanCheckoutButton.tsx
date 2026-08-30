@@ -1,14 +1,13 @@
 "use client";
 
 import { usePlanCheckout } from "@/hooks/usePlanCheckout";
-import type { CheckoutPlan } from "@/lib/checkout/createCheckoutSession";
+import type { CheckoutPlan } from "@/lib/checkout/createDirectCheckoutSession";
 import { trackEvent } from "@/lib/analytics/trackEvent";
 
 /**
- * A paid plan's CTA. Starts Stripe checkout directly from the pricing page
- * (sign-in gated via Privy inside usePlanCheckout) instead of deep-linking
- * into the chat app. Styled by the caller so it stays visually identical to
- * the anchor CTA on the Free card.
+ * A paid plan's CTA. Opens Stripe checkout straight from the pricing page,
+ * no sign-in modal first (usePlanCheckout). Styled by the caller so it stays
+ * visually identical to the anchor CTA on the Free card.
  */
 export function PlanCheckoutButton({
   plan,
@@ -43,7 +42,7 @@ export function PlanCheckoutButton({
         </p>
       )}
       {error && (
-        <p role="alert" className="mt-2 text-xs text-red-500 text-center">
+        <p role="alert" className="mt-2 text-xs text-destructive text-center">
           {error}. Click the button to retry.
         </p>
       )}
