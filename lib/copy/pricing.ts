@@ -11,17 +11,9 @@ import {
   PRO_CREDITS_USD,
   STARTER_CREDITS_USD,
 } from "@/lib/pricing/const";
-import { PLAN_ENTITLEMENTS, type PlanId } from "@/lib/pricing/entitlements";
-import { formatCadence } from "@/lib/pricing/formatCadence";
-import { formatTaskLimit } from "@/lib/pricing/formatTaskLimit";
+import type { PlanId } from "@/lib/pricing/entitlements";
 import { buildComparisonRows } from "@/lib/pricing/buildComparisonRows";
-
-/** "1 scheduled task, weekly at most" for a plan's task cap and cadence floor. */
-function formatTasksBullet(id: PlanId): string {
-  const { task_limit, min_cadence_minutes } = PLAN_ENTITLEMENTS[id];
-  const tasks = formatTaskLimit(task_limit).replace(/tasks?$/, (n) => `scheduled ${n}`);
-  return `${tasks}, ${formatCadence(min_cadence_minutes).toLowerCase()} at most`;
-}
+import { formatTasksBullet } from "@/lib/pricing/formatTasksBullet";
 
 export interface PricingPlan {
   id: PlanId;
