@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pricingCopy } from "@/lib/copy/pricing";
 import { buildPageMetadata } from "@/lib/seo";
 import { PlanCard } from "@/components/pricing/PlanCard";
+import { CurrentPlanBanner } from "@/components/pricing/CurrentPlanBanner";
 import { ComparisonTable } from "@/components/pricing/ComparisonTable";
 import { PricingCtaLink } from "@/components/pricing/PricingCtaLink";
 import { ProofBlock } from "@/components/pricing/ProofBlock";
@@ -32,6 +33,9 @@ export default function PricingPage() {
           {pricingCopy.description}
         </p>
       </section>
+
+      {/* Signed-in state (renders nothing while signed out) */}
+      <CurrentPlanBanner />
 
       {/* Plan cards */}
       <section className="grid md:grid-cols-3 gap-6 items-start max-w-5xl mx-auto mb-8">

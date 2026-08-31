@@ -21,6 +21,20 @@ describe("pricingCopy proof", () => {
     expect(pricingCopy.proof.alt.length).toBeGreaterThan(20);
   });
 
+  it("shows the dated production numbers next to the report", () => {
+    expect(pricingCopy.proof.stats).toHaveLength(2);
+    expect(pricingCopy.proof.stats[0].label).toMatch(/last 30 days/);
+    expect(pricingCopy.proof.statsNote).toMatch(/as of \d{4}-\d{2}-\d{2}/);
+  });
+
+  it("names the signed-in state per plan without dashes", () => {
+    expect(pricingCopy.signedIn.planLabel("pro")).toBe("Your plan: Pro");
+    expect(pricingCopy.signedIn.planLabel("free")).toBe("Your plan: Free");
+    expect(pricingCopy.signedIn.upgradeCta).toBe("Upgrade to Pro");
+    expect(pricingCopy.signedIn.openAppCta).toBe("Open the app");
+    expect(JSON.stringify(pricingCopy.signedIn)).not.toMatch(/[–—]/);
+  });
+
   it("reuses the homepage quote verbatim", () => {
     expect(pricingCopy.proof.quote).toBe(homeCopy.proof.quote);
     expect(homeCopy.proof.attribution).toContain(pricingCopy.proof.attribution);
