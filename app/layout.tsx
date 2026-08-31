@@ -15,6 +15,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MachineContent } from "@/components/layout/MachineContent";
 import { ViewModeBar } from "@/components/layout/ViewModeBar";
+import { AttributionCapture } from "@/components/AttributionCapture";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -94,6 +95,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
+        <AttributionCapture />
         <ThemeProvider>
           <HumanMachineProvider>
             <PrivyAuthProvider>
