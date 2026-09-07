@@ -42,6 +42,12 @@ describe("pricingCopy plans", () => {
     expect(byId("pro")?.features).toContain("Unlimited scheduled tasks, hourly at most");
   });
 
+  it("states the analyze cap as a benefit on Free and Starter (Pro inherits Starter)", () => {
+    expect(byId("free")?.features).toContain("5 tracks analyzed a month with Music Flamingo");
+    expect(byId("starter")?.features).toContain("Unlimited track analysis with Music Flamingo");
+    expect(byId("pro")?.features).toContain("Everything in Starter");
+  });
+
   it("discloses price and cancel terms under each paid CTA", () => {
     expect(byId("pro")?.ctaNote).toBe(
       "$0 today. Card required, cancel anytime before day 30.",
@@ -89,6 +95,7 @@ describe("pricingCopy comparison table", () => {
       "Report runs it buys",
       "Scheduled tasks",
       "Fastest cadence",
+      "Tracks analyzed a month",
       "Reports emailed to",
       "API keys",
       "Daily social monitoring",
@@ -99,6 +106,7 @@ describe("pricingCopy comparison table", () => {
       "Report runs",
       "Tasks",
       "Fastest cadence",
+      "Tracks analyzed",
       "Reports emailed to",
       "API keys",
       "Social monitoring",
@@ -115,6 +123,7 @@ describe("pricingCopy comparison table", () => {
     expect(byLabel["Report runs it buys"]).toEqual(["~4", "~26", "~391"]);
     expect(byLabel["Scheduled tasks"]).toEqual(["1", "3", "Unlimited"]);
     expect(byLabel["Fastest cadence"]).toEqual(["Weekly", "Daily", "Hourly"]);
+    expect(byLabel["Tracks analyzed a month"]).toEqual(["5", "Unlimited", "Unlimited"]);
     expect(byLabel["Reports emailed to"]).toEqual(["You", "You", "Anyone"]);
     expect(byLabel["API keys"]).toEqual(["check", "check", "check"]);
     expect(byLabel["Daily social monitoring"]).toEqual(["dash", "dash", "check"]);

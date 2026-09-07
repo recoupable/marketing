@@ -17,16 +17,19 @@ describe("PLAN_ENTITLEMENTS", () => {
       credits_usd: 3.33,
       task_limit: 1,
       min_cadence_minutes: 10080,
+      analyze_limit: 5,
     });
     expect(PLAN_ENTITLEMENTS.starter).toEqual({
       credits_usd: 20,
       task_limit: 3,
       min_cadence_minutes: 1440,
+      analyze_limit: null,
     });
     expect(PLAN_ENTITLEMENTS.pro).toEqual({
       credits_usd: 300,
       task_limit: null,
       min_cadence_minutes: 60,
+      analyze_limit: null,
     });
   });
 });

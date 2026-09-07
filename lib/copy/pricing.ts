@@ -17,6 +17,7 @@ import {
   COMPARISON_COLUMNS,
 } from "@/lib/pricing/buildComparisonRows";
 import { formatTasksBullet } from "@/lib/pricing/formatTasksBullet";
+import { formatAnalyzeBullet } from "@/lib/pricing/formatAnalyzeBullet";
 
 export interface PricingPlan {
   id: PlanId;
@@ -57,6 +58,7 @@ export const pricingCopy = {
       features: [
         formatCreditsBullet(FREE_CREDITS_USD, MEDIAN_REPORT_RUN_USD),
         formatTasksBullet("free"),
+        formatAnalyzeBullet("free"),
         "Artist profiles for your whole roster",
         "Catalog valuation",
         "Agent chat for research and content",
@@ -78,6 +80,7 @@ export const pricingCopy = {
         "Everything in Free",
         formatCreditsBullet(STARTER_CREDITS_USD, MEDIAN_REPORT_RUN_USD),
         formatTasksBullet("starter"),
+        formatAnalyzeBullet("starter"),
       ],
       cta: "Start Starter",
       ctaNote: "$19 today. Cancel anytime.",

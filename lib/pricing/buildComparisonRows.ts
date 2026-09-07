@@ -1,4 +1,5 @@
 import { PLAN_ENTITLEMENTS, PLAN_IDS } from "@/lib/pricing/entitlements";
+import { formatAnalyzeLimit } from "@/lib/pricing/formatAnalyzeLimit";
 import { formatCadence } from "@/lib/pricing/formatCadence";
 
 export interface ComparisonColumn {
@@ -61,6 +62,11 @@ export function buildComparisonRows(reportRunUsd: number): ComparisonRow[] {
       label: "Fastest cadence",
       mobileLabel: "Fastest cadence",
       values: perPlan((id) => formatCadence(PLAN_ENTITLEMENTS[id].min_cadence_minutes)),
+    },
+    {
+      label: "Tracks analyzed a month",
+      mobileLabel: "Tracks analyzed",
+      values: perPlan((id) => formatAnalyzeLimit(PLAN_ENTITLEMENTS[id].analyze_limit)),
     },
     {
       label: "Reports emailed to",
