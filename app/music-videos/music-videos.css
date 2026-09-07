@@ -4,6 +4,8 @@
   /* Reserve the fixed site header before the hero's own spacing. */
   padding: 64px 32px 80px;
   color: var(--foreground);
+  font-size: 17px;
+  line-height: 1.7;
 }
 .mv-page h1,
 .mv-page h2 {
@@ -13,7 +15,8 @@
   text-wrap: balance;
 }
 .mv-page h1 {
-  font-size: clamp(3rem, 6.2vw, 5.5rem);
+  font-size: clamp(3rem, 5.6vw, 5rem);
+  max-width: 13ch;
   line-height: 1.02;
   margin: 0 0 28px;
 }
@@ -34,11 +37,12 @@
   line-height: 1.7;
   color: var(--muted-foreground);
   max-width: 65ch;
+  margin: 0 0 16px;
 }
 .mv-hero {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 64px;
+  gap: 48px;
   align-items: center;
   padding: 72px 0 88px;
 }
@@ -48,6 +52,7 @@
 }
 .mv-button {
   display: inline-flex;
+  gap: 12px;
   justify-content: center;
   align-items: center;
   min-height: 52px;
@@ -56,6 +61,8 @@
   background: var(--primary);
   color: var(--primary-foreground);
   font-family: var(--font-ui), sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
@@ -152,6 +159,7 @@
 .mv-offer ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 .mv-offer li {
   padding: 20px 0;
@@ -162,7 +170,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  margin-top: 36px;
+  margin: 36px 0 0;
   list-style: none;
   padding: 0;
 }
@@ -257,7 +265,182 @@
 .mv-faq p {
   margin: 12px 0 4px;
 }
+
+.mv-eyebrow {
+  display: block;
+  margin-bottom: 20px;
+  font:
+    600 12px/1.4 var(--font-ui),
+    sans-serif;
+  letter-spacing: 0.12em;
+  color: var(--muted-foreground);
+}
+.mv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.mv-hero .mv-actions {
+  gap: 12px;
+}
+.mv-button.mv-secondary {
+  background: transparent;
+  color: var(--foreground);
+  box-shadow: 0 0 0 1px var(--muted-foreground);
+}
+.mv-hero .mv-price-note {
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 14px 0 0;
+  max-width: 48ch;
+}
+.mv-service-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.mv-skill-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.mv-page .mv-download-meta {
+  font-size: 14px;
+  margin: 16px 0 0;
+}
+.mv-skill-file {
+  background: var(--muted);
+  border-radius: 16px;
+  box-shadow: 0 0 0 1px var(--border);
+  padding: 28px;
+}
+.mv-file-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 24px;
+  box-shadow: 0 1px 0 var(--border);
+}
+.mv-file-heading strong {
+  display: block;
+  font:
+    600 17px var(--font-ui),
+    sans-serif;
+}
+.mv-file-heading div > span {
+  display: block;
+  font-size: 13px;
+  color: var(--muted-foreground);
+  margin-top: 4px;
+}
+.mv-file-icon {
+  font:
+    32px var(--font-geist-pixel-square),
+    sans-serif;
+}
+.mv-free-label {
+  margin-left: auto;
+  font:
+    600 11px var(--font-ui),
+    sans-serif;
+  letter-spacing: 0.08em;
+  box-shadow: 0 0 0 1px var(--border);
+  border-radius: 99px;
+  padding: 6px 10px;
+}
+.mv-file-contents {
+  list-style: none;
+  padding: 12px 0;
+  margin: 0;
+}
+.mv-file-contents li {
+  font-size: 15px;
+  padding: 10px 0;
+}
+.mv-file-contents li > span {
+  margin-right: 12px;
+}
+.mv-file-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  box-shadow: 0 -1px 0 var(--border);
+  padding-top: 20px;
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.mv-file-footer a,
+.mv-route-note a {
+  text-decoration: underline;
+}
+.mv-route-note {
+  margin-top: 36px;
+  padding: 24px;
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+.mv-route-note strong {
+  font:
+    600 17px var(--font-ui),
+    sans-serif;
+}
+.mv-route-note p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 8px 0 0;
+}
+.mv-closing {
+  text-align: center;
+  box-shadow: 0 -1px 0 var(--border);
+  padding: 64px 0 24px;
+}
+.mv-closing h2,
+.mv-closing p {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mv-closing .mv-actions {
+  justify-content: center;
+  margin-top: 24px;
+}
 @media (max-width: 760px) {
+  .mv-hero h1 {
+    font-size: 48px;
+  }
+  .mv-hero .mv-actions,
+  .mv-closing .mv-actions {
+    flex-direction: column;
+  }
+  .mv-hero .mv-button {
+    width: 100%;
+  }
+  .mv-skill-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .mv-skill-file {
+    padding: 24px;
+  }
+  .mv-file-heading {
+    gap: 10px;
+  }
+  .mv-file-heading strong {
+    font-size: 16px;
+  }
+  .mv-free-label {
+    padding: 5px 8px;
+  }
+  .mv-eyebrow {
+    margin-bottom: 16px;
+  }
+
   .mv-page {
     padding: 64px 24px 48px;
   }

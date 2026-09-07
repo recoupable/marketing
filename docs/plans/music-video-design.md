@@ -2,23 +2,21 @@
 
 This record covers the implemented `/music-videos` surface in `app/music-videos/page.tsx` and `music-videos.css`. It inherits the monorepo [DESIGN.md](../../../DESIGN.md); `app/globals.css` remains the source for theme values.
 
-**Process correction, 2026-09-07:** This prose record was committed after implementation. Editable [visual designs](../../design/music-videos/index.html) and their [review notes](../../design/music-videos/README.md) were added afterward in response to review; they are not evidence that the original work followed the design-first procedure. The visual designs propose reserving the fixed header's 64px before hero spacing. Design review remains pending.
+**Approved revision, 2026-09-07:** The owner approved [v2 in issue #2075](https://github.com/recoupable/app/issues/2075#issuecomment-5574038951) and requested implementation in marketing#89. [Editable designs](../../design/music-videos/index.html) are the current visual reference. The original prose record and v1 visuals were added after initial implementation; v2 was designed and approved before its implementation.
 
 ## Purpose and hierarchy
 
-Independent artists see approved films, understand the collaborative process, and request a quote for their released song. The primary action, “Get a quote for my song,” anchors to the request form. The page proceeds through hero, two films, deliverables, three process steps, request form, and expandable questions. Film links open the published YouTube videos.
+Lead with “A music video. Less than $10.” and a free skill download, alongside “Make it in Recoup.” A dedicated file section explains the workflow and repeats the download. Published artist films lead into the self-serve process, then a separate custom-production offer and released-song brief. FAQs explain paid generation, plan scope and the current generated-song limitation. The closing section repeats download/product actions.
 
-## Layout
+## Layout and visual language
 
-Desktop content is capped at 1200px with 32px side padding. The asymmetric hero pairs copy with a 3:4 film image. Films, offer, and request use two columns; process uses three. Section separators use shadow boundaries and generous spacing.
+Desktop content caps at 1200px with 32px side padding. Reserve 64px for the fixed header before hero spacing; mobile headings must never intersect it. The hero uses asymmetric columns, a 3:4 film image and 48px gap. Skill, proof and custom-request sections use two columns; process uses three.
 
-At 760px and below, these layouts and paired form fields become single columns, side padding becomes 24px, and sections use 48px vertical padding. The hero image becomes 4:5; process numbers sit beside their descriptions. Gallery images remain 4:3 crops.
+At 760px and below, grids become single columns, page padding becomes 24px, hero image is 4:5, and hero/closing actions stack. Primary actions are at least 52px high. Pixel headlines, semantic light/dark tokens and existing artist posters carry the design. Shared header/footer remain the existing site components.
 
-## Brand and imagery
+## Copy and assets
 
-Geist Pixel Square supplies H1/H2 and process numbers. Existing Geist Sans body typography and Plus Jakarta Sans UI typography continue. Theme-aware `--foreground`, `--muted-foreground`, `--background`, `--muted`, `--primary`, `--primary-foreground`, `--border`, `--ring`, and `--radius` provide chrome. Input shadow boundaries use `--muted-foreground`. Film imagery supplies color; the hero caption has a dark gradient for readability.
-
-Public images are `public/images/music-videos/{movamos-el-mundo,letal-xlug}.png`. Originals and approval pointers are recorded in [music-video-offer.md](music-video-offer.md): marketing workspace `content/tomas-mika/thumbs/cover-movamos.png` and `content/letal-xlug/video/thumbs/cover-letal-xlug.png`. Titles, alt text, and film URLs live in `lib/copy/music-videos.ts`.
+All runtime copy is in `lib/copy/music-videos.ts`, including machine-readable output. The free ZIP contains the unchanged public `recoup-music-video` skill and its reference from skills commit `f3ac97fb14f179e6000ca5ee5a0fd8bf6b2edd74`. Download intent and product clicks are measured separately from accepted quote requests. The less-than-$10 line applies to self-serve generation; plan fees, extra takes and custom production are explicitly separate.
 
 ## Accessible states
 
