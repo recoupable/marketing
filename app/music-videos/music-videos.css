@@ -196,7 +196,7 @@
   border-radius: var(--radius);
   background: var(--background);
   color: var(--foreground);
-  box-shadow: 0 0 0 1px var(--input);
+  box-shadow: 0 0 0 1px var(--muted-foreground);
   font: inherit;
   caret-color: var(--foreground);
 }
