@@ -2,6 +2,8 @@
 
 This record covers the implemented `/music-videos` surface in `app/music-videos/page.tsx` and `music-videos.css`. It inherits the monorepo [DESIGN.md](../../../DESIGN.md); `app/globals.css` remains the source for theme values.
 
+**Process correction, 2026-09-07:** This prose record was committed after implementation. Editable [visual designs](../../design/music-videos/index.html) and their [review notes](../../design/music-videos/README.md) were added afterward in response to review; they are not evidence that the original work followed the design-first procedure. The visual designs propose reserving the fixed header's 64px before hero spacing. Design review remains pending.
+
 ## Purpose and hierarchy
 
 Independent artists see approved films, understand the collaborative process, and request a quote for their released song. The primary action, “Get a quote for my song,” anchors to the request form. The page proceeds through hero, two films, deliverables, three process steps, request form, and expandable questions. Film links open the published YouTube videos.

@@ -36,6 +36,14 @@ pnpm format     # Run prettier + lint
 - PRs target main — `gh pr create --base main`
 - Commit and push after every task
 
+## New Page Procedure
+
+1. Create the tracking issue, then editable visual designs for desktop and mobile in both light and dark themes, including relevant form states. A prose design record or implementation screenshot does not replace these designs.
+2. Implement against the designs, open the PR, and add it to the tracking issue's PR matrix in the same session.
+3. Test the hosted preview for the current PR commit. Post the observed results and hosted screenshots (desktop/mobile, light/dark) in a PR comment. Repeat after UI or behavior changes; keep preview screenshots out of feature-branch commits.
+
+Always check the fixed header against the first heading at mobile widths. Record any out-of-order correction honestly; do not describe designs created after implementation as prior design work.
+
 ## Architecture
 
 ```
