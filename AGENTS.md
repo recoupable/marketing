@@ -141,6 +141,8 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 ## Integrations
 
+- **Music-video offer:** `/music-videos` uses `lib/copy/music-videos.ts`, `components/music-videos/`, and the existing booking capture contract. Attribution is retained in the lead message; event properties exclude contact details. Measurement and operator handoff: `docs/plans/music-video-offer.md`.
+
 - **Lead capture:** `lib/postCapture.ts` — every form posts to `POST /api/leads` on the Recoup api, which owns Attio storage, the triage note, and the Telegram page (chat#1800). Marketing holds no Attio client and no `ATTIO_API_KEY`. `NEXT_PUBLIC_RECOUP_API_URL` overrides the api base for previews.
 - **Analytics:** Plausible script in `app/layout.tsx` — do NOT remove
 
