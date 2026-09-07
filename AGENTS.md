@@ -156,6 +156,8 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 ## Code Principles
 
+- Style pages and components with inline Tailwind utility classes in JSX. Do not add page or component CSS files; shared theme tokens remain in `app/globals.css`.
+
 - SRP: one function per file
 - DRY: no duplication
 - KISS: simple > clever

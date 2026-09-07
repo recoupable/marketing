@@ -1,6 +1,6 @@
 # Music video offer design
 
-This record covers the implemented `/music-videos` surface in `app/music-videos/page.tsx` and `music-videos.css`. It inherits the monorepo [DESIGN.md](../../../DESIGN.md); `app/globals.css` remains the source for theme values.
+This record covers the implemented `/music-videos` surface in `app/music-videos/page.tsx` and `components/music-videos/`, styled with inline Tailwind utilities. It inherits the monorepo [DESIGN.md](../../../DESIGN.md); `app/globals.css` remains the source for theme values.
 
 **Approved revision, 2026-09-07:** The owner approved [v2 in issue #2075](https://github.com/recoupable/app/issues/2075#issuecomment-5574038951) and requested implementation in marketing#89. [Editable designs](../../design/music-videos/index.html) are the current visual reference. The original prose record and v1 visuals were added after initial implementation; v2 was designed and approved before its implementation.
 
