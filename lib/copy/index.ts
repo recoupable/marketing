@@ -4,6 +4,7 @@
  * Edit copy in lib/copy/<page>.ts only; both views stay in sync.
  */
 import { siteConfig } from "@/lib/config";
+import { musicVideosCopy, musicVideosToMarkdown } from "./music-videos";
 import { homeCopy, homeToMarkdown } from "./home";
 import { platformCopy, platformToMarkdown } from "./platform";
 import { solutionsCopy, solutionsToMarkdown } from "./solutions";
@@ -25,6 +26,7 @@ const registry: Record<
   string,
   { getCopy: () => unknown; toMarkdown: (c: unknown) => string }
 > = {
+  "music-videos": { getCopy: () => musicVideosCopy, toMarkdown: () => musicVideosToMarkdown() },
   "": { getCopy: () => homeCopy, toMarkdown: (c) => homeToMarkdown(c as typeof homeCopy) },
   platform: { getCopy: () => platformCopy, toMarkdown: (c) => platformToMarkdown(c as typeof platformCopy) },
   solutions: { getCopy: () => solutionsCopy, toMarkdown: (c) => solutionsToMarkdown(c as typeof solutionsCopy) },

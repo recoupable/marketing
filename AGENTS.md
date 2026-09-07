@@ -36,6 +36,14 @@ pnpm format     # Run prettier + lint
 - PRs target main — `gh pr create --base main`
 - Commit and push after every task
 
+## New Page Procedure
+
+1. Create the tracking issue, then editable visual designs for desktop and mobile in both light and dark themes, including relevant form states. A prose design record or implementation screenshot does not replace these designs.
+2. Implement against the designs, open the PR, and add it to the tracking issue's PR matrix in the same session.
+3. Test the hosted preview for the current PR commit. Post the observed results and hosted screenshots (desktop/mobile, light/dark) in a PR comment. Repeat after UI or behavior changes; keep preview screenshots out of feature-branch commits.
+
+Always check the fixed header against the first heading at mobile widths. Record any out-of-order correction honestly; do not describe designs created after implementation as prior design work.
+
 ## Architecture
 
 ```
@@ -141,10 +149,14 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 ## Integrations
 
+- **Music-video offer:** Approved design v2 is linked from issue #2075. The page offers a free skill ZIP and product entry alongside custom quote capture, with separate click/lead events. `/music-videos` uses `lib/copy/music-videos.ts`, `components/music-videos/`, and the existing booking capture contract. Attribution is retained in the lead message; event properties exclude contact details. Measurement and operator handoff: `docs/plans/music-video-offer.md`.
+
 - **Lead capture:** `lib/postCapture.ts` — every form posts to `POST /api/leads` on the Recoup api, which owns Attio storage, the triage note, and the Telegram page (chat#1800). Marketing holds no Attio client and no `ATTIO_API_KEY`. `NEXT_PUBLIC_RECOUP_API_URL` overrides the api base for previews.
 - **Analytics:** Plausible script in `app/layout.tsx` — do NOT remove
 
 ## Code Principles
+
+- Style pages and components with inline Tailwind utility classes in JSX. Do not add page or component CSS files; shared theme tokens remain in `app/globals.css`.
 
 - SRP: one function per file
 - DRY: no duplication

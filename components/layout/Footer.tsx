@@ -12,6 +12,7 @@ const FOOTER_NAV = [
       { href: "/platform", label: "Platform" },
       { href: "/advisory", label: "Advisory" },
       { href: "/build", label: "Custom Builds" },
+      { href: "/music-videos", label: "Music Videos" },
       { href: "/solutions", label: "Solutions" },
       { href: "/developers", label: "Developers" },
       { href: siteConfig.docsUrl, label: "API Docs" },
