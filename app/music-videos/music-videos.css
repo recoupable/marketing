@@ -1,7 +1,8 @@
 .mv-page {
   max-width: 1200px;
   margin: auto;
-  padding: 0 32px 80px;
+  /* Reserve the fixed site header before the hero's own spacing. */
+  padding: 64px 32px 80px;
   color: var(--foreground);
 }
 .mv-page h1,
@@ -258,7 +259,7 @@
 }
 @media (max-width: 760px) {
   .mv-page {
-    padding: 0 24px 48px;
+    padding: 64px 24px 48px;
   }
   .mv-hero {
     grid-template-columns: 1fr;
