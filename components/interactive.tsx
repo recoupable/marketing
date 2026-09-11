@@ -238,7 +238,7 @@ export function ProductPreview({ compact = false }: { compact?: boolean }) {
           <span className="mp-wordmark">
             Recoup<span>●</span>
           </span>
-          
+
         </div>
         <div className="mp-compact-prompt">{content.Research.prompt}</div>
         <div className="mp-compact-answer">
@@ -260,7 +260,7 @@ export function ProductPreview({ compact = false }: { compact?: boolean }) {
         <span className="mp-wordmark">
           Recoup<span>●</span>
         </span>
-        
+
       </div>
       <div className="mp-artist">
         <div className="mp-artist-mark" aria-hidden="true">
