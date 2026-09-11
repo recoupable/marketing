@@ -1,3 +1,4 @@
+import { musicVideosCopy, musicVideosToMarkdown } from "./copy/music-videos.ts";
 import docsSource from "../content/docs/manifest.json" with { type: "json" };
 import postsSource from "../content/blog/posts.json" with { type: "json" };
 import chaptersSource from "../content/playbook/chapters.json" with { type: "json" };
@@ -182,6 +183,13 @@ const entries: Entry[] = pages.map(page => {
     searchable: `${page.title} ${page.description} ${page.paragraphs.join(" ")} ${page.keywords}`,
     markdown: async () => [`# ${page.title}`, `Source: ${url}`, "Representation: Summary of the public page. Follow the source for the complete page.", ...page.paragraphs, "## Next steps", ...page.links.map(([label, href]) => `- [${label}](${absolute(href)})`)].join("\n\n") + "\n",
   };
+});
+
+entries.push({
+  metadata: { id: "page:/music-videos", type: "page", title: musicVideosCopy.title, description: musicVideosCopy.description, url: absolute("/music-videos"), representation: "full" },
+  keywords: "music video film generation skill download quote released recording artist",
+  searchable: musicVideosToMarkdown(),
+  markdown: async () => musicVideosToMarkdown(),
 });
 
 for (const page of docsSource as DocPage[]) {

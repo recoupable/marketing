@@ -436,3 +436,11 @@ The [full-site visual review](docs/design/full-site-visual-review.md) and [page-
 Read this file before new UI work. Keep one current root `DESIGN.md`; archive research separately. Recheck actual CSS and rendered examples when changing values. Update the date only after that review. Do not overwrite the application with a generated token export: this project uses scoped CSS and intentional responsive formulas.
 
 Format reviewed against Google's current **alpha** DESIGN.md specification; alpha describes the exchange format, not Recoup's approval status. Use the eight section headings and valid token references when editing. The [research and validation record](docs/design/2026-09-10-design-md-research.md) includes primary sources, known limits, and the pinned linter command.
+
+### Case-study reading order
+
+Use the section heading “What we’ve built” and an explicit Case studies label. Project titles lead every card and appear before its illustration in reading order, including on mobile. Keep the artwork’s internal document titles smaller than the project title and name the document literally. Never put an abstract slogan in the largest type inside an illustration. The featured homepage card leads with its copy on the left and supporting art on the right.
+
+### Music-video offer
+
+`/music-videos` preserves the offer content and lead contract from PR #89 with Sky styling. Hero and films use the original published film posters, not invented proof. Keep the free skill download, paid generation-budget caveat, generated-song scope, and separately quoted released-recording service distinct. Preserve campaign events and sanitized attribution; contact information stays out of analytics.

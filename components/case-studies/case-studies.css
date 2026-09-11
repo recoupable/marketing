@@ -207,3 +207,5 @@
   .cs-art { background-image: none; }
   .cs-card { box-shadow: none; }
 }
+
+.cs-art :is(.cs-report-paper,.cs-memo-paper,.cs-brief-paper) > strong { font-size: 21px; line-height: 1.25; }

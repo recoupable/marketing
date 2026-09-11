@@ -52,6 +52,7 @@ export function SkyClosing() {
             <p className="sky-section-label">OUR TOOLS</p>
             <Link href="/platform">Platform</Link>
             <Link href="/skills">Skills</Link>
+            <Link href="/music-videos">Music videos</Link>
             <Link href="/developers">Developers</Link>
             <Link href="/lab">Lab</Link>
           </nav>

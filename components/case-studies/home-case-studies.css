@@ -68,3 +68,31 @@
   .sky-project-result { font-size: 27px; }
   .sky-project-tags { gap: 6px; }
 }
+
+/* Project names lead; the illustrated documents remain supporting detail. */
+.sky-project-card { display: grid; grid-template-rows: auto auto 1fr; grid-template-areas: "copy" "visual" "footer"; }
+.sky-project-copy { grid-area: copy; padding: 30px 30px 24px; }
+.sky-project-visual { grid-area: visual; }
+.sky-project-footer { grid-area: footer; display: flex; flex-direction: column; padding: 0 30px 26px; }
+.sky-project-featured { grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; grid-template-areas: "copy visual" "footer visual"; }
+.sky-content .sky-project-card h3 { font-size: clamp(28px,3vw,38px); line-height: 1.12; font-weight: 550; }
+.sky-project-story { margin-top: 18px; font-size: 16px; }
+.sky-project-featured .sky-project-copy { padding: 38px 36px 0; }
+.sky-project-featured .sky-project-footer { padding: 0 36px 32px; }
+.sky-project-visual .cs-art { height: 340px; min-height: 340px; padding: 26px 36px; }
+.sky-project-featured .cs-art { height: 100%; min-height: 370px; padding: 30px; }
+.sky-projects .cs-art :is(.cs-report-paper,.cs-memo-paper,.cs-brief-paper) > strong { font-size: 20px; line-height: 1.25; letter-spacing: -.025em; }
+.sky-projects .cs-report-line { padding-block: 12px; }
+.sky-projects .cs-art-note,.sky-projects .cs-brief-note { font-size: 11px; }
+@media (max-width:800px) {
+ .sky-project-featured { grid-template-columns: 1fr; grid-template-areas: "copy" "visual" "footer"; }
+ .sky-project-featured .sky-project-copy,.sky-project-copy { padding: 26px 24px; }
+ .sky-project-featured .sky-project-footer,.sky-project-footer { padding: 0 24px 24px; }
+ .sky-project-featured .cs-art { height: 300px; min-height: 300px; }
+}
+@media (max-width:600px) {
+ .sky-content .sky-project-card h3 { font-size: 29px; }
+ .sky-project-story { font-size: 15px; }
+ .sky-project-visual .cs-art { padding: 22px; }
+ .sky-projects .cs-art :is(.cs-report-paper,.cs-memo-paper,.cs-brief-paper) > strong { font-size: 18px; }
+}

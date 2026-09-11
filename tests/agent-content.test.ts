@@ -33,7 +33,7 @@ test("the fixed public registry covers published content with canonical URLs and
   assert.equal(index.filter(item => item.type === "docs").length, docs.length);
   assert.equal(index.filter(item => item.type === "blog").length, posts.length);
   assert.equal(index.filter(item => item.type === "playbook").length, chapters.length);
-  assert.equal(index.filter(item => item.type === "page").length, 22);
+  assert.equal(index.filter(item => item.type === "page").length, 23);
   for (const path of ["/case-studies", "/case-studies/royalty-reporting", "/case-studies/investment-review", "/case-studies/catalog-intelligence"]) {
     assert.ok(index.some(item => item.id === `page:${path}`), `${path} is discoverable`);
   }
@@ -41,7 +41,7 @@ test("the fixed public registry covers published content with canonical URLs and
   for (const item of index) {
     assert.equal(new URL(item.url).origin, new URL(site.url).origin);
     assert.ok(!/\/designs(?:\/|$)|\/clients(?:\/|$)|\.local|\/source\//.test(item.url));
-    assert.equal(item.representation, item.type === "page" ? "summary" : "full");
+    assert.equal(item.representation, item.type === "page" && item.id !== "page:/music-videos" ? "summary" : "full");
     assert.ok(item.title && item.description);
   }
   assert.ok(index.some(item => item.id === "page:/agents"));
@@ -257,4 +257,10 @@ test("article responses retain published identity, dates, and full readable body
     assert.ok(text.includes(`Author: ${post.author}`));
     assert.ok(text.endsWith(readableAgentMarkdown(post.body, result.url) + '\n'));
   }
+});
+
+test("music-video discovery preserves the offer and quote destinations", async () => {
+ const page = await readAgentContent({ id: "page:/music-videos", maxLength: 12000 });
+ assert.equal(page.representation, "full");
+ for (const content of ["Less than $10", "Plan fees and extra takes are separate", "Movamos el mundo", "Letal Xlug", "/music-videos#request", ".zip"]) assert.ok(page.markdown.includes(content), content);
 });
