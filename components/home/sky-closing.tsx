@@ -2,9 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FooterBrand } from "@/components/sky/brand";
 import { SkyArrow } from "@/components/sky/arrow";
+import { FooterSignup } from "@/components/sky/footer-signup";
 import "./sky-closing.css";
-
-const contact = "mailto:hi@recoupable.dev?subject=Let%E2%80%99s%20talk%20about%20Recoup";
 
 export function SkyClosing() {
   return (
@@ -35,10 +34,7 @@ export function SkyClosing() {
           <div className="sky-footer-brand">
             <FooterBrand href="#sky-home" />
             <p>Your AI partner for the business of music.<br />Custom systems. A team that can use them.</p>
-            <div className="sky-footer-email">
-              <p>Have a project in mind?</p>
-              <a href={contact}>hi@recoupable.dev <span aria-hidden="true"><SkyArrow /></span></a>
-            </div>
+            <FooterSignup />
           </div>
           <nav className="sky-footer-links" aria-label="Explore Recoup">
             <p className="sky-section-label">RECOUP</p>

@@ -15,11 +15,6 @@
 .sky-dark-footer { margin-top: 18px; border-radius: 22px; padding: 42px 36px 24px; background: #121513; color: #fff; }
 .sky-footer-main { display: grid; grid-template-columns: minmax(0, 1.7fr) repeat(3, minmax(0, 1fr)); gap: 35px; }
 .sky-footer-brand > p { color: #acb4ae; font-size: 13px; line-height: 1.65; margin-top: 22px; }
-.sky-footer-email { margin-top: 51px; }
-.sky-footer-email > p { font-size: 14px; color: #d3d9d4; }
-.sky-footer-email > a { display: flex; align-items: center; justify-content: space-between; gap: 22px; max-width: 350px; margin-top: 13px; padding: 5px 5px 5px 20px; border-radius: 99px; background: #2b302c; color: #e4ebe5; font-size: 13px; }
-.sky-footer-email > a > span { display: grid; place-items: center; width: 36px; height: 36px; flex: 0 0 36px; color: #172015; background: #d6ff62; border-radius: 50%; }
-.sky-footer-email .sky-arrow-icon { height: 17px; width: 17px; }
 .sky-footer-links { display: flex; flex-direction: column; gap: 19px; align-items: flex-start; padding-top: 9px; scroll-margin-top: 30px; }
 .sky-footer-links .sky-section-label { color: #a6b1a8; margin-bottom: 6px; font-size: 9px; }
 .sky-footer-links > a { font-size: 12px; color: #c4cdc6; line-height: 1.5; }
@@ -47,8 +42,6 @@
   .sky-dark-footer { padding: 32px 24px 24px; border-radius: 17px; }
   .sky-footer-main { grid-template-columns: 1fr 1fr; gap: 37px 21px; }
   .sky-footer-brand { grid-column: 1 / -1; grid-row: auto; }
-  .sky-footer-email { margin-top: 30px; }
-  .sky-footer-email > a { font-size: 12px; padding-left: 14px; gap: 8px; }
   .sky-footer-bottom { flex-direction: column; gap: 16px; margin-top: 31px; }
   .sky-footer-bottom > div { flex-wrap: wrap; gap: 14px 18px; }
 }

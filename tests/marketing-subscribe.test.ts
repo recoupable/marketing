@@ -54,3 +54,15 @@ test("invalid input never reaches the lead endpoint", async () => {
   assert.equal((await subscribeToRecoup({ source: "/blog", email: "invalid" }, fetcher)).ok, false);
   assert.equal((await subscribeToRecoup({ source: "/blog", email: "reader@example.com", name: "x".repeat(101) }, fetcher)).ok, false);
 });
+
+
+test("footer signup captures only email and preserves campaign attribution", async () => {
+  const fetcher: typeof fetch = async (_url, init) => {
+    assert.deepEqual(JSON.parse(String(init?.body)), {
+      kind: "subscribe", source: "/footer", email: "reader@example.com",
+      utm_source: "linkedin", utm_medium: "social", utm_campaign: "music-insights",
+    });
+    return new Response(JSON.stringify({ status: "success" }), { status: 200 });
+  };
+  assert.deepEqual(await subscribeToRecoup({ source: "/footer", email: " reader@example.com ", attribution: { current: { utm_source: "linkedin", utm_medium: "social", utm_campaign: "music-insights" } } }, fetcher), { ok: true });
+});

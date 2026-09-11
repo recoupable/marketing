@@ -1,6 +1,6 @@
 import { effectiveAcquisitionTags, type ReferralAttribution } from "./referral-attribution.ts";
 
-export type SubscribeSource = "/resources" | "/playbook" | "/blog";
+export type SubscribeSource = "/resources" | "/playbook" | "/blog" | "/footer";
 export type SubscribeInput = { email: string; name?: string; source: SubscribeSource; attribution?: ReferralAttribution };
 export type SubscribeResult = { ok: true } | { ok: false; error: string };
 
