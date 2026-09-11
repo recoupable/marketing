@@ -7,7 +7,7 @@ export const musicVideosCopy = {
   eyebrow: "THE MUSIC VIDEO SKILL",
   headline: ["A music video.", "Less than $10."],
   intro:
-    "Download the free skill. Give your AI agent an idea, then shape the song, the scenes and the finished film.",
+    "Download the free skill. Give your AI agent an idea, then shape the song, the scenes and the finished music video.",
   cta: "Get a quote for my song",
   ctaNote: "Free download. No signup to get the skill.",
   priceNote:
@@ -41,7 +41,7 @@ export const musicVideosCopy = {
   filmsEyebrow: "ARTIST COLLABORATIONS",
   filmsTitle: "Two songs. Two different worlds.",
   filmsIntro:
-    "Films we made with artists, built around their released recordings.",
+    "Music videos we made with artists, built around their released recordings.",
   heroFilmNote: "artist collaboration",
   films: [
     {
@@ -53,7 +53,7 @@ export const musicVideosCopy = {
       alt: "Tomás Mika beside a field at sunrise in the Movamos el mundo music video",
       url: "https://www.youtube.com/watch?v=ouLTF_CsDGY",
       description:
-        "Tomás had filmed the original alone in a field. He asked for a story with a couple, different places and a life together. The film ends in his field.",
+        "Tomás had shot the original video alone in a field. He asked for a story with a couple, different places and a life together. The video ends in his field.",
     },
     {
       id: "letal-xlug",
@@ -67,9 +67,9 @@ export const musicVideosCopy = {
         "The rain, neon and game world of his EP, carried into a video for his verse. Built around his recording and approved by the artist.",
     },
   ],
-  watch: "Watch the film on YouTube",
+  watch: "Watch the video on YouTube",
   offerEyebrow: "WORK WITH US",
-  offerTitle: "Your recording. Our help making the film.",
+  offerTitle: "Your recording. Our help making the video.",
   offerIntro:
     "Send your released song and the world you picture. We agree on scope and a custom quote before production begins.",
   offerNote:
@@ -81,7 +81,7 @@ export const musicVideosCopy = {
     "A final cut for you to approve and publish",
   ],
   processEyebrow: "MAKE IT YOURSELF",
-  processTitle: "From an idea to a finished film.",
+  processTitle: "From an idea to a finished music video.",
   process: [
     {
       title: "Get the skill",
@@ -92,7 +92,7 @@ export const musicVideosCopy = {
       text: "Start with a new song. Choose the look, characters and scenes before spending on animation.",
     },
     {
-      title: "Make the film",
+      title: "Make the video",
       text: "Set the budget, review each scene, then render your video. Rework only what needs another take.",
     },
   ],
@@ -121,11 +121,11 @@ export const musicVideosCopy = {
     },
     {
       q: "Does the free download include video generation?",
-      a: "The skill is free to download. Running it requires a Recoup account and generation credits. The published workflow describes a 15-second starter piece and full-length films; available duration depends on your account access. Check your plan before generating.",
+      a: "The skill is free to download. Running it requires a Recoup account and generation credits. The published workflow describes a 15-second starter piece and full-length music videos; available duration depends on your account access. Check your plan before generating.",
     },
   ],
   closing: {
-    title: "Make the film you picture.",
+    title: "Make the video you picture.",
     intro: "Start with the free skill. See where the song takes you.",
   },
   form: {
