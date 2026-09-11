@@ -1,0 +1,27 @@
+.transformation-contact .contact-copy h1 {
+  font-size: clamp(44px, 5vw, 76px);
+  max-width: 590px;
+}
+.transformation-contact .contact-copy > p:not(.eyebrow) {
+  max-width: 420px;
+  font-size: 17px;
+}
+.transformation-contact .inquiry-form h2 {
+  font-size: 29px;
+}
+@media (max-width: 800px) {
+  .transformation-contact .contact-copy h1 {
+    font-size: 46px;
+  }
+}
+@media (max-width: 540px) {
+  .transformation-contact .contact-copy h1 {
+    font-size: 40px;
+  }
+  .transformation-contact .contact-copy > p:not(.eyebrow) {
+    font-size: 15px;
+  }
+  .transformation-contact .inquiry-form h2 {
+    font-size: 25px;
+  }
+}

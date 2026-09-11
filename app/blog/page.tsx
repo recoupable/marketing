@@ -1,53 +1,39 @@
+import { SubscribeCard } from "@/components/marketing-migration/subscribe-card";
 import type { Metadata } from "next";
-import { getAllPosts } from "@/lib/posts";
-import { siteConfig } from "@/lib/config";
-import { buildPageMetadata } from "@/lib/seo";
-import { PostCard } from "@/components/blog/PostCard";
-import { BlogCTA } from "@/components/blog/BlogCTA";
+import Link from "next/link";
+import { blogPosts, formatBlogDate } from "@/lib/blog";
+import { blogDescription, blogIndexJsonLd } from "@/lib/editorial-seo";
+import { site } from "@/lib/site";
+import { BlogArt } from "./blog-art";
+import { BlogArchive } from "./blog-archive";
+import { SkyArrow } from "@/components/sky/arrow";
 
-/**
- * SEO metadata for the blog index page.
- */
-export const metadata: Metadata = buildPageMetadata({
-  title: `Blog — AI Music Agents, Artist Growth & Music Ops | ${siteConfig.name}`,
-  description:
-    "Insights on AI-powered music marketing, content creation, and artist growth. Tutorials, case studies, and building-in-public updates from the Recoup team.",
-  path: "/blog",
-});
+export const metadata: Metadata = {
+  title: "Blog — AI and the business of music",
+  description: "Ideas and practical guides from Recoup on AI strategy, music operations, artist marketing, and putting agents to work.",
+  alternates: { canonical: "/blog", types: { "application/rss+xml": `${site.url}/feed.xml` } },
+  openGraph: { title: "Recoup blog — AI and the business of music", description: "Ideas and practical guides from Recoup on AI strategy, music operations, artist marketing, and putting agents to work.", url: `${site.url}/blog`, type: "website", siteName: "Recoup", images: [{ url: `${site.url}/opengraph-image`, alt: "Recoup — AI transformation for music" }] },
+  twitter: { card: "summary_large_image", title: "Recoup blog — AI and the business of music", description: "Ideas and practical guides from Recoup on AI strategy, music operations, artist marketing, and putting agents to work.", images: [`${site.url}/opengraph-image`] },
+};
 
-/**
- * Blog index page — lists all published posts, newest first.
- */
-export default function BlogIndexPage() {
-  const posts = getAllPosts();
-
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      {/* Page header */}
-      <header className="mb-12">
-        <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] mb-3">
-          Blog
-        </h1>
-        <p className="text-lg text-[var(--muted-foreground)]">
-          Insights on AI-powered music marketing, content creation, and artist
-          growth.
-        </p>
-      </header>
-
-      {/* Post grid */}
-      {posts.length > 0 ? (
-        <div className="grid gap-6 md:grid-cols-2">
-          {posts.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
-        </div>
-      ) : (
-        <p className="text-[var(--muted-foreground)]">
-          No posts yet. Check back soon.
-        </p>
-      )}
-      {/* Email capture */}
-      <BlogCTA />
-    </div>
-  );
+export default function BlogPage() {
+  const [featured, ...remaining] = blogPosts;
+  const posts = [...remaining].sort((a, b) => b.date.localeCompare(a.date));
+  return <div className="blog-index">
+    <header className="blog-intro"><p className="blog-eyebrow">The Recoup blog</p><h1>AI. Music.<br /><span>The work in between.</span></h1><p>Ideas and practical guides for putting AI to work in the music business.</p></header>
+    <Link href={`/blog/${featured.slug}`} className="blog-feature">
+      <BlogArt theme="strategy" feature />
+      <div className="blog-feature-copy"><p className="blog-eyebrow">Featured · {featured.category}</p><h2>{featured.title}</h2><p>{blogDescription(featured)}</p><div className="blog-post-meta"><span>{featured.author}</span><span>{featured.readingMinutes} min read</span></div><span className="blog-read">Read the article <SkyArrow /></span></div>
+    </Link>
+    <BlogArchive entries={posts.map((post, i) => ({
+      slug: post.slug,
+      title: post.title,
+      description: blogDescription(post),
+      category: post.category,
+      card: <article key={post.slug}><Link href={`/blog/${post.slug}`} className="blog-card"><BlogArt theme={["agents", "content", "release"][i % 3]} image={post.coverImage} /><div className="blog-card-copy"><p className="blog-eyebrow">{post.category}</p><h3>{post.title}</h3><p>{blogDescription(post)}</p><div className="blog-post-meta"><time dateTime={post.date}>{formatBlogDate(post.date)}</time><span>{post.readingMinutes} min read</span></div></div></Link></article>,
+    }))} />
+<SubscribeCard source="/blog" />
+    <section className="blog-cta"><div><p className="blog-eyebrow">Put an idea to work</p><h2>What would you build?</h2><p>Bring us a project, or a part of your business you want to improve.</p></div><Link className="blog-talk" href="/start-project">Get a Free Audit <SkyArrow /></Link></section>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogIndexJsonLd([featured, ...posts], site.url)).replace(/</g, "\\u003c") }} />
+  </div>;
 }

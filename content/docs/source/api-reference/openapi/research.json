@@ -1,0 +1,3350 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Recoup API - Research",
+    "description": "API documentation for the Recoup platform - an AI agent platform for the music industry",
+    "license": {
+      "name": "MIT"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.recoupable.dev"
+    }
+  ],
+  "paths": {
+    "/api/chats": {
+      "get": {
+        "description": "Returns chats for the authenticated account. Personal Bearer tokens see only the caller's chats; org keys see chats across the org's member accounts; admin keys see all chats. Each row carries the chat id and the session id needed to build the chat URL.",
+        "parameters": [
+          {
+            "name": "artist_account_id",
+            "in": "query",
+            "description": "Optional. Filter chats to only include those whose owning session's `artistId` matches the supplied artist account id. Combine with `account_id` to scope by both owner and artist.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "account_id",
+            "in": "query",
+            "description": "Filter to a specific account. Only applicable when the authenticated account has access to multiple accounts via organization membership.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Chats retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChatsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChatsErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - account_id is not a member of the organization or account tried to filter by an account_id they don't have access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new chat room. Optionally associate it with an artist and/or provide a client-generated chat ID. Pass accountId to create a chat on behalf of a specific account the API key has access to.",
+        "requestBody": {
+          "description": "Chat creation parameters",
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateChatRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chat created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateChatResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - failed to create chat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateChatErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - API key does not have access to the specified accountId",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateChatErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "Update a chat room's topic (display name). The chatId is required; the topic field will be updated. Topic must be between 3 and 50 characters.",
+        "requestBody": {
+          "description": "Chat fields to update",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChatRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chat updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateChatResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateChatErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - API key does not have access to this chat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - chat room does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateChatErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a chat room by ID. This operation also removes related room records (memory emails, memories) before deleting the room itself.",
+        "requestBody": {
+          "description": "Chat deletion parameters",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteChatRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chat deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteChatResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteChatErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - API key does not have access to this chat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - chat room does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteChatErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error - failed to delete chat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteChatErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/chats/{id}/artist": {
+      "get": {
+        "description": "Retrieve the artist associated with a specific chat room. Returns 404 if the chat does not exist or is not accessible by the authenticated caller.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier (UUID) of the chat room.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Chat artist resolved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChatArtistResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid chat id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChatArtistErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - invalid or missing credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - chat does not exist or is not accessible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChatArtistErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/chats/{id}/messages": {
+      "get": {
+        "description": "Retrieve all messages (memories) for a specific chat room in chronological order.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier (UUID) of the chat room.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Messages retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChatMessagesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid chat id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChatMessagesErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - invalid or missing credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - caller does not have access to this chat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - chat does not exist or is not accessible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChatMessagesErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error - failed to retrieve messages",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChatMessagesErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/chats/{id}/messages/copy": {
+      "post": {
+        "description": "Copy all messages from the source chat (`id` path param) to a target chat (`targetChatId` in request body). By default, existing target messages are cleared before copy.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The source chat room UUID.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Copy target options",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopyChatMessagesRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Messages copied successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopyChatMessagesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid payload or chat identifiers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopyChatMessagesErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - invalid or missing credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - caller lacks access to source or target chat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopyChatMessagesErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - source or target chat does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopyChatMessagesErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error - failed to copy messages",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopyChatMessagesErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/chats/{id}/messages/trailing": {
+      "delete": {
+        "description": "Delete all messages in a chat from a given message onward (inclusive), identified by `from_message_id`.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier (UUID) of the chat room.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "from_message_id",
+            "in": "query",
+            "description": "The message UUID from which trailing messages should be deleted (inclusive).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trailing messages deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteTrailingChatMessagesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid or missing query/path parameters or message does not belong to chat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteTrailingChatMessagesErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - invalid or missing credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteTrailingChatMessagesErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - access denied to this chat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteTrailingChatMessagesErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - chat or message does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteTrailingChatMessagesErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error - failed to delete trailing messages",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteTrailingChatMessagesErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/chats/compact": {
+      "post": {
+        "description": "Compact one or more chat conversations into summarized versions. This reduces the size of chat history while preserving key information. Optionally provide a prompt to control what information gets preserved in the compacted summary.",
+        "requestBody": {
+          "description": "Chat compaction parameters",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompactChatsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chats compacted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompactChatsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - one or more chat IDs do not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/chat/runs": {
+      "post": {
+        "description": "Start an asynchronous, headless chat-generation run on the durable agent workflow — the same engine as interactive [`POST /api/chat`](/api-reference/chat/workflow).\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) — use that for **interactive, streaming** turns on an existing chat; use this for **headless/programmatic** runs (no browser or pre-provisioned session needed).\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — poll to learn **whether** the run finished (and if it succeeded).\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — **watch the output live** by passing the returned `chatId`.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Chat generation request",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatGenerateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Run accepted. A durable workflow run was started; `runId` identifies it. `chatId` / `sessionId` identify the persisted output — read the result via [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) (resume the stream) or the chat's persisted messages. Poll [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) for status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatGenerateAcceptedResponse"
+                }
+              }
+            },
+            "headers": {
+              "Location": {
+                "description": "Relative URL of the run-status resource for the started run.",
+                "schema": {
+                  "type": "string",
+                  "format": "uri-reference"
+                },
+                "example": "/api/chat/runs/wrun_01KVWZNM82NA7XKNEWWHG8VPHJ"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - missing required parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatGenerateErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/chat/{chatId}/stop": {
+      "post": {
+        "description": "Stop the response currently being generated for a chat, freeing it to accept a new message. Idempotent — returns `stopped: false` when nothing is in progress. The chat must belong to the authenticated account.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "chatId",
+            "in": "path",
+            "required": true,
+            "description": "UUID of the chat to stop.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Stop request processed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StopChatResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "chatId is not a valid UUID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StopChatErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The chat belongs to a different account",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StopChatErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Chat not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StopChatErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/chat/{chatId}/stream": {
+      "get": {
+        "summary": "Resume a chat response stream",
+        "description": "Reconnects to an in-progress chat response — the resume counterpart to [`POST /api/chat`](/api-reference/chat/workflow), which never resumes. Returns the live Server-Sent Events stream when a response is still being generated, or `204 No Content` when there is nothing to resume. The chat must belong to the authenticated account.\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) — the interactive turn whose stream this resumes.\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — start a **headless** run, then pass the returned `chatId` here to **watch its output live**.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** that run finished (status, not content).",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "chatId",
+            "in": "path",
+            "required": true,
+            "description": "UUID of the chat to resume.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "account_id",
+            "in": "query",
+            "required": false,
+            "description": "Act on a chat belonging to another account. Only honoured for a key that is authorised for that account — an organization key may pass a member account's id; a personal key passing anyone else's is rejected with `403 Access denied to specified account_id`. Omit it to act as the authenticated account.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "startIndex",
+            "in": "query",
+            "required": false,
+            "description": "Zero-based index of the first stream chunk to return, so a client that was already receiving this response resumes where it left off instead of replaying the whole turn.\n\nPass the number of chunks already received. Omit it to receive the response from the beginning — the right choice for a fresh reader such as a page load, or a client watching a headless [`POST /api/chat/runs`](/api-reference/chat/runs) run for the first time.\n\nA long turn's stream can end before the run does; reconnecting with `startIndex` is how a client keeps rendering without duplicating or skipping chunks.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Server-Sent Events stream of UI message parts for the in-progress response, compatible with the Vercel AI SDK. The `x-workflow-run-id` response header carries the run ID for this response, and `x-workflow-stream-tail-index` carries the index of the last chunk known when this read was opened — a base for computing absolute positions, not a record of where the response ended.",
+            "headers": {
+              "x-workflow-run-id": {
+                "description": "Durable workflow run ID of the resumed run.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "x-workflow-stream-tail-index": {
+                "description": "Zero-based index of the last chunk known to the stream **at the moment this read was opened**. Because headers are sent before the body, a read that stays open past that point will deliver chunks beyond it — so this is a base for computing absolute positions, not a record of where the response ended. A client resuming precisely should count the chunks it receives on top of this value. Omitted if the runtime cannot report it.",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "type": "string",
+                  "description": "Server-Sent Events stream containing UI message parts"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No active stream to resume for this chat."
+          },
+          "400": {
+            "description": "`startIndex` was provided but is not a non-negative integer.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The authenticated account does not own the referenced chat.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Chat not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/chat": {
+      "post": {
+        "summary": "Stream sandbox-driven chat (Vercel Workflow)",
+        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) — no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** a headless run finished (status, not content).",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Chat workflow request",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatWorkflowRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Server-Sent Events stream of UI message parts compatible with the Vercel AI SDK `createUIMessageStreamResponse`. The `x-workflow-run-id` response header carries the durable workflow run ID for resume/stop operations.",
+            "headers": {
+              "x-workflow-run-id": {
+                "description": "Durable workflow run ID. Persist alongside the chat so a later `GET /api/chat/{chatId}/stream` request can resume this run after a disconnect.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "type": "string",
+                  "description": "Server-Sent Events stream containing UI message parts"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request — missing required fields, invalid body, or sandbox not initialized for the session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key's account does not own the referenced `sessionId` or `chatId`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Session or chat not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A response is already streaming for this chat. Reconnect to it via `GET /api/chat/{chatId}/stream` instead of POSTing again.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/deep": {
+      "post": {
+        "description": "Perform deep, comprehensive research on a topic. Browses multiple sources extensively and returns a cited report. Use for full artist deep dives, competitive analysis, and any research requiring synthesis across many sources.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResearchDeepRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Deep research report with citations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchDeepResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed — invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          }
+        }
+      }
+    },
+    "/api/research/enrich": {
+      "post": {
+        "description": "Enrich an entity with structured data from web research. Provide a description of who or what to research and a JSON schema defining the fields to extract. Returns typed data with citations. **Important:** The `schema` object must include `\"type\": \"object\"` at the top level — requests without an explicit type will be rejected.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResearchEnrichRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Structured enrichment data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchEnrichResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed — invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          }
+        }
+      }
+    },
+    "/api/research/extract": {
+      "post": {
+        "description": "Extract clean markdown content from one or more public URLs. Handles JavaScript-heavy pages and PDFs. Returns focused excerpts aligned to an objective, or full page content.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResearchExtractRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Extracted content from URLs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchExtractResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed — invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          }
+        }
+      }
+    },
+    "/api/research/people": {
+      "post": {
+        "description": "Search for people in the music industry — artists, managers, A&R reps, producers. Returns multi-source profiles including LinkedIn data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResearchPeopleRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "People search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchPeopleResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed — invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          }
+        }
+      }
+    },
+    "/api/research/web": {
+      "post": {
+        "description": "Search the web for real-time information. Returns ranked results with titles, URLs, and content snippets. Use for narrative context, press coverage, and cultural research that structured data endpoints don't cover.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResearchWebRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Web search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchWebResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed — invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          }
+        }
+      }
+    },
+    "/api/research/events": {
+      "post": {
+        "description": "List an artist's live shows. Returns one row per event with venue, city, country, ticket link, and lineup.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResearchEventsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Events for the artist. An artist with no matching events returns an empty `events` array, not an error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchEventsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed — invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient research credits — the body includes a static `billingUrl`. No Stripe object is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The artist has no live-events profile connected, so no events can be looked up. Distinct from a 200 with an empty `events` array, which means the artist is connected but has no matching events.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                },
+                "example": {
+                  "status": "error",
+                  "error": "Error: no bandsintown ID connected to this artist. Please connect the bandsintown ID in this format: bandsintown.com/a/{id}-{slug} Docs here: https://docs.recoupable.dev/api-reference/artists/update#body-profile-urls"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/track/stats": {
+      "get": {
+        "description": "Get the current Spotify play count for one recording by ISRC, served from the Apify-backed measurement store. A fresh capture is returned as-is; a stale or missing one triggers a refresh of the recording's album through the Spotify play-count actor before responding.",
+        "parameters": [
+          {
+            "name": "isrc",
+            "in": "query",
+            "required": true,
+            "description": "Track ISRC. The recording must have a Spotify album mapping in the measurement store (created by a `current` measurement job or a catalog snapshot).",
+            "schema": {
+              "type": "string",
+              "example": "USQY51771120"
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "description": "Only `spotify` is supported; defaults to `spotify`.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "spotify"
+              ],
+              "default": "spotify"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The recording's current Spotify play count from the measurement store.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchTrackStatsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error — `isrc` missing, or `source` is not `spotify`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed — invalid or missing API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Nothing stored for this ISRC and no Spotify album mapping to refresh from — create a `current` measurement job for it first.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient research credits — the body includes a static `billingUrl`. No Stripe object is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/tracks/{id}/measurements": {
+      "get": {
+        "summary": "Track measurements",
+        "description": "Time-series of a track's measured counts.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Provider-neutral track id — ISRC or Spotify track id."
+          },
+          {
+            "name": "platform",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "spotify"
+            },
+            "description": "Platform to read. Currently `spotify`."
+          },
+          {
+            "name": "metric",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "platform_displayed_play_count"
+            },
+            "description": "Metric to read."
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Inclusive start date (ISO) for the series."
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Inclusive end date (ISO) for the series."
+          },
+          {
+            "name": "granularity",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily"
+              ],
+              "default": "daily"
+            },
+            "description": "Series granularity. `daily` returns the per-day cumulative series."
+          },
+          {
+            "name": "aggregate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "run_rate"
+              ]
+            },
+            "description": "Return a derived aggregate instead of the raw series. `run_rate` returns the trailing-window annualized run-rate (a projection of the series)."
+          },
+          {
+            "name": "window",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "365d"
+            },
+            "description": "Trailing window for `aggregate=run_rate` (e.g. `365d`)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The measurement series (or the requested aggregate).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchMeasurementsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error — bad identifier or query param.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed — invalid or missing API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No measurements for this track yet — create a `current` measurement job to capture it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/albums/{id}/measurements": {
+      "get": {
+        "summary": "Album measurements",
+        "description": "Latest measured count per track on an album, from the measurement store. `{id}` is a Spotify album id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Spotify album id."
+          },
+          {
+            "name": "platform",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "spotify"
+            },
+            "description": "Platform to read. Currently `spotify`."
+          },
+          {
+            "name": "metric",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "platform_displayed_play_count"
+            },
+            "description": "Metric to read."
+          },
+          {
+            "name": "latest",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "description": "Return the latest capture per track (the only supported mode today)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Latest per-track measured counts for the album.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchAlbumMeasurementsResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed — invalid or missing API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No capture exists for this album yet — create a `current` measurement-job.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/measurement-jobs": {
+      "post": {
+        "summary": "Create a measurement job",
+        "description": "One async ingest resource. `source:\"current\"` captures present counts via the snapshot pipeline. Provide exactly one of `catalog_id` / `album_ids` / `isrcs` in `scope`. The returned `id` is a snapshot id you can pass to [Create catalog](/api-reference/songs/catalogs-create) to materialize the measured tracks into an account-owned catalog.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResearchMeasurementJobRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Job accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchMeasurementJobResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error — provide a `source` and exactly one of `scope.catalog_id`, `scope.album_ids`, `scope.isrcs`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed — invalid or missing API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Per-organization monthly cap reached.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/chat/runs/{runId}": {
+      "get": {
+        "description": "Status of an asynchronous run started via [`POST /api/chat/runs`](/api-reference/chat/runs). Returns a point-in-time snapshot (**is it done?**) — not the generated content.\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — starts the run this reports on.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — read the **content**: poll *this* to know **whether** a run finished; use the stream to **watch the output** as it's produced.\n- [`POST /api/chat`](/api-reference/chat/workflow) — the interactive, streaming counterpart to a headless run.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "runId",
+            "in": "path",
+            "required": true,
+            "description": "The durable workflow run id returned by [POST /api/chat/runs](/api-reference/chat/runs).",
+            "schema": {
+              "type": "string"
+            },
+            "example": "wrun_01KVWZNM82NA7XKNEWWHG8VPHJ"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Run status snapshot",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatRunStatusResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No run found for the given runId",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatGenerateErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "Your Recoup API key. [Learn more](/quickstart#api-keys)."
+      }
+    },
+    "schemas": {
+      "StopChatResponse": {
+        "type": "object",
+        "required": [
+          "success",
+          "stopped"
+        ],
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Always true when the request was processed.",
+            "example": true
+          },
+          "stopped": {
+            "type": "boolean",
+            "description": "True when an in-progress response was cancelled; false when nothing was running.",
+            "example": true
+          }
+        }
+      },
+      "StopChatErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          }
+        }
+      },
+      "ChatGenerateErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "message"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          }
+        }
+      },
+      "ChatGenerateRequest": {
+        "type": "object",
+        "description": "Request body for chat generation. Exactly one of 'prompt' or 'messages' must be provided.",
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "description": "Single text prompt for the assistant. Required if 'messages' is not provided."
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UIMessage"
+            },
+            "description": "Array of UIMessage objects for context. Required if 'prompt' is not provided."
+          },
+          "artistId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique identifier of the artist (optional)"
+          },
+          "model": {
+            "type": "string",
+            "description": "The AI model to use for text generation (optional)",
+            "example": "openai/gpt-5-mini"
+          },
+          "trigger_run_id": {
+            "type": "string",
+            "description": "Optional. When the run is kicked off by a Trigger.dev scheduled task, the Trigger run id (`run_...`). The started workflow's `{ sessionId, chatId, workflowRunId }` are written to that Trigger run's metadata so the scheduled run can be traced to the chat that did the work.",
+            "example": "run_06g3i0e3logru439uh9e1m8801"
+          }
+        }
+      },
+      "ChatMessage": {
+        "type": "object",
+        "required": [
+          "id",
+          "room_id",
+          "content",
+          "updated_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the memory message"
+          },
+          "room_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the parent chat room"
+          },
+          "content": {
+            "type": "object",
+            "description": "Structured message payload stored for the memory"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO timestamp of the memory update"
+          }
+        }
+      },
+      "ChatRoom": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "accountId",
+          "sessionId",
+          "updatedAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Chat id."
+          },
+          "title": {
+            "type": "string",
+            "description": "Display title for the chat."
+          },
+          "accountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Owning account for this chat."
+          },
+          "sessionId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Session that owns this chat. Combine with `id` to build the chat URL: `/sessions/{sessionId}/chats/{id}`."
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO timestamp of the last update."
+          },
+          "artistId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true,
+            "description": "Artist account id this chat's session was created in the context of, or `null` when no artist was associated. Inherited from `sessions.artist_id` on the owning session."
+          }
+        }
+      },
+      "ChatStreamErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          },
+          "missing_fields": {
+            "type": "array",
+            "description": "Present on validation failures (400): the path of the field that failed. Empty for a malformed path parameter.",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ChatWorkflowRequest": {
+        "type": "object",
+        "description": "Request body for the sandbox-driven, Workflow-backed chat endpoint. Requires an existing session, chat, and provisioned sandbox. The Bearer key from the `Authorization` header is forwarded into the sandbox for skill-based callbacks to the Recoup API — no separate access-token field needed.",
+        "required": [
+          "messages",
+          "chatId",
+          "sessionId"
+        ],
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UIMessage"
+            },
+            "description": "Conversation history as an array of `UIMessage` objects, matching the [Vercel AI SDK](https://sdk.vercel.ai/) `UIMessage` shape. The last entry is typically the new user turn — the agent loop reads the entire array and persists the latest user message before the workflow starts."
+          },
+          "chatId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of an existing chat under `sessionId`. The chat's `active_stream_id` column is used for compare-and-set race control across concurrent requests."
+          },
+          "sessionId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the session that owns both the chat and the sandbox. The session must have a non-null `sandbox_state` — call [POST /api/sandbox](/api-reference/sandbox/create) first if not."
+          },
+          "context": {
+            "type": "object",
+            "description": "Optional per-prompt context overrides forwarded into the agent loop.",
+            "properties": {
+              "contextLimit": {
+                "type": "integer",
+                "description": "Upper bound on the number of tokens / messages of conversation history the agent should consider for this prompt. Overrides the model's default for this call only."
+              }
+            }
+          }
+        }
+      },
+      "CompactChatsRequest": {
+        "type": "object",
+        "required": [
+          "chatId"
+        ],
+        "properties": {
+          "chatId": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Array of chat IDs to compact"
+          },
+          "prompt": {
+            "type": "string",
+            "description": "Optional prompt to control what information gets preserved in the compacted summary"
+          }
+        }
+      },
+      "CompactChatsResponse": {
+        "type": "object",
+        "required": [
+          "chats"
+        ],
+        "properties": {
+          "chats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompactedChat"
+            },
+            "description": "Array of compacted chat results"
+          }
+        }
+      },
+      "CompactedChat": {
+        "type": "object",
+        "required": [
+          "chatId",
+          "compacted"
+        ],
+        "properties": {
+          "chatId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The ID of the chat that was compacted"
+          },
+          "compacted": {
+            "type": "string",
+            "description": "The compacted summary text of the chat"
+          }
+        }
+      },
+      "CopyChatMessagesErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong."
+          }
+        }
+      },
+      "CopyChatMessagesRequest": {
+        "type": "object",
+        "required": [
+          "targetChatId"
+        ],
+        "properties": {
+          "targetChatId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Target chat room UUID to receive the copied messages."
+          },
+          "clearExisting": {
+            "type": "boolean",
+            "default": true,
+            "description": "When true, existing messages in the target chat are deleted before copy."
+          }
+        }
+      },
+      "CopyChatMessagesResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "source_chat_id",
+          "target_chat_id",
+          "copied_count",
+          "cleared_existing"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ],
+            "description": "Status of the request",
+            "example": "success"
+          },
+          "source_chat_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Source chat room UUID."
+          },
+          "target_chat_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Target chat room UUID."
+          },
+          "copied_count": {
+            "type": "integer",
+            "description": "Number of messages copied from source to target."
+          },
+          "cleared_existing": {
+            "type": "boolean",
+            "description": "Whether existing target messages were deleted before copy."
+          }
+        }
+      },
+      "CreateChatErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "message"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          }
+        }
+      },
+      "CreateChatRequest": {
+        "type": "object",
+        "properties": {
+          "artistId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the artist account the chat is associated with"
+          },
+          "chatId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID for the new chat (client-generated). If not provided, one will be generated automatically."
+          },
+          "accountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the account to create the chat for. Only applicable when the authenticated account has access to multiple accounts via organization membership. If not provided, the chat is created for the API key's own account."
+          },
+          "topic": {
+            "type": "string",
+            "description": "Topic name for the new chat room (e.g., 'Pulse Feb 2'). To edit the topic of an existing room, use [PATCH /api/chats](/api-reference/chat/update)."
+          }
+        }
+      },
+      "CreateChatResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "chat"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ],
+            "description": "Status of the request",
+            "example": "success"
+          },
+          "chat": {
+            "$ref": "#/components/schemas/ChatRoom",
+            "description": "The created chat room object"
+          }
+        }
+      },
+      "DeleteChatErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong."
+          }
+        }
+      },
+      "DeleteChatRequest": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique identifier (UUID) of the chat room to delete."
+          }
+        }
+      },
+      "DeleteChatResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "id",
+          "message"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ],
+            "description": "Status of the request",
+            "example": "success"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The UUID of the deleted chat room."
+          },
+          "message": {
+            "type": "string",
+            "description": "Success message describing the deletion result."
+          }
+        }
+      },
+      "DeleteTrailingChatMessagesErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong."
+          },
+          "missing_fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of missing or invalid parameter fields (when validation fails)."
+          }
+        }
+      },
+      "DeleteTrailingChatMessagesResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "chat_id",
+          "from_message_id"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ],
+            "description": "Status of the request",
+            "example": "success"
+          },
+          "chat_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The chat UUID where deletion was applied."
+          },
+          "from_message_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The message UUID used as the trailing deletion boundary."
+          }
+        }
+      },
+      "Error": {
+        "required": [
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "GetChatArtistErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          }
+        }
+      },
+      "GetChatArtistResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "room_id",
+          "artist_id",
+          "artist_exists"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ],
+            "description": "Status of the request",
+            "example": "success"
+          },
+          "room_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the chat room"
+          },
+          "artist_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true,
+            "description": "UUID of the artist account associated with the chat, or null when no artist is linked"
+          },
+          "artist_exists": {
+            "type": "boolean",
+            "description": "Whether an artist is linked to the chat room"
+          }
+        }
+      },
+      "GetChatMessagesErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          }
+        }
+      },
+      "GetChatMessagesResponse": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChatMessage"
+            },
+            "description": "Chronologically ordered list of messages for the chat"
+          }
+        }
+      },
+      "GetChatsErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          }
+        }
+      },
+      "GetChatsResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "chats"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ],
+            "description": "Status of the request",
+            "example": "success"
+          },
+          "chats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChatRoom"
+            },
+            "description": "Array of chat objects"
+          }
+        }
+      },
+      "ResearchDeepRequest": {
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "description": "Request body for deep research. Performs comprehensive multi-source analysis.",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The research question — be specific and detailed for best results."
+          }
+        }
+      },
+      "ResearchDeepResponse": {
+        "type": "object",
+        "description": "Comprehensive research report with citations.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "error"
+            ],
+            "example": "success"
+          },
+          "content": {
+            "type": "string",
+            "description": "The full research report as markdown."
+          },
+          "citations": {
+            "type": "array",
+            "description": "Source URLs cited in the report.",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      },
+      "ResearchEnrichRequest": {
+        "type": "object",
+        "required": [
+          "input",
+          "schema"
+        ],
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "What to research (e.g., \"Drake rapper from Dallas Texas\")."
+          },
+          "schema": {
+            "type": "object",
+            "description": "JSON schema defining the fields to extract. Must include `\"type\": \"object\"` at the top level.",
+            "additionalProperties": true,
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "object"
+                ],
+                "description": "Must be \"object\""
+              },
+              "properties": {
+                "type": "object",
+                "description": "Field definitions to extract",
+                "additionalProperties": true
+              }
+            },
+            "required": [
+              "type",
+              "properties"
+            ]
+          },
+          "processor": {
+            "type": "string",
+            "enum": [
+              "base",
+              "core",
+              "ultra"
+            ],
+            "default": "base",
+            "description": "Research depth: base (fast), core (balanced), ultra (comprehensive)."
+          }
+        }
+      },
+      "ResearchEnrichResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "output": {
+            "type": "object",
+            "description": "Structured data matching the provided schema.",
+            "additionalProperties": true
+          },
+          "citations": {
+            "type": "array",
+            "description": "Source citations supporting the enriched output.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "field": {
+                  "type": "string",
+                  "description": "Which output field this citation supports."
+                }
+              }
+            }
+          }
+        }
+      },
+      "ResearchExtractRequest": {
+        "type": "object",
+        "required": [
+          "urls"
+        ],
+        "properties": {
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "maxItems": 10,
+            "description": "URLs to extract content from (max 10).",
+            "minItems": 1
+          },
+          "objective": {
+            "type": "string",
+            "description": "What information to focus on (optional, max 3000 chars)."
+          },
+          "full_content": {
+            "type": "boolean",
+            "default": false,
+            "description": "Return full page content instead of focused excerpts."
+          }
+        }
+      },
+      "ResearchExtractResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "results"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "error"
+            ],
+            "example": "success"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchExtractResult"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "URLs that failed to extract. Only present when one or more URLs could not be processed."
+          }
+        }
+      },
+      "ResearchExtractResult": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "publish_date": {
+            "type": "string",
+            "nullable": true,
+            "description": "Publish date in YYYY-MM-DD format."
+          },
+          "excerpts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "description": "Focused excerpts as markdown."
+          },
+          "full_content": {
+            "type": "string",
+            "nullable": true,
+            "description": "Full page content as markdown."
+          }
+        }
+      },
+      "ResearchPeopleRequest": {
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Natural language search for people (e.g., \"A&R reps at Atlantic Records\")."
+          },
+          "num_results": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 10,
+            "description": "Number of results to return."
+          }
+        }
+      },
+      "ResearchPeopleResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "error"
+            ],
+            "example": "success"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchPeopleResult"
+            }
+          }
+        }
+      },
+      "ResearchPeopleResult": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Person name and role."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Profile URL (often LinkedIn)."
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique result identifier from the search provider."
+          },
+          "publishedDate": {
+            "type": "string",
+            "nullable": true,
+            "description": "Date the profile or page was published."
+          },
+          "author": {
+            "type": "string",
+            "nullable": true,
+            "description": "Author of the page, if available."
+          },
+          "highlights": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "description": "Key excerpts from the profile."
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true,
+            "description": "Brief summary of the person."
+          }
+        }
+      },
+      "ResearchWebRequest": {
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "description": "Request body for web research.",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The search query — what you want to find on the web."
+          },
+          "max_results": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 10,
+            "description": "Maximum number of results to return."
+          },
+          "country": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "description": "ISO country code for regional results (e.g., 'US', 'GB')."
+          }
+        }
+      },
+      "ResearchWebResponse": {
+        "type": "object",
+        "description": "Web search results with titles, URLs, and content snippets.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "results": {
+            "type": "array",
+            "description": "Ranked web search results.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "snippet": {
+                  "type": "string",
+                  "description": "Content snippet from the search result."
+                },
+                "date": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Publication date if available."
+                },
+                "last_updated": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Last updated date if available."
+                }
+              }
+            }
+          },
+          "formatted": {
+            "type": "string",
+            "description": "Results formatted as markdown for easy reading."
+          }
+        }
+      },
+      "UIMessage": {
+        "type": "object",
+        "description": "A message in the chat conversation. See https://ai-sdk.dev/docs/reference/ai-sdk-core/ui-message for details.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the message"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "user",
+              "assistant",
+              "system"
+            ],
+            "description": "The role of the message sender"
+          },
+          "content": {
+            "type": "string",
+            "description": "The text content of the message"
+          }
+        }
+      },
+      "UpdateChatErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "message"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          }
+        }
+      },
+      "UpdateChatRequest": {
+        "type": "object",
+        "required": [
+          "chatId",
+          "topic"
+        ],
+        "properties": {
+          "chatId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique identifier (UUID) of the chat room to update"
+          },
+          "topic": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 50,
+            "description": "The new display name for the chat room. Must be between 3 and 50 characters."
+          }
+        }
+      },
+      "UpdateChatResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "chat"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ],
+            "description": "Status of the request",
+            "example": "success"
+          },
+          "chat": {
+            "$ref": "#/components/schemas/ChatRoom",
+            "description": "The updated chat room object"
+          }
+        }
+      },
+      "ResearchEventsRequest": {
+        "type": "object",
+        "required": [
+          "artist_id"
+        ],
+        "description": "Request body for artist event lookup.",
+        "properties": {
+          "artist_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Recoup artist id. Events are resolved through the live-events profile connected to this artist, so the lookup is exact and cannot drift to a same-named performer. Returns 404 if no live-events profile is connected.",
+            "example": "123694f2-1dab-40b4-8a75-84d39571c0bc"
+          },
+          "date": {
+            "type": "string",
+            "enum": [
+              "upcoming",
+              "past",
+              "all"
+            ],
+            "default": "upcoming",
+            "description": "Which events to return."
+          }
+        }
+      },
+      "ResearchEventsResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "events"
+        ],
+        "description": "Live events for one artist.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "events": {
+            "type": "array",
+            "description": "Matching events, ascending by date. Empty when the artist has none.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "description": "Event date as ISO 8601 (YYYY-MM-DD).",
+                  "example": "2026-09-26"
+                },
+                "venue": {
+                  "type": "string",
+                  "description": "Venue name.",
+                  "example": "O2 Academy Brixton"
+                },
+                "city": {
+                  "type": "string",
+                  "example": "London"
+                },
+                "region": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "State or region where the source provides one. US venues carry a state code such as \"TN\"; most non-US venues return an empty string, as in the example below.",
+                  "example": ""
+                },
+                "country": {
+                  "type": "string",
+                  "description": "Country name. Pair with `city` before filtering by market, since city names such as London and Paris are not unique across countries.",
+                  "example": "United Kingdom"
+                },
+                "ticket_url": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Ticket link where one is published."
+                },
+                "sold_out": {
+                  "type": "boolean",
+                  "description": "Whether the source marks the event sold out."
+                },
+                "lineup": {
+                  "type": "array",
+                  "description": "Billed artists, the queried artist first. More than one entry means a shared bill.",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "ResearchErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "description": "Error response returned by all research endpoints for validation failures (400) and authentication errors (401).",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "example": "error"
+          },
+          "error": {
+            "type": "string",
+            "description": "Human-readable error message describing what went wrong.",
+            "example": "Missing required parameter: artist"
+          }
+        }
+      },
+      "ResearchTrackStatsResponse": {
+        "type": "object",
+        "description": "Current Spotify play count for one recording from the measurement store.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "result": {
+            "type": "string",
+            "example": "success"
+          },
+          "stats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchTrackStat"
+            }
+          }
+        }
+      },
+      "ResearchTrackStat": {
+        "type": "object",
+        "description": "Per-source current statistics for a single track.",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Platform the stats belong to — `spotify`."
+          },
+          "data": {
+            "type": "object",
+            "description": "Per-source counters for this track. `streams_total` is the platform-displayed play count from the measurement store, not a royalty-bearing stream count.",
+            "additionalProperties": true,
+            "example": {
+              "streams_total": 84213771
+            }
+          },
+          "data_source": {
+            "type": "string",
+            "description": "Provenance of the numbers: `apify_spotify_playcount` (platform-displayed count from the measurement store) or `granted_analytics` (customer-granted data).",
+            "example": "apify_spotify_playcount"
+          },
+          "captured_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When this entry's values were captured into the measurement store."
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchInsufficientCreditsResponse": {
+        "type": "object",
+        "description": "Returned (402) when the account lacks research credits. Nothing is charged and no Stripe object is created. Credits must be bought explicitly via [`POST /api/credits/sessions`](/api-reference/credits/sessions-create).",
+        "properties": {
+          "error": {
+            "type": "string",
+            "enum": [
+              "insufficient_credits"
+            ]
+          },
+          "remaining_credits": {
+            "type": "integer",
+            "example": 0
+          },
+          "required_credits": {
+            "type": "integer",
+            "example": 5
+          },
+          "billingUrl": {
+            "type": "string",
+            "description": "Static link to the Recoup app, where a human can save a card and buy credits. It is a constant, not a freshly minted Stripe Checkout Session, so a credit-gated endpoint that keeps returning 402 creates nothing. To buy credits programmatically, call [`POST /api/credits/sessions`](/api-reference/credits/sessions-create).",
+            "example": "https://app.recoupable.dev"
+          }
+        },
+        "required": [
+          "error",
+          "remaining_credits",
+          "required_credits",
+          "billingUrl"
+        ]
+      },
+      "ResearchMeasurementPoint": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-06-12"
+          },
+          "value": {
+            "type": "number",
+            "description": "Cumulative metric value as of `date`.",
+            "example": 297289495
+          },
+          "data_source": {
+            "type": "string",
+            "example": "apify_spotify_playcount"
+          }
+        }
+      },
+      "ResearchMeasurementsResponse": {
+        "type": "object",
+        "description": "A track's measured series, or — when `aggregate` is set — the derived projection.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "id": {
+            "type": "string",
+            "description": "The provider-neutral track id queried.",
+            "example": "USQY51771120"
+          },
+          "platform": {
+            "type": "string",
+            "example": "spotify"
+          },
+          "metric": {
+            "type": "string",
+            "example": "platform_displayed_play_count"
+          },
+          "series": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchMeasurementPoint"
+            },
+            "description": "Present unless `aggregate` is set."
+          },
+          "aggregate": {
+            "type": "object",
+            "nullable": true,
+            "description": "Present when `aggregate=run_rate`.",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "example": "run_rate"
+              },
+              "window_days": {
+                "type": "integer",
+                "example": 365
+              },
+              "delta": {
+                "type": "number",
+                "example": 42000000
+              },
+              "run_rate_annualized": {
+                "type": "number",
+                "example": 42000000
+              }
+            }
+          }
+        }
+      },
+      "ResearchAlbumMeasurementItem": {
+        "type": "object",
+        "properties": {
+          "isrc": {
+            "type": "string",
+            "example": "USQY51771120"
+          },
+          "spotify_track_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "number",
+            "description": "Latest measured count.",
+            "example": 297289495
+          },
+          "captured_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "data_source": {
+            "type": "string",
+            "example": "apify_spotify_playcount"
+          }
+        }
+      },
+      "ResearchAlbumMeasurementsResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "id": {
+            "type": "string",
+            "description": "Spotify album id.",
+            "example": "70Zkfb99ladZ3q0JVg97co"
+          },
+          "platform": {
+            "type": "string",
+            "example": "spotify"
+          },
+          "metric": {
+            "type": "string",
+            "example": "platform_displayed_play_count"
+          },
+          "measurements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchAlbumMeasurementItem"
+            }
+          }
+        }
+      },
+      "ResearchMeasurementJobScope": {
+        "type": "object",
+        "description": "Provide exactly one of `catalog_id`, `album_ids`, or `isrcs`.",
+        "properties": {
+          "catalog_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "album_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "isrcs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ResearchMeasurementJobRequest": {
+        "type": "object",
+        "required": [
+          "scope",
+          "source"
+        ],
+        "properties": {
+          "scope": {
+            "$ref": "#/components/schemas/ResearchMeasurementJobScope"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "current"
+            ],
+            "description": "`current` = capture present counts (Apify snapshot)."
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "spotify"
+            ],
+            "example": [
+              "spotify"
+            ]
+          }
+        }
+      },
+      "ResearchMeasurementJobResponse": {
+        "type": "object",
+        "description": "`id` is the snapshot id to poll.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "source": {
+            "type": "string",
+            "example": "current"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapshot id."
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "queued"
+            ],
+            "example": "queued"
+          },
+          "album_count": {
+            "type": "integer",
+            "description": "Albums the job will capture."
+          },
+          "estimated_cost_usd": {
+            "type": "number",
+            "description": "Scraper cost estimate before spend."
+          }
+        }
+      },
+      "ChatGenerateAcceptedResponse": {
+        "type": "object",
+        "required": [
+          "runId",
+          "chatId",
+          "sessionId"
+        ],
+        "description": "Confirmation that an asynchronous chat-generation run has been started on the durable agent workflow.",
+        "properties": {
+          "runId": {
+            "type": "string",
+            "description": "Durable workflow run id for the started generation. Same identifier surfaced as the `x-workflow-run-id` header on interactive [POST /api/chat](/api-reference/chat/workflow).",
+            "example": "wrun_01KVWZNM82NA7XKNEWWHG8VPHJ"
+          },
+          "chatId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Chat the run writes its assistant messages to. Use with [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) to resume the stream, or to fetch the persisted messages.",
+            "example": "24830c6c-76d8-43be-ae22-1dfd545421ab"
+          },
+          "sessionId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Session (workspace + sandbox) provisioned for the run.",
+            "example": "fa9c1516-35f0-4efd-a62c-01af26324e72"
+          }
+        }
+      },
+      "ChatRunStatusResponse": {
+        "type": "object",
+        "required": [
+          "runId",
+          "status"
+        ],
+        "description": "Point-in-time status of an asynchronous chat-generation run.",
+        "properties": {
+          "runId": {
+            "type": "string",
+            "description": "The durable workflow run id.",
+            "example": "wrun_01KVWZNM82NA7XKNEWWHG8VPHJ"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "running",
+              "completed",
+              "failed",
+              "cancelled"
+            ],
+            "description": "Lifecycle state of the run. Read the produced content via the chat (`chatId` from the start response)."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the workflow run was created.",
+            "example": "2026-08-25T19:33:56.000Z"
+          },
+          "startedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "When the workflow run started executing; null while queued.",
+            "example": "2026-08-25T19:34:16.386Z"
+          },
+          "completedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "When the workflow run reached a terminal state; null while queued or running.",
+            "example": "2026-08-25T20:15:55.000Z"
+          },
+          "durationMs": {
+            "type": "integer",
+            "nullable": true,
+            "description": "`completedAt - startedAt` in milliseconds; null until the run is terminal.",
+            "example": 2498614
+          }
+        }
+      }
+    },
+    "responses": {
+      "ResearchDataSourceUnsupported": {
+        "description": "The configured research data source does not support this endpoint or data shape.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ResearchErrorResponse"
+            },
+            "example": {
+              "status": "error",
+              "error": "Request failed with status 501"
+            }
+          }
+        }
+      }
+    }
+  }
+}

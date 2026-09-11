@@ -1,0 +1,68 @@
+.sky-content .sky-closing { padding: 0 clamp(24px, 6.5vw, 104px) 22px; }
+.sky-landscape-contact { position: relative; isolation: isolate; overflow: hidden; min-height: 420px; border-radius: 22px; color: #fff; background: #0578bb; scroll-margin-top: 30px; }
+.sky-landscape-contact > img { object-fit: cover; object-position: center; z-index: -2; }
+.sky-landscape-contact::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #003d725e, #004c701a 70%, transparent); }
+.sky-landscape-copy { padding: clamp(34px, 4vw, 58px); }
+.sky-landscape-copy .sky-section-label { color: #e3f4fc; }
+.sky-content .sky-landscape-copy h2 { max-width: 19ch; margin-top: 34px; font-size: clamp(32px, 3.7vw, 54px); font-weight: 450; letter-spacing: -.055em; line-height: 1.08; }
+.sky-landscape-copy > p:not(.sky-section-label) { max-width: 42ch; margin-top: 22px; font-size: 15px; line-height: 1.6; color: #eff9ff; }
+.sky-landscape-copy > .sky-contact-note { margin-top: 13px; font-size: 12px; }
+.sky-landscape-cta { display: flex; align-items: center; gap: 20px; width: fit-content; margin-top: 30px; padding: 5px 5px 5px 20px; background: #d6ff62; color: #18291e; border-radius: 99px; font: 10px "IBM Plex Mono", monospace; letter-spacing: .09em; transition: background .2s; }
+.sky-landscape-cta > span { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: #141d17; color: #fff; }
+.sky-landscape-cta .sky-arrow-icon { width: 17px; height: 17px; }
+.sky-landscape-cta:hover { background: #e4ff93; }
+.sky-content .sky-landscape-contact a:focus-visible { outline-color: #fff; }
+.sky-dark-footer { margin-top: 18px; border-radius: 22px; padding: 42px 36px 24px; background: #121513; color: #fff; }
+.sky-footer-main { display: grid; grid-template-columns: minmax(0, 1.7fr) repeat(3, minmax(0, 1fr)); gap: 35px; }
+.sky-footer-brand > p { color: #acb4ae; font-size: 13px; line-height: 1.65; margin-top: 22px; }
+.sky-footer-email { margin-top: 51px; }
+.sky-footer-email > p { font-size: 14px; color: #d3d9d4; }
+.sky-footer-email > a { display: flex; align-items: center; justify-content: space-between; gap: 22px; max-width: 350px; margin-top: 13px; padding: 5px 5px 5px 20px; border-radius: 99px; background: #2b302c; color: #e4ebe5; font-size: 13px; }
+.sky-footer-email > a > span { display: grid; place-items: center; width: 36px; height: 36px; flex: 0 0 36px; color: #172015; background: #d6ff62; border-radius: 50%; }
+.sky-footer-email .sky-arrow-icon { height: 17px; width: 17px; }
+.sky-footer-links { display: flex; flex-direction: column; gap: 19px; align-items: flex-start; padding-top: 9px; scroll-margin-top: 30px; }
+.sky-footer-links .sky-section-label { color: #a6b1a8; margin-bottom: 6px; font-size: 9px; }
+.sky-footer-links > a { font-size: 12px; color: #c4cdc6; line-height: 1.5; }
+.sky-dark-footer a:hover { color: #d6ff62; }
+.sky-content .sky-dark-footer a:focus-visible { outline-color: #d6ff62; }
+.sky-footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 23px; margin-top: 41px; border-top: 1px solid #ffffff1a; color: #9ba79e; font-size: 10px; line-height: 1.6; }
+.sky-footer-bottom > div { display: flex; gap: 24px; }
+.sky-footer-bottom a:last-child { display: inline-flex; gap: 8px; align-items: center; }
+.sky-footer-bottom .sky-arrow-icon { width: 13px; height: 13px; }
+@media (max-width: 900px) {
+  .sky-footer-main { grid-template-columns: 1.8fr 1fr; gap: 35px 25px; }
+  .sky-footer-brand { grid-row: span 2; }
+  .sky-footer-links { gap: 14px; }
+  .sky-landscape-contact { min-height: 400px; }
+}
+@media (max-width: 600px) {
+  .sky-content .sky-closing { padding: 0 23px 14px; }
+  .sky-landscape-contact { min-height: 450px; border-radius: 17px; }
+  .sky-landscape-contact > img { object-position: 36% center; }
+  .sky-landscape-contact::before { background: linear-gradient(180deg, #045c9bcc 0%, #045c9bcc 78%, #045c9b55 100%); }
+  .sky-landscape-copy { padding: 34px 25px 95px; }
+  .sky-landscape-cta { font-size: 12px; letter-spacing: .03em; min-height: 48px; }
+  .sky-content .sky-landscape-copy h2 { margin-top: 33px; font-size: clamp(29px, 8vw, 39px); }
+  .sky-landscape-copy > p:not(.sky-section-label) { font-size: 14px; line-height: 1.6; }
+  .sky-dark-footer { padding: 32px 24px 24px; border-radius: 17px; }
+  .sky-footer-main { grid-template-columns: 1fr 1fr; gap: 37px 21px; }
+  .sky-footer-brand { grid-column: 1 / -1; grid-row: auto; }
+  .sky-footer-email { margin-top: 30px; }
+  .sky-footer-email > a { font-size: 12px; padding-left: 14px; gap: 8px; }
+  .sky-footer-bottom { flex-direction: column; gap: 16px; margin-top: 31px; }
+  .sky-footer-bottom > div { flex-wrap: wrap; gap: 14px 18px; }
+}
+.sky-buying-questions { display:grid; grid-template-columns:.85fr 1.15fr; gap:50px; padding:5px 0 80px; }
+.sky-buying-questions header .sky-section-label { color:#60767e; font-size:10px; }
+.sky-content .sky-buying-questions h2 { margin-top:22px; font-size:clamp(33px,3.6vw,49px); font-weight:450; line-height:1.1; letter-spacing:-.05em; }
+.sky-buying-answers { border-top:1px solid #dfe8ec; }
+.sky-buying-answers details { border-bottom:1px solid #dfe8ec; }
+.sky-buying-answers summary { display:flex; justify-content:space-between; align-items:center; gap:25px; padding:24px 0; list-style:none; cursor:pointer; font-size:17px; line-height:1.4; color:#25434e; }
+.sky-buying-answers summary::-webkit-details-marker { display:none; }
+.sky-buying-answers summary .sky-arrow-icon { width:17px; height:17px; color:#0787bb; flex:none; transition:transform .18s; }
+.sky-buying-answers details[open] summary .sky-arrow-icon { transform:rotate(180deg); }
+.sky-buying-answers details > p { margin:0; padding:0 25px 25px 0; font-size:14px; line-height:1.75; color:#5f747c; }
+@media(max-width:760px) { .sky-buying-questions { grid-template-columns:1fr; gap:30px; padding-bottom:55px; }.sky-buying-questions header br { display:none; }.sky-buying-answers summary { font-size:16px; padding:22px 0; }.sky-buying-answers details > p { padding-right:0; } }
+@media(max-width:440px) { .sky-content .sky-buying-questions h2 { font-size:34px; }.sky-buying-answers summary { font-size:15px; gap:18px; } }
+
+@media(min-width:761px) and (max-width:1050px) { .sky-footer-main { grid-template-columns:repeat(3,minmax(0,1fr)); }.sky-footer-brand { grid-column:1/-1; } }

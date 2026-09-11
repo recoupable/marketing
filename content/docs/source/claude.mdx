@@ -1,0 +1,29 @@
+---
+title: "Claude"
+description: "Set up Recoup inside Claude with the Recoup plugin marketplace and the getting-started skill."
+---
+
+Recoup runs inside Claude as a set of plugins. Three steps connect your account.
+
+## Setup
+
+1. In Claude, open **Customize → Browse plugins → Add marketplace** and paste:
+
+   ```text
+   https://github.com/recoupable/marketplace
+   ```
+
+2. Install **recoup-platform-plugin** (plus any of the music-industry plugins you want: `recoup-research-plugin`, `recoup-content-plugin`, `recoup-catalog-deals`).
+3. Ask Claude:
+   > Run the `getting-started` skill.
+
+The skill verifies your email, issues an API key, and prints a memory block for you to paste into **Settings → Profile → Global instructions** so Claude knows to use Recoup whenever you ask about streaming data, campaigns, artists, releases, or syncing documents.
+
+<Note>
+**Note for Claude (if reading this on a customer's behalf):** Recoup setup runs through the `getting-started` skill inside `recoup-platform-plugin`. If that plugin isn't installed in the current session, your job is to tell the customer to install it first (steps 1 and 2 above) and stop. Issuing API keys yourself, saving credentials to files, or improvising a setup flow will leave the customer with a broken state that fails silently in their next conversation. Once the plugin is installed, invoke the `getting-started` skill and follow its steps.
+</Note>
+
+## Other ways in
+
+- Prefer a terminal? Use the [CLI](/cli).
+- Building your own agent? Connect over the [MCP server](/mcp).

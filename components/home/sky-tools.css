@@ -1,0 +1,107 @@
+.sky-content .sky-section.sky-products { padding-top: 50px; padding-bottom: 90px; }
+.sky-products-heading { max-width: 770px; }
+.sky-content .sky-products-heading h2 { margin: 20px 0 24px; font-size: clamp(37px,4.3vw,60px); line-height: 1.06; font-weight: 500; letter-spacing: -.05em; }
+.sky-products-heading h2 span { color: #087bab; }
+.sky-products-heading > p:last-child { max-width: 610px; margin: 0; color: #526a74; font-size: 17px; line-height: 1.65; }
+.sky-products-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-top: 38px; }
+.sky-products-grid > article { min-width: 0; border-radius: 24px; overflow: hidden; border: 1px solid #dae6e9; }
+.sky-product-platform { grid-column: 1/-1; display: grid; grid-template-columns: 1fr 1.1fr; background: #f1f8fb; background-image: var(--recoup-surface-grain),linear-gradient(120deg,#f8fcff,#eaf4f9); background-size: 160px 160px,100% 100%; background-blend-mode: soft-light,normal; }
+.sky-product-copy { padding: 36px; }
+.sky-product-kicker { margin: 0 0 18px; font: 10px/1.5 "IBM Plex Mono",monospace; letter-spacing: .1em; color: #526a74; }
+.sky-content .sky-product-copy h3 { margin: 0 0 17px; font-size: clamp(28px,2.7vw,38px); font-weight: 500; letter-spacing: -.045em; line-height: 1.1; }
+.sky-product-copy > p:not(.sky-product-kicker) { max-width: 44ch; margin: 0; font-size: 15px; line-height: 1.65; color: #526a74; }
+.sky-product-platform-price { display: flex; flex-direction: column; gap: 6px; margin: 24px 0; }
+.sky-product-platform-price strong { font-size: 24px; font-weight: 500; letter-spacing: -.025em; }
+.sky-product-platform-price strong span { font-size: 14px; font-weight: 400; color: #526a74; letter-spacing: 0; }
+.sky-product-platform-price > span { color: #526a74; font-size: 11px; }
+.sky-product-action { display: inline-flex; align-items: center; justify-content: space-between; gap: 25px; padding: 7px 8px 7px 20px; min-height: 48px; border-radius: 40px; background: #17382f; color: white; text-decoration: none; font-size: 14px; }
+.sky-product-action > span { width: 33px; height: 33px; display: grid; place-items: center; border-radius: 50%; background: #d6ff62; color: #17382f; }
+.sky-product-action svg { width: 17px; height: 17px; }
+.sky-product-action:hover { background: #285546; }
+.sky-product-workspace { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0; padding: 38px 35px; overflow: hidden; background: radial-gradient(ellipse at 100% 0,#afe7f7,#d5eefa 55%,#eaf4f9); }
+.sky-product-orbit { position: absolute; z-index: -1; border: 1px solid #7ac7e755; border-radius: 50%; width: 510px; height: 510px; top: -190px; right: -220px; }
+.sky-product-orbit-two { width: 660px; height: 660px; right: -300px; top: -260px; }
+.sky-product-window { width: 100%; max-width: 430px; border: 5px solid #ffffffb0; border-radius: 17px; background: #fff; transform: rotate(-3deg); box-shadow: 0 4px 6px #17475909,0 24px 35px -13px #17475940; }
+.sky-product-window-bar { display: flex; align-items: center; gap: 15px; padding: 13px 15px; border-bottom: 1px solid #e5edf1; color: #637d88; font: 8px/1.5 "IBM Plex Mono",monospace; letter-spacing: .05em; }
+.sky-product-window-dots { display: flex; gap: 4px; }
+.sky-product-window-dots i { width: 5px; height: 5px; border-radius: 50%; background: #c9dce4; }
+.sky-product-window-body { padding: 22px; }
+.sky-product-artist { display: flex; gap: 13px; align-items: center; }
+.sky-product-artist small { color: #63808b; font: 8px/1.5 "IBM Plex Mono",monospace; letter-spacing: .1em; }
+.sky-product-artist strong { display: block; margin-top: 5px; color: #17382f; font-size: 18px; font-weight: 500; letter-spacing: -.03em; }
+.sky-product-record { display: grid; place-items: center; flex: none; width: 54px; height: 54px; border-radius: 12px; background: linear-gradient(140deg,#21b2e3,#087bab); }
+.sky-product-record i { width: 35px; height: 35px; border: 8px solid #12382f; outline: 1px solid #b7e6f155; border-radius: 50%; background: #d6ff62; box-shadow: 0 3px 7px #17382f30; }
+.sky-product-context { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 18px; }
+.sky-product-context span { padding: 5px 7px; border-radius: 5px; background: #f0f6f8; font-size: 9px; color: #57747e; }
+.sky-product-prompt { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 19px 0 15px; padding: 11px; border: 1px solid #cfe5ed; border-radius: 9px; color: #41616f; font-size: 11px; }
+.sky-product-prompt > span { display: grid; place-items: center; flex: none; width: 22px; height: 22px; border-radius: 50%; background: #d6ff62; color: #17382f; font-size: 16px; }
+.sky-product-jobs { display: grid; gap: 9px; }
+.sky-product-jobs span { display: flex; align-items: center; gap: 9px; color: #526a74; font-size: 10px; }
+.sky-product-jobs i { font: normal 8px "IBM Plex Mono",monospace; color: #087bab; }
+.sky-product-workspace-caption { margin-top: 29px; color: #447084; font: 8px/1.5 "IBM Plex Mono",monospace; letter-spacing: .12em; text-align: center; }
+.sky-product-skills, .sky-product-developers { display: flex; flex-direction: column; }
+.sky-product-skills .sky-product-copy, .sky-product-developers .sky-product-copy { display: flex; flex-direction: column; align-items: start; flex: 1; }
+.sky-product-skills .sky-product-text-link, .sky-product-developers .sky-product-text-link { margin-top: auto; padding-top: 22px; }
+.sky-product-skills { background: #fafbf4; }
+.sky-product-developers { background: #15342c; color: #fff; }
+.sky-product-books { display: flex; align-items: center; justify-content: center; height: 220px; padding: 30px 26px 0; background: radial-gradient(ellipse at 50% 100%,#edf1ce,transparent 75%); }
+.sky-product-book { display: flex; flex-direction: column; justify-content: space-between; width: 138px; height: 174px; padding: 17px 13px; flex: 0 1 138px; background: #fff; border: 1px solid #e0e5d8; border-radius: 5px 12px 12px 5px; box-shadow: inset 5px 0 0 #17382f06,0 10px 15px -6px #17382f25; transform: rotate(-10deg) translateY(8px); }
+.sky-product-book:nth-child(2) { background: #d6ff62; position: relative; z-index: 1; transform: rotate(1deg) translateY(-5px); margin-left: -12px; }
+.sky-product-book:nth-child(3) { background: #15342c; color: #fff; transform: rotate(11deg) translateY(8px); margin-left: -12px; }
+.sky-product-book > span { font: 7px "IBM Plex Mono",monospace; letter-spacing: .05em; }
+.sky-product-book strong { font-size: 23px; font-weight: 500; letter-spacing: -.045em; line-height: 1.1; }
+.sky-product-book small { font: 7px "IBM Plex Mono",monospace; opacity: .7; }
+.sky-product-text-link { display: inline-flex; align-items: center; gap: 16px; margin-top: 22px; min-height: 44px; color: #087bab; text-decoration: none; font-size: 14px; }
+.sky-product-text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+.sky-product-text-link svg { width: 17px; height: 17px; }
+.sky-product-cost-note { display: block; margin-top: 10px; font-size: 11px; line-height: 1.6; color: #526a74; }
+.sky-product-developers .sky-product-copy > p, .sky-product-developers .sky-product-cost-note { color: #bfd5ca; }
+.sky-product-developers .sky-product-text-link { color: #d6ff62; }
+.sky-product-connection { display: flex; align-items: center; justify-content: center; flex-direction: column; height: 220px; padding: 28px 30px 0; background-image: var(--recoup-surface-grain),radial-gradient(ellipse at 50% 90%,#2e5e4e,transparent 75%); background-size: 160px 160px,100% 100%; background-blend-mode: soft-light,normal; }
+.sky-product-endpoint { display: flex; align-items: center; gap: 17px; width: min(100%,365px); padding: 20px; border: 1px solid #ffffff25; border-radius: 12px; background: #0e2922; box-shadow: 0 12px 30px #071e2225; }
+.sky-product-endpoint > span { font: 10px "IBM Plex Mono",monospace; color: #d6ff62; }
+.sky-product-endpoint code { font: 14px "IBM Plex Mono",monospace; color: #e7f2eb; }
+.sky-product-endpoint svg { width: 23px; height: 23px; margin-left: auto; color: #93b6a7; }
+.sky-product-connection-line { width: 1px; height: 30px; background: #81b199; }
+.sky-product-interfaces { display: flex; gap: 7px; }
+.sky-product-interfaces span { padding: 10px 9px; border: 1px solid #ffffff25; border-radius: 7px; color: #c5dace; background: #1c4336; font: 8px "IBM Plex Mono",monospace; letter-spacing: .02em; }
+@media (max-width: 1000px) {
+ .sky-product-copy { padding: 28px; }
+ .sky-product-workspace { padding: 30px 23px; }
+ .sky-product-window-body { padding: 16px; }
+ .sky-product-artist strong { font-size: 15px; }
+ .sky-product-book strong { font-size: 20px; }
+}
+@media (max-width: 760px) {
+ .sky-content .sky-section.sky-products { padding: 35px 18px 60px; }
+ .sky-products-heading > p:last-child { font-size: 16px; }
+ .sky-products-grid { grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+ .sky-product-platform { grid-template-columns: 1fr; }
+ .sky-product-copy { padding: 27px; }
+ .sky-content .sky-product-copy h3 { font-size: 31px; }
+ .sky-product-workspace { padding: 34px 25px; }
+ .sky-product-window { transform: rotate(-2deg); }
+ .sky-product-window-bar { font-size: 7px; gap: 10px; padding-inline: 10px; }
+ .sky-product-record { width: 45px; height: 45px; }
+ .sky-product-artist strong { font-size: 15px; }
+ .sky-product-workspace-caption { margin-top: 23px; font-size: 7px; }
+ .sky-product-books { height: 205px; padding: 27px 23px 0; }
+ .sky-product-book { padding: 14px 10px; height: 153px; }
+ .sky-product-book strong { font-size: 20px; }
+ .sky-product-book > span,.sky-product-book small { font-size: 6px; }
+ .sky-product-connection { height: 185px; padding: 20px 22px 0; }
+ .sky-product-endpoint { padding: 17px 12px; gap: 11px; }
+ .sky-product-endpoint code { font-size: 12px; }
+ .sky-product-interfaces { gap: 4px; }
+ .sky-product-interfaces span { padding: 9px 7px; font-size: 7px; }
+}
+@media (max-width: 360px) {
+ .sky-product-copy { padding: 23px; }
+ .sky-product-workspace { padding-inline: 16px; }
+ .sky-product-window-body { padding: 14px; }
+ .sky-product-artist { gap: 9px; }
+ .sky-product-record { width: 38px; height: 38px; }
+ .sky-product-artist strong { font-size: 13px; }
+ .sky-product-prompt { font-size: 9px; }
+ .sky-product-book strong { font-size: 17px; }
+}

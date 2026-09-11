@@ -1,0 +1,178 @@
+.sky-content .sky-section.sky-royalty-section { padding-top: 46px; padding-bottom: 76px; }
+.sky-royalty-section { color: #15272f; }
+.sky-royalty-heading { text-align: center; }
+.sky-royalty-eyebrow { display: flex; justify-content: center; align-items: center; gap: 9px; font: 400 11px/1.5 "IBM Plex Mono", monospace; letter-spacing: .09em; text-transform: uppercase; }
+.sky-royalty-eyebrow > span { width: 5px; height: 5px; background: currentColor; }
+.sky-content .sky-royalty-heading h2 { margin: 19px auto 0; max-width: 860px; font-size: clamp(34px, 3.5vw, 50px); line-height: 1.12; letter-spacing: -.052em; font-weight: 500; text-wrap: balance; }
+.sky-royalty-heading h2 > span { color: #667176; }
+.sky-royalty-heading > p:last-child { margin: 21px auto 0; max-width: 620px; color: #58676e; font-size: 16px; line-height: 1.6; }
+.sky-royalty-tray { position: relative; padding: 22px 30px 42px; margin-top: 45px; border: 1px solid #edf0f0; border-radius: 25px; background: linear-gradient(115deg, #f3f5f5 40%, #ecf5fa); scroll-margin-top: 28px; }
+.sky-royalty-tray-label { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 2px 25px; color: #66757b; font-size: 12px; }
+.sky-royalty-tray-label > span { display: flex; align-items: center; gap: 8px; }
+.sky-royalty-tray-label > span:first-child { color: #294754; font-size: 14px; }
+.sky-royalty-tray-label svg { width: 16px; height: 16px; }
+.sky-royalty-tray-label > span:last-child { font: 400 9px/1.5 "IBM Plex Mono", monospace; letter-spacing: .025em; }
+.sky-royalty-tray-label > span:last-child svg { width: 11px; height: 11px; }
+.sky-royalty-workspace { display: grid; grid-template-columns: minmax(0, 1.22fr) minmax(0, 1fr); align-items: start; gap: 28px; }
+.sky-royalty-report { position: relative; margin-top: 12px; min-width: 0; border: 5px solid #fff; border-radius: 20px; background: #fff; box-shadow: 0 22px 36px -17px #19384445, 0 3px 9px #17364012, 0 0 0 1px #e1e6e8; transform: rotate(-1deg); }
+.sky-royalty-report::before { position: absolute; inset: 8px 7px -11px; z-index: -1; content: ""; border: 1px solid #dce4e6; border-radius: 17px; background: #fff; transform: rotate(2deg); }
+.sky-royalty-report-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 58px; padding: 15px 20px; border-radius: 13px; background: #172126; color: #fff; font-size: 15px; font-weight: 500; }
+.sky-royalty-report-top > span:first-child { display: flex; align-items: center; gap: 10px; }
+.sky-royalty-report-top svg { width: 18px; height: 18px; color: #d6ff62; }
+.sky-royalty-draft { display: flex; gap: 7px; font: 400 12px/1.5 "IBM Plex Mono", monospace; color: #d1dadd; white-space: nowrap; }
+.sky-royalty-draft > span { color: #77878e; }
+.sky-royalty-report-body { padding: 28px 21px 22px; }
+.sky-royalty-summary { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; }
+.sky-royalty-total { display: flex; flex-direction: column; gap: 10px; }
+.sky-royalty-total > span { font-size: 14px; color: #68777f; }
+.sky-royalty-total > strong { font-size: clamp(42px, 4.3vw, 63px); line-height: 1; letter-spacing: -.065em; font-weight: 500; font-variant-numeric: tabular-nums; }
+.sky-royalty-cash { display: flex; gap: 7px; align-items: center; padding-bottom: 5px; }
+.sky-royalty-cash > span:last-child { font-size: 12px; line-height: 1.5; color: #68777f; }
+.sky-royalty-cash strong { display: block; color: #203039; font-size: 19px; letter-spacing: -.04em; font-weight: 500; font-variant-numeric: tabular-nums; }
+.sky-royalty-cash-check { display: grid; place-items: center; width: 25px; height: 25px; border-radius: 50%; background: #f0f7df; color: #53752c; }
+.sky-royalty-cash-check svg { width: 16px; height: 16px; }
+.sky-royalty-income-bar { display: flex; gap: 4px; height: 9px; margin-top: 25px; overflow: hidden; border-radius: 4px; }
+.sky-royalty-income-harbor { background: #29b5df; }
+.sky-royalty-income-beacon { background: #d6ff62; }
+.sky-royalty-income-northline { background: #dce3e5; }
+.sky-royalty-source-list { margin-top: 24px; }
+.sky-royalty-column-labels, .sky-royalty-source-button { display: grid; grid-template-columns: minmax(0, 1fr) 76px 15px; align-items: center; gap: 9px; }
+.sky-royalty-column-labels { padding: 0 10px 10px; color: #65727a; font-size: 12px; }
+.sky-royalty-column-labels > span:nth-child(2) { text-align: right; }
+.sky-royalty-source-button { width: 100%; margin-top: 5px; padding: 13px 10px; border: 1px solid transparent; border-radius: 9px; background: #fff; color: #172f3b; text-align: left; font-family: inherit; cursor: pointer; transition: background 160ms, border-color 160ms, box-shadow 160ms; }
+.sky-royalty-source-button:hover { background: #f5f8f9; }
+.sky-royalty-source-button[aria-pressed="true"] { background: #f2f9fc; border-color: #baddf0; box-shadow: 0 2px 4px #1e648309; }
+.sky-royalty-source-name { min-width: 0; overflow-wrap: anywhere; display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; line-height: 1.35; }
+.sky-royalty-source-symbol { display: grid; place-items: center; width: 29px; height: 33px; flex: 0 0 29px; border-radius: 6px; color: #173c4a; font: 400 10px/1 "IBM Plex Mono", monospace; }
+.sky-royalty-source-name small { display: block; margin-top: 3px; font-size: 12px; font-weight: 400; color: #62747d; }
+.sky-royalty-difference { font-variant-numeric: tabular-nums; font-size: 16px; letter-spacing: -.03em; font-weight: 500; text-align: right; }
+.sky-royalty-matched { display: flex; justify-content: flex-end; gap: 3px; align-items: center; color: #526d45; font-size: 12px; letter-spacing: 0; }
+.sky-royalty-matched svg { width: 13px; height: 13px; }
+.sky-royalty-row-arrow { color: #83979e; }
+.sky-royalty-source-button[aria-pressed="true"] .sky-royalty-row-arrow { color: #007bb1; }
+.sky-royalty-row-arrow .sky-arrow-icon { width: 15px; height: 15px; }
+.sky-royalty-report-hint { display: flex; align-items: center; gap: 7px; margin: 23px 0 0; color: #6a7c84; font-size: 13px; line-height: 1.5; }
+.sky-royalty-report-hint > span { width: 5px; height: 5px; border-radius: 50%; background: #20a6d2; }
+.sky-royalty-report-files { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 13px 21px; background: #f6f8f8; border-top: 1px solid #e8eeee; border-radius: 0 0 13px 13px; color: #6a7a82; font-size: 12px; }
+.sky-royalty-report-files > span { display: flex; align-items: center; gap: 5px; }
+.sky-royalty-report-files svg { width: 13px; height: 13px; }
+.sky-royalty-report-files > span:last-child { margin-left: auto; }
+.sky-royalty-view-details { display: none; }
+.sky-royalty-source-pane:focus-visible { outline: 3px solid #087bab; outline-offset: 5px; }
+.sky-royalty-inspection { min-width: 0; }
+.sky-royalty-finding { display: flex; position: relative; align-items: center; gap: 18px; padding: 19px 21px; margin: 0 -3px 20px 13px; border-radius: 15px; background: #d6ff62; border: 1px solid #c9ec66; box-shadow: 0 11px 22px -12px #65872145; transform: rotate(1.5deg); }
+.sky-royalty-finding > strong { font-size: 53px; font-weight: 450; letter-spacing: -.08em; line-height: 1; }
+.sky-content .sky-royalty-finding h3 { font-size: 17px; line-height: 1.2; font-weight: 500; letter-spacing: -.025em; }
+.sky-royalty-finding p { max-width: 200px; margin-top: 7px; color: #486029; font-size: 13px; line-height: 1.45; }
+.sky-royalty-finding-symbol { position: absolute; top: 15px; right: 15px; display: grid; place-items: center; width: 17px; height: 17px; border: 1px solid #54762e; border-radius: 50%; color: #45631f; font-size: 11px; }
+.sky-royalty-source-pane { scroll-margin-top: 28px; padding: 24px; border: 1px solid #e3e8e9; border-radius: 16px; background: #fff; box-shadow: 0 20px 28px -19px #204c6859, 0 3px 8px #1f526011; }
+.sky-royalty-pane-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; color: #6b7a81; font-size: 12px; }
+.sky-royalty-status { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: #626f4c; white-space: nowrap; }
+.sky-royalty-status > span { width: 5px; height: 5px; border-radius: 50%; background: #91ae29; }
+.sky-royalty-status-match > span { background: #368163; }
+.sky-content .sky-royalty-source-pane > h3 { margin: 12px 0 24px; font-size: clamp(21px, 2vw, 28px); line-height: 1.15; font-weight: 500; letter-spacing: -.04em; }
+.sky-royalty-comparison { display: grid; gap: 15px; }
+.sky-royalty-comparison > div > span { display: flex; justify-content: space-between; gap: 12px; color: #677983; font-size: 13px; }
+.sky-royalty-comparison strong { color: #1d333d; font-weight: 500; font-size: 15px; font-variant-numeric: tabular-nums; }
+.sky-royalty-comparison-track { height: 7px; margin-top: 7px; border-radius: 3px; overflow: hidden; background: #edf1f2; }
+.sky-royalty-comparison-track > span { display: block; height: 100%; border-radius: inherit; background: #29b5df; transition: width 220ms; }
+.sky-royalty-comparison-cash > span { background: #233b47; }
+.sky-royalty-next-question { margin-top: 22px; padding: 15px; border-radius: 9px; background: #eef7fc; }
+.sky-royalty-question-label { display: flex; justify-content: space-between; align-items: center; gap: 10px; color: #174d6a; font-size: 15px; font-weight: 500; }
+.sky-royalty-question-label svg { width: 15px; height: 15px; color: #288fbc; }
+.sky-royalty-next-question p { margin-top: 7px; font-size: 14px; line-height: 1.6; color: #547080; }
+.sky-royalty-evidence { margin-top: 19px; }
+.sky-royalty-evidence > summary { display: flex; justify-content: space-between; align-items: center; min-height: 44px; list-style: none; color: #344f5d; font-size: 14px; cursor: pointer; }
+.sky-royalty-evidence > summary::-webkit-details-marker { display: none; }
+.sky-royalty-evidence > summary .sky-arrow-icon { width: 15px; height: 15px; transition: transform 180ms; }
+.sky-royalty-evidence[open] > summary .sky-arrow-icon { transform: rotate(180deg); }
+.sky-royalty-source-group { padding-top: 17px; margin-top: 15px; border-top: 1px solid #e8edef; }
+.sky-content .sky-royalty-source-group h4 { font-size: 14px; font-weight: 500; }
+.sky-royalty-filename { display: flex; align-items: center; gap: 6px; margin: 7px 0 11px; font: 400 12px/1.5 "IBM Plex Mono", monospace; color: #527080; overflow-wrap: anywhere; }
+.sky-royalty-filename svg { width: 13px; height: 13px; flex-shrink: 0; }
+.sky-royalty-source-group ul { margin: 0; padding: 0; list-style: none; }
+.sky-royalty-source-group li { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 5px 0; color: #426074; font-size: 14px; line-height: 1.5; }
+.sky-royalty-source-group li small { display: block; color: #62747d; font-size: 12px; }
+.sky-royalty-source-group li > span:last-child { color: #273f4d; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.sky-royalty-section-footer { display: flex; align-items: center; justify-content: center; gap: 25px; margin-top: 31px; }
+.sky-royalty-section-footer > p { color: #54676f; font-size: 14px; }
+.sky-royalty-contact { display: inline-flex; align-items: center; justify-content: center; gap: 19px; padding: 5px 5px 5px 18px; border-radius: 30px; color: #d6ff62; background: #172b33; font: 400 10px/1.5 "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase; transition: background 160ms; }
+.sky-royalty-contact:hover { background: #005f87; }
+.sky-royalty-contact > span { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #d6ff62; color: #172b33; }
+.sky-royalty-contact .sky-arrow-icon { width: 16px; height: 16px; }
+@media (max-width: 1160px) {
+ .sky-royalty-tray { padding: 20px 22px 32px; }
+ .sky-royalty-workspace { gap: 20px; grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr); }
+ .sky-royalty-report-body { padding: 24px 15px 19px; }
+ .sky-royalty-summary { flex-wrap: wrap; gap: 15px; }
+ .sky-royalty-total > strong { font-size: 47px; }
+ .sky-royalty-source-pane { padding: 20px; }
+ .sky-royalty-finding { gap: 13px; padding: 19px 16px; margin-left: 0; }
+ .sky-royalty-finding > strong { font-size: 45px; }
+ .sky-content .sky-royalty-finding h3 { font-size: 15px; }
+ .sky-royalty-finding p { max-width: 180px; font-size: 13px; }
+ .sky-royalty-source-symbol { display: none; }
+}
+@media (max-width: 900px) {
+ .sky-royalty-view-details { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; margin-top: 12px; padding: 12px 14px; border: 1px solid #b9d9e7; border-radius: 9px; background: #f2f9fc; color: #076b96; font-size: 14px; line-height: 1.45; font-weight: 500; }
+ .sky-royalty-view-details > span { text-decoration: underline; text-underline-offset: 3px; }
+ .sky-royalty-view-details .sky-arrow-icon { width: 18px; height: 18px; flex-shrink: 0; }
+ .sky-royalty-workspace { grid-template-columns: 1fr; gap: 30px; max-width: 600px; margin: auto; }
+ .sky-royalty-report { margin: 0 6px; }
+ .sky-royalty-report-body { padding: 28px; }
+ .sky-royalty-summary { flex-wrap: nowrap; }
+ .sky-royalty-total > strong { font-size: 58px; }
+ .sky-royalty-source-symbol { display: grid; }
+ .sky-royalty-source-pane { padding: 27px; }
+ .sky-royalty-finding { max-width: 400px; margin: 0 0 21px auto; gap: 22px; }
+ .sky-content .sky-royalty-finding h3 { font-size: 17px; }
+ .sky-royalty-finding p { max-width: 230px; font-size: 13px; }
+}
+@media (max-width: 600px) {
+ .sky-content .sky-section.sky-royalty-section { padding: 40px 16px 57px; }
+ .sky-content .sky-royalty-heading h2 { font-size: 31px; line-height: 1.16; }
+ .sky-royalty-heading > p:last-child { margin-top: 17px; font-size: 14px; }
+ .sky-royalty-eyebrow { font-size: 9px; }
+ .sky-royalty-desktop-break { display: none; }
+ .sky-royalty-tray { padding: 17px 12px 19px; margin: 29px -4px 0; border-radius: 18px; }
+ .sky-royalty-tray-label { padding: 0 3px 19px; }
+ .sky-royalty-tray-label > span:last-child { display: none; }
+ .sky-royalty-report { margin: 0; border-width: 4px; border-radius: 16px; transform: none; }
+ .sky-royalty-report::before { display: none; }
+ .sky-royalty-report-top { padding: 14px 12px; min-height: 51px; font-size: 15px; border-radius: 10px; }
+ .sky-royalty-draft { font-size: 12px; }
+ .sky-royalty-report-top svg { width: 16px; }
+ .sky-royalty-report-body { padding: 23px 12px 17px; }
+ .sky-royalty-summary { flex-wrap: wrap; gap: 15px; }
+ .sky-royalty-total > strong { font-size: clamp(33px, 9.8vw, 47px); }
+ .sky-royalty-total > span { font-size: 14px; }
+ .sky-royalty-cash-check { display: none; }
+ .sky-royalty-cash > span:last-child { font-size: 12px; }
+ .sky-royalty-cash strong { font-size: 18px; }
+ .sky-royalty-column-labels, .sky-royalty-source-button { grid-template-columns: minmax(0, 1fr) 66px 12px; gap: 5px; }
+ .sky-royalty-source-button { padding: 12px 7px; }
+ .sky-royalty-column-labels { padding-inline: 7px; }
+ .sky-royalty-source-name { font-size: 15px; }
+ .sky-royalty-source-name small { font-size: 12px; }
+ .sky-royalty-source-symbol { display: none; }
+ .sky-royalty-difference { font-size: 15px; }
+ .sky-royalty-matched { font-size: 12px; }
+ .sky-royalty-matched svg { display: none; }
+ .sky-royalty-row-arrow .sky-arrow-icon { width: 12px; height: 12px; }
+ .sky-royalty-report-hint { font-size: 13px; gap: 6px; }
+ .sky-royalty-report-files { padding: 13px 12px; gap: 9px; font-size: 12px; }
+ .sky-royalty-workspace { gap: 22px; }
+ .sky-royalty-finding { gap: 17px; margin: 0 3px 17px; padding: 18px; transform: none; }
+ .sky-royalty-finding > strong { font-size: 45px; }
+ .sky-content .sky-royalty-finding h3 { font-size: 15px; }
+ .sky-royalty-finding p { font-size: 13px; }
+ .sky-royalty-finding-symbol { display: none; }
+ .sky-royalty-source-pane { padding: 20px 17px; border-radius: 13px; }
+ .sky-royalty-pane-top { font-size: 12px; }
+ .sky-royalty-status { font-size: 12px; }
+ .sky-content .sky-royalty-source-pane > h3 { font-size: 24px; }
+ .sky-royalty-next-question p { font-size: 14px; }
+ .sky-royalty-evidence > summary { min-height: 44px; }
+ .sky-royalty-section-footer { flex-direction: column; gap: 14px; margin-top: 25px; }
+}
+@media (prefers-reduced-motion: reduce) { .sky-royalty-section * { transition: none !important; } }

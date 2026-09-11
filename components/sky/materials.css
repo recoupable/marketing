@@ -1,0 +1,122 @@
+/* A background-only finish for selected artwork and colored surfaces.
+   The scope survives route stylesheet ordering without touching text or controls. */
+:root {
+  --recoup-surface-grain: url("/images/sky/surface-grain.svg");
+  --recoup-surface-dark-light: radial-gradient(ellipse at 12% 0%, #b8e2c411, #b8e2c400 68%);
+  --recoup-surface-dark-shade: linear-gradient(155deg, #041e2200 35%, #041e2221);
+  --recoup-surface-blue-light: radial-gradient(ellipse at 12% 0%, #e3f8ff10, #e3f8ff00 70%);
+  --recoup-surface-blue-shade: linear-gradient(150deg, #06476800 38%, #0647680f);
+  --recoup-surface-glass-light: radial-gradient(ellipse at 12% 0%, #f1fcff18, #f1fcff00 68%);
+  --recoup-surface-pale-light: radial-gradient(ellipse at 12% 0%, #ffffff70, #ffffff00 72%);
+  --recoup-surface-pale-shade: linear-gradient(150deg, #07547500 42%, #07547506);
+  --recoup-surface-lime-light: radial-gradient(ellipse at 12% 0%, #ffffff30, #ffffff00 72%);
+  --recoup-surface-lime-shade: linear-gradient(150deg, #35632900 42%, #3563290b);
+  --recoup-surface-paper-light: radial-gradient(ellipse at 12% 0%, #ffffff50, #ffffff00 72%);
+  --recoup-surface-paper-shade: linear-gradient(150deg, #37574800 40%, #37574805);
+}
+
+/* Soft-light blends only the grain with the fill, never with foreground content. */
+:root :is(.sky-page, .sky-site) :is(
+  .sky-card-data, .sky-card-build, .sky-card-skills, .sky-card-review,
+  .sky-royalty-finding, .sky-investment-document-scene, .sky-investment-document,
+  .sky-training-sheet, .sky-build-output, .sky-tool-skills, .sky-tool-developers,
+  .sky-playbook-back, .sky-playbook-middle, .sky-playbook-front, .sky-developer-window,
+  .skills-sky-book-research, .skills-sky-book-release, .skills-sky-book-catalog,
+  .skills-sky-request, .skills-sky-install,
+  .services-visual-plan, .services-scope-note, .services-visual-system,
+  .services-visual-team, .services-start-project,
+  .platform-sky-capability-02, .platform-sky-capability-03,
+  .rp-enterprise, .rp-api,
+  .blog-art-feature, .blog-art-content, .blog-art-release, .blog-art-agents,
+  .decision-buy, .decision-build, .decision-ignore,
+  .developer-source-visual, .eg-roadmap, .eg-build-report
+) {
+  background-size: 160px 160px, 100% 100%, 100% 100%;
+  background-repeat: repeat, no-repeat, no-repeat;
+  background-blend-mode: soft-light, normal, normal;
+}
+
+/* Dark green and ink: a restrained light source across a matte surface. */
+:root :is(.sky-page, .sky-site) :is(
+  .sky-card-skills, .sky-tool-skills, .sky-developer-window,
+  .skills-sky-book-research, .skills-sky-request, .services-visual-system,
+  .platform-sky-capability-03, .blog-art-release, .decision-ignore,
+  .developer-source-visual
+) {
+  background-image: var(--recoup-surface-grain), var(--recoup-surface-dark-light), var(--recoup-surface-dark-shade);
+}
+
+/* Blue enamel retains each component's own base blue. */
+:root :is(.sky-page, .sky-site) :is(
+  .sky-playbook-back, .blog-art-feature
+) {
+  background-image: var(--recoup-surface-grain), var(--recoup-surface-blue-light), var(--recoup-surface-blue-shade);
+}
+
+/* This blue card has reading copy: deepen the base without lightening its ink contrast. */
+:root .sky-site .services-start-project {
+  background-image: none, none, var(--recoup-surface-blue-shade);
+}
+
+/* Pale cards feel softly lit, while the white page canvas remains clean. */
+:root :is(.sky-page, .sky-site) :is(
+  .sky-investment-document-scene, .sky-training-sheet, .sky-build-output,
+  .sky-tool-developers, .skills-sky-book-release, .skills-sky-install,
+  .platform-sky-capability-02, .rp-api, .blog-art-agents, .decision-buy
+) {
+  background-image: var(--recoup-surface-grain), var(--recoup-surface-pale-light), var(--recoup-surface-pale-shade);
+}
+
+/* Lime stays recognizable; the finish adds depth, not another accent color. */
+:root :is(.sky-page, .sky-site) :is(
+  .sky-royalty-finding, .skills-sky-book-catalog, .services-visual-team,
+  .blog-art-content, .decision-build
+) {
+  background-image: var(--recoup-surface-grain), var(--recoup-surface-lime-light), var(--recoup-surface-lime-shade);
+}
+
+/* Printed sheets only. Working tables, forms, code, and reading areas stay flat. */
+:root :is(.sky-page, .sky-site) :is(
+  .sky-card-review, .sky-investment-document,
+  .sky-playbook-middle, .sky-playbook-front,
+  .services-visual-plan, .services-scope-note, .eg-roadmap, .eg-build-report
+) {
+  background-image: var(--recoup-surface-grain), var(--recoup-surface-paper-light), var(--recoup-surface-paper-shade);
+}
+
+/* Preserve the existing glass gradients and their transparency over the sky. */
+:root .sky-page .sky-card-data {
+  background-image: var(--recoup-surface-grain), var(--recoup-surface-glass-light), linear-gradient(145deg, #cceeffb3, #eaf9ff65 50%, #aee5ffa6);
+}
+
+:root .sky-page .sky-card-build {
+  background-image: var(--recoup-surface-grain), var(--recoup-surface-blue-light), linear-gradient(145deg, #2da8f1b3, #57cdf26e);
+}
+
+/* Enterprise already has a tonal fill; retain it underneath the grain. */
+:root .sky-site .rp-enterprise {
+  background-image: var(--recoup-surface-grain), linear-gradient(120deg, #1a3b31, #132b26);
+  background-size: 160px 160px, 100% 100%;
+}
+
+/* Tiny labels get lighting alone; grain would only distract at this scale. */
+:root .sky-page :is(.sky-card-report-header, .sky-royalty-report-top) {
+  background-image: var(--recoup-surface-dark-light), var(--recoup-surface-dark-shade);
+}
+
+@media print, (forced-colors: active) {
+  :root {
+    --recoup-surface-grain: none;
+    --recoup-surface-dark-light: none;
+    --recoup-surface-dark-shade: none;
+    --recoup-surface-blue-light: none;
+    --recoup-surface-blue-shade: none;
+    --recoup-surface-glass-light: none;
+    --recoup-surface-pale-light: none;
+    --recoup-surface-pale-shade: none;
+    --recoup-surface-lime-light: none;
+    --recoup-surface-lime-shade: none;
+    --recoup-surface-paper-light: none;
+    --recoup-surface-paper-shade: none;
+  }
+}

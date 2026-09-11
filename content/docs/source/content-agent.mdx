@@ -1,0 +1,201 @@
+---
+title: 'Content'
+description: 'Generate images, videos, captions, and social-ready content using AI-powered primitives'
+---
+
+## Overview
+
+Recoup's content API gives you seven independent primitives for generating and editing visual content. Each primitive does one thing well. You orchestrate them.
+
+**Every primitive works without a template.** Pass your own prompt, reference images, and parameters directly. Templates are optional shortcuts — opinionated creative recipes that pre-fill parameters for a specific look.
+
+## Primitives
+
+| Primitive | Endpoint | What it does |
+|-----------|----------|-------------|
+| Generate Image | [POST /api/content/image](/api-reference/content/generate-image) | Create an image from a text prompt, optionally with a reference image for face/style |
+| Generate Video | [POST /api/content/video](/api-reference/content/generate-video) | Create a video — 6 modes: prompt, animate, reference, extend, first-last, lipsync |
+| Generate Caption | [POST /api/content/caption](/api-reference/content/generate-caption) | Generate on-screen text for social media videos |
+| Transcribe Audio | [POST /api/content/transcribe](/api-reference/content/transcribe-audio) | Transcribe audio to timestamped lyrics/text |
+| Edit Content | [PATCH /api/content](/api-reference/content/edit) | Trim, crop, resize, overlay text, or add audio — one processing pass |
+| Upscale | [POST /api/content/upscale](/api-reference/content/upscale) | Upscale image or video resolution (up to 4x) |
+| Analyze Video | [POST /api/content/analyze](/api-reference/content/analyze-video) | AI video analysis — describe scenes, check quality, evaluate content |
+
+There is also [POST /api/content/create](/api-reference/content/create) which runs the full pipeline in one call — use it when you want a video without creative control over each step.
+
+## How It Works
+
+### Without a template (malleable mode)
+
+Pass your own parameters directly to any primitive. Maximum creative control.
+
+```bash
+# Generate an image with your own prompt
+curl -X POST https://api.recoupable.dev/api/content/image \
+  -H "x-api-key: YOUR_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "A moody portrait in a dimly lit room, front-facing phone camera"}'
+
+# Generate a video from that image
+curl -X POST https://api.recoupable.dev/api/content/video \
+  -H "x-api-key: YOUR_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"image_url": "IMAGE_URL_FROM_ABOVE", "prompt": "subtle breathing motion, nearly still"}'
+```
+
+### With a template (shortcut mode)
+
+Pass a template ID and the primitive fills in prompts, reference images, and style rules automatically. You can still override any parameter.
+
+```bash
+# Same image, but the template provides the prompt and reference images
+curl -X POST https://api.recoupable.dev/api/content/image \
+  -H "x-api-key: YOUR_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"template": "artist-caption-bedroom", "reference_image_url": "YOUR_FACE_IMAGE"}'
+```
+
+Use [GET /api/content/templates](/api-reference/content/templates) to see available templates with descriptions.
+
+## Templates
+
+A template is a complete creative recipe — it defines what a piece of content looks like across every primitive:
+
+- **Image config**: prompt, reference images, style rules (camera, lighting, composition)
+- **Video config**: mood variations, movement descriptions
+- **Caption config**: tone, formatting rules, example captions
+- **Edit config**: crop ratio, text overlay style, audio mixing
+
+Templates are optional. They save time by pre-filling parameters with curated defaults. When you see customers repeatedly creating the same kind of content, that pattern becomes a template.
+
+### Override priority
+
+When using a template, your explicit parameters always win:
+
+1. **Your params** — highest priority. What you pass overrides everything.
+2. **Artist context** — if the artist has a style guide, it personalizes the template.
+3. **Template defaults** — lowest priority. The recipe's built-in values.
+
+## Video Modes
+
+The video primitive supports 6 generation modes:
+
+| Mode | What it does | Required inputs |
+|------|-------------|-----------------|
+| `prompt` | Create from text description | `prompt` |
+| `animate` | Animate a still image | `image_url`, `prompt` |
+| `reference` | Use image as style reference (not first frame) | `image_url`, `prompt` |
+| `extend` | Continue an existing video | `video_url`, `prompt` |
+| `first-last` | Transition between two images | `image_url`, `end_image_url`, `prompt` |
+| `lipsync` | Sync face to audio | `image_url`, `audio_url` |
+
+Set `mode` explicitly, or omit it and the API infers the mode from the inputs you provide.
+
+## Iteration
+
+Each primitive is independent. Redo any step without rerunning the whole pipeline:
+
+- Bad image? Regenerate with a different prompt or reference
+- Caption too long? Regenerate with `length: "short"`
+- Video glitchy? Analyze it, then regenerate with adjusted params
+- Clip too short? Use `extend` mode to continue it
+- Low quality? Upscale the image or video
+- Everything good but wrong caption? Just re-run the edit step
+
+## Content Agent (Slack Bot)
+
+The **Recoup Content Agent** is a Slack bot that generates social-ready artist videos on @mention. It plugs into the content creation pipeline and delivers results directly in your Slack thread.
+
+### @Mention Syntax
+
+```
+@RecoupContentAgent <artist_account_id> [template] [batch=N] [lipsync]
+```
+
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `artist_account_id` | Yes | UUID of the artist account |
+| `template` | No | Content template name. Optional — when omitted, the pipeline runs with default settings. See [GET /api/content/templates](/api-reference/content/templates) for options. |
+| `batch=N` | No | Number of videos to generate (1-30, default 1) |
+| `lipsync` | No | Enable lipsync mode (audio baked into video) |
+
+### Examples
+
+**Basic — single video with default template:**
+```
+@RecoupContentAgent abc-123-uuid
+```
+
+**Custom template:**
+```
+@RecoupContentAgent abc-123-uuid artist-caption-bedroom
+```
+
+**Batch with lipsync:**
+```
+@RecoupContentAgent abc-123-uuid batch=3 lipsync
+```
+
+### Architecture
+
+| Component | Location | Purpose |
+|-----------|----------|---------|
+| Slack webhook | `POST /api/content-agent/slack` | Receives @mention events |
+| Callback endpoint | `POST /api/content-agent/callback` | Receives polling results |
+| Bot singleton | `lib/content-agent/bot.ts` | Chat SDK with Slack adapter + Redis state |
+| Mention handler | `lib/content-agent/handlers/` | Parses args, validates artist, triggers pipeline |
+| Poll task | `poll-content-run` (Trigger.dev) | Monitors content runs, posts results via callback |
+
+### Data Flow
+
+1. **Slack event** → `POST /api/content-agent/slack` handles the webhook
+2. **Mention handler** parses the command, calls [`GET /api/content/validate`](/api-reference/content/validate) to check artist readiness
+3. **Content creation** triggered via [`POST /api/content/create`](/api-reference/content/create) — returns `runIds`
+4. **Poll task** (`poll-content-run`) monitors the Trigger.dev runs every 30 seconds (up to 30 minutes)
+5. **Callback** → [`POST /api/content-agent/callback`](/api-reference/content-agent/callback) receives results and posts video URLs back to the Slack thread
+
+### Setup
+
+#### 1. Create a Slack App
+
+1. Go to [api.slack.com/apps](https://api.slack.com/apps) and create a new app
+2. Under **OAuth & Permissions**, add bot scopes:
+   - `chat:write` — post messages
+   - `app_mentions:read` — receive @mention events
+3. Under **Event Subscriptions**:
+   - Enable events
+   - Set the request URL to `https://api.recoupable.dev/api/content-agent/slack`
+   - Subscribe to `app_mention` bot event
+4. Install the app to your workspace
+
+#### 2. Configure Environment Variables
+
+| Variable | Where | Description |
+|----------|-------|-------------|
+| `SLACK_CONTENT_BOT_TOKEN` | API (Vercel) | Bot OAuth token (`xoxb-...`) from Slack app |
+| `SLACK_CONTENT_SIGNING_SECRET` | API (Vercel) | Signing secret from Slack app **Basic Information** |
+| `CONTENT_AGENT_CALLBACK_SECRET` | API + Tasks | Shared secret for callback authentication (generate a random string) |
+| `RECOUP_API_KEY` | API + Tasks | Recoup API key for authenticating pipeline requests |
+| `RECOUP_API_BASE_URL` | Tasks (Trigger.dev) | API base URL (e.g., `https://api.recoupable.dev`) |
+
+#### 3. Verify
+
+Mention the bot in any Slack channel where it's been added:
+
+```
+@RecoupContentAgent <your-artist-account-id>
+```
+
+You should see:
+1. An immediate acknowledgment message
+2. A video URL reply in the thread after ~5-10 minutes
+
+### Troubleshooting
+
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| No response from bot | Event subscription URL not configured | Check Slack app Event Subscriptions |
+| "Artist not found" | Invalid `artist_account_id` | Verify the UUID exists in the platform |
+| "No GitHub repository found" | Artist missing repo config | Ensure the artist account has a linked GitHub repo |
+| Timeout after 30 min | Pipeline took too long | Check Trigger.dev dashboard for the failed run |
+| "Unsupported template" | Invalid template name | Use [`GET /api/content/templates`](/api-reference/content/templates) to list available templates |

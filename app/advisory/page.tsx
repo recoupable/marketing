@@ -1,242 +1,26 @@
+import { ServiceStructuredData } from "@/components/service-structured-data";
+import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
-import { Check } from "lucide-react";
-import { advisoryCopy } from "@/lib/copy/advisory";
-import { buildPageMetadata } from "@/lib/seo";
+import Link from "next/link";
+import { planPrice, pricingPlans } from "@/lib/pricing";
+import { SkyArrow } from "@/components/sky/arrow";
+import { MarketingPage, PageHero, PageSection, PageButton, PageCTA, WorkCard, MarketingFAQ } from "@/components/marketing-migration/ui";
+import { AdvisoryRoadmap } from "@/components/marketing-migration/engagement-visuals";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "AI Advisory for Music Companies | Recoupable",
-  description: advisoryCopy.description,
-  path: "/advisory",
-});
+export const metadata: Metadata = withPageMetadata({ title:"AI advisory for music companies", description:"Find where AI fits in your music business. Practical strategy, workflow assessment, and implementation guidance from Recoup.", alternates:{canonical:"/advisory"} });
 
-/* ── Credential badges ─────────────────────────────────────────────── */
-function CredentialCard({
-  stat,
-  label,
-  detail,
-}: {
-  stat: string;
-  label: string;
-  detail: string;
-}) {
-  return (
-    <div className="text-center p-6">
-      <div
-        className="text-4xl font-bold mb-1"
-        style={{ fontFamily: "var(--font-bitmap), monospace" }}
-      >
-        {stat}
-      </div>
-      <div className="text-sm font-semibold uppercase tracking-wide mb-2">
-        {label}
-      </div>
-      <p className="text-xs text-[var(--muted-foreground)]">{detail}</p>
-    </div>
-  );
-}
-
-/* ── Package card ──────────────────────────────────────────────────── */
-function PackageCard({
-  pkg,
-}: {
-  pkg: (typeof advisoryCopy.packages)[number];
-}) {
-  const isHighlighted = pkg.highlighted;
-
-  return (
-    <div
-      className={`relative rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 ${
-        isHighlighted
-          ? "bg-[#080808] text-white md:-mt-4 md:mb-[-16px]"
-          : "border border-[var(--border)] bg-[var(--background)]"
-      }`}
-      style={
-        isHighlighted
-          ? { boxShadow: "0 25px 60px -15px rgba(0,0,0,0.5)" }
-          : undefined
-      }
-    >
-      {"badge" in pkg && pkg.badge && (
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <span
-            className="text-[9px] uppercase tracking-wider bg-white text-black px-4 py-1.5 rounded-full shadow-lg"
-            style={{ fontFamily: "var(--font-bitmap), monospace" }}
-          >
-            {pkg.badge}
-          </span>
-        </div>
-      )}
-
-      <h3 className="font-bold text-lg mb-0.5">{pkg.name}</h3>
-      <p
-        className={`text-[10px] uppercase tracking-wide mb-4 ${
-          isHighlighted ? "text-white/60" : "text-[var(--muted-foreground)]"
-        }`}
-      >
-        {pkg.description}
-      </p>
-
-      <div className="mb-6">
-        <span className="text-3xl font-bold">{pkg.price}</span>
-      </div>
-
-      <ul className="space-y-3 mb-8 text-sm">
-        {pkg.features.map((f) => (
-          <li key={f} className="flex items-start gap-2">
-            <Check
-              size={16}
-              className={`mt-0.5 shrink-0 ${
-                isHighlighted ? "text-white" : "text-[var(--foreground)]"
-              }`}
-            />
-            <span
-              className={isHighlighted ? "text-white/90" : "text-[var(--muted-foreground)]"}
-            >
-              {f}
-            </span>
-          </li>
-        ))}
-      </ul>
-
-      <a
-        href={pkg.ctaHref}
-        className={`block w-full text-center py-3 rounded-lg text-sm font-medium transition-colors ${
-          isHighlighted
-            ? "bg-white text-black hover:bg-white/90"
-            : "border border-[var(--border)] hover:bg-[var(--foreground)] hover:text-[var(--background)]"
-        }`}
-      >
-        {pkg.ctaLabel}
-      </a>
-    </div>
-  );
-}
-
-/* ── Main page ─────────────────────────────────────────────────────── */
 export default function AdvisoryPage() {
-  return (
-    <main className="mx-auto max-w-5xl px-6 py-24">
-      {/* Hero */}
-      <section className="text-center mb-20">
-        <p
-          className="text-[10px] uppercase tracking-widest text-[var(--muted-foreground)] mb-4"
-          style={{ fontFamily: "var(--font-bitmap), monospace" }}
-        >
-          AI Advisory
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-          {advisoryCopy.headline}
-        </h1>
-        <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto leading-relaxed">
-          {advisoryCopy.subheadline}
-        </p>
-      </section>
-
-      {/* Credentials */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24 border border-[var(--border)] rounded-2xl py-8">
-        {advisoryCopy.credentials.map((c) => (
-          <CredentialCard key={c.label} {...c} />
-        ))}
-      </section>
-
-      {/* What You Get */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-center mb-12">What You Get</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {advisoryCopy.whatYouGet.map((item) => (
-            <div
-              key={item.title}
-              className="border border-[var(--border)] rounded-xl p-6"
-            >
-              <h3 className="font-bold mb-2">{item.title}</h3>
-              <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Who It's For */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-center mb-12">Who This Is For</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {advisoryCopy.whoItsFor.map((w) => (
-            <div key={w.title} className="flex gap-4">
-              <div className="shrink-0 w-1 bg-[var(--foreground)] rounded-full" />
-              <div>
-                <h3 className="font-bold mb-1">{w.title}</h3>
-                <p className="text-sm text-[var(--muted-foreground)]">{w.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Packages */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-center mb-12">Packages</h2>
-        <div className="grid md:grid-cols-3 gap-6 items-start">
-          {advisoryCopy.packages.map((pkg) => (
-            <PackageCard key={pkg.name} pkg={pkg} />
-          ))}
-        </div>
-      </section>
-
-      {/* Build cross-link */}
-      <section className="mb-24 text-center border border-[var(--border)] rounded-2xl py-8 px-6">
-        <p className="font-bold mb-1">{advisoryCopy.crossLink.label}</p>
-        <p className="text-sm text-[var(--muted-foreground)] mb-4 max-w-xl mx-auto">
-          {advisoryCopy.crossLink.text}
-        </p>
-        <a
-          href={advisoryCopy.crossLink.ctaHref}
-          className="text-sm font-medium underline underline-offset-4"
-        >
-          {advisoryCopy.crossLink.ctaLabel} →
-        </a>
-      </section>
-
-      {/* FAQ */}
-      <section className="mb-24 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-12">
-          Frequently Asked Questions
-        </h2>
-        <div className="space-y-6">
-          {advisoryCopy.faq.map((item) => (
-            <details
-              key={item.q}
-              className="group border-b border-[var(--border)] pb-4"
-            >
-              <summary className="cursor-pointer font-medium text-sm flex items-center justify-between">
-                {item.q}
-                <span className="ml-4 text-[var(--muted-foreground)] group-open:rotate-45 transition-transform text-lg">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-sm text-[var(--muted-foreground)] leading-relaxed">
-                {item.a}
-              </p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Closing CTA */}
-      <section className="text-center py-16 border-t border-[var(--border)]">
-        <h2 className="text-3xl font-bold mb-4">
-          {advisoryCopy.closingCta.headline}
-        </h2>
-        <p className="text-[var(--muted-foreground)] max-w-xl mx-auto mb-8 leading-relaxed">
-          {advisoryCopy.closingCta.subheadline}
-        </p>
-        <a
-          href={advisoryCopy.closingCta.ctaHref}
-          className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-        >
-          {advisoryCopy.closingCta.ctaLabel}
-        </a>
-      </section>
-    </main>
-  );
+ const plan = pricingPlans.find((item) => item.id === "advisory")!;
+ return <MarketingPage><div className="engagement-page advisory-engagement">
+  <ServiceStructuredData path="/advisory" name="AI advisory for music companies" description="Find where AI fits in your music business. Practical strategy, workflow assessment, and implementation guidance from Recoup." serviceType={["AI strategy", "Workflow assessment", "AI implementation planning"]} />
+      <PageHero eyebrow="AI ADVISORY" title={<>Know what to change.<br /><span>And where to start.</span></>} description="Your catalog is growing. Your team’s time isn’t. We help music funds and rightsholders choose useful AI projects and make a plan to put them to work." visual={<AdvisoryRoadmap />}>
+   <PageButton href="/advisory/book">Discuss your priorities</PageButton><PageButton href="#approach" secondary>How we help</PageButton>
+  </PageHero>
+  <PageSection id="approach" eyebrow="FROM QUESTIONS TO A PLAN" title="Make the next decision a clear one." description="We work through your actual workflows, so the roadmap reflects the company you run.">
+   <div className="sp-grid"><WorkCard number="01 / ASSESS" title="Find the friction." description="Review recurring work across your team: reporting, research, release planning, and catalog operations." items={["The task and its current cost", "Your data, tools, and access", "Where review and judgment matter"]} /><WorkCard number="02 / PRIORITIZE" title="Choose what to build." description="Agree on which opportunity is worth pursuing first, and what needs to be true for it to work." items={["A focused first project", "Dependencies and trade-offs", "A way to measure improvement"]} /><WorkCard number="03 / IMPLEMENT" title="Put the plan to use." description="Work with your team to adopt the right tools, develop repeatable methods, and learn from real use." items={["Guidance on tools and workflows", "Hands-on team practice", "A plan for ongoing improvement"]} /></div>
+  </PageSection>
+  <PageSection><div className="mm-split-panel"><div><p className="sp-kicker">WORKING TOGETHER</p><h2>A focused engagement.<br />Or an ongoing partner.</h2><p>Start with a specific question, a department, or a company-wide plan. We agree on scope, deliverables, and price before we begin.</p><PageButton href="/advisory/book">Talk through your situation</PageButton><p><Link className="sp-text-link" href="/pricing#advisory">{plan.name} · {planPrice(plan.id, "monthly").monthly}/month <SkyArrow /></Link></p></div><ul className="mm-checklist"><li>Bring your team into the conversation.</li><li>Use the tools that fit your business.</li><li>Review progress against the work you wanted to improve.</li><li>Move into a custom build when it makes sense.</li></ul></div></PageSection>
+  <PageSection eyebrow="PRACTICAL QUESTIONS" title="Before we get started."><MarketingFAQ items={[{question:"Do we have to use the Recoup platform?",answer:"No. Advisory starts with your business and the tools your team uses. The plan may include Recoup, other products, or custom software."},{question:"Can our team join?",answer:"Yes. The people doing the work bring the context a useful AI plan needs. We involve the team responsible for using and maintaining the workflow."},{question:"Can you build the system too?",answer:"Yes. We design and build agents, integrations, reporting tools, and applications. A build has its own agreed scope, deliverables, and price."}]} /></PageSection>
+  <PageCTA title="Bring us the work that keeps coming back." description="We’ll help you decide whether AI can improve it, what to try first, and how to judge the result." href="/advisory/book" label="Talk about AI strategy" />
+ </div></MarketingPage>;
 }

@@ -1,22 +1,5 @@
+import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
-import { siteConfig } from "@/lib/config";
-import { buildPageMetadata } from "@/lib/seo";
-
-export const metadata: Metadata = buildPageMetadata({
-  title: `${siteConfig.name} Records — A Label Run Entirely by AI Agents`,
-  description: `${siteConfig.name} Records — our in-house music label, run entirely by AI agents. The proof the platform works: releases, marketing, and content all automated.`,
-  path: "/records",
-});
-
-export default function RecordsPage() {
-  return (
-    <div className="max-w-3xl mx-auto px-6 py-32 text-center">
-      <h1 className="font-pixel text-[clamp(2rem,5vw,3.5rem)] tracking-tight mb-4">
-        {siteConfig.name} Records
-      </h1>
-      <p className="text-[15px] text-(--foreground)/40 max-w-md mx-auto">
-        Coming soon.
-      </p>
-    </div>
-  );
-}
+import { MarketingPage, PageHero, PageSection, PageButton, PageCTA, BriefVisual, WorkCard } from "@/components/marketing-migration/ui";
+export const metadata: Metadata=withPageMetadata({title:"Recoup Records — Our in-house music label",description:"Recoup Records is our in-house label, where we put our own music workflows and platform to work.",alternates:{canonical:"/records"}});
+export default function RecordsPage(){return <MarketingPage><PageHero eyebrow="RECOUP RECORDS" title={<>We use<br /><span>what we build.</span></>} description="Recoup Records is our in-house label. We use our own platform for the research, planning, and creative work around the music." visual={<BriefVisual label="RECOUP RECORDS" title={<>A release.<br />A real job to do.</>} items={["Understand the artist", "Build the release plan", "Create, review, and learn"]} footnote="Powered by the same Recoup platform." />}><PageButton href="/platform">Explore the platform</PageButton><PageButton href="/skills" secondary>Explore the Skills</PageButton></PageHero><PageSection eyebrow="THE WORK BEHIND A RELEASE" title="From artist context to finished work."><div className="sp-grid"><WorkCard number="01 / RESEARCH" title="Understand the artist." description="Bring the music, audience, brand voice, and release goals into the working context." /><WorkCard number="02 / CREATE" title="Give the release a plan." description="Develop campaign ideas, content briefs, and a sequence of work around the release." /><WorkCard number="03 / LEARN" title="Keep improving the method." description="Use what happens in practice to refine the workflows and tools we build." /></div></PageSection><PageCTA title="Try the tools behind the work." description="Explore Recoup Skills or open the platform with your own artist context." href="https://teams.recoupable.dev" label="Open Recoup" /></MarketingPage>;}

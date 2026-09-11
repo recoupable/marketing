@@ -1,36 +1,12 @@
-import type { Metadata } from "next";
 import { CatalogValuation } from "@/components/valuation/CatalogValuation";
-
-export const metadata: Metadata = {
-  title: "What's Your Catalog Worth? | Recoup",
-  description:
-    "Pick your artist profile and get a directional valuation of your recorded catalog from live Spotify play counts — measured, not guessed.",
-};
-
+import { withPageMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
+import { MarketingPage, PageCTA } from "@/components/marketing-migration/ui";
+export const metadata: Metadata=withPageMetadata({title:"Catalog valuation with Recoup",description:"Explore a directional recorded-catalog valuation based on measured Spotify streaming activity. Search an artist and run the tool with your Recoup account.",alternates:{canonical:"/valuation"}});
 export default function ValuationPage() {
-  return (
-    <main className="relative pt-36 sm:pt-44 pb-24 min-h-screen">
-      <div className="mx-auto max-w-[800px] px-6 flex flex-col items-center text-center">
-        <span
-          className="inline-flex items-center gap-2.5 mb-5 px-4 py-2 rounded-full text-[12px] uppercase tracking-[0.16em] font-pixel text-(--foreground)/50"
-          style={{
-            boxShadow:
-              "0 0 0 1px color-mix(in srgb, var(--foreground) 15%, transparent)",
-          }}
-        >
-          <span className="w-2 h-2 rounded-full bg-green-500/70 animate-pulse" />
-          Live catalog valuation
-        </span>
-        <h1 className="font-pixel text-[clamp(2.5rem,7vw,4.5rem)] text-(--foreground) leading-[0.95] tracking-[-0.01em] mb-5">
-          What&apos;s your catalog worth?
-        </h1>
-        <p className="text-[clamp(1.0625rem,1.6vw,1.25rem)] text-(--foreground)/60 max-w-[560px] leading-relaxed">
-          Pick your artist. We measure live play counts across your entire
-          catalog and turn them into a valuation band — one click, no uploads,
-          no statements.
-        </p>
-        <CatalogValuation />
-      </div>
-    </main>
-  );
+  return <MarketingPage><section className="sp-section"><header className="mm-tool-intro"><p className="sp-kicker">CATALOG VALUATION</p><h1>What could your catalog be worth?</h1></header>
+    <p className="mm-note">Search for an artist to estimate a recorded catalog’s value using measured Spotify streaming activity. Sign in to run the valuation.</p>
+    <div className="valuation-tool"><CatalogValuation /></div>
+    <p className="mm-note">This directional estimate uses agent credits and does not account for every right, contract term, income source, or expense involved in a purchase.</p>
+  </section><PageCTA title="Working through an acquisition?" description="We can help organize deal information, prepare review questions, and connect findings to their sources." href="/acquisitions/contact" label="Discuss acquisition review" /></MarketingPage>;
 }

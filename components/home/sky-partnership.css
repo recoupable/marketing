@@ -1,0 +1,365 @@
+.sky-content .sky-section.sky-partnership {
+  padding-block: clamp(62px, 6.5vw, 92px);
+}
+
+.sky-partnership-heading,
+.sky-tools-heading { text-align: center; }
+
+.sky-partnership-heading .sky-section-label,
+.sky-tools-heading .sky-section-label { color: #34474e; }
+
+.sky-partnership-heading .sky-section-label::before,
+.sky-tools-heading .sky-section-label::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin-right: 9px;
+  background: currentColor;
+  vertical-align: 3px;
+}
+
+.sky-content .sky-partnership-heading h2,
+.sky-content .sky-tools-heading h2 {
+  margin-top: 20px;
+  font-size: clamp(32px, 3.5vw, 49px);
+  font-weight: 450;
+  line-height: 1.13;
+  letter-spacing: -.05em;
+  color: #152d35;
+}
+
+.sky-partnership-heading h2 > span,
+.sky-tools-heading h2 > span { color: #708087; }
+
+.sky-partnership-intro {
+  max-width: 560px;
+  margin: 22px auto 0;
+  color: #536d77;
+  font-size: 17px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.sky-partnership-steps {
+  display: grid;
+  grid-template-columns: 1fr 1.38fr 1fr;
+  gap: 10px;
+  margin: 44px 0 24px;
+  padding: 10px;
+  list-style: none;
+  background: #f2f3f3;
+  border-radius: 23px;
+}
+
+.sky-service-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid #e9eceb;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 2px 2px #142f3510, 0 7px 16px #142f3504;
+}
+
+.sky-partnership-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #d6ff62;
+  color: #183125;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+}
+
+.sky-service-description { margin-top: auto; }
+.sky-content .sky-partnership-steps h3 {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -.04em;
+  line-height: 1.2;
+}
+
+.sky-partnership-steps p {
+  max-width: 33ch;
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #607179;
+}
+
+.sky-service-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 190px;
+  margin-block: 8px 20px;
+  pointer-events: none;
+}
+
+.sky-mini-eyebrow {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: .07em;
+  color: #617078;
+}
+
+.sky-priorities-sheet {
+  width: 200px;
+  padding: 16px 14px 9px;
+  background: #fff;
+  border: 1px solid #e4e9e8;
+  border-radius: 11px;
+  box-shadow: 0 2px 3px #173d3510, 0 10px 22px #173d3512;
+  transform: rotate(-5deg);
+}
+.sky-priorities-sheet .sky-mini-eyebrow { margin-bottom: 13px; }
+.sky-priority-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 5px 3px;
+  font-size: 10px;
+  color: #65757b;
+}
+.sky-priority-row.is-priority { color: #1c3731; }
+.sky-priority-check { display: grid; place-items: center; width: 14px; height: 14px; border: 1px solid #dce5e1; border-radius: 4px; }
+.is-priority .sky-priority-check { border-color: #ccebb5; background: #ddf5cc; color: #285038; }
+.sky-priority-check svg { width: 13px; height: 13px; }
+.sky-priority-dot { width: 5px; height: 5px; margin-left: auto; border-radius: 50%; background: #6b985d; }
+.sky-priority-note {
+  position: absolute;
+  right: -3px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #e1edc3;
+  border-radius: 8px;
+  background: #eef8d8;
+  box-shadow: 0 4px 10px #193b2610;
+  color: #284134;
+  font-size: 10px;
+  transform: rotate(3deg);
+}
+.sky-priority-note .sky-arrow-icon { width: 13px; height: 13px; }
+
+.sky-build-visual { margin-inline: -6px; }
+.sky-build-inputs { display: grid; gap: 10px; flex: 0 0 85px; }
+.sky-build-inputs > span { display: flex; align-items: center; gap: 6px; min-height: 38px; border: 1px solid #e1e8e9; border-radius: 8px; background: #fff; padding: 7px; color: #53666d; font-size: 9px; box-shadow: 0 4px 9px #17313a0a; }
+.sky-build-inputs svg { width: 13px; height: 15px; color: #1792bf; flex-shrink: 0; }
+.sky-build-connector { min-width: 8px; height: 1px; flex: 1; background: #c5dbe1; position: relative; }
+.sky-build-core { display: grid; place-items: center; width: 49px; height: 49px; flex: 0 0 49px; border: 4px solid #fff; border-radius: 15px; outline: 1px solid #e7ebea; background: #172e27; color: #d6ff62; box-shadow: 0 9px 20px #1a383326; }
+.sky-build-core svg { width: 19px; height: 23px; }
+.sky-build-output { width: 98px; flex: 0 0 98px; display: flex; align-items: center; flex-direction: column; gap: 5px; padding: 14px 7px; border: 1px solid #cbe4ed; border-radius: 12px; background: #edf8fc; color: #244650; box-shadow: 0 5px 16px #173d3510; }
+.sky-build-output-icon { display: grid; place-items: center; width: 27px; height: 27px; margin-bottom: 3px; background: #fff; border-radius: 8px; color: #168cbb; }
+.sky-build-output-icon svg { width: 19px; height: 19px; }
+.sky-build-output strong { font-weight: 500; font-size: 11px; }
+.sky-build-output > span:last-child { font-size: 8px; white-space: nowrap; }
+
+.sky-training-sheet { width: 184px; padding: 17px; border: 1px solid #d5e4e7; border-radius: 13px; background: #eaf5f8; transform: rotate(5deg); box-shadow: 0 2px 3px #173d3510, 0 10px 22px #173d3512; }
+.sky-training-sheet .sky-mini-eyebrow { font-size: 8px; }
+.sky-training-sheet > strong { display: block; margin-top: 15px; color: #1c3e4a; font-weight: 500; font-size: 20px; line-height: 1.16; letter-spacing: -.045em; }
+.sky-training-track { display: flex; align-items: center; justify-content: space-between; gap: 5px; margin-top: 18px; color: #566c76; font-size: 9px; }
+.sky-training-track > span { background: #fff; padding: 6px 9px; border-radius: 20px; }
+.sky-training-track svg { width: 13px; height: 13px; }
+.sky-training-seal { position: absolute; right: 5px; bottom: 14px; display: grid; place-items: center; width: 39px; height: 39px; border: 4px solid #fff; border-radius: 50%; background: #d6ff62; color: #213a26; box-shadow: 0 4px 11px #143f3514; }
+.sky-training-seal svg { width: 22px; height: 22px; }
+
+.sky-partnership-measures { display: grid; grid-template-columns: 1fr 1.8fr; align-items: center; gap: 28px; margin: 0 10px 24px; padding: 25px 24px; border: 1px solid #dfe9ec; border-radius: 15px; background: #f4f9fb; }
+.sky-content .sky-measures-heading h3 { max-width: 16em; color: #234853; font-size: 18px; line-height: 1.25; letter-spacing: -.03em; font-weight: 500; }
+.sky-measures-heading > p { margin-top: 7px; color: #607a85; font-size: 12px; line-height: 1.5; }
+.sky-partnership-measures ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; min-width: 0; margin: 0; }
+.sky-partnership-measures ul > li { padding-left: 19px; border-left: 1px solid #d8e5eb; }
+.sky-partnership-measures ul { padding:0; list-style:none; }
+.sky-partnership-measures li { color: #315560; font-size: 13px; line-height: 1.5; font-weight: 500; }
+
+.sky-partnership-options { display: grid; grid-template-columns: 1fr 1fr; gap: 38px; padding: 14px 16px 0; }
+.sky-partnership-options article { display: flex; flex-direction: column; align-items: flex-start; gap: 17px; padding-block: 13px 8px; }
+.sky-partnership-options article + article { border-left: 1px solid #e5e9e7; padding-left: 38px; }
+.sky-content .sky-partnership-options h3 { color: #243b42; font-size: 23px; line-height: 1.2; font-weight: 500; letter-spacing: -.04em; }
+.sky-partnership-options p { margin-top: 9px; max-width: 43ch; color: #617179; font-size: 15px; line-height: 1.55; }
+.sky-partnership-options a { display: inline-flex; align-items: center; gap: 13px; min-height: 44px; margin-top: auto; font-size: 13px; font-weight: 550; color: #233e42; }
+.sky-partnership-options a > span { display: grid; place-items: center; width: 30px; height: 30px; background: #f1f5ea; border: 1px solid #e6ecd9; border-radius: 50%; transition: background 180ms; }
+.sky-partnership-options a:hover > span { background: #d6ff62; }
+.sky-partnership-options .sky-arrow-icon { width: 16px; height: 16px; }
+.sky-partnership-scope { margin: 22px 16px 0; padding-top: 18px; border-top: 1px solid #e5e9e7; color: #73838b; font-size: 12px; line-height: 1.5; }
+
+.sky-content .sky-section.sky-tools { padding-top: 38px; padding-bottom: clamp(62px, 6.5vw, 92px); }
+.sky-tools-tray { display: grid; grid-template-columns: .93fr 1.3fr; gap: 11px; padding: 10px; margin-top: 44px; background: #f2f3f3; border-radius: 23px; }
+.sky-tool { position: relative; min-width: 0; padding: 28px; border-radius: 15px; border: 1px solid #e7ecea; background: #fff; color: #173039; box-shadow: 0 2px 2px #18322c0a; transition: box-shadow 200ms; }
+.sky-tool:hover { box-shadow: 0 3px 6px #18322c0c, 0 12px 25px #18322c0e; }
+.sky-tool-label { display: flex; align-items: center; justify-content: space-between; gap: 15px; width: 100%; font-family: "IBM Plex Mono", monospace; font-size: 10px; line-height: 1.5; letter-spacing: .06em; }
+.sky-tool-label > .sky-arrow-icon { width: 17px; height: 17px; }
+.sky-content .sky-tool h3 { font-size: clamp(29px, 2.8vw, 38px); font-weight: 450; letter-spacing: -.05em; line-height: 1.1; }
+.sky-tool p { max-width: 29ch; margin-top: 13px; margin-bottom: 21px; color: #61747c; font-size: 14px; line-height: 1.55; }
+.sky-tool-link { display: inline-flex; align-items: center; gap: 10px; min-height: 28px; font-size: 12px; font-weight: 550; }
+.sky-tool-link > .sky-arrow-icon { width: 15px; height: 15px; transition: transform 200ms; }
+.sky-tool:hover .sky-tool-link > .sky-arrow-icon { transform: translateX(3px); }
+.sky-tool-skills { grid-row: span 2; display: flex; flex-direction: column; background: #18302a; color: #fbfff8; border-color: #254437; overflow: hidden; }
+.sky-tool-skills .sky-tool-description { position: relative; margin-top: auto; z-index: 1; }
+.sky-tool-skills h3 > span, .sky-tool-skills .sky-tool-link { color: #d6ff62; }
+.sky-tool-skills p { color: #cad9d0; max-width: 32ch; }
+.sky-skills-visual { position: relative; height: 305px; flex-shrink: 0; margin-block: 12px 22px; pointer-events: none; }
+.sky-playbook { position: absolute; width: 196px; height: 211px; top: 46px; left: 50%; border-radius: 11px; box-shadow: 0 2px 3px #071e2333, 0 15px 22px #071e2330; transition: transform 260ms; transform-origin: center 95%; }
+.sky-playbook-back { padding: 15px; background: #2e87a8; border: 1px solid #70aabe; transform: translateX(-50%) translate(22px, -19px) rotate(12deg); color: #eafaff; }
+.sky-playbook-middle { padding: 15px; background: #e9ebdf; border: 1px solid #fff; transform: translateX(-50%) translate(-20px,-7px) rotate(-12deg); color: #466356; }
+.sky-playbook-back > svg, .sky-playbook-middle > svg { width: 15px; height: 18px; }
+.sky-playbook-back > span, .sky-playbook-middle > span { display: block; margin-top: 10px; font-size: 8px; letter-spacing: .03em; }
+.sky-playbook-front { padding: 17px; background: #fbfff3; border: 3px solid #fff; transform: translateX(-50%) rotate(-1deg); color: #203e30; }
+.sky-playbook-top { display: flex; align-items: center; gap: 7px; font-family: "IBM Plex Mono", monospace; font-size: 8px; }
+.sky-playbook-top svg { width: 15px; height: 18px; }
+.sky-playbook-status { margin-left: auto; width: 6px; height: 6px; background: #aaca6a; border-radius: 50%; }
+.sky-playbook-front > strong { display: block; margin-top: 24px; font-weight: 500; font-size: 35px; line-height: 1.04; letter-spacing: -.06em; }
+.sky-playbook-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 12px; border-top: 1px solid #dfe7d6; color: #66775d; font-size: 9px; line-height: 1.5; }
+.sky-playbook-bottom > svg { width: 16px; height: 16px; }
+.sky-tool-skills:hover .sky-playbook-back { transform: translateX(-50%) translate(25px, -23px) rotate(15deg); }
+.sky-tool-skills:hover .sky-playbook-middle { transform: translateX(-50%) translate(-23px,-10px) rotate(-15deg); }
+
+.sky-tool-platform, .sky-tool-developers { display: grid; grid-template-columns: 1fr .95fr; column-gap: 15px; }
+.sky-tool-platform .sky-tool-label, .sky-tool-developers .sky-tool-label { grid-column: 1 / -1; margin-bottom: 32px; }
+.sky-tool-platform h3 > span { color: #1682a4; }
+.sky-platform-visual { position: relative; display: flex; align-items: center; justify-content: center; min-width: 0; pointer-events: none; }
+.sky-workspace-sheet { width: 235px; flex-shrink: 0; padding: 13px; border: 2px solid #fff; outline: 1px solid #e4e9e7; border-radius: 12px; background: #f8fbfa; box-shadow: 0 3px 6px #173d3510, 0 13px 25px #173d3514; transform: rotate(4deg); }
+.sky-workspace-bar { display: flex; align-items: center; gap: 6px; color: #304840; font-size: 9px; }
+.sky-workspace-bar > svg { width: 10px; height: 12px; }
+.sky-workspace-dots { margin-left: auto; letter-spacing: 2px; font-size: 10px; }
+.sky-workspace-tabs { display: flex; gap: 15px; border-bottom: 1px solid #e5ebe7; margin-block: 18px 15px; padding-bottom: 8px; font-size: 8px; color: #7d8d83; }
+.sky-workspace-tabs .is-current { color: #1e5543; position: relative; }
+.sky-workspace-tabs .is-current::after { position: absolute; content: ""; height: 2px; left: 0; right: 0; bottom: -9px; background: #658b70; }
+.sky-workspace-file { display: flex; gap: 9px; align-items: center; }
+.sky-workspace-cover { width: 31px; height: 35px; display: flex; justify-content: center; align-items: center; gap: 2px; border-radius: 5px; background: #e1f2f3; color: #369cb5; }
+.sky-workspace-cover > span { width: 2px; height: 11px; background: currentColor; border-radius: 3px; }
+.sky-workspace-cover > span:nth-child(2) { height: 20px; }.sky-workspace-cover > span:nth-child(3) { height: 15px; }
+.sky-workspace-file strong { display: block; font-size: 10px; font-weight: 550; color: #345347; }
+.sky-workspace-file small { display: block; margin-top: 3px; font-size: 7px; color: #738478; }
+.sky-workspace-copy { display: grid; gap: 5px; margin-block: 16px; }
+.sky-workspace-copy > span { height: 4px; background: #e3eae6; border-radius: 4px; }
+.sky-workspace-copy > span:last-child { width: 64%; }
+.sky-workspace-context { display: flex; align-items: center; gap: 5px; color: #4b7157; font-size: 8px; }
+.sky-workspace-context > svg { width: 13px; height: 13px; }
+
+.sky-tool-developers { background: #eaf5fa; border-color: #dfebee; }
+.sky-content .sky-tool-developers h3 { font-size: clamp(27px, 2.5vw, 33px); }
+.sky-tool-developers p { max-width: 25ch; }
+.sky-developer-visual { display: flex; align-items: center; justify-content: center; min-width: 0; pointer-events: none; }
+.sky-developer-window { width: 211px; border: 3px solid #fff; border-radius: 11px; background: #1b3035; color: #c4d8dc; box-shadow: 0 2px 5px #1b404026, 0 12px 24px #1b40401a; transform: rotate(-4deg); }
+.sky-developer-windowbar { display: flex; align-items: center; gap: 4px; padding: 10px; border-bottom: 1px solid #3a5053; }
+.sky-developer-windowbar > i { width: 4px; height: 4px; background: #779093; border-radius: 50%; }
+.sky-developer-windowbar > span { margin-left: 9px; font-family: "IBM Plex Mono", monospace; font-size: 7px; }
+.sky-developer-line { display: flex; align-items: center; justify-content: center; gap: 14px; padding: 22px 8px 17px; font-family: "IBM Plex Mono", monospace; font-size: 10px; }
+.sky-developer-line > svg { width: 16px; height: 20px; color: #d6ff62; }
+.sky-developer-line > .sky-arrow-icon { width: 13px; height: 13px; color: #92b5bd; }
+.sky-developer-protocols { display: flex; justify-content: center; gap: 5px; padding: 0 8px 16px; font-family: "IBM Plex Mono", monospace; }
+.sky-developer-protocols > span { padding: 4px 9px; border-radius: 5px; background: #31494f; color: #c4dce1; font-size: 8px; }
+
+.sky-partnership-options a:focus-visible, .sky-tool:focus-visible { outline: 3px solid #168abc; outline-offset: 5px; }
+
+@media (max-width: 1100px) {
+  .sky-service-step { padding: 20px 17px; }
+  .sky-partnership-steps { grid-template-columns: 1fr 1.25fr 1fr; }
+  .sky-build-inputs { flex-basis: 74px; }
+  .sky-build-inputs > span { padding: 6px 5px; font-size: 8px; }
+  .sky-build-core { width: 43px; height: 43px; flex-basis: 43px; }
+  .sky-build-output { flex-basis: 82px; width: 82px; }
+  .sky-build-output > span:last-child { font-size: 7px; }
+  .sky-tool { padding: 24px; }
+  .sky-tool-platform, .sky-tool-developers { column-gap: 5px; grid-template-columns: 1fr .8fr; }
+  .sky-workspace-sheet { width: 190px; }
+  .sky-developer-window { width: 177px; }
+  .sky-content .sky-tool h3 { font-size: 31px; }
+}
+
+@media (max-width: 900px) {
+  .sky-partnership-measures { grid-template-columns: 1fr; gap: 20px; }
+  .sky-partnership-measures ul > li:first-child { padding-left: 0; border-left: 0; }
+  .sky-partnership-steps { grid-template-columns: 1fr; }
+  .sky-service-step { display: grid; grid-template-columns: 1fr 1fr; column-gap: 30px; padding: 23px 27px; }
+  .sky-partnership-number { grid-column: 1; grid-row: 1; }
+  .sky-service-description { grid-column: 1; grid-row: 2; margin-top: 22px; }
+  .sky-service-visual { grid-column: 2; grid-row: 1 / 3; margin: 0; height: 165px; }
+  .sky-build-inputs { flex-basis: 85px; }.sky-build-output { flex-basis: 92px; width: 92px; }
+  .sky-tools-tray { grid-template-columns: 1fr 1fr; }
+  .sky-tool-platform, .sky-tool-developers { display: flex; flex-direction: column; }
+  .sky-tool-platform .sky-tool-label, .sky-tool-developers .sky-tool-label { margin-bottom: 22px; }
+  .sky-tool-platform .sky-tool-description, .sky-tool-developers .sky-tool-description { order: 3; }
+  .sky-platform-visual { height: 203px; margin-bottom: 23px; }
+  .sky-workspace-sheet { width: 205px; }
+  .sky-developer-visual { height: 142px; margin-bottom: 22px; }
+  .sky-developer-window { width: 202px; }
+  .sky-tool-skills { grid-column: 1 / -1; grid-row: auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; column-gap: 24px; }
+  .sky-tool-skills .sky-tool-label { grid-column: 1 / -1; }
+  .sky-tool-skills .sky-tool-description { grid-column: 1; grid-row: 2; margin-top: 8px; }
+  .sky-skills-visual { grid-column: 2; grid-row: 2; height: 270px; margin-block: 4px 0; }
+}
+
+@media (max-width: 600px) {
+  .sky-content .sky-section.sky-partnership { padding-block: 55px; }
+  .sky-partnership-steps { gap: 8px; padding: 8px; margin-top: 31px; border-radius: 19px; }
+  .sky-service-step { display: flex; padding: 22px; border-radius: 12px; }
+  .sky-service-visual { width: 100%; height: 174px; margin-block: 3px 19px; }
+  .sky-service-description { margin-top: 0; }
+  .sky-content .sky-partnership-steps h3 { font-size: 22px; }
+  .sky-partnership-steps p { font-size: 15px; }
+  .sky-priorities-sheet { width: 185px; }
+  .sky-priority-note { right: 0; bottom: 3px; }
+  .sky-build-inputs { flex-basis: 79px; }
+  .sky-build-core { width: 40px; height: 40px; flex-basis: 40px; border-width: 3px; }
+  .sky-build-output { flex-basis: 87px; width: 87px; }
+  .sky-build-connector { min-width: 7px; }
+  .sky-partnership-measures { margin: 0 8px 20px; padding: 22px 18px; gap: 18px; }
+  .sky-partnership-measures ul { grid-template-columns: 1fr; gap: 0; }
+  .sky-partnership-measures ul > li { display: block; padding: 12px 0; border-left: 0; border-top: 1px solid #d8e5eb; }
+  .sky-partnership-measures ul > li:last-child { padding-bottom: 0; }
+  .sky-partnership-options { grid-template-columns: 1fr; gap: 14px; padding: 4px 7px 0; }
+  .sky-partnership-options article { padding-block: 16px; gap: 12px; }
+  .sky-partnership-options article + article { padding-left: 0; border-left: 0; border-top: 1px solid #e5e9e7; padding-top: 26px; }
+  .sky-content .sky-partnership-options h3 { font-size: 23px; }
+  .sky-partnership-scope { margin: 15px 7px 0; }
+  .sky-content .sky-section.sky-tools { padding-top: 18px; padding-bottom: 54px; }
+  .sky-tools-tray { grid-template-columns: 1fr; margin-top: 31px; padding: 8px; gap: 8px; border-radius: 19px; }
+  .sky-tool { padding: 24px; border-radius: 12px; }
+  .sky-tool-skills { grid-column: auto; grid-row: auto; display: flex; align-items: stretch; }
+  .sky-tool-skills .sky-tool-label { position: static; width: 100%; }
+  .sky-skills-visual { margin-block: 6px 12px; height: 281px; }
+  .sky-playbook { width: 184px; }
+  .sky-tool-skills .sky-tool-description { margin-top: 0; }
+  .sky-content .sky-tool h3 { font-size: 34px; }
+  .sky-tool p { max-width: 32ch; font-size: 15px; margin-bottom: 18px; }
+  .sky-tool-link { font-size: 13px; }
+  .sky-platform-visual { height: 210px; margin-block: 3px 28px; }
+  .sky-workspace-sheet { width: 217px; }
+  .sky-developer-visual { height: 155px; margin-block: 4px 27px; }
+  .sky-developer-window { width: 211px; }
+}
+
+@media (max-width: 365px) {
+  .sky-service-step, .sky-tool { padding: 19px 17px; }
+  .sky-build-inputs { flex-basis: 67px; }
+  .sky-build-inputs > span { gap: 4px; font-size: 7px; }
+  .sky-build-inputs svg { width: 11px; }
+  .sky-build-output { flex-basis: 72px; width: 72px; }
+  .sky-build-output > span:last-child { font-size: 6px; }
+  .sky-build-output strong { font-size: 10px; }
+  .sky-build-connector { min-width: 6px; }
+  .sky-workspace-sheet { width: 195px; }
+  .sky-developer-window { width: 189px; }
+  .sky-content .sky-tool h3 { font-size: 31px; }
+  .sky-playbook { width: 174px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky-tool, .sky-tool-link > .sky-arrow-icon, .sky-playbook, .sky-partnership-options a > span { transition: none; }
+  .sky-tool-skills:hover .sky-playbook-back { transform: translateX(-50%) translate(22px,-19px) rotate(12deg); }
+  .sky-tool-skills:hover .sky-playbook-middle { transform: translateX(-50%) translate(-20px,-7px) rotate(-12deg); }
+}

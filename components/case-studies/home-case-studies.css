@@ -1,0 +1,70 @@
+/* A portfolio of working outputs, with one lead story and two supporting ones. */
+.sky-content .sky-section.sky-projects {
+  margin-bottom: 72px; padding-block: clamp(48px,6vw,82px); border-radius: 28px;
+  color: #fff; background-color: #132b26;
+  background-image: var(--recoup-surface-grain),radial-gradient(ellipse at 0 0,#254a3e,transparent 65%);
+  background-size: 160px 160px,100% 100%; background-blend-mode: soft-light,normal;
+}
+.sky-projects-heading { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 36px; scroll-margin-top: 32px; }
+.sky-projects .sky-section-label { color: #b6d0c4; }
+.sky-content .sky-projects h2 { margin: 20px 0; font-size: clamp(36px,4.2vw,58px); line-height: 1.07; letter-spacing: -.045em; font-weight: 450; }
+.sky-projects h2 span { color: #d6ff62; }
+.sky-projects-heading p:last-child { max-width: 48ch; margin: 0; color: #c5d7cf; font-size: 16px; line-height: 1.65; }
+.sky-projects-all { display: inline-flex; align-items: center; gap: 13px; flex: none; min-height: 44px; color: #d6ff62; font-size: 14px; text-decoration: underline; text-underline-offset: 5px; }
+.sky-projects-all svg { width: 18px; height: 18px; }
+.sky-project-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+.sky-project-card { min-width: 0; overflow: clip; border: 1px solid #496258; border-radius: 19px; background: #213c32; scroll-margin-top: 28px; }
+.sky-project-featured { grid-column: 1/-1; display: grid; grid-template-columns: 1fr 1fr; background: #f5f9f7; color: #152e37; border-color: #f5f9f7; }
+.sky-project-copy { display: flex; flex-direction: column; align-items: start; padding: 28px; }
+.sky-project-audience { margin: 0 0 9px; color: #c5d7cf; font: 10px/1.6 "IBM Plex Mono",monospace; letter-spacing: .07em; text-transform: uppercase; }
+.sky-content .sky-project-card h3 { margin: 0; font-size: 22px; font-weight: 500; line-height: 1.2; letter-spacing: -.03em; }
+.sky-project-result { margin: 25px 0 13px; font-size: clamp(24px,2.4vw,32px); line-height: 1.15; letter-spacing: -.035em; text-wrap: balance; }
+.sky-project-story { margin: 0; color: #c5d7cf; font-size: 15px; line-height: 1.65; }
+.sky-project-tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 23px 0; }
+.sky-project-tags li { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #526f5f; border-radius: 7px; padding: 6px 9px; color: #e2eddf; background: #ffffff06; font-size: 11px; line-height: 1.4; }
+.sky-project-tags li span { color: #d6ff62; }
+.sky-project-link { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 44px; padding-top: 17px; border-top: 1px solid #4a6256; margin-top: auto; color: #d6ff62; font-size: 14px; text-decoration: none; }
+.sky-project-link > span { display: grid; place-items: center; width: 34px; height: 34px; flex: none; border-radius: 50%; border: 1px solid #526f5f; }
+.sky-project-link svg { width: 18px; height: 18px; }
+.sky-project-featured .sky-project-copy { padding: clamp(25px,3vw,42px); }
+.sky-project-featured :is(.sky-project-audience,.sky-project-story) { color: #526a63; }
+.sky-project-featured .sky-project-tags li { color: #365533; border-color: #dce8ca; background: #ecf5dd; }
+.sky-project-featured .sky-project-tags li span { color: #426725; }
+.sky-project-featured .sky-project-link { border-color: #d9e3df; color: #087bab; }
+.sky-project-featured .sky-project-link > span { background: #d6ff62; color: #172e27; border: 0; }
+.sky-project-visual { overflow: hidden; min-width: 0; }
+.sky-project-visual .cs-art { height: 350px; min-height: 350px; padding: 24px 30px; }
+.sky-project-featured .cs-art { height: 100%; min-height: 420px; padding: 38px; }
+.sky-project-featured .cs-report-paper { width: min(100%,350px); padding: 26px; }
+.sky-project-featured .cs-report-paper > strong { font-size: 31px; }
+.sky-project-featured .cs-report-line { font-size: 13px; padding-block: 15px; }
+.sky-project-featured .cs-source-stack { justify-self: start; }
+.sky-projects .sky-projects-note { margin: 22px 0 0; color: #b6cfc3; font-size: 12px; line-height: 1.6; }
+.sky-projects a:focus-visible { outline: 3px solid #d6ff62; outline-offset: 5px; }
+.sky-project-featured a:focus-visible { outline-color: #087bab; }
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  .sky-project-card { transition: box-shadow .3s, border-color .3s; }
+  .sky-project-card:hover { border-color: #8aa590; box-shadow: 0 15px 35px #06140e33; }
+  .sky-project-link > span { transition: translate .25s; }
+  .sky-project-link:hover > span { translate: 2px -2px; }
+}
+@media (max-width:800px) {
+  .sky-projects-heading { align-items: start; flex-direction: column; gap: 12px; }
+  .sky-project-featured { grid-template-columns: 1fr; }
+  .sky-project-featured .cs-art { height: 350px; min-height: 350px; padding: 24px 38px; }
+  .sky-project-copy { padding: 24px; }
+}
+@media (max-width:600px) {
+  .sky-content .sky-section.sky-projects { padding: 42px 18px; border-radius: 20px; margin-bottom: 50px; }
+  .sky-project-grid { grid-template-columns: 1fr; gap: 22px; }
+  .sky-projects-heading { margin-bottom: 26px; }
+  .sky-projects-heading p:last-child { font-size: 15px; }
+  .sky-project-copy,.sky-project-featured .sky-project-copy { padding: 24px 20px; }
+  .sky-project-visual .cs-art { padding: 23px; height: 350px; min-height: 350px; }
+  .sky-project-featured .cs-art { height: 390px; min-height: 390px; }
+  .sky-project-featured .cs-report-paper { padding: 18px; }
+  .sky-project-featured .cs-report-paper > strong { font-size: 25px; }
+  .sky-project-featured .cs-report-line { font-size: 11px; padding-block: 12px; }
+  .sky-project-result { font-size: 27px; }
+  .sky-project-tags { gap: 6px; }
+}

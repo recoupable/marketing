@@ -169,3 +169,13 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Sky migration (September 2026)
+
+Read `DESIGN.md` before UI changes. The approved Sky design applies to this marketing repository only. Current site components live in `components/sky`; blog and docs snapshots live in `content/blog` and `content/docs`. Retained production integrations include `/api/leads` on the central API, route-scoped Privy authentication for valuation, Plausible, and Vercel Analytics.
+
+Personality should come through in the directness and confidence of the writing. It shouldn’t depend on making ordinary things sound more abstract.
+
+- Bad: “Activate your operational intelligence.” Good: “Connect your data and automate recurring reports.”
+- Bad: “The plan. The systems. The people who use them.” Good: “AI strategy, custom systems, and team training.”
+- Bad: “Unlock the next chapter.” Good: “Get a plan for your first AI project.”

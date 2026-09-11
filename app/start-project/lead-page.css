@@ -1,0 +1,87 @@
+.lead-page {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr);
+  align-items: start;
+  gap: clamp(36px, 6vw, 80px);
+  max-width: 1240px;
+  margin: 26px auto 84px;
+  padding: 18px 20px 0;
+  color: #152e37;
+}
+
+.lead-page-copy { position: sticky; top: 32px; min-width: 0; padding-top: 16px; }
+.lead-page-copy > .sp-kicker { margin-bottom: 24px; color: #586f78; }
+.lead-page h1 { max-width: 440px; font-size: clamp(43px, 4.35vw, 60px); font-weight: 450; line-height: 1.07; letter-spacing: -.055em; text-wrap: balance; }
+.lead-page-intro { max-width: 430px; margin-top: 25px; font-size: 17px; line-height: 1.7; color: #586f78; }
+.lead-page-next { max-width: 420px; margin-top: 34px; padding-top: 25px; border-top: 1px solid #e2e9eb; }
+.lead-page-next h2 { margin: 0 0 11px; font-size: 16px; font-weight: 550; line-height: 1.4; letter-spacing: -.015em; }
+.lead-page-next p { color: #586f78; font-size: 14px; line-height: 1.75; }
+
+.lead-page-form { min-width: 0; }
+.lead-selected-plan { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 18px; padding: 22px 26px; border: 1px solid #cce5ee; border-radius: 18px; background: #edf8fc; }
+.lead-selected-plan > div { min-width: 0; }
+.lead-selected-plan-label { margin: 0 0 8px; color: #586f78; font-size: 12px; line-height: 1.5; }
+.lead-selected-plan h2 { margin: 0; font-size: 22px; font-weight: 550; line-height: 1.2; letter-spacing: -.035em; }
+.lead-selected-plan-price { margin: 13px 0 4px; font-size: 14px; line-height: 1.5; }
+.lead-selected-plan-price strong { font-size: 24px; font-weight: 550; letter-spacing: -.035em; }
+.lead-selected-plan-terms { margin: 9px 0 0; color: #466571; font-size: 13px; line-height: 1.6; }
+.lead-selected-plan > a { flex-shrink: 0; padding-block: 4px; color: #087bab; font-size: 13px; line-height: 1.5; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 400px) { .lead-selected-plan { flex-direction: column; gap: 10px; padding: 20px; } }
+
+.sky-site .lead-page .lead-inquiry { min-width: 0; margin: 0; padding: 34px; border: 1px solid #d5e3e9; border-radius: 23px; background: #f5f9fa; box-shadow: 0 5px 8px #113c4704, 0 20px 45px #113c4707; }
+.sky-site .lead-page .lead-inquiry > h2 { margin: 0 0 12px; font-size: 27px; font-weight: 500; line-height: 1.2; letter-spacing: -.035em; }
+.lead-page .lead-inquiry > .lead-field-help { margin-bottom: 28px; }
+.lead-page .lead-inquiry .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 23px 18px; }
+.lead-page .lead-inquiry .form-field { min-width: 0; }
+.lead-page .lead-inquiry .wide { grid-column: 1 / -1; }
+.lead-page .lead-inquiry .form-field label { font-size: 14px; line-height: 1.45; color: #254552; }
+.lead-page .lead-inquiry .form-field > :is(input, select, textarea) { width: 100%; min-width: 0; min-height: 48px; padding: 13px 14px; border: 1px solid #78939e; border-radius: 9px; background: #fff; color: #152e37; font-family: "DM Sans Variable", sans-serif; font-size: 16px; line-height: 1.45; }
+.lead-page .lead-inquiry .form-field > textarea { min-height: 144px; resize: vertical; }
+.lead-page .lead-inquiry .form-field > textarea[name="tools"] { min-height: 110px; }
+.lead-page .lead-inquiry .form-field > :is(input, textarea)::placeholder { color: #607680; font-size: 16px; opacity: 1; }
+.lead-page .lead-group-title { margin: 12px 0 0; padding-top: 26px; border-top: 1px solid #dce7ec; }
+.lead-page .lead-group-title:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.lead-page .lead-group-title h3 { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 18px; font-weight: 550; line-height: 1.3; letter-spacing: -.025em; }
+.lead-page .lead-group-title h3 > span { display: inline-grid; place-items: center; width: 28px; height: 28px; flex: 0 0 28px; border-radius: 8px; background: #e5f0f5; color: #385d6c; font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 400; letter-spacing: 0; }
+.lead-page .lead-group-title p { margin: 7px 0 0; color: #586f78; font-size: 13px; line-height: 1.65; }
+.lead-page .lead-field-help { margin: 0; color: #586f78; font-size: 13px; line-height: 1.6; }
+.lead-page .lead-inquiry .inquiry-fields > .button { width: 100%; min-height: 50px; margin-top: 30px; justify-content: space-between; gap: 16px; }
+.lead-page .lead-inquiry .form-note { font-size: 12px; line-height: 1.7; }
+.lead-page .lead-inquiry .form-handoff { margin-bottom: 24px; }
+.lead-page .lead-inquiry .form-feedback { font-size: 14px; line-height: 1.65; }
+.lead-page .lead-inquiry .form-note a,
+.lead-page .lead-inquiry .form-feedback a { color: #087bab; text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 1000px) {
+  .lead-page { grid-template-columns: minmax(0, .82fr) minmax(0, 1.3fr); gap: 32px; padding-inline: 0; }
+  .lead-page h1 { font-size: 46px; }
+  .sky-site .lead-page .lead-inquiry { padding: 28px; }
+}
+
+@media (max-width: 800px) {
+  .lead-page { grid-template-columns: minmax(0, 1fr); max-width: 680px; gap: 30px; margin-top: 14px; }
+  .lead-page-copy { position: static; padding-top: 0; }
+  .lead-page-copy > .sp-kicker { margin-bottom: 17px; }
+  .lead-page h1 { max-width: 520px; font-size: 48px; }
+  .lead-page-intro { max-width: 580px; margin-top: 19px; font-size: 16px; }
+  .lead-page-next { max-width: 580px; margin-top: 22px; padding-top: 18px; }
+  .lead-page-next h2 { margin-bottom: 7px; font-size: 15px; }
+  .lead-page-next p { font-size: 13px; line-height: 1.65; }
+}
+
+@media (max-width: 600px) {
+  .lead-page { margin: 8px auto 48px; padding-top: 10px; gap: 25px; }
+  .lead-page h1 { max-width: 430px; font-size: 40px; }
+  .lead-page-intro { font-size: 15px; line-height: 1.65; }
+  .sky-site .lead-page .lead-inquiry { padding: 24px 19px; border-radius: 18px; }
+  .sky-site .lead-page .lead-inquiry > h2 { font-size: 25px; }
+  .lead-page .lead-inquiry .form-grid { grid-template-columns: minmax(0, 1fr); gap: 21px; }
+  .lead-page .lead-group-title { padding-top: 23px; margin-top: 7px; }
+  .lead-page .lead-group-title h3 { font-size: 18px; }
+  .lead-page .lead-inquiry .form-field > :is(input, select, textarea) { padding-inline: 12px; }
+}
+
+@media (max-width: 360px) {
+  .lead-page h1 { font-size: 37px; }
+  .sky-site .lead-page .lead-inquiry { padding-inline: 16px; }
+}

@@ -1,44 +1,5 @@
+import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { companyVisionCopy } from "@/lib/copy/company";
-import { siteConfig } from "@/lib/config";
-import { buildPageMetadata } from "@/lib/seo";
-
-export const metadata: Metadata = buildPageMetadata({
-  title: `Vision — Autonomous Music Businesses, Run by AI | ${siteConfig.name}`,
-  description: `The platform for autonomous music operations. Our vision — artists and labels running release strategy, marketing, fans, and revenue with AI agents on ${siteConfig.name}.`,
-  path: "/company/vision",
-});
-
-/**
- * Company: Vision — copy from lib/copy/company (single source for human + machine view).
- */
-export default function VisionPage() {
-  const c = companyVisionCopy;
-
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-16">
-      <header className="mb-12">
-        <Link
-          href="/company"
-          className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] mb-4 inline-block"
-        >
-          ← Company
-        </Link>
-        <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] mb-4">
-          {c.title}
-        </h1>
-      </header>
-      <div className="prose prose-lg max-w-none text-[var(--foreground)]">
-        <p className="text-xl text-[var(--muted-foreground)] leading-relaxed mb-8">
-          {c.anchor}
-        </p>
-        {c.paragraphs.map((p) => (
-          <p key={p.slice(0, 40)} className="leading-relaxed mb-6">
-            {p}
-          </p>
-        ))}
-      </div>
-    </div>
-  );
-}
+import { MarketingPage, PageHero, PageCTA } from "@/components/marketing-migration/ui";
+export const metadata: Metadata=withPageMetadata({title:"Recoup’s vision for AI in music",description:"More attention for the music. Recoup builds AI systems that connect information, repeat useful work, and give music teams a practical way to improve operations.",alternates:{canonical:"/company/vision"}});
+export default function VisionPage(){return <MarketingPage><PageHero eyebrow="OUR VISION" title={<>More attention<br /><span>for the music.</span></>} description="AI should make it easier to run a music business, so the people behind it can spend more time on the work that needs them." /><article className="mm-article"><section><h2>The work around the music matters.</h2><p>A release needs a plan. A catalog needs attention. A royalty report needs to be right. Research, coordination, and repetitive preparation take time from the people responsible for making decisions.</p><p>We see an opportunity for agents to take on more of that work: connected to the right information, following a clear method, and producing something the team can use.</p></section><section><h2>A useful result comes first.</h2><p>The point is a prepared report, a well-supported research brief, a release plan, or a system that makes a recurring task easier to run. That’s the standard we build toward.</p><p>People set the direction, decide what good work means, and review the decisions that matter. AI needs to fit those responsibilities.</p></section><section><h2>One company. Different ways to put AI to work.</h2><p>Our platform gives music teams agents and recurring workflows. Recoup Skills brings music-industry methods into other AI tools. Our API lets developers build on that foundation.</p><p>Advisory, custom systems, and training bring those capabilities into a company’s own tools and ways of working. The result should be practical enough to use today, and clear enough for the team to improve tomorrow.</p></section></article><PageCTA title="Build the next useful thing with us." description="Bring your company’s work, context, and ambitions. We’ll talk through a place to start." /></MarketingPage>;}

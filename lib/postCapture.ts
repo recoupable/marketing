@@ -15,7 +15,7 @@
 export async function postCapture(
   payload: Record<string, unknown>,
 ): Promise<{ ok: true } | { ok: false; error: string }> {
-  const baseUrl = process.env.NEXT_PUBLIC_RECOUP_API_URL || "https://api.recoupable.dev";
+  const baseUrl = process.env.NEXT_PUBLIC_RECOUP_API_URL || (process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "https://recoup-api.vercel.app" : "https://test-recoup-api.vercel.app");
 
   try {
     const response = await fetch(`${baseUrl}/api/leads`, {

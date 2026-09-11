@@ -16,7 +16,7 @@ describe("postCapture", () => {
     await postCapture({ kind: "subscribe", source: "/audit", email: "ada@example.com" });
 
     const [url, init] = vi.mocked(fetch).mock.calls[0];
-    expect(String(url)).toBe("https://api.recoupable.dev/api/leads");
+    expect(String(url)).toBe("https://test-recoup-api.vercel.app/api/leads");
     expect(init?.method).toBe("POST");
     expect(JSON.parse(String(init?.body))).toEqual({
       kind: "subscribe",

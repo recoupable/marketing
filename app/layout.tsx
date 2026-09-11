@@ -1,112 +1,61 @@
 import type { Metadata } from "next";
-import {
-  Plus_Jakarta_Sans,
-  Instrument_Serif,
-  Silkscreen,
-} from "next/font/google";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import { GeistPixelSquare, GeistPixelTriangle } from "geist/font/pixel";
-import { siteConfig } from "@/lib/config";
-import { HumanMachineProvider } from "@/contexts/HumanMachineContext";
-import { ThemeProvider } from "@/contexts/ThemeContext";
-import { PrivyAuthProvider } from "@/contexts/PrivyAuthProvider";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { MachineContent } from "@/components/layout/MachineContent";
-import { ViewModeBar } from "@/components/layout/ViewModeBar";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import "@fontsource-variable/dm-sans";
+import "@fontsource/ibm-plex-mono/400.css";
 import "./globals.css";
-
+import { SiteFrame } from "@/components/site-frame";
+import { site } from "@/lib/site";
+import { isSearchPreview, organizationGraph, serializeJsonLd, searchDescription } from "@/lib/seo";
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
-    default: siteConfig.metadata.defaultTitle,
-    template: siteConfig.metadata.titleTemplate,
+    default: "Recoup — AI transformation for music funds and rightsholders",
+    template: "%s | Recoup",
   },
-  description: siteConfig.metadata.defaultDescription,
-  metadataBase: new URL(siteConfig.url),
-  icons: {
-    icon: [
-      { url: "/icons/favicon.ico", sizes: "any" },
-      { url: "/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: "/icons/apple-touch-icon.png",
+  description: searchDescription,
+  applicationName: site.name,
+  alternates: { types: { "application/rss+xml": `${site.url}/feed.xml` } },
+  robots: isSearchPreview() ? { index: false, follow: false } : { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION } : undefined,
   },
-  manifest: "/site.webmanifest",
   openGraph: {
-    siteName: siteConfig.name,
-    locale: siteConfig.metadata.locale,
+    title: "Recoup — AI transformation for music funds and rightsholders",
+    siteName: site.name,
+    url: site.url,
+    locale: "en_US",
+    description:
+      "Strategy, custom systems, and team training for music funds and rightsholders.",
     type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
-  twitter: {
-    card: "summary_large_image",
-  },
-  alternates: {
-    types: {
-      "application/rss+xml": "/feed.xml",
-    },
-  },
+  twitter: { card: "summary_large_image" },
 };
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-ui",
-  display: "swap",
-});
-
-const silkscreen = Silkscreen({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-bitmap",
-  display: "swap",
-});
-
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${instrumentSerif.variable} ${plusJakartaSans.variable} ${silkscreen.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelTriangle.variable}`}
-    >
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
+        <link rel="ard" href="/.well-known/ard.json" />
+        <link rel="api-catalog" href="/.well-known/api-catalog" />
+        <link rel="service-desc" type="application/json" href="/openapi.json" />
+      </head>
+      <body>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
+        <SiteFrame>{children}</SiteFrame>
+        <Analytics />
+        {process.env.NODE_ENV === "production" && <Script defer data-domain="recoupable.dev" src="https://plausible.io/js/script.js" strategy="afterInteractive" />}
         <script
+          type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: `(function(){var k='recoupable-theme:v1';var s=typeof localStorage!='undefined'&&(localStorage.getItem(k)==='dark'||localStorage.getItem(k)==='light')?localStorage.getItem(k):(typeof window!='undefined'&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',s);})();`,
+            __html: serializeJsonLd(organizationGraph()),
           }}
         />
-        <script
-          defer
-          data-domain={siteConfig.plausible.domain}
-          src={siteConfig.plausible.src}
-        />
-      </head>
-      <body className="min-h-screen flex flex-col antialiased">
-        <ThemeProvider>
-          <HumanMachineProvider>
-            <PrivyAuthProvider>
-              <Header />
-              <main className="flex-1">
-                <MachineContent>{children}</MachineContent>
-              </main>
-              <Footer />
-              <ViewModeBar />
-            </PrivyAuthProvider>
-          </HumanMachineProvider>
-        </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   );

@@ -1,0 +1,115 @@
+---
+title: "Authentication"
+description: "How authentication works in the Recoup API — API keys, access tokens, and organization access control."
+---
+
+## Overview
+
+Every request to the Recoup API must be authenticated using exactly one of two mechanisms:
+
+| Method | Header | Use case |
+|--------|--------|----------|
+| API Key | `x-api-key` | Server-to-server integrations |
+| Access Token | `Authorization: Bearer <token>` | Frontend apps authenticated via Privy |
+
+Providing both headers in the same request will result in a `401` error.
+
+<Note>
+Agent onboarding endpoints (`POST /api/agents/signup` and `POST /api/agents/verify`) are **unauthenticated** — they exist so agents can obtain their first API key. See the [Agents guide](/agents) for details.
+</Note>
+
+---
+
+## API Keys
+
+API keys are the primary way to authenticate programmatic access to the Recoup API. All API keys are **personal keys** — they are always tied to the account that created them.
+
+### Creating an API Key
+
+1. Navigate to [chat.recoupable.dev/keys](https://chat.recoupable.dev/keys)
+2. Enter a descriptive name (e.g. `"Production Server"`)
+3. Click **Create API Key**
+
+<Warning>
+Copy your API key immediately — it is only shown once. Keys are stored as a secure HMAC-SHA256 hash and cannot be retrieved after creation.
+</Warning>
+
+### Using an API Key
+
+Pass your key in the `x-api-key` header:
+
+```bash
+curl -X GET "https://api.recoupable.dev/api/tasks" \
+  -H "x-api-key: YOUR_API_KEY"
+```
+
+### Access to Organizations
+
+If your account belongs to one or more organizations, your API key can access data across those organizations by passing an `account_id` parameter on supported endpoints. This lets you filter to any account within an organization your key has access to.
+
+- **No org membership** — the key can only access its own account's data
+- **Org member** — the key can pass `account_id` to filter to any account within that organization
+
+<Info>
+Org membership is determined by the account's [organizations](/api-reference/organizations/list). An account gains access to an org when it is added as a member.
+</Info>
+
+---
+
+## Access Tokens (Privy)
+
+If you're building a frontend application that authenticates users via [Privy](https://privy.io), you can pass the user's Privy JWT as a Bearer token instead of an API key.
+
+```bash
+curl -X GET "https://api.recoupable.dev/api/tasks" \
+  -H "Authorization: Bearer YOUR_PRIVY_JWT"
+```
+
+The API validates the token against Privy, extracts the user's email, and resolves it to the corresponding Recoup account. Bearer tokens always authenticate as a personal account — they cannot act on behalf of an organization.
+
+---
+
+## How We Verify Access on API Calls
+
+Every authenticated request goes through `validateAuthContext`, which enforces the following access rules:
+
+### API Key or Bearer Token
+
+By default, requests access the key owner's own account. When `account_id` is provided:
+
+```
+Request includes account_id override?
+  ├── Same as key owner → Allowed (self-access)
+  ├── Key owner is a member of an org that contains account_id → Allowed
+  └── No matching org membership → 403 Forbidden
+```
+
+Membership is verified by checking the key owner's [organizations](/api-reference/organizations/list) for a record linking the account to the target account's organization.
+
+<Note>
+The Recoup internal admin organization has universal access to all accounts.
+</Note>
+
+### Organization Access via `organization_id`
+
+Some endpoints accept an `organization_id` parameter. When provided, the API additionally validates that the authenticated account is either:
+
+- A **member** of the organization, or
+- The **organization account itself**
+
+---
+
+## Error Responses
+
+| Status | Cause |
+|--------|-------|
+| `401` | Missing or invalid credentials, or both `x-api-key` and `Authorization` headers provided |
+| `403` | Valid credentials but insufficient access to the requested `account_id` or `organization_id` |
+
+---
+
+## Security Notes
+
+- API keys are **never stored in plaintext** — only an HMAC-SHA256 hash (keyed with your project secret) is persisted in the database
+- **Never include `account_id` in your API key creation request** — the account is always derived from your authenticated credentials
+- Rotate keys immediately if compromised via the [API Keys Management Page](https://chat.recoupable.dev/keys)
