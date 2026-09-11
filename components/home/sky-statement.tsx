@@ -4,8 +4,8 @@ import { Fragment, useEffect, useRef } from "react";
 import "./sky-statement.css";
 
 const statement = [
-  "Making AI useful takes more than another tool.",
-  "It takes a clear plan, connected business information, and a team that knows how to use it. We help you put all three in place.",
+  "Our mission is to make AI work for the people who create, own, and invest in music.",
+  "We help music companies put it to work across their business, so their teams can do more and their music can earn more.",
 ];
 const words = statement.join(" ").split(" ");
 const closingStart = words.length - statement[1].split(" ").length;
