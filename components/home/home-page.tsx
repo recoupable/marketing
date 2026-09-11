@@ -34,7 +34,7 @@ export default function HomePage() {
 
           <div className="sky-hero-copy">
             <p className="sky-eyebrow"><span /> For music funds &amp; rightsholders</p>
-            <h1 id="sky-title">AI transformation<br /><span>for music funds and rightsholders</span></h1>
+            <h1 id="sky-title">AI transformation services<br /><span>for music funds and rightsholders</span></h1>
             <p className="sky-hero-description">We identify where AI can help, build working systems you own, and train your team to use them.</p>
             <div className="sky-hero-actions"><a href="#case-studies" className="sky-button sky-button-glass">See the work <SkyArrow direction="down" /></a><Link href="/start-project" className="sky-button sky-button-lime">Get a Free Audit <Arrow circle /></Link></div>
           </div>
