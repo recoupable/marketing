@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 import "./skills-sky.css";
 
 export const metadata: Metadata = withPageMetadata({
-  title: "Recoup Skills — A record label in a box",
+  title: "Recoup Skills: A record label in a box",
   description:
     "Give your AI agent the playbooks to research artists, plan releases, create content, and work catalogs. Explore and install the open-source Recoup Skills collection.",
   alternates: { canonical: "/skills" },

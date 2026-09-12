@@ -7,7 +7,7 @@ import { SkyArrow } from "@/components/sky/arrow";
 import "./lab-sky.css";
 
 export const metadata: Metadata = withPageMetadata({
-  title: "Recoup Lab — Exploring AI in the business of music",
+  title: "Recoup Lab: Exploring AI in the business of music",
   description: "Real music-business questions, open-source tools, and new directions for AI. Explore the questions behind Recoup’s research and the Skills you can use today.",
   alternates: { canonical: "/lab" },
 });

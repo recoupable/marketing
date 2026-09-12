@@ -7,7 +7,7 @@ import { SkyArrow } from "@/components/sky/arrow";
 import "./about-sky.css";
 
 export const metadata: Metadata = withPageMetadata({
-  title: "About — Your music AI transformation partner",
+  title: "About: Your music AI transformation partner",
   description: "Recoup helps music funds and rightsholders adopt AI through strategy, custom systems, and team training. We also build music AI products and open-source playbooks.",
   alternates: { canonical: "/about" },
 });

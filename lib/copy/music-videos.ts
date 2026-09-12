@@ -18,7 +18,7 @@ export const musicVideosCopy = {
   skill: {
     cta: "Download skill",
     downloadUrl:
-      "https://dxfamqbi5zyezrs5.public.blob.vercel-storage.com/design-reviews/issue-2075/v2/recoup-music-video-Mzn2IuvHos3lVD71QyeYbJCifxlLrt.zip",
+      "/downloads/recoup-music-video.zip",
     sourceUrl:
       "https://github.com/recoupable/skills/tree/main/skills/recoup-music-video",
     eyebrow: "FREE TO DOWNLOAD",

@@ -23,7 +23,7 @@ export const northstarFixture = {
       "2025-Q2,NS-999,40000,USD",
     ],
     "deal_notes.txt": [
-      "SYNTHETIC EXAMPLE — fictional Northstar Catalog; all dates and amounts invented.",
+      "SYNTHETIC EXAMPLE: fictional Northstar Catalog; all dates and amounts invented.",
       "required_periods=2025-Q1|2025-Q2|2025-Q3",
       "Match statements by catalog_code only when exactly one catalog entry exists.",
       "Hold ambiguous and unmatched rows separately. Never infer an owner or a match.",

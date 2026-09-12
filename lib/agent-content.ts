@@ -34,7 +34,7 @@ const absolute = (path: string) => new URL(path, site.url).href;
 // content. Keep the representation label and source link when consuming them.
 const pages: PageSummary[] = [
   {
-    path: "/", title: "Recoup — AI transformation for music funds and rightsholders",
+    path: "/", title: "Recoup: AI transformation for music funds and rightsholders",
     description: "AI strategy, custom systems, and team training for the business of music.",
     keywords: "music funds rightsholders catalog owners consulting transformation strategy systems training",
     paragraphs: ["Recoup provides AI strategy, custom systems and integrations, and team training for music funds and rightsholders. Engagements cover choosing priorities, implementing a first system, training its users, and reviewing results to decide what comes next. Custom code is delivered in a repository the client controls, with documentation and team training. Ownership, licenses, dependencies, and ongoing costs are agreed in the project scope. A free audit reviews one workflow and identifies a practical first step; implementation is a separate engagement.", "Work includes catalog acquisition review, royalty reporting, artist research, content preparation, and company-specific integrations. Recoup also offers a hosted platform, an API, MCP access, a CLI, and open-source Skills."],
@@ -69,14 +69,14 @@ const pages: PageSummary[] = [
     links: [["Open Recoup", site.app], ["Platform plan", "/pricing#platform"], ["Custom systems", "/build"]],
   },
   {
-    path: "/pricing", title: "Recoup pricing — platform, advisory, and custom builds",
+    path: "/pricing", title: "Recoup pricing: platform, advisory, and custom builds",
     description: "Compare self-serve Platform, Advisory, Build + Partner, and custom Enterprise engagements. API and MCP are billed by usage.",
     keywords: "pricing price cost platform advisory consulting build partner enterprise monthly annual subscription API MCP usage",
     paragraphs: [...pricingSummary(), `Annual billing applies a ${annualDiscountPercent}% discount, then rounds the monthly equivalent down to a whole dollar. The annual charge is twelve times that rounded amount. The page shows both amounts.`, "Enterprise has a custom scope and price; contact Recoup to discuss the engagement. For advisory and builds, scope, deliverables, and delivery schedule are agreed together.", "API and MCP are billed separately by usage. Consult the credits documentation for billable operations and usage accounting. The annual subscription discount does not discount usage charges.", "Recoup Skills remains open source. The Platform plan bundles a hosted workspace and the music skill pack; an AI client or third-party services may have their own costs."],
     links: [["Compare plans", "/pricing#plans"], ["Open the platform", site.app], ["Discuss advisory", pricingInquiryHref("advisory")], ["Discuss a build", pricingInquiryHref("partner")], ["Discuss Enterprise", pricingInquiryHref("enterprise")], ["API and MCP usage", "/docs/credits"]],
   },
   {
-    path: "/skills", title: "Recoup Skills — music playbooks for your AI",
+    path: "/skills", title: "Recoup Skills: music playbooks for your AI",
     description: "Open-source methods for artist research, release planning, content preparation, and catalog work in compatible AI agents.",
     keywords: "skills plugins playbooks record label in a box install Claude marketplace open source agent methods",
     paragraphs: ["Recoup Skills brings music-business instructions, tools, and templates into compatible AI agents. The collection covers artist research, release planning, content, catalog work, and opportunity research.", "A skill is a reusable method for a job. It complements the tools an agent can access; some skills call the Recoup API or other services.", "The hosted Recoup app provides a workspace. Skills bring methods into an agent you already use. Installation and available integrations depend on the chosen AI client."],
