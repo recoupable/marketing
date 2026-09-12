@@ -35,11 +35,11 @@ export function SkyScrollPreview({ hero, statement, children }: {
   }, []);
 
   // Delay the transition until the lower hero has reached the reading area.
-  // Mobile uses a shorter travel distance but keeps a full paragraph reading hold.
+  // Mobile uses a shorter travel distance with the same brief reading hold.
   const phase = useTransform(scrollYProgress, (progress) => {
     if (!geometry) return 0;
     const { hero: height, viewport, compact } = geometry;
-    const travel = height + viewport * (compact ? 1 : 1.5);
+    const travel = height + viewport * (compact ? 0.68 : 1.09);
     const start = Math.max(0, height - viewport * 0.85);
     return (progress * travel - start) / (viewport * (compact ? 0.78 : 1));
   });
@@ -49,14 +49,15 @@ export function SkyScrollPreview({ hero, statement, children }: {
   const cloudProgress = useTransform(scrollYProgress, (progress) => {
     if (!geometry) return 0;
     const { hero: height, paragraph, viewport, compact } = geometry;
-    const travel = height + viewport * (compact ? 1 : 1.5);
+    const travel = height + viewport * (compact ? 0.68 : 1.09);
     const entrance = height - viewport * (compact ? 0.7 : 0.66) - paragraph / 2;
     return Math.max(0, Math.min(1, progress * travel / Math.max(1, entrance)));
   });
   const cloudScale = useTransform(cloudProgress, [0, 1], [1, 1.18]);
   const cloudY = useTransform(cloudProgress, [0, 1], [0, -Math.max(0, (geometry?.hero ?? 0) - (geometry?.viewport ?? 0))]);
-  const whiteOpacity = useTransform(phase, [1.55, 2.2], [0, 1]);
-  const statementOpacity = useTransform(phase, [1.55, 1.95], [1, 0]);
+  // The final word is sharp at 1.02; leave only a short beat before the exit.
+  const whiteOpacity = useTransform(phase, [1.14, 1.79], [0, 1]);
+  const statementOpacity = useTransform(phase, [1.14, 1.54], [1, 0]);
   const enhanced = geometry !== null && !reducedMotion && !(geometry.compact && geometry.viewport < 560);
   useSkyWordReveal(mission, phase, enhanced);
 

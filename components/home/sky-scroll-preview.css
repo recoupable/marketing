@@ -35,12 +35,12 @@
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement { min-height: 0; padding: 48px clamp(24px, 8vw, 128px); }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement p { max-width: 1320px; font-size: clamp(36px, 4.6vw, 72px); color: inherit; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement-accent { color: inherit; }
-  /* Compensate for the earlier entrance so the established services fade stays in sync. */
-  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-travel { display: block; height: 166svh; }
+  /* Shorten the reading hold and bring services forward with the sky fade. */
+  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-travel { display: block; height: 125svh; }
   @media (max-width: 760px) {
     .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-rest { margin-top: -68svh; }
     .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission { margin-top: -20svh; }
-    .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-travel { height: 120svh; }
+    .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-travel { height: 88svh; }
     .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement { padding: 28px 25px; }
     .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement p { font-size: clamp(25px, 6.5vw, 36px); line-height: 1.28; letter-spacing: -.035em; }
   }
