@@ -4,7 +4,8 @@
 .sky-scroll-rest.sky-page { padding-top: 0; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-scene { position: relative; isolation: isolate; }
+  /* The overlapping sticky stage must stop painting at the scene boundary. */
+  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-scene { position: relative; isolation: isolate; overflow: clip; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-stage {
     display: block; position: sticky; top: 0; height: 100svh; margin-bottom: -100svh;
     overflow: clip; pointer-events: none; z-index: -1;

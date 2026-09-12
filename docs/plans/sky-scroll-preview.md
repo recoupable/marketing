@@ -11,7 +11,7 @@ The opening uses the existing hero, cards, transparent customer logos, mission c
 - The white mission text rises into the center over 0.85 viewport units of scroll (nearly twice the original reveal distance), then holds against blue before the clouds fade to white.
 - The mission fades out with the clouds into white, followed by How we help and the rest of the existing page.
 
-`SkyScrollPreview` uses Motion scroll values for transforms and opacity. A ResizeObserver measures the responsive hero. Native wheel, touch, keyboard, fragment navigation, and reverse scrolling retain their behavior; no scroll interception or animation timers are used.
+`SkyScrollPreview` uses Motion scroll values for transforms and opacity. A ResizeObserver measures the responsive hero. The scene clips its overlapping sticky backdrop at its own boundary so the white fade layer cannot cover the following service cards. Native wheel, touch, keyboard, fragment navigation, and reverse scrolling retain their behavior; no scroll interception or animation timers are used.
 
 Phone widths use a shorter scroll distance. Reduced-motion users, very short phone viewports, and pages without JavaScript see a static hero followed by the complete mission. Print removes pinning and restores all content.
 
