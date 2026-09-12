@@ -11,6 +11,10 @@
 @media (prefers-reduced-motion: no-preference) {
   /* Bring services into the viewport as the final sky fade begins. */
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-rest { position: relative; z-index: 1; margin-top: -80svh; }
+  /* Share the fading sky behind incoming content instead of sliding in a white slab. */
+  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-rest,
+  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-rest > .sky-frame,
+  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-rest > .sky-frame > .sky-content { background: transparent; }
   /* The overlapping sticky stage must stop painting at the scene boundary. */
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-scene { position: relative; isolation: isolate; overflow: clip; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-stage {
