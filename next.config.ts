@@ -9,8 +9,17 @@ const nextConfig: NextConfig = {
     "/docs/raw/*": ["./content/docs/source/api-reference/openapi/*.json"],
     "/agent-api/v1/*": ["./content/docs/source/api-reference/openapi/*.json"],
   },
+  // Legacy URLs resolve to their final page in one 308; keep every destination a real route.
   async redirects() {
-    return [{ source: "/designs/sky", destination: "/", permanent: true }, { source: "/company/recoupable-records", destination: "/company/recoup-records", permanent: true }];
+    return [
+      { source: "/designs/sky", destination: "/", permanent: true },
+      { source: "/company/about", destination: "/about", permanent: true },
+      { source: "/company/recoup-records", destination: "/records", permanent: true },
+      { source: "/company/recoupable-records", destination: "/records", permanent: true },
+      { source: "/learn", destination: "/resources", permanent: true },
+      { source: "/build/start", destination: "/start-project?workflow=Custom%20systems", permanent: true },
+      { source: "/advisory/book", destination: "/contact?workflow=AI%20strategy", permanent: true },
+    ];
   },
   async headers() {
     return [
