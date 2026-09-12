@@ -1,26 +1,19 @@
-import { readdir, readFile, writeFile, mkdir, cp } from 'node:fs/promises';
+import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { compile } from '@mdx-js/mdx';
 import remarkGfm from 'remark-gfm';
 import { docsHeadingPlugin } from './docs-headings.ts';
 
-const destination = path.resolve('content/docs');
-const snapshot = path.join(destination, 'source');
-const source = process.argv[2] ? path.resolve(process.argv[2]) : snapshot;
-const importing = source !== snapshot;
+// content/docs/source is the only input. `--out <dir>` redirects the generated
+// files (default content/docs) so a test can compare a fresh build against the committed set.
+const outFlag = process.argv.indexOf('--out');
+const destination = path.resolve(outFlag === -1 ? 'content/docs' : process.argv[outFlag + 1]);
+const snapshot = path.resolve('content/docs/source');
 async function filesIn(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
   return (await Promise.all(entries.map(async entry => entry.isDirectory() ? filesIn(path.join(dir, entry.name)) : path.join(dir, entry.name)))).flat();
 }
-await mkdir(snapshot, { recursive: true });
-if (importing) {
-  for (const file of await filesIn(source)) {
-    if (!/\.(mdx|json)$/.test(file)) continue;
-    const relative = path.relative(source, file);
-    await mkdir(path.dirname(path.join(snapshot, relative)), { recursive: true });
-    await cp(file, path.join(snapshot, relative));
-  }
-}
+await mkdir(destination, { recursive: true });
 const config = JSON.parse(await readFile(path.join(snapshot, 'docs.json'), 'utf8'));
 const specs = {};
 for (const file of await filesIn(path.join(snapshot, 'api-reference/openapi'))) {
@@ -93,7 +86,7 @@ for(const [name,spec] of Object.entries(specs)) for(const [endpoint,item] of Obj
  pages.push({slug,title:operation.summary||additionalTitles[endpoint]||`${method.toUpperCase()} ${endpoint}`,description:operation.description?.split('\n')[0]||'',category:'Additional endpoints',group:name.replace('.json',''),source:`api-reference/openapi/${name}`,body:'',headings:[],api:{method:method.toUpperCase(),path:endpoint,spec:name},searchText:`${method.toUpperCase()} ${endpoint} ${operation.summary||''} ${operation.description||''}`});
  specOperations.push(slug);
 }
-const inventory={importedAt:new Date().toISOString(),navigationPages:nav.flatMap(t=>t.groups.flatMap(g=>g.pages)).length,guidePages:pages.filter(p=>!p.api).length,apiPages:pages.filter(p=>p.api).length,specifications:Object.keys(specs),additionalOperations:specOperations,gaps};
+const inventory={navigationPages:nav.flatMap(t=>t.groups.flatMap(g=>g.pages)).length,guidePages:pages.filter(p=>!p.api).length,apiPages:pages.filter(p=>p.api).length,specifications:Object.keys(specs),additionalOperations:specOperations,gaps};
 await writeFile(path.join(destination,'manifest.json'),JSON.stringify(pages));
 await writeFile(path.join(destination,'navigation.json'),JSON.stringify(nav,null,2));
 await writeFile(path.join(destination,'inventory.json'),JSON.stringify(inventory,null,2));
