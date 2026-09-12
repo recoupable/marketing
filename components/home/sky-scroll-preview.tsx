@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { useSkyLineReveal } from "./use-sky-line-reveal";
+import { useSkyWordReveal } from "./use-sky-word-reveal";
 import "./sky-scroll-preview.css";
 
 type Geometry = { hero: number; paragraph: number; viewport: number; compact: boolean };
@@ -58,7 +58,7 @@ export function SkyScrollPreview({ hero, statement, children }: {
   const whiteOpacity = useTransform(phase, [1.55, 2.2], [0, 1]);
   const statementOpacity = useTransform(phase, [1.55, 1.95], [1, 0]);
   const enhanced = geometry !== null && !reducedMotion && !(geometry.compact && geometry.viewport < 560);
-  useSkyLineReveal(mission, phase, enhanced);
+  useSkyWordReveal(mission, phase, enhanced);
 
   return <div className="sky-page sky-scroll-preview" id="sky-home" data-scroll-ready={enhanced}>
     <div className="sky-scroll-scene" ref={scene}>

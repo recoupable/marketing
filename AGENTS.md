@@ -184,6 +184,6 @@ The `/music-videos` offer retains PR #89’s copy, artist films, skill download,
 
 Both public footers use `components/sky/footer-signup.tsx` for email-only insights signup. It shares `lib/marketing-subscribe.ts` with the blog/resources forms and records `kind: subscribe`, `source: /footer` through the central lead API, preserving acquisition tags.
 
-The experimental `/preview/sky-scroll` route previews a scroll-driven hero and mission transition. It reuses `SkyHero`, `SkyStatement`, and `SkyContent`; its controller and styles live in `components/home/sky-scroll-preview.*`, with responsive line reveals in `components/home/use-sky-line-reveal.ts`. Keep it out of `publicRoutes` and the sitemap, with `noindex` metadata. The homepage retains its existing motion. See `docs/plans/sky-scroll-preview.md` for the scene and fallback behavior.
+The experimental `/preview/sky-scroll` route previews a scroll-driven hero and mission transition. It reuses `SkyHero`, `SkyStatement`, and `SkyContent`; its controller and styles live in `components/home/sky-scroll-preview.*`, with scroll-driven word reveals in `components/home/use-sky-word-reveal.ts`. Keep it out of `publicRoutes` and the sitemap, with `noindex` metadata. The homepage retains its existing motion. See `docs/plans/sky-scroll-preview.md` for the scene and fallback behavior.
 
 All routes use `SkySiteHeader` rendered by `SiteFrame`, with shared geometry in `components/sky/navigation.css`. Do not embed another header inside hero content. The cloud preview uses the shared header’s sky tone and overlay shell.
