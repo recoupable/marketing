@@ -35,9 +35,9 @@ The release should look like the Labs site, including the new homepage, services
 | Analytics | Plausible + Vercel Analytics + valuation/checkout custom events | Plausible and new referral logic | Preserve existing event contracts and attribution; add audit and service-plan events without dropping the old funnel events. |
 | App destinations | Config currently uses `app.recoupable.dev` | Shared config uses `chat.recoupable.dev`; valuation links to `teams` | Verify the intended destination per flow and preserve catalog/checkout deep-link parameters. |
 | Blog | MDX content, schema, index, feed and machine-copy registry | Imported/editorial content and new rendering | Compare every published slug, body, canonical, image and date. Preserve existing URLs and content ownership. |
-| Docs | Separate `recoupable/docs` repository and `docs.recoupable.dev` | Local `/docs` renderer and imported source snapshot | Keep docs repo as the authoring source and automate snapshot sync. Decide canonical URLs and subdomain redirects explicitly; do not ship two independently edited documentation sets. |
+| Docs | Separate `recoupable/docs` repository and `docs.recoupable.dev` | Local `/docs` renderer and imported source snapshot | Author documentation in `content/docs/source` and rebuild with `pnpm docs:build`; the docs repository is not read. Decide canonical URLs and subdomain redirects explicitly; do not ship two independently edited documentation sets. |
 | Legal and redirects | Terms/privacy and legacy company redirect | New legal routes/aliases; different redirects | Preserve substantive approved legal text and all existing inbound routes. Merge redirect maps rather than replacing next.config. |
-| Agent-readable site | `/api/machine?path=...` backed by copy registry | Expanded agents/llms/API discovery endpoints | Preserve compatibility for the existing endpoint and ensure machine answers match the new human copy and pricing. |
+| Agent-readable site | `/api/machine?path=...` backed by copy registry | Expanded agents/llms/API discovery endpoints | `/api/machine` is a permanent redirect to `/llms.txt`; the discovery endpoints answer from the public content registry so machine answers match the human copy and pricing. |
 | Design rules | Parent mono DESIGN mandates achromatic chrome and different fonts | Sky uses white, blue, green/lime, DM Sans and IBM Plex Mono | Add an explicit marketing-specific Sky override and local DESIGN guide. Do not change chat/admin styling as part of this release. |
 
 ## Branch and implementation sequence
@@ -85,7 +85,7 @@ The release should look like the Labs site, including the new homepage, services
 - Lead forms post through the central API. Budget, timing, attribution, selected plan, and audit/ROI inquiry context remain in the submitted brief; no marketing Attio credentials are required. Newsletter uses the same central API.
 - Valuation retains Spotify search, route-scoped Privy email login, credits-based API valuation, and the app report handoff.
 - Vercel Analytics retained (Plausible removed in recoupable/app#2081 row B). All existing MDX blog slugs are represented in the migrated blog snapshot. Content, transcripts, and workflows are preserved.
-- Legacy machine endpoint derives content from the new public content registry. Legacy redirects retained; previews disallow indexing.
+- `/api/machine` permanently redirects to `/llms.txt`; the public content registry serves the discovery endpoints. Legacy redirects are 308 rules in `next.config.ts`; previews disallow indexing.
 - Production release remains gated on provisioning the new platform billing plan and entitlements, verifying live lead delivery, confirming valuation auth/credit behavior, and reconciling the open pricing/funnel PRs listed above. The preview does not create new Stripe products or charge through legacy plan IDs.
 - Audit and ROI results stay ungated as approved in Labs; explicit inquiry handoffs carry their results into the lead form.
 - Docs are a versioned snapshot, not a live dependency on a sibling checkout. The docs subdomain is unchanged.
