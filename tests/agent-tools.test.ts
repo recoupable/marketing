@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import test from "node:test";
+import { test, expect } from "vitest";
 import { agentToolDefinitions, AgentToolInputError, executeUtilityTool, isUtilityToolName } from "../lib/agent-tools.ts";
 import { calculateWorkflowROI, readinessQuestions, recommendReadiness } from "../lib/marketing-migration-tools.ts";
 
@@ -8,39 +7,39 @@ const answers = Object.fromEntries(readinessQuestions.map(question => [question.
 const brief = { workflow: "Our finance team reconciles royalty statements by hand.", desiredOutcome: "Prepare a report with unresolved differences ready for review." };
 
 function invalid(run: () => unknown, field?: string) {
-  assert.throws(run, error => {
-    assert.ok(error instanceof AgentToolInputError);
-    assert.equal(error.code, "INVALID_INPUT");
-    if (field) assert.ok(error.issues.some(issue => issue.field === field), JSON.stringify(error.issues));
+  expect(run).toThrow(expect.toSatisfy((error: unknown) => {
+    if (!(error instanceof AgentToolInputError)) expect.unreachable("Expected AgentToolInputError");
+    expect(error.code).toBe("INVALID_INPUT");
+    if (field) expect(error.issues.some(issue => issue.field === field), JSON.stringify(error.issues)).toBeTruthy();
     return true;
-  });
+  }));
 }
 
 test("the five public tool contracts distinguish content reading from local utilities", () => {
-  assert.deepEqual(agentToolDefinitions.map(tool => tool.name), ["search_recoup", "read_recoup_page", "estimate_workflow_roi", "assess_workflow_readiness", "prepare_project_brief"]);
-  assert.ok(agentToolDefinitions.every(tool => tool.annotations.readOnlyHint && tool.inputSchema.additionalProperties === false));
-  assert.equal(isUtilityToolName("prepare_project_brief"), true);
-  assert.equal(isUtilityToolName("search_recoup"), false);
-  assert.throws(() => executeUtilityTool("submit_lead", {}), error => error instanceof AgentToolInputError && error.code === "UNKNOWN_TOOL");
+  expect(agentToolDefinitions.map(tool => tool.name)).toStrictEqual(["search_recoup", "read_recoup_page", "estimate_workflow_roi", "assess_workflow_readiness", "prepare_project_brief"]);
+  expect(agentToolDefinitions.every(tool => tool.annotations.readOnlyHint && tool.inputSchema.additionalProperties === false)).toBeTruthy();
+  expect(isUtilityToolName("prepare_project_brief")).toBe(true);
+  expect(isUtilityToolName("search_recoup")).toBe(false);
+  expect(() => executeUtilityTool("submit_lead", {})).toThrow(expect.toSatisfy(error => error instanceof AgentToolInputError && error.code === "UNKNOWN_TOOL"));
 });
 
 test("ROI uses the visible calculator, preserves assumptions, and explains units and limits", () => {
   const result = executeUtilityTool("estimate_workflow_roi", assumptions);
-  assert.equal(result.status, "calculated");
-  if (result.status !== "calculated") assert.fail();
-  assert.deepEqual(result.result, calculateWorkflowROI(assumptions));
-  assert.deepEqual(result.assumptions, assumptions);
-  assert.equal(result.units.capacityValue, "USD/month");
-  assert.match(result.interpretation, /not guaranteed cash savings/);
-  assert.deepEqual(assumptions, { monthlyHours: 40, hourlyCost: 40, timeReduction: 50, monthlySystemCost: 100, setupCost: 2500 });
+  expect(result.status).toBe("calculated");
+  if (result.status !== "calculated") expect.unreachable();
+  expect(result.result).toStrictEqual(calculateWorkflowROI(assumptions));
+  expect(result.assumptions).toStrictEqual(assumptions);
+  expect(result.units.capacityValue).toBe("USD/month");
+  expect(result.interpretation).toMatch(/not guaranteed cash savings/);
+  expect(assumptions).toStrictEqual({ monthlyHours: 40, hourlyCost: 40, timeReduction: 50, monthlySystemCost: 100, setupCost: 2500 });
 });
 
 test("ROI keeps negative value and null payback instead of promising returns", () => {
   const result = executeUtilityTool("estimate_workflow_roi", { monthlyHours: 10, hourlyCost: 20, timeReduction: 50, monthlySystemCost: 200, setupCost: 1000 });
-  if (result.status !== "calculated") assert.fail();
-  assert.equal(result.result.monthlyNetValue, -100);
-  assert.equal(result.result.firstYearNetValue, -2200);
-  assert.equal(result.result.paybackMonths, null);
+  if (result.status !== "calculated") expect.unreachable();
+  expect(result.result.monthlyNetValue).toBe(-100);
+  expect(result.result.firstYearNetValue).toBe(-2200);
+  expect(result.result.paybackMonths).toBe(null);
 });
 
 test("ROI requires every assumption and rejects coercion, nonfinite values, and out-of-range values", () => {
@@ -56,9 +55,9 @@ test("ROI requires every assumption and rejects coercion, nonfinite values, and 
     invalid(() => executeUtilityTool("estimate_workflow_roi", { ...assumptions, [key]: bad }), key);
   }
   const zero = executeUtilityTool("estimate_workflow_roi", Object.fromEntries(Object.keys(assumptions).map(key => [key, 0])));
-  if (zero.status !== "calculated") assert.fail();
-  assert.equal(zero.result.hoursSaved, 0);
-  assert.equal(zero.result.paybackMonths, null);
+  if (zero.status !== "calculated") expect.unreachable();
+  expect(zero.result.hoursSaved).toBe(0);
+  expect(zero.result.paybackMonths).toBe(null);
 });
 
 test("readiness uses the current seven questions and recommendations without guessing", () => {
@@ -66,9 +65,9 @@ test("readiness uses the current seven questions and recommendations without gue
     for (const option of question.options) {
       const supplied = { ...answers, [question.id]: option };
       const result = executeUtilityTool("assess_workflow_readiness", { answers: supplied });
-      if (result.status !== "assessed") assert.fail();
-      assert.deepEqual(result.answers, supplied);
-      assert.deepEqual(result.recommendation, recommendReadiness(supplied));
+      if (result.status !== "assessed") expect.unreachable();
+      expect(result.answers).toStrictEqual(supplied);
+      expect(result.recommendation).toStrictEqual(recommendReadiness(supplied));
     }
     const missing: Record<string, unknown> = { ...answers };
     delete missing[question.id];
@@ -81,16 +80,16 @@ test("readiness uses the current seven questions and recommendations without gue
 
 test("project briefs are readable drafts with no submission and no contact data in a URL", () => {
   const result = executeUtilityTool("prepare_project_brief", { ...brief, tools: "  Spreadsheet exports and our royalty system  ", frequency: "Every month", interest: "Custom systems" });
-  if (result.status !== "draft") assert.fail();
-  assert.equal(result.submitted, false);
-  assert.equal(result.nextStep, "/contact");
-  assert.equal(result.draft.interest, "Custom systems");
-  assert.equal(result.draft.message, `Current workflow\n${brief.workflow}\n\nDesired outcome\n${brief.desiredOutcome}\n\nTools and information\nSpreadsheet exports and our royalty system\n\nHow often the work happens\nEvery month`);
-  assert.deepEqual(Object.keys(result).sort(), ["draft", "nextStep", "status", "submitted"]);
+  if (result.status !== "draft") expect.unreachable();
+  expect(result.submitted).toBe(false);
+  expect(result.nextStep).toBe("/contact");
+  expect(result.draft.interest).toBe("Custom systems");
+  expect(result.draft.message).toBe(`Current workflow\n${brief.workflow}\n\nDesired outcome\n${brief.desiredOutcome}\n\nTools and information\nSpreadsheet exports and our royalty system\n\nHow often the work happens\nEvery month`);
+  expect(Object.keys(result).sort()).toStrictEqual(["draft", "nextStep", "status", "submitted"]);
   const minimal = executeUtilityTool("prepare_project_brief", brief);
-  if (minimal.status !== "draft") assert.fail();
-  assert.equal(minimal.draft.interest, "Not sure yet");
-  assert.ok(!minimal.draft.message.includes("undefined"));
+  if (minimal.status !== "draft") expect.unreachable();
+  expect(minimal.draft.interest).toBe("Not sure yet");
+  expect(!minimal.draft.message.includes("undefined")).toBeTruthy();
 });
 
 test("project briefs enforce meaningful bounded text and known interests", () => {

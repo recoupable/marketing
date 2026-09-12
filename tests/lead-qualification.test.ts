@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import { test } from "node:test";
+import { test, expect } from "vitest";
 import { companyTypes, projectBudgets, projectTimelines, validateLeadQualification, leadQualificationEntries } from "../lib/lead-qualification.ts";
 import { createInquiryHandler, validateInquiry } from "../lib/inquiries.ts";
 import { prepareInquiryEmail, hasInquiryReceipt } from "../lib/inquiry-client.ts";
@@ -37,26 +36,26 @@ function offlineHandler() {
 }
 
 test("normalizes optional details, preserves multiline tools, and accepts every defined option", () => {
-  assert.deepEqual(validateLeadQualification(minimal), { ...minimal, role: "", companyWebsite: "", phone: "", tools: "" });
+  expect(validateLeadQualification(minimal)).toStrictEqual({ ...minimal, role: "", companyWebsite: "", phone: "", tools: "" });
   const result = validateLeadQualification(full);
-  assert.equal(result.role, "Head of catalog operations");
-  assert.equal(result.companyWebsite, "https://music.example.com/team");
-  assert.equal(result.phone, "+1 (212) 555-0100 ext. 4");
-  assert.equal(result.tools, full.tools);
-  for (const companyType of companyTypes) assert.equal(validateLeadQualification({ ...minimal, companyType }).companyType, companyType);
-  for (const budget of projectBudgets) assert.equal(validateLeadQualification({ ...minimal, budget }).budget, budget);
-  for (const timeline of projectTimelines) assert.equal(validateLeadQualification({ ...minimal, timeline }).timeline, timeline);
-  assert.equal(validateLeadQualification({ ...minimal, budget: `  ${minimal.budget} ` }).budget, minimal.budget);
+  expect(result.role).toBe("Head of catalog operations");
+  expect(result.companyWebsite).toBe("https://music.example.com/team");
+  expect(result.phone).toBe("+1 (212) 555-0100 ext. 4");
+  expect(result.tools).toBe(full.tools);
+  for (const companyType of companyTypes) expect(validateLeadQualification({ ...minimal, companyType }).companyType).toBe(companyType);
+  for (const budget of projectBudgets) expect(validateLeadQualification({ ...minimal, budget }).budget).toBe(budget);
+  for (const timeline of projectTimelines) expect(validateLeadQualification({ ...minimal, timeline }).timeline).toBe(timeline);
+  expect(validateLeadQualification({ ...minimal, budget: `  ${minimal.budget} ` }).budget).toBe(minimal.budget);
 });
 
 test("rejects missing or invented required selections, non-objects, unexpected fields and malformed optional values", () => {
-  for (const value of [null, undefined, [], "Music fund", {}, { ...minimal, companyType: "Bank" }, { ...minimal, budget: "Whatever" }, { ...minimal, timeline: "Tomorrow" }, { ...minimal, companyType: "" }, { ...minimal, internalNotes: "hidden" }]) assert.throws(() => validateLeadQualification(value));
+  for (const value of [null, undefined, [], "Music fund", {}, { ...minimal, companyType: "Bank" }, { ...minimal, budget: "Whatever" }, { ...minimal, timeline: "Tomorrow" }, { ...minimal, companyType: "" }, { ...minimal, internalNotes: "hidden" }]) expect(() => validateLeadQualification(value)).toThrow();
   for (const [field, limit] of [["role", 120], ["companyWebsite", 2048], ["phone", 40], ["tools", 1200]] as const) {
     for (const value of [null, 123, [], "x".repeat(limit + 1), "a\u0000b"])
-      assert.throws(() => validateLeadQualification({ ...minimal, [field]: value }), `${field} ${typeof value}`);
+      expect(() => validateLeadQualification({ ...minimal, [field]: value }), `${field} ${typeof value}`).toThrow();
   }
-  assert.throws(() => validateLeadQualification({ ...minimal, role: "Director\nFake field: text" }));
-  assert.throws(() => validateLeadQualification({ ...minimal, phone: "+1\r\nFake field: text" }));
+  expect(() => validateLeadQualification({ ...minimal, role: "Director\nFake field: text" })).toThrow();
+  expect(() => validateLeadQualification({ ...minimal, phone: "+1\r\nFake field: text" })).toThrow();
 });
 
 test("normalizes company domains without fetching and rejects malicious schemes, credentials and malformed hosts", () => {
@@ -67,44 +66,44 @@ test("normalizes company domains without fetching and rejects malicious schemes,
     ["http://example.com/", "http://example.com/"],
     ["bücher.example", "https://xn--bcher-kva.example/"],
     ["   ", ""],
-  ]) assert.equal(validateLeadQualification({ ...minimal, companyWebsite: input }).companyWebsite, expected);
+  ]) expect(validateLeadQualification({ ...minimal, companyWebsite: input }).companyWebsite).toBe(expected);
   for (const companyWebsite of [
     "javascript:alert(1)", "data:text/html,test", "ftp://example.com", "file:///etc/passwd", "mailto:user@example.com",
     "https://user:secret@example.com", "https://-invalid.example.com", "https://example..com", "https://localhost",
     "not a domain", "https://example.com\n.evil.test", "https://example.com\\@evil.test", "https://example.com:99999", "https://[::1]",
-  ]) assert.throws(() => validateLeadQualification({ ...minimal, companyWebsite }), companyWebsite);
+  ]) expect(() => validateLeadQualification({ ...minimal, companyWebsite }), companyWebsite).toThrow();
 });
 
 test("CRM note and copied/email inquiry contain the same normalized qualification entries", async () => {
   const qualification = validateLeadQualification(full);
   const { handle, calls } = offlineHandler();
-  assert.equal(await hasInquiryReceipt(await handle(request(full))), true);
+  expect(await hasInquiryReceipt(await handle(request(full)))).toBe(true);
   const note = calls.find(call => call.method === "POST")!.body as { message: string };
   const plain = note.message.replace(/\\([\\`*_{}[\]<>()#+.!|~=-])/g, "$1");
   const prepared = prepareInquiryEmail("hi@recoupable.dev", { ...inquiry, qualification });
   const email = new URL(prepared.href).searchParams.get("body")!;
   const entries = leadQualificationEntries(qualification);
-  assert.deepEqual(entries.slice(0, 3).map(([label]) => label), ["Initial budget (USD)", "Timeline", "Company type"]);
+  expect(entries.slice(0, 3).map(([label]) => label)).toStrictEqual(["Initial budget (USD)", "Timeline", "Company type"]);
   for (const [label, value] of entries) {
-    assert.ok(plain.includes(`${label}: ${value}`), label);
-    assert.ok(prepared.text.includes(`${label}: ${value}`), label);
-    assert.ok(email.includes(`${label}: ${value}`), label);
+    expect(plain.includes(`${label}: ${value}`), label).toBeTruthy();
+    expect(prepared.text.includes(`${label}: ${value}`), label).toBeTruthy();
+    expect(email.includes(`${label}: ${value}`), label).toBeTruthy();
   }
-  assert.ok(prepared.text.endsWith(inquiry.message));
-  assert.equal(calls[0].body?.email, inquiry.email);
-  assert.ok(calls.every(call => call.url.startsWith("https://api.recoup.test/api/")));
+  expect(prepared.text.endsWith(inquiry.message)).toBeTruthy();
+  expect(calls[0].body?.email).toBe(inquiry.email);
+  expect(calls.every(call => call.url.startsWith("https://api.recoup.test/api/"))).toBeTruthy();
 });
 
 test("invalid supplied qualification returns 400 without calling the CRM, while legacy requests still work", async () => {
   const { handle, calls } = offlineHandler();
   for (const qualification of [null, "invalid", [], {}, { ...full, budget: "invalid" }, { ...full, role: "x".repeat(121) }, { ...full, companyWebsite: "javascript:alert(1)" }]) {
     const response = await handle(request(qualification));
-    assert.equal(response.status, 400);
-    assert.equal((await response.json()).ok, false);
+    expect(response.status).toBe(400);
+    expect((await response.json()).ok).toBe(false);
   }
-  assert.equal(calls.length, 0);
-  assert.ok(!Object.hasOwn(validateInquiry(inquiry, now), "qualification"));
-  assert.equal(await hasInquiryReceipt(await handle(request())), true);
+  expect(calls.length).toBe(0);
+  expect(!Object.hasOwn(validateInquiry(inquiry, now), "qualification")).toBeTruthy();
+  expect(await hasInquiryReceipt(await handle(request()))).toBe(true);
 });
 
 test("qualification is preserved in the API message and participates in the inquiry fingerprint", async () => {
@@ -113,10 +112,10 @@ test("qualification is preserved in the API message and participates in the inqu
   await handle(request(qualification));
   await handle(request({ ...qualification, budget: "$100,000+" }));
   const notes = calls.filter(call => call.method === "POST").map(call => (call.body as { message: string }).message);
-  assert.equal(notes.length, 2);
-  assert.ok(notes[0].includes(qualification.role));
-  assert.ok(notes[0].includes(qualification.tools));
+  expect(notes.length).toBe(2);
+  expect(notes[0].includes(qualification.role)).toBeTruthy();
+  expect(notes[0].includes(qualification.tools)).toBeTruthy();
   const markers = notes.map(note => note.match(/Submission ID: ([a-f\d]{64})/)?.[1]);
-  assert.ok(markers[0]);
-  assert.notEqual(markers[0], markers[1]);
+  expect(markers[0]).toBeTruthy();
+  expect(markers[0]).not.toBe(markers[1]);
 });

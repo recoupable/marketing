@@ -13,8 +13,7 @@
     "docs:import": "node scripts/import-docs.mjs",
     "docs:check": "node scripts/import-docs-check.mjs",
     "seo:check": "python3 scripts/audit-seo.py",
-    "agents:check": "node scripts/audit-agents.mjs",
-    "test:sky": "node --test tests/*.test.ts"
+    "agents:check": "node scripts/audit-agents.mjs"
   },
   "dependencies": {
     "@privy-io/react-auth": "^3.31.0",

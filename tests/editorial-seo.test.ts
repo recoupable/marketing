@@ -1,6 +1,5 @@
-import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import test from "node:test";
+import { test, expect } from "vitest";
 import type { BlogPost } from "../lib/blog";
 import type { DocPage } from "../lib/docs";
 import {
@@ -16,64 +15,64 @@ test("article metadata is page-specific and preserves production/preview robots 
   for (const post of posts) {
     const metadata = JSON.parse(JSON.stringify(blogPostMetadata(post, siteUrl)));
     const url = `${siteUrl}/blog/${post.slug}`;
-    assert.equal(metadata.alternates.canonical, url);
-    assert.equal(metadata.alternates.types["application/rss+xml"], `${siteUrl}/feed.xml`);
-    assert.equal(metadata.openGraph.url, url);
-    assert.equal(metadata.openGraph.title, post.title);
-    assert.equal(metadata.twitter.description, blogDescription(post));
-    assert.equal(metadata.openGraph.description, blogDescription(post));
-    assert.equal(metadata.openGraph.publishedTime, post.date);
-    assert.equal(metadata.openGraph.modifiedTime, post.updatedAt);
-    assert.match(metadata.openGraph.images[0].url, /^https:\/\//);
-    assert.match(metadata.twitter.images[0], /^https:\/\//);
-    assert.equal(metadata.robots, undefined);
+    expect(metadata.alternates.canonical).toBe(url);
+    expect(metadata.alternates.types["application/rss+xml"]).toBe(`${siteUrl}/feed.xml`);
+    expect(metadata.openGraph.url).toBe(url);
+    expect(metadata.openGraph.title).toBe(post.title);
+    expect(metadata.twitter.description).toBe(blogDescription(post));
+    expect(metadata.openGraph.description).toBe(blogDescription(post));
+    expect(metadata.openGraph.publishedTime).toBe(post.date);
+    expect(metadata.openGraph.modifiedTime).toBe(post.updatedAt);
+    expect(metadata.openGraph.images[0].url).toMatch(/^https:\/\//);
+    expect(metadata.twitter.images[0]).toMatch(/^https:\/\//);
+    expect(metadata.robots).toBe(undefined);
   }
 });
 
 test("structured authors distinguish the credited team from people without inventing biographies", () => {
-  assert.equal(blogAuthor("Recoupable Team", siteUrl)["@type"], "Organization");
-  assert.equal(blogAuthor("Sidney Swift", siteUrl)["@type"], "Person");
-  assert.equal(blogAuthorContext("Sidney Swift")?.description, "Founder of Recoup");
-  assert.deepEqual(blogAuthor("sweetman", siteUrl), { "@type": "Person", name: "sweetman" });
-  assert.equal(blogAuthorContext("sweetman"), undefined);
+  expect(blogAuthor("Recoupable Team", siteUrl)["@type"]).toBe("Organization");
+  expect(blogAuthor("Sidney Swift", siteUrl)["@type"]).toBe("Person");
+  expect(blogAuthorContext("Sidney Swift")?.description).toBe("Founder of Recoup");
+  expect(blogAuthor("sweetman", siteUrl)).toStrictEqual({ "@type": "Person", name: "sweetman" });
+  expect(blogAuthorContext("sweetman")).toBe(undefined);
 });
 
 test("article schemas preserve supplied dates, canonicalize images, and reference one publisher", () => {
   for (const post of posts) {
     const graph = JSON.parse(JSON.stringify(blogPostJsonLd(post, siteUrl)))["@graph"];
     const article = graph[0];
-    assert.equal(article["@type"], "BlogPosting");
-    assert.equal(article.publisher["@id"], `${siteUrl}/#organization`);
-    assert.equal(article.datePublished, post.date);
-    assert.equal(article.dateModified, post.updatedAt);
-    assert.equal(article.mainEntityOfPage["@id"], `${siteUrl}/blog/${post.slug}`);
-    if (post.coverImage) assert.match(article.image, /^https:\/\//);
-    assert.equal(graph[1].itemListElement.at(-1).item, article.url);
+    expect(article["@type"]).toBe("BlogPosting");
+    expect(article.publisher["@id"]).toBe(`${siteUrl}/#organization`);
+    expect(article.datePublished).toBe(post.date);
+    expect(article.dateModified).toBe(post.updatedAt);
+    expect(article.mainEntityOfPage["@id"]).toBe(`${siteUrl}/blog/${post.slug}`);
+    if (post.coverImage) expect(article.image).toMatch(/^https:\/\//);
+    expect(graph[1].itemListElement.at(-1).item).toBe(article.url);
   }
   const localCover = { ...posts[0], coverImage: "/images/sky/hero-clouds.webp", updatedAt: undefined };
   const article = JSON.parse(JSON.stringify(blogPostJsonLd(localCover, `${siteUrl}/`)))["@graph"][0];
-  assert.equal(article.image, `${siteUrl}/images/sky/hero-clouds.webp`);
-  assert.ok(!("dateModified" in article), "A missing source update date must not become a fabricated freshness signal");
+  expect(article.image).toBe(`${siteUrl}/images/sky/hero-clouds.webp`);
+  expect(!("dateModified" in article), "A missing source update date must not become a fabricated freshness signal").toBeTruthy();
 });
 
 test("weak imported excerpts are replaced by faithful useful summaries without changing article content", () => {
   const tutorial = posts.find(post => post.slug === "install-marketplace-claude-desktop")!;
   const before = JSON.stringify(tutorial);
-  assert.match(blogDescription(tutorial), /Claude Desktop/);
-  assert.notEqual(blogDescription(tutorial), "By Sidney Swift");
-  assert.equal(JSON.stringify(tutorial), before);
+  expect(blogDescription(tutorial)).toMatch(/Claude Desktop/);
+  expect(blogDescription(tutorial)).not.toBe("By Sidney Swift");
+  expect(JSON.stringify(tutorial)).toBe(before);
 });
 
 test("related articles prioritize topic relevance and never recommend the current article", () => {
   const costs = posts.find(post => post.slug === "how-much-does-ai-music-marketing-cost")!;
-  assert.equal(relatedBlogPosts(costs, posts)[0].slug, "ai-music-marketing-roi");
+  expect(relatedBlogPosts(costs, posts)[0].slug).toBe("ai-music-marketing-roi");
   const skills = posts.find(post => post.slug === "install-marketplace-claude-desktop")!;
-  assert.equal(relatedBlogPosts(skills, posts)[0].slug, "bring-your-own-agent");
+  expect(relatedBlogPosts(skills, posts)[0].slug).toBe("bring-your-own-agent");
   for (const post of posts) {
     const related = relatedBlogPosts(post, posts);
-    assert.equal(related.length, 2);
-    assert.ok(related.every(candidate => candidate.slug !== post.slug));
-    assert.equal(new Set(related.map(candidate => candidate.slug)).size, related.length);
+    expect(related.length).toBe(2);
+    expect(related.every(candidate => candidate.slug !== post.slug)).toBeTruthy();
+    expect(new Set(related.map(candidate => candidate.slug)).size).toBe(related.length);
   }
 });
 
@@ -82,17 +81,17 @@ test("all documentation metadata is unique to its URL and does not expose Markdo
   for (const page of docs) {
     const metadata = JSON.parse(JSON.stringify(documentationMetadata(page, page.slug, siteUrl)));
     const url = `${siteUrl}/docs${page.slug ? `/${page.slug}` : ""}`;
-    assert.equal(metadata.alternates.canonical, url);
-    assert.equal(metadata.alternates.types["text/markdown"], `${siteUrl}/docs/raw/${page.slug || "index"}.md`);
-    assert.equal(metadata.openGraph.url, url);
-    assert.ok(metadata.description.length > 0 && metadata.description.length <= 240);
-    assert.ok(!/[`*]|\]\(/.test(metadata.description));
-    assert.equal(metadata.twitter.description, metadata.description);
-    assert.equal(metadata.robots, undefined);
-    assert.ok(!titles.has(metadata.title), `Repeated search title: ${metadata.title}`);
+    expect(metadata.alternates.canonical).toBe(url);
+    expect(metadata.alternates.types["text/markdown"]).toBe(`${siteUrl}/docs/raw/${page.slug || "index"}.md`);
+    expect(metadata.openGraph.url).toBe(url);
+    expect(metadata.description.length > 0 && metadata.description.length <= 240).toBeTruthy();
+    expect(!/[`*]|\]\(/.test(metadata.description)).toBeTruthy();
+    expect(metadata.twitter.description).toBe(metadata.description);
+    expect(metadata.robots).toBe(undefined);
+    expect(!titles.has(metadata.title), `Repeated search title: ${metadata.title}`).toBeTruthy();
     titles.add(metadata.title);
   }
-  assert.equal(documentationMetadata(undefined, "api-reference", siteUrl).alternates?.types, undefined);
+  expect(documentationMetadata(undefined, "api-reference", siteUrl).alternates?.types).toBe(undefined);
 });
 
 test("documentation breadcrumbs point only to real routes; navigation groups are not fake pages", () => {
@@ -100,20 +99,20 @@ test("documentation breadcrumbs point only to real routes; navigation groups are
   for (const [page, key] of [...docs.map(page => [page, page.slug] as const), [undefined, "api-reference"] as const]) {
     const graph = JSON.parse(JSON.stringify(documentationJsonLd(page, key, siteUrl)))["@graph"];
     const article = graph[0];
-    assert.equal(article["@type"], key && key !== "api-reference" ? "TechArticle" : "CollectionPage");
-    assert.equal(article.publisher["@id"], `${siteUrl}/#organization`);
-    assert.equal(article.dateModified, undefined);
+    expect(article["@type"]).toBe(key && key !== "api-reference" ? "TechArticle" : "CollectionPage");
+    expect(article.publisher["@id"]).toBe(`${siteUrl}/#organization`);
+    expect(article.dateModified).toBe(undefined);
     const crumbs: { item: string; position: number }[] = graph[1].itemListElement;
-    assert.ok(crumbs.every(crumb => realRoutes.has(crumb.item)));
-    assert.deepEqual(crumbs.map(crumb => crumb.position), crumbs.map((_, index) => index + 1));
-    assert.equal(crumbs.at(-1)?.item, article.url);
-    assert.equal(new Set(crumbs.map(crumb => crumb.item)).size, crumbs.length);
+    expect(crumbs.every(crumb => realRoutes.has(crumb.item))).toBeTruthy();
+    expect(crumbs.map(crumb => crumb.position)).toStrictEqual(crumbs.map((_, index) => index + 1));
+    expect(crumbs.at(-1)?.item).toBe(article.url);
+    expect(new Set(crumbs.map(crumb => crumb.item)).size).toBe(crumbs.length);
   }
 });
 
 test("blog collection schema contains exactly the visible article destinations", () => {
   const graph = JSON.parse(JSON.stringify(blogIndexJsonLd(posts, siteUrl)))["@graph"];
-  assert.equal(graph[0]["@id"], `${siteUrl}/blog#blog`);
+  expect(graph[0]["@id"]).toBe(`${siteUrl}/blog#blog`);
   const items: { url: string }[] = graph[1].mainEntity.itemListElement;
-  assert.deepEqual(items.map(item => item.url), posts.map(post => `${siteUrl}/blog/${post.slug}`));
+  expect(items.map(item => item.url)).toStrictEqual(posts.map(post => `${siteUrl}/blog/${post.slug}`));
 });

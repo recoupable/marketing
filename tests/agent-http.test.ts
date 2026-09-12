@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import test from "node:test";
+import { test, expect, vi, afterEach } from "vitest";
 import { agentError, agentOptions, handleAgentRead, handleAgentSearch, handleAgentTool } from "../lib/agent-http.ts";
 import { readAgentContent, searchAgentContent } from "../lib/agent-content.ts";
 
@@ -9,31 +8,31 @@ function post(value: unknown, headers: HeadersInit = { "Content-Type": "applicat
   return new Request(`${base}tools`, { method: "POST", headers, body: JSON.stringify(value) });
 }
 async function expectError(response: Response, status: number, code: string) {
-  assert.equal(response.status, status);
-  assert.match(response.headers.get("content-type") || "", /^application\/json/);
-  assert.equal(response.headers.get("cache-control"), "no-store");
-  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+  expect(response.status).toBe(status);
+  expect(response.headers.get("content-type") || "").toMatch(/^application\/json/);
+  expect(response.headers.get("cache-control")).toBe("no-store");
+  expect(response.headers.get("x-content-type-options")).toBe("nosniff");
   const body = await response.json();
-  assert.equal(body.error?.code, code);
-  assert.equal(typeof body.error?.message, "string");
+  expect(body.error?.code).toBe(code);
+  expect(typeof body.error?.message).toBe("string");
   return body;
 }
 
 test("public search and read responses match the actual content service", async () => {
   const expected = await searchAgentContent({ query: "royalty reporting", type: "page", limit: 2 });
-  assert.ok(expected.results.length > 0);
+  expect(expected.results.length > 0).toBeTruthy();
   const response = await handleAgentSearch(new Request(`${base}search?query=royalty%20reporting&type=page&limit=2`));
-  assert.equal(response.status, 200);
-  assert.deepEqual(await response.json(), expected);
-  assert.equal(response.headers.get("access-control-allow-origin"), "*");
-  assert.equal(response.headers.get("cache-control"), "no-store");
+  expect(response.status).toBe(200);
+  expect(await response.json()).toStrictEqual(expected);
+  expect(response.headers.get("access-control-allow-origin")).toBe("*");
+  expect(response.headers.get("cache-control")).toBe("no-store");
   const id = expected.results[0].id;
   const readResponse = await handleAgentRead(new Request(`${base}read?id=${encodeURIComponent(id)}&offset=0&maxLength=100`));
-  assert.equal(readResponse.status, 200);
+  expect(readResponse.status).toBe(200);
   const read = await readResponse.json();
-  assert.deepEqual(read, await readAgentContent({ id, offset: 0, maxLength: 100 }));
-  assert.ok(read.markdown.length > 0);
-  assert.equal(read.nextOffset, 100);
+  expect(read).toStrictEqual(await readAgentContent({ id, offset: 0, maxLength: 100 }));
+  expect(read.markdown.length > 0).toBeTruthy();
+  expect(read.nextOffset).toBe(100);
 });
 
 test("search queries reject unknown, repeated, missing, and malformed parameters", async () => {
@@ -60,12 +59,12 @@ test("reading requires a registered public ID and bounded integer offsets", asyn
 test("tool dispatch uses the same search and read implementations", async () => {
   const searchInput = { query: "royalty", type: "page" as const, limit: 1 };
   const searched = await handleAgentTool(post({ name: "search_recoup", arguments: searchInput }));
-  assert.equal(searched.status, 200);
-  assert.deepEqual(await searched.json(), await searchAgentContent(searchInput));
+  expect(searched.status).toBe(200);
+  expect(await searched.json()).toStrictEqual(await searchAgentContent(searchInput));
   const readInput = { id: "page:/services", maxLength: 150 };
   const read = await handleAgentTool(post({ name: "read_recoup_page", arguments: readInput }));
-  assert.equal(read.status, 200);
-  assert.deepEqual(await read.json(), await readAgentContent(readInput));
+  expect(read.status).toBe(200);
+  expect(await read.json()).toStrictEqual(await readAgentContent(readInput));
   for (const name of ["search_recoup", "read_recoup_page"]) {
     await expectError(await handleAgentTool(post({ name, arguments: { unknown: "field" } })), 400, "INVALID_INPUT");
   }
@@ -77,7 +76,7 @@ test("tool dispatch rejects unknown tools, invalid envelopes, and incomplete uti
     await expectError(await handleAgentTool(post(body)), 400, "INVALID_INPUT");
   }
   const error = await expectError(await handleAgentTool(post({ name: "estimate_workflow_roi", arguments: {} })), 400, "INVALID_INPUT");
-  assert.ok(error.error.issues.some((issue: { field: string }) => issue.field === "monthlyHours"));
+  expect(error.error.issues.some((issue: { field: string }) => issue.field === "monthlyHours")).toBeTruthy();
   await expectError(await handleAgentTool(post({ name: "assess_workflow_readiness", arguments: { answers: {} } })), 400, "INVALID_INPUT");
 });
 
@@ -88,13 +87,13 @@ test("tool bodies require JSON media, valid JSON, and valid UTF-8", async () => 
     await expectError(await handleAgentTool(new Request(`${base}tools`, { method: "POST", headers: { "Content-Type": "application/json" }, body })), 400, "INVALID_JSON");
   }
   await expectError(await handleAgentTool(new Request(`${base}tools`, { method: "POST", headers: { "Content-Type": "application/json" }, body: new Uint8Array([0xc3, 0x28]) })), 400, "INVALID_JSON");
-  assert.equal((await handleAgentTool(post(roi, { "Content-Type": "application/json; charset=utf-8" }))).status, 200);
+  expect((await handleAgentTool(post(roi, { "Content-Type": "application/json; charset=utf-8" }))).status).toBe(200);
 });
 
 test("the 16 KB request limit is enforced on actual streamed bytes", async () => {
   const json = JSON.stringify(roi);
   const exact = new Request(`${base}tools`, { method: "POST", headers: { "Content-Type": "application/json" }, body: json.padEnd(16_384, " ") });
-  assert.equal((await handleAgentTool(exact)).status, 200);
+  expect((await handleAgentTool(exact)).status).toBe(200);
   await expectError(await handleAgentTool(new Request(`${base}tools`, { method: "POST", headers: { "Content-Type": "application/json", "Content-Length": "16385" }, body: "{}" })), 413, "BODY_TOO_LARGE");
   let canceled = false;
   const stream = new ReadableStream<Uint8Array>({
@@ -107,38 +106,40 @@ test("the 16 KB request limit is enforced on actual streamed bytes", async () =>
   });
   const streamed = new Request(`${base}tools`, { method: "POST", headers: { "Content-Type": "application/json", "Content-Length": "1" }, body: stream, duplex: "half" } as RequestInit & { duplex: "half" });
   await expectError(await handleAgentTool(streamed), 413, "BODY_TOO_LARGE");
-  assert.equal(canceled, true);
+  expect(canceled).toBe(true);
   const unicode = JSON.stringify({ ...roi, padding: "🎵".repeat(4100) });
-  assert.ok(unicode.length < 16_384);
+  expect(unicode.length < 16_384).toBeTruthy();
   await expectError(await handleAgentTool(new Request(`${base}tools`, { method: "POST", headers: { "Content-Type": "application/json" }, body: unicode })), 413, "BODY_TOO_LARGE");
 });
 
-test("public tools do not fetch arbitrary URLs, read private IDs, or send project briefs", async context => {
-  context.mock.method(globalThis, "fetch", async () => { assert.fail("Public content and utility handlers must not perform network requests"); });
+afterEach(() => { vi.restoreAllMocks(); });
+
+test("public tools do not fetch arbitrary URLs, read private IDs, or send project briefs", async () => {
+  vi.spyOn(globalThis, "fetch").mockImplementation(async () => { expect.unreachable("Public content and utility handlers must not perform network requests"); });
   for (const id of ["https://outside.invalid/private", "file:///etc/passwd", "../private", "page:/../../private", "page:/designs/sky"]) {
     const response = await handleAgentTool(post({ name: "read_recoup_page", arguments: { id } }));
-    assert.ok(response.status === 400 || response.status === 404);
-    assert.ok((await response.json()).error);
+    expect(response.status === 400 || response.status === 404).toBeTruthy();
+    expect((await response.json()).error).toBeTruthy();
   }
   const query = await handleAgentSearch(new Request(`${base}search?query=https%3A%2F%2Foutside.invalid`));
-  assert.equal(query.status, 200);
+  expect(query.status).toBe(200);
   const response = await handleAgentTool(post({ name: "prepare_project_brief", arguments: { workflow: "Our finance team reconciles royalty reports by hand each month.", desiredOutcome: "Keep exceptions visible and reduce report preparation time." } }));
-  assert.equal(response.status, 200);
+  expect(response.status).toBe(200);
   const receipt = await response.json();
-  assert.equal(receipt.status, "draft");
-  assert.equal(receipt.submitted, false);
-  assert.equal(receipt.nextStep, "/contact");
-  assert.equal(receipt.draft.interest, "Not sure yet");
-  assert.ok(!("leadId" in receipt));
+  expect(receipt.status).toBe("draft");
+  expect(receipt.submitted).toBe(false);
+  expect(receipt.nextStep).toBe("/contact");
+  expect(receipt.draft.interest).toBe("Not sure yet");
+  expect(!("leadId" in receipt)).toBeTruthy();
 });
 
 test("preflight and unexpected errors are bounded public responses without secret details", async () => {
   const options = agentOptions();
-  assert.equal(options.status, 204);
-  assert.equal(await options.text(), "");
-  assert.equal(options.headers.get("access-control-allow-origin"), "*");
-  assert.match(options.headers.get("access-control-allow-methods") || "", /POST/);
-  assert.equal(options.headers.get("access-control-allow-credentials"), null);
+  expect(options.status).toBe(204);
+  expect(await options.text()).toBe("");
+  expect(options.headers.get("access-control-allow-origin")).toBe("*");
+  expect(options.headers.get("access-control-allow-methods") || "").toMatch(/POST/);
+  expect(options.headers.get("access-control-allow-credentials")).toBe(null);
   const error = await expectError(agentError(new Error("private internal exception")), 503, "UNAVAILABLE");
-  assert.ok(!JSON.stringify(error).includes("private internal exception"));
+  expect(!JSON.stringify(error).includes("private internal exception")).toBeTruthy();
 });
