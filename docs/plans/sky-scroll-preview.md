@@ -8,8 +8,8 @@ The opening uses the existing hero, cards, transparent customer logos, mission c
 
 - Hero content scrolls naturally until the lower hero reaches the reading area.
 - The background stays pinned; its side margins and corner radius open to the viewport while the cloud image grows. The foreground fades.
-- The mission rises into the center and stays readable while the clouds fade to white. Dark text avoids the low-contrast midpoint of interpolating white text to black.
-- The mission scrolls away naturally on white, followed by How we help and the rest of the existing page.
+- The white mission text rises into the center over 0.85 viewport units of scroll (nearly twice the original reveal distance), then holds against blue before the clouds fade to white.
+- The mission fades out with the clouds into white, followed by How we help and the rest of the existing page.
 
 `SkyScrollPreview` uses Motion scroll values for transforms and opacity. A ResizeObserver measures the responsive hero. Native wheel, touch, keyboard, fragment navigation, and reverse scrolling retain their behavior; no scroll interception or animation timers are used.
 

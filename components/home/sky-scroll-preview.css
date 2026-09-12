@@ -22,7 +22,7 @@
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission {
     position: sticky; top: 0; height: 100svh; display: grid; align-items: center; pointer-events: none;
   }
-  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission-copy { background: transparent; color: #132a34; }
+  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission-copy { background: transparent; color: #fff; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement { min-height: 0; padding: 48px clamp(24px, 8vw, 128px); }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement p { max-width: 1060px; font-size: clamp(30px, 3.65vw, 55px); color: inherit; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement-accent { color: inherit; }

@@ -52,9 +52,9 @@ export function SkyScrollPreview({ hero, statement, children }: {
     const top = Math.max(0, (geometry?.top ?? 42) - scroll);
     return `inset(${top}px ${side}px 0 round ${23 * remaining}px)`;
   });
-  const whiteOpacity = useTransform(phase, [1.25, 1.95], [0, 1]);
-  const statementOpacity = useTransform(phase, [0.45, 0.9], [0, 1]);
-  const statementY = useTransform(phase, [0.45, 0.95], [36, 0]);
+  const whiteOpacity = useTransform(phase, [1.7, 2.35], [0, 1]);
+  const statementOpacity = useTransform(phase, [0.45, 1.3, 1.8, 2.35], [0, 1, 1, 0]);
+  const statementY = useTransform(phase, [0.45, 1.3], [36, 0]);
   const enhanced = geometry !== null && !reducedMotion && !(geometry.compact && geometry.viewport < 560);
 
   return <div className="sky-page sky-scroll-preview" id="sky-home" data-scroll-ready={enhanced}>
