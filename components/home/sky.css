@@ -78,12 +78,9 @@
 .sky-float-panel:hover, .sky-float-panel:focus-visible { box-shadow: 2px 3px 0 #d6ff62, 0 20px 35px #003b6242, 0 0 0 2px var(--sky-lime); animation-play-state: paused; }
 .sky-flight:nth-child(2n) .sky-float-panel { animation-delay: -4s; }
 .sky-flight:nth-child(3n) .sky-float-panel { animation-delay: -2s; }
-.sky-hero-note { position: relative; z-index: 1; text-align: center; font-size: 16px; color: #fff; line-height: 1.5; padding: 8px 16px 32px; text-shadow: 0 1px 8px #006195; }
-.sky-hero-stars { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 10px; color: var(--sky-lime); }
-.sky-hero-stars svg { display: block; flex: 0 0 20px; width: 20px; height: 20px; filter: drop-shadow(0 1px 3px #0476a426); }
-.sky-proof { padding: 33px 55px 41px; }
-.sky-proof > p { text-align: center; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: #65808d; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 26px; }
-.sky-proof > div { display: flex; align-items: center; justify-content: space-around; gap: 28px; max-width: 1130px; margin: auto; }
+.sky-proof { position: relative; z-index: 1; padding: 12px 40px 36px; }
+.sky-proof > p { text-align: center; font: 500 14px/1.5 var(--body); color: #fff; margin-bottom: 18px; }
+.sky-proof > div { display: flex; align-items: center; justify-content: space-around; gap: 28px; max-width: 1130px; margin: auto; padding: 22px 24px; border-radius: 16px; background: #fff; box-shadow: 0 8px 24px #003c6c14; }
 .sky-proof img { object-fit: contain; }
 @keyframes sky-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 @media (min-width: 1600px) { .sky-page { padding: 54px; } .sky-hero-copy { padding-top: 70px; } .sky-float-gallery { margin-top: 57px; } }
@@ -115,13 +112,10 @@
   .sky-float-gallery { margin-top: 31px; overflow: auto hidden; scrollbar-width: thin; scrollbar-color: #d6ff6280 transparent; scroll-snap-type: x proximity; }
   .sky-panel-stage { width: max-content; display: flex; gap: 18px; height: 316px; left: auto; margin: 0; padding: 12px 22px 26px; perspective: none; }
   .sky-flight { position: relative; flex: 0 0 210px; width: 210px; height: 278px; left: auto; top: auto; transform: none; scroll-snap-align: center; }
-  .sky-hero-note { font-size: 14px; padding-bottom: 28px; }
-  .sky-hero-stars { gap: 6px; margin-top: 9px; }
-  .sky-hero-stars svg { width: 18px; height: 18px; flex-basis: 18px; }
-  .sky-proof { padding: 26px 16px 35px; }
-  .sky-proof > p { font-size: 9px; margin-bottom: 22px; }
-  .sky-proof > div { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 19px; justify-items: center; }
-  .sky-proof img { max-width: 90px; max-height: 30px; width: auto; height: auto; }
+  .sky-proof { padding: 14px 16px 28px; }
+  .sky-proof > p { margin-bottom: 16px; }
+  .sky-proof > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 16px; justify-items: center; padding: 20px 16px; }
+  .sky-proof img { max-width: min(100%, 90px); max-height: 30px; width: auto; height: auto; }
 }
 @media (max-width: 370px) { .sky-page { padding: 8px; } .sky-nav { padding-inline: 15px; gap: 10px; } .sky-wordmark { font-size: 22px; gap: 8px; } .sky-nav-contact { padding: 9px; font-size: 12px; gap: 6px; white-space: nowrap; } .sky-nav-contact .sky-arrow-icon { width: 18px; height: 18px; } .sky-hero h1 { font-size: 35px; } .sky-hero .sky-eyebrow { font-size: 7px; } .sky-button { gap: 8px; } }
 @media (prefers-reduced-motion: reduce) { .sky-float-panel { animation: none; } .sky-page *, .sky-page *::before, .sky-page *::after { scroll-behavior: auto; transition: none; } }

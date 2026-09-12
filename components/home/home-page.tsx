@@ -33,19 +33,16 @@ export default function HomePage() {
           </div>
 
           <SkyHeroCards />
-          <div className="sky-hero-note" data-reveal="">
-            <p>Rated 4.9/5 by 100+ clients</p>
-            <div className="sky-hero-stars" aria-hidden="true">
-              {Array.from({ length: 5 }, (_, index) => (
-                <svg key={index} width="20" height="20" viewBox="0 0 24 24" fill="currentColor" focusable="false">
-                  <path d="m12 2.6 2.86 5.8 6.4.93-4.63 4.51 1.09 6.37L12 17.2l-5.72 3.01 1.09-6.37L2.74 9.33l6.4-.93L12 2.6Z" />
-                </svg>
+          <section className="sky-proof" aria-label="Music companies using Recoup">
+            <p data-reveal="">Used by teams at</p>
+            <div data-reveal-group="">
+              {customers.map((customer) => (
+                <Image key={customer.file} src={`/images/customers/${customer.file}.webp`} alt={customer.name} width={customer.width} height={customer.height} unoptimized />
               ))}
             </div>
-          </div>
+          </section>
         </section>
 
-        <section className="sky-proof" aria-label="Music companies using Recoup"><p data-reveal="">Used by teams at</p><div data-reveal-group="">{customers.map((customer) => <Image key={customer.file} src={`/images/customers/${customer.file}.webp`} alt={customer.name} width={customer.width} height={customer.height} unoptimized />)}</div></section>
         <SkyContent />
       </div>
     </div>

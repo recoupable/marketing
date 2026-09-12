@@ -157,6 +157,8 @@ The hero places a glass pill reading “Made for music funds and rightsholders�
 
 The hero description leads directly into the artwork, with no CTA button row between them. The navigation retains the free-audit invitation.
 
+Below the hero artwork, “Used by teams at” introduces the six customer logos on a compact white inset strip within the blue hero. Preserve the original logo colors and use a three-column grid on phones. This replaces the rating caption and stars; there is no separate logo section below the hero.
+
 The homepage follows this order: full AI transformation offer → customer logos → short statement about what adoption takes → three ways to engage → three clearly labeled case studies → engagement process → ownership → advisory and build options → separate self-serve software links → buying FAQ → free-audit invitation → footer.
 
 `SkyServices` presents three buying paths: AI advisory, AI transformation, and custom builds. Its left-hand introduction states the destination and agreed success measures; three compact cards sit on the right. The transformation partnership receives lime emphasis. Small, text-free symbols support the titles; avoid large mock interfaces competing with the offer copy. A sticky desktop introduction becomes normal document flow on tablets and phones. Workflow automation, royalty reporting, catalog intelligence, and investment review appear beneath the offers as linked examples of deliverables, not separate competing engagements. The shared offer definitions in `lib/service-offers.ts` also drive `/services`. Training is part of the transformation engagement. Preserve the existing services-page strategy, build, and enable anchors. Reuse `sky-services.css`; cards use the shared scroll entrance controller.
@@ -383,7 +385,7 @@ Choose the arrangement from the content:
 
 Do not invent arbitrary metrics, random charts, excessive pills, nested toolbars, or six versions of the same card. Every substantial interface visual should answer: **What work is happening? What comes out? What can I inspect or do next?**
 
-Work examples demonstrate a method; they are not customer results. Keep them under “What we help build,” preserve source and draft context, and do not attach customer logos to made-up financial data. Do not reintroduce repetitive synthetic/example-data badges throughout the interface. The owner supplied the hero rating copy on September 10, 2026: “Rated 4.9/5 by 100+ clients.” Keep the five stars beside that exact caption. Do not invent a review platform, customer quotations, or rating schema from it; other ratings, performance promises, and testimonials need their own supporting source.
+Work examples demonstrate a method; they are not customer results. Keep them under “What we help build,” preserve source and draft context, and do not attach customer logos to made-up financial data. Do not reintroduce repetitive synthetic/example-data badges throughout the interface. The owner replaced the hero rating and stars with the customer-logo strip on September 12, 2026. Do not reintroduce the rating caption or stars; ratings, performance promises, and testimonials need their own supporting source.
 
 ### Pricing and plan selection
 
