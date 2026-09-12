@@ -1,116 +1,37 @@
-import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getPostBySlug, getAllPostSlugs, getRelatedPosts } from "@/lib/posts";
-import { buildPostMetadata, buildPostJsonLd } from "@/lib/seo";
-import { markdownToHtml } from "@/lib/markdown";
-import { PostBody } from "@/components/blog/PostBody";
-import { RelatedPosts } from "@/components/blog/RelatedPosts";
-import { BlogCTA } from "@/components/blog/BlogCTA";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { blogPosts, formatBlogDate, getBlogPost } from "@/lib/blog";
+import { site } from "@/lib/site";
+import { blogAuthorContext, blogDescription, blogPostJsonLd, blogPostMetadata, relatedBlogPosts } from "@/lib/editorial-seo";
+import { BlogBody } from "../blog-body";
+import { SkyArrow } from "@/components/sky/arrow";
 
-/**
- * Generate static params for all posts — enables SSG.
- */
-export function generateStaticParams() {
-  return getAllPostSlugs().map((slug) => ({ slug }));
+export const dynamicParams = false;
+export function generateStaticParams() { return blogPosts.map(({ slug }) => ({ slug })); }
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const post = getBlogPost((await params).slug);
+  if (!post) notFound();
+  return blogPostMetadata(post, site.url);
 }
 
-/**
- * Generate per-post SEO metadata (title, description, OG tags, canonical).
- */
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
-  try {
-    const post = getPostBySlug(slug);
-    return buildPostMetadata(post);
-  } catch {
-    return { title: "Post Not Found" };
-  }
-}
-
-/**
- * Blog post page — renders MDX content with full SEO + JSON-LD.
- */
-export default async function BlogPostPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-
-  let post;
-  try {
-    post = getPostBySlug(slug);
-  } catch {
-    notFound();
-  }
-
-  // Convert markdown to HTML
-  const htmlContent = await markdownToHtml(post.content);
-
-  // Get related posts for the sidebar/footer
-  const relatedPosts = getRelatedPosts(slug);
-
-  // Build JSON-LD structured data
-  const jsonLd = buildPostJsonLd(post);
-
-  const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
-  return (
-    <>
-      {/* JSON-LD structured data for search engines */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      <article className="max-w-3xl mx-auto px-4 py-12">
-        {/* Post header */}
-        <header className="mb-10">
-          <span className="inline-block text-xs font-medium uppercase tracking-wider text-[var(--brand)] mb-3">
-            {post.type}
-          </span>
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] mb-4">
-            {post.title}
-          </h1>
-          <p className="text-lg text-[var(--muted-foreground)] mb-4">
-            {post.excerpt}
-          </p>
-          <div className="flex items-center gap-4 text-sm text-[var(--muted-foreground)]">
-            <span>{post.author}</span>
-            <span>·</span>
-            <time dateTime={post.date}>{formattedDate}</time>
-          </div>
-        </header>
-
-        {/* Post body */}
-        <PostBody content={htmlContent} />
-
-        {/* Tags */}
-        <div className="mt-10 flex flex-wrap gap-2">
-          {post.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs bg-[var(--muted)] text-[var(--muted-foreground)] px-3 py-1 rounded-full"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Email capture CTA */}
-        <BlogCTA postSlug={slug} />
-
-        {/* Related posts */}
-        <RelatedPosts posts={relatedPosts} />
-      </article>
-    </>
-  );
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const post = getBlogPost((await params).slug);
+  if (!post) notFound();
+  const related = relatedBlogPosts(post, blogPosts);
+  const authorContext = blogAuthorContext(post.author);
+  return <div className="blog-reader">
+    <Link href="/blog" className="blog-back"><span className="blog-back-arrow"><SkyArrow direction="right" /></span> All articles</Link>
+    <article>
+      <header className="blog-article-header"><p className="blog-eyebrow">{post.category}</p><h1>{post.title}</h1><p className="blog-article-deck">{blogDescription(post)}</p><div className="blog-author"><div><strong>{authorContext ? <Link href={authorContext.href} rel="author">{post.author}</Link> : post.author}</strong>{authorContext && <p>{authorContext.description}</p>}<p><time dateTime={post.date}>{formatBlogDate(post.date)}</time><span aria-hidden="true"> · </span>{post.readingMinutes} min read{post.updatedAt && post.updatedAt.slice(0, 10) !== post.date.slice(0, 10) && <><span aria-hidden="true"> · </span>Updated <time dateTime={post.updatedAt}>{formatBlogDate(post.updatedAt)}</time></>}</p></div></div></header>
+      {post.coverImage && <>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="blog-cover" src={post.coverImage} alt="" />
+      </>}
+      <BlogBody body={post.body} />
+    </article>
+    <section className="blog-related" aria-labelledby="blog-related-title"><h2 id="blog-related-title">Keep reading</h2>{related.map((item) => <Link href={`/blog/${item.slug}`} key={item.slug}><span className="blog-eyebrow">{item.category}</span><h3>{item.title}</h3><SkyArrow /></Link>)}</section>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostJsonLd(post, site.url)).replace(/</g, "\\u003c") }} />
+  </div>;
 }

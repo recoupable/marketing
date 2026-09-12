@@ -1,0 +1,450 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Recoup API - Session Sandboxes",
+    "description": "Per-session sandbox lifecycle for agent runs. These endpoints provision, restore, and report status on the Sandbox bound to a single agent session. Distinct from the legacy `/api/sandboxes` (plural) account-scoped endpoints — these are session-scoped and used by the open-agents-style chat UI to drive the \"loading sandbox…\" state on session entry.",
+    "license": {
+      "name": "MIT"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.recoupable.dev"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    },
+    {
+      "BearerAuth": []
+    }
+  ],
+  "paths": {
+    "/api/sandbox": {
+      "post": {
+        "summary": "Create or restore session sandbox",
+        "description": "Provisions a Sandbox for the given session. If a per-org base snapshot exists, the sandbox boots from it (skipping the full repo clone, ~75s saved). Otherwise the sandbox boots from the default base snapshot and a background workflow builds an org-specific snapshot for next time. When the session has prior runtime state (a paused or running sandbox under the same `sandboxName`), the call resumes it instead of creating a new one. On success, the session row is updated with the new `sandboxState` and lifecycle is bumped to `active`; the lifecycle workflow is kicked to manage hibernation and expiry from there.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSandboxRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sandbox provisioned and bound to the session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSandboxResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body — malformed JSON, missing required fields, or invalid GitHub repository URL.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — invalid or missing API key / Bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden — the authenticated account does not own the supplied `sessionId`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found — no session exists with the given `sessionId`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream error — the sandbox provider failed to provision a sandbox.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/sandbox/reconnect": {
+      "get": {
+        "summary": "Reconnect to session sandbox",
+        "description": "Live runtime probe for the sandbox bound to a session. Unlike `GET /api/sandbox/status` (DB-only read), this endpoint actually runs a quick command inside the sandbox to verify it is reachable. Used by the chat UI on session re-entry / tab refocus to decide whether to flip out of \"loading sandbox…\" or surface a \"resume\" affordance. Returns one of three operational outcomes via the `status` field: `\"connected\"` (sandbox is alive, included `expiresAt` reflects current expiry), `\"expired\"` (the runtime state is gone — the UI should offer to resume from snapshot if `hasSnapshot` is true, otherwise create a fresh sandbox), or `\"no_sandbox\"` (no sandbox has been provisioned for this session yet).",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "query",
+            "required": true,
+            "description": "The id of the session whose sandbox to reconnect to.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reconnect probe completed. Inspect `status` for the outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReconnectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing `sessionId` query parameter.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — invalid or missing API key / Bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden — the authenticated account does not own this session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found — no session exists with the given `sessionId`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/sandbox/status": {
+      "get": {
+        "summary": "Get session sandbox status",
+        "description": "Returns the current lifecycle and runtime state for the sandbox bound to a session. The chat UI polls this endpoint while showing the \"loading sandbox…\" state and flips to \"ready\" when `status` becomes `active`. The response includes `lifecycleVersion` (an optimistic concurrency token) and a `lifecycle` envelope with `serverTime`, the lifecycle FSM `state`, and timestamps for last activity, hibernation deadline, and sandbox expiry. As a side effect, if the runtime state is stale (expired or overdue for hibernation), the lifecycle workflow is kicked to clean up — callers do not need to do this themselves.",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "query",
+            "required": true,
+            "description": "The id of the session whose sandbox status to read.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sandbox status retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SandboxStatusResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing `sessionId` query parameter.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — invalid or missing API key / Bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden — the authenticated account does not own this session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found — no session exists with the given `sessionId`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "CreateSandboxRequest": {
+        "type": "object",
+        "required": [
+          "repoUrl"
+        ],
+        "properties": {
+          "repoUrl": {
+            "type": "string",
+            "description": "GitHub repository URL the sandbox should clone (e.g. `https://github.com/owner/repo`). Validated against GitHub URL rules; private repos require the service GitHub token configured server-side."
+          },
+          "sessionId": {
+            "type": "string",
+            "description": "Owning session id. Required for the chat UX flow — the sandbox is named deterministically from the session id, enabling resume across reconnects. When omitted, a one-shot ephemeral sandbox is created (legacy)."
+          }
+        }
+      },
+      "CreateSandboxResponse": {
+        "type": "object",
+        "required": [
+          "createdAt",
+          "timeout",
+          "currentBranch",
+          "mode",
+          "timing"
+        ],
+        "properties": {
+          "createdAt": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Epoch milliseconds when the sandbox handle was returned."
+          },
+          "timeout": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Sandbox idle-timeout in milliseconds. The lifecycle workflow uses this to schedule hibernation."
+          },
+          "currentBranch": {
+            "type": "string",
+            "description": "Branch the sandbox checked out."
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "vercel"
+            ],
+            "description": "Sandbox provider. Currently always `vercel`."
+          },
+          "timing": {
+            "type": "object",
+            "required": [
+              "readyMs"
+            ],
+            "properties": {
+              "readyMs": {
+                "type": "integer",
+                "format": "int64",
+                "description": "Wall-clock milliseconds from request receipt until the sandbox was ready. Useful for tracking cold-start vs warm-resume performance."
+              }
+            }
+          }
+        }
+      },
+      "SandboxStatusResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "hasSnapshot",
+          "lifecycleVersion",
+          "lifecycle"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "no_sandbox"
+            ],
+            "description": "`active` when a non-expired sandbox is bound to the session; `no_sandbox` otherwise. The chat UI flips out of its loading state when this becomes `active`."
+          },
+          "hasSnapshot": {
+            "type": "boolean",
+            "description": "True when a paused/snapshotted sandbox exists and can be resumed. Used by the UI to decide whether to show \"resume\" vs \"create\" affordances when `status` is `no_sandbox`."
+          },
+          "lifecycleVersion": {
+            "type": "integer",
+            "description": "Optimistic concurrency token for lifecycle transitions. Clients can pass this back to lifecycle-mutating endpoints to detect races."
+          },
+          "lifecycle": {
+            "$ref": "#/components/schemas/SandboxLifecycle"
+          }
+        }
+      },
+      "ReconnectResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "hasSnapshot",
+          "lifecycle"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "connected",
+              "expired",
+              "no_sandbox"
+            ],
+            "description": "`connected` when the live runtime probe succeeded; `expired` when the recorded runtime state is no longer reachable (the UI should offer resume-from-snapshot or fresh-create); `no_sandbox` when the session has never had a sandbox provisioned."
+          },
+          "hasSnapshot": {
+            "type": "boolean",
+            "description": "True when a paused/snapshotted sandbox exists and can be resumed. Used by the UI to decide whether to show \"resume\" vs \"create\" affordances on `expired` / `no_sandbox`."
+          },
+          "expiresAt": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Epoch milliseconds when the sandbox runtime will expire. Present only when `status` is `\"connected\"`; reflects the freshly-probed expiry, which may differ from `lifecycle.sandboxExpiresAt` if the sandbox extended itself between writes."
+          },
+          "lifecycle": {
+            "$ref": "#/components/schemas/SandboxLifecycle"
+          }
+        }
+      },
+      "SandboxLifecycle": {
+        "type": "object",
+        "required": [
+          "serverTime",
+          "state",
+          "lastActivityAt",
+          "hibernateAfter",
+          "sandboxExpiresAt"
+        ],
+        "description": "Lifecycle envelope shared between `GET /api/sandbox/status` and `GET /api/sandbox/reconnect`. Server-clock-stamped snapshot of the sandbox's lifecycle FSM state and the timestamps the UI uses to render countdown timers.",
+        "properties": {
+          "serverTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Server's current epoch milliseconds. Use this — not the client clock — when computing how much time is left before `hibernateAfter` or `sandboxExpiresAt`."
+          },
+          "state": {
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "provisioning",
+              "active",
+              "hibernating",
+              "hibernated",
+              "restoring",
+              "archived",
+              "failed"
+            ],
+            "description": "Lifecycle FSM state. `null` for sessions that have never had a sandbox."
+          },
+          "lastActivityAt": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true,
+            "description": "Epoch milliseconds of the last recorded sandbox activity, or null if there has been none."
+          },
+          "hibernateAfter": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true,
+            "description": "Epoch milliseconds after which the sandbox is eligible for hibernation, or null when not applicable."
+          },
+          "sandboxExpiresAt": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true,
+            "description": "Epoch milliseconds when the sandbox runtime expires, or null when not applicable."
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Always `\"error\"` for error responses."
+          },
+          "error": {
+            "type": "string",
+            "description": "Human-readable error message."
+          }
+        }
+      }
+    }
+  }
+}

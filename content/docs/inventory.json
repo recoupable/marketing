@@ -1,0 +1,27 @@
+{
+  "importedAt": "2026-09-10T09:04:11.817Z",
+  "navigationPages": 179,
+  "guidePages": 12,
+  "apiPages": 173,
+  "specifications": [
+    "accounts.json",
+    "ai.json",
+    "content.json",
+    "projects.json",
+    "releases.json",
+    "research.json",
+    "sandbox.json",
+    "sessions.json",
+    "social.json",
+    "templates.json"
+  ],
+  "additionalOperations": [
+    "api-reference/complete/content/post-music-compose",
+    "api-reference/complete/content/post-music-compose-detailed",
+    "api-reference/complete/content/post-music-stream",
+    "api-reference/complete/content/post-music-plan",
+    "api-reference/complete/content/post-music-video-to-music",
+    "api-reference/complete/content/post-music-stem-separation"
+  ],
+  "gaps": []
+}

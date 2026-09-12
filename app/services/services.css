@@ -1,0 +1,116 @@
+.services-sky .services-hero-scene { position: relative; width: min(100%, 510px); height: 410px; margin: 0 auto; isolation: isolate; }
+.services-visual-orbit { position: absolute; width: 330px; height: 330px; top: 32px; left: 50%; transform: translateX(-50%); border: 1px solid #ffffff26; border-radius: 50%; }
+.services-visual-orbit::after { content: ""; position: absolute; inset: 33px; border: 1px solid #ffffff20; border-radius: 50%; }
+.services-visual-plan { position: absolute; top: 35px; left: 0; width: 285px; padding: 28px; border: 4px solid #ffffffb5; border-radius: 20px; color: #153641; background: #fff; box-shadow: 0 20px 36px #00537b35; transform: rotate(-6deg); }
+.services-mini-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: .07em; color: #6b7f85; }
+.services-visual-plan > strong { display: block; margin: 15px 0 21px; font-size: 28px; line-height: 1.05; font-weight: 500; letter-spacing: -.045em; }
+.services-plan-line { display: flex; align-items: center; gap: 9px; min-height: 31px; color: #567078; font-size: 12px; }
+.services-plan-line > i { width: 9px; height: 9px; border-radius: 50%; background: #d6ff62; box-shadow: 0 0 0 3px #f3f8e4; }
+.services-visual-system { position: absolute; width: 222px; right: 7px; top: 110px; padding: 24px 22px; border: 3px solid #ffffffc4; border-radius: 18px; color: #fff; background: #17333e; box-shadow: 0 18px 28px #00466640; transform: rotate(7deg); }
+.services-system-icon { display: grid; place-items: center; width: 38px; height: 38px; color: #d6ff62; border: 1px solid #ffffff30; border-radius: 10px; }
+.services-visual-system > strong { display: block; margin-top: 24px; font-size: 29px; line-height: 1.06; font-weight: 500; letter-spacing: -.045em; }
+.services-system-tags { display: flex; gap: 6px; margin-top: 24px; }
+.services-system-tags > span { padding: 5px 7px; border: 1px solid #ffffff26; border-radius: 20px; font-size: 9px; color: #d9e7eb; }
+.services-visual-team { position: absolute; display: flex; align-items: center; gap: 13px; bottom: 13px; left: 32px; width: 295px; padding: 16px 19px; border: 1px solid #ffffff85; border-radius: 13px; color: #173d42; background: #e3ff8a; box-shadow: 0 12px 25px #00678f36; transform: rotate(-3deg); }
+.services-visual-team > span { display: grid; place-items: center; width: 40px; height: 40px; flex: 0 0 40px; border-radius: 50%; color: #355337; background: #f3ffcc; }
+.services-visual-team strong { font-size: 15px; font-weight: 550; }
+.services-visual-team p { margin-top: 4px; font-size: 10px; color: #577546; }
+.services-sky .services-practices { align-items: stretch; }
+.services-practice { display: flex; flex-direction: column; min-width: 0; scroll-margin-top: 110px; }
+.services-practice-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.services-practice-icon { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 12px; color: #173437; background: #d6ff62; }
+.services-practice-top > span:last-child { color: #819198; font-family: "IBM Plex Mono", monospace; font-size: 11px; }
+.services-sky .services-practice h3 { margin: 0; font-size: 29px; line-height: 1.13; letter-spacing: -.045em; font-weight: 500; }
+.services-sky .services-practice-intro { margin: 13px 0 0; font-size: 15px; line-height: 1.5; color: #253f4a; font-weight: 500; }
+.services-sky .services-practice-description { margin-top: 11px; font-size: 14px; line-height: 1.65; color: #5c717b; }
+.services-deliverables { margin-top: auto; padding-top: 31px; }
+.services-deliverables > .sp-kicker { display: block; margin-bottom: 13px; color: #586f78; font-size: 10px; letter-spacing: .055em; }
+.services-deliverables ul { display: grid; gap: 11px; margin: 0; padding: 0; list-style: none; }
+.services-deliverables li { display: flex; align-items: flex-start; gap: 8px; color: #3b5661; font-size: 14px; line-height: 1.6; }
+.services-deliverables li > svg { flex: 0 0 15px; margin-top: 1px; color: #087da4; }
+.services-practice > .sp-text-link { min-height: 44px; padding-top: 20px; margin-top: 23px; border-top: 1px solid #e5ebed; font-size: 13px; }
+.services-sky .services-start-grid { gap: 20px; }
+.services-start { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: clamp(25px, 3.4vw, 48px); border-radius: 22px; }
+.services-start-number { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; line-height: 1.5; letter-spacing: .05em; }
+.services-sky .services-start h3 { margin: 22px 0 15px; max-width: 12em; font-size: clamp(28px, 3vw, 41px); letter-spacing: -.05em; line-height: 1.1; font-weight: 500; }
+.services-sky .services-start > p { max-width: 45ch; font-size: 15px; line-height: 1.65; }
+.services-start-project { background: #126f9f; color: #fff; }
+.services-start-project .services-start-number { color: #d3edf9; }
+.services-start-project > p { color: #dcedf5; }
+.services-scope-note { align-self: stretch; width: 88%; margin: 29px 0 33px; padding: 24px; border: 1px solid #ffffff90; border-radius: 12px; color: #294f60; background: #fff; box-shadow: 0 12px 25px #08486930; transform: rotate(-2deg); }
+.services-scope-note > span { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: .07em; color: #71868d; }
+.services-scope-note ul { display: grid; gap: 10px; padding: 0; margin: 16px 0 0; list-style: none; font-size: 13px; }
+.services-scope-note li::before { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 9px 2px 0; border-radius: 50%; background: #1189b7; }
+.services-start-project > a { margin-top: auto; }
+.services-start-strategy { background: #f3f5f3; color: #193741; }
+.services-start-strategy .services-start-number { color: #627b83; }
+.services-start-strategy > p { color: #59717a; }
+.services-roadmap { align-self: stretch; margin: 24px 0 20px; }
+.services-roadmap > div { display: grid; grid-template-columns: 105px 1fr; gap: 17px; padding: 17px 0; border-top: 1px solid #dce4df; }
+.services-roadmap dt { color: #2f555b; font-size: 12px; font-weight: 550; }
+.services-roadmap dd { margin: 0; font-size: 13px; line-height: 1.5; color: #5b747a; }
+.services-start-strategy > a { margin-top: auto; }
+.services-sky .services-start > .services-plan-price { margin-top: 15px; }
+.services-plan-price .sp-text-link { min-height: 44px; line-height: 1.6; }
+.services-start-project .services-plan-price .sp-text-link { color: #fff; }
+.services-start-project .services-plan-price .sp-text-link:focus-visible { outline-color: #d6ff62; }
+.services-start-strategy .services-plan-price .sp-text-link { color: #08658c; }
+.services-faq { max-width: 820px; margin: 0 auto; }
+.services-faq > details { border-bottom: 1px solid #dfe8eb; scroll-margin-top: 110px; }
+.services-faq > details:first-child { border-top: 1px solid #dfe8eb; }
+.services-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 22px; min-height: 76px; padding: 22px 3px; list-style: none; cursor: pointer; color: #23434f; font-size: 18px; line-height: 1.4; }
+.services-faq summary::-webkit-details-marker { display: none; }
+.services-faq summary > svg { flex: 0 0 20px; transition: transform .18s ease; }
+.services-faq details[open] summary > svg { transform: rotate(180deg); }
+.services-faq details > p { max-width: 70ch; padding: 0 34px 25px 3px; font-size: 15px; line-height: 1.7; color: #5b727c; }
+.services-faq summary:focus-visible { outline: 2px solid #008bbc; outline-offset: 4px; }
+@media (max-width: 1050px) {
+ .services-sky .services-hero-scene { max-width: 420px; height: 390px; }
+ .services-visual-plan { width: 250px; padding: 23px; }
+ .services-visual-plan > strong { font-size: 25px; }
+ .services-visual-system { width: 195px; padding: 22px 18px; }
+ .services-visual-system > strong { font-size: 26px; }
+ .services-visual-team { left: 20px; width: 270px; }
+ .services-roadmap > div { grid-template-columns: 90px 1fr; gap: 12px; }
+}
+@media (max-width: 800px) {
+ .services-sky .services-practices { grid-template-columns: 1fr; }
+ .services-practice-top { margin-bottom: 22px; }
+ .services-practice > .sp-text-link { padding-top: 18px; margin-top: 23px; }
+ .services-deliverables { padding-top: 22px; }
+ .services-sky .services-start-grid { grid-template-columns: 1fr; }
+ .services-scope-note { max-width: 370px; }
+}
+@media (max-width: 540px) {
+ .services-sky .services-hero-scene { width: 100%; max-width: 340px; height: 355px; }
+ .services-visual-orbit { width: 240px; height: 240px; top: 44px; }
+ .services-visual-plan { top: 20px; left: 4px; width: 218px; padding: 20px; }
+ .services-mini-label { font-size: 8px; }
+ .services-visual-plan > strong { font-size: 23px; margin-bottom: 15px; }
+ .services-plan-line { font-size: 10px; min-height: 28px; }
+ .services-visual-system { top: 122px; right: 1px; width: 165px; padding: 18px 15px; }
+ .services-system-icon { width: 30px; height: 30px; }
+ .services-system-icon svg { width: 18px; height: 18px; }
+ .services-visual-system > strong { margin-top: 14px; font-size: 23px; }
+ .services-system-tags { margin-top: 15px; gap: 4px; }
+ .services-system-tags > span { font-size: 8px; padding: 4px 5px; }
+ .services-visual-team { bottom: 0; left: 3px; max-width: calc(100% - 9px); width: 254px; gap: 10px; padding: 12px; }
+ .services-visual-team > span { width: 31px; height: 31px; flex-basis: 31px; }
+ .services-visual-team > span svg { width: 19px; height: 19px; }
+ .services-visual-team strong { font-size: 13px; }
+ .services-visual-team p { font-size: 9px; }
+ .services-sky .services-start h3 { font-size: 31px; }
+ .services-start { padding: 27px 23px; }
+ .services-scope-note { width: 96%; padding: 21px; }
+ .services-roadmap > div { grid-template-columns: 1fr; gap: 5px; }
+ .services-faq summary { font-size: 16px; }
+ .services-faq details > p { padding-right: 0; font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .services-faq summary > svg { transition: none; } }
+.services-sky .sp-hero h1 { text-wrap: balance; }
+
+/* The full transformation partnership is the primary offer. */
+.services-sky .services-practice-featured { background: #d6ff62; border-color: #c7eb62; }
+.services-practice-featured .services-practice-icon { background: #173437; color: #d6ff62; }
+.services-sky .services-practice-featured :is(.services-practice-description,.services-practice-intro,.services-deliverables li,.services-deliverables .sp-kicker,.sp-text-link) { color: #29462b; }
+.services-practice-featured > .sp-text-link { border-color: #a9cb55; }

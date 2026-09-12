@@ -1,45 +1,29 @@
+import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { siteConfig } from "@/lib/config";
-import { buildPageMetadata } from "@/lib/seo";
-
-export const metadata: Metadata = buildPageMetadata({
-  title: `Demos — See Music Agents in Action | Learn | ${siteConfig.name}`,
-  description: `See ${siteConfig.name} in action. Demos and walkthroughs of AI agents running music operations — releases, marketing, fan growth, and catalog analysis.`,
-  path: "/learn/demos",
-});
-
-/**
- * Learn: Demos — links to try the product. Placeholder for future video/content.
- */
+import { SkyArrow } from "@/components/sky/arrow";
+import { MarketingPage, PageHero, PageSection, PageButton, PageCTA } from "@/components/marketing-migration/ui";
+import { DiligenceWorkPreview, RoyaltyWorkPreview } from "@/components/marketing-migration/work-previews";
+export const metadata: Metadata=withPageMetadata({title:"Recoup demos — See AI in the work",description:"Explore interactive royalty reporting and acquisition review, or try the Recoup platform with your own artist context.",alternates:{canonical:"/learn/demos"}});
 export default function DemosPage() {
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-16">
-      <header className="mb-12">
-        <Link
-          href="/learn"
-          className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] mb-4 inline-block"
-        >
-          ← Learn
+  return <MarketingPage><div className="work-examples-page work-examples-demos">
+    <PageHero tone="light" eyebrow="SEE THE WORK" title={<>The details make<br /><span>the difference.</span></>} description="Explore what a useful result looks like: the numbers, the questions, and the information behind each finding.">
+      <PageButton href="#demos">Explore the demos</PageButton><PageButton href="https://teams.recoupable.dev" secondary>Try the platform</PageButton>
+    </PageHero>
+    <PageSection id="demos" className="we-section" eyebrow="INTERACTIVE WALKTHROUGHS" title="A closer look at the work.">
+      <div className="we-card-grid">
+        <Link className="we-work-card" href="/operations#royalty-example" aria-labelledby="royalty-demo-title">
+          <div className="we-card-heading"><span className="sp-kicker">ROYALTY REPORTING</span><h3 id="royalty-demo-title">The total matches.<br />Do the sources?</h3></div>
+          <RoyaltyWorkPreview />
+          <div className="we-card-body"><p>Explore a reporting review that compares statements with receipts and keeps unresolved differences visible. Select a payment source to inspect the records behind it.</p><span className="we-card-link">Explore royalty reporting<SkyArrow /></span></div>
         </Link>
-        <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] mb-4">
-          Demos
-        </h1>
-        <p className="text-xl text-[var(--muted-foreground)]">
-          See {siteConfig.name} in action. Agents running music operations.
-        </p>
-      </header>
-      <div className="border border-[var(--border)] rounded-lg p-6">
-        <p className="text-[var(--muted-foreground)] mb-4">
-          The best demo is the product itself. Try it with your own music data.
-        </p>
-        <Link
-          href={siteConfig.appUrl}
-          className="inline-block bg-[var(--foreground)] text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-[var(--foreground)]/90 transition-colors"
-        >
-          Try {siteConfig.name}
+        <Link className="we-work-card" href="/acquisitions#acquisition-example" aria-labelledby="acquisition-demo-title">
+          <div className="we-card-heading"><span className="sp-kicker">ACQUISITION REVIEW</span><h3 id="acquisition-demo-title">The question.<br />And its source.</h3></div>
+          <DiligenceWorkPreview />
+          <div className="we-card-body"><p>See how deal documents become a review brief: missing information, conflicting identifiers, and seller questions linked back to supporting records.</p><span className="we-card-link">Explore acquisition review<SkyArrow /></span></div>
         </Link>
       </div>
-    </div>
-  );
+    </PageSection>
+    <PageCTA title="Try it with your own artist context." description="Open Recoup to work on research, content, strategy, and recurring reports." href="https://teams.recoupable.dev" label="Open the platform" />
+  </div></MarketingPage>;
 }

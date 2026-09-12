@@ -1,3 +1,9 @@
+# Sky preview migration — September 10, 2026
+
+The approved Labs site is migrated on `codex/sky-marketing-redesign`. Read `DESIGN.md` and `docs/plans/sky-migration.md` for current UI conventions and production release dependencies. The historical status below predates this redesign. Pricing is now $99 / $999 / $9,999 monthly; checkout provisioning is a production launch gate.
+
+---
+
 ---
 updated: "2026-04-05"
 ---

@@ -1,0 +1,147 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Recoup API - AI",
+    "description": "API documentation for the Recoup platform - an AI agent platform for the music industry",
+    "license": {
+      "name": "MIT"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://recoup-api.vercel.app"
+    }
+  ],
+  "paths": {
+    "/api/ai/models": {
+      "get": {
+        "description": "Returns the catalog of language models available through the Vercel AI Gateway. Embedding models are filtered out. The full schema mirrors the Vercel AI Gateway response (`GatewayLanguageModelEntry` from `@ai-sdk/gateway`); the documented properties below are the load-bearing fields used by clients. No authentication required.",
+        "responses": {
+          "200": {
+            "description": "Model catalog retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AIModelsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error - failed to fetch models from the gateway",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AIModelsErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AIModelsResponse": {
+        "type": "object",
+        "required": [
+          "models"
+        ],
+        "properties": {
+          "models": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GatewayLanguageModelEntry"
+            },
+            "description": "List of language models available through the Vercel AI Gateway"
+          }
+        }
+      },
+      "GatewayLanguageModelEntry": {
+        "type": "object",
+        "additionalProperties": true,
+        "description": "A language model entry as returned by the Vercel AI Gateway. Full schema mirrors the upstream `GatewayLanguageModelEntry` type from `@ai-sdk/gateway`.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Fully qualified model identifier (e.g., 'anthropic/claude-3-5-sonnet')",
+            "example": "anthropic/claude-3-5-sonnet"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable display name for the model",
+            "example": "Claude 3.5 Sonnet"
+          },
+          "description": {
+            "type": "string",
+            "description": "Provider-supplied description of the model"
+          },
+          "modelType": {
+            "type": "string",
+            "description": "Type of model - embedding models are filtered out before the response is returned",
+            "example": "language"
+          },
+          "pricing": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "Per-token pricing information as reported by the gateway",
+            "properties": {
+              "input": {
+                "type": "string",
+                "description": "Cost per input token (USD)"
+              },
+              "output": {
+                "type": "string",
+                "description": "Cost per output token (USD)"
+              }
+            }
+          },
+          "specification": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "Model specification metadata (provider, version, capabilities). Shape mirrors the gateway response."
+          },
+          "context_window": {
+            "type": "integer",
+            "description": "Maximum number of tokens the model can process in a single request (input + output combined). Clients use this to gate model selection against per-request token budgets.",
+            "example": 200000
+          },
+          "cost": {
+            "type": "object",
+            "description": "Per-million-token pricing in USD. Derived from `pricing` (which is per-token) for client-side display.",
+            "required": [
+              "input",
+              "output"
+            ],
+            "properties": {
+              "input": {
+                "type": "number",
+                "description": "USD cost per million input tokens.",
+                "example": 3.0
+              },
+              "output": {
+                "type": "number",
+                "description": "USD cost per million output tokens.",
+                "example": 15.0
+              }
+            }
+          }
+        }
+      },
+      "AIModelsErrorResponse": {
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          }
+        }
+      }
+    }
+  }
+}

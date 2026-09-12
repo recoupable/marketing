@@ -1,0 +1,17 @@
+.footer-signup { margin-top:36px; max-width:380px; width:100%; }
+.footer-signup .footer-signup-label { display:block; margin-bottom:14px; color:#e1e9e3; font-size:15px; line-height:1.5; }
+.footer-signup .footer-signup-field { display:flex; align-items:center; gap:8px; min-width:0; margin:0; padding:5px; border:1px solid #ffffff20; border-radius:99px; background:#2b3831; }
+.footer-signup input { width:100%; min-width:0; min-height:44px; padding:8px 0 8px 14px; border:0; outline:0; background:transparent; color:#fff; font:inherit; font-size:16px; }
+.footer-signup input::placeholder { color:#c4d0c8; opacity:1; }
+.footer-signup button { display:grid; place-items:center; flex:0 0 44px; height:44px; padding:0; border:0; border-radius:50%; background:#d6ff62; color:#172e27; cursor:pointer; }
+.footer-signup button svg { width:20px; height:20px; }
+.footer-signup-field:focus-within { outline:2px solid #d6ff62; outline-offset:3px; }
+.footer-signup button:focus-visible,.footer-signup a:focus-visible { outline:2px solid #fff; outline-offset:3px; }
+.footer-signup fieldset:disabled { opacity:.6; }
+.footer-signup fieldset:disabled button { cursor:wait; }
+.footer-signup .footer-signup-note { margin:12px 0 0; color:#b5cac2; font-size:12px; line-height:1.6; }
+.footer-signup-note a { color:inherit; text-decoration:underline; text-underline-offset:3px; }
+.footer-signup .footer-signup-error { margin:12px 0 0; color:#ffc6ac; font-size:13px; line-height:1.6; }
+.footer-signup .footer-signup-success { display:flex; align-items:center; gap:12px; margin:0; color:#e1e9e3; font-size:16px; line-height:1.6; }
+.footer-signup-success span { display:grid; place-items:center; flex:0 0 34px; height:34px; border-radius:50%; background:#d6ff62; color:#172e27; }
+@media(max-width:600px) { .footer-signup { margin-top:28px; } }

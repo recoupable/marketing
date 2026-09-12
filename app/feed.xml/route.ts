@@ -1,44 +1,14 @@
-import { getAllPosts } from "@/lib/posts";
-import { siteConfig } from "@/lib/config";
+import { blogPosts } from "@/lib/blog";
+import { site } from "@/lib/site";
 
-/**
- * RSS feed — generated from all published posts.
- * Accessible at /feed.xml
- */
+export const dynamic = "force-static";
+
+function xml(value: string) {
+  return value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&apos;");
+}
+
 export function GET() {
-  const posts = getAllPosts();
-
-  const itemsXml = posts
-    .map(
-      (post) => `
-    <item>
-      <title><![CDATA[${post.title}]]></title>
-      <link>${siteConfig.url}/blog/${post.slug}</link>
-      <guid isPermaLink="true">${siteConfig.url}/blog/${post.slug}</guid>
-      <description><![CDATA[${post.excerpt}]]></description>
-      <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-      <author>${post.author}</author>
-      ${post.tags.map((tag) => `<category>${tag}</category>`).join("\n      ")}
-    </item>`,
-    )
-    .join("");
-
-  const rss = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>${siteConfig.name} Blog</title>
-    <link>${siteConfig.url}/blog</link>
-    <description>${siteConfig.description}</description>
-    <language>${siteConfig.metadata.locale.replace("_", "-")}</language>
-    <atom:link href="${siteConfig.url}/feed.xml" rel="self" type="application/rss+xml"/>
-    ${itemsXml}
-  </channel>
-</rss>`;
-
-  return new Response(rss, {
-    headers: {
-      "Content-Type": "application/xml",
-      "Cache-Control": "public, max-age=3600, s-maxage=3600",
-    },
-  });
+  const posts = [...blogPosts].sort((a, b) => b.date.localeCompare(a.date));
+  const items = posts.map((post) => `<item><title>${xml(post.title)}</title><link>${xml(`${site.url}/blog/${post.slug}`)}</link><guid isPermaLink="true">${xml(`${site.url}/blog/${post.slug}`)}</guid><description>${xml(post.excerpt)}</description><pubDate>${new Date(post.date).toUTCString()}</pubDate><category>${xml(post.category)}</category><dc:creator>${xml(post.author)}</dc:creator></item>`).join("");
+  return new Response(`<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Recoup — AI and the business of music</title><link>${xml(`${site.url}/blog`)}</link><description>Ideas and practical guides from Recoup on AI and the business of music.</description><language>en-us</language><atom:link href="${xml(`${site.url}/feed.xml`)}" rel="self" type="application/rss+xml"/>${items}</channel></rss>`, { headers: { "Content-Type": "application/rss+xml; charset=utf-8", "Cache-Control": "public, max-age=3600" } });
 }

@@ -1,0 +1,41 @@
+/* The scene supplies a stable timeline. Its layers can move without shifting text. */
+@supports (animation-timeline: view()) and (animation-range: entry 0% contain 50%) {
+  @media (min-width: 801px) and (prefers-reduced-motion: no-preference) {
+    .cs-art { view-timeline: --case-art block; }
+
+    .cs-art :is(.cs-report-paper, .cs-memo-paper, .cs-brief-paper) {
+      animation: case-paper-settle 1s linear both;
+      animation-timeline: --case-art;
+      animation-range: entry 0% contain 50%;
+    }
+
+    .cs-art :is(.cs-source-stack, .cs-invest-inputs, .cs-catalog-orbit) {
+      animation: case-context-settle 1s linear both;
+      animation-timeline: --case-art;
+      animation-range: entry 0% contain 50%;
+    }
+
+    .cs-art :is(.cs-art-note, .cs-memo-note, .cs-brief-note) {
+      animation: case-note-settle 1s linear both;
+      animation-timeline: --case-art;
+      animation-range: entry 10% contain 50%;
+    }
+  }
+}
+
+@keyframes case-paper-settle {
+  from { translate: 0 24px; scale: .975; }
+  to { translate: 0 0; scale: 1; }
+}
+@keyframes case-context-settle {
+  from { translate: 0 -10px; }
+  to { translate: 0 0; }
+}
+@keyframes case-note-settle {
+  from { translate: 0 34px; }
+  to { translate: 0 0; }
+}
+
+@media print {
+  .cs-art > * { animation: none !important; }
+}

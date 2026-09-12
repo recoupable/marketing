@@ -1,0 +1,65 @@
+---
+title: "Connection Ownership"
+description: "The connector connection-ownership and authority contract: who owns a connection, who can act through it, and why roster membership never grants execute rights."
+---
+
+## Overview
+
+Connectors link third-party services (Google Sheets, TikTok, YouTube, X, LinkedIn, and others) to Recoup so agents can act on an artist's behalf. This page defines the **ownership and authority contract** for those connections: who a connection belongs to, and who is allowed to authorize, execute through, or disconnect it.
+
+This contract is the source of truth for connector access control. Endpoint request and response shapes are documented separately in the [Connectors API reference](/api-reference/connectors/list).
+
+---
+
+## Association ≠ Authority
+
+Artists in Recoup are **canonical and shared**. The same artist can appear in many accounts' rosters and in multiple organizations. Being associated with an artist is not the same as having authority to act through that artist's connections:
+
+- An artist appearing in an account's roster (`account_artist_ids`) grants **read and analytics access only**.
+- An artist appearing in an organization's roster likewise grants **read and analytics access only** to org members.
+- Neither form of association ever grants the right to authorize, execute, or disconnect a connection.
+
+<Warning>
+Roster membership never inherits connection authority. If Account A connects an artist's TikTok, Account B having that same artist on its roster does **not** let Account B post through that connection.
+</Warning>
+
+---
+
+## Connection Scope
+
+Connections are scoped to the **relationship between an owner and an artist**, not to the bare canonical artist:
+
+| Connection type | Scoped to |
+|-----------------|-----------|
+| Personal | The `(account, artist)` pair |
+| Org-shared | The `(organization, artist)` pair |
+
+The connection is keyed on the **join row** (the specific account-to-artist or org-to-artist relationship), never on the canonical artist alone. Two accounts that both roster the same artist hold two independent connection scopes for that artist.
+
+**Whoever establishes a connection owns it.** Ownership is set at authorization time and does not transfer through roster changes.
+
+Because artists stay canonical and shared, **isolation lives on the connection**: sharing an artist across accounts and orgs is safe precisely because each connection is confined to the relationship that created it.
+
+---
+
+## Authority Matrix
+
+| Capability | Who has it |
+|------------|-----------|
+| Read / analytics on an artist | Any account or org member with the artist in their roster |
+| Authorize a new connection | The account (or org member, for org-shared) establishing the connection, who then owns it |
+| Execute actions through a connection | The owning account only; for org-shared connections, members of the owning org |
+| Disconnect a connection | The owning account only; for org-shared connections, members of the owning org |
+| Admin override | Recoup staff only (admins of the Recoup internal organization) |
+
+<Note>
+The admin override exists for support and abuse response. No customer account or organization, regardless of roster or org membership, can override another owner's connection.
+</Note>
+
+---
+
+## Relationship to the Current API Reference
+
+The [Connectors endpoint reference](/api-reference/connectors/list) currently describes connections as scoped to the authenticated account alone. That reflects behavior that shipped before this contract; the API is being re-keyed to the per-`(account, artist)` / per-`(organization, artist)` model defined here. Where the two disagree, **this page is the authority contract**. Endpoint docs will be updated as the re-keyed API ships.
+
+Endpoint request and response shapes for the re-keyed model are deliberately not documented here yet.

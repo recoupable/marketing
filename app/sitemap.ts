@@ -1,43 +1,15 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts } from "@/lib/posts";
-import { siteConfig } from "@/lib/config";
-
-/**
- * Dynamic sitemap — auto-includes all published posts + static pages.
- * Uses `updatedAt` from frontmatter for lastmod signals to search engines.
- */
+import { site } from "@/lib/site";
+import { blogPosts } from "@/lib/blog";
+import { docsRoutes } from "@/lib/docs";
+import { publicRoutes } from "@/lib/public-routes";
+import { isSearchPreview } from "@/lib/seo";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = getAllPosts();
-
-  const postEntries: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${siteConfig.url}/blog/${post.slug}`,
-    lastModified: new Date(post.updatedAt || post.date),
-    changeFrequency: "monthly",
-    priority: post.type === "pillar" ? 0.9 : 0.7,
+  if (isSearchPreview()) return [];
+  const publicationDates = new Map(blogPosts.map(post => [`/blog/${post.slug}`, post.updatedAt ?? post.date]));
+  return [...new Set([...publicRoutes, ...docsRoutes, ...blogPosts.map(({ slug }) => `/blog/${slug}`)])].map((path) => ({
+    url: `${site.url}${path}`,
+    // Only publish a modification date we actually know, never the build time.
+    ...(publicationDates.has(path) ? { lastModified: publicationDates.get(path) } : {}),
   }));
-
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: siteConfig.url, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
-    { url: `${siteConfig.url}/blog`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
-    { url: `${siteConfig.url}/advisory`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
-    { url: `${siteConfig.url}/build`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
-    { url: `${siteConfig.url}/audit`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${siteConfig.url}/roi`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${siteConfig.url}/compare`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${siteConfig.url}/pricing`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
-    { url: `${siteConfig.url}/valuation`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
-    { url: `${siteConfig.url}/platform`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: `${siteConfig.url}/solutions`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: `${siteConfig.url}/developers`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: `${siteConfig.url}/learn`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
-    { url: `${siteConfig.url}/learn/demos`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.6 },
-    { url: `${siteConfig.url}/company`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${siteConfig.url}/company/vision`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-    { url: `${siteConfig.url}/company/recoup-records`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-    { url: `${siteConfig.url}/company/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-    { url: `${siteConfig.url}/privacy-policy`, lastModified: new Date("2025-07-24"), changeFrequency: "yearly", priority: 0.3 },
-    { url: `${siteConfig.url}/terms-of-use`, lastModified: new Date("2025-07-24"), changeFrequency: "yearly", priority: 0.3 },
-  ];
-
-  return [...staticPages, ...postEntries];
 }

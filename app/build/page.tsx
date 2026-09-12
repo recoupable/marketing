@@ -1,167 +1,46 @@
+import { ServiceStructuredData } from "@/components/service-structured-data";
+import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
-import { buildCopy } from "@/lib/copy/build";
-import { buildPageMetadata } from "@/lib/seo";
-import { BuildTierCard } from "@/components/build/BuildTierCard";
-import { LinkedText } from "@/components/build/LinkedText";
+import Link from "next/link";
+import { planPrice, pricingPlans } from "@/lib/pricing";
+import { SkyArrow } from "@/components/sky/arrow";
+import { MarketingPage, PageHero, PageSection, PageButton, PageCTA, MarketingFAQ } from "@/components/marketing-migration/ui";
+import { BuildReview } from "@/components/marketing-migration/engagement-visuals";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "Custom AI Technology for Music Businesses | Recoupable",
-  description: buildCopy.description,
-  path: "/build",
-});
+export const metadata: Metadata = withPageMetadata({ title:"Custom AI systems for music businesses", description:"Custom agents, integrations, dashboards, and applications for music funds and rightsholders. Built around your tools, data, and team.", alternates:{canonical:"/build"} });
 
-/**
- * /build — the delivery half of the services ladder (chat#1800 Phase 2).
- * /advisory = think with us; /build = we build it, you own it.
- */
+const capabilities = [
+  { title: "Agents & automations", description: "Research, reports, and recurring tasks that follow a method your team can review and repeat.", outputs: ["Scheduled briefings", "Research and document preparation", "Review and approval steps"] },
+  { title: "Integrations", description: "Connect catalog data, royalty statements, your CRM, and internal tools so the information follows the task.", outputs: ["APIs and data connections", "Import and validation workflows", "Permissions that match the work"] },
+  { title: "Dashboards & reporting", description: "Give your team a clear report, the records behind it, and the differences that need attention.", outputs: ["Royalty and catalog reporting", "Exceptions ready for review", "Recurring management summaries"], href: "/operations#royalty-example", label: "Inspect a royalty report" },
+  { title: "Full applications", description: "Build the software your company needs, from an internal review tool to a product with its own interface and backend.", outputs: ["Applications and databases", "APIs and MCP servers", "Testing and documentation"], href: "/acquisitions#acquisition-example", label: "Inspect a deal review" },
+] as const;
+
+const delivery = [
+  { title: "Define the first version.", description: "Agree on the job, the information it needs, the people involved, and the standard it needs to meet." },
+  { title: "Review the work as it develops.", description: "Test useful pieces with your team and refine the system against real tasks." },
+  { title: "Make it yours to run.", description: "Custom code in a repository you control, documentation, and training for the people responsible." },
+];
+
 export default function BuildPage() {
-  return (
-    <main className="mx-auto max-w-5xl px-6 py-24">
-      {/* Hero */}
-      <section className="text-center mb-20">
-        <p
-          className="text-[10px] uppercase tracking-widest text-[var(--muted-foreground)] mb-4"
-          style={{ fontFamily: "var(--font-bitmap), monospace" }}
-        >
-          Custom Builds
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-          {buildCopy.headline}
-        </h1>
-        <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto leading-relaxed">
-          {buildCopy.subheadline}
-        </p>
-      </section>
-
-      {/* What We Build */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-center mb-12">What We Build</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {buildCopy.whatWeBuild.map((item) => (
-            <div key={item.title} className="border border-[var(--border)] rounded-xl p-6">
-              <h3 className="font-bold mb-2">{item.title}</h3>
-              <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Proof */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-center mb-12">Built on Real Results</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {buildCopy.proof.map((p) => (
-            <div key={p.name} className="border border-[var(--border)] rounded-xl p-6">
-              <p className="text-[10px] uppercase tracking-widest text-[var(--muted-foreground)] mb-2">
-                {p.tag}
-              </p>
-              <h3 className="font-bold mb-1">{p.name}</h3>
-              <p
-                className="text-lg font-bold mb-2"
-                style={{ fontFamily: "var(--font-bitmap), monospace" }}
-              >
-                {p.stat}
-              </p>
-              <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{p.detail}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Ownership */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-center mb-4">{buildCopy.ownership.title}</h2>
-        <p className="text-center text-[var(--muted-foreground)] max-w-2xl mx-auto mb-12">
-          {buildCopy.ownership.description}
-        </p>
-        <div className="grid md:grid-cols-2 gap-6">
-          {buildCopy.ownership.points.map((point) => (
-            <div key={point.title} className="flex gap-4">
-              <div className="shrink-0 w-1 bg-[var(--foreground)] rounded-full" />
-              <div>
-                <h3 className="font-bold mb-1">{point.title}</h3>
-                <p className="text-sm text-[var(--muted-foreground)]">{point.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-center mb-12">How It Works</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {buildCopy.process.map((s) => (
-            <div key={s.step}>
-              <div
-                className="text-3xl font-bold text-[var(--muted-foreground)] mb-3"
-                style={{ fontFamily: "var(--font-bitmap), monospace" }}
-              >
-                {s.step}
-              </div>
-              <h3 className="font-bold mb-2">{s.title}</h3>
-              <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
-                <LinkedText text={s.description} phrase="Strategy Session" href="/advisory" />
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Tiers */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-center mb-12">Pricing</h2>
-        <div className="grid md:grid-cols-3 gap-6 items-start">
-          {buildCopy.tiers.map((tier) => (
-            <BuildTierCard key={tier.name} tier={tier} />
-          ))}
-        </div>
-      </section>
-
-      {/* Advisory cross-link */}
-      <section className="mb-24 text-center border border-[var(--border)] rounded-2xl py-8 px-6">
-        <p className="font-bold mb-1">{buildCopy.crossLink.label}</p>
-        <p className="text-sm text-[var(--muted-foreground)] mb-4">{buildCopy.crossLink.text}</p>
-        <a href={buildCopy.crossLink.ctaHref} className="text-sm font-medium underline underline-offset-4">
-          {buildCopy.crossLink.ctaLabel} →
-        </a>
-      </section>
-
-      {/* FAQ */}
-      <section className="mb-24 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-        <div className="space-y-6">
-          {buildCopy.faq.map((item) => (
-            <details key={item.q} className="group border-b border-[var(--border)] pb-4">
-              <summary className="cursor-pointer font-medium text-sm flex items-center justify-between">
-                {item.q}
-                <span className="ml-4 text-[var(--muted-foreground)] group-open:rotate-45 transition-transform text-lg">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-sm text-[var(--muted-foreground)] leading-relaxed">
-                <LinkedText text={item.a} phrase="Strategy Session" href="/advisory" />
-              </p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Closing CTA */}
-      <section className="text-center py-16 border-t border-[var(--border)]">
-        <h2 className="text-3xl font-bold mb-4">{buildCopy.closingCta.headline}</h2>
-        <p className="text-[var(--muted-foreground)] max-w-xl mx-auto mb-8 leading-relaxed">
-          {buildCopy.closingCta.subheadline}
-        </p>
-        <a
-          href={buildCopy.closingCta.ctaHref}
-          className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-        >
-          {buildCopy.closingCta.ctaLabel}
-        </a>
-      </section>
-    </main>
-  );
+ const plan = pricingPlans.find((item) => item.id === "partner")!;
+ return <MarketingPage><div className="engagement-page build-engagement">
+  <ServiceStructuredData path="/build" name="Custom AI systems for music businesses" description="Custom agents, integrations, dashboards, and applications for music funds and rightsholders. Built around your tools, data, and team." serviceType={["Custom agents", "Software integrations", "AI applications"]} />
+      <PageHero eyebrow="CUSTOM BUILDS" title={<>Your business.<br /><span>Your system.</span></>} description="We build agents, integrations, dashboards, and full applications around the way your music company works. Working software, documented and ready for your team." tone="light" visual={<BuildReview />}>
+   <PageButton href="/build/start">Discuss your build</PageButton><PageButton href="#builds" secondary>What we build</PageButton>
+  </PageHero>
+  <PageSection id="builds" eyebrow="BUILT AROUND THE WORK" title="One agent. Or the whole application.">
+    <div className="eg-capabilities" data-reveal-group="">{capabilities.map((capability, index) => <article className="eg-capability" key={capability.title}>
+      <div><div className="eg-capability-title"><span>0{index + 1}</span><h3>{capability.title}</h3></div><p>{capability.description}</p></div>
+      <div className="eg-capability-output"><ul>{capability.outputs.map((output) => <li key={output}>{output}</li>)}</ul>{"href" in capability && <Link className="sp-text-link" href={capability.href}>{capability.label}<SkyArrow /></Link>}</div>
+    </article>)}</div>
+  </PageSection>
+  <PageSection className="eg-delivery-section" eyebrow="HOW WE DELIVER" title="Working software. Clear responsibility.">
+    <div><ol className="eg-delivery" data-reveal-group="">{delivery.map((step, index) => <li key={step.title}><span>0{index + 1}</span><div><h3>{step.title}</h3><p>{step.description}</p></div></li>)}</ol>
+      <p className="eg-delivery-price"><Link className="sp-text-link" href="/pricing#partner">{plan.name} · {planPrice(plan.id, "monthly").monthly}/month <SkyArrow /></Link></p>
+    </div>
+  </PageSection>
+  <PageSection eyebrow="PRACTICAL QUESTIONS" title="Built for the way you work."><MarketingFAQ items={[{question:"Who owns the code?",answer:"Custom code is delivered in a repository you control. Your agreement defines ownership of the deliverables and the terms for any Recoup or third-party components."},{question:"Do we need to move to a new platform?",answer:"Not necessarily. We start with your current tools and scope any integrations or infrastructure changes together. Custom builds can use Recoup or operate as standalone software."},{question:"What does a project cost?",answer:"It depends on the workflow, integrations, and scope. We agree on deliverables and price before the build starts."},{question:"Can you maintain the system?",answer:"Yes. Maintenance, monitoring, and improvements can be included in an ongoing engagement. We agree on responsibilities and support arrangements together."}]} /></PageSection>
+  <PageCTA title="What would you build if you had the team?" description="Tell us what needs to happen, what you use today, and where the work gets stuck." href="/build/start" label="Scope your build" />
+ </div></MarketingPage>;
 }

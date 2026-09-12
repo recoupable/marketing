@@ -1,0 +1,1059 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Recoup API - Projects",
+    "description": "Client-facing project status: the tasks on a client engagement, who they are waiting on, and the comment thread against each one.",
+    "license": {
+      "name": "MIT"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.recoupable.dev"
+    }
+  ],
+  "paths": {
+    "/api/projects/{projectId}": {
+      "get": {
+        "summary": "Get project",
+        "description": "A client project and every task on it, oldest first, with the project's collaborators. This is what the project page renders.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "description": "The project's UUID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The project, its tasks and its collaborators.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{projectId}/tasks": {
+      "post": {
+        "summary": "Create project task",
+        "description": "Add a task to a project. New tasks are always incomplete; set `completed` with [the update endpoint](/api-reference/projects/task-update) instead.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "description": "The project's UUID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The task to create.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProjectTaskRequest"
+              },
+              "examples": {
+                "needsClient": {
+                  "summary": "A task waiting on the client",
+                  "value": {
+                    "title": "Distribution portal access",
+                    "description": "Create a read only login for your distributor dashboard and share it with us.",
+                    "due_date": "2026-09-12",
+                    "assignee_account_id": "0f0e6d8a-1b2c-4d3e-8f90-a1b2c3d4e5f6"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Task created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectTaskMutationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{projectId}/tasks/{taskId}": {
+      "get": {
+        "summary": "Get project task",
+        "description": "One task with its comment feed and the project's collaborators. This is what the task detail page renders.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "description": "The project's UUID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "description": "The task's UUID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The task, its comments and the project's collaborators.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectTaskResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update project task",
+        "description": "Update a task. Send only the fields that change.\n\nCompletion is toggled with the `completed` boolean rather than by writing a timestamp: the server stamps `completed_at` and records `completed_by` from the authenticated account, so it is never ambiguous who closed an item. Any collaborator may toggle any task, including the client.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "description": "The project's UUID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "description": "The task's UUID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The fields to change.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProjectTaskRequest"
+              },
+              "examples": {
+                "markComplete": {
+                  "summary": "Mark complete",
+                  "value": {
+                    "completed": true
+                  }
+                },
+                "markIncomplete": {
+                  "summary": "Reopen",
+                  "value": {
+                    "completed": false
+                  }
+                },
+                "reschedule": {
+                  "summary": "Change the due date",
+                  "value": {
+                    "due_date": "2026-09-19"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectTaskMutationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete project task",
+        "description": "Permanently delete a task and every comment on it.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "description": "The project's UUID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "description": "The task's UUID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Task deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteProjectTaskResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{projectId}/tasks/{taskId}/comments": {
+      "get": {
+        "summary": "List task comments",
+        "description": "Every comment on a task, oldest first.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "description": "The project's UUID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "description": "The task's UUID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The task's comments.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectCommentsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add task comment",
+        "description": "Post a comment on a task, attributed to the authenticated account. Comments are append-only plain text: there is no edit and no delete.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "description": "The project's UUID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "description": "The task's UUID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The comment to post.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProjectCommentRequest"
+              },
+              "examples": {
+                "comment": {
+                  "summary": "A client reply",
+                  "value": {
+                    "body": "Got it. Sending the login over this week."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Comment posted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectCommentResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A Recoup API key or a Privy access token. [Learn more](/authentication)."
+      },
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "Your Recoup API key. [Learn more](/quickstart#api-keys)."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Always `\"error\"` for error responses."
+          },
+          "error": {
+            "type": "string",
+            "description": "Human-readable error message."
+          },
+          "message": {
+            "type": "string",
+            "description": "Carries the message in place of `error` when the failure comes from the authentication layer, so a 401 raised while verifying the credential reads `message` and every other error reads `error`."
+          }
+        }
+      },
+      "ProjectCollaborator": {
+        "type": "object",
+        "required": [
+          "account_id"
+        ],
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "description": "The collaborator's `accounts.name`. Frequently null \u2014 nothing captures a name at sign-up today \u2014 so clients must render a fallback."
+          }
+        }
+      },
+      "ProjectTask": {
+        "type": "object",
+        "required": [
+          "id",
+          "project_id",
+          "title",
+          "created_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "project_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date",
+            "nullable": true,
+            "description": "A calendar date with no time of day, e.g. `2026-09-12`."
+          },
+          "assignee_account_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true,
+            "description": "Who the task is waiting on. A client renders its \"needs you\" treatment when this matches the viewing account."
+          },
+          "completed_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Null means the task is not complete. There is no separate boolean."
+          },
+          "completed_by": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "comment_count": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of comments on this task. Present on the project read so a list can render a count without a call per task."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Also the sort key: tasks come back oldest first."
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Project": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "created_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ProjectComment": {
+        "type": "object",
+        "required": [
+          "id",
+          "task_id",
+          "account_id",
+          "body",
+          "created_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "task_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "account_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "author_name": {
+            "type": "string",
+            "nullable": true,
+            "description": "The author's `accounts.name`, resolved server-side. Frequently null; render a fallback."
+          },
+          "body": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ProjectResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "project",
+          "tasks",
+          "collaborators"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "project": {
+            "$ref": "#/components/schemas/Project"
+          },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectTask"
+            },
+            "description": "Every task on the project, oldest first. Both the active and completed sets; a client splits them on `completed_at`."
+          },
+          "collaborators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectCollaborator"
+            }
+          }
+        }
+      },
+      "ProjectTaskResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "task",
+          "comments",
+          "collaborators"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "task": {
+            "$ref": "#/components/schemas/ProjectTask"
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectComment"
+            },
+            "description": "Oldest first, so the feed reads top to bottom."
+          },
+          "collaborators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectCollaborator"
+            }
+          }
+        }
+      },
+      "CreateProjectTaskRequest": {
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "assignee_account_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true,
+            "description": "Must be a collaborator on this project."
+          }
+        }
+      },
+      "UpdateProjectTaskRequest": {
+        "type": "object",
+        "minProperties": 1,
+        "description": "Every field is optional; send only what changes. An empty body is a 400.",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "assignee_account_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "completed": {
+            "type": "boolean",
+            "description": "`true` stamps `completed_at` with the current time and `completed_by` with the authenticated account. `false` clears both. This is the only way to change completion; `completed_at` is not writable directly."
+          }
+        }
+      },
+      "ProjectTaskMutationResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "task"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "task": {
+            "$ref": "#/components/schemas/ProjectTask"
+          }
+        }
+      },
+      "DeleteProjectTaskResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "id"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The deleted task's id."
+          }
+        }
+      },
+      "ProjectCommentsResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "comments"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectComment"
+            }
+          }
+        }
+      },
+      "CreateProjectCommentRequest": {
+        "type": "object",
+        "required": [
+          "body"
+        ],
+        "properties": {
+          "body": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000,
+            "description": "Plain text. No markdown, no mentions, no attachments. Comments are append-only: there is no edit or delete."
+          }
+        }
+      },
+      "ProjectCommentResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "comment"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "comment": {
+            "$ref": "#/components/schemas/ProjectComment"
+          }
+        }
+      }
+    }
+  }
+}

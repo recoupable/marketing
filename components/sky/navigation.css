@@ -1,0 +1,148 @@
+/* Shared geometry for the blue homepage and white subpage headers. */
+.sky-nav, .ss-header {
+  --nav-wordmark-size: 28px;
+  --nav-brand-gap: 11px;
+  --nav-symbol-width: 20px;
+  --nav-symbol-height: 24px;
+  --nav-link-gap: 21px;
+}
+
+.sky-page .sky-wordmark, .sky-site .ss-header .ss-wordmark {
+  gap: var(--nav-brand-gap);
+  font-family: "DM Sans Variable", sans-serif;
+  font-size: var(--nav-wordmark-size);
+  font-weight: 600;
+  line-height: 1.65;
+  letter-spacing: -1.1px;
+  white-space: nowrap;
+}
+.sky-page .sky-wordmark svg, .sky-site .ss-header .ss-wordmark svg {
+  width: var(--nav-symbol-width);
+  height: var(--nav-symbol-height);
+  flex: none;
+}
+
+.sky-site .ss-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 24px;
+}
+.ss-header .ss-wordmark { justify-self: start; }
+.ss-header .ss-contact { justify-self: end; }
+.ss-header .ss-desktop-nav {
+  margin-left: 0;
+  justify-self: center;
+}
+.ss-header .ss-desktop-nav, .sky-nav .sky-desktop-nav { gap: var(--nav-link-gap); }
+.sky-nav .sky-desktop-nav { left: 50%; }
+.nav-cta-mobile { display: none; }
+.ss-desktop-nav > a, .ss-tool-menu > summary,
+.sky-desktop-nav > a, .sky-tools-menu > summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 0;
+  font: 400 11px/1.6 "IBM Plex Mono", monospace;
+  letter-spacing: .065em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 1050px) {
+  .sky-nav, .ss-header { --nav-link-gap: 17px; }
+}
+
+/* Both headers change modes together, before the centered links collide. */
+@media (max-width: 900px) {
+  .sky-nav, .ss-header { --nav-wordmark-size: 24px; }
+  .sky-site .ss-header, .sky-page .sky-nav {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr);
+    gap: 8px;
+    align-items: center;
+  }
+  .sky-page .sky-nav { padding: 18px 16px; }
+  .ss-header .ss-mobile-menu, .sky-nav .sky-mobile-menu { grid-column: 1; grid-row: 1; justify-self: start; }
+  .sky-site .ss-header .ss-wordmark, .sky-page .sky-wordmark {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+  }
+  .ss-header .ss-wordmark > span, .sky-nav .sky-wordmark > span { display: none; }
+  .sky-site .ss-header .ss-wordmark svg, .sky-page .sky-wordmark svg { width: 24px; height: 28px; }
+  .ss-header .ss-contact, .sky-nav .sky-nav-contact {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    margin: 0;
+    min-height: 44px;
+    padding: 11px 13px;
+    gap: 0;
+    font: 500 11px/1.4 "IBM Plex Mono", monospace;
+    letter-spacing: .02em;
+    text-transform: none;
+    white-space: nowrap;
+  }
+  .ss-contact .nav-cta-desktop, .sky-nav-contact .nav-cta-desktop,
+  .ss-contact > .sky-arrow-icon, .sky-nav-contact > .sky-arrow-icon { display: none; }
+  .ss-contact .nav-cta-mobile, .sky-nav-contact .nav-cta-mobile { display: inline; }
+  .ss-header .ss-desktop-nav, .sky-nav .sky-desktop-nav { display: none; }
+  .ss-header .ss-mobile-menu, .sky-nav .sky-mobile-menu { display: block; flex: none; }
+  .ss-header .ss-mobile-menu > summary, .sky-nav .sky-mobile-menu > summary {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    min-height: 44px;
+    padding: 9px;
+    list-style: none;
+    cursor: pointer;
+  }
+  .ss-header .ss-mobile-menu > summary { background: #f0f6f8; border-radius: 50%; }
+  .ss-header .ss-mobile-menu > summary::-webkit-details-marker,
+  .sky-nav .sky-mobile-menu > summary::-webkit-details-marker { display: none; }
+  .ss-header .ss-mobile-menu > nav {
+    position: absolute;
+    top: calc(100% - 8px);
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 15px;
+    border: 1px solid #e2eaed;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 0 16px 40px #14394620;
+  }
+  .ss-header .ss-mobile-menu nav a { display: flex; align-items: center; gap: 15px; padding: 13px; border-radius: 9px; font-size: 14px; }
+  .ss-header .ss-mobile-menu nav a:hover { background: #eff7fb; }
+  .ss-header .ss-mobile-menu nav a:last-child { background: #d6ff62; }
+  .sky-nav .sky-mobile-menu nav {
+    position: absolute;
+    z-index: 10;
+    left: 12px;
+    right: 12px;
+    top: calc(100% - 8px);
+    min-width: 170px;
+    padding: 12px;
+    border-radius: 13px;
+    color: var(--sky-ink);
+    background: #faffff;
+    box-shadow: 0 12px 30px #00507550;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .ss-header .ss-mobile-menu nav, .sky-nav .sky-mobile-menu nav { max-height: 70svh; overflow-y: auto; }
+  .sky-nav .sky-mobile-menu nav a { display: block; padding: 11px 15px; font-size: 14px; }
+}
+
+@media (max-width: 760px) {
+  .sky-nav, .ss-header { --nav-symbol-width: 17px; --nav-symbol-height: 20px; }
+}
+@media (max-width: 370px) {
+  .sky-nav, .ss-header { --nav-wordmark-size: 22px; --nav-brand-gap: 8px; }
+}

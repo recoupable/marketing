@@ -1,0 +1,152 @@
+.sky-site { --paper:#fff; --ink:#152e37; --muted:#586f78; --line:#e2e9eb; --orange:#087fb9; --display:"DM Sans Variable",sans-serif; --body:"DM Sans Variable",sans-serif; color:var(--ink); background:#fff; font-family:var(--body); min-height:100vh; padding:0 clamp(18px,3.6vw,60px) 24px; }
+.sky-site ::selection { background:#d6ff62; color:#183527; }
+.sky-site :is(a,button,input,select,textarea,summary):focus-visible { outline:3px solid #087fb9; outline-offset:5px; }
+.sky-site :is(h1,h2,h3,h4) { font-family:var(--body); }
+.sky-site .sky-arrow-icon { width:20px; height:20px; flex:0 0 auto; }
+.ss-header { position:relative; z-index:30; display:flex; align-items:center; gap:32px; max-width:1320px; min-height:100px; margin:auto; }
+.ss-wordmark { display:inline-flex; align-items:center; gap:11px; font-family:"DM Sans Variable",sans-serif; font-size:30px; font-weight:600; letter-spacing:-1px; white-space:nowrap; }
+.ss-wordmark svg { width:22px; height:28px; flex:none; }
+.ss-desktop-nav { margin-left:auto; display:flex; align-items:center; gap:28px; font-size:13px; }
+.ss-desktop-nav > a,.ss-tool-menu > summary { padding:16px 0; }
+.ss-desktop-nav a:hover,.ss-desktop-nav a[aria-current] { color:#087bab; }
+.ss-tool-menu { position:relative; }
+.ss-tool-menu summary { display:flex; align-items:center; gap:7px; cursor:pointer; list-style:none; }
+.ss-tool-menu summary::-webkit-details-marker,.ss-mobile-menu summary::-webkit-details-marker { display:none; }
+.ss-tool-chevron { width:12px; height:12px; flex:none; }
+.ss-tool-menu[open] .ss-tool-chevron { transform:rotate(180deg); }
+.ss-tool-menu > div { position:absolute; z-index:40; top:calc(100% + 2px); left:-24px; width:265px; padding:9px; border:1px solid #e3eaed; background:white; box-shadow:0 8px 12px #16394908,0 24px 50px #16394918; border-radius:17px; }
+.ss-tool-menu a { display:flex; flex-direction:column; padding:14px; gap:4px; border-radius:9px; }
+.ss-tool-menu a:hover { background:#eff8fc; }
+.ss-tool-menu strong { font-weight:550; font-size:14px; }
+.ss-tool-menu a span { font-size:12px; color:#667a81; }
+.ss-contact { display:inline-flex; align-items:center; gap:23px; padding:14px 20px; background:#d6ff62; border-radius:40px; font-size:13px; font-weight:550; flex-shrink:0; }
+.ss-contact:hover { background:#c9f64c; }
+.ss-mobile-menu { display:none; }
+.ss-mobile-menu .nav-menu-close,.ss-mobile-menu[open] .nav-menu-bars { display:none; }
+.ss-mobile-menu[open] .nav-menu-close { display:block; }
+.sky-subpage { max-width:1320px; margin:auto; }
+.sp-hero { position:relative; padding:80px clamp(28px,5vw,76px); border-radius:28px; overflow:hidden; isolation:isolate; text-align:center; }
+.sp-hero-blue { background:#0789d3; background-image:linear-gradient(135deg,#0565bb,#0075a8); color:white; }
+.sp-hero-blue::before { content:""; position:absolute; z-index:-1; inset:0; background:url('/images/sky/hero-sky.webp') center bottom/cover; opacity:.06; pointer-events:none; }
+.sp-hero-light { color:#152e37; background:#f0f7fa; }
+.sp-hero-copy { position:relative; max-width:820px; margin:auto; min-width:0; }
+.sp-kicker { display:flex; align-items:center; justify-content:inherit; gap:10px; margin:0; font-family:"IBM Plex Mono",monospace; font-size:11px; line-height:1.6; font-weight:400; letter-spacing:.09em; text-transform:uppercase; }
+.sp-hero .sp-kicker { justify-content:center; }
+.sp-kicker > span:empty { width:6px; height:6px; border-radius:50%; background:#d6ff62; flex:none; }
+.sp-hero h1 { margin-top:24px; font-size:clamp(44px,4.7vw,68px); font-weight:450; line-height:1.06; letter-spacing:-.055em; }
+.sp-hero-blue h1 > span { color:#c2edff; }
+.sp-hero-description { max-width:620px; margin:24px auto 0; font-size:18px; line-height:1.65; color:inherit; }
+.sp-hero-actions { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:12px; margin-top:32px; }
+.sp-hero-split { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:40px; text-align:left; padding-block:60px; }
+.sp-hero-split .sp-hero-copy { margin:0; }
+.sp-hero-split .sp-kicker,.sp-hero-split .sp-hero-actions { justify-content:flex-start; }
+.sp-hero-split .sp-hero-description { margin-left:0; }
+.sp-hero-visual { min-width:0; position:relative; }
+.sp-button { display:inline-flex; align-items:center; justify-content:center; gap:22px; padding:7px 7px 7px 21px; min-height:48px; border-radius:40px; background:#d6ff62; color:#182e28; font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:400; letter-spacing:.045em; text-transform:uppercase; transition:background .18s,transform .18s; }
+.sp-button > span { display:grid; place-items:center; width:34px; height:34px; flex:none; background:#172e27; color:white; border-radius:50%; }
+.sky-site .sp-button .sky-arrow-icon { width:17px; height:17px; }
+.sp-button:hover { background:#c5f347; transform:translateY(-2px); }
+.sp-button-secondary { background:#ffffff1a; border:1px solid #ffffff45; color:inherit; padding-right:18px; gap:12px; }
+.sp-button-secondary > span { background:none; width:23px; height:32px; color:inherit; }
+.sp-button-secondary:hover { background:#ffffff2e; }
+.sp-hero-light .sp-button-secondary { border-color:#b9d1dc; }
+.sp-section { padding:86px 20px 0; scroll-margin-top:36px; }
+.sp-section-heading { text-align:center; max-width:740px; margin:0 auto 40px; }
+.sp-section-heading .sp-kicker { justify-content:center; color:#53707d; margin-bottom:18px; }
+.sp-section-heading h2 { font-size:clamp(34px,3.6vw,49px); line-height:1.1; font-weight:450; letter-spacing:-.047em; }
+.sp-section-heading > p:last-child:not(.sp-kicker) { font-size:16px; line-height:1.65; color:#5b717a; max-width:620px; margin:20px auto 0; }
+.sp-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; padding:10px; border-radius:24px; background:#f1f3f3; }
+.sp-card { min-width:0; padding:30px; border:1px solid #e8eced; border-radius:16px; background:white; box-shadow:0 3px 7px #17334206; }
+.sp-card h3 { font-size:25px; font-weight:500; letter-spacing:-.04em; line-height:1.18; margin-block:20px 12px; }
+.sp-card > p { font-size:15px; line-height:1.65; color:#5b717a; }
+.sp-split { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.sp-text-link { display:inline-flex; align-items:center; gap:12px; color:#087bab; font-size:13px; font-weight:550; text-decoration:underline; text-underline-offset:4px; }
+.sky-site .sp-text-link svg { width:17px; height:17px; }
+.sp-cta { position:relative; isolation:isolate; overflow:hidden; margin:90px 20px 60px; padding:58px; border-radius:25px; color:#fff; background:#0787c7 url('/images/sky/contact-meadow.webp') center/cover; }
+.sp-cta::before { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(90deg,#065d97ef 0%,#067fb9c2 50%,#067fb919); }
+.sp-cta > div { max-width:590px; }
+.sp-cta h2 { margin-top:19px; font-size:clamp(32px,3.4vw,46px); line-height:1.12; font-weight:450; letter-spacing:-.045em; }
+.sp-cta p:not(.sp-kicker) { font-size:16px; line-height:1.6; margin-top:18px; color:#edf8ff; max-width:490px; }
+.sp-cta .sp-button { margin-top:28px; }
+.ss-footer { max-width:1320px; margin:30px auto 0; background:#132b26; color:#fff; padding:48px 50px 24px; border-radius:26px; }
+.ss-footer-top { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:40px; padding-bottom:44px; }
+.ss-footer-brand p { font-size:14px; line-height:1.65; color:#b5cac2; margin:22px 0 19px; }
+.ss-footer-email { font-size:14px; text-decoration:underline; text-underline-offset:4px; }
+.ss-footer nav { display:flex; flex-direction:column; align-items:flex-start; gap:13px; font-size:13px; }
+.ss-footer nav > span { font-family:"IBM Plex Mono",monospace; color:#abc4b7; font-size:10px; letter-spacing:.08em; margin:7px 0 8px; }
+.ss-footer a:hover { color:#d6ff62; }
+.ss-footer-bottom { display:flex; flex-wrap:wrap; gap:20px; padding-top:22px; border-top:1px solid #ffffff20; color:#abc2b8; font-size:11px; }
+.ss-footer-bottom > span { margin-right:auto; }
+.sky-site .skill-browser { background:#f0f3f4; padding:10px; border:0; border-radius:24px; }
+.sky-site .skill-tabs { display:flex; flex-wrap:wrap; gap:5px; padding:8px 10px 17px; border:0; }
+.sky-site .skill-tabs button { flex:1; min-width:100px; padding:13px 17px; color:#4b6771; background:transparent; border-radius:30px; border:0; font-family:var(--body); font-size:14px; }
+.sky-site .skill-tabs button[aria-selected=true] { background:#172e28; color:#d6ff62; }
+.sky-site .skill-panel { display:grid; grid-template-columns:1fr 1fr; gap:34px; padding:35px; background:white; border-radius:16px; }
+.sky-site .skill-panel h3 { font-size:31px; font-weight:450; line-height:1.16; max-width:370px; }
+.sky-site .skill-panel ul { margin-top:27px; display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.sky-site .skill-panel li { font-size:13px; line-height:1.45; }
+.sky-site .skill-panel li > span { color:#0b88bc; margin-right:8px; }
+.sky-site .skill-prompt { background:#ecf7fc; color:#173b49; padding:30px; border:1px solid #dbeef5; border-radius:15px; }
+.sky-site .skill-prompt > .mono { font-family:"IBM Plex Mono",monospace; font-size:10px; color:#517987; }
+.sky-site .skill-prompt > p { font-size:21px; line-height:1.4; margin:22px 0 32px; }
+.sky-site .skill-prompt > div { display:flex; align-items:center; gap:12px; font-size:11px; color:#5e7a84; }
+.sky-site .small-logo { background:#d6ff62; color:#15392b; border-radius:9px; }
+.sky-site .copy-code { background:#142d27; color:#f2faf5; padding:0; border:1px solid #264a3c; border-radius:15px; overflow:hidden; }
+.sky-site .copy-code > div { padding:15px 20px; border-bottom:1px solid #ffffff17; display:flex; align-items:center; justify-content:space-between; gap:15px; }
+.sky-site .copy-code .mono { font-family:"IBM Plex Mono",monospace; color:#adc7b9; font-size:10px; line-height:1.5; }
+.sky-site .copy-code button { padding:7px 12px; color:#d6ff62; background:#ffffff0c; border:1px solid #ffffff2a; border-radius:7px; font-size:11px; }
+.sky-site .copy-code pre { padding:25px 20px; margin:0; overflow-x:auto; color:#d6ffb0; font-size:12px; line-height:1.8; font-family:"IBM Plex Mono",monospace; }
+.sky-site .copy-code > p { padding:0 20px 18px; font-size:12px; color:#eefbdc; }
+.sky-site .faq-list { max-width:860px; margin:auto; border-top:1px solid #e1e9ed; }
+.sky-site .faq-list details { border-bottom:1px solid #e1e9ed; }
+.sky-site .faq-list summary { display:flex; justify-content:space-between; gap:22px; padding:24px 0; font-size:18px; line-height:1.4; font-family:var(--body); font-weight:450; }
+.sky-site .faq-list summary > span { color:#087eb2; font-size:24px; line-height:1; }
+.sky-site .faq-list details > p { max-width:730px; margin:0; padding:0 30px 25px 0; color:#586f78; font-size:15px; line-height:1.75; }
+.sky-site .contact-layout { max-width:1240px; margin:20px auto 70px; display:grid; grid-template-columns:.9fr 1.1fr; align-items:start; gap:60px; padding:45px 20px; background:white; min-height:0; }
+.sky-site .contact-copy { padding:20px 0; color:#152e37; }
+.sky-site .contact-copy h1 { font-size:clamp(43px,4.6vw,65px); line-height:1.08; font-weight:450; letter-spacing:-.055em; max-width:520px; }
+.sky-site .contact-copy > p { margin-top:26px; max-width:425px; font-size:17px; line-height:1.7; color:#5c737c; }
+.sky-site .contact-copy > .text-link { color:#087bab; font-size:12px; margin-bottom:27px; }
+.sky-site .contact-details { margin-top:40px; padding-top:26px; border-top:1px solid #deeaee; }
+.sky-site .contact-details .mono { font-size:10px; color:#5b7886; }
+.sky-site .contact-details > a { display:block; font-size:19px; color:#087eb2; margin-top:10px; text-decoration:underline; text-underline-offset:5px; }
+.sky-site .inquiry-form { border:1px solid #e0e9ed; padding:30px; border-radius:23px; background:#f5f9fa; box-shadow:0 5px 8px #113c4704,0 20px 45px #113c4707; }
+.sky-site .form-field > :is(input,select,textarea) { background:white; color:#152e37; border:1px solid #78939e; border-radius:9px; font-family:var(--body); font-size:16px; padding:13px 14px; }
+.sky-site .form-field > :is(input,textarea)::placeholder { color:#607680; font-size:16px; opacity:1; }
+.sky-site .form-field label { color:#254552; font-size:14px; }
+.sky-site .form-grid { gap:22px 18px; }
+.sky-site .form-note,.sky-site .form-handoff { color:#566f78; font-size:14px; line-height:1.6; }
+.sky-site .button { background:#d6ff62; color:#173527; border:0; border-radius:32px; font-family:"IBM Plex Mono",monospace; font-size:11px; min-height:48px; padding:13px 22px; letter-spacing:.02em; }
+.sky-site .button:hover { background:#c5f044; }
+.sky-site .form-success h2 { font-size:37px; }
+.sp-privacy { max-width:780px; margin:60px auto 85px; }
+.sp-privacy article { padding:27px 0; border-bottom:1px solid #e2eaed; }
+.sp-privacy h2 { font-size:24px; font-weight:500; letter-spacing:-.025em; margin-bottom:13px; }
+.sp-privacy p { font-size:16px; line-height:1.8; color:#566e77; }
+.sp-privacy a { color:#077cba; text-decoration:underline; }
+.sky-site .recoup-blog { padding:0 20px; min-height:0; max-width:1320px; margin:auto; }
+.sky-usecase .sky-content { margin:70px 0 0; }
+.sky-usecase .sky-investment,.sky-usecase .sky-work { margin:0; }
+@media(min-width:1500px) { .sp-hero-split { padding-block:75px; } }
+@media(max-width:1050px) { .ss-header { gap:22px; }.ss-desktop-nav { gap:18px; }.ss-contact { gap:12px; padding:13px 16px; }.ss-wordmark { font-size:27px; }.sp-hero-split { gap:20px; padding-inline:35px; }.sp-hero-description { font-size:16px; }.sp-button { gap:12px; font-size:10px; }.sp-section { padding-inline:0; }.sp-cta { margin-inline:0; }.sky-site .contact-layout { gap:35px; padding-inline:0; }.ss-footer { padding:38px 35px 24px; } }
+@media(max-width:800px) { .ss-desktop-nav { display:none; }.ss-contact { margin-left:auto; }.ss-mobile-menu { display:block; }.ss-mobile-menu > summary { display:grid; place-items:center; list-style:none; padding:11px; background:#f0f6f8; border-radius:50%; cursor:pointer; }.ss-mobile-menu > nav { position:absolute; top:85px; left:0; right:0; padding:15px; background:white; border:1px solid #e2eaed; box-shadow:0 16px 40px #14394620; border-radius:18px; display:grid; grid-template-columns:1fr 1fr; gap:4px; }.ss-mobile-menu nav a { display:flex; align-items:center; gap:15px; padding:13px; border-radius:9px; font-size:14px; }.ss-mobile-menu nav a:hover { background:#eff7fb; }.ss-mobile-menu nav a:last-child { background:#d6ff62; }.sp-hero-split { grid-template-columns:1fr; text-align:center; padding:48px 30px 20px; }.sp-hero-copy { width:100%; }.sp-hero-split .sp-kicker,.sp-hero-split .sp-hero-actions { justify-content:center; }.sp-hero-split .sp-hero-description { margin-inline:auto; max-width:520px; }.sp-hero-visual { max-width:550px; width:100%; margin:auto; }.sp-hero h1 { font-size:55px; }.sp-grid { grid-template-columns:1fr; }.sp-split { grid-template-columns:1fr; }.sky-site .contact-layout { grid-template-columns:1fr; max-width:650px; gap:35px; padding-top:15px; }.sky-site .contact-copy { padding:0; }.sky-site .contact-copy > p { max-width:560px; }.sky-site .skill-panel { gap:22px; padding:26px; }.sky-site .skill-prompt { padding:24px; }.sky-site .skill-panel h3 { font-size:27px; }.ss-footer-top { grid-template-columns:1.4fr 1fr 1fr; gap:25px; }.sp-section { padding-top:64px; } }
+@media(max-width:600px) { .sky-site { padding-inline:16px; padding-bottom:16px; }.ss-header { min-height:84px; gap:12px; }.ss-wordmark { font-size:25px; gap:8px; }.ss-wordmark svg { width:18px; height:23px; }.ss-contact { padding:11px 14px; font-size:11px; gap:9px; }.ss-contact .sky-arrow-icon { width:15px; height:15px; }.ss-mobile-menu > summary { padding:9px; }.sp-hero { border-radius:20px; padding:46px 23px; }.sp-hero-split { padding-bottom:10px; }.sp-hero h1 { font-size:44px; margin-top:20px; }.sp-kicker { font-size:9px; }.sp-hero-description { font-size:16px; margin-top:20px; }.sp-hero-actions { margin-top:26px; gap:10px; }.sp-button { min-height:48px; max-width:100%; padding-left:16px; gap:12px; font-size:12px; line-height:1.5; letter-spacing:.02em; }.sp-button-secondary { padding-right:13px; }.sp-section { padding-top:57px; }.sp-section-heading { margin-bottom:28px; padding-inline:9px; }.sp-section-heading h2 { font-size:35px; }.sp-section-heading > p:last-child:not(.sp-kicker) { font-size:15px; }.sp-card { padding:26px 21px; }.sp-cta { margin-top:60px; margin-bottom:40px; padding:35px 25px; border-radius:20px; }.sp-cta::before { background:#076dabc9; }.sp-cta h2 { font-size:34px; }.sp-cta p:not(.sp-kicker) { font-size:15px; }.ss-footer { padding:31px 25px 22px; border-radius:20px; }.ss-footer-top { grid-template-columns:1fr 1fr; gap:35px; padding-bottom:30px; }.ss-footer-brand { grid-column:1/-1; }.ss-footer-brand p { margin-block:17px; }.ss-footer-bottom { font-size:10px; gap:15px; }.ss-footer-bottom > span { flex-basis:100%; }.sky-site .skill-panel { grid-template-columns:1fr; padding:24px 18px; }.sky-site .skill-panel h3 { font-size:28px; }.sky-site .skill-panel ul { gap:15px; }.sky-site .skill-tabs { padding:3px 0 12px; gap:3px; }.sky-site .skill-tabs button { min-width:80px; padding:11px; font-size:12px; }.sky-site .skill-prompt { padding:23px 18px; }.sky-site .skill-prompt > p { font-size:20px; }.sky-site .faq-list summary { font-size:17px; padding:21px 2px; }.sky-site .faq-list details > p { font-size:14px; }.sky-site .contact-copy h1 { font-size:43px; }.sky-site .contact-copy > p { font-size:16px; }.sky-site .inquiry-form { padding:24px 19px; border-radius:18px; }.sky-site .form-grid { grid-template-columns:1fr; gap:21px; }.sky-site .contact-layout { margin-bottom:30px; }.sky-site .recoup-blog { padding:0; }.sp-privacy { margin:30px 5px 50px; }.sp-privacy p { font-size:15px; }.sky-usecase .sky-content { margin-top:50px; } }
+@media(max-width:370px) { .ss-contact { font-size:10px; padding:11px 12px; }.ss-contact .sky-arrow-icon { display:none; }.ss-header { gap:9px; }.ss-wordmark { font-size:24px; }.sp-hero { padding-inline:18px; }.sp-hero h1 { font-size:39px; }.sp-hero-description { font-size:15px; } }
+@media(prefers-reduced-motion:reduce) { .sky-site * { scroll-behavior:auto!important; animation:none!important; transition:none!important; } }
+.sky-site .small-logo svg { width:15px; height:20px; }
+.sky-site .inquiry-form > h2 { font-size:25px; font-weight:500; line-height:1.2; letter-spacing:-.035em; }
+.sky-site .inquiry-form .form-handoff { margin-top:12px; }
+.sky-site .sky-usecase .sky-content .sky-section { padding:30px 20px; }
+@media(max-width:600px) { .sky-site .sky-usecase .sky-content .sky-section { padding:20px 0; } }
+.sky-site .contact-details > a { border:0; padding-bottom:0; }
+.sky-site .inquiry-form .form-handoff { margin-bottom:24px; }
+.sp-hero-visual { text-align:left; }
+
+@media(min-width:601px) and (max-width:1000px) { .ss-footer-top { grid-template-columns:repeat(3,minmax(0,1fr)); }.ss-footer-brand { grid-column:1/-1; } }
+@media(min-width:801px) and (max-width:930px) { .ss-header { gap:16px; }.ss-desktop-nav { gap:14px; font-size:12px; }.ss-contact { font-size:11px; gap:10px; padding-inline:14px; } }
+@media(max-width:800px) {
+  .ss-mobile-menu { flex:none; }
+  .ss-mobile-menu > summary { width:44px; min-height:44px; padding:10px; }
+  .ss-contact { min-height:44px; }
+  .sky-site .copy-code button { min-height:44px; }
+}

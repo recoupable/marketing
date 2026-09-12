@@ -1,0 +1,79 @@
+.skills-sky .skills-sky-hero-note { flex-basis: 100%; margin: 7px 0 0; color: #e2f3ff; font-size: 12px; line-height: 1.5; }
+.skills-sky .skills-sky-playbooks { position: relative; width: 100%; max-width: 520px; height: 430px; margin-inline: auto; isolation: isolate; }
+.skills-sky .skills-sky-orbit { position: absolute; inset: 44px 14px 34px; border: 1px solid #d8f7ff33; border-radius: 50%; transform: rotate(-20deg); }
+.skills-sky .skills-sky-orbit::before { content: ""; position: absolute; inset: 25px -20px; border: 1px solid #d8f7ff25; border-radius: inherit; transform: rotate(44deg); }
+.skills-sky .skills-sky-book { position: absolute; left: 50%; top: 55px; width: 225px; height: 284px; padding: 23px; border: 3px solid #fff; border-radius: 16px; box-shadow: 0 5px 4px #075a8722, 0 22px 44px #003e7130; transform-origin: center 92%; }
+.skills-sky .skills-sky-book-research { background: #173d34; color: #e8ffd3; transform: translateX(-50%) translate(-65px, 10px) rotate(-17deg); }
+.skills-sky .skills-sky-book-release { background: #edf8fa; color: #187893; transform: translateX(-50%) translate(66px, 2px) rotate(17deg); }
+.skills-sky .skills-sky-book > span { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: .05em; }
+.skills-sky .skills-sky-book > strong { display: block; margin-top: 46px; font-weight: 500; letter-spacing: -.06em; font-size: 34px; line-height: 1.06; }
+.skills-sky .skills-sky-book > small { display: block; margin-top: 38px; font-size: 11px; }
+.skills-sky .skills-sky-book-catalog { background: #d6ff62; color: #183527; transform: translateX(-50%) translateY(-13px) rotate(-2deg); }
+.skills-sky .skills-sky-book-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-family: "IBM Plex Mono", monospace; font-size: 9px; }
+.skills-sky .skills-sky-book-header svg { width: 20px; height: 22px; }
+.skills-sky .skills-sky-book-catalog > strong { margin-top: 26px; font-size: 41px; }
+.skills-sky .skills-sky-book-rule { margin-top: 20px; border-top: 1px solid #b7d355; }
+.skills-sky .skills-sky-book-catalog > p { margin-top: 12px; font-size: 12px; line-height: 1.4; color: #355535; }
+.skills-sky .skills-sky-book-footer { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-top: 17px; font-family: "IBM Plex Mono", monospace; font-size: 8px; letter-spacing: .03em; }
+.skills-sky .skills-sky-book-footer svg { width: 18px; height: 18px; }
+.skills-sky .skills-sky-book-caption { position: absolute; left: 0; right: 0; bottom: 20px; text-align: center; color: #e3f5ff; font-size: 12px; }
+.skills-sky .skills-sky-method { display: grid; grid-template-columns: .9fr 1.3fr; padding: 10px; gap: 10px; background: #f1f3f3; border-radius: 23px; }
+.skills-sky .skills-sky-request { display: flex; flex-direction: column; padding: 34px; background: #182e28; border-radius: 15px; color: #fff; }
+.skills-sky .skills-sky-request .sp-kicker { color: #a9c5b6; }
+.skills-sky .skills-sky-request > p { margin-top: 45px; color: #f4faef; font-size: clamp(30px, 3.1vw, 43px); line-height: 1.17; font-weight: 450; letter-spacing: -.045em; }
+.skills-sky .skills-sky-request-footer { display: flex; align-items: center; gap: 13px; margin-top: auto; padding-top: 48px; color: #b9d3c4; font-size: 12px; line-height: 1.5; }
+.skills-sky .skills-sky-request-symbol { display: grid; place-items: center; width: 35px; height: 35px; color: #163829; background: #d6ff62; border-radius: 50%; font-size: 25px; font-weight: 300; }
+.skills-sky .skills-sky-output { padding: 33px; border: 1px solid #e6ebea; border-radius: 15px; background: #fff; box-shadow: 0 3px 6px #193c3008; }
+.skills-sky .skills-sky-output > .sp-kicker { color: #607773; }
+.skills-sky .skills-sky-output ol { margin: 22px 0 0; padding: 0; list-style: none; }
+.skills-sky .skills-sky-output li { display: flex; gap: 17px; align-items: flex-start; padding-block: 18px; border-top: 1px solid #e8eeeb; }
+.skills-sky .skills-sky-output li > span { display: grid; place-items: center; width: 27px; height: 27px; flex-shrink: 0; border-radius: 7px; color: #2c5e45; background: #f1f6eb; font-family: "IBM Plex Mono", monospace; font-size: 9px; }
+.skills-sky .skills-sky-output h3 { margin: 0; font-size: 20px; font-weight: 500; letter-spacing: -.03em; line-height: 1.25; }
+.skills-sky .skills-sky-output li p { margin-top: 5px; color: #63757a; font-size: 14px; line-height: 1.5; }
+.skills-sky .skills-sky-install { display: grid; grid-template-columns: .9fr 1.3fr; align-items: center; gap: 46px; padding: 38px; border: 1px solid #dcebed; border-radius: 22px; background: #edf8fc; }
+.skills-sky .skills-sky-install-badge { display: grid; place-items: center; width: 42px; height: 42px; color: #1d4b59; background: #d6ff62; border-radius: 12px; }
+.skills-sky .skills-sky-install-badge svg { width: 23px; height: 23px; }
+.skills-sky .skills-sky-install h3 { margin-top: 24px; font-size: 29px; font-weight: 450; line-height: 1.16; letter-spacing: -.04em; }
+.skills-sky .skills-sky-install-copy > p { margin-block: 14px 21px; color: #5c737c; font-size: 14px; line-height: 1.55; }
+.skills-sky .skills-sky-install-command { min-width: 0; }
+.skills-sky .skills-sky-install-command > p { margin-block: 18px; color: #5b737c; font-size: 14px; line-height: 1.65; }
+.skills-sky .skills-sky-install .copy-code { box-shadow: 0 4px 7px #17475310, 0 18px 30px #17475316; }
+.skills-sky .skills-sky-install .sp-text-link { color: #244e5b; }
+@media(max-width: 900px) {
+  .skills-sky .skills-sky-playbooks { max-width: 420px; height: 385px; }
+  .skills-sky .skills-sky-book { width: 205px; height: 266px; top: 37px; padding: 20px; }
+  .skills-sky .skills-sky-book-catalog > strong { font-size: 37px; }
+  .skills-sky .skills-sky-book-research { transform: translateX(-50%) translate(-48px,10px) rotate(-14deg); }
+  .skills-sky .skills-sky-book-release { transform: translateX(-50%) translate(49px,2px) rotate(14deg); }
+  .skills-sky .skills-sky-method { grid-template-columns: 1fr 1.15fr; }
+  .skills-sky .skills-sky-request, .skills-sky .skills-sky-output { padding: 26px; }
+  .skills-sky .skills-sky-install { grid-template-columns: 1fr; gap: 28px; padding: 29px; }
+}
+@media(max-width: 600px) {
+  .skills-sky .skills-sky-playbooks { height: 340px; max-width: 330px; }
+  .skills-sky .skills-sky-book { width: 172px; height: 241px; padding: 16px; top: 31px; border-radius: 12px; }
+  .skills-sky .skills-sky-book-research { transform: translateX(-50%) translate(-28px,10px) rotate(-12deg); }
+  .skills-sky .skills-sky-book-release { transform: translateX(-50%) translate(30px,2px) rotate(12deg); }
+  .skills-sky .skills-sky-book > strong { font-size: 28px; margin-top: 41px; }
+  .skills-sky .skills-sky-book-catalog > strong { font-size: 33px; margin-top: 21px; }
+  .skills-sky .skills-sky-book-header, .skills-sky .skills-sky-book > span { font-size: 7px; }
+  .skills-sky .skills-sky-book-rule { margin-top: 15px; }
+  .skills-sky .skills-sky-book-catalog > p { font-size: 10px; }
+  .skills-sky .skills-sky-book-footer { margin-top: 14px; font-size: 7px; }
+  .skills-sky .skills-sky-book-caption { font-size: 10px; bottom: 13px; }
+  .skills-sky .skills-sky-method { grid-template-columns: 1fr; gap: 8px; padding: 8px; border-radius: 18px; }
+  .skills-sky .skills-sky-request, .skills-sky .skills-sky-output { padding: 24px 20px; border-radius: 12px; }
+  .skills-sky .skills-sky-request > p { margin-top: 31px; font-size: 32px; }
+  .skills-sky .skills-sky-request-footer { padding-top: 32px; }
+  .skills-sky .skills-sky-output li { gap: 11px; }
+  .skills-sky .skills-sky-output h3 { font-size: 19px; }
+  .skills-sky .skills-sky-output li p { font-size: 13px; }
+  .skills-sky .skills-sky-install { padding: 24px 18px; gap: 24px; border-radius: 17px; }
+  .skills-sky .skills-sky-install h3 { font-size: 28px; }
+  .skills-sky .skills-sky-install .copy-code pre { font-size: 12px; }
+}
+@media(max-width: 480px) {
+  .skills-sky .skill-panel ul { grid-template-columns: 1fr; gap: 0; }
+  .skills-sky .skill-panel li { gap: 10px; padding-block: 12px; }
+  .skills-sky .skill-panel li > span { margin-right: 0; }
+}

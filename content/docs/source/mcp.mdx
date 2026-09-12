@@ -1,0 +1,78 @@
+---
+title: "MCP"
+description: "Connect AI agents to the Recoup platform using the Model Context Protocol (MCP) server."
+---
+
+The Recoup API exposes an [MCP](https://modelcontextprotocol.io/) server that AI agents can connect to for tool use. The server is available at:
+
+```
+https://api.recoupable.dev/mcp
+```
+
+## Authentication
+
+All MCP tools require an API key. Pass it as a Bearer token in the `Authorization` header when connecting to the MCP server.
+
+You can get a key from the [API Keys page](https://chat.recoupable.dev/keys).
+
+## Tools
+
+### prompt_sandbox
+
+Send a prompt to OpenClaw running in a persistent per-account sandbox. The sandbox is reused across calls — if one is already running it picks up where you left off, otherwise a new one is created from the account's latest snapshot.
+
+Returns raw `stdout` and `stderr` from the command. The sandbox stays alive after each prompt for follow-up interactions.
+
+**Input schema:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `prompt` | `string` | Yes | The prompt to send to OpenClaw in the sandbox. |
+
+**Response fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `sandboxId` | `string` | The Vercel Sandbox ID. |
+| `stdout` | `string` | Standard output from the command. |
+| `stderr` | `string` | Standard error from the command. |
+| `exitCode` | `number` | Process exit code (`0` = success). |
+| `created` | `boolean` | `true` if a new sandbox was created, `false` if an existing one was reused. |
+
+**Example usage (TypeScript with MCP SDK):**
+
+```typescript
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
+
+const transport = new StreamableHTTPClientTransport(
+  new URL("https://api.recoupable.dev/mcp"),
+  { requestInit: { headers: { Authorization: `Bearer ${RECOUP_API_KEY}` } } },
+);
+
+const client = new Client({ name: "my-agent", version: "1.0.0" });
+await client.connect(transport);
+
+const result = await client.callTool({
+  name: "prompt_sandbox",
+  arguments: { prompt: "list all files in the orgs directory" },
+});
+
+console.log(result.content);
+```
+
+### run_sandbox_command
+
+Create a sandbox and run a shell command or OpenClaw prompt in it. Unlike `prompt_sandbox`, this creates a **new sandbox each call** and runs the command asynchronously via a background task. Returns a sandbox ID and run ID to track progress.
+
+See [`POST /api/sandboxes`](/api-reference/sandboxes/create) for the equivalent REST endpoint.
+
+**Input schema:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `command` | `string` | No | Shell command to run. Cannot be used with `prompt`. |
+| `args` | `string[]` | No | Arguments for the command. |
+| `cwd` | `string` | No | Working directory for the command. |
+| `prompt` | `string` | No | OpenClaw prompt. Cannot be used with `command`. |
+| `account_id` | `string` | No | Target a specific account (org API keys only). |

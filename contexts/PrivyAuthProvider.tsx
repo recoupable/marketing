@@ -4,14 +4,7 @@ import type { ReactNode } from "react";
 import { PrivyProvider } from "@privy-io/react-auth";
 import { siteConfig } from "@/lib/config";
 
-/**
- * App-wide Privy auth provider (email-only, brand-themed). Rendered once at the
- * root (app/layout.tsx) so any page can use the valuation flow directly — no
- * per-page wrapper. Privy initializes on the client; the provider renders a
- * plain context on the server, so pages stay statically prerenderable
- * (chat#1798, chat#1814). Build fails if `NEXT_PUBLIC_PRIVY_APP_ID` is unset, so
- * the auth gate can never silently fail open.
- */
+/** Email-only authentication, loaded only by the valuation route. */
 export function PrivyAuthProvider({ children }: { children: ReactNode }) {
   const appId = process.env.NEXT_PUBLIC_PRIVY_APP_ID;
   if (!appId) {

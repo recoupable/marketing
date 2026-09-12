@@ -1,0 +1,175 @@
+---
+title: "Quickstart"
+description: "Get a Recoup API key in one call and make your first request — no browser, no dashboard."
+---
+
+## Quickest start
+
+Sign up your agent and get an API key in a single API call — no dashboard, no browser, no human in the loop. This one-liner signs up a fresh `agent+` address and exports the returned key to `$RECOUP_API_KEY`:
+
+```bash
+export RECOUP_API_KEY=$(curl -s -X POST "https://api.recoupable.dev/api/agents/signup" \
+  -H "Content-Type: application/json" \
+  -d '{"email": "agent+'$(date +%s)-$RANDOM'@recoupable.com"}' | jq -r .api_key)
+```
+
+Verify it worked:
+
+```bash
+curl -H "x-api-key: $RECOUP_API_KEY" https://api.recoupable.dev/api/accounts/id
+```
+
+<Tip>
+The `agent+{timestamp}@recoupable.com` shape is the fastest path for agents — it guarantees a fresh `agent+` address and returns an API key instantly without email verification.
+</Tip>
+
+For the full signup + email-verification flow, see the [Agents guide](/agents).
+
+## Base URL
+
+All API requests should be made to:
+
+```bash
+https://api.recoupable.dev/api
+```
+
+## Your First Request
+
+Once you have an API key, include it in the `x-api-key` header on every request. Here's a simple call that retrieves your scheduled tasks:
+
+<CodeGroup>
+
+```bash cURL
+curl -X GET "https://api.recoupable.dev/api/tasks" \
+  -H "Content-Type: application/json" \
+  -H "x-api-key: YOUR_API_KEY"
+```
+
+```python Python
+import requests
+
+headers = {
+    "Content-Type": "application/json",
+    "x-api-key": "YOUR_API_KEY"
+}
+
+response = requests.get(
+    "https://api.recoupable.dev/api/tasks",
+    headers=headers
+)
+print(response.json())
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.recoupable.dev/api/tasks", {
+  headers: {
+    "Content-Type": "application/json",
+    "x-api-key": "YOUR_API_KEY",
+  },
+});
+const data = await response.json();
+console.log(data);
+```
+
+```typescript TypeScript
+interface Task {
+  id: string;
+  title: string;
+  prompt: string;
+  schedule: string;
+  account_id: string;
+  artist_account_id: string;
+  enabled: boolean;
+}
+
+interface TasksResponse {
+  status: "success" | "error";
+  tasks: Task[];
+}
+
+const response = await fetch("https://api.recoupable.dev/api/tasks", {
+  headers: {
+    "Content-Type": "application/json",
+    "x-api-key": "YOUR_API_KEY",
+  },
+});
+const data: TasksResponse = await response.json();
+console.log(data.tasks);
+```
+
+</CodeGroup>
+
+**Example Response:**
+
+```json
+{
+  "status": "success",
+  "tasks": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "title": "Daily Fan Report",
+      "prompt": "Generate a summary of new fans from the past 24 hours",
+      "schedule": "0 9 * * *",
+      "account_id": "123e4567-e89b-12d3-a456-426614174000",
+      "artist_account_id": "987fcdeb-51a2-3b4c-d5e6-789012345678",
+      "enabled": true
+    }
+  ]
+}
+```
+
+<Info>
+For full documentation on the Tasks API including filtering options, see the [Tasks API Reference](/api-reference/tasks/get).
+</Info>
+
+## Prefer the dashboard?
+
+If you're a human building an integration, you can also create API keys from the web console instead of the signup endpoint:
+
+1. Navigate to the [Recoup API Keys Management Page](https://chat.recoupable.dev/keys)
+2. Sign in with your account
+3. Enter a descriptive name (e.g. "Production Server")
+4. Click **Create API Key**
+
+<Warning>
+Copy and securely store your API key immediately — it will only be shown once.
+</Warning>
+
+## Next Steps
+
+With your API key ready, you can now:
+
+<CardGroup cols={2}>
+  <Card
+    title="Artist Data"
+    icon="user"
+    href="/api-reference/artists/socials"
+  >
+    Fetch artists' social accounts and follower counts.
+  </Card>
+  <Card
+    title="Fan Analytics"
+    icon="users"
+    href="/api-reference/fans/get"
+  >
+    Access fan data across all connected social platforms.
+  </Card>
+  <Card
+    title="Chat API"
+    icon="comments"
+    href="/api-reference/chat/chats"
+  >
+    Build AI-powered conversations with artist context.
+  </Card>
+  <Card
+    title="Task Management"
+    icon="list-check"
+    href="/api-reference/tasks/get"
+  >
+    Schedule and automate recurring tasks.
+  </Card>
+</CardGroup>
+
+## Support
+
+If you need help or have questions about the API, please contact our support team at [agent@recoupable.dev](mailto:agent@recoupable.dev).

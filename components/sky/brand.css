@@ -1,0 +1,17 @@
+/* Footer identity has its own geometry, independent of the mobile navigation. */
+.recoup-footer-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  width: fit-content;
+  color: inherit;
+  font-family: "DM Sans Variable", sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: 28px;
+  letter-spacing: -1.1px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.recoup-footer-lockup > svg { width: 23px; height: 28px; flex: 0 0 23px; }
+@media (max-width: 600px) { .recoup-footer-lockup { font-size: 26px; } }

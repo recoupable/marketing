@@ -1,47 +1,7 @@
+import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { siteConfig } from "@/lib/config";
-import { buildPageMetadata } from "@/lib/seo";
-const COMPANY_LINKS = [
-  { label: "Vision", href: "/company/vision" },
-  { label: `${siteConfig.name} Records`, href: "/company/recoup-records" },
-  { label: "About", href: "/company/about" },
-];
-
-export const metadata: Metadata = buildPageMetadata({
-  title: `Company — Vision, ${siteConfig.name} Records & Story | ${siteConfig.name}`,
-  description: `Meet ${siteConfig.name} — vision, ${siteConfig.name} Records, and what we're building. The company behind the AI-powered autonomous music operations platform.`,
-  path: "/company",
-});
-
-export default function CompanyPage() {
-  const links = COMPANY_LINKS;
-
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-16">
-      <header className="mb-16">
-        <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] mb-4">
-          Company
-        </h1>
-        <p className="text-xl text-[var(--muted-foreground)]">
-          Vision, {siteConfig.name} Records, and who we are.
-        </p>
-      </header>
-
-      <div className="grid gap-4">
-        {links.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="block border border-[var(--border)] rounded-lg p-6 hover:border-[var(--brand)] transition-colors"
-          >
-            <span className="font-medium text-[var(--foreground)]">
-              {item.label}
-            </span>
-            <span className="ml-2 text-[var(--muted-foreground)]">→</span>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
+import { SkyArrow } from "@/components/sky/arrow";
+import { MarketingPage, PageHero, PageSection, PageButton, PageCTA } from "@/components/marketing-migration/ui";
+export const metadata: Metadata=withPageMetadata({title:"Company — About Recoup",description:"Meet Recoup, explore our approach to AI in music, and learn about the work behind our platform and services.",alternates:{canonical:"/company"}});
+export default function CompanyPage(){return <MarketingPage><PageHero eyebrow="COMPANY" title={<>Music experience.<br /><span>Working technology.</span></>} description="We build AI systems for the business of music, and help the people behind it put those systems to work."><PageButton href="/about">Meet Recoup</PageButton></PageHero><PageSection eyebrow="GET TO KNOW RECOUP" title="The people. The thinking. The work."><div className="sp-grid">{[{href:"/about",type:"OUR STORY",title:"About Recoup",body:"The company and people bringing music experience to AI implementation."},{href:"/company/vision",type:"OUR DIRECTION",title:"What we’re building toward",body:"AI that takes on useful work, with people setting the direction and judging the result."},{href:"/records",type:"RECOUP RECORDS",title:"Use what we build",body:"Our in-house label is a place to put music workflows into practice."}].map(item=><Link className="mm-resource-card" href={item.href} key={item.href}><span>{item.type}</span><h3>{item.title}</h3><p>{item.body}</p><SkyArrow /></Link>)}</div></PageSection><PageCTA title="Bring us a music problem." description="We’re interested in work worth improving, questions worth testing, and teams ready to build." /></MarketingPage>;}

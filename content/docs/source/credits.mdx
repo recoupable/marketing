@@ -1,0 +1,215 @@
+---
+title: "Credits"
+description: "How Recoup credits work — what's billed, how to check your balance, and how to upgrade."
+---
+
+Some Recoup endpoints are billed in **credits** — primarily endpoints that hit external data providers, run AI inference, or generate content. The rest of the API is free at the API layer.
+
+---
+
+## What's billed
+
+| Family | Billed? | Notes |
+|--------|---------|-------|
+| **Research** ([`/api/research/*`](/api-reference/research/web)) | Yes | Each successful call deducts credits. Costs vary by endpoint and parameters (e.g. [`enrich`](/api-reference/research/enrich) charges by processor tier; [`extract`](/api-reference/research/extract) charges by URL count). |
+| **Content generation** ([`/api/image/generate`](/api-reference/image/generation)) | Yes | Image generation is priced per call. |
+| **AI Chat — streaming** ([`POST /api/chat`](/api-reference/chat/workflow)) | Yes | Variable cost based on model token usage, with a per-request minimum. |
+| **Music analysis** ([`POST /api/songs/analyze`](/api-reference/songs/analyze)) | Yes | \$0.05 per model call plus \$0.001166 per second of inference time; `full_report` is the sum of its 13 calls. |
+| **Social scrape** ([`/api/socials/{id}/scrape`](/api-reference/social/scrape), [`/api/artist/socials/scrape`](/api-reference/artist/socials-scrape)) | Yes | \$0.05, plus \$0.01 per post requested via `posts` — per social profile scraped. |
+| **Everything else** | Free at the API layer | [Artist CRUD](/api-reference/artists/list), [sandboxes](/api-reference/sandboxes/list), [sessions](/api-reference/sessions/get), [scheduled tasks](/api-reference/tasks/get), [account/org management](/api-reference/accounts/id), [agent signup](/api-reference/agents/signup), [Spotify proxies](/api-reference/spotify/search), etc. Subscription gating may still apply. |
+
+Failed calls (4xx / 5xx) do **not** deduct credits. Deduction happens only after the upstream call succeeds.
+
+---
+
+## What a credit is worth
+
+**Balances and prices are US dollars.** The ledger stores amounts as integer micro-dollars, the same 6-decimal unit as USDC: `1,000,000 = $1.00`, so it can carry sub-cent charges (a \$0.002/s provider rate prices exactly). Every credit field the API returns is that integer; divide by 1,000,000 to display it as currency. Example: [`GET /api/accounts/{id}/credits`](/api-reference/accounts/credits-get).
+
+---
+
+## Check your balance
+
+```bash
+curl -sS https://api.recoupable.dev/api/accounts/$ACCOUNT_ID/credits \
+  -H "x-api-key: $RECOUP_API_KEY"
+```
+
+Response shape:
+
+```json
+{
+  "account_id": "acc_…",
+  "remaining_credits": 292450000,
+  "total_credits": 300000000,
+  "used_credits": 7550000,
+  "is_pro": true,
+  "plan": "pro",
+  "task_limit": null,
+  "min_cadence_minutes": 60,
+  "timestamp": "2026-04-24T17:50:43.475"
+}
+```
+
+`plan`, `task_limit`, and `min_cadence_minutes` describe the [plan](#subscription) the balance belongs to. `total_credits` is your plan-derived monthly allotment. `remaining_credits` can exceed `total_credits` after a top-up or an admin grant, and `used_credits` clamps to 0 in that case. Full schema at [Get Account Credits](/api-reference/accounts/credits-get).
+
+To see what consumed the balance, list the charges line by line with [`GET /api/accounts/{id}/usage`](/api-reference/accounts/usage-get): one item per deduction, newest first, each with the amount in micro-dollars and as a dollar string, plus the total for the period. API charges name the endpoint that billed them in `model_id` (for example `POST /api/artist/socials/scrape`), so a list of charges reads as a list of calls.
+
+---
+
+## Subscription
+
+For Platform, Advisory, Build + Partner, and Enterprise options, see [Recoup pricing](/pricing). API and MCP usage is billed separately through credits.
+
+Your account's current credit allowance and scheduled-task limits are returned by [Get Account Credits](/api-reference/accounts/credits-get). Use `total_credits`, `task_limit`, and `min_cadence_minutes` from that response rather than inferring limits from a public plan name.
+
+The API may return account identifiers such as `free`, `starter`, or `pro`. These are documented API values; they are not the names of consulting engagements. The request and response schemas define the values accepted by each endpoint.
+
+### Task limits
+
+[`POST /api/tasks`](/api-reference/tasks/create) and [`PATCH /api/tasks`](/api-reference/tasks/update) [check the plan](/api-reference/accounts/credits-get) before writing. Creating a task past `task_limit`, re-enabling a disabled task past it, or saving a cron whose consecutive runs are closer together than `min_cadence_minutes` returns **HTTP 402** with `error: "plan_limit"`:
+
+```json
+{
+  "status": "error",
+  "error": "plan_limit",
+  "limit": "task_count",
+  "message": "Free includes 1 task. Starter includes 3, Pro is unlimited.",
+  "plan": "free",
+  "task_limit": 1,
+  "min_cadence_minutes": 10080,
+  "current_task_count": 1,
+  "billingUrl": "https://app.recoupable.dev/plan"
+}
+```
+
+`limit` is `task_count` or `min_cadence`; `current_task_count` excludes the task being created or updated. Edits that only touch `title`, `prompt`, or `model` never hit the gate.
+
+### Monthly refill
+
+The refill is a **floor, not an assignment.** It raises `remaining_credits` up to your plan's monthly total and never lowers it. A balance already above the plan total, whether from a [top-up](#one-time-top-ups) or an admin grant, is left exactly as it is, so credits you bought or were granted are never taken away by the calendar.
+
+The refill is lazy rather than scheduled: it applies on the next read of [`GET /api/accounts/{id}/credits`](/api-reference/accounts/credits-get) once your credits row is more than a month old. The balance you read is always the refilled one.
+
+### Manage your subscription
+
+Sign in to your [account billing page](https://app.recoupable.dev/plan) to review your subscription, price, and current terms. For programmatic checkout, use the accepted request values in [Create Subscription Session](/api-reference/subscriptions/sessions-create) and open its returned checkout URL. Review the price and billing terms before completing checkout.
+
+Advisory and custom-build engagements begin with a conversation about scope. Their website plan selection does not create an API subscription or complete a payment.
+
+### Check your tier
+
+```bash
+curl -sS https://api.recoupable.dev/api/accounts/$ACCOUNT_ID/subscription \
+  -H "x-api-key: $RECOUP_API_KEY"
+```
+
+Get `$ACCOUNT_ID` from [`GET /api/accounts/id`](/api-reference/accounts/id) if you don't already have it. Response includes `isPro` (boolean), `status`, `plan`, and `source` (whether the subscription comes from the account itself or an organization the account belongs to). Full schema at [Get Subscription](/api-reference/accounts/subscription-get).
+
+### One-time top-ups
+
+You can purchase credits any time via [`POST /api/credits/sessions`](/api-reference/credits/sessions-create). The endpoint adapts to what's on the account:
+
+- **Card on file → silent auto-charge.** Recoup charges your saved Stripe card off-session and returns `paymentIntentId`, `creditsPurchased`, and `totalCents`. Credits land within seconds.
+- **No card, or Stripe declines the saved card → Stripe Checkout fallback.** The response contains a Checkout `url` you open in the browser. When Stripe specifically declined a saved card, the response also includes a `declineReason` (e.g. `insufficient_funds`, `expired_card`) so you can explain *why* before sending the customer to update billing.
+
+```bash
+curl -sS -X POST https://api.recoupable.dev/api/credits/sessions \
+  -H "x-api-key: $RECOUP_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"credits": 1000000, "successUrl": "https://chat.recoupable.dev/credits/success"}'
+```
+
+Full request/response schema at [Create Credits Top-Up Session](/api-reference/credits/sessions-create).
+
+### Check which card will be charged
+
+Before triggering a silent off-session charge, inspect the default payment method on file:
+
+```bash
+curl -sS https://api.recoupable.dev/api/accounts/$ACCOUNT_ID/payment-method \
+  -H "x-api-key: $RECOUP_API_KEY"
+```
+
+Response shape:
+
+```json
+{
+  "account_id": "acc_…",
+  "card": {
+    "brand": "visa",
+    "last4": "4242",
+    "exp_month": 12,
+    "exp_year": 2026,
+    "funding": "credit"
+  }
+}
+```
+
+`card` is `null` when no payment method has been saved yet — the next top-up call will route through a checkout session to collect one. Expired cards are still returned (with their original `exp_month` / `exp_year`); callers should compare against the current date and warn the customer, since an off-session charge against an expired card will decline. Full schema at [Get Default Payment Method](/api-reference/accounts/payment-method-get).
+
+---
+
+## Running out of credits
+
+Every billed API request runs a credit gate before it executes. If `remaining_credits` doesn't cover the request's cost, the request stops there and returns **HTTP 402**. Nothing is charged and no Stripe object is created.
+
+The decision tree:
+
+1. **Enough credits?** → Request proceeds, credits deducted on success.
+2. **Short?** → Request returns **HTTP 402** with the balance, the cost, and a link to billing.
+
+A card on the account is never charged on its own. Charging happens only when the account asks to buy credits, through [`POST /api/credits/sessions`](/api-reference/credits/sessions-create), or when the account has turned on auto top-up. Saving a card ahead of time via [`POST /api/accounts/{id}/payment-method`](/api-reference/accounts/payment-method-create) makes a one-time purchase a single call instead of a browser round-trip; it does not authorize a charge by itself. Your plan, card, and every payment are on [`/api/accounts/{id}/subscription`](/api-reference/accounts/subscription-get), [`/api/accounts/{id}/payment-method`](/api-reference/accounts/payment-method-get), and [`/api/accounts/{id}/payments`](/api-reference/accounts/payments-get); pass an organization id as `{id}` to read the organization's billing.
+
+### Auto top-up (opt-in)
+
+Auto top-up is off for every account until it is turned on with [`PUT /api/accounts/{id}/auto-top-up`](/api-reference/accounts/auto-top-up-update), which needs three things chosen by the account: `enabled`, the `amountCents` to buy each time (5.00 to 1,000.00 USD), and the `thresholdCents` balance that triggers it. Both are USD cents; the `remaining_credits` balance above is in credit micro-dollars, so divide it by 10,000 to compare. Turning it on requires a card on file.
+
+Once on, the first credit deduction that leaves the balance below the threshold charges the card for the amount, grants the credits, records a usage event, and emails a receipt. Guardrails: at most one top-up per account per 10 minutes; a card decline turns auto top-up off, records the decline message as `lastError` (returned by [`GET /api/accounts/{id}/auto-top-up`](/api-reference/accounts/auto-top-up-get)), and emails the account instead of retrying; removing the card turns it off. Auto top-up never creates a checkout session and never touches an invoiced (enterprise) plan. Saving a card does not turn auto top-up on by itself.
+
+---
+
+## 402 Payment Required
+
+When the gate comes up short, billed endpoints return **HTTP 402** with a unified body:
+
+```json
+{
+  "error": "insufficient_credits",
+  "remaining_credits": 120000,
+  "required_credits": 1000000,
+  "billingUrl": "https://app.recoupable.dev"
+}
+```
+
+| Field | When it appears | Meaning |
+|-------|-----------------|---------|
+| `error` | Always | Literally `"insufficient_credits"` |
+| `remaining_credits` | Always | Account balance at the moment of the failed request |
+| `required_credits` | Always | What this endpoint needed |
+| `billingUrl` | Always | Static link to the Recoup app, where a human can save a card and buy credits |
+
+`billingUrl` is a constant, not a freshly minted Stripe Checkout Session. Retrying a credit-gated endpoint returns the same URL every time and creates nothing, so an unattended client that keeps hitting the gate is safe to leave running.
+
+**How to react:**
+
+- **Browser-driven UI** (e.g., the Recoup chat app): send the customer to `billingUrl`, or call [`POST /api/credits/sessions`](/api-reference/credits/sessions-create) inline and open the `url` it returns.
+- **Programmatic / LLM-driven client**: report `remaining_credits` and `required_credits`, and surface `billingUrl` as the link a human needs to visit. Do not treat a 402 as retryable; the balance will not change on its own until someone buys credits or the monthly refill lands.
+
+---
+
+## Cost per endpoint
+
+Current as of this revision of the page. The authoritative source is the per-endpoint reference docs and the `required_credits` field on any 402 response.
+
+| Endpoint | Cost |
+|----------|------|
+| [`POST /api/chat`](/api-reference/chat/workflow) (streaming) | Variable, priced from the model's token usage; see `required_credits` on a 402 |
+| [`GET /api/research/*`](/api-reference/research/web) (artist & non-artist research) | \$0.05 per call |
+| [`POST /api/research/people`](/api-reference/research/people) | \$0.05 per call |
+| [`POST /api/research/web`](/api-reference/research/web) | \$0.01 per call |
+| [`POST /api/research/extract`](/api-reference/research/extract) | \$0.05 × number of URLs |
+| [`POST /api/research/enrich`](/api-reference/research/enrich) | \$0.05 / \$0.10 / \$0.25 (base / core / ultra processor) |
+| [`POST /api/research/deep`](/api-reference/research/deep) | \$0.25 per call |
+| [`POST /api/image/generate`](/api-reference/image/generation) | Per-call price; see endpoint reference |
+| [`POST /api/songs/analyze`](/api-reference/songs/analyze) | `$0.05 + $0.001166 × elapsed_seconds` per model call; `full_report` = 13 calls |

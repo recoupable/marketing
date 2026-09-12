@@ -1,0 +1,96 @@
+---
+title: 'Agents'
+description: 'Programmatic agent onboarding — sign up and obtain API keys in one call, no dashboard, no human in the loop.'
+---
+
+## Quickest start
+
+Get a working API key in a single unauthenticated request:
+
+```bash
+curl -X POST "https://api.recoupable.dev/api/agents/signup" \
+  -H "Content-Type: application/json" \
+  -d '{"email": "agent+'$(date +%s)-$RANDOM'@recoupable.com"}'
+```
+
+Response:
+
+```json
+{
+  "account_id": "123e4567-e89b-12d3-a456-426614174000",
+  "api_key": "recoup_sk_abc123...",
+  "message": "If this is a new agent+ email, your API key is included. Otherwise, check your email for a verification code."
+}
+```
+
+That's it. Store `api_key`, pass it in the `x-api-key` header on every subsequent request, and you're done.
+
+<Tip>
+**One-liner — sign up and export the key in one shot.** Drop this into your shell and you'll have `$RECOUP_API_KEY` ready to use on the next line:
+
+```bash
+export RECOUP_API_KEY=$(curl -s -X POST "https://api.recoupable.dev/api/agents/signup" \
+  -H "Content-Type: application/json" \
+  -d '{"email": "agent+'$(date +%s)-$RANDOM'@recoupable.com"}' | jq -r .api_key)
+```
+
+Verify it worked:
+
+```bash
+curl -H "x-api-key: $RECOUP_API_KEY" https://api.recoupable.dev/api/accounts/id
+```
+</Tip>
+
+<Tip>
+The `agent+{unique-suffix}@recoupable.com` shape is the recommended path for agents — it always returns an API key instantly, with no email verification required. Combining `$(date +%s)` with `$RANDOM` guarantees a fresh, collision-free address on every call (including multiple signups within the same second) and is portable across macOS and Linux shells.
+</Tip>
+
+## How it works
+
+Two unauthenticated endpoints power agent onboarding:
+
+- **[`POST /api/agents/signup`](/api-reference/agents/signup)** — Register with an email address. Emails with the `agent+` prefix that have never been seen before receive an API key immediately. Any other email (or a previously-used `agent+` address) receives a 6-digit verification code via email.
+- **[`POST /api/agents/verify`](/api-reference/agents/verify)** — Submit the verification code to receive an API key.
+
+Multiple API keys per account are supported — each signup or verification generates a new key without revoking existing ones.
+
+## Standard signup (email verification)
+
+If you're building a human-facing integration and want the user to verify their real email, use any non-`agent+` address:
+
+Step 1 — request a verification code:
+
+```bash
+curl -X POST "https://api.recoupable.dev/api/agents/signup" \
+  -H "Content-Type: application/json" \
+  -d '{"email": "you@example.com"}'
+```
+
+Step 2 — submit the 6-digit code from the verification email:
+
+```bash
+curl -X POST "https://api.recoupable.dev/api/agents/verify" \
+  -H "Content-Type: application/json" \
+  -d '{"email": "you@example.com", "code": "123456"}'
+```
+
+Response:
+
+```json
+{
+  "account_id": "123e4567-e89b-12d3-a456-426614174000",
+  "api_key": "recoup_sk_abc123...",
+  "message": "Verified"
+}
+```
+
+## Using your API key
+
+Pass the returned `api_key` in the `x-api-key` header on every authenticated request:
+
+```bash
+curl -X GET "https://api.recoupable.dev/api/tasks" \
+  -H "x-api-key: YOUR_API_KEY"
+```
+
+See [Authentication](/authentication) for the full authentication model, including organization access and Bearer token support, and [Quickstart](/quickstart) for your first end-to-end request.

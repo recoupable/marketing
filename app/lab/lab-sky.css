@@ -1,0 +1,77 @@
+.lab-workbench { position: relative; isolation: isolate; width: 100%; max-width: 550px; min-height: 420px; margin: auto; }
+.lab-bench-orbit { position: absolute; z-index: -1; width: 100%; height: 85%; top: 8%; left: -3%; border: 1px solid #c1edff40; border-radius: 50%; transform: rotate(-30deg) scaleY(.6); }
+.lab-bench-orbit-second { transform: rotate(40deg) scaleY(.65); left: 4%; }
+.lab-bench-sheet { position: absolute; width: 74%; left: 1%; top: 28px; padding: 25px; border: 4px solid #d0eaff; border-radius: 20px; box-shadow: 0 20px 45px #03385935; color: #153b47; background: #fff; transform: rotate(-7deg); }
+.lab-bench-sheet-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; font: 9px "IBM Plex Mono", monospace; color: #5c7d89; border-bottom: 1px solid #e2eef1; padding-bottom: 15px; }
+.lab-bench-dot { height: 7px; width: 7px; background: #98d943; border-radius: 50%; box-shadow: 0 0 0 4px #eef8da; }
+.lab-bench-label { display: block; margin: 27px 0 12px; font-size: 11px; color: #6b848c; }
+.lab-bench-sheet strong { display: block; font-size: 34px; font-weight: 500; line-height: 1.08; letter-spacing: -.04em; }
+.lab-bench-checks { display: grid; gap: 12px; margin-top: 25px; }
+.lab-bench-checks > span { display: flex; align-items: center; gap: 9px; font-size: 11px; color: #486775; }
+.lab-bench-checks i { display: block; width: 12px; height: 12px; border: 1px solid #c1d5dd; border-radius: 4px; }
+.lab-bench-note { position: absolute; right: 0; top: 173px; width: 45%; max-width: 213px; padding: 24px; border: 4px solid #ffffffb3; border-radius: 17px; color: #214028; background: #d6ff62; box-shadow: 0 15px 25px #1548402b; transform: rotate(7deg); }
+.lab-bench-note > span:first-child { font: 8px "IBM Plex Mono", monospace; letter-spacing: .05em; }
+.lab-bench-note strong { display: block; font-size: 35px; font-weight: 450; line-height: 1.05; letter-spacing: -.055em; margin-top: 24px; }
+.lab-bench-note strong > span { color: #558422; }
+.lab-bench-note-plus { position: absolute; right: 15px; bottom: 14px; font-size: 30px; line-height: 1; color: #436420; }
+.lab-sky .lab-question { min-width: 0; display: flex; flex-direction: column; padding: 28px; }
+.lab-question-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 38px; }
+.lab-question-icon { display: grid; place-items: center; width: 45px; height: 45px; border-radius: 12px; background: #d6ff62; color: #254834; }
+.lab-question-icon svg { width: 24px; height: 24px; }
+.lab-question:nth-child(2) .lab-question-icon { background: #e4f5ff; color: #087caf; }
+.lab-question:nth-child(3) .lab-question-icon { background: #182e27; color: #d6ff62; }
+.lab-question-number { color: #69808a; font: 10px "IBM Plex Mono", monospace; }
+.lab-question-category { font-size: 11px; line-height: 1.5; color: #547783; margin-bottom: 12px; }
+.lab-sky .lab-question h3 { color: #172f39; font-size: 28px; font-weight: 450; line-height: 1.1; letter-spacing: -.04em; }
+.lab-sky .lab-question-description { font-size: 14px; line-height: 1.7; color: #5b707a; margin: 20px 0 29px; }
+.lab-proposed-test { border-top: 1px solid #e1e9ec; padding-top: 20px; margin-top: auto; }
+.lab-proposed-test > span { display: block; color: #0876a7; font: 9px "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .065em; }
+.lab-proposed-test > p { color: #476571; font-size: 12px; line-height: 1.7; margin-top: 10px; }
+.lab-source-panel { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 60px; padding: 48px; background: #edf7fb; border-radius: 23px; }
+.lab-source-copy .sp-kicker { color: #34718b; margin-bottom: 24px; }
+.lab-source-copy h2 { color: #152f3b; font-size: clamp(33px, 3.5vw, 47px); font-weight: 450; line-height: 1.08; letter-spacing: -.055em; }
+.lab-source-copy > p:not(.sp-kicker) { color: #526c77; font-size: 15px; line-height: 1.65; margin: 23px 0 28px; max-width: 44ch; }
+.lab-source-actions { display: flex; align-items: center; gap: 21px; flex-wrap: wrap; }
+.lab-source-actions .sp-text-link { font-size: 12px; }
+.lab-skills-visual { position: relative; isolation: isolate; max-width: 365px; width: 100%; margin: auto; padding: 18px; }
+.lab-skill-backplate { position: absolute; inset: 12px 2px 2px 16px; border: 4px solid #fff; border-radius: 19px; background: #1ba1d4; transform: rotate(8deg); z-index: -1; }
+.lab-skill-front { display: flex; flex-direction: column; align-items: flex-start; padding: 27px; border: 4px solid #fff; border-radius: 19px; background: #182e24; color: #fff; box-shadow: 0 14px 27px #0e516021; transform: rotate(-4deg); }
+.lab-skill-front > svg { width: 47px; height: 47px; color: #d6ff62; margin-bottom: 27px; }
+.lab-skill-front > span { font: 9px "IBM Plex Mono", monospace; color: #accab9; letter-spacing: .07em; }
+.lab-skill-front > strong { display: block; font-size: 34px; line-height: 1.08; letter-spacing: -.05em; font-weight: 450; margin: 16px 0 26px; }
+.lab-skill-front > strong > span { color: #d6ff62; }
+.lab-skill-front > div { display: flex; gap: 5px; }
+.lab-skill-front > div > span { font-size: 9px; padding: 5px 7px; border: 1px solid #536f5d; border-radius: 5px; color: #cce1d5; }
+.lab-standards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 38px; }
+.lab-standards > article { padding-top: 24px; border-top: 1px solid #dbe6e9; }
+.lab-standards > article > span { display: block; margin-bottom: 24px; color: #0b7ead; font: 11px "IBM Plex Mono", monospace; }
+.lab-standards h3 { color: #19323c; font-size: 23px; line-height: 1.16; font-weight: 500; letter-spacing: -.035em; }
+.lab-standards p { color: #526e79; font-size: 14px; line-height: 1.7; margin-top: 14px; }
+.lab-sky .lab-developer-link { margin-top: 32px; font-size: 13px; }
+@media (max-width: 1050px) { .lab-sky .lab-question { padding: 23px; } .lab-sky .lab-question h3 { font-size: 25px; } .lab-source-panel { gap: 35px; padding: 35px; } .lab-bench-sheet strong { font-size: 30px; } .lab-bench-note strong { font-size: 31px; } }
+@media (max-width: 760px) {
+  .lab-workbench { max-width: 470px; min-height: 410px; }
+  .lab-bench-sheet { top: 17px; }
+  .lab-source-panel { grid-template-columns: minmax(0, 1fr); padding: 32px; gap: 30px; }
+  .lab-standards { grid-template-columns: minmax(0, 1fr); gap: 27px; }
+  .lab-standards > article > span { margin-bottom: 17px; }
+}
+@media (max-width: 480px) {
+  .lab-workbench { min-height: 360px; }
+  .lab-bench-sheet { width: 80%; left: 0; padding: 18px; border-width: 3px; border-radius: 15px; }
+  .lab-bench-sheet-top { font-size: 8px; gap: 8px; padding-bottom: 12px; }
+  .lab-bench-label { font-size: 9px; margin-top: 21px; }
+  .lab-bench-sheet strong { font-size: 26px; }
+  .lab-bench-checks { margin-top: 20px; gap: 9px; }
+  .lab-bench-checks > span { font-size: 9px; gap: 7px; }
+  .lab-bench-checks i { width: 10px; height: 10px; }
+  .lab-bench-note { width: 44%; top: 155px; padding: 17px; border-width: 3px; }
+  .lab-bench-note > span:first-child { font-size: 6px; }
+  .lab-bench-note strong { font-size: 26px; margin-top: 17px; }
+  .lab-bench-note-plus { font-size: 23px; right: 10px; bottom: 9px; }
+  .lab-source-panel { padding: 26px; border-radius: 18px; }
+  .lab-skills-visual { padding: 14px; }
+  .lab-skill-front { padding: 21px; }
+  .lab-skill-front > strong { font-size: 29px; }
+  .lab-skill-front > div > span { font-size: 8px; padding: 5px; }
+}

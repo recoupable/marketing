@@ -1,0 +1,27 @@
+.mm-subscribe { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; padding:42px; margin:70px 20px 0; background:#edf6f9; border:1px solid #dbeaf0; border-radius:23px; color:#193c49; }
+.mm-subscribe-copy .sp-kicker { color:#5b7a86; }
+.mm-subscribe h2 { font-family:"DM Sans Variable",sans-serif; font-size:35px; font-weight:450; line-height:1.15; letter-spacing:-.04em; margin:17px 0; }
+.mm-subscribe-copy > p:not(.sp-kicker) { color:#5a7581; font-size:15px; line-height:1.7; max-width:390px; }
+.mm-subscribe-copy > p.mm-subscribe-access { font-size:12px; margin-top:18px; max-width:340px; }
+.mm-subscribe-fields { display:grid; grid-template-columns:1fr; gap:17px; }
+.mm-subscribe-fields label { display:block; margin-bottom:8px; font-size:14px; font-weight:500; }
+.mm-subscribe-fields label > span { font-weight:400; color:#62808b; }
+.mm-subscribe-fields input { width:100%; min-height:48px; border:1px solid #78939e; border-radius:9px; padding:13px 15px; background:#fff; color:#193c49; font-family:inherit; font-size:16px; }
+.mm-subscribe-fields input::placeholder { color:#586f78; opacity:1; }
+.mm-subscribe-guard { margin:0; padding:0; border:0; min-width:0; }
+.mm-subscribe-guard > button { margin-top:20px; cursor:pointer; border:0; }
+.mm-subscribe-guard > button:disabled { cursor:wait; opacity:.65; }
+.mm-subscribe-no-script { font-size:14px; line-height:1.65; margin-bottom:18px; }
+.mm-subscribe-no-script a { color:#087bab; text-decoration:underline; text-underline-offset:3px; }
+.mm-subscribe-consent { margin-top:16px; color:#526e7a; font-size:13px; line-height:1.65; max-width:400px; }
+.mm-subscribe-consent a { text-decoration:underline; text-underline-offset:3px; }
+.mm-subscribe-error { color:#9e302a; margin-top:15px; font-size:13px; line-height:1.65; }
+.mm-subscribe-confirmation { border:1px solid #d5e6cf; padding:28px; border-radius:15px; background:#f5fbe9; }
+.mm-subscribe-confirmation > span { display:grid; place-items:center; width:34px; height:34px; border-radius:50%; color:#234c2c; background:#d6ff62; }
+.mm-subscribe-confirmation h3 { font-size:26px; font-weight:500; line-height:1.2; letter-spacing:-.03em; margin:20px 0 12px; }
+.mm-subscribe-confirmation p { font-size:14px; color:#4f6b55; line-height:1.65; }
+.mm-subscribe-confirmation a { display:inline-flex; align-items:center; gap:10px; color:#076f9b; text-decoration:underline; text-underline-offset:4px; margin-top:22px; font-size:13px; }
+.blog-index > .mm-subscribe { margin-inline:0; }
+@media(max-width:1050px) { .mm-subscribe { gap:28px; margin-inline:0; padding:34px; }.mm-subscribe h2 { font-size:32px; } }
+@media(max-width:760px) { .mm-subscribe { grid-template-columns:1fr; padding:29px; margin-top:55px; gap:28px; }.mm-subscribe-fields { grid-template-columns:1fr 1fr; } }
+@media(max-width:500px) { .mm-subscribe { padding:25px 20px; border-radius:18px; }.mm-subscribe h2 { font-size:30px; }.mm-subscribe-fields { grid-template-columns:1fr; }.mm-subscribe-guard > button { font-size:10px; gap:10px; }.mm-subscribe-confirmation { padding:23px; } }

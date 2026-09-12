@@ -1,0 +1,24 @@
+.direction-contact .contact-copy h1 {
+  font-size: clamp(38px, 4.5vw, 66px);
+  max-width: 650px;
+}
+.direction-contact .contact-copy > .text-link {
+  margin-bottom: 34px;
+}
+.direction-contact .contact-copy > p {
+  max-width: 410px;
+  font-size: 16px;
+}
+.direction-contact .inquiry-form h2 {
+  font-size: 29px;
+}
+@media (max-width: 800px) {
+  .direction-contact .contact-copy h1 {
+    font-size: 42px;
+  }
+}
+@media (max-width: 540px) {
+  .direction-contact .contact-copy h1 {
+    font-size: 37px;
+  }
+}

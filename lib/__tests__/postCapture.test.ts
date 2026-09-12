@@ -3,7 +3,7 @@ import { postCapture } from "@/lib/postCapture";
 
 describe("postCapture", () => {
   beforeEach(() => {
-    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(null, { status: 200 })));
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(Response.json({ status: "success" })));
     vi.spyOn(console, "error").mockImplementation(() => {});
   });
   afterEach(() => {
@@ -16,7 +16,7 @@ describe("postCapture", () => {
     await postCapture({ kind: "subscribe", source: "/audit", email: "ada@example.com" });
 
     const [url, init] = vi.mocked(fetch).mock.calls[0];
-    expect(String(url)).toBe("https://api.recoupable.dev/api/leads");
+    expect(String(url)).toBe("https://test-recoup-api.vercel.app/api/leads");
     expect(init?.method).toBe("POST");
     expect(JSON.parse(String(init?.body))).toEqual({
       kind: "subscribe",
@@ -33,10 +33,17 @@ describe("postCapture", () => {
     );
   });
 
-  it("reports ok on a 200", async () => {
+  it("reports ok after the API confirms capture", async () => {
     expect(
       await postCapture({ kind: "subscribe", source: "/audit", email: "a@b.com" }),
     ).toEqual({ ok: true });
+  });
+
+  it("does not accept an unrelated successful HTTP response as a saved lead", async () => {
+    for (const response of [new Response("OK"), Response.json({ status: "error" }), Response.json({ status: "success" }, { status: 202 })]) {
+      vi.mocked(fetch).mockResolvedValueOnce(response);
+      expect((await postCapture({ kind: "booking", source: "/music-videos" })).ok).toBe(false);
+    }
   });
 
   // The whole point: a non-2xx must reach the caller instead of being discarded.

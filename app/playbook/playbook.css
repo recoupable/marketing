@@ -1,0 +1,41 @@
+.playbook-cover{max-width:365px;margin:0 auto;background:#d6ff62;color:#142e3a;text-align:left;padding:32px;border-radius:5px 18px 18px 5px;box-shadow:-8px 0 0 #b4df46,0 20px 50px #003b6638;transform:rotate(4deg)}
+.playbook-cover>div:first-child{display:flex;align-items:center;gap:10px;font-size:11px}.playbook-cover svg{width:17px;height:20px}.playbook-cover>strong{display:block;font-size:36px;line-height:1.07;font-weight:500;letter-spacing:-.05em;margin:48px 0 25px}.playbook-cover em{font-style:normal;color:#047dac}.playbook-cover>span{font-size:11px}.playbook-cover-bottom{border-top:1px solid #17372530;margin-top:34px;padding-top:17px;display:flex;justify-content:space-between;font:11px 'IBM Plex Mono',monospace}
+.playbook-chapter-list{max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:10px;background:#f0f4f5;border-radius:24px}.playbook-chapter-list>a{display:flex;align-items:flex-start;gap:18px;background:white;border-radius:16px;padding:27px;transition:background .2s}.playbook-chapter-list>a:hover{background:#eff8fc}.playbook-chapter-list>a>span{font:11px 'IBM Plex Mono',monospace;color:#087fb9;padding-top:6px}.playbook-chapter-list h3{font-size:20px;line-height:1.25;font-weight:500;letter-spacing:-.035em}.playbook-chapter-list p{font-size:14px;line-height:1.6;color:#586f78;margin-top:12px}.playbook-chapter-list .sky-arrow-icon{width:16px;height:16px;flex-shrink:0;margin-top:6px}.playbook-chapter-list>a:last-child{grid-column:1/-1}
+.playbook-reader{max-width:1040px;margin:auto}.playbook-reader-heading{padding:65px 0 55px;border-bottom:1px solid #e2e9eb}.playbook-reader-heading>a{font-size:14px;color:#087bab}.playbook-reader-heading .sp-kicker{margin-top:45px}.playbook-reader-heading h1{font-size:clamp(40px,5vw,64px);line-height:1.07;font-weight:450;letter-spacing:-.055em;margin:22px 0}.playbook-reader-heading>p:last-of-type{font-size:18px;color:#586f78;max-width:560px;line-height:1.6}.playbook-reader-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:27px;font-size:14px}.playbook-print{min-height:44px;background:#d6ff62;border:0;border-radius:30px;padding:13px 21px;cursor:pointer;color:#173527;font:inherit}.playbook-reader-actions>a{display:inline-flex;align-items:center;min-height:44px;color:#087bab;text-decoration:underline;text-underline-offset:4px}
+.playbook-reader-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;padding:50px 0}.playbook-reader aside nav{position:sticky;top:28px;display:grid;gap:6px}.playbook-reader aside a{display:flex;gap:13px;min-height:44px;font-size:14px;line-height:1.5;padding:12px 10px;border-radius:10px}.playbook-reader aside a:hover{background:#eff8fc}.playbook-reader aside a span{color:#087bab;font:11px 'IBM Plex Mono',monospace;padding-top:3px}.playbook-chapter{padding-bottom:45px;margin-bottom:45px;border-bottom:1px solid #e2e9eb;scroll-margin-top:30px}.playbook-chapter h2{font-size:36px;line-height:1.13;letter-spacing:-.045em;font-weight:450;margin:15px 0}.playbook-chapter-deck{font-size:18px;color:#586f78;line-height:1.6}.playbook-section{margin-top:32px}.playbook-section h3{font-size:21px;font-weight:550;line-height:1.3;margin-bottom:16px;letter-spacing:-.025em}.playbook-section p,.playbook-section li{font-size:17px;line-height:1.8;color:#4d6570}.playbook-section p+p{margin-top:16px}.playbook-section :is(ul,ol){display:grid;gap:12px;margin:20px 0;padding-left:22px}.playbook-section ul{list-style:disc}.playbook-section ol{list-style:decimal}.playbook-section .copy-code{margin:24px 0}.playbook-section pre{white-space:pre-wrap;overflow-wrap:anywhere}.playbook-reader-cta{background:#eaf6fb;padding:32px;border-radius:20px}.playbook-reader-cta h2{font-size:29px;font-weight:500;letter-spacing:-.035em}.playbook-reader-cta p{font-size:15px;line-height:1.6;color:#586f78;margin:16px 0 24px}.playbook-reader-cta>div{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Reading and prompt controls are scoped to the full playbook, not its cover page. */
+.playbook-reader article { min-width: 0; max-width: 72ch; font-size: 17px; }
+.playbook-reader .playbook-section .copy-code > div { padding: 12px 18px; gap: 14px; }
+.playbook-reader .playbook-section .copy-code .mono { min-width: 0; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.playbook-reader .playbook-section .copy-code button { flex-shrink: 0; min-width: 68px; min-height: 44px; padding: 10px 14px; font-size: 14px; line-height: 1.4; }
+.playbook-reader .playbook-section .copy-code pre { padding: 22px 20px; font-size: 14px; line-height: 1.75; white-space: pre-wrap; overflow-wrap: anywhere; }
+.playbook-reader .playbook-section .copy-code pre code { font: inherit; }
+.playbook-reader .playbook-section .copy-code > p { font-size: 14px; line-height: 1.6; }
+.playbook-reader :is(a, button):focus-visible { outline: 3px solid #087bab; outline-offset: 4px; }
+.playbook-reader .copy-code button:focus-visible { outline-color: #d6ff62; }
+
+@media(max-width:800px){.playbook-reader-layout{grid-template-columns:1fr;gap:38px}.playbook-reader aside nav{position:static;grid-template-columns:1fr 1fr;background:#f1f6f8;border-radius:16px;padding:12px}.playbook-cover{max-width:310px;margin-block:30px}.playbook-cover>strong{font-size:33px}.playbook-reader-heading{padding:42px 10px}.playbook-reader article{padding:0 10px}.playbook-chapter-list{grid-template-columns:1fr}.playbook-chapter h2{font-size:31px}.playbook-chapter-list>a{padding:23px}}
+@media(max-width:450px){.playbook-reader aside nav{grid-template-columns:1fr}.playbook-reader-heading>p:last-of-type{font-size:16px}.playbook-reader-cta{padding:26px 20px}.playbook-section p,.playbook-section li{font-size:17px}}
+@media print {
+  @page { margin: 18mm; }
+  body, .sky-site { background: white !important; }
+  .ss-header, .ss-footer, .skip-link, .playbook-reader-heading > a, .playbook-reader-actions, .playbook-reader aside, .playbook-reader-cta, .playbook-section button { display: none !important; }
+  .sky-site { padding: 0; }
+  .playbook-reader-layout { display: block; padding: 24px 0 0; }
+  .playbook-reader-heading { padding: 0 0 24px; }
+  .playbook-reader-heading .sp-kicker { margin-top: 0; }
+  .playbook-reader-heading h1 { font-size: 38px; }
+  .playbook-chapter { break-before: page; margin: 0; padding: 0; border: 0; }
+  .playbook-chapter:first-child { break-before: auto; }
+  .playbook-chapter h2 { font-size: 27px; }
+  .playbook-section { break-inside: auto; margin-top: 24px; }
+  .playbook-section h3 { font-size: 18px; break-after: avoid; }
+  .playbook-section p, .playbook-section li { font-size: 14px; line-height: 1.65; color: #152e37; }
+  .playbook-reader, .playbook-reader article { max-width: none; padding: 0; }
+  .playbook-reader .copy-code { break-inside: avoid; background: white; color: #152e37; border: 1px solid #b3c4cb; box-shadow: none; }
+  .playbook-reader .playbook-section .copy-code .mono { color: #152e37; font-size: 11px; }
+  .playbook-reader .playbook-section .copy-code pre { white-space: pre-wrap; color: #152e37; padding: 15px; font-size: 12px; line-height: 1.6; }
+}
+
+.playbook-reader-cta .sp-button-secondary { border-color:#b9d1dc; }

@@ -9,7 +9,12 @@
     "lint": "eslint .",
     "format": "prettier --write . && pnpm lint",
     "test": "vitest run",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "docs:import": "node scripts/import-docs.mjs",
+    "docs:check": "node scripts/import-docs-check.mjs",
+    "seo:check": "python3 scripts/audit-seo.py",
+    "agents:check": "node scripts/audit-agents.mjs",
+    "test:sky": "node --test tests/*.test.ts"
   },
   "dependencies": {
     "@privy-io/react-auth": "^3.31.0",
@@ -22,31 +27,39 @@
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.471.0",
     "motion": "^12.38.0",
-    "next": "16.3.0",
+    "next": "16.3.4",
     "radix-ui": "^1.4.3",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "rehype-highlight": "^7.0.2",
     "rehype-slug": "^6.0.0",
     "remark": "^15.0.1",
-    "remark-gfm": "^4.0.0",
+    "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "shiki": "^4.0.2",
     "tailwind-merge": "^2.6.0",
-    "zod": "^3.25.0"
+    "zod": "^3.25.0",
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@mdx-js/mdx": "^3.1.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
     "@tailwindcss/typography": "0.5.0-alpha.3",
     "@types/node": "^20",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
-    "eslint": "^9.39.5",
-    "eslint-config-next": "16.3.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.4",
     "postcss": "^8",
     "prettier": "3.3.3",
     "tailwindcss": "^4.1.17",
     "typescript": "^5",
-    "vitest": "^4.1.8"
-  }
+    "vitest": "^4.1.8",
+    "playwright-core": "^1.63.0"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "packageManager": "pnpm@10.30.3"
 }

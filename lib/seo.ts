@@ -1,129 +1,55 @@
 import type { Metadata } from "next";
-import { siteConfig } from "./config";
-import type { PostFrontmatter, PostType } from "./post-schema";
+import { site } from "./site.ts";
 
-/**
- * Build Next.js Metadata for a blog post.
- * Reads SEO fields from post frontmatter + site config defaults.
- */
-export function buildPostMetadata(post: PostFrontmatter): Metadata {
-  const title = post.seo.title || post.title;
-  const description = post.seo.description || post.excerpt;
-  const canonical =
-    post.seo.canonical || `${siteConfig.url}/blog/${post.slug}`;
+export const searchDescription = "Recoup helps music funds and rightsholders adopt AI through strategy, custom systems, and team training. Explore royalty reporting, catalog review, and music AI tools.";
 
+export function absoluteUrl(path: string) {
+  return new URL(path, `${site.url}/`).toString();
+}
+
+export function isSearchPreview(environment: Record<string, string | undefined> = process.env) {
+  return environment.VERCEL_ENV === "preview" || environment.NEXT_PUBLIC_SITE_INDEXABLE === "false";
+}
+
+// Next replaces nested metadata, rather than merging each Open Graph field.
+// Keep a page's canonical URL, description, and share preview together.
+export function withPageMetadata(metadata: Metadata): Metadata {
+  const title = typeof metadata.title === "string" ? metadata.title : metadata.title && "absolute" in metadata.title ? metadata.title.absolute : "Recoup";
+  const canonical = metadata.alternates?.canonical;
+  const path = typeof canonical === "string" ? canonical : canonical instanceof URL ? canonical.toString() : "/";
+  const description = metadata.description || searchDescription;
+  const image = { url: absoluteUrl("/opengraph-image"), width: 1200, height: 630, alt: "Recoup — AI transformation for music funds and rightsholders" };
   return {
-    title,
+    ...metadata,
     description,
-    keywords: post.seo.keywords,
-    alternates: { canonical },
-    openGraph: {
-      title,
-      description,
-      url: canonical,
-      siteName: siteConfig.name,
-      locale: siteConfig.metadata.locale,
-      type: "article",
-      publishedTime: post.date,
-      modifiedTime: post.updatedAt || post.date,
-      authors: [post.author],
-      tags: post.tags,
-      ...(post.coverImage && {
-        images: [
-          {
-            url: `${siteConfig.url}${post.coverImage}`,
-            width: 1200,
-            height: 630,
-            alt: post.title,
-          },
-        ],
-      }),
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      ...(post.coverImage && {
-        images: [`${siteConfig.url}${post.coverImage}`],
-      }),
-    },
+    alternates: { ...metadata.alternates, types: { "application/rss+xml": absoluteUrl("/feed.xml"), ...metadata.alternates?.types } },
+    openGraph: { type: "website", siteName: site.name, locale: "en_US", title, description, url: absoluteUrl(path), images: [image], ...metadata.openGraph },
+    twitter: { card: "summary_large_image", title, description, images: [image], ...metadata.twitter },
   };
 }
 
-/**
- * Build Next.js Metadata for a static page (homepage, about, etc.).
- */
-export function buildPageMetadata(options: {
-  title: string;
-  description: string;
-  path?: string;
-}): Metadata {
-  const url = `${siteConfig.url}${options.path || ""}`;
-
-  return {
-    title: options.title,
-    description: options.description,
-    alternates: { canonical: url },
-    openGraph: {
-      title: options.title,
-      description: options.description,
-      url,
-      siteName: siteConfig.name,
-      locale: siteConfig.metadata.locale,
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: options.title,
-      description: options.description,
-    },
-  };
+export function serializeJsonLd(value: unknown) {
+  return JSON.stringify(value).replace(/</g, "\\u003c");
 }
 
-/**
- * Map post type → JSON-LD @type.
- * - article, case-study, pillar → "Article"
- * - tutorial → "HowTo"
- * - announcement → "NewsArticle"
- */
-function jsonLdTypeForPost(type: PostType): string {
-  switch (type) {
-    case "tutorial":
-      return "HowTo";
-    case "announcement":
-      return "NewsArticle";
-    default:
-      return "Article";
-  }
-}
-
-/**
- * Build JSON-LD structured data for a blog post.
- * Returns a script-ready object to embed in the page <head>.
- */
-export function buildPostJsonLd(post: PostFrontmatter): Record<string, unknown> {
+export function organizationGraph() {
   return {
     "@context": "https://schema.org",
-    "@type": jsonLdTypeForPost(post.type),
-    headline: post.title,
-    description: post.seo.description || post.excerpt,
-    author: {
-      "@type": "Person",
-      name: post.author,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
-    datePublished: post.date,
-    dateModified: post.updatedAt || post.date,
-    url: post.seo.canonical || `${siteConfig.url}/blog/${post.slug}`,
-    ...(post.coverImage && {
-      image: `${siteConfig.url}${post.coverImage}`,
-    }),
-    ...(post.seo.keywords && {
-      keywords: post.seo.keywords.join(", "),
-    }),
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": absoluteUrl("/#organization"),
+        name: site.name,
+        url: absoluteUrl("/"),
+        logo: { "@type": "ImageObject", url: absoluteUrl("/images/recoup-logo.svg"), width: 256, height: 256 },
+        description: "AI transformation, custom software, and team training for music funds and rightsholders.",
+        founder: { "@type": "Person", "@id": absoluteUrl("/about#sidney-swift"), name: "Sidney Swift", url: absoluteUrl("/about#sidney-swift") },
+        sameAs: [site.githubOrganization],
+        email: site.email,
+      },
+      { "@type": "WebSite", "@id": absoluteUrl("/#website"), name: site.name, url: absoluteUrl("/"), inLanguage: "en", publisher: { "@id": absoluteUrl("/#organization") } },
+    ],
   };
 }
+
+export { buildPostMetadata, buildPageMetadata, buildPostJsonLd } from "./legacy-seo.ts";
