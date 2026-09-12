@@ -153,7 +153,7 @@ The impression should be **capable people building useful software for the busin
 
 ### Homepage narrative
 
-The hero places a glass pill reading “Made for music funds and rightsholders” above the title. Use the existing mono label font, an inset shadow outline, and wrapping text for narrow screens.
+The hero places a glass pill reading “Made for music funds and rightsholders” above the title. Use DM Sans at 14px and weight 500, compact 8px by 16px padding, a subtle inset shadow outline, and wrapping text for narrow screens.
 
 The homepage follows this order: full AI transformation offer → customer logos → short statement about what adoption takes → three ways to engage → three clearly labeled case studies → engagement process → ownership → advisory and build options → separate self-serve software links → buying FAQ → free-audit invitation → footer.
 
