@@ -38,6 +38,15 @@ export function SkyHeroCards() {
           </a>
         </div>
 
+        <div className="sky-flight sky-flight-build">
+          <a href="#services" className="sky-float-panel sky-card-build" aria-label="See Recoup's AI strategy, custom systems, and team training">
+            <span className="sky-card-build-plus" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><path d="M12 4v16M4 12h16" /></svg></span>
+            <strong>Your next<br />useful build.</strong>
+            <span className="sky-card-build-caption">Made for your business.</span>
+            <span className="sky-card-build-tags"><span>Strategy</span><span>Systems</span><span>Training</span></span>
+          </a>
+        </div>
+
         <div className="sky-flight sky-flight-report">
           <a href="#royalty-example" className="sky-float-panel sky-card-report" aria-label="Explore royalty reporting">
             <span className="sky-card-report-header"><span>Royalty report<small>June close</small></span><SkyArrow /></span>
@@ -48,15 +57,6 @@ export function SkyHeroCards() {
             <span className="sky-card-report-pair"><span>Receipts</span><b>{formatRoyaltyExampleMoney(royaltyExample.receiptCents)}</b></span>
             <span className="sky-card-report-bar sky-card-report-bar-receipts" aria-hidden="true"><span /></span>
             <span className="sky-card-report-alert"><span>{royaltyExample.exceptionCount}</span> Source differences <SkyArrow direction="right" /></span>
-          </a>
-        </div>
-
-        <div className="sky-flight sky-flight-build">
-          <a href="#services" className="sky-float-panel sky-card-build" aria-label="See Recoup's AI strategy, custom systems, and team training">
-            <span className="sky-card-build-plus" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><path d="M12 4v16M4 12h16" /></svg></span>
-            <strong>Your next<br />useful build.</strong>
-            <span className="sky-card-build-caption">Made for your business.</span>
-            <span className="sky-card-build-tags"><span>Strategy</span><span>Systems</span><span>Training</span></span>
           </a>
         </div>
 

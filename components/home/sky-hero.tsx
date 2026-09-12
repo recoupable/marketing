@@ -2,11 +2,11 @@ import Image from "next/image";
 import { SkyHeroCards } from "./sky-hero-cards";
 
 const customers = [
-  { name: "Duetti", file: "duetti", width: 122, height: 19 },
+  { name: "Duetti", file: "duetti", width: 132, height: 21 },
   { name: "Seeker Music", file: "seeker-music", width: 121, height: 35 },
-  { name: "Atlantic Records", file: "atlantic-records", width: 52, height: 36 },
+  { name: "Atlantic Records", file: "atlantic-records", width: 48, height: 33 },
   { name: "Warner Records", file: "warner-records", width: 112, height: 28 },
-  { name: "Rostrum Records", file: "rostrum-records", width: 91, height: 36 },
+  { name: "Rostrum Records", file: "rostrum-records", width: 84, height: 33 },
   { name: "Fat Beats", file: "fatbeats-records", width: 88, height: 36 },
 ];
 
@@ -18,7 +18,7 @@ export function SkyHero() {
 
           <div className="sky-hero-copy">
             <p className="sky-hero-pill">Made for music funds and rightsholders</p>
-            <h1 id="sky-title">AI transformation services<br /><span>for music funds and rightsholders</span></h1>
+            <h1 id="sky-title">Put AI to work across<br /><span>your music business.</span></h1>
             <p className="sky-hero-description">We identify where AI can help, build working systems you own, and train your team to use them.</p>
           </div>
 

@@ -155,11 +155,11 @@ The impression should be **capable people building useful software for the busin
 
 The hero places a glass pill reading “Made for music funds and rightsholders” above the title. Use DM Sans at 14px and weight 500, compact 8px by 16px padding, a subtle inset shadow outline, and wrapping text for narrow screens.
 
-The hero description leads directly into the artwork, with no CTA button row between them. The navigation retains the free-audit invitation.
+The hero title reads “Put AI to work across your music business.” The audience stays in the pill rather than repeating in the headline. The description leads directly into the artwork, with no CTA button row between them. Compact vertical spacing keeps the outcome, examples, and customer proof connected. The navigation retains the free-audit invitation.
 
-The six hero cards fit fully inside the hero on desktop. Scale the complete perspective arrangement to the gallery's available width, including space for the outside cards and their shadows, and scale its reserved height accordingly. At 760px and below, retain full-size cards in a horizontally scrollable row.
+The six hero cards fit fully inside the hero on desktop. Royalty reporting and investment review are larger and centered; the four supporting cards are smaller, with restrained tilt. Use thin translucent outlines and soft shadows, with no continuous bobbing; hover and focus provide a small lift. Scale the complete perspective arrangement to the gallery's available width, including space for the outside cards and their shadows, and scale its reserved height accordingly. At 760px and below, retain full-size cards in a horizontally scrollable row.
 
-Below the hero artwork, “Used by teams at” introduces the six customer logos directly on the blue hero, with no white container. Use the `-transparent.webp` exports with real alpha transparency and normal compositing; do not apply multiply blending, which darkens the artwork. Use a three-column grid on phones. This replaces the rating caption and stars; there is no separate logo section below the hero.
+Below the hero artwork, “Used by teams at” introduces the six customer logos directly on the blue hero, with no white container. Use the `-transparent.webp` exports with real alpha transparency and normal compositing; do not apply multiply blending, which darkens the artwork. Use six equal columns with optically balanced logo sizes on desktop, and a three-column grid on phones. A faint blue wash keeps the proof area calm without introducing a separate block. This replaces the rating caption and stars; there is no separate logo section below the hero.
 
 The homepage follows this order: full AI transformation offer → customer logos → short statement about what adoption takes → three ways to engage → three clearly labeled case studies → engagement process → ownership → advisory and build options → separate self-serve software links → buying FAQ → free-audit invitation → footer.
 
@@ -264,7 +264,7 @@ This is a component-led spacing system. There is no implemented universal eight-
 
 - Hero interfaces become a horizontal, scrollable row at ≤760px. Remove the desktop perspective; preserve readable card proportions and visible scroll affordance.
 - The royalty workspace becomes one column at ≤900px. A visible **View [source] details** link moves the visitor to the selected source inspector. Selection alone does not scroll the page. At ≤600px its paper rotation and finding tilt disappear. The report comes before its finding and source detail.
-- All navigation collapses at ≤900px. Top-level links share IBM Plex Mono 11px / 400, uppercase, with `.065em` tracking; groups are centered independently of the logo and contact action. Shared geometry lives in `components/sky/navigation.css`. Keep dropdown text readable and separate from the compact top-level label styling.
+- All navigation collapses at ≤900px. Top-level links share DM Sans Variable 14px / 500 in sentence case, with `-.01em` tracking; groups are centered independently of the logo and contact action. Shared geometry lives in `components/sky/navigation.css`. Keep dropdown text readable and separate from the compact top-level label styling.
 - Docs have a 246px sidebar and a 160px page contents column inside a 1440px shell. The contents column disappears at ≤1200px; the sidebar becomes a toggle at ≤800px.
 - Reflow meaningful content down to 320 CSS pixels. Contain horizontal scrolling inside code, genuinely two-dimensional tables, or the intentional card gallery; do not make the whole page scroll sideways.
 - Prefer a natural document scroll. No scroll hijacking, mandatory long transitions, or animation required to reach the next section.
@@ -296,7 +296,7 @@ Depth shows a relationship: a report with supporting records, a selected finding
 | --- | --- |
 | Quiet card | `0 3px 7px #17334206` |
 | Navigation dropdown | `0 8px 12px #16394908, 0 24px 50px #16394918` |
-| Floating hero panel | `2px 3px 0 #c7e8f4, 0 16px 30px #00446a29, inset 0 0 0 1px #dce8ed` |
+| Floating hero panel | `0 10px 24px #00446a20, inset 0 0 0 1px #ffffff38` |
 | Royalty report | `0 22px 36px -17px #19384445, 0 3px 9px #17364012, 0 0 0 1px #e1e6e8` |
 
 Use the actual component instead of pasting these recipes into every card. Hero glass is reserved for translucent connection/build panels and the secondary hero action; reporting and long-form surfaces remain opaque. A report can have a slight paper tilt on desktop. Active input forms should remain upright.
@@ -370,7 +370,7 @@ Shared page buttons, text links, and documentation use 17px arrows; the homepage
 
 ### Actions and navigation
 
-At ≤900px, both headers use a left hamburger, a centered Recoup symbol without the wordmark, and a right **Free Audit** CTA. Keep the symbol centered with equal flexible outer columns and a 44px center column. The logo and menu have 44px touch targets; the audit CTA has a 44px minimum height. Mobile menus open below the header, scroll within the viewport, and close on selection, outside tap, or Escape. Desktop keeps the full wordmark and **Get a Free Audit** label. Shared rules live in `components/sky/navigation.css`.
+At ≤900px, both headers use a left hamburger, a centered Recoup symbol without the wordmark, and a right **Free audit** CTA. Keep the symbol centered with equal flexible outer columns and a 44px center column. The logo and menu have 44px touch targets; the audit CTA has a 44px minimum height. Mobile menus open below the header, scroll within the viewport, and close on selection, outside tap, or Escape. Desktop keeps the full wordmark and **Get a free audit** label. Shared rules live in `components/sky/navigation.css`.
 
 The shared primary `PageButton` is a lime pill with dark text, minimum height 48px, padding `7px 7px 7px 21px`, and a 34px dark icon disc. At ≤600px its minimum height becomes 46px and left padding becomes 16px. The secondary variant is translucent/outlined with an unfilled arrow area. Use a dark text-link for quieter actions on white. Follow existing header styles rather than turning every nav link into a CTA.
 
@@ -456,4 +456,4 @@ Use the section heading “What we’ve built” and an explicit Case studies la
 
 ### Shared navigation placement
 
-`SiteFrame` renders one `SkySiteHeader` outside page content. Its centered container is capped at 1320px, with a 100px header height on desktop and 80px at widths of 900px or less. Logo, links, and audit button use the same geometry across routes. The cloud-scroll preview overlays the same header at the top of the sky with white text; other routes use dark text on white. Page padding and scroll animation must not reposition or resize the header. The header scrolls naturally with the page.
+`SiteFrame` renders one `SkySiteHeader` outside page content. Its centered container is capped at 1320px, with a 100px header height on desktop and 80px at widths of 900px or less. Logo, links, and audit button use the same geometry across routes. The cloud-scroll preview overlays the same header at the top of the sky with white text; other routes use dark text on white. Page padding and scroll animation must not reposition or resize the header. The header scrolls naturally with the page. Navigation and audit actions use DM Sans Variable rather than monospace; mobile audit text is 13px. These typography and hero hierarchy refinements were reviewed on September 12, 2026.

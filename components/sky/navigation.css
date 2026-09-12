@@ -42,9 +42,9 @@
   align-items: center;
   min-height: 38px;
   padding: 8px 0;
-  font: 400 11px/1.6 "IBM Plex Mono", monospace;
-  letter-spacing: .065em;
-  text-transform: uppercase;
+  font: 500 14px/1.6 "DM Sans Variable", sans-serif;
+  letter-spacing: -.01em;
+  text-transform: none;
   white-space: nowrap;
 }
 
@@ -82,8 +82,8 @@
     min-height: 44px;
     padding: 11px 13px;
     gap: 0;
-    font: 500 11px/1.4 "IBM Plex Mono", monospace;
-    letter-spacing: .02em;
+    font: 500 13px/1.4 "DM Sans Variable", sans-serif;
+    letter-spacing: 0;
     text-transform: none;
     white-space: nowrap;
   }
@@ -172,9 +172,9 @@
   padding: 13px 20px;
   gap: 22px;
   color: #173721;
-  font: 400 11px/20px "IBM Plex Mono", monospace;
-  letter-spacing: .065em;
-  text-transform: uppercase;
+  font: 550 14px/20px "DM Sans Variable", sans-serif;
+  letter-spacing: -.01em;
+  text-transform: none;
   white-space: nowrap;
 }
 .ss-header[data-tone="sky"] { color: #fff; }
@@ -189,8 +189,8 @@
     min-height: 44px;
     padding: 11px 13px;
     gap: 0;
-    font: 500 11px/1.4 "IBM Plex Mono", monospace;
-    letter-spacing: .02em;
+    font: 500 13px/1.4 "DM Sans Variable", sans-serif;
+    letter-spacing: 0;
     text-transform: none;
   }
 }
