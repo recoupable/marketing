@@ -450,3 +450,8 @@ Use the section heading “What we’ve built” and an explicit Case studies la
 ### Music-video offer
 
 `/music-videos` preserves the offer content and lead contract from PR #89 with Sky styling. Hero and films use the original published film posters, not invented proof. Keep the free skill download, paid generation-budget caveat, generated-song scope, and separately quoted released-recording service distinct. Preserve campaign events and sanitized attribution; contact information stays out of analytics.
+
+
+### Shared navigation placement
+
+`SiteFrame` renders one `SkySiteHeader` outside page content. Its centered container is capped at 1320px, with a 100px header height on desktop and 80px at widths of 900px or less. Logo, links, and audit button use the same geometry across routes. The cloud-scroll preview overlays the same header at the top of the sky with white text; other routes use dark text on white. Page padding and scroll animation must not reposition or resize the header. The header scrolls naturally with the page.

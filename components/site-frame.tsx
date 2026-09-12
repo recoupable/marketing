@@ -13,7 +13,13 @@ import "./sky/materials.css";
 
 export function SiteFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const content = (pathname === "/" || pathname === "/preview/sky-scroll") ? <main id="main">{children}</main>
-      : <div className="sky-site"><SkySiteHeader /><main id="main">{children}</main><SkySiteFooter /></div>;
-  return <><Suspense fallback={null}><ReferralCapture /></Suspense>{content}<ScrollMotion /><BrowserAgentTools /></>;
+  const isCloudPreview = pathname === "/preview/sky-scroll";
+  const isHome = pathname === "/" || isCloudPreview;
+  const content = isHome ? <main id="main">{children}</main>
+      : <div className="sky-site"><main id="main">{children}</main><SkySiteFooter /></div>;
+  return <><Suspense fallback={null}><ReferralCapture /></Suspense>
+    <div className={`sky-site sky-header-shell${isCloudPreview ? " sky-header-overlay" : ""}`}>
+      <SkySiteHeader tone={isCloudPreview ? "sky" : "paper"} />
+    </div>
+    {content}<ScrollMotion /><BrowserAgentTools /></>;
 }

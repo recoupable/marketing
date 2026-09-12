@@ -146,3 +146,51 @@
 @media (max-width: 370px) {
   .sky-nav, .ss-header { --nav-wordmark-size: 22px; --nav-brand-gap: 8px; }
 }
+
+/* One header lives in SiteFrame, outside each page's padding and animations. */
+:root { --site-header-height: 100px; }
+.sky-header-shell.sky-site {
+  position: relative;
+  z-index: 50;
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.sky-header-shell.sky-header-overlay {
+  position: absolute;
+  inset: 0 0 auto;
+  background: transparent;
+}
+.sky-header-shell .ss-header {
+  height: var(--site-header-height);
+  min-height: var(--site-header-height);
+  max-width: 1320px;
+  padding: 0;
+}
+.sky-header-shell .ss-contact {
+  min-height: 46px;
+  padding: 13px 20px;
+  gap: 22px;
+  color: #173721;
+  font: 400 11px/20px "IBM Plex Mono", monospace;
+  letter-spacing: .065em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.ss-header[data-tone="sky"] { color: #fff; }
+.ss-header[data-tone="sky"] .ss-desktop-nav > a:hover,
+.ss-header[data-tone="sky"] .ss-tool-menu > summary:hover { color: #d6ff62; }
+.ss-header[data-tone="sky"] :is(.ss-tool-menu > div, .ss-mobile-menu > nav) { color: #152e37; }
+.ss-header[data-tone="sky"] .ss-mobile-menu > summary { background: #ffffff18; }
+.ss-header[data-tone="sky"] :is(a, summary):focus-visible { outline-color: #d6ff62; }
+@media (max-width: 900px) {
+  :root { --site-header-height: 80px; }
+  .sky-header-shell .ss-contact {
+    min-height: 44px;
+    padding: 11px 13px;
+    gap: 0;
+    font: 500 11px/1.4 "IBM Plex Mono", monospace;
+    letter-spacing: .02em;
+    text-transform: none;
+  }
+}

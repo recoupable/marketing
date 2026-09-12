@@ -1,7 +1,8 @@
 .sky-scroll-preview.sky-page { padding: 0; }
-.sky-scroll-preview .sky-scroll-hero { background: #007fbd url("/images/sky/hero-sky.webp") center bottom / cover no-repeat; }
+.sky-scroll-preview .sky-scroll-hero { padding-top: 0; background: #007fbd url("/images/sky/hero-sky.webp") center bottom / cover no-repeat; }
 .sky-scroll-preview .sky-scroll-hero .sky-frame,
 .sky-scroll-preview .sky-scroll-hero .sky-hero { background: transparent; }
+.sky-scroll-preview .sky-scroll-hero .sky-hero { padding-top: var(--site-header-height); }
 .sky-scroll-preview .sky-scroll-hero :is(.sky-hero-image, .sky-hero-shade) { visibility: hidden; }
 .sky-scroll-stage, .sky-scroll-travel { display: none; }
 .sky-scroll-mission { position: relative; }
