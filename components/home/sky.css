@@ -78,9 +78,9 @@
 .sky-float-panel:hover, .sky-float-panel:focus-visible { box-shadow: 2px 3px 0 #d6ff62, 0 20px 35px #003b6242, 0 0 0 2px var(--sky-lime); animation-play-state: paused; }
 .sky-flight:nth-child(2n) .sky-float-panel { animation-delay: -4s; }
 .sky-flight:nth-child(3n) .sky-float-panel { animation-delay: -2s; }
-.sky-proof { position: relative; z-index: 1; padding: 12px 40px 36px; }
+.sky-proof { position: relative; padding: 12px 40px 36px; }
 .sky-proof > p { text-align: center; font: 500 14px/1.5 var(--body); color: #fff; margin-bottom: 18px; }
-.sky-proof > div { display: flex; align-items: center; justify-content: space-around; gap: 28px; max-width: 1130px; margin: auto; padding: 22px 24px; border-radius: 16px; background: #fff; box-shadow: 0 8px 24px #003c6c14; }
+.sky-proof > div { display: flex; align-items: center; justify-content: space-around; gap: 28px; max-width: 1130px; margin: auto; padding: 22px 24px; mix-blend-mode: multiply; }
 .sky-proof img { object-fit: contain; }
 @keyframes sky-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 @media (min-width: 1600px) { .sky-page { padding: 54px; } .sky-hero-copy { padding-top: 70px; } .sky-float-gallery { margin-top: 57px; } }
