@@ -157,7 +157,7 @@ The hero places a glass pill reading “Made for music funds and rightsholders�
 
 The hero description leads directly into the artwork, with no CTA button row between them. The navigation retains the free-audit invitation.
 
-Below the hero artwork, “Used by teams at” introduces the six customer logos directly on the blue hero, with no white container. The logo row uses multiply blending to visually remove the white backgrounds in the existing exports without redrawing the marks. Keep the row outside an isolated stacking context so it blends with the sky, and use a three-column grid on phones. This replaces the rating caption and stars; there is no separate logo section below the hero.
+Below the hero artwork, “Used by teams at” introduces the six customer logos directly on the blue hero, with no white container. Use the `-transparent.webp` exports with real alpha transparency and normal compositing; do not apply multiply blending, which darkens the artwork. Use a three-column grid on phones. This replaces the rating caption and stars; there is no separate logo section below the hero.
 
 The homepage follows this order: full AI transformation offer → customer logos → short statement about what adoption takes → three ways to engage → three clearly labeled case studies → engagement process → ownership → advisory and build options → separate self-serve software links → buying FAQ → free-audit invitation → footer.
 

@@ -37,7 +37,7 @@ export default function HomePage() {
             <p data-reveal="">Used by teams at</p>
             <div data-reveal-group="">
               {customers.map((customer) => (
-                <Image key={customer.file} src={`/images/customers/${customer.file}.webp`} alt={customer.name} width={customer.width} height={customer.height} unoptimized />
+                <Image key={customer.file} src={`/images/customers/${customer.file}-transparent.webp`} alt={customer.name} width={customer.width} height={customer.height} unoptimized />
               ))}
             </div>
           </section>
