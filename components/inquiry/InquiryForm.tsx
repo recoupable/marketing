@@ -7,7 +7,7 @@ import type { AgentDraft } from "@/lib/agent-browser";
 import { catalogDirections } from "@/lib/catalog-directions";
 import { generalInterests } from "@/lib/inquiry-topics";
 import type { InquirySource } from "@/lib/inquiry/inquirySourceSchema";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 import { InquiryBudgetFields } from "./InquiryBudgetFields";
 import { InquiryCompanyFields } from "./InquiryCompanyFields";
 import { InquiryIdentityFields } from "./InquiryIdentityFields";
@@ -71,7 +71,7 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
       aria-label={labels.formLabel} aria-busy={status === "sending"} aria-describedby={connected ? undefined : "inquiry-handoff"}>
       <h2>{labels.heading}</h2>
       {qualified && <p className="lead-field-help">Fields marked * are required. A rough starting point is enough.</p>}
-      <noscript><p className="inquiry-no-script">To send an inquiry, email <a href={`mailto:${site.email}`}>{site.email}</a>. The form needs JavaScript to prepare or send your message.</p></noscript>
+      <noscript><p className="inquiry-no-script">To send an inquiry, email <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>. The form needs JavaScript to prepare or send your message.</p></noscript>
       <fieldset className="inquiry-fields" disabled={busy}>
         {!variant && <AgentDraftImport onApply={applyDraft} />}
         {!connected && <p className="form-note form-handoff" id="inquiry-handoff">This form prepares an email draft for you to review and send.</p>}

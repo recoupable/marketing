@@ -1,5 +1,5 @@
 import inventory from '../content/docs/inventory.json' with { type: 'json' };
-import { site } from './site.ts';
+import { siteConfig } from "./config.ts";
 import { agentToolDefinitions } from './agent-tools.ts';
 
 export type DiscoveryContent = {
@@ -23,7 +23,7 @@ export const discoveryPaths = {
 } as const;
 
 export const apiCatalogMediaType = 'application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"';
-const absolute = (path: string) => new URL(path, site.url).href;
+const absolute = (path: string) => new URL(path, siteConfig.url).href;
 const oneLine = (value: string) => value.replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim();
 const markdownLabel = (value: string) => oneLine(value).replace(/[\\[\]]/g, '\\$&');
 
@@ -89,7 +89,7 @@ ${pageLinks}
 - [Blog](${absolute('/blog')}): Product announcements and music-business articles.
 - [Playbook](${absolute('/playbook')}): Practical guidance for applying AI in music.
 - [Skills](${absolute('/skills')}): Reusable music-business instructions for compatible AI tools.
-- [Skills source](${site.github}): The published Skills repository.
+- [Skills source](${siteConfig.githubUrl}): The published Skills repository.
 - [Privacy](${absolute('/privacy')}) and [Terms](${absolute('/terms')}): Published policies.
 
 ${accessNotes()}
@@ -196,7 +196,7 @@ export function getApiCatalog() {
 }
 
 export function getArdManifest() {
-  const publisher = new URL(site.url).hostname;
+  const publisher = new URL(siteConfig.url).hostname;
   const entry = (name: string, displayName: string, type: string, url: string, description: string, representativeQueries: string[]) => ({
     '@context': 'https://agenticresourcediscovery.org/context/v1',
     identifier: `urn:air:${publisher}:recoup:${name}`,

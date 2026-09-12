@@ -8,7 +8,7 @@ import { prepareInquiryEmail } from "@/lib/inquiry/prepareInquiryEmail";
 import { readInquiryReceipt } from "@/lib/inquiry/readInquiryReceipt";
 import type { InquirySource } from "@/lib/inquiry/inquirySourceSchema";
 import { validateLeadQualification, type LeadQualification } from "@/lib/lead-qualification";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 
 export type InquiryStatus = "idle" | "sending" | "sent" | "error" | "email";
 export type PreparedEmail = ReturnType<typeof prepareInquiryEmail>;
@@ -62,7 +62,7 @@ export function useInquirySubmit({ source, plan, connected, qualified, websitePa
     const context = inquiryMessageWithContext(text("message"), websitePath, currentReferralAttribution());
     const message = pricingContext ? `${context}\n\nSelected plan: ${pricingContext}` : context;
     const data = { name: text("name"), email: text("email"), company: text("company"), interest: text("interest"), message, ...(qualification ? { qualification } : {}) };
-    setPreparedEmail(prepareInquiryEmail(site.email, data));
+    setPreparedEmail(prepareInquiryEmail(siteConfig.contactEmail, data));
     if (!connected) {
       setStatus("email");
       return;

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 import { isSearchPreview } from "@/lib/seo";
 export default function robots(): MetadataRoute.Robots {
   if (isSearchPreview()) return { rules: { userAgent: "*", disallow: "/" } };
@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
     // Search crawlers, including OAI-SearchBot, inherit this public access.
     // Training-crawler policy is separate; no new training restriction is set here.
     rules: { userAgent: "*", allow: "/", disallow: "/api/" },
-    sitemap: `${site.url}/sitemap.xml`,
+    sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 }

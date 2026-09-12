@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { blogPosts, formatBlogDate } from "@/lib/blog";
 import { blogDescription, blogIndexJsonLd } from "@/lib/editorial-seo";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 import { BlogArt } from "./blog-art";
 import { BlogArchive } from "./blog-archive";
 import { SkyArrow } from "@/components/sky/arrow";
@@ -11,9 +11,9 @@ import { SkyArrow } from "@/components/sky/arrow";
 export const metadata: Metadata = {
   title: "Blog: AI and the business of music",
   description: "Ideas and practical guides from Recoup on AI strategy, music operations, artist marketing, and putting agents to work.",
-  alternates: { canonical: "/blog", types: { "application/rss+xml": `${site.url}/feed.xml` } },
-  openGraph: { title: "Recoup blog: AI and the business of music", description: "Ideas and practical guides from Recoup on AI strategy, music operations, artist marketing, and putting agents to work.", url: `${site.url}/blog`, type: "website", siteName: "Recoup", images: [{ url: `${site.url}/opengraph-image`, alt: "Recoup: AI transformation for music" }] },
-  twitter: { card: "summary_large_image", title: "Recoup blog: AI and the business of music", description: "Ideas and practical guides from Recoup on AI strategy, music operations, artist marketing, and putting agents to work.", images: [`${site.url}/opengraph-image`] },
+  alternates: { canonical: "/blog", types: { "application/rss+xml": `${siteConfig.url}/feed.xml` } },
+  openGraph: { title: "Recoup blog: AI and the business of music", description: "Ideas and practical guides from Recoup on AI strategy, music operations, artist marketing, and putting agents to work.", url: `${siteConfig.url}/blog`, type: "website", siteName: "Recoup", images: [{ url: `${siteConfig.url}/opengraph-image`, alt: "Recoup: AI transformation for music" }] },
+  twitter: { card: "summary_large_image", title: "Recoup blog: AI and the business of music", description: "Ideas and practical guides from Recoup on AI strategy, music operations, artist marketing, and putting agents to work.", images: [`${siteConfig.url}/opengraph-image`] },
 };
 
 export default function BlogPage() {
@@ -34,6 +34,6 @@ export default function BlogPage() {
     }))} />
 <SubscribeCard source="/blog" />
     <section className="blog-cta"><div><p className="blog-eyebrow">Put an idea to work</p><h2>What would you build?</h2><p>Bring us a project, or a part of your business you want to improve.</p></div><Link className="blog-talk" href="/start-project">Get a Free Audit <SkyArrow /></Link></section>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogIndexJsonLd([featured, ...posts], site.url)).replace(/</g, "\\u003c") }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogIndexJsonLd([featured, ...posts], siteConfig.url)).replace(/</g, "\\u003c") }} />
   </div>;
 }

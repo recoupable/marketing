@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FAQ } from "@/components/ui";
 import { CopyCode, SkillBrowser } from "@/components/interactive";
 import { PageHero, PageSection, PageCTA, PageButton } from "@/components/sky/page-ui";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 import "./skills-sky.css";
 
 export const metadata: Metadata = withPageMetadata({
@@ -83,7 +83,7 @@ export default function SkillsPage() {
             <span className="skills-sky-install-badge"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
             <h3>Bring the methods<br />into your workspace.</h3>
             <p>Inspect them, adapt them, and build on them under the repository’s license.</p>
-            <Link href={site.github} className="sp-text-link">View the repository <LinkArrow /></Link>
+            <Link href={siteConfig.githubUrl} className="sp-text-link">View the repository <LinkArrow /></Link>
           </div>
           <div className="skills-sky-install-command">
             <CopyCode code="npx skills add recoupable/skills" label="Install Recoup Skills" />

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import sitemap from "../sitemap";
 import { blogPosts } from "@/lib/blog";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 
 const blogImportDate = /^2026-09-10/;
 
@@ -16,7 +16,7 @@ describe("sitemap blog lastModified", () => {
   it("falls back to the publication date when a post has no updatedAt", () => {
     const post = blogPosts.find((candidate) => !candidate.updatedAt);
     expect(post).toBeDefined();
-    const entry = sitemap().find((candidate) => candidate.url === `${site.url}/blog/${post!.slug}`);
+    const entry = sitemap().find((candidate) => candidate.url === `${siteConfig.url}/blog/${post!.slug}`);
     expect(entry?.lastModified).toBe(post!.date);
   });
 });

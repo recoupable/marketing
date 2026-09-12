@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { site } from "./site.ts";
+import { siteConfig } from "./config.ts";
 
 export const searchDescription = "Recoup helps music funds and rightsholders adopt AI through strategy, custom systems, and team training. Explore royalty reporting, catalog review, and music AI tools.";
 
 export function absoluteUrl(path: string) {
-  return new URL(path, `${site.url}/`).toString();
+  return new URL(path, `${siteConfig.url}/`).toString();
 }
 
 export function isSearchPreview(environment: Record<string, string | undefined> = process.env) {
@@ -23,7 +23,7 @@ export function withPageMetadata(metadata: Metadata): Metadata {
     ...metadata,
     description,
     alternates: { ...metadata.alternates, types: { "application/rss+xml": absoluteUrl("/feed.xml"), ...metadata.alternates?.types } },
-    openGraph: { type: "website", siteName: site.name, locale: "en_US", title, description, url: absoluteUrl(path), images: [image], ...metadata.openGraph },
+    openGraph: { type: "website", siteName: siteConfig.name, locale: "en_US", title, description, url: absoluteUrl(path), images: [image], ...metadata.openGraph },
     twitter: { card: "summary_large_image", title, description, images: [image], ...metadata.twitter },
   };
 }
@@ -39,15 +39,15 @@ export function organizationGraph() {
       {
         "@type": "Organization",
         "@id": absoluteUrl("/#organization"),
-        name: site.name,
+        name: siteConfig.name,
         url: absoluteUrl("/"),
         logo: { "@type": "ImageObject", url: absoluteUrl("/images/recoup-logo.svg"), width: 256, height: 256 },
         description: "AI transformation, custom software, and team training for music funds and rightsholders.",
         founder: { "@type": "Person", "@id": absoluteUrl("/about#sidney-swift"), name: "Sidney Swift", url: absoluteUrl("/about#sidney-swift") },
-        sameAs: [site.githubOrganization],
-        email: site.email,
+        sameAs: [siteConfig.githubOrganizationUrl],
+        email: siteConfig.contactEmail,
       },
-      { "@type": "WebSite", "@id": absoluteUrl("/#website"), name: site.name, url: absoluteUrl("/"), inLanguage: "en", publisher: { "@id": absoluteUrl("/#organization") } },
+      { "@type": "WebSite", "@id": absoluteUrl("/#website"), name: siteConfig.name, url: absoluteUrl("/"), inLanguage: "en", publisher: { "@id": absoluteUrl("/#organization") } },
     ],
   };
 }

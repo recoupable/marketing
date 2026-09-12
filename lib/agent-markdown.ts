@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 import type { DocPage } from "./docs";
 import { resolveDocsHref } from "./docs-paths.ts";
 import { getDocSpec, type ApiObject } from "./docs-server.ts";
-import { site } from "./site.ts";
+import { siteConfig } from "./config.ts";
 
 type MarkdownNode = {
   type: string; value?: string; children?: MarkdownNode[]; depth?: number;
@@ -150,12 +150,12 @@ export function operationSpecification(page: DocPage, spec: ApiObject): ApiObjec
 }
 
 export async function documentationAgentMarkdown(page: DocPage): Promise<string> {
-  const url = new URL(page.slug ? `/docs/${page.slug}` : "/docs", site.url).href;
+  const url = new URL(page.slug ? `/docs/${page.slug}` : "/docs", siteConfig.url).href;
   const parts = [`# ${page.title}`, `Source: ${url}`, resolveDescriptionLinks(page.description ?? ""), page.body ? readableAgentMarkdown(page.body, url, true) : ""].filter(Boolean);
   if (page.api?.spec) {
     const spec = await getDocSpec(page.api.spec);
     const slice = operationSpecification(page, spec);
-    const specificationUrl = new URL(`/docs/spec/${page.api.spec}`, site.url).href;
+    const specificationUrl = new URL(`/docs/spec/${page.api.spec}`, siteConfig.url).href;
     parts.push(`## ${page.api.method} ${page.api.path}`, `Full OpenAPI specification: ${specificationUrl}`);
     if (slice) {
       const operation = spec.paths[page.api.path][page.api.method.toLowerCase()];
@@ -165,7 +165,7 @@ export async function documentationAgentMarkdown(page: DocPage): Promise<string>
         : security.length === 0 || security.some((alternative: Record<string, unknown>) => Object.keys(alternative).length === 0)
           ? "This operation's specification permits a request without authentication."
           : "This operation requires one of the security alternatives in the specification below. Security scheme definitions are included where present in the published specification.";
-      parts.push(`## Authentication\n\n${authentication}\n\n[Authentication guide](${new URL("/docs/authentication", site.url).href})`);
+      parts.push(`## Authentication\n\n${authentication}\n\n[Authentication guide](${new URL("/docs/authentication", siteConfig.url).href})`);
       const missingSchemes = [...new Set<string>((security || []).flatMap((alternative: Record<string, unknown>) => Object.keys(alternative)))].filter(name => !Object.hasOwn(spec.components?.securitySchemes || {}, name));
       if (missingSchemes.length) parts.push(`Documentation gap: the published specification names ${missingSchemes.map(name => `\`${name}\``).join(", ")} but does not define ${missingSchemes.length === 1 ? "that security scheme" : "those security schemes"}. Check the full specification and authentication guide before calling this operation.`);
       parts.push("## Operation and referenced schemas\n\n```json\n" + JSON.stringify(slice, null, 2) + "\n```");

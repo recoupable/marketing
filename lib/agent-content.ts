@@ -6,7 +6,7 @@ import type { DocPage } from "./docs";
 import type { BlogPost } from "./blog";
 import { blogDescription } from "./editorial-seo.ts";
 import { documentationAgentMarkdown, readableAgentMarkdown } from "./agent-markdown.ts";
-import { site } from "./site.ts";
+import { siteConfig } from "./config.ts";
 import { annualDiscountPercent, planPrice, pricingInquiryHref, pricingSummary } from "./pricing.ts";
 import { caseStudies } from "./case-studies.ts";
 import { resolveDescriptionLinks } from "./resolve-description-links.ts";
@@ -29,7 +29,7 @@ export class AgentContentError extends Error {
 
 type Entry = { metadata: AgentContentMetadata; searchable: string; keywords: string; markdown: () => Promise<string> };
 type PageSummary = { path: string; title: string; description: string; keywords: string; paragraphs: string[]; links: [string, string][] };
-const absolute = (path: string) => new URL(path, site.url).href;
+const absolute = (path: string) => new URL(path, siteConfig.url).href;
 
 // Deliberate summaries of the public pages, not a second copy of their complete
 // content. Keep the representation label and source link when consuming them.
@@ -67,21 +67,21 @@ const pages: PageSummary[] = [
     description: "A hosted workspace for artist context, research, campaign drafts, and recurring prompts and reports.",
     keywords: "platform app artist workspace hosted research content campaigns reports recurring tasks",
     paragraphs: ["The platform brings artist profiles, notes, music, and reference files into a hosted workspace for artists, managers, and music teams.", "Use the context for artist and opportunity research, campaign ideas, captions, graphics, video drafts, recurring prompts, and reports. Start with an artist profile, relevant material, and a clear task.", `The self-serve Platform plan includes platform access and the music skill pack at ${planPrice("platform", "monthly").monthly}/month. Annual billing saves at least ${annualDiscountPercent}%. API and MCP usage is billed separately by usage. Company-specific workflows and integrations can be scoped with the consulting team.`],
-    links: [["Open Recoup", site.app], ["Platform plan", "/pricing#platform"], ["Custom systems", "/build"]],
+    links: [["Open Recoup", siteConfig.appUrl], ["Platform plan", "/pricing#platform"], ["Custom systems", "/build"]],
   },
   {
     path: "/pricing", title: "Recoup pricing: platform, advisory, and custom builds",
     description: "Compare self-serve Platform, Advisory, Build + Partner, and custom Enterprise engagements. API and MCP are billed by usage.",
     keywords: "pricing price cost platform advisory consulting build partner enterprise monthly annual subscription API MCP usage",
     paragraphs: [...pricingSummary(), `Annual billing applies a ${annualDiscountPercent}% discount, then rounds the monthly equivalent down to a whole dollar. The annual charge is twelve times that rounded amount. The page shows both amounts.`, "Enterprise has a custom scope and price; contact Recoup to discuss the engagement. For advisory and builds, scope, deliverables, and delivery schedule are agreed together.", "API and MCP are billed separately by usage. Consult the credits documentation for billable operations and usage accounting. The annual subscription discount does not discount usage charges.", "Recoup Skills remains open source. The Platform plan bundles a hosted workspace and the music skill pack; an AI client or third-party services may have their own costs."],
-    links: [["Compare plans", "/pricing#plans"], ["Open the platform", site.app], ["Discuss advisory", pricingInquiryHref("advisory")], ["Discuss a build", pricingInquiryHref("partner")], ["Discuss Enterprise", pricingInquiryHref("enterprise")], ["API and MCP usage", "/docs/credits"]],
+    links: [["Compare plans", "/pricing#plans"], ["Open the platform", siteConfig.appUrl], ["Discuss advisory", pricingInquiryHref("advisory")], ["Discuss a build", pricingInquiryHref("partner")], ["Discuss Enterprise", pricingInquiryHref("enterprise")], ["API and MCP usage", "/docs/credits"]],
   },
   {
     path: "/skills", title: "Recoup Skills: music playbooks for your AI",
     description: "Open-source methods for artist research, release planning, content preparation, and catalog work in compatible AI agents.",
     keywords: "skills plugins playbooks record label in a box install Claude marketplace open source agent methods",
     paragraphs: ["Recoup Skills brings music-business instructions, tools, and templates into compatible AI agents. The collection covers artist research, release planning, content, catalog work, and opportunity research.", "A skill is a reusable method for a job. It complements the tools an agent can access; some skills call the Recoup API or other services.", "The hosted Recoup app provides a workspace. Skills bring methods into an agent you already use. Installation and available integrations depend on the chosen AI client."],
-    links: [["Recoup Skills repository", site.github], ["Install in Claude", "/docs/claude"], ["API authentication", "/docs/authentication"]],
+    links: [["Recoup Skills repository", siteConfig.githubUrl], ["Install in Claude", "/docs/claude"], ["API authentication", "/docs/authentication"]],
   },
   {
     path: "/developers", title: "Recoup REST API, MCP, CLI, and agent tools",
@@ -102,7 +102,7 @@ const pages: PageSummary[] = [
     description: "Discuss AI strategy, a custom system, or team training. Bring a company priority or recurring workflow.",
     keywords: "contact book call consultation email sales inquiry scope proposal company",
     paragraphs: ["Bring your company's priorities, an existing process, or a part of the business you want to improve. Recoup can discuss where AI may help and a useful starting point.", "The contact form asks for a name, work email, company, area of interest, and project brief. Use the form or email the address below. Reading this website does not submit an inquiry or book a meeting."],
-    links: [["Project inquiry form", "/contact"], ["Share a fuller project brief", "/start-project"], ["Email Recoup", `mailto:${site.email}`]],
+    links: [["Project inquiry form", "/contact"], ["Share a fuller project brief", "/start-project"], ["Email Recoup", `mailto:${siteConfig.contactEmail}`]],
   },
   {
     path: "/start-project", title: "Get a free AI audit or discuss a Recoup project",

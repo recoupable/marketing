@@ -11,8 +11,9 @@ const apiUrl =
     : "https://test-recoup-api.vercel.app/api";
 
 /**
- * Site-wide configuration — the single source of truth for brand values,
+ * Site-wide configuration, the single source of truth for brand values,
  * URLs, and metadata defaults. Import from here, never hardcode.
+ * NEXT_PUBLIC_SITE_URL lets a preview build emit absolute URLs for itself.
  */
 export const siteConfig = {
   name: "Recoup",
@@ -20,10 +21,15 @@ export const siteConfig = {
   tagline: "AI agents for music",
   description:
     "Your label. Run by agents. You create. They run strategy, content, revenue.",
-  url: "https://recoupable.dev",
+  url: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://recoupable.dev")
+    .origin,
   appUrl: "https://app.recoupable.dev",
   apiUrl,
   docsUrl: "https://docs.recoupable.dev",
+  /** In-site documentation route. */
+  docsPath: "/docs",
+  githubUrl: "https://github.com/recoupable/skills",
+  githubOrganizationUrl: "https://github.com/recoupable",
 
   /** Suggestion pills shown under the artist search once an artist is selected. */
   searchSuggestions: [
@@ -35,14 +41,10 @@ export const siteConfig = {
 
   /** Contact emails */
   supportEmail: "support@recoupable.dev",
-  contactEmail: "hi@recoupable.dev",
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hi@recoupable.dev",
 
-  /**
-   * Booking link for enterprise and partner conversations.
-   * Calendly derives the slug from the event name, so renaming the event in
-   * Calendly breaks this URL. Verify it still resolves after any rename.
-   */
-  bookingUrl: "https://calendly.com/sweetman-recoupable/roster",
+  /** Booking link shown on /contact only when set. */
+  bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL || "",
 
   /** Company address — used in legal pages */
   address: "720 Capitol Square Pl. SW, Washington, DC 20024",
@@ -60,7 +62,6 @@ export const siteConfig = {
     accentColor: "#003199",
     privyLogo: "/brand/wordmark-lightmode.svg",
   },
-
 
   /** Default OG / metadata values (overridden per-page via generateMetadata) */
   metadata: {

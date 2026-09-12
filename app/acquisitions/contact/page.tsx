@@ -4,7 +4,7 @@ import Link from "next/link";
 import { InquiryForm } from "@/components/inquiry/InquiryForm";
 import { SkyArrow } from "@/components/sky/arrow";
 import { catalogDirections } from "@/lib/catalog-directions";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 
 const direction = catalogDirections.acquisitions;
 
@@ -43,7 +43,7 @@ export default async function AcquisitionContactPage({
         </p>
         <div className="contact-details">
           <span className="mono">OR EMAIL US</span>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
         </div>
       </div>
       <InquiryForm

@@ -1,11 +1,11 @@
 import { test, expect } from "vitest";
 import { absoluteUrl, isSearchPreview, organizationGraph, serializeJsonLd, withPageMetadata } from "../lib/seo.ts";
-import { site } from "../lib/site.ts";
+import { siteConfig } from "../lib/config.ts";
 
 test("public metadata keeps the canonical page identity in social previews", () => {
   const metadata = withPageMetadata({ title: "Custom music AI systems", description: "Built around catalog data and existing tools.", alternates: { canonical: "/build" } });
   expect(metadata.alternates?.canonical).toBe("/build");
-  expect(metadata.openGraph?.url).toBe(`${site.url}/build`);
+  expect(metadata.openGraph?.url).toBe(`${siteConfig.url}/build`);
   expect(metadata.openGraph?.title).toBe("Custom music AI systems");
   expect(metadata.twitter?.description).toBe(metadata.description);
   expect(metadata.openGraph?.images).toBeTruthy();

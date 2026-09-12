@@ -3,7 +3,7 @@ import { ok } from './support/ok.ts';
 import { readFileSync, existsSync } from 'node:fs';
 import { getAgentCatalog, getAgentsMarkdown, getApiCatalog, getArdManifest, getLlmsFullText, getLlmsText, discoveryHeaders, apiCatalogMediaType } from '../lib/agent-discovery.ts';
 import { agentToolDefinitions } from '../lib/agent-tools.ts';
-import { site } from '../lib/site.ts';
+import { siteConfig } from "../lib/config.ts";
 
 const index = [
   { id: 'page:services', type: 'page', title: 'Services', description: 'AI strategy, custom systems, and team enablement.', url: '/services', representation: 'summary' },
@@ -32,7 +32,7 @@ test('custom catalog uses actual tools and content metadata without claiming an 
   const catalog = getAgentCatalog(index);
   expect(catalog.tools).toStrictEqual(agentToolDefinitions);
   expect(catalog.content[0].representation).toBe('summary');
-  expect(catalog.content[0].url).toBe(new URL('/services', site.url).href);
+  expect(catalog.content[0].url).toBe(new URL('/services', siteConfig.url).href);
   expect(catalog.interfaces.http.authentication).toBe('none');
   expect(catalog.interfaces.webmcp.draftEffect).toMatch(/Nothing is submitted/);
   expect(catalog.platform.mcp.url).toBe('https://api.recoupable.dev/mcp');
@@ -43,7 +43,7 @@ test('RFC 9727 catalog links the website specification and every existing import
   const items = catalog.linkset[0].item!;
   expect(items.length).toBe(inventory.specifications.length + 1);
   expect(new Set(items.map(item => item.href)).size).toBe(items.length);
-  expect(items[0].href).toBe(new URL('/openapi.json', site.url).href);
+  expect(items[0].href).toBe(new URL('/openapi.json', siteConfig.url).href);
   for (const spec of inventory.specifications) {
     expect(items.some(item => item.href.endsWith(`/docs/spec/${spec}`)), spec).toBeTruthy();
     expect(existsSync(new URL(`../content/docs/source/api-reference/openapi/${spec}`, import.meta.url)), spec).toBeTruthy();
@@ -59,7 +59,7 @@ test('ARD entries have unique publisher-bound handles and describe actual artifa
   const { entries } = getArdManifest();
   expect(new Set(entries.map(entry => entry.identifier)).size).toBe(entries.length);
   for (const entry of entries) {
-    expect(entry.identifier.startsWith(`urn:air:${new URL(site.url).hostname}:recoup:`)).toBeTruthy();
+    expect(entry.identifier.startsWith(`urn:air:${new URL(siteConfig.url).hostname}:recoup:`)).toBeTruthy();
     expect(entry.type).toMatch(/^[a-z]+\/[a-z0-9.+-]+/i);
     expect(entry.displayName && entry.url).toBeTruthy();
     expect('data' in entry).toBe(false);

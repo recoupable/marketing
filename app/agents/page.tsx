@@ -3,7 +3,7 @@ import { withPageMetadata } from '@/lib/seo';
 import { PageButton, PageHero, PageSection } from '@/components/sky/page-ui';
 import { agentToolDefinitions } from '@/lib/agent-tools';
 import { searchAgentContent } from '@/lib/agent-content';
-import { site } from '@/lib/site';
+import { siteConfig } from "@/lib/config";
 import './agents.css';
 
 export const metadata = withPageMetadata({
@@ -48,7 +48,7 @@ export default async function AgentsPage({ searchParams }: { searchParams: Promi
     </PageSection>
     <PageSection eyebrow="FOR DEVELOPERS" title="One public interface. Multiple ways in.">
       <div className="agents-connections">
-        <article><span className="sp-kicker">PUBLIC WEBSITE API</span><h3>Search without a browser.</h3><p>Plain HTTP and structured results. Use returned IDs to read content; use the continuation fields for longer results.</p><pre>{`curl --get '${site.url}/agent-api/v1/search' \\\n  --data-urlencode 'query=royalty reporting'`}</pre><Link href="/openapi.json">OpenAPI specification →</Link></article>
+        <article><span className="sp-kicker">PUBLIC WEBSITE API</span><h3>Search without a browser.</h3><p>Plain HTTP and structured results. Use returned IDs to read content; use the continuation fields for longer results.</p><pre>{`curl --get '${siteConfig.url}/agent-api/v1/search' \\\n  --data-urlencode 'query=royalty reporting'`}</pre><Link href="/openapi.json">OpenAPI specification →</Link></article>
         <article><span className="sp-kicker">RECOUP PLATFORM</span><h3>Put your agent to work.</h3><p>Connect to the existing platform MCP with your API key to run authorized tasks in your Recoup account. Keep credentials in your agent’s secure configuration.</p><pre>https://api.recoupable.dev/mcp</pre><Link href="/docs/mcp">Authentication and setup →</Link></article>
       </div>
       <nav className="agents-resources" aria-label="Machine-readable Recoup resources"><Link href="/llms.txt">Quick index</Link><Link href="/agents/catalog.json">Content catalog</Link><Link href="/.well-known/api-catalog">API catalog</Link><Link href="/docs/api-reference">Platform API reference</Link><Link href="/skills">Recoup Skills</Link></nav>

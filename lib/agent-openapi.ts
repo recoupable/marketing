@@ -1,5 +1,5 @@
 import { agentToolDefinitions } from './agent-tools.ts';
-import { site } from './site.ts';
+import { siteConfig } from "./config.ts";
 
 const object = (properties: Record<string, unknown>, required = Object.keys(properties)) => ({ type: 'object', properties, required });
 const string = { type: 'string' };
@@ -38,12 +38,12 @@ export function websiteOpenAPI() {
     info: {
       title: 'Recoup public website tools', version: '1.0.0',
       description: 'Search and read public Recoup content, assess workflow readiness, calculate a scenario, and prepare a project brief. Anonymous, bounded, read-only computation: no account data, inquiry submission, purchases, or code execution. These are website tools; the authenticated music platform API and MCP are documented separately at /docs. Version v1 permits additive fields; incompatible changes require a new versioned path. Clients should ignore unknown response fields.',
-      contact: { name: 'Recoup', email: site.email, url: `${site.url}/contact` },
-      termsOfService: `${site.url}/terms`,
+      contact: { name: 'Recoup', email: siteConfig.contactEmail, url: `${siteConfig.url}/contact` },
+      termsOfService: `${siteConfig.url}/terms`,
     },
-    servers: [{ url: site.url, description: 'Recoup website; use the origin that served this specification for local or preview testing.' }],
+    servers: [{ url: siteConfig.url, description: 'Recoup website; use the origin that served this specification for local or preview testing.' }],
     security: [],
-    externalDocs: { description: 'Agent guide and platform connection options', url: `${site.url}/agents` },
+    externalDocs: { description: 'Agent guide and platform connection options', url: `${siteConfig.url}/agents` },
     paths: {
       '/agent-api/v1/search': { get: {
         operationId: 'search_recoup', summary: 'Find relevant public Recoup content', description: agentToolDefinitions[0].description,
