@@ -9,6 +9,8 @@
 .sky-scroll-rest.sky-page { padding-top: 0; }
 
 @media (prefers-reduced-motion: no-preference) {
+  /* Bring services into the viewport as the final sky fade begins. */
+  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-rest { position: relative; z-index: 1; margin-top: -80svh; }
   /* The overlapping sticky stage must stop painting at the scene boundary. */
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-scene { position: relative; isolation: isolate; overflow: clip; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-stage {
@@ -31,6 +33,7 @@
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement-accent { color: inherit; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-travel { display: block; height: 150svh; }
   @media (max-width: 760px) {
+    .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-rest { margin-top: -68svh; }
     .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-travel { height: 100svh; }
     .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement { padding: 28px 25px; }
     .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement p { font-size: clamp(24px, 5.6vw, 34px); line-height: 1.28; letter-spacing: -.035em; }
@@ -42,6 +45,7 @@
 }
 
 @media print {
+  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-rest { margin-top: 0; }
   .sky-scroll-preview .sky-scroll-stage, .sky-scroll-preview .sky-scroll-travel { display: none !important; }
   .sky-scroll-preview .sky-scroll-mission { position: static !important; height: auto !important; }
   .sky-scroll-preview .sky-scroll-mission-copy, .sky-scroll-preview .sky-scroll-hero { opacity: 1 !important; transform: none !important; color: #132a34 !important; }

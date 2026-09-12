@@ -9,7 +9,7 @@ The opening uses the existing hero, cards, transparent customer logos, mission c
 - The cloud background fills the viewport from first paint, including the static fallback. Hero content scrolls naturally until the lower hero reaches the reading area.
 - The background stays pinned while the cloud image grows. The foreground fades.
 - The white mission text rises into the center over 0.85 viewport units of scroll (nearly twice the original reveal distance), then holds against blue before the clouds fade to white.
-- The mission fades out with the clouds into white, followed by How we help and the rest of the existing page.
+- How we help rises into view during the sky fade. Its wrapper overlaps the last 80svh of the scene on desktop (68svh on phones), removing the empty white gap. It paints above the outgoing sky; the mission clears before the service content reaches the central reading area. Static and print layouts use normal document flow.
 
 `SkyScrollPreview` uses Motion scroll values for transforms and opacity. A ResizeObserver measures the responsive hero. The scene clips its overlapping sticky backdrop at its own boundary so the white fade layer cannot cover the following service cards. Native wheel, touch, keyboard, fragment navigation, and reverse scrolling retain their behavior; no scroll interception or animation timers are used.
 

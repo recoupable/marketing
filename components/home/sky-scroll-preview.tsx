@@ -42,8 +42,8 @@ export function SkyScrollPreview({ hero, statement, children }: {
   const heroOpacity = useTransform(phase, [0, 0.65], [1, 0]);
   const cloudScale = useTransform(phase, [0, 1.4, 2.2], [1, 1.38, 1.5]);
   const cloudY = useTransform(phase, [0, 1], [0, -Math.max(0, (geometry?.hero ?? 0) - (geometry?.viewport ?? 0))]);
-  const whiteOpacity = useTransform(phase, [1.7, 2.35], [0, 1]);
-  const statementOpacity = useTransform(phase, [0.45, 1.3, 1.8, 2.35], [0, 1, 1, 0]);
+  const whiteOpacity = useTransform(phase, [1.55, 2.2], [0, 1]);
+  const statementOpacity = useTransform(phase, [0.45, 1.3, 1.55, 1.95], [0, 1, 1, 0]);
   const statementY = useTransform(phase, [0.45, 1.3], [36, 0]);
   const enhanced = geometry !== null && !reducedMotion && !(geometry.compact && geometry.viewport < 560);
 
