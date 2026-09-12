@@ -142,7 +142,7 @@ content/posts/INDEX.md       — Published posts + topic gaps
 ## Integrations
 
 - **Lead capture:** `lib/postCapture.ts` — every form posts to `POST /api/leads` on the Recoup api, which owns Attio storage, the triage note, and the Telegram page (chat#1800). Marketing holds no Attio client and no `ATTIO_API_KEY`. `NEXT_PUBLIC_RECOUP_API_URL` overrides the api base for previews.
-- **Analytics:** Plausible script in `app/layout.tsx` — do NOT remove
+- **Analytics:** Vercel Web Analytics (`<Analytics />` in `app/layout.tsx`); custom events go through `lib/analytics/trackEvent.ts`
 
 ## Code Principles
 
@@ -172,7 +172,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Sky migration (September 2026)
 
-Read `DESIGN.md` before UI changes. The approved Sky design applies to this marketing repository only. Current site components live in `components/sky`; blog and docs snapshots live in `content/blog` and `content/docs`. Retained production integrations include `/api/leads` on the central API, route-scoped Privy authentication for valuation, Plausible, and Vercel Analytics.
+Read `DESIGN.md` before UI changes. The approved Sky design applies to this marketing repository only. Current site components live in `components/sky`; blog and docs snapshots live in `content/blog` and `content/docs`. Retained production integrations include `/api/leads` on the central API, route-scoped Privy authentication for valuation, and Vercel Analytics.
 
 Personality should come through in the directness and confidence of the writing. It shouldn’t depend on making ordinary things sound more abstract.
 
@@ -184,4 +184,3 @@ The `/music-videos` offer retains PR #89’s copy, artist films, skill download,
 
 Both public footers use `components/sky/footer-signup.tsx` for email-only insights signup. It shares `lib/marketing-subscribe.ts` with the blog/resources forms and records `kind: subscribe`, `source: /footer` through the central lead API, preserving acquisition tags.
 
-The experimental `/preview/sky-scroll` route previews a scroll-driven hero and mission transition. It reuses `SkyHero`, `SkyStatement`, and `SkyContent`; its controller and styles live in `components/home/sky-scroll-preview.*`. Keep it out of `publicRoutes` and the sitemap, with `noindex` metadata. The homepage retains its existing motion. See `docs/plans/sky-scroll-preview.md` for the scene and fallback behavior.
