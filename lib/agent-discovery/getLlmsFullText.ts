@@ -14,7 +14,7 @@ export function getLlmsFullText(
 
 > ${introduction}
 
-Scope: this file contains the marketing page summaries used by the public content index. Despite the conventional llms-full.txt filename, it is not the full text of the website, blog, playbook, or platform documentation. For authoritative detail, read the canonical page or use the content reading endpoint with an ID from search.
+Scope: this file opens with the marketing page summaries used by the public content index, then carries the complete platform documentation, page by page, as served at each page's Source URL. The summaries are not the full text of the website, blog, or playbook. For authoritative detail on those, read the canonical page or use the content reading endpoint with an ID from search.
 
 ${pages.map((item) => `## ${oneLine(item.title)}\n\nContent ID: ${item.id}\n\n${summaries[item.id]?.replace(/^# [^\n]+\n*/, "") || `Canonical page: ${absoluteUrl(item.url)}\n\n${oneLine(item.description)}`}`).join("\n\n")}
 

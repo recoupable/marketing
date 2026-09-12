@@ -1,5 +1,6 @@
 import { siteConfig } from "../config.ts";
 import { absoluteUrl } from "../seo.ts";
+import { docsLlmsLinks, type DocsLinkPage } from "../docs/docsLlmsLinks.ts";
 import { accessNotes } from "./accessNotes.ts";
 import type { DiscoveryContent } from "./DiscoveryContent.ts";
 import { discoveryPaths } from "./discoveryPaths.ts";
@@ -7,7 +8,7 @@ import { introduction } from "./introduction.ts";
 import { markdownLabel } from "./markdownLabel.ts";
 import { oneLine } from "./oneLine.ts";
 
-export function getLlmsText(index: readonly DiscoveryContent[]) {
+export function getLlmsText(index: readonly DiscoveryContent[], documentation: readonly DocsLinkPage[] = []) {
   const pages = index.filter((item) => item.type === "page");
   const pageLinks = pages
     .map(
@@ -26,7 +27,7 @@ export function getLlmsText(index: readonly DiscoveryContent[]) {
 - [Website OpenAPI](${absoluteUrl(discoveryPaths.openapi)}): Public search, reading, and utility endpoints; no account key required.
 - [Documentation](${absoluteUrl("/docs")}): Platform guides and endpoint references. Use website search to find specific documentation.
 - [API catalog](${absoluteUrl(discoveryPaths.apiCatalog)}): Website API and the platform's published OpenAPI specifications.
-- [Marketing context summaries](${absoluteUrl(discoveryPaths.summaries)}): Expanded navigation context; not the complete documentation corpus.
+- [Marketing context summaries and full documentation](${absoluteUrl(discoveryPaths.summaries)}): Expanded navigation context followed by every documentation page as markdown.
 
 ## Find and read
 
@@ -38,6 +39,8 @@ Search returns IDs and continuation cursors. Reading returns a bounded text repr
 ## Services and public pages
 
 ${pageLinks}
+
+${docsLlmsLinks(documentation)}
 
 ## Further reading
 
