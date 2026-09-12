@@ -84,8 +84,13 @@
 .sky-proof img { object-fit: contain; }
 @keyframes sky-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 @media (min-width: 1600px) { .sky-page { padding: 54px; } .sky-hero-copy { padding-top: 70px; } .sky-float-gallery { margin-top: 57px; } }
-@media (max-width: 1240px) and (min-width: 761px) { .sky-panel-stage { transform: scale(.9); transform-origin: center top; height: 308px; } .sky-hero-copy { padding-top: 42px; } }
-@media (max-width: 1050px) and (min-width: 761px) { .sky-page { padding: 22px; } .sky-panel-stage { transform: scale(.82); height: 287px; } .sky-nav { padding: 24px; } .sky-desktop-nav { gap: 17px; } .sky-nav-contact { padding: 12px 16px; gap: 12px; } .sky-proof { padding-inline: 20px; } .sky-proof img { max-width: 100px; } }
+/* Fit the projected outside cards and their shadows to the actual hero width. */
+@media (min-width: 761px) {
+  .sky-float-gallery { container-type: inline-size; padding-top: 16px; }
+  .sky-panel-stage { transform: scale(min(1, calc((100cqw - 48px) / 1400px))); transform-origin: center top; margin-bottom: calc(min(370px, (100cqw - 48px) * 0.264286) - 338px); }
+}
+@media (max-width: 1240px) and (min-width: 761px) { .sky-hero-copy { padding-top: 42px; } }
+@media (max-width: 1050px) and (min-width: 761px) { .sky-page { padding: 22px; } .sky-nav { padding: 24px; } .sky-desktop-nav { gap: 17px; } .sky-nav-contact { padding: 12px 16px; gap: 12px; } .sky-proof { padding-inline: 20px; } .sky-proof img { max-width: 100px; } }
 @media (min-width: 761px) and (max-width: 900px) { .sky-wordmark { font-size: 24px; } .sky-desktop-nav { left: 47%; gap: 13px; } .sky-desktop-nav > a, .sky-tools-menu > summary { font-size: 9px; } .sky-nav-contact { font-size: 9px; gap: 8px; } }
 @media (max-width: 760px) {
   .sky-page { padding: 12px; }
