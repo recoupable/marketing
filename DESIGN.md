@@ -153,6 +153,8 @@ The impression should be **capable people building useful software for the busin
 
 ### Homepage narrative
 
+The hero places a glass pill reading “Made for music funds and rightsholders” above the title. Use the existing mono label font, an inset shadow outline, and wrapping text for narrow screens.
+
 The homepage follows this order: full AI transformation offer → customer logos → short statement about what adoption takes → three ways to engage → three clearly labeled case studies → engagement process → ownership → advisory and build options → separate self-serve software links → buying FAQ → free-audit invitation → footer.
 
 `SkyServices` presents three buying paths: AI advisory, AI transformation, and custom builds. Its left-hand introduction states the destination and agreed success measures; three compact cards sit on the right. The transformation partnership receives lime emphasis. Small, text-free symbols support the titles; avoid large mock interfaces competing with the offer copy. A sticky desktop introduction becomes normal document flow on tablets and phones. Workflow automation, royalty reporting, catalog intelligence, and investment review appear beneath the offers as linked examples of deliverables, not separate competing engagements. The shared offer definitions in `lib/service-offers.ts` also drive `/services`. Training is part of the transformation engagement. Preserve the existing services-page strategy, build, and enable anchors. Reuse `sky-services.css`; cards use the shared scroll entrance controller.
