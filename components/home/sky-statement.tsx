@@ -10,12 +10,12 @@ const statement = [
 const words = statement.join(" ").split(" ");
 const closingStart = words.length - statement[1].split(" ").length;
 
-export function SkyStatement() {
+export function SkyStatement({ animate = true }: { animate?: boolean }) {
   const paragraphRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const paragraph = paragraphRef.current;
-    if (!paragraph || !window.IntersectionObserver || !Element.prototype.animate) return;
+    if (!animate || !paragraph || !window.IntersectionObserver || !Element.prototype.animate) return;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const timeline = 1300;
     const animations = Array.from(paragraph.querySelectorAll<HTMLElement>(".sky-statement-word"), (word, index) => {
@@ -69,7 +69,7 @@ export function SkyStatement() {
       reducedMotion.removeEventListener("change", schedule);
       animations.forEach((animation) => animation.cancel());
     };
-  }, []);
+  }, [animate]);
 
   return (
     <div className="sky-statement" id="transformation">

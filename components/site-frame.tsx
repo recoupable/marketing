@@ -13,7 +13,7 @@ import "./sky/materials.css";
 
 export function SiteFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const content = pathname === "/" ? <main id="main">{children}</main>
+  const content = (pathname === "/" || pathname === "/preview/sky-scroll") ? <main id="main">{children}</main>
       : <div className="sky-site"><SkySiteHeader /><main id="main">{children}</main><SkySiteFooter /></div>;
   return <><Suspense fallback={null}><ReferralCapture /></Suspense>{content}<ScrollMotion /><BrowserAgentTools /></>;
 }

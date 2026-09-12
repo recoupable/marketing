@@ -8,10 +8,10 @@ import { SkyEngagements } from "./sky-engagements";
 import { SkyClosing } from "./sky-closing";
 import { HomeCaseStudies } from "@/components/case-studies/home-case-studies";
 
-export function SkyContent() {
+export function SkyContent({ includeStatement = true }: { includeStatement?: boolean }) {
   return (
     <div className="sky-content">
-      <SkyStatement />
+      {includeStatement && <SkyStatement />}
       <SkyServices />
       <HomeCaseStudies />
       <SkyPartnership />
