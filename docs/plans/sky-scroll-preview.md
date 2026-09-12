@@ -6,8 +6,8 @@ The opening uses the existing hero, cards, transparent customer logos, mission c
 
 ## Sequence
 
-- Hero content scrolls naturally until the lower hero reaches the reading area.
-- The background stays pinned; its side margins and corner radius open to the viewport while the cloud image grows. The foreground fades.
+- The cloud background fills the viewport from first paint, including the static fallback. Hero content scrolls naturally until the lower hero reaches the reading area.
+- The background stays pinned while the cloud image grows. The foreground fades.
 - The white mission text rises into the center over 0.85 viewport units of scroll (nearly twice the original reveal distance), then holds against blue before the clouds fade to white.
 - The mission fades out with the clouds into white, followed by How we help and the rest of the existing page.
 

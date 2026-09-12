@@ -1,4 +1,8 @@
 .sky-scroll-preview.sky-page { padding: 0; }
+.sky-scroll-preview .sky-scroll-hero { background: #007fbd url("/images/sky/hero-sky.webp") center bottom / cover no-repeat; }
+.sky-scroll-preview .sky-scroll-hero .sky-frame,
+.sky-scroll-preview .sky-scroll-hero .sky-hero { background: transparent; }
+.sky-scroll-preview .sky-scroll-hero :is(.sky-hero-image, .sky-hero-shade) { visibility: hidden; }
 .sky-scroll-stage, .sky-scroll-travel { display: none; }
 .sky-scroll-mission { position: relative; }
 .sky-scroll-rest.sky-page { padding-top: 0; }
@@ -16,9 +20,6 @@
   .sky-scroll-cloud-tint { position: absolute; inset: 0; background: linear-gradient(180deg, #003c6c30, #0065aa14 42%, transparent 68%, #005b94a0); }
   .sky-scroll-white { position: absolute; inset: 0; background: white; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-hero { padding-bottom: 0; background: transparent; }
-  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-hero .sky-frame,
-  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-hero .sky-hero { background: transparent; }
-  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-hero :is(.sky-hero-image, .sky-hero-shade) { visibility: hidden; }
   .sky-scroll-hero:focus-within { opacity: 1 !important; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission {
     position: sticky; top: 0; height: 100svh; display: grid; align-items: center; pointer-events: none;
