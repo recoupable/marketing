@@ -6,7 +6,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import { useSkyLineReveal } from "./use-sky-line-reveal";
 import "./sky-scroll-preview.css";
 
-type Geometry = { hero: number; viewport: number; compact: boolean };
+type Geometry = { hero: number; paragraph: number; viewport: number; compact: boolean };
 
 /** This route owns the scroll choreography; its content remains server rendered. */
 export function SkyScrollPreview({ hero, statement, children }: {
@@ -22,12 +22,14 @@ export function SkyScrollPreview({ hero, statement, children }: {
   useEffect(() => {
     const element = foreground.current;
     if (!element) return;
+    const paragraph = mission.current?.querySelector("p");
     const measure = () => {
-      setGeometry({ hero: element.offsetHeight, viewport: window.innerHeight,
+      setGeometry({ hero: element.offsetHeight, paragraph: paragraph?.offsetHeight ?? 0, viewport: window.innerHeight,
         compact: window.innerWidth <= 760 });
     };
     const observer = new ResizeObserver(measure);
     observer.observe(element);
+    if (paragraph) observer.observe(paragraph);
     window.addEventListener("resize", measure);
     return () => { observer.disconnect(); window.removeEventListener("resize", measure); };
   }, []);
@@ -42,8 +44,17 @@ export function SkyScrollPreview({ hero, statement, children }: {
     return (progress * travel - start) / (viewport * (compact ? 0.78 : 1));
   });
   const heroOpacity = useTransform(phase, [0, 0.65], [1, 0]);
-  const cloudScale = useTransform(phase, [0, 1.4, 2.2], [1, 1.18, 1.3]);
-  const cloudY = useTransform(phase, [0, 0.65], [0, -Math.max(0, (geometry?.hero ?? 0) - (geometry?.viewport ?? 0))]);
+  // Finish the camera move before the first line crosses the viewport bottom.
+  // Account for responsive text height and the mission's negative margin.
+  const cloudProgress = useTransform(scrollYProgress, (progress) => {
+    if (!geometry) return 0;
+    const { hero: height, paragraph, viewport, compact } = geometry;
+    const travel = height + viewport * (compact ? 1 : 1.5);
+    const entrance = height - viewport * (compact ? 0.7 : 0.66) - paragraph / 2;
+    return Math.max(0, Math.min(1, progress * travel / Math.max(1, entrance)));
+  });
+  const cloudScale = useTransform(cloudProgress, [0, 1], [1, 1.18]);
+  const cloudY = useTransform(cloudProgress, [0, 1], [0, -Math.max(0, (geometry?.hero ?? 0) - (geometry?.viewport ?? 0))]);
   const whiteOpacity = useTransform(phase, [1.55, 2.2], [0, 1]);
   const statementOpacity = useTransform(phase, [1.55, 1.95], [1, 0]);
   const enhanced = geometry !== null && !reducedMotion && !(geometry.compact && geometry.viewport < 560);
