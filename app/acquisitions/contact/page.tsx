@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "../../directions.css";
 import Link from "next/link";
-import { InquiryForm } from "@/components/inquiry-form";
+import { InquiryForm } from "@/components/inquiry/InquiryForm";
 import { SkyArrow } from "@/components/sky/arrow";
 import { catalogDirections } from "@/lib/catalog-directions";
 import { site } from "@/lib/site";
@@ -47,6 +47,7 @@ export default async function AcquisitionContactPage({
         </div>
       </div>
       <InquiryForm
+        source="/acquisitions/contact"
         key={initialInterest ?? "acquisitions"}
         connected={true}
         variant="acquisitions"

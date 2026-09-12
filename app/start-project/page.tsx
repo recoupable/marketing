@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { InquiryForm } from "@/components/inquiry-form";
+import { InquiryForm } from "@/components/inquiry/InquiryForm";
+import { SelectedPlanAside } from "@/components/inquiry/SelectedPlanAside";
 import { generalInterests } from "@/lib/inquiry-topics";
 import {
   getImmersiveProjectBrief,
   getImmersiveWorkflow,
 } from "@/lib/immersive-workflows";
 import { withPageMetadata } from "@/lib/seo";
-import { parsePricingSelection, planPrice, pricingPlans, pricingSelectionLabel } from "@/lib/pricing";
+import { parsePricingSelection, pricingSelectionLabel } from "@/lib/pricing";
 import "../transformation.css";
 import "./lead-page.css";
 
@@ -33,10 +33,6 @@ export default async function StartProjectPage({
   const { workflow, project, plan, billing } = await searchParams;
   const pricingSelection = parsePricingSelection(plan, billing);
   const freeAudit = !pricingSelection;
-  const selectedPlan = pricingPlans.find((item) => item.id === pricingSelection?.plan);
-  const selectedPrice = selectedPlan && pricingSelection
-    ? planPrice(selectedPlan.id, pricingSelection.billing)
-    : undefined;
   const pricingContext = pricingSelection ? pricingSelectionLabel(pricingSelection) : undefined;
   const planInterest = pricingSelection?.plan === "advisory" ? "AI strategy"
     : pricingSelection?.plan === "partner" ? "Custom systems"
@@ -71,22 +67,10 @@ export default async function StartProjectPage({
         </div>
       </div>
       <div className="lead-page-form">
-        {pricingSelection && (
-          <aside className="lead-selected-plan" aria-label="Selected plan">
-            <div>
-              <p className="lead-selected-plan-label">Selected plan</p>
-              <h2>{selectedPlan?.name ?? "Enterprise"}</h2>
-              {selectedPrice ? (
-                <>
-                  <p className="lead-selected-plan-price"><strong>{selectedPrice.monthly}</strong> / month</p>
-                  <p className="lead-selected-plan-terms">{selectedPrice.terms} · USD</p>
-                </>
-              ) : <p className="lead-selected-plan-terms">Custom engagement. We’ll scope it together.</p>}
-            </div>
-            <Link href="/pricing">Change plan</Link>
-          </aside>
-        )}
+        {pricingSelection && <SelectedPlanAside selection={pricingSelection} />}
         <InquiryForm
+          source="/start-project"
+          plan={pricingSelection?.plan}
           key={`${initialInterest}:${selectedProject?.id ?? "general"}:${pricingSelection?.plan ?? "none"}:${pricingSelection?.billing ?? "monthly"}`}
           qualified
           freeAudit={freeAudit}

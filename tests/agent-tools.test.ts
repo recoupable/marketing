@@ -1,6 +1,8 @@
 import { test, expect } from "vitest";
 import { agentToolDefinitions, AgentToolInputError, executeUtilityTool, isUtilityToolName } from "../lib/agent-tools.ts";
-import { calculateWorkflowROI, readinessQuestions, recommendReadiness } from "../lib/marketing-migration-tools.ts";
+import { calculateWorkflowROI } from "../lib/marketing-migration-tools/calculateWorkflowROI.ts";
+import { readinessQuestions } from "../lib/marketing-migration-tools/readinessQuestions.ts";
+import { recommendReadiness } from "../lib/marketing-migration-tools/recommendReadiness.ts";
 
 const assumptions = { monthlyHours: 40, hourlyCost: 40, timeReduction: 50, monthlySystemCost: 100, setupCost: 2500 };
 const answers = Object.fromEntries(readinessQuestions.map(question => [question.id, question.options[0]]));

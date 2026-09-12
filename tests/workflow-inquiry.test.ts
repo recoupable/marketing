@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest';
 import { roiInquiryDraft, readinessInquiryDraft } from '../lib/workflow-inquiry.ts';
-import { readinessQuestions } from '../lib/marketing-migration-tools.ts';
+import { readinessQuestions } from '../lib/marketing-migration-tools/readinessQuestions.ts';
 import { parseAgentDraft } from '../lib/agent-draft.ts';
 
 test('ROI handoff preserves precise assumptions, results and the capacity qualification', () => {

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, type ReactNode } from "react";
 import { SkyArrow } from "@/components/sky/arrow";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { NavigationIcon } from "@/components/sky/navigation-icon";
 
 export function SkyNavigation({ mark }: { mark: ReactNode }) {
@@ -34,7 +35,7 @@ export function SkyNavigation({ mark }: { mark: ReactNode }) {
     <details className="sky-mobile-menu">
       <summary aria-label="Navigation"><NavigationIcon /></summary>
       <nav aria-label="Mobile navigation" onClick={closeOnNavigation}>
-        <Link href="/services">Services</Link><Link href="/case-studies">Work</Link><Link href="/pricing">Pricing</Link><a href="#tools">Tools</a><Link href="/docs">Docs</Link><Link href="/about">About</Link><Link href="/blog">Blog</Link><Link href="/resources">Resources</Link><Link href="/start-project">Get a Free Audit</Link>
+        <Link href="/services">Services</Link><Link href="/case-studies">Work</Link><Link href="/pricing">Pricing</Link><a href="#tools">Tools</a><Link href="/docs">Docs</Link><Link href="/about">About</Link><Link href="/blog">Blog</Link><Link href="/resources">Resources</Link><TrackedLink href="/start-project" cta="free_audit" placement="home_mobile_nav">Get a Free Audit</TrackedLink>
       </nav>
     </details>
     <a href="#sky-home" className="sky-wordmark" aria-label="Recoup home">{mark}<span>Recoup</span></a>
@@ -53,7 +54,7 @@ export function SkyNavigation({ mark }: { mark: ReactNode }) {
       <Link href="/docs">Docs</Link><Link href="/about">About</Link>
       <Link href="/blog">Blog</Link>
     </nav>
-    <Link href="/start-project" className="sky-nav-contact"><span className="nav-cta-desktop">Get a Free Audit</span><span className="nav-cta-mobile">Free Audit</span><SkyArrow /></Link>
+    <TrackedLink href="/start-project" cta="free_audit" placement="home_header" className="sky-nav-contact"><span className="nav-cta-desktop">Get a Free Audit</span><span className="nav-cta-mobile">Free Audit</span><SkyArrow /></TrackedLink>
 
   </header>;
 }

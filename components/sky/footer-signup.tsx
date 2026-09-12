@@ -4,7 +4,8 @@ import { useEffect, useId, useRef, useState, useSyncExternalStore, type FormEven
 import Link from "next/link";
 import { SkyArrow } from "./arrow";
 import { subscribeToRecoup } from "@/lib/marketing-subscribe";
-import { currentReferralAttribution } from "@/lib/referral-attribution";
+import { currentReferralAttribution } from "@/lib/attribution/currentReferralAttribution";
+import { trackEvent } from "@/lib/analytics/trackEvent";
 import "./footer-signup.css";
 
 const subscribeToHydration = () => () => {};
@@ -29,8 +30,10 @@ export function FooterSignup() {
     setError("");
     const result = await subscribeToRecoup({ email, source: "/footer", attribution: currentReferralAttribution() });
     pending.current = false;
-    if (result.ok) setStatus("success");
-    else { setError(result.error); setStatus("error"); }
+    if (result.ok) {
+      setStatus("success");
+      trackEvent("subscribe_submitted", { source: "/footer" });
+    } else { setError(result.error); setStatus("error"); }
   }
 
   return <div className="footer-signup">

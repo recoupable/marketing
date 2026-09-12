@@ -1,5 +1,6 @@
-import { calculateWorkflowROI, readinessQuestions, recommendReadiness } from "./marketing-migration-tools.ts";
-import type { ROIInputs } from "./marketing-migration-tools.ts";
+import { calculateWorkflowROI, type ROIInputs } from "./marketing-migration-tools/calculateWorkflowROI.ts";
+import { readinessQuestions } from "./marketing-migration-tools/readinessQuestions.ts";
+import { recommendReadiness } from "./marketing-migration-tools/recommendReadiness.ts";
 import { generalInterests } from "./inquiry-topics.ts";
 
 export const utilityToolNames = ["estimate_workflow_roi", "assess_workflow_readiness", "prepare_project_brief"] as const;

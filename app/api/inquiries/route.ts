@@ -1,4 +1,4 @@
-import { createInquiryHandler } from "@/lib/inquiries";
+import { createInquiryHandler } from "@/lib/inquiries/createInquiryHandler";
 
 import { siteConfig } from "@/lib/config";
 

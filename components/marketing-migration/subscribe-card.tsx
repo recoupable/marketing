@@ -4,7 +4,8 @@ import { useEffect, useId, useRef, useState, useSyncExternalStore, type FormEven
 import Link from "next/link";
 import { SkyArrow } from "@/components/sky/arrow";
 import { subscribeToRecoup, type SubscribeSource } from "@/lib/marketing-subscribe";
-import { currentReferralAttribution } from "@/lib/referral-attribution";
+import { currentReferralAttribution } from "@/lib/attribution/currentReferralAttribution";
+import { trackEvent } from "@/lib/analytics/trackEvent";
 import "./subscribe-card.css";
 
 const subscribeToHydration = () => () => {};
@@ -30,8 +31,10 @@ export function SubscribeCard({ source }: { source: SubscribeSource }) {
     setError("");
     const result = await subscribeToRecoup({ name, email, source, attribution: currentReferralAttribution() });
     pending.current = false;
-    if (result.ok) setStatus("success");
-    else { setError(result.error); setStatus("error"); }
+    if (result.ok) {
+      setStatus("success");
+      trackEvent("subscribe_submitted", { source });
+    } else { setError(result.error); setStatus("error"); }
   }
 
   return <section className="mm-subscribe" aria-labelledby={`${id}-title`}>

@@ -1,9 +1,12 @@
 import { test, expect } from "vitest";
 
-const { prepareInquiryEmail, hasInquiryReceipt, copyInquiryText }: typeof import("../lib/inquiry-client") =
-  await import(new URL("../lib/inquiry-client.ts", import.meta.url).href);
-const { createInquiryHandler }: typeof import("../lib/inquiries") =
-  await import(new URL("../lib/inquiries.ts", import.meta.url).href);
+import { prepareInquiryEmail } from "../lib/inquiry/prepareInquiryEmail.ts";
+import { readInquiryReceipt } from "../lib/inquiry/readInquiryReceipt.ts";
+import { copyInquiryText } from "../lib/inquiry/copyInquiryText.ts";
+const { createInquiryHandler }: typeof import("../lib/inquiries/createInquiryHandler") =
+  await import(new URL("../lib/inquiries/createInquiryHandler.ts", import.meta.url).href);
+
+const submissionId = "a".repeat(64);
 
 const fields = {
   name: "Taylor Example",
@@ -11,6 +14,7 @@ const fields = {
   company: "Notes & Co. #2",
   interest: "Custom systems",
   message: "Please review ‘Night & Day’.\nKeep the sources, amounts, and questions together.",
+  source: "/contact",
 };
 
 test("email and copy handoffs preserve the same complete inquiry, including special characters", () => {
@@ -21,26 +25,27 @@ test("email and copy handoffs preserve the same complete inquiry, including spec
   expect(draft.searchParams.get("subject")).toBe("Let’s build: Notes & Co. #2");
   expect(draft.searchParams.get("body")?.endsWith(fields.message)).toBeTruthy();
   expect(prepared.text.endsWith(draft.searchParams.get("body")!)).toBeTruthy();
-  for (const value of Object.values(fields)) expect(prepared.text.includes(value)).toBeTruthy();
+  for (const [key, value] of Object.entries(fields)) if (key !== "source") expect(prepared.text.includes(value)).toBeTruthy();
   expect(prepared.text.startsWith("To: hi@recoupable.dev\nSubject:")).toBeTruthy();
 });
 
 test("only the saved-inquiry receipt is accepted; unrelated 2xx responses never mean delivery", async () => {
-  expect(await hasInquiryReceipt(Response.json({ ok: true }))).toBe(true);
+  expect(await readInquiryReceipt(Response.json({ ok: true, submission_id: submissionId }))).toStrictEqual({ submissionId });
   for (const response of [
-    Response.json({ ok: true }, { status: 202 }),
-    Response.json({ ok: false }),
-    Response.json({ ok: "true" }),
-    Response.json({ ok: true, ignored: true }),
-    Response.json({ ok: true, error: "Not saved" }),
+    Response.json({ ok: true }),
+    Response.json({ ok: true, submission_id: submissionId }, { status: 202 }),
+    Response.json({ ok: false, submission_id: submissionId }),
+    Response.json({ ok: "true", submission_id: submissionId }),
+    Response.json({ ok: true, submission_id: submissionId, ignored: true }),
+    Response.json({ ok: true, submission_id: submissionId, error: "Not saved" }),
     Response.json({ success: true }),
     Response.json(null),
     Response.json([{ ok: true }]),
     new Response(null, { status: 204 }),
     new Response("<html>Gateway page</html>", { headers: { "Content-Type": "text/html" } }),
     new Response('{"ok":', { headers: { "Content-Type": "application/json" } }),
-    Response.json({ ok: true }, { status: 503 }),
-  ]) expect(await hasInquiryReceipt(response)).toBe(false);
+    Response.json({ ok: true, submission_id: submissionId }, { status: 503 }),
+  ]) expect(await readInquiryReceipt(response)).toBe(null);
 });
 
 test("an actual offline handler receipt is recognized only after the CRM note is saved", async () => {
@@ -58,10 +63,10 @@ test("an actual offline handler receipt is recognized only after the CRM note is
     method: "POST", headers: { "Content-Type": "application/json", Origin: "https://recoup.test" },
     body: JSON.stringify({ ...fields, website, startedAt: now - 5000 }),
   });
-  expect(await hasInquiryReceipt(await handler(request("")))).toBe(true);
+  expect((await readInquiryReceipt(await handler(request(""))))?.submissionId ?? "").toMatch(/^[a-f\d]{64}$/);
   expect(calls).toStrictEqual(["POST"]);
   calls.length = 0;
-  expect(await hasInquiryReceipt(await handler(request("https://bot.test")))).toBe(false);
+  expect(await readInquiryReceipt(await handler(request("https://bot.test")))).toBe(null);
   expect(calls).toStrictEqual([]);
 });
 

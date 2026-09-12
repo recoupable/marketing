@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { PageButton } from "@/components/sky/page-ui";
 import { SkyArrow } from "@/components/sky/arrow";
-import { site } from "@/lib/site";
+import { AppLink } from "@/components/analytics/AppLink";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
+import { trackEvent } from "@/lib/analytics/trackEvent";
 import { annualDiscountPercent, planPrice, pricingInquiryHref, pricingPlans, type BillingCycle, type PricingPlanId } from "@/lib/pricing";
 
 function PlanMark({ plan }: { plan: PricingPlanId | "enterprise" | "api" }) {
@@ -29,7 +30,7 @@ export function PricingPlans() {
         <fieldset className="rp-billing">
           <legend className="rp-sr-only">Billing period</legend>
           {(["monthly", "annual"] as const).map((cycle) => <label key={cycle} className={billing === cycle ? "is-selected" : ""}>
-            <input type="radio" name="billing" value={cycle} checked={billing === cycle} onChange={() => setBilling(cycle)} />
+            <input type="radio" name="billing" value={cycle} checked={billing === cycle} onChange={() => { setBilling(cycle); trackEvent("pricing_billing_toggled", { billing: cycle }); }} />
             <span>{cycle === "monthly" ? "Monthly" : "Annually"}</span>
             {cycle === "annual" && <span className="rp-discount">Save {annualDiscountPercent}%+</span>}
           </label>)}
@@ -51,7 +52,9 @@ export function PricingPlans() {
               <p className="rp-price-terms">{price.terms}</p>
               <p className="rp-saving">{billing === "annual" ? `Save ${price.annualSavings} per year` : ""}</p>
             </div>
-            <div className="rp-plan-action"><PageButton href={plan.id === "platform" ? site.app : pricingInquiryHref(plan.id, billing)}>{plan.action}</PageButton></div>
+            <div className="rp-plan-action">{plan.id === "platform"
+              ? <AppLink placement="pricing" plan={plan.id} className="sp-button">{plan.action}<span><SkyArrow /></span></AppLink>
+              : <TrackedLink href={pricingInquiryHref(plan.id, billing)} cta={plan.id} placement="pricing" plan={plan.id} className="sp-button">{plan.action}<span><SkyArrow /></span></TrackedLink>}</div>
             <div className="rp-inclusions">
               <h3>{plan.includes}</h3>
               <ul>{plan.features.map((feature) => <li key={feature}><Check /><span>{feature}</span></li>)}</ul>
@@ -64,7 +67,7 @@ export function PricingPlans() {
     <section className="rp-other-paths" aria-label="Enterprise and developer pricing" data-reveal-group="">
       <article className="rp-enterprise">
         <div className="rp-route-top"><PlanMark plan="enterprise" /><span className="sp-kicker">When the work spans teams</span></div>
-        <div className="rp-route-body"><div><h2>Enterprise</h2><p>Connect the work across your organization. We scope the integrations, rollout, and support around the teams involved.</p></div><PageButton href={pricingInquiryHref("enterprise")}>Contact us</PageButton></div>
+        <div className="rp-route-body"><div><h2>Enterprise</h2><p>Connect the work across your organization. We scope the integrations, rollout, and support around the teams involved.</p></div><TrackedLink href={pricingInquiryHref("enterprise")} cta="enterprise" placement="pricing" plan="enterprise" className="sp-button">Contact us<span><SkyArrow /></span></TrackedLink></div>
       </article>
       <article className="rp-api" id="usage">
         <div className="rp-route-top"><PlanMark plan="api" /><span className="sp-kicker">For developers</span></div>

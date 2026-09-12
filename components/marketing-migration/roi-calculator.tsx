@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { calculateWorkflowROI, type ROIInputs } from "@/lib/marketing-migration-tools";
+import { useEffect, useState } from "react";
+import { calculateWorkflowROI, type ROIInputs } from "@/lib/marketing-migration-tools/calculateWorkflowROI";
+import { recommendedPlan } from "@/lib/roi/recommendedPlan";
+import { trackEvent } from "@/lib/analytics/trackEvent";
 import { roiInquiryDraft } from "@/lib/workflow-inquiry";
 import { InquiryHandoff } from "./inquiry-handoff";
 import { SkyArrow } from "@/components/sky/arrow";
@@ -20,6 +22,13 @@ export function ROICalculator() {
   const inputs = Object.fromEntries(fields.map(field => [field.id, Number(values[field.id])])) as ROIInputs;
   const isValid = (id: keyof ROIInputs, max: number) => values[id].trim() !== "" && Number.isFinite(inputs[id]) && inputs[id] >= 0 && inputs[id] <= max;
   const result = fields.every(field => isValid(field.id, field.max)) ? calculateWorkflowROI(inputs) : null;
+  const plan = result ? recommendedPlan(result) : null;
+  // One event per settled scenario, not one per keystroke or slider step.
+  useEffect(() => {
+    if (!plan) return;
+    const timer = setTimeout(() => trackEvent("roi_calculated", { recommended_plan: plan }), 800);
+    return () => clearTimeout(timer);
+  }, [plan]);
 
   return <div className="mm-tool">
     <div className="mm-tool-mobile-summary">
