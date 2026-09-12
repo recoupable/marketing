@@ -22,25 +22,27 @@
     overflow: clip; pointer-events: none; z-index: -1;
   }
   .sky-scroll-cloud-window { position: absolute; inset: 0; background: #007fbd; overflow: hidden; }
-  .sky-scroll-cloud { position: absolute; inset: 0 0 auto; min-height: 100%; transform-origin: center 80%; }
+  .sky-scroll-cloud { position: absolute; inset: 0 0 auto; min-height: 100%; transform-origin: center bottom; }
   .sky-scroll-cloud img { object-fit: cover; object-position: center bottom; }
   .sky-scroll-cloud-tint { position: absolute; inset: 0; background: linear-gradient(180deg, #003c6c30, #0065aa14 42%, transparent 68%, #005b94a0); }
   .sky-scroll-white { position: absolute; inset: 0; background: white; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-hero { padding-bottom: 0; background: transparent; }
   .sky-scroll-hero:focus-within { opacity: 1 !important; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission {
-    position: sticky; top: 0; height: 100svh; display: grid; align-items: center; pointer-events: none;
+    position: sticky; top: 0; height: 100svh; margin-top: -16svh; display: grid; align-items: center; pointer-events: none;
   }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission-copy { background: transparent; color: #fff; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement { min-height: 0; padding: 48px clamp(24px, 8vw, 128px); }
-  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement p { max-width: 1060px; font-size: clamp(30px, 3.65vw, 55px); color: inherit; }
+  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement p { max-width: 1320px; font-size: clamp(36px, 4.6vw, 72px); color: inherit; }
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement-accent { color: inherit; }
-  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-travel { display: block; height: 150svh; }
+  /* Compensate for the earlier entrance so the established services fade stays in sync. */
+  .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-travel { display: block; height: 166svh; }
   @media (max-width: 760px) {
     .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-rest { margin-top: -68svh; }
-    .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-travel { height: 100svh; }
+    .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission { margin-top: -20svh; }
+    .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-travel { height: 120svh; }
     .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement { padding: 28px 25px; }
-    .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement p { font-size: clamp(24px, 5.6vw, 34px); line-height: 1.28; letter-spacing: -.035em; }
+    .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-mission .sky-statement p { font-size: clamp(25px, 6.5vw, 36px); line-height: 1.28; letter-spacing: -.035em; }
   }
   /* A short landscape screen cannot safely pin the entire paragraph. */
   @media (max-height: 520px) {
@@ -51,7 +53,7 @@
 @media print {
   .sky-scroll-preview[data-scroll-ready="true"] .sky-scroll-rest { margin-top: 0; }
   .sky-scroll-preview .sky-scroll-stage, .sky-scroll-preview .sky-scroll-travel { display: none !important; }
-  .sky-scroll-preview .sky-scroll-mission { position: static !important; height: auto !important; }
+  .sky-scroll-preview .sky-scroll-mission { position: static !important; height: auto !important; margin-top: 0 !important; }
   .sky-scroll-preview .sky-scroll-mission-copy, .sky-scroll-preview .sky-scroll-hero { opacity: 1 !important; transform: none !important; color: #132a34 !important; }
 }
 

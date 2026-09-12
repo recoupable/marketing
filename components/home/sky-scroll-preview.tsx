@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { useSkyLineReveal } from "./use-sky-line-reveal";
 import "./sky-scroll-preview.css";
 
 type Geometry = { hero: number; viewport: number; compact: boolean };
@@ -13,6 +14,7 @@ export function SkyScrollPreview({ hero, statement, children }: {
 }) {
   const scene = useRef<HTMLDivElement>(null);
   const foreground = useRef<HTMLDivElement>(null);
+  const mission = useRef<HTMLDivElement>(null);
   const [geometry, setGeometry] = useState<Geometry | null>(null);
   const reducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: scene, offset: ["start start", "end end"] });
@@ -40,12 +42,12 @@ export function SkyScrollPreview({ hero, statement, children }: {
     return (progress * travel - start) / (viewport * (compact ? 0.78 : 1));
   });
   const heroOpacity = useTransform(phase, [0, 0.65], [1, 0]);
-  const cloudScale = useTransform(phase, [0, 1.4, 2.2], [1, 1.38, 1.5]);
-  const cloudY = useTransform(phase, [0, 1], [0, -Math.max(0, (geometry?.hero ?? 0) - (geometry?.viewport ?? 0))]);
+  const cloudScale = useTransform(phase, [0, 1.4, 2.2], [1, 1.18, 1.3]);
+  const cloudY = useTransform(phase, [0, 0.65], [0, -Math.max(0, (geometry?.hero ?? 0) - (geometry?.viewport ?? 0))]);
   const whiteOpacity = useTransform(phase, [1.55, 2.2], [0, 1]);
-  const statementOpacity = useTransform(phase, [0.45, 1.3, 1.55, 1.95], [0, 1, 1, 0]);
-  const statementY = useTransform(phase, [0.45, 1.3], [36, 0]);
+  const statementOpacity = useTransform(phase, [1.55, 1.95], [1, 0]);
   const enhanced = geometry !== null && !reducedMotion && !(geometry.compact && geometry.viewport < 560);
+  useSkyLineReveal(mission, phase, enhanced);
 
   return <div className="sky-page sky-scroll-preview" id="sky-home" data-scroll-ready={enhanced}>
     <div className="sky-scroll-scene" ref={scene}>
@@ -62,7 +64,7 @@ export function SkyScrollPreview({ hero, statement, children }: {
         <div className="sky-frame">{hero}</div>
       </motion.div>
       <div className="sky-scroll-mission">
-        <motion.div className="sky-scroll-mission-copy sky-content" style={enhanced ? { opacity: statementOpacity, y: statementY } : undefined}>
+        <motion.div ref={mission} className="sky-scroll-mission-copy sky-content" style={enhanced ? { opacity: statementOpacity } : undefined}>
           {statement}
         </motion.div>
       </div>
