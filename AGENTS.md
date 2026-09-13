@@ -186,6 +186,8 @@ Personality should come through in the directness and confidence of the writing.
 
 The `/music-videos` offer retains PR #89’s copy, artist films, skill download, attribution, and quote capture. Offer copy lives in `lib/copy/music-videos.ts`; form and attribution logic live in `components/music-videos` and `lib/music-videos`. Keep the human page and agent content aligned. See `docs/plans/music-video-offer.md` for the funnel contract and integration receipt.
 
+API reference pages render an in-page playground under the Request section (`components/docs/playground`, pure logic in `lib/docs/playground`). It sends requests to `siteConfig.apiUrl` from the browser; the visitor's api key lives in `sessionStorage` only (`recoup:docs:api-key`) and is masked in the generated curl. Multipart uploads and event-stream endpoints show the curl and a terminal note instead of a Send button.
+
 The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `source: /footer`) and the resources, playbook, and blog `SubscribeCard` (`components/marketing-migration/subscribe-card.tsx`, name + email) are presentational wrappers over `hooks/useSubscribeForm.ts`. The hook owns the hydration guard, the single in-flight submit, the status/error state, the `subscribeToRecoup` call (`lib/marketing-subscribe.ts`, `kind: subscribe` through the central lead API with acquisition tags), the focus move onto the confirmation, and the `subscribe_submitted` event.
 
 ## Documentation (`/docs`)
