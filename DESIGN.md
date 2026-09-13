@@ -262,7 +262,7 @@ This is a component-led spacing system. There is no implemented universal eight-
 
 - Hero interfaces become a horizontal, scrollable row at ≤760px. Remove the desktop perspective; preserve readable card proportions and visible scroll affordance.
 - The royalty workspace becomes one column at ≤900px. A visible **View [source] details** link moves the visitor to the selected source inspector. Selection alone does not scroll the page. At ≤600px its paper rotation and finding tilt disappear. The report comes before its finding and source detail.
-- All navigation collapses at ≤900px. Top-level links share IBM Plex Mono 11px / 400, uppercase, with `.065em` tracking; groups are centered independently of the logo and contact action. Shared geometry lives in `components/sky/navigation.css`. Keep dropdown text readable and separate from the compact top-level label styling.
+- All navigation collapses at ≤900px. Top-level links share DM Sans 14px / 500, sentence case, with `-.01em` tracking; groups are centered independently of the logo and contact action. Shared geometry lives in `components/sky/navigation.css`. Keep dropdown text readable and separate from the compact top-level label styling.
 - Docs have a 246px sidebar and a 160px page contents column inside a 1440px shell. The contents column disappears at ≤1200px; the sidebar becomes a toggle at ≤800px.
 - Reflow meaningful content down to 320 CSS pixels. Contain horizontal scrolling inside code, genuinely two-dimensional tables, or the intentional card gallery; do not make the whole page scroll sideways.
 - Prefer a natural document scroll. No scroll hijacking, mandatory long transitions, or animation required to reach the next section.
@@ -463,3 +463,7 @@ The homepage customer row uses white-filled Fatbeats lettering with its green ou
 Seeker uses the official stacked white logotype (`seeker-logotype-white.png`) from the Seeker client design-system assets. Preserve its transparent background and natural proportions; display at approximately 76 × 30px alongside the other customer marks.
 
 Center customer marks in six equal desktop columns, ordered Duetti, Seeker, Warner, Atlantic, Rostrum, Fatbeats to distribute dark, light, and colored artwork. Size each logo proportionally, about 15% smaller than the original row, rather than assigning identical widths. Mobile uses three columns with a 76px width and 26px height cap.
+
+### Navigation typography — September 13, 2026
+
+The shared header uses DM Sans for navigation and its audit button. Desktop links are 14px / 500; the audit action is 14px / 550 with a 1.4 line height and `-.01em` tracking. Use sentence case: “Get a free audit.” On phones, “Free audit” is 13px / 550 with a minimum 44px touch target. Mobile menu links use 14px / 500. Preserve the centered navigation, wordmark geometry, lime CTA, and existing focus and menu behaviors.
