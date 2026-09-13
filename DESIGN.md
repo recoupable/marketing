@@ -450,3 +450,16 @@ Use the section heading “What we’ve built” and an explicit Case studies la
 ### Music-video offer
 
 `/music-videos` preserves the offer content and lead contract from PR #89 with Sky styling. Hero and films use the original published film posters, not invented proof. Keep the free skill download, paid generation-budget caveat, generated-song scope, and separately quoted released-recording service distinct. Preserve campaign events and sanitized attribution; contact information stays out of analytics.
+
+
+### Homepage announcement — September 13, 2026
+
+The hero pill announces “Catalog Skills v2 is here” and links to `/skills`. Use a small lime New badge, DM Sans text, and the shared arrow. The entire pill is a keyboard-accessible link with a minimum 44px touch target.
+
+The hero headline reads “AI transformation” followed by “for music rightsholders.” Keep its supporting copy concise: “We build AI systems you own and train your team to use them.” Set the subtitle at 24px on desktop and 18px on mobile, with balanced wrapping and a 720px maximum desktop width.
+
+The homepage customer row uses white-filled Fatbeats lettering with its green outline and transparent background (`fatbeats-records-white-transparent.webp`). Set “Used by teams at” to white at 68% alpha so it supports rather than competes with the logos.
+
+Seeker uses the official stacked white logotype (`seeker-logotype-white.png`) from the Seeker client design-system assets. Preserve its transparent background and natural proportions; display at approximately 76 × 30px alongside the other customer marks.
+
+Center customer marks in six equal desktop columns, ordered Duetti, Seeker, Warner, Atlantic, Rostrum, Fatbeats to distribute dark, light, and colored artwork. Size each logo proportionally, about 15% smaller than the original row, rather than assigning identical widths. Mobile uses three columns with a 76px width and 26px height cap.
