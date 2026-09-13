@@ -43,19 +43,22 @@
 .sky-mobile-menu[open] .nav-menu-close { display:block; }
 .sky-hero-copy { position: relative; z-index: 2; padding: 32px 24px 0; text-align: center; }
 .sky-hero-pill {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   max-width: 100%;
-  margin: 0 0 20px;
-  padding: 8px 16px;
+  margin: 0 0 16px;
+  padding: 6px 12px;
   border-radius: 40px;
-  background: #003c6c26;
-  box-shadow: inset 0 0 0 1px #ffffff24;
+  background: #003c6c12;
+  box-shadow: inset 0 0 0 1px #ffffff14;
   backdrop-filter: blur(12px);
   color: #fff;
-  font: 500 14px/20px var(--body);
+  font: 500 13px/20px var(--body);
   letter-spacing: 0;
   text-wrap: balance;
 }
+.sky-hero-pill-icon { width: 16px; height: 16px; flex: 0 0 16px; opacity: .9; }
 .sky-hero .sky-eyebrow { display: flex; align-items: center; justify-content: center; gap: 9px; text-transform: uppercase; font-size: 10px; color: #e6f5ff; letter-spacing: .09em; margin-bottom: 22px; }
 .sky-eyebrow > span { width: 5px; height: 5px; background: var(--sky-lime); border-radius: 50%; }
 .sky-hero h1 { font-family: var(--body); font-weight: 450; letter-spacing: -.055em; font-size: clamp(46px, 5.5vw, 76px); line-height: 1.05; }
@@ -76,10 +79,10 @@
 .sky-flight-catalog { transform: translateX(463px) translateY(44px) rotateY(-8deg) rotateZ(2deg) scale(.84); }
 .sky-float-panel { display: flex; flex-direction: column; height: 100%; width: 100%; padding: 18px; border-radius: 16px; background: #fff; color: #182c32; border: 1px solid #ffffff99; box-shadow: 0 10px 24px #00446a20, inset 0 0 0 1px #ffffff38; transition: transform 180ms, box-shadow 180ms; backface-visibility: hidden; }
 .sky-float-panel:hover, .sky-float-panel:focus-visible { transform: translateY(-4px); box-shadow: 0 14px 28px #003b6230, 0 0 0 1px var(--sky-lime); }
-.sky-proof { position: relative; padding: 0 40px 28px; background: linear-gradient(180deg, transparent, #138ecc20 30%, #138ecc20 70%, transparent); }
-.sky-proof > p { text-align: center; font: 500 13px/1.5 var(--body); color: #fff; margin-bottom: 12px; }
-.sky-proof > div { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); align-items: center; justify-items: center; gap: 28px; max-width: 1060px; margin: auto; padding: 42px 24px 18px; }
-.sky-proof img { object-fit: contain; }
+.sky-proof { position: relative; padding: 32px 40px 28px; background: linear-gradient(180deg, transparent, #138ecc20 30%, #138ecc20 70%, transparent); }
+.sky-proof > p { text-align: center; font: 500 12px/1.5 var(--body); letter-spacing: .02em; color: #e4f4ff; margin-bottom: 24px; }
+.sky-proof > div { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); align-items: center; justify-items: center; gap: 28px; max-width: 960px; margin: auto; padding: 0 24px 18px; }
+.sky-proof img { object-fit: contain; max-width: 100%; height: auto; }
 @media (min-width: 1600px) { .sky-page { padding: 54px; } .sky-hero-copy { padding-top: 42px; } .sky-float-gallery { margin-top: 36px; } }
 /* Fit the projected outside cards and their shadows to the actual hero width. */
 @media (min-width: 761px) {
@@ -114,9 +117,9 @@
   .sky-float-gallery { margin-top: 31px; overflow: auto hidden; scrollbar-width: thin; scrollbar-color: #d6ff6280 transparent; scroll-snap-type: x proximity; }
   .sky-panel-stage { width: max-content; display: flex; gap: 18px; height: 316px; left: auto; margin: 0; padding: 12px 22px 26px; perspective: none; }
   .sky-flight { position: relative; flex: 0 0 210px; width: 210px; height: 278px; left: auto; top: auto; transform: none; scroll-snap-align: center; }
-  .sky-proof { padding: 14px 16px 28px; }
-  .sky-proof > p { margin-bottom: 16px; }
-  .sky-proof > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 16px; justify-items: center; padding: 36px 16px 20px; }
+  .sky-proof { padding: 40px 16px 28px; }
+  .sky-proof > p { margin-bottom: 24px; }
+  .sky-proof > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 16px; justify-items: center; padding: 0 16px 20px; }
   .sky-proof img { max-width: min(100%, 90px); max-height: 30px; width: auto; height: auto; }
 }
 @media (max-width: 370px) { .sky-page { padding: 8px; } .sky-nav { padding-inline: 15px; gap: 10px; } .sky-wordmark { font-size: 22px; gap: 8px; } .sky-nav-contact { padding: 9px; font-size: 12px; gap: 6px; white-space: nowrap; } .sky-nav-contact .sky-arrow-icon { width: 18px; height: 18px; } .sky-hero h1 { font-size: 35px; } .sky-hero .sky-eyebrow { font-size: 7px; } .sky-button { gap: 8px; } }
