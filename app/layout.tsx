@@ -9,7 +9,7 @@ import { isSearchPreview, organizationGraph, serializeJsonLd, searchDescription 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Recoup — AI transformation for music funds and rightsholders",
+    default: "Recoup: AI transformation for music funds and rightsholders",
     template: "%s | Recoup",
   },
   description: searchDescription,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     other: process.env.BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION } : undefined,
   },
   openGraph: {
-    title: "Recoup — AI transformation for music funds and rightsholders",
+    title: "Recoup: AI transformation for music funds and rightsholders",
     siteName: site.name,
     url: site.url,
     locale: "en_US",

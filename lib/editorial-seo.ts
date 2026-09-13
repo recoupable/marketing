@@ -90,7 +90,7 @@ export function blogIndexJsonLd(posts: readonly BlogPost[], siteUrl: string) {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "Blog", "@id": `${url}#blog`, name: "Recoup blog", url, inLanguage: "en", publisher: { "@id": absolute("/#organization", siteUrl) } },
-      { "@type": "CollectionPage", "@id": url, name: "Recoup blog — AI and the business of music", url,
+      { "@type": "CollectionPage", "@id": url, name: "Recoup blog: AI and the business of music", url,
         mainEntity: { "@type": "ItemList", itemListElement: posts.map((post, index) => ({ "@type": "ListItem", position: index + 1, name: post.title, url: absolute(`/blog/${post.slug}`, siteUrl) })) },
       },
       breadcrumb([{ name: "Home", url: absolute("/", siteUrl) }, { name: "Blog", url }], `${url}#breadcrumb`),
@@ -148,7 +148,7 @@ function docsTitle(page?: DocPage) {
   // Three endpoint labels occur on different operations. The actual request
   // distinguishes search results without renaming the underlying API.
   return page.api && ["Generate Image", "Transcribe Audio", "List Templates"].includes(page.title)
-    ? `${page.title} — ${page.api.method} ${page.api.path}`
+    ? `${page.title}: ${page.api.method} ${page.api.path}`
     : page.title;
 }
 
@@ -159,7 +159,7 @@ export function documentationMetadata(page: DocPage | undefined, key: string, si
   const image = absolute("/opengraph-image", siteUrl);
   return {
     title: `${title} | Docs`, description, alternates: { canonical: url, ...(key !== "api-reference" ? { types: { "text/markdown": absolute(`/docs/raw/${key || "index"}.md`, siteUrl) } } : {}) },
-    openGraph: { title: `${title} | Recoup Docs`, description, url, siteName: "Recoup", locale: "en_US", type: "website", images: [{ url: image, alt: "Recoup — AI transformation for music" }] },
+    openGraph: { title: `${title} | Recoup Docs`, description, url, siteName: "Recoup", locale: "en_US", type: "website", images: [{ url: image, alt: "Recoup: AI transformation for music" }] },
     twitter: { card: "summary_large_image", title: `${title} | Recoup Docs`, description, images: [image] },
   };
 }

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Discuss your acquisition workflow",
   description:
     "Talk with Recoup about custom AI systems for catalog intake, diligence preparation, and acquisition reporting.",
-  alternates: { canonical: "/acquisitions/contact" },
+  alternates: { canonical: "/contact" },
   robots: { index: false, follow: false },
 };
 

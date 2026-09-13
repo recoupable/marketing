@@ -18,7 +18,7 @@ export function withPageMetadata(metadata: Metadata): Metadata {
   const canonical = metadata.alternates?.canonical;
   const path = typeof canonical === "string" ? canonical : canonical instanceof URL ? canonical.toString() : "/";
   const description = metadata.description || searchDescription;
-  const image = { url: absoluteUrl("/opengraph-image"), width: 1200, height: 630, alt: "Recoup — AI transformation for music funds and rightsholders" };
+  const image = { url: absoluteUrl("/opengraph-image"), width: 1200, height: 630, alt: "Recoup: AI transformation for music funds and rightsholders" };
   return {
     ...metadata,
     description,

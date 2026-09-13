@@ -8,7 +8,7 @@ import { SkyArrow } from "@/components/sky/arrow";
 import "./developers-sky.css";
 
 export const metadata: Metadata = withPageMetadata({
-  title: "Developers — Music APIs, MCP & agent tools",
+  title: "Developers: Music APIs, MCP & agent tools",
   description: "Build music-native applications and agents with the Recoup REST API, MCP server, CLI, and open-source Skills. Artist context, research, content, and catalogs.",
   alternates: { canonical: "/developers" },
 });

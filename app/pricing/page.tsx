@@ -6,7 +6,7 @@ import { PricingPlans } from "./pricing-plans";
 import "./pricing.css";
 
 export const metadata: Metadata = withPageMetadata({
-  title: "Pricing — platform, advisory, and custom builds",
+  title: "Pricing: platform, advisory, and custom builds",
   description: `Recoup Platform from ${formatUsd(pricingPlans[0].monthlyCents)}/month, Advisory from ${formatUsd(pricingPlans[1].monthlyCents)}/month, and Build + Partner from ${formatUsd(pricingPlans[2].monthlyCents)}/month. Save at least 20% with annual billing.`,
   alternates: { canonical: "/pricing" },
 });

@@ -1,7 +1,7 @@
 export const site = {
   name: "Recoup",
   url: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://recoupable.dev").origin,
-  app: "https://teams.recoupable.dev",
+  app: "https://app.recoupable.dev",
   docs: "/docs",
   github: "https://github.com/recoupable/skills",
   githubOrganization: "https://github.com/recoupable",

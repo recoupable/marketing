@@ -38,7 +38,7 @@ export function ROICalculator() {
             <input id={`${field.id}-number`} type="number" inputMode="decimal" min={0} max={field.max} step="any" value={values[field.id]} aria-invalid={invalid || undefined} aria-describedby={`${field.id}-unit${invalid ? ` ${field.id}-error` : ""}`} onChange={event => setValues({ ...values, [field.id]: event.target.value })} />
             <span id={`${field.id}-unit`}>{field.unit}</span>
           </div>
-          <input type="range" aria-label={`${field.label} — slider`} min={0} max={field.max} step={field.step} value={invalid ? 0 : inputs[field.id]} onChange={event => setValues({ ...values, [field.id]: event.target.value })} />
+          <input type="range" aria-label={`${field.label} slider`} min={0} max={field.max} step={field.step} value={invalid ? 0 : inputs[field.id]} onChange={event => setValues({ ...values, [field.id]: event.target.value })} />
           {invalid && <p className="mm-input-error" id={`${field.id}-error`}>Enter an amount from 0 to {field.max.toLocaleString("en-US")}.</p>}
         </div>;
       })}

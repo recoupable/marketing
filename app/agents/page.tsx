@@ -7,7 +7,7 @@ import { site } from '@/lib/site';
 import './agents.css';
 
 export const metadata = withPageMetadata({
-  title: 'Recoup for agents — Website tools, API & MCP',
+  title: 'Recoup for agents: Website tools, API & MCP',
   description: 'Search Recoup, read the documentation, assess a workflow, and prepare a project brief. Public website tools and connections to the Recoup platform.',
   alternates: { canonical: '/agents', types: { 'text/markdown': '/agents.md' } },
 });

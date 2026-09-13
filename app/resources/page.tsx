@@ -6,7 +6,7 @@ import { SkyArrow } from "@/components/sky/arrow";
 import { MarketingPage, PageHero, PageCTA } from "@/components/marketing-migration/ui";
 import "./resources.css";
 
-export const metadata: Metadata = withPageMetadata({ title:"Recoup resources — Guides, demos, tools & documentation", description:"Explore Recoup’s music AI playbook, interactive demos, readiness check, ROI planner, blog, and API documentation.", alternates:{canonical:"/resources"} });
+export const metadata: Metadata = withPageMetadata({ title:"Recoup resources: Guides, demos, tools & documentation", description:"Explore Recoup’s music AI playbook, interactive demos, readiness check, ROI planner, blog, and API documentation.", alternates:{canonical:"/resources"} });
 type Resource = { type: string; title: string; description: string; href: string };
 
 const tools: Resource[] = [

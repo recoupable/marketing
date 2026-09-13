@@ -98,7 +98,7 @@ ${accessNotes()}
 
 export function getLlmsFullText(index: readonly DiscoveryContent[], summaries: Record<string, string> = {}) {
   const pages = index.filter(item => item.type === 'page');
-  return `# Recoup — marketing context summaries
+  return `# Recoup: marketing context summaries
 
 > ${introduction}
 
@@ -174,8 +174,8 @@ export function getApiCatalog() {
       {
         anchor: absolute(discoveryPaths.apiCatalog),
         item: [
-          { href: absolute(discoveryPaths.openapi), type: 'application/json', title: 'Recoup website API — public reading and utilities' },
-          ...inventory.specifications.map(name => ({ href: absolute(`/docs/spec/${name}`), type: 'application/json', title: `Recoup platform API — ${name.replace('.json', '')}` })),
+          { href: absolute(discoveryPaths.openapi), type: 'application/json', title: 'Recoup website API: public reading and utilities' },
+          ...inventory.specifications.map(name => ({ href: absolute(`/docs/spec/${name}`), type: 'application/json', title: `Recoup platform API: ${name.replace('.json', '')}` })),
         ],
       },
       {
