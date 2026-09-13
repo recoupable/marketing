@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SkyArrow } from "@/components/sky/arrow";
 import { copyInquiryText } from "@/lib/inquiry/copyInquiryText";
-import type { PreparedEmail } from "./useInquirySubmit";
+import type { PreparedEmail } from "@/hooks/useInquirySubmit";
 
 type InquiryRecoveryPanelProps = { status: "error" | "email"; preparedEmail: PreparedEmail; qualified: boolean };
 

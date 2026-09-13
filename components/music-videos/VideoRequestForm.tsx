@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { SkyArrow } from "@/components/sky/arrow";
 import { musicVideosCopy } from "@/lib/copy/music-videos";
-import { useVideoRequestSubmit } from "./useVideoRequestSubmit";
+import { useVideoRequestSubmit } from "@/hooks/useVideoRequestSubmit";
 import { VideoRequestFields } from "./VideoRequestFields";
 
 export function VideoRequestForm() {

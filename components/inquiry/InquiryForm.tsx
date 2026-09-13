@@ -15,7 +15,7 @@ import { InquiryRecoveryPanel } from "./InquiryRecoveryPanel";
 import { InquirySuccessPanel } from "./InquirySuccessPanel";
 import { InquiryWorkFields } from "./InquiryWorkFields";
 import { inquiryLabels } from "./inquiryLabels";
-import { useInquirySubmit } from "./useInquirySubmit";
+import { useInquirySubmit } from "@/hooks/useInquirySubmit";
 import "./inquiry-form.css";
 
 const subscribeToHydration = () => () => {};
