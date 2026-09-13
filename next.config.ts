@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { docsVaryHeader } from "./lib/docs/docsVaryHeader";
 
 const nextConfig: NextConfig = {
   devIndicators: false,
@@ -35,6 +36,7 @@ const nextConfig: NextConfig = {
       },
       { source: "/api/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
       { source: "/agent-api/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }] },
+      docsVaryHeader,
     ];
   },
 };

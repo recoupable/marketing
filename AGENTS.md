@@ -44,6 +44,8 @@ components/       — React components: sky/ (SiteFrame shell, SkySiteHeader, Sk
 hooks/            — Shared React hooks (useInquirySubmit.ts, useVideoRequestSubmit.ts, useSubscribeForm.ts)
 contexts/         — React context providers (Privy auth)
 lib/              — Site logic: config.ts (siteConfig), seo.ts, one-export directories (agent-content/, agent-discovery/, agent-tools/, catalog-demo/, attribution/, leads/, inquiries/), copy/
+lib/docs/         — Documentation helpers (llms.txt sections, llms-full corpus, markdown negotiation)
+proxy.ts          — Request proxy (Next 16 successor to middleware): serves /docs/* as markdown on Accept: text/markdown or a .md suffix
 public/           — Static assets (brand/, icons/, images/)
 content/posts/    — MDX blog posts (one file = one post)
 content/brand/    — Brand context files (read before creating content)
