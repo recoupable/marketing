@@ -200,7 +200,7 @@ test("all published API slices preserve effective authentication and close every
       refsChecked++;
     }
     for (const alternative of operation.security ?? spec.security ?? []) for (const scheme of Object.keys(alternative)) {
-      if (spec.components?.securitySchemes?.[scheme]) expect(slice.components.securitySchemes[scheme]).toStrictEqual(spec.components.securitySchemes[scheme]);
+      if (spec.components?.securitySchemes?.[scheme]) expect(slice.components.securitySchemes[scheme]).toStrictEqual(resolveSpecLinks(spec.components.securitySchemes[scheme]));
       else expect(await documentationAgentMarkdown(page), `${page.slug}: missing security scheme must be disclosed`).toMatch(/Documentation gap:/);
     }
     operations++;
