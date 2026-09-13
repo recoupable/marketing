@@ -1,5 +1,8 @@
-import { AgentContentError, readAgentContent, searchAgentContent } from './agent-content.ts';
-import { AgentToolInputError, executeUtilityTool } from './agent-tools.ts';
+import { AgentContentError } from './agent-content/AgentContentError.ts';
+import { readAgentContent } from './agent-content/readAgentContent.ts';
+import { searchAgentContent } from './agent-content/searchAgentContent.ts';
+import { AgentToolInputError } from './agent-tools/AgentToolInputError.ts';
+import { executeUtilityTool } from './agent-tools/executeUtilityTool.ts';
 
 const headers = {
   'Access-Control-Allow-Origin': '*',

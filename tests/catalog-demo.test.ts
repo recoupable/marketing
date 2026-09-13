@@ -1,14 +1,10 @@
 import { test, expect } from "vitest";
 
-const {
-  analyzeCatalogDemo,
-  createDemoReviewPacket,
-  demoSummary,
-  formatDemoMoney,
-  northstarFixture,
-}: typeof import("../lib/catalog-demo") = await import(
-  new URL("../lib/catalog-demo.ts", import.meta.url).href
-);
+import { analyzeCatalogDemo } from "../lib/catalog-demo/analyzeCatalogDemo.ts";
+import { createDemoReviewPacket } from "../lib/catalog-demo/createDemoReviewPacket.ts";
+import { demoSummary } from "../lib/catalog-demo/demoSummary.ts";
+import { formatDemoMoney } from "../lib/catalog-demo/formatDemoMoney.ts";
+import { northstarFixture } from "../lib/catalog-demo/northstarFixture.ts";
 
 function fixture() {
   return {

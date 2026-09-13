@@ -2,7 +2,7 @@ import { AppLink } from "@/components/analytics/AppLink";
 import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CopyCode } from "@/components/interactive";
+import { CopyCode } from "@/components/interactive/CopyCode";
 import { PageButton, PageCTA, PageHero, PageSection } from "@/components/sky/page-ui";
 import { siteConfig } from "@/lib/config";
 import { SkyArrow } from "@/components/sky/arrow";

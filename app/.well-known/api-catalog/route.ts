@@ -1,4 +1,7 @@
-import { apiCatalogMediaType, discoveryHeaders, discoveryOptions, getApiCatalog } from '@/lib/agent-discovery';
+import { apiCatalogMediaType } from '@/lib/agent-discovery/apiCatalogMediaType';
+import { discoveryHeaders } from '@/lib/agent-discovery/discoveryHeaders';
+import { discoveryOptions } from '@/lib/agent-discovery/discoveryOptions';
+import { getApiCatalog } from '@/lib/agent-discovery/getApiCatalog';
 
 export const dynamic = 'force-static';
 export function GET() {

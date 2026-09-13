@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { withPageMetadata } from '@/lib/seo';
 import { PageButton, PageHero, PageSection } from '@/components/sky/page-ui';
-import { agentToolDefinitions } from '@/lib/agent-tools';
-import { searchAgentContent } from '@/lib/agent-content';
+import { agentToolDefinitions } from '@/lib/agent-tools/agentToolDefinitions';
+import { searchAgentContent } from '@/lib/agent-content/searchAgentContent';
 import { siteConfig } from "@/lib/config";
 import './agents.css';
 

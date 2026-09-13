@@ -1,6 +1,7 @@
 import { test, expect, vi, afterEach } from "vitest";
 import { agentError, agentOptions, handleAgentRead, handleAgentSearch, handleAgentTool } from "../lib/agent-http.ts";
-import { readAgentContent, searchAgentContent } from "../lib/agent-content.ts";
+import { readAgentContent } from "../lib/agent-content/readAgentContent.ts";
+import { searchAgentContent } from "../lib/agent-content/searchAgentContent.ts";
 
 const base = "https://recoup.example/agent-api/v1/";
 const roi = { name: "estimate_workflow_roi", arguments: { monthlyHours: 40, hourlyCost: 40, timeReduction: 50, monthlySystemCost: 100, setupCost: 2500 } };

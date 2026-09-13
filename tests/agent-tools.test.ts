@@ -1,5 +1,8 @@
 import { test, expect } from "vitest";
-import { agentToolDefinitions, AgentToolInputError, executeUtilityTool, isUtilityToolName } from "../lib/agent-tools.ts";
+import { agentToolDefinitions } from "../lib/agent-tools/agentToolDefinitions.ts";
+import { AgentToolInputError } from "../lib/agent-tools/AgentToolInputError.ts";
+import { executeUtilityTool } from "../lib/agent-tools/executeUtilityTool.ts";
+import { isUtilityToolName } from "../lib/agent-tools/isUtilityToolName.ts";
 import { calculateWorkflowROI } from "../lib/marketing-migration-tools/calculateWorkflowROI.ts";
 import { readinessQuestions } from "../lib/marketing-migration-tools/readinessQuestions.ts";
 import { recommendReadiness } from "../lib/marketing-migration-tools/recommendReadiness.ts";

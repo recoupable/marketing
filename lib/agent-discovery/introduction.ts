@@ -1,0 +1,1 @@
+export const introduction = `Recoup provides AI transformation for music funds and rightsholders: AI strategy, custom systems, and team enablement. The platform, Skills, and API are additional ways to use Recoup's technology.`;

@@ -1,8 +1,15 @@
 import { test, expect } from 'vitest';
 import { ok } from './support/ok.ts';
 import { readFileSync, existsSync } from 'node:fs';
-import { getAgentCatalog, getAgentsMarkdown, getApiCatalog, getArdManifest, getLlmsFullText, getLlmsText, discoveryHeaders, apiCatalogMediaType } from '../lib/agent-discovery.ts';
-import { agentToolDefinitions } from '../lib/agent-tools.ts';
+import { getAgentCatalog } from '../lib/agent-discovery/getAgentCatalog.ts';
+import { getAgentsMarkdown } from '../lib/agent-discovery/getAgentsMarkdown.ts';
+import { getApiCatalog } from '../lib/agent-discovery/getApiCatalog.ts';
+import { getArdManifest } from '../lib/agent-discovery/getArdManifest.ts';
+import { getLlmsFullText } from '../lib/agent-discovery/getLlmsFullText.ts';
+import { getLlmsText } from '../lib/agent-discovery/getLlmsText.ts';
+import { discoveryHeaders } from '../lib/agent-discovery/discoveryHeaders.ts';
+import { apiCatalogMediaType } from '../lib/agent-discovery/apiCatalogMediaType.ts';
+import { agentToolDefinitions } from '../lib/agent-tools/agentToolDefinitions.ts';
 import { siteConfig } from "../lib/config.ts";
 
 const index = [

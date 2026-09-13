@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { calculateWorkflowROI, type ROIInputs } from "@/lib/marketing-migration-tools/calculateWorkflowROI";
 import { recommendedPlan } from "@/lib/roi/recommendedPlan";
 import { trackEvent } from "@/lib/analytics/trackEvent";
-import { roiInquiryDraft } from "@/lib/workflow-inquiry";
+import { roiInquiryDraft } from "@/lib/workflow-inquiry/roiInquiryDraft";
 import { InquiryHandoff } from "./inquiry-handoff";
 import { SkyArrow } from "@/components/sky/arrow";
 

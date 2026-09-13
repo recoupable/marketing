@@ -1,4 +1,4 @@
-import { agentToolDefinitions } from './agent-tools.ts';
+import { agentToolDefinitions } from './agent-tools/agentToolDefinitions.ts';
 import { siteConfig } from "./config.ts";
 
 const object = (properties: Record<string, unknown>, required = Object.keys(properties)) => ({ type: 'object', properties, required });

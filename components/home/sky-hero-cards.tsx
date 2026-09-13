@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { catalogDemo } from "@/lib/catalog-demo";
+import { catalogDemo } from "@/lib/catalog-demo/catalogDemo";
 import { formatRoyaltyExampleMoney, royaltyExample } from "@/lib/sky-royalty-example";
 import { SkyArrow } from "@/components/sky/arrow";
 import "./sky-hero-cards.css";

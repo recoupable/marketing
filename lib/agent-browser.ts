@@ -1,4 +1,4 @@
-import { agentToolDefinitions } from './agent-tools.ts';
+import { agentToolDefinitions } from './agent-tools/agentToolDefinitions.ts';
 import { generalInterests } from './inquiry-topics.ts';
 
 export type AgentDraft = { interest: string; message: string };
