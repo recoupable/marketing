@@ -36,7 +36,7 @@ export function SkyHero() {
           <span>for music rightsholders</span>
         </h1>
         <p className="sky-hero-description">
-          We build AI systems you own—and train your team to use them.
+          We build AI systems you own and train your team to use them.
         </p>
       </div>
 
