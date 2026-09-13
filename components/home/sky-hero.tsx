@@ -33,7 +33,7 @@ export function SkyHero() {
         <h1 id="sky-title">
           AI transformation
           <br />
-          <span>for music funds and rightsholders</span>
+          <span>for music rightsholders</span>
         </h1>
         <p className="sky-hero-description">
           We build AI systems you own—and train your team to use them.
