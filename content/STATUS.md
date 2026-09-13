@@ -14,9 +14,7 @@ updated: "2026-04-05"
 - 1 blog post published (ai-music-marketing)
 - Blog system working: MDX parsing, RSS feed, sitemap, JSON-LD
 - Subscribe flow: POST /api/subscribe -> Attio CRM
-- Plausible analytics active in layout
-- Dark/light theme toggle working
-- Human/Machine view pipeline built (toggle UI disabled, API functional)
+- Vercel Web Analytics active in layout; custom events via lib/analytics/trackEvent.ts
 
 ## Focus
 
@@ -31,5 +29,4 @@ Content: publish more blog posts targeting SEO pillars. Wire up the nav menu (li
 
 ## Don't Touch
 
-- Plausible analytics script in layout.tsx
 - Theme inline script in layout.tsx (prevents flash of wrong theme)
