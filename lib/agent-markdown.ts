@@ -1,4 +1,5 @@
 import { resolveDescriptionLinks } from "./resolve-description-links.ts";
+import { resolveSpecLinks } from "./resolve-spec-links.ts";
 import { createProcessor } from "@mdx-js/mdx";
 import remarkGfm from "remark-gfm";
 import type { DocPage } from "./docs";
@@ -117,7 +118,7 @@ export function operationSpecification(page: DocPage, spec: ApiObject): ApiObjec
     info: spec.info,
     ...(spec.servers ? { servers: spec.servers } : {}),
     ...(spec.security !== undefined ? { security: spec.security } : {}),
-    paths: { [page.api.path]: { ...pathContext, [page.api.method.toLowerCase()]: operation } },
+    paths: { [page.api.path]: resolveSpecLinks({ ...pathContext, [page.api.method.toLowerCase()]: operation }) },
   };
   const refs = new Set<string>();
   const scan = (value: unknown) => {

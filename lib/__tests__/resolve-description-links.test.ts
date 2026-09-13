@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { resolveDescriptionLinks } from "../resolve-description-links";
 import { getAgentContentIndex } from "../agent-content";
 import { getAgentCatalog } from "../agent-discovery";
-import { documentationAgentMarkdown } from "../agent-markdown";
+import { documentationAgentMarkdown, operationSpecification } from "../agent-markdown";
 import type { DocPage } from "../docs";
 
 describe("resolveDescriptionLinks", () => {
@@ -28,5 +28,22 @@ describe("resolveDescriptionLinks", () => {
     const markdown = await documentationAgentMarkdown(page);
     expect(markdown).toContain("](/docs/api-reference/chat/runs)");
     expect(markdown).not.toContain("](/api-reference/chat/runs)");
+  });
+
+  it("resolves docs-root links inside page bodies served for reads and /docs/raw", async () => {
+    const page = { title: "Runs", slug: "api-reference/chat/runs", description: "Durable runs.", body: "Same engine as [`POST /api/chat`](/api-reference/chat/workflow). See [pricing](/pricing#usage).", category: "API", group: "Chat", searchText: "" } as unknown as DocPage;
+    const markdown = await documentationAgentMarkdown(page);
+    expect(markdown).toContain("](https://recoupable.dev/docs/api-reference/chat/workflow)");
+    expect(markdown).toContain("](https://recoupable.dev/pricing#usage)");
+    expect(markdown).not.toContain("](/api-reference/chat/workflow)");
+  });
+
+  it("resolves docs-root links inside the embedded operation slice", () => {
+    const spec = { openapi: "3.1.0", info: { title: "t" }, paths: { "/api/chat/runs": { post: { summary: "Run", description: "Same engine as [`POST /api/chat`](/api-reference/chat/workflow).", responses: { "200": { description: "See [status](/api-reference/chat/runs-status)." } } } } } };
+    const page = { title: "Runs", slug: "api-reference/chat/runs", api: { spec: "chat", path: "/api/chat/runs", method: "POST" } } as unknown as DocPage;
+    const text = JSON.stringify(operationSpecification(page, spec));
+    expect(text).toContain("](/docs/api-reference/chat/workflow)");
+    expect(text).toContain("](/docs/api-reference/chat/runs-status)");
+    expect(text).not.toContain("](/api-reference/");
   });
 });

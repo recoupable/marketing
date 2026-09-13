@@ -1,3 +1,4 @@
+import { resolveSpecLinks } from "../lib/resolve-spec-links";
 import { test, expect } from "vitest";
 import { ok } from "./support/ok.ts";
 import docs from "../content/docs/manifest.json" with { type: "json" };
@@ -190,9 +191,9 @@ test("all published API slices preserve effective authentication and close every
     const slice = operationSpecification(page, spec);
     ok(slice, page.slug);
     const operation = spec.paths[page.api.path][page.api.method.toLowerCase()];
-    expect(slice.paths[page.api.path][page.api.method.toLowerCase()]).toStrictEqual(operation);
+    expect(slice.paths[page.api.path][page.api.method.toLowerCase()]).toStrictEqual(resolveSpecLinks(operation));
     expect(slice.security).toStrictEqual(spec.security);
-    expect(slice.paths[page.api.path].parameters).toStrictEqual(spec.paths[page.api.path].parameters);
+    expect(slice.paths[page.api.path].parameters).toStrictEqual(resolveSpecLinks(spec.paths[page.api.path].parameters));
     for (const ref of references(slice)) {
       if (!ref.startsWith('#/')) continue;
       expect(resolvePointer(slice, ref), `${page.slug}: unresolved ${ref}`).not.toBe(undefined);
