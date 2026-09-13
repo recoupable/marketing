@@ -1072,7 +1072,7 @@
     },
     "/api/accounts/{id}/payment-method": {
       "get": {
-        "description": "Retrieve the default payment method on file for an account. Returns `card: null` when no payment method has been saved yet \u2014 the top-up dialog uses this to decide whether to show a pre-charge confirmation (card present) or route to a checkout session to collect one (`card: null`). Cards are returned even when expired; callers should compare `exp_month` / `exp_year` against the current date and warn the customer, since an off-session charge against an expired card will decline.",
+        "description": "Retrieve the default payment method on file for an account. An account may be tagged on more than one Stripe customer (for example an organization whose card was saved on one customer and whose invoiced plan lives on another); the card is read from the tagged customer that holds a default payment method. Returns `card: null` when no tagged customer has a payment method saved yet \u2014 the top-up dialog uses this to decide whether to show a pre-charge confirmation (card present) or route to a checkout session to collect one (`card: null`). Cards are returned even when expired; callers should compare `exp_month` / `exp_year` against the current date and warn the customer, since an off-session charge against an expired card will decline.",
         "parameters": [
           {
             "name": "id",
@@ -1130,7 +1130,7 @@
         }
       },
       "post": {
-        "description": "Create a $0 card-on-file checkout session for an account. Stripe `setup` mode saves a payment method without charging anything or starting a subscription; the saved card becomes the account's default and is what credit purchases and auto top-up charge. The account's Stripe customer is created (and tagged with the account id) if it does not exist yet. Returns a hosted checkout URL that the client should redirect to. `id` may be the authenticated account or an organization the caller belongs to.",
+        "description": "Create a $0 card-on-file checkout session for an account. Stripe `setup` mode saves a payment method without charging anything or starting a subscription; the saved card becomes the account's default and is what credit purchases and auto top-up charge. The card is saved on the account's Stripe customer that already holds a default card, or the newest tagged customer; a customer is created (and tagged with the account id) if none exists yet. Returns a hosted checkout URL that the client should redirect to. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
             "name": "id",
@@ -1225,7 +1225,7 @@
         }
       },
       "delete": {
-        "description": "Detach the default card on file from an account. After this call `GET /api/accounts/{id}/payment-method` returns `card: null`, credit purchases route through checkout again, and auto top-up (if enabled) is turned off because it has nothing to charge. Subscriptions collected by invoice are unaffected. `id` may be the authenticated account or an organization the caller belongs to.",
+        "description": "Detach the default card on file from an account, whichever tagged Stripe customer holds it. After this call `GET /api/accounts/{id}/payment-method` returns `card: null`, credit purchases route through checkout again, and auto top-up (if enabled) is turned off because it has nothing to charge. Subscriptions collected by invoice are unaffected. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
             "name": "id",
@@ -1278,7 +1278,7 @@
     },
     "/api/accounts/{id}/portal": {
       "post": {
-        "description": "Create a Stripe Customer Portal session for an account. Returns a hosted URL where the customer can update the card on file, view invoices, or cancel a Starter or Pro subscription; the client should redirect the user to that URL. `id` may be the authenticated account or an organization the caller belongs to. Enterprise (invoiced) plans are managed with your Recoup contact and the app does not offer this portal for them, but the endpoint works for any account with a Stripe customer.",
+        "description": "Create a Stripe Customer Portal session for an account. Returns a hosted URL where the customer can update the card on file, view invoices, or cancel a Starter or Pro subscription; the client should redirect the user to that URL. The portal opens on the Stripe customer that owns the account's active subscription, so accounts without an active subscription get a 400 even when a tagged customer with a card exists. `id` may be the authenticated account or an organization the caller belongs to. Enterprise (invoiced) plans are managed with your Recoup contact and the app does not offer this portal for them, but the endpoint works for any account with an active subscription.",
         "parameters": [
           {
             "name": "id",
@@ -1322,7 +1322,7 @@
             }
           },
           "400": {
-            "description": "Bad request - invalid parameters, or the account has no Stripe customer yet",
+            "description": "Bad request - invalid parameters, or the account has no active subscription",
             "content": {
               "application/json": {
                 "schema": {
@@ -1362,7 +1362,7 @@
     },
     "/api/accounts/{id}/payments": {
       "get": {
-        "description": "List the invoices paid or owed by an account, newest first: subscription renewals, credit purchases, and invoiced enterprise plans alike. Non-draft rows carry the hosted invoice URL for the receipt; `url` is null for drafts. Returns an empty list (not 404) when the account has no Stripe customer or no invoices yet. `id` may be the authenticated account or an organization the caller belongs to.",
+        "description": "List the invoices paid or owed by an account, newest first: subscription renewals, credit purchases, and invoiced enterprise plans alike. Invoices are merged across every Stripe customer tagged with the account id, so a card saved on one customer and an invoiced plan on another appear in one list. Non-draft rows carry the hosted invoice URL for the receipt; `url` is null for drafts. Returns an empty list (not 404) when the account has no tagged Stripe customer or no invoices yet. `startingAfter` is an invoice id from a previous page; the next page holds invoices created before it. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
             "name": "id",
@@ -5413,7 +5413,7 @@
             "items": {
               "$ref": "#/components/schemas/AccountPayment"
             },
-            "description": "Invoices, newest first. Empty when the account has no Stripe customer or no invoices."
+            "description": "Invoices, newest first, merged across every Stripe customer tagged with the account id. Empty when the account has no tagged Stripe customer or no invoices."
           },
           "hasMore": {
             "type": "boolean",

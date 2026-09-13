@@ -25,7 +25,7 @@ export const siteConfig = {
     .origin,
   appUrl: "https://app.recoupable.dev",
   apiUrl,
-  docsUrl: "https://docs.recoupable.dev",
+  docsUrl: "https://recoupable.dev/docs",
   /** In-site documentation route. */
   docsPath: "/docs",
   githubUrl: "https://github.com/recoupable/skills",
