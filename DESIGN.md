@@ -211,7 +211,7 @@ Use text as well as color for state: **Needs review**, **Matches**, **Draft**, *
 
 ## Typography
 
-Use **DM Sans Variable** for headings, body, and the wordmark, and **IBM Plex Mono 400** for compact labels, code, and technical metadata. Both are locally loaded in [the root layout](app/layout.tsx). The logo reads **Recoup**, capital R, weight **600**. Use the existing symbol and wordmark components. Both footer variants use `FooterBrand` from `components/sky/brand.tsx`, with a 23×28px symbol, 11px gap, and a 28px/600 wordmark (26px on phones). Header-only logo rules must be scoped to `.ss-header` or `.sky-nav`; their sizing variables and mobile icon-only layout must never affect a footer.
+Use **DM Sans Variable** for headings, body, and the wordmark, and **IBM Plex Mono 400** for compact labels, code, and technical metadata. Both are locally loaded in [the root layout](app/layout.tsx). The logo reads **Recoup**, capital R, weight **600**. Use the existing symbol and wordmark components. The footer uses `FooterBrand` from `components/sky/brand.tsx`, with a 23×28px symbol, 11px gap, and a 28px/600 wordmark (26px on phones). Header-only logo rules must be scoped to `.ss-header`; its sizing variables and mobile icon-only layout must never affect the footer.
 
 Headings feel open and assured: weights 450–500, close tracking, short lines. Body copy is regular, easy to scan, and substantially looser than headings. Monospace is an accent, not the body voice. Do not bring back Syne, decorative serifs, or the typewriter treatment from earlier studies.
 
@@ -364,7 +364,7 @@ Shared page buttons, text links, and documentation use 17px arrows; the homepage
 | Articles / reading | [blog-art.tsx](app/blog/blog-art.tsx), [blog.css](app/blog/blog.css), [docs.css](app/docs/docs.css) |
 | Inquiry and agent handoff | [InquiryForm](components/inquiry-form.tsx), [browser-agent-tools.tsx](components/agents/browser-agent-tools.tsx) |
 
-`SiteFrame` already adds the public header, main landmark, and footer. New subpages should not add a second shell or main landmark. `/` uses its own complete homepage composition inside the main landmark supplied by `SiteFrame`.
+`SiteFrame` adds the public header, main landmark, and footer on every route, `/` included. Pages never add a second shell, header, footer, or main landmark. The homepage composition (`components/home`) lives inside the main landmark supplied by `SiteFrame`.
 
 ### Actions and navigation
 

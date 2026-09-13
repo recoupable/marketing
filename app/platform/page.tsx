@@ -3,7 +3,7 @@ import { SkyArrow } from "@/components/sky/arrow";
 import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { FAQ } from "@/components/ui";
-import { ProductPreview } from "@/components/interactive";
+import { ProductPreview } from "@/components/interactive/ProductPreview";
 import { PageHero, PageSection, PageCTA, PageButton } from "@/components/sky/page-ui";
 import { annualDiscountPercent, planPrice, pricingPlans } from "@/lib/pricing";
 import "./platform.css";

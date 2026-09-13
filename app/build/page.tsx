@@ -27,7 +27,7 @@ export default function BuildPage() {
  return <MarketingPage><div className="engagement-page build-engagement">
   <ServiceStructuredData path="/build" name="Custom AI systems for music businesses" description="Custom agents, integrations, dashboards, and applications for music funds and rightsholders. Built around your tools, data, and team." serviceType={["Custom agents", "Software integrations", "AI applications"]} />
       <PageHero eyebrow="CUSTOM BUILDS" title={<>Your business.<br /><span>Your system.</span></>} description="We build agents, integrations, dashboards, and full applications around the way your music company works. Working software, documented and ready for your team." tone="light" visual={<BuildReview />}>
-   <PageButton href="/build/start">Discuss your build</PageButton><PageButton href="#builds" secondary>What we build</PageButton>
+   <PageButton href="/start-project?workflow=Custom%20systems">Discuss your build</PageButton><PageButton href="#builds" secondary>What we build</PageButton>
   </PageHero>
   <PageSection id="builds" eyebrow="BUILT AROUND THE WORK" title="One agent. Or the whole application.">
     <div className="eg-capabilities" data-reveal-group="">{capabilities.map((capability, index) => <article className="eg-capability" key={capability.title}>
@@ -41,6 +41,6 @@ export default function BuildPage() {
     </div>
   </PageSection>
   <PageSection eyebrow="PRACTICAL QUESTIONS" title="Built for the way you work."><MarketingFAQ items={[{question:"Who owns the code?",answer:"Custom code is delivered in a repository you control. Your agreement defines ownership of the deliverables and the terms for any Recoup or third-party components."},{question:"Do we need to move to a new platform?",answer:"Not necessarily. We start with your current tools and scope any integrations or infrastructure changes together. Custom builds can use Recoup or operate as standalone software."},{question:"What does a project cost?",answer:"It depends on the workflow, integrations, and scope. We agree on deliverables and price before the build starts."},{question:"Can you maintain the system?",answer:"Yes. Maintenance, monitoring, and improvements can be included in an ongoing engagement. We agree on responsibilities and support arrangements together."}]} /></PageSection>
-  <PageCTA title="What would you build if you had the team?" description="Tell us what needs to happen, what you use today, and where the work gets stuck." href="/build/start" label="Scope your build" />
+  <PageCTA title="What would you build if you had the team?" description="Tell us what needs to happen, what you use today, and where the work gets stuck." href="/start-project?workflow=Custom%20systems" label="Scope your build" />
  </div></MarketingPage>;
 }

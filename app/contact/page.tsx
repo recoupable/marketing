@@ -9,7 +9,7 @@ import {
   getImmersiveProjectBrief,
   getImmersiveWorkflow,
 } from "@/lib/immersive-workflows";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = withPageMetadata({
   title: "Let’s put AI to work",
@@ -55,10 +55,10 @@ export default async function ContactPage({
         <p><Link className="sp-text-link" href="/start-project">Have a project in mind? Share a fuller brief.</Link></p>
         <div className="contact-details">
           <span className="mono">OR EMAIL US</span>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-          {site.booking && (
+          <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
+          {siteConfig.bookingUrl && (
             <div style={{ marginTop: 20 }}>
-              <ButtonLink href={site.booking}>Book a conversation</ButtonLink>
+              <ButtonLink href={siteConfig.bookingUrl}>Book a conversation</ButtonLink>
             </div>
           )}
         </div>

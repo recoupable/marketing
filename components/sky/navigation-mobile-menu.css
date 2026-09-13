@@ -1,0 +1,51 @@
+/* The mobile menu panel: the summary toggle and the dropdown link grid. */
+@media (max-width: 900px) {
+  .ss-header .ss-mobile-menu {
+    display: block;
+    flex: none;
+  }
+  .ss-header .ss-mobile-menu > summary {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    min-height: 44px;
+    padding: 9px;
+    list-style: none;
+    cursor: pointer;
+    background: #f0f6f8;
+    border-radius: 50%;
+  }
+  .ss-header .ss-mobile-menu > summary::-webkit-details-marker {
+    display: none;
+  }
+  .ss-header .ss-mobile-menu > nav {
+    position: absolute;
+    top: calc(100% - 8px);
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 15px;
+    border: 1px solid #e2eaed;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 0 16px 40px #14394620;
+    max-height: 70svh;
+    overflow-y: auto;
+  }
+  .ss-header .ss-mobile-menu nav a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 13px;
+    border-radius: 9px;
+    font-size: 14px;
+  }
+  .ss-header .ss-mobile-menu nav a:hover {
+    background: #eff7fb;
+  }
+  .ss-header .ss-mobile-menu nav a:last-child {
+    background: #d6ff62;
+  }
+}

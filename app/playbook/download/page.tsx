@@ -1,7 +1,7 @@
 import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CopyCode } from "@/components/interactive";
+import { CopyCode } from "@/components/interactive/CopyCode";
 import { PageButton } from "@/components/sky/page-ui";
 import { PrintPlaybook } from "../playbook-print";
 import chapters from "../../../content/playbook/chapters.json";

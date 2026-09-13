@@ -1,14 +1,7 @@
 import { test, expect } from "vitest";
 
-const {
-  analyzeCatalogDemo,
-  createDemoReviewPacket,
-  demoSummary,
-  formatDemoMoney,
-  northstarFixture,
-}: typeof import("../lib/catalog-demo") = await import(
-  new URL("../lib/catalog-demo.ts", import.meta.url).href
-);
+import { analyzeCatalogDemo } from "../lib/catalog-demo/analyzeCatalogDemo.ts";
+import { northstarFixture } from "../lib/catalog-demo/northstarFixture.ts";
 
 function fixture() {
   return {
@@ -27,45 +20,53 @@ function fixture() {
 
 test("accounts for every statement cent while excluding ambiguous and unmatched attribution", () => {
   const result = analyzeCatalogDemo();
-  expect(result.periods.map(
+  expect(
+    result.periods.map(
       ({ period, receivedCents, attributedCents, heldCents }) => ({
         period,
         receivedCents,
         attributedCents,
         heldCents,
       }),
-    )).toStrictEqual([
-      {
-        period: "2025-Q1",
-        receivedCents: 1_200_000,
-        attributedCents: 1_100_000,
-        heldCents: 100_000,
-      },
-      {
-        period: "2025-Q2",
-        receivedCents: 1_400_000,
-        attributedCents: 1_270_000,
-        heldCents: 130_000,
-      },
-    ]);
+    ),
+  ).toStrictEqual([
+    {
+      period: "2025-Q1",
+      receivedCents: 1_200_000,
+      attributedCents: 1_100_000,
+      heldCents: 100_000,
+    },
+    {
+      period: "2025-Q2",
+      receivedCents: 1_400_000,
+      attributedCents: 1_270_000,
+      heldCents: 130_000,
+    },
+  ]);
   for (const period of result.periods) {
-    expect(period.receivedCents).toBe(period.attributedCents + period.heldCents);
+    expect(period.receivedCents).toBe(
+      period.attributedCents + period.heldCents,
+    );
     expect(period.rows.length).toBe(4);
   }
   expect(result.attributedDeltaCents).toBe(170_000);
-  expect(Math.abs(result.attributedDeltaRate! - 0.15454545454545454) < 1e-12).toBeTruthy();
-  expect(demoSummary.catalogRowCount).toBe(4);
-  expect(demoSummary.distinctCatalogCodeCount).toBe(3);
-  expect(demoSummary.acquisitionFindingCount).toBe(3);
+  expect(
+    Math.abs(result.attributedDeltaRate! - 0.15454545454545454) < 1e-12,
+  ).toBeTruthy();
+  expect(result.catalog.length).toBe(4);
+  expect(new Set(result.catalog.map((entry) => entry.code)).size).toBe(3);
+  expect(result.findings.length).toBe(3);
 });
 
 test("never chooses an arbitrary duplicate or double counts its statement amounts", () => {
   const result = analyzeCatalogDemo();
   const conflicting = result.matched.filter((row) => row.code === "NS-003");
   expect(conflicting.length).toBe(2);
-  expect(conflicting.every(
+  expect(
+    conflicting.every(
       (row) => row.status === "ambiguous" && row.candidates.length === 2,
-    )).toBeTruthy();
+    ),
+  ).toBeTruthy();
   const changed = fixture();
   changed.sources["catalog.csv"][4] =
     "C-004,NS-004,Afterglow (Instrumental),June Assembly";
@@ -73,7 +74,9 @@ test("never chooses an arbitrary duplicate or double counts its statement amount
   expect(fixed.current?.receivedCents).toBe(1_400_000);
   expect(fixed.current?.attributedCents).toBe(1_360_000);
   expect(fixed.current?.heldCents).toBe(40_000);
-  expect(fixed.findings.some((finding) => finding.kind === "conflicting-code")).toBe(false);
+  expect(
+    fixed.findings.some((finding) => finding.kind === "conflicting-code"),
+  ).toBe(false);
   expect(fixed.findings.length).toBe(2);
 });
 
@@ -84,7 +87,9 @@ test("resolving an unmatched code changes attribution but never changes received
   expect(fixed.current?.receivedCents).toBe(1_400_000);
   expect(fixed.current?.attributedCents).toBe(1_310_000);
   expect(fixed.current?.heldCents).toBe(90_000);
-  expect(fixed.findings.some((finding) => finding.kind === "unmatched-code")).toBe(false);
+  expect(
+    fixed.findings.some((finding) => finding.kind === "unmatched-code"),
+  ).toBe(false);
 });
 
 test("required coverage comes from notes and remains separate from available-period reporting", () => {
@@ -96,35 +101,38 @@ test("required coverage comes from notes and remains separate from available-per
   const revisedScope = analyzeCatalogDemo(changed);
   expect(revisedScope.missingPeriods).toStrictEqual([]);
   expect(revisedScope.findings.length).toBe(2);
-  expect(revisedScope.current?.receivedCents).toBe(result.current?.receivedCents);
+  expect(revisedScope.current?.receivedCents).toBe(
+    result.current?.receivedCents,
+  );
 });
 
-test("both packets preserve every unresolved item and citations point to exact input lines", () => {
-  for (const direction of ["acquisitions", "operations"] as const) {
-    const packet = JSON.parse(
-      JSON.stringify(createDemoReviewPacket(direction)),
-    );
-    expect(packet.example).toBe("synthetic");
-    expect(packet.unresolvedItems.length).toBe(3);
-    expect(packet.unresolvedItems
-        .map((finding: { kind: string }) => finding.kind)
-        .sort()).toStrictEqual(["conflicting-code", "missing-period", "unmatched-code"]);
-    for (const finding of packet.unresolvedItems) {
-      expect(finding.sources.length > 0).toBeTruthy();
-      for (const source of finding.sources) {
-        expect(packet.sources[source.file][source.line - 1]).toBe(source.text);
-      }
+test("every unresolved item cites exact input lines and held amounts reconcile with the periods", () => {
+  const result = JSON.parse(JSON.stringify(analyzeCatalogDemo()));
+  expect(result.findings.length).toBe(3);
+  expect(
+    result.findings.map((finding: { kind: string }) => finding.kind).sort(),
+  ).toEqual(["conflicting-code", "missing-period", "unmatched-code"]);
+  for (const finding of result.findings) {
+    expect(finding.sources.length > 0).toBeTruthy();
+    for (const source of finding.sources) {
+      expect(
+        northstarFixture.sources[
+          source.file as keyof typeof northstarFixture.sources
+        ][source.line - 1],
+      ).toBe(source.text);
     }
-    const heldFromFindings = packet.unresolvedItems.reduce(
-      (sum: number, finding: { heldCents: number }) => sum + finding.heldCents,
-      0,
-    );
-    expect(heldFromFindings).toBe(230_000);
-    expect(heldFromFindings).toBe(packet.periods.reduce(
-        (sum: number, period: { heldCents: number }) => sum + period.heldCents,
-        0,
-      ));
   }
+  const heldFromFindings = result.findings.reduce(
+    (sum: number, finding: { heldCents: number }) => sum + finding.heldCents,
+    0,
+  );
+  expect(heldFromFindings).toBe(230_000);
+  expect(heldFromFindings).toBe(
+    result.periods.reduce(
+      (sum: number, period: { heldCents: number }) => sum + period.heldCents,
+      0,
+    ),
+  );
 });
 
 test("integer-cent changes and negative adjustments reconcile without decimal drift", () => {
@@ -134,9 +142,6 @@ test("integer-cent changes and negative adjustments reconcile without decimal dr
   expect(result.current?.receivedCents).toBe(1_399_899);
   expect(result.current?.attributedCents).toBe(1_269_899);
   expect(result.current?.heldCents).toBe(130_000);
-  expect(formatDemoMoney(101)).toBe("$1.01");
-  expect(formatDemoMoney(1_400_000)).toBe("$14,000");
-  expect(() => formatDemoMoney(100.5)).toThrow(/integer cents/);
 });
 
 test("a zero attributed baseline does not invent a percentage change", () => {

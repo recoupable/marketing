@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { formatUsd as usd } from "@/lib/roi/formatUsd";
 import { calculateWorkflowROI, type ROIInputs } from "@/lib/marketing-migration-tools/calculateWorkflowROI";
 import { recommendedPlan } from "@/lib/roi/recommendedPlan";
 import { trackEvent } from "@/lib/analytics/trackEvent";
-import { roiInquiryDraft } from "@/lib/workflow-inquiry";
+import { roiInquiryDraft } from "@/lib/workflow-inquiry/roiInquiryDraft";
 import { InquiryHandoff } from "./inquiry-handoff";
 import { SkyArrow } from "@/components/sky/arrow";
 
@@ -15,7 +16,6 @@ const fields: { id: keyof ROIInputs; label: string; max: number; step: number; u
   { id: "monthlySystemCost", label: "Ongoing system cost each month", max: 10000, step: 1, unit: "USD" },
   { id: "setupCost", label: "One-time setup cost", max: 100000, step: 1, unit: "USD" },
 ];
-const usd = (value: number) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 }).format(value);
 
 export function ROICalculator() {
   const [values, setValues] = useState<Record<keyof ROIInputs, string>>({ monthlyHours: "40", hourlyCost: "40", timeReduction: "50", monthlySystemCost: "100", setupCost: "2500" });

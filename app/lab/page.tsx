@@ -2,7 +2,7 @@ import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageButton, PageCTA, PageHero, PageSection } from "@/components/sky/page-ui";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 import { SkyArrow } from "@/components/sky/arrow";
 import "./lab-sky.css";
 
@@ -34,7 +34,7 @@ export default function LabPage() {
   return <div className="sky-subpage lab-sky">
     <PageHero eyebrow="RECOUP LAB" title={<>What can AI<br />actually do for music?</>} description="We start with a real job, ask a specific question, and build a way to find out. This is where we explore what comes next." visual={<ResearchBench />}>
       <PageButton href="#questions">Explore the questions</PageButton>
-      <PageButton href={site.github} secondary>Explore the source</PageButton>
+      <PageButton href={siteConfig.githubUrl} secondary>Explore the source</PageButton>
     </PageHero>
 
     <PageSection id="questions" eyebrow="QUESTIONS ON THE TABLE" title={<>Big possibilities.<br />Specific tests.</>} description="These are research directions we’re exploring. Each starts with a recognizable music-business job and a way to judge the work.">
@@ -46,7 +46,7 @@ export default function LabPage() {
 
     <PageSection className="lab-open-source">
       <div className="lab-source-panel">
-        <div className="lab-source-copy"><p className="sp-kicker">OPEN SOURCE / AVAILABLE NOW</p><h2>Start with<br />something tangible.</h2><p>Recoup Skills is a growing collection of music-industry methods for AI agents. Read the instructions. Try a workflow. Make the method better.</p><div className="lab-source-actions"><PageButton href={site.github}>Explore the repository</PageButton><Link className="sp-text-link" href="/skills">About Recoup Skills <SkyArrow /></Link></div></div>
+        <div className="lab-source-copy"><p className="sp-kicker">OPEN SOURCE / AVAILABLE NOW</p><h2>Start with<br />something tangible.</h2><p>Recoup Skills is a growing collection of music-industry methods for AI agents. Read the instructions. Try a workflow. Make the method better.</p><div className="lab-source-actions"><PageButton href={siteConfig.githubUrl}>Explore the repository</PageButton><Link className="sp-text-link" href="/skills">About Recoup Skills <SkyArrow /></Link></div></div>
         <div className="lab-skills-visual" aria-hidden="true"><div className="lab-skill-backplate" /><div className="lab-skill-front"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M24 3v42M3 24h42M9 9l30 30M9 39 39 9" /><circle cx="24" cy="24" r="5" fill="currentColor" /></svg><span>RECOUP SKILLS</span><strong>A record label.<br /><span>In a box.</span></strong><div><span>Research</span><span>Create</span><span>Release</span></div></div></div>
       </div>
     </PageSection>

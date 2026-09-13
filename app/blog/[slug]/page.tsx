@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts, formatBlogDate, getBlogPost } from "@/lib/blog";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 import { blogAuthorContext, blogDescription, blogPostJsonLd, blogPostMetadata, relatedBlogPosts } from "@/lib/editorial-seo";
 import { BlogBody } from "../blog-body";
 import { SkyArrow } from "@/components/sky/arrow";
@@ -13,7 +13,7 @@ export function generateStaticParams() { return blogPosts.map(({ slug }) => ({ s
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const post = getBlogPost((await params).slug);
   if (!post) notFound();
-  return blogPostMetadata(post, site.url);
+  return blogPostMetadata(post, siteConfig.url);
 }
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -32,6 +32,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <BlogBody body={post.body} />
     </article>
     <section className="blog-related" aria-labelledby="blog-related-title"><h2 id="blog-related-title">Keep reading</h2>{related.map((item) => <Link href={`/blog/${item.slug}`} key={item.slug}><span className="blog-eyebrow">{item.category}</span><h3>{item.title}</h3><SkyArrow /></Link>)}</section>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostJsonLd(post, site.url)).replace(/</g, "\\u003c") }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostJsonLd(post, siteConfig.url)).replace(/</g, "\\u003c") }} />
   </div>;
 }

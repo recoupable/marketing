@@ -4,17 +4,17 @@ import "@fontsource-variable/dm-sans";
 import "@fontsource/ibm-plex-mono/400.css";
 import "./globals.css";
 import { SiteFrame } from "@/components/site-frame";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 import { isSearchPreview, organizationGraph, serializeJsonLd, searchDescription } from "@/lib/seo";
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: "Recoup: AI transformation for music funds and rightsholders",
     template: "%s | Recoup",
   },
   description: searchDescription,
-  applicationName: site.name,
-  alternates: { types: { "application/rss+xml": `${site.url}/feed.xml` } },
+  applicationName: siteConfig.name,
+  alternates: { types: { "application/rss+xml": `${siteConfig.url}/feed.xml` } },
   robots: isSearchPreview() ? { index: false, follow: false } : { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Recoup: AI transformation for music funds and rightsholders",
-    siteName: site.name,
-    url: site.url,
+    siteName: siteConfig.name,
+    url: siteConfig.url,
     locale: "en_US",
     description:
       "Strategy, custom systems, and team training for music funds and rightsholders.",

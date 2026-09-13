@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { InquiryHandoff } from "./inquiry-handoff";
-import { readinessInquiryDraft } from "@/lib/workflow-inquiry";
+import { readinessInquiryDraft } from "@/lib/workflow-inquiry/readinessInquiryDraft";
 import { SkyArrow } from "@/components/sky/arrow";
 import { readinessQuestions } from "@/lib/marketing-migration-tools/readinessQuestions";
 import { recommendReadiness } from "@/lib/marketing-migration-tools/recommendReadiness";

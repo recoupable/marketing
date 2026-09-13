@@ -2,9 +2,9 @@ import { AppLink } from "@/components/analytics/AppLink";
 import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CopyCode } from "@/components/interactive";
+import { CopyCode } from "@/components/interactive/CopyCode";
 import { PageButton, PageCTA, PageHero, PageSection } from "@/components/sky/page-ui";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 import { SkyArrow } from "@/components/sky/arrow";
 import "./developers-sky.css";
 
@@ -21,9 +21,9 @@ const firstRequest = [
 ].join("\n");
 
 const interfaces = [
-  { name: "REST API", icon: "api", description: "Put artist context, research, and music-business actions inside your application.", href: site.docs, link: "Read the API docs" },
-  { name: "MCP", icon: "mcp", description: "Give compatible AI clients access to Recoup’s music-native tools.", href: `${site.docs}/mcp`, link: "Connect your agent" },
-  { name: "CLI", icon: "cli", description: "Work from your terminal and bring structured output into your automations.", href: `${site.docs}/cli`, link: "Explore the CLI" },
+  { name: "REST API", icon: "api", description: "Put artist context, research, and music-business actions inside your application.", href: siteConfig.docsPath, link: "Read the API docs" },
+  { name: "MCP", icon: "mcp", description: "Give compatible AI clients access to Recoup’s music-native tools.", href: `${siteConfig.docsPath}/mcp`, link: "Connect your agent" },
+  { name: "CLI", icon: "cli", description: "Work from your terminal and bring structured output into your automations.", href: `${siteConfig.docsPath}/cli`, link: "Explore the CLI" },
   { name: "Skills", icon: "skills", description: "Add complete methods for music-industry jobs to an agent’s toolkit.", href: "/skills", link: "Explore Recoup Skills" },
 ] as const;
 
@@ -47,7 +47,7 @@ function FirstRequest() {
 export default function DevelopersPage() {
   return <div className="sky-subpage developers-sky">
     <PageHero eyebrow="RECOUP FOR DEVELOPERS" title={<>Music tools.<br />Your stack.</>} description="Bring Recoup into your application, agent, or automation. Use the API, MCP server, CLI, and open-source Skills." tone="light" visual={<FirstRequest />}>
-      <PageButton href={site.docs}>Read the documentation</PageButton>
+      <PageButton href={siteConfig.docsPath}>Read the documentation</PageButton>
       <AppLink placement="developers" path="/keys" cta="api_key" className="sp-button sp-button-secondary">Get your API key<span><SkyArrow /></span></AppLink>
     </PageHero>
 
@@ -79,7 +79,7 @@ export default function DevelopersPage() {
 
     <PageSection className="developer-open-source">
       <div className="developer-source-panel" data-reveal-group="">
-        <div><p className="sp-kicker">OPEN SOURCE</p><h2>The tools.<br />And the playbooks.</h2><p>Recoup Skills shows how music-industry jobs can be broken into steps an agent can follow. Inspect the methods, adapt a workflow, and build on the collection.</p><PageButton href={site.github}>Explore the source</PageButton></div>
+        <div><p className="sp-kicker">OPEN SOURCE</p><h2>The tools.<br />And the playbooks.</h2><p>Recoup Skills shows how music-industry jobs can be broken into steps an agent can follow. Inspect the methods, adapt a workflow, and build on the collection.</p><PageButton href={siteConfig.githubUrl}>Explore the source</PageButton></div>
         <div className="developer-source-visual" aria-hidden="true"><span className="developer-source-asterisk"><DeveloperIcon type="skills" /></span><span>recoupable / skills</span><strong>Music expertise.<br /><span>Ready to build on.</span></strong><div><span>Read</span><span>Adapt</span><span>Build</span></div></div>
       </div>
     </PageSection>

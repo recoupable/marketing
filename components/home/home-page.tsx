@@ -4,7 +4,7 @@ import "./sky.css";
 
 export default function HomePage() {
   return (
-    <div className="sky-page" id="sky-home">
+    <div className="sky-page">
       <div className="sky-frame">
         <SkyHero />
         <SkyContent />

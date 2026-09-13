@@ -1,5 +1,7 @@
-import { getAgentContentIndex } from '@/lib/agent-content';
-import { discoveryHeaders, discoveryOptions, getLlmsText } from '@/lib/agent-discovery';
+import { getAgentContentIndex } from '@/lib/agent-content/getAgentContentIndex';
+import { discoveryHeaders } from '@/lib/agent-discovery/discoveryHeaders';
+import { discoveryOptions } from '@/lib/agent-discovery/discoveryOptions';
+import { getLlmsText } from '@/lib/agent-discovery/getLlmsText';
 
 export const dynamic = 'force-static';
 export function GET() {

@@ -1,5 +1,6 @@
 import { test, expect } from 'vitest';
-import { roiInquiryDraft, readinessInquiryDraft } from '../lib/workflow-inquiry.ts';
+import { roiInquiryDraft } from '../lib/workflow-inquiry/roiInquiryDraft.ts';
+import { readinessInquiryDraft } from '../lib/workflow-inquiry/readinessInquiryDraft.ts';
 import { readinessQuestions } from '../lib/marketing-migration-tools/readinessQuestions.ts';
 import { parseAgentDraft } from '../lib/agent-draft.ts';
 
