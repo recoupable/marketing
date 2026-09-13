@@ -40,9 +40,10 @@ pnpm format     # Run prettier + lint
 
 ```
 app/              — Next.js App Router pages, layouts, API routes
-components/       — React components (layout/, blog/, home/)
-contexts/         — React context providers (theme, human/machine view)
-lib/              — Site logic (posts.ts, seo.ts, config.ts, leads/, attribution/, inquiries/, copy/)
+components/       — React components: sky/ (SiteFrame shell, SkySiteHeader, SkySiteFooter, FooterSignup), home/, inquiry/, interactive/, analytics/
+hooks/            — Shared React hooks (useInquirySubmit.ts, useVideoRequestSubmit.ts, useSubscribeForm.ts)
+contexts/         — React context providers (Privy auth)
+lib/              — Site logic: config.ts (siteConfig), seo.ts, one-export directories (agent-content/, agent-discovery/, agent-tools/, catalog-demo/, attribution/, leads/, inquiries/), copy/
 public/           — Static assets (brand/, icons/, images/)
 content/posts/    — MDX blog posts (one file = one post)
 content/brand/    — Brand context files (read before creating content)
@@ -137,7 +138,7 @@ content/posts/INDEX.md       — Published posts + topic gaps
 - **Brand assets** (see `public/brand/README.md`): logo mark `icon-lightmode.svg` / `icon-darkmode.svg`, word mark `wordmark-lightmode.svg` / `wordmark-darkmode.svg`, profile/hero `pfp-sky-bg.png`. Use in UI as `/brand/<filename>`.
 - **Favicons / PWA icons:** `public/icons/` (see that folder's README)
 - **Page copy:** `lib/copy/` — single source for human pages and machine (markdown) view; edit copy there only so both stay in sync.
-- NEVER hardcode brand values — import from `lib/config.ts`
+- NEVER hardcode brand values — import `siteConfig` from `lib/config.ts`, the only site configuration module (origin, app URL, docs path, GitHub URLs, contact email, booking link; `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_CONTACT_EMAIL`, and `NEXT_PUBLIC_BOOKING_URL` are read there)
 
 ## Integrations
 
@@ -173,7 +174,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Sky migration (September 2026)
 
-Read `DESIGN.md` before UI changes. The approved Sky design applies to this marketing repository only. Current site components live in `components/sky`; blog and docs snapshots live in `content/blog` and `content/docs`. Retained production integrations include `/api/leads` on the central API, route-scoped Privy authentication for valuation, and Vercel Analytics.
+Read `DESIGN.md` before UI changes. The approved Sky design applies to this marketing repository only. Current site components live in `components/sky`. `components/site-frame.tsx` wraps every route, `/` included, in the single header (`components/sky/site-header.tsx`, `SkySiteHeader`) and single footer (`components/sky/site-footer.tsx`, `SkySiteFooter`); pages never add their own header, footer, or main landmark; blog and docs snapshots live in `content/blog` and `content/docs`. Retained production integrations include `/api/leads` on the central API, route-scoped Privy authentication for valuation, and Vercel Analytics.
 
 Personality should come through in the directness and confidence of the writing. It shouldn’t depend on making ordinary things sound more abstract.
 
@@ -183,7 +184,7 @@ Personality should come through in the directness and confidence of the writing.
 
 The `/music-videos` offer retains PR #89’s copy, artist films, skill download, attribution, and quote capture. Offer copy lives in `lib/copy/music-videos.ts`; form and attribution logic live in `components/music-videos` and `lib/music-videos`. Keep the human page and agent content aligned. See `docs/plans/music-video-offer.md` for the funnel contract and integration receipt.
 
-Both public footers use `components/sky/footer-signup.tsx` for email-only insights signup. It shares `lib/marketing-subscribe.ts` with the blog/resources forms and records `kind: subscribe`, `source: /footer` through the central lead API, preserving acquisition tags.
+The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `source: /footer`) and the resources, playbook, and blog `SubscribeCard` (`components/marketing-migration/subscribe-card.tsx`, name + email) are presentational wrappers over `hooks/useSubscribeForm.ts`. The hook owns the hydration guard, the single in-flight submit, the status/error state, the `subscribeToRecoup` call (`lib/marketing-subscribe.ts`, `kind: subscribe` through the central lead API with acquisition tags), the focus move onto the confirmation, and the `subscribe_submitted` event.
 
 ## Documentation (`/docs`)
 
