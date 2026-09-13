@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { SkyArrow } from "@/components/sky/arrow";
 import { SkyHeroCards } from "./sky-hero-cards";
 
 const customers = [
@@ -23,7 +25,11 @@ export function SkyHero() {
       />
       <div className="sky-hero-shade" />
       <div className="sky-hero-copy">
-        <p className="sky-hero-pill">Made for music funds and rightsholders</p>
+        <Link className="sky-hero-pill" href="/skills">
+          <span className="sky-hero-pill-badge">New</span>
+          <span>Catalog Skills v2 is here</span>
+          <SkyArrow />
+        </Link>
         <h1 id="sky-title">
           AI transformation services
           <br />

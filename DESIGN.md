@@ -450,3 +450,8 @@ Use the section heading “What we’ve built” and an explicit Case studies la
 ### Music-video offer
 
 `/music-videos` preserves the offer content and lead contract from PR #89 with Sky styling. Hero and films use the original published film posters, not invented proof. Keep the free skill download, paid generation-budget caveat, generated-song scope, and separately quoted released-recording service distinct. Preserve campaign events and sanitized attribution; contact information stays out of analytics.
+
+
+### Homepage announcement — September 13, 2026
+
+The hero pill announces “Catalog Skills v2 is here” and links to `/skills`. Use a small lime New badge, DM Sans text, and the shared arrow. The entire pill is a keyboard-accessible link with a minimum 44px touch target; keep the existing hero headline and spacing.
