@@ -460,4 +460,6 @@ The hero headline reads “AI transformation” followed by “for music rightsh
 
 The homepage customer row uses white-filled Fatbeats lettering with its green outline and transparent background (`fatbeats-records-white-transparent.webp`). Set “Used by teams at” to white at 68% alpha so it supports rather than competes with the logos.
 
-Seeker uses the official stacked white logotype (`seeker-logotype-white.png`) from the Seeker client design-system assets. Preserve its transparent background and natural proportions; display at 90 × 36px alongside the other customer marks.
+Seeker uses the official stacked white logotype (`seeker-logotype-white.png`) from the Seeker client design-system assets. Preserve its transparent background and natural proportions; display at approximately 76 × 30px alongside the other customer marks.
+
+Center customer marks in six equal desktop columns, ordered Duetti, Seeker, Warner, Atlantic, Rostrum, Fatbeats to distribute dark, light, and colored artwork. Size each logo proportionally, about 15% smaller than the original row, rather than assigning identical widths. Mobile uses three columns with a 76px width and 26px height cap.

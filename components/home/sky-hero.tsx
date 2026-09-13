@@ -4,18 +4,18 @@ import { SkyArrow } from "@/components/sky/arrow";
 import { SkyHeroCards } from "./sky-hero-cards";
 
 const customers = [
-  { name: "Duetti", file: "duetti", width: 122, height: 19 },
+  { name: "Duetti", file: "duetti", width: 104, height: 16 },
   {
     name: "Seeker Music",
     file: "seeker-music",
     src: "/images/customers/seeker-logotype-white.png",
-    width: 90,
-    height: 36,
+    width: 76,
+    height: 30,
   },
-  { name: "Atlantic Records", file: "atlantic-records", width: 52, height: 36 },
-  { name: "Warner Records", file: "warner-records", width: 112, height: 28 },
-  { name: "Rostrum Records", file: "rostrum-records", width: 91, height: 36 },
-  { name: "Fat Beats", file: "fatbeats-records-white", width: 88, height: 36 },
+  { name: "Warner Records", file: "warner-records", width: 95, height: 24 },
+  { name: "Atlantic Records", file: "atlantic-records", width: 44, height: 30 },
+  { name: "Rostrum Records", file: "rostrum-records", width: 77, height: 30 },
+  { name: "Fat Beats", file: "fatbeats-records-white", width: 75, height: 30 },
 ];
 
 export function SkyHero() {
