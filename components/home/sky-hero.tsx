@@ -5,7 +5,13 @@ import { SkyHeroCards } from "./sky-hero-cards";
 
 const customers = [
   { name: "Duetti", file: "duetti", width: 122, height: 19 },
-  { name: "Seeker Music", file: "seeker-music", width: 121, height: 35 },
+  {
+    name: "Seeker Music",
+    file: "seeker-music",
+    src: "/images/customers/seeker-logotype-white.png",
+    width: 90,
+    height: 36,
+  },
   { name: "Atlantic Records", file: "atlantic-records", width: 52, height: 36 },
   { name: "Warner Records", file: "warner-records", width: 112, height: 28 },
   { name: "Rostrum Records", file: "rostrum-records", width: 91, height: 36 },
@@ -47,7 +53,7 @@ export function SkyHero() {
           {customers.map((customer) => (
             <Image
               key={customer.file}
-              src={`/images/customers/${customer.file}-transparent.webp`}
+              src={customer.src ?? `/images/customers/${customer.file}-transparent.webp`}
               alt={customer.name}
               width={customer.width}
               height={customer.height}

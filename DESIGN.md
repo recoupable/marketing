@@ -459,3 +459,5 @@ The hero pill announces “Catalog Skills v2 is here” and links to `/skills`. 
 The hero headline reads “AI transformation” followed by “for music rightsholders.” Keep its supporting copy concise: “We build AI systems you own and train your team to use them.” Set the subtitle at 24px on desktop and 18px on mobile, with balanced wrapping and a 720px maximum desktop width.
 
 The homepage customer row uses white-filled Fatbeats lettering with its green outline and transparent background (`fatbeats-records-white-transparent.webp`). Set “Used by teams at” to white at 68% alpha so it supports rather than competes with the logos.
+
+Seeker uses the official stacked white logotype (`seeker-logotype-white.png`) from the Seeker client design-system assets. Preserve its transparent background and natural proportions; display at 90 × 36px alongside the other customer marks.
