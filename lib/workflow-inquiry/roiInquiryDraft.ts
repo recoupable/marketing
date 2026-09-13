@@ -3,22 +3,17 @@ import {
   calculateWorkflowROI,
   type ROIInputs,
 } from "../marketing-migration-tools/calculateWorkflowROI.ts";
+import { formatUsd as usd } from "../roi/formatUsd.ts";
 
 const number = (value: number) =>
   new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(value);
-const usd = (value: number) =>
-  new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 2,
-  }).format(value);
 
 export function roiInquiryDraft(inputs: ROIInputs): AgentDraft {
   const result = calculateWorkflowROI(inputs);
   return {
     interest: "Custom systems",
     message: [
-      "I’d like to discuss a workflow using these planning assumptions.",
+      "I\u2019d like to discuss a workflow using these planning assumptions.",
       "",
       "From the Recoup workflow calculator:",
       `Current work: ${number(inputs.monthlyHours)} hours/month`,

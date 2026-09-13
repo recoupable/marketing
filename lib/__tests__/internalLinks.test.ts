@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
-// Every one of these paths answers with a 308; internal links must point at the final page.
+// Every one of these paths redirects (307 or 308) to a final page; internal links must point at that page.
 const redirectedPaths = [
   "/build/start",
   "/advisory/book",

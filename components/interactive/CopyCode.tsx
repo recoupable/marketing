@@ -22,6 +22,7 @@ export function CopyCode({
       setError(false);
       setTimeout(() => setCopied(false), 2200);
     } catch {
+      setCopied(false);
       setError(true);
     }
   }
@@ -29,8 +30,8 @@ export function CopyCode({
     <div className="copy-code">
       <div>
         <span className="mono">{label}</span>
-        <button onClick={copy} aria-label="Copy code">
-          {copied ? "Copied ✓" : "Copy"}
+        <button onClick={copy} aria-label={`Copy: ${label}`}>
+          {copied ? "Copied \u2713" : "Copy"}
           <span className="sr-only" role="status">
             {copied ? "Code copied to clipboard" : ""}
           </span>

@@ -7,6 +7,8 @@ import { SkySiteFooter } from "@/components/sky/site-footer";
 import { ScrollMotion } from "@/components/motion/scroll-motion";
 import "./sky/site.css";
 import "./sky/navigation.css";
+import "./sky/navigation-mobile.css";
+import "./sky/navigation-mobile-menu.css";
 import "./motion/hover.css";
 import "./sky/materials.css";
 

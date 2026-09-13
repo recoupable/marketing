@@ -9,6 +9,8 @@ import { trackEvent } from "@/lib/analytics/trackEvent";
 const subscribeToHydration = () => () => {};
 const clientReady = () => true;
 const serverReady = () => false;
+const unexpectedFailure =
+  "We couldn\u2019t confirm your signup. Your details are still here. Please try again.";
 
 type SubscribeStatus = "idle" | "loading" | "success" | "error";
 
@@ -35,19 +37,25 @@ export function useSubscribeForm(source: SubscribeSource) {
     pending.current = true;
     setStatus("loading");
     setError("");
-    const result = await subscribeToRecoup({
-      name,
-      email,
-      source,
-      attribution: currentReferralAttribution(),
-    });
-    pending.current = false;
-    if (result.ok) {
-      setStatus("success");
-      trackEvent("subscribe_submitted", { source });
-    } else {
-      setError(result.error);
+    try {
+      const result = await subscribeToRecoup({
+        name,
+        email,
+        source,
+        attribution: currentReferralAttribution(),
+      });
+      if (result.ok) {
+        setStatus("success");
+        trackEvent("subscribe_submitted", { source });
+      } else {
+        setError(result.error);
+        setStatus("error");
+      }
+    } catch {
+      setError(unexpectedFailure);
       setStatus("error");
+    } finally {
+      pending.current = false;
     }
   }
 

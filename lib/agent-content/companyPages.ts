@@ -1,7 +1,7 @@
 import { siteConfig } from "../config.ts";
 import type { PageSummary } from "./types.ts";
 
-// Summaries of the company, contact, tool, and legal pages; same representation rules as servicePages.
+// Summaries of the company and contact pages; same representation rules as offerPages.
 export const companyPages: PageSummary[] = [
   {
     path: "/about",
@@ -55,113 +55,5 @@ export const companyPages: PageSummary[] = [
       ["Shorter contact form", "/contact"],
       ["Custom builds", "/build"],
     ],
-  },
-  {
-    path: "/audit",
-    title: "AI readiness check for music companies",
-    description:
-      "Seven questions about a recurring workflow, information, and team ownership produce a practical suggested next step.",
-    keywords:
-      "audit readiness assessment questionnaire where start information permissions repeatable process owner",
-    paragraphs: [
-      "The free readiness check asks about one recurring workflow, frequency, information, access, process documentation, ownership, and current AI use. No email is required.",
-      "Recommendations focus on arranging information and access, making the job specific, identifying a workflow owner, or scoping a first build. It is a practical starting point, not a certification or predictive score.",
-    ],
-    links: [
-      ["Take the readiness check", "/audit"],
-      ["AI advisory", "/advisory"],
-    ],
-  },
-  {
-    path: "/roi",
-    title: "AI workflow ROI planner",
-    description:
-      "Estimate capacity value and costs from your own assumptions about a recurring task, setup effort, and ongoing system costs.",
-    keywords:
-      "ROI return investment calculator planner hours time savings capacity cost payback assumptions",
-    paragraphs: [
-      "Inputs include monthly task hours, hourly cost, expected time reduction, ongoing monthly system cost, and one-time setup cost. The planner calculates hours saved, capacity value, monthly net value, first-year value, and payback when applicable.",
-      "Freed time is capacity, not automatically cash saved. Include preparation, review, correction, and maintenance; test conservative assumptions on real tasks before projecting results.",
-    ],
-    links: [
-      ["Use the workflow planner", "/roi"],
-      ["Discuss the assumptions", "/contact"],
-    ],
-  },
-  {
-    path: "/acquisitions",
-    title: "AI for music catalog acquisitions",
-    description:
-      "Custom systems organize deal materials, draft diligence reviews, and connect open questions to source records.",
-    keywords:
-      "catalog acquisition due diligence investment review music fund rights deal documents seller financial model source assumptions",
-    paragraphs: [
-      "Recoup can build a workflow that gathers deal documents, financial models, and analyst notes into one review; traces findings to their sources; keeps missing information visible; and prepares questions for the seller.",
-      "The result is a draft review for the investment team. The service supports preparation and review rather than promising an investment decision or guaranteed outcome.",
-    ],
-    links: [
-      ["Acquisition workflow example", "/acquisitions#workflow"],
-      ["Discuss acquisition review", "/acquisitions/contact"],
-    ],
-  },
-  {
-    path: "/operations",
-    title: "AI royalty reporting and catalog operations",
-    description:
-      "Custom royalty intake, reconciliation, and recurring reporting systems keep matches, exceptions, and source records visible.",
-    keywords:
-      "royalty royalties statement receipts reconcile reconciliation monthly reporting catalog operations payment source differences exceptions",
-    paragraphs: [
-      "Recoup can connect royalty statements, receipts, and catalog records; identify differences by payment source; and prepare a report with the underlying records and a focused review list.",
-      "The example demonstrates why an overall matching total does not prove each source reconciles: offsetting differences can cancel out. Reviewers can inspect records behind individual differences.",
-      "A project starts with the team's actual files, tools, and recurring reporting process. The scope defines the useful first build and review responsibilities.",
-    ],
-    links: [
-      ["Royalty reporting example", "/operations#workflow"],
-      ["Discuss catalog operations", "/operations/contact"],
-    ],
-  },
-  {
-    path: "/agents",
-    title: "Read Recoup with your AI agent",
-    description:
-      "Search and read Recoup's public pages, documentation, articles, and playbooks through public agent interfaces.",
-    keywords:
-      "agent public website search read MCP WebMCP machine readable discovery content tools",
-    paragraphs: [
-      "The public agent interface searches and reads the website's published content. Documentation, articles, and playbook chapters are returned as readable Markdown; marketing-page overviews are explicitly labeled as summaries with links to the complete pages.",
-      "These tools do not access private account or client information, run platform tasks, submit inquiries, or book meetings. Platform actions use the separate authenticated Recoup API and MCP server.",
-    ],
-    links: [
-      ["Agent access and setup", "/agents"],
-      ["Public documentation", "/docs"],
-      ["Authenticated platform tools", "/developers"],
-    ],
-  },
-  {
-    path: "/privacy",
-    title: "Recoup Privacy Policy",
-    description:
-      "Read the full policy covering information collection, use, disclosure, security, rights, and contact details.",
-    keywords:
-      "privacy data personal information security rights policy cookies third party consent",
-    paragraphs: [
-      "The Privacy Policy describes information collection, usage, sharing, third-party services, security, individual rights and choices, children's privacy, international transfers, and policy changes.",
-      "This is a navigation summary, not the complete policy. Consult the linked policy for its full text and stated update date.",
-    ],
-    links: [["Read the complete Privacy Policy", "/privacy"]],
-  },
-  {
-    path: "/terms",
-    title: "Recoup Terms of Use",
-    description:
-      "Read the complete terms for Recoup's website, APIs, AI platform, and services.",
-    keywords:
-      "terms legal contract use purchase subscription license ownership liability arbitration",
-    paragraphs: [
-      "The Terms of Use cover service access, registration, content responsibility, ownership, conduct, third-party services, purchases, subscriptions, warranties, liability, arbitration, and other provisions.",
-      "This is a navigation summary, not the complete agreement. Read the full terms and any applicable supplemental terms before using the service.",
-    ],
-    links: [["Read the complete Terms of Use", "/terms"]],
   },
 ];

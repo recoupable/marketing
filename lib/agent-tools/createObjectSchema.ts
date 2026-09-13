@@ -1,4 +1,4 @@
-export const objectSchema = (
+export const createObjectSchema = (
   properties: Record<string, unknown>,
   required: string[],
 ) => ({
