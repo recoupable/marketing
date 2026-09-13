@@ -1,20 +1,31 @@
 import { describe, expect, it } from "vitest";
-import { getLlmsText } from "@/lib/agent-discovery/getLlmsText";
-import { getLlmsFullText } from "@/lib/agent-discovery/getLlmsFullText";
+import { GET as getLlms } from "@/app/llms.txt/route";
+import { GET as getLlmsFull } from "@/app/llms-full.txt/route";
 import { docs } from "@/lib/docs";
+import { docsLlmsFullText } from "@/lib/docs/docsLlmsFullText";
+import { site } from "@/lib/site";
 
-const index = [{ id: "page:services", type: "page", title: "Services", description: "Consulting.", url: "/services" }];
+const pages = docs.filter(page => page.slug);
+const quickstart = docs.find(page => page.slug === "quickstart")!;
 
 describe("llms.txt documentation parity", () => {
-  it("links every documentation page after the site sections", () => {
-    const text = getLlmsText(index, docs);
-    expect(text.match(/\/docs\//g)?.length).toBeGreaterThanOrEqual(185);
+  it("links every documentation page after the site sections", async () => {
+    const text = await getLlms().text();
+    expect(text.match(/\/docs\//g)?.length ?? 0).toBeGreaterThanOrEqual(pages.length);
     expect(text.indexOf("## Services and public pages")).toBeLessThan(text.indexOf("## Documentation"));
     expect(text.indexOf("## Documentation")).toBeLessThan(text.indexOf("## API reference"));
-    for (const page of docs.filter(page => page.slug)) expect(text).toContain(`/docs/${page.slug})`);
+    for (const page of pages) expect(text).toContain(`${site.url}/docs/${page.slug})`);
   });
+});
 
-  it("describes llms-full.txt as carrying the platform documentation", () => {
-    expect(getLlmsFullText(index)).toMatch(/complete platform documentation/);
-  });
+describe("llms-full.txt documentation parity", () => {
+  it("serves the marketing summaries followed by every documentation page's markdown", async () => {
+    const text = await getLlmsFull().then(response => response.text());
+    const documentation = await docsLlmsFullText(docs);
+    expect(text.endsWith(documentation)).toBe(true);
+    expect(text.indexOf("Content ID: page:")).toBeLessThan(text.indexOf(documentation));
+    expect(text.match(/^Source: .*\/docs(\/|$)/gm)?.length ?? 0).toBe(docs.length);
+    expect(text).toContain(`# ${quickstart.title}\n\nSource: ${site.url}/docs/quickstart\n`);
+    expect(text).toContain("## Quickest start");
+  }, 60000);
 });

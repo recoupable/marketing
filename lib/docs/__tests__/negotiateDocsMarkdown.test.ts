@@ -12,6 +12,24 @@ describe("negotiateDocsMarkdown", () => {
     expect(negotiateDocsMarkdown("/docs/quickstart", "text/html, text/plain")).toBeNull();
   });
 
+  it("honours q-values: a rejected type never selects markdown", () => {
+    expect(negotiateDocsMarkdown("/docs/quickstart", "text/markdown;q=0")).toBeNull();
+    expect(negotiateDocsMarkdown("/docs/quickstart", "text/markdown;q=0, text/html")).toBeNull();
+    expect(negotiateDocsMarkdown("/docs/quickstart", "text/plain;q=0, */*")).toBeNull();
+    expect(negotiateDocsMarkdown("/docs/quickstart", "text/plain;q=0")).toBeNull();
+  });
+
+  it("honours q-value ordering between text/plain and text/html", () => {
+    expect(negotiateDocsMarkdown("/docs/quickstart", "text/plain;q=1, text/html;q=0.9")).toBe("/docs/raw/quickstart.md");
+    expect(negotiateDocsMarkdown("/docs/quickstart", "text/html;q=0.9, text/plain")).toBe("/docs/raw/quickstart.md");
+    expect(negotiateDocsMarkdown("/docs/quickstart", "text/plain;q=0.9, text/html")).toBeNull();
+    expect(negotiateDocsMarkdown("/docs/quickstart", "text/html, text/markdown;q=0.5")).toBeNull();
+  });
+
+  it("parses media types case-insensitively with surrounding whitespace", () => {
+    expect(negotiateDocsMarkdown("/docs/quickstart", " TEXT/Markdown ; Q=0.8 , text/html;q=0.7")).toBe("/docs/raw/quickstart.md");
+  });
+
   it("rewrites a .md suffix regardless of the Accept header", () => {
     expect(negotiateDocsMarkdown("/docs/quickstart.md", null)).toBe("/docs/raw/quickstart.md");
     expect(negotiateDocsMarkdown("/docs/quickstart.md", "text/html")).toBe("/docs/raw/quickstart.md");
