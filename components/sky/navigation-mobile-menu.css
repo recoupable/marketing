@@ -1,52 +1,6 @@
 /* The mobile menu panel: the summary toggle and the dropdown link grid. */
 @media (max-width: 900px) {
   .ss-header .ss-mobile-menu {
-    grid-column: 1;
-    grid-row: 1;
-    justify-self: start;
-  }
-  .sky-site .ss-header .ss-wordmark {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: center;
-    display: grid;
-    place-items: center;
-    width: 44px;
-    height: 44px;
-  }
-  .ss-header .ss-wordmark > span {
-    display: none;
-  }
-  .sky-site .ss-header .ss-wordmark svg {
-    width: 24px;
-    height: 28px;
-  }
-  .ss-header .ss-contact {
-    grid-column: 3;
-    grid-row: 1;
-    justify-self: end;
-    margin: 0;
-    min-height: 44px;
-    padding: 11px 13px;
-    gap: 0;
-    font:
-      500 11px/1.4 "IBM Plex Mono",
-      monospace;
-    letter-spacing: 0.02em;
-    text-transform: none;
-    white-space: nowrap;
-  }
-  .ss-contact .nav-cta-desktop,
-  .ss-contact > .sky-arrow-icon {
-    display: none;
-  }
-  .ss-contact .nav-cta-mobile {
-    display: inline;
-  }
-  .ss-header .ss-desktop-nav {
-    display: none;
-  }
-  .ss-header .ss-mobile-menu {
     display: block;
     flex: none;
   }
