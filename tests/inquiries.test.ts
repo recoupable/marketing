@@ -1,8 +1,10 @@
 import { test, expect } from "vitest";
 
 // Node 24 strips TypeScript; dynamic URL keeps the app's bundler tsconfig intact.
-const { createInquiryHandler, validateInquiry }: typeof import("../lib/inquiries") =
-  await import(new URL("../lib/inquiries.ts", import.meta.url).href);
+const { createInquiryHandler }: typeof import("../lib/inquiries/createInquiryHandler") =
+  await import(new URL("../lib/inquiries/createInquiryHandler.ts", import.meta.url).href);
+const { validateInquiry }: typeof import("../lib/inquiries/validateInquiry") =
+  await import(new URL("../lib/inquiries/validateInquiry.ts", import.meta.url).href);
 
 const now = 1_800_000_000_000;
 const valid = {
@@ -13,6 +15,7 @@ const valid = {
   message: "We want to make our catalog searchable.\nKeep this second line.",
   website: "",
   startedAt: now - 5_000,
+  source: "/contact",
 };
 
 function request(
@@ -52,7 +55,7 @@ test("rejects malformed identity, oversized fields, bots, and stale forms", () =
     { name: "" }, { company: "x".repeat(161) }, { interest: null },
     { message: "short" }, { message: "x".repeat(6001) }, { name: "Taylor\nSpoof" },
     { website: "https://spam.test" }, { startedAt: now - 86_400_001 },
-    { startedAt: now + 300_001 }, { startedAt: NaN },
+    { startedAt: now + 300_001 }, { startedAt: NaN }, { source: "/music-videos" }, { source: undefined },
   ]) expect(() => validateInquiry({ ...valid, ...patch }, now)).toThrow();
   expect(() => validateInquiry(null, now)).toThrow();
 });
@@ -87,10 +90,14 @@ test("only confirms after the central API confirms the inquiry was saved", async
   const { handle, calls } = mockedLeadApi();
   const response = await handle(request());
   expect(response.status).toBe(200);
-  expect(await response.json()).toStrictEqual({ ok: true });
+  const receipt = await response.json();
+  expect(Object.keys(receipt).sort()).toEqual(["ok", "submission_id"]);
+  expect(receipt.ok).toBe(true);
+  expect(receipt.submission_id).toMatch(/^[a-f\d]{64}$/);
   expect(calls.length).toBe(1);
   expect(calls[0].url).toBe("https://api.recoup.test/api/leads");
   expect(calls[0].body?.kind).toBe("booking");
+  expect(calls[0].body?.source).toBe("/contact");
   expect(calls[0].body?.email).toBe("taylor+music@example.com");
   expect(calls[0].body?.company).toBe("Example Music");
   expect(calls[0].body?.package).toBe("Custom AI systems");

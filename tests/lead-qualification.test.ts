@@ -1,7 +1,9 @@
 import { test, expect } from "vitest";
 import { companyTypes, projectBudgets, projectTimelines, validateLeadQualification, leadQualificationEntries } from "../lib/lead-qualification.ts";
-import { createInquiryHandler, validateInquiry } from "../lib/inquiries.ts";
-import { prepareInquiryEmail, hasInquiryReceipt } from "../lib/inquiry-client.ts";
+import { createInquiryHandler } from "../lib/inquiries/createInquiryHandler.ts";
+import { validateInquiry } from "../lib/inquiries/validateInquiry.ts";
+import { prepareInquiryEmail } from "../lib/inquiry/prepareInquiryEmail.ts";
+import { readInquiryReceipt } from "../lib/inquiry/readInquiryReceipt.ts";
 
 const now = 1_800_000_000_000;
 const minimal = { companyType: "Music fund", budget: "$25,000–$50,000", timeline: "Within 1–3 months" };
@@ -15,7 +17,7 @@ const full = {
 const inquiry = {
   name: "Taylor Example", email: "taylor@example.com", company: "Example Music",
   interest: "Custom systems", message: "We want to connect our catalog and reporting workflows.",
-  website: "", startedAt: now - 5000,
+  website: "", startedAt: now - 5000, source: "/start-project",
 };
 const request = (qualification?: unknown) => new Request("https://recoup.test/api/inquiries", {
   method: "POST",
@@ -77,7 +79,7 @@ test("normalizes company domains without fetching and rejects malicious schemes,
 test("CRM note and copied/email inquiry contain the same normalized qualification entries", async () => {
   const qualification = validateLeadQualification(full);
   const { handle, calls } = offlineHandler();
-  expect(await hasInquiryReceipt(await handle(request(full)))).toBe(true);
+  expect(await readInquiryReceipt(await handle(request(full)))).not.toBe(null);
   const note = calls.find(call => call.method === "POST")!.body as { message: string };
   const plain = note.message.replace(/\\([\\`*_{}[\]<>()#+.!|~=-])/g, "$1");
   const prepared = prepareInquiryEmail("hi@recoupable.dev", { ...inquiry, qualification });
@@ -103,7 +105,7 @@ test("invalid supplied qualification returns 400 without calling the CRM, while 
   }
   expect(calls.length).toBe(0);
   expect(!Object.hasOwn(validateInquiry(inquiry, now), "qualification")).toBeTruthy();
-  expect(await hasInquiryReceipt(await handle(request()))).toBe(true);
+  expect(await readInquiryReceipt(await handle(request()))).not.toBe(null);
 });
 
 test("qualification is preserved in the API message and participates in the inquiry fingerprint", async () => {

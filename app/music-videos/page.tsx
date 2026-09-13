@@ -11,7 +11,7 @@ export const metadata = withPageMetadata({ title: c.title, description: c.descri
 function OfferActions({ placement }: { placement: "hero" | "skill" | "closing" }) {
   return <div className="mv-actions">
     <OfferLink className="sp-button" href={c.skill.downloadUrl} event="music_video_skill_download_clicked" placement={placement} download>{c.skill.cta}<span><SkyArrow direction="down" /></span></OfferLink>
-    <OfferLink className="sp-button sp-button-secondary" href={c.appUrl} event="music_video_app_clicked" placement={placement}>{c.appCta}<span><SkyArrow /></span></OfferLink>
+    <OfferLink className="sp-button sp-button-secondary" appPlacement={`music-videos-${placement}`} event="music_video_app_clicked" placement={placement}>{c.appCta}<span><SkyArrow /></span></OfferLink>
   </div>;
 }
 

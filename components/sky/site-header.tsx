@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { SkyArrow } from "@/components/sky/arrow";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { PageMark } from "./brand";
 import { NavigationIcon } from "./navigation-icon";
 
@@ -24,7 +25,7 @@ export function SkySiteHeader() {
     return ()=>{document.removeEventListener("pointerdown",dismiss);document.removeEventListener("keydown",dismiss);};
   },[]);
   return <header ref={header} className="ss-header">
-    <details className="ss-mobile-menu"><summary aria-label="Navigation"><NavigationIcon /></summary><nav aria-label="Mobile navigation" onClick={close}><Link href="/services">Services</Link><Link href="/case-studies" aria-current={pathname.startsWith('/case-studies')?'page':undefined}>Work</Link><Link href="/pricing" aria-current={pathname==='/pricing'?'page':undefined}>Pricing</Link>{tools.map(item=><Link key={item.href} href={item.href} aria-current={pathname===item.href?'page':undefined}>{item.name}</Link>)}<Link href="/docs">Docs</Link><Link href="/about">About</Link><Link href="/blog">Blog</Link><Link href="/resources">Resources</Link><Link href="/lab">Lab</Link><Link href="/start-project">Get a Free Audit <SkyArrow /></Link></nav></details>
+    <details className="ss-mobile-menu"><summary aria-label="Navigation"><NavigationIcon /></summary><nav aria-label="Mobile navigation" onClick={close}><Link href="/services">Services</Link><Link href="/case-studies" aria-current={pathname.startsWith('/case-studies')?'page':undefined}>Work</Link><Link href="/pricing" aria-current={pathname==='/pricing'?'page':undefined}>Pricing</Link>{tools.map(item=><Link key={item.href} href={item.href} aria-current={pathname===item.href?'page':undefined}>{item.name}</Link>)}<Link href="/docs">Docs</Link><Link href="/about">About</Link><Link href="/blog">Blog</Link><Link href="/resources">Resources</Link><Link href="/lab">Lab</Link><TrackedLink href="/start-project" cta="free_audit" placement="mobile_nav">Get a Free Audit <SkyArrow /></TrackedLink></nav></details>
     <Link href="/" className="ss-wordmark" aria-label="Recoup home"><PageMark /><span>Recoup</span></Link>
     <nav className="ss-desktop-nav" aria-label="Main navigation">
       <Link href="/services" aria-current={pathname==='/services'?'page':undefined}>Services</Link>
@@ -35,7 +36,7 @@ export function SkySiteHeader() {
       <Link href="/about" aria-current={pathname==='/about'?'page':undefined}>About</Link>
       <Link href="/blog" aria-current={pathname.startsWith('/blog')?'page':undefined}>Blog</Link>
     </nav>
-    <Link href="/start-project" className="ss-contact"><span className="nav-cta-desktop">Get a Free Audit</span><span className="nav-cta-mobile">Free Audit</span><SkyArrow /></Link>
+    <TrackedLink href="/start-project" cta="free_audit" placement="header" className="ss-contact"><span className="nav-cta-desktop">Get a Free Audit</span><span className="nav-cta-mobile">Free Audit</span><SkyArrow /></TrackedLink>
 
   </header>;
 }

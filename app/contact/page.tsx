@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "../transformation.css";
 import { ButtonLink } from "@/components/ui";
-import { InquiryForm } from "@/components/inquiry-form";
+import { InquiryForm } from "@/components/inquiry/InquiryForm";
 import { generalInterests } from "@/lib/inquiry-topics";
 import {
   getImmersiveProjectBrief,
@@ -64,6 +64,7 @@ export default async function ContactPage({
         </div>
       </div>
       <InquiryForm
+        source="/contact"
         key={`${initialInterest}:${selectedProject?.id ?? "general"}`}
         connected={true}
         initialInterest={initialInterest}

@@ -1,9 +1,10 @@
+import { AppLink } from "@/components/analytics/AppLink";
+import { SkyArrow } from "@/components/sky/arrow";
 import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { FAQ } from "@/components/ui";
 import { ProductPreview } from "@/components/interactive";
 import { PageHero, PageSection, PageCTA, PageButton } from "@/components/sky/page-ui";
-import { site } from "@/lib/site";
 import { annualDiscountPercent, planPrice, pricingPlans } from "@/lib/pricing";
 import "./platform.css";
 
@@ -41,7 +42,7 @@ export default function PlatformPage() {
         description="Research the artist. Shape the campaign. Create the content. An AI workspace for the work around your music."
         visual={<div className="platform-sky-preview"><div className="platform-sky-preview-backplate" aria-hidden="true" /><ProductPreview /></div>}
       >
-        <PageButton href={site.app}>Open Recoup</PageButton>
+        <AppLink placement="platform-hero" className="sp-button">Open Recoup<span><SkyArrow /></span></AppLink>
         <PageButton href="/pricing#platform" secondary>Explore the {plan.name} plan</PageButton>
         <p className="platform-sky-hero-note">{planPrice(plan.id, "monthly").monthly}/month for the platform and music skill pack.</p>
       </PageHero>
@@ -64,7 +65,7 @@ export default function PlatformPage() {
           <div className="platform-sky-start-copy">
             <span className="platform-sky-start-label">YOUR FIRST SESSION</span>
             <h3>A little context.<br /><span>A useful place to start.</span></h3>
-            <PageButton href={site.app}>Get started with Recoup</PageButton>
+            <AppLink placement="platform-start" className="sp-button">Get started with Recoup<span><SkyArrow /></span></AppLink>
           </div>
           <ol className="platform-sky-first-session">
             <li><span>01</span><div><h4>Add the artist.</h4><p>Create a profile and bring in the information that matters.</p></div></li>

@@ -1,11 +1,13 @@
 import { test, expect } from "vitest";
-import {
-  captureReferralAttribution, currentReferralAttribution, effectiveAcquisitionTags,
-  inquiryMessageWithContext, parseAcquisitionTags, readReferralAttribution,
-  sanitizeAcquisitionTags,
-} from "../lib/referral-attribution.ts";
+import { captureReferralAttribution } from "../lib/attribution/captureReferralAttribution.ts";
+import { currentReferralAttribution } from "../lib/attribution/currentReferralAttribution.ts";
+import { effectiveAcquisitionTags } from "../lib/attribution/effectiveAcquisitionTags.ts";
+import { inquiryMessageWithContext } from "../lib/attribution/inquiryMessageWithContext.ts";
+import { parseAcquisitionTags } from "../lib/attribution/parseAcquisitionTags.ts";
+import { readReferralAttribution } from "../lib/attribution/readReferralAttribution.ts";
+import { sanitizeAcquisitionTags } from "../lib/attribution/sanitizeAcquisitionTags.ts";
 import { subscribeToRecoup } from "../lib/marketing-subscribe.ts";
-const { validateInquiry }: typeof import("../lib/inquiries") = await import(new URL("../lib/inquiries.ts", import.meta.url).href);
+const { validateInquiry }: typeof import("../lib/inquiries/validateInquiry") = await import(new URL("../lib/inquiries/validateInquiry.ts", import.meta.url).href);
 
 function session() {
   const values = new Map<string, string>();
@@ -18,7 +20,7 @@ test("only explicit short acquisition labels are retained, including ChatGPT ref
   });
   expect(parseAcquisitionTags("?email=private%40example.com&gclid=private-id")).toBe(undefined);
   expect(parseAcquisitionTags("?utm_source=person%40example.com&utm_medium=https%3A%2F%2Fprivate.test&utm_campaign=line%0Abreak")).toBe(undefined);
-  expect(sanitizeAcquisitionTags({ utm_source: "x".repeat(65), other: "private" })).toBe(undefined);
+  expect(sanitizeAcquisitionTags({ utm_source: "x".repeat(101), other: "private" })).toBe(undefined);
   expect(sanitizeAcquisitionTags(["chatgpt.com"])).toBe(undefined);
 });
 
@@ -67,9 +69,10 @@ test("inquiry attribution preserves a maximum-length brief within the existing s
   expect(message).toMatch(/First visit source:/);
   expect(message).toMatch(/Latest visit source:/);
   const now = 1_800_000_000_000;
-  expect(validateInquiry({ name: "Test Reader", email: "test@example.com", company: "Test Music", interest: "Catalog operations", message, website: "", startedAt: now - 5000 }, now).message).toBe(message);
+  expect(validateInquiry({ name: "Test Reader", email: "test@example.com", company: "Test Music", interest: "Catalog operations", message, website: "", startedAt: now - 5000, source: "/operations/contact" }, now).message).toBe(message);
   const single = inquiryMessageWithContext("A useful brief for the team.", "AI transformation", { first: { utm_source: "chatgpt.com" }, current: { utm_source: "chatgpt.com" } });
-  expect(single).toMatch(/First visit source: utm_source=chatgpt.com/);
+  expect(single).toMatch(/First visit source: source=chatgpt.com/);
+  expect(single).not.toMatch(/utm_/);
   expect(single).not.toMatch(/Latest visit source:/);
 });
 

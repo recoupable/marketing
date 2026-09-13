@@ -1,5 +1,7 @@
 import type { AgentDraft } from './agent-browser.ts';
-import { calculateWorkflowROI, readinessQuestions, recommendReadiness, type ROIInputs } from './marketing-migration-tools.ts';
+import { calculateWorkflowROI, type ROIInputs } from './marketing-migration-tools/calculateWorkflowROI.ts';
+import { readinessQuestions } from './marketing-migration-tools/readinessQuestions.ts';
+import { recommendReadiness } from './marketing-migration-tools/recommendReadiness.ts';
 
 const number = (value: number) => new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(value);
 const usd = (value: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }).format(value);

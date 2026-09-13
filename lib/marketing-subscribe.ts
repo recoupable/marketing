@@ -1,4 +1,6 @@
-import { effectiveAcquisitionTags, type ReferralAttribution } from "./referral-attribution.ts";
+import { effectiveAcquisitionTags } from "./attribution/effectiveAcquisitionTags.ts";
+import type { ReferralAttribution } from "./attribution/ReferralAttribution.ts";
+import { postLead } from "./leads/postLead.ts";
 
 export type SubscribeSource = "/resources" | "/playbook" | "/blog" | "/footer";
 export type SubscribeInput = { email: string; name?: string; source: SubscribeSource; attribution?: ReferralAttribution };
@@ -15,30 +17,16 @@ export async function subscribeToRecoup(input: SubscribeInput, fetcher: typeof f
   }
   if (name && name.length > 100) return { ok: false, error: "Keep your name under 100 characters." };
   const acquisition = effectiveAcquisitionTags(input.attribution);
-  const baseUrl = (process.env.NEXT_PUBLIC_RECOUP_API_URL || (process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "https://recoup-api.vercel.app" : "https://test-recoup-api.vercel.app")).replace(/\/$/, "");
-  try {
-    const response = await fetcher(`${baseUrl}/api/leads`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        kind: "subscribe",
-        source: input.source,
-        email,
-        ...(name ? { name } : {}),
-        ...(acquisition || {
-          utm_source: "website",
-          utm_medium: "newsletter",
-          utm_campaign: input.source === "/playbook" ? "ai-playbook" : "ai-music-notes",
-        }),
-      }),
-      signal: AbortSignal.timeout(15000),
-    });
-    const data: unknown = await response.json().catch(() => null);
-    if (response.status !== 200 || !data || typeof data !== "object" || !("status" in data) || data.status !== "success") {
-      return { ok: false, error: failureMessage };
-    }
-    return { ok: true };
-  } catch {
-    return { ok: false, error: failureMessage };
-  }
+  const result = await postLead({
+    kind: "subscribe",
+    source: input.source,
+    email,
+    ...(name ? { name } : {}),
+    ...(acquisition || {
+      utm_source: "website",
+      utm_medium: "newsletter",
+      utm_campaign: input.source === "/playbook" ? "ai-playbook" : "ai-music-notes",
+    }),
+  }, fetcher);
+  return result.ok ? { ok: true } : { ok: false, error: failureMessage };
 }

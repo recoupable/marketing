@@ -3,14 +3,16 @@ import {
   annualDiscountPercent, parsePricingSelection, planPrice, pricingInquiryHref,
   pricingPlans, pricingSelectionLabel, type PricingSelection,
 } from "../lib/pricing.ts";
-import { inquiryMessageWithContext } from "../lib/referral-attribution.ts";
-import { prepareInquiryEmail, hasInquiryReceipt } from "../lib/inquiry-client.ts";
-import { createInquiryHandler, validateInquiry } from "../lib/inquiries.ts";
+import { inquiryMessageWithContext } from "../lib/attribution/inquiryMessageWithContext.ts";
+import { prepareInquiryEmail } from "../lib/inquiry/prepareInquiryEmail.ts";
+import { readInquiryReceipt } from "../lib/inquiry/readInquiryReceipt.ts";
+import { createInquiryHandler } from "../lib/inquiries/createInquiryHandler.ts";
+import { validateInquiry } from "../lib/inquiries/validateInquiry.ts";
 
 const now = 1_800_000_000_000;
 const inquiry = {
   name: "Taylor Example", email: "taylor@example.com", company: "Example Music",
-  interest: "Custom systems", website: "", startedAt: now - 5000,
+  interest: "Custom systems", website: "", startedAt: now - 5000, source: "/start-project",
 };
 
 test("annual plans apply 20% off, round down to whole dollars, and disclose the full annual bill", () => {
@@ -98,12 +100,12 @@ test("full plan and billing context survives edited briefs through copied email 
       method: "POST", headers: { "Content-Type": "application/json", Origin: "https://recoup.test" },
       body: JSON.stringify({ ...inquiry, message }),
     }));
-    expect(await hasInquiryReceipt(response)).toBe(true);
+    expect(await readInquiryReceipt(response)).not.toBe(null);
     const plain = notes.at(-1)!.replace(/\\([\\`*_{}[\]<>()#+.!|~=-])/g, "$1");
     expect(plain.includes(context)).toBeTruthy();
     expect(plain.includes(editedBrief)).toBeTruthy();
     expect(plain.includes("Website path: Project brief /start-project")).toBeTruthy();
-    expect(plain.includes("Latest visit source: utm_source=newsletter")).toBeTruthy();
+    expect(plain.includes("Latest visit source: source=newsletter")).toBeTruthy();
   }
   const submissionIds = notes.map(note => note.match(/Submission ID: ([a-f\d]{64})/)?.[1]);
   expect(submissionIds.every(Boolean)).toBeTruthy();

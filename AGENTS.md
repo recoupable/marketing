@@ -42,7 +42,7 @@ pnpm format     # Run prettier + lint
 app/              — Next.js App Router pages, layouts, API routes
 components/       — React components (layout/, blog/, home/)
 contexts/         — React context providers (theme, human/machine view)
-lib/              — Site logic (posts.ts, seo.ts, postCapture.ts, config.ts, copy/)
+lib/              — Site logic (posts.ts, seo.ts, config.ts, leads/, attribution/, inquiries/, copy/)
 public/           — Static assets (brand/, icons/, images/)
 content/posts/    — MDX blog posts (one file = one post)
 content/brand/    — Brand context files (read before creating content)
@@ -141,8 +141,9 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 ## Integrations
 
-- **Lead capture:** `lib/postCapture.ts` — every form posts to `POST /api/leads` on the Recoup api, which owns Attio storage, the triage note, and the Telegram page (chat#1800). Marketing holds no Attio client and no `ATTIO_API_KEY`. `NEXT_PUBLIC_RECOUP_API_URL` overrides the api base for previews.
-- **Analytics:** Vercel Web Analytics (`<Analytics />` in `app/layout.tsx`); custom events go through `lib/analytics/trackEvent.ts`
+- **Lead capture:** one browser client, `lib/leads/postLead.ts`, posts to `POST /api/leads` on the Recoup api, which owns Attio storage, the triage note, and the Telegram page (chat#1800). Subscribe surfaces call it through `lib/marketing-subscribe.ts`; the music-video quote form calls it directly. Inquiry forms post to the same-origin `/api/inquiries` proxy (`lib/inquiries/`), which validates `source` against `lib/inquiry/inquirySourceSchema.ts`, de-duplicates, forwards `kind: booking`, and returns `{ ok: true, submission_id }`. Marketing holds no Attio client and no `ATTIO_API_KEY`. The api base is `siteConfig.apiUrl` (`lib/config.
+- **Attribution:** one store, `lib/attribution/` (`recoup:acquisition:v1` in sessionStorage, first + latest tagged visit). Forms read it with `currentReferralAttribution()`; CRM notes render it via `describeAcquisitionTags()` as `source=x; medium=y; campaign=z` (no underscores, Attio notes are markdown). App links go through `lib/appLink.ts` / `<AppLink>` and carry `utm_source=marketing&utm_medium=<placement>&utm_campaign=sky`, the visitor's own tags winning.
+- **Analytics:** Vercel Web Analytics (`<Analytics />` in `app/layout.tsx`); custom events go through `lib/analytics/trackEvent.ts` only, and props never carry visitor details. Funnel events: `cta_clicked {cta, placement, plan?}` (`<TrackedLink>`), `pricing_billing_toggled {billing}`, `inquiry_started {source, plan?}`, `inquiry_submitted {source, plan?, budget?, timeline?, company_type?, submission_id}`, `inquiry_failed {source, reason: validation|network|rejected|timeout}`, `subscribe_submitted {source}`, `audit_completed {score}`, `roi_calculated {recommended_plan}`.
 
 ## Code Principles
 

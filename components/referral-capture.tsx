@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { captureReferralAttribution } from "@/lib/referral-attribution";
+import { captureReferralAttribution } from "@/lib/attribution/captureReferralAttribution";
 
 export function ReferralCapture() {
   const pathname = usePathname();
