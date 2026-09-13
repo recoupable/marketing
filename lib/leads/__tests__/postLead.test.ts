@@ -9,7 +9,6 @@ async function load() {
 describe("postLead", () => {
   beforeEach(() => {
     vi.resetModules();
-    vi.stubEnv("NEXT_PUBLIC_RECOUP_API_URL", "");
     vi.stubEnv("NEXT_PUBLIC_VERCEL_ENV", "preview");
     vi.spyOn(console, "error").mockImplementation(() => {});
   });
@@ -30,12 +29,6 @@ describe("postLead", () => {
     expect(init.signal).toBeInstanceOf(AbortSignal);
   });
 
-  it("honours NEXT_PUBLIC_RECOUP_API_URL once, through siteConfig", async () => {
-    vi.stubEnv("NEXT_PUBLIC_RECOUP_API_URL", "https://api-preview.example.dev/");
-    const fetcher = vi.fn().mockResolvedValue(Response.json({ status: "success" }));
-    await (await load())(payload, fetcher);
-    expect(String(fetcher.mock.calls[0][0])).toBe("https://api-preview.example.dev/api/leads");
-  });
 
   it("talks to the production api only in production", async () => {
     vi.stubEnv("NEXT_PUBLIC_VERCEL_ENV", "production");

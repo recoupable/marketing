@@ -4,16 +4,11 @@
  * production talks to the production API. Mirrors chat's IS_PROD split
  * (chat/lib/consts.ts). NEXT_PUBLIC_VERCEL_ENV is inlined from VERCEL_ENV in
  * next.config.ts so this resolves correctly in the client bundle too.
- * NEXT_PUBLIC_RECOUP_API_URL (an origin, no path) points a preview at another
- * api deployment; this is the only place that override is read.
  */
-const apiOrigin = (
-  process.env.NEXT_PUBLIC_RECOUP_API_URL ||
-  (process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
-    ? "https://recoup-api.vercel.app"
-    : "https://test-recoup-api.vercel.app")
-).replace(/\/$/, "");
-const apiUrl = `${apiOrigin}/api`;
+const apiUrl =
+  process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
+    ? "https://recoup-api.vercel.app/api"
+    : "https://test-recoup-api.vercel.app/api";
 
 /**
  * Site-wide configuration — the single source of truth for brand values,
