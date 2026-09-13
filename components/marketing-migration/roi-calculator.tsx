@@ -23,12 +23,13 @@ export function ROICalculator() {
   const isValid = (id: keyof ROIInputs, max: number) => values[id].trim() !== "" && Number.isFinite(inputs[id]) && inputs[id] >= 0 && inputs[id] <= max;
   const result = fields.every(field => isValid(field.id, field.max)) ? calculateWorkflowROI(inputs) : null;
   const plan = result ? recommendedPlan(result) : null;
+  const scenario = result ? fields.map((field) => values[field.id]).join("|") : null;
   // One event per settled scenario, not one per keystroke or slider step.
   useEffect(() => {
-    if (!plan) return;
+    if (!plan || !scenario) return;
     const timer = setTimeout(() => trackEvent("roi_calculated", { recommended_plan: plan }), 800);
     return () => clearTimeout(timer);
-  }, [plan]);
+  }, [plan, scenario]);
 
   return <div className="mm-tool">
     <div className="mm-tool-mobile-summary">

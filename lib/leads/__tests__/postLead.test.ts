@@ -9,6 +9,8 @@ async function load() {
 describe("postLead", () => {
   beforeEach(() => {
     vi.resetModules();
+    vi.stubEnv("NEXT_PUBLIC_RECOUP_API_URL", "");
+    vi.stubEnv("NEXT_PUBLIC_VERCEL_ENV", "preview");
     vi.spyOn(console, "error").mockImplementation(() => {});
   });
   afterEach(() => {

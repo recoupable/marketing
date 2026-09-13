@@ -1,4 +1,4 @@
-import { appLink } from "@/lib/appLink";
+import { AppLink } from "@/components/analytics/AppLink";
 import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -48,7 +48,7 @@ export default function DevelopersPage() {
   return <div className="sky-subpage developers-sky">
     <PageHero eyebrow="RECOUP FOR DEVELOPERS" title={<>Music tools.<br />Your stack.</>} description="Bring Recoup into your application, agent, or automation. Use the API, MCP server, CLI, and open-source Skills." tone="light" visual={<FirstRequest />}>
       <PageButton href={site.docs}>Read the documentation</PageButton>
-      <PageButton href={appLink("developers", { path: "/keys" })} secondary>Get your API key</PageButton>
+      <AppLink placement="developers" path="/keys" cta="api_key" className="sp-button sp-button-secondary">Get your API key<span><SkyArrow /></span></AppLink>
     </PageHero>
 
     <PageSection eyebrow="PICK YOUR ENTRY POINT" title="Build your way.">

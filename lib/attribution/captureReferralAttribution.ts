@@ -3,6 +3,7 @@ import { browserSessionStore } from "./browserSessionStore.ts";
 import { parseAcquisitionTags } from "./parseAcquisitionTags.ts";
 import { readReferralAttribution } from "./readReferralAttribution.ts";
 import type { ReferralAttribution } from "./ReferralAttribution.ts";
+import { referralAttributionListeners } from "./referralAttributionListeners.ts";
 
 export function captureReferralAttribution(search: string, storage: SessionStore | undefined = browserSessionStore()): ReferralAttribution {
   const saved = readReferralAttribution(storage);
@@ -14,5 +15,6 @@ export function captureReferralAttribution(search: string, storage: SessionStore
   } catch {
     /* Forms still work when session storage is unavailable. */
   }
+  for (const listener of referralAttributionListeners) listener();
   return next;
 }

@@ -42,7 +42,7 @@ pnpm format     # Run prettier + lint
 app/              — Next.js App Router pages, layouts, API routes
 components/       — React components (layout/, blog/, home/)
 contexts/         — React context providers (theme, human/machine view)
-lib/              — Site logic (posts.ts, seo.ts, postCapture.ts, config.ts, copy/)
+lib/              — Site logic (posts.ts, seo.ts, config.ts, leads/, attribution/, inquiries/, copy/)
 public/           — Static assets (brand/, icons/, images/)
 content/posts/    — MDX blog posts (one file = one post)
 content/brand/    — Brand context files (read before creating content)

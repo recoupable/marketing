@@ -5,7 +5,7 @@ function tag(value: unknown): string | undefined {
   const text = value.trim();
   // Campaign labels only: no email addresses, URLs, query strings, control
   // characters, click IDs, or arbitrary objects. Reject rather than truncate.
-  if (!text || text.length > 64 || !/^[a-z0-9][a-z0-9 ._-]*$/i.test(text)) return undefined;
+  if (!text || text.length > 100 || !/^[a-z0-9][a-z0-9 ._-]*$/i.test(text)) return undefined;
   return text;
 }
 

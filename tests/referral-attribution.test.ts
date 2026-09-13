@@ -20,7 +20,7 @@ test("only explicit short acquisition labels are retained, including ChatGPT ref
   });
   expect(parseAcquisitionTags("?email=private%40example.com&gclid=private-id")).toBe(undefined);
   expect(parseAcquisitionTags("?utm_source=person%40example.com&utm_medium=https%3A%2F%2Fprivate.test&utm_campaign=line%0Abreak")).toBe(undefined);
-  expect(sanitizeAcquisitionTags({ utm_source: "x".repeat(65), other: "private" })).toBe(undefined);
+  expect(sanitizeAcquisitionTags({ utm_source: "x".repeat(101), other: "private" })).toBe(undefined);
   expect(sanitizeAcquisitionTags(["chatgpt.com"])).toBe(undefined);
 });
 

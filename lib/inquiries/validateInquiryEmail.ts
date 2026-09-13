@@ -1,8 +1,9 @@
 import { InquiryError } from "./InquiryError.ts";
 import { inquiryTextField } from "./inquiryTextField.ts";
 
+/** Validates the address exactly as typed; the ASCII-only result is lowercased for the CRM. */
 export function validateInquiryEmail(input: Record<string, unknown>): string {
-  const email = inquiryTextField(input, "email", 3, 254).toLowerCase();
+  const email = inquiryTextField(input, "email", 3, 254);
   const [local, domain, extra] = email.split("@");
   if (
     extra !== undefined ||
@@ -17,5 +18,5 @@ export function validateInquiryEmail(input: Record<string, unknown>): string {
     !domain.split(".").every((part) => /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/i.test(part))
   )
     throw new InquiryError(400);
-  return email;
+  return email.toLowerCase();
 }

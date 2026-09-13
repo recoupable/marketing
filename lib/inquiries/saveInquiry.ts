@@ -23,7 +23,8 @@ export async function saveInquiry(inquiry: Inquiry, fingerprint: string, apiUrl:
     }),
     cache: "no-store", redirect: "error", signal: AbortSignal.timeout(20_000),
   });
-  if (!response.ok) throw InquiryError.unavailable();
-  const result: unknown = await response.json();
+  // Only a 200 with the stored-lead receipt counts, the same bar as postLead.
+  if (response.status !== 200) throw InquiryError.unavailable();
+  const result: unknown = await response.json().catch(() => null);
   if (!isObject(result) || result.status !== "success") throw InquiryError.unavailable();
 }

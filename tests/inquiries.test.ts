@@ -91,6 +91,7 @@ test("only confirms after the central API confirms the inquiry was saved", async
   const response = await handle(request());
   expect(response.status).toBe(200);
   const receipt = await response.json();
+  expect(Object.keys(receipt).sort()).toEqual(["ok", "submission_id"]);
   expect(receipt.ok).toBe(true);
   expect(receipt.submission_id).toMatch(/^[a-f\d]{64}$/);
   expect(calls.length).toBe(1);
