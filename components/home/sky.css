@@ -76,7 +76,7 @@
 .sky-flight:nth-child(2n) .sky-float-panel { animation-delay: -4s; }
 .sky-flight:nth-child(3n) .sky-float-panel { animation-delay: -2s; }
 .sky-proof { position: relative; padding: 12px 40px 36px; }
-.sky-proof > p { text-align: center; font: 500 14px/1.5 var(--body); color: #fff; margin-bottom: 18px; }
+.sky-proof > p { text-align: center; font: 500 14px/1.5 var(--body); color: rgb(255 255 255 / 68%); margin-bottom: 18px; }
 .sky-proof > div { display: flex; align-items: center; justify-content: space-around; gap: 28px; max-width: 1130px; margin: auto; padding: 22px 24px; }
 .sky-proof img { object-fit: contain; }
 @keyframes sky-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
