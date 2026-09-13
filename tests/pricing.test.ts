@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import { test } from "node:test";
+import { test, expect } from "vitest";
 import {
   annualDiscountPercent, parsePricingSelection, planPrice, pricingInquiryHref,
   pricingPlans, pricingSelectionLabel, type PricingSelection,
@@ -15,42 +14,42 @@ const inquiry = {
 };
 
 test("annual plans apply 20% off, round down to whole dollars, and disclose the full annual bill", () => {
-  assert.equal(annualDiscountPercent, 20);
+  expect(annualDiscountPercent).toBe(20);
   for (const plan of pricingPlans) {
     const monthly = planPrice(plan.id, "monthly");
     const annual = planPrice(plan.id, "annual");
-    assert.equal(monthly.monthlyCents, plan.monthlyCents);
-    assert.equal(monthly.billedCents, plan.monthlyCents);
-    assert.equal(annual.monthlyCents % 100, 0);
+    expect(monthly.monthlyCents).toBe(plan.monthlyCents);
+    expect(monthly.billedCents).toBe(plan.monthlyCents);
+    expect(annual.monthlyCents % 100).toBe(0);
     const roundingDifference = plan.monthlyCents * 80 - annual.monthlyCents * 100;
-    assert.ok(roundingDifference >= 0 && roundingDifference < 10_000);
-    assert.equal(annual.billedCents, annual.monthlyCents * 12);
-    assert.equal(annual.terms, `${annual.billed} billed annually`);
+    expect(roundingDifference >= 0 && roundingDifference < 10_000).toBeTruthy();
+    expect(annual.billedCents).toBe(annual.monthlyCents * 12);
+    expect(annual.terms).toBe(`${annual.billed} billed annually`);
   }
-  assert.deepEqual(planPrice("advisory", "annual"), {
+  expect(planPrice("advisory", "annual")).toStrictEqual({
     monthlyCents: 79900, billedCents: 958800,
     monthly: "$799", billed: "$9,588", annualSavings: "$2,400",
     terms: "$9,588 billed annually",
   });
-  assert.equal(planPrice("advisory", "monthly").monthly, "$999");
-  assert.equal(planPrice("platform", "annual").monthly, "$79");
-  assert.equal(planPrice("platform", "annual").billed, "$948");
-  assert.equal(planPrice("partner", "annual").monthly, "$7,999");
-  assert.equal(planPrice("partner", "annual").billed, "$95,988");
+  expect(planPrice("advisory", "monthly").monthly).toBe("$999");
+  expect(planPrice("platform", "annual").monthly).toBe("$79");
+  expect(planPrice("platform", "annual").billed).toBe("$948");
+  expect(planPrice("partner", "annual").monthly).toBe("$7,999");
+  expect(planPrice("partner", "annual").billed).toBe("$95,988");
 });
 
 test("pricing query accepts only supported inquiry plans and single billing values", () => {
   for (const plan of ["advisory", "partner"] as const) {
-    assert.deepEqual(parsePricingSelection(plan, undefined), { plan, billing: "monthly" });
-    assert.deepEqual(parsePricingSelection(plan, "annual"), { plan, billing: "annual" });
-    assert.deepEqual(parsePricingSelection(plan, "monthly"), { plan, billing: "monthly" });
+    expect(parsePricingSelection(plan, undefined)).toStrictEqual({ plan, billing: "monthly" });
+    expect(parsePricingSelection(plan, "annual")).toStrictEqual({ plan, billing: "annual" });
+    expect(parsePricingSelection(plan, "monthly")).toStrictEqual({ plan, billing: "monthly" });
   }
   for (const plan of [undefined, "", "platform", "premium", "Advisory", "../enterprise", ["advisory"], ["advisory", "partner"]]) {
-    assert.equal(parsePricingSelection(plan, "monthly"), undefined);
+    expect(parsePricingSelection(plan, "monthly")).toBe(undefined);
   }
   for (const billing of ["", "yearly", "ANNUAL", ["annual"], ["monthly", "annual"]]) {
-    assert.equal(parsePricingSelection("advisory", billing), undefined);
-    assert.equal(parsePricingSelection("enterprise", billing), undefined);
+    expect(parsePricingSelection("advisory", billing)).toBe(undefined);
+    expect(parsePricingSelection("enterprise", billing)).toBe(undefined);
   }
 });
 
@@ -58,15 +57,15 @@ test("inquiry links round trip billing choices and enterprise makes no recurring
   for (const plan of ["advisory", "partner"] as const) {
     for (const billing of ["monthly", "annual"] as const) {
       const url = new URL(pricingInquiryHref(plan, billing), "https://recoup.test");
-      assert.equal(url.pathname, "/start-project");
-      assert.deepEqual(parsePricingSelection(url.searchParams.get("plan")!, url.searchParams.get("billing")!), { plan, billing });
+      expect(url.pathname).toBe("/start-project");
+      expect(parsePricingSelection(url.searchParams.get("plan")!, url.searchParams.get("billing")!)).toStrictEqual({ plan, billing });
     }
   }
-  assert.equal(pricingInquiryHref("enterprise", "annual"), "/start-project?plan=enterprise");
+  expect(pricingInquiryHref("enterprise", "annual")).toBe("/start-project?plan=enterprise");
   const enterprise = parsePricingSelection("enterprise", "annual")!;
-  assert.deepEqual(enterprise, { plan: "enterprise", billing: "monthly" });
-  assert.equal(pricingSelectionLabel(enterprise), "Enterprise · Custom engagement");
-  assert.equal(pricingSelectionLabel({ plan: "advisory", billing: "annual" }), "Advisory · $799/month · $9,588 billed annually");
+  expect(enterprise).toStrictEqual({ plan: "enterprise", billing: "monthly" });
+  expect(pricingSelectionLabel(enterprise)).toBe("Enterprise · Custom engagement");
+  expect(pricingSelectionLabel({ plan: "advisory", billing: "annual" })).toBe("Advisory · $799/month · $9,588 billed annually");
 });
 
 test("full plan and billing context survives edited briefs through copied email and CRM notes", async () => {
@@ -92,23 +91,23 @@ test("full plan and billing context survives edited briefs through copied email 
     const context = `Selected plan: ${pricingSelectionLabel(selection)}`;
     const message = `${inquiryMessageWithContext(editedBrief, "Project brief /start-project", { current: { utm_source: "newsletter" } })}\n\n${context}`;
     const prepared = prepareInquiryEmail("hi@recoupable.dev", { ...inquiry, message });
-    assert.ok(prepared.text.includes(editedBrief));
-    assert.ok(prepared.text.includes(context));
-    assert.ok(new URL(prepared.href).searchParams.get("body")!.includes(context));
+    expect(prepared.text.includes(editedBrief)).toBeTruthy();
+    expect(prepared.text.includes(context)).toBeTruthy();
+    expect(new URL(prepared.href).searchParams.get("body")!.includes(context)).toBeTruthy();
     const response = await handle(new Request("https://recoup.test/api/inquiries", {
       method: "POST", headers: { "Content-Type": "application/json", Origin: "https://recoup.test" },
       body: JSON.stringify({ ...inquiry, message }),
     }));
-    assert.equal(await hasInquiryReceipt(response), true);
+    expect(await hasInquiryReceipt(response)).toBe(true);
     const plain = notes.at(-1)!.replace(/\\([\\`*_{}[\]<>()#+.!|~=-])/g, "$1");
-    assert.ok(plain.includes(context));
-    assert.ok(plain.includes(editedBrief));
-    assert.ok(plain.includes("Website path: Project brief /start-project"));
-    assert.ok(plain.includes("Latest visit source: utm_source=newsletter"));
+    expect(plain.includes(context)).toBeTruthy();
+    expect(plain.includes(editedBrief)).toBeTruthy();
+    expect(plain.includes("Website path: Project brief /start-project")).toBeTruthy();
+    expect(plain.includes("Latest visit source: utm_source=newsletter")).toBeTruthy();
   }
   const submissionIds = notes.map(note => note.match(/Submission ID: ([a-f\d]{64})/)?.[1]);
-  assert.ok(submissionIds.every(Boolean));
-  assert.equal(new Set(submissionIds).size, selections.length, "Billing changes must not be deduplicated as the same inquiry");
+  expect(submissionIds.every(Boolean)).toBeTruthy();
+  expect(new Set(submissionIds).size, "Billing changes must not be deduplicated as the same inquiry").toBe(selections.length);
 });
 
 test("maximum brief and bounded referral data leave room for every pricing selection", () => {
@@ -121,10 +120,10 @@ test("maximum brief and bounded referral data leave room for every pricing selec
     for (const billing of ["monthly", "annual"] as const) {
       const context = `Selected plan: ${pricingSelectionLabel({ plan, billing })}`;
       const message = `${inquiryMessageWithContext(brief, "Project brief /start-project", attribution)}\n\n${context}`;
-      assert.ok(message.length <= 6000);
-      assert.ok(message.includes(brief));
-      assert.ok(message.endsWith(context));
-      assert.equal(validateInquiry({ ...inquiry, message }, now).message, message);
+      expect(message.length <= 6000).toBeTruthy();
+      expect(message.includes(brief)).toBeTruthy();
+      expect(message.endsWith(context)).toBeTruthy();
+      expect(validateInquiry({ ...inquiry, message }, now).message).toBe(message);
     }
   }
 });

@@ -1,6 +1,5 @@
-import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import test from "node:test";
+import { test, expect } from "vitest";
 import { compile, runSync } from "@mdx-js/mdx";
 import { createElement, type ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -36,7 +35,7 @@ test("parsed contents preserve real section headings while excluding Markdown in
     "## Final step",
   ].join("\n");
   const compiled = String(await compile(source, { outputFormat: "function-body", remarkPlugins: [docsHeadingPlugin(headings)] }));
-  assert.deepEqual(headings, [
+  expect(headings).toStrictEqual([
     { title: "Actual setup with API & tools", id: "actual-setup-with-api-tools" },
     { title: "Notes", id: "notes" },
     { title: "Notes", id: "notes-2" },
@@ -44,10 +43,10 @@ test("parsed contents preserve real section headings while excluding Markdown in
     { title: "Final step", id: "final-step" },
   ]);
   const html = render(compiled);
-  for (const heading of headings) assert.ok(html.includes(`id="${heading.id}"`));
-  assert.ok(html.includes('id="subsection"'));
-  assert.ok(html.includes("## Setup checklist"), "The code example remains complete");
-  assert.ok(!html.includes('id="setup-checklist"'));
+  for (const heading of headings) expect(html.includes(`id="${heading.id}"`)).toBeTruthy();
+  expect(html.includes('id="subsection"')).toBeTruthy();
+  expect(html.includes("## Setup checklist"), "The code example remains complete").toBeTruthy();
+  expect(!html.includes('id="setup-checklist"')).toBeTruthy();
 });
 
 test("every imported contents link has exactly one matching rendered section", () => {
@@ -57,15 +56,15 @@ test("every imported contents link has exactly one matching rendered section", (
     if (!page.compiled) continue;
     const html = render(page.compiled);
     const ids = [...html.matchAll(/<h[23]\s[^>]*id="([^"]+)"/g)].map(match => match[1]);
-    assert.equal(new Set(ids).size, ids.length, `Repeated section IDs on ${page.slug}`);
+    expect(new Set(ids).size, `Repeated section IDs on ${page.slug}`).toBe(ids.length);
     for (const heading of page.headings) {
-      assert.equal(ids.filter(id => id === heading.id).length, 1, `Broken contents target ${page.slug}#${heading.id}`);
+      expect(ids.filter(id => id === heading.id).length, `Broken contents target ${page.slug}#${heading.id}`).toBe(1);
       checked++;
     }
   }
-  assert.ok(checked > 40);
+  expect(checked > 40).toBeTruthy();
   for (const slug of ["workflows/create-artist", "workflows/generate-music-video"]) {
     const page = pages.find(page => page.slug === slug)!;
-    assert.ok(!page.headings.some(heading => ["notes", "setup-checklist", "pipeline-checklist"].includes(heading.id)));
+    expect(!page.headings.some(heading => ["notes", "setup-checklist", "pipeline-checklist"].includes(heading.id))).toBeTruthy();
   }
 });

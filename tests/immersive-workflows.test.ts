@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import { test } from "node:test";
+import { test, expect } from "vitest";
 
 const { getImmersiveProjectBrief, getImmersiveWorkflow }: typeof import("../lib/immersive-workflows") =
   await import(new URL("../lib/immersive-workflows.ts", import.meta.url).href);
@@ -11,8 +10,8 @@ test("turns each allowlisted project into a scoped-build brief", () => {
     ["management-reporting", "I would like to scope a custom system for management reporting."],
   ];
   for (const [project, brief] of expected) {
-    assert.equal(getImmersiveProjectBrief(project), brief);
-    assert.equal(getImmersiveWorkflow(project)?.id, project);
+    expect(getImmersiveProjectBrief(project)).toBe(brief);
+    expect(getImmersiveWorkflow(project)?.id).toBe(project);
   }
 });
 
@@ -29,7 +28,7 @@ test("does not copy arbitrary or repeated query values into the project brief", 
     ["royalty-reporting", "catalog-diligence"],
     { id: "royalty-reporting" },
   ]) {
-    assert.equal(getImmersiveWorkflow(project), undefined);
-    assert.equal(getImmersiveProjectBrief(project), undefined);
+    expect(getImmersiveWorkflow(project)).toBe(undefined);
+    expect(getImmersiveProjectBrief(project)).toBe(undefined);
   }
 });

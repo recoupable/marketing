@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import { test } from "node:test";
+import { test, expect } from "vitest";
 
 // Node 24 strips TypeScript; dynamic URL keeps the app's bundler tsconfig intact.
 const { createInquiryHandler, validateInquiry }: typeof import("../lib/inquiries") =
@@ -42,9 +41,9 @@ function mockedLeadApi(overrides: { failNote?: boolean } = {}) {
 
 test("normalizes identity fields and preserves the project brief", () => {
   const result = validateInquiry({ ...valid, name: "  Taylor Example  " }, now);
-  assert.equal(result.name, "Taylor Example");
-  assert.equal(result.email, "taylor+music@example.com");
-  assert.equal(result.message, valid.message);
+  expect(result.name).toBe("Taylor Example");
+  expect(result.email).toBe("taylor+music@example.com");
+  expect(result.message).toBe(valid.message);
 });
 
 test("rejects malformed identity, oversized fields, bots, and stale forms", () => {
@@ -54,8 +53,8 @@ test("rejects malformed identity, oversized fields, bots, and stale forms", () =
     { message: "short" }, { message: "x".repeat(6001) }, { name: "Taylor\nSpoof" },
     { website: "https://spam.test" }, { startedAt: now - 86_400_001 },
     { startedAt: now + 300_001 }, { startedAt: NaN },
-  ]) assert.throws(() => validateInquiry({ ...valid, ...patch }, now));
-  assert.throws(() => validateInquiry(null, now));
+  ]) expect(() => validateInquiry({ ...valid, ...patch }, now)).toThrow();
+  expect(() => validateInquiry(null, now)).toThrow();
 });
 
 test("missing API configuration returns truthful unavailability without a CRM call", async () => {
@@ -65,54 +64,54 @@ test("missing API configuration returns truthful unavailability without a CRM ca
     fetch: async () => { calls++; throw new Error("Unexpected CRM call"); },
   });
   const response = await handle(request());
-  assert.equal(response.status, 503);
-  assert.equal((await response.json()).ok, false);
-  assert.equal(calls, 0);
+  expect(response.status).toBe(503);
+  expect((await response.json()).ok).toBe(false);
+  expect(calls).toBe(0);
 });
 
 test("rejects wrong content type, cross-origin requests, malformed JSON, and large streams", async () => {
   const { handle, calls } = mockedLeadApi();
-  assert.equal((await handle(request(valid, { "Content-Type": "text/plain" }))).status, 415);
-  assert.equal((await handle(request(valid, { Origin: "https://other.test" }))).status, 403);
-  assert.equal((await handle(request(valid, { Origin: "" }))).status, 403);
-  assert.equal((await handle(request(valid, { "Content-Length": "40000" }))).status, 413);
-  assert.equal((await handle(request({ ...valid, message: "x".repeat(33000) }))).status, 413);
+  expect((await handle(request(valid, { "Content-Type": "text/plain" }))).status).toBe(415);
+  expect((await handle(request(valid, { Origin: "https://other.test" }))).status).toBe(403);
+  expect((await handle(request(valid, { Origin: "" }))).status).toBe(403);
+  expect((await handle(request(valid, { "Content-Length": "40000" }))).status).toBe(413);
+  expect((await handle(request({ ...valid, message: "x".repeat(33000) }))).status).toBe(413);
   const malformed = new Request("https://recoup.test/api/inquiries", {
     method: "POST", body: "{broken", headers: { "Content-Type": "application/json", Origin: "https://recoup.test" },
   });
-  assert.equal((await handle(malformed)).status, 400);
-  assert.equal(calls.length, 0);
+  expect((await handle(malformed)).status).toBe(400);
+  expect(calls.length).toBe(0);
 });
 
 test("only confirms after the central API confirms the inquiry was saved", async () => {
   const { handle, calls } = mockedLeadApi();
   const response = await handle(request());
-  assert.equal(response.status, 200);
-  assert.deepEqual(await response.json(), { ok: true });
-  assert.equal(calls.length, 1);
-  assert.equal(calls[0].url, "https://api.recoup.test/api/leads");
-  assert.equal(calls[0].body?.kind, "booking");
-  assert.equal(calls[0].body?.email, "taylor+music@example.com");
-  assert.equal(calls[0].body?.company, "Example Music");
-  assert.equal(calls[0].body?.package, "Custom AI systems");
-  assert.match(String(calls[0].body?.message), /Keep this second line/);
-  assert.equal(response.headers.get("cache-control"), "no-store");
+  expect(response.status).toBe(200);
+  expect(await response.json()).toStrictEqual({ ok: true });
+  expect(calls.length).toBe(1);
+  expect(calls[0].url).toBe("https://api.recoup.test/api/leads");
+  expect(calls[0].body?.kind).toBe("booking");
+  expect(calls[0].body?.email).toBe("taylor+music@example.com");
+  expect(calls[0].body?.company).toBe("Example Music");
+  expect(calls[0].body?.package).toBe("Custom AI systems");
+  expect(String(calls[0].body?.message)).toMatch(/Keep this second line/);
+  expect(response.headers.get("cache-control")).toBe("no-store");
 });
 
 test("a failed note write does not confirm success or disclose provider data", async () => {
   const { handle } = mockedLeadApi({ failNote: true });
   const response = await handle(request());
-  assert.equal(response.status, 503);
+  expect(response.status).toBe(503);
   const text = await response.text();
-  assert.match(text, /"ok":false/);
-  assert.doesNotMatch(text, /Private provider detail|test-token|Taylor/);
+  expect(text).toMatch(/"ok":false/);
+  expect(text).not.toMatch(/Private provider detail|test-token|Taylor/);
 });
 
 test("coalesces simultaneous duplicate submissions in one process", async () => {
   const { handle, calls } = mockedLeadApi();
   const responses = await Promise.all([handle(request()), handle(request())]);
-  assert.deepEqual(responses.map((response) => response.status), [200, 200]);
-  assert.equal(calls.filter((call) => call.method === "POST").length, 1);
+  expect(responses.map((response) => response.status)).toStrictEqual([200, 200]);
+  expect(calls.filter((call) => call.method === "POST").length).toBe(1);
 });
 
 test("an unexpected or unavailable CRM response never reports success", async () => {
@@ -125,8 +124,8 @@ test("an unexpected or unavailable CRM response never reports success", async ()
       getApiUrl: () => "https://api.recoup.test/api", now: () => now, fetch: async () => providerResponse(),
     });
     const response = await handle(request());
-    assert.equal(response.status, 503);
-    assert.doesNotMatch(await response.text(), /Private/);
+    expect(response.status).toBe(503);
+    expect(await response.text()).not.toMatch(/Private/);
   }
 });
 
@@ -136,8 +135,8 @@ test("accepts the public localhost alias when Next canonicalizes its request URL
     Host: "127.0.0.1:3000", Origin: "http://127.0.0.1:3000",
   }, "http://localhost:3000/api/inquiries"));
   // Reaches the credential check; no live transport is invoked.
-  assert.equal(response.status, 503);
-  assert.match((await response.json()).error, /couldn't save/);
+  expect(response.status).toBe(503);
+  expect((await response.json()).error).toMatch(/couldn't save/);
 });
 
 test("accepts a Vercel custom domain using its public Host and forwarded URL protocol", async () => {
@@ -146,7 +145,7 @@ test("accepts a Vercel custom domain using its public Host and forwarded URL pro
     Host: "recoupable.dev", Origin: "https://recoupable.dev",
     "X-Forwarded-Host": "recoupable.dev", "X-Forwarded-Proto": "https",
   }, "https://deployment.vercel.app/api/inquiries"));
-  assert.equal(response.status, 200);
+  expect(response.status).toBe(200);
 });
 
 test("public Host matching still rejects foreign origins, ports, schemes, and spoofed forwarded hosts", async () => {
@@ -160,7 +159,7 @@ test("public Host matching still rejects foreign origins, ports, schemes, and sp
     { Host: "recoup.test", Origin: "https://recoup.test", "Sec-Fetch-Site": "cross-site" },
   ];
   for (const headers of scenarios) {
-    assert.equal((await handle(request(valid, headers))).status, 403);
+    expect((await handle(request(valid, headers))).status).toBe(403);
   }
-  assert.equal(calls.length, 0);
+  expect(calls.length).toBe(0);
 });
