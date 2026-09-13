@@ -61,11 +61,6 @@ export const siteConfig = {
     privyLogo: "/brand/wordmark-lightmode.svg",
   },
 
-  /** Plausible analytics — privacy-friendly, no cookie banner needed */
-  plausible: {
-    domain: "recoupable.dev",
-    src: "https://plausible.io/js/script.js",
-  },
 
   /** Default OG / metadata values (overridden per-page via generateMetadata) */
   metadata: {

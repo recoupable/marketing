@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import "@fontsource-variable/dm-sans";
 import "@fontsource/ibm-plex-mono/400.css";
@@ -49,7 +48,6 @@ export default function RootLayout({
         </a>
         <SiteFrame>{children}</SiteFrame>
         <Analytics />
-        {process.env.NODE_ENV === "production" && <Script defer data-domain="recoupable.dev" src="https://plausible.io/js/script.js" strategy="afterInteractive" />}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

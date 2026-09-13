@@ -63,7 +63,7 @@ The release should look like the Labs site, including the new homepage, services
 - Checkout: advertised plan, charge, annual total, credits/entitlements, login association and success/cancel destinations agree. No production charges for testing.
 - Preview indexing blocked; production canonicals, sitemap, RSS, structured data and agent-readable pages reflect the final content.
 - Docs snapshot, canonical ownership and redirect policy explicit.
-- Existing Plausible and Vercel analytics retained; expected funnel events still fire.
+- Vercel Analytics retained (Plausible removed in recoupable/app#2081 row B; no account existed); expected funnel events still fire.
 - Customer logos, ratings, case studies and outcome claims checked for permission/evidence before publication.
 - No local credentials, generated scratch files, `.gen/` contents or experimental routes included accidentally.
 - Production deployment and rollback target recorded; pending PR conflicts resolved.
@@ -84,7 +84,7 @@ The release should look like the Labs site, including the new homepage, services
 - Root App Router migration; approved Sky design and shared pricing (99 / 999 / 9999 monthly, 79 / 799 / 7999 annual monthly equivalents).
 - Lead forms post through the central API. Budget, timing, attribution, selected plan, and audit/ROI inquiry context remain in the submitted brief; no marketing Attio credentials are required. Newsletter uses the same central API.
 - Valuation retains Spotify search, route-scoped Privy email login, credits-based API valuation, and the app report handoff.
-- Plausible and Vercel Analytics retained. All existing MDX blog slugs are represented in the migrated blog snapshot. Content, transcripts, and workflows are preserved.
+- Vercel Analytics retained (Plausible removed in recoupable/app#2081 row B). All existing MDX blog slugs are represented in the migrated blog snapshot. Content, transcripts, and workflows are preserved.
 - Legacy machine endpoint derives content from the new public content registry. Legacy redirects retained; previews disallow indexing.
 - Production release remains gated on provisioning the new platform billing plan and entitlements, verifying live lead delivery, confirming valuation auth/credit behavior, and reconciling the open pricing/funnel PRs listed above. The preview does not create new Stripe products or charge through legacy plan IDs.
 - Audit and ROI results stay ungated as approved in Labs; explicit inquiry handoffs carry their results into the lead form.
