@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { docsLlmsLinks } from "@/lib/docs/docsLlmsLinks";
 import { docs } from "@/lib/docs";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 
 const pages = [
   { slug: "", title: "Recoup API Documentation", description: "Index.", api: undefined },
@@ -15,10 +15,10 @@ describe("docsLlmsLinks", () => {
     const [, guides, api] = text.split(/^## /m);
     expect(guides.startsWith("Documentation\n")).toBe(true);
     expect(api.startsWith("API reference\n")).toBe(true);
-    expect(guides).toContain(`- [Recoup API Documentation](${site.url}/docs): Index.`);
-    expect(guides).toContain(`- [Quickstart](${site.url}/docs/quickstart): Get a key and go.`);
+    expect(guides).toContain(`- [Recoup API Documentation](${siteConfig.url}/docs): Index.`);
+    expect(guides).toContain(`- [Quickstart](${siteConfig.url}/docs/quickstart): Get a key and go.`);
     expect(guides).not.toContain("artists/list");
-    expect(api).toContain(`- [Get \\[Artists\\]](${site.url}/docs/api-reference/artists/list): List artists.`);
+    expect(api).toContain(`- [Get \\[Artists\\]](${siteConfig.url}/docs/api-reference/artists/list): List artists.`);
   });
 
   it("emits one link per page of the real manifest", () => {

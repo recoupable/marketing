@@ -3,7 +3,7 @@ import { GET as getLlms } from "@/app/llms.txt/route";
 import { GET as getLlmsFull } from "@/app/llms-full.txt/route";
 import { docs } from "@/lib/docs";
 import { docsLlmsFullText } from "@/lib/docs/docsLlmsFullText";
-import { site } from "@/lib/site";
+import { siteConfig } from "@/lib/config";
 
 const pages = docs.filter(page => page.slug);
 const quickstart = docs.find(page => page.slug === "quickstart")!;
@@ -14,7 +14,7 @@ describe("llms.txt documentation parity", () => {
     expect(text.match(/\/docs\//g)?.length ?? 0).toBeGreaterThanOrEqual(pages.length);
     expect(text.indexOf("## Services and public pages")).toBeLessThan(text.indexOf("## Documentation"));
     expect(text.indexOf("## Documentation")).toBeLessThan(text.indexOf("## API reference"));
-    for (const page of pages) expect(text).toContain(`${site.url}/docs/${page.slug})`);
+    for (const page of pages) expect(text).toContain(`${siteConfig.url}/docs/${page.slug})`);
   });
 });
 
@@ -25,7 +25,7 @@ describe("llms-full.txt documentation parity", () => {
     expect(text.endsWith(documentation)).toBe(true);
     expect(text.indexOf("Content ID: page:")).toBeLessThan(text.indexOf(documentation));
     expect(text.match(/^Source: .*\/docs(\/|$)/gm)?.length ?? 0).toBe(docs.length);
-    expect(text).toContain(`# ${quickstart.title}\n\nSource: ${site.url}/docs/quickstart\n`);
+    expect(text).toContain(`# ${quickstart.title}\n\nSource: ${siteConfig.url}/docs/quickstart\n`);
     expect(text).toContain("## Quickest start");
   }, 60000);
 });
