@@ -201,3 +201,7 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 - `/llms.txt`, `/llms-full.txt`, `/agents.md`, `/agents/catalog.json`, and `/agent-api/v1/*` are built from `lib/agent-content.ts` and `lib/agent-discovery.ts`. Documentation descriptions pass through `lib/resolve-description-links.ts` so docs-root links carry the `/docs` prefix everywhere they are published.
 - `/api/machine` is a permanent redirect to `/llms.txt`.
 - Legacy URLs (`/company/about`, `/company/recoup-records`, `/company/recoupable-records`, `/learn`, `/build/start`, `/advisory/book`) are 308 rules in `next.config.ts`; add new aliases there, not as redirecting page files.
+
+## Homepage presentation
+
+The framed root homepage is the approved design; `/preview/sky-scroll` is retired. Keep navigation typography shared across routes through `navigation.css` and `navigation-mobile.css`, and retain `TrackedLink` audit events. Customer logos use transparent assets; the Fat Beats variant preserves white lettering. See `DESIGN.md` for the September 13 polish decisions.

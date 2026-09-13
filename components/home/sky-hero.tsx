@@ -7,7 +7,7 @@ const customers = [
   { name: "Atlantic Records", file: "atlantic-records", width: 52, height: 36 },
   { name: "Warner Records", file: "warner-records", width: 112, height: 28 },
   { name: "Rostrum Records", file: "rostrum-records", width: 91, height: 36 },
-  { name: "Fat Beats", file: "fatbeats-records", width: 88, height: 36 },
+  { name: "Fat Beats", file: "fatbeats-records-white", width: 88, height: 36 },
 ];
 
 export function SkyHero() {
