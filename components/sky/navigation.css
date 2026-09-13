@@ -48,10 +48,10 @@
   min-height: 38px;
   padding: 8px 0;
   font:
-    400 11px/1.6 "IBM Plex Mono",
-    monospace;
-  letter-spacing: 0.065em;
-  text-transform: uppercase;
+    500 14px/1.6 "DM Sans Variable",
+    sans-serif;
+  letter-spacing: -0.01em;
+  text-transform: none;
   white-space: nowrap;
 }
 
@@ -72,4 +72,10 @@
     --nav-wordmark-size: 22px;
     --nav-brand-gap: 8px;
   }
+}
+
+.sky-site .ss-header .ss-contact {
+  font: 550 14px/20px "DM Sans Variable", sans-serif;
+  letter-spacing: -0.01em;
+  text-transform: none;
 }

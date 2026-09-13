@@ -450,3 +450,8 @@ Use the section heading “What we’ve built” and an explicit Case studies la
 ### Music-video offer
 
 `/music-videos` preserves the offer content and lead contract from PR #89 with Sky styling. Hero and films use the original published film posters, not invented proof. Keep the free skill download, paid generation-budget caveat, generated-song scope, and separately quoted released-recording service distinct. Preserve campaign events and sanitized attribution; contact information stays out of analytics.
+
+
+### Root homepage polish — September 13, 2026
+
+The framed root homepage is the chosen design; the retired `/preview/sky-scroll` experiment is not a public route. Preserve the white header and rounded sky hero. Shared navigation and audit actions use sentence-case DM Sans Variable, with 14px desktop text and 13px mobile audit text. Customer marks use transparent assets on a lightly shaded cloud background, equal grid columns, and a dark proof label. Fat Beats retains white lettering inside its colored outline, with a transparent exterior.

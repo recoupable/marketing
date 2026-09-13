@@ -30,7 +30,7 @@
     width: 24px;
     height: 28px;
   }
-  .ss-header .ss-contact {
+  .sky-site .ss-header .ss-contact {
     grid-column: 3;
     grid-row: 1;
     justify-self: end;
@@ -39,9 +39,9 @@
     padding: 11px 13px;
     gap: 0;
     font:
-      500 11px/1.4 "IBM Plex Mono",
-      monospace;
-    letter-spacing: 0.02em;
+      500 13px/1.4 "DM Sans Variable",
+      sans-serif;
+    letter-spacing: 0;
     text-transform: none;
     white-space: nowrap;
   }
