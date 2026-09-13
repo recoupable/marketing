@@ -184,3 +184,14 @@ The `/music-videos` offer retains PR #89’s copy, artist films, skill download,
 
 Both public footers use `components/sky/footer-signup.tsx` for email-only insights signup. It shares `lib/marketing-subscribe.ts` with the blog/resources forms and records `kind: subscribe`, `source: /footer` through the central lead API, preserving acquisition tags.
 
+## Documentation (`/docs`)
+
+- Source of truth: `content/docs/source` (MDX pages, `docs.json` navigation, `api-reference/openapi/*.json`). Edit there; the `recoupable/docs` repository is not read.
+- After editing, run `pnpm docs:build` and commit the generated `content/docs/inventory.json`, `manifest.json`, and `navigation.json` together with the source change. `scripts/__tests__/build-docs.test.ts` fails when they drift.
+- `pnpm docs:check` validates route coverage, schema references, guide links, and request examples.
+
+## Agent discovery
+
+- `/llms.txt`, `/llms-full.txt`, `/agents.md`, `/agents/catalog.json`, and `/agent-api/v1/*` are built from `lib/agent-content.ts` and `lib/agent-discovery.ts`. Documentation descriptions pass through `lib/resolve-description-links.ts` so docs-root links carry the `/docs` prefix everywhere they are published.
+- `/api/machine` is a permanent redirect to `/llms.txt`.
+- Legacy URLs (`/company/about`, `/company/recoup-records`, `/company/recoupable-records`, `/learn`, `/build/start`, `/advisory/book`) are 308 rules in `next.config.ts`; add new aliases there, not as redirecting page files.

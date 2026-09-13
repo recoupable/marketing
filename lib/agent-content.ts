@@ -9,6 +9,7 @@ import { documentationAgentMarkdown, readableAgentMarkdown } from "./agent-markd
 import { site } from "./site.ts";
 import { annualDiscountPercent, planPrice, pricingInquiryHref, pricingSummary } from "./pricing.ts";
 import { caseStudies } from "./case-studies.ts";
+import { resolveDescriptionLinks } from "./resolve-description-links.ts";
 
 export type AgentContentType = "page" | "docs" | "blog" | "playbook";
 export type AgentContentMetadata = {
@@ -195,7 +196,7 @@ entries.push({
 for (const page of docsSource as DocPage[]) {
   const url = absolute(page.slug ? `/docs/${page.slug}` : "/docs");
   entries.push({
-    metadata: { id: `docs:${page.slug || "index"}`, type: "docs", title: page.title, description: page.description, url, representation: "full", ...(page.api?.spec ? { api: { method: page.api.method, path: page.api.path, specificationUrl: absolute(`/docs/spec/${page.api.spec}`) } } : {}) },
+    metadata: { id: `docs:${page.slug || "index"}`, type: "docs", title: page.title, description: resolveDescriptionLinks(page.description), url, representation: "full", ...(page.api?.spec ? { api: { method: page.api.method, path: page.api.path, specificationUrl: absolute(`/docs/spec/${page.api.spec}`) } } : {}) },
     searchable: page.searchText, keywords: `${page.category} ${page.group}`,
     markdown: () => documentationAgentMarkdown(page),
   });

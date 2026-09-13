@@ -1,6 +1,6 @@
 # Recoup documentation migration
 
-This directory is the independent source snapshot for the new `/docs` area. The running app does not depend on `../docs`.
+This directory is the source of truth for the `/docs` area. Documentation is authored under `source/`; the app reads no other checkout.
 
 ## Coverage
 
@@ -12,19 +12,15 @@ This directory is the independent source snapshot for the new `/docs` area. The 
 
 The migration imports existing documentation, not a fresh validation of API behavior. Source statements about beta status, permissions, or evolving contracts remain intact. No API requests are executed by the docs site or import scripts.
 
-## Rebuild or re-import
+## Edit and rebuild
 
-Recompile the independent snapshot after editing its MDX:
-
-```bash
-pnpm docs:import
-```
-
-Import a refreshed source checkout:
+Edit the MDX pages, `docs.json`, or the OpenAPI files under `source/`, then regenerate the derived files and commit them with the source change:
 
 ```bash
-pnpm docs:import -- ../docs
+pnpm docs:build
 ```
+
+`scripts/__tests__/build-docs.test.ts` rebuilds into a temporary directory and fails when `inventory.json`, `manifest.json`, or `navigation.json` differ from the committed files.
 
 Validate route coverage, schema references, guide links, and generated request examples:
 
@@ -32,7 +28,7 @@ Validate route coverage, schema references, guide links, and generated request e
 pnpm docs:check
 ```
 
-The importer compiles only allowlisted presentation components. It rejects imports, executable expressions, spread attributes, and unknown MDX components. Full source OpenAPI files stay intact; the UI adds grouped parameters, expandable nested schemas, response states, copyable requests, and specification downloads. The frontmatter method/path pointers are resolved against their named OpenAPI document; pointers without a file name are matched across the supplied documents.
+The build compiles only allowlisted presentation components. It rejects imports, executable expressions, spread attributes, and unknown MDX components. Full source OpenAPI files stay intact; the UI adds grouped parameters, expandable nested schemas, response states, copyable requests, and specification downloads. The frontmatter method/path pointers are resolved against their named OpenAPI document; pointers without a file name are matched across the supplied documents.
 
 ## Routing and intentional adjustments
 
@@ -47,4 +43,4 @@ The importer compiles only allowlisted presentation components. It rejects impor
 - Documentation examples are displayed and copyable; there is no live-request console.
 - The table of contents is collected from parsed document headings. Code examples cannot create phantom sections, and repeated heading names receive distinct anchors during compilation.
 
-`inventory.json` records import time, source counts, additional operations, and any unresolved pointers. Import time describes the migration snapshot, not when the API was last validated.
+`inventory.json` records source counts, additional operations, and any unresolved pointers.

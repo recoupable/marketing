@@ -10,7 +10,7 @@
     "format": "prettier --write . && pnpm lint",
     "test": "vitest run",
     "lint:fix": "eslint . --fix",
-    "docs:import": "node scripts/import-docs.mjs",
+    "docs:build": "node scripts/build-docs.mjs",
     "docs:check": "node scripts/import-docs-check.mjs",
     "agents:check": "node scripts/audit-agents.mjs"
   },
