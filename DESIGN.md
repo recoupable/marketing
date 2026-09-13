@@ -454,4 +454,6 @@ Use the section heading “What we’ve built” and an explicit Case studies la
 
 ### Homepage announcement — September 13, 2026
 
-The hero pill announces “Catalog Skills v2 is here” and links to `/skills`. Use a small lime New badge, DM Sans text, and the shared arrow. The entire pill is a keyboard-accessible link with a minimum 44px touch target; keep the existing hero headline and spacing.
+The hero pill announces “Catalog Skills v2 is here” and links to `/skills`. Use a small lime New badge, DM Sans text, and the shared arrow. The entire pill is a keyboard-accessible link with a minimum 44px touch target.
+
+The hero headline reads “AI transformation” followed by “for music funds and rightsholders.” Keep its supporting copy concise: “We build AI systems you own—and train your team to use them.” Set the subtitle at 24px on desktop and 18px on mobile, with balanced wrapping and a 720px maximum desktop width.

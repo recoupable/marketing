@@ -31,13 +31,12 @@ export function SkyHero() {
           <SkyArrow />
         </Link>
         <h1 id="sky-title">
-          AI transformation services
+          AI transformation
           <br />
           <span>for music funds and rightsholders</span>
         </h1>
         <p className="sky-hero-description">
-          We identify where AI can help, build working systems you own, and
-          train your team to use them.
+          We build AI systems you own—and train your team to use them.
         </p>
       </div>
 
