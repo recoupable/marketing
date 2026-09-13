@@ -96,7 +96,7 @@ test("search rejects malformed input and bounded-field violations", async () => 
   for (const input of [null, [], {}, { query: "" }, { query: "   " }, { query: "x".repeat(241) }, { query: "artist\nkey" }, { query: "artist", url: "https://example.com" }]) {
     await expect(searchAgentContent(input as AgentSearchInput)).rejects.toSatisfy(errorWith("INVALID_QUERY"));
   }
-  await expect(searchAgentContent({ query: "x".repeat(240) })).resolves.not.toThrow();
+  await expect(searchAgentContent({ query: "x".repeat(240) })).resolves.toBeDefined();
   for (const limit of [0, 11, 1.5, null, "5", NaN]) await expect(searchAgentContent({ query: "artist", limit } as AgentSearchInput)).rejects.toSatisfy(errorWith("INVALID_LIMIT"));
   await expect(searchAgentContent({ query: "artist", type: "private" } as unknown as AgentSearchInput)).rejects.toSatisfy(errorWith("INVALID_TYPE"));
   for (const cursor of ["-1", "01", "1.2", "99999", "x".repeat(201), null]) await expect(searchAgentContent({ query: "artist", cursor } as AgentSearchInput)).rejects.toSatisfy(errorWith("INVALID_CURSOR"));

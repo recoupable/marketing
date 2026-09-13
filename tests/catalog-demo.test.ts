@@ -34,7 +34,7 @@ test("accounts for every statement cent while excluding ambiguous and unmatched 
         attributedCents,
         heldCents,
       }),
-    ), ).toStrictEqual([
+    )).toStrictEqual([
       {
         period: "2025-Q1",
         receivedCents: 1_200_000,
@@ -49,11 +49,11 @@ test("accounts for every statement cent while excluding ambiguous and unmatched 
       },
     ]);
   for (const period of result.periods) {
-    expect(period.receivedCents, ).toBe(period.attributedCents + period.heldCents);
+    expect(period.receivedCents).toBe(period.attributedCents + period.heldCents);
     expect(period.rows.length).toBe(4);
   }
   expect(result.attributedDeltaCents).toBe(170_000);
-  expect(Math.abs(result.attributedDeltaRate! - 0.15454545454545454) < 1e-12, ).toBeTruthy();
+  expect(Math.abs(result.attributedDeltaRate! - 0.15454545454545454) < 1e-12).toBeTruthy();
   expect(demoSummary.catalogRowCount).toBe(4);
   expect(demoSummary.distinctCatalogCodeCount).toBe(3);
   expect(demoSummary.acquisitionFindingCount).toBe(3);
@@ -65,7 +65,7 @@ test("never chooses an arbitrary duplicate or double counts its statement amount
   expect(conflicting.length).toBe(2);
   expect(conflicting.every(
       (row) => row.status === "ambiguous" && row.candidates.length === 2,
-    ), ).toBeTruthy();
+    )).toBeTruthy();
   const changed = fixture();
   changed.sources["catalog.csv"][4] =
     "C-004,NS-004,Afterglow (Instrumental),June Assembly";
@@ -73,7 +73,7 @@ test("never chooses an arbitrary duplicate or double counts its statement amount
   expect(fixed.current?.receivedCents).toBe(1_400_000);
   expect(fixed.current?.attributedCents).toBe(1_360_000);
   expect(fixed.current?.heldCents).toBe(40_000);
-  expect(fixed.findings.some((finding) => finding.kind === "conflicting-code"), ).toBe(false);
+  expect(fixed.findings.some((finding) => finding.kind === "conflicting-code")).toBe(false);
   expect(fixed.findings.length).toBe(2);
 });
 
@@ -84,7 +84,7 @@ test("resolving an unmatched code changes attribution but never changes received
   expect(fixed.current?.receivedCents).toBe(1_400_000);
   expect(fixed.current?.attributedCents).toBe(1_310_000);
   expect(fixed.current?.heldCents).toBe(90_000);
-  expect(fixed.findings.some((finding) => finding.kind === "unmatched-code"), ).toBe(false);
+  expect(fixed.findings.some((finding) => finding.kind === "unmatched-code")).toBe(false);
 });
 
 test("required coverage comes from notes and remains separate from available-period reporting", () => {
@@ -96,7 +96,7 @@ test("required coverage comes from notes and remains separate from available-per
   const revisedScope = analyzeCatalogDemo(changed);
   expect(revisedScope.missingPeriods).toStrictEqual([]);
   expect(revisedScope.findings.length).toBe(2);
-  expect(revisedScope.current?.receivedCents, ).toBe(result.current?.receivedCents);
+  expect(revisedScope.current?.receivedCents).toBe(result.current?.receivedCents);
 });
 
 test("both packets preserve every unresolved item and citations point to exact input lines", () => {
@@ -108,7 +108,7 @@ test("both packets preserve every unresolved item and citations point to exact i
     expect(packet.unresolvedItems.length).toBe(3);
     expect(packet.unresolvedItems
         .map((finding: { kind: string }) => finding.kind)
-        .sort(), ).toStrictEqual(["conflicting-code", "missing-period", "unmatched-code"]);
+        .sort()).toStrictEqual(["conflicting-code", "missing-period", "unmatched-code"]);
     for (const finding of packet.unresolvedItems) {
       expect(finding.sources.length > 0).toBeTruthy();
       for (const source of finding.sources) {
@@ -120,7 +120,7 @@ test("both packets preserve every unresolved item and citations point to exact i
       0,
     );
     expect(heldFromFindings).toBe(230_000);
-    expect(heldFromFindings, ).toBe(packet.periods.reduce(
+    expect(heldFromFindings).toBe(packet.periods.reduce(
         (sum: number, period: { heldCents: number }) => sum + period.heldCents,
         0,
       ));
