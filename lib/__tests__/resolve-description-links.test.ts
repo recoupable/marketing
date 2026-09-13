@@ -39,11 +39,12 @@ describe("resolveDescriptionLinks", () => {
   });
 
   it("resolves docs-root links inside the embedded operation slice", () => {
-    const spec = { openapi: "3.1.0", info: { title: "t" }, paths: { "/api/chat/runs": { post: { summary: "Run", description: "Same engine as [`POST /api/chat`](/api-reference/chat/workflow).", responses: { "200": { description: "See [status](/api-reference/chat/runs-status)." } } } } } };
+    const spec = { openapi: "3.1.0", info: { title: "t" }, paths: { "/api/chat/runs": { post: { summary: "Run", description: "Same engine as [`POST /api/chat`](/api-reference/chat/workflow).", requestBody: { content: { "application/json": { schema: { $ref: "#/components/schemas/Body" } } } }, responses: { "200": { description: "See [status](/api-reference/chat/runs-status)." } } } } }, components: { schemas: { Body: { type: "object", properties: { sessionId: { type: "string", description: "Call [POST /api/sandbox](/api-reference/sandbox/create) first." } } } } } };
     const page = { title: "Runs", slug: "api-reference/chat/runs", api: { spec: "chat", path: "/api/chat/runs", method: "POST" } } as unknown as DocPage;
     const text = JSON.stringify(operationSpecification(page, spec));
     expect(text).toContain("](/docs/api-reference/chat/workflow)");
     expect(text).toContain("](/docs/api-reference/chat/runs-status)");
+    expect(text).toContain("](/docs/api-reference/sandbox/create)");
     expect(text).not.toContain("](/api-reference/");
   });
 });

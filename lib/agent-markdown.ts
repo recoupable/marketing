@@ -118,7 +118,7 @@ export function operationSpecification(page: DocPage, spec: ApiObject): ApiObjec
     info: spec.info,
     ...(spec.servers ? { servers: spec.servers } : {}),
     ...(spec.security !== undefined ? { security: spec.security } : {}),
-    paths: { [page.api.path]: resolveSpecLinks({ ...pathContext, [page.api.method.toLowerCase()]: operation }) },
+    paths: { [page.api.path]: { ...pathContext, [page.api.method.toLowerCase()]: operation } },
   };
   const refs = new Set<string>();
   const scan = (value: unknown) => {
@@ -145,7 +145,8 @@ export function operationSpecification(page: DocPage, spec: ApiObject): ApiObjec
     });
     scan(value);
   }
-  return output;
+  // Every summary and description in the slice, components included, links docs-root paths in the source.
+  return resolveSpecLinks(output);
 }
 
 export async function documentationAgentMarkdown(page: DocPage): Promise<string> {
