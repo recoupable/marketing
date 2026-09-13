@@ -29,4 +29,3 @@ Content: publish more blog posts targeting SEO pillars. Wire up the nav menu (li
 
 ## Don't Touch
 
-- Theme inline script in layout.tsx (prevents flash of wrong theme)
