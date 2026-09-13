@@ -76,7 +76,7 @@ The release should look like the Labs site, including the new homepage, services
 - Vercel environments: https://vercel.com/docs/deployments/environments
 - Marketing: `AGENTS.md`, `next.config.ts`, `lib/config.ts`, `lib/postCapture.ts`, `lib/pricing/entitlements.ts`, `lib/checkout/createDirectCheckoutSession.ts`, `hooks/useCatalogValuation.ts`, `app/layout.tsx`.
 - API: `lib/leads/validatePostLeadsBody.ts`, `lib/plans/`, `app/api/subscriptions/sessions/route.ts`.
-- Labs: `src/lib/pricing.ts`, `src/lib/inquiries.ts`, `src/lib/marketing-subscribe.ts`, `src/app/valuation/page.tsx`, `scripts/import-docs.mjs`, `next.config.ts`.
+- Labs: `src/lib/pricing.ts`, `src/lib/inquiries.ts`, `src/lib/marketing-subscribe.ts`, `src/app/valuation/page.tsx`, `scripts/build-docs.mjs`, `next.config.ts`.
 
 ## Preview implementation receipt
 

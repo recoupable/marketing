@@ -28,7 +28,7 @@ const components={
  Warning:({children}:{children:ReactNode})=><Callout tone="Warning">{children}</Callout>,
 };
 export function DocsContent({compiled}:{compiled:string}) {
- // Only source checked by import-docs.mjs is compiled: executable expressions and imports are rejected there.
+ // Only source checked by build-docs.mjs is compiled: executable expressions and imports are rejected there.
  const {default:Content}=runSync(compiled,{...runtime,baseUrl:import.meta.url});
  return <div className="docs-prose"><Content components={components}/></div>;
 }

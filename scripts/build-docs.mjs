@@ -7,7 +7,9 @@ import { docsHeadingPlugin } from './docs-headings.ts';
 // content/docs/source is the only input. `--out <dir>` redirects the generated
 // files (default content/docs) so a test can compare a fresh build against the committed set.
 const outFlag = process.argv.indexOf('--out');
-const destination = path.resolve(outFlag === -1 ? 'content/docs' : process.argv[outFlag + 1]);
+const outPath = outFlag === -1 ? 'content/docs' : process.argv[outFlag + 1];
+if (!outPath || outPath.startsWith('--')) throw new Error('Usage: node scripts/build-docs.mjs [--out <dir>]');
+const destination = path.resolve(outPath);
 const snapshot = path.resolve('content/docs/source');
 async function filesIn(dir) {
   const entries = await readdir(dir, { withFileTypes: true });

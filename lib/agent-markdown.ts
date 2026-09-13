@@ -1,3 +1,4 @@
+import { resolveDescriptionLinks } from "./resolve-description-links.ts";
 import { createProcessor } from "@mdx-js/mdx";
 import remarkGfm from "remark-gfm";
 import type { DocPage } from "./docs";
@@ -148,7 +149,7 @@ export function operationSpecification(page: DocPage, spec: ApiObject): ApiObjec
 
 export async function documentationAgentMarkdown(page: DocPage): Promise<string> {
   const url = new URL(page.slug ? `/docs/${page.slug}` : "/docs", site.url).href;
-  const parts = [`# ${page.title}`, `Source: ${url}`, page.description, page.body ? readableAgentMarkdown(page.body, url, true) : ""].filter(Boolean);
+  const parts = [`# ${page.title}`, `Source: ${url}`, resolveDescriptionLinks(page.description ?? ""), page.body ? readableAgentMarkdown(page.body, url, true) : ""].filter(Boolean);
   if (page.api?.spec) {
     const spec = await getDocSpec(page.api.spec);
     const slice = operationSpecification(page, spec);
