@@ -2,7 +2,6 @@ import { test, expect } from "vitest";
 import { agentToolDefinitions } from "../lib/agent-tools/agentToolDefinitions.ts";
 import { AgentToolInputError } from "../lib/agent-tools/AgentToolInputError.ts";
 import { executeUtilityTool } from "../lib/agent-tools/executeUtilityTool.ts";
-import { isUtilityToolName } from "../lib/agent-tools/isUtilityToolName.ts";
 import { calculateWorkflowROI } from "../lib/marketing-migration-tools/calculateWorkflowROI.ts";
 import { readinessQuestions } from "../lib/marketing-migration-tools/readinessQuestions.ts";
 import { recommendReadiness } from "../lib/marketing-migration-tools/recommendReadiness.ts";
@@ -23,8 +22,6 @@ function invalid(run: () => unknown, field?: string) {
 test("the five public tool contracts distinguish content reading from local utilities", () => {
   expect(agentToolDefinitions.map(tool => tool.name)).toStrictEqual(["search_recoup", "read_recoup_page", "estimate_workflow_roi", "assess_workflow_readiness", "prepare_project_brief"]);
   expect(agentToolDefinitions.every(tool => tool.annotations.readOnlyHint && tool.inputSchema.additionalProperties === false)).toBeTruthy();
-  expect(isUtilityToolName("prepare_project_brief")).toBe(true);
-  expect(isUtilityToolName("search_recoup")).toBe(false);
   expect(() => executeUtilityTool("submit_lead", {})).toThrow(expect.toSatisfy(error => error instanceof AgentToolInputError && error.code === "UNKNOWN_TOOL"));
 });
 

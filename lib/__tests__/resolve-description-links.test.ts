@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { resolveDescriptionLinks } from "../resolve-description-links";
-import { getAgentContentIndex } from "../agent-content";
-import { getAgentCatalog } from "../agent-discovery";
+import { getAgentContentIndex } from "../agent-content/getAgentContentIndex";
+import { getAgentCatalog } from "../agent-discovery/getAgentCatalog";
 import { documentationAgentMarkdown, operationSpecification } from "../agent-markdown";
 import type { DocPage } from "../docs";
 
