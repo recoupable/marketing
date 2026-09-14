@@ -1,0 +1,88 @@
+[
+  {
+    "id": "editorial11-03",
+    "category": "editorial-11",
+    "family": "geometry",
+    "title": "Layered panels",
+    "sampleTitle": "Build systems your team can trust",
+    "description": "The same overlapping panels, with a quieter surface and cleaner separation between the layers.",
+    "changes": [
+      "Removed the lime dash.",
+      "Matched the corner radii.",
+      "Cleaner blue layers with a faint edge highlight."
+    ],
+    "patternRule": "Three empty rounded surfaces with the same 90px corner radius and stepped overlaps. Keep the structure abstract, with no interface controls.",
+    "gradientRule": "A pale flat field surrounds translucent-looking blue layers. Each layer carries its own restrained directional light.",
+    "paletteName": "Pale blue / blue",
+    "preview": "assets/editorial-11/option-03.png",
+    "artPreview": "assets/editorial-11/option-03-art.png",
+    "originalPreview": "assets/editorial-10/option-03-feed.png",
+    "originalId": "editorial10-03",
+    "files": [
+      {
+        "label": "Refined cover PNG",
+        "path": "assets/editorial-11/option-03.png"
+      },
+      {
+        "label": "Refined cover SVG",
+        "path": "assets/editorial-11/option-03.svg"
+      },
+      {
+        "label": "Artwork without text PNG",
+        "path": "assets/editorial-11/option-03-art.png"
+      },
+      {
+        "label": "Artwork without text SVG",
+        "path": "assets/editorial-11/option-03-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG"
+  },
+  {
+    "id": "editorial11-06",
+    "category": "editorial-11",
+    "family": "geometry",
+    "title": "Soft imprint",
+    "sampleTitle": "Give your team a clear starting point",
+    "description": "The same soft symbol impression, with more controlled diffusion and extra room around the headline.",
+    "changes": [
+      "A clearer upper edge fades into softer light.",
+      "Moved the headline left and slightly upward.",
+      "Kept the blue field and typography unchanged."
+    ],
+    "patternRule": "Use the exact mark as one enlarged, softly cropped impression. Keep a minimum128px text inset and adjust the title block before reducing its size.",
+    "gradientRule": "The upper edge has more definition while the lower impression diffuses into blue. The title area remains flat.",
+    "paletteName": "Blue / diffused cyan",
+    "preview": "assets/editorial-11/option-06.png",
+    "artPreview": "assets/editorial-11/option-06-art.png",
+    "originalPreview": "assets/editorial-10/option-06-feed.png",
+    "originalId": "editorial10-06",
+    "files": [
+      {
+        "label": "Refined cover PNG",
+        "path": "assets/editorial-11/option-06.png"
+      },
+      {
+        "label": "Refined cover SVG",
+        "path": "assets/editorial-11/option-06.svg"
+      },
+      {
+        "label": "Artwork without text PNG",
+        "path": "assets/editorial-11/option-06-art.png"
+      },
+      {
+        "label": "Artwork without text SVG",
+        "path": "assets/editorial-11/option-06-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG"
+  }
+]

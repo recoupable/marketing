@@ -1,0 +1,25 @@
+.reset-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:20px;margin:20px 0}
+.reset-toolbar>a{font-size:13px}
+.reset-views{display:flex;padding:4px;border:1px solid var(--border);border-radius:30px;gap:4px}
+.reset-views button{background:transparent;color:var(--muted);border:0;border-radius:24px;min-height:38px;padding:8px 16px;font:13px var(--sans);cursor:pointer}
+.reset-views button[aria-pressed=true]{color:white;background:var(--ink)}
+.reset-reference{border-block:1px solid var(--border);padding:16px 0;margin:20px 0 26px}
+.reset-reference summary{cursor:pointer;font-size:14px}
+.reset-reference>p{max-width:760px;color:var(--muted);font-size:14px;line-height:1.7}
+.reset-reference-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding-bottom:12px}
+.reset-reference-grid a{color:var(--muted);font-size:12px;text-decoration:none}
+.reset-reference-grid img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;border:1px solid var(--border);border-radius:8px;margin-bottom:8px}
+.asset-grid.editorial-reset-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 28px}
+.asset-grid.editorial-reset-options.reset-feed{grid-template-columns:repeat(3,minmax(0,1fr));gap:38px 24px}
+.reset-card .asset-preview{aspect-ratio:16/9;background:var(--soft);padding:0;border-radius:14px}
+.reset-card .asset-preview img{width:100%;height:100%;object-fit:contain}
+.reset-card .asset-card-top{margin-top:20px;align-items:center;gap:10px}
+.reset-card h3{font:450 clamp(20px,2vw,28px)/1.16 var(--sans);letter-spacing:-.045em;margin:13px 0 12px;max-width:95%}
+.reset-card .reset-rationale{font-size:14px;line-height:1.65;color:var(--muted);margin:0 0 18px;max-width:54ch}
+.reset-card-meta{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px}
+.reset-card-meta a{color:var(--link);white-space:nowrap}
+.reset-feed .reset-rationale{display:none}
+.reset-feed .reset-card h3{font-size:22px}
+.reset-feed .asset-category{font-size:10px}
+@media(max-width:950px){.asset-grid.editorial-reset-options.reset-feed{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.asset-grid.editorial-reset-options,.asset-grid.editorial-reset-options.reset-feed{grid-template-columns:1fr;gap:38px}.reset-reference-grid{grid-template-columns:1fr}.reset-toolbar{gap:14px}.reset-card h3,.reset-feed .reset-card h3{font-size:23px}.reset-card .asset-card-top{margin-top:14px}}

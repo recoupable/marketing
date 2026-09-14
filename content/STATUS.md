@@ -8,6 +8,16 @@ The shared header now has Services, Products, Resources, and Pricing. Products g
 
 Validated with a production build, focused lint, and desktop/mobile browser checks covering sibling dropdowns, link navigation, outside-click dismissal, Escape focus, and 320px reflow.
 
+---
+
+# Shared GTM context and tools — September 14, 2026
+
+The shared team home is `gtm/`. Start at `gtm/AGENTS.md` and `gtm/README.md` for enterprise buyer context, the worldwide music-rights company research, Music Moneyball interviews and principles, adapted consulting playbooks, and the next engine build. Consulting originals remain in place; the import is a dated snapshot with provenance, not an automatic sync.
+
+The old GTM app-user tools now live in the independent `gtm/engine` package. Its CRM command previews by default and requires an explicit apply option for writes. Live integration compatibility remains unverified. The account-to-draft workflow, publishing connections, and outcome tracking are next work in `gtm/BUILD_PLAN.md`. No outreach, campaign, or recurring worker was launched by this consolidation.
+
+---
+
 # Homepage copy simplification — September 14, 2026
 
 Tools cards use unnumbered labels and end at their destination links. The Platform price remains visible; Skills and Developers carry usage-cost details on their linked pages.

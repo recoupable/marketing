@@ -1,0 +1,42 @@
+[
+  {
+    "id": "linkedin-azure-music-rightsholders",
+    "title": "Azure / music rightsholders",
+    "description": "AI transformation for music rightsholders.",
+    "group": "social",
+    "preview": "assets/linkedin-refined/azure-music-rightsholders.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-refined/azure-music-rightsholders.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-refined/azure-music-rightsholders.svg"
+      }
+    ],
+    "collection": "LinkedIn / Azure refinement",
+    "current": true,
+    "tool": "linkedin-banners.html#azure-music-rightsholders"
+  },
+  {
+    "id": "linkedin-azure-music-business",
+    "title": "17 \u00b7 Azure refined / music business",
+    "description": "The earlier broader headline, kept for comparison.",
+    "group": "social",
+    "preview": "assets/linkedin-refined/azure-music-business.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-refined/azure-music-business.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-refined/azure-music-business.svg"
+      }
+    ],
+    "collection": "LinkedIn / Azure refinement",
+    "current": true,
+    "tool": "linkedin-banners.html#azure-music-business"
+  }
+]

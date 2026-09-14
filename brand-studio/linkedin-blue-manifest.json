@@ -1,0 +1,102 @@
+[
+  {
+    "id": "linkedin-azure-playbooks",
+    "title": "12 \u00b7 Azure / playbooks",
+    "description": "Bright blue with a compact playbook fan and a smaller wordmark.",
+    "group": "social",
+    "preview": "assets/linkedin-blue/azure-playbooks.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-blue/azure-playbooks.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-blue/azure-playbooks.svg"
+      }
+    ],
+    "collection": "LinkedIn / blue variations",
+    "current": true,
+    "tool": "linkedin-banners.html#azure-playbooks"
+  },
+  {
+    "id": "linkedin-ice-playbooks",
+    "title": "13 \u00b7 Ice / blue on blue",
+    "description": "Pale blue, dark type, and a tonal blue card family.",
+    "group": "social",
+    "preview": "assets/linkedin-blue/ice-playbooks.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-blue/ice-playbooks.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-blue/ice-playbooks.svg"
+      }
+    ],
+    "collection": "LinkedIn / blue variations",
+    "current": true,
+    "tool": "linkedin-banners.html#ice-playbooks"
+  },
+  {
+    "id": "linkedin-deep-blue-work",
+    "title": "14 \u00b7 Deep blue / connected work",
+    "description": "A deeper blue with two readable working cards.",
+    "group": "social",
+    "preview": "assets/linkedin-blue/deep-blue-work.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-blue/deep-blue-work.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-blue/deep-blue-work.svg"
+      }
+    ],
+    "collection": "LinkedIn / blue variations",
+    "current": true,
+    "tool": "linkedin-banners.html#deep-blue-work"
+  },
+  {
+    "id": "linkedin-cobalt-services",
+    "title": "15 \u00b7 Cobalt / service cards",
+    "description": "Three wide service cards step across the right side.",
+    "group": "social",
+    "preview": "assets/linkedin-blue/cobalt-services.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-blue/cobalt-services.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-blue/cobalt-services.svg"
+      }
+    ],
+    "collection": "LinkedIn / blue variations",
+    "current": true,
+    "tool": "linkedin-banners.html#cobalt-services"
+  },
+  {
+    "id": "linkedin-daylight-open",
+    "title": "16 \u00b7 Daylight / open space",
+    "description": "The approved Daylight atmosphere with a simple typographic composition.",
+    "group": "social",
+    "preview": "assets/linkedin-blue/daylight-open.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-blue/daylight-open.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-blue/daylight-open.svg"
+      }
+    ],
+    "collection": "LinkedIn / blue variations",
+    "current": true,
+    "tool": "linkedin-banners.html#daylight-open"
+  }
+]

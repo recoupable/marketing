@@ -1,0 +1,116 @@
+[
+  {
+    "id": "editorial14-01",
+    "category": "editorial-14",
+    "family": "geometry",
+    "title": "Kinetic fan",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "Broad colored blades open from a point below the frame. Different lengths and deliberate gaps give the silhouette movement while the blue field stays quiet.",
+    "patternRule": "Use six or seven broad tapered blades, with gently rounded ends and irregular lengths. Crop the point of convergence below the frame; preserve space around the headline.",
+    "gradientRule": "Flat color throughout. Depth comes from the sequence of blue, cyan, and one lime blade, rather than a background glow.",
+    "paletteName": "Blue / cyan / lime",
+    "preview": "assets/editorial-14/option-01.png",
+    "artPreview": "assets/editorial-14/option-01-art.png",
+    "originalPreview": "assets/editorial-10/option-01.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-14/option-01.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-14/option-01.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-14/option-01-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-14/option-01-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "Exact round10 DM Sans 450",
+    "status": "proposed",
+    "generator": "native SVG"
+  },
+  {
+    "id": "editorial14-02",
+    "category": "editorial-14",
+    "family": "geometry",
+    "title": "Woven loop",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "Two broad loops weave through one another above the headline. The cropped curves and small lime crossing give the composition a playful, sculptural rhythm.",
+    "patternRule": "Pair two generous asymmetric elliptical ribbons. Give each a different angle and proportion; weave one crossing over and one under. Keep the lower-left headline area open.",
+    "gradientRule": "Flat forest and blue ribbons with a small lime crossing. White space provides the contrast; no gradient or shadow.",
+    "paletteName": "White / forest / blue / lime",
+    "preview": "assets/editorial-14/option-02.png",
+    "artPreview": "assets/editorial-14/option-02-art.png",
+    "originalPreview": "assets/editorial-10/option-04.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-14/option-02.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-14/option-02.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-14/option-02-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-14/option-02-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "Exact round10 DM Sans 450",
+    "status": "proposed",
+    "generator": "native SVG"
+  },
+  {
+    "id": "editorial14-03",
+    "category": "editorial-14",
+    "family": "geometry",
+    "title": "Slanted rhythm",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "Bold angled capsules rise through the edge in uneven lengths. Their spacing and staggered ends create a graphic rhythm without becoming a diagram or interface.",
+    "patternRule": "Use broad parallel capsules at one decisive angle. Vary their lengths and end positions; keep the gaps even and let the frame crop the final bars.",
+    "gradientRule": "Flat pale blue base and solid colored capsules. One lime bar breaks the blue-and-forest sequence; no gradient.",
+    "paletteName": "Pale blue / blue / forest / lime",
+    "preview": "assets/editorial-14/option-03.png",
+    "artPreview": "assets/editorial-14/option-03-art.png",
+    "originalPreview": "assets/editorial-10/option-03.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-14/option-03.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-14/option-03.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-14/option-03-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-14/option-03-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "Exact round10 DM Sans 450",
+    "status": "proposed",
+    "generator": "native SVG"
+  }
+]

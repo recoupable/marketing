@@ -1,0 +1,1679 @@
+# Why music catalogs don’t fit a 5-10 year fund model w/ Josh Gruss
+# Date: 2026-05-05
+# Duration: 00:54:11
+# Guests: Josh Gruss — CEO, Round Hill Music Hosts: Tom Mullen and Emma Griffiths, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen and Emma Griffiths, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Why-music-catalogs-dont-fit-a-5-10-year-fund-model-w-Josh-Gruss-e3itd77
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] I am 100% certain had we still owned those assets, they'd be worth more today than they were three years ago when we sold it.
+[00:10] So that's also part of the evergreen models.
+[00:13] I just see the space increasing in value more and more and more.
+[00:19] Why cut that short?
+[00:30] So welcome to Music Moneyball, Josh. It's great to have you here.
+[00:42] Great to be here with you, Emma. Thank you.
+[00:45] Amazing to have you, Josh. Thank you for joining.
+[00:47] Thanks, Tom.
+[00:48] Yeah, Josh, we just wanted to kind of start just by kicking off.
+[00:51] You know, you've been in this industry a long time.
+[00:54] You've seen a lot of change, presumably, over the 15 years or so, you know, since...
+[01:00] Starting Roundhill in 2010, I think it was.
+[01:03] So I think it would just, you know, be great to learn a little bit more about what that's looked like
+[01:07] and, like, specifically, what's something that you could have only really learned after doing this for 15 years?
+[01:16] Yeah, I'd love to share some perspective on that.
+[01:20] When I started Roundhill in 2010, it was before so much of this had taken place, right?
+[01:29] It was a blank slate.
+[01:33] I was pretty surprised when I was doing my research that when I was thinking of the idea of starting a fund that was dedicated to music royalties, etc.,
+[01:42] that there wasn't anything like that in place already.
+[01:46] It was surprising, but it was such an opportunity that I had to jump on it.
+[01:55] If no one was doing it yet, you know, that excited me a lot.
+[02:00] And when we were raising our first funds and kicking things off,
+[02:05] no one knew about the space.
+[02:08] And, you know, it didn't have all the headlines that it's received in the last five years or even longer now.
+[02:16] So the awareness was nil.
+[02:18] And that made it very hard to enter into an investor meeting.
+[02:25] And even with extremely sophisticated investors,
+[02:29] we tried to explain the space from scratch,
+[02:32] which is very hard to, you know,
+[02:36] it's hard to get people to wrap their heads around it,
+[02:39] even with some background knowledge.
+[02:42] But there was no background knowledge at all.
+[02:44] So we waved the flag for this space for, you know, quite a lot of years.
+[02:51] And it really wasn't until probably when hypnosis came about that,
+[02:58] and that was 2018, where the awareness started to pick up.
+[03:04] So during that seven years or so,
+[03:09] I was second guessing whether I had made the right idea or the right choice,
+[03:15] because, you know,
+[03:17] when you're doing something on your own and no one else is really following it,
+[03:23] you think that maybe you've gone down the wrong path.
+[03:30] Or it could be that you're right and, you know,
+[03:34] just keep doing what you're doing.
+[03:35] So we ended up buying so many things during that period,
+[03:41] in part because there was very little competition for it.
+[03:45] And I just kept the faith that I was on the right path.
+[03:53] And, you know, now 16 years later,
+[03:57] there's probably over 100 funds, I'm told.
+[04:00] And, you know, there's a lot of awareness of the space,
+[04:04] and it's really cemented itself as a niche asset class.
+[04:09] So it's just, it's been, it's been very interesting.
+[04:13] And in those early conversations,
+[04:15] what parallels were you drawing with other industries to help tell the story?
+[04:19] Because that's so difficult when there's no precedent, right?
+[04:23] Yeah.
+[04:24] That's a great question.
+[04:25] I had one parallel that I definitely used,
+[04:29] which was pharmaceutical royalties,
+[04:32] because that had taken off a little bit.
+[04:38] There was a fund called Royalty Pharma,
+[04:41] which became very large and it was pretty well known.
+[04:46] It eventually went public.
+[04:47] And they were doing similar investments in terms of,
+[04:54] you know, it's IP and it's royalty based.
+[04:57] And so people, people understand royalties, right?
+[05:01] That, that word rings a bell.
+[05:04] And, and because of that,
+[05:06] I was very specific to include in the name of our fund.
+[05:12] It was called Roundhill Music Royalty Fund.
+[05:14] And I really want to include that word in there to,
+[05:18] just to help people latch on to, you know, the word royalty.
+[05:24] And I think that, that, you know,
+[05:26] helped people understand what we were trying to do.
+[05:30] And those initial investors that you were talking to,
+[05:33] were they sufficiently familiar with pharmaceuticals
+[05:37] or did you still have to do some education around that?
+[05:39] Yeah, a little bit, you know,
+[05:44] probably easier analogy would be to compare it to real estate.
+[05:48] You know, I, I always say that,
+[05:50] that copyrights and music are the real estate of the music industry.
+[05:57] And, and it is property, you know,
+[06:00] it's just an intangible property.
+[06:02] But if you think about it as a, as a,
+[06:05] an office building that you rent out and, you know,
+[06:11] the royalties become the rental payments that the tenants make,
+[06:17] you know, there are analogies there.
+[06:20] But we would get so lost when we started explaining
+[06:26] mechanical royalties, synchronization royalties,
+[06:29] all these, all these words really put people to sleep.
+[06:34] I don't know, whoever came up with them,
+[06:37] couldn't have picked more boring words,
+[06:39] um, to explain a royalty type.
+[06:42] But, uh, yeah, we, we would get sideways
+[06:46] and off track in the meeting because people would,
+[06:49] people would start asking questions.
+[06:51] And so many people were concerned about piracy and, and,
+[06:56] and because that's the main headline that people read back then,
+[07:00] you know, Oh, aren't people just stealing music?
+[07:02] Oh, every time we'd hear that and we'd have to, you know,
+[07:07] go off course and, um,
+[07:10] just try to explain to people that, um,
+[07:13] with publishing it's not necessarily,
+[07:16] then we'd have to explain the difference between the record side of the
+[07:19] business and the publishing, right.
+[07:21] You know, publishing is,
+[07:22] is not that consumption of music.
+[07:24] It's true.
+[07:26] It makes money more from radio and other things that have nothing to do with,
+[07:29] um, you know,
+[07:32] buying a CD or, uh,
+[07:35] deciding to the pirate a CD instead.
+[07:38] Do you think that like the complexity in those rights types through the years
+[07:44] with the introduction of streaming has got more or less difficult or roughly the
+[07:49] same?
+[07:50] And it's just the fact that people who are investing in the asset class now,
+[07:55] uh, more experienced, more mature.
+[07:57] So they know what they're looking for.
+[07:59] Yeah, I think, I think it's both.
+[08:01] I think,
+[08:02] I think there's been so much fundraising activity that at some point along the
+[08:10] way, uh, institutional investors have,
+[08:13] have come across and taken a meeting in the space and have even dug in,
+[08:18] um, to understand the basics of it.
+[08:22] Um, and then,
+[08:23] yes,
+[08:23] of course,
+[08:24] streaming people understand that it's a utility type of business where,
+[08:31] you know,
+[08:32] a subscription revenue can be very sticky and consistent.
+[08:35] And,
+[08:35] and I think,
+[08:36] I think that helps a lot.
+[08:38] Um,
+[08:39] so yeah,
+[08:43] streaming,
+[08:43] streaming kind of saved the day.
+[08:45] You know,
+[08:45] when I,
+[08:46] 2015 is when Spotify came to the U S and that's,
+[08:50] you know,
+[08:50] everyone knows was the year,
+[08:52] um,
+[08:53] the music business really started to turn around.
+[08:56] Um,
+[08:57] so the,
+[08:58] the winds of change,
+[08:59] uh,
+[09:00] was in 2015 and those winds,
+[09:03] you know,
+[09:04] became a really sweet tailwind for,
+[09:06] for our business.
+[09:08] Yeah.
+[09:08] Yeah.
+[09:08] I can imagine.
+[09:09] And in those very early conversations,
+[09:10] when you're having to do a lot of education,
+[09:13] what was the thing that they kept coming back to?
+[09:15] Was it the fact that it had really steady cash flows that you could reference
+[09:20] through,
+[09:21] you know,
+[09:22] historic royalty statements?
+[09:24] What was the thing that actually got them over the line?
+[09:26] Or was it just,
+[09:27] you know,
+[09:29] personal relationships and Hey guys,
+[09:30] you've got to believe me.
+[09:31] This is a great investment.
+[09:32] I think the answer is,
+[09:33] I don't know.
+[09:34] I,
+[09:34] I look back,
+[09:36] um,
+[09:36] because our first fund was,
+[09:38] we raised $200 million,
+[09:40] um,
+[09:41] between the years 2012 and 2014.
+[09:44] And I try to remember back,
+[09:46] you know,
+[09:48] how we got that done.
+[09:49] I really don't know how it's just,
+[09:51] it's a miracle to me that we got that done.
+[09:53] I really don't even know.
+[09:55] Um,
+[09:56] I think a lot of people,
+[09:57] a lot of investors might've just,
+[09:59] um,
+[10:01] like that it was different,
+[10:02] you know,
+[10:02] uh,
+[10:03] I think they might've,
+[10:04] um,
+[10:05] appreciated.
+[10:08] One of the things we did very early on,
+[10:10] we were lucky enough to acquire some,
+[10:12] um,
+[10:13] some Beatles rights and that got some publicity.
+[10:16] And I think,
+[10:17] uh,
+[10:18] it's possible that people were like round.
+[10:21] Roundhill was able to,
+[10:22] to buy Beatles rights.
+[10:24] I think that's pretty impressive.
+[10:26] I don't know.
+[10:27] It's a probably,
+[10:27] um,
+[10:29] a combination of lots of things,
+[10:30] but I do look back and I'm,
+[10:32] I really,
+[10:32] I'm just shocked that we were able to do that in that timeframe.
+[10:37] Yeah,
+[10:37] I can imagine.
+[10:38] I mean,
+[10:39] that was super impressive.
+[10:40] Yeah.
+[10:41] So,
+[10:41] so one of the things that we're fascinated to,
+[10:44] to dig into with you,
+[10:45] Josh is just this long-term view that you have.
+[10:48] Right.
+[10:48] Because,
+[10:49] you know,
+[10:49] we,
+[10:50] we see that in historic,
+[10:51] like private equity models,
+[10:53] you know,
+[10:54] you're looking at the five to 10 year,
+[10:56] uh,
+[10:57] you know,
+[10:57] timeframe.
+[10:58] And then,
+[10:59] you know,
+[10:59] you've got to kind of exit and then,
+[11:00] you know,
+[11:02] raise again and the whole cycle starts again.
+[11:04] But this is something that you really feel kind of passionately about.
+[11:07] This has to be kind of a long-term thing.
+[11:08] So it'd be great to kind of just get into your thoughts on that.
+[11:11] Oh,
+[11:12] wow.
+[11:12] Yeah.
+[11:13] You're going to really get me started on,
+[11:14] on that subject.
+[11:15] Just to tie back to,
+[11:17] you know,
+[11:17] the initial conversation about the early days.
+[11:20] Um,
+[11:21] I remember an investor telling me,
+[11:23] Hey,
+[11:23] you guys should consider doing this as an evergreen fund.
+[11:28] And,
+[11:28] um,
+[11:29] and this is back in 2010.
+[11:31] Um,
+[11:32] ever,
+[11:33] evergreen funds have come a long,
+[11:34] long way since then.
+[11:35] They're,
+[11:35] they're just,
+[11:36] they weren't very prevalent back in 2010,
+[11:38] but I remember thinking,
+[11:41] you know,
+[11:41] it's hard enough to get people to jump on board with something brand new.
+[11:44] I'm going to have a hard enough time.
+[11:46] Um,
+[11:47] getting people to invest in this new asset class.
+[11:51] Don't make it,
+[11:53] um,
+[11:53] don't create an extra hurdle by having some sort of structure.
+[11:57] That's not plain vanilla.
+[12:00] Right.
+[12:00] So I made the,
+[12:04] the structure of it as typical and plain vanilla to investors as possible,
+[12:09] because,
+[12:09] uh,
+[12:10] again,
+[12:11] I didn't want to create that extra hurdle.
+[12:13] So,
+[12:14] um,
+[12:14] I was stuck with that model over the years,
+[12:18] um,
+[12:19] or that structure,
+[12:20] I should say.
+[12:21] And yeah,
+[12:23] I came to the conclusion after,
+[12:24] you know,
+[12:25] being in this business for a while,
+[12:26] that it's really not the right structure for this business,
+[12:30] um,
+[12:31] for a bunch of different reasons.
+[12:32] One very simply is that the cash flows associated with copyrights last.
+[12:39] A really long time,
+[12:40] typically,
+[12:41] you know,
+[12:41] 70 or a hundred years,
+[12:43] you know,
+[12:44] it depends on a bunch of different factors,
+[12:47] but it,
+[12:48] the,
+[12:49] the copyright duration,
+[12:50] um,
+[12:51] is very,
+[12:51] very long.
+[12:52] And,
+[12:53] and it doesn't,
+[12:56] you know,
+[12:56] it doesn't match a five to 10 year timeframe that way.
+[12:59] Um,
+[13:00] the other thing is that I think you need to be patient with these rights because
+[13:05] sometimes it takes a while for songs to have that,
+[13:11] you know,
+[13:12] second moment.
+[13:13] That's very powerful.
+[13:14] Right.
+[13:14] So,
+[13:15] um,
+[13:16] in this day and age where it's,
+[13:19] um,
+[13:20] with streaming is,
+[13:22] it's just a,
+[13:23] a flat marketplace where it's very easy to,
+[13:26] you know,
+[13:26] every song has a chance,
+[13:28] right.
+[13:28] And any song can be rediscovered or,
+[13:32] you know,
+[13:33] it can go viral on Tik TOK.
+[13:34] It can be used in a movie.
+[13:35] And all of a sudden,
+[13:37] um,
+[13:38] you look at the global streaming charts for Spotify and you see a song that,
+[13:43] you know,
+[13:44] is 30 years old.
+[13:45] That's now like the top 15 streaming songs.
+[13:49] So a great example of that is the Google dolls for us.
+[13:52] So I'll probably refer to that catalog a few times.
+[13:56] Cause it's the largest,
+[13:57] it's the largest exposure we have.
+[14:00] It's the biggest earning catalog we have in our portfolio,
+[14:04] but that's,
+[14:05] that's a band that came about in the late nineties.
+[14:09] And it's had a huge Renaissance just in the last two years,
+[14:13] um,
+[14:14] where the earnings have grown significantly.
+[14:19] But if you were in a fund,
+[14:20] you know,
+[14:22] where it's,
+[14:23] you know,
+[14:23] only a small window of time,
+[14:25] you,
+[14:26] you might've missed out on that huge Renaissance of the Google dolls.
+[14:32] And there's lots of different examples.
+[14:34] Fleetwood Mac had,
+[14:35] had this huge comeback.
+[14:37] Um,
+[14:38] you know,
+[14:38] Tracy Chapman had a song,
+[14:39] uh,
+[14:40] fast car,
+[14:41] and then Luke Combs in America did a cover of that that became huge.
+[14:45] So you're not going to capture those,
+[14:48] those moments,
+[14:50] um,
+[14:50] where the,
+[14:51] the music has this comeback,
+[14:52] um,
+[14:54] unless you have this very sort of long projection.
+[14:57] Is it,
+[14:57] is it fair to say as well,
+[14:58] you know,
+[14:59] if you're looking at the investment purely on a kind of discounted cashflow
+[15:03] model without any arbitrage,
+[15:07] then the longer you can hold it for the greater return you're going to get on
+[15:12] your money.
+[15:13] Whereas if you having to trade it within five or 10 years,
+[15:17] then actually you're going to need some kind of arbitrage to make a
+[15:21] significant increase.
+[15:22] Right.
+[15:23] Did that play into your thinking?
+[15:26] I think that's true.
+[15:27] I think,
+[15:28] I think what you're saying is also,
+[15:32] um,
+[15:34] you know,
+[15:36] models depend on,
+[15:37] on an exit.
+[15:38] And sometimes you can be a little too aggressive and have too grand of
+[15:43] expectation for your,
+[15:45] for your exit in your model to make your IOR look,
+[15:48] um,
+[15:49] a certain way.
+[15:50] But the sort of downside to that is maybe the year that you have in your
+[15:57] model for an exit ends up being a terrible year in the marketplace.
+[16:00] Right.
+[16:02] And that's also a lesson I learned from the sale of our,
+[16:05] our publicly traded London fund is,
+[16:09] um,
+[16:10] well,
+[16:12] one,
+[16:12] when you go public,
+[16:13] you're thinking,
+[16:14] Oh,
+[16:16] this is sort of an evergreen situation,
+[16:19] you know,
+[16:20] it's permanent capital,
+[16:21] but as soon as things go sideways in the market and you have,
+[16:27] um,
+[16:27] you know,
+[16:28] in this case,
+[16:28] a huge spike in interest rates,
+[16:30] um,
+[16:32] on a stock that was dependent on a,
+[16:37] on having a certain dividend yield,
+[16:39] um,
+[16:40] that had to be corrected,
+[16:41] that yield had to be corrected in a higher interest rate environment.
+[16:44] So the stock price went down to correct for that.
+[16:48] Um,
+[16:48] when your stock price is down,
+[16:50] you're vulnerable because that's when other companies might look to,
+[16:56] um,
+[16:57] throw out an offer into the marketplace.
+[17:01] And if shareholders like it,
+[17:03] they'll,
+[17:03] they'll take it.
+[17:04] Right.
+[17:05] So selling that fund was,
+[17:09] um,
+[17:09] a great experience.
+[17:11] It's always good to have a nice outcome at the end of the day and return
+[17:16] capital.
+[17:17] But I am a hundred percent certain that had,
+[17:20] had we still own those assets,
+[17:22] they'd be worth more today than they were three years ago when we sold it.
+[17:28] So that,
+[17:28] that's also part of the,
+[17:31] the evergreen models.
+[17:32] Like I,
+[17:32] I just see the space increasing in value more and more and more.
+[17:37] Why,
+[17:38] why cut that short?
+[17:40] And does that change?
+[17:41] I,
+[17:41] uh,
+[17:42] look,
+[17:42] I think that's a really fair conclusion.
+[17:44] I was going to ask about what your perception of was listing again,
+[17:48] given that you've gone through that process.
+[17:50] And it sounds like the challenge is it's just putting you in quite a vulnerable
+[17:55] place.
+[17:55] That's very much subject to market volatility,
+[17:58] things outside of your control.
+[18:00] And all of a sudden you can lose control of your asset and end up having to
+[18:04] trade for a,
+[18:05] a less than ideal price,
+[18:07] which I think is fair.
+[18:08] when you're looking at these longer term evergreen funds,
+[18:12] is that changing how you're thinking about managing the portfolio as well?
+[18:16] Is that changing how you,
+[18:18] um,
+[18:19] invest in it for the medium to longterm?
+[18:21] Um,
+[18:21] well,
+[18:23] it lines up with how we've invested in the past.
+[18:26] Um,
+[18:27] so we've always taken a very low risk approach to the space by a focusing on the very premium
+[18:36] assets,
+[18:37] um,
+[18:38] be not using lots of leverage and,
+[18:41] um,
+[18:42] gearing as you guys call it.
+[18:43] Um,
+[18:44] so the,
+[18:46] the,
+[18:46] the traditional private equity fund will use as much leverage as they can get,
+[18:51] um,
+[18:52] to amplify the return,
+[18:53] um,
+[18:55] here,
+[18:56] uh,
+[18:57] and in the past where we're planning on,
+[18:59] um,
+[19:00] where we have,
+[19:00] and we'll continue to have,
+[19:02] um,
+[19:02] very low leverage.
+[19:04] And instead of using the cash flows to pay debt expense,
+[19:08] we,
+[19:09] we distribute those,
+[19:11] the royalties.
+[19:12] So we did that with the London fund.
+[19:14] You know,
+[19:14] it had that dividend.
+[19:15] You,
+[19:16] you bring in the royalty income,
+[19:18] you pay out your writers and artists that get,
+[19:22] gives you your,
+[19:22] um,
+[19:23] net royalty income.
+[19:25] Then we had some expenses.
+[19:27] Um,
+[19:28] whatever was left over was paid out to shareholders as a dividend.
+[19:32] So that concept exists in our private funds too,
+[19:35] where we,
+[19:36] where we pay out all our cashflow every quarter.
+[19:40] Um,
+[19:41] so the,
+[19:42] the evergreen model,
+[19:43] um,
+[19:44] where you're having sort of a,
+[19:47] a,
+[19:47] a yield aspect to it,
+[19:49] um,
+[19:50] really works well because people,
+[19:52] everyone wants some yield.
+[19:53] Everyone wants something that consistently pays them out.
+[19:57] And if you're a pension fund or an insurance company,
+[20:00] you want that steady cashflow,
+[20:02] you know,
+[20:03] for really,
+[20:04] really a long time.
+[20:05] Cause it,
+[20:05] it matches with,
+[20:07] you know,
+[20:08] your,
+[20:08] whatever you're trying to do at your pension fund or insurance company,
+[20:12] where you're trying to match assets and liabilities and cash flows.
+[20:15] Um,
+[20:16] and you can compound the return.
+[20:19] If you,
+[20:20] if you take that dividend income,
+[20:23] if you will,
+[20:24] and you reinvest it every quarter,
+[20:26] um,
+[20:27] it has this compounding effect that,
+[20:30] uh,
+[20:31] can be very nice.
+[20:32] So it's not a buy and flip mentality.
+[20:37] It's a buy and hold mentality.
+[20:39] It's a Warren Buffett,
+[20:41] you know,
+[20:42] patients will pay off mentality.
+[20:44] Um,
+[20:45] and with this asset class,
+[20:47] I think,
+[20:47] I think that's the way to go.
+[20:49] And does that change the day to day operations as well?
+[20:52] So,
+[20:52] I mean,
+[20:54] all very sensible,
+[20:55] create dividends,
+[20:56] keep your shareholders happy.
+[20:58] If you've got an asset that effectively has a lifetime of 30,
+[21:04] 50,
+[21:04] 70 years,
+[21:05] even then you're best off keeping hold of it.
+[21:08] Does that change how you invest any OPEX in the day to day?
+[21:13] So whether that be in data infrastructure,
+[21:16] whether that be in cleaning up meter data,
+[21:20] do you think that changes for you or,
+[21:22] is it still relatively consistent as to how you did it before?
+[21:27] Investing in what I'll call data operations has,
+[21:32] um,
+[21:33] has been growing and growing as,
+[21:37] as,
+[21:37] as a focus over the last couple of years.
+[21:40] Um,
+[21:41] and it's now becoming,
+[21:44] um,
+[21:46] uh,
+[21:47] a real arm of our strategy where,
+[21:51] um,
+[21:53] hiring people who are true data engineers that know how to take metadata and
+[22:01] add,
+[22:03] get value to,
+[22:04] to be added to the portfolio from the various things that you can do with that
+[22:08] data.
+[22:09] Um,
+[22:09] and in,
+[22:13] in the past,
+[22:13] we've had more of a focus on the creative angle to add value,
+[22:17] but today it's,
+[22:20] it's both data and optimization along with the creative side that we point to as our,
+[22:27] our ways to,
+[22:29] um,
+[22:29] to really dig into the portfolio.
+[22:31] And is that,
+[22:32] um,
+[22:33] I,
+[22:33] uh,
+[22:34] was reading some stuff through the research that we're doing that you were taking an MIT
+[22:38] course.
+[22:39] Uh,
+[22:40] have you taken that course yet?
+[22:41] No,
+[22:41] so it's,
+[22:42] it's funny that,
+[22:43] um,
+[22:44] because on the last podcast interview that I did or one of the last,
+[22:49] not,
+[22:49] not that I do podcast interviews all the time,
+[22:52] but,
+[22:53] um,
+[22:54] we got into this conversation and I mentioned,
+[22:56] I was considering taking this MIT course and,
+[23:00] uh,
+[23:01] the interview or the podcast had just completed the exact same course.
+[23:05] And I was like,
+[23:05] what?
+[23:06] Um,
+[23:07] it was just,
+[23:08] it was just a surprise.
+[23:10] Um,
+[23:10] I need to take that course,
+[23:12] but I need the time to be able to take it extremely seriously.
+[23:17] And,
+[23:18] um,
+[23:19] and so I'm just waiting for that window where,
+[23:21] uh,
+[23:21] I know I can,
+[23:22] I can actually commit myself to it,
+[23:24] but I,
+[23:26] I,
+[23:27] yeah,
+[23:27] I want,
+[23:27] I want like half the company to take that course.
+[23:30] Um,
+[23:31] I think it's,
+[23:31] it's really important.
+[23:33] Yeah.
+[23:33] And is it like,
+[23:34] it is the motivation to really get it.
+[23:36] into the data,
+[23:37] uh,
+[23:38] from internal and experience,
+[23:40] or do you find that actually the investors,
+[23:44] both historic and kind of current,
+[23:48] their expectations of what you can give them operationally are increasing all of the time.
+[23:55] You know,
+[23:55] there,
+[23:56] there's so much to,
+[23:57] as your portfolio grows,
+[23:59] there's more and more to stay on top of.
+[24:01] Um,
+[24:01] but at the same time,
+[24:02] there's,
+[24:03] um,
+[24:03] there's just more and more micro payments,
+[24:08] um,
+[24:08] in the world of streaming.
+[24:10] Um,
+[24:11] and what was already a complex ecosystem,
+[24:14] um,
+[24:16] seems to get more and more complex.
+[24:19] And you just have to be able to wrangle all that.
+[24:24] Uh,
+[24:24] and the only way to wrangle it is,
+[24:26] is through complete control of your data,
+[24:29] where you can,
+[24:31] um,
+[24:31] you have a really great master set of data and you can take a royalty statement that comes in and like that,
+[24:40] double check it for,
+[24:43] to make sure you're getting your,
+[24:46] all your repertoires is being paid on correctly.
+[24:49] Um,
+[24:50] it's just in the past,
+[24:53] I think folks in the space tend to be a little bit passive and they,
+[25:02] um,
+[25:02] they receive a big statement from one of the PROs,
+[25:06] for example,
+[25:06] and they just expect,
+[25:07] um,
+[25:09] it all to be in order.
+[25:11] And there's just,
+[25:13] there's just too much room for error for,
+[25:17] for that to ever really be the case.
+[25:19] So you have to just stay on top of it.
+[25:22] Yeah.
+[25:22] I mean,
+[25:23] it,
+[25:24] the level of the volume of data and the level of complexity with how songwriting has evolved over the years creates this exponential challenge,
+[25:35] right?
+[25:35] We're talking about a globally consumed,
+[25:38] locally licensed asset class,
+[25:41] which if you can't get on top of,
+[25:43] very,
+[25:44] very difficult to understand whether you're getting paid the right amount of money and whether all of that artistic work is actually filtering back through the way it should.
+[25:53] Yeah.
+[25:53] Uh,
+[25:54] I think it's something that we've seen for sure is people are more and more looking to invest in data as a, as a scale data as like a differentiator in,
+[26:03] including infrastructure,
+[26:05] obviously the people.
+[26:06] So it's fascinating to hear that you're thinking about it.
+[26:09] Yeah.
+[26:11] I'll tell you what helps though.
+[26:12] And I think it's just,
+[26:13] it's just layering in,
+[26:15] um,
+[26:17] just awareness about music,
+[26:19] right?
+[26:19] Just,
+[26:19] I'm constantly keeping an ear open and,
+[26:25] and just doing reading or what have you,
+[26:27] just,
+[26:28] you know,
+[26:28] picking up the guitar magazines,
+[26:31] the Rolling Stone magazines,
+[26:33] um,
+[26:34] reading online,
+[26:35] what have you.
+[26:36] Um,
+[26:37] and you can't stay on top of all of it that way,
+[26:40] but,
+[26:40] um,
+[26:43] you know,
+[26:43] I'll give you a quick example.
+[26:44] There's,
+[26:45] there's an artist that's,
+[26:47] his name's kid Leroy.
+[26:49] He,
+[26:49] he,
+[26:49] he did his own version of a song in our repertoire called,
+[26:54] um,
+[26:55] by the band player,
+[26:56] which is a,
+[26:57] a yacht rock stable now called,
+[26:59] um,
+[27:01] baby,
+[27:01] come back.
+[27:02] I don't know if you know,
+[27:03] know this song in England,
+[27:04] but he had a song called baby.
+[27:07] He changed the title to baby.
+[27:08] I'm back,
+[27:09] but it's,
+[27:09] it's basically the exact same song,
+[27:11] but a slightly different title.
+[27:14] And,
+[27:15] um,
+[27:16] I don't know.
+[27:17] I,
+[27:18] I came across this song.
+[27:19] I'm like,
+[27:19] wait,
+[27:19] this is our song just like with the little change in title.
+[27:24] And it's got hundreds of millions of streams on Spotify and everything.
+[27:27] Um,
+[27:28] so we,
+[27:29] we get paid on that song by universal.
+[27:31] And we,
+[27:32] you know,
+[27:33] we researched to see if we were getting paid on that title.
+[27:36] Um,
+[27:37] and we weren't.
+[27:38] And,
+[27:39] you know,
+[27:39] it was just something that universal had missed.
+[27:41] It's,
+[27:42] you know,
+[27:42] a relatively new song,
+[27:44] slightly different title,
+[27:45] but it's the same song.
+[27:46] So anyway,
+[27:47] it's just,
+[27:49] um,
+[27:50] there's certain things that data might not be able to grab for you.
+[27:53] Right.
+[27:54] How,
+[27:55] uh,
+[27:55] I don't know how data would be able to pick up on that.
+[27:59] There's a new song with a slightly different title.
+[28:01] That's actually your song,
+[28:03] you know?
+[28:04] Yeah.
+[28:04] Which is fascinating.
+[28:05] And it's kind of,
+[28:07] I guess,
+[28:08] funny serendipitous that you've picked on it yourselves and then gone back and
+[28:12] raise the claim.
+[28:13] I think one of the,
+[28:15] the advantages we hope of AI and deeper machine learning is that actually you can spot all
+[28:21] of these derivatives more easily and people can get paid correctly.
+[28:25] Yeah.
+[28:26] And it's an incredibly difficult job for all of the people who are in that chain today,
+[28:29] you know,
+[28:30] and for most funds,
+[28:32] for the,
+[28:33] the PROs and for the,
+[28:35] the labels,
+[28:36] their job is significantly larger just because their,
+[28:39] their market share.
+[28:41] So the volume that they have to deal with is just astronomical.
+[28:44] And the expectation that they can do that alone is,
+[28:47] is probably misplaced.
+[28:49] But yeah,
+[28:49] I think the more and more the individual funds,
+[28:52] the right holders themselves can be sentinels to understand and identify those things too.
+[28:58] Then that should hopefully lead to a healthy ecosystem where more people get paid for the
+[29:05] things that they ultimately earn the rights to.
+[29:08] And whether that be kind of some derivative created by AI or the derivative created by a
+[29:14] human,
+[29:14] it doesn't really make that much difference on the thought.
+[29:18] And someone knew that,
+[29:20] that we're just about to hire.
+[29:27] He comes from his background is,
+[29:30] is working for a company that created AI products for the finance world.
+[29:38] So,
+[29:39] so mixing in AI to what we're doing with the data,
+[29:44] optimization is,
+[29:45] is now we're at that stage.
+[29:48] And I think it has the possibility to reap a lot of benefits.
+[29:53] And are you seeing that more and more in the questions that you have with
+[29:57] the institutional investors in that,
+[30:02] you know,
+[30:03] their expectations are,
+[30:05] okay,
+[30:06] music's still a relatively niche asset class or music rights.
+[30:10] it's,
+[30:11] however,
+[30:12] it's been going for much longer now,
+[30:14] what the answers or the questions that they're asking in the answers,
+[30:19] both the,
+[30:20] the depth and the expedience that you can give them is increasing all of the
+[30:24] time.
+[30:25] And therefore you're having to make these investments in people from other
+[30:30] industries who have that skill to,
+[30:32] to bring across.
+[30:33] Are you seeing that too?
+[30:36] You have to have your own angle on the space,
+[30:39] right?
+[30:40] There's,
+[30:40] there's,
+[30:40] there's certain competitors of ours that,
+[30:44] um,
+[30:45] focus on a certain area,
+[30:47] whether it's a creative area or,
+[30:49] um,
+[30:51] maybe it's,
+[30:52] they only invest in younger music,
+[30:54] or maybe it's only smaller catalogs or only larger.
+[30:58] There's just different,
+[30:59] um,
+[31:01] the different ways that people approach the space.
+[31:04] And,
+[31:05] um,
+[31:06] we've decided to hang our hat on premium catalogs,
+[31:11] um,
+[31:12] alongside active management,
+[31:14] right?
+[31:14] We're,
+[31:15] we're not round Hill is not 10 finance people working in an office in New
+[31:23] York city,
+[31:23] um,
+[31:24] as part of a larger private equity credit department or something.
+[31:30] Yeah.
+[31:30] And that's so clear,
+[31:32] you know,
+[31:33] you committed to the music,
+[31:34] you really understand that.
+[31:35] Um,
+[31:36] but I think what's super interesting is you obviously really committed to the
+[31:40] data side too.
+[31:41] And that's quite fascinating.
+[31:44] Yeah.
+[31:44] But I have to admit it's,
+[31:46] it's,
+[31:47] it's a newer official focus for us.
+[31:53] It's always been something that we've paid attention to,
+[31:57] but now we're graduating it to,
+[32:01] um,
+[32:02] if you're going to invest in round Hill,
+[32:04] this is why you should invest,
+[32:06] you know,
+[32:06] this different type of structure,
+[32:08] evergreen,
+[32:09] it comes,
+[32:10] you're another advantage of the evergreen,
+[32:12] by the way,
+[32:13] is that you,
+[32:14] um,
+[32:15] it's not a blind pool.
+[32:16] You're,
+[32:16] you're coming in as an investor to all the 180 catalogs that we've,
+[32:23] that we've purchased over the last 15 years.
+[32:27] Um,
+[32:28] so you,
+[32:28] you can actually,
+[32:29] you know what you're jumping into.
+[32:32] This isn't like,
+[32:33] we're going to go out and do this.
+[32:35] This is,
+[32:36] we've already done this.
+[32:37] You're coming into this plus what we will pick up in the future.
+[32:41] Um,
+[32:41] but yeah,
+[32:41] the evergreen model is very differentiated.
+[32:44] I think it,
+[32:45] it might be the first music royalty evergreen fund of its kind.
+[32:49] Um,
+[32:51] I'm not aware of another one,
+[32:54] but the,
+[32:54] um,
+[32:55] so it's interesting that way,
+[32:57] but on top of that,
+[32:59] it's,
+[32:59] um,
+[33:00] very low risk,
+[33:01] you know,
+[33:01] not a lot of leverage,
+[33:02] high quality assets,
+[33:03] and you have a team that actively manages it,
+[33:07] um,
+[33:08] using creative skill and scale around data optimization.
+[33:12] And,
+[33:13] and that's,
+[33:14] that's roundup right there in a nutshell.
+[33:17] And I think that that is a differentiator.
+[33:20] You know,
+[33:20] I think,
+[33:20] um,
+[33:21] from what we've seen,
+[33:23] people tend to trend towards one of those two sides.
+[33:28] And even the investment in data as a whole,
+[33:30] as a differentiator is still relatively new.
+[33:35] Uh,
+[33:35] we certainly think that,
+[33:36] you know,
+[33:36] that is going to be more and more the case,
+[33:39] more and more important.
+[33:40] And actually the expectation of the market as a whole,
+[33:44] that the maturity of the operations,
+[33:46] and therefore data and infrastructure and skill sets just improves all the
+[33:51] stuff.
+[33:51] So,
+[33:52] yeah.
+[33:53] And I,
+[33:53] I quickly have to add that.
+[33:55] I think,
+[33:56] I think the creative side is extremely important,
+[33:59] but it,
+[33:59] it gets,
+[34:00] it gets a little overhyped,
+[34:02] right?
+[34:03] So getting as a landing,
+[34:06] a big sink for a song is an extremely valuable lever,
+[34:11] right?
+[34:11] That,
+[34:12] that can,
+[34:13] um,
+[34:15] materially add value to a portfolio,
+[34:18] to a song,
+[34:19] et cetera.
+[34:21] We,
+[34:21] we,
+[34:21] we love synchronization.
+[34:23] We have a dedicated sync team.
+[34:25] We bought this company zinc that has these great salespeople.
+[34:28] Great.
+[34:29] But when you start getting into,
+[34:31] you know,
+[34:32] developing biopics and documentaries,
+[34:34] and,
+[34:35] you know,
+[34:36] if you get your artists,
+[34:38] their own hot sauce or like perfume brand,
+[34:43] you know,
+[34:43] I don't know how much that stuff really moves the needle for the,
+[34:47] for the music.
+[34:48] It's also quite a different game that,
+[34:50] isn't it?
+[34:51] You know,
+[34:51] that's quite a different business really.
+[34:53] It is.
+[34:56] And,
+[34:56] and you have to be all in on that.
+[34:58] Um,
+[34:59] but I think the,
+[35:00] the lines between like,
+[35:03] you know,
+[35:04] if you're partnering with an artist,
+[35:05] what might be good for the artist doesn't necessarily match what's good for the,
+[35:10] the copyright and what's good for the investor.
+[35:14] And,
+[35:15] um,
+[35:17] yeah,
+[35:18] I,
+[35:19] I,
+[35:19] I also think it's very hard to,
+[35:22] to go down the road of,
+[35:25] of,
+[35:26] you know,
+[35:27] I,
+[35:27] I,
+[35:27] I could never ask our investors to invest in a biopic or,
+[35:31] um,
+[35:32] even investing in documentaries.
+[35:36] There's just very risky things.
+[35:38] Um,
+[35:39] so,
+[35:41] so instead we,
+[35:44] we buy music that,
+[35:46] you know,
+[35:47] other people we know will run with,
+[35:49] right?
+[35:49] Like we have the type of people,
+[35:51] music that people will use one way or another,
+[35:55] whether it needs a kick in the pants creatively or not from us,
+[36:00] it doesn't really matter.
+[36:01] Cause it's just,
+[36:02] it's music that's going to get,
+[36:03] it's just too culturally important to,
+[36:06] to not get used by someone.
+[36:09] Yeah.
+[36:09] And I think that's,
+[36:10] um,
+[36:11] a recurring theme,
+[36:12] you know,
+[36:12] like you can talk for as long as you want about discounted cash flows,
+[36:18] recurring revenue.
+[36:19] In the end of the day,
+[36:20] the music that you buy has got to be good music.
+[36:22] And you have to have confidence that people in the future are going to have,
+[36:26] you know,
+[36:26] albeit subjective,
+[36:28] decent taste and continue to want to consume that.
+[36:30] And I think afterwards,
+[36:32] the investment in data and optimization,
+[36:35] you know,
+[36:36] I think that that's less subjective and less serendipitous and actually just good economics.
+[36:42] Right.
+[36:42] Yeah.
+[36:42] Our number one criteria with acquisitions is will this song stand the test of time?
+[36:47] Period.
+[36:49] 90% of what comes across our desk does not qualify it.
+[36:54] Um,
+[36:55] it's got to stand the test of time.
+[36:57] And,
+[36:58] you know,
+[36:59] these rights,
+[37:00] like we've already said last many,
+[37:02] many decades.
+[37:03] So if you're going to underwrite to 70 to a hundred years of earnings,
+[37:08] you got to be sure that the song is still going to be listened to 50 years from now.
+[37:15] And how do you do that?
+[37:17] How do you know?
+[37:18] Um,
+[37:18] here's a good question.
+[37:19] How do you do that?
+[37:20] Well,
+[37:21] there's two things,
+[37:22] you know,
+[37:24] we just bought relatively recently a one hit wonder band,
+[37:28] um,
+[37:29] a song called melt with you.
+[37:30] That was by the band,
+[37:31] modern English hit from 1983.
+[37:35] So the song is 43 years old.
+[37:40] How do you know something that's going to last many decades in the future?
+[37:43] If it's already lasted many decades to begin with,
+[37:47] if it has a proven history of four decades so far,
+[37:51] that's definitely a great indicator.
+[37:54] That's pretty good though.
+[37:56] Um,
+[37:56] but on top of that,
+[37:59] I think the song just has to be culturally relevant,
+[38:03] um,
+[38:04] and just embedded in culture to the point where,
+[38:07] you know what,
+[38:08] maybe the kids won't,
+[38:09] uh,
+[38:10] be streaming it,
+[38:11] but it's already embedded in a thousand movies and TV shows that they'll be
+[38:16] watching.
+[38:17] Or,
+[38:17] um,
+[38:19] you know,
+[38:20] it'll be,
+[38:21] uh,
+[38:21] background music in the elevator or the drug store,
+[38:24] um,
+[38:25] for many more years to come.
+[38:26] And then maybe,
+[38:27] and then maybe some,
+[38:29] you know,
+[38:29] maybe Taylor Swift will decide to cover it and then it'll,
+[38:32] you know,
+[38:33] I'll have a rebound with the kids,
+[38:35] but,
+[38:35] um,
+[38:37] yeah,
+[38:38] cultural relevance is,
+[38:39] is,
+[38:39] is,
+[38:40] is the second part of that.
+[38:42] Yeah.
+[38:43] Feels like Iris is such a perfect example of that too.
+[38:47] Right.
+[38:47] I mean,
+[38:48] I'm,
+[38:48] I'm old enough to remember city of angels and,
+[38:51] you know,
+[38:51] that side of things and to see their occurrence of that is,
+[38:54] is really interesting.
+[38:54] So,
+[38:55] yeah.
+[38:56] Just to,
+[38:57] just to refer to,
+[38:58] to,
+[38:59] to England on,
+[39:00] on,
+[39:00] on,
+[39:00] for a second.
+[39:01] Um,
+[39:02] I,
+[39:03] I,
+[39:05] I sometimes look at the,
+[39:06] the UK top singles charts and I see several of our songs in there.
+[39:11] Um,
+[39:12] Iris has been on the charts in England for a year straight,
+[39:16] like the,
+[39:17] like the top,
+[39:18] top 100 that you have there.
+[39:22] You know,
+[39:23] that that's crazy to me that,
+[39:25] that it's a 30 year old song sitting alongside the most recent releases.
+[39:32] Um,
+[39:33] but another one that's in there that's always in there is Mr.
+[39:36] Brightside.
+[39:36] And that's another song that we have.
+[39:39] This is the recurring theme on the podcast,
+[39:41] Mr.
+[39:41] Brightside.
+[39:42] It's come up several times now.
+[39:44] Yeah.
+[39:44] It's just one of those outliers that every wedding,
+[39:48] you know,
+[39:48] every party,
+[39:49] whatever it is.
+[39:50] Yeah.
+[39:50] Yeah.
+[39:51] Exactly.
+[39:51] People go nuts for it.
+[39:52] Um,
+[39:54] we love a bit of Mr.
+[39:55] Brightside.
+[39:55] Is that not a U S thing?
+[39:56] Do you not go nuts in bars when they play that?
+[40:00] Absolutely.
+[40:00] Absolutely.
+[40:02] Yeah.
+[40:02] Um,
+[40:03] and that song is a little bit more of,
+[40:08] of a modern classic,
+[40:09] I will call it,
+[40:11] which there are,
+[40:12] not that many of,
+[40:14] right?
+[40:15] Yeah.
+[40:15] There's a lot of songs from pre 2000 that you can point to as super classic,
+[40:23] but I feel like the,
+[40:24] the number of songs as time progresses,
+[40:27] that have that ability to stand the test of time becomes less and less,
+[40:32] fewer and fewer.
+[40:33] Um,
+[40:34] um,
+[40:35] but Mr.
+[40:36] Um,
+[40:37] um,
+[40:38] um,
+[40:38] um,
+[40:40] it's probably the newest of the real classic songs that,
+[40:44] that we have in the catalog.
+[40:45] Um,
+[40:46] um,
+[40:46] yeah,
+[40:46] um,
+[40:46] um,
+[40:47] yeah,
+[40:46] um,
+[40:48] nice.
+[40:49] Now,
+[40:49] Josh,
+[40:49] I,
+[40:50] we can't let you go without touching on this,
+[40:53] uh,
+[40:54] this store of yours.
+[40:55] I've been,
+[40:56] I've been looking at the photos and it looks pretty incredible and I know it's,
+[41:00] it's a real passion project for you.
+[41:02] So,
+[41:02] so tell us about,
+[41:04] uh,
+[41:04] ground Hill,
+[41:05] ground Hill,
+[41:06] round Hill.
+[41:08] Is it round Hill co?
+[41:09] Yeah.
+[41:11] Round Hill music company.
+[41:13] Round Hill music company.
+[41:14] Okay.
+[41:15] Is the name of the store.
+[41:17] Yeah.
+[41:18] And the,
+[41:20] the name round Hill comes from,
+[41:24] um,
+[41:25] in part comes from the time that I spent growing up in,
+[41:29] in the Greenwich area of Connecticut that has a road on it.
+[41:32] The main road,
+[41:33] one of the main roads called round Hill road.
+[41:36] Um,
+[41:37] so an opening a store in that location in Greenwich,
+[41:42] um,
+[41:44] just by using the name I already had round Hill,
+[41:46] it,
+[41:47] it,
+[41:47] it really made a lot of sense for the town because it's,
+[41:51] um,
+[41:51] it's almost the same thing as calling a Greenwich music by calling it round
+[41:55] Hill,
+[41:55] um,
+[41:56] music company.
+[41:58] Um,
+[41:58] but hopefully it's not confusing to everybody that there's a guitar store
+[42:02] called round Hill and that they're the funds,
+[42:04] but yeah,
+[42:05] I've just,
+[42:05] I just love it so much.
+[42:07] I spend so much time in there.
+[42:09] Um,
+[42:10] I take so many zoom calls from,
+[42:12] from the basement of the store because I love being in there so much.
+[42:18] Uh,
+[42:19] but it's,
+[42:20] uh,
+[42:20] I've always been super passionate about guitars and,
+[42:24] um,
+[42:25] I just kind of live and breathe guitars and guitar gear.
+[42:30] Um,
+[42:31] but we also sell vinyl and,
+[42:33] um,
+[42:34] it's really great for me to be able to see people consume music in real time.
+[42:41] Like what,
+[42:42] what are they bringing up to the cash register today?
+[42:46] You know,
+[42:47] is it,
+[42:47] is it Jeff Buckley or is it,
+[42:50] um,
+[42:50] is it the deaf tones or,
+[42:53] you know,
+[42:53] what are,
+[42:53] I get to see what even,
+[42:56] you know,
+[42:56] younger people are,
+[42:57] are purchasing in real time.
+[42:59] And that's really helpful for me in,
+[43:01] in the copyright side of the business.
+[43:03] Is there any correlation whatsoever between what they purchase and what you see kind of trending by demographic on the,
+[43:10] the streaming platforms or is it totally uncorrelated and just really interesting?
+[43:17] Well,
+[43:17] I think what,
+[43:19] what you see the most is,
+[43:21] is younger people buying the classic records.
+[43:25] There's,
+[43:25] there's a reason why Fleetwood Mac's rumors year after year is the,
+[43:30] the top selling record or,
+[43:34] or,
+[43:34] or piece of vinyl.
+[43:36] Um,
+[43:39] and it's,
+[43:40] it's,
+[43:40] um,
+[43:42] you know,
+[43:42] young,
+[43:43] younger people pick up on it and they,
+[43:45] you know,
+[43:45] like,
+[43:45] this is cool.
+[43:46] I want to buy it.
+[43:47] Um,
+[43:48] and I think like when you think about that,
+[43:50] right.
+[43:51] Um,
+[43:52] invariably so much of your music taste comes from your parents influence from adults who played around you as you grew up and everything else.
+[43:59] And if we're probably the first couple of generations where actually that transcends multiple generations,
+[44:07] you know,
+[44:08] if I think back to what my grandparents were playing in the kind of fifties and sixties that would have influenced my parents,
+[44:18] that that wouldn't be music that they would ever want to repeat or play.
+[44:22] Whereas the music that was influencing my parents during their formative years is the stuff like Pink Floyd,
+[44:31] Fleetwood Mac and all of those things.
+[44:34] And actually it's such good music that we continue to play it.
+[44:37] And then it does become self-erpetuating like that.
+[44:40] I do wonder whether there'll be like a kind of such a huge shift like it was from maybe the twenties to the thirties,
+[44:48] even up to the fifties through to then rock and roll and pop music into the future and whether it will break that.
+[44:56] But I think for now,
+[44:58] you know,
+[44:58] that those albums,
+[45:00] songs,
+[45:01] bands and everything else that were so big.
+[45:04] It's one of a kind now because,
+[45:06] because music isn't made like that anymore.
+[45:08] Yeah.
+[45:09] Music like that stands out so well because the,
+[45:12] the quality,
+[45:13] the quality of the songwriting for one was,
+[45:16] it was just so much better than it is today where,
+[45:21] when,
+[45:22] for some reason we've,
+[45:24] we've,
+[45:24] we've landed in a,
+[45:27] in a world where popular music needs to be dumbed down.
+[45:34] The melody needs to be dumbed down to its lowest,
+[45:36] lowest level in a lot of cases.
+[45:39] Right.
+[45:41] You know,
+[45:42] you,
+[45:43] to have a hit song,
+[45:44] you know,
+[45:45] it's got to get right to the chorus and,
+[45:47] you know,
+[45:47] can't have more than three chords.
+[45:49] And you compare that to,
+[45:51] you know,
+[45:51] it's gotta be two and a half minutes long,
+[45:53] you know,
+[45:54] compare that to Bohemian Rhapsody,
+[45:56] you know?
+[45:57] In the last two weeks,
+[45:58] I don't know why,
+[45:59] but,
+[46:00] which will hopefully lead us on to the quick fire round shortly,
+[46:03] but I've been infatuated again with meatloaf and all of his balance.
+[46:08] And I'm sitting there thinking,
+[46:10] how on earth would you get like a seven,
+[46:13] nine minute song on a radio or a streaming platform now?
+[46:16] Paradise by the Dashboard Light is a seven,
+[46:18] seven,
+[46:19] seven,
+[46:20] eight minute song.
+[46:20] And,
+[46:21] and it was a huge hit,
+[46:23] but yeah,
+[46:23] you're right.
+[46:23] It would net that doesn't fly today.
+[46:26] That songwriting,
+[46:27] Jim Steinman is a great example.
+[46:28] He was the master of arrangement songwriting.
+[46:34] He could write,
+[46:35] you know,
+[46:36] a musical and that,
+[46:39] that was his background,
+[46:40] but you compare that level of sophistication to like the typical songwriting of today.
+[46:47] And I think,
+[46:49] you know,
+[46:50] it just stands out.
+[46:51] People are like,
+[46:52] whoa,
+[46:52] you know,
+[46:53] this is,
+[46:53] this is incredible.
+[46:54] And then you have the production techniques,
+[46:56] right?
+[46:57] Things were recorded in a real studio with real,
+[47:00] real guitar amps,
+[47:02] real,
+[47:03] you know,
+[47:03] drum set,
+[47:04] a real producer in the room.
+[47:06] And they were allowed to have six months to a year to spend in the recording studio,
+[47:11] getting everything right.
+[47:12] That environment is gone today in the today's world.
+[47:16] So all those things combined to make those recordings just stand out and be more one of a kind.
+[47:25] Yeah.
+[47:25] Which ultimately only helps you because your assets look brilliant.
+[47:29] That is our focus is that,
+[47:32] those kind of pieces.
+[47:35] Yeah.
+[47:35] Right.
+[47:35] And that's what kind of,
+[47:36] I think helps to get that second life,
+[47:39] right?
+[47:41] Yeah.
+[47:41] The rediscovery.
+[47:42] Yeah,
+[47:42] for sure.
+[47:44] So Josh,
+[47:44] as Tom alluded to,
+[47:46] we are,
+[47:46] I think,
+[47:47] going to head into the quick fire round now.
+[47:49] A couple of just,
+[47:51] Oh,
+[47:52] I'm scared.
+[47:53] What is the,
+[47:54] I around.
+[47:56] That's the last thing that you should be,
+[47:58] Josh.
+[47:58] Okay.
+[48:00] These should,
+[48:01] well,
+[48:01] I guess they should be some of the easy ones,
+[48:03] but we'll see.
+[48:04] So Josh,
+[48:06] is there a particular song or album that you have repeat on repeat at the moment?
+[48:11] Yeah.
+[48:13] Well,
+[48:13] I quickly mentioned his name earlier,
+[48:15] but Jeff Buckley's grace is just so phenomenal.
+[48:19] And the documentary that came out a few months ago is phenomenal.
+[48:24] And just,
+[48:27] I know this is supposed to be quick,
+[48:29] but I,
+[48:30] I was,
+[48:32] I was young and doing an internship at Sony music.
+[48:37] When that album came out,
+[48:39] it came out on Columbia records.
+[48:41] So,
+[48:41] which is part of Sony.
+[48:43] And I got to hear that album before it was even released.
+[48:46] And I got to go to a Jeff Buckley record release party in Tribeca,
+[48:53] New York city.
+[48:54] There were about two people there.
+[48:56] Um,
+[48:57] and so this documentary and,
+[49:00] and that album have,
+[49:02] uh,
+[49:03] you know,
+[49:03] mean a lot to me.
+[49:04] And I've been listening to that a lot recently.
+[49:06] Um,
+[49:07] and,
+[49:07] uh,
+[49:08] second question,
+[49:09] is there a particular opportunity in music rights investment at the moment that
+[49:14] you think is underrated?
+[49:17] That's a good question.
+[49:19] Um,
+[49:20] I'm going to say there's nothing in particular.
+[49:23] I'll,
+[49:24] I'll,
+[49:24] I'll also add that.
+[49:27] I used to say that,
+[49:28] um,
+[49:29] I used to think that country music was that opportunity.
+[49:31] I think,
+[49:32] um,
+[49:33] I think country music has been fleshed out a little bit,
+[49:37] uh,
+[49:38] too much.
+[49:39] And,
+[49:40] uh,
+[49:41] I'll also say that,
+[49:43] um,
+[49:43] I think we've concluded at round Hill that the country music,
+[49:47] um,
+[49:48] um,
+[49:49] comes and goes to too much.
+[49:51] It just,
+[49:52] it doesn't have the staying power that,
+[49:55] um,
+[49:56] that other genres of music have.
+[49:58] So it used to sort of be this exciting area for us that I was,
+[50:03] um,
+[50:04] you know,
+[50:04] when we first moved to Nashville,
+[50:06] um,
+[50:08] but I,
+[50:09] I still love country music.
+[50:10] It's just,
+[50:11] there's almost too much of it.
+[50:13] And the music just washes out that comes and goes too quickly.
+[50:17] So,
+[50:18] um,
+[50:18] sadly that,
+[50:19] that is no longer an area that I,
+[50:21] uh,
+[50:21] point to as a opportunity.
+[50:25] Yeah.
+[50:25] Fair enough.
+[50:26] And,
+[50:26] and last but not least,
+[50:27] Josh,
+[50:27] if you could own one song,
+[50:29] what would it be and why?
+[50:32] Okay.
+[50:33] Um,
+[50:34] I get,
+[50:36] I get,
+[50:36] I get very jealous of,
+[50:38] of other publishers when they,
+[50:40] um,
+[50:40] when they buy catalogs that,
+[50:43] uh,
+[50:43] that I really wanted to get.
+[50:45] Um,
+[50:45] and,
+[50:47] and,
+[50:47] and for some reason,
+[50:48] uh,
+[50:50] journeys don't stop believing is coming to mind.
+[50:54] Uh,
+[50:55] God,
+[50:56] hypnosis.
+[50:57] Uh,
+[50:58] had to get that one.
+[50:59] Didn't you?
+[51:00] Uh,
+[51:01] yeah,
+[51:02] I just,
+[51:02] I just read that,
+[51:03] uh,
+[51:04] it's the number one most streamed song from the eighties and then,
+[51:07] and the illuminate report.
+[51:09] Well,
+[51:09] you got the nineties.
+[51:11] So you're not doing too badly.
+[51:13] Yeah.
+[51:14] Bright side for the two thousands.
+[51:17] Um,
+[51:17] so I,
+[51:18] I would pick up,
+[51:19] up the top song from the eighties if,
+[51:22] uh,
+[51:22] to answer your question.
+[51:23] Yeah.
+[51:24] Great answer.
+[51:25] And I also did have one that I wanted to add just to myself.
+[51:28] I know you're a guitarist,
+[51:29] Josh,
+[51:29] who is your guitar hero?
+[51:33] Okay.
+[51:34] Yes.
+[51:34] Um,
+[51:36] this is a band that,
+[51:38] folks from Europe don't know that well,
+[51:43] but it's a band we have here called fish.
+[51:45] Uh,
+[51:46] yes.
+[51:47] It's spelled with a pH.
+[51:50] And,
+[51:51] um,
+[51:52] they've been around for a really,
+[51:53] really long time.
+[51:54] The lead guitarist and fish,
+[51:56] his name is Trey Anastasio.
+[51:58] Great name.
+[51:59] He's the best guitarist in the world.
+[52:02] Just period.
+[52:03] Um,
+[52:04] and if you ever saw that band perform,
+[52:07] you'd,
+[52:07] you'd understand why.
+[52:09] Um,
+[52:09] they never played,
+[52:10] they have hundreds of songs in their repertoire.
+[52:13] They never play the same set twice.
+[52:15] Um,
+[52:16] they,
+[52:16] um,
+[52:17] one song might go for 20 minutes because they,
+[52:21] they improvise so much and just go in all sorts of different directions,
+[52:25] but he never looks down on the neck.
+[52:28] He's singing at the same time.
+[52:30] He's playing class,
+[52:32] goes from playing classical fugues to bluegrass,
+[52:36] to hard rock,
+[52:37] um,
+[52:38] all with like this amazing tone and precision to his playing.
+[52:43] Um,
+[52:44] so for those of you in Europe,
+[52:46] uh,
+[52:47] who don't know that band and,
+[52:49] uh,
+[52:50] you want to hear the best guitarist in the world,
+[52:52] check out fish.
+[52:53] Yeah.
+[52:54] Amazing.
+[52:54] And,
+[52:54] and hopefully he'll turn up to one of your stores.
+[52:57] One of these days.
+[52:58] That would be a dream.
+[53:00] I would,
+[53:01] I would,
+[53:01] my jaw would drop to the floor and I would be a complete fan boy and,
+[53:06] and probably freak him out.
+[53:08] Awesome.
+[53:09] A bit of a,
+[53:10] a bit of a digression,
+[53:12] but do you ever see,
+[53:13] um,
+[53:14] carpool karaoke with James Corden?
+[53:17] Have you ever watched any of this?
+[53:18] Yes.
+[53:18] Yes.
+[53:19] I think there's an episode where the Foo Fighters go into a local guitar store.
+[53:23] Yeah.
+[53:23] And he's not playing and the guy in the store's like,
+[53:27] what's going on?
+[53:29] It's so good.
+[53:31] Oh,
+[53:31] you're going to find that.
+[53:32] I'm going to find that.
+[53:33] Well,
+[53:33] hopefully we've manifested the fish version of that for you,
+[53:36] Josh.
+[53:37] Yeah.
+[53:37] That'd be so great.
+[53:38] Yeah.
+[53:39] Awesome.
+[53:40] Well,
+[53:40] Josh,
+[53:41] it's been such a pleasure.
+[53:42] Really interesting.
+[53:43] Really fun.
+[53:44] It's been great talking to you.
+[53:46] Yes.
+[53:47] Thank you so much.
+[53:48] Yeah,
+[53:49] Josh.
+[53:49] Thank you guys.
+[53:50] Thanks for taking the time.
+[53:50] Tom and Emma.
+[53:51] Thanks so much.
+[53:52] This was great.
+[53:53] Thanks for tuning in to Music Moneyball.
+[53:56] If you enjoyed the conversation,
+[53:57] you can subscribe at standard-innovation.com to get every episode in your inbox.
+[54:04] You can also follow the show on Spotify,
+[54:06] Apple,
+[54:06] or YouTube to stay ahead of the curve in music rights investment.
+[54:10] Good health.
+[54:11] Good health.
+[54:12] Good health.
+[54:12] Good health.
+[54:13] Good health.
+[54:13] Good health.
+[54:13] Good health.
+[54:14] Good health.
+[54:14] Good health.
+[54:15] Good health.
+[54:15] Good health.
+[54:15] Good health.
+[54:16] Good health.
+[54:16] Good health.
+[54:17] Good health.
+[54:17] Good health.
+[54:17] Good health.
+[54:18] Good health.
+[54:19] Good health.
+[54:19] Good health.
+[54:19] Good health.
+[54:20] Good health.
+[54:21] Good health.
+[54:21] Good health.
+[54:22] Good health.
+[54:23] Good health.
+[54:23] Good health.
+[54:24] Good health.
+[54:24] Good health.
+[54:25] Good health.
+[54:26] Good health.
+[54:26] Good health.
+[54:27] Good health.
+[54:27] Good health.
+[54:28] Good health.
+[54:29] Good health.
+[54:29] Good health.
+[54:30] Good health.
+[54:31] Good health.
+[54:31] Good health.
+[54:32] Good health.
+[54:33] Good health.
+[54:34] Good health.
+[54:35] Good health.

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "editorial15-04",
+    "category": "editorial-15",
+    "title": "Monumental layers",
+    "description": "Huge angled layers extend beyond the frame. Their scale turns the entire cover into the pattern.",
+    "patternRule": "Use several off-axis rounded trapezoids, each larger than the canvas. Change the inset and angle subtly between layers.",
+    "gradientRule": "Pale lime gives the headline contrast. Soft lime-to-mint transitions belong to two broad inner layers.",
+    "coverageRule": "Oversized forms occupy most of the canvas and extend across all four edges; the headline sits directly on the artwork.",
+    "paletteName": "Lime / pale lime / mint",
+    "preview": "assets/editorial-15/option-04.png",
+    "artPreview": "assets/editorial-15/option-04-art.png",
+    "originalPreview": "assets/editorial-10/option-05.png",
+    "typography": "DM Sans \u00b7 weight 450 \u00b7 110 px \u00b7 125 px line spacing \u00b7 \u22124.95 px tracking",
+    "sampleTitle": "Choose your first AI project.",
+    "width": 1920,
+    "height": 1080,
+    "status": "proposed",
+    "generator": "native SVG",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-04.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-15/option-04.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-15/option-04-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-15/option-04-art.svg"
+      }
+    ]
+  },
+  {
+    "id": "editorial15-05",
+    "category": "editorial-15",
+    "title": "Pattern under paper",
+    "description": "A dense blue tile field fills the cover, with a small white panel giving the headline its own place.",
+    "patternRule": "Repeat alternating curved tile shapes at a slight angle. Keep the pattern large enough to read as shapes at thumbnail size.",
+    "gradientRule": "Use flat blue and cyan values for the field, one lime accent, and a solid white reading panel.",
+    "coverageRule": "Pattern covers the whole canvas. A reading panel covers about 18%, leaving an active surface around every side.",
+    "paletteName": "Blue / cyan / forest blue / white",
+    "preview": "assets/editorial-15/option-05.png",
+    "artPreview": "assets/editorial-15/option-05-art.png",
+    "originalPreview": "assets/editorial-10/option-04.png",
+    "typography": "DM Sans \u00b7 weight 450 \u00b7 110 px \u00b7 125 px line spacing \u00b7 \u22124.95 px tracking",
+    "sampleTitle": "Choose your first AI project.",
+    "width": 1920,
+    "height": 1080,
+    "status": "proposed",
+    "generator": "native SVG",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-05.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-15/option-05.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-15/option-05-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-15/option-05-art.svg"
+      }
+    ]
+  },
+  {
+    "id": "editorial15-06",
+    "category": "editorial-15",
+    "title": "Broad sweep",
+    "description": "Wide directional bands sweep across the full frame, shifting in width and color as they pass behind the headline.",
+    "patternRule": "Use broad filled bands spanning top to bottom, with a gradual bend across the composition. Avoid thin contour lines.",
+    "gradientRule": "Alternate deep and medium blue faces. A cyan transition appears in one band; dark blue remains beneath the white text.",
+    "coverageRule": "Bands span the whole canvas, including behind the type. There is no separate empty field or corner ornament.",
+    "paletteName": "Blue / deep blue / cyan / lime",
+    "preview": "assets/editorial-15/option-06.png",
+    "artPreview": "assets/editorial-15/option-06-art.png",
+    "originalPreview": "assets/editorial-10/option-06.png",
+    "typography": "DM Sans \u00b7 weight 450 \u00b7 110 px \u00b7 125 px line spacing \u00b7 \u22124.95 px tracking",
+    "sampleTitle": "Choose your first AI project.",
+    "width": 1920,
+    "height": 1080,
+    "status": "proposed",
+    "generator": "native SVG",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-06.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-15/option-06.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-15/option-06-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-15/option-06-art.svg"
+      }
+    ]
+  }
+]

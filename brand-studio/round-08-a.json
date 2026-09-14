@@ -1,0 +1,229 @@
+[
+  {
+    "title": "Opening possibilities",
+    "sampleTitle": "Choose your first AI project",
+    "description": "Two lightly hinged planes and a line passing through them suggest opening a new possibility, with the blue field left mostly uninterrupted.",
+    "palette": "#0168C4",
+    "colors": [
+      "#0168C4",
+      "#F6F6EC",
+      "#132B26"
+    ],
+    "prompt": "Use case: illustration-story.\nCreate ONE original wide 16:9 editorial illustration, high resolution, not a webpage, mockup or card. The supplied screenshot is a STYLE AND SCALE reference only: notice its small crafted conceptual drawings, very thin lightly irregular ink line and large uninterrupted flat color fields. Do not reproduce any existing icon, hand arrangement, screenshot layout, typography, card borders, UI or article text. Draw the new subject described below.\nComposition system: a SMALL centered conceptual illustration occupying about 26 percent of canvas width and 30 percent of canvas height. Keep the entire drawing inside the central region. The rest is empty space: at least 80\u201390 percent uninterrupted flat single-color field. No decorative corner marks, baseline, surrounding scatter or extraneous patterns. Slight asymmetry within the tiny drawing gives life.\nDrawing voice: delicate confident editorial pen line, lightly irregular but precise, around 1.5\u20132 pixels thick at 1200px image width (roughly 2\u20133px at 1672px), NOT thick cartoon outline or UI icon. Use very few lines and only one or two small solid shapes. A considered handmade drawing with large spaces between its strokes. Absolutely flat opaque fills, no shading or depth rendering.\nSTRICT: no embedded text, letters, numbers, logos, watermark, captions, photos, 3D, shadows, highlights, gradient, glow, grain, fabric texture or paper texture across the background. No musical gear, documents, magnifying glasses, checkmarks, robot, brain or arrows. No heavy outlines. No background object or framed illustration panel. Background must be a perfectly uniform solid hex color corner-to-corner.\nBackground: a perfectly FLAT uniform hero blue #0565BB covering the entire landscape canvas.\nInk: fine deep-forest #132B26. Solid fills: warm off-white #F6F6EC.\nNew original subject: a tiny open hinged structure made of TWO simple off-white planes, slightly splayed around a delicate shared hinge. They are abstract planes, not a book, document, door icon or architectural rendering. No perspective shading; their opening is communicated just by gentle angular outlines and two flat ivory shapes. One very fine curving forest line passes through the opening and continues a short distance on either side, a simple loose curve with no arrowhead. Arrange the structure close to center, a touch right, and keep the whole drawing small, approximately 26 percent width by 30 percent height. It should feel like an original, spare editorial ink sketch on an enormous calm field of blue.",
+    "id": "editorial08-i01",
+    "category": "editorial-08",
+    "family": "illustration",
+    "status": "proposed",
+    "typography": "Image-led; DM Sans title below",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_oiZr1L/Screenshot 2026-09-11 at 8.35.43\u202fPM.png"
+    ],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-7f3c6724-3c01-4645-b1a5-17fa40a6ec1f.png",
+    "width": 1672,
+    "height": 941,
+    "backgroundSample": "#0168C4",
+    "dominantColorFraction": 0.2464,
+    "preview": "assets/editorial-08/illustration-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-01.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-01.txt"
+      }
+    ],
+    "nearBackgroundFraction": 0.971,
+    "backgroundTolerancePerChannel": 12,
+    "requestedPalette": "#0565BB",
+    "requestedColors": [
+      "#0565BB",
+      "#F6F6EC",
+      "#132B26"
+    ]
+  },
+  {
+    "title": "Knowledge held together",
+    "sampleTitle": "Connect your company\u2019s knowledge",
+    "description": "A loose thread draws three small fragments into a woven junction, showing separate knowledge becoming connected.",
+    "palette": "#142F29",
+    "colors": [
+      "#142F29",
+      "#F6F6EC",
+      "#D6FF62"
+    ],
+    "prompt": "Use case: illustration-story.\nCreate ONE original wide 16:9 editorial illustration, high resolution, not a webpage, mockup or card. The supplied screenshot is a STYLE AND SCALE reference only: notice its small crafted conceptual drawings, very thin lightly irregular ink line and large uninterrupted flat color fields. Do not reproduce any existing icon, hand arrangement, screenshot layout, typography, card borders, UI or article text. Draw the new subject described below.\nComposition system: a SMALL centered conceptual illustration occupying about 26 percent of canvas width and 30 percent of canvas height. Keep the entire drawing inside the central region. The rest is empty space: at least 80\u201390 percent uninterrupted flat single-color field. No decorative corner marks, baseline, surrounding scatter or extraneous patterns. Slight asymmetry within the tiny drawing gives life.\nDrawing voice: delicate confident editorial pen line, lightly irregular but precise, around 1.5\u20132 pixels thick at 1200px image width (roughly 2\u20133px at 1672px), NOT thick cartoon outline or UI icon. Use very few lines and only one or two small solid shapes. A considered handmade drawing with large spaces between its strokes. Absolutely flat opaque fills, no shading or depth rendering.\nSTRICT: no embedded text, letters, numbers, logos, watermark, captions, photos, 3D, shadows, highlights, gradient, glow, grain, fabric texture or paper texture across the background. No musical gear, documents, magnifying glasses, checkmarks, robot, brain or arrows. No heavy outlines. No background object or framed illustration panel. Background must be a perfectly uniform solid hex color corner-to-corner.\nBackground: perfectly FLAT uniform deep forest #132B26.\nInk: delicate ivory #F6F6EC. Solid accent: one restrained lime #D6FF62 shape at the junction.\nNew original subject: a loosely looped thin ivory thread gathers THREE small ivory fragments into one coherent woven junction. Keep each fragment extremely small and mostly outlined with a short ivory stroke, abstract and irregular rather than paper/document icons. The loose looping thread makes only a few graceful crossings as it arrives at one compact lime-supported woven junction. This is a spare visual metaphor for dispersed knowledge being held together, no network nodes, labels, arrows, symbols or complex tangle. The small complete drawing occupies about a quarter of the canvas width and less than a third of its height, centered with a slight leftward bias. Large flat forest space remains on all sides.",
+    "id": "editorial08-i02",
+    "category": "editorial-08",
+    "family": "illustration",
+    "status": "proposed",
+    "typography": "Image-led; DM Sans title below",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_oiZr1L/Screenshot 2026-09-11 at 8.35.43\u202fPM.png"
+    ],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-4febbeab-e033-419a-9c8a-5deeabd6abd4.png",
+    "width": 1672,
+    "height": 940,
+    "backgroundSample": "#142F29",
+    "dominantColorFraction": 0.2636,
+    "preview": "assets/editorial-08/illustration-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-02.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-02.txt"
+      }
+    ],
+    "nearBackgroundFraction": 0.9955,
+    "backgroundTolerancePerChannel": 12,
+    "requestedPalette": "#132B26",
+    "requestedColors": [
+      "#132B26",
+      "#F6F6EC",
+      "#D6FF62"
+    ]
+  },
+  {
+    "title": "A supported span",
+    "sampleTitle": "Build systems your team can trust",
+    "description": "A small graceful arch and quiet line braces express support without turning the image into a technical diagram.",
+    "palette": "#C0ECFD",
+    "colors": [
+      "#C0ECFD",
+      "#132B26",
+      "#FFFFFF"
+    ],
+    "prompt": "Use case: illustration-story.\nCreate ONE original wide 16:9 editorial illustration, high resolution, not a webpage, mockup or card. The supplied screenshot is a STYLE AND SCALE reference only: notice its small crafted conceptual drawings, very thin lightly irregular ink line and large uninterrupted flat color fields. Do not reproduce any existing icon, hand arrangement, screenshot layout, typography, card borders, UI or article text. Draw the new subject described below.\nComposition system: a SMALL centered conceptual illustration occupying about 26 percent of canvas width and 30 percent of canvas height. Keep the entire drawing inside the central region. The rest is empty space: at least 80\u201390 percent uninterrupted flat single-color field. No decorative corner marks, baseline, surrounding scatter or extraneous patterns. Slight asymmetry within the tiny drawing gives life.\nDrawing voice: delicate confident editorial pen line, lightly irregular but precise, around 1.5\u20132 pixels thick at 1200px image width (roughly 2\u20133px at 1672px), NOT thick cartoon outline or UI icon. Use very few lines and only one or two small solid shapes. A considered handmade drawing with large spaces between its strokes. Absolutely flat opaque fills, no shading or depth rendering.\nSTRICT: no embedded text, letters, numbers, logos, watermark, captions, photos, 3D, shadows, highlights, gradient, glow, grain, fabric texture or paper texture across the background. No musical gear, documents, magnifying glasses, checkmarks, robot, brain or arrows. No heavy outlines. No background object or framed illustration panel. Background must be a perfectly uniform solid hex color corner-to-corner.\nBackground: perfectly FLAT uniform pale ice blue #C2EDFF.\nInk: fine deep forest #132B26. One solid off-white / white #FFFFFF keystone.\nNew original subject: one SMALL graceful arch drawn with a handful of delicate forest pen strokes, a light open span with slender line braces and one modest solid off-white keystone at the crown. It should be abstractly architectural, not a literal photoreal bridge, chart, UI icon or 3D object. Use simple airy linework, uneven confident pen curves, thin braces that visually hold the small arch, no masonry detail and no heavy outline. No floor line or cast shadow. Keep this complete tiny concept centered on the pale blue field, about 26 percent of image width and 30 percent of height, with slightly asymmetric bracing and generous empty space.",
+    "id": "editorial08-i03",
+    "category": "editorial-08",
+    "family": "illustration",
+    "status": "proposed",
+    "typography": "Image-led; DM Sans title below",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_oiZr1L/Screenshot 2026-09-11 at 8.35.43\u202fPM.png"
+    ],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-66d4157e-fe03-40b9-ac38-aca7ab3ade43.png",
+    "width": 1672,
+    "height": 941,
+    "backgroundSample": "#C0ECFD",
+    "dominantColorFraction": 0.212,
+    "preview": "assets/editorial-08/illustration-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-03.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-03.txt"
+      }
+    ],
+    "nearBackgroundFraction": 0.9939,
+    "backgroundTolerancePerChannel": 12,
+    "requestedPalette": "#C2EDFF",
+    "requestedColors": [
+      "#C2EDFF",
+      "#132B26",
+      "#FFFFFF"
+    ]
+  },
+  {
+    "title": "Careful human adjustment",
+    "sampleTitle": "Keep people in the review",
+    "description": "Two spare line-drawn hands adjust a single elliptical form, placing human judgment at the center of the composition.",
+    "palette": "#FEFEFE",
+    "colors": [
+      "#FEFEFE",
+      "#132B26",
+      "#F6F6EC",
+      "#0565BB"
+    ],
+    "prompt": "Use case: illustration-story.\nCreate ONE original wide 16:9 editorial illustration, high resolution, not a webpage, mockup or card. The supplied screenshot is a STYLE AND SCALE reference only: notice its small crafted conceptual drawings, very thin lightly irregular ink line and large uninterrupted flat color fields. Do not reproduce any existing icon, hand arrangement, screenshot layout, typography, card borders, UI or article text. Draw the new subject described below.\nComposition system: a SMALL centered conceptual illustration occupying about 26 percent of canvas width and 30 percent of canvas height. Keep the entire drawing inside the central region. The rest is empty space: at least 80\u201390 percent uninterrupted flat single-color field. No decorative corner marks, baseline, surrounding scatter or extraneous patterns. Slight asymmetry within the tiny drawing gives life.\nDrawing voice: delicate confident editorial pen line, lightly irregular but precise, around 1.5\u20132 pixels thick at 1200px image width (roughly 2\u20133px at 1672px), NOT thick cartoon outline or UI icon. Use very few lines and only one or two small solid shapes. A considered handmade drawing with large spaces between its strokes. Absolutely flat opaque fills, no shading or depth rendering.\nSTRICT: no embedded text, letters, numbers, logos, watermark, captions, photos, 3D, shadows, highlights, gradient, glow, grain, fabric texture or paper texture across the background. No musical gear, documents, magnifying glasses, checkmarks, robot, brain or arrows. No heavy outlines. No background object or framed illustration panel. Background must be a perfectly uniform solid hex color corner-to-corner.\nBackground: perfectly FLAT uniform white #FFFFFF.\nInk: very fine forest #132B26. Solid fills: one small off-white #F6F6EC ellipse and one tiny blue #0565BB accent.\nNew original subject: TWO very sparingly drawn hands gently adjust a single off-white elliptical form. Invent an original arrangement, not the screenshot's hand compositions: one hand approaches the ellipse from the lower-left and the second from the upper-right, with the fingertips lightly attending to opposite ends of the ellipse. Use only a few delicate expressive pen strokes for each hand and simplified finger curves; hands are not fully outlined glove icons, no thick cartoon styling or heavy wrist blocks. The small pale ellipse has a subtle fine forest contour so it remains visible on white, with one tiny blue accent touching an edge. Everything stays within a small central cluster, roughly a quarter of the full canvas width, surrounded by a great deal of completely blank white. No shadow or texture.",
+    "id": "editorial08-i04",
+    "category": "editorial-08",
+    "family": "illustration",
+    "status": "proposed",
+    "typography": "Image-led; DM Sans title below",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_oiZr1L/Screenshot 2026-09-11 at 8.35.43\u202fPM.png"
+    ],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-79ead99a-20d1-4693-bf49-1dd16d33adec.png",
+    "width": 1672,
+    "height": 941,
+    "backgroundSample": "#FEFEFE",
+    "dominantColorFraction": 0.5909,
+    "preview": "assets/editorial-08/illustration-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-04.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-04.txt"
+      }
+    ],
+    "nearBackgroundFraction": 0.9925,
+    "backgroundTolerancePerChannel": 12,
+    "requestedPalette": "#FFFFFF",
+    "requestedColors": [
+      "#FFFFFF",
+      "#132B26",
+      "#F6F6EC",
+      "#0565BB"
+    ]
+  },
+  {
+    "title": "A repeatable rhythm",
+    "sampleTitle": "Turn repeated work into a system",
+    "description": "A loose string resolves into a compact orderly weave, suggesting repetition becoming a dependable system.",
+    "palette": "#D4FA6C",
+    "colors": [
+      "#D4FA6C",
+      "#132B26",
+      "#F6F6EC"
+    ],
+    "prompt": "Use case: illustration-story.\nCreate ONE original wide 16:9 editorial illustration, high resolution, not a webpage, mockup or card. The supplied screenshot is a STYLE AND SCALE reference only: notice its small crafted conceptual drawings, very thin lightly irregular ink line and large uninterrupted flat color fields. Do not reproduce any existing icon, hand arrangement, screenshot layout, typography, card borders, UI or article text. Draw the new subject described below.\nComposition system: a SMALL centered conceptual illustration occupying about 26 percent of canvas width and 30 percent of canvas height. Keep the entire drawing inside the central region. The rest is empty space: at least 80\u201390 percent uninterrupted flat single-color field. No decorative corner marks, baseline, surrounding scatter or extraneous patterns. Slight asymmetry within the tiny drawing gives life.\nDrawing voice: delicate confident editorial pen line, lightly irregular but precise, around 1.5\u20132 pixels thick at 1200px image width (roughly 2\u20133px at 1672px), NOT thick cartoon outline or UI icon. Use very few lines and only one or two small solid shapes. A considered handmade drawing with large spaces between its strokes. Absolutely flat opaque fills, no shading or depth rendering.\nSTRICT: no embedded text, letters, numbers, logos, watermark, captions, photos, 3D, shadows, highlights, gradient, glow, grain, fabric texture or paper texture across the background. No musical gear, documents, magnifying glasses, checkmarks, robot, brain or arrows. No heavy outlines. No background object or framed illustration panel. Background must be a perfectly uniform solid hex color corner-to-corner.\nBackground: perfectly FLAT uniform lime #D6FF62. Do not add a gradient, glow or bright center; this is one solid color.\nInk: delicate deep forest #132B26. Solid fill: a small restrained ivory #F6F6EC area within the weave.\nNew original subject: ONE continuous loose string enters a small ORDERLY WOVEN PATCH. The left end is a single graceful open irregular curve, which gradually takes on the rhythm of a compact hand-woven crossing pattern to its right. Only a few very fine pen lines, spaced clearly, no dense mesh or knot. Let one small ivory flat shape support part of the ordered weave, while most of the shape remains linework showing the lime field through it. This expresses rhythm and repeatability, not a flowchart, document, barcode or musical object. Center the tiny composition with a slight rightward bias, approximately 26 percent canvas width and 30 percent height. The surrounding lime remains completely uninterrupted.",
+    "id": "editorial08-i05",
+    "category": "editorial-08",
+    "family": "illustration",
+    "status": "proposed",
+    "typography": "Image-led; DM Sans title below",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_oiZr1L/Screenshot 2026-09-11 at 8.35.43\u202fPM.png"
+    ],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-564e1e42-b72d-4c2c-8bbe-50ac2aa532cb.png",
+    "width": 1672,
+    "height": 941,
+    "backgroundSample": "#D4FA6C",
+    "dominantColorFraction": 0.149,
+    "preview": "assets/editorial-08/illustration-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-05.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-05.txt"
+      }
+    ],
+    "nearBackgroundFraction": 0.9855,
+    "backgroundTolerancePerChannel": 12,
+    "requestedPalette": "#D6FF62",
+    "requestedColors": [
+      "#D6FF62",
+      "#132B26",
+      "#F6F6EC"
+    ]
+  }
+]

@@ -1,0 +1,123 @@
+[
+  {
+    "id": "editorial09-p03",
+    "title": "Bending dot lattice \u2014 subtle edge",
+    "headline": "Build systems\nyour team can trust.",
+    "description": "The same pale-blue type and dot lattice, with only a subtle cyan tint at the far right edge.",
+    "palette": {
+      "background": "#C2EDFF",
+      "text": "#132B26",
+      "accents": [
+        "#132B26"
+      ]
+    },
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09325-0085-73c3-b1ee-dd142ebe8d20/exec-1f066516-0f2a-4f54-a86f-b4f016588630.png",
+    "sampleTitle": "Build systems your team can trust",
+    "category": "editorial-09",
+    "family": "thumbnail",
+    "preview": "assets/editorial-09/pattern-03.png",
+    "prompt": "Use case: precise-object-edit. Edit only the supplied finished Recoup blog thumbnail, preserving the original 16:9 framing and resolution. The provided image is the EDIT TARGET, not an inspiration reference.\nMake exactly one very restrained change: add a barely noticeable localized gradient at the far RIGHT edge behind the existing dot pattern. The existing pale ice-blue background should drift to a slightly deeper soft cyan at the outermost edge only. Feather it invisibly back into the original color within roughly the last 10\u201315% of width; most of the visible color shift belongs to the last 5%. Keep the rest of the image unchanged. This should feel like 95% of the original plus 5% atmosphere, not a gradient redesign.\nPreserve verbatim the same headline and exact two-line break:\nBuild systems\nyour team can trust.\nKeep every letter's position, size, weight, tracking, color and spacing identical. Keep every dot, its size, location, color, spacing and the entire dot lattice geometry identical. Keep the solid pale blue behind the headline and the central 80\u201390% of the image unchanged. Do not place any color wash behind the headline.\nNo other changes. No new grain, texture, noise, objects, light beams, highlights, shading, logos, frames, text or decoration. No full-width or diagonal gradient. Do not intensify the existing colors. Output ONE finished image.",
+    "referencePaths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-03.png"
+    ],
+    "typography": "DM Sans-style regular, left aligned",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-03.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-03.txt"
+      }
+    ],
+    "paletteName": "Pale blue",
+    "sha256": "05973441ca44cdff7741ef70d3f1ebeb755ed1d2e3a759faf33a1160539bef8f",
+    "generator": "image_gen (built-in)",
+    "originalPreview": "assets/editorial-08/pattern-03.png"
+  },
+  {
+    "id": "editorial09-p04",
+    "title": "Open orbits \u2014 subtle edge",
+    "headline": "Keep people\nin the review.",
+    "description": "The same white type and open arcs, with a faint ice-blue gradient confined to the lower-right corner.",
+    "palette": {
+      "background": "#FFFFFF",
+      "text": "#152E37",
+      "accents": [
+        "#007EBD",
+        "#D6FF62"
+      ]
+    },
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09325-0085-73c3-b1ee-dd142ebe8d20/exec-7fdad8d9-f203-407c-af86-84ccce3cbb49.png",
+    "sampleTitle": "Keep people in the review",
+    "category": "editorial-09",
+    "family": "thumbnail",
+    "preview": "assets/editorial-09/pattern-04.png",
+    "prompt": "Use case: precise-object-edit. Edit only the supplied finished Recoup blog thumbnail, preserving its exact original 16:9 framing and resolution. The provided image is the EDIT TARGET.\nThe only change is a whisper of pale ice-blue gradient in the very LOWER-RIGHT corner, behind the existing blue open arcs. Keep about 95% of the visual feeling unchanged. The outermost lower-right tip may be very faint ice blue (around #EAF8FF), softly dissolving back into the original white over a small corner region. The central area, all headline space, upper edge and left edge must remain the original white. This is an almost invisible edge tint, not an overall gradient or vignette. At least 85\u201390% of the canvas remains completely untouched white.\nKeep the exact headline and exact two-line break:\nKeep people\nin the review.\nKeep every letter's position, size, weight, tracking, ink color and spacing identical. Preserve all open arc geometry, placement, line thickness and blue color, and preserve the single lime dot exactly. Do not add or move shapes. Do not add any tint behind the headline.\nNo other changes. No added grain, noise, texture, objects, shadows, lens effects, logo, text, border or decorative elements. Output ONE finished image.",
+    "referencePaths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-04.png"
+    ],
+    "typography": "DM Sans-style regular, left aligned",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-04.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-04.txt"
+      }
+    ],
+    "paletteName": "White",
+    "sha256": "4d095e6d931f5e4b1246d60e58bc568a84e092d7a1bd635681453027722bd93b",
+    "generator": "image_gen (built-in)",
+    "originalPreview": "assets/editorial-08/pattern-04.png"
+  },
+  {
+    "id": "editorial09-p05",
+    "title": "Parallel curves \u2014 subtle edge",
+    "headline": "Turn repeated work\ninto a system.",
+    "description": "The same lime type and parallel curves, with a small cooler tint at the lower-right tip.",
+    "palette": {
+      "background": "#D6FF62",
+      "text": "#132B26",
+      "accents": [
+        "#132B26"
+      ]
+    },
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09325-0085-73c3-b1ee-dd142ebe8d20/exec-3f6da1e6-7376-4f55-a4f7-5f2e6061516a.png",
+    "sampleTitle": "Turn repeated work into a system",
+    "category": "editorial-09",
+    "family": "thumbnail",
+    "preview": "assets/editorial-09/pattern-05.png",
+    "prompt": "Use case: precise-object-edit. Edit the supplied finished Recoup blog thumbnail very minimally. The image is the exact EDIT TARGET. Preserve the original 16:9 dimensions and composition.\nAdd only a tiny, extremely soft pale ice-blue influence at the far LOWER-RIGHT TIP behind the existing parallel curves. This should be a 5% finishing touch: retain the dominant original lime across virtually the whole image, with only the outermost lower-right corner drifting slightly cooler into a very light pale blue/lime blend. The gradient should stay localized in the final corner and feather back to the original lime before reaching the central area. Keep at least 85\u201390% of the canvas the unchanged original lime, including all headline space. Do NOT create a blue patch, strong cyan glow, or large blue-to-lime gradient.\nPreserve the headline verbatim with the identical two-line break:\nTurn repeated work\ninto a system.\nAll typography must remain exactly the same in position, scale, light weight, color, tracking and line spacing. Preserve every parallel curve, its count, shape, location, spacing, thickness and dark-forest color exactly. Keep the clean flat graphic look.\nNo other changes: no new grain, noise, texture, objects, photography, shadows, neon bloom, logos, additional wording or framing. No overall color grading. Output ONE finished image.",
+    "referencePaths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-05.png"
+    ],
+    "typography": "DM Sans-style regular, left aligned",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-05.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-05.txt"
+      }
+    ],
+    "paletteName": "Lime",
+    "sha256": "19b3fb7824f73277e573a886c31d669a409d41c872e9b40560876eb98a46038d",
+    "generator": "image_gen (built-in)",
+    "originalPreview": "assets/editorial-08/pattern-05.png"
+  }
+]

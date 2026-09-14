@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>The Recoup Podcast — Kit options</title>
+  <link rel="icon" href="assets/logos/symbol-ink.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="podcast-kit-v2.css">
+</head>
+<body>
+  <a class="skip" href="#preview">Skip to the preview</a>
+  <header class="topbar">
+    <a class="back-link" href="./?collection=podcast#browse">↖ Brand Studio</a>
+    <span class="study-label">THE RECOUP PODCAST <span>/</span> STUDY 02</span>
+    <a class="earlier-link" href="podcast-kit-v3.html">New color studies ↗</a>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div><p class="eyebrow">Three directions for one show</p><h1 id="page-title">The podcast kit.</h1></div>
+      <p>Small details. Full-canvas patterns.<br>A matching set from the opening to the next episode.</p>
+    </section>
+    <div id="directions" class="directions" role="group" aria-label="Choose a podcast direction"></div>
+    <section class="workspace" id="preview" aria-labelledby="preview-title">
+      <div class="section-heading">
+        <div><p class="eyebrow" id="selected-direction"></p><h2 id="preview-title">Animated opening</h2></div>
+        <span class="proposal">Proposed for review</span>
+      </div>
+      <div id="formats" class="formats" role="group" aria-label="Choose a kit format"></div>
+      <div class="stage-shell"><div id="stage" class="stage" role="img" aria-label="Podcast artwork preview"><p>Loading the podcast kit…</p></div></div>
+      <div id="player" class="player" hidden>
+        <div class="playback"><button id="play" type="button">Play opening</button><button id="replay" type="button" aria-label="Restart animation">↺</button><input id="timeline" type="range" min="0" max="6" step="0.05" value="3" aria-label="Animation position"><span id="time">3.0 / 6.0</span></div>
+        <span id="motion-note">Six-second opening · silent</span>
+      </div>
+      <div class="preview-footer">
+        <div class="preview-description"><p id="format-note"></p><span id="dimensions"></span></div>
+        <div class="downloads"><button id="download-png" type="button" disabled>PNG ↓</button><button id="download-svg" type="button" disabled>Editable SVG ↓</button><a id="download-video" download hidden>Opening MP4 ↓</a></div>
+      </div>
+      <label class="export-layer" id="export-layer-label" hidden>Download layer<select id="export-layer"><option value="frame">Frame + camera windows</option><option value="labels">Labels only for a moving background</option></select></label>
+      <details class="episode-details">
+        <summary>Edit the example episode <span aria-hidden="true">+</span></summary>
+        <form id="episode-form">
+          <label class="title-field">Episode title<input name="title" maxlength="96" value="AI and the business of music" autocomplete="off"></label>
+          <label class="episode-field">Episode<input name="episode" maxlength="6" value="01" autocomplete="off"></label>
+          <label>Host<input name="host" maxlength="40" value="Host name" autocomplete="off"></label>
+          <label>Guest<input name="guest" maxlength="40" value="Guest name" autocomplete="off"></label>
+          <label class="quote-field">Example quote<textarea name="quote" maxlength="150" rows="2">Good systems give people more time to think.</textarea></label>
+        </form>
+        <p>These names, titles, and quote are examples. Your edits update the previews and PNG/SVG downloads. Camera placeholders export as transparent openings.</p>
+      </details>
+    </section>
+    <section class="whole-kit" aria-labelledby="kit-title">
+      <div class="section-heading"><div><p class="eyebrow">One direction, every format</p><h2 id="kit-title">The whole kit.</h2></div><p>Open a scene to see it larger or customize it.</p></div>
+      <div id="kit-grid" class="kit-grid"></div>
+    </section>
+    <footer>
+      <div><p>Three proposed directions for The Recoup Podcast.</p><p>Openings and background loops are silent. No guest footage is included.</p></div>
+      <a class="download-set" href="assets/podcast-kit-v2/recoup-podcast-kit-options.zip" download>Download all three sample kits <span>↓</span></a>
+    </footer>
+  </main>
+  <p id="status" role="status" aria-live="polite"></p>
+  <script type="module" src="podcast-kit-v2.js"></script>
+</body>
+</html>

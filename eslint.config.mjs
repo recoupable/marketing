@@ -32,5 +32,7 @@ export default defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Portable, pre-existing static Studio; its browser scripts are checked separately.
+    "brand-studio/**",
   ]),
 ]);

@@ -1,0 +1,515 @@
+# How independent artists build valuable catalogs w/ Jamie Dee Hart
+# Date: 2026-07-07
+# Duration: 00:57:53
+# Guests: Jamie Dee Hart, Founder & CEO, Hart & Songs Hosts: Tom Mullen, Sam Morey and Emma Griffiths, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen, Sam Morey and Emma Griffiths, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/How-independent-artists-build-valuable-catalogs-w-Jamie-Dee-Hart-e3lord9
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogues.
+[00:09] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:15] Welcome back to the Music Moneyball podcast with me, Emma Griffiths.
+[00:20] I'm joined by my co-hosts, Tom Mullen and Sam Maury.
+[00:24] And today we have a guest who is one of the leading voices in music rights management and has built her career around one mission,
+[00:33] helping independent creators understand the value of their work and actually get paid for it.
+[00:38] Over the last decade, she's worked with artists, labels, publishers and the teams behind major chart hits,
+[00:44] helping them clean up their data and recover over one million dollars in previously unclaimed royalties.
+[00:49] Today, she runs Heart & Songs, a Nashville-based rights management firm that helps creators and their teams maximize the long-tail value of their catalogues.
+[00:58] She's also deeply involved in educating the next generation of creators through her work with UCLA, NYU, Grammy U and Women in Music, to name a few.
+[01:08] Please welcome Jamie D. Heart.
+[01:10] Hello, it's so great to be here.
+[01:12] So great to have you here, Jamie.
+[01:15] And we're super excited to dig into the whole independent artist side because I think it's something that we haven't approached too much on this podcast yet.
+[01:23] And really focusing on where the next wave of value is going to come from for the next catalogues of the future.
+[01:30] So, well, Jamie, I'm sure you're aware that at Music Moneyball, we focus on the music rights investment space.
+[01:37] And I think that this is a really interesting topic to talk about from the perspective of the independent market,
+[01:44] because on the one hand, you've got more money than ever coming into music rights.
+[01:49] And you see these kind of hundreds of millions, if not billions of dollars pouring into deals and acquisitions of the likes of Bob Dylan and Queen.
+[01:58] But then it seems like on the other hand, on the other end of things, like there's this massive disconnect with independent artists nowadays who, you know, don't really understand the full value of assets and what they can do with them.
+[02:10] And so I think that's a really interesting place to start and just kind of unpacking that and seeing what you think that is.
+[02:16] What's so interesting is it seems as though these two things exist separate of each other.
+[02:23] I feel like now more than ever, we're trying to figure out how to have the industry value money, value like music and songwriters.
+[02:36] But then there are these like legacy acts and huge iconic musicians and songwriters who are getting their catalogs purchased.
+[02:43] Meanwhile, the average like independent artist is having a hard time making a living creating music.
+[02:49] So it's weird to look at those two things very differently because in reality, music as an industry is still so much smaller than if you were to compare it to like the film industry.
+[03:02] Just as far as like value of what people are paying and getting paid to be in these films and TVs and what people are willing to spend on these kind of things in comparison to music, where I think we've fully reached the point where people just expect that like we should just be able to listen to music for almost free.
+[03:24] So it's very interesting to see the two things happening.
+[03:54] If you're interested in music.
+[04:24] every day.
+[04:25] So simply just for the ease of it, like if you're gonna pass out a legacy and you want to like, you know, give your kids generational wealth, it makes sense to sell your catalog.
+[04:38] But then there are also there are also like not well known artists and writers and like small independent creators who are, you know, selling their catalog and like lo-fi music and stuff just because it's churning.
+[04:51] And yeah, we'll talk, we're gonna cover some of those companies that are targeting some of those creators.
+[04:56] So it's interesting.
+[04:58] There's a lot of things going on.
+[05:00] But, you know, for the early artists or the early creator, you know, explaining to them what their IP actually means and how there's like several sides to it.
+[05:12] It's not just the song.
+[05:12] It's not just the song.
+[05:13] It's the sound recording.
+[05:15] It's the right to be able to put it in a commercial or sync it in a television show.
+[05:20] It's like there's a lot of layers to it that I think a lot of newer creators don't quite understand when they receive outreach from some of these companies that are like, we'd love to give you $100,000 for your catalog.
+[05:34] And yeah, so there's reasons to take that deal or not to take that deal.
+[05:42] Yeah.
+[05:43] But it's a little more complicated than just like, it's a good deal or not.
+[05:48] And in terms of that kind of education gap, I know that's something that you're really focused on, Jamie.
+[05:53] I mean, how does some of your work and what you do at Haas and Songs, how are you trying to bridge that gap, if you like, between helping when the creators understand what things are worth?
+[06:04] Definitely.
+[06:05] So when I started doing this, I mean, I have a history of working in music publishing for 11 years.
+[06:11] So I've kind of been involved with a lot of different sides of monetization, registration and collections.
+[06:18] But I've worked with the very small independent artists that's releasing their records on CD Baby up to like the producer that's managed by a big management company.
+[06:31] You know, there's so many different sizes, but the concept is still the same no matter, you know, how big your music is at this point in time.
+[06:41] But I think it's really important to explain to them, you know, and it always most times happens afterwards, like after the fact, you know, the education happens after the song is already out there in the wild.
+[06:53] And possibly after those, you know, splits are negotiated between lawyers or maybe just between your friends over a text message.
+[07:03] So I think a lot of work that I do is trying to clean up what exists currently and then educate.
+[07:10] So going forward, they know how to properly negotiate and properly, you know, fight for what their value is for a song.
+[07:21] Awesome.
+[07:21] So I think it would be great to get into just some of the things that you see on a basis, you know, with what you do and where you see artists kind of are leaving the most value on the table.
+[07:33] I think you said a lot of the time it's after the fact and you sort of pointing out what's where the value gap is.
+[07:39] But what are those what are those key mistakes that you see happen?
+[07:42] Definitely.
+[07:42] I think simply them make leaving money on the table as far as not collecting every single piece of royalty that is owed to them.
+[07:53] And so either that's because they're not educated and they don't yet know about these different royalty streams or because they are waiting for a publishing deal to come down the line.
+[08:05] And they're kind of waiting to collect some of those royalties in hopes of, you know, having an upper leg and negotiations with a publisher.
+[08:14] There are a lot of pitfalls with that and concerns where, you know, if you aren't accurately collecting everything up front, you are also not accurately, you know, licensing and giving permission for your works.
+[08:29] So there are actually a lot of ways that licenses, for example, on Peloton, you know, if you're not opted in as a songwriter to give permission for Peloton to program your composition, you know, you're losing out on an opportunity if you wrote on like a big electronic song that Peloton really wants to program in one of their rides.
+[08:51] So it's not actually just the issue of registering and collecting properly.
+[08:58] It's also making sure you're licensing your catalog to the fullest capability.
+[09:02] Yeah. And we know the thing, which is kind of your sweet spot, Jamie, is the most confusing, ultimately maze of information and rights.
+[09:11] So, yeah, I imagine, you know, it's difficult for the people in this industry, let alone the people that are, you know, the songwriters.
+[09:18] How realistic is it for you to bridge the educational gap for the creators?
+[09:27] I think that now more than ever, there are a lot of people out there making it a priority to educate creators.
+[09:36] And there are also a lot of new tech startups that are trying to help fix this issue and alleviate the collections problem that we're like facing.
+[09:46] Yeah, just a lot of a lot of people are interested in fixing this, whether or not that's a little bit, you know, selfish of intent, just because, you know, if you make a big music tech startup company that kind of revolutionizes how independent artists collect, you can make a lot of money.
+[10:05] So, or you just really want to help.
+[10:09] I mean, either way, I think both are welcome just because we really do need it.
+[10:13] We're just so behind as an industry for our creators that are making music that the entire world listens to.
+[10:21] I think it would be great to get an example, Jamie, of like some of the value that you've helped unlock for these artists, just for people to understand, you know, that there is real concrete money there.
+[10:33] And it's just not, you know, some kind of thing on potential thing on the horizon.
+[10:37] So maybe if you could give us, you know, a couple of examples of artists that you've worked with and the uplift that you've helped them achieve.
+[10:45] Yeah, I have specifically in like the YouTube rights management world.
+[10:53] There has been a couple artists that did not enable their catalog for YouTube monetization for whatever reasons.
+[11:04] Some of that might be because they are afraid of, you know, making their fans upset that there are ads on their YouTube videos that contain their music.
+[11:15] Or simply because they just like don't understand how the flow of funds work.
+[11:23] Either way, it's really important that they are making sure that they're representing and collecting that in the YouTube space.
+[11:31] Because if they are not, other people are monetizing their own user generated content that has the music in it or possibly just blatantly like monetizing the music.
+[11:44] And so in that world, in that space, you know, being able to take over that for one of my clients in the electronic music like lo-fi world was really impactful.
+[11:58] Because we did discover some people actually monetizing his copyrights using the straight up sound recording that is his own.
+[12:08] And they were pretending it was theirs and they were monetizing.
+[12:13] Which is a bummer because you can't go back in time and get back any of that money that that artist or user monetized.
+[12:23] But going forward, we're able to collect and protect the copyright, which is really important.
+[12:30] Wow.
+[12:31] How common is that, Jamie?
+[12:32] Quite common.
+[12:34] I think specifically in the world of YouTube monetization and collections for content ID, it's a lot of blood west.
+[12:41] I worked for about two years in the back end of the YouTube CMS managing publishers' composition assets.
+[12:50] And every single day, we would find different issues where the wrong rights holder was collecting.
+[12:56] Or trying to make money off of something that they do not have the rights to.
+[13:00] There can be many instances for this, but there's also, there's a version of that that is innocent and not on purpose.
+[13:11] Let's say a publisher is accidentally still collecting for a songwriter that they no longer, you know, they no longer have signed and have that current catalog.
+[13:22] And they forgot to release their percentage on that song.
+[13:27] And that's, that's more common of what's happening in the back of the YouTube.
+[13:32] And so, you know, there are administrators within YouTube CMS that that's their job every day.
+[13:38] I would send emails to Cobalt, Universal, Warner Chapel, saying, hey, you're over claiming on this song by 12%.
+[13:47] Please review your current stake, you know, of composition on the song and please adjust your claim.
+[13:55] So if you're thinking about this, as far as like scale goes, think of like that, but like hundreds of thousands of conflicts.
+[14:07] So that's, it can get pretty daunting.
+[14:09] When that, when that was my job, it kind of felt like, how do we solve this?
+[14:14] Like, how do we even solve this issue?
+[14:15] It's so big.
+[14:16] Um, and the sad thing is that it's, it's behind the scenes.
+[14:20] So the average songwriter, artist, creator, that's supposed to be collecting their percentage on YouTube, they don't get to see this.
+[14:29] They don't get to see this whole thing.
+[14:30] They don't, there's nowhere for me to like check if my song is in conflict unless you have access to the CMS.
+[14:37] And that's really only if, if you are a publisher, a label, um, a distributor, anyone that's delivering that content to YouTube.
+[14:46] Um, so similar as the content ID issue, um, you know, it is quite easy to upload, you know, through whatever partner, you know, let's say it's DistroKid or United Masters, um, and like click YouTube monetization.
+[15:05] Even if you don't technically own that sound recording.
+[15:08] I mean, this is, this also contributes to the whole wider issue of fraud.
+[15:11] Um, just the amount of fraud that's being uploaded on a daily basis is insane.
+[15:17] Um, so content ops teams that all distributors and, um, the DSPs are quite busy constantly scanning for fraud, um, and bad actors.
+[15:27] I mean, when you talk about it like that, you can really empathize as to why people who are making music just want to say, I just want to focus on the music.
+[15:38] Right.
+[15:39] Because to expect them to really want to get into doing all of that, uh, is unrealistic.
+[15:45] I mean, we're talking about very specialist challenges here and, you know, somebody like yourself who spent a lot of time in the industry dealing with them has a good understanding.
+[15:56] But if you're a songwriter, you know, either new to music later on in your life or earlier on in your kind of teenage years, how on earth are you going to know all of this stuff?
+[16:08] No, it's, it's quite impossible to know.
+[16:11] And I only know this just because I had a couple of different jobs over 10 to 11 years.
+[16:16] It's like the average songwriter is not going to be able to put that kind of work.
+[16:21] Um, although I do urge people to be educated as much as they can, but there is like a fine line between knowing too much and just being completely overwhelmed and shutting down from it.
+[16:33] Uh, cause I understand that, like if I'm having this conversation or I'm talking about this on my public platforms or kind of sharing information about this, it's, I get a lot of emotional reactions because it's like, this isn't fair.
+[16:47] No, this is fair.
+[16:48] Like, this is a crazy world that like the people who've created content can't properly collect it.
+[16:55] And they have to actually know how to collect it in the first place.
+[16:59] Um, I always compare it to, you know, that nurse that clocks in for her, whatever, 80 hours for the week she has overtime.
+[17:07] She doesn't have to go find her paycheck.
+[17:10] She doesn't have to go make sure that she registers a bunch of like registrations on different collection agencies to get that check.
+[17:20] She just gets it.
+[17:21] Um, uh, which is when you think of it, like,
+[17:25] you're like, this is, this is wild.
+[17:27] And on, on the, on the other side there, consumers actually like engaging with YouTube and music on like Spotify is really straightforward.
+[17:37] So it's kind of very confusing, isn't it?
+[17:39] How it's so complicated.
+[17:40] Yeah.
+[17:42] I'd say also to some degree, whilst it's important that they have somebody looking after those operational things for them,
+[17:53] I wouldn't expect, given how specialist it is, I wouldn't expect them, you know, every single songwriter out there to know all of the machinations of the industry.
+[18:04] And this industry specifically is quite complicated.
+[18:08] Um, however, I do think, and a lot of what you deal with providing education and getting them to understand how values created.
+[18:19] So we've, and when I talk about value creation, um, obviously that's preceded by writing a good song and having people consume it.
+[18:28] And that creates ultimately the value, but then how the value is perceived by somebody, um, with financial backing, looking to acquire that catalog from them.
+[18:41] And it feels to me that that's a really important area that they, we probably can do a significantly better job and actually doesn't necessarily have quite the same level of complexity as the operational side.
+[18:56] What's your point of view of that?
+[18:58] Yeah, quite literally.
+[18:59] I mean, I've worked with a couple of artists that have really done a great job at maximizing their catalog, um, minus, you know, post release.
+[19:10] You know, I think a lot of artists and creatives are focused on, okay, so they're prepping for the release, the release is out and they possibly promote that release for like one to two months after.
+[19:22] And then they're onto the next single, um, which is really, you know, short-sighted as far as the fact that like, this is your music and this is your intellectual property forever for as long as you own it.
+[19:36] And maybe one day you sell it.
+[19:37] Um, but making sure that you're capitalizing in ways where you're maybe creating a lot of like user owned and created and curated playlists.
+[19:48] Um, you know, the idea of, especially if you fit in this realm where like you want to create pretty constant music and you're releasing it.
+[19:57] Um, I used to work with an artist, Andrew Gialanella, and he's an acoustic instrumental guitarist.
+[20:05] Um, and he just loved to like, just make music of all different kinds.
+[20:11] So we had a couple different artist projects going at one point in time and the way that he actually, you know, gained a following wasn't from releasing just consistently.
+[20:23] That's a part of it, but then also repackaging all of his music from all of his different artist projects and playlists.
+[20:31] So it's like cozy acoustic instrumentals for fall or like basically just, I mean, honestly, at the end of the day, it's like SEO for like repackaging music and kind of pushing it out there.
+[20:43] You know, um, that's like a really creative way.
+[20:47] And then also pushing it on social media and kind of packaging it that way.
+[20:51] Like, you know, are you studying and you want, you know, chill, relaxing music for fall.
+[20:59] There's just so many marketing tactics, um, beyond what's happening on TikTok.
+[21:05] Was this artist, were they aware of the latent value that they were creating?
+[21:11] And by that, I mean, at the point in time, if they want to consider selling their catalog, were they aware and kind of approaching these activities with that in mind?
+[21:23] Or were they doing it just because they knew that if they did that, then they were going to get more listens and that would translate to more revenue at some stage in the future?
+[21:33] Like how well known was the track?
+[21:37] Yeah, I know.
+[21:38] Well, the intention wasn't there compared to like what actually ended up happening.
+[21:44] So, you know, I think music is very much like you're just like picking sticks out of a cup and you're just like, we'll see what works.
+[21:52] Like we're going to try a bunch of things.
+[21:54] We're going to get creative.
+[21:55] Maybe this works.
+[21:57] Maybe this doesn't.
+[21:58] Um, so I think when the trend started happening where a lot of people on Instagram reels were using this cozy instrumental track of his, um, and then, you know, similar to how everything works.
+[22:14] When fans find something that they really like, they kind of go and they try and like, okay, so who is this person?
+[22:19] What did they create?
+[22:20] Um, and then being able to have all of those playlists linked easily on his Instagram and also all of his playlists easily linked on all of the Spotify profiles of the artist aliases that he has created.
+[22:35] Um, you know, and this is all really along, you know, the lines of basic like marketing tactics that a lot of like DIY musician blogs will say, you know, make sure everything's connected.
+[22:49] You know, the ideas are always there making your own playlists.
+[22:52] I think what happens is some people make their own like playlists and they kind of let it sit.
+[22:58] So it's, it's more so, you know, making that action and then putting it out and packaging it in a way where it's like, people might've discovered it from Instagram ads.
+[23:11] People might've discovered it from a TikTok video.
+[23:15] He was doing, um, videos where he kind of would just stand out in a field and put text on the screen being like POV.
+[23:24] You finally found an acoustic instrumentalist artist that you can listen to while you're reading.
+[23:29] Like, and this is like simple stuff.
+[23:32] This is not revolutionary.
+[23:33] There's not some crazy editing happening.
+[23:35] It's not really necessarily shocking or super funny, which is like, there's a couple categories of how videos do well online.
+[23:45] It's like, it's either really sad, really funny, crazy, or just captivating or interesting.
+[23:51] So he was able to kind of, you know, structure his algorithm to find these people that didn't know about him or his music, but wanted to listen, um, which was crazy.
+[24:04] I just, I just really liked that analogy or comparison between what he was doing for his music versus what you would expect for a website in SEO, or if it was any other product, you know, you'd kind of be out there finding different channels, finding ways for people to engage with it.
+[24:23] And it feels like almost that's an obvious missed opportunity.
+[24:29] And people are extremely focused on writing the song, which is clearly the first part.
+[24:36] Um, but afterwards, it's also sounds like you could approach this quite methodically.
+[24:42] Do you have a methodical approach to get things trending on TikTok?
+[24:48] I think you've had some really amazing artists go viral and that you've worked with.
+[24:55] Can you just talk us through the approach that you take for that?
+[24:58] How much of it's luck?
+[25:00] How much of it's planning?
+[25:02] Definitely.
+[25:02] I mean, I would like to give so much of the credit to the creatives because I, as far as like when it comes to like creation of videos, I'll put my like one or two ideas in the ring.
+[25:14] Um, but I've been super lucky to work with artists that instead of complaining and like being frustrated that they have to make videos, um, they are just so creative from the inside that they come up with great ideas.
+[25:34] Um, so, I mean, I think that's the first thing, like you said, a good song, great ideas.
+[25:37] I think that even with great ideas and a good song, there are still times where we've had, you know, meltdowns where we're like, this is so good.
+[25:47] Why is it not taking off?
+[25:49] And then there's the random videos that they never thought would go anywhere and the internet just grabs a hold of it.
+[25:56] But I do think it's the key is the consistency.
+[25:59] Um, I think that I've had lots of conversations with artists and they're like, I'm trying, but no one cares.
+[26:08] But it's like, okay, but you have to try like every day.
+[26:13] Unfortunately, that's how it is.
+[26:14] Um, Ryan Nealon, an artist that is so incredible and he's a writer too, um, that I used to manage when I was in artist management.
+[26:22] He decided that he was going to post on TikTok every single day for a year.
+[26:27] Like, and no matter what was happening in his life, he did it.
+[26:32] No matter what was happening, he's like, I would actually say a majority of that first year, nothing happened.
+[26:36] Like, no, there wasn't any videos taking off.
+[26:40] Um, funny enough that his first video that really took off was him just sitting down after a session where he wrote this song called Feel Good.
+[26:49] And literally like to him, it was just like a throwaway post.
+[26:54] It was like, I'm just going to post this song and share what we just wrote.
+[26:59] And then like from there, his life fully changed.
+[27:03] People explained that bit.
+[27:05] That's amazing.
+[27:06] So consistency, obviously having an approach is kind of key.
+[27:12] And as everybody seems to say on the internet, showing up is the most important thing.
+[27:17] Right.
+[27:17] So, uh, for Ryan, he's had this viral moment.
+[27:21] What happened next?
+[27:23] Yeah.
+[27:24] What happened next is, you know, the first thing is, okay, so who, who is like drawn to this content and this video and this song?
+[27:32] Like, what do, what do these audience members look like and how do we, one, connect with them, create a relationship with them, and maybe then continue to make content that they relate to?
+[27:44] I think that Feel Good was such an emotional song that really pinpointed, you know, people not loving themselves, which is like the internet gravitated towards crazy and basically, you know, shared it.
+[28:02] I think that's the big thing too, is that creating content that is shareable and it's like, you're in this like world together rather than just like very one-sided, you know?
+[28:12] The amount of times where artists are just like, my new song's out, listen.
+[28:17] You're like, that's, that doesn't captivate me.
+[28:20] Like you said, this is a business at the end of the day.
+[28:23] You have to have a call to action, a reason for them to either share it or interact.
+[28:29] And so for Ryan, you know, honestly, most of his songs that have had like, you know, real, you know, craziness online, it's been emotional.
+[28:40] It's been like, they are reacting to the emotions of the lyrics of the song, of the story, of behind why he wrote it.
+[28:48] And there's action there.
+[28:50] If there's no action, quite literally, the social media platforms aren't going to show that video to other people.
+[28:59] Therefore, it will not go viral.
+[29:01] I mean, all of these things, this is absolutely fascinating.
+[29:04] And all of these things, you know, I think a lot of people, me included, expect that those viral moments are so few and far between.
+[29:13] But actually, given the size of these communities, even if it's not globally viral, still in a community, it could be sufficiently large to generate enough revenue to be meaningful for the individual.
+[29:24] But I think a lot of people have this expectation that it really is some kind of alchemy going on in the background, where actually, everything that you've just explained is kind of traditional marketing tropes.
+[29:37] Right.
+[29:38] Yeah.
+[29:38] Keep going consistently.
+[29:40] Make sure you're resonating with the audience.
+[29:42] Have a call to action.
+[29:43] And these are things that I think are so important for artists, new and existing, who haven't yet mastered that whole social sphere.
+[29:54] Because it sounds like this was game changing for Ryan's life.
+[29:58] And that invariably will be meaning increased value for the catalog that he's creating.
+[30:04] And also, there's a scarcity associated with that.
+[30:07] Right.
+[30:07] If he's one of few doing it, then at a time in the future, when somebody does come to value his catalog, if he's that way inclined, that's going to be a really positive thing, right?
+[30:17] Yeah, definitely.
+[30:18] I mean, and that's the thing is that that song, along with the other five to eight songs that have really had a huge moment online,
+[30:29] you know, what's interesting to look at that is those moments are valuable, but not necessarily all of them are fans.
+[30:39] Right.
+[30:39] So like, you know, also understanding that these happen kind of in their own like capsule.
+[30:45] And what the work that comes after that is making sure that the fan comes back and listens to your new song and follows you on Instagram.
+[30:54] Can you talk us through that bit?
+[30:57] So yeah, you've had this viral moment.
+[30:59] Like, what are the things that you will recommend to the artists do next in the next?
+[31:04] Is it 24, 36, 72 hours?
+[31:09] What do they need to do to make sure that they really double down on that initial engagement?
+[31:15] Yeah.
+[31:15] Across all platforms and anywhere online, there needs to be some kind of a link that leads them to putting in their information or connecting with you further.
+[31:28] Unfortunately, let's say tomorrow, you know, we actually had that scare where like TikTok wasn't going to exist and everyone, it was not going to happen in America.
+[31:38] You know, the panic there was the people who had all of their audience on TikTok, they can't reach them anymore.
+[31:44] So I think wherever this is happening, making sure that you capture them in whatever way you can manage.
+[31:52] I would say don't spread yourself too thin, adding different links, making a discord, like do what you can do and manage.
+[32:01] Because if you can't manage it, then it's really pointless.
+[32:03] But I mean, I think that that's why there's so much value in creating a pre-save link when it comes to if it's about a song that's coming out or, you know, you're teasing a song, but you're not really sure if you're going to release it.
+[32:18] And you also don't even have the final mastered version.
+[32:21] That's fine.
+[32:21] You can still use tools to create a pre-save link to at least capture that audience.
+[32:28] And also if the tool, you know, makes them follow you on Spotify, that's very, very valuable in the realm of like Spotify sees that and, you know, any percentage of growth is good.
+[32:41] So it doesn't always have to be the hugest thing, but it's like if you had zero listeners and zero followers and this viral moment happened and you went up to 5,000 followers out of nowhere, that's like still a percentage of increase that Spotify pays attention to and other DSPs.
+[32:57] Yeah, we talk about this as well and particularly at scale.
+[33:02] And, you know, that's one of the things maybe we'll come to later if we've got time is if you can actually apply these processes to a catalog where you have, you know, meaningful scale, even if that's just 100,000 socks and they have a baseline of revenue and you're able to elicit some of those social moments and you can move that baseline even by one or 2%.
+[33:27] Yeah.
+[33:27] That can actually be very material if you can continually do that at scale.
+[33:31] I just find that absolutely fascinating.
+[33:35] Yeah, and documenting that change.
+[33:38] Like if there are excited things happening and, you know, there's some kind of bump, you have different numbers, you have analytics of what kind of audiences all over the world, what do they like, you know, really just trying to jot that down however you can so you can repackage it.
+[33:56] When it comes to, you know, maybe brand partnerships where you're like my main audience.
+[34:02] The thing with Ryan is that his main audience was millennials.
+[34:07] Millennials that are probably in their second to third job and they possibly have a higher income than possibly Gen Z.
+[34:16] And like that might not apply to people listening to your music, but that does apply to like brands, marketing products that your fan base will buy.
+[34:28] It's all very important information.
+[34:32] Yeah, super interesting.
+[34:33] I think from a marketing perspective, like as a marketer, it's just it's marketing 101, right?
+[34:36] Like it's just just being a lot more strategic.
+[34:40] Yeah.
+[34:42] But it's like you'll get to that point and think like that.
+[34:46] I think that that was the purpose of, you know, me coming on as a manager.
+[34:50] It's my job to elevate what's happening with the creative and think of like the business side.
+[34:57] Yeah.
+[34:58] Yeah.
+[34:59] And Jamie, you're going to sort of change themes a little bit now.
+[35:02] So one of the things that we've observed sort of coming into the industry is there's been a lot of changes to how rights are transacted.
+[35:12] So labels used to own the rights, then distribution companies offered sort of more artist-friendly deals.
+[35:20] Now there's been a lot of institutional capsules that's come in buying assets.
+[35:27] And then there's sort of more recent examples like The Weeknd's that's kind of getting a loan against his rights, but retaining ownership.
+[35:36] How does empowering like artists retain their rights change?
+[35:40] How do you think that's going to change the catalog market in the long term?
+[35:44] Yeah.
+[35:44] I mean, I think also just educating what the differences of deals are.
+[35:48] Yeah.
+[35:50] You know, because you say The Weeknd getting a loan.
+[35:53] In reality, a major label deal or a label deal that's like a licensing deal.
+[35:58] I mean, it's all a loan.
+[36:00] Like the way you look at it, especially if you're talking about like, yeah, a distributor that's giving you money, but you keep your ownership.
+[36:08] It's you really have to compare numbers to kind of like, so it's a loan.
+[36:14] But if you're doing a label deal where they give you money that you have to pay back, but then you also don't even own your asset.
+[36:21] You don't own your music for 20 years.
+[36:23] Yeah.
+[36:24] Yeah.
+[36:25] It's like, it's kind of breaking down the music lingo that's happening and comparing it to like financials of like investment in business.
+[36:35] Yeah.
+[36:36] So it's kind of come full circle, but I think there's more visibility and like transparency of the deals that happened a long time ago.
+[36:46] But, you know, now the artists are kind of a bit more kind of clued up to that and they understand, you know, where they can drive value for themselves.
+[36:55] yeah it's fun i mean the people that signed their deals like yeah early mid 2000s they're about to
+[37:02] get out of their 20 year record label deals maybe and they're i mean i'm hearing those conversations
+[37:08] all over like yeah you know ed sheeran um you know alicia key's coming out of her deal and then
+[37:15] they're they're deciding okay i have value i don't need like these these assets have value i don't
+[37:23] need to take a loan from a large label to then like owe that money back and give ownership like
+[37:29] i can just own this go to a distributor either get a very favorable rate or yeah get a huge advance
+[37:38] on what the earnings are already going to be um without selling and giving up ownership forever
+[37:44] how do you think that'll change labels over time oh they're already i mean i think labels have
+[37:50] already been pushed to change how they approach all of this because there are a lot of successful
+[37:58] distributors that are able to fund and able to have full marketing departments whereas the labels are
+[38:07] having layoffs and they're reducing their teams so it's like the shift is kind of happening already
+[38:13] and has been happening um so i am super excited to see what that looks like i do think that
+[38:19] as for as long as they know the labels have market share people will still you know see value in the
+[38:28] label and the label will still have power you know pitching the dsps and stuff but i think that
+[38:35] there's a lot more options now yeah for the independent artists and i think going on to that point there's a
+[38:41] lot more investment options for them as well so one of the things that we've kind of acknowledged
+[38:47] through doing this podcast is actually the liquidity options that this provides like investment or
+[38:53] investment can provide to artists can be like life-changing you know for the lesser known artists
+[38:58] like buying a house or you know kind of um sending your kids to college or whatever could be like a
+[39:05] like a life dream right so um how do you think that'll change over time because there's you know with
+[39:11] usc and two lost offering um more independent mid-tier catalog buyouts how do you think that's going to
+[39:18] evolve in the future yeah i think that this will always be a good option um i think when there's more
+[39:26] competition though there will always have to be more like creative ways to make an a deal appealing
+[39:32] um but we've personally known like a lot of artists you know primarily to like in other countries where
+[39:39] like you know like you said a life-changing amount of money that can like buy themselves a house
+[39:44] buy their parents a house um and it really depends on where they're at in their career
+[39:51] um so you know taking a deal for just a small amount of your catalog when you're like turning songs out
+[39:58] like 30 songs a year or like it's actually not that crazy to maybe decide okay this chunk of my early
+[40:05] songs i am going to get that like huge life-changing check yeah and the value of my artistry and like who
+[40:13] i am as an artist because i have followers that doesn't go away so i can continue to release music
+[40:19] because i'm you know i see where that's going and then can get like a 10x multiple for you know my early
+[40:26] catalog um so i think that there will be more a lot more companies out here doing it um how they do it
+[40:35] will differ um and like their approach to it i i'm always going to fare on the creator side whereas um
+[40:44] i know at the end of the day this is a business um for a lot of these companies but that's what's
+[40:49] important to me is to like educate these creators on like yeah yeah they said they're going to give you
+[40:55] 50 000 but like in the grand scheme of like if your career is projecting like upwards um 50 000
+[41:03] actually might not be that good of a deal compared to all the value that you're pouring into your
+[41:08] artistry and your catalog right now like it really depends on if your catalog has reached its like
+[41:13] max potential um so it yeah i think there's a timing point to it with more independent artists
+[41:21] yeah definitely definitely yeah um but yeah i mean money is also hard because like if you're
+[41:27] struggling and this could be like a crazy amount of money for your family then it's like that's also
+[41:32] great that there's an opportunity out there um it gives a pathway right and i think that's the key
+[41:38] thing i think for you know educating artists where you know they're sort of looking at the streaming
+[41:45] income thinking i can't make ends meet but then talking about all the things we've talked about
+[41:49] that you just kind of just keep going um do what you're doing um and actually there is there are
+[41:55] options out there it's not like you have to make it big now there are options to still be an artist
+[42:01] and have um you know kind of create life-changing money still so yeah and then they're also like
+[42:09] um breaking up some of this stuff so like you can you could sell a portion of your writer's share
+[42:16] yeah yeah and still collect publishing like so i think that that's also what's going to happen is
+[42:22] that there are going to be different companies you know maybe there's a five percent flow through
+[42:27] like you sell 95 of your catalog but that company will continue to pay you five percent
+[42:34] um for x amount of years there there's just so many ways that this could go um rather than just
+[42:40] like up front we buy everything and we own it yeah and that also allows you to retain some control
+[42:47] well a lot of control over what you're doing and your career which yeah yeah how much of a how much of a
+[42:54] playbook do you have and do you think there is for existing artists so let's say you know you're
+[43:02] decent singer-songwriter you've got a small catalog you're sitting there questioning whether you should
+[43:10] carry on maybe there's a life-changing event like you've got a new family or something like that
+[43:16] how confident can and should people be that with a bit of practical effort they can move from this
+[43:25] very lumpy take up of their their music to actually looking at it a bit more like a business
+[43:34] yeah building some of the foundations getting some reasonable revenue it and building themselves a
+[43:41] path to getting to self-sufficiency and then to a point of potentially value exit at a future point in time
+[43:49] is there a playbook are you confident of repeating that playbook yeah i mean i think the one question
+[43:56] and like statement i always go by is like if nothing changes nothing changes so if you're at this point
+[44:02] where you've been chugging along and you've been doing what you think is right like you've been
+[44:07] you know reading online things listening to music marketing podcasts and you hit the point where you're
+[44:13] like okay so what i'm doing is not right you really do need to stop and like take a look at like what can
+[44:18] you change even if it's like small amounts of change you know to some people like posting one
+[44:25] video every day on tiktok might be huge like might be like really difficult and time consuming but at the
+[44:33] end of the day it doesn't have to be a perfect you know piece of content it's tiktok um people literally
+[44:40] post garbage and then for some reason it goes viral um so it's like if nothing is changing you know
+[44:46] you're not going to all of a sudden wake up um with something that just like blows up so i do think
+[44:53] it is very intentional and it is important if you decide that you want to be a hobbyist and you just
+[44:59] want to make music and do it for the fun of it then like this is like i'm not here to tell you you need
+[45:05] to do anything but like you said if you're trying to create a career out of it you really do have to
+[45:10] look at it as a business and see what you're currently doing and what your strengths are
+[45:15] and like what what willing you know investment are you a lot like going to allow yourself to pour into
+[45:22] it is it to bring in you know maybe an intern or somebody in marketing that can get you some ideas or
+[45:30] bring in a video editor to edit the videos because you just really can't um you have to do something
+[45:39] different um you know kind of keep reinventing the wheel just because that's what's happening in music
+[45:46] you know music isn't staying the same and do you think that there's greater opportunity to
+[45:52] achieve that uh business as a lifestyle through music now as opposed to before oh yeah let me add some
+[46:02] context i think i mean i get the impression that you know before streaming and before uh
+[46:08] the the the digital age the barriers to getting a track to a level of scale that would be sufficient
+[46:16] to actually pay you know your a wage per se was so difficult that it was almost impossible do you think
+[46:26] that everything despite all of the complexity it's actually easier now for artists to create music
+[46:33] and have a lifestyle from it yeah i think now more than ever there are a lot more avenues than just
+[46:41] like the typical i release music i make money from streaming i think that so the answer to that is that
+[46:48] there are more ways to be online you know create music and find an audience and maybe the audience
+[46:58] isn't like the way that you're making money isn't always just like a fan base maybe it's sync maybe
+[47:04] it's production music maybe it's there's just so many more avenues out there but you just have to
+[47:10] be willing to like kind of put your thinking and cap on be creative i have a friend his name is ty rex
+[47:18] um and he is an incredible um improv is improvisational pianist um and he's been doing in-person pop-up
+[47:29] like meditation events in la it's like there you just have to be creative you gotta like you have to
+[47:37] find what you love and figure out different outlets um because i do think if you just sit back and you're
+[47:43] like i'm just gonna do like release music and it's gonna blow up on streaming like you just have to be
+[47:49] yeah more creative but there are so many more people out there that are making a very well living
+[47:55] wage on music that you and i don't know like don't know their name don't know their music there's a lot
+[48:02] of people in this world that are consuming music and i think we get stuck you know only knowing about
+[48:08] like the top 40 you know we're like we have our scope of understanding of music but there's just
+[48:15] there's just so much music out there and so many ways that you know creatives are making money the
+[48:21] market for consumption now is so vast you know historically you were limited to tv radio going
+[48:28] down to the record store and buying what was on the shelves but now the market is effectively
+[48:34] unlimited outside of some territories where don't they don't allow certain platforms and that means
+[48:41] that you can be a massive thing in a relatively niche community and still generate what would be
+[48:48] a good salary and allow you to continue doing what you love and creating music and creating art which is
+[48:56] super valuable for the industry as a whole right yeah yeah there's an artist i met locally to where i live
+[49:04] jv and um he was saying how one of the challenges when you're a small independent artist that's
+[49:10] bringing everyone together to to kind of record music is quite challenging you've got to get you know
+[49:16] everyone is in one place like they're kind of often late and you know becomes quite quite difficult
+[49:21] you're paying the money don't know if you're really going to make anything back from it um so he was
+[49:27] quite optimistic about ai and how you know um by kind of be able to kind of create most of the song
+[49:36] in an ai kind of studio and then he he does like guitar and maybe sings over it as well like um he
+[49:43] seemed quite optimistic about that just in terms of like the ease of him being able to release something
+[49:47] from a production perspective how do you think that's going to change things in the future obviously
+[49:51] it's all kind of like pretty hot right now isn't it yeah how do you think that's going to change
+[49:56] in the future i think like many tools that have come around or really any kind of innovation
+[50:03] one there it will open up opportunity for a large amount of people that don't have access um
+[50:13] yeah your friend who's like in his bedroom can now you know produce a full track with all of the
+[50:23] instrumentation that he doesn't know how to play and then be able to release it um which is great um
+[50:30] there have just been so many things in history that have been like that in different industries
+[50:34] um but i think the concerning thing in every market right now is like what is ai like fundamentally
+[50:42] replacing um and that's the human element um but i do believe that you know with ai
+[50:52] there will be more ability to pursue creative elements yourself that you wouldn't be able to do if you
+[51:01] yeah had to round up a bunch of musicians and pay them like there's just a huge world where that is
+[51:07] difficult um so that's like my outlook is that i'm trying my best to stay like educated and like
+[51:17] open-minded about both sides um because everything has two sides to it um but i mean it's hard to keep
+[51:26] uh yeah hard to keep track of what's going on exactly all the signs as well as much as far as like the idea
+[51:32] of creating you know original copyright and product that is like how much percentage of it was created
+[51:40] with ai um i know that the u.s copyright board is like they're like having meetings about this every
+[51:47] week trying to figure out how they're going to approach you know a whole new set of laws a whole
+[51:54] new set of like regulations on one does this mean that you own this um and two like how do we keep track
+[52:04] of who's creating what and like if we just upload it to dsps and we say like hey i wrote this it's me
+[52:11] um so i think there's going to be a lot of like you know legislation that's going to be figured out
+[52:18] over the next couple years we're still just so new yeah on the idea of that yeah yeah it's an interesting
+[52:25] one to watch uh do we want to move into the quickfire round yep let's do it great uh so jamie
+[52:32] is there a particular song or album that is just stuck on repeat with you at the moment um currently
+[52:40] i'll just go to olivia dean's page and just click shuffle um she is so incredibly talented um i just
+[52:49] saw her open up for sabrina carpenter and i was just like i'm obsessed um i love her um yeah so pretty
+[52:58] much anything with her yeah yeah i was listening to her earlier actually so that's cool uh and in your
+[53:05] career so far jamie is there a particular moment that really stands out it's just like the biggest
+[53:11] of pinch me moment for you yeah funny enough it's not like a specific moment but it's been like the past
+[53:20] two and a half years um of me running heart and songs and like basically fully employing myself
+[53:28] i mean there were other crazy moments in my you know early years where you know i was backstage at
+[53:35] the grammys or you know um you know walking clients down the red carpet and getting them interviews but
+[53:42] that felt more just like superficial kind of in a way which it was still as exciting and very cool for
+[53:50] my career but funny enough it's literally just me being able to like employ myself doing something that
+[53:57] i love which is helping different creators make sure that they're properly collecting for their catalog
+[54:01] so it's like i guess the past two and a half years yeah what what an amazing thing for you to be doing
+[54:09] for yourself and on behalf of other people as well for putting them in a position where they can feel
+[54:15] exactly the same thing yeah you're right and i think in music as well like we're all in this industry
+[54:23] because we love music and so to be able to you know make a material impact on the people that make the
+[54:28] music and change their lives like must be so empowering for you so yeah yeah awesome and uh is there is
+[54:36] there a particular opportunity in music rights investing at the moment that you think is underrated
+[54:42] yeah i mean there are a lot of companies particularly a company that i've been doing like advising and like
+[54:48] working with for about a year notes um that kind of is trying to simplify this process where the average
+[54:56] independent artist that doesn't have a team or songwriter or producer can go and kind of check their
+[55:03] whole entire catalog um for both sound exchange and also the pro and the mlc side um there needs to be
+[55:13] more innovation in like automation for diy creators um and that can mean so many things it's more just it could
+[55:22] mean from the management of their catalog um i still feel like i'm still working in google um sheets
+[55:31] to manage my clients catalogs but like we we need more easy diy options for the diy creator to manage
+[55:40] catalog versus like what like huge publishers and labels are using like the the average songwriter
+[55:46] doesn't need to use um music bystro it's it's this huge program that you have to license and it's like
+[55:52] kind of a pain to use if you're really only like talking about 50 songs um so more companies that do
+[55:58] things like that yeah amazing awesome and and last but lot needs jamie if there was a song that you
+[56:05] could own and just one song what what would it be and why dreams by fluid mac cool it was
+[56:13] forever iconic it's had its moment it's come back like it's like it's so amazing that you could
+[56:23] re-engineer that cranberry juice moment whatever it was over and over again yeah so good when that
+[56:29] happened i was like yeah you better know about fleawood mac so great well fantastic yeah you've been
+[56:39] the amazing guests yeah yeah it's so interesting and i think it's been like you know you hear a lot
+[56:44] about the struggles of independent artists and obviously it's a difficult industry to to deal with
+[56:49] but like you know i feel like it's been so positive your takeaways and and really interesting in terms
+[56:54] of like how how to manage your career moving forward so thank you so much thank you i've had
+[57:00] such a great time yeah thank you so much jamie and if if somebody listening to this would like to get a
+[57:06] hold of you jamie where would they wherever they find you definitely um i post a lot of resources and
+[57:13] um guides on my linkedin so jamie d heart which is my full name and then as well as on my instagram
+[57:21] also my full name but you can look at jamie d heart.com or heart and songs.com and there's links
+[57:29] to things everywhere amazing well thank you so much again jamie it's great to have you thank you
+[57:35] thanks for tuning in to music money ball if you enjoyed the conversation you can subscribe
+[57:41] at standard hyphen innovation.com to get every episode in your inbox you can also follow the
+[57:47] show on spotify apple or youtube to stay ahead of the curve in music rights investment

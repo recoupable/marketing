@@ -1,0 +1,280 @@
+[
+  {
+    "id": "style05-art-book-airbrush",
+    "kind": "illustration",
+    "subject": "book",
+    "style": "airbrush",
+    "title": "Open book \u00b7 soft airbrush",
+    "description": "One open blank book with a single page curling upward, in a clear three-quarter view. Soft airbrush treatment in forest, ivory and lime on a transparent background.",
+    "prompt": "Create a fresh illustration with actual PNG alpha transparency. This is a new generation, not an edit.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one open book, both blank page blocks clearly visible, with exactly one page curling upward from the right-hand side toward the center. No lettering or printed marks anywhere on pages. View consistently from a gentle elevated three-quarter angle, looking down about 30 degrees, with the spine running away from the viewer and the whole book rotated slightly clockwise so the right side recedes. The one lifted curling page creates a strong readable silhouette and does not resemble a second book. The book fills 80 percent of the canvas, centered, whole object visible with transparent margins.\n\nStyle: soft dimensional airbrush illustration with a 1980s music-poster feel. Clearly volumetric colored form, soft sprayed highlights and shades, subtle dry spray grain on the object itself, forest/ivory/lime anchors. Sculptural painted gradients follow object surfaces and make the form rounded, tangible and distinctive. This is an illustration, not photography, glass, ink outlines or flat cut paper. No colored background glow; every surrounding pixel is transparent.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-56f2dea5-c8f1-4a8c-8402-44c703abf97f.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.5488,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "failedAttempts": [
+      {
+        "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-3f87f39a-50b9-4c28-a823-1591b94a70ff.png",
+        "prompt": "The supplied image is a SHAPE AND CAMERA REFERENCE ONLY. Keep its single object's arrangement, silhouette, camera angle, relative proportions, crop and centered square placement consistent. Re-render the object in the different medium described below. Do NOT preserve the reference's ink strokes, hatching or hand-drawn texture; replace those completely with the requested airbrush medium. Preserve transparent surroundings.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one open book, both blank page blocks clearly visible, with exactly one page curling upward from the right-hand side toward the center. No lettering or printed marks anywhere on pages. View consistently from a gentle elevated three-quarter angle, looking down about 30 degrees, with the spine running away from the viewer and the whole book rotated slightly clockwise so the right side recedes. The one lifted curling page creates a strong readable silhouette and does not resemble a second book. The book fills 80 percent of the canvas, centered, whole object visible with transparent margins.\n\nStyle: soft dimensional airbrush illustration with a 1980s music-poster feel. Clearly volumetric colored form, soft sprayed highlights and shades, subtle dry spray grain on the object itself, forest/ivory/lime anchors. Sculptural painted gradients follow object surfaces and make the form rounded, tangible and distinctive. This is an illustration, not photography, glass, ink outlines or flat cut paper. No colored background glow; every surrounding pixel is transparent.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+        "referenced_image_paths": [
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/illustrations/book-ink.png"
+        ],
+        "hasAlpha": false,
+        "alphaRange": [
+          255,
+          255
+        ],
+        "width": 1254,
+        "height": 1254,
+        "preview": "assets/style-lab/illustrations/rejected/book-airbrush.png"
+      }
+    ],
+    "preview": "assets/style-lab/illustrations/book-airbrush.png"
+  },
+  {
+    "id": "style05-art-book-glass",
+    "kind": "illustration",
+    "subject": "book",
+    "style": "glass",
+    "title": "Open book \u00b7 frosted glass",
+    "description": "One open blank book with a single page curling upward, in a clear three-quarter view. Frosted glass treatment in forest, ivory and lime on a transparent background.",
+    "prompt": "Create a fresh illustration with actual PNG alpha transparency. This is a new generation, not an edit.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one open book, both blank page blocks clearly visible, with exactly one page curling upward from the right-hand side toward the center. No lettering or printed marks anywhere on pages. View consistently from a gentle elevated three-quarter angle, looking down about 30 degrees, with the spine running away from the viewer and the whole book rotated slightly clockwise so the right side recedes. The one lifted curling page creates a strong readable silhouette and does not resemble a second book. The book fills 80 percent of the canvas, centered, whole object visible with transparent margins.\n\nStyle: frosted translucent sculptural rendering. Reinterpret the object materials as milky glass panels and translucent frosted forms, with vivid lime glowing-looking edges contained within the object, and deep forest accents to keep its silhouette visible. Realistic refraction and soft internal light, subtle frosted material. Clearly readable object boundaries, not invisible white on white. Keep any transparency meaningful inside the glass object and make ALL outside pixels completely transparent. No floor, pedestal, studio background or exterior drop shadow.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-42224cf1-f221-4931-8449-8cb2d2e0f2e2.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.5558,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "failedAttempts": [
+      {
+        "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-0389e00a-4693-43ba-a1c4-0b57b585f37a.png",
+        "prompt": "The supplied image is a SHAPE AND CAMERA REFERENCE ONLY. Keep its single object's arrangement, silhouette, camera angle, relative proportions, crop and centered square placement consistent. Re-render the object in the different medium described below. Do NOT preserve the reference's ink strokes, hatching or hand-drawn texture; replace those completely with the requested glass medium. Preserve transparent surroundings.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one open book, both blank page blocks clearly visible, with exactly one page curling upward from the right-hand side toward the center. No lettering or printed marks anywhere on pages. View consistently from a gentle elevated three-quarter angle, looking down about 30 degrees, with the spine running away from the viewer and the whole book rotated slightly clockwise so the right side recedes. The one lifted curling page creates a strong readable silhouette and does not resemble a second book. The book fills 80 percent of the canvas, centered, whole object visible with transparent margins.\n\nStyle: frosted translucent sculptural rendering. Reinterpret the object materials as milky glass panels and translucent frosted forms, with vivid lime glowing-looking edges contained within the object, and deep forest accents to keep its silhouette visible. Realistic refraction and soft internal light, subtle frosted material. Clearly readable object boundaries, not invisible white on white. Keep any transparency meaningful inside the glass object and make ALL outside pixels completely transparent. No floor, pedestal, studio background or exterior drop shadow.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+        "referenced_image_paths": [
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/illustrations/book-ink.png"
+        ],
+        "hasAlpha": false,
+        "alphaRange": [
+          255,
+          255
+        ],
+        "width": 1254,
+        "height": 1254,
+        "preview": "assets/style-lab/illustrations/rejected/book-glass.png"
+      }
+    ],
+    "preview": "assets/style-lab/illustrations/book-glass.png"
+  },
+  {
+    "id": "style05-art-book-ink",
+    "kind": "illustration",
+    "subject": "book",
+    "style": "ink",
+    "title": "Open book \u00b7 expressive ink",
+    "description": "One open blank book with a single page curling upward, in a clear three-quarter view. Expressive ink treatment in forest, ivory and lime on a transparent background.",
+    "prompt": "Use case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one open book, both blank page blocks clearly visible, with exactly one page curling upward from the right-hand side toward the center. No lettering or printed marks anywhere on pages. View consistently from a gentle elevated three-quarter angle, looking down about 30 degrees, with the spine running away from the viewer and the whole book rotated slightly clockwise so the right side recedes. The one lifted curling page creates a strong readable silhouette and does not resemble a second book. The book fills 80 percent of the canvas, centered, whole object visible with transparent margins.\n\nStyle: expressive hand-drawn forest ink with ivory fills and a restrained lime accent. Tactile imperfect but confident contour strokes, varied line width, selective lively hatching that follows form, authentic ink edge. Keep ivory-filled page or sleeve areas mostly quiet and clearly defined. Graphic hand-drawn illustration, not photorealistic, not clean vector perfection, no paper sheet behind the drawing.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-c0161a0e-1241-46cf-b786-90c3cd5a1d49.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.5706,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "preview": "assets/style-lab/illustrations/book-ink.png"
+  },
+  {
+    "id": "style05-art-book-paper",
+    "kind": "illustration",
+    "subject": "book",
+    "style": "paper",
+    "title": "Open book \u00b7 cut paper",
+    "description": "One open blank book with a single page curling upward, in a clear three-quarter view. Cut paper treatment in forest, ivory and lime on a transparent background.",
+    "prompt": "Create a fresh illustration with actual PNG alpha transparency. This is a new generation, not an edit.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one open book, both blank page blocks clearly visible, with exactly one page curling upward from the right-hand side toward the center. No lettering or printed marks anywhere on pages. View consistently from a gentle elevated three-quarter angle, looking down about 30 degrees, with the spine running away from the viewer and the whole book rotated slightly clockwise so the right side recedes. The one lifted curling page creates a strong readable silhouette and does not resemble a second book. The book fills 80 percent of the canvas, centered, whole object visible with transparent margins.\n\nStyle: flat cut-paper layered graphic using forest, ivory and lime. Decisive broad shapes, crisply cut but slightly handmade edges, subtle paper fiber within the colored pieces, limited dimensional shadows only between overlapping parts of the object. Near-flat editorial cut-paper language, no sketch lines, no photorealistic room and no background sheet. Preserve clear form and restrained layering.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-1f289680-536d-4cef-9cf0-ab992208a85a.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.559,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "failedAttempts": [
+      {
+        "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-3d1dd18f-92b0-4a8a-8404-fb9e27ac166a.png",
+        "prompt": "The supplied image is a SHAPE AND CAMERA REFERENCE ONLY. Keep its single object's arrangement, silhouette, camera angle, relative proportions, crop and centered square placement consistent. Re-render the object in the different medium described below. Do NOT preserve the reference's ink strokes, hatching or hand-drawn texture; replace those completely with the requested paper medium. Preserve transparent surroundings.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one open book, both blank page blocks clearly visible, with exactly one page curling upward from the right-hand side toward the center. No lettering or printed marks anywhere on pages. View consistently from a gentle elevated three-quarter angle, looking down about 30 degrees, with the spine running away from the viewer and the whole book rotated slightly clockwise so the right side recedes. The one lifted curling page creates a strong readable silhouette and does not resemble a second book. The book fills 80 percent of the canvas, centered, whole object visible with transparent margins.\n\nStyle: flat cut-paper layered graphic using forest, ivory and lime. Decisive broad shapes, crisply cut but slightly handmade edges, subtle paper fiber within the colored pieces, limited dimensional shadows only between overlapping parts of the object. Near-flat editorial cut-paper language, no sketch lines, no photorealistic room and no background sheet. Preserve clear form and restrained layering.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+        "referenced_image_paths": [
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/illustrations/book-ink.png"
+        ],
+        "hasAlpha": false,
+        "alphaRange": [
+          255,
+          255
+        ],
+        "width": 1254,
+        "height": 1254,
+        "preview": "assets/style-lab/illustrations/rejected/book-paper.png"
+      }
+    ],
+    "preview": "assets/style-lab/illustrations/book-paper.png"
+  },
+  {
+    "id": "style05-art-record-airbrush",
+    "kind": "illustration",
+    "subject": "record",
+    "style": "airbrush",
+    "title": "Record and sleeve \u00b7 soft airbrush",
+    "description": "One plain vinyl record half emerging from an ivory square sleeve, with a lime center label and no lettering. Soft airbrush treatment in forest, ivory and lime on a transparent background.",
+    "prompt": "Create a fresh illustration with actual PNG alpha transparency. This is a new generation, not an edit.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one plain vinyl record half emerging from one square ivory record sleeve. The vinyl disc rises from the upper-right of the sleeve, about half its circular area exposed; its circle center label is vivid lime with no lettering. Sleeve is a real illustrated object, not a background panel. Show the sleeve at a consistent slight three-quarter angle: top edge slopes gently downward toward the right, about 12 degrees clockwise, right edge recedes slightly, front face dominant, seen a little from above. Entire sleeve and entire exposed record remain within the canvas. The overall combined object fills 80 percent of the image, centered. Keep the main vinyl circle and square sleeve immediately recognizable.\n\nStyle: soft dimensional airbrush illustration with a 1980s music-poster feel. Clearly volumetric colored form, soft sprayed highlights and shades, subtle dry spray grain on the object itself, forest/ivory/lime anchors. Sculptural painted gradients follow object surfaces and make the form rounded, tangible and distinctive. This is an illustration, not photography, glass, ink outlines or flat cut paper. No colored background glow; every surrounding pixel is transparent.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-a582119d-a041-4d37-a1c7-d06d5e7eb982.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.4511,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "failedAttempts": [
+      {
+        "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-355fa707-45dc-497a-956b-162f3caff02e.png",
+        "prompt": "The supplied image is a SHAPE AND CAMERA REFERENCE ONLY. Keep its single object's arrangement, silhouette, camera angle, relative proportions, crop and centered square placement consistent. Re-render the object in the different medium described below. Do NOT preserve the reference's ink strokes, hatching or hand-drawn texture; replace those completely with the requested airbrush medium. Preserve transparent surroundings.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one plain vinyl record half emerging from one square ivory record sleeve. The vinyl disc rises from the upper-right of the sleeve, about half its circular area exposed; its circle center label is vivid lime with no lettering. Sleeve is a real illustrated object, not a background panel. Show the sleeve at a consistent slight three-quarter angle: top edge tilts gently upward toward the right, right edge recedes slightly, front face dominant, seen a little from above. Entire sleeve and entire exposed record remain within the canvas. The overall combined object fills 80 percent of the image, centered. Keep the main vinyl circle and square sleeve immediately recognizable.\n\nStyle: soft dimensional airbrush illustration with a 1980s music-poster feel. Clearly volumetric colored form, soft sprayed highlights and shades, subtle dry spray grain on the object itself, forest/ivory/lime anchors. Sculptural painted gradients follow object surfaces and make the form rounded, tangible and distinctive. This is an illustration, not photography, glass, ink outlines or flat cut paper. No colored background glow; every surrounding pixel is transparent.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+        "referenced_image_paths": [
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/illustrations/record-ink.png"
+        ],
+        "hasAlpha": false,
+        "alphaRange": [
+          255,
+          255
+        ],
+        "width": 1254,
+        "height": 1254,
+        "preview": "assets/style-lab/illustrations/rejected/record-airbrush.png"
+      }
+    ],
+    "preview": "assets/style-lab/illustrations/record-airbrush.png"
+  },
+  {
+    "id": "style05-art-record-glass",
+    "kind": "illustration",
+    "subject": "record",
+    "style": "glass",
+    "title": "Record and sleeve \u00b7 frosted glass",
+    "description": "One plain vinyl record half emerging from an ivory square sleeve, with a lime center label and no lettering. Frosted glass treatment in forest, ivory and lime on a transparent background.",
+    "prompt": "Create a fresh illustration with actual PNG alpha transparency. This is a new generation, not an edit.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one plain vinyl record half emerging from one square ivory record sleeve. The vinyl disc rises from the upper-right of the sleeve, about half its circular area exposed; its circle center label is vivid lime with no lettering. Sleeve is a real illustrated object, not a background panel. Show the sleeve at a consistent slight three-quarter angle: top edge slopes gently downward toward the right, about 12 degrees clockwise, right edge recedes slightly, front face dominant, seen a little from above. Entire sleeve and entire exposed record remain within the canvas. The overall combined object fills 80 percent of the image, centered. Keep the main vinyl circle and square sleeve immediately recognizable.\n\nStyle: frosted translucent sculptural rendering. Reinterpret the object materials as milky glass panels and translucent frosted forms, with vivid lime glowing-looking edges contained within the object, and deep forest accents to keep its silhouette visible. Realistic refraction and soft internal light, subtle frosted material. Clearly readable object boundaries, not invisible white on white. Keep any transparency meaningful inside the glass object and make ALL outside pixels completely transparent. No floor, pedestal, studio background or exterior drop shadow.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-38d3c720-1f90-43ca-b298-1ec9f7359981.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.4541,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "failedAttempts": [
+      {
+        "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-79623c7b-40df-4477-9952-9cf4f1a42d29.png",
+        "prompt": "The supplied image is a SHAPE AND CAMERA REFERENCE ONLY. Keep its single object's arrangement, silhouette, camera angle, relative proportions, crop and centered square placement consistent. Re-render the object in the different medium described below. Do NOT preserve the reference's ink strokes, hatching or hand-drawn texture; replace those completely with the requested glass medium. Preserve transparent surroundings.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one plain vinyl record half emerging from one square ivory record sleeve. The vinyl disc rises from the upper-right of the sleeve, about half its circular area exposed; its circle center label is vivid lime with no lettering. Sleeve is a real illustrated object, not a background panel. Show the sleeve at a consistent slight three-quarter angle: top edge tilts gently upward toward the right, right edge recedes slightly, front face dominant, seen a little from above. Entire sleeve and entire exposed record remain within the canvas. The overall combined object fills 80 percent of the image, centered. Keep the main vinyl circle and square sleeve immediately recognizable.\n\nStyle: frosted translucent sculptural rendering. Reinterpret the object materials as milky glass panels and translucent frosted forms, with vivid lime glowing-looking edges contained within the object, and deep forest accents to keep its silhouette visible. Realistic refraction and soft internal light, subtle frosted material. Clearly readable object boundaries, not invisible white on white. Keep any transparency meaningful inside the glass object and make ALL outside pixels completely transparent. No floor, pedestal, studio background or exterior drop shadow.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+        "referenced_image_paths": [
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/illustrations/record-ink.png"
+        ],
+        "hasAlpha": false,
+        "alphaRange": [
+          255,
+          255
+        ],
+        "width": 1254,
+        "height": 1254,
+        "preview": "assets/style-lab/illustrations/rejected/record-glass.png"
+      }
+    ],
+    "preview": "assets/style-lab/illustrations/record-glass.png"
+  },
+  {
+    "id": "style05-art-record-ink",
+    "kind": "illustration",
+    "subject": "record",
+    "style": "ink",
+    "title": "Record and sleeve \u00b7 expressive ink",
+    "description": "One plain vinyl record half emerging from an ivory square sleeve, with a lime center label and no lettering. Expressive ink treatment in forest, ivory and lime on a transparent background.",
+    "prompt": "Use case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one plain vinyl record half emerging from one square ivory record sleeve. The vinyl disc rises from the upper-right of the sleeve, about half its circular area exposed; its circle center label is vivid lime with no lettering. Sleeve is a real illustrated object, not a background panel. Show the sleeve at a consistent slight three-quarter angle: top edge tilts gently upward toward the right, right edge recedes slightly, front face dominant, seen a little from above. Entire sleeve and entire exposed record remain within the canvas. The overall combined object fills 80 percent of the image, centered. Keep the main vinyl circle and square sleeve immediately recognizable.\n\nStyle: expressive hand-drawn forest ink with ivory fills and a restrained lime accent. Tactile imperfect but confident contour strokes, varied line width, selective lively hatching that follows form, authentic ink edge. Keep ivory-filled page or sleeve areas mostly quiet and clearly defined. Graphic hand-drawn illustration, not photorealistic, not clean vector perfection, no paper sheet behind the drawing.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-816ee5fd-34d6-4ab0-8266-fa3cd0171a7b.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.4327,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "preview": "assets/style-lab/illustrations/record-ink.png"
+  },
+  {
+    "id": "style05-art-record-paper",
+    "kind": "illustration",
+    "subject": "record",
+    "style": "paper",
+    "title": "Record and sleeve \u00b7 cut paper",
+    "description": "One plain vinyl record half emerging from an ivory square sleeve, with a lime center label and no lettering. Cut paper treatment in forest, ivory and lime on a transparent background.",
+    "prompt": "Create a fresh illustration with actual PNG alpha transparency. This is a new generation, not an edit.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one plain vinyl record half emerging from one square ivory record sleeve. The vinyl disc rises from the upper-right of the sleeve, about half its circular area exposed; its circle center label is vivid lime with no lettering. Sleeve is a real illustrated object, not a background panel. Show the sleeve at a consistent slight three-quarter angle: top edge slopes gently downward toward the right, about 12 degrees clockwise, right edge recedes slightly, front face dominant, seen a little from above. Entire sleeve and entire exposed record remain within the canvas. The overall combined object fills 80 percent of the image, centered. Keep the main vinyl circle and square sleeve immediately recognizable.\n\nStyle: flat cut-paper layered graphic using forest, ivory and lime. Decisive broad shapes, crisply cut but slightly handmade edges, subtle paper fiber within the colored pieces, limited dimensional shadows only between overlapping parts of the object. Near-flat editorial cut-paper language, no sketch lines, no photorealistic room and no background sheet. Preserve clear form and restrained layering.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-e95a1724-7640-4e3f-b0d0-88b899f5b5cb.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.455,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "failedAttempts": [
+      {
+        "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-8eb037b3-3f29-4d2c-aafd-06b5f04a28e0.png",
+        "prompt": "The supplied image is a SHAPE AND CAMERA REFERENCE ONLY. Keep its single object's arrangement, silhouette, camera angle, relative proportions, crop and centered square placement consistent. Re-render the object in the different medium described below. Do NOT preserve the reference's ink strokes, hatching or hand-drawn texture; replace those completely with the requested paper medium. Preserve transparent surroundings.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one plain vinyl record half emerging from one square ivory record sleeve. The vinyl disc rises from the upper-right of the sleeve, about half its circular area exposed; its circle center label is vivid lime with no lettering. Sleeve is a real illustrated object, not a background panel. Show the sleeve at a consistent slight three-quarter angle: top edge tilts gently upward toward the right, right edge recedes slightly, front face dominant, seen a little from above. Entire sleeve and entire exposed record remain within the canvas. The overall combined object fills 80 percent of the image, centered. Keep the main vinyl circle and square sleeve immediately recognizable.\n\nStyle: flat cut-paper layered graphic using forest, ivory and lime. Decisive broad shapes, crisply cut but slightly handmade edges, subtle paper fiber within the colored pieces, limited dimensional shadows only between overlapping parts of the object. Near-flat editorial cut-paper language, no sketch lines, no photorealistic room and no background sheet. Preserve clear form and restrained layering.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+        "referenced_image_paths": [
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/illustrations/record-ink.png"
+        ],
+        "hasAlpha": false,
+        "alphaRange": [
+          255,
+          255
+        ],
+        "width": 1254,
+        "height": 1254,
+        "preview": "assets/style-lab/illustrations/rejected/record-paper.png"
+      }
+    ],
+    "preview": "assets/style-lab/illustrations/record-paper.png"
+  }
+]

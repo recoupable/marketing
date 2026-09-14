@@ -1,0 +1,363 @@
+# Music Fastball: Turning passive music catalogs into active revenue w/ Ryan Hamilton
+# Date: 2026-05-12
+# Duration: 00:30:59
+# Guests: Ryan Hamilton — founder, CTLGMGMT Host: Sam Morey, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Sam Morey, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Music-Fastball-Turning-passive-music-catalogs-into-active-revenue-w-Ryan-Hamilton-e3j5k4u
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] Hello everybody, welcome back to Music Fastball by Standard Innovation. I'm Sam Maury and today
+[00:14] I'm joined by Ryan Hamilton who brings 18 years of experience across catalogue management,
+[00:18] licensing and monetisation. We're going to focus on two areas where we consistently see
+[00:23] missed revenue in music investors. First, how to optimise your REIT to market so you're not
+[00:28] just accepting the status quo but actually maximising licensing income and retaining
+[00:33] commercial leverage. And second, how to track, enforce and monetise music consumption across
+[00:40] social platforms, turning what has historically been invisible or unenforced into a revenue stream.
+[00:46] Let's jump in with our first topic. Ryan, great to see you today, thanks for joining us.
+[00:53] Question number one, so from a commercial perspective, how do music investors typically
+[00:58] operate today with labels and publishers? What terms do they typically operate within?
+[01:04] I think on a high level, as soon as an asset is purchased, the historical deals are likely
+[01:12] staying in place. If we're talking about publishing, they have likely an administrator. It's very
+[01:18] unlikely that a typical music investor would have an admin structure in-house or maybe something very
+[01:25] small. They may have a royalties team or something like that that's monitoring income. For the most
+[01:29] part, there'll be a lot of publishers, sub-publishers on the publishing side versus a distributor or
+[01:36] multiple distributors, depending on the rights you have on the master's sound recordings.
+[01:42] A lot of those terms are typically set up from when that artist had previously made an agreement with
+[01:50] that label or publishers. Typically, what are the standard terms that you'd expect to see?
+[01:58] And where are the opportunities within that?
+[02:02] Yeah, we'll see multi-year deals where it's anywhere from two to three or five years. We'll see
+[02:07] auto-renews in there, which is something obviously to look out for, especially if you have the ability to
+[02:12] make some changes. We see some label licensing deals that could be in perpetuity, which I think is a
+[02:22] call-out as a pain point that I think that is likely overlooked during the acquisition phase.
+[02:28] What is your accountability is the question I ask clients. An accountability, whether or not it's...
+[02:36] It's do you want to be passive or active? And that's really where it comes down to. You're going to see,
+[02:43] hey, maybe I have a deal that's rolling that I can move right now. Maybe there's a deal that I can't
+[02:48] leave for two to three years. Maybe there's something that we're stuck with in perpetuity.
+[02:53] And ultimately, that's where relationships come in play is to exactly how invested you are going to be
+[02:59] with artists, with the labels, with managers in general, or with the admins,
+[03:03] so that you can actually be proactive, even if you don't have the ability to make any adjustments.
+[03:09] Yeah. And this, obviously, I think this could be quite a complex area because,
+[03:13] A, a lot of investors have a lot of different catalogs. And, you know, by definition, you've
+[03:20] therefore got agreements and, you know, broadly different contracts with a lot of different
+[03:25] labels and publishers across the board. We hear a lot about, you know, through the diligence process,
+[03:31] you know, legals are reviewed, but sometimes, you know, actually carrying that through into
+[03:36] operations, like takes a little bit longer, or there's a few kind of unknowns once it lands.
+[03:42] That shouldn't be the case, but, you know, sometimes that happens, you know, through the process.
+[03:47] But there's obviously the optimization that people can do in terms of, you know, again,
+[03:52] I guess at an economies of scale level, they can, I guess, make an agreement with the
+[03:57] particular label or publisher, and then obviously then track and try and move those different deals
+[04:03] in. That takes a lot of management though, right? I mean, how do you typically tackle those types of
+[04:08] things?
+[04:09] Yeah. I mean, if you have many, many distributors that you're talking about multiple different rates,
+[04:14] multiple different territories, it is super complicated. I think that sometimes consolidating
+[04:21] is likely a really interesting concept of what you can actually get underneath one roof.
+[04:26] I believe that having the right distributor is really very important because not every album or
+[04:33] catalog is kind of created equal in a way that, you know, maybe you want more marketing support here.
+[04:39] Maybe you want to be a little bit, maybe this is a little bit passive in terms of what you're able
+[04:44] to do with the rights that you have. But you got to look at all these distributors also from the
+[04:48] perspective of what, you know, what are the rates that they may be able to leverage that actually
+[04:52] can give you immediate uplift. And interesting enough, like there's, there's some catalogs on
+[04:58] the opposite side that are so massive and, and they have such a big team around them that you don't
+[05:02] even want to touch them. You want to leave them where they're at. And so I do think that there's this,
+[05:07] you have to really not everything, you know, it may make sense to get everything under one roof.
+[05:11] It may make sense to kind of parse out some of these other deals or these other catalogs into their
+[05:16] own distribution networks. But I do think it gets complicated, but I think it's all about your
+[05:22] ability to, you know, account manage, to be able to actually speak with these people month to month.
+[05:29] And if you're my, from my experience, I think that the passive distributors are not necessarily the
+[05:35] right fit for these types of acquired assets, because your goal is to ultimately optimize them and do
+[05:41] whatever you can to keep them, you know, sustainable, as opposed to a natural decline in revenue.
+[05:47] Yeah. And I think one of the things we've seen a lot is a lot of the different, like music investors
+[05:52] will have a different approach. So some will do a lot of the marketing themselves. They'll, you know,
+[05:58] they'll kind of just want to have an admin deal, I guess, or maybe do admin house. But certainly from
+[06:05] a label, they'll want to kind of, you know, optimize that as much as possible, but they kind of take on
+[06:10] the burden of like, I guess, the marketing side of things, different funds will actually want the
+[06:15] opposite. And they'll want to do that and kind of outsource that entirely. And I think the interesting
+[06:20] point you raised, Ryan, is that, as you say, there's loads of options out there. You don't have
+[06:24] to just go with like the status quo, as you've kind of talked about as, you know, for different
+[06:29] catalogs, there's different ways you can like work it in partnership with other parts of the music
+[06:35] industry. Right. Absolutely. I think that the one thing that you'll see in historical deals in general,
+[06:42] that might be a red alarm or something to really like look into before you actually decide and move
+[06:46] forward is whether or not there is exclusivity or non-exclusivity. If you're, especially if you're
+[06:51] either moving to a new partner or a new admin or a new distributor, that ability to be able to
+[06:59] operate as a partnership, I think is really important. Red tape obviously slows things
+[07:05] down. It depends that, you know, my team, our business development people, right? Like we like
+[07:10] to move fast. We like to close deals. You know, we don't want to deal with all the red tape. So I like
+[07:15] the ability to partner up and be very transparent and supportive with my, you know, partners I support.
+[07:22] But at the same time, I think that having the non-exclusive right to pull certain pieces out,
+[07:28] for example, licensing on the digital side or, you know, commercial sync is really nice.
+[07:34] You know, you want to be able to procure your own deals if possible. You want to be able to procure
+[07:39] your own commercial licenses as possible, because if you're able to do that through marketing or through
+[07:43] your website, through anything that you're doing proactively, whether it's through social media or
+[07:48] whatnot, that, you know, you actually gain the uplift yourself as opposed to giving a piece,
+[07:53] you know, that percentage away to your administrator.
+[07:56] Yeah. And obviously like a lot of these, a lot of these investors are getting like,
+[08:01] they're kind of getting quite big now, right? There's quite a lot of assets under management,
+[08:06] certainly at the top end. So, you know, I think that gives them a very different type of,
+[08:11] I guess, negotiating power, like all together. And like, let's say, for example, like primary wave,
+[08:18] now they're part of COBOL that obviously brings a whole load of like different like possibilities for
+[08:24] them, but, you know, funds of a similar size, actually, you know, there could be like opportunities
+[08:30] for them to explore those types of benefits themselves. I think there's probably two layers.
+[08:35] There's relationships with like publishers, labels, and distributors. And then the level above that is
+[08:43] their relationships with DSPs, like Apple Music, Spotify, YouTube, and the types of deals that
+[08:50] are done at that level. Like, give us a view of how those, how a music investor could, I guess,
+[08:58] elevate themselves alongside some of these labels and publishers or to be able to negotiate directly.
+[09:06] Like, how could they do that?
+[09:08] Sure. Yeah. I mean, if you have those non-exclusive rights, you know, with your admin,
+[09:11] or you're doing administration yourself, you know, there are obviously opt-in portals.
+[09:16] You know, if you don't have something that's on demand, like an on-demand catalog, you know,
+[09:20] a relatively, you know, A-list artist or a very sizable group of works that can demand that
+[09:29] relationship. I think that not all, not everyone can demand that relationship, but if you can,
+[09:35] you know, one, having those relationships or direct deals can actually, you know, uplift a few
+[09:41] things. One, getting that immediate income. I mean, I think a lot of times when you're working with an
+[09:46] administrator, you're generating income on a quarterly basis. You're not necessarily participating
+[09:52] in advances or minimum guarantees. Obviously something you probably could negotiate with your,
+[09:58] with your admin. But most of the time, I think that it's, it's a natural royalty, you know,
+[10:04] like inbound income. I personally love doing direct deals. I have great relationships with,
+[10:13] you know, mostly every, you know, music tech platform out there. And I think that there is
+[10:20] above and beyond just monetary value. There is the, there is, there's great value in like,
+[10:26] what are the, what type of partnerships can you do? What kind of marketing activation can they provide
+[10:30] you? And that allows you to really uplift the catalog in the most important places, which are all
+[10:36] the social media platforms. Um, yeah, yeah. So I do think that there is a level of, Hey, I just,
+[10:43] I just purchased a very, very valuable catalog and I have the right to license it. I think going
+[10:48] directly is likely the best move. Um, and if you're unable to, then maybe you, maybe that's part of your
+[10:55] strategy and in how you work with your admin, or maybe you kind of team up with a partner like myself
+[11:00] or another consultant that ultimately has those relationships that can kind of open that door
+[11:05] for you. Um, and, and see how we can kind of build a stronger relationship for the investor.
+[11:11] I think like, like all these things, there's a lot of, um, data that's required to,
+[11:17] or these like insights required to, um, inform you of where to focus. And I think, you know,
+[11:22] there's a lot of, um, what we hear a lot about contracts that kind of differ, you know,
+[11:29] artist to artist and publisher to publisher and, you know, getting devils in the detail with all
+[11:33] these things. And it's not, it's not an insignificant task is that you've got to
+[11:37] come through all the contracts. You've got to have a clear position. You've got to understand
+[11:40] where there's overlap with certain agreements where you can kind of take a few different catalogs to one,
+[11:46] you know, one label and have a conversation, you know, accordingly. So it's about proactive
+[11:52] management, isn't it? A lot of it.
+[11:53] Sure. And, and honestly, like I can go negotiate a fantastic deal, but if our database of publishing
+[12:00] works is not enriched through, you know, through ISRCs, whether, you know, we're not actually adding
+[12:06] more to our database, we're not working with a great YouTube partner. We don't have a, a matching
+[12:11] partner. We're not leveraging Luminate data. We're not leveraging our pan-European licensing
+[12:15] partners that are all doing matching. Everyone's doing matching worldwide at some level,
+[12:20] you know, I'm your team does matching, right? So how do we, how do we get all that matching,
+[12:25] getting into our database? Because if we're not delivering all those ISRCs for this fantastic,
+[12:30] you know, deal I just struck for you, then now you're not recouping on that deal and the chance,
+[12:35] and you want to have that longevity with that client. So if they're going to invest in you and
+[12:39] your catalog, you got to make sure that you're investing inside of your database because that's,
+[12:43] what's ultimately going to get you that return. Um, and make sure that, you know,
+[12:47] that ultimately you're, you're taking your best swing. Um, yeah, it's a little bit easier on the
+[12:53] master side because it's usually, you know, one ISRC you own as opposed to, you know, as an example,
+[12:59] a client of mine has Pete Townsend's, we have 95,000 ISRCs in our database for 400 pieces of works.
+[13:09] It's a different ball game. Yeah. Yeah. Yeah. I think it's, yeah, it's kind of shows you that like,
+[13:13] this being able to get to the level of like negotiating these types of things directly
+[13:19] comes from like, uh, reps, right. You've got to, you've got to do the work. You've got to put the,
+[13:24] the reps in to, to kind of take it, take it to that level. Yeah. I think that, um, I, I have,
+[13:31] I try to make sure that I'm a great account manager on both sides. Like I'm trying to help my clients,
+[13:36] but I'm also making sure that, you know, I'm, I'm trustworthy and I'm, I'm making sure that,
+[13:40] you know, our industry is very interesting now where things are being bought and sold constantly.
+[13:45] Things are moving around. Like, how do you give, how do you give some of these platforms,
+[13:48] like, you know, how do you get them comfortable with the idea of, you know, whether they give
+[13:52] you a minimum guarantee or they give you an advance or they, or they give you something
+[13:55] that can actually boost your, your, you know, your, um, your ability to just be seen on the platform
+[14:03] in general. Um, how do you do that, that they're going to put the effort, the effort's not going to be
+[14:07] lost. Um, I think that that's something that I constantly am working on both sides of. And I
+[14:12] think that that's probably the hardest part about my gig. Um, but I enjoy it. And I do think that
+[14:16] everyone's got to operate in good faith at the end of the day. It's not just about like, you know,
+[14:20] making, you know, getting this immediate income so that the investor can create more value for their
+[14:26] assets. Um, you know, that's ultimately what that's their goal. My goal is to make sure that
+[14:32] everyone feels like they're, you know, everyone's trusted and doing the right things. Yeah. I think
+[14:37] it's great. I think it's, it just shows that like taking that kind of proactive approach, um,
+[14:44] it really can sort of, you know, make, make a, make a difference every long period of time.
+[14:48] Oh, I could do one more really quick. I mean, as an example, you know, historical deal,
+[14:53] you look at it right now, it's on a rolling, doesn't have a minimum guarantee. It could be earning a
+[14:58] million dollars a year for you. You're at 10%. Well, by the way, there's multiple players in,
+[15:05] in, in the ball game, right? So you're in a situation where, you know, you want to have
+[15:09] a great relationship with the current, you know, team of whoever you're working with, but there may
+[15:13] be other players involved that you want to just shop around and do the negotiation. Um, it is a lot
+[15:19] of work to move things around, which is, I think that's what you always have to think. Am I,
+[15:23] am I prepared to do this? And do I have the team to do this? Um, that's, that's the biggest thing is
+[15:28] like, do I have the people in place to actually make this move? If I want to get that 10% down
+[15:32] to seven, right? If I want to, um, you know, or what will the partner do to help you move it around?
+[15:39] I mean, I think that I personally look at historical deals as a very important place for optimization,
+[15:45] anything that's likely three to five years old, at least the music tech likely should be blown up,
+[15:52] um, whether, and not in a bad way, just ultimately like, Hey, we need to sit at the table and make sure
+[15:57] that everything is up to date because chances are there's a lot of rights that maybe that were
+[16:00] negotiated on their end that they aren't capturing now, which is ultimately not allowing you to make
+[16:05] the most that you can on this specific platforms as well. So, um, we hear, we hear that a lot.
+[16:10] Yeah. Yeah. There's loads of like little terms in there that like can still be, um, in there from,
+[16:16] you know, historic agreements around packaging and all sorts that, you know, it's kind of all money
+[16:22] on the table really in a lot of ways, isn't it? So, um, yeah, the second bit we're going to look
+[16:27] at today was around copyright infringement. Um, that was kind of a little bit hard to track before.
+[16:33] Um, right. I think you've kind of, you've done a lot in this space, um, you know, using some third
+[16:38] party platforms, um, that, you know, can track this kind of stuff. Give us an example of like
+[16:44] how that works and like how the types of results you've got from that.
+[16:49] Yeah. So one thing that we always look at from a digital licensing perspective is this gray area
+[16:55] that has traditionally not been super helpful to publishers, especially because of the millions
+[17:02] and millions of ISRCs that could be associated to a specific sound records, you know, popular song or
+[17:07] works. Um, what, when brands are using, you know, posting UGC contents, you know, yeah, they're
+[17:16] supposed to go directly. It's non-commercial use. So take a step back. The deal that we typically do
+[17:20] on, you know, directly as a publisher are all non-commercial uses, meaning me and you as an
+[17:26] individual person can, can post to our socials, no big deal. But as soon as a brand actually does it,
+[17:31] um, that becomes a commercial use because you're promoting an actual product, which should trigger
+[17:36] actual synchronization, commercial sync license. You know, you talk to my sync team, not, not me.
+[17:41] Yeah. Um, so brands, I think not even, it's just lack of education. I think for the most part,
+[17:47] most of it's not malicious. I don't think any of it's really super malicious and maybe, you know,
+[17:51] for a very long time, at least the last few years since, you know, maybe the last five or six,
+[17:55] since it's really been really popular to kind of have an organic or a social media account that
+[18:00] actually can promote your product, you know, using music has always been that helpful push.
+[18:05] Um, and you couldn't, and it's too big, it's too vast to be able to go in and, and look and say,
+[18:10] okay, who's using my music. Um, and that most recently there's been multiple partners, uh,
+[18:17] that have kind of appeared that have been able to actually like create these amazing tools that can
+[18:21] take all of your MLC database. Um, you know, take all of your, your, your data, plug it into their
+[18:27] system and really focus in on those fortune five, you know, fortune 100, fortune 500 and bigger brands
+[18:33] and just see the uses. Now that is, it's definitely opened up a can of worms for me.
+[18:40] And there's a lot of complexities in terms of how you actually approach doing it. It's not too simple
+[18:45] to be like, all right, cool, let's go, let's go approach them and get our money. Um, there's usually
+[18:49] a lot of different players involved, especially on the publishing side, you could be going after 5%,
+[18:53] you know, maybe you have an owner who owns a hundred percent, but there's multiple admins involved.
+[18:58] So there's a lot of these like tricky things that go in place. But I think that, um,
+[19:03] just the transparency more recently has shown me that this is an area that maybe it's short term
+[19:09] because maybe it's the next couple of years we're able to go and actually capture infringement from
+[19:13] the past where eventually I think these brands who probably have lost the battle, um, and didn't
+[19:19] know, maybe they had an intern posting it thinking like, this is a really cool thing to do, you know,
+[19:23] not even knowing, um, the problem with sync in some respect is it's quite complicated to kind of
+[19:28] get in place, isn't it? You know, to your point around it being, you know, 5% you might be going
+[19:33] after, you know, that's also from a sync perspective, you've got to get agreements for everyone to,
+[19:37] to get their license degree. Yeah.
+[19:40] Everyone's been trying to solve this, right? Like, so I know that even, you know, some of the bigger,
+[19:44] uh, social media platforms have presented to publishers, Hey, let's create some sort of,
+[19:49] uh, rate card scenario, which ultimately does not work for the sync community. We're not going to
+[19:54] cannibalize like a, a very popular song so that you can, so users can freely, you know, post.
+[20:00] There are definitely commercial libraries that exist like within some of these subsets. Most of them are
+[20:06] not opting in there, you know, they're, they're bigger hits. Um, whereas now we're finding a lot
+[20:11] of uses for that. Um, and we're talking anywhere from, you know, $5,000 to 150 to $250,000 infringement
+[20:20] cases, depending on how, how often are often used there, how long it's been sitting on the platform.
+[20:26] So give us an example, Ryan, of like, what's the process of these kind of platforms that contract
+[20:32] usage, like walk us through an example of, of, of that kind of end to end.
+[20:37] In terms of the companies that are finding this for me or, or the, or the DSP.
+[20:42] So, so yeah, you've, you've, you've kind of matched your catalog into their platform.
+[20:48] They've identified a brand that's used, you know, maybe inadvertently used one of your,
+[20:53] um, songs in a, in an ad, um, let's say a number of times, what it, what is the kind of process that
+[21:01] you kind of typically follow?
+[21:02] I don't want to pick on TikTok. So I'm going to pick on meta now just to use them as an example.
+[21:06] They're great. I mean, their team, their team's great, but ultimately we'll do the deal directly
+[21:11] with say meta, um, non-exclusive, you know, not, non-exclusive deal, non-commercial deal.
+[21:17] And they've done the matching. Our music is cleared on their platform. Great. They do their
+[21:22] best to take things down that do not seem to be, you know, within the guidelines of the licenses that
+[21:29] they have. There obviously are going to be gaps. It's very hard for an individual publisher to go
+[21:34] into their system and actually go look around for this stuff. You could never do that. Right.
+[21:38] So that's, that's the DSP side. They'll, they're trying their best and they're honestly pushing
+[21:42] things forward constantly, uh, to try to solve for that. Now, now we have some of these super smart,
+[21:48] you know, like tech guys that are coming on board being like, Hey, like we're going to solve this
+[21:53] on behalf of, you know, a lot of these different companies. Um, so they're developing those tools
+[21:58] to actually say, this is actually living on your platform. So, so say you, say you fly, say you find one.
+[22:06] Okay. So like brand day, it's used yourself. Yeah. What do you do? First thing I do is I say, Oh, this is,
+[22:12] this is an interesting one. Look at all the views. Let's see how many people have actually, you know,
+[22:17] how big is the brand, right? I'm not going to ultimately want to go after a small coffee company.
+[22:21] It's not really worth, I don't think anyone wants to do that. Um, but ultimately we're looking at a
+[22:25] big brand that should know better. You know, how popular was this? Did they boost it? Was it run
+[22:30] on ads? Um, from there, I, I specific, I go right to my sync team, um, or I'll pull up the sync data.
+[22:35] You have to be in partnership with your sync team or the same teams you work with because they're the
+[22:40] ones who have the relationship. So not only are we being very careful about this scenario, it's,
+[22:45] there's two options. One is, Hey, you know, first you want to find out, did it, was this ever licensed?
+[22:49] The answer is no. Okay. Well, do you have a relationship with these people? Because sometimes
+[22:54] it's not worth kind of going down the legal route to go get some money. Um, especially if there's a
+[22:59] really strong relationships that we currently have in place. And I'll say, uh, you know, at that point,
+[23:03] I'll work with a plan with the sync team to let's go out there and think of something creative. Now
+[23:07] let's go reach out to directly. Hey, this is likely a mistake. Yeah. Um, but you didn't license this.
+[23:12] So this would have cost you this much money. Um, let's, let's work this out. And maybe there's a
+[23:17] bigger deal at play. That's, that's the smart thing to do. I think always is just so not to like
+[23:21] be so happy. Now, if there is no relationship in place, we're not looking to go crazy, but you know,
+[23:26] at that point, you know, the lawyers reach out to their lawyers and let them know about
+[23:31] infringement. They share the, all the information. And then there's, you know, at that point we,
+[23:35] you know, we start the negotiations. You're always going to need backup licensing information as well.
+[23:40] Like, so if you have the license in place already that established that rate,
+[23:43] that's, what's going to get you to close the deal. Um, if you don't have anything,
+[23:47] it's going to be a little bit of an uphill battle and it may not be worth, you know,
+[23:51] what you're pushing, but obviously. Okay. So this is where you've synced it before essentially.
+[23:55] Yeah. Ultimately you want to look at your, your historical sync data, um, and, and have that
+[24:00] license in place. And that would justify, Hey, we license this for $5,000 for one month use.
+[24:05] And this has been on your platform for 12 months, justifying us getting $60,000 of our share.
+[24:10] Yeah. Yeah. And you know, sometimes it works out in that way. And sometimes it's a bit more of a,
+[24:17] you know, negotiation and, you know, typically I think it looks at all these brands are looking
+[24:21] to kind of settle. They don't want to be out in the open. This is not the, this is not kind of a
+[24:25] malicious thing for the most part. So typically like, you know, it takes a few weeks and then
+[24:29] we get paid. Um, and it's not always about the money. Like I said, I mean, I'm always looking for a
+[24:34] really cool opportunity to like get a brand to do something bigger for some of my writers that I work
+[24:39] with or some of the masters that, you know, or the artists that I'm working with directly.
+[24:43] Um, because also part of what I love to do when I'm working with music investors or publishers
+[24:48] is just having direct relations with the artist, you know, like maybe there's something bigger we
+[24:52] can do here. And that's always got to be top of mind because it's not always about bringing up that
+[24:57] immediate income. That's going to grow the catalog value. It's always about, yes, we want to get our
+[25:02] value out of this specific opportunity, but we want to make sure that how do we grow this into the
+[25:07] future as a partnership, as opposed to the alternative, which is a bit more like heavy
+[25:11] handed. Yeah. And I think there's, there's other things on there, like moral rights and stuff that
+[25:15] come into play with all this, because a lot of the reasons that, you know, sync is there is so that
+[25:21] you can govern the copyright and you don't have to worry about it being used to the brands that that
+[25:26] artist doesn't want to be affiliated with. So there's some tricky, tricky areas to kind of manage,
+[25:31] I guess, around this as well.
+[25:33] Well, imagine how many users, some of these platforms have, you know, hundreds of millions of users.
+[25:36] Oh yeah. And the scale challenge is massive. Yeah.
+[25:39] It's ridiculous.
+[25:40] I was about to come onto that. Yeah.
+[25:41] Yeah. I look at some of these companies I'm talking to and I'm like, it's only a matter of
+[25:45] time before you get acquired by some of the bigger guys. And, you know, I think it's,
+[25:48] it's hopefully going to evolve into something just like everything in music tech. It's like
+[25:53] five years ago is nothing like last year, which is, you know, now we're in the AI world. It's a
+[25:58] completely different beast. So I do think it's, it's very good. It's going to be an
+[26:02] educational thing. And it's also going to probably boast up some of these other platforms that are
+[26:07] looking to try to figure out ways to set better rates and make licensing for UGC content a bit
+[26:15] more streamlined. Um, because I just think that it might be easier sometimes, and I hate to say this,
+[26:21] ultimately, it might be easier sometimes just to post it and hope that you'd like,
+[26:24] no one finds it. You know, that's kind of probably some of the mentality. Um, and it's,
+[26:27] which is not the right way to move. Um, I don't, I don't subscribe to that, but that could be like,
+[26:34] it's just a, it's just a post. The interface is into, into sync is challenging, isn't it? At times.
+[26:39] So, yeah. Um, yeah. In terms of like advice you'd give to, um, like a music investor fund,
+[26:48] who's not really like, like looked into this kind of, I guess, topic before. Yeah. Um,
+[26:54] what would you say? Like, cause it sounds like it's not necessarily like a, um,
+[26:59] it's not a side of desk activity really. It's going to be quite a, quite a heavy task.
+[27:04] Can be thousands of like infringements to kind of review and like figure out how you can tackle
+[27:08] each one of those. And like, you know, what would you, how would you say like the best,
+[27:13] best way to tackle it is? I mean, I think the, the, just from the beginning, it's always like,
+[27:18] are you, are you a passive or a, you know, an active, you know, you want me to go after all,
+[27:23] all this proactive partnerships in general. Um, so we're now we're down this road and I think that
+[27:30] it really comes down to understanding all the historical deals that are in place because
+[27:34] maybe there's an admin, like I said earlier, or maybe there's a license in place that doesn't
+[27:39] allow you to do something. So it becomes a bigger partnership. Like there's a, there's a catalog I'm
+[27:43] working on now where I'm actually speaking to multiple labels, multiple admins on behalf of,
+[27:49] you know, a, a client of mine who owns the rights, uh, owns the IP and it might not be so cracked up
+[27:56] to what it is. I mean, I think we leave a lot of money on the table if we go after a very small
+[28:00] subset. So I think that's, it's definitely a slow burn. Maybe that's the advice that I give them.
+[28:04] It's not immediate impact, but if you can identify a very decent subset, um, you know, we identify
+[28:11] maybe those few hundred smaller cases and we can kind of quantify what that looks like. Then it's like,
+[28:15] okay, do we want to put my energy towards this? Um, and if I could have a small pipeline,
+[28:20] just clearing these things up in the background, um, I think that it's worth it, but sometimes
+[28:25] it depends on, you know, how much, you know, how much you actually own or control.
+[28:30] So generally like try and filter out, filter some of it, some of the noise out, I guess, because
+[28:36] it might not be worth pursuing. Oh, for sure.
+[28:39] Take a systematic approach to tackling it with a bit of dedicated resource. That's going to have
+[28:45] to churn through some of these, these things as well. Right. Yeah, absolutely. I mean, it took me
+[28:50] probably almost two months to go through all of the data using AI, like going through data and going
+[28:56] through all of our historical sync to really identify maybe those few hundred that I wanted to
+[29:02] focus on before I even brought it to the client. You know, that that's how, you know, you don't want to
+[29:07] like, you're like, get them all excited about something that's not reality. Um, you know,
+[29:12] I'm running into some barriers now that I'm really frustrated. Like maybe I should have taken a step
+[29:15] back and it's a learning process because this is, this is pretty new for UGC. We never were able to
+[29:20] be able to do this because it was always this gray area. And when I speak to some of the, you know,
+[29:25] CEOs that I work with, whether they're publishers or investors, uh, they go, Oh, I thought that
+[29:31] they just didn't realize that there was this gap here that it was just, you know,
+[29:34] you never were able to capture it before. Um, it's kind of shocking to them sometimes.
+[29:39] And it's just like, Oh, it was just kind of understood to me that it was just really hard
+[29:43] and everyone's trying, would love to track this stuff day to day, but do you want to hire a team
+[29:47] of 10 in the past to just sit on Facebook all day long looking for your music? It's very hard.
+[29:54] Yeah. Okay. That's really interesting. I think that I, when we've spoken before, I've always thought
+[29:58] this was a really kind of interesting area and why are we doing the podcast? Right. Um, yeah.
+[30:03] And I think there's, I like your angle with, you know, taking a, you know, a creative approach to,
+[30:10] to tackling some of these, um, conversations cause it doesn't have to be a hostile thing. Right.
+[30:15] Uh, essentially, um, mistakes, you know, being made by, by some of the brands. So, so yeah.
+[30:24] Yeah. Thanks Ryan. That was amazing. Thanks so much. Great to speak to you today. I think,
+[30:29] you know, really shows that, you know, just being on top of these things can make a massive
+[30:33] difference. Um, overall, you know, a lot of these music investors have, you know, large catalogues
+[30:39] now and, you know, it's all about incremental gains. So yeah. Thanks so much. Thanks so much
+[30:44] for your time. Thanks for having me. Appreciate your expertise. Thank you.
+[30:46] Thank you.
+[30:52] Thank you.
+[30:57] Thank you.

@@ -1,5 +1,6 @@
 "use client";
 import { Suspense } from "react";
+import { usePathname } from "next/navigation";
 import { ReferralCapture } from "@/components/referral-capture";
 import { BrowserAgentTools } from "@/components/agents/browser-agent-tools";
 import { SkySiteHeader } from "@/components/sky/site-header";
@@ -14,6 +15,9 @@ import "./motion/hover.css";
 import "./sky/materials.css";
 
 export function SiteFrame({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  // The Brand Studio has its own navigation and main landmark.
+  if (pathname === "/brand" || pathname.startsWith("/brand/")) return <>{children}</>;
   return (
     <>
       <Suspense fallback={null}>

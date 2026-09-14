@@ -1,0 +1,162 @@
+[
+  {
+    "id": "linkedin-daylight",
+    "title": "01 \u00b7 Daylight / one clear line",
+    "description": "A wide headline follows the folds; a small wordmark anchors the upper right.",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/daylight.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/daylight.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/daylight.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "tool": "linkedin-banners.html#daylight"
+  },
+  {
+    "id": "linkedin-paper",
+    "title": "02 \u00b7 Paper / counterweight",
+    "description": "Pale space and a strong blue edge balance a generous two-line headline.",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/paper.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/paper.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/paper.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "tool": "linkedin-banners.html#paper"
+  },
+  {
+    "id": "linkedin-tempo",
+    "title": "03 \u00b7 Tempo / bold statement",
+    "description": "Large type and a smaller supporting line carry the composition; rhythm stays at the edge.",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/tempo.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/tempo.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/tempo.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "tool": "linkedin-banners.html#tempo"
+  },
+  {
+    "id": "linkedin-woven",
+    "title": "04 \u00b7 Forest / diagonal balance",
+    "description": "Oversized corner shapes balance a lime headline across an open forest field.",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/woven.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/woven.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/woven.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "tool": "linkedin-banners.html#woven"
+  },
+  {
+    "id": "linkedin-lime",
+    "title": "05 \u00b7 Lime / blue punctuation",
+    "description": "A small wordmark, a large second line, and one oversized blue crop.",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/lime.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/lime.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/lime.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "tool": "linkedin-banners.html#lime"
+  },
+  {
+    "id": "linkedin-night",
+    "title": "06 \u00b7 Night / quiet confidence",
+    "description": "A restrained one-line message, dark blue space, and a shallow sweep of light.",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/night.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/night.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/night.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "tool": "linkedin-banners.html#night"
+  },
+  {
+    "id": "linkedin-identity",
+    "title": "07 \u00b7 Identity / open space",
+    "description": "A large wordmark takes the lead, balanced against a generous crop of Daylight blue.",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/identity.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/identity.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/identity.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "tool": "linkedin-banners.html#identity"
+  },
+  {
+    "id": "linkedin-services",
+    "title": "08 \u00b7 Services / typographic",
+    "description": "A direct service line uses the full width, with a fine blue rule and restrained branding.",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/services.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/services.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/services.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "tool": "linkedin-banners.html#services"
+  }
+]

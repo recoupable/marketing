@@ -1,0 +1,177 @@
+# Music Fastball: Building a repeatable catalog deal process w/ Cliff Fluet
+# Date: 2026-03-24
+# Duration: 00:18:10
+# Guests: Cliff Fluet, Partner, Lewis Silkin Host: Tom Mullen Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Music-Fastball-Building-a-repeatable-catalog-deal-process-w-Cliff-Fluet-e3gc7n0
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] welcome back to music fastball we've got the second in our two-part series with
+[00:14] cliff flew a this week last time cliff we were talking about the importance of sellers being
+[00:21] well educated when they come to sell their catalog their portfolio the body of work that
+[00:27] they've accrued through the years and how important that is for them making sure that they get the
+[00:34] right value for all of the effort they've put in now this week cliff we're going to be talking a
+[00:40] bit more practical about how to systemize the process how we can advise people who are buying
+[00:46] those catalogs to prepare a process that will allow them to get through more of these deals both
+[00:54] obviously the ones that transact and the ones that don't so let's start here shall we um there is
+[01:01] sometimes cynicism about lawyers being included in deals is that fair or unfair well i'm not going to
+[01:08] say it's unfair and look some of it is earned let's be honest and the truth is different firms have
+[01:14] different models different incentives produce different behaviors some lawyers benefit benefit
+[01:21] from complexity from deals that take longer i know there's an inherent suspicion about any business
+[01:26] are charging time rather than satisfaction you know look i've seen it you've seen it but this is
+[01:31] what i believe and this is how we've built our practice we think that deals die from delay momentum
+[01:37] is the deal killer efficiencies in absolutely everyone's interest the faster you get to certainty
+[01:42] the more deals close the more deals close the more relationships you build and frankly the more value
+[01:48] that you create so i'm a big fan in saying complexity doesn't serve clients it's clarity
+[01:54] so look it's not universally fair either we do need to do a lot of the work a lot of it hasn't been done
+[02:01] and the front loading is what really makes it longer so you know the way i've built the practice is that
+[02:07] we absolutely don't like to monetize complexity we embrace the sophistication get the deals done
+[02:13] and i think that's really important as well particularly more and more we hear about the
+[02:19] lower end of the market being very active which means there's a higher volume potentially lower
+[02:25] value per transaction and if those funds are doing those types of deals don't have a repeatable process
+[02:32] the overhead of doing them is huge isn't it yeah and most importantly unexpected because they haven't
+[02:39] done that pre-work they get the bill shock or they blame the lawyers or again it erodes trust
+[02:45] yeah and just from a deployment of capital point of view if you're going to spend a significant amount
+[02:52] of time on every single deal and every single one is white gloved unless you're buying huge catalogs for
+[03:00] massive sums of money you're just never going to get it deployed so you really have to have a machine
+[03:06] set up to do it don't you you don't but you know what i'm really big on is front loading work and if
+[03:13] you can do the legal work early or even not to the same degree not necessarily a white glove maybe a
+[03:19] builder's glove you know but you do that stuff up front if you can do some hard work before anyone's
+[03:24] falling in love with a number we think it can really help we're doing for a lot of clients now we're doing
+[03:30] a pre-investment investment committee review so these will be short structured legal assessments that
+[03:36] happen before the modeling before the loi before any commercial commitment and that allows the people
+[03:41] deciding at the investment committee what the big issues are so you can think about those titles and
+[03:46] encumbrances and missing documents long before they become deal breakers or become these horrible
+[03:51] surprises the work's going to have to get done either way only do you do it on your terms when you've got
+[03:57] leverage or late when you're firefighting so we really believe that if you work early you get the
+[04:03] options and when you get late you don't the work is the same but the leverage just isn't
+[04:09] yeah and i think historically you know this has always felt legal diligence has felt like a pretty
+[04:15] bespoke approach pretty bespoke practice how much room do you think there is to actually standardize it
+[04:22] well look the thing that yeah we talk about music being an asset class and things like that but it's a
+[04:27] genuine non-fungible asset class every deal is different i had one you know new colleague who
+[04:35] is new to the industry come to me says it's almost like someone spent weeks or months negotiating this
+[04:40] document yes that's exactly right every asset is different every catalogue is different every artist's
+[04:47] story is different these contracts they're complicated sophisticated e is syncretic but the process
+[04:54] doesn't have to always be bespoke the questions you're asking are largely the same the documents
+[05:00] you need are largely the same the issues that kill deals are largely the same so the way we approach it
+[05:07] is that we standardize the intake the amount of facts the gates the workflow and then you preserve
+[05:13] the judgment for things that actually require it for one client we have a bronze silver gold approach
+[05:18] where they ask us what kind of pre-deal assessment they'd like us to do and that's how we think you can
+[05:24] scale without losing the quality there's always an element of senior judgment there's always an eye
+[05:29] of someone who's done these deals for many many years in my case decades but what we try and do is
+[05:35] standardize it and systematize it yeah and i again i think that that's so important right if you've got
+[05:40] 20 deals to look at in a given month then you're going to have to decide which ones you're going to
+[05:46] invest the time in which ones you're going to you know plan to do diligence on give them a
+[05:52] probability of success before getting right into the details and investing a lot of time effort and
+[05:57] money going deep into every single one i think makes total sense and what about when you know
+[06:03] these things are skipped where do they fall apart it's when that pre-assessment hasn't been done and
+[06:10] unfortunately it's boringly predictable there's rights issues that are found too late long after the
+[06:15] LOI or when the exclusivity is just about to run out or sometimes after the investment committee
+[06:21] is approved in principle and by then you're not negotiating you really are firefighting
+[06:26] so as we've discussed before sellers that aren't ready no idea where the documents are who owns the
+[06:31] legal position every question takes a week and you get this internal chaos on both sides and everything
+[06:37] goes through email and a bunch of heroics there's no muscle memory there's no templates and you finish
+[06:43] a transaction and six months later you find yourself starting from scratch and i think the sad truth
+[06:49] these deals don't go down in flames they often just take so long that people lose the will to live
+[06:55] so really the question was prepare prepare prepare yeah and we talk about kind of deal fatigue and
+[07:02] that's okay if you're the one person selling but if you're acquiring many catalogs then you really want
+[07:09] to make sure that you've got something in place that isn't going to drain you every single time because
+[07:16] you just lose the appetite to keep going and i i think you know a lot of times given there's two
+[07:23] parties there's a bit of finger pointing that goes on oh it's slow because of x y and z is that tend to
+[07:30] be internal or external through your experience the honest answer is that most of it's internal but on
+[07:37] both sides you know it's unclear threshold this unclear ownership there's no one empowered enough to say
+[07:44] this is good enough let's move and that's on both sides but the reason for that is because if you
+[07:49] don't know what ready looks like you can't ever get there you keep circling you keep asking the same
+[07:55] questions you keep waiting for permission you keep waiting for someone say it's okay and that's why one
+[08:01] of the things we think is by having standardizations by having deal matrices it gives people a framework for
+[08:07] decision making it gives them position to move either way and you know half of the deal delays
+[08:12] it's not good for someone to decide what they already know but what they need is the confidence to do that
+[08:17] yeah and there are some examples out there of people doing a really good job you know obviously there's
+[08:24] always room for improvement but those people who are who have industrialized the process like what are
+[08:31] they doing differently look they've got standard positions with standard artifacts they understand
+[08:37] they go they know go they've got ndas with teeth they've got lois that actually say something
+[08:42] and have a range of prices on a range of outcomes allowing people to find somewhere to land they've
+[08:48] got encumbrance registers they're thinking about consent triggers they've got issues logs you're just
+[08:54] not reinventing it every single time and what's really important is clear ownership you get a deal lead
+[09:00] of proper virtual data room you've got something that means that if something's ready to go or raise
+[09:07] a model or ready to build or secondary ready and you know again back to these playbooks celly reddit
+[09:13] seller readiness where they know what's coming everyone's speaking the same language that's what
+[09:18] muscle memory looks like that's what scales you know so the funds that close they're just not smarter
+[09:23] they're more systematic and they start earlier yeah and i mean that makes obvious sense right
+[09:29] like any process the more you do it the better you become the you know the better you become you
+[09:36] know the more you stand out in the marketplace i think obviously we look at this all the time from
+[09:42] a technology standpoint whether it be the legal process or any other process indeed inside one of
+[09:48] these funds but i think technology now specifically really is bringing significant advantages where have you
+[09:56] seen it well applied well look i mean i've got some clients with some very whizzy valuation technology
+[10:03] and we use technology proper technology to handle the first sweep for document extraction for rights
+[10:09] mapping for gap analysis stuff that used to take junior lawyers ages you know we can do it with the
+[10:14] right tools and teams and then what it does is it frees up senior people who've got decades of pattern
+[10:20] recognition to focus on the puzzles the real brainers as a one french client of martin called them you know
+[10:27] that's a not a no-brainer you know the judgment yeah of course things that require expertise and we're
+[10:34] not replacing lawyers with machines we're the playboy employers where they have the most value and that's
+[10:40] really about making legal not more expensive and make but making more efficient and i think you know
+[10:45] there's push and pull factors within that aren't there you have to design a process that feels like
+[10:51] it's significantly advantageous to the fund because otherwise if it's extremely cumbersome they just
+[10:57] won't do it and actually technology is a massive bridge to that isn't it being able to get done a lot of
+[11:04] the basic stuff a lot of the table steak stuff so you can justify paying you know the money for your
+[11:11] lawyers so they can bring in the expertise they can really look at the nuances of of where they need
+[11:17] to without having to charge an absolute fortune for kind of doing what now is should be at least
+[11:24] relatively repeatable is that fair absolutely i think that's fair but they've got to be specialists
+[11:29] you know yeah it's got to be lawyers who really understand the asset class and none of the people that
+[11:34] we're acting for they're corporate lawyers they're fund lawyers fantastic and they're great and they do
+[11:39] the things that they're great at but understanding this asset class not so much so really it's about
+[11:44] working with the experts not just a lawyer and cliff i think as you very well rightly schooled me on
+[11:51] um that music is not complex but it is sophisticated and having people on your team who understand the
+[12:01] sophistication is wildly important in any asset class but i think from the experience we've had with
+[12:08] this one very particularly with this one there are lots and lots of challenges along the way
+[12:14] and i think that kind of that kind of leads on to um the the change in the way that people are
+[12:24] financing these assets and the requirement of those different financing methods and the rigor that they
+[12:30] require uh what do you think changes day one depending on how you're looking to finance a given asset
+[12:38] well look you know now we've got different buyers you know if it's a big label you're not necessarily
+[12:44] looking to sell it or finance it in another way but for institutional investors and funds and vcs and
+[12:50] other people that are in the place as well you're going to want to do something with that asset so you
+[12:55] have to bake in those secondary standards from the start if you ever want to lever or lever the catalog or
+[13:02] securitize it or bring in a credit partner their standards are going to be higher secondary buyers
+[13:08] lenders securitization desks they're more demanding than most primary buyers so my view is you just don't
+[13:15] meet the minimum transaction the minimum for this transaction you've got to meet the standard for the
+[13:20] next one it's not that much more work but it keeps your options open so it's really really important
+[13:26] to do that and of course we've got brilliant insurers out there in the market looking at
+[13:30] contingent sorry contingent risk or warranties indemnities they're very useful tools and help
+[13:36] transfer some of the risks but they're not substitute for doing the work the underwriters ask the same
+[13:41] questions as the lawyers do and we have for some underwriters and insurers as well i think you know
+[13:47] that's a really important point there cliff buying a catalog as a point in time acquisition is one thing
+[13:55] but there's a lot if not all of the funds that we've spoken to there is a bigger brother there's a
+[14:03] hierarchy and in many of the strategies that we come across people are acquiring these assets to
+[14:10] aggregate them to create greater value in the whole but in preparation to sell it on to somebody else with
+[14:18] bigger budgets more capital and actually thinking about that day one is so critical because there's it's kind of
+[14:26] nuanced right you have to leave something on the table so they have some value to extract in the future if you're
+[14:31] going to hand over a catalog or a portfolio which is absolutely all pip squeezed there's not a lot for the next
+[14:39] person and but you also have to make sure that there aren't too many black holes or too many red flags that
+[14:47] it's going to be impossible to sell the thing onto the next person and it's a bit of a fine balance that
+[14:52] and i think that the legal side actually has a significant impact in which camp you fall in doesn't it
+[15:00] absolutely right absolutely right and if you um so before we wrap up one final question
+[15:08] uh what would your advice be to somebody who is looking to systematize their process for diligence
+[15:18] and acquisition of new catalogs at higher volume what would that be what would be your recommendation
+[15:26] first thing to do next first thing to do next is adopt this idea of a pre-assessment rather than a
+[15:33] post deal assessment you know and make it a genuine gate maybe two or three pages what rights what
+[15:39] encumbrances what consent what documents what issues all of those things being built into the tolerances
+[15:44] and before the model and most importantly before you've done a letter of intent people can say it's
+[15:50] binding or non-binding but human beings anchor on those prices and then that opportunity to be able to
+[15:56] then realize that if you measure and cycle the time and retrade it i think you'll see the difference
+[16:02] inside a quarter and you know it's that whole sporting analogy if you make the first 10 yards
+[16:08] more disciplined then you don't have to the 10 yards be heroic and limp over the line yeah i like that
+[16:15] cliff this has been amazing we've really covered a lot of ground here of these two episodes and i just
+[16:21] want to do a very very quick recap uh i will try to condense it down into a couple of sentences which
+[16:27] will obviously mean i miss a lot of detail if you want the detail please go back and listen to the
+[16:32] episodes but i think the key pieces of advice are if you're a seller make sure that you are well educated
+[16:40] ahead of going to market make sure that you've consulted somebody make sure you're aware of the expectations
+[16:46] that will be placed on you make sure you know what you need before going to market and that way you're
+[16:54] going to have better um matched expectations with the buyers and there should be less shocks which will
+[17:02] mean a smoother slicker and hopefully happier process and importantly a completed process and then on the
+[17:10] other side if you're a fund acquiring catalogs on a regular basis try to systematize the process try to
+[17:19] create a structure that will allow you to go through these deals regularly repeatedly and as quickly
+[17:27] as possible so you can get down to the nitty-gritty without kind of getting stuck in the weeds is there
+[17:34] anything else that you would add cliff oh apart from hiring the right lawyer hashtag hire the right lawyer
+[17:40] yes hint hint amazing cliff thank you so much cliff thank you so much it's been an absolute pleasure
+[17:50] having you on and thank you everybody for tuning in and we'll see you next time on the next music fastball
+[17:55] thank you

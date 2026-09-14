@@ -1,0 +1,194 @@
+[
+  {
+    "id": "exp02-gradient-01",
+    "title": "Blue to lime / Smooth",
+    "description": "Blue-to-lime color transition with an almost smooth finish, to compare directly with the fine and coarse grain versions.",
+    "noiseLevel": "Almost none",
+    "paletteId": "blue-lime",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#C2EDFF",
+      "#D6FF62"
+    ],
+    "prompt": "Create a single standalone high-resolution landscape 16:9 graphic background, ideally 2560\u00d71440 or larger. This is a flat editorial color-gradient background for Recoup, meant to sit behind typography added later. The canvas must have no text whatsoever, no letters, no logo, no symbols, no objects, no scenery, no clouds, no horizons, no glass, no glassmorphism, no embossing, no folded materials, no shadows, no dimensional surfaces, no light beams, no UI, no frame, no border, no contact sheet. Use beautiful strong clean luminosity and very soft broad transitions between colors, without banding. Keep most of the upper-left and central image usable behind type. Full bleed. Composition for a controlled gradient comparison: rich sky blue #007EBD covers the upper-left and most of the top/center, shifting softly through bright blue #168DDD and clear cyan across the center-right. A broad luminous citron-lime #D6FF62 glow enters from the lower-right edge and sweeps gently along the bottom, with soft pale aqua #C2EDFF transition between blue and lime. About two thirds blue and one third pale aqua/lime. Flat color atmosphere with no identifiable forms. Surface: almost perfectly smooth color, no visible grain, no visible texture. The reference supplies only the broad blue-to-lime arrangement and color family. Remove its grain completely. Do not add any photographic texture.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/refinements/refine-noise-gradient-v2.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-f56d49b1-a6c2-453e-92cb-4a031558139a.png",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "gradients",
+    "style": "Gradients",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/gradient-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-01.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-gradient-02",
+    "title": "Blue to lime / Fine grain",
+    "description": "The same broad blue-to-lime direction with a delicate, even analog grain across the color.",
+    "noiseLevel": "Fine",
+    "paletteId": "blue-lime",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#C2EDFF",
+      "#D6FF62"
+    ],
+    "prompt": "Create a single standalone high-resolution landscape 16:9 graphic background, ideally 2560\u00d71440 or larger. This is a flat editorial color-gradient background for Recoup, meant to sit behind typography added later. The canvas must have no text whatsoever, no letters, no logo, no symbols, no objects, no scenery, no clouds, no horizons, no glass, no glassmorphism, no embossing, no folded materials, no shadows, no dimensional surfaces, no light beams, no UI, no frame, no border, no contact sheet. Use beautiful strong clean luminosity and very soft broad transitions between colors, without banding. Keep most of the upper-left and central image usable behind type. Full bleed. Composition for a controlled gradient comparison: rich sky blue #007EBD covers the upper-left and most of the top/center, shifting softly through bright blue #168DDD and clear cyan across the center-right. A broad luminous citron-lime #D6FF62 glow enters from the lower-right edge and sweeps gently along the bottom, with soft pale aqua #C2EDFF transition between blue and lime. About two thirds blue and one third pale aqua/lime. Flat color atmosphere with no identifiable forms. Surface: delicate fine analog film grain uniformly across the canvas, just enough to feel tactile close up while preserving a clean luminous gradient at thumbnail size. Tiny even stochastic color noise, flat and matte, never scratches or dirt. The reference supplies the broad color arrangement and fine noise; do not infer any objects or surfaces.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/refinements/refine-noise-gradient-v2.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-66dec715-1eb3-452c-a6fa-2fa5ac0a857a.png",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "gradients",
+    "style": "Gradients",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/gradient-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-02.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-gradient-03",
+    "title": "Blue to lime / Printed grain",
+    "description": "The same blue-to-lime direction with noticeably stronger printed grain, to compare texture strength.",
+    "noiseLevel": "Coarse",
+    "paletteId": "blue-lime",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#C2EDFF",
+      "#D6FF62"
+    ],
+    "prompt": "Create a single standalone high-resolution landscape 16:9 graphic background, ideally 2560\u00d71440 or larger. This is a flat editorial color-gradient background for Recoup, meant to sit behind typography added later. The canvas must have no text whatsoever, no letters, no logo, no symbols, no objects, no scenery, no clouds, no horizons, no glass, no glassmorphism, no embossing, no folded materials, no shadows, no dimensional surfaces, no light beams, no UI, no frame, no border, no contact sheet. Use beautiful strong clean luminosity and very soft broad transitions between colors, without banding. Keep most of the upper-left and central image usable behind type. Full bleed. Composition for a controlled gradient comparison: rich sky blue #007EBD covers the upper-left and most of the top/center, shifting softly through bright blue #168DDD and clear cyan across the center-right. A broad luminous citron-lime #D6FF62 glow enters from the lower-right edge and sweeps gently along the bottom, with soft pale aqua #C2EDFF transition between blue and lime. About two thirds blue and one third pale aqua/lime. Flat color atmosphere with no identifiable forms. Surface: noticeably stronger coarse analog printed grain over the whole image. Fine-to-medium stochastic pigment variation like a beautiful screenprinted poster viewed close up, visible even at reduced size. The texture is even, controlled and fully flat; color fields stay luminous and spacious. No distressing, no grunge, no scratches, no dirty specks, no paper folds. This must feel much grainier than a smooth digital gradient.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-ca3c46e7-f946-4c70-bc71-d8dcc7d446c9.png",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "gradients",
+    "style": "Gradients",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/gradient-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-03.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-gradient-04",
+    "title": "Blue and ice / Lime edge",
+    "description": "A cooler blue, cyan, and ice palette with lime restricted to a slim lower edge.",
+    "noiseLevel": "Fine",
+    "paletteId": "blue-ice-lime",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#C2EDFF",
+      "#F0F7FA",
+      "#D6FF62"
+    ],
+    "prompt": "Create a single standalone high-resolution landscape 16:9 graphic background, ideally 2560\u00d71440 or larger. This is a flat editorial color-gradient background for Recoup, meant to sit behind typography added later. The canvas must have no text whatsoever, no letters, no logo, no symbols, no objects, no scenery, no clouds, no horizons, no glass, no glassmorphism, no embossing, no folded materials, no shadows, no dimensional surfaces, no light beams, no UI, no frame, no border, no contact sheet. Use beautiful strong clean luminosity and very soft broad transitions between colors, without banding. Keep most of the upper-left and central image usable behind type. Full bleed. Composition: cool luminous blue #007EBD along the far-left edge and top-left, transitioning across a broad spacious central area of bright cyan #168DDD into very pale icy blue #C2EDFF and #F0F7FA at the upper-right and lower-right. Keep the majority light and airy. A restrained lime #D6FF62 glow peeks in only as a slim soft sliver at the bottom-right edge, less than ten percent of the canvas. Color contrast is clean and modern. Apply extremely fine, even analog grain for a very subtle tactile finish. Absolutely no literal clouds or photographic subject.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-308be7ba-e553-4209-b0d2-a65d7588c116.png",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "gradients",
+    "style": "Gradients",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/gradient-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-04.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-gradient-05",
+    "title": "Citron / Blue corner",
+    "description": "A lime-dominant gradient with a diffused blue corner, reversing the balance of the blue-led studies.",
+    "noiseLevel": "Fine",
+    "paletteId": "citron-blue",
+    "colors": [
+      "#D6FF62",
+      "#C2EDFF",
+      "#007EBD",
+      "#168DDD"
+    ],
+    "prompt": "Create a single standalone high-resolution landscape 16:9 graphic background, ideally 2560\u00d71440 or larger. This is a flat editorial color-gradient background for Recoup, meant to sit behind typography added later. The canvas must have no text whatsoever, no letters, no logo, no symbols, no objects, no scenery, no clouds, no horizons, no glass, no glassmorphism, no embossing, no folded materials, no shadows, no dimensional surfaces, no light beams, no UI, no frame, no border, no contact sheet. Use beautiful strong clean luminosity and very soft broad transitions between colors, without banding. Keep most of the upper-left and central image usable behind type. Full bleed. Composition: the canvas is predominantly luminous citron-lime #D6FF62 with light lemon and green-yellow variations, taking up roughly three quarters of the area. A rich deep sky-blue #007EBD glow diffuses inward from the lower-left corner, moving through #168DDD and pale cyan before it meets the lime. This is a radically lime-dominant variation, not a balanced blue-and-green image. Let blue remain concentrated at that corner and softly feather toward the center. Keep upper and right areas beautifully open and luminous. Delicate uniform fine analog grain, perfectly flat. No sphere, circle, aurora, beam, streak or other discrete shape.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-55b7b105-ad8d-469b-99ae-d81334936776.png",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "gradients",
+    "style": "Gradients",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/gradient-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-05.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-gradient-06",
+    "title": "Deep blue / Luminous lime",
+    "description": "Deeper blue and cobalt-like tones with bright sky blue and a concentrated lime glow for stronger contrast.",
+    "noiseLevel": "Medium",
+    "paletteId": "deep-blue-lime",
+    "colors": [
+      "#0565BB",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "prompt": "Create a single standalone high-resolution landscape 16:9 graphic background, ideally 2560\u00d71440 or larger. This is a flat editorial color-gradient background for Recoup, meant to sit behind typography added later. The canvas must have no text whatsoever, no letters, no logo, no symbols, no objects, no scenery, no clouds, no horizons, no glass, no glassmorphism, no embossing, no folded materials, no shadows, no dimensional surfaces, no light beams, no UI, no frame, no border, no contact sheet. Use beautiful strong clean luminosity and very soft broad transitions between colors, without banding. Keep most of the upper-left and central image usable behind type. Full bleed. Composition: deepen the blue substantially for a richer more electric high-contrast variation. Cobalt-like deep blue #0565BB and dark saturated #007EBD fill the top and left three quarters of the canvas. Bright sky blue #168DDD gently illuminates the lower center. A concentrated luminous lime #D6FF62 color glow blooms softly from the far-right edge, around the lower half, fading through pale cyan #C2EDFF into blue without becoming a discrete shape. More dramatic than an icy pale gradient, with generous rich-blue space for cream headlines. Even fine-to-medium analog film grain for a visibly tactile flat finish. Never black, never purple, never a glass or metallic material. Pure soft color transitions.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-95055f6f-ea5f-423b-89b4-82e1484672ff.png",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "gradients",
+    "style": "Gradients",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/gradient-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-06.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  }
+]

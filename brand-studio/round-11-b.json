@@ -1,0 +1,88 @@
+[
+  {
+    "id": "editorial11-04",
+    "category": "editorial-11",
+    "family": "geometry",
+    "title": "Interwoven bands",
+    "sampleTitle": "Keep people in the review.",
+    "description": "The same white composition and interwoven bands, with more consistent round bends and a clean cropped edge. The original headline position and flat palette are retained.",
+    "changes": [
+      "Standardized the three bends to the same radius.",
+      "Preserved clean, even white gaps at crossings.",
+      "Removed the narrow forest sliver at the right edge."
+    ],
+    "patternRule": "Three broad flat bands use 100 px rounded bends and consistent 14 px negative-space gaps. Keep the over-under order clear and crop hidden ends cleanly.",
+    "gradientRule": "No gradient or grain. Pure flat colors and an uninterrupted white field.",
+    "paletteName": "White / forest / blue",
+    "preview": "assets/editorial-11/option-04.png",
+    "artPreview": "assets/editorial-11/option-04-art.png",
+    "originalPreview": "assets/editorial-10/option-04-feed.png",
+    "originalId": "editorial10-04",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-11/option-04.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-11/option-04.svg"
+      },
+      {
+        "label": "Art PNG",
+        "path": "assets/editorial-11/option-04-art.png"
+      },
+      {
+        "label": "Art SVG",
+        "path": "assets/editorial-11/option-04-art.svg"
+      }
+    ],
+    "typography": "DM Sans450",
+    "status": "proposed",
+    "generator": "native SVG",
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "id": "editorial11-05",
+    "category": "editorial-11",
+    "family": "geometry",
+    "title": "Stepped ribbons",
+    "sampleTitle": "Turn repeated work into a system.",
+    "description": "The same stepped ribbons on a dominant lime field, with a clean mint layer replacing olive. Rounded joins are consistent, and the horizontal bottom wash is quieter.",
+    "changes": [
+      "Replaced the olive layer with a cleaner cool mint.",
+      "Normalized rounded corners and concave joins.",
+      "Reduced the bottom wash intensity and height."
+    ],
+    "patternRule": "Three broad filled ribbons retain their original stepped offsets. Use matching 70 px convex/concave joins and 24 px outer corners, with no icons or repeated full logos.",
+    "gradientRule": "A very faint, full-width tonal wash is confined to the bottom 196 px. No corner glow, overall tint, or gradient behind the headline.",
+    "paletteName": "Lime / mint / blue / forest",
+    "preview": "assets/editorial-11/option-05.png",
+    "artPreview": "assets/editorial-11/option-05-art.png",
+    "originalPreview": "assets/editorial-10/option-05-feed.png",
+    "originalId": "editorial10-05",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-11/option-05.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-11/option-05.svg"
+      },
+      {
+        "label": "Art PNG",
+        "path": "assets/editorial-11/option-05-art.png"
+      },
+      {
+        "label": "Art SVG",
+        "path": "assets/editorial-11/option-05-art.svg"
+      }
+    ],
+    "typography": "DM Sans450",
+    "status": "proposed",
+    "generator": "native SVG",
+    "width": 1920,
+    "height": 1080
+  }
+]

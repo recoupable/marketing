@@ -1,0 +1,664 @@
+[
+  {
+    "id": "symbol-ink",
+    "title": "Recoup symbol / ink",
+    "category": "logos",
+    "status": "proposed",
+    "description": "Exact current PageMark geometry. Transparent background; proposed production export.",
+    "preview": "assets/logos/symbol-ink.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/symbol-ink.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/symbol-ink.png"
+      }
+    ],
+    "width": 384,
+    "height": 424
+  },
+  {
+    "id": "lockup-ink",
+    "title": "Recoup lockup / ink",
+    "category": "logos",
+    "status": "proposed",
+    "description": "Current symbol plus outlined DM Sans 600, original 11px gap and -1.1px tracking scaled together. Transparent background; proposed production export.",
+    "preview": "assets/logos/lockup-ink.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/lockup-ink.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/lockup-ink.png"
+      }
+    ],
+    "width": 1280,
+    "height": 320
+  },
+  {
+    "id": "symbol-white",
+    "title": "Recoup symbol / white",
+    "category": "logos",
+    "status": "proposed",
+    "description": "Exact current PageMark geometry. Transparent background; proposed production export.",
+    "preview": "assets/logos/symbol-white.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/symbol-white.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/symbol-white.png"
+      }
+    ],
+    "width": 384,
+    "height": 424
+  },
+  {
+    "id": "lockup-white",
+    "title": "Recoup lockup / white",
+    "category": "logos",
+    "status": "proposed",
+    "description": "Current symbol plus outlined DM Sans 600, original 11px gap and -1.1px tracking scaled together. Transparent background; proposed production export.",
+    "preview": "assets/logos/lockup-white.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/lockup-white.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/lockup-white.png"
+      }
+    ],
+    "width": 1280,
+    "height": 320
+  },
+  {
+    "id": "symbol-blue",
+    "title": "Recoup symbol / blue",
+    "category": "logos",
+    "status": "proposed",
+    "description": "Exact current PageMark geometry. Transparent background; proposed production export.",
+    "preview": "assets/logos/symbol-blue.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/symbol-blue.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/symbol-blue.png"
+      }
+    ],
+    "width": 384,
+    "height": 424
+  },
+  {
+    "id": "lockup-blue",
+    "title": "Recoup lockup / blue",
+    "category": "logos",
+    "status": "proposed",
+    "description": "Current symbol plus outlined DM Sans 600, original 11px gap and -1.1px tracking scaled together. Transparent background; proposed production export.",
+    "preview": "assets/logos/lockup-blue.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/lockup-blue.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/lockup-blue.png"
+      }
+    ],
+    "width": 1280,
+    "height": 320
+  },
+  {
+    "id": "symbol-lime",
+    "title": "Recoup symbol / lime",
+    "category": "logos",
+    "status": "proposed",
+    "description": "Exact current PageMark geometry. Transparent background; proposed production export.",
+    "preview": "assets/logos/symbol-lime.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/symbol-lime.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/symbol-lime.png"
+      }
+    ],
+    "width": 384,
+    "height": 424
+  },
+  {
+    "id": "lockup-lime",
+    "title": "Recoup lockup / lime",
+    "category": "logos",
+    "status": "proposed",
+    "description": "Lime Recoup logo, shown on forest green. The downloaded files have a transparent background.",
+    "preview": "assets/logos/lockup-lime.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/lockup-lime.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/lockup-lime.png"
+      }
+    ],
+    "width": 1280,
+    "height": 320
+  },
+  {
+    "id": "podcast-open-sky",
+    "title": "The Recoup Podcast / Open sky",
+    "category": "podcast",
+    "status": "proposed",
+    "description": "The Recoup Podcast. 1920 \u00d7 1080 background with open center for camera or episode content. Uses the existing Sky environment unchanged. Proposed layout.",
+    "preview": "assets/podcast/podcast-open-sky.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast/podcast-open-sky.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/podcast/podcast-open-sky.png"
+      }
+    ],
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "id": "podcast-dark-studio",
+    "title": "The Recoup Podcast / Dark studio",
+    "category": "podcast",
+    "status": "proposed",
+    "description": "The Recoup Podcast. 1920 \u00d7 1080 matte dark-green studio with quiet upper-left light and open camera area. Proposed layout.",
+    "preview": "assets/podcast/podcast-dark-studio.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast/podcast-dark-studio.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/podcast/podcast-dark-studio.png"
+      }
+    ],
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "id": "podcast-editorial-white",
+    "title": "The Recoup Podcast / Editorial white",
+    "category": "podcast",
+    "status": "proposed",
+    "description": "The Recoup Podcast. 1920 \u00d7 1080 clean editorial background with blue spine and open center. Proposed layout.",
+    "preview": "assets/podcast/podcast-editorial-white.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast/podcast-editorial-white.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/podcast/podcast-editorial-white.png"
+      }
+    ],
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "id": "social-insight",
+    "title": "Social / Insight",
+    "category": "social",
+    "status": "proposed",
+    "description": "1080 \u00d7 1350 editable insight layout. Demonstration copy; replace with reviewed content.",
+    "preview": "assets/social/social-insight.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-insight.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-insight.png"
+      }
+    ],
+    "width": 1080,
+    "height": 1350,
+    "recipeId": "insight"
+  },
+  {
+    "id": "social-quote",
+    "title": "Social / Quote",
+    "category": "social",
+    "status": "proposed",
+    "description": "1080 \u00d7 1350 quote template. Placeholder only; no endorsement or quotation is asserted.",
+    "preview": "assets/social/social-quote.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-quote.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-quote.png"
+      }
+    ],
+    "width": 1080,
+    "height": 1350,
+    "recipeId": "quote"
+  },
+  {
+    "id": "social-announcement",
+    "title": "Social / Announcement",
+    "category": "social",
+    "status": "proposed",
+    "description": "1080 \u00d7 1350 announcement template using the existing Sky environment. Placeholder launch and destination.",
+    "preview": "assets/social/social-announcement.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-announcement.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-announcement.png"
+      }
+    ],
+    "width": 1080,
+    "height": 1350,
+    "recipeId": "announcement"
+  },
+  {
+    "id": "social-case-study",
+    "title": "Social / Case study",
+    "category": "social",
+    "status": "proposed",
+    "description": "1080 \u00d7 1350 case study framework. All outcome fields are placeholders; add source-backed work only.",
+    "preview": "assets/social/social-case-study.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-case-study.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-case-study.png"
+      }
+    ],
+    "width": 1080,
+    "height": 1350,
+    "recipeId": "case-study"
+  },
+  {
+    "id": "social-carousel",
+    "title": "Social / Carousel",
+    "category": "social",
+    "status": "proposed",
+    "description": "1080 \u00d7 1350 editable carousel opener with three example selection criteria. Duplicate and update slide numbers.",
+    "preview": "assets/social/social-carousel.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-carousel.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-carousel.png"
+      }
+    ],
+    "width": 1080,
+    "height": 1350,
+    "recipeId": "carousel"
+  },
+  {
+    "id": "social-podcast-clip",
+    "title": "The Recoup Podcast / Vertical clip",
+    "category": "social",
+    "status": "proposed",
+    "description": "The Recoup Podcast. 1080 \u00d7 1920 editable vertical clip frame with explicit video and speaker placeholders. Canvas dimensions only; platform crop varies.",
+    "preview": "assets/social/social-podcast-clip.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-podcast-clip.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-podcast-clip.png"
+      }
+    ],
+    "width": 1080,
+    "height": 1920,
+    "recipeId": "podcast-clip"
+  },
+  {
+    "id": "banner-linkedin",
+    "title": "LinkedIn banner / 1584 \u00d7 396",
+    "category": "social",
+    "status": "proposed",
+    "description": "Editable 1584 \u00d7 396 working canvas. Target dimensions are labeled. Verify current platform crop and profile overlays before publication; no universal safe-area claim.",
+    "preview": "assets/social/banner-linkedin.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/banner-linkedin.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/banner-linkedin.png"
+      }
+    ],
+    "width": 1584,
+    "height": 396
+  },
+  {
+    "id": "banner-youtube",
+    "title": "YouTube banner / 2560 \u00d7 1440",
+    "category": "social",
+    "status": "proposed",
+    "description": "Editable 2560 \u00d7 1440 working canvas. Target dimensions are labeled. Verify current platform crop and profile overlays before publication; no universal safe-area claim.",
+    "preview": "assets/social/banner-youtube.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/banner-youtube.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/banner-youtube.png"
+      }
+    ],
+    "width": 2560,
+    "height": 1440
+  },
+  {
+    "id": "banner-x",
+    "title": "X banner / 1500 \u00d7 500",
+    "category": "social",
+    "status": "proposed",
+    "description": "Editable 1500 \u00d7 500 working canvas. Target dimensions are labeled. Verify current platform crop and profile overlays before publication; no universal safe-area claim.",
+    "preview": "assets/social/banner-x.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/banner-x.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/banner-x.png"
+      }
+    ],
+    "width": 1500,
+    "height": 500
+  },
+  {
+    "id": "editorial-royalty-review",
+    "title": "Editorial / Royalty review",
+    "category": "editorial",
+    "status": "proposed",
+    "description": "Original vector cover: two physical-feeling documents and a review note. Educational title; no financial result implied.",
+    "preview": "assets/editorial/editorial-royalty-review.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-royalty-review.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-royalty-review.png"
+      }
+    ],
+    "width": 1600,
+    "height": 1000
+  },
+  {
+    "id": "editorial-investment-review",
+    "title": "Editorial / Investment review",
+    "category": "editorial",
+    "status": "proposed",
+    "description": "Original vector cover: a review document and a concrete diligence question. No fabricated investment performance.",
+    "preview": "assets/editorial/editorial-investment-review.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-investment-review.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-investment-review.png"
+      }
+    ],
+    "width": 1600,
+    "height": 1000
+  },
+  {
+    "id": "editorial-catalog-index",
+    "title": "Editorial / Catalog index",
+    "category": "editorial",
+    "status": "proposed",
+    "description": "Original vector cover: sorted folders make the catalog task visible. No invented artist or client records.",
+    "preview": "assets/editorial/editorial-catalog-index.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-catalog-index.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-catalog-index.png"
+      }
+    ],
+    "width": 1600,
+    "height": 1000
+  },
+  {
+    "id": "editorial-workflow",
+    "title": "Editorial / Workflow mapping",
+    "category": "editorial",
+    "status": "proposed",
+    "description": "Original vector cover: collect, prepare, and review stages. Concrete labels describe the work.",
+    "preview": "assets/editorial/editorial-workflow.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-workflow.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-workflow.png"
+      }
+    ],
+    "width": 1600,
+    "height": 1000
+  },
+  {
+    "id": "editorial-team-playbook",
+    "title": "Editorial / Team playbook",
+    "category": "editorial",
+    "status": "proposed",
+    "description": "Original vector cover: a working notebook with explicit review instructions. Proposed artwork.",
+    "preview": "assets/editorial/editorial-team-playbook.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-team-playbook.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-team-playbook.png"
+      }
+    ],
+    "width": 1600,
+    "height": 1000
+  },
+  {
+    "id": "editorial-source-trace",
+    "title": "Editorial / Source trace",
+    "category": "editorial",
+    "status": "proposed",
+    "description": "Original vector cover: source and answer sheets connected by a visible reference. No fictional citations.",
+    "preview": "assets/editorial/editorial-source-trace.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-source-trace.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-source-trace.png"
+      }
+    ],
+    "width": 1600,
+    "height": 1000
+  },
+  {
+    "id": "editorial-connected-tools",
+    "title": "Editorial / Connected tools",
+    "category": "editorial",
+    "status": "proposed",
+    "description": "Original vector cover: files and notes flow into a review queue. No third-party marks or unsupported integration claims.",
+    "preview": "assets/editorial/editorial-connected-tools.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-connected-tools.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-connected-tools.png"
+      }
+    ],
+    "width": 1600,
+    "height": 1000
+  },
+  {
+    "id": "editorial-release-review",
+    "title": "Editorial / Release review",
+    "category": "editorial",
+    "status": "proposed",
+    "description": "Original vector cover: a release checklist with an explicit reviewer and change record. Educational example, not a completed client checklist.",
+    "preview": "assets/editorial/editorial-release-review.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-release-review.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-release-review.png"
+      }
+    ],
+    "width": 1600,
+    "height": 1000
+  },
+  {
+    "id": "logo-intro",
+    "title": "Logo intro / 3 seconds",
+    "category": "motion",
+    "status": "proposed",
+    "description": "1920 \u00d7 1080, 24 fps, 3 seconds, silent H.264 MP4. Exact outlined lockup fades in over matte dark green. Proposed motion; editable generator included.",
+    "preview": "assets/motion/logo-intro-poster.png",
+    "files": [
+      {
+        "label": "MP4 \u00b7 H.264",
+        "path": "assets/motion/logo-intro.mp4"
+      },
+      {
+        "label": "Poster PNG",
+        "path": "assets/motion/logo-intro-poster.png"
+      },
+      {
+        "label": "Editable generating source",
+        "path": "scripts/build-assets.py"
+      }
+    ],
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "id": "logo-outro",
+    "title": "Logo outro / 3 seconds",
+    "category": "motion",
+    "status": "proposed",
+    "description": "1920 \u00d7 1080, 24 fps, 3 seconds, silent H.264 MP4. Matching lockup holds and fades to dark green. Proposed motion; editable generator included.",
+    "preview": "assets/motion/logo-outro-poster.png",
+    "files": [
+      {
+        "label": "MP4 \u00b7 H.264",
+        "path": "assets/motion/logo-outro.mp4"
+      },
+      {
+        "label": "Poster PNG",
+        "path": "assets/motion/logo-outro-poster.png"
+      },
+      {
+        "label": "Editable generating source",
+        "path": "scripts/build-assets.py"
+      }
+    ],
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "id": "sky-background-loop",
+    "title": "Sky background loop / 8 seconds",
+    "category": "motion",
+    "status": "proposed",
+    "description": "1920 \u00d7 1080, 24 fps, 8 seconds, silent H.264 loop. Existing sky drifts subtly on a repeating path. Use the still background for reduced-motion viewing.",
+    "preview": "assets/motion/sky-background-loop-poster.png",
+    "files": [
+      {
+        "label": "MP4 \u00b7 H.264",
+        "path": "assets/motion/sky-background-loop.mp4"
+      },
+      {
+        "label": "Poster PNG",
+        "path": "assets/motion/sky-background-loop-poster.png"
+      },
+      {
+        "label": "Editable generating source",
+        "path": "scripts/build-assets.py"
+      }
+    ],
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "id": "social-announcement-v2",
+    "title": "Social / Announcement v2 simplified",
+    "category": "social",
+    "status": "proposed",
+    "description": "Proposed revision after user feedback: the announcement was the strongest direction, but repeated branding and footer text felt busy. Keeps one top-left lockup, the original sky, and white content card; removes the bottom symbol, rule, and footer text. Original retained for comparison. 1080 \u00d7 1350; placeholder announcement copy.",
+    "preview": "assets/social/social-announcement-v2.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-announcement-v2.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-announcement-v2.png"
+      },
+      {
+        "label": "Editable generating source",
+        "path": "scripts/build-announcement-v2.py"
+      }
+    ],
+    "width": 1080,
+    "height": 1350
+  }
+]

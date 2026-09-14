@@ -1,0 +1,266 @@
+[
+  {
+    "id": "editorial15-01",
+    "category": "editorial-15",
+    "family": "geometry",
+    "title": "Tonal repeat",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "Large split capsules repeat across the entire forest canvas. Alternating green halves build a continuous surface behind the lime headline, with one blue inflection.",
+    "patternRule": "Repeat a broad split capsule on staggered rows. Keep both halves in close forest tones; use the shape of their join and the row offset to create rhythm across the full image.",
+    "gradientRule": "Flat tonal colors. One capsule half shifts toward blue; the headline provides the main lime contrast.",
+    "coverageRule": "The repeat fills all four edges and continues behind the headline. Dominant forest color means a tonal surface, not empty space.",
+    "paletteName": "Forest / tonal green / blue / lime type",
+    "preview": "assets/editorial-15/option-01.png",
+    "artPreview": "assets/editorial-15/option-01-art.png",
+    "originalPreview": "assets/editorial-10/option-02.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-01.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-15/option-01.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-15/option-01-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-15/option-01-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 weight 450 \u00b7 110 px \u00b7 125 px line spacing \u00b7 \u22124.95 px tracking",
+    "status": "proposed",
+    "generator": "native SVG",
+    "tags": [
+      "Full-canvas patterns",
+      "Original type",
+      "Tonal repeat"
+    ]
+  },
+  {
+    "id": "editorial15-02",
+    "category": "editorial-15",
+    "family": "geometry",
+    "title": "Oversized planes",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "Monumental folded planes span the canvas. Dark blue surfaces support the headline while a broad cyan face and a low crossing plane make the artwork feel dimensional.",
+    "patternRule": "Use a few huge overlapping diagonal planes that extend beyond the frame. Vary their angle and width, and let a second direction interrupt the dominant fold. Keep dark blue behind white text.",
+    "gradientRule": "Light follows two defined faces. Other planes stay flat; a narrow lime edge marks one fold without creating a background glow.",
+    "coverageRule": "Defined planes occupy the full surface, including behind the headline. Pattern structure reaches every edge; no isolated corner object.",
+    "paletteName": "Deep blue / blue / cyan / small lime edge",
+    "preview": "assets/editorial-15/option-02.png",
+    "artPreview": "assets/editorial-15/option-02-art.png",
+    "originalPreview": "assets/editorial-10/option-01.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-02.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-15/option-02.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-15/option-02-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-15/option-02-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 weight 450 \u00b7 110 px \u00b7 125 px line spacing \u00b7 \u22124.95 px tracking",
+    "status": "proposed",
+    "generator": "native SVG",
+    "tags": [
+      "Full-canvas patterns",
+      "Original type",
+      "Oversized planes"
+    ]
+  },
+  {
+    "id": "editorial15-03",
+    "category": "editorial-15",
+    "family": "geometry",
+    "title": "Woven field",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "Wide diagonal bands weave over and under across the full pale canvas. Two blue strands enter on the right while the softer weave continues behind the headline.",
+    "patternRule": "Build a large twill from two sets of broad intersecting bands, alternating which strand passes above. Continue the structure through all edges, with a few stronger strands away from the headline.",
+    "gradientRule": "Flat pale tones throughout the weave. Two blue strands supply the stronger color change; no corner gradient or lighting overlay.",
+    "coverageRule": "The woven structure occupies every edge and extends under the text. Pale tonal contrast keeps the headline readable while the pattern covers most of the frame.",
+    "paletteName": "Pale blue / tonal blue-white / cyan / blue",
+    "preview": "assets/editorial-15/option-03.png",
+    "artPreview": "assets/editorial-15/option-03-art.png",
+    "originalPreview": "assets/editorial-10/option-03.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-03.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-15/option-03.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-15/option-03-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-15/option-03-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 weight 450 \u00b7 110 px \u00b7 125 px line spacing \u00b7 \u22124.95 px tracking",
+    "status": "proposed",
+    "generator": "native SVG",
+    "tags": [
+      "Full-canvas patterns",
+      "Original type",
+      "Woven field"
+    ]
+  },
+  {
+    "id": "editorial15-04",
+    "category": "editorial-15",
+    "title": "Monumental layers",
+    "description": "Huge angled layers extend beyond the frame. Their scale turns the entire cover into the pattern.",
+    "patternRule": "Use several off-axis rounded trapezoids, each larger than the canvas. Change the inset and angle subtly between layers.",
+    "gradientRule": "Pale lime gives the headline contrast. Soft lime-to-mint transitions belong to two broad inner layers.",
+    "coverageRule": "Oversized forms occupy most of the canvas and extend across all four edges; the headline sits directly on the artwork.",
+    "paletteName": "Lime / pale lime / mint",
+    "preview": "assets/editorial-15/option-04.png",
+    "artPreview": "assets/editorial-15/option-04-art.png",
+    "originalPreview": "assets/editorial-10/option-05.png",
+    "typography": "DM Sans \u00b7 weight 450 \u00b7 110 px \u00b7 125 px line spacing \u00b7 \u22124.95 px tracking",
+    "sampleTitle": "Choose your first AI project",
+    "width": 1920,
+    "height": 1080,
+    "status": "proposed",
+    "generator": "native SVG",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-04.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-15/option-04.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-15/option-04-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-15/option-04-art.svg"
+      }
+    ],
+    "tags": [
+      "Full-canvas patterns",
+      "Original type",
+      "Monumental layers"
+    ],
+    "family": "geometry",
+    "headline": "Choose your first\nAI project."
+  },
+  {
+    "id": "editorial15-05",
+    "category": "editorial-15",
+    "title": "Pattern under paper",
+    "description": "A dense blue tile field fills the cover, with a small white panel giving the headline its own place.",
+    "patternRule": "Repeat alternating curved tile shapes at a slight angle. Keep the pattern large enough to read as shapes at thumbnail size.",
+    "gradientRule": "Use flat blue and cyan values for the field, one lime accent, and a solid white reading panel.",
+    "coverageRule": "Pattern covers the whole canvas. A reading panel covers about 18%, leaving an active surface around every side.",
+    "paletteName": "Blue / cyan / forest blue / white",
+    "preview": "assets/editorial-15/option-05.png",
+    "artPreview": "assets/editorial-15/option-05-art.png",
+    "originalPreview": "assets/editorial-10/option-04.png",
+    "typography": "DM Sans \u00b7 weight 450 \u00b7 110 px \u00b7 125 px line spacing \u00b7 \u22124.95 px tracking",
+    "sampleTitle": "Choose your first AI project",
+    "width": 1920,
+    "height": 1080,
+    "status": "proposed",
+    "generator": "native SVG",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-05.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-15/option-05.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-15/option-05-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-15/option-05-art.svg"
+      }
+    ],
+    "tags": [
+      "Full-canvas patterns",
+      "Original type",
+      "Pattern under paper"
+    ],
+    "family": "geometry",
+    "headline": "Choose your first\nAI project."
+  },
+  {
+    "id": "editorial15-06",
+    "category": "editorial-15",
+    "title": "Broad sweep",
+    "description": "Wide directional bands sweep across the full frame, shifting in width and color as they pass behind the headline.",
+    "patternRule": "Use broad filled bands spanning top to bottom, with a gradual bend across the composition. Avoid thin contour lines.",
+    "gradientRule": "Alternate deep and medium blue faces. A cyan transition appears in one band; dark blue remains beneath the white text.",
+    "coverageRule": "Bands span the whole canvas, including behind the type. There is no separate empty field or corner ornament.",
+    "paletteName": "Blue / deep blue / cyan / lime",
+    "preview": "assets/editorial-15/option-06.png",
+    "artPreview": "assets/editorial-15/option-06-art.png",
+    "originalPreview": "assets/editorial-10/option-06.png",
+    "typography": "DM Sans \u00b7 weight 450 \u00b7 110 px \u00b7 125 px line spacing \u00b7 \u22124.95 px tracking",
+    "sampleTitle": "Choose your first AI project",
+    "width": 1920,
+    "height": 1080,
+    "status": "proposed",
+    "generator": "native SVG",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-06.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-15/option-06.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-15/option-06-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-15/option-06-art.svg"
+      }
+    ],
+    "tags": [
+      "Full-canvas patterns",
+      "Original type",
+      "Broad sweep"
+    ],
+    "family": "geometry",
+    "headline": "Choose your first\nAI project."
+  }
+]

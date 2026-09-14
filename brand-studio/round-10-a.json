@@ -1,0 +1,94 @@
+[
+  {
+    "id": "editorial10-01",
+    "category": "editorial-10",
+    "family": "geometry",
+    "title": "Offset blocks",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "Broad blue blocks step across the lower-right area. Curved joins and one small lime inset connect the artwork to Recoup\u2019s symbol without repeating it.",
+    "patternRule": "Use two or three filled rectangular fragments with offset levels and a small number of generous concave or convex joins. Crop the cluster into the edge; preserve a large quiet field.",
+    "gradientRule": "Keep the base absolutely flat. Put directional cyan light inside one broad filled block, with a second tonal-blue face and one small solid lime inset.",
+    "paletteName": "Blue / cyan / lime",
+    "preview": "assets/editorial-10/option-01.png",
+    "artPreview": "assets/editorial-10/option-01-art.png",
+    "feedPreview": "assets/editorial-10/option-01-feed.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-10/option-01.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-10/option-01.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-10/option-01-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-10/option-01-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-01-feed.png"
+      },
+      {
+        "label": "Example article SVG",
+        "path": "assets/editorial-10/option-01-feed.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "Actual DM Sans450",
+    "status": "proposed",
+    "generator": "native SVG"
+  },
+  {
+    "id": "editorial10-02",
+    "category": "editorial-10",
+    "family": "geometry",
+    "title": "Cutout join",
+    "sampleTitle": "Connect your company\u2019s knowledge",
+    "headline": "Choose your first\nAI project.",
+    "description": "A single blue cutout enters from the left, leaving the forest field and lime headline open. Its step and curved notch use the same construction as Recoup\u2019s mark.",
+    "patternRule": "Start with one oversized filled shape. Use an asymmetric edge crop, a broad step and a generous curved notch. The negative space should be as deliberate as the form.",
+    "gradientRule": "Confine a subtle blue-to-cyan band to the left-hand shape. The surrounding forest and the entire right edge stay flat.",
+    "paletteName": "Forest / blue / lime",
+    "preview": "assets/editorial-10/option-02.png",
+    "artPreview": "assets/editorial-10/option-02-art.png",
+    "feedPreview": "assets/editorial-10/option-02-feed.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-10/option-02.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-10/option-02.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-10/option-02-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-10/option-02-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-02-feed.png"
+      },
+      {
+        "label": "Example article SVG",
+        "path": "assets/editorial-10/option-02-feed.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "Actual DM Sans450",
+    "status": "proposed",
+    "generator": "native SVG"
+  }
+]

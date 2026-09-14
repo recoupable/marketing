@@ -1,0 +1,237 @@
+# Music Fastball: Where music catalog valuation breaks down w/ Alaister Moughan
+# Date: 2026-02-03
+# Duration: 00:25:40
+# Guests: Alaister Moughan — Founder, Moghan Music Hosts: Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Music-Fastball-Where-music-catalog-valuation-breaks-down-w-Alaister-Moughan-e3ei51g
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] Hello and welcome to this week's episode of Music Fastball.
+[00:13] Last week we were talking about data and operational maturity curves and how we can set benchmarks for operational excellence in music rights investing.
+[00:22] This week we're talking about valuations and the challenges that both our valuation experts in the industry face during that process and some of the expectations and requirements that funds have post-catalog acquisition.
+[00:40] Sam, let's talk about it.
+[00:41] Yeah, I think there's kind of two sides of the story here.
+[00:46] There's the pre-acquisition and post-acquisition.
+[00:49] Valuations done before acquisition.
+[00:52] Generally, using static data sets is looking at a historic point in time.
+[00:57] It's a fixed point view.
+[00:59] I think that the challenges vary significantly after acquisition when you're onboarding it.
+[01:05] That's when the kind of rubber hits the road.
+[01:08] The assumptions you've made before are kind of now like working assumptions that you have to kind of operate within.
+[01:16] That's just a different beast, isn't it?
+[01:17] Exactly.
+[01:18] It just requires, you know, different kind of tool sets, I guess.
+[01:22] It requires a bit more sophistication.
+[01:24] When you value one catalog, you are dealing with a subset of the information that would be required to value an entire fund, which is ultimately a collection of catalogs.
+[01:36] Increased number of rights types.
+[01:37] Increased number of rights types.
+[01:39] Increased number of revenue and royalty statements that you have to process on a monthly basis.
+[01:46] The tools that are valued used to do that initial point in time.
+[01:50] Valuation clearly aren't designed for ongoing operational maintenance.
+[01:56] And I think it's fair to say that if you want to get ongoing valuations and hold yourselves accountable to the underwriting case through the life cycle of a fund, you're really going to need a different tool set.
+[02:09] And I think the most important thing about having that symmetry between each side of the acquisition is that you can hold yourselves accountable and you can report well back to your LPs, your board about progress and show that you have a good association between the royalties and revenues that you're seeing today versus those that you underwrote against.
+[02:36] We do know that at all stages, the data can be patchy, it can be challenging, and it is often one of the biggest hurdles for the valuers in the first place.
+[02:49] We're going to play a clip now from a valuation expert, Alistair Merwin, who has valued more than $4 billion worth of music rights in his career.
+[02:58] And he explains some of the challenges at a data ingestion point of view when he comes to doing those valuations.
+[03:08] A lot of the, especially working in-house at a financial institution coming from the music business, understanding that the data is so particular to the music industry that getting the, kind of creating the models, not as kind of the easy part, the hard part is aggregating the data, understanding it, and kind of making, you know, 56, 200 Excel files into something.
+[03:37] That tells you, gives you, tells you a story, whether that's a good or a bad story.
+[03:41] So a big part of what I do is that financial data analysis, not only aggregating that data, but trying to understand it and normalize it.
+[03:52] So this is what I kind of average annual income is for this sort of type of catalog.
+[03:56] And that's the kind of the huge part of it.
+[03:59] And the legal side is more, from my point of view, is looking at the upside of, oh, these agreements are expiring.
+[04:07] This income could increase.
+[04:08] And I don't kind of do the legal, legal side when you go through to the end of the transaction where it's about ensuring the person owns those rights.
+[04:17] But a huge part of it is the data aggregation and understanding that royalty data, because that's the kind of the crux of when you're looking at a catalog to work out what's the base level of income.
+[04:31] And then you can kind of project that or deflate that going forward.
+[04:35] But the kind of key part is getting to that.
+[04:37] And that's why I really, when I first started my company, focused on working with sellers, because most of that work was being done by the buyers.
+[04:47] I think the main topic of conversation here, Sam, is really the valuations are obviously critical.
+[04:55] But what we've definitely seen is a trend of increased scrutiny from institutional investors when they come into the sector.
+[05:05] Obviously, they're investing in many other different asset classes, some of which are significantly more mature, where they will have an expectation of clarity and transparency.
+[05:16] And to some degree, immediacy from the data and the questions that they ask those who are running the funds, managing their investments.
+[05:26] And from the conversation that we had with Alistair, some more of which we'll play shortly, I think it is becoming increasingly clear that that demand is coming into music rights investing too.
+[05:41] What's your take on that, Sam?
+[05:43] I think there's a number of nuances that are broadly understood at an investor level now.
+[05:51] I suppose it's a maturing asset class now.
+[05:55] It's still new, but it's not that new.
+[06:00] And whilst the nuances are kind of, I suppose, better understood, it still doesn't change the fact that everyone's got to kind of report accurately.
+[06:13] And if there's any kind of lack of confidence in the numbers, that scene becomes kind of glaringly obvious to people.
+[06:21] Yeah.
+[06:22] And I think with these types of investors that they're very experienced.
+[06:25] And they understand that they can't predict the future.
+[06:28] And as much as anything, they know that some of the investments that they make are not going to turn out quite as planned.
+[06:36] Because if they were, then they probably wouldn't need to be making investments anymore.
+[06:41] The reality of it is, is they're also really focused on the operational excellence.
+[06:47] So getting comfort that they're working with the right partners, that those partners have the right tools and have made the right investment into their operations to actually manage that money and manage the assets that they've invested in correctly.
+[07:02] And I think that's fair.
+[07:03] And I think that's fair, right?
+[07:04] And I think, as you said, you know, music as an asset class has its idiosyncrasies.
+[07:09] There are underlying structural data challenges.
+[07:13] But that's not unique to the music sector either.
+[07:17] You can take pretty much any other industry or investment sector and see relatively similar challenges, albeit with their own idiosyncrasies.
+[07:28] Yeah.
+[07:29] What do you think about, you know, obviously one of the things that is quite specific to music rights investing is the number of different rights types that any given fund can hold.
+[07:44] And that in itself just presents a data challenge and an operational one at that.
+[07:49] You know, if you were a relatively small business and had very many or numerous different suppliers, that makes your life just more difficult because you have to have relationships with them.
+[08:01] You have to have the capability to audit them.
+[08:03] You have to understand their businesses to understand how revenue is going to flow through yours.
+[08:09] Now, in a more traditional industry, you might have standard payment terms from consumption through to payment, but that definitely doesn't exist in music.
+[08:18] And that also requires, you know, sophistication in processes and data sets to align those so you can get comfortable with, okay, well, we've seen this increase in streaming on one of these platforms.
+[08:35] Why hasn't that flowed through to our royalty statements yet?
+[08:39] And, you know, it's likely because of there's some upstream processing delay or something like that, right?
+[08:46] I think it's also just by being on the front or being able to be on the front foot with these things, because broadly, there's so many different types of contracts that have been conceived, I guess, you know, a point in which the artists sign that deal.
+[09:02] They vary massively.
+[09:04] And some of them will revert, some won't.
+[09:06] Some of the publishing rights will be, you know, across different publishers.
+[09:12] And that obviously just gets bigger and bigger as you kind of get more and more sort of assets.
+[09:18] So, yeah, I just think being like the ability to be proactive, there's probably like quite a lot of effort required to kind of get on the front foot versus just being purely reactive.
+[09:27] And I don't know where people have really got to with that.
+[09:34] You know, it's kind of an interesting conversation of like, where are you at?
+[09:37] There's a lot of activity still with deal flow.
+[09:39] But I think, you know, getting in front foot is, and maintaining it ongoing rather than sort of having a spike of effort at the end.
+[09:48] Pre-acquisition is quite important as well.
+[09:50] Yeah, obviously, kind of in preparation for the acquisition, but also depending on who your LPs are, they're going to ask some pretty spicy questions, I would think, through the process because they want to understand the numbers.
+[10:04] But also, they're kind of used to investing in infrastructure, data infrastructure now in other markets.
+[10:11] So, it's kind of, that's a well-trodden path and something that's pretty well understood that drives results in more established ecosystems.
+[10:23] It's not been done in anger too much in this particular part of the market yet.
+[10:28] But, you know, there's clear signals that people that have a far clearer view of like, what good, like, has today been a good day?
+[10:40] Versus other people who are kind of just like, you know, fishing in the dark, I guess.
+[10:46] There's always the two sides, right?
+[10:47] So, there's the reporting side actually being able to justify what happened and being able to substantiate along with evidence, either during an audit to an upstream provider or during a board meeting to an LP who's specifically interested about this spike in revenue, why it happened, or indeed this dip in revenue, why we saw that.
+[11:09] Being able to answer those things quickly and with alacrity is incredibly important.
+[11:17] I think if you don't have the tools in place, you can spend an awful lot of time gathering information just to try and answer those questions.
+[11:27] And in general, they're not really value-added activities.
+[11:30] And then on the flip side or, you know, the more proactive side is, do you have the tools and the data in place to give you insights into where the market's moving in the future?
+[11:41] And I think the combination of both of those things really walks you towards being able to justify a lower cost of capital in the future and giving those LPs more confidence when you go to refinance or raise your second fund or indeed trade your existing one.
+[12:02] I think all of those things play into it, don't they?
+[12:05] Yeah, it's like simple things like Spotify increased their price in Europe by a euro or something, you know, and that confidence to go out to your investors the next day and say, this is going to have a 0.4% increase of our revenue next year.
+[12:24] That's improved our baseline by X.
+[12:26] Like giving that clarity that quickly is like, you know, a completely different ballgame.
+[12:33] And then on the, you know, the other side of the same coin, it's, oh, well, we've read this news article whereby there's an increase in AI generated music getting pumped into the streaming platforms and it's now becoming material.
+[12:48] Okay, well, is that having a material impact on the revenues that we're seeing?
+[12:52] Or is it just a bit of smoke and fear mongering and, you know, to sell newspapers?
+[13:00] I think they're really important questions for people to be able to answer with confidence because it allows them to take a view on their assets today.
+[13:11] Because ultimately, you know, every market has downturns and every market has up cycles.
+[13:17] But at that point, you know, at least a commodities market, you would be able to trade in either direction.
+[13:23] I think that level of sophistication is certainly not available right now, but it feels like that's the direction of travel.
+[13:32] And I think anything to do with like revenue from AI training or indeed like, you know, songs being created from on these AI platforms is all upside at the moment.
+[13:43] But they will soon start to be baked into the revenue like models and valuations when they flow through.
+[13:51] Might be a few years out, right?
+[13:52] But, you know, that will become the norm.
+[13:56] And I think there's, you know, operating wise, a lot of the evaluations are based on worst case and nothing is sufficient like flexing the market to allow for that so that everyone wins.
+[14:08] But as it becomes more commoditized, you know, that property will shrink a little bit and the operating window that people are, you know, kind of making decisions will narrow and you'll have less flex for that in the future.
+[14:22] Yeah. And I think that that's the point in time, right?
+[14:25] Where you do have a coalescence of understanding and maybe competition around specific rights types that you really need the data and the tooling to make decisions more quickly or stand out from the competition or like really understand where your variance lies.
+[14:45] You know, is it a 5% swing or is it a 0.5% swing?
+[14:51] Like they're hugely important as the market gets more competitive.
+[14:56] And like in any industry, the levers that you would pull to actually create the valuation are just one component part.
+[15:04] It's having the other data points to actually apply those levers to and really understand, okay, well, what kind of margin for error are we playing with here?
+[15:16] And can we get confident that we've got sufficient tooling to allow us to play within those margins?
+[15:23] Or are we literally just, you know, okay, well, we can negotiate as hard as we can and that's going to give us a decent enough space?
+[15:32] Yeah.
+[15:32] Look, Sam, that's a super interesting insight.
+[15:36] We're going to play another clip now from our guest, Alistair Rowan, who talks about some of the practical challenges of doing these valuations in the real world and what he's seen as an increased desire from institutional investors to level up in terms of reporting insight and obviously, therefore, the tool sets that go along with it.
+[16:03] So, you know, the main obstacle is just like the sheer complexity and size of the data.
+[16:10] It's really hard just from looking at the top line to say whether a number of, you know, a million dollars is reliable or not.
+[16:20] And there's a lot of kind of analysis to go into to try to remove things which are one-off payments or things which aren't regular.
+[16:28] And also just to like classify the income in a kind of more digestible way.
+[16:34] So, for example, to have the income by this is the income from streaming.
+[16:38] This is the income from radio play.
+[16:39] This is the income from this.
+[16:40] So, you can begin telling that story because yeah, especially music publishing is such a like, such a complicated, such a complicated distribution system that like when I first started working in the finance industry, like.
+[16:57] It's really hard for people, you know, people want to say, oh, like if I get played on radio tomorrow, when do I get paid from it?
+[17:03] And you're like, basically the answer is, I'm sure someone will say they know that no one knows, right?
+[17:08] But the answer is eventually you probably will get paid at some point.
+[17:11] So, like, it's a lot of kind of getting comfortable with those kind of, those kind of, yeah, that kind of system.
+[17:19] And I'm trying to like, by having that experience of looking at them to get comfortable with those things and also to spot things of like, is he missing registrations here?
+[17:28] Or this doesn't look like it's, this could be earning more and this looks kind of a little bit off in a positive way that if you were paid attention to it, you could kind of bring more to it.
+[17:36] So, a lot of it is kind of that, that gut feel, but there's just so much work of even getting it to that point of being digestible to kind of see, to kind of interpret.
+[17:46] And that's before you kind of get to the, the main kind of problem, the main kind of opinion evaluation where it's the kind of stuff, which is quite less than 10 years old.
+[17:56] And where does it go in the future?
+[17:58] And that kind of the question of the way, which is where, yeah, where the kind of subjectivity comes into it, I guess.
+[18:05] Where does the, you talked about the lag of broadies and that can be quite different depending on, you know, as you say, whether it's streaming or radio.
+[18:16] Or broadcast or whatever.
+[18:18] But how do you deal with that in a, with a sort of, with the transaction?
+[18:22] Like when does the revenue pivot from one buyer or one owner to another?
+[18:28] That's again, that's why very aged catalog, older catalog has a premium, right?
+[18:33] Because that kind of balances its way out.
+[18:37] And then if you're looking at earnings from something, which is 20, 30 years old, there might be lags there, but it kind of over a three to five year time zone kind of balances.
+[18:46] And you kind of get comfortable with it.
+[18:48] But it is, that's why it's really difficult looking at catalogs, which are two to three years of age, because the next semi-annual statement might, you know, might have a huge bump of radio play.
+[19:02] Then the next one has zero.
+[19:04] So it's a kind of like catching that bump becomes really hard.
+[19:07] So for the, for newer catalog, that's generally like, it's harder to forecast, but there's also another challenges that like these dips are kind of a lot more meaningful of like catching the timing.
+[19:19] And if it should become pretty, pretty laborious.
+[19:23] Yeah.
+[19:24] Yeah.
+[19:24] Let's say you did a deal today from tomorrow.
+[19:27] Would you take all of the royalties or would it be from the date the royalties come through after that day?
+[19:34] How does that work?
+[19:35] Yeah.
+[19:35] That's, that's kind of like a, a pretty complex area of negotiation, right?
+[19:39] Of, of, of, especially cause these transactions can take a long time to close of, of agreeing a date of when those royalties are credited against the purchase price to the, to the buyer or still collected by the seller.
+[19:52] And, um, yeah, it becomes really key in the kind of newer, newer deals where you're still trying to catch that bump of the kind of new, new release stage.
+[20:03] And how does that all flow through the process?
+[20:06] Because, you know, there's, I mean, one of the obvious things about the industry is that we have these global platforms, but a lot of local regulation.
+[20:17] Once you bought a catalog or during the process, how do you go about updating everybody in the chain that needs to know where the royalties flow through?
+[20:26] What agreements they need to look at in the future?
+[20:29] Yeah.
+[20:29] Yeah.
+[20:29] So I worked in music publishing administration long enough to realize that's a problem.
+[20:35] I didn't want to be at the forefront.
+[20:37] Which is it.
+[20:38] The question is, the answer is these experts who do that.
+[20:43] And I think it is like, it's a pretty, it's a, it's, you know, again, part of the negotiation, like the royalties aren't going to start flowing to the new bank account automatically.
+[20:53] And you've got to like, hold some funds back to account for that.
+[20:56] But it is like really, really tricky.
+[21:00] And it's also why, like, especially with more financial investors being involved in this space, why things which, like passive royalties, like the, the, the non-copyright part of the, of the market really grew.
+[21:16] Because people, those are slightly simpler in, in that kind of way.
+[21:20] And people were like, oh, I'd rather have something with less administration, but more simple to transfer than actually have to have that obligation myself.
+[21:28] So yeah, again, that's, that's one of the, and especially when I started working in, in-house, the finance company.
+[21:36] And you explain to you how there's so many more businesses, which are so much simpler to transact on than this.
+[21:45] And that's kind of one of the things where it is so complex that does make these transactions more difficult than other industries, I guess.
+[21:53] Have you seen kind of an improved maturity as catalogs transact?
+[21:58] So would you expect that pre and post transaction, the level of data, the level of governance over a given catalog improves?
+[22:09] And then if so, does it decay again?
+[22:12] Or do people tend to continue to invest in the upkeep of the administrative side?
+[22:18] And does that have a positive reflection on future valuations as well?
+[22:23] Yeah, so that's kind of, kind of like a lot of private equity models.
+[22:28] That's the kind of difficulty with the acquisition model was that the idea is that if you're buying these catalogs, you can pay more attention to them.
+[22:37] But obviously the more catalogs you buy, the harder to pay attention to them.
+[22:42] So I think it kind of varies by buyer.
+[22:45] But I think generally, and I think this is the kind of, the kind of something you're seeing in the industry is that kind of, it's actually being beneficial to, to some writers and artists in a way that all those things we talked about, right?
+[23:01] Of like, oh, when you get a song played on the radio, when does it get paid?
+[23:05] People have always just been like, well, you get it paid eventually.
+[23:07] But now there's like financial institutions owning these income streams.
+[23:11] When they ask that question, they probably get more, a lot more pressure on these systems.
+[23:17] So I think you are seeing, like with some of the news around different performing rights organizations and the kind of pressure on them.
+[23:24] And it's kind of ironically came from these sources because people, financial owners are kind of demanding a bit more kind of efficiency and responsibility over these kind of things and potentially a large number of kind of artists who are here kind of like looking at this right.
+[23:41] So I feel like, yeah, that's something which is definitely kind of a trend I've seen.
+[23:45] Right.
+[23:46] So there's just a general maturation in the market, which is demanding greater insight, greater excellence around how they manage the operational side of the asset, as well as the artistic side.
+[24:02] Exactly.
+[24:02] And I think particularly like with streaming on the master side where you can get, you know, like daily or monthly information pretty quickly on the publishing side and other parts of the business.
+[24:17] There's people saying, well, why can't we see this on this side of the, you know, of the income?
+[24:21] So I think that's definitely kind of, yeah, something which is sort of changing a lot.
+[24:25] I hope you enjoyed the conversation with Alistair there and just to recap on what we talked about in this episode of Music Fastball.
+[24:36] So we discussed some of the challenges of creating valuations and the various states that valuation colleagues find the data in.
+[24:45] We also talked about how the systems to do a point in time valuation and the processes they use are often quite different to those that we would use operationally in our day to day.
+[24:55] And that some of the higher level activities that we really want to get to are trying to create symmetry between the process at the valuation and underwriting stage, as well as on the day to day operation side to give us greater confidence, greater clarity in how the assets performing versus what we expected.
+[25:16] And also giving us greater flexibility to make decisions in the context as of right now.
+[25:23] We'll be bringing lots more content like this through the series of this podcast.
+[25:29] If you'd like to hear it, please subscribe to our channel, either on YouTube or Spotify, or indeed go to standardintrovation.com and subscribe to our newsletter.
+[25:39] Thanks again.
+[25:39] Thanks for listening.
+[25:48] Thanks for listening.
+[25:54] Thanks for listening.
+[25:58] Thanks for listening.
+[26:00] Thanks for listening.
+[26:01] Have a great day.
+[26:03] Bye.
+[26:04] Bye.
+[26:05] Bye.
+[26:05] Bye.
+[26:06] Bye.
+[26:07] Bye.
+[26:07] Bye.
+[26:08] Bye.

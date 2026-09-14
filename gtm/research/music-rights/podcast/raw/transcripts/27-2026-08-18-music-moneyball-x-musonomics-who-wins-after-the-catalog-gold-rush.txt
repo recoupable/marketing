@@ -1,0 +1,1408 @@
+# Music Moneyball x Musonomics: Who wins after the catalog gold rush?
+# Date: 2026-08-18
+# Duration: 00:54:04
+# Guests: [see title]
+# Hosts: Larry Miller, host of Musonomics, NYU Steinhardt professor and inaugural Executive Director of the Sony Audio Institute for Music Business and Technology; Tom Mullen, CEO of Standard Innovation
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Music-Moneyball-x-Musonomics-Who-wins-after-the-catalog-gold-rush-e3ni9ef
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] Welcome to Musonomics, a podcast about the business of the music business from the economics
+[00:14] on up.
+[00:16] And you're also listening to Music Moneyball, standard innovations podcast for music catalog
+[00:21] investors looking under the hood at how the market works and where value is created.
+[00:27] So today we're doing something a little new.
+[00:31] This is the first collaboration between our two podcasts, and we're putting the conversation
+[00:37] out to both of our audiences.
+[00:39] For Musonomics listeners, Tom is the CEO and co-founder of Standard Innovation.
+[00:46] It's a British data consultancy that helps music rights investors the world over build
+[00:53] the data infrastructure that they need to deploy capital faster and operate their portfolios
+[00:59] at scale.
+[01:00] And they make the Music Moneyball podcast.
+[01:04] Larry, I have to say, I'm absolutely enchanted by your voice and absolutely privileged to
+[01:09] be doing this podcast with you.
+[01:11] Ah, cut it out.
+[01:12] And I would love nothing more to introduce you to our audience.
+[01:17] Larry is the professor of music business at NYU and director of the Sony Institute there,
+[01:23] and has spent years studying the economics and structure of how the music industry works
+[01:29] and is changing.
+[01:31] The Musonomics podcast long outdates Music Moneyball.
+[01:35] So it's an absolute privilege to be doing this with you today.
+[01:38] And today we are going to be looking at what is or what we expect to happen after the cast
+[01:44] log gold rush in recent times.
+[01:45] We've seen a lot of acquisition.
+[01:47] There's lots of new money, lots of new entrants coming into the market.
+[01:50] And we're going to try and draw some comparisons with other sectors.
+[01:54] But before we do that, Larry, why don't we have a bit of a discussion around where the
+[02:00] market stands today, what all of this latest activity in terms of people entering the market,
+[02:07] mergers and acquisitions happening means for the cast log investment space.
+[02:11] So let's just accept that the shift in music consumption, recorded music consumption,
+[02:23] from the physical media to permanent downloads to streaming, really changed the way that music
+[02:36] consumption happens in most every territory around the world.
+[02:42] And that that shift in consumption to streaming also changed the economics for the way that recorded
+[02:55] music is not only consumed, but also monetized.
+[03:00] It has also changed the long tail, if you will.
+[03:06] And it has also changed the shape of decay curves that happen.
+[03:12] And here I'm talking about the revenue decay curve that occurs historically in recorded music
+[03:20] and really any hit oriented business, which is the period after initial release and the peak
+[03:26] of consumption through to the decay and revenue over a period of typically in recorded music,
+[03:33] five to seven or so years, after which the revenue performance of that song or that album
+[03:42] achieves kind of a steady state of predictable consumption and revenue performance.
+[03:51] And it is really that predictability that has dramatically changed the way that investors and in particular
+[04:01] institutional investors think about music as an asset class, utterly driven by the streaming
+[04:11] boom in a way that really enabled institutional investors that were not plowing large buckets of capital
+[04:19] into the music business into the music business into our industry really, you know, over this last five, six, seven years or so.
+[04:33] It's fair to say that they do enjoy an annuity revenue stream.
+[04:39] Indeed.
+[04:39] So for much of that first phase, I think of that as the time when hypnosis had come to town and when, you know, not only hypnosis, but also Roundhill had begun acquiring many, many music catalogs,
+[05:04] along with a relatively small number of other institutionally backed copyright acquisition platforms.
+[05:15] And I mentioned Roundhill and Hypnosis in particular because at the time they were also operating public funds.
+[05:27] In other words, these were listed royalty funds that the public could invest in and that traded on major exchanges.
+[05:41] Today, though, there is far more capital in the business.
+[05:46] There are many, many, many more buyers.
+[05:49] And in fact, the number of visible catalog investors has more than doubled since only 2020.
+[06:00] And just this year, music IP has become an even more active M&A platform this year than it has been over the last several years.
+[06:16] And just by way of example, we have Concord BMG coming together in a $7 billion deal.
+[06:24] We have Distrokid, the independent distribution platform, trading for around $2 billion in valuation driven by CVC, the private equity firm.
+[06:38] Cobalt, $1.5 billion acquisition by Primary Wave.
+[06:43] The closing of downtown $775 million acquisition at Virgin, part of UMG.
+[06:52] And also Curve Royalty Systems, the spin-out from downtown.
+[06:57] And Revelator by Warner Music Group, all producing strong evidence on the strength of the music M&A space just in the first bit of this year.
+[07:08] And in fact, just in the first quarter of this year, catalog fundraising has already surpassed full year 2024 levels.
+[07:17] And so there's that.
+[07:19] So what's important here, I think, is the shape of activity from acquiring individual catalogs and in some cases songs towards much larger platform and company consolidation.
+[07:38] In other words, we are shifting from an era of acquisition of almost any kind of music rights by many of the competing platforms now towards a zone where scale and operational excellence is likely to rule that day.
+[07:59] And, of course, we point to primary wave and cobalt and recognition, the successor to the hypnosis platform.
+[08:08] And Sony, along with their financing partner, GIC in Singapore and Concord BMG as evidence of that shift.
+[08:19] It's fair to say there has been a lot of activity.
+[08:23] And by and large, that is a very positive sign.
+[08:27] When people are acquiring other businesses in the sector, typically backed by debt, that means at some stage they've had to persuade a third-party entity that there's going to be significant growth,
+[08:41] not just to cover the interest repayments, but also, you know, significant further payments on the principle too.
+[08:49] You have to prove out that this market's going to grow, otherwise you're not going to be able to raise that type of money.
+[08:55] So activity, unless it's a very distressed market like this, is typically a really good sign of a healthy market, of a growing market.
+[09:04] But there are some consequences.
+[09:09] Obviously, the structure of the market starts to change.
+[09:11] So you start to create more larger players with more kind of a higher platform to jump from, more capital to invest.
+[09:20] And I think that one of the big questions that a lot of people are asking is, gosh, with all of this activity,
+[09:26] is it going to be incredibly difficult to compete now with these people who have huge outsized budgets compared to the vast majority?
+[09:35] And what does that actually mean for us, you know, as catalogue investors or people coming into the space?
+[09:42] Is there opportunity still?
+[09:43] How are we going to survive?
+[09:44] How are we going to compete?
+[09:46] And I think we're going to come on to that in a bit more through the lens of a case study in an adjacent industry that we'll talk about.
+[09:55] But before we do that, I think it would make sense for us to rewind a little bit.
+[10:01] And when we're talking about these now major platforms, to help understand actually how what we would refer to as the majors in the music industry came about,
+[10:11] why that's important, and then we're going to overlay that onto an adjacent industry, the TV and film industry, which we'll come to in a little bit.
+[10:21] So, Larry, why don't you give us a bit of a posse history of the majors and how they became majors?
+[10:27] Fair enough.
+[10:27] I mean, they were not hatched, fully formed, looking remotely like the companies that they are today.
+[10:35] And in fact, the majors, looking back over well over a century of recorded music, is the story of independent, risk-taking entrepreneurs
+[10:52] who were music people who built significant businesses, often in overlooked parts of the music industry and genres of music and territories where music was popping off around the planet,
+[11:12] built something really great and eventually sold to a bigger player.
+[11:17] And although we could go back, you know, 120 years, I often think about really the era of the 1960s and 70s is really when this really, you know, came together.
+[11:33] And when we think about the great music entrepreneurs of that era, we think about Ahmed Erdogan at Atlantic Records
+[11:39] and Jack Holtzman at Elektra, Chris Blackwell at Island Records, Barry Gordy at Motown, Herb Albert and Jerry Moss at A&M Records.
+[11:48] And in later years, before the turn of the century, Clive Calder, of course, at Zamba.
+[11:59] And they built great companies.
+[12:01] They had massive hits as independent companies.
+[12:06] And they all sold at different times for different reasons, whether that had to do with succession planning or the need for deeper capital requirements,
+[12:21] whether there were new competitive pressures for them or changes in distribution.
+[12:28] And I think about changes in distribution as really being a primary driver.
+[12:35] The fact is, in the 1960s, it was really CBS Records under Clive Davis, first Goddard Liebertson, and then Clive Davis in the 1960s,
+[12:50] who really put the CBS branch distribution system, of course, CBS being the forerunner of today's Sony music,
+[13:03] where there was a lot of work in place where there was warehousing and logistics and distribution infrastructure in each market,
+[13:14] in each city that was able to sell directly to retailers in a way there where they could get synergy out of coordinating national marketing campaigns,
+[13:26] manage physical inventory in those days of physical record sales from vinyl through CDs in the 1980s and beyond,
+[13:39] the ability to roll out hit records fast through their control of manufacturing facilities,
+[13:46] the leverage that they had with retailers, and the ability to extract higher margins.
+[13:52] By the late 1960s, though, and in particular from 1967 to 1970,
+[14:01] we had Steve Ross at Kinney Systems, who had already acquired the record company associated with the Warner Brothers Studio,
+[14:14] Warner Brothers Records, who went on to acquire first Atlantic Records from Ahmet Erdogan,
+[14:22] and then Electra from Jack Holtzman.
+[14:25] And having learned from what had already happened at CBS Records,
+[14:30] Warner, under Steve Ross, was able to combine distribution and form WIA, Warner Electra Atlantic, by 1971,
+[14:40] and extract value from having built shared infrastructure that allowed,
+[14:46] in this case, each label to maintain its own A&R presence while benefiting from the sales and warehousing and logistics
+[14:58] and international expansion that they were able to extract from the core.
+[15:03] And for artists, the benefit was their ability to be able to sign with a company that offered culturally distinct A&R while benefiting from major distribution.
+[15:18] So really significant vertical integration we're talking about there, up and down the supply chain.
+[15:24] And, hey, we can just do a much better job because we own various parts of the supply chain,
+[15:31] whereas other people have to rely on what is actually pretty complex stuff at the time.
+[15:38] Massive vertical integration, in fact.
+[15:41] And if you think about it, if you were an independent company and that you were dealing with independent distribution across many, many, many regional and local markets in the U.S.
+[15:57] and around the world, if you think about it, in the physical era in particular,
+[16:01] when you were dealing with, in some cases, large multi-door retailers,
+[16:10] and in other cases, you were dealing through other intermediaries to other places that also sold records,
+[16:20] even if music sales wasn't their primary business,
+[16:25] if you were a retailer, who were you going to pay first?
+[16:29] The major company that was likely to deliver all of the hits that were going to end up on your end cap displays next month and next quarter,
+[16:43] or the independent company who may or may not have anything.
+[16:47] And so it became hard to just collect the money that you were owed from the independent distribution platforms that existed
+[16:57] if you were an independent company.
+[16:59] And so, really, there was tremendous leverage in becoming part of a major distribution play in those years.
+[17:10] And, I mean, there's an obvious parallel that we can draw there between cobalt and primary wave, isn't there?
+[17:16] You know, like, okay, well, let's do some vertical integration and get some economies of efficiency and specialization, you know.
+[17:24] Absolutely. And there are some extraordinary competitive advantages that are in place at both Cobalt and primary wave today.
+[17:37] Maybe more on those companies later on this episode.
+[17:42] But there are some very distinct advantages that each of those companies brings to that new platform.
+[17:50] Yeah, yeah, super interesting. Carry on, Larry.
+[17:54] Right. In sum, having fewer bigger players really changed what everybody else in the market was able to do then in the 1960s and 1970s,
+[18:08] through the CD boom beginning in the 1980s and even through the Napster and peer-to-peer file trading disruption that started around the turn of the century and beyond,
+[18:24] through the download era and now into the streaming-dominated music discovery and consumption universe that we are in today.
+[18:35] But, Tom, what analogs exist in adjacent industries that we have heard of or are familiar with from which we can learn some lessons?
+[18:50] Yeah, I think, you know, when we started talking about the content for this episode and trying to distill down all of the activity and what that actually means for people in the market
+[19:00] and what tangible things that they can take away or consider.
+[19:06] Obviously, looking back to the music industry is really important to understand how it got to its shape.
+[19:11] And I think there's really significant lessons that can be learned from what's happened historically in the music industry.
+[19:16] But just to give a bit of breadth to our opinion and point of view, we thought it would be valuable to see if we could find another example in a comparable industry
+[19:27] where they've also had pre-seismic shifts and to see where people have used that opportunity,
+[19:34] kind of used the consolidation and found the vacuum behind there to be a bit more agile,
+[19:40] to be a bit more innovative and find a way to actually start to out-compete with some of the big guys.
+[19:45] And we looked at a whole bunch of different places.
+[19:49] And, you know, if you look at kind of a by and large mid-market PE, you'll see these aggregation plays
+[19:56] and then you'll see some innovation coming up behind with investment in technology.
+[20:01] But I think one of the ones that really caught our eye was actually in a very adjacent industry in the TV and film industry.
+[20:07] And the more that you look at the two, you understand the kind of power dynamics are pretty similar.
+[20:13] You understand that they've gone through a pretty similar challenge over the past 20 years.
+[20:18] And actually, it's created some pretty similar looking opportunities there, too.
+[20:23] So just to give everybody a bit of a sense of what we're talking about.
+[20:27] Now, if you look at the concentration of power in the TV and film industry,
+[20:31] the big guys, the Disney's, the Warners, the Discoveries,
+[20:34] you know, in North America, I think they own about 80% of North American box office,
+[20:40] which is massive, very obvious comparison to the music industry.
+[20:44] And probably if you want to go back 20 years, you know,
+[20:47] we might well be interested in TV and film consumption,
+[20:51] but I'm certainly no expert in the industry.
+[20:53] But if we go back, I think, 20 years,
+[20:56] then you've got a pretty clear story arc that is very, very similar to what we've seen in music.
+[21:01] Like, so 2008 financial crisis, people have less money in their pockets.
+[21:07] They're not going to the cinema as much, but they're also kind of interested in escapism.
+[21:13] They have to justify the increasing costs.
+[21:16] They have to justify the increasing percentage of their kind of disposable income.
+[21:21] What are they going to go and see?
+[21:22] They want to be really kind of blown away, out of this world stuff.
+[21:26] And it's at the time when the big movie theaters or the, you know, big movie studios are at their peak.
+[21:35] They're doing really well.
+[21:36] You know, they've got a fantastic business model where they can afford to pay these huge blockbusters.
+[21:42] And they've also got secondary markets with kind of DVD distribution.
+[21:48] And then the ongoing TV networks through cable and everything else that actually it's pretty diverse as a channel.
+[21:58] And it means that they can afford to take bigger bets on these big budget movies.
+[22:03] And for the low ones that aren't necessarily so successful at the box office, they've got a steady stream of revenue that comes in off the back of it.
+[22:11] So that's roughly what the market looked like then.
+[22:14] And then they've also seen kind of at the same time, a bit of a dip in what would be traditional icon led movies.
+[22:25] So the big movie star names that they would traditionally use to put, you know, effectively almost guarantee the success of their movies.
+[22:35] And I think it was around 2010 when you got the likes of Oblivion with Tom Cruise and After Earth with Will Smith.
+[22:44] They just didn't really do very well.
+[22:46] And then simultaneously, we've got a growing global market.
+[22:51] So, you know, Americana is growing globally.
+[22:54] Obviously, massive content distribution coming out of North America.
+[22:57] It's being consumed by China, huge markets.
+[23:01] There's a lot of growth there.
+[23:02] But there's also the understanding that intricate dialogue doesn't typically translate that well.
+[23:09] But what does is, you know, big, flashy CGI.
+[23:15] Yeah, explosions.
+[23:17] CGI, good versus evil.
+[23:20] Can't go wrong.
+[23:21] And you know what?
+[23:23] They were absolutely right.
+[23:24] I think in 2012, Dark Knight and Avengers did about two and a half billion dollars globally.
+[23:32] Absolutely massive films, huge franchises.
+[23:36] And surprise, surprise, the studios are like, well, we're going to back this stuff.
+[23:41] We own the IP.
+[23:43] The stars are fading.
+[23:45] We can't even put Tom Cruise in a movie and guarantee it's going to be a success anymore.
+[23:49] Let's turn to Spider-Man.
+[23:51] So what do they do?
+[23:53] They make hundreds of thousands of Spider-Man movies.
+[23:56] Some of them are very good.
+[23:58] And at the same time, we've got Spielberg and Lucas standing up on stage saying, hang on a minute.
+[24:04] These big guys will only ever finance superhero blockbusters now.
+[24:10] And you've got all of these amazing kind of OTA directors, Sophia Coppola, people like this.
+[24:17] They can barely get a movie signed.
+[24:19] I mean, even Spielberg and Lucas were saying, hey, we really struggle to get our movie financed.
+[24:24] Like, what is going on?
+[24:27] And just at that kind of peak of power, we start to see the streamers coming in.
+[24:33] And where historically there would have been distribution platforms, obviously Netflix was kind of DVDs in the post to begin with.
+[24:39] They actually started to create their own content.
+[24:43] And I think there's a bit of a recognition that, hang on a minute, these guys are the competition.
+[24:50] You know, we're giving them all of our content and they're the competition.
+[24:54] And now they need to start doing something about it.
+[24:57] So a lot of aggregation happens, a lot of consolidation.
+[25:01] Disney, 71 billion acquisition of Fox in 2017.
+[25:09] That's a big number.
+[25:10] Warner Discovery, huge merger.
+[25:13] And a lot of these mergers are really kind of financed by debt.
+[25:18] So what are you going to do to carry on servicing that debt to make sure that you're going to be able to justify the acquisition and everything else?
+[25:28] Go back to what you know, which is big budget, big superhero movies, rinse and repeat.
+[25:36] And I think for everybody else out there, that's kind of, oh, crikey, we've got Amazon, we've got Netflix, we've got these massive, huge titans of companies, studios now.
+[25:50] How on earth are we going to compete with those?
+[25:52] Again, pretty comparable.
+[25:56] There's lots of kind of analog that you could draw between music and the kind of aggregation of power in the TV and film industry.
+[26:04] And in the backdrop of that, there's one specific example that we really want to talk about, which was A24.
+[26:11] So A24, for people who don't know them, started out as distribution only, but now they produce very distinct films.
+[26:21] They're behind everything everywhere.
+[26:24] I think all at the same time, as it calls all at once.
+[26:28] Moonlight, Marty Supreme recently.
+[26:32] And they, you know, in this backdrop of these megatrons of studios, they understood that, hey, you know, we can actually do something different here.
+[26:42] We can be very attractive to these people who have amazing stories, who, you know, have a slightly different lens through which they want to create a movie.
+[26:52] And we can kind of pander to them.
+[26:54] We can give them what they need.
+[26:55] And we can find a point of difference to the big guys.
+[27:02] And I think that that's probably the most important story that really flows through this whole thing is, yes, when there are big superpowers at work in any given industry, that doesn't mean that they're totally indestructible.
+[27:14] What it tends to mean is they'll produce content or products or whatever it is for the middle of the bell curve.
+[27:21] And that typically means that the rest of the market is pretty underserved.
+[27:26] And if you look just, you know, Larry, you're an economist, I guess, at heart.
+[27:30] And I think if you look at just general market dynamics, you would expect typically in a free market, a theoretical free market, then you'd have lots of different players serving lots of different parts of the economy, of the marketplace.
+[27:46] And that just wasn't happening here.
+[27:48] And I think that that probably hasn't quite happened as much recently in the music industry as well.
+[27:54] And people start to pay attention to that.
+[27:57] They start to understand that actually the significant opportunity and A24 just did a really good job at that.
+[28:03] So first of all, they started welcoming in these very credible names and they were solely distributing for them.
+[28:11] So Sophia Coppola and people like this.
+[28:14] And then in 2013, they had their first big commercial release with Spring Breakers.
+[28:19] I haven't actually seen that movie, but I certainly remember a lot of the marketing campaigns around it.
+[28:25] And they really started to leverage influence driven campaigns, social media.
+[28:31] They were taking a very different approach, much lower budget to what the big studios were doing.
+[28:37] And they kind of proved out that it actually works.
+[28:40] That was their first proof point to say, hey, guys, we can take a guerrilla approach to marketing.
+[28:46] We can back really strong content and we can make it work.
+[28:51] And then they also, given that they didn't have the same legacy of supply chains and relationships and everything else,
+[29:01] understood that the streamers are probably the direction to go.
+[29:04] So they started to create relationships with them and were one of the earliest kind of people to build a relationship
+[29:11] and a commercial one of that in 2013 with Amazon Prime.
+[29:15] And from there, they started to build their own content.
+[29:19] You know, now they had a distribution channel.
+[29:21] They started to build their own content.
+[29:22] They were using that point of difference that they'd created,
+[29:28] understanding where they could win against their competitors.
+[29:31] And they were employing that to really amazing success.
+[29:36] I think in 2017, they created Moonlight, got an Oscar for that, showed, hey, if you stick to your knitting and really understand the market and what they need,
+[29:48] understand the consumer, you will be able to find your place.
+[29:51] You will be able to compete in the market.
+[29:52] And they just continue to lean into this street culture.
+[29:56] I think anybody who followed the Marty Supreme go-to-market over the past 12, 18 months to see Timothee Chalamet appearing on Zoom calls and wearing their hoodies and all of this stuff,
+[30:10] like that's just totally different to what you would expect, certainly if you're running another superhero movie.
+[30:16] And they just lent in hard, so hard, in fact, that they created their own streetwear brand, which turned into a multi-million pound or dollar profit business.
+[30:27] So tens of millions of dollars of profit they're making from streetwear, which, of course, is not at all their core competence,
+[30:34] but a real reaffirmation that if you know what you're doing, can be brave, can find adjacencies in the market and go and nail them,
+[30:42] you'll easily outcompete the big guys there.
+[30:44] And the one thing that I also came across whilst we're doing some research on them,
+[30:49] which was the most striking example and kind of point of comparison between what we're seeing those who are acquiring music rights in the music industry doing,
+[31:02] is they remastered a film, which is a concert, incidentally, by Talking Heads called Stop Making Sense.
+[31:11] They remastered it into 4K to release it on IMAX.
+[31:16] And the release of their 4K version was more successful than the original by some margin.
+[31:22] And I just thought, you know, if there's ever a great example of where you can take these historical assets,
+[31:29] you can apply a slightly different way of thinking, you can understand the mechanics of how the market interacts today,
+[31:37] and you can leverage those channels, you know, UGC and everything else, you can really, you know,
+[31:43] you can really stand out and there's really a play for many, many smaller participants.
+[31:48] It's not just about the big guys.
+[31:50] And I think invariably the big guys, they can't necessarily do these things because they've got huge budgets,
+[31:57] huge revenue, huge piles of debt that they have to service.
+[32:00] They need to do things that really move the needle.
+[32:04] And kind of art house-ish films is just not going to do that for them.
+[32:08] I think the biggest message that I would take away from that comparison is just play to your strengths
+[32:17] and don't be scared of theirs because they invariably will be playing in a different pond.
+[32:24] What looks like lunch for them is very different to what looks like lunch for you.
+[32:30] And just embrace that, like understand where you can be agile, understand where you can move quickly,
+[32:36] understand where you can be more creative.
+[32:38] And that will typically be the path to success, I think.
+[32:41] And yeah, I don't think we could have found really a closer analog between the two markets.
+[32:48] And I would certainly recommend that anybody who's investing and proactively managing assets in music rights
+[32:56] goes and spends a bit more time looking at A24.
+[32:59] They've just done an absolute killer job and such a fascinating thing to learn about as well.
+[33:05] Well done, Tom.
+[33:06] And not so closely related to music, but as you were just talking about A24,
+[33:14] I was thinking about the new forms of live in-person entertainment built around old films,
+[33:29] and in some cases very old films.
+[33:31] And here I'm thinking about the incredible new production of The Wizard of Oz at the Sphere,
+[33:39] which is just astonishing.
+[33:44] It is truly, for me, one of the all-time greatest entertainment productions I've ever seen.
+[33:53] It was just stunning.
+[33:56] And as I understand it, they are about to give a similar treatment to Rocky Horror,
+[34:02] which should be out sometime next year and maybe more germane to music.
+[34:09] And I know that you had them recently on Music Moneyball is what Pop House is doing,
+[34:16] in particular with ABBA, with their investment with KISS,
+[34:21] and with what I just read about yesterday, their investment in Iron Maiden.
+[34:27] And who knows where that will lead in terms of new forms of immersive live entertainment.
+[34:34] Yeah, I agree.
+[34:36] And I think, you know, Pop House and Primary Wave, they know the place.
+[34:41] You know, they really deal with the iconics.
+[34:43] And I think anybody, you know, the smaller players or people who are looking to come into the market,
+[34:49] would you stand there and say, we want to go toe-to-toe with those guys
+[34:53] because they're extremely well capitalized.
+[34:56] They've got some amazing assets.
+[34:57] They've got great stories around things that they've done.
+[35:01] They've got a really, you know, strong success there to show.
+[35:06] Probably not, you know, that's probably not where I'd want to be competing.
+[35:09] But again, if you look at the A24 case study,
+[35:13] actually, there's so many other opportunities.
+[35:17] There's so much of the market which isn't touched by those iconics,
+[35:23] whether it be subsections of genres,
+[35:25] whether it be foreign markets that aren't even, you know, Western European markets
+[35:32] that are non-English speaking,
+[35:34] where by and large their famous pop stars might not even be known outside of those countries,
+[35:39] but in them are absolutely massive.
+[35:43] I think just taking a step back and, you know, really asking yourself,
+[35:47] where do we want to compete?
+[35:48] How do we want to compete?
+[35:50] How are we going to differentiate?
+[35:51] They're the important things and not to be concerned by necessarily what other people are doing
+[35:58] or the level of capital that they have to deploy or the purchasing power or anything else.
+[36:05] There's always opportunities to compete.
+[36:08] You just have to find it.
+[36:09] You have to find your niche.
+[36:10] You have to find your specialism.
+[36:12] And if you can speak to those people and you can speak their language,
+[36:15] then invariably you're going to be able to compete.
+[36:18] Fair enough.
+[36:19] Of course, the basis for competition in music has changed, you know,
+[36:27] dramatically in the streaming-led digital era, right,
+[36:33] where it is not necessarily a form of, you know,
+[36:40] permanent competitive advantage to own access to, well,
+[36:45] manufacturing and physical distribution just by, you know, by way of example.
+[36:52] And in thinking of recent music examples,
+[36:55] let's just talk about Primary Wave for just a second,
+[36:59] who are celebrating now 20 years in business,
+[37:03] having executed, I think, rather brilliantly,
+[37:06] their focus on only acquiring legendary and iconic music IP.
+[37:14] That's it.
+[37:16] If it doesn't meet the test of legendary and iconic,
+[37:21] they're not going to do it.
+[37:22] And so they're not investing in new frontline content.
+[37:27] They are only working with well-known,
+[37:31] well-loved intellectual property on the one hand,
+[37:34] but they are not just acquiring it and warehousing it.
+[37:37] They, to their credit,
+[37:39] have built incredible capability
+[37:41] around creating new forms of IP
+[37:47] that sit on top of their old IP
+[37:53] that they either acquired straight up
+[37:56] or cobbled together from multiple parties.
+[37:59] And maybe the best example that we can think about
+[38:03] when talking about Primary Wave
+[38:06] is the Whitney Houston example,
+[38:08] where they acquired the underlying rights
+[38:12] from a number of parties
+[38:14] and then went out and built the Whitney movie
+[38:18] on top of all of that,
+[38:20] which did rather well.
+[38:23] And, of course, the slot machines.
+[38:25] We could never, never not mention the slot machines.
+[38:29] Yes.
+[38:31] You're absolutely right,
+[38:33] and I think they are a prime example.
+[38:36] of picking a strategy,
+[38:38] knowing your focus,
+[38:40] sticking to your focus,
+[38:41] and absolutely nailing your focus.
+[38:44] And I would say that that just applies to anybody.
+[38:47] Just because somebody else is also living in that market
+[38:51] or in that pool doesn't mean,
+[38:53] you know, you can't find your own niche,
+[38:55] you can't find your own area of specialization.
+[38:58] Invariably, through specialization,
+[39:01] you get focus,
+[39:02] and through focus,
+[39:03] you build the muscle around it
+[39:06] to reinforce that specialization,
+[39:09] and then you grow more quickly.
+[39:11] And, you know,
+[39:12] I think a lot of people have this fear
+[39:14] of leaving things on the table
+[39:16] or, you know, saying no to deals.
+[39:19] But really, if you look,
+[39:21] you know, critically,
+[39:22] the people who grow the fastest,
+[39:24] who do the best in the long term
+[39:25] are those who really know
+[39:27] who their consumers are.
+[39:29] In this case,
+[39:30] it's invariably the people
+[39:32] who the primary way, for example,
+[39:33] want to do the deals with.
+[39:35] They can speak to them.
+[39:36] They know the challenges.
+[39:37] They understand
+[39:38] all of the complexities
+[39:41] of managing estates,
+[39:42] and they have a massive track record
+[39:44] to say,
+[39:45] hey, look,
+[39:45] we've done it before.
+[39:46] We can do it again,
+[39:47] and this is just where we're at,
+[39:49] where we live.
+[39:49] And I think for new people
+[39:51] or the smaller catalog investors,
+[39:55] they can just find,
+[39:56] you know,
+[39:57] they can find a focus.
+[39:58] They can find their own particular niche
+[40:00] of which there are so many.
+[40:01] There's so much opportunity.
+[40:03] And I think
+[40:04] that's probably
+[40:05] the most important message
+[40:06] is there do tend to be vacuums
+[40:08] left behind
+[40:09] when these large consolidations happen.
+[40:13] And even if it's that,
+[40:15] like,
+[40:16] vertically integrated play
+[40:17] where primary wave
+[40:18] might now be able to
+[40:20] have slightly different economics
+[40:22] for each deal,
+[40:24] they're not going to be
+[40:25] investing in the smaller catalogs.
+[40:27] They're probably not interested
+[40:28] in the iconics of France
+[40:31] or whatever it is.
+[40:32] But actually,
+[40:34] you know,
+[40:35] that's opportunity
+[40:35] for other people to go after.
+[40:38] Indeed.
+[40:39] And
+[40:39] to the consolidation theme
+[40:43] that we were speaking about earlier,
+[40:45] when we think about
+[40:46] what cobalt brings
+[40:48] to primary wave,
+[40:49] which,
+[40:50] as we understand it,
+[40:51] is going to continue
+[40:52] operating as
+[40:54] a,
+[40:56] you know,
+[40:57] somewhat
+[40:57] independent platform,
+[40:59] although
+[41:00] owned by primary wave,
+[41:04] that
+[41:04] cobalt,
+[41:06] of course,
+[41:07] has a
+[41:08] fantastically successful
+[41:10] independent
+[41:12] recorded music distribution platform,
+[41:16] and also
+[41:17] digital rights administration
+[41:19] offering
+[41:21] throughout
+[41:22] much of the world,
+[41:24] which
+[41:24] together,
+[41:26] and when
+[41:27] connected directly
+[41:28] to primary waves offering,
+[41:31] I think
+[41:31] is
+[41:32] going to be
+[41:33] a
+[41:34] fantastically
+[41:35] strong
+[41:37] competitor
+[41:38] to the
+[41:39] majors,
+[41:40] and I think
+[41:41] it will
+[41:41] prove to have
+[41:43] been
+[41:43] a
+[41:44] really
+[41:45] productive
+[41:46] business
+[41:46] combination
+[41:47] for
+[41:48] primary waves
+[41:50] investors
+[41:50] in particular.
+[41:52] Yeah,
+[41:53] I think so.
+[41:53] I think it's a really smart
+[41:54] bit of business,
+[41:55] and
+[41:56] well done
+[41:57] to both of them,
+[41:58] really,
+[41:58] because invariably
+[41:59] it has to benefit
+[42:00] both sides
+[42:00] of any deal.
+[42:02] So,
+[42:02] kind of given that
+[42:03] and given the consolidation
+[42:04] that we've been talking about,
+[42:06] where,
+[42:07] in your point of view,
+[42:08] and now we are getting into
+[42:09] predicting the future,
+[42:11] where do you think
+[42:13] the opportunities
+[42:14] are opening up
+[42:15] now for
+[42:16] investors
+[42:17] who are either
+[42:17] in the market
+[42:18] or maybe
+[42:19] started thinking
+[42:21] about their fund
+[42:22] 12 months ago
+[42:24] and
+[42:24] it's coming to fruition now
+[42:26] and they're looking
+[42:26] to set out
+[42:27] their strategy
+[42:28] and
+[42:29] deploy capital,
+[42:31] where do you think
+[42:32] that those opportunities
+[42:32] lie for them?
+[42:33] Right.
+[42:35] So,
+[42:35] whether we're talking
+[42:36] about
+[42:37] operating platforms
+[42:40] or
+[42:41] copyright
+[42:42] acquisition
+[42:43] platforms
+[42:44] specifically,
+[42:46] there
+[42:46] is the
+[42:48] regional
+[42:49] acquisition,
+[42:50] in particular
+[42:51] in the global
+[42:52] south,
+[42:53] and there
+[42:54] are increased
+[42:55] levels of
+[42:56] competition now
+[42:57] and interest
+[42:57] and capital
+[42:58] being deployed
+[42:59] across
+[43:00] Latin America
+[43:01] in
+[43:02] Middle East,
+[43:04] North Africa
+[43:05] and I think
+[43:06] about
+[43:07] what
+[43:08] the majors
+[43:09] have announced
+[43:10] as their
+[43:10] initiatives
+[43:11] in that territory
+[43:12] and also
+[43:14] companies like
+[43:15] Reservoir
+[43:16] through their
+[43:16] venture with
+[43:17] Pop Arabia
+[43:18] in that part
+[43:19] of the world.
+[43:20] In India,
+[43:21] which is
+[43:22] of course
+[43:23] tantalizing
+[43:24] for
+[43:25] Western
+[43:26] operators
+[43:27] but I think
+[43:28] ferociously
+[43:30] difficult
+[43:30] to operate
+[43:32] inside of,
+[43:33] but India
+[43:34] I think
+[43:35] holds
+[43:35] great promise
+[43:36] as well
+[43:37] for the
+[43:39] now emerging
+[43:40] and really
+[43:41] fully emerged
+[43:42] non-Bollywood
+[43:44] independent music
+[43:46] that is coming
+[43:47] out of that country
+[43:47] and throughout
+[43:49] really the rest
+[43:50] of the
+[43:51] global south
+[43:52] and
+[43:52] the Far
+[43:54] East too.
+[43:56] And
+[43:56] besides
+[43:57] looking at
+[43:58] the territories
+[43:59] though,
+[44:00] many of the
+[44:01] funds
+[44:02] have been
+[44:03] focused
+[44:03] on
+[44:05] acquiring
+[44:06] rights to
+[44:07] content
+[44:08] that
+[44:08] has
+[44:10] already
+[44:12] and really
+[44:14] in some
+[44:14] cases
+[44:14] long ago
+[44:15] achieved
+[44:16] a steady
+[44:17] state
+[44:17] of revenue
+[44:18] production
+[44:19] where
+[44:20] those
+[44:21] initial
+[44:21] revenue
+[44:22] curves
+[44:22] have
+[44:23] fully
+[44:24] decayed
+[44:25] and to
+[44:25] the point
+[44:26] where
+[44:26] we really
+[44:29] understand
+[44:29] very well
+[44:30] what we
+[44:31] can expect
+[44:32] as a
+[44:33] baseline
+[44:33] of revenue
+[44:34] production
+[44:35] from those
+[44:36] catalogs
+[44:37] year after
+[44:38] year after
+[44:39] year
+[44:39] as they
+[44:40] enter
+[44:41] into
+[44:41] evergreen
+[44:43] music
+[44:44] consumption.
+[44:45] But
+[44:45] we are
+[44:46] also
+[44:46] starting
+[44:47] to see
+[44:47] much
+[44:49] more
+[44:49] recent
+[44:50] rights
+[44:51] being
+[44:52] acquired
+[44:52] too.
+[44:53] In
+[44:53] other
+[44:53] words,
+[44:54] music
+[44:55] catalogs
+[44:56] that have
+[44:56] not
+[44:56] fully
+[44:57] decayed
+[44:58] yet.
+[44:58] And so
+[44:59] it's a
+[44:59] little bit
+[45:00] more risky
+[45:00] and
+[45:01] some
+[45:02] have
+[45:03] characterized
+[45:03] the acquisition
+[45:04] of those
+[45:05] music
+[45:05] catalogs
+[45:06] as being
+[45:07] sort of
+[45:09] akin to
+[45:10] catching a
+[45:11] falling knife
+[45:11] that
+[45:12] if those
+[45:13] rights
+[45:14] can be
+[45:14] acquired
+[45:15] well
+[45:16] could
+[45:17] be
+[45:18] extremely
+[45:19] productive
+[45:20] for
+[45:20] those
+[45:21] funds
+[45:21] willing
+[45:23] to
+[45:23] take
+[45:23] that
+[45:24] risk.
+[45:25] Yeah,
+[45:25] of course,
+[45:25] Gioetti,
+[45:26] the obvious
+[45:26] example,
+[45:27] and I
+[45:28] know we've
+[45:28] referred to
+[45:28] them a
+[45:29] number of
+[45:29] times on
+[45:29] the podcast,
+[45:30] certainly
+[45:31] friends of
+[45:31] the podcast
+[45:32] too,
+[45:33] and I
+[45:33] think that
+[45:33] they're
+[45:33] doing an
+[45:34] incredible
+[45:34] job at
+[45:35] exactly
+[45:36] that,
+[45:36] and their
+[45:37] approach is
+[45:37] very
+[45:38] systematized,
+[45:39] it's very
+[45:39] data-driven,
+[45:41] and actually
+[45:42] their business
+[45:43] model is
+[45:44] rather
+[45:44] totally
+[45:44] different,
+[45:46] but super
+[45:47] interesting as
+[45:48] to how
+[45:48] aggressive
+[45:49] they can
+[45:49] be with
+[45:50] that insight
+[45:50] and how
+[45:51] much they
+[45:51] back
+[45:52] themselves
+[45:52] to actually
+[45:53] understand
+[45:54] how,
+[45:55] you know,
+[45:56] frontline
+[45:56] music's going
+[45:57] to decay
+[45:58] or not
+[45:59] over time.
+[46:01] What other
+[46:01] opportunities are
+[46:02] you seeing,
+[46:02] Tom,
+[46:03] besides the
+[46:04] regions and
+[46:06] vintages that
+[46:07] we've been
+[46:07] discussing?
+[46:08] I think,
+[46:10] Larry,
+[46:11] I would
+[46:11] always recommend
+[46:12] to,
+[46:13] you know,
+[46:14] first look
+[46:15] on your
+[46:15] doorstep
+[46:15] and be
+[46:16] creative
+[46:17] to see
+[46:18] what
+[46:18] opportunities
+[46:19] there are
+[46:20] there.
+[46:20] And the
+[46:21] ones that
+[46:22] you talked
+[46:23] about,
+[46:23] they are
+[46:24] probably
+[46:25] the big
+[46:26] macro
+[46:27] opportunities
+[46:27] when you
+[46:28] look at
+[46:28] the big,
+[46:29] big picture.
+[46:30] But I
+[46:30] think there's
+[46:31] so much
+[46:31] opportunity
+[46:32] locally,
+[46:33] and that,
+[46:34] and again,
+[46:35] kind of going
+[46:35] back to that
+[46:36] A24 case
+[46:37] study,
+[46:38] you know,
+[46:38] they didn't
+[46:38] feel the need
+[46:39] to go and
+[46:40] start in a
+[46:42] foreign market,
+[46:43] foreign language
+[46:43] films,
+[46:44] or,
+[46:44] you know,
+[46:45] totally change
+[46:46] their geographic
+[46:48] distribution or
+[46:49] anything like
+[46:49] that.
+[46:50] They just
+[46:51] understood very,
+[46:52] very well
+[46:52] where they can
+[46:54] compete,
+[46:54] where other
+[46:55] people are
+[46:56] no longer
+[46:57] favoring what
+[47:00] would have been
+[47:00] historic
+[47:01] opportunities.
+[47:02] And I think
+[47:03] that that tends
+[47:05] to come out of
+[47:05] the back of
+[47:06] consolidation,
+[47:07] really,
+[47:08] because when
+[47:09] consolidation
+[47:09] happens,
+[47:10] those people
+[47:12] need to move
+[47:13] the needle
+[47:14] because,
+[47:15] by and large,
+[47:15] they're
+[47:16] corporate,
+[47:18] you know,
+[47:18] beast,
+[47:19] and the
+[47:20] aim of the
+[47:21] game is to
+[47:21] make a profit
+[47:23] and to grow
+[47:24] that profit
+[47:25] over time,
+[47:25] and if you've
+[47:26] got debt,
+[47:26] then obviously
+[47:27] that comes
+[47:28] with it too.
+[47:29] But that
+[47:30] means that
+[47:31] everything
+[47:31] becomes quite
+[47:33] relative.
+[47:34] So,
+[47:35] you know,
+[47:35] if you're a
+[47:36] billion-dollar
+[47:37] fund,
+[47:37] then to
+[47:38] grow,
+[47:39] you need
+[47:39] in absolute
+[47:40] terms just
+[47:40] much,
+[47:41] much bigger
+[47:41] numbers,
+[47:42] and that
+[47:43] means some
+[47:43] of the
+[47:43] things that
+[47:44] you used
+[47:44] to find
+[47:45] attractive,
+[47:46] that you
+[47:46] used to
+[47:47] focus on,
+[47:48] you just
+[47:48] can't anymore,
+[47:49] and that's
+[47:50] the opportunity
+[47:51] for other
+[47:51] people who
+[47:52] have different
+[47:53] mechanics,
+[47:53] who have
+[47:54] different
+[47:55] financial
+[47:55] levers behind
+[47:56] them,
+[47:57] where they
+[47:57] can actually
+[47:58] go and do
+[47:58] those things,
+[47:59] and if they
+[48:00] can talk to
+[48:00] the audience,
+[48:01] if they can
+[48:02] find their
+[48:02] niche,
+[48:03] if they can
+[48:03] explain their
+[48:04] story,
+[48:05] if they can
+[48:05] use different
+[48:06] techniques,
+[48:06] if they can
+[48:07] understand how
+[48:08] media consumption
+[48:10] engagement is
+[48:12] changing,
+[48:13] then there's
+[48:14] really significant
+[48:14] opportunity there,
+[48:16] and I just
+[48:16] think in any
+[48:17] aggregation
+[48:19] consolidation,
+[48:19] there is always
+[48:20] a vacuum
+[48:21] left behind,
+[48:22] and what
+[48:24] tends to
+[48:24] happen is the
+[48:25] innovators,
+[48:26] both in TV
+[48:27] and film,
+[48:27] as we referenced,
+[48:28] and also,
+[48:29] as you referenced
+[48:30] in your history
+[48:30] of the music
+[48:32] industry in the
+[48:33] last hundred
+[48:33] years,
+[48:34] is the
+[48:34] innovators tend
+[48:35] to find those
+[48:36] opportunities,
+[48:36] and they tend
+[48:37] to fill them,
+[48:38] and then they
+[48:39] tend to grow
+[48:39] quickly,
+[48:40] and after that,
+[48:42] they either tend
+[48:42] to be acquired,
+[48:43] which is a good
+[48:44] thing,
+[48:44] because if you're
+[48:45] going to raise
+[48:45] third-party capital,
+[48:46] probably the first
+[48:47] question they're
+[48:47] going to ask you
+[48:48] is,
+[48:48] what's the exit
+[48:49] strategy?
+[48:50] So you've got a
+[48:50] good story behind
+[48:51] that,
+[48:52] but then also,
+[48:53] you know,
+[48:53] it's just healthier
+[48:55] for the industry,
+[48:56] more capital tends
+[48:57] to come in,
+[48:58] people focus on it,
+[48:59] when it's a bit
+[49:01] more competitive,
+[49:02] people are pushed
+[49:02] to find different
+[49:04] ways,
+[49:04] be a bit more
+[49:05] innovative,
+[49:05] and I think that's
+[49:06] just genuinely a
+[49:07] really good thing,
+[49:08] so I wouldn't be
+[49:09] pushing people to
+[49:11] go and explore
+[49:12] what can be very
+[49:13] risky,
+[49:14] quite costly
+[49:15] exposure in
+[49:16] foreign markets,
+[49:17] unless you already
+[49:18] have distribution
+[49:19] there,
+[49:20] or people on the
+[49:20] ground,
+[49:21] or relationships,
+[49:21] is just take a
+[49:23] step back,
+[49:24] look what's local,
+[49:25] look what's in
+[49:25] front of you,
+[49:26] really understand
+[49:27] your strategy,
+[49:28] really understand
+[49:29] where you
+[49:29] differentiate,
+[49:30] and how you
+[49:31] win against
+[49:32] the competition,
+[49:33] and then just
+[49:34] execute on that,
+[49:35] and I think we've
+[49:36] talked really two
+[49:37] amazing examples,
+[49:38] so Primary Wave
+[49:39] and Music,
+[49:40] A24 and the
+[49:41] TV and film
+[49:42] industry,
+[49:43] like,
+[49:44] they just,
+[49:44] they picked their
+[49:45] lane,
+[49:46] they knew where
+[49:46] they belonged,
+[49:47] they executed it,
+[49:48] and they knew it
+[49:49] was differentiated,
+[49:50] and they've done
+[49:51] a great job.
+[49:53] Fair enough,
+[49:54] and well done
+[49:56] to you for
+[49:57] having described
+[49:58] it,
+[49:59] the way that
+[49:59] you did,
+[50:00] and to those
+[50:01] companies for
+[50:02] having just
+[50:03] out-executed
+[50:04] almost everybody
+[50:04] over this
+[50:07] last 20
+[50:08] or so years.
+[50:11] Yeah,
+[50:11] well,
+[50:11] Larry,
+[50:12] and the,
+[50:13] thank you for
+[50:15] the conversation,
+[50:16] and the,
+[50:17] the overview
+[50:19] of the music
+[50:20] industry,
+[50:21] and your point
+[50:22] of view on
+[50:22] where you think
+[50:23] the future's
+[50:23] going,
+[50:24] and the
+[50:24] implications of
+[50:25] consolidation,
+[50:26] the detailed
+[50:27] insight,
+[50:28] and now we
+[50:29] have to do
+[50:29] this strange
+[50:30] thing of the
+[50:30] quickfire round
+[50:31] where both of
+[50:32] us have to
+[50:33] answer the
+[50:33] question,
+[50:34] which I'm
+[50:34] very much
+[50:34] not used
+[50:35] to.
+[50:37] So I'm
+[50:38] going to do
+[50:38] the asking
+[50:39] first,
+[50:40] and then you're
+[50:41] going to ask
+[50:42] me,
+[50:43] and I'll try
+[50:43] my best to
+[50:44] answer.
+[50:44] Okay,
+[50:45] okay,
+[50:45] good.
+[50:46] Are we going
+[50:47] to both
+[50:47] answer the
+[50:48] same question?
+[50:49] Yes.
+[50:50] Okay.
+[50:50] So I shall
+[50:51] ask you
+[50:51] first.
+[50:53] So,
+[50:53] Larry,
+[50:54] if you could
+[50:54] own one
+[50:55] song,
+[50:56] what would
+[50:56] it be,
+[50:56] and why?
+[50:58] So this
+[50:59] is an
+[51:00] impossible
+[51:00] question for
+[51:01] me.
+[51:02] It is.
+[51:02] That's why I
+[51:03] asked you
+[51:03] first,
+[51:03] Larry.
+[51:05] I can give
+[51:06] you three
+[51:06] songs for
+[51:08] different
+[51:08] reasons,
+[51:09] and I
+[51:10] have to
+[51:11] say that
+[51:12] it doesn't
+[51:13] have to do
+[51:13] so much
+[51:14] with the
+[51:16] revenue
+[51:18] potential of
+[51:20] the songs
+[51:20] or the
+[51:22] ability to
+[51:23] exploit them
+[51:24] in new
+[51:24] markets through
+[51:25] new forms
+[51:27] of media
+[51:28] or immersive
+[51:28] entertainment
+[51:29] that don't
+[51:29] exist.
+[51:30] It's just
+[51:31] the way
+[51:31] that they
+[51:32] have landed
+[51:33] for me
+[51:34] for decades,
+[51:35] and the
+[51:36] goosebumps
+[51:38] that they
+[51:39] continue
+[51:40] to make
+[51:42] me feel
+[51:43] every time
+[51:44] I hear
+[51:44] them.
+[51:45] And the
+[51:45] songs are,
+[51:47] in no
+[51:47] particular
+[51:48] order,
+[51:48] Thunder Road
+[51:50] from Bruce
+[51:50] Springsteen.
+[51:51] Great track.
+[51:55] Roadrunner
+[51:55] by Jonathan
+[51:56] Richman and
+[51:57] the Modern
+[51:57] Lovers,
+[51:58] and my
+[51:59] Boston,
+[52:00] Massachusetts
+[52:01] upbringing
+[52:01] may be
+[52:02] showing there,
+[52:03] but yes,
+[52:05] Roadrunner
+[52:06] is on
+[52:08] the Mount
+[52:09] Rushmore
+[52:10] of songs
+[52:11] that I
+[52:13] would love
+[52:13] to own,
+[52:14] and the
+[52:15] third one
+[52:16] is Over
+[52:17] the Rainbow,
+[52:18] Somewhere
+[52:18] Over the
+[52:19] Rainbow.
+[52:19] Amazing.
+[52:21] Yep.
+[52:22] Great songs.
+[52:23] And it's
+[52:24] always nice
+[52:25] to hear
+[52:25] people's
+[52:25] points of
+[52:26] view,
+[52:26] and everybody
+[52:26] takes a
+[52:27] slightly
+[52:28] different
+[52:28] angle,
+[52:29] and I
+[52:29] think,
+[52:30] yeah,
+[52:30] it's also,
+[52:31] I think it
+[52:31] gives an
+[52:31] insight into
+[52:32] what people
+[52:33] enjoy musically
+[52:34] and their
+[52:35] backgrounds and
+[52:35] everything else.
+[52:36] In fact,
+[52:37] even just
+[52:38] saying Over
+[52:38] the Rainbow
+[52:39] sort of,
+[52:40] you know,
+[52:41] gets me a
+[52:41] little bit
+[52:42] choked up.
+[52:43] Yes,
+[52:43] well,
+[52:44] quite.
+[52:45] Over to
+[52:45] you,
+[52:46] Tom.
+[52:46] What is
+[52:46] it for
+[52:47] you?
+[52:48] So,
+[52:48] I was
+[52:49] taken a
+[52:49] little bit
+[52:50] by surprise
+[52:50] when Emma
+[52:51] reminded me
+[52:52] I had to
+[52:52] answer this
+[52:53] question today,
+[52:54] but thankfully
+[52:55] the answer
+[52:55] for me
+[52:55] comes quite
+[52:57] easily,
+[52:58] and I
+[52:59] shall explain
+[53:00] why.
+[53:01] This was
+[53:02] the song
+[53:02] that my
+[53:03] wife walked
+[53:04] down the
+[53:04] aisle to,
+[53:05] and my
+[53:06] eldest son
+[53:07] is also
+[53:08] named
+[53:08] after the
+[53:09] artist,
+[53:10] and it
+[53:11] would be
+[53:11] Could You
+[53:12] Be Loved
+[53:12] by Bob
+[53:13] Marley.
+[53:13] And also
+[53:16] obviously
+[53:16] very topical
+[53:18] given the
+[53:18] conversation
+[53:19] of primary
+[53:19] waves.
+[53:21] Indeed,
+[53:21] and a
+[53:22] shout out
+[53:23] to Chris
+[53:23] Blackwell
+[53:24] too from
+[53:25] earlier this
+[53:26] episode.
+[53:26] Exactly,
+[53:27] yes.
+[53:28] There's a
+[53:28] bit of
+[53:28] name dropping
+[53:29] there.
+[53:30] Well,
+[53:30] Larry,
+[53:30] this has
+[53:31] been an
+[53:31] absolute
+[53:32] pleasure.
+[53:32] Thank
+[53:33] you so
+[53:33] much for
+[53:35] agreeing to
+[53:36] do this
+[53:36] with us,
+[53:36] and thank
+[53:37] you so
+[53:37] much for
+[53:37] having us
+[53:38] on
+[53:38] Musonomics.
+[53:40] I'm so
+[53:40] glad that
+[53:41] we did
+[53:41] this.
+[53:42] I hope
+[53:43] we get
+[53:43] to do
+[53:43] it again
+[53:44] in the
+[53:45] not-too-distant
+[53:45] future.
+[53:46] You have
+[53:47] made a
+[53:49] big impact
+[53:50] with Music
+[53:51] Moneyball
+[53:51] so far,
+[53:52] and I
+[53:53] look forward
+[53:53] to seeing
+[53:54] where your
+[53:54] show goes
+[53:55] as well
+[53:56] as your
+[53:57] company,
+[53:57] Standard
+[53:58] Innovation.
+[53:59] Well,
+[53:59] we certainly
+[54:00] shall.
+[54:01] Larry,
+[54:01] thank you
+[54:01] so much.
+[54:02] Thank you,
+[54:03] Tom.

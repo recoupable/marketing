@@ -1,0 +1,314 @@
+# Music Fastball: A 3-step approach for prioritizing data investment
+# Date: 2026-02-17
+# Duration: 00:24:47
+# Guests: [see title]
+# Hosts: Emma Griffiths, Tom Mullen Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Music-Fastball-A-3-step-approach-for-prioritizing-data-investment-e3f65h8
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] Hello and welcome to this episode of Music Fastball. In a recent episode we were talking
+[00:14] about the music catalogue maturity curve that we've introduced. If you haven't watched that
+[00:22] episode yet I strongly recommend you pause here, go back and watch that episode because it's the
+[00:27] precursor to what we're going to talk about here today. During the episode we talked about four
+[00:33] drivers of catalogue maturity which are data and infrastructure, legal, financial and operational.
+[00:39] Today we're going to be focusing at a high level on some of the details of data and infrastructure,
+[00:47] what we can do to set out our technology strategy to design our infrastructure and harness the power
+[00:54] of data to improve the maturity of our cast log operations.
+[00:58] So Tom that sounds like there's a lot to consider there, so where would you typically start when you
+[01:04] were looking at something like this?
+[01:06] You're right, there is lots to consider and like any project that we do we try and break that down
+[01:12] into smaller component parts that makes it more manageable for us to understand and to give confidence
+[01:19] and to give a clear plan as to how a business can go and execute on that plan. Really the three things
+[01:28] that we break it down into are getting a good understanding about where we are now, getting an idea of where we
+[01:36] want to get to and then in between that we can make a plan to go from A to B.
+[01:42] So what are the first considerations that you would look at when you're thinking about how a fund would
+[01:48] look at their data and infrastructure?
+[01:51] Yeah, so that initial benchmarking is so critical, just making sure that we have an honest view about
+[01:58] current capabilities and that might seem or sound more trivial than it actually is and clearly that will
+[02:06] vary depending on the size of the fund and the existing operation. But usually the biggest
+[02:12] factor for complexity is the number of people because different stakeholders have different opinions
+[02:19] and we'll often find when we ask that question people will have a very different point of view as to
+[02:25] how far advanced certain capabilities are and how good or not so good they are doing certain things.
+[02:33] Getting everybody together and getting that written down and agreed is very much the first step.
+[02:38] And in that process we also need to consider things that we have to do. So looking at our current competencies,
+[02:47] but then also considering things that we actually have to do for the business to continue to operate.
+[02:53] Can you give me some examples of what that looks like?
+[02:57] Yeah, I mean, we're talking about by and large regulated businesses here. So making sure that we understand
+[03:05] the regulations that we have to abide by and making sure that any reporting or regulatory requirements are met,
+[03:13] because without those, operating becomes extremely difficult indeed.
+[03:18] Secondarily, looking at other stakeholder requirements. Yes, we'll have internal stakeholder requirements,
+[03:25] but most of the push factors come from external stakeholders that might be board members, it could be from the LPs,
+[03:33] or other institutional capital that might be interested in what you're doing that you need to provide information
+[03:41] or certain operational tasks to deliver against their requirements as well.
+[03:46] Yeah. And we know a lot of this is very much top of mind for funds at the moment because, you know, as more institutional capital has come in,
+[03:55] the standards are rising and the demands are only going to grow. So I think a lot of the people we speak to at the moment are really feeling this pain.
+[04:03] Yeah. And look, that's a really good point. You know, when we're doing this initial benchmarking,
+[04:07] there's one thing to take a point in time understanding where our capabilities are now.
+[04:11] But we do also have to bear in mind that actually some of those requirements, some of those push factors are going to grow.
+[04:19] And we need to make sure we've left some room for being able to answer to those at a future point in time as well.
+[04:25] We can't just, which we'll come to in a minute, blow all of the budget on nice things that we want to be able to do.
+[04:33] Yeah. And so part of, you know, thinking about what we have to do also incorporates like, you know, just how we keep up with competition, right?
+[04:40] Yeah, yeah, exactly. That we can look at competition really as an external stakeholder.
+[04:46] So as the competition improves what they do, the requirement of the market for how we operate in general in the space is going to increase.
+[04:54] And that means, you know, we have to take that into consideration when we're doing that initial state of the nation.
+[05:02] Where are we today? Getting a good, clear view of current capabilities and things that we have to do.
+[05:09] And then from there, that will lead us on to the next part, which is getting a good understanding of the capabilities that we'd like to have,
+[05:18] things that we'd like to be able to do in the future.
+[05:22] Right. So that's the sort of where you want to get to piece of this.
+[05:25] Absolutely. Yeah, that's the way you want to get to. And again, that can be quite a challenging process because different stakeholders are going to have different points of view.
+[05:33] And I think the most effective way that we've seen it done before is just to try and really make a list of all of these capabilities that you would like to have and then have a little bit of poker or however you want to call it,
+[05:47] going through that list and understanding what the perceived value is of having that capability and what the perceived complexity is of having that capability.
+[05:57] And that should give you a relatively straightforward kind of like stack ranked matrix of, hey, these are all of the things that we'd like to do.
+[06:05] These things we expect to be extremely hard and these things we expect to be a little easier.
+[06:10] And each of those then are grounded in a perceived value.
+[06:17] So what do we expect to be able to get back from having that capability?
+[06:22] And we don't necessarily need to put it in monetary terms at this stage.
+[06:25] It could just be, you know, on a scale of one to five.
+[06:28] And at this stage, if you're an investment fund, you know, what are the sort of things that would be top of mind for you?
+[06:35] Look, as we said, during the maturity curve, everybody's in a different place.
+[06:41] And there's not a great deal of point in comparing yourself with other funds who have different investment strategies, different budgets, different rights types, potentially.
+[06:52] So you do have to always take your own context into consideration first.
+[06:57] I think one of the very common themes that we see is just improved reporting.
+[07:03] A lot of people, when they aggregating lots of different rights types together, are drowning in mountains of royalty statements.
+[07:11] And actually getting from data to insight is quite difficult.
+[07:17] And on top of that, they typically will be using a different approach to underwriting that they are for ongoing analysis of like day-to-day revenue collection and everything else.
+[07:32] So getting some transparency and symmetry between those is common.
+[07:38] I think obviously reporting to board members and LPs, that can be extremely onerous.
+[07:44] People spend a lot of time reacting to a question that comes up in a board meeting that all of a sudden you've got to scramble to go and try and answer this thing and trying to put some processes in place and indeed the systems to support them that allow you to be a bit more reactive and get more people proactively looking at the data and insight that it gives you.
+[08:06] Yeah, it feels like a lot of people that we speak to are constantly stuck in like, you know, catch up mode, if you like, you know, that they're doing things retroactively and they're rushing to get things done at the last minute just because there's so much complexity and so much volume.
+[08:20] Yeah, look, there is, you know, a lot of complexity, but there's also a lot of sophistication.
+[08:24] People are investing into these platforms and that really will vary depending on how far they are in their own process.
+[08:33] I think that actually being comfortable as well, that there's always going to be a reactive part.
+[08:43] You know, we're not going to be able to answer every single question.
+[08:45] And as part of this process is to set out a prioritization, making sure that we're really clear on what are the priorities because we can't do everything.
+[08:56] And, you know, no business in the world has a super streamlined operation where they're never, ever reactive.
+[09:02] That's just, that's just not, not real.
+[09:06] You know, we have to understand that we do live in a real world here and we are going to have constraints.
+[09:11] We are going to have kind of changing variables.
+[09:13] And I think any system or process that we design has to allow for that too.
+[09:19] Yeah.
+[09:19] I mean, like any market, music certainly has its nuances and we see that there's a lot of lags in reporting or, you know, things like that, which is pretty unique to this market.
+[09:29] So it's just kind of how do you incorporate all of that?
+[09:32] Yeah, absolutely.
+[09:34] And again, kind of there are invariably going to be many, many capabilities that you would like to achieve, but typically you can't have them all.
+[09:44] Yes, if you had unlimited time and unlimited budget, you probably can, but then you also have diminishing returns of value being given back to the business from that investment.
+[09:54] So we have to be sensible and actually the best thing that we can do is kind of fight harder at the beginning to really challenge.
+[10:03] Do we actually need that capability?
+[10:06] Do we actually need to invest in that approach?
+[10:09] And really whittling it down to, okay, well, these are the things that we think are critical.
+[10:15] Let's get after them first.
+[10:16] And then, by the way, the context and the environment that we operate in might well have changed in six months time.
+[10:22] So let's reevaluate again.
+[10:24] We've done all of the prep.
+[10:25] We've understood the, you know, the long list of things that we'd like to do.
+[10:29] Are they still valid?
+[10:31] Are they in the right order?
+[10:33] Where do we move on to next?
+[10:34] Right.
+[10:36] So you've kind of got that foundation of you understand where you are now, you understand where you want to get to, and then it's about, you know, getting that plan in place.
+[10:46] Yeah, that's right.
+[10:47] Bridging the gap between the two.
+[10:48] And I think the biggest initial, not barrier, but variable that we have to consider is budget.
+[10:56] And the second one is time.
+[10:57] You know, almost anything is achievable within the laws of physics with unlimited budget and unlimited time, but nobody has those things.
+[11:09] We all have budget constraints.
+[11:10] We all have time constraints.
+[11:11] And if that plan, so that all of those desires that we want to achieve aren't realistic in a budget that we've set out or the timeframe that we've set out, then we need to reevaluate.
+[11:27] We've either got to go and create a business plan to raise more budget to be able to deliver those things, or we have to just refine what is realistic based on the budget that we have.
+[11:38] So it is a bit of a, it can be a bit of a cyclical process and we do have to challenge it.
+[11:44] But I think if we've, you know, got that list of prioritized capabilities in place, that helps us to trim off the bottom and say, okay, well, if we do nothing else, we're doing this thing.
+[11:56] And that's where we're going to spend all our budget.
+[11:58] And that's going to give us, you know, X, Y, and Z value back to the business.
+[12:02] So let's talk about, Tom, how you go about making some of those decisions in terms of the technology and data infrastructure that you want to invest in, because we know it's super overwhelming.
+[12:13] Like one of the things I think that stops people from moving forward is this is there's so much you could do.
+[12:18] And just getting a clear idea of, you know, where, what the right path is for you is really important.
+[12:22] Yeah, absolutely.
+[12:24] So I think, you know, once you've established that budget and once you understand, okay, well, we've got a clear idea of the things that we're going to go after.
+[12:33] Then you've got some more practical choices to make.
+[12:37] So I think the first one, as you said, is understanding what technology we're going to use.
+[12:42] So if we're going to do some building in-house, how are we actually going to do that?
+[12:46] Usually we'd start out by looking at the kind of the two polarizing strategies, which we typically see live on a bit of a continuum are buy versus build, or as we like to put it, own versus rent.
+[13:02] I think we live in a world where the technology is so advanced now that buying nothing is just a silly thing to do.
+[13:09] Like we're always going to be buying some technology because there's so much great technology out there and we should absolutely benefit from it.
+[13:17] We shouldn't be rebuilding the wheel or anything like that.
+[13:21] So where do we lie on that continuum?
+[13:24] And to help us understand where we lie on that continuum, I think budget's definitely a factor.
+[13:29] If we've got a relatively small OPEX budget, we're not going to be investing in teams of engineers who are going to go and build platforms for us to do everything we need.
+[13:40] We're going to have to lean a little bit more into where we can use other platforms and potentially stitch them together so we don't end up with siloed data and siloed processes.
+[13:49] If we've got a bit of a bigger budget and we're interested in really using technology to differentiate ourselves, then we're looking at the build end or the own end of the spectrum.
+[14:02] And I think to help with that decision, we'd typically go through and break down what we think is strategic versus what we think is relatively commoditized.
+[14:13] There's loads of processes in any business and in the funds that we work with that are just commoditized.
+[14:21] There's no value in building things to go and solve those.
+[14:24] If there's something that exists already, go and use it.
+[14:28] For those things that we think are really differentiated and are going to set us apart from the competition and help us achieve those higher level objectives,
+[14:35] they're really ripe for actually going and building a solution where we can say, hey, look, we've invested in this approach.
+[14:44] It's clearly delivered value and it then becomes a very, very positive thing to have when you're going into the next discussions,
+[14:53] either to move the fund on, to refinance or to raise the following fund.
+[14:58] Yeah, it feels like that timeline is very important because this is a long-term asset that you're dealing with.
+[15:04] But then equally, you do have these sort of five, six-year cycles, right, of investment.
+[15:10] So it's just interesting to kind of keep that in mind.
+[15:13] And I think like the speed to value is super important here as well.
+[15:17] Oh, totally.
+[15:18] So, you know, once we've got through that technology decision, then we're into the project planning.
+[15:24] How quickly do we need this project to deliver value back to us?
+[15:28] And where does that sit within our fund lifecycle?
+[15:31] If we're in year four out of five, then probably not a great idea to invest a whole bunch of OPEX into a platform that won't show any value until maybe years six or seven.
+[15:43] Whereas if you're at the beginning, then it's much, much more realistic.
+[15:47] We can actually look at, okay, well, we're going to invest some either CAPEX and OPEX now.
+[15:53] Well, we're going to create these platforms.
+[15:56] We're going to prove out that they actually allow us to scale more efficiently and set us out from the competition.
+[16:03] And we're going to have two years of operation before we get through the trading, the fund or refinancing.
+[16:09] And that's a very positive approach.
+[16:11] You know, that's really beneficial.
+[16:13] And the type of thing that I think investors look at positively and can be differentiated when, you know, if you've got a like-for-like fund who trades in very similar asset types, people look for differentiation.
+[16:29] And equally, you know, starting small and building upon that is also something that's a really viable option for a lot of these funds.
+[16:38] Totally critical.
+[16:39] In any project, I think gone are the days really now that the way technology is designed and particularly the way technology consumption is configured.
+[16:48] You want to really start showing value early.
+[16:52] You want to structure your project so you can actually get some value out the door to create some momentum, to create continued motivation and confidence in the people who are doing it, confidence in the team who are out there delivering it, and confidence in the people who have raised the money or are investing in a particular project.
+[17:11] Actually showing back to those stakeholders, hey, here's our plan.
+[17:16] This is how we're operating.
+[17:17] We're showing progress.
+[17:19] We're giving value back.
+[17:20] And we're not having to wait until year two, three, four to see any return.
+[17:25] It's kind of almost immediate.
+[17:29] And that can be easier said than done, but it's just about planning and, you know, making sure that we don't get over our skis in terms of what we can commit to in those first critical.
+[17:41] Three to six months, really.
+[17:44] So, Tom, that all sounds like a very sensible approach, but also keeping in mind that, you know, a lot of these companies that we're talking about, they may not have the team in place to be able to run these projects or, you know, to think about this on a long term basis.
+[17:56] So can we get into, you know, just how that impacts what we're looking at?
+[18:01] Yeah, absolutely.
+[18:02] I mean, people are so critical to any project like this.
+[18:06] And indeed, they're so critical to any of the four drivers.
+[18:09] Without them, we simply won't be going anywhere.
+[18:13] So making sure that we have the right skills, the right size and shape of those skills, and that we've planned that out as well is really important.
+[18:24] So typically we'd first understand who's in the team right now.
+[18:30] What skills do they have?
+[18:32] How applicable are they?
+[18:33] Can they be upskilled?
+[18:34] Are there any opportunities for them to give them good career progression, keep them involved in exciting projects?
+[18:40] And from there, then we'll have a look at, okay, well, what are the skills that we're missing and how we're going to go and get them?
+[18:46] And at what stage during any project that we would actually go and get them?
+[18:51] Again, you know, we typically see that the build phase of any project requires much, much more manpower.
+[18:57] Whereas once we've handed it back to the operation and it's more in BAU or maintenance mode, you're going to need significantly less people to actually operate the thing.
+[19:08] So looking at, okay, how quickly do we want this project to be completed?
+[19:13] How does that align with our investment cycle?
+[19:15] Are we going to scale up in the short term to make progress quickly with a view that then we're going to tail off after that and have a couple of internal people who will manage it on an ongoing basis?
+[19:30] That's quite a typical model.
+[19:32] But again, it really varies depending on the current context of the business that's looking at this.
+[19:40] But it's a super important factor.
+[19:43] Yeah, especially taking that long-term approach, right?
+[19:45] It's like you can build this nice shiny new thing or buy whatever the approach is.
+[19:49] But then if there's no one there to keep it running and keep it sustainable, then it's just going to sort of fall off a cliff at some point.
+[19:55] Yeah, absolutely.
+[19:56] I guess as we saw Rafi in the background, just that dogs are not for Christmas and neither are software.
+[20:04] You can't just build one of these platforms and stick it in the corner and hope it runs happily ever after.
+[20:10] It just doesn't.
+[20:11] They have a half-life.
+[20:13] They do decay as well.
+[20:15] And you've got to look after them.
+[20:18] So you've got to bear that into mind.
+[20:20] I think one of the things that's often missed is ongoing support and maintenance.
+[20:27] Invariably, you want people who are actively improving any platform because the business will have more requirements.
+[20:33] But also, there'll be other parts that just need ongoing looking after.
+[20:38] That might be data insecurity.
+[20:40] It might be bug fixing and patching and things like that.
+[20:43] It could be, if it's mission critical, a broader support engagement because standing up an internal support team to do anything other than business hours support can be very difficult and quite specialist.
+[20:56] So you just have to think about those things ahead of time.
+[21:00] You just have to plan for them and make sure that when you get to the end of the project, they're not a big shock.
+[21:06] I mean, we've certainly been involved in projects before where this has happened.
+[21:09] They've raised all of the capital to go and do the capex.
+[21:13] And once the platform's built, they don't have any OPEX to actually run the thing.
+[21:19] And then quite quickly, the value degrades and the business case starts to slip away from them.
+[21:25] And that's a real shame because it needn't, you know, the software is doing a really great job.
+[21:29] It's just the business and the environment's moving and it needs to keep up.
+[21:34] But it's significantly less effort to, like, make that gap.
+[21:38] But you have to do it.
+[21:41] So thanks, Tom.
+[21:41] There's a lot to consider there.
+[21:42] Do you want to just do a quick recap, just kind of go over those key points that we discussed?
+[21:48] Yeah, I mean, you're absolutely right.
+[21:49] There's a lot in there.
+[21:51] And each of those component parts of the process can be quite complex.
+[21:56] But really, in any project that we would approach and what we'd recommend for other people to do too,
+[22:02] when they're embarking on these types of projects, is to just be guided by these three clear steps,
+[22:08] which are get a really good understanding of where you are now,
+[22:11] make sure that's honest and make sure you've taken all of the stakeholders into consideration,
+[22:15] because people will have different points of view.
+[22:18] Don't forget to consider things that you need to do, regulatory requirements or reporting to other stakeholders
+[22:26] that you just have to do to keep the lights on in the business.
+[22:30] Then from there, try and create a stack ranked list of future capabilities with some quantitative understanding of value assigned to each of those.
+[22:43] And again, make sure you're asking all of the various stakeholders, because different people, of course, will want different things.
+[22:50] Have a budget check.
+[22:51] Make sure that the amount of capital that you're willing to commit to this project actually aligns with those capabilities.
+[22:59] If you're looking to send a rocket to the moon and you've got a £2.50 budget, that's going to change what your rocket looks like.
+[23:09] And then the final part is, you know, making a plan, like having a good understanding of technology that you're going to use,
+[23:16] where you live on that buy versus build continuum, and of course, making sure that you have a sensible structure for the team who are going to deliver it.
+[23:28] I think once you bring all of those bits together, you can have a really sensible business plan,
+[23:34] which will give you an understanding of how long the project is going to run for, how much it's going to cost,
+[23:40] and a rough understanding of the value that it's going to accrete over time.
+[23:43] And then rubber hits the road and you can get into it.
+[23:48] Try and start small, show some value, build momentum, build confidence, move forwards.
+[23:54] Yeah, thanks, Tom.
+[23:56] That was a really super helpful wrap up.
+[23:58] And I think that's probably all we've got time for today.
+[24:01] But we will definitely be going into this topic in more detail in future episodes.
+[24:06] And we will also be covering more on those other drivers, which are financial, legal and operational.
+[24:13] So definitely stay tuned for some of those episodes.
+[24:17] And as always, thank you so much for joining us.
+[24:20] Please subscribe wherever you listen to this, Spotify, YouTube, Apple, whatever it is.
+[24:25] And you can also subscribe to our newsletter at standard hyphen innovation to get more regular updates from us.
+[24:31] Thanks for tuning in.
+[24:33] Amazing. Thanks, Anna. Thanks, everybody.
+[24:35] Bye.
+[24:42] Bye.
+[24:43] Bye.
+[24:44] Bye.
+[24:45] Bye.
+[24:45] Bye.
+[24:46] Bye.
+[24:46] Bye.
+[24:47] Bye.
+[24:47] Bye.
+[24:47] Bye.
+[24:48] Bye.
+[24:48] Bye.
+[24:48] Bye.
+[24:48] Bye.
+[24:49] Bye.
+[24:49] Bye.
+[24:49] Bye.
+[24:49] Bye.
+[24:49] Bye.
+[24:50] Bye.
+[24:50] Bye.
+[24:50] Bye.
+[24:51] Bye.
+[24:51] Bye.
+[24:51] Bye.
+[24:51] Bye.
+[24:52] Bye.
+[24:52] Bye.
+[24:53] Bye.
+[24:53] Bye.
+[24:53] Bye.
+[24:53] Bye.
+[24:54] Bye.
+[24:54] Bye.
+[24:54] Bye.
+[24:55] Bye.
+[24:55] Bye.
+[24:55] Bye.
+[24:56] Bye.
+[24:56] Bye.
+[24:57] Bye.
+[24:57] Bye.
+[24:58] Bye.
+[24:58] Bye.
+[24:59] Bye.
+[25:00] Bye.
+[25:00] Bye.
+[25:01] Bye.
+[25:01] Bye.
+[25:02] Bye.
+[25:02] Bye.
+[25:03] Bye.

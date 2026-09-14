@@ -6,6 +6,11 @@ const nextConfig: NextConfig = {
   env: { NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV ?? "development" },
   images: { remotePatterns: [{ protocol: "https", hostname: "i.scdn.co", pathname: "/image/**" }] },
   outputFileTracingIncludes: {
+    // Original media is served from Blob; only legacy editor code is bundled.
+    "/brand/\\[\\.\\.\\.asset\\]": [
+      "./brand-studio/*.{html,css,js,mjs,json,md}",
+      "./brand-studio/assets/**/*.{html,css,js,mjs}",
+    ],
     "/docs/spec/*": ["./content/docs/source/api-reference/openapi/*.json"],
     "/docs/raw/*": ["./content/docs/source/api-reference/openapi/*.json"],
     "/agent-api/v1/*": ["./content/docs/source/api-reference/openapi/*.json"],

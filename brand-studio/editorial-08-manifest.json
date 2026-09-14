@@ -1,0 +1,440 @@
+[
+  {
+    "title": "Opening possibilities",
+    "sampleTitle": "Choose your first AI project",
+    "description": "Two lightly hinged planes and a line passing through them suggest opening a new possibility, with the blue field left mostly uninterrupted.",
+    "palette": "#0168C4",
+    "colors": [
+      "#0168C4",
+      "#F6F6EC",
+      "#132B26"
+    ],
+    "prompt": "Use case: illustration-story.\nCreate ONE original wide 16:9 editorial illustration, high resolution, not a webpage, mockup or card. The supplied screenshot is a STYLE AND SCALE reference only: notice its small crafted conceptual drawings, very thin lightly irregular ink line and large uninterrupted flat color fields. Do not reproduce any existing icon, hand arrangement, screenshot layout, typography, card borders, UI or article text. Draw the new subject described below.\nComposition system: a SMALL centered conceptual illustration occupying about 26 percent of canvas width and 30 percent of canvas height. Keep the entire drawing inside the central region. The rest is empty space: at least 80\u201390 percent uninterrupted flat single-color field. No decorative corner marks, baseline, surrounding scatter or extraneous patterns. Slight asymmetry within the tiny drawing gives life.\nDrawing voice: delicate confident editorial pen line, lightly irregular but precise, around 1.5\u20132 pixels thick at 1200px image width (roughly 2\u20133px at 1672px), NOT thick cartoon outline or UI icon. Use very few lines and only one or two small solid shapes. A considered handmade drawing with large spaces between its strokes. Absolutely flat opaque fills, no shading or depth rendering.\nSTRICT: no embedded text, letters, numbers, logos, watermark, captions, photos, 3D, shadows, highlights, gradient, glow, grain, fabric texture or paper texture across the background. No musical gear, documents, magnifying glasses, checkmarks, robot, brain or arrows. No heavy outlines. No background object or framed illustration panel. Background must be a perfectly uniform solid hex color corner-to-corner.\nBackground: a perfectly FLAT uniform hero blue #0565BB covering the entire landscape canvas.\nInk: fine deep-forest #132B26. Solid fills: warm off-white #F6F6EC.\nNew original subject: a tiny open hinged structure made of TWO simple off-white planes, slightly splayed around a delicate shared hinge. They are abstract planes, not a book, document, door icon or architectural rendering. No perspective shading; their opening is communicated just by gentle angular outlines and two flat ivory shapes. One very fine curving forest line passes through the opening and continues a short distance on either side, a simple loose curve with no arrowhead. Arrange the structure close to center, a touch right, and keep the whole drawing small, approximately 26 percent width by 30 percent height. It should feel like an original, spare editorial ink sketch on an enormous calm field of blue.",
+    "id": "editorial08-i01",
+    "category": "editorial-08",
+    "family": "illustration",
+    "status": "proposed",
+    "typography": "Image-led; DM Sans title below",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_oiZr1L/Screenshot 2026-09-11 at 8.35.43\u202fPM.png"
+    ],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-7f3c6724-3c01-4645-b1a5-17fa40a6ec1f.png",
+    "width": 1672,
+    "height": 941,
+    "backgroundSample": "#0168C4",
+    "dominantColorFraction": 0.2464,
+    "preview": "assets/editorial-08/illustration-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-01.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-01.txt"
+      }
+    ],
+    "nearBackgroundFraction": 0.971,
+    "backgroundTolerancePerChannel": 12,
+    "requestedPalette": "#0565BB",
+    "requestedColors": [
+      "#0565BB",
+      "#F6F6EC",
+      "#132B26"
+    ],
+    "paletteName": "Blue",
+    "sha256": "82123f6920bad1911a765d2e7155552e84e408596e94ec8254f2cef7f2f7335b"
+  },
+  {
+    "id": "editorial08-p01",
+    "title": "Nested contours",
+    "sampleTitle": "Choose your first AI project",
+    "description": "A blue field carries a light white headline, with spare forest and ice-blue contour arcs tucked into the lower-right corner.",
+    "category": "editorial-08",
+    "family": "pattern",
+    "palette": {
+      "background": "#0565BB",
+      "text": "#FFFFFF",
+      "accents": [
+        "#132B26",
+        "#C2EDFF"
+      ]
+    },
+    "preview": "assets/editorial-08/pattern-01.png",
+    "prompt": "Use case: ads-marketing.\nCreate ONE finished flat editorial blog-cover image, 16:9 landscape PNG, about 1672\u00d7941. This is a consistent five-cover brand series.\nReference image role: use the provided screenshot ONLY to understand the quiet typography, dominant unbroken solid color, and small secondary abstract patterns of its thumbnail system. Do not copy any logo, exact pattern, wording, UI, cards, border, captions or screenshot layout. Produce a single original full-bleed cover.\nSYSTEM RULES: 80\u201390% of the image is one uninterrupted absolutely FLAT solid color. No texture, grain, noise, gradients, lighting, shadows, paper, photographic material, glass, 3D, scene or objects. A sparse precise original abstract pattern occupies no more than the lower/right 20% and remains secondary. All other space is simply the dominant color.\nTYPOGRAPHY: one quiet consistent DM Sans-like humanist Swiss sans-serif, regular/light 450 weight, never bold or condensed, close natural tracking. Left-aligned sentence case. Base font size roughly 64px at a 1600px-wide canvas (around 67px at 1672); do NOT enlarge the short title to fill space. Start at x=7% and y=10%. Comfortable line height about 1.16. Preserve the exact specified two-line break. Headline may use at most 70% width, leaving lots of space below. No oversized heavy geometric letters.\nNo additional text, labels, numbers, logos or marks. No illustration icons, arrows, documents, checkmarks, people, musicians, music gear or cartoons. Crisp precise flat graphic design.\nCOVER 01: dominant background is uniform Recoup hero blue #0565BB from edge to edge. Headline is clean white #FFFFFF.\nEXACT HEADLINE, two lines:\nChoose your first\nAI project.\nSECONDARY PATTERN: in the LOWER-RIGHT only, about x=76\u2013100% and y=65\u2013100%, a small open set of nested contour arcs, spare gently offset curves in deep forest #132B26 and pale ice blue #C2EDFF. Just several thin lines, not a dense wireframe. Curves may be cropped by the right and lower edge. Original nonliteral geometry, no arrows, no emblem, no enclosing circle. The unbroken blue field remains dominant and the white headline is the primary focus.",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-af959773-a684-4d3e-b67f-9e6301d5ddfe.png",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_rJ5dll/Screenshot 2026-09-11 at 8.37.06\u202fPM.png"
+    ],
+    "typography": "DM Sans-style regular, left aligned",
+    "headline": "Choose your first\nAI project.",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/pattern-01.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-08/pattern-01.txt"
+      }
+    ],
+    "paletteName": "Blue",
+    "sha256": "1f4246d125a758762a8bfe1874c18cb8bfbaa2472d99ffd7d1939c4db1d70572",
+    "generator": "image_gen (built-in)"
+  },
+  {
+    "title": "Knowledge held together",
+    "sampleTitle": "Connect your company\u2019s knowledge",
+    "description": "A loose thread draws three small fragments into a woven junction, showing separate knowledge becoming connected.",
+    "palette": "#142F29",
+    "colors": [
+      "#142F29",
+      "#F6F6EC",
+      "#D6FF62"
+    ],
+    "prompt": "Use case: illustration-story.\nCreate ONE original wide 16:9 editorial illustration, high resolution, not a webpage, mockup or card. The supplied screenshot is a STYLE AND SCALE reference only: notice its small crafted conceptual drawings, very thin lightly irregular ink line and large uninterrupted flat color fields. Do not reproduce any existing icon, hand arrangement, screenshot layout, typography, card borders, UI or article text. Draw the new subject described below.\nComposition system: a SMALL centered conceptual illustration occupying about 26 percent of canvas width and 30 percent of canvas height. Keep the entire drawing inside the central region. The rest is empty space: at least 80\u201390 percent uninterrupted flat single-color field. No decorative corner marks, baseline, surrounding scatter or extraneous patterns. Slight asymmetry within the tiny drawing gives life.\nDrawing voice: delicate confident editorial pen line, lightly irregular but precise, around 1.5\u20132 pixels thick at 1200px image width (roughly 2\u20133px at 1672px), NOT thick cartoon outline or UI icon. Use very few lines and only one or two small solid shapes. A considered handmade drawing with large spaces between its strokes. Absolutely flat opaque fills, no shading or depth rendering.\nSTRICT: no embedded text, letters, numbers, logos, watermark, captions, photos, 3D, shadows, highlights, gradient, glow, grain, fabric texture or paper texture across the background. No musical gear, documents, magnifying glasses, checkmarks, robot, brain or arrows. No heavy outlines. No background object or framed illustration panel. Background must be a perfectly uniform solid hex color corner-to-corner.\nBackground: perfectly FLAT uniform deep forest #132B26.\nInk: delicate ivory #F6F6EC. Solid accent: one restrained lime #D6FF62 shape at the junction.\nNew original subject: a loosely looped thin ivory thread gathers THREE small ivory fragments into one coherent woven junction. Keep each fragment extremely small and mostly outlined with a short ivory stroke, abstract and irregular rather than paper/document icons. The loose looping thread makes only a few graceful crossings as it arrives at one compact lime-supported woven junction. This is a spare visual metaphor for dispersed knowledge being held together, no network nodes, labels, arrows, symbols or complex tangle. The small complete drawing occupies about a quarter of the canvas width and less than a third of its height, centered with a slight leftward bias. Large flat forest space remains on all sides.",
+    "id": "editorial08-i02",
+    "category": "editorial-08",
+    "family": "illustration",
+    "status": "proposed",
+    "typography": "Image-led; DM Sans title below",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_oiZr1L/Screenshot 2026-09-11 at 8.35.43\u202fPM.png"
+    ],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-4febbeab-e033-419a-9c8a-5deeabd6abd4.png",
+    "width": 1672,
+    "height": 940,
+    "backgroundSample": "#142F29",
+    "dominantColorFraction": 0.2636,
+    "preview": "assets/editorial-08/illustration-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-02.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-02.txt"
+      }
+    ],
+    "nearBackgroundFraction": 0.9955,
+    "backgroundTolerancePerChannel": 12,
+    "requestedPalette": "#132B26",
+    "requestedColors": [
+      "#132B26",
+      "#F6F6EC",
+      "#D6FF62"
+    ],
+    "paletteName": "Forest",
+    "sha256": "b0397e8f9692692c40ae8f6937f3675efb65684ead17c90f9d7c02a7ce74cb93"
+  },
+  {
+    "id": "editorial08-p02",
+    "title": "Converging lines",
+    "headline": "Connect your\ncompany\u2019s knowledge.",
+    "description": "A lime headline on deep forest is balanced by a small set of pale-ice lines converging beyond the lower-right edge.",
+    "palette": {
+      "background": "#132B26",
+      "text": "#D6FF62",
+      "accents": [
+        "#C2EDFF"
+      ]
+    },
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-beb7a64f-9564-4109-ad61-9ab2d659ef8d.png",
+    "sampleTitle": "Connect your company\u2019s knowledge",
+    "category": "editorial-08",
+    "family": "pattern",
+    "preview": "assets/editorial-08/pattern-02.png",
+    "prompt": "Use case: ads-marketing.\nCreate ONE finished flat editorial blog-cover image, 16:9 landscape PNG, about 1672\u00d7941. This is a consistent five-cover brand series.\nReference image role: use the provided screenshot ONLY to understand the quiet typography, dominant unbroken solid color, and small secondary abstract patterns of its thumbnail system. Do not copy any logo, exact pattern, wording, UI, cards, border, captions or screenshot layout. Produce a single original full-bleed cover.\nSYSTEM RULES: 80\u201390% of the image is one uninterrupted absolutely FLAT solid color. No texture, grain, noise, gradients, lighting, shadows, paper, photographic material, glass, 3D, scene or objects. A sparse precise original abstract pattern occupies no more than the lower/right 20% and remains secondary. All other space is simply the dominant color.\nTYPOGRAPHY: one quiet consistent DM Sans-like humanist Swiss sans-serif, regular/light 450 weight, never bold or condensed, close natural tracking. Left-aligned sentence case. Base font size roughly 64px at a 1600px-wide canvas (around 67px at 1672); do NOT enlarge the short title to fill space. Start at x=7% and y=10%. Comfortable line height about 1.16. Preserve the exact specified two-line break. Headline may use at most 70% width, leaving lots of space below. No oversized heavy geometric letters.\nNo additional text, labels, numbers, logos or marks. No illustration icons, arrows, documents, checkmarks, people, musicians, music gear or cartoons. Crisp precise flat graphic design.\nADDITIONAL REFERENCE ROLE: the second reference is the first cover in THIS series. Match its precise light regular typography voice, title placement, two-line spacing and overall sense of scale. Keep the same type treatment; change only the specified wording, colors and secondary corner pattern. Background must be a pure uninterrupted color, with absolutely no mottling or photographic texture.\nCOVER 02: background is flat uninterrupted deep forest #132B26. Headline is vivid lime #D6FF62, the bright headline provides the color contrast.\nEXACT HEADLINE, two lines:\nConnect your\ncompany\u2019s knowledge.\nThe apostrophe in company\u2019s must be present. Preserve sentence case and the final period. Regular light font and same placement/voice as the first series reference; do not switch to bold for the long words.\nSECONDARY PATTERN: only in the lower-right corner (last 25% width, bottom 30% height), five or six pale-ice #C2EDFF fine gracefully curved converging lines with small spaced elegant endpoint dots. An original asymmetric geometry with long smooth curves and deliberate gaps, not a branching tree icon and not the exact fan in the reference screenshot. Lines exit toward a convergence just beyond the bottom-right edge. No arrows or labels. The pattern occupies less than 15% of total canvas; 80\u201390% remains a quiet flat forest field.",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_rJ5dll/Screenshot 2026-09-11 at 8.37.06\u202fPM.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-01.png"
+    ],
+    "typography": "DM Sans-style regular, left aligned",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/pattern-02.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-08/pattern-02.txt"
+      }
+    ],
+    "paletteName": "Forest",
+    "sha256": "f7d037728a8718ef48ceff9cce4439fd2010c827fe5765c24da6c81c8f1df0c9",
+    "generator": "image_gen (built-in)"
+  },
+  {
+    "title": "A supported span",
+    "sampleTitle": "Build systems your team can trust",
+    "description": "A small graceful arch and quiet line braces express support without turning the image into a technical diagram.",
+    "palette": "#C0ECFD",
+    "colors": [
+      "#C0ECFD",
+      "#132B26",
+      "#FFFFFF"
+    ],
+    "prompt": "Use case: illustration-story.\nCreate ONE original wide 16:9 editorial illustration, high resolution, not a webpage, mockup or card. The supplied screenshot is a STYLE AND SCALE reference only: notice its small crafted conceptual drawings, very thin lightly irregular ink line and large uninterrupted flat color fields. Do not reproduce any existing icon, hand arrangement, screenshot layout, typography, card borders, UI or article text. Draw the new subject described below.\nComposition system: a SMALL centered conceptual illustration occupying about 26 percent of canvas width and 30 percent of canvas height. Keep the entire drawing inside the central region. The rest is empty space: at least 80\u201390 percent uninterrupted flat single-color field. No decorative corner marks, baseline, surrounding scatter or extraneous patterns. Slight asymmetry within the tiny drawing gives life.\nDrawing voice: delicate confident editorial pen line, lightly irregular but precise, around 1.5\u20132 pixels thick at 1200px image width (roughly 2\u20133px at 1672px), NOT thick cartoon outline or UI icon. Use very few lines and only one or two small solid shapes. A considered handmade drawing with large spaces between its strokes. Absolutely flat opaque fills, no shading or depth rendering.\nSTRICT: no embedded text, letters, numbers, logos, watermark, captions, photos, 3D, shadows, highlights, gradient, glow, grain, fabric texture or paper texture across the background. No musical gear, documents, magnifying glasses, checkmarks, robot, brain or arrows. No heavy outlines. No background object or framed illustration panel. Background must be a perfectly uniform solid hex color corner-to-corner.\nBackground: perfectly FLAT uniform pale ice blue #C2EDFF.\nInk: fine deep forest #132B26. One solid off-white / white #FFFFFF keystone.\nNew original subject: one SMALL graceful arch drawn with a handful of delicate forest pen strokes, a light open span with slender line braces and one modest solid off-white keystone at the crown. It should be abstractly architectural, not a literal photoreal bridge, chart, UI icon or 3D object. Use simple airy linework, uneven confident pen curves, thin braces that visually hold the small arch, no masonry detail and no heavy outline. No floor line or cast shadow. Keep this complete tiny concept centered on the pale blue field, about 26 percent of image width and 30 percent of height, with slightly asymmetric bracing and generous empty space.",
+    "id": "editorial08-i03",
+    "category": "editorial-08",
+    "family": "illustration",
+    "status": "proposed",
+    "typography": "Image-led; DM Sans title below",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_oiZr1L/Screenshot 2026-09-11 at 8.35.43\u202fPM.png"
+    ],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-66d4157e-fe03-40b9-ac38-aca7ab3ade43.png",
+    "width": 1672,
+    "height": 941,
+    "backgroundSample": "#C0ECFD",
+    "dominantColorFraction": 0.212,
+    "preview": "assets/editorial-08/illustration-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-03.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-03.txt"
+      }
+    ],
+    "nearBackgroundFraction": 0.9939,
+    "backgroundTolerancePerChannel": 12,
+    "requestedPalette": "#C2EDFF",
+    "requestedColors": [
+      "#C2EDFF",
+      "#132B26",
+      "#FFFFFF"
+    ],
+    "paletteName": "Pale blue",
+    "sha256": "f5121751de82beedfe92eebd4a77af996462f3113aeef9657ce24895f9b86765"
+  },
+  {
+    "id": "editorial08-p03",
+    "title": "Bending dot lattice",
+    "headline": "Build systems\nyour team can trust.",
+    "description": "A forest headline sits on a quiet ice-blue field, with a sparse curved dot lattice restricted to the right edge.",
+    "palette": {
+      "background": "#C2EDFF",
+      "text": "#132B26",
+      "accents": [
+        "#132B26"
+      ]
+    },
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-75e4a6f3-2cf4-4be4-acd1-f1f59c8b88c3.png",
+    "sampleTitle": "Build systems your team can trust",
+    "category": "editorial-08",
+    "family": "pattern",
+    "preview": "assets/editorial-08/pattern-03.png",
+    "prompt": "Use case: ads-marketing.\nCreate ONE finished flat editorial blog-cover image, 16:9 landscape PNG, about 1672\u00d7941. This is a consistent five-cover brand series.\nReference image role: use the provided screenshot ONLY to understand the quiet typography, dominant unbroken solid color, and small secondary abstract patterns of its thumbnail system. Do not copy any logo, exact pattern, wording, UI, cards, border, captions or screenshot layout. Produce a single original full-bleed cover.\nSYSTEM RULES: 80\u201390% of the image is one uninterrupted absolutely FLAT solid color. No texture, grain, noise, gradients, lighting, shadows, paper, photographic material, glass, 3D, scene or objects. A sparse precise original abstract pattern occupies no more than the lower/right 20% and remains secondary. All other space is simply the dominant color.\nTYPOGRAPHY: one quiet consistent DM Sans-like humanist Swiss sans-serif, regular/light 450 weight, never bold or condensed, close natural tracking. Left-aligned sentence case. Base font size roughly 64px at a 1600px-wide canvas (around 67px at 1672); do NOT enlarge the short title to fill space. Start at x=7% and y=10%. Comfortable line height about 1.16. Preserve the exact specified two-line break. Headline may use at most 70% width, leaving lots of space below. No oversized heavy geometric letters.\nNo additional text, labels, numbers, logos or marks. No illustration icons, arrows, documents, checkmarks, people, musicians, music gear or cartoons. Crisp precise flat graphic design.\nADDITIONAL REFERENCE ROLE: the second reference is the first cover in THIS series. Match its precise light regular typography voice, title placement, two-line spacing and overall sense of scale. Keep the same type treatment; change only the specified wording, colors and secondary corner pattern. Background must be a pure uninterrupted color, with absolutely no mottling or photographic texture.\nCOVER 03: background is flat uninterrupted pale ice blue #C2EDFF. Headline is deep forest #132B26.\nEXACT HEADLINE, two lines:\nBuild systems\nyour team can trust.\nRegular light font and same placement/voice as the first series reference.\nSECONDARY PATTERN: a small precise deep-forest rhythmic dot lattice bends around the TOP-RIGHT and down the RIGHT edge. Confine every dot to the last 22% of canvas width, leaving all headline space clear. Tiny evenly sized round dots form elegantly spaced rows that gently arc and progressively taper, like a mathematical rhythm rather than a visible object. Only about 8 to 12 rows, do not fill a huge dense mesh. No graphic under the left headline. Absolutely no words or symbols inside the lattice. The abstract edge pattern occupies at most 15% of the canvas and remains secondary to the type, with 80\u201390% pale ice clear.",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_rJ5dll/Screenshot 2026-09-11 at 8.37.06\u202fPM.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-01.png"
+    ],
+    "typography": "DM Sans-style regular, left aligned",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/pattern-03.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-08/pattern-03.txt"
+      }
+    ],
+    "paletteName": "Pale blue",
+    "sha256": "0e55f8b0ac27f35a39aa3e570498e7567f90c62e8b0ac1319bdc3e68eae315e2",
+    "generator": "image_gen (built-in)"
+  },
+  {
+    "title": "Careful human adjustment",
+    "sampleTitle": "Keep people in the review",
+    "description": "Two spare line-drawn hands adjust a single elliptical form, placing human judgment at the center of the composition.",
+    "palette": "#FEFEFE",
+    "colors": [
+      "#FEFEFE",
+      "#132B26",
+      "#F6F6EC",
+      "#0565BB"
+    ],
+    "prompt": "Use case: illustration-story.\nCreate ONE original wide 16:9 editorial illustration, high resolution, not a webpage, mockup or card. The supplied screenshot is a STYLE AND SCALE reference only: notice its small crafted conceptual drawings, very thin lightly irregular ink line and large uninterrupted flat color fields. Do not reproduce any existing icon, hand arrangement, screenshot layout, typography, card borders, UI or article text. Draw the new subject described below.\nComposition system: a SMALL centered conceptual illustration occupying about 26 percent of canvas width and 30 percent of canvas height. Keep the entire drawing inside the central region. The rest is empty space: at least 80\u201390 percent uninterrupted flat single-color field. No decorative corner marks, baseline, surrounding scatter or extraneous patterns. Slight asymmetry within the tiny drawing gives life.\nDrawing voice: delicate confident editorial pen line, lightly irregular but precise, around 1.5\u20132 pixels thick at 1200px image width (roughly 2\u20133px at 1672px), NOT thick cartoon outline or UI icon. Use very few lines and only one or two small solid shapes. A considered handmade drawing with large spaces between its strokes. Absolutely flat opaque fills, no shading or depth rendering.\nSTRICT: no embedded text, letters, numbers, logos, watermark, captions, photos, 3D, shadows, highlights, gradient, glow, grain, fabric texture or paper texture across the background. No musical gear, documents, magnifying glasses, checkmarks, robot, brain or arrows. No heavy outlines. No background object or framed illustration panel. Background must be a perfectly uniform solid hex color corner-to-corner.\nBackground: perfectly FLAT uniform white #FFFFFF.\nInk: very fine forest #132B26. Solid fills: one small off-white #F6F6EC ellipse and one tiny blue #0565BB accent.\nNew original subject: TWO very sparingly drawn hands gently adjust a single off-white elliptical form. Invent an original arrangement, not the screenshot's hand compositions: one hand approaches the ellipse from the lower-left and the second from the upper-right, with the fingertips lightly attending to opposite ends of the ellipse. Use only a few delicate expressive pen strokes for each hand and simplified finger curves; hands are not fully outlined glove icons, no thick cartoon styling or heavy wrist blocks. The small pale ellipse has a subtle fine forest contour so it remains visible on white, with one tiny blue accent touching an edge. Everything stays within a small central cluster, roughly a quarter of the full canvas width, surrounded by a great deal of completely blank white. No shadow or texture.",
+    "id": "editorial08-i04",
+    "category": "editorial-08",
+    "family": "illustration",
+    "status": "proposed",
+    "typography": "Image-led; DM Sans title below",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_oiZr1L/Screenshot 2026-09-11 at 8.35.43\u202fPM.png"
+    ],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-79ead99a-20d1-4693-bf49-1dd16d33adec.png",
+    "width": 1672,
+    "height": 941,
+    "backgroundSample": "#FEFEFE",
+    "dominantColorFraction": 0.5909,
+    "preview": "assets/editorial-08/illustration-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-04.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-04.txt"
+      }
+    ],
+    "nearBackgroundFraction": 0.9925,
+    "backgroundTolerancePerChannel": 12,
+    "requestedPalette": "#FFFFFF",
+    "requestedColors": [
+      "#FFFFFF",
+      "#132B26",
+      "#F6F6EC",
+      "#0565BB"
+    ],
+    "paletteName": "White",
+    "sha256": "3131bc63b54c920dae4c4d59e50fbfe79807c12d92617debb23983ed617f1745"
+  },
+  {
+    "id": "editorial08-p04",
+    "title": "Open orbits",
+    "headline": "Keep people\nin the review.",
+    "description": "An ink headline anchors a white field, with fine open blue circles and one small lime disc in the lower-right.",
+    "palette": {
+      "background": "#FFFFFF",
+      "text": "#152E37",
+      "accents": [
+        "#007EBD",
+        "#D6FF62"
+      ]
+    },
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-6556054a-bf43-4b94-a0ef-52a5ab892007.png",
+    "sampleTitle": "Keep people in the review",
+    "category": "editorial-08",
+    "family": "pattern",
+    "preview": "assets/editorial-08/pattern-04.png",
+    "prompt": "Use case: ads-marketing.\nCreate ONE finished flat editorial blog-cover image, 16:9 landscape PNG, about 1672\u00d7941. This is a consistent five-cover brand series.\nReference image role: use the provided screenshot ONLY to understand the quiet typography, dominant unbroken solid color, and small secondary abstract patterns of its thumbnail system. Do not copy any logo, exact pattern, wording, UI, cards, border, captions or screenshot layout. Produce a single original full-bleed cover.\nSYSTEM RULES: 80\u201390% of the image is one uninterrupted absolutely FLAT solid color. No texture, grain, noise, gradients, lighting, shadows, paper, photographic material, glass, 3D, scene or objects. A sparse precise original abstract pattern occupies no more than the lower/right 20% and remains secondary. All other space is simply the dominant color.\nTYPOGRAPHY: one quiet consistent DM Sans-like humanist Swiss sans-serif, regular/light 450 weight, never bold or condensed, close natural tracking. Left-aligned sentence case. Base font size roughly 64px at a 1600px-wide canvas (around 67px at 1672); do NOT enlarge the short title to fill space. Start at x=7% and y=10%. Comfortable line height about 1.16. Preserve the exact specified two-line break. Headline may use at most 70% width, leaving lots of space below. No oversized heavy geometric letters.\nNo additional text, labels, numbers, logos or marks. No illustration icons, arrows, documents, checkmarks, people, musicians, music gear or cartoons. Crisp precise flat graphic design.\nADDITIONAL REFERENCE ROLE: the second reference is the first cover in THIS series. Match its precise light regular typography voice, title placement, two-line spacing and overall sense of scale. Keep the same type treatment; change only the specified wording, colors and secondary corner pattern. Background must be a pure uninterrupted color, with absolutely no mottling or photographic texture.\nCOVER 04: background is pure flat white #FFFFFF. Headline is dark ink #152E37.\nEXACT HEADLINE, two lines:\nKeep people\nin the review.\nRegular light type in exactly the same placement and scale as the first cover. No bold emphasis.\nSECONDARY PATTERN: only in the bottom-right corner, a small group of three loosely overlapping OPEN orbit circles, drawn as extremely fine precise blue #007EBD curved outlines with deliberate gaps. Add exactly ONE tiny filled lime #D6FF62 disc on one of the open circular curves, about 12\u201316px diameter at this resolution. Original elegant geometric pattern, no planetary scene, no atom symbol, no people icon, no enclosing badge. Confine the pattern to x=78\u2013100% and y=68\u2013100%, letting a curve leave the edge. The white field is 80\u201390% clear and unbroken; the tiny pattern is much less prominent than the headline.",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_rJ5dll/Screenshot 2026-09-11 at 8.37.06\u202fPM.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-01.png"
+    ],
+    "typography": "DM Sans-style regular, left aligned",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/pattern-04.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-08/pattern-04.txt"
+      }
+    ],
+    "paletteName": "White",
+    "sha256": "0d4ab2dfecb8a31dbceadc495fc6f22d1b575a4e22e0061436b80e3b92fd4668",
+    "generator": "image_gen (built-in)"
+  },
+  {
+    "title": "A repeatable rhythm",
+    "sampleTitle": "Turn repeated work into a system",
+    "description": "A loose string resolves into a compact orderly weave, suggesting repetition becoming a dependable system.",
+    "palette": "#D4FA6C",
+    "colors": [
+      "#D4FA6C",
+      "#132B26",
+      "#F6F6EC"
+    ],
+    "prompt": "Use case: illustration-story.\nCreate ONE original wide 16:9 editorial illustration, high resolution, not a webpage, mockup or card. The supplied screenshot is a STYLE AND SCALE reference only: notice its small crafted conceptual drawings, very thin lightly irregular ink line and large uninterrupted flat color fields. Do not reproduce any existing icon, hand arrangement, screenshot layout, typography, card borders, UI or article text. Draw the new subject described below.\nComposition system: a SMALL centered conceptual illustration occupying about 26 percent of canvas width and 30 percent of canvas height. Keep the entire drawing inside the central region. The rest is empty space: at least 80\u201390 percent uninterrupted flat single-color field. No decorative corner marks, baseline, surrounding scatter or extraneous patterns. Slight asymmetry within the tiny drawing gives life.\nDrawing voice: delicate confident editorial pen line, lightly irregular but precise, around 1.5\u20132 pixels thick at 1200px image width (roughly 2\u20133px at 1672px), NOT thick cartoon outline or UI icon. Use very few lines and only one or two small solid shapes. A considered handmade drawing with large spaces between its strokes. Absolutely flat opaque fills, no shading or depth rendering.\nSTRICT: no embedded text, letters, numbers, logos, watermark, captions, photos, 3D, shadows, highlights, gradient, glow, grain, fabric texture or paper texture across the background. No musical gear, documents, magnifying glasses, checkmarks, robot, brain or arrows. No heavy outlines. No background object or framed illustration panel. Background must be a perfectly uniform solid hex color corner-to-corner.\nBackground: perfectly FLAT uniform lime #D6FF62. Do not add a gradient, glow or bright center; this is one solid color.\nInk: delicate deep forest #132B26. Solid fill: a small restrained ivory #F6F6EC area within the weave.\nNew original subject: ONE continuous loose string enters a small ORDERLY WOVEN PATCH. The left end is a single graceful open irregular curve, which gradually takes on the rhythm of a compact hand-woven crossing pattern to its right. Only a few very fine pen lines, spaced clearly, no dense mesh or knot. Let one small ivory flat shape support part of the ordered weave, while most of the shape remains linework showing the lime field through it. This expresses rhythm and repeatability, not a flowchart, document, barcode or musical object. Center the tiny composition with a slight rightward bias, approximately 26 percent canvas width and 30 percent height. The surrounding lime remains completely uninterrupted.",
+    "id": "editorial08-i05",
+    "category": "editorial-08",
+    "family": "illustration",
+    "status": "proposed",
+    "typography": "Image-led; DM Sans title below",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_oiZr1L/Screenshot 2026-09-11 at 8.35.43\u202fPM.png"
+    ],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-564e1e42-b72d-4c2c-8bbe-50ac2aa532cb.png",
+    "width": 1672,
+    "height": 941,
+    "backgroundSample": "#D4FA6C",
+    "dominantColorFraction": 0.149,
+    "preview": "assets/editorial-08/illustration-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-05.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-05.txt"
+      }
+    ],
+    "nearBackgroundFraction": 0.9855,
+    "backgroundTolerancePerChannel": 12,
+    "requestedPalette": "#D6FF62",
+    "requestedColors": [
+      "#D6FF62",
+      "#132B26",
+      "#F6F6EC"
+    ],
+    "paletteName": "Lime",
+    "sha256": "388fbc192d11371a1e7b3159fe3aaed28d78719c4e53c1584ff46c663e1bae6e"
+  },
+  {
+    "id": "editorial08-p05",
+    "title": "Parallel curves",
+    "headline": "Turn repeated work\ninto a system.",
+    "description": "A light forest headline sits on a dominant lime field, with parallel nested curves cropped at the lower-right edge.",
+    "palette": {
+      "background": "#D6FF62",
+      "text": "#132B26",
+      "accents": [
+        "#132B26"
+      ]
+    },
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-40a29296-bb6b-4989-8856-1ff56a69f16f.png",
+    "sampleTitle": "Turn repeated work into a system",
+    "category": "editorial-08",
+    "family": "pattern",
+    "preview": "assets/editorial-08/pattern-05.png",
+    "prompt": "Use case: ads-marketing.\nCreate ONE finished flat editorial blog-cover image, 16:9 landscape PNG, about 1672\u00d7941. This is a consistent five-cover brand series.\nReference image role: use the provided screenshot ONLY to understand the quiet typography, dominant unbroken solid color, and small secondary abstract patterns of its thumbnail system. Do not copy any logo, exact pattern, wording, UI, cards, border, captions or screenshot layout. Produce a single original full-bleed cover.\nSYSTEM RULES: 80\u201390% of the image is one uninterrupted absolutely FLAT solid color. No texture, grain, noise, gradients, lighting, shadows, paper, photographic material, glass, 3D, scene or objects. A sparse precise original abstract pattern occupies no more than the lower/right 20% and remains secondary. All other space is simply the dominant color.\nTYPOGRAPHY: one quiet consistent DM Sans-like humanist Swiss sans-serif, regular/light 450 weight, never bold or condensed, close natural tracking. Left-aligned sentence case. Base font size roughly 64px at a 1600px-wide canvas (around 67px at 1672); do NOT enlarge the short title to fill space. Start at x=7% and y=10%. Comfortable line height about 1.16. Preserve the exact specified two-line break. Headline may use at most 70% width, leaving lots of space below. No oversized heavy geometric letters.\nNo additional text, labels, numbers, logos or marks. No illustration icons, arrows, documents, checkmarks, people, musicians, music gear or cartoons. Crisp precise flat graphic design.\nADDITIONAL REFERENCE ROLE: the second reference is the first cover in THIS series. Match its precise light regular typography voice, title placement, two-line spacing and overall sense of scale. Keep the same type treatment; change only the specified wording, colors and secondary corner pattern. Background must be a pure uninterrupted color, with absolutely no mottling or photographic texture.\nCOVER 05: background is flat uninterrupted vivid lime #D6FF62. Headline is dark forest #132B26.\nEXACT HEADLINE, two lines:\nTurn repeated work\ninto a system.\nRegular light type in exactly the same placement and scale as the first cover. No bold emphasis.\nSECONDARY PATTERN: at the very bottom-right only, a small elegant set of five fine dark-forest parallel continuous loops. The thin lines describe long smooth nested curves that bend back around toward the lower-right, with most of the elongated loops cropped off the right edge. This is an original abstract line rhythm, not an infinity sign, maze, cable, arrow or icon. Use restrained line weight with ample gaps and no filled shapes. All pattern linework should sit within the lower-right 20% of canvas, preferably the last quarter of width and bottom quarter of height. The vast uninterrupted lime field and quiet left headline dominate. No bright/dark bloom or gradient, just pure lime.",
+    "referencePaths": [
+      "/var/folders/bh/j2dy77yx1zb0mp3vyft3w2780000gn/T/TemporaryItems/NSIRD_screencaptureui_rJ5dll/Screenshot 2026-09-11 at 8.37.06\u202fPM.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-01.png"
+    ],
+    "typography": "DM Sans-style regular, left aligned",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/pattern-05.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-08/pattern-05.txt"
+      }
+    ],
+    "paletteName": "Lime",
+    "sha256": "52adba03d51a873a0be3224f2944e7e526ba941c564b6e4507209b05d0854be3",
+    "generator": "image_gen (built-in)"
+  }
+]

@@ -1,0 +1,514 @@
+[
+  {
+    "subject": "book",
+    "title": "Open book \u00b7 painted airbrush",
+    "description": "A blank open book rendered as exaggerated rounded page shapes with one curling page, broad lime shading and soft sprayed-pigment stippling.",
+    "prompt": "Use case: illustration-story.\nCreate a BOLD EXPRESSIVE TWO-DIMENSIONAL AIRBRUSH ILLUSTRATION for retro album art. This must unmistakably look like an artist PAINTED it with sprayed pigment, using exaggerated plush rounded forms, simplified hand-painted imperfect curves, opaque painted fills, soft stippled spray shadows and bright colored edges. Invented painterly volume, not real-world product lighting. The surface texture is made of colored dry spray dots, not actual material texture. Simplify aggressively: no tiny realistic manufacturing details. Confident, playful, visually striking 1980s poster illustration.\nColors: deep forest #132B26, opaque warm ivory #F8FAF5, bright luminous lime #D6FF62. Make lime an emphatic painterly color: broad lime shaded edges and lime/forest colored shadows within the form, not merely one thin accent. Use a few broad uneven color transitions that follow the illustrated object. A soft 2D airbrushed rendering with plush shape language, not sharp vector, ink hatching, paper collage, glass or 3D product rendering.\nONE single centered object fills roughly 80 percent of a square canvas with transparent margins all around. Deliver a genuine RGBA PNG with fully transparent alpha outside the object. NO background image or color; all surrounding pixels must be alpha 0. Internal ivory painted areas remain fully opaque. No gradient background, backdrop, floor, shadow plane, surrounding cast shadow, panel, frame, checkerboard pattern, photograph, photographic material texture, glossy reflections, metallic glints, logos, letters, numbers, text or watermark. No realistic product shot. This is a standalone painted illustration on true transparency.\n\nSubject: one open blank book with exactly one page curling upward from the right side toward the center. View from a gentle elevated three-quarter angle, book rotated slightly clockwise, spine extending away from the viewer. Keep the familiar open-book silhouette.\nPAINTED SHAPE LANGUAGE: construct the book from two broad opaque ivory page-block shapes that are exaggerated, plush and rounded, with a thick forest-and-lime cover underneath. A single broad page curls upward like a soft hand-painted ribbon, still clearly attached to the book and not an extra object. No actual page-stack microdetail: just two or three curved strokes suggesting page layers. Generous BRIGHT LIME sprayed shading wraps around the cover and page-block edges; deep forest colored shadows model the underside of the curling page. Visible dry spray-pigment stippling dissolves the broad shading into opaque ivory. Simplified irregular painterly contours, expressive soft rounded forms, retro 1980s album-art airbrush illustration. No photoreal paper fiber, hard product rendering, wet gloss, ink hatching or text. Entire single book stays inside the square canvas.",
+    "id": "style05-art-book-airbrush",
+    "kind": "illustration",
+    "style": "airbrush",
+    "status": "proposed",
+    "referenced_image_paths": [],
+    "generator": "image_gen (built-in)",
+    "supersedes": "assets/style-lab/illustrations/book-airbrush.png",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-1f280c73-b995-48a8-9137-cb4908740dc8.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.4652,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "preview": "assets/style-lab/illustrations/book-airbrush-painted-v2.png"
+  },
+  {
+    "id": "style05-art-book-glass",
+    "kind": "illustration",
+    "subject": "book",
+    "style": "glass",
+    "title": "Open book \u00b7 frosted glass",
+    "description": "One open blank book with a single page curling upward, in a clear three-quarter view. Frosted glass treatment in forest, ivory and lime on a transparent background.",
+    "prompt": "Create a fresh illustration with actual PNG alpha transparency. This is a new generation, not an edit.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one open book, both blank page blocks clearly visible, with exactly one page curling upward from the right-hand side toward the center. No lettering or printed marks anywhere on pages. View consistently from a gentle elevated three-quarter angle, looking down about 30 degrees, with the spine running away from the viewer and the whole book rotated slightly clockwise so the right side recedes. The one lifted curling page creates a strong readable silhouette and does not resemble a second book. The book fills 80 percent of the canvas, centered, whole object visible with transparent margins.\n\nStyle: frosted translucent sculptural rendering. Reinterpret the object materials as milky glass panels and translucent frosted forms, with vivid lime glowing-looking edges contained within the object, and deep forest accents to keep its silhouette visible. Realistic refraction and soft internal light, subtle frosted material. Clearly readable object boundaries, not invisible white on white. Keep any transparency meaningful inside the glass object and make ALL outside pixels completely transparent. No floor, pedestal, studio background or exterior drop shadow.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-42224cf1-f221-4931-8449-8cb2d2e0f2e2.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.5558,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "failedAttempts": [
+      {
+        "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-0389e00a-4693-43ba-a1c4-0b57b585f37a.png",
+        "prompt": "The supplied image is a SHAPE AND CAMERA REFERENCE ONLY. Keep its single object's arrangement, silhouette, camera angle, relative proportions, crop and centered square placement consistent. Re-render the object in the different medium described below. Do NOT preserve the reference's ink strokes, hatching or hand-drawn texture; replace those completely with the requested glass medium. Preserve transparent surroundings.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one open book, both blank page blocks clearly visible, with exactly one page curling upward from the right-hand side toward the center. No lettering or printed marks anywhere on pages. View consistently from a gentle elevated three-quarter angle, looking down about 30 degrees, with the spine running away from the viewer and the whole book rotated slightly clockwise so the right side recedes. The one lifted curling page creates a strong readable silhouette and does not resemble a second book. The book fills 80 percent of the canvas, centered, whole object visible with transparent margins.\n\nStyle: frosted translucent sculptural rendering. Reinterpret the object materials as milky glass panels and translucent frosted forms, with vivid lime glowing-looking edges contained within the object, and deep forest accents to keep its silhouette visible. Realistic refraction and soft internal light, subtle frosted material. Clearly readable object boundaries, not invisible white on white. Keep any transparency meaningful inside the glass object and make ALL outside pixels completely transparent. No floor, pedestal, studio background or exterior drop shadow.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+        "referenced_image_paths": [
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/illustrations/book-ink.png"
+        ],
+        "hasAlpha": false,
+        "alphaRange": [
+          255,
+          255
+        ],
+        "width": 1254,
+        "height": 1254,
+        "preview": "assets/style-lab/illustrations/rejected/book-glass.png"
+      }
+    ],
+    "preview": "assets/style-lab/illustrations/book-glass.png"
+  },
+  {
+    "id": "style05-art-book-ink",
+    "kind": "illustration",
+    "subject": "book",
+    "style": "ink",
+    "title": "Open book \u00b7 expressive ink",
+    "description": "One open blank book with a single page curling upward, in a clear three-quarter view. Expressive ink treatment in forest, ivory and lime on a transparent background.",
+    "prompt": "Use case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one open book, both blank page blocks clearly visible, with exactly one page curling upward from the right-hand side toward the center. No lettering or printed marks anywhere on pages. View consistently from a gentle elevated three-quarter angle, looking down about 30 degrees, with the spine running away from the viewer and the whole book rotated slightly clockwise so the right side recedes. The one lifted curling page creates a strong readable silhouette and does not resemble a second book. The book fills 80 percent of the canvas, centered, whole object visible with transparent margins.\n\nStyle: expressive hand-drawn forest ink with ivory fills and a restrained lime accent. Tactile imperfect but confident contour strokes, varied line width, selective lively hatching that follows form, authentic ink edge. Keep ivory-filled page or sleeve areas mostly quiet and clearly defined. Graphic hand-drawn illustration, not photorealistic, not clean vector perfection, no paper sheet behind the drawing.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-c0161a0e-1241-46cf-b786-90c3cd5a1d49.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.5706,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "preview": "assets/style-lab/illustrations/book-ink.png"
+  },
+  {
+    "id": "style05-art-book-paper",
+    "subject": "book",
+    "style": "paper",
+    "title": "Open book / Flat cut paper",
+    "description": "An open book with one curling page, built from simple flat layers of forest, ivory, and lime paper.",
+    "prompt": "Create one square standalone editorial illustration on a genuinely transparent RGBA background with an alpha channel. The subject occupies around 85 percent of the square. Use FLAT 2D CUT-PAPER ART: simple geometric silhouettes made from clearly separate sheets of SOLID COLOR paper, with handmade scissor-cut or slightly torn imperfect edges. Palette limited to deep forest #132B26, warm ivory #F8FAF5, vivid lime #D6FF62. This must read as graphic flat collage, not a realistic object, product photograph, 3D render, painted realism or photographic paper sculpture. No perspective depth, no realistic specular highlights, no reflections, no gradients; little or no shading. No text, logo, watermark, border, scene, background color, background panel, checkerboard pattern or transparency grid. The entire area outside the subject must be genuinely transparent, not white and not a drawn checkerboard. Subject: a FLAT PAPER COLLAGE depiction of an open book with ONE curling page. View it from directly overhead as a graphic silhouette. The open book consists of two broad irregular ivory cut-paper page shapes meeting at a forest central spine on a slightly larger deep-forest cut-paper cover silhouette. Depict the one curling page entirely through a simple overlapping solid ivory shape and a solid lime underside wedge; absolutely no modeled light-and-shadow curl, photoreal bending or dimensional rendering. An irregular forest ink-like cut-paper line may separate the pages. Pages are blank. Use only a few broad flat pieces, not dozens of thin pages. Keep shape edges visibly scissor-cut and a little imperfect, bold and graphic like contemporary handmade editorial collage. It should unmistakably look like paper shapes forming an illustration of a book, NOT a real book photographed on a transparent background.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-fb57ef30-52dc-4102-9db1-5a2a856dc02f.png",
+    "kind": "illustration",
+    "status": "proposed",
+    "referenced_image_paths": [],
+    "preview": "assets/style-lab/illustrations/book-paper-flat-v2.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true
+  },
+  {
+    "subject": "record",
+    "title": "Record and sleeve \u00b7 painted airbrush",
+    "description": "A simplified record and sleeve with plush painted forms, a large lime label, broad colored shading and visible dry spray stippling.",
+    "prompt": "Use case: illustration-story.\nCreate a BOLD EXPRESSIVE TWO-DIMENSIONAL AIRBRUSH ILLUSTRATION for retro album art. This must unmistakably look like an artist PAINTED it with sprayed pigment, using exaggerated plush rounded forms, simplified hand-painted imperfect curves, opaque painted fills, soft stippled spray shadows and bright colored edges. Invented painterly volume, not real-world product lighting. The surface texture is made of colored dry spray dots, not actual material texture. Simplify aggressively: no tiny realistic manufacturing details. Confident, playful, visually striking 1980s poster illustration.\nColors: deep forest #132B26, opaque warm ivory #F8FAF5, bright luminous lime #D6FF62. Make lime an emphatic painterly color: broad lime shaded edges and lime/forest colored shadows within the form, not merely one thin accent. Use a few broad uneven color transitions that follow the illustrated object. A soft 2D airbrushed rendering with plush shape language, not sharp vector, ink hatching, paper collage, glass or 3D product rendering.\nONE single centered object fills roughly 80 percent of a square canvas with transparent margins all around. Deliver a genuine RGBA PNG with fully transparent alpha outside the object. NO background image or color; all surrounding pixels must be alpha 0. Internal ivory painted areas remain fully opaque. No gradient background, backdrop, floor, shadow plane, surrounding cast shadow, panel, frame, checkerboard pattern, photograph, photographic material texture, glossy reflections, metallic glints, logos, letters, numbers, text or watermark. No realistic product shot. This is a standalone painted illustration on true transparency.\n\nSubject: one stylized plain vinyl record half emerging from a square ivory record sleeve, slight three-quarter angle, sleeve tilted gently clockwise with its top edge sloping down to the right, disc emerging upward/right. Preserve the simple circle-plus-square reading and overall familiar record-and-sleeve arrangement.\nPAINTED SHAPE LANGUAGE: a thick rounded forest-colored disc, slightly wonky hand-painted circular contour, exactly two or three broad curved suggestions of grooves at most, no realistic tight concentric grooves. Large bright lime circle label, blank. The ivory sleeve has gently softened almost cushion-like corners, a broad glowing lime/forest SPRAY-PAINTED shaded edge, and a quiet opaque ivory face. Deliberately exaggerated rounded volume and a few obvious imperfect hand-painted curves. All rendering is smooth opaque sprayed pigment plus visible fine-to-medium stippling, painterly broad colored shadows, never photoreal plastic, vinyl, metal or paper. The image should read at a glance as retro airbrush album-art illustration. The bottom of sleeve and top of record stay inside the square canvas.",
+    "id": "style05-art-record-airbrush",
+    "kind": "illustration",
+    "style": "airbrush",
+    "status": "proposed",
+    "referenced_image_paths": [],
+    "generator": "image_gen (built-in)",
+    "supersedes": "assets/style-lab/illustrations/record-airbrush.png",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-eaa506b7-8e65-4750-9e9d-57f0c49f5d69.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.3826,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "preview": "assets/style-lab/illustrations/record-airbrush-painted-v2.png"
+  },
+  {
+    "id": "style05-art-record-glass",
+    "kind": "illustration",
+    "subject": "record",
+    "style": "glass",
+    "title": "Record and sleeve \u00b7 frosted glass",
+    "description": "One plain vinyl record half emerging from an ivory square sleeve, with a lime center label and no lettering. Frosted glass treatment in forest, ivory and lime on a transparent background.",
+    "prompt": "Create a fresh illustration with actual PNG alpha transparency. This is a new generation, not an edit.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one plain vinyl record half emerging from one square ivory record sleeve. The vinyl disc rises from the upper-right of the sleeve, about half its circular area exposed; its circle center label is vivid lime with no lettering. Sleeve is a real illustrated object, not a background panel. Show the sleeve at a consistent slight three-quarter angle: top edge slopes gently downward toward the right, about 12 degrees clockwise, right edge recedes slightly, front face dominant, seen a little from above. Entire sleeve and entire exposed record remain within the canvas. The overall combined object fills 80 percent of the image, centered. Keep the main vinyl circle and square sleeve immediately recognizable.\n\nStyle: frosted translucent sculptural rendering. Reinterpret the object materials as milky glass panels and translucent frosted forms, with vivid lime glowing-looking edges contained within the object, and deep forest accents to keep its silhouette visible. Realistic refraction and soft internal light, subtle frosted material. Clearly readable object boundaries, not invisible white on white. Keep any transparency meaningful inside the glass object and make ALL outside pixels completely transparent. No floor, pedestal, studio background or exterior drop shadow.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-38d3c720-1f90-43ca-b298-1ec9f7359981.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.4541,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "failedAttempts": [
+      {
+        "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-79623c7b-40df-4477-9952-9cf4f1a42d29.png",
+        "prompt": "The supplied image is a SHAPE AND CAMERA REFERENCE ONLY. Keep its single object's arrangement, silhouette, camera angle, relative proportions, crop and centered square placement consistent. Re-render the object in the different medium described below. Do NOT preserve the reference's ink strokes, hatching or hand-drawn texture; replace those completely with the requested glass medium. Preserve transparent surroundings.\n\nUse case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one plain vinyl record half emerging from one square ivory record sleeve. The vinyl disc rises from the upper-right of the sleeve, about half its circular area exposed; its circle center label is vivid lime with no lettering. Sleeve is a real illustrated object, not a background panel. Show the sleeve at a consistent slight three-quarter angle: top edge tilts gently upward toward the right, right edge recedes slightly, front face dominant, seen a little from above. Entire sleeve and entire exposed record remain within the canvas. The overall combined object fills 80 percent of the image, centered. Keep the main vinyl circle and square sleeve immediately recognizable.\n\nStyle: frosted translucent sculptural rendering. Reinterpret the object materials as milky glass panels and translucent frosted forms, with vivid lime glowing-looking edges contained within the object, and deep forest accents to keep its silhouette visible. Realistic refraction and soft internal light, subtle frosted material. Clearly readable object boundaries, not invisible white on white. Keep any transparency meaningful inside the glass object and make ALL outside pixels completely transparent. No floor, pedestal, studio background or exterior drop shadow.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+        "referenced_image_paths": [
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/illustrations/record-ink.png"
+        ],
+        "hasAlpha": false,
+        "alphaRange": [
+          255,
+          255
+        ],
+        "width": 1254,
+        "height": 1254,
+        "preview": "assets/style-lab/illustrations/rejected/record-glass.png"
+      }
+    ],
+    "preview": "assets/style-lab/illustrations/record-glass.png"
+  },
+  {
+    "id": "style05-art-record-ink",
+    "kind": "illustration",
+    "subject": "record",
+    "style": "ink",
+    "title": "Record and sleeve \u00b7 expressive ink",
+    "description": "One plain vinyl record half emerging from an ivory square sleeve, with a lime center label and no lettering. Expressive ink treatment in forest, ivory and lime on a transparent background.",
+    "prompt": "Use case: illustration-story.\nAsset type: isolated reusable illustration for a live layout mixer.\nOutput exactly ONE square high-resolution PNG with a GENUINELY TRANSPARENT BACKGROUND using an alpha channel. Everything outside the illustrated object must be fully transparent, not white, black, colored, or a checkerboard pattern. Do not draw a transparency checkerboard. The background is alpha transparency.\nThe single object is centered, fitting roughly 80 percent of the square canvas, with a clear clean silhouette and transparent margins on every edge. No floor, cast shadow outside the object, room, scene, gradient, backdrop, base, frame, extra square panel, text, lettering, numbers, logo, watermark, hands or decorative surrounding marks. Ivory material inside the object stays opaque; do not confuse ivory fills with the transparent surroundings.\nObject palette only: deep forest #132B26, ivory #F8FAF5, vivid lime #D6FF62. Keep the artwork self-contained and readily compositable over any background.\n\nSubject: exactly one plain vinyl record half emerging from one square ivory record sleeve. The vinyl disc rises from the upper-right of the sleeve, about half its circular area exposed; its circle center label is vivid lime with no lettering. Sleeve is a real illustrated object, not a background panel. Show the sleeve at a consistent slight three-quarter angle: top edge tilts gently upward toward the right, right edge recedes slightly, front face dominant, seen a little from above. Entire sleeve and entire exposed record remain within the canvas. The overall combined object fills 80 percent of the image, centered. Keep the main vinyl circle and square sleeve immediately recognizable.\n\nStyle: expressive hand-drawn forest ink with ivory fills and a restrained lime accent. Tactile imperfect but confident contour strokes, varied line width, selective lively hatching that follows form, authentic ink edge. Keep ivory-filled page or sleeve areas mostly quiet and clearly defined. Graphic hand-drawn illustration, not photorealistic, not clean vector perfection, no paper sheet behind the drawing.\n\nTransparency requirement is mandatory: deliver a real RGBA PNG with transparent alpha outside the single object; no solid background and no painted checkerboard.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-816ee5fd-34d6-4ab0-8266-fa3cd0171a7b.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.4327,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "preview": "assets/style-lab/illustrations/record-ink.png"
+  },
+  {
+    "id": "style05-art-record-paper",
+    "subject": "record",
+    "style": "paper",
+    "title": "Record / Flat cut paper",
+    "description": "A record half outside an ivory sleeve, assembled from flat forest, ivory, and lime cut-paper shapes.",
+    "prompt": "Create one square standalone editorial illustration on a genuinely transparent RGBA background with an alpha channel. The subject occupies around 85 percent of the square. Use FLAT 2D CUT-PAPER ART: simple geometric silhouettes made from clearly separate sheets of SOLID COLOR paper, with handmade scissor-cut or slightly torn imperfect edges. Palette limited to deep forest #132B26, warm ivory #F8FAF5, vivid lime #D6FF62. This must read as graphic flat collage, not a realistic object, product photograph, 3D render, painted realism or photographic paper sculpture. No perspective depth, no realistic specular highlights, no reflections, no gradients; little or no shading. No text, logo, watermark, border, scene, background color, background panel, checkerboard pattern or transparency grid. The entire area outside the subject must be genuinely transparent, not white and not a drawn checkerboard. Subject: a FLAT PAPER COLLAGE depiction of a music record half out of a plain ivory sleeve. Frontal graphic view. The sleeve is an imperfect scissor-cut ivory square covering the lower-left half of one deep-forest paper circle, so the record emerges at upper-right. The record itself is nothing but a solid forest paper disc, a smaller lime circle label at its center, and a tiny forest circle at the middle. At most THREE thin cut-paper concentric rings may suggest grooves, but NO realistic microgrooves, shiny vinyl, shine or texture rendering. The sleeve has no folds, printing, seam realism or photographic volume. Make the paper edges clearly and confidently handmade. Simple bold flat silhouettes with a slight irregularity to the circle and square. It must unmistakably look like someone used scissors to cut forest, ivory and lime paper shapes and assembled this 2D image.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-e0a362f3-0842-4ec2-a87f-3b5efa40d91a.png",
+    "kind": "illustration",
+    "status": "proposed",
+    "referenced_image_paths": [],
+    "preview": "assets/style-lab/illustrations/record-paper-flat-v2.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true
+  },
+  {
+    "id": "style05-bg-airbrush-blue-major",
+    "kind": "background",
+    "family": "airbrush",
+    "colorway": "blue-major",
+    "colorLabel": "Blue majority",
+    "title": "Airbrush / Blue majority",
+    "description": "A predominantly blue airbrush field with a broad sprayed lime crescent along the lower-right edge and visible pigment stippling.",
+    "prompt": "Use case: stylized-concept.\nCreate ONE complete 16:9 landscape abstract AIRBRUSH POSTER BACKGROUND, around 1672 x 941 pixels or larger at the same ratio. No typography or objects.\nInput reference is for analog sprayed-pigment texture and blue/lime saturation, not its exact composition. Make a new controlled composition for a four-colorway comparison.\nComposition and color roles: a generous saturated BLUE field occupies approximately 70% of the canvas, all across the left, upper area, and center. Use #007EBD and #168DDD for subtle depth in the blue. A broad imperfect LIME sprayed crescent occupies approximately 30%, entering from the bottom edge and curving up the lower-right and right edge, #D6FF62. The lower-right crescent is open and partly outside the frame; it is just a broad curved COLOR BAND, not a moon, shape, object, ring or emblem. Keep center-left quiet and blue. No substantial forest or white area.\nStyle: visible dry pigment stippling, soft sculpted bands of sprayed color, uneven yet deliberate spray density and feathered boundaries. Rich analog airbrush poster texture, more tactile and more visibly stippled than a generic software gradient. Fine-to-medium matte colored particles describe the transition and subtly enliven the blue field. Broad soft forms, no hard edges. Completely flat printed color with NO simulated physical relief.\nNo text, letters, logos, watermark, borders, frames, collage, contact sheet, objects, 3D blobs, scenery, landscape, actual sky, clouds, water, glass, frosting, pebbled surfaces, droplets, embossed cells, specular highlights, or wet paint. No black areas, muddy green, purple, neon-tech beams or UI. A single full-bleed abstract airbrush print.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-3f255792-98f9-43d6-b8e9-0139045af0c9.png",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png"
+    ],
+    "preview": "assets/style-lab/backgrounds/airbrush-blue-major.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941,
+    "suggestedInk": {
+      "bold": "forest",
+      "stacked": "forest",
+      "editorial": "forest",
+      "highlight": "forest",
+      "caption": "forest"
+    }
+  },
+  {
+    "id": "style05-bg-airbrush-inverted",
+    "kind": "background",
+    "family": "airbrush",
+    "colorway": "inverted",
+    "colorLabel": "Inverted colors",
+    "title": "Airbrush / Orange and violet",
+    "description": "The same airbrush layout remapped to a dominant orange field and a violet lower-right crescent, using proposed inverted anchor colors.",
+    "prompt": "Edit this exact 16:9 abstract AIRBRUSH BACKGROUND by replacing ONLY its two main color anchors with the prescribed inverted-anchor colors. This is a color study, not a negative photograph or new composition.\nKeep the base's exact layout: its broad dominant field across the left/top/center, the imperfect smaller crescent at the lower-right/right perimeter, the quiet center-left, the same stippled pigment texture, printed details, soft sculpted airbrush bands, geometry, proportions and feathering.\nCOLOR MAPPING: replace the original dominant BLUE field (approximately 70%) with saturated warm ORANGE #FF8142. Replace the original LIME crescent (approximately 30%) with saturated deep VIOLET #29009D. The output must read unmistakably ORANGE MAJORITY with a VIOLET lower-right crescent. Preserve tonal variation within each reassigned hue and remap the stippled particles coherently, with the same density and fineness. Do not preserve any original blue, cyan or lime regions. Do not rotate or relocate the crescent. Preserve brightness enough to see every printed texture detail, without adding white or black areas. No rainbow, neon sign, generic software gradient or new lighting effect.\nNo text, logos, letters, objects, symbols, UI, border, frame, scenery, clouds, glass, reflections, droplets, 3D relief, or additional motifs. Same matte analog AIRBRUSH POSTER look, same 16:9 frame, one complete abstract background.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-388d54c1-b089-4d3e-8f86-8d647754fbe1.png",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/airbrush-blue-major.png"
+    ],
+    "preview": "assets/style-lab/backgrounds/airbrush-inverted.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941,
+    "suggestedInk": {
+      "bold": "forest",
+      "stacked": "forest",
+      "editorial": "forest",
+      "highlight": "forest",
+      "caption": "forest"
+    }
+  },
+  {
+    "id": "style05-bg-airbrush-lime-major",
+    "kind": "background",
+    "family": "airbrush",
+    "colorway": "lime-major",
+    "colorLabel": "Lime majority",
+    "title": "Airbrush / Lime majority",
+    "description": "The base airbrush geometry with its roles swapped: a dominant lime field and a blue crescent at the lower-right perimeter.",
+    "prompt": "Edit the supplied exact 16:9 AIRBRUSH BACKGROUND to make a LIME-MAJORITY colorway. Change COLOR ROLES ONLY. Preserve its precise layout, crop, scale, broad crescent geometry, feathered boundaries, density of dry pigment stippling, blue-field quiet-space geometry, and matte analog airbrush appearance.\nReplace the original large BLUE field covering roughly 70 percent at left/top/center with vivid yellow-LIME #D6FF62. This broad lime field must unequivocally dominate, not pale yellow or white. Replace the original smaller LIME crescent at the lower-right/right perimeter, roughly 30 percent, with saturated BLUE #007EBD/#168DDD. Keep the crescent exactly where it is and keep its extent and shape. Recolor all local pigment grains coherently with these role swaps, preserving their visible printed texture, softness and detail. The original quiet center-left remains quiet but now LIME. Preserve brightness variation within each newly assigned hue. No new colors or changes to composition.\nDo not leave a blue-majority field or simply add extra lime at the edge. Do not add white regions, black, purple, objects, text, logos, shapes, frames, borders, scenes, glass, reflective texture, or new graphic details. Preserve 16:9. One complete abstract airbrush background, no contact sheet.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-253469ad-d211-4f18-9949-b161d953cd36.png",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/airbrush-blue-major.png"
+    ],
+    "preview": "assets/style-lab/backgrounds/airbrush-lime-major.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941,
+    "suggestedInk": {
+      "bold": "forest",
+      "stacked": "forest",
+      "editorial": "forest",
+      "highlight": "forest",
+      "caption": "forest"
+    }
+  },
+  {
+    "id": "style05-bg-airbrush-reverse",
+    "kind": "background",
+    "family": "airbrush",
+    "colorway": "reverse",
+    "colorLabel": "Reversed direction",
+    "title": "Airbrush / Reversed direction",
+    "description": "The blue-majority composition turned toward the opposite corner, with its lime crescent at the upper left and quiet blue lower right.",
+    "prompt": "Edit the supplied exact 16:9 abstract AIRBRUSH BACKGROUND into a REVERSED-DIRECTION composition. Keep the SAME COLOR PROPORTIONS: approximately 70% saturated blue #007EBD/#168DDD, approximately 30% luminous lime #D6FF62. Blue remains the dominant field.\nReverse the direction of the existing composition, equivalent to turning the entire abstract artwork 180 degrees: move its broad imperfect lime crescent from the lower-right perimeter to the UPPER-LEFT perimeter. The original large calm blue center-left region becomes calm blue center-right/bottom-right. The lime crescent sweeps in from the top edge and curves down the left edge. Preserve its same broad curve, extent, soft feathering and size. The blue field occupies the lower and right portions. Keep the existing scale and density of dry pigment stippling, soft sculpted airbrush bands, slight pigment variations and matte analog print character. This is a direction variation of the same artwork, not a new invented composition.\nDo NOT swap blue and lime roles: 70% blue, 30% lime. No smooth generic software gradient. No extra colors or bright white regions. No text, letters, objects, logos, frames, borders, contact sheet, scenery, glass, reflections, droplets, 3D surfaces or new motifs. Preserve 16:9. Return one complete text-free abstract airbrush background.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-3cb4bf39-36a8-468a-9fe7-346bf1702e39.png",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/airbrush-blue-major.png"
+    ],
+    "preview": "assets/style-lab/backgrounds/airbrush-reverse.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941,
+    "suggestedInk": {
+      "bold": "forest",
+      "stacked": "forest",
+      "editorial": "forest",
+      "highlight": "forest",
+      "caption": "forest"
+    }
+  },
+  {
+    "id": "style05-bg-fine-grain-blue-major",
+    "kind": "background",
+    "family": "fine-grain",
+    "colorway": "blue-major",
+    "colorLabel": "Blue dominant",
+    "title": "Fine grain / Blue dominant",
+    "description": "Flat fine-grain gradient with blue across roughly 70% of the left and top, and lime diffusing from the lower right.",
+    "prompt": "Create one standalone, full-bleed, high-quality landscape 16:9 background around 1672\u00d7941. This is a controlled visual material and color comparison, not a finished cover. No text, letters, symbols, objects, illustrations, people, scenery, logos, watermarks, frames, borders, panels or inset rectangles. Composition: approximately 70 percent saturated blue #007EBD/#168DDD occupying left, top and most of the center, softly transitioning into approximately 30 percent luminous lime #D6FF62 diffused through the lower-right corner. Preserve a simple broad diagonal color boundary from upper-right to lower-center. Make the dominant-color area truly blue, not mostly white or pale cyan. Use the provided image as the reference for the flat matte color transition and delicate, even fine analog grain. The image must remain purely flat and softly luminous with no discernible forms, refraction, glass, folds, fabric, rays, contours or gradients that look like objects. Very fine uniform analog noise, visible at full size but subtle at thumbnail scale. Smooth soft transitions, no banding. Keep this geometry clear so later edits can test color swaps against the same structure.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/explorations-02/gradient-02.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-b39262be-d8ab-4299-a6f2-378ce0c49140.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/fine-grain-blue-major.png",
+    "width": 1672,
+    "height": 941,
+    "suggestedInk": {
+      "bold": "forest",
+      "stacked": "forest",
+      "editorial": "forest",
+      "highlight": "forest",
+      "caption": "forest"
+    }
+  },
+  {
+    "id": "style05-bg-fine-grain-inverted",
+    "kind": "background",
+    "family": "fine-grain",
+    "colorway": "inverted",
+    "colorLabel": "Inverted palette",
+    "title": "Fine grain / Inverted palette",
+    "description": "The base geometry recolored with inverted anchor colors: 70% orange and 30% violet, as an exploratory palette comparison.",
+    "prompt": "Edit the supplied image as a controlled color comparison. Final remains one full-bleed high-quality landscape 16:9 background around 1672\u00d7941. Change ONLY the two anchor colors using their literal RGB-inverted counterparts: blue #007EBD maps to orange #FF8142; lime #D6FF62 maps to deep violet #29009D. Preserve the original blue-major geometry exactly, with approximately 70 percent ORANGE across left/top/center and approximately 30 percent VIOLET at the lower-right. Keep the same soft transition boundary, texture and spatial arrangement. No original blue, cyan, green or lime should remain. This is an exploratory orange/violet palette inversion, NOT a direction reversal and NOT a shape or material change. Keep the anchors clearly orange and violet, not mostly pale peach or gray. Preserve the exact flat matte finish with the same very fine analog grain. Broad luminous color only, absolutely no glass, optical relief, forms, banded objects, folds, shadows or new texture. No text, symbols, logos, watermarks, border, panels, frames, scene, objects, illustrations, or extra elements. Preserve overall visual structure as closely as possible.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/fine-grain-blue-major.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-1e9a8b6a-93ee-4483-9d8f-2b042558bcd7.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/fine-grain-inverted.png",
+    "width": 1672,
+    "height": 941,
+    "suggestedInk": {
+      "bold": "forest",
+      "stacked": "forest",
+      "editorial": "forest",
+      "highlight": "forest",
+      "caption": "forest"
+    }
+  },
+  {
+    "id": "style05-bg-fine-grain-lime-major",
+    "kind": "background",
+    "family": "fine-grain",
+    "colorway": "lime-major",
+    "colorLabel": "Lime dominant",
+    "title": "Fine grain / Lime dominant",
+    "description": "The same geometry and texture, recolored to roughly 70% lime across left/top and 30% blue at lower right.",
+    "prompt": "Edit the supplied image as a controlled color comparison. Final remains one full-bleed high-quality landscape 16:9 background around 1672\u00d7941. Swap the roles of the two colors without moving any part of the composition: every broad area currently blue in the left/top/center becomes luminous lime #D6FF62, which now occupies approximately 70 percent of the canvas. The current lime region at lower-right becomes saturated blue #007EBD/#168DDD, occupying approximately 30 percent. Keep the same soft diagonal transition boundary and exactly the same spatial structure. This is a color-role swap, NOT a mirror, flip, rotation or direction reversal. Lime must clearly dominate on the left and top; blue must be localized in the lower-right. Preserve the exact flat matte finish with the same very fine analog grain. Broad luminous color only, absolutely no glass, optical relief, forms, banded objects, folds, shadows or new texture. No text, symbols, logos, watermarks, border, panels, frames, scene, objects, illustrations, or extra elements. Preserve overall visual structure as closely as possible.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/fine-grain-blue-major.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-443e7938-1010-4e11-a19e-bf805af278b0.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/fine-grain-lime-major.png",
+    "width": 1672,
+    "height": 941,
+    "suggestedInk": {
+      "bold": "forest",
+      "stacked": "forest",
+      "editorial": "forest",
+      "highlight": "forest",
+      "caption": "forest"
+    }
+  },
+  {
+    "id": "style05-bg-fine-grain-reverse",
+    "kind": "background",
+    "family": "fine-grain",
+    "colorway": "reverse",
+    "colorLabel": "Reversed direction",
+    "title": "Fine grain / Reversed direction",
+    "description": "The same blue-dominant balance, with lime moved to the upper left and blue occupying right/bottom.",
+    "prompt": "Edit the supplied image as a controlled color comparison. Final remains one full-bleed high-quality landscape 16:9 background around 1672\u00d7941. Reverse ONLY the gradient's direction: make approximately 70 percent of the canvas saturated blue #007EBD/#168DDD across the RIGHT, BOTTOM and center, and move the approximately 30 percent luminous lime #D6FF62 region to the UPPER-LEFT corner. This is the base gradient's direction reversed diagonally, as if its color distribution were rotated 180 degrees, while retaining the same texture strength and material character. Do not swap which color is dominant: blue must still occupy most of the image. Preserve the same width/softness of the color transition. Preserve the exact flat matte finish with the same very fine analog grain. Broad luminous color only, absolutely no glass, optical relief, forms, banded objects, folds, shadows or new texture. No text, symbols, logos, watermarks, border, panels, frames, scene, objects, illustrations, or extra elements. Preserve overall visual structure as closely as possible.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/fine-grain-blue-major.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-b36791c7-1538-4e87-8b3f-c1394f3ea54f.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/fine-grain-reverse.png",
+    "width": 1672,
+    "height": 941,
+    "suggestedInk": {
+      "bold": "forest",
+      "stacked": "forest",
+      "editorial": "forest",
+      "highlight": "forest",
+      "caption": "forest"
+    }
+  },
+  {
+    "id": "style05-bg-glass-blue-major",
+    "kind": "background",
+    "family": "glass",
+    "colorway": "blue-major",
+    "colorLabel": "Blue dominant",
+    "title": "Frosted glass / Blue dominant",
+    "description": "Optically diffused frosted-glass color with broad soft vertical refractions, blue dominant at left/top and lime at lower right.",
+    "prompt": "Create one standalone, full-bleed, high-quality landscape 16:9 background around 1672\u00d7941. This is a controlled visual material and color comparison, not a finished cover. No text, letters, symbols, objects, illustrations, people, scenery, logos, watermarks, frames, borders, panels or inset rectangles. Composition: approximately 70 percent saturated blue #007EBD/#168DDD occupying left, top and most of the center, softly transitioning into approximately 30 percent luminous lime #D6FF62 diffused through the lower-right corner. Preserve a simple broad diagonal color boundary from upper-right to lower-center. Make the dominant-color area truly blue, not mostly white or pale cyan. Use the provided image as a MATERIAL reference only: rich optically diffused frosted-glass light, a delicate tactile frosted surface, softened luminous refraction. Recompose its color to the required blue-left/top and lime-lower-right geometry. Add three to four broad, very soft vertical translucent refraction bands extending continuously from top edge to bottom edge, unevenly spaced, changing local brightness subtly; no hard partitions. Make this visibly different from a plain flat noisy gradient: the light travels through a frosted optical material with softness, subtle layered translucency and a small amount of fine glass texture. No actual glass object or panel edges, no product, no border, no recognizable outdoor scenery, no literal window, no droplets, no excessive blobs or bokeh circles. All light remains abstract blue and lime, with gentle pale highlights. This physical optical structure should be simple and stable for subsequent color-only edits.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-05-01.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-d4a18165-e814-4b0d-88f4-a6b2d22a7107.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/glass-blue-major.png",
+    "width": 1672,
+    "height": 941,
+    "suggestedInk": {
+      "bold": "forest",
+      "stacked": "forest",
+      "editorial": "forest",
+      "highlight": "forest",
+      "caption": "forest"
+    }
+  },
+  {
+    "id": "style05-bg-glass-inverted",
+    "kind": "background",
+    "family": "glass",
+    "colorway": "inverted",
+    "colorLabel": "Inverted palette",
+    "title": "Frosted glass / Inverted palette",
+    "description": "The base geometry recolored with inverted anchor colors: 70% orange and 30% violet, as an exploratory palette comparison.",
+    "prompt": "Edit the supplied image as a controlled color comparison. Final remains one full-bleed high-quality landscape 16:9 background around 1672\u00d7941. Change ONLY the two anchor colors using their literal RGB-inverted counterparts: blue #007EBD maps to orange #FF8142; lime #D6FF62 maps to deep violet #29009D. Preserve the original blue-major geometry exactly, with approximately 70 percent ORANGE across left/top/center and approximately 30 percent VIOLET at the lower-right. Keep the same soft transition boundary, texture and spatial arrangement. No original blue, cyan, green or lime should remain. This is an exploratory orange/violet palette inversion, NOT a direction reversal and NOT a shape or material change. Keep the anchors clearly orange and violet, not mostly pale peach or gray. Preserve the exact frosted-glass physical surface and existing vertical translucent refraction bands: same positions, widths, delicate optical texture, and lighting relief. Only the colors should change. Maintain optical diffusion and depth, never flatten this into an ordinary matte gradient. No text, symbols, logos, watermarks, border, panels, frames, scene, objects, illustrations, or extra elements. Preserve overall visual structure as closely as possible.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/glass-blue-major.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-491a0ef8-ed2d-4dbe-97e9-945d2cd7c507.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/glass-inverted.png",
+    "width": 1672,
+    "height": 941,
+    "suggestedInk": {
+      "bold": "forest",
+      "stacked": "forest",
+      "editorial": "forest",
+      "highlight": "forest",
+      "caption": "forest"
+    }
+  },
+  {
+    "id": "style05-bg-glass-lime-major",
+    "kind": "background",
+    "family": "glass",
+    "colorway": "lime-major",
+    "colorLabel": "Lime dominant",
+    "title": "Frosted glass / Lime dominant",
+    "description": "The same geometry and texture, recolored to roughly 70% lime across left/top and 30% blue at lower right.",
+    "prompt": "Edit the supplied image as a controlled color comparison. Final remains one full-bleed high-quality landscape 16:9 background around 1672\u00d7941. Swap the roles of the two colors without moving any part of the composition: every broad area currently blue in the left/top/center becomes luminous lime #D6FF62, which now occupies approximately 70 percent of the canvas. The current lime region at lower-right becomes saturated blue #007EBD/#168DDD, occupying approximately 30 percent. Keep the same soft diagonal transition boundary and exactly the same spatial structure. This is a color-role swap, NOT a mirror, flip, rotation or direction reversal. Lime must clearly dominate on the left and top; blue must be localized in the lower-right. Preserve the exact frosted-glass physical surface and existing vertical translucent refraction bands: same positions, widths, delicate optical texture, and lighting relief. Only the colors should change. Maintain optical diffusion and depth, never flatten this into an ordinary matte gradient. No text, symbols, logos, watermarks, border, panels, frames, scene, objects, illustrations, or extra elements. Preserve overall visual structure as closely as possible.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/glass-blue-major.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-7192a341-74e6-424d-8041-ad82b546a2ff.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/glass-lime-major.png",
+    "width": 1672,
+    "height": 941,
+    "suggestedInk": {
+      "bold": "forest",
+      "stacked": "forest",
+      "editorial": "forest",
+      "highlight": "forest",
+      "caption": "forest"
+    }
+  },
+  {
+    "id": "style05-bg-glass-reverse",
+    "kind": "background",
+    "family": "glass",
+    "colorway": "reverse",
+    "colorLabel": "Reversed direction",
+    "title": "Frosted glass / Reversed direction",
+    "description": "The same blue-dominant balance, with lime moved to the upper left and blue occupying right/bottom.",
+    "prompt": "Edit the supplied image as a controlled color comparison. Final remains one full-bleed high-quality landscape 16:9 background around 1672\u00d7941. Reverse ONLY the gradient's direction: make approximately 70 percent of the canvas saturated blue #007EBD/#168DDD across the RIGHT, BOTTOM and center, and move the approximately 30 percent luminous lime #D6FF62 region to the UPPER-LEFT corner. This is the base gradient's direction reversed diagonally, as if its color distribution were rotated 180 degrees, while retaining the same texture strength and material character. Do not swap which color is dominant: blue must still occupy most of the image. Preserve the same width/softness of the color transition. Preserve the exact frosted-glass physical surface and existing vertical translucent refraction bands: same positions, widths, delicate optical texture, and lighting relief. Only the colors should change. Maintain optical diffusion and depth, never flatten this into an ordinary matte gradient. No text, symbols, logos, watermarks, border, panels, frames, scene, objects, illustrations, or extra elements. Preserve overall visual structure as closely as possible.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/glass-blue-major.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-7061a26b-804e-4ee3-95ca-c77a99fb80f5.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/glass-reverse.png",
+    "width": 1672,
+    "height": 941,
+    "suggestedInk": {
+      "bold": "forest",
+      "stacked": "forest",
+      "editorial": "forest",
+      "highlight": "forest",
+      "caption": "forest"
+    }
+  }
+]

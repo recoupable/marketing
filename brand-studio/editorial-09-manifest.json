@@ -1,0 +1,283 @@
+[
+  {
+    "id": "editorial09-p01",
+    "title": "Nested contours \u00b7 subtle edge",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "The existing blue type-and-pattern cover with a small, soft cyan-to-lime shift at the lower-right edge.",
+    "category": "editorial-09",
+    "family": "thumbnail",
+    "paletteName": "Blue",
+    "palette": {
+      "background": "#0565BB",
+      "text": "#FFFFFF",
+      "accents": [
+        "#132B26",
+        "#C2EDFF",
+        "#D6FF62"
+      ]
+    },
+    "preview": "assets/editorial-09/pattern-01.png",
+    "originalPreview": "assets/editorial-08/pattern-01.png",
+    "prompt": "Edit the supplied finished Recoup editorial thumbnail with the smallest possible change. This is a precision background-only edit, not a redesign. Preserve exactly the original 1672\u00d7941 landscape canvas, all existing title wording, punctuation, two-line break, font appearance, letterforms, weight, size, tracking, location, white text color, and ALL existing dark-forest and pale-blue contour strokes and their positions. Exact title remains:\nChoose your first\nAI project.\nKeep the entire image virtually unchanged. Add ONLY a barely perceptible soft color gradient at the very bottom-right outer edge, BEHIND the existing contour arcs. The blue base in the original is authoritative: do not recolor it. Only the extreme bottom-right edge should drift slightly toward cyan with a tiny trace of Recoup lime #D6FF62 confined to the farthest corner tip. Think 95% of the original appearance, 5% added atmosphere; dial strength down dramatically. Smooth feathered falloff, no visible patch boundary. At least 85\u201390% of the canvas must look like the original flat uninterrupted blue. The entire headline region and all upper/left/central space stay unchanged. No color wash across the composition. Do not add grain, noise, blur to typography or pattern, texture, shapes, icons, objects, logos, or other text. Do not move, reshape, remove, or add any curve. Preserve all original compositional geometry and crispness. Output ONE finished edited PNG only.",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09320-6448-7823-a493-4679aa51ebc3/exec-fddaf236-86dd-4b89-88b7-8942a379384f.png",
+    "referencePaths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-01.png"
+    ],
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-01.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-01.txt"
+      }
+    ],
+    "typography": "Existing DM Sans-style regular typography preserved",
+    "generator": "image_gen (built-in edit)",
+    "sha256": "a698e845d82c5eeef14e580ec59b925c0a9e5197229e778cef7cbdc6bd36d05e",
+    "originalId": "editorial08-p01"
+  },
+  {
+    "id": "editorial09-p02",
+    "title": "Converging lines \u00b7 subtle edge",
+    "sampleTitle": "Connect your company\u2019s knowledge",
+    "headline": "Connect your\ncompany\u2019s knowledge.",
+    "description": "The existing forest type-and-pattern cover with a restrained blue gradient confined to the lower-right edge.",
+    "category": "editorial-09",
+    "family": "thumbnail",
+    "paletteName": "Forest",
+    "palette": {
+      "background": "#132B26",
+      "text": "#D6FF62",
+      "accents": [
+        "#C2EDFF",
+        "#007EBD"
+      ]
+    },
+    "preview": "assets/editorial-09/pattern-02.png",
+    "originalPreview": "assets/editorial-08/pattern-02.png",
+    "prompt": "Edit the supplied finished Recoup editorial thumbnail with the smallest possible change. This is a precision background-only edit, not a redesign. Preserve exactly the original 1672\u00d7941 landscape canvas, all existing title wording, punctuation, two-line break, font appearance, letterforms, weight, size, tracking, location, lime text color, and ALL existing pale-ice converging lines and endpoint circles and their positions. Exact title remains:\nConnect your\ncompany\u2019s knowledge.\nKeep the entire image virtually unchanged. Add ONLY an extremely subtle soft gradient in the very bottom-right outer corner BEHIND the existing converging lines. The original deep forest green background is authoritative; do not change or lighten the base color. Let the farthest bottom-right edge have only a restrained hint of Recoup blue #007EBD softly blended into forest #132B26. The effect should be barely perceptible and smaller/quieter than a usual gradient. Think 95% of the original appearance, 5% added atmosphere. Smooth soft falloff, no sharply bounded patch. At least 85\u201390% of the image must remain the same deep forest field. The entire headline region, all upper/left/central space and the lime type stay unchanged. Do not spread blue into a color wash. No glow behind the headline. Do not add grain, noise, texture, blur to typography or pattern, shapes, objects, icons, logos, or any text. Do not move, reshape, remove or add any existing line or circle. Keep all original compositional geometry and crispness. Output ONE finished edited PNG only.",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09320-6448-7823-a493-4679aa51ebc3/exec-7c4d7033-17a7-449a-98f7-112f51d6ec09.png",
+    "referencePaths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-02.png"
+    ],
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-02.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-02.txt"
+      }
+    ],
+    "typography": "Existing DM Sans-style regular typography preserved",
+    "generator": "image_gen (built-in edit)",
+    "sha256": "2bd79df2681b78ee61726939deb92e54d4a1d5bd386f0e5060e71f373042b5ae",
+    "originalId": "editorial08-p02"
+  },
+  {
+    "id": "editorial09-p03",
+    "title": "Bending dot lattice \u2014 subtle edge",
+    "headline": "Build systems\nyour team can trust.",
+    "description": "The same pale-blue type and dot lattice, with only a subtle cyan tint at the far right edge.",
+    "palette": {
+      "background": "#C2EDFF",
+      "text": "#132B26",
+      "accents": [
+        "#132B26"
+      ]
+    },
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09325-0085-73c3-b1ee-dd142ebe8d20/exec-1f066516-0f2a-4f54-a86f-b4f016588630.png",
+    "sampleTitle": "Build systems your team can trust",
+    "category": "editorial-09",
+    "family": "thumbnail",
+    "preview": "assets/editorial-09/pattern-03.png",
+    "prompt": "Use case: precise-object-edit. Edit only the supplied finished Recoup blog thumbnail, preserving the original 16:9 framing and resolution. The provided image is the EDIT TARGET, not an inspiration reference.\nMake exactly one very restrained change: add a barely noticeable localized gradient at the far RIGHT edge behind the existing dot pattern. The existing pale ice-blue background should drift to a slightly deeper soft cyan at the outermost edge only. Feather it invisibly back into the original color within roughly the last 10\u201315% of width; most of the visible color shift belongs to the last 5%. Keep the rest of the image unchanged. This should feel like 95% of the original plus 5% atmosphere, not a gradient redesign.\nPreserve verbatim the same headline and exact two-line break:\nBuild systems\nyour team can trust.\nKeep every letter's position, size, weight, tracking, color and spacing identical. Keep every dot, its size, location, color, spacing and the entire dot lattice geometry identical. Keep the solid pale blue behind the headline and the central 80\u201390% of the image unchanged. Do not place any color wash behind the headline.\nNo other changes. No new grain, texture, noise, objects, light beams, highlights, shading, logos, frames, text or decoration. No full-width or diagonal gradient. Do not intensify the existing colors. Output ONE finished image.",
+    "referencePaths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-03.png"
+    ],
+    "typography": "DM Sans-style regular, left aligned",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-03.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-03.txt"
+      }
+    ],
+    "paletteName": "Pale blue",
+    "sha256": "05973441ca44cdff7741ef70d3f1ebeb755ed1d2e3a759faf33a1160539bef8f",
+    "generator": "image_gen (built-in)",
+    "originalPreview": "assets/editorial-08/pattern-03.png",
+    "originalId": "editorial08-p03"
+  },
+  {
+    "id": "editorial09-p04",
+    "title": "Open orbits \u2014 subtle edge",
+    "headline": "Keep people\nin the review.",
+    "description": "The same white type and open arcs, with a faint ice-blue gradient confined to the lower-right corner.",
+    "palette": {
+      "background": "#FFFFFF",
+      "text": "#152E37",
+      "accents": [
+        "#007EBD",
+        "#D6FF62"
+      ]
+    },
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09325-0085-73c3-b1ee-dd142ebe8d20/exec-7fdad8d9-f203-407c-af86-84ccce3cbb49.png",
+    "sampleTitle": "Keep people in the review",
+    "category": "editorial-09",
+    "family": "thumbnail",
+    "preview": "assets/editorial-09/pattern-04.png",
+    "prompt": "Use case: precise-object-edit. Edit only the supplied finished Recoup blog thumbnail, preserving its exact original 16:9 framing and resolution. The provided image is the EDIT TARGET.\nThe only change is a whisper of pale ice-blue gradient in the very LOWER-RIGHT corner, behind the existing blue open arcs. Keep about 95% of the visual feeling unchanged. The outermost lower-right tip may be very faint ice blue (around #EAF8FF), softly dissolving back into the original white over a small corner region. The central area, all headline space, upper edge and left edge must remain the original white. This is an almost invisible edge tint, not an overall gradient or vignette. At least 85\u201390% of the canvas remains completely untouched white.\nKeep the exact headline and exact two-line break:\nKeep people\nin the review.\nKeep every letter's position, size, weight, tracking, ink color and spacing identical. Preserve all open arc geometry, placement, line thickness and blue color, and preserve the single lime dot exactly. Do not add or move shapes. Do not add any tint behind the headline.\nNo other changes. No added grain, noise, texture, objects, shadows, lens effects, logo, text, border or decorative elements. Output ONE finished image.",
+    "referencePaths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-04.png"
+    ],
+    "typography": "DM Sans-style regular, left aligned",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-04.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-04.txt"
+      }
+    ],
+    "paletteName": "White",
+    "sha256": "4d095e6d931f5e4b1246d60e58bc568a84e092d7a1bd635681453027722bd93b",
+    "generator": "image_gen (built-in)",
+    "originalPreview": "assets/editorial-08/pattern-04.png",
+    "originalId": "editorial08-p04"
+  },
+  {
+    "id": "editorial09-p05",
+    "title": "Parallel curves \u2014 subtle edge",
+    "headline": "Turn repeated work\ninto a system.",
+    "description": "The same lime type and parallel curves, with a small cooler tint at the lower-right tip.",
+    "palette": {
+      "background": "#D6FF62",
+      "text": "#132B26",
+      "accents": [
+        "#132B26"
+      ]
+    },
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09325-0085-73c3-b1ee-dd142ebe8d20/exec-3f6da1e6-7376-4f55-a4f7-5f2e6061516a.png",
+    "sampleTitle": "Turn repeated work into a system",
+    "category": "editorial-09",
+    "family": "thumbnail",
+    "preview": "assets/editorial-09/pattern-05.png",
+    "prompt": "Use case: precise-object-edit. Edit the supplied finished Recoup blog thumbnail very minimally. The image is the exact EDIT TARGET. Preserve the original 16:9 dimensions and composition.\nAdd only a tiny, extremely soft pale ice-blue influence at the far LOWER-RIGHT TIP behind the existing parallel curves. This should be a 5% finishing touch: retain the dominant original lime across virtually the whole image, with only the outermost lower-right corner drifting slightly cooler into a very light pale blue/lime blend. The gradient should stay localized in the final corner and feather back to the original lime before reaching the central area. Keep at least 85\u201390% of the canvas the unchanged original lime, including all headline space. Do NOT create a blue patch, strong cyan glow, or large blue-to-lime gradient.\nPreserve the headline verbatim with the identical two-line break:\nTurn repeated work\ninto a system.\nAll typography must remain exactly the same in position, scale, light weight, color, tracking and line spacing. Preserve every parallel curve, its count, shape, location, spacing, thickness and dark-forest color exactly. Keep the clean flat graphic look.\nNo other changes: no new grain, noise, texture, objects, photography, shadows, neon bloom, logos, additional wording or framing. No overall color grading. Output ONE finished image.",
+    "referencePaths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-05.png"
+    ],
+    "typography": "DM Sans-style regular, left aligned",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-05.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-05.txt"
+      }
+    ],
+    "paletteName": "Lime",
+    "sha256": "19b3fb7824f73277e573a886c31d669a409d41c872e9b40560876eb98a46038d",
+    "generator": "image_gen (built-in)",
+    "originalPreview": "assets/editorial-08/pattern-05.png",
+    "originalId": "editorial08-p05"
+  },
+  {
+    "title": "Answers linked to their sources",
+    "sampleTitle": "Keep the source attached to the answer",
+    "description": "A proposed article explainer connects documents, email and notes to corresponding citations in an answer. The numbered references make the relationship readable without relying on an abstract metaphor.",
+    "palette": "#F0F7FA",
+    "colors": [
+      "#F0F7FA",
+      "#132B26",
+      "#007EBD",
+      "#D6FF62"
+    ],
+    "id": "editorial09-a01",
+    "category": "editorial-09",
+    "family": "article",
+    "status": "proposed",
+    "typography": "Plain sans-serif labels within explanatory drawing",
+    "prompt": "Use case: infographic-diagram.\nCreate ONE original wide 16:9 editorial illustration to appear INSIDE a thoughtful business article, about keeping source references attached to AI answers. This is a finished illustration, not a webpage, UI screen, moodboard or grid.\nThe drawing must explain a recognizable relationship at first glance. Use thin, precise, slightly human pen lines and plain flat ivory/white paper fills. Refined book-illustration sensibility, spare but intelligible. No sketchy cartoon, thick outlines, cute icons, photorealism, shading, 3D, bevels, shadows or stock business art.\nComposition: a centered horizontal drawing occupying 65\u201370% of canvas width and about 55% height, with wide calm outer margins. On the left three recognizable paper objects arranged vertically: a small document sheet with two short content lines, a simple open email envelope containing a sheet, and a small spiral-bound notebook. To the right one larger answer sheet with three short separated content lines. THREE thin blue connectors lead separately from the three source objects to the corresponding numbered citation on the answer sheet. Keep these connections readable and do not merge them into a knot. No arrowheads are needed.\nPlace exact small dark-forest sans-serif labels next to the left objects: \"Documents\", \"Email\", \"Notes\". Place the exact label \"Answer + sources\" above the answer sheet. On each source add a small numbered marker 1, 2, or 3 respectively; the three answer content lines each end with the matching numbered citation 1, 2, or 3. These are citation references, not metrics. Use only those labels and numbers. No large headline and no invented words.\nPalette: extremely pale blue #F0F7FA background; 95% of background looks perfectly flat, with only a barely perceptible blue tint toward the lower-right edge (about 5% visual strength). Forest #132B26 pen outlines and labels. White paper fills. Recoup blue #007EBD for the three fine linking lines. One tiny lime #D6FF62 citation accent; keep all other shapes restrained.\nThe entire illustration should feel lucid, authored, elegant and quiet. Objects must look immediately like documents, email and a notebook, NOT ambiguous fragments, blobs or metaphors. Keep labels legible at article width. No logos, musician, musical equipment, robot, sparkles, giant checkmarks, magnifying glasses, decorative corner patterns, outer border or watermark.",
+    "referencePaths": [],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a0933b-6d94-7650-9e47-c5424dc8e7e9/exec-88f7ea1f-97b3-4148-9acf-46ca63515d4d.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/editorial-09/article-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/article-01.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-09/article-01.txt"
+      }
+    ],
+    "formatRationale": "Use a source relationship diagram when the article explains traceability.",
+    "sha256": "5498b96b2451052c9be200f6ca52df2ca23c7ba8332f0ec85bf36c8a937210cd"
+  },
+  {
+    "title": "A human review step",
+    "sampleTitle": "Give people a clear review step",
+    "description": "A proposed article explainer shows an AI draft, a person making edits, and an approved output. It tests a clear process illustration; metaphorical or anthropomorphic drawings remain available when they explain another article better.",
+    "palette": "#FFFFFF",
+    "colors": [
+      "#FFFFFF",
+      "#132B26",
+      "#007EBD",
+      "#D6FF62"
+    ],
+    "id": "editorial09-a02",
+    "category": "editorial-09",
+    "family": "article",
+    "status": "proposed",
+    "typography": "Plain sans-serif labels within explanatory drawing",
+    "prompt": "Use case: infographic-diagram.\nCreate ONE original wide 16:9 editorial illustration to appear INSIDE a thoughtful business article, explaining a human review step between an AI draft and approved output. This is finished editorial pen art, not a webpage, UI card, moodboard, grid or photograph.\nMake the process intelligible in one glance with THREE left-to-right stages centered across 65\u201370% of canvas width. Generous uninterrupted white outer margins. Left: a small stack of two or three slightly offset paper sheets, the top sheet carrying three understated content lines. Center: a larger sheet of paper with one gracefully and correctly proportioned human hand holding a simple pen, its tip poised over the paper; two small blue editorial corrections on the sheet visibly show that a person is reviewing it. Show the hand entering from above so it does not cover the stage label. Right: one neatly composed final paper sheet, with four spare dark ink content lines and one small lime tab. One thin unobtrusive blue connector runs left-to-right behind the scene, with short visible links between the three stages and two small discreet arrowheads. Keep the stage objects independent and readable, no complex flowchart.\nExact text: \"AI draft\" below the first group, \"Human review\" below the center group, \"Approved output\" below the right sheet. Use plain dark-forest sans-serif labels, all the same size and aligned along a common baseline. No giant headline, no other words, no numbers, no checkmark.\nDrawing voice: very thin confident editorial ink line with slight natural irregularity, carefully observed simplified paper shapes and a recognizable human hand, NOT photorealistic or anatomically elaborate. Flat white and faint ivory fill only. No thick black cartoon outlines, glove-shaped hand, clip art, painted rendering, hatching, 3D, shadows or gradients across objects.\nPalette: white #FFFFFF background almost completely flat, with only a faint cool-blue shift at the far lower-right edge, about 5% visual strength. Deep forest #132B26 linework and labels. Recoup blue #007EBD corrections and connector. One restrained lime #D6FF62 tab on the final page.\nThis must feel like a professional publication's clear explanatory illustration: calm, precise, human and useful. No robots, musical gear, musicians, mysterious symbolic objects, decoration, outer frame, UI controls, logos or watermark.",
+    "referencePaths": [],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a0933b-6d94-7650-9e47-c5424dc8e7e9/exec-f5b80ed4-8dec-4ff1-bf20-582927781c82.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/editorial-09/article-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/article-02.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-09/article-02.txt"
+      }
+    ],
+    "formatRationale": "Use a process illustration when the article explains who reviews work and when.",
+    "sha256": "df53c7fb6273032001cb46eb7f690934a63ddf24de2371476dea564e02ebf3e5"
+  }
+]

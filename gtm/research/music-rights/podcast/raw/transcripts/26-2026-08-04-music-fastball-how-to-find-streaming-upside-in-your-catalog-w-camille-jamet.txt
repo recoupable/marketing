@@ -1,0 +1,374 @@
+# Music Fastball: How to find streaming upside in your catalog w/ Camille Jamet
+# Date: 2026-08-04
+# Duration: 00:41:07
+# Guests: Camille Jamet, Music Streaming Strategist Hosts: Tom Mullen and Emma Griffiths, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen and Emma Griffiths, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Music-Fastball-How-to-find-streaming-upside-in-your-catalog-w-Camille-Jamet-e3mvd6i
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] hello everybody and welcome back to music fastball uh this week we are joined by camille jemmy
+[00:16] who is a music streaming strategist with over 18 years in the industry working at sony amazon
+[00:24] and companies of the like and today we're going to talk about the opportunities to uh improve
+[00:31] consumption through streaming services so i think camille one of maybe the slightly misunderstood
+[00:37] things about streaming is that it's quite a passive uh method for people to can at least
+[00:43] distribute their content and they have less or little control over how and where it appears and
+[00:50] how it's consumed but i think your experience tells us otherwise and we're going to get into
+[00:56] some practical tips today about what you can actually do with your catalog to improve its
+[01:03] visibility on the streaming platforms and how you can build up a bit of a head of esteem to
+[01:09] make progress so let's dive straight in there shall we i think that the first and kind of the biggest
+[01:17] question is like if you've got a very large catalog whether it's a back catalog at a label or whether
+[01:23] you have a fund with hundreds of thousands difference of tracks like where do you start how do you start
+[01:29] to pin down well these are the ones that we're going to focus our time on because i suspect being able to
+[01:34] focus on all of them isn't realistic no but of example uh thanks a lot for having me here that's a topic
+[01:41] that i love to address and actually it reminds me uh when i started in music industry and these are in
+[01:48] spotify we're showing up with this revolutionary you know way of listening to music and back then i was
+[01:54] working at the back catalog of sony music so it wasn't like it was millions of track to cover
+[02:02] and actually the way we did it back then was uh using the playlisting to really highlight the back
+[02:09] catalog so long story short i'm going like to the end playlisting is still a way to do so but to get
+[02:16] back to your question of course we cannot start by handling everything because everything is going
+[02:23] nowhere it's way too many tracks so for sure we need to figure out uh which track are going to get the
+[02:29] better traction and also the the greatest uh conversion so let's say that the idea it's maybe
+[02:36] it would be maybe too easy to start you know with the top streams uh stream tracks of course we see it
+[02:44] as a big potential because it really already sorry uh drives a lot of streams but i would say that
+[02:51] maybe when you look at your tiering you're going to define first your kpi if we look at the streams first
+[02:57] maybe not going with the top of the pyramid but then with the second tier because the third tier might
+[03:04] be way too low too many tracks and very low volume so it's going to be a lot of energy a lot of efforts
+[03:10] for very low incomes so i would go with the the second tiering where you can see actually some potential
+[03:18] and the incremental uh additional revenue that you can get can be like very very important and how do you
+[03:26] like like how would you roughly stratify that so i mean i think conceptually it makes good sense you
+[03:33] know moving the needle with the the big big streams already means that you have to have in absolute
+[03:39] numbers a significant increase in streams for the ones at the very bottom then again like even if you have
+[03:47] a a large relative increase it's actually proportionally not going to really make a difference to your
+[03:52] revenue so it leads to the middle band like how do you stratify over and above that like what are the
+[03:59] things that you would actively look at to say okay well here's where we draw the line and these are the
+[04:05] things that we're going to look at i will take it um first of course i would look at the streams
+[04:12] because this is where it's going to make a difference but then the second and most important kpi i would
+[04:18] look at to really like make a selection uh would be like the engagement signals so these kpis are
+[04:26] usually the save rate and the track per listener as well because it's really matter for instance if you
+[04:34] work a track that really have a very strong engagement it means that every new person who's
+[04:41] going to add it to the library will be more likely based on data shared by spotify more likely to listen
+[04:47] to it four times more in the next six months so this is what you are looking for not for base passive
+[04:55] what we call passive listening so it's going to be just one more stream what you want it's to really
+[05:02] get into the user library because then the incremental in the long run is going to be huge so this is what
+[05:09] matter it's like how people respond to the track so you need to take a look at these kpis which are the
+[05:15] more essential to me uh beyond the streams volume right and then looking at the the type of track
+[05:24] as well because it depends on your catalog of course but then based on the music genres or also the can be
+[05:32] the bpm or it can be the mood and contextual uh listen that we can do with uh um this music this is also
+[05:41] something that's going to help you to really categorize and build like a cheering that's very
+[05:47] like relevant for your music and then from there you will select different type of action to kind of
+[05:53] build your own flywheel and this will really like increase your volume of stream so i think what i'm
+[06:02] hearing there is you know streaming is the top level number but just concentrating on that alone
+[06:07] isn't necessarily going to get you the biggest return on your effort actually looking instead at
+[06:13] kind of consumer um aggregation and increasing the general consumption base because that could lead to
+[06:21] you know one to four one to five uh relationship between customers consumers and streams is that fair
+[06:29] yeah yeah totally this is where we look at the potential of track like from an industry perspective
+[06:36] we are not only looking at the streams because there are many ways uh not all very legal or very fair but
+[06:45] there are many ways to really like move the needle when it goes to streams but it doesn't really reflect
+[06:51] the potential of a track that matters from the for the industry and actually the artist is to really
+[06:58] get into the user library because this is where you're going to have like streams for like the
+[07:06] next decades or whatever so if you just rely on playlisting for instance the way you get kicked out of the
+[07:14] playlist everything drop and then you know like this is no longer an active you know income so you
+[07:20] really need to to look at that okay and once you kind of identified that initial cohort that you're going
+[07:28] to go after in terms of the um portion of your library that you want to increase and that then what are you
+[07:36] going to do next like what is what's the actual concrete process that you would go through to start to
+[07:42] understand okay is the effort that i'm putting in coming back am i starting to reach the audience
+[07:48] like what other insights are out there that you can get kind of some early traction from some good vibes
+[07:55] early on yeah first of all you have to understand like before i would say maybe we not we missed a step
+[08:03] but to understand what you can control and what you cannot control so that's the very first step because
+[08:10] as a catalog owner maybe there are things you have the dependency but when it goes to metadata
+[08:15] or using a discovery mode for instance or republishing your music like under compilation for instance or
+[08:26] finding a way to real like work back well there are things that you can do to really influence the
+[08:32] algorithm and also to create more traffic and get more visible there are also things that you have
+[08:38] very strong dependency which is playlisting editorial playlisting or when it goes to maybe creating
+[08:45] content on social media and you rely on the artist um that owns the music or this kind of thing so
+[08:52] that's also something you need to be very clear of what you can influence and what you cannot
+[08:58] and then from there once you have this visibility definitely uh the first thing that's going to matter a lot
+[09:06] is your metadata in mind seems like very easy we're all like oh but my catalog is already like
+[09:12] on the on the streaming platform but first of all is it at the right place like when you see you got this
+[09:18] third bucket you know with high potential but are you sure that all your metadata are like correct
+[09:26] very full like do you are you sure that you are in the right place on the music services and
+[09:31] you can really reach out to all the potential people that can get engaged with your music so
+[09:37] that's the first thing you can do um then it's going to be uh just looking at spotify for instance
+[09:44] uh you have some discovery mode i don't know if you heard of it which um yeah okay that's something
+[09:51] that you can actually maybe like it's very powerful because it can help you to really like get
+[09:57] into the algorithm algorithmic recommendation into the radio on spotify so that's something you can
+[10:04] try you get your bucket you make sure you know you're eligible and then you launch it for everything
+[10:09] it's very easy and then it can really create like big traction you go by bulk you know you have all your
+[10:17] tracks and you push it and then you see if it works or not of course on discovery mode like if you don't
+[10:23] know then there is like a cut of retention it's not free action yeah you don't pay upstream but then
+[10:30] um spotify is gonna keep 30 percent of the royalties right so it's quite a good tool for
+[10:37] just really understanding at greater scale what lands what doesn't and then you can kind of build a
+[10:45] strategy off the back of that because i guess more traditionally you know if you were to look at um
+[10:51] other advertising techniques i the one that always comes to mind for me is ppc and seo you know there's
+[10:57] a a world an absolute sea of websites out there and to kind of get in front of any consumer at any
+[11:05] given time feels almost impossible and to some degree given the volume of tracks that are now on
+[11:11] these streaming platforms it almost feels the same but actually given that the volume of consumers the
+[11:16] listeners then things like uh like those tools that are offered by spotify gives you a chance to
+[11:23] actually get in people's ears and capture some of those early signals to kind of okay try before you
+[11:30] start investing any further effort into or what's going to work in the consumer psyche yeah yeah definitely
+[11:37] and there is also one thing that's you know thinking about seo actually if we are also looking at
+[11:44] spotify not saying it's the only and ultimate platform but it's very true and i work for amazon
+[11:51] music so i can tell that you have a lot of features and capability to really like get your music visible
+[11:58] on spotify that you cannot have on other platforms like apple music or deezer or amazon music so
+[12:06] that's why you have more opportunities to work you know your music repertoire on spotify than other
+[12:13] that's saying you shouldn't do for the other but just saying that it gives you more features
+[12:18] yeah i think as well you know like with any strategy whether it be traditional fast moving
+[12:24] consumer goods or anything like that optimizing a single channel first is always the best way and
+[12:30] once you've understood what works well and which products go well then then you can look at other
+[12:35] distribution other channels and move out horizontally that way but trying to start with all of the
+[12:42] different platforms at once and optimize all of them knowing that they have the nuances they have
+[12:46] the different kind of demographics people listen they have the different tools that are available to
+[12:51] them i think it makes much better sense to hone in on one typically choose the one with the biggest
+[12:56] audience the biggest and the best tools go forth test get some early signals get some traction and then
+[13:04] you know like once you've really maximized one of the channels then it's time to go and look at the next
+[13:09] yeah it's always like the 80 20 you know it's gonna where you're gonna put like 20 percent of the
+[13:16] efforts to get your 80 percent results so this is definitely uh the same logic behind that and to get to
+[13:23] what for instance you can do and that is very actionable and you can really work a big chunk of a catalog
+[13:32] would be playlisting of course and also because you mentioned seo and i i guess you know but the seo
+[13:40] really on spotify allow you to really like with some efforts but to really get on top of the
+[13:47] of the research of the search so for instance uh if you build a set of playlists with and you can put
+[13:56] like 1000 tracks you know per playlist so you can really have like a big part of your repertoire
+[14:01] and then you really work with the keywords and then some marketing of course to really like push it
+[14:10] and make it you know like listen um this is a real strategy and actually there are many catalogs that
+[14:17] have been built like that at really one artist level but also at the label level uh so this is
+[14:24] something that still work a lot it's this um playlisting third party playlist you know
+[14:31] a work that you can do using you know like the seo but also using off platform the marketing so you can
+[14:38] go of course i mean it's some piece of work as well but you can go on tiktok or instagram usually tiktok
+[14:47] is a big driver for that you know creating some contents a lot of contents you know bulking it might be
+[14:54] one day off work you know for some for an agency or whatever and then putting some marketing on it
+[14:59] and having you know like a work to really drive traffic to your playlist on spotify for instance so
+[15:07] you can work your playlist inside within the streaming platform but outside as well and at some point you
+[15:14] can really reach some very high level of consumptions of visibility and this is a way that people and also
+[15:22] music pros you know work their music online so that's why it's very interesting because you can also
+[15:29] have some maybe um top track let's say we were saying before you know how you choose your track but you can
+[15:37] focus on playlists based on mood genre whatever pushing your third the second third you know like
+[15:45] bucket but also maybe having some top track to really create some traction and make sure that
+[15:51] people get engaged because that's popular track that they like and they love and then you build it from
+[15:57] there and you can push it and push in this is once the setup is done of course you monitor you test it
+[16:04] of course then you monitor and it's also another way to send good signal to the algorithm because
+[16:12] we're talking about discovery mode let's say your track is pushing on one side it's pushed by the
+[16:18] discovery mode it gets good signal people add it to the library on the other side it's getting streams from the
+[16:25] playlist as well so it's additional streams so it's also good signals and by combining this action actually you create
+[16:35] really like can create traction to your catalog and from there also monitor the track that responds the best and the
+[16:42] the track that does not and also from there you know you can change update your catalog make change make sure you know that you are really optimizing the the tracks that are the better chance to really like grow in the long term so yeah i think you know all of the things that we touched on so far are unsurprisingly quite traditional marketing techniques and are applicable against any products that you know go out acquire customers
+[17:11] acquire customers understand uh behavior kind of try and get those early signals start to kind of place bets and back
+[17:20] the tracks or the products that are growing and then hope for a bit of a trickle down effect to other things in the portfolio
+[17:27] now there's two things that you said uh whilst we were talking that made me immediately think okay
+[17:34] kamis had experience at one of the big tech companies uh and that was like okay well kind of data-led decision
+[17:41] making so actually listening to the data and then making decisions as to what to do going forwards and also
+[17:48] uh your notion of a flywheel could you just probably start with the flywheel explain us in a bit more detail what you mean by that and how you set it up
+[17:58] and then secondarily um the kind of approach to data like where are you actually making the decisions what are the concrete things that you're doing when you're saying
+[18:08] oh we look at the data like what is it what's the signal to keep going to stop and what's the signal to then invest further into that track with some
+[18:17] paid media paid content whatever it is okay and um yes it's true that i'm very data dream and because
+[18:25] that's what i love actually with music streaming it's you can you have access to so many data that it really helps you to find the right way to
+[18:34] kind of grow this um push this flywheel so looking at the flywheel let's say that we get back to my example when i was thinking about
+[18:43] playlisting so what i put like in my flower flywheel is going to start with the contents content is your music but then how you bulk
+[18:52] you know many tracks and not just pushing one so then your content is going to be your playlist so you make sure that your playlist
+[19:00] is optimized for seo on the streaming platform good cover good title good track list everything is it
+[19:09] pretty i mean you know in the web world now seo is such a tried and tested approach and there's so many tools
+[19:19] okay granted it's changed a bit recently with llms and everything else but the tooling ecosystem is so rich
+[19:27] is it comparable in music you know are there these tools around that would allow you to do this
+[19:33] at a degree of scale you know if you're thinking about particularly ppc maybe less so at seo
+[19:39] but if you're thinking of ppc for a an online retailer that has thousands if not hundreds of thousands of
+[19:47] skews like there are amazing tools out there now that allow people to optimize their ad spend down to
+[19:54] like the dollar cent of whichever screw or not a bolt that they want to show on a given search result
+[20:01] like are there the tools out there in the same way for music no not that um uh i mean some people
+[20:11] creating their own some uh very smart geeks you know like trying to to break you know like the system
+[20:18] but definitely the streaming platform are not sharing you know like the keywords and they don't open it
+[20:24] but then uh if you it's maybe it's not like the the most scalable part of the job but you know you can
+[20:32] still like do your own rich research you know by typing up you know like the some generic keywords
+[20:39] you know and looking at you know the best practices that you can see on online and you can you also have
+[20:46] some um you can also find you know like the most popular playlist and from there you know seeing like
+[20:52] the keyword that are used and everything so you have a few tools of course it's not like that's developed
+[20:59] because it's not open source i mean like the the keyword to the same degree yeah fair yeah yeah yeah
+[21:05] of course um because it's closed they have no interest you know in giving that open yes yes but
+[21:12] still you can stay i mean also it's i would say it's not staying too generic but finding the right niche
+[21:21] and really using the right keyword that really makes the difference and that really fits your catalog
+[21:28] and the playlist that you are trying to build actually so it's not inventing things or finding
+[21:33] you know like the one word that's not used because same you need you know to have some research you need
+[21:40] to have like something that still you know is looked for and have an appeal of it so right yeah and in the
+[21:47] end of the day you know you can kind of manipulate the data all you want but if the real aim is not just
+[21:53] streams but consumers then you have to make sure the messaging matches what the consumer expects
+[21:59] because if you don't of course listen to it and then they'll probably pass on and you know that's
+[22:03] a whole load of effort that is kind of wasted ultimately yeah it's about being specific it's
+[22:09] about finding a niche it's about talking to them and then when they find it then they you know they
+[22:15] actually engage listen and you increase the kind of conversion rate let's call it yeah exactly so that's
+[22:22] for the content part so if you are very good let's say you are really like finding your audience
+[22:30] directly you know online and you're good even your flywheel is almost like done you know it's like
+[22:35] content good good position in the search consumption and it goes on and on and on but then if you need a
+[22:43] little extra push then it's going to go you will need like some visibility of platform where you can get
+[22:50] control because as i say on the streaming platform you just have a few features that help you to
+[22:54] control it you know some you can do some marketing as well directly like some showcase campaign for
+[23:00] instance speaking about spotify that helps you to really promote your playlist you can do it directly
+[23:07] as well to give an extra you know like visibility and then for cheaper because the thing on spotify
+[23:14] it's great because you are directly you know where the listener is so this is the best place but
+[23:19] maybe a bit pricey i mean the cpc can be like a little high compared to some meta or tiktok
+[23:26] campaign for instance and also looking at we're thinking i mean we're saying about like you need to
+[23:33] choose your service where you're gonna push it but if you go on meta or tiktok you can also have your
+[23:39] playlist available you know on different streaming platforms and then you know like each person is
+[23:46] gonna pick you know the service they like so it's also a different like a option but let's stick to
+[23:54] spotify you have your playlist and then you're going to do some marketing so as part of the flywheel is
+[23:59] going to be like okay how can i draft more traffic and more visibility on that platform so the idea is to
+[24:05] create stop background your content and as i always say to the artist the label all the pros
+[24:13] i'm working with is really like it doesn't don't invest a lot of marketing if your content is not
+[24:21] working like organically because it's like zero multiply one million still gonna be zero so you have
+[24:29] to test with organic content you know find your way and then really put some marketing on the one that
+[24:35] have the better result and the better uh conversion so this is part of the flight of lightwell you have
+[24:41] your content on a streaming platform then you try to create traffic over there you know like so you have
+[24:47] you create like a lot of on tiktok it's easier because you can create like an account let's say you want to
+[24:54] push some um i don't know it's a playlist because you have a lot of chill music let's say pop acoustic chill
+[25:03] and then you're gonna be okay what works you know it's just like a sunset and road trip thing so you
+[25:09] just create you know a lot of tiktok that can live by themselves and you put your music on it and just
+[25:15] you know like oh best playlist you know to go on the road trip or best best playlist to chill with
+[25:20] for sunset whatever yeah and then you just put it live you know it's few hours of work hundreds of
+[25:28] content you schedule it goes and then when you see that some of them are getting more traction because
+[25:35] you know they are like more visible or getting a higher reach then you push with some marketing and
+[25:42] then you know you go faster and uh and greater as well and then you look at of course the conversion
+[25:49] on your playlist because that's the thing what you want the final goal is to get stream so it's not
+[25:54] only to get right popular but really to get some conversion so the idea is really like to get that
+[26:01] flywheel when you identify you know like this is the right content okay this is the right marketing
+[26:07] how much let's say thousand or two euros should i put on one campaign for one playlist to generate like
+[26:14] x volume of streams you know in the next maybe like six months because the thing with streaming it's
+[26:21] you should you need to have enough time to really like uh measure your roi if not you know like you
+[26:29] cannot say okay i have one month campaign you know and by the end of the month i'm gonna see you know
+[26:35] like if i get it you won't so that kind of brings us on to the next point so i i think again like the
+[26:42] notion of the flywheel and choosing your content understanding your audience building content for the audience
+[26:48] using different channels to like understand consumer behavior whilst maybe focusing one for
+[26:55] larger distribution identifying the kind of winners backing it with a bit of paid media like that's
+[27:02] right out of a tech like silicon valley playbook for any sas startup maybe changing now but basically
+[27:12] that's what we're talking about isn't it which is amazing and you know my expectation is that
+[27:17] why shouldn't people be doing that because you know it's a product in the end of the day that people
+[27:22] want to consume and yes there's the artistic side and all of those things but there's no point in
+[27:27] creating music if people aren't going to consume it because it will be short-lived or you know it'll
+[27:31] be a hobby project and people can be a bit more commercially savvy about actually how they can get
+[27:36] their product into the consumers then all the better and because the market's so vast now you know we are
+[27:43] really talking about a truly global market with many many many many consumers which is amazing
+[27:48] but then that kind of brings me back to the other question around data you know like what is realistic
+[27:55] when you're setting out one of these campaigns how do you set up like a fair test let's call it so you
+[28:02] don't keep kind of conning yourself that you should keep going it's like okay here's the test these are the
+[28:08] objective metrics this is for how long we're going to run it and this is what we're going to review
+[28:13] and after that we're going to do a or b depending on you know what we see just talk us through that part
+[28:19] yeah um i would say yeah you need to have like a longer period you know once you go and once you decide
+[28:29] you know this is the right campaign of course you're going to keep it running and measure your return
+[28:34] investments you know after like six months whatever of course because you're going to start with test
+[28:39] because we all do that and that's marketing wise you know like the best solution it's always to test
+[28:46] um no it's going to be a test it's you need just a few days or a few weeks you know like let's say
+[28:53] you have this playlist that you want to push you know you want to try it try the tiktok approach you
+[28:58] know so you're going to create your content and then it needs like two or three days really to see
+[29:04] you know which one of the piece of content is driving you know like the greater reach and which
+[29:10] one you need to um to amplify with some marketing budget and then you know like you're gonna wait for
+[29:19] let's say less than a week to really see you know where the trend is going uh if the reach i mean
+[29:26] from the social media perspective if your campaign you know is doing well because first you're going
+[29:32] to see if your campaign is efficient and then you're going to look at the conversion as well and then you
+[29:37] make a decision which is really not a long amount of time you know we're talking about a relatively
+[29:43] small amount of effort and a relatively small amount of time to be able to get those early signals to say
+[29:49] okay you know what should we do next and that's the first guide isn't it yeah yeah after that first few days
+[29:56] first week you can start to already make data driven decisions to a degree yeah of course it needs to
+[30:03] be adjusted but when it goes to tiktok for instance the lifestyle of a tiktok you know it's not unless it
+[30:09] gets viral but it doesn't last you know like month so you can easily see you know after usually 24 hours
+[30:18] let's say two days you know you see if it goes up or if it's just you know like it's not gonna go
+[30:26] higher than this so you don't need to wait you know for for a week uh on instagram it can take
+[30:32] longer to get traction so of course it's gonna be adjusted you know depending on your channel
+[30:37] then when it goes to marketing the idea is to determine you know like the right level uh daily budget
+[30:45] let's say and be okay let's test it on one week because it's testing so you don't need one month
+[30:51] to see if your campaign is gonna do well or not just one month on the right it's gonna hold a low
+[30:57] you to see like okay do i have like greater traction or in the end you know it's not really like working
+[31:04] that much i mean compared to the budget that i'm putting and then for the conversion it's also you see
+[31:11] if your campaign marketing campaign is doing well i mean as good as you want to like which signal you
+[31:18] get and then looking at your streams also and the click you know like do you have a lot of are you
+[31:25] driving a lot of traffic do you see an impact on your playlist of course you have to keep in mind that
+[31:32] if you do that you only do that because in between uh the campaign that you're going to do on meta for
+[31:38] instance and the impact you're going to have on spotify you are not able to track exactly where
+[31:45] you're streaming coming from yeah yeah yeah and i think that you know like that scientific approach
+[31:50] is really important isn't it i think for people for more experienced people who've worked with cc
+[31:56] cpc or you know similar types of campaigns where you're generating a bit of content you're
+[32:03] understanding how it is being consumed you're understanding the kind of level of adoption
+[32:07] you get to you get a sense of the metrics like you get a sense of the proportionality
+[32:12] and they stand out to you a bit more but i think for people who don't necessarily have that experience
+[32:17] just being rigorous about it like jotting down okay well this is how much time we spent
+[32:24] this is how much traction of these five tracks or one playlist or 10 videos or whatever it is
+[32:31] this one has x percentage higher engagement than the rest like then they start to become rather than
+[32:39] subjective decisions it's quite objective and i think from there it's just about iteration is it's like
+[32:46] okay well can i just improve that video or kind of run that one a bit harder i think the other
+[32:52] really important thing is you're not going to solve it in day one you're not going to solve it in
+[32:57] campaign one it's a case of you know you've got to invest a significant amount of time over a
+[33:03] significant period and yeah maybe if you have the know-how you can start to build some tools that allow
+[33:09] you to do that at scale as well but don't get put off because you don't go from zero to justin bieber
+[33:15] in the first week like that's unrealistic definitely not no there is no magic it's usually when people
+[33:23] reach out to me i'm like if they were magic you know everyone would do the same and everyone would
+[33:28] get super popular you know but yeah no there is no magic there is logic which is great really and
+[33:35] there are way you know to really rationalize let's say i know usually speaking with artists they are like
+[33:42] you speak like no we just think about music but we are here to talk about catalog so we can be more
+[33:49] like business minding let's say in the app yeah yeah this is also what i try to do at the artist level
+[33:56] in the way that um it's the competition is crazy and like for the first time you know more than the
+[34:03] majority of the tracks you know on spotify that have been on deezer that have been delivered delivered
+[34:08] i from hey i imagine you know we're we're there so then how you get visible when you have like
+[34:15] competition it's over saturated so that's why uh and you not everyone and is willing or can put
+[34:25] millions of euros to get visible you know there is no sense in that so the idea is going to be
+[34:30] maybe invest more time in trying and learning and figure it out what's going to be your flywheel
+[34:37] for your catalog for your music but at first you need to try and to be like okay willing and very
+[34:44] open to be like okay so i need to figure it out uh what's going to best format you know like and
+[34:49] content for my music online which platform i'm going to be like the the greatest potential or chances you
+[34:56] know to really like uh connect with my audience and really engage so once you have your platform you
+[35:03] have playlisting compilation or you just use it the way it is you see it depends then you have your
+[35:10] selection you know which track i'm going to focus on first place and then you figure it out okay i have
+[35:16] this option you know like maybe discovery mode or maybe this one i'm going to go you know with the
+[35:21] the tiktok approach you know to get traction but if i do that i really focus on that and then you have a
+[35:27] certain level of granularity you okay now which kind of content i can test this kind this kind this
+[35:34] kind and how every time it's learning test learn and then you know scale so the idea is not you
+[35:41] creating every day having a 10 team of like 10 graphics or you know designer creating content and
+[35:49] the idea is really like being willing to test you know like with a little budget you know a few days
+[35:56] you know you have your goals your period and the more you're going to test the more you're going to
+[36:01] have also you know information it's not about like that's something that i really like working at
+[36:07] amazon we were all very much um uh not pushed but encouraged to fail because by failing you have a lot
+[36:17] of information you know it's not always finding the right way you know of course it's great you know if
+[36:22] you have like the solution like in two days and oh my god i made millions you know amazing yeah
+[36:27] but it's also unrealistic exactly so the more being like okay this content not for that not the right
+[36:35] approach great learning don't do that you know and then from there building like oh and the this
+[36:41] approach or this content i see okay this type of content this messaging works you know publishing this
+[36:48] time now i'm gonna make 100 of them you know and publish it and see how it goes and from there okay
+[36:54] i get more traction now i start amplifying it with a little budget okay this target audience work well
+[37:02] this country work well you know and then from there amplify amplify and then being like okay this
+[37:08] campaign is working super well does it convert into stream yes i see you know like my line and my
+[37:15] growth going perfect you know jackpot i found my way and then you know i'm gonna scale it and replicate
+[37:20] you know adapt and scale it yeah right and then you know you get a sense for it i think yeah i know it's a
+[37:27] bit of an a kind of an adjacent market but ultimately the same approach um mr beast
+[37:33] watching some of his early videos and not necessarily the content that he created but listening to
+[37:39] the approach that they took i think there was four or five of them that were all doing it
+[37:45] simultaneously and they were really rigorous about what they were posting what they were creating what
+[37:51] they were learning and implementing that flywheel and because there was four or five of them you know
+[37:57] they were doing it at a scale that was four or five times more than the next single uh kind of
+[38:03] creator could do and i think the results obviously speak for itself and it you know it doesn't stop
+[38:09] just because he's now absolutely massive like that will be his strategy he'll just have many many more
+[38:16] signals much much more data um to be able to pull from but you know so i think it's really
+[38:23] worthwhile going and have a look at look at some of that i think kamee this has been super
+[38:29] interesting really amazing to have you on i think the uh the like the takeaways for me would be
+[38:36] find out what your flywheel is so obviously focus on the content understand that your audience is
+[38:43] offline as well as online because if you're speaking to people offline then chances are it's
+[38:48] going to be exact same people online you just need to go and find them find those communities
+[38:53] be scientific about it make some initial tests understand what's going on and then when you get
+[39:02] a bit of traction that's the time to invest a little bit of cash keep yourself honest make sure that's
+[39:08] coming back to streams then rinse and repeat stick at it and if you're looking after a larger catalog
+[39:14] then the tools that you're going to need to be able to do that need to be a bit more refined
+[39:19] it's totally feasible it's about being scientific yes the content music and the artistry is important
+[39:27] but marketing is marketing and it's a uh it's a mechanical game you know yeah and it's um i mean it's a
+[39:37] it's a great sum up and uh the idea it's really it's of course it's about the music but it's not only
+[39:43] about judging like oh it's good music it's bad music they're all like i'm so subjective yeah of
+[39:49] course and there are terrible things that are i mean from music perspective in my point of view that
+[39:54] are like super popular you know so whatever so the idea is really to have the music meeting the right
+[40:01] audience it's like everything in marketing back in the time i used to be quoting new needs you know
+[40:07] to make more money that was the purpose of marketing today marketing is really how i'm gonna really
+[40:13] like meet my audience you know like and create i don't know and engage with this audience so
+[40:19] it's not really about the the product even though i don't like to call music a product but it's not
+[40:24] about the product anymore of course you need great products you know but it's really how you're gonna
+[40:31] meet the audience and actually that's the whole point you know how you really like get people that's
+[40:36] gonna love your catalog and then listen to it so this is exactly the point and same
+[40:43] amazing
+[40:43] camille thank you so much that was a lot of fun thank you for joining us uh everybody thank you for
+[40:51] tuning in until next time thank you
+[40:54] you
+[40:56] you
+[41:00] you
+[41:04] you
+[41:06] you
+[41:08] you

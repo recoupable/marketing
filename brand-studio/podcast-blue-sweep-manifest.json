@@ -1,0 +1,345 @@
+[
+  {
+    "id": "blue-sweep-podcast-badge",
+    "title": "Podcast badge",
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/badge.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/badge.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/badge.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=badge#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-badge-overlay",
+    "title": "Corner badge overlay",
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/badge-overlay.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/badge-overlay.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/badge-overlay.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=badge-overlay#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-title",
+    "title": "Show title",
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/title.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/title.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/title.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=title#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-cover",
+    "title": "Square show cover",
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/cover.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/cover.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/cover.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=cover#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-thumbnail",
+    "title": "Episode thumbnail",
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/thumbnail.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/thumbnail.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/thumbnail.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=thumbnail#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-solo",
+    "title": "Solo video frame",
+    "description": "Blue sweep podcast kit. Transparent camera openings; separate name labels.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/solo-preview.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/solo.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/solo.svg"
+      },
+      {
+        "label": "Name labels PNG",
+        "path": "assets/podcast-kit-blue-sweep/solo-labels.png"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=solo#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-duo",
+    "title": "Two-person video frame",
+    "description": "Blue sweep podcast kit. Transparent camera openings; separate name labels.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/duo-preview.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/duo.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/duo.svg"
+      },
+      {
+        "label": "Name labels PNG",
+        "path": "assets/podcast-kit-blue-sweep/duo-labels.png"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=duo#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-vertical",
+    "title": "Vertical clip frame",
+    "description": "Blue sweep podcast kit. Transparent camera openings; separate name labels.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/vertical-preview.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/vertical.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/vertical.svg"
+      },
+      {
+        "label": "Name labels PNG",
+        "path": "assets/podcast-kit-blue-sweep/vertical-labels.png"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=vertical#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-quote",
+    "title": "Quote card",
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/quote.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/quote.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/quote.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=quote#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-announcement",
+    "title": "Episode announcement",
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/announcement.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/announcement.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/announcement.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=announcement#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-endcard",
+    "title": "End card",
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/endcard.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/endcard.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/endcard.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=endcard#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-background",
+    "title": "Landscape background",
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/background.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/background.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/background.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=background#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-square-background",
+    "title": "Square background",
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/square-background.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/square-background.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/square-background.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=square-background#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-portrait-background",
+    "title": "Portrait background",
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/portrait-background.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/portrait-background.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/portrait-background.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html?format=portrait-background#preview"
+  },
+  {
+    "id": "blue-sweep-podcast-intro",
+    "title": "Opening \u00b7 Connection pass",
+    "description": "Silent 1080p motion. 5.5-second symbol reveal, docking, and wordmark reveal.",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/title.png",
+    "files": [
+      {
+        "label": "MP4",
+        "path": "assets/podcast-kit-blue-sweep/intro.mp4"
+      }
+    ],
+    "video": "assets/podcast-kit-blue-sweep/intro-connection.mp4",
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html#motion"
+  },
+  {
+    "id": "blue-sweep-podcast-outro",
+    "title": "Outro",
+    "description": "Silent 1080p motion. ",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/title.png",
+    "files": [
+      {
+        "label": "MP4",
+        "path": "assets/podcast-kit-blue-sweep/outro.mp4"
+      }
+    ],
+    "video": "assets/podcast-kit-blue-sweep/outro.mp4",
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html#motion"
+  },
+  {
+    "id": "blue-sweep-podcast-background-loop",
+    "title": "Background loop",
+    "description": "Silent 1080p motion. ",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/background.png",
+    "files": [
+      {
+        "label": "MP4",
+        "path": "assets/podcast-kit-blue-sweep/background-loop.mp4"
+      }
+    ],
+    "video": "assets/podcast-kit-blue-sweep/background-loop.mp4",
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "tool": "podcast-kit-blue-sweep.html#motion"
+  }
+]
