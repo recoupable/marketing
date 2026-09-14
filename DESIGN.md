@@ -211,7 +211,7 @@ Use text as well as color for state: **Needs review**, **Matches**, **Draft**, *
 
 ## Typography
 
-Use **DM Sans Variable** for headings, body, and the wordmark, and **IBM Plex Mono 400** for compact labels, code, and technical metadata. Both are locally loaded in [the root layout](app/layout.tsx). The logo reads **Recoup**, capital R, weight **600**. Use the existing symbol and wordmark components. The footer uses `FooterBrand` from `components/sky/brand.tsx`, with a 23×28px symbol, 11px gap, and a 28px/600 wordmark (26px on phones). Header-only logo rules must be scoped to `.ss-header`; its sizing variables and mobile icon-only layout must never affect the footer.
+Use **DM Sans Variable** for headings, body, and the wordmark, and **IBM Plex Mono 400** for compact labels, code, and technical metadata. Both are locally loaded in [the root layout](app/layout.tsx). The logo reads **Recoup**, capital R, weight **600**. Use the existing symbol and wordmark components. The footer uses `FooterBrand` from `components/sky/brand.tsx`, with a 23×28px symbol, 11px gap, and a 28px/600 wordmark (26px on phones). The desktop header matches those proportions and the footer’s 1.2 line height, using dark ink on white. Header-only logo rules must be scoped to `.ss-header`; its sizing variables and mobile icon-only layout must never affect the footer.
 
 Headings feel open and assured: weights 450–500, close tracking, short lines. Body copy is regular, easy to scan, and substantially looser than headings. Monospace is an accent, not the body voice. Do not bring back Syne, decorative serifs, or the typewriter treatment from earlier studies.
 

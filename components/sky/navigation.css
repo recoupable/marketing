@@ -2,8 +2,8 @@
 .ss-header {
   --nav-wordmark-size: 28px;
   --nav-brand-gap: 11px;
-  --nav-symbol-width: 20px;
-  --nav-symbol-height: 24px;
+  --nav-symbol-width: 23px;
+  --nav-symbol-height: 28px;
   --nav-link-gap: 24px;
 }
 
@@ -12,7 +12,7 @@
   font-family: "DM Sans Variable", sans-serif;
   font-size: var(--nav-wordmark-size);
   font-weight: 600;
-  line-height: 1.65;
+  line-height: 1.2;
   letter-spacing: -1.1px;
   white-space: nowrap;
 }
