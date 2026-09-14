@@ -840,6 +840,63 @@ const artwork: Record<
       </>
     ),
   },
+  "sandbox-for-record-labels": {
+    background: pale,
+    label: "A WORKSPACE FOR YOUR LABEL’S AGENT",
+    scene: (
+      <>
+        <rect x="65" y="114" width="670" height="304" rx="22" fill="white" />
+        <path d="M65 171h670" stroke={pale} strokeWidth="3" />
+        <circle cx="93" cy="142" r="6" fill={blue} />
+        <circle cx="115" cy="142" r="6" fill={lime} />
+        <Words x={148} y={152} size={26}>
+          Label sandbox
+        </Words>
+        <path d="M340 172v246" stroke={pale} strokeWidth="3" />
+        {["Rules", "Mood boards", "Campaign files"].map((label, i) => (
+          <g key={label}>
+            <path
+              d={`M94 ${213 + i * 68}h17l7 8h20v25H94z`}
+              fill={i === 1 ? lime : pale}
+            />
+            <Words x={153} y={239 + i * 68} size={25}>
+              {label}
+            </Words>
+          </g>
+        ))}
+        <rect x="361" y="193" width="350" height="201" rx="14" fill={green} />
+        <Words x={383} y={234} size={24} fill="#bed4c9">
+          Bash
+        </Words>
+        <path
+          d="m386 264 14 12-14 12"
+          stroke={lime}
+          strokeWidth="4"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <Words x={420} y={285} size={24} fill="white">
+          Read campaign files
+        </Words>
+        <path
+          d="m386 313 14 12-14 12"
+          stroke={lime}
+          strokeWidth="4"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <Words x={420} y={334} size={24} fill="white">
+          Create draft
+        </Words>
+        <path
+          d="M384 369h15"
+          stroke={lime}
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+  },
   "open-labels": {
     background: "#dcecf2",
     label: "THE PROGRAMMABLE RECORD LABEL",

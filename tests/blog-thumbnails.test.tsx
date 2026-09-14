@@ -44,11 +44,8 @@ describe("editorial blog thumbnails", () => {
     }
   });
 
-  it("retains the two relevant original covers and replaces the other archival covers", () => {
-    const kept = new Set([
-      "sandbox-for-record-labels",
-      "install-marketplace-claude-desktop",
-    ]);
+  it("retains the relevant Skills cover and replaces the other archival covers", () => {
+    const kept = new Set(["install-marketplace-claude-desktop"]);
     for (const post of blogPosts.filter((post) => post.coverImage)) {
       expect(render(post).includes("<img")).toBe(kept.has(post.slug));
     }

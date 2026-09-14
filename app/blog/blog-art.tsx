@@ -9,13 +9,7 @@ export function BlogArt({
   feature?: boolean;
   image?: string;
 }) {
-  if (
-    image &&
-    [
-      "sandbox-for-record-labels",
-      "install-marketplace-claude-desktop",
-    ].includes(slug)
-  )
+  if (image && ["install-marketplace-claude-desktop"].includes(slug))
     return (
       <div className="blog-art blog-art-editorial" aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element */}

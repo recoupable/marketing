@@ -6,9 +6,9 @@ Scope: 26 published posts: one featured guide and 25 archive entries. Read again
 
 - 20 archive articles used only three generic illustrations: Research / Create / Review (9), One story / More ways to tell it (7), Before / Release / Beyond (4).
 - The artwork was selected by list position (`i % 3`), not subject. Some broad marketing matches were reasonable, but the repeated slogans obscured the differences between A&R, distribution, staffing, cost, and marketing topics.
-- Five archive articles had distinct original covers. Retain two; replace three with simpler, more specific compositions.
+- Five archive articles had distinct original covers. Retain one; replace four with simpler, more specific compositions.
 - Retain the featured guide’s existing decision-framework illustration.
-- Result: 23 new article-specific vector illustrations, three retained covers, and no reused compositions. Shared palette and drawing primitives maintain brand consistency without rotating whole thumbnails.
+- Result: 24 new article-specific vector illustrations, two retained covers, and no reused compositions. Shared palette and drawing primitives maintain brand consistency without rotating whole thumbnails.
 
 ## Article-by-article decisions
 
@@ -36,13 +36,13 @@ Scope: 26 published posts: one featured guide and 25 archive entries. Read again
 | [Meta Bought Manus Because Agents Still Break](/blog/meta-bought-manus-agents-break) | Replace | Reused “Research / Create / Review” art; does not distinguish this article’s specific workflow. | AGENT RELIABILITY · THE MISSING LAYER |
 | [Why Music Labels Are Hiring AI Agents Instead of More Interns](/blog/music-label-ai-agents) | Replace | Reused “Before / Release / Beyond” art; does not distinguish this article’s specific workflow. | AGENTS IN LABEL OPERATIONS |
 | [Recoup in 2026](/blog/recoup-in-2026) | Replace | Old homepage screenshot promotes the product generally; it does not show this article’s annual roadmap. | RECOUP · THE 2026 ROADMAP |
-| [Sandbox for Record Labels](/blog/sandbox-for-record-labels) | Keep | Distinct record-label sandbox metaphor; clearly tied to the subject, although it does not explain runtime architecture. | Original retained |
+| [Sandbox for Record Labels](/blog/sandbox-for-record-labels) | Replace | The literal sandbox scene was off-brand. Replace with a label file tree and Bash workspace using the shared palette. | A WORKSPACE FOR YOUR LABEL’S AGENT |
 | [Open Labels](/blog/open-labels) | Replace | Relevant but dense launch graphic; small text and numerous interface panels are illegible as a thumbnail. | THE PROGRAMMABLE RECORD LABEL |
 | [Install the Recoup Skills & Plugins Marketplace on Claude Desktop](/blog/install-marketplace-claude-desktop) | Keep | Simple Recoup Skills cover identifies the product in the installation guide. | Original retained |
 | [Bring your own agent](/blog/bring-your-own-agent) | Replace | Relevant plugin screenshot but crop loses context; a connection diagram communicates the central idea more clearly. | YOUR AGENT. RECOUP’S MUSIC TOOLS. |
 
 ## Implementation
 
-`app/blog/article-art.tsx` owns the slug-specific native SVG scenes. `BlogArt` retains the two approved original archive covers and the featured guide. Article body copy and full-size historical cover images are unchanged. All 25 archive entries use one continuous thumbnail grid, including filtered results; there is no text-only archive break.
+`app/blog/article-art.tsx` owns the slug-specific native SVG scenes. `BlogArt` retains the approved original Skills cover and the featured guide. Article body copy and full-size historical cover images are unchanged. All 25 archive entries use one continuous thumbnail grid, including filtered results; there is no text-only archive break.
 
 New scenes illustrate processes, not measured results: no fabricated performance metrics, revenue gains, or hit predictions. Labels and major subjects stay inside the 800 × 500 viewBox; the thumbnail preserves that ratio on phones.
