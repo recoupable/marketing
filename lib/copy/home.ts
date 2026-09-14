@@ -14,6 +14,7 @@ export const homeCopy = {
   },
   engagements: {
     title: "Choose your level of support.",
+    startingAt: "Starting at",
     advisory: "Your team implements. We provide strategy, planning, and coaching.",
     partner: "We build and integrate the systems, train your team, and support adoption.",
     scope: "Scope and delivery schedule agreed before work begins.",

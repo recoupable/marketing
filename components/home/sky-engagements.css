@@ -24,6 +24,7 @@
 .sky-engagement-price { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 10px; margin-top: 28px; }
 .sky-engagement-price strong { font-size: clamp(47px,4.6vw,66px); line-height: 1; font-weight: 500; letter-spacing: -.06em; font-variant-numeric: tabular-nums; }
 .sky-engagement-price > span { font-size: 14px; color: #526a74; }
+.sky-engagement-price-label { flex-basis: 100%; margin-bottom: 8px; line-height: 1.4; }
 .sky-engagement-terms { margin: 12px 0 25px; font-size: 12px; line-height: 1.5; color: #526a74; font-variant-numeric: tabular-nums; }
 .sky-engagement-card--partner :is(.sky-engagement-price > span,.sky-engagement-terms) { color: #bfd5ca; }
 .sky-engagement-action { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 54px; padding: 7px 8px 7px 21px; border: 1px solid #cbdcdf; border-radius: 40px; background: white; color: #18372e; font-size: 15px; font-weight: 500; text-decoration: none; transition: background .2s; }

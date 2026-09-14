@@ -14,7 +14,7 @@ function EngagementMark({ build = false }: { build?: boolean }) {
 }
 
 export function SkyEngagements() {
-  const [billing, setBilling] = useState<BillingCycle>("monthly");
+  const [billing, setBilling] = useState<BillingCycle>("annual");
   const plans = pricingPlans.filter((plan) => plan.id !== "platform");
 
   return <section className="sky-section sky-engagements" id="work-with-us" aria-labelledby="sky-engagements-title">
@@ -32,7 +32,7 @@ export function SkyEngagements() {
           <div className="sky-engagement-card-top"><span className="sky-engagement-mark"><EngagementMark build={build} /></span></div>
           <h3 id={`home-plan-${plan.id}`}>{plan.name}</h3>
           <p className="sky-engagement-description">{build ? homeCopy.engagements.partner : homeCopy.engagements.advisory}</p>
-          <div className="sky-engagement-price"><strong>{price.monthly}</strong><span>/ month</span></div>
+          <div className="sky-engagement-price"><span className="sky-engagement-price-label">{homeCopy.engagements.startingAt}</span><strong>{price.monthly}</strong><span>/ month</span></div>
           <p className="sky-engagement-terms">USD · {price.terms}</p>
           <TrackedLink className="sky-engagement-action" href={pricingInquiryHref(plan.id, billing)} cta={plan.id} placement="home_engagements" plan={plan.id}>{build ? "Discuss your build" : "Explore advisory"}<span><SkyArrow /></span></TrackedLink>
           {build && <p className="sky-engagement-scope">{homeCopy.engagements.scope}</p>}

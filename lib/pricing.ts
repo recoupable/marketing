@@ -83,7 +83,7 @@ export function pricingSelectionLabel(selection: PricingSelection) {
   if (selection.plan === "enterprise") return "Enterprise · Custom engagement";
   const plan = pricingPlans.find((item) => item.id === selection.plan)!;
   const price = planPrice(plan.id, selection.billing);
-  return `${plan.name} · ${price.monthly}/month · ${price.terms}`;
+  return `${plan.name} · Starting at ${price.monthly}/month · ${price.terms}`;
 }
 
 export function pricingSummary() {
