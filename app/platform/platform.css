@@ -151,3 +151,24 @@
 @media (prefers-reduced-motion: reduce) {
   .platform-tool-choices button > svg { transition: none; }
 }
+
+.platform-audience { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin: 0 40px 85px; padding-top: 45px; box-shadow: 0 -1px #dce5e7; }
+.platform-audience-eyebrow { margin: 0 0 22px; color: #586f78; font: 11px "IBM Plex Mono", monospace; letter-spacing: .07em; }
+.platform-audience h2 { margin: 0; max-width: 17ch; font-size: clamp(34px, 3.8vw, 49px); }
+.platform-audience h2 span { color: #087bab; }
+.platform-audience-reasons { display: grid; gap: 26px; padding-top: 1px; }
+.platform-audience-reasons article { padding-left: 23px; box-shadow: -2px 0 #d6ff62; }
+.platform-audience-reasons h3 { margin: 0 0 9px; font-size: 23px; font-weight: 500; line-height: 1.2; letter-spacing: -.035em; }
+.platform-audience-reasons p { max-width: 45ch; margin: 0; font-size: 15px; line-height: 1.65; color: #586f78; }
+@media (max-width: 800px) {
+  .platform-audience { grid-template-columns: 1fr; gap: 34px; margin: 0 25px 65px; padding-top: 35px; }
+  .platform-audience h2 { max-width: 24ch; }
+}
+@media (max-width: 550px) {
+  .platform-audience { margin-inline: 15px; margin-bottom: 50px; }
+  .platform-audience h2 { font-size: 34px; }
+  .platform-audience-eyebrow { font-size: 10px; margin-bottom: 18px; }
+  .platform-audience-reasons h3 { font-size: 22px; }
+  .platform-audience-reasons article { padding-left: 18px; }
+  .platform-audience-reasons p { font-size: 14px; }
+}

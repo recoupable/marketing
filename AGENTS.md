@@ -238,3 +238,5 @@ The native Next.js library lives at `/brand` (Finals) and `/brand/experiments`. 
 - The review storage key stays recoup-brand-review:v1. Page assignment stays independent of Keep / Maybe / Pass. Export/import reviews across origins.
 - /brand is excluded from indexing and the marketing sitemap. It is not access-controlled.
 - Run `pnpm test lib/brand-studio/__tests__` and `pnpm build` after integration changes.
+
+Recoup Cloud is the public name of the hosted product; retain `/platform` and the `platform` pricing identifier. After the artist/catalog/release composition, the open editorial audience section explains use without a custom build, music-specific operations, and branded artist/client portals. Keep these reasons in `platformCopy.audience` so headline-only readers and machine summaries receive the same narrative. Product navigation, homepage software links, footer, and pricing use Recoup Cloud.

@@ -5,14 +5,14 @@ export const annualDiscountPercent = 20;
 export const pricingPlans = [
   {
     id: "platform",
-    name: "Platform",
+    name: "Recoup Cloud",
     kind: "Self-serve",
     monthlyCents: 9900,
     description: "The tools and music skills. You take it from here.",
     includes: "Your workspace includes",
-    features: ["Recoup platform access", "Music skill pack", "Artist context and research", "Content and recurring workflows"],
+    features: ["Recoup Cloud access", "Music skill pack", "Artist context and research", "Content and recurring workflows"],
     detail: "For people who want to run the work themselves.",
-    action: "Open the platform",
+    action: "Open Recoup Cloud",
   },
   {
     id: "advisory",

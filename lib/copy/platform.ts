@@ -1,11 +1,11 @@
 export const platformCopy = {
-  title: "A ready-to-use AI workspace for music teams",
-  description: "A hosted AI workspace for artists, catalogs, and releases. Chat with music-business tools for research, content, and recurring work. Open source, run by Recoup.",
+  title: "Recoup Cloud: a ready-to-use AI workspace for music teams",
+  description: "Music-specific AI for teams without a custom build. Work across artists, catalogs, and releases, and give clients a branded portal for your agents.",
   hero: {
-    eyebrow: "RECOUP PLATFORM",
+    eyebrow: "RECOUP CLOUD",
     title: ["A ready-to-use AI workspace", "for music teams."],
     description: "A chat-based agent workspace built for music business operations. Recoup hosts the app and connects the tools, so your team can start working without building its own setup.",
-    action: "Open Recoup",
+    action: "Open Recoup Cloud",
   },
   capabilitiesTitle: "Built-in tools for research, content, and recurring work.",
   capabilities: [
@@ -38,6 +38,15 @@ export const platformCopy = {
   start: {
     title: "Work across your artists, catalogs, and releases through chat.",
   },
+  audience: {
+    eyebrow: "WHO IS RECOUP CLOUD FOR?",
+    title: ["For music teams that want AI", "without a custom build."],
+    reasons: [
+      { title: "No development team required.", description: "Start with a hosted workspace. Skip the cost of building and maintaining your own AI system." },
+      { title: "AI built for music operations.", description: "Go beyond general chat with tools and context for your artists, catalogs, releases, and campaigns." },
+      { title: "Your agents. Your branded portal.", description: "Give artists and clients a white-labeled portal to work with your agents under your brand." },
+    ],
+  },
   hosted: {
     title: ["Hosted by Recoup.", "Open source."],
     description: "Use the cloud app while Recoup runs the infrastructure. The workspace is built on the Recoup API and MCP, and its code is open source.",
@@ -54,7 +63,7 @@ export const platformCopy = {
   },
   faq: {
     title: "Before you open the workspace.",
-    audience: { question: "Who is the platform for?", answer: "Artists, managers, labels, and catalog teams who want a ready-to-use music-business agent workspace. Recoup hosts the app and tools. If you already prefer another agent, you can use Recoup Skills, API, and MCP with that setup instead." },
+    audience: { question: "Who is Recoup Cloud for?", answer: "Artists, managers, labels, and catalog teams who want music-specific AI without building their own system, including teams that want a branded portal for their artists or clients. Recoup hosts the app and tools. If you already prefer another agent, you can use Recoup Skills, API, and MCP with that setup instead." },
     context: { question: "What should I bring to my first session?", answer: "An artist, catalog, or release you’re working on, plus any useful files and notes. Give Recoup a clear task, such as researching an audience or drafting a release campaign." },
     custom: { question: "Can Recoup build around our team?", answer: "Yes. We can connect your tools and data, create workflows around your company’s methods, and help your team use and maintain the system." },
   },

@@ -30,12 +30,27 @@ export default function PlatformPage() {
         visual={<PlatformChatPreview />}
       >
         <AppLink placement="platform-hero" className="sp-button">{platformCopy.hero.action}<span><SkyArrow /></span></AppLink>
-        <p className="platform-sky-hero-note">{planPrice(plan.id, "monthly").monthly}/month for the platform and music skill pack.</p>
+        <p className="platform-sky-hero-note">{planPrice(plan.id, "monthly").monthly}/month for Recoup Cloud and the music skill pack.</p>
       </PageHero>
 
       <section className="platform-context" id="workspace" aria-labelledby="platform-context-title">
         <h2 id="platform-context-title">{platformCopy.start.title}</h2>
         <PlatformContextArt />
+      </section>
+
+      <section className="platform-audience" id="who-its-for" aria-labelledby="platform-audience-title">
+        <header>
+          <p className="platform-audience-eyebrow">{platformCopy.audience.eyebrow}</p>
+          <h2 id="platform-audience-title">{platformCopy.audience.title[0]} <span>{platformCopy.audience.title[1]}</span></h2>
+        </header>
+        <div className="platform-audience-reasons">
+          {platformCopy.audience.reasons.map(reason => (
+            <article key={reason.title}>
+              <h3>{reason.title}</h3>
+              <p>{reason.description}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <PlatformToolsDemo title={platformCopy.capabilitiesTitle} workflows={platformCopy.capabilities} />
