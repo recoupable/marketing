@@ -58,6 +58,7 @@ export function CarouselStudio() {
       <section className="carousel-workspace">
         <div
           className="carousel-canvas"
+          role="group"
           tabIndex={0}
           aria-label="Carousel preview. Use left and right arrow keys to change slides."
           onKeyDown={(e) => {

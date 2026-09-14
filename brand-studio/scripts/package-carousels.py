@@ -1,6 +1,6 @@
 from pathlib import Path
 import json,zipfile
-from PIL import Image,ImageOps
+from PIL import Image
 from reportlab.pdfgen import canvas
 ROOT=Path(__file__).resolve().parents[1]
 for a in json.loads((ROOT/'carousel-templates-manifest.json').read_text()):
@@ -28,6 +28,7 @@ These templates are experiments, not approved finals.
 '''
  (d/'README.md').write_text(readme)
  with zipfile.ZipFile(d/f'{key}.zip','w',zipfile.ZIP_DEFLATED) as z:
-  for p in sorted(d.iterdir()):
-   if p.suffix!='.zip' and p.name!='preview.jpg':z.write(p,p.name)
+  names=[f'{i:02}.{ext}' for i in range(1,7) for ext in ['svg','png','jpg']]+['README.md',f'{key}.pdf']
+  for name in names:
+   p=d/name;z.write(p,p.name)
  print(key,'PDF',round((d/f'{key}.pdf').stat().st_size/1024),'KB','max JPEG',round(max(p.stat().st_size for p in d.glob('[0-9]*.jpg'))/1024),'KB')

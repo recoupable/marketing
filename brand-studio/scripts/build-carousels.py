@@ -1,11 +1,9 @@
-"""Build original, portable Recoup carousel experiments. Requires fonttools, Pillow, reportlab and Next's sharp."""
+"""Build original, portable Recoup carousel experiments. Requires fonttools. Render and package with the companion scripts."""
 from pathlib import Path
-import json,re,math,subprocess,zipfile,html
+import json,re,html
 from fontTools.ttLib import TTFont
 from fontTools.varLib.instancer import instantiateVariableFont
 from fontTools.pens.svgPathPen import SVGPathPen
-from PIL import Image,ImageOps
-from reportlab.pdfgen import canvas
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'assets/carousels';OUT.mkdir(parents=True,exist_ok=True)
 font=TTFont(ROOT/'assets/fonts/dm-sans.woff2')
