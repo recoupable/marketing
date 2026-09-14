@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SkyArrow } from "@/components/sky/arrow";
+import { homeCopy } from "@/lib/copy/home";
 
 export function SkyLandscapeContact() {
   return (
@@ -16,24 +17,20 @@ export function SkyLandscapeContact() {
         sizes="(max-width: 760px) 100vw, 85vw"
       />
       <div className="sky-landscape-copy" data-reveal="">
-        <p className="sky-section-label">LET\u2019S PUT AI TO WORK</p>
         <h2 id="sky-contact-title">
           Find your first
           <br />
           useful AI build.
         </h2>
-        <p>
-          Start with a free audit of one workflow. We\u2019ll review where AI
-          could help and identify a practical first step for your team.
-        </p>
+        <p>{homeCopy.contact.description}</p>
         <Link className="sky-landscape-cta" href="/start-project">
-          GET A FREE AUDIT{" "}
+          {homeCopy.contact.action}{" "}
           <span aria-hidden="true">
             <SkyArrow />
           </span>
         </Link>
         <p className="sky-contact-note">
-          The audit is free. Any build is scoped and priced separately.
+          {homeCopy.contact.note}
         </p>
       </div>
     </section>

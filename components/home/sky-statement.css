@@ -1,8 +1,7 @@
 .sky-statement {
   display: grid;
   align-items: center;
-  min-height: 90svh;
-  padding: clamp(160px, 18svh, 240px) clamp(24px, 6.5vw, 104px) clamp(180px, 22svh, 280px);
+  padding: clamp(96px, 12svh, 160px) clamp(24px, 6.5vw, 104px);
 }
 
 .sky-statement p {
@@ -21,7 +20,7 @@
 .sky-statement-accent { color: var(--sky-content-blue); }
 
 @media (max-width: 600px) {
-  .sky-statement { min-height: auto; padding: 112px 23px 136px; }
+  .sky-statement { padding: 88px 23px 96px; }
   .sky-statement p { font-size: clamp(26px, 7vw, 34px); line-height: 1.28; letter-spacing: -0.035em; }
 }
 

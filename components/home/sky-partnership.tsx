@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SkyArrow } from "@/components/sky/arrow";
 import "./sky-partnership.css";
-import { serviceOffers } from "@/lib/service-offers";
+import { homeOffersCopy } from "@/lib/copy/home-offers";
 import "./sky-services.css";
 
 function CheckMark() {
@@ -17,7 +17,7 @@ function RecoupSymbol() {
 }
 
 function SectionAuditLink() {
-  return <Link className="sky-section-audit" href="/start-project">Get a Free Audit<span><SkyArrow /></span></Link>;
+  return <Link className="sky-section-audit" href="/start-project">{homeOffersCopy.services.auditLabel}<span><SkyArrow /></span></Link>;
 }
 
 function OfferSymbol({ kind }: { kind: string }) {
@@ -31,39 +31,28 @@ export function SkyServices() {
     <div className="sky-offer-layout">
       <header className="sky-services-heading">
         <div data-reveal="">
-          <p className="sky-section-label">HOW WE HELP</p>
-          <h2 id="sky-services-title">Make AI part of<br /><span>how your music company works.</span></h2>
-          <p className="sky-offer-intro">We find the work worth improving, build systems you own, and train your team to run them.</p>
-          <p className="sky-offer-assurance">We agree on what success looks like before development starts.</p>
+          <p className="sky-section-label">{homeOffersCopy.services.eyebrow}</p>
+          <h2 id="sky-services-title">{homeOffersCopy.services.title}</h2>
           <SectionAuditLink />
         </div>
       </header>
       <div className="sky-offer-list" data-reveal-group="">
-        {serviceOffers.map(service => <article key={service.id} className={`sky-offer sky-offer-${service.id}`} aria-labelledby={`service-${service.id}`}>
-          <div className="sky-offer-top"><div><p className="sky-offer-audience">{service.audience}</p><h3 id={`service-${service.id}`}>{service.title}</h3></div><OfferSymbol kind={service.id} /></div>
-          <p className="sky-offer-benefit">{service.benefit}</p>
-          <p className="sky-offer-description">{service.copy}</p>
-          <ul>{service.includes.map(item => <li key={item}><CheckMark />{item}</li>)}</ul>
+        {homeOffersCopy.services.offers.map(service => <article key={service.id} className={`sky-offer sky-offer-${service.id}`} aria-labelledby={`service-${service.id}`}>
+          <div className="sky-offer-top"><h3 id={`service-${service.id}`}>{service.title}</h3><OfferSymbol kind={service.id} /></div>
+          <p className="sky-offer-description">{service.summary}</p>
           <Link href={service.href}>{service.link}<SkyArrow direction="up-right" /></Link>
         </article>)}
       </div>
     </div>
-    <div className="sky-offer-outputs" data-reveal=""><div><p className="sky-section-label">WHAT WE CAN BUILD</p><p>Choose the engagement. Shape the work around your business.</p></div><nav aria-label="Examples of custom systems"><Link href="/operations">Workflow automation<SkyArrow /></Link><Link href="/operations#royalty-example">Royalty reporting<SkyArrow /></Link><Link href="/case-studies/catalog-intelligence">Catalog intelligence<SkyArrow /></Link><Link href="/acquisitions">Investment review<SkyArrow /></Link></nav></div>
+    <div className="sky-offer-outputs" data-reveal=""><p className="sky-section-label">{homeOffersCopy.services.examplesLabel}</p><nav aria-label={homeOffersCopy.services.examplesNavLabel}>{homeOffersCopy.services.examples.map(example => <Link key={example.href} href={example.href}>{example.label}<SkyArrow /></Link>)}</nav></div>
   </section>;
 }
 
-const deliverySteps = [
-  { title: "Discovery & audit", copy: "We look at how your business works today: the tools, the people, and the tasks taking up their time." },
-  { title: "Strategy & roadmap", copy: "You get a clear plan: what to build, why it matters, and what comes first. We agree on scope, price, and success measures." },
-  { title: "Build & integration", copy: "We build your system, connect it to your existing tools, and test it on real work with your team." },
-  { title: "Launch & adoption", copy: "Your team learns to use and run the system. We review the results together and agree on any further improvements or builds." },
-];
-
 export function SkyPartnership() {
   return <section className="sky-section sky-transformation-process" id="how-we-work" aria-labelledby="sky-process-title">
-    <header data-reveal=""><p className="sky-section-label">HOW IT WORKS</p><h2 id="sky-process-title">From first conversation to launch.<br /><span>Know what happens next.</span></h2><div className="sky-section-intro"><p>You’ll know what we’re building, who’s responsible, and what each stage delivers. Here’s how we get your team from an idea to a working system.</p><SectionAuditLink /></div></header>
-    <ol className="sky-process-list" data-reveal-group="">{deliverySteps.map((step, index) => <li key={step.title}><span className="sky-process-number">Step 0{index + 1}</span><h3>{step.title}</h3><p>{step.copy}</p></li>)}</ol>
-    <p className="sky-process-scope">Already know what you need? We can start with the build. Scope, price, and any ongoing support are agreed together.</p>
+    <header data-reveal=""><p className="sky-section-label">{homeOffersCopy.process.eyebrow}</p><h2 id="sky-process-title">{homeOffersCopy.process.title}</h2></header>
+    <ol className="sky-process-list" data-reveal-group="">{homeOffersCopy.process.steps.map((step, index) => <li key={step.title}><span className="sky-process-number">{homeOffersCopy.process.stepLabel} 0{index + 1}</span><h3>{step.title}</h3><p>{step.copy}</p></li>)}</ol>
+    <p className="sky-process-scope">{homeOffersCopy.process.scope}</p>
   </section>;
 }
 

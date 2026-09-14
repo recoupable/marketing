@@ -38,7 +38,6 @@
 .sky-product-jobs { display: grid; gap: 9px; }
 .sky-product-jobs span { display: flex; align-items: center; gap: 9px; color: #526a74; font-size: 10px; }
 .sky-product-jobs i { font: normal 8px "IBM Plex Mono",monospace; color: #087bab; }
-.sky-product-workspace-caption { margin-top: 29px; color: #447084; font: 8px/1.5 "IBM Plex Mono",monospace; letter-spacing: .12em; text-align: center; }
 .sky-product-skills, .sky-product-developers { display: flex; flex-direction: column; }
 .sky-product-skills .sky-product-copy, .sky-product-developers .sky-product-copy { display: flex; flex-direction: column; align-items: start; flex: 1; }
 .sky-product-skills .sky-product-text-link, .sky-product-developers .sky-product-text-link { margin-top: auto; padding-top: 22px; }
@@ -84,7 +83,6 @@
  .sky-product-window-bar { font-size: 7px; gap: 10px; padding-inline: 10px; }
  .sky-product-record { width: 45px; height: 45px; }
  .sky-product-artist strong { font-size: 15px; }
- .sky-product-workspace-caption { margin-top: 23px; font-size: 7px; }
  .sky-product-books { height: 205px; padding: 27px 23px 0; }
  .sky-product-book { padding: 14px 10px; height: 153px; }
  .sky-product-book strong { font-size: 20px; }

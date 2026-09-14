@@ -3,11 +3,10 @@
 .sky-landscape-contact > img { object-fit: cover; object-position: center; z-index: -2; }
 .sky-landscape-contact::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #003d725e, #004c701a 70%, transparent); }
 .sky-landscape-copy { padding: clamp(34px, 4vw, 58px); }
-.sky-landscape-copy .sky-section-label { color: #e3f4fc; }
-.sky-content .sky-landscape-copy h2 { max-width: 19ch; margin-top: 34px; font-size: clamp(32px, 3.7vw, 54px); font-weight: 450; letter-spacing: -.055em; line-height: 1.08; }
+.sky-content .sky-landscape-copy h2 { max-width: 19ch; margin-top: 0; font-size: clamp(32px, 3.7vw, 54px); font-weight: 450; letter-spacing: -.055em; line-height: 1.08; }
 .sky-landscape-copy > p:not(.sky-section-label) { max-width: 42ch; margin-top: 22px; font-size: 15px; line-height: 1.6; color: #eff9ff; }
 .sky-landscape-copy > .sky-contact-note { margin-top: 13px; font-size: 12px; }
-.sky-landscape-cta { display: flex; align-items: center; gap: 20px; width: fit-content; margin-top: 30px; padding: 5px 5px 5px 20px; background: #d6ff62; color: #18291e; border-radius: 99px; font: 10px "IBM Plex Mono", monospace; letter-spacing: .09em; transition: background .2s; }
+.sky-landscape-cta { display: flex; align-items: center; gap: 20px; width: fit-content; margin-top: 30px; padding: 5px 5px 5px 20px; background: #d6ff62; color: #18291e; border-radius: 99px; min-height: 48px; font: 500 14px/1.4 "DM Sans", sans-serif; letter-spacing: -.01em; transition: background .2s; }
 .sky-landscape-cta > span { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: #141d17; color: #fff; }
 .sky-landscape-cta .sky-arrow-icon { width: 17px; height: 17px; }
 .sky-landscape-cta:hover { background: #e4ff93; }
@@ -21,13 +20,12 @@
   .sky-landscape-contact > img { object-position: 36% center; }
   .sky-landscape-contact::before { background: linear-gradient(180deg, #045c9bcc 0%, #045c9bcc 78%, #045c9b55 100%); }
   .sky-landscape-copy { padding: 34px 25px 95px; }
-  .sky-landscape-cta { font-size: 12px; letter-spacing: .03em; min-height: 48px; }
-  .sky-content .sky-landscape-copy h2 { margin-top: 33px; font-size: clamp(29px, 8vw, 39px); }
+  .sky-landscape-cta { font-size: 14px; min-height: 48px; }
+  .sky-content .sky-landscape-copy h2 { margin-top: 0; font-size: clamp(29px, 8vw, 39px); }
   .sky-landscape-copy > p:not(.sky-section-label) { font-size: 14px; line-height: 1.6; }
 }
 .sky-buying-questions { display:grid; grid-template-columns:.85fr 1.15fr; gap:50px; padding:5px 0 80px; }
-.sky-buying-questions header .sky-section-label { color:#60767e; font-size:10px; }
-.sky-content .sky-buying-questions h2 { margin-top:22px; font-size:clamp(33px,3.6vw,49px); font-weight:450; line-height:1.1; letter-spacing:-.05em; }
+.sky-content .sky-buying-questions h2 { margin-top:0; font-size:clamp(33px,3.6vw,49px); font-weight:450; line-height:1.1; letter-spacing:-.05em; }
 .sky-buying-answers { border-top:1px solid #dfe8ec; }
 .sky-buying-answers details { border-bottom:1px solid #dfe8ec; }
 .sky-buying-answers summary { display:flex; justify-content:space-between; align-items:center; gap:25px; padding:24px 0; list-style:none; cursor:pointer; font-size:17px; line-height:1.4; color:#25434e; }

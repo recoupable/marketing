@@ -19,34 +19,30 @@
 .sky-services-heading { text-align: left; }
 .sky-content :is(.sky-services-heading,.sky-transformation-process) h2 { margin: 22px 0 28px; font-size: clamp(36px,4.5vw,64px); line-height: 1.04; font-weight: 500; letter-spacing: -.05em; }
 .sky-services-heading h2 span, .sky-transformation-process h2 span { color: #63777d; }
-.sky-section-intro { display: flex; justify-content: space-between; align-items: end; gap: 35px; }
-.sky-section-intro > p { max-width: 620px; margin: 0; color: #526a74; font-size: 17px; line-height: 1.6; }
 .sky-section-audit { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; flex: none; min-height: 48px; padding: 6px 7px 6px 22px; border-radius: 40px; background: #d6ff62; color: #182e28; font-size: 14px; font-weight: 500; text-decoration: none; }
 .sky-section-audit > span { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #172e27; color: white; }
 .sky-section-audit:hover { background: #c5f347; }
-.sky-content .sky-transformation-process { display: block; padding-block: 64px; margin-bottom: 70px; border-radius: 25px; background: #f1f4f4; background-image: var(--recoup-surface-grain),linear-gradient(140deg,#f6f8f8,#eff4f5); background-size: 160px 160px,100% 100%; background-blend-mode: soft-light,normal; }
-.sky-process-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; list-style: none; padding: 0; margin: 44px 0 0; }
-.sky-process-list li { display: flex; flex-direction: column; align-items: start; min-width: 0; min-height: 310px; padding: 25px 22px; border: 1px solid #fff; border-radius: 16px; background: #ffffffeb; }
+.sky-content .sky-transformation-process { display: block; padding-block: 52px; margin-bottom: 70px; border-radius: 25px; background: #f1f4f4; background-image: var(--recoup-surface-grain),linear-gradient(140deg,#f6f8f8,#eff4f5); background-size: 160px 160px,100% 100%; background-blend-mode: soft-light,normal; }
+.sky-content .sky-transformation-process h2 { max-width: 20ch; text-wrap: balance; }
+.sky-process-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; list-style: none; padding: 0; margin: 32px 0 0; }
+.sky-process-list li { display: flex; flex-direction: column; align-items: start; min-width: 0; padding: 24px 22px; border: 1px solid #fff; border-radius: 16px; background: #ffffffeb; }
 .sky-process-number { display: inline-flex; padding: 6px 11px; border-radius: 30px; background: #eaf3f7; color: #476575; font-size: 12px; line-height: 1; }
-.sky-content .sky-process-list h3 { font-size: 22px; letter-spacing: -.035em; line-height: 1.15; font-weight: 500; margin: 21px 0 42px; }
-.sky-process-list p { margin: auto 0 0; color: #526a74; font-size: 15px; line-height: 1.6; }
+.sky-content .sky-process-list h3 { font-size: 22px; letter-spacing: -.035em; line-height: 1.15; font-weight: 500; margin: 20px 0 16px; }
+.sky-process-list p { margin: 0; color: #526a74; font-size: 15px; line-height: 1.6; }
 .sky-process-scope { margin: 22px 0 0; color: #586f78; font-size: 13px; line-height: 1.6; }
 @media (max-width: 1000px) {
  .sky-process-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
- .sky-process-list li { min-height: 250px; }
 }
 @media (max-width: 900px) {
- .sky-section-intro { align-items: start; flex-direction: column; gap: 22px; }
  .sky-ownership-panel { gap: 32px; padding: 30px; }
 }
 @media (max-width: 700px) {
  .sky-content .sky-section.sky-transformation-services { padding-inline: 18px; padding-bottom: 55px; }
- .sky-section-intro > p { font-size: 16px; }
  .sky-content .sky-transformation-process { padding: 42px 23px; margin-bottom: 50px; border-radius: 20px; }
  .sky-content :is(.sky-services-heading,.sky-transformation-process) h2 { font-size: clamp(32px,8vw,44px); line-height: 1.08; }
  .sky-process-list { grid-template-columns: 1fr; margin-top: 30px; }
- .sky-process-list li { min-height: 0; padding: 24px; }
- .sky-content .sky-process-list h3 { font-size: 24px; margin: 18px 0 24px; }
+ .sky-process-list li { padding: 22px; }
+ .sky-content .sky-process-list h3 { font-size: 24px; margin: 16px 0 12px; }
  .sky-process-list p { font-size: 15px; }
  .sky-process-scope { font-size: 12px; }
  .sky-content .sky-section.sky-ownership { padding-inline: 18px; }

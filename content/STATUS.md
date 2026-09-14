@@ -1,3 +1,13 @@
+# Homepage copy simplification — September 14, 2026
+
+The homepage now uses shorter service, process, ownership, plan, tool, FAQ, and closing summaries. Repeated benefits, inclusions, preambles, and case-study badges are removed; card spacing follows the shorter copy. The approved hero headline and subtitle remain in place. Shared footer wording is shorter as well.
+
+Homepage summaries live in `lib/copy/home.ts`, `home-offers.ts`, and `home-case-studies.ts`; shared footer wording lives in `lib/copy/footer.ts`. The machine-readable homepage summary reuses the copy. Detailed service, pricing, and case-study pages retain their content. Prices, billing terms, plan inquiry attribution, and lead-capture behavior are unchanged.
+
+Validated with a production build, focused lint, pricing/agent-content/internal-link tests, and desktop/mobile browser checks. This work is on `codex/clean-navigation-type`; release depends on merging its PR.
+
+---
+
 # Sky preview migration — September 10, 2026
 
 The approved Labs site is migrated on `codex/sky-marketing-redesign`. Read `DESIGN.md` and `docs/plans/sky-migration.md` for current UI conventions and production release dependencies. The historical status below predates this redesign. Pricing is now $99 / $999 / $9,999 monthly; checkout provisioning is a production launch gate.

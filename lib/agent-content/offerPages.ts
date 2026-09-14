@@ -1,3 +1,4 @@
+import { homeCopy } from "../copy/home.ts";
 import { pricingInquiryHref } from "../pricing.ts";
 import type { PageSummary } from "./types.ts";
 
@@ -11,8 +12,13 @@ export const offerPages: PageSummary[] = [
     keywords:
       "music funds rightsholders catalog owners consulting transformation strategy systems training",
     paragraphs: [
-      "Recoup provides AI strategy, custom systems and integrations, and team training for music funds and rightsholders. Engagements cover choosing priorities, implementing a first system, training its users, and reviewing results to decide what comes next. Custom code is delivered in a repository the client controls, with documentation and team training. Ownership, licenses, dependencies, and ongoing costs are agreed in the project scope. A free audit reviews one workflow and identifies a practical first step; implementation is a separate engagement.",
-      "Work includes catalog acquisition review, royalty reporting, artist research, content preparation, and company-specific integrations. Recoup also offers a hosted platform, an API, MCP access, a CLI, and open-source Skills.",
+      homeCopy.statement.join(" "),
+      `Advisory: ${homeCopy.engagements.advisory} Build + Partner: ${homeCopy.engagements.partner}`,
+      homeCopy.ownership.deliverables.map((item) => item.description).join(" "),
+      homeCopy.ownership.terms,
+      homeCopy.questions[0].answer,
+      `${homeCopy.tools.introduction} ${homeCopy.tools.platform} ${homeCopy.tools.skills} ${homeCopy.tools.developers}`,
+      "Work includes royalty reporting, investment review, catalog intelligence, and workflow automation. Read the case studies for the full examples.",
     ],
     links: [
       ["Services", "/services"],

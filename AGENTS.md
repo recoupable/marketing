@@ -139,7 +139,7 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 - **Brand assets** (see `public/brand/README.md`): logo mark `icon-lightmode.svg` / `icon-darkmode.svg`, word mark `wordmark-lightmode.svg` / `wordmark-darkmode.svg`, profile/hero `pfp-sky-bg.png`. Use in UI as `/brand/<filename>`.
 - **Favicons / PWA icons:** `public/icons/` (see that folder's README)
-- **Page copy:** `lib/copy/` — single source for human pages and machine (markdown) view; edit copy there only so both stay in sync.
+- **Page copy:** `lib/copy/` — single source for human pages and machine (markdown) view; edit copy there only so both stay in sync. Homepage summaries live in `home.ts`, `home-offers.ts`, and `home-case-studies.ts`; keep detailed offer and pricing data intact for the destination pages. Shared footer copy lives in `footer.ts`.
 - NEVER hardcode brand values — import `siteConfig` from `lib/config.ts`, the only site configuration module (origin, app URL, docs path, GitHub URLs, contact email, booking link; `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_CONTACT_EMAIL`, and `NEXT_PUBLIC_BOOKING_URL` are read there)
 
 ## Integrations
