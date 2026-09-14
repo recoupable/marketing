@@ -20,12 +20,14 @@ export default function BlogPage() {
   const [featured, ...remaining] = blogPosts;
   const posts = [...remaining].sort((a, b) => b.date.localeCompare(a.date));
   return <div className="blog-index">
+    <div className="blog-hero-intro">
     <header className="blog-intro"><p className="blog-eyebrow">The Recoup blog</p><h1>Practical guides to<br /><span>AI and music.</span></h1><p>Workflows, tools, and ideas for managing artists, marketing releases, and running catalogs.</p></header>
+    <SubscribeCard source="/blog" compact />
+    </div>
     <Link href={`/blog/${featured.slug}`} className="blog-feature">
       <BlogArt slug={featured.slug} feature />
       <div className="blog-feature-copy"><p className="blog-eyebrow">Featured · {featured.category}</p><h2>{featured.title}</h2><p>{blogDescription(featured)}</p><div className="blog-post-meta"><span>{featured.author}</span><span>{featured.readingMinutes} min read</span></div><span className="blog-read">Read the article <SkyArrow /></span></div>
     </Link>
-    <SubscribeCard source="/blog" compact />
     <BlogArchive entries={posts.map((post) => ({
       slug: post.slug,
       card: <article key={post.slug}><Link href={`/blog/${post.slug}`} className="blog-card"><BlogArt slug={post.slug} image={post.coverImage} /><div className="blog-card-copy"><p className="blog-eyebrow">{post.category}</p><h3>{post.title}</h3><p>{blogDescription(post)}</p><div className="blog-post-meta"><time dateTime={post.date}>{formatBlogDate(post.date)}</time><span>{post.readingMinutes} min read</span></div></div></Link></article>,

@@ -22,9 +22,7 @@ export function SubscribeCard({ source, compact = false }: { source: SubscribeSo
         <h2 id={`${id}-title`}>
           {compact ? "Get new guides in your inbox." : <>Get occasional AI notes<br />from Recoup.</>}
         </h2>
-        <p>
-          {compact ? "Practical AI ideas for music teams." : "Ideas, workflows, and practical notes on AI in the business of music."}
-        </p>
+        {!compact && <p>Ideas, workflows, and practical notes on AI in the business of music.</p>}
         {source === "/playbook" && (
           <p className="mm-subscribe-access">
             The playbook is yours to read and download. Signing up is optional.
@@ -93,7 +91,7 @@ export function SubscribeCard({ source, compact = false }: { source: SubscribeSo
             </div>
             <button className="sp-button" type="submit" disabled={form.busy}>
               {form.status === "loading"
-                ? "Saving your signup…"
+                ? compact ? "Subscribing…" : "Saving your signup…"
                 : compact ? "Subscribe" : "Subscribe to the notes"}
               <span>
                 <SkyArrow />

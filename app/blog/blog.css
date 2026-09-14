@@ -210,3 +210,10 @@
 
 /* Preserve the complete editorial composition at every card width. */
 .blog-card > .blog-art-specific { aspect-ratio: 1.6; min-height: 0; align-self: start; width: 100%; }
+
+.blog-hero-intro { display:grid; grid-template-columns:minmax(0, 1.55fr) minmax(310px, 1fr); gap:56px; align-items:center; padding:78px 0 64px; }
+.blog-hero-intro .blog-intro { padding:0; }
+.blog-hero-intro .blog-intro h1 { font-size:clamp(44px, 4.5vw, 64px); }
+.blog-hero-intro .mm-subscribe.mm-subscribe-compact { display:block; margin:0; padding:0; box-shadow:none; }
+.blog-hero-intro .mm-subscribe-compact h2 { font-size:25px; margin:0 0 22px; }
+@media(max-width:1000px) { .blog-hero-intro { grid-template-columns:1fr; gap:32px; padding:54px 0 48px; }.blog-hero-intro .mm-subscribe { max-width:520px; width:100%; }.blog-hero-intro .mm-subscribe-compact h2 { font-size:23px; margin-bottom:16px; } }
