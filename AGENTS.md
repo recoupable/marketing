@@ -204,7 +204,7 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 
 ## Shared navigation
 
-The header has four primary items: Services, Products, Pricing, and Resources. Menu destinations live in `lib/copy/navigation.ts`; `components/sky/header-nav-items.tsx` renders them for both desktop and mobile. Keep changes in this shared configuration so the two navigation layouts stay aligned.
+The header has four primary items: Services, Products, Resources, and Pricing. Menu destinations live in `lib/copy/navigation.ts`; `components/sky/header-nav-items.tsx` renders them for both desktop and mobile. Keep changes in this shared configuration so the two navigation layouts stay aligned.
 
 ## Homepage announcement
 

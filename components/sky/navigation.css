@@ -53,7 +53,7 @@
   max-height: calc(100svh - 140px);
   overflow-y: auto;
 }
-.ss-desktop-nav .ss-tool-menu:last-child > div {
+.ss-desktop-nav .ss-tool-menu:last-of-type > div {
   left: auto;
   right: -24px;
 }

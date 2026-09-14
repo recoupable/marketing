@@ -8,7 +8,6 @@ export const headerNavigation = [
       { label: "Developers", href: "/developers", description: "API, MCP, and CLI." },
     ],
   },
-  { label: "Pricing", href: "/pricing" },
   {
     label: "Resources",
     links: [
@@ -20,4 +19,5 @@ export const headerNavigation = [
       { label: "Lab", href: "/lab" },
     ],
   },
+  { label: "Pricing", href: "/pricing" },
 ] as const;

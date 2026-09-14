@@ -2,7 +2,7 @@
 
 The desktop header logo now matches the footer’s 23×28px symbol and 1.2 line height, alongside the existing 28px/600 wordmark and 11px gap. It retains dark ink; the footer and mobile icon-only layout retain their existing styles.
 
-The shared header now has Services, Products, Pricing, and Resources. Products groups Platform, Skills, and Developers; Resources groups Work, About, Docs, Blog, All resources, and Lab. Both desktop and mobile use `lib/copy/navigation.ts`, with native dropdowns and nested mobile disclosures. The audit action and all destination pages remain available. This follows merged PR #104 on `codex/consolidate-navigation`.
+The shared header now has Services, Products, Resources, and Pricing. Products groups Platform, Skills, and Developers; Resources groups Work, About, Docs, Blog, All resources, and Lab. Both desktop and mobile use `lib/copy/navigation.ts`, with native dropdowns and nested mobile disclosures. The audit action and all destination pages remain available. This follows merged PR #104 on `codex/consolidate-navigation`.
 
 Validated with a production build, focused lint, and desktop/mobile browser checks covering sibling dropdowns, link navigation, outside-click dismissal, Escape focus, and 320px reflow.
 
