@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CopyCode } from "@/components/interactive/CopyCode";
 import { PageButton, PageCTA, PageHero, PageSection } from "@/components/sky/page-ui";
 import { siteConfig } from "@/lib/config";
+import { developersCopy } from "@/lib/copy/developers";
 import { SkyArrow } from "@/components/sky/arrow";
 import "./developers-sky.css";
 
@@ -57,7 +58,7 @@ export default function DevelopersPage() {
         <h3>{item.name}</h3><p>{item.description}</p><Link href={item.href} className="sp-text-link">{item.link}<SkyArrow /></Link>
       </article>)}</div>
       <div className="developer-utility-strip">
-        <p><strong>Keep keys on the server.</strong> Set up access in your Recoup account.</p>
+        <p><strong>Keep keys on the server.</strong> Set up access in your Recoup account. {developersCopy.usageNote}</p>
         <Link href="/pricing#usage">Usage &amp; pricing <SkyArrow /></Link>
         <Link href="/agents">Website tools for agents <SkyArrow /></Link>
       </div>

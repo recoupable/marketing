@@ -21,6 +21,10 @@ export const homeCopy = {
     compare: "Compare all plans",
   },
   tools: {
+    platformLabel: "Platform",
+    skillsLabel: "Open-source skills",
+    developersLabel: "Developer tools",
+    skillsAction: "Explore Skills",
     introduction: "Use our software and skills without a consulting engagement.",
     platform: "Research artists, draft content, and run recurring work with your artist context in one place.",
     skills: "Open-source playbooks for research, releases, content, and catalogs, installed in a compatible AI agent.",
