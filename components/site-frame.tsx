@@ -10,6 +10,7 @@ import "./sky/site.css";
 import "./sky/navigation.css";
 import "./sky/navigation-mobile.css";
 import "./sky/navigation-mobile-menu.css";
+import "./sky/navigation-panels.css";
 import "./motion/hover.css";
 import "./sky/materials.css";
 

@@ -1,42 +1,106 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type MouseEvent } from "react";
 import { SkyArrow } from "@/components/sky/arrow";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { PageMark } from "./brand";
+import { HeaderNavItems } from "./header-nav-items";
 import { NavigationIcon } from "./navigation-icon";
 
-const tools = [{name:"Skills",href:"/skills",note:"Music playbooks for your AI."},{name:"Platform",href:"/platform",note:"Your artists and work in one place."},{name:"Developers",href:"/developers",note:"API, MCP, and CLI."}];
 export function SkySiteHeader() {
   const pathname = usePathname();
   const header = useRef<HTMLElement>(null);
-  function close() { header.current?.querySelectorAll<HTMLDetailsElement>("details[open]").forEach(menu=>{menu.open=false;}); }
-  useEffect(()=>{
-    function dismiss(event: PointerEvent | KeyboardEvent) {
-      if (event instanceof KeyboardEvent && event.key !== "Escape") return;
-      for (const menu of header.current?.querySelectorAll<HTMLDetailsElement>("details[open]") ?? []) {
-        if (event instanceof PointerEvent && event.target instanceof Node && menu.contains(event.target)) continue;
-        menu.open=false;
-        if (event instanceof KeyboardEvent) menu.querySelector("summary")?.focus();
+
+  function closeOnLink(event: MouseEvent<HTMLElement>) {
+    if (!(event.target instanceof Element) || !event.target.closest("a")) return;
+    header.current?.querySelectorAll<HTMLDetailsElement>("details[open]").forEach((menu) => { menu.open = false; });
+  }
+
+  useEffect(() => {
+    const root = header.current;
+    const desktopNav = root?.querySelector(".ss-desktop-nav");
+    let closeTimer: ReturnType<typeof setTimeout> | undefined;
+    const cancelClose = () => clearTimeout(closeTimer);
+    const closeDesktop = () => {
+      desktopNav?.querySelectorAll<HTMLDetailsElement>("details[open]").forEach(menu => { menu.open = false; });
+    };
+    function openOnHover(event: Event) {
+      if (!(event instanceof PointerEvent) || event.pointerType !== "mouse" || !matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine)").matches) return;
+      if (!(event.target instanceof Element)) return;
+      const summary = event.target.closest("summary");
+      if (summary && desktopNav?.contains(summary)) {
+        // Moving between a label and its chevron must not reopen a menu dismissed with Escape.
+        if (event.relatedTarget instanceof Node && summary.contains(event.relatedTarget)) return;
+        cancelClose();
+        (summary.parentElement as HTMLDetailsElement).open = true;
+      } else if (event.target.closest(".ss-desktop-nav > a")) {
+        cancelClose();
+        closeDesktop();
       }
     }
-    document.addEventListener("pointerdown",dismiss); document.addEventListener("keydown",dismiss);
-    return ()=>{document.removeEventListener("pointerdown",dismiss);document.removeEventListener("keydown",dismiss);};
-  },[]);
-  return <header ref={header} className="ss-header">
-    <details className="ss-mobile-menu"><summary aria-label="Navigation"><NavigationIcon /></summary><nav aria-label="Mobile navigation" onClick={close}><Link href="/services">Services</Link><Link href="/case-studies" aria-current={pathname.startsWith('/case-studies')?'page':undefined}>Work</Link><Link href="/pricing" aria-current={pathname==='/pricing'?'page':undefined}>Pricing</Link>{tools.map(item=><Link key={item.href} href={item.href} aria-current={pathname===item.href?'page':undefined}>{item.name}</Link>)}<Link href="/docs">Docs</Link><Link href="/about">About</Link><Link href="/blog">Blog</Link><Link href="/resources">Resources</Link><Link href="/lab">Lab</Link><TrackedLink href="/start-project" cta="free_audit" placement="mobile_nav">Get a free audit <SkyArrow /></TrackedLink></nav></details>
-    <Link href="/" className="ss-wordmark" aria-label="Recoup home"><PageMark /><span>Recoup</span></Link>
-    <nav className="ss-desktop-nav" aria-label="Main navigation">
-      <Link href="/services" aria-current={pathname==='/services'?'page':undefined}>Services</Link>
-      <Link href="/case-studies" aria-current={pathname.startsWith('/case-studies')?'page':undefined}>Work</Link>
-      <Link href="/pricing" aria-current={pathname==='/pricing'?'page':undefined}>Pricing</Link>
-      <details className="ss-tool-menu"><summary>Tools <svg className="ss-tool-chevron" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m3 6 5 5 5-5" /></svg></summary><div onClick={close}>{tools.map(item=><Link key={item.href} href={item.href} aria-current={pathname===item.href?'page':undefined}><strong>{item.name}</strong><span>{item.note}</span></Link>)}</div></details>
-      <Link href="/docs" aria-current={pathname.startsWith('/docs')?'page':undefined}>Docs</Link>
-      <Link href="/about" aria-current={pathname==='/about'?'page':undefined}>About</Link>
-      <Link href="/blog" aria-current={pathname.startsWith('/blog')?'page':undefined}>Blog</Link>
-    </nav>
-    <TrackedLink href="/start-project" cta="free_audit" placement="header" className="ss-contact"><span className="nav-cta-desktop">Get a free audit</span><span className="nav-cta-mobile">Free audit</span><SkyArrow /></TrackedLink>
+    function leaveHeader(event: PointerEvent) {
+      if (event.pointerType !== "mouse") return;
+      cancelClose();
+      closeTimer = setTimeout(closeDesktop, 180);
+    }
+    function leaveFocus(event: FocusEvent) {
+      if (event.relatedTarget instanceof Node && root?.contains(event.relatedTarget)) return;
+      cancelClose();
+      closeDesktop();
+    }
+    function dismiss(event: PointerEvent | KeyboardEvent) {
+      cancelClose();
+      const menus = [...(header.current?.querySelectorAll<HTMLDetailsElement>("details[open]") ?? [])];
+      if (event instanceof KeyboardEvent) {
+        if (event.key !== "Escape") return;
+        // Close the innermost disclosure first so focus stays in the visible mobile menu.
+        const menu = menus.reverse().find((item) => item.contains(document.activeElement)) ?? menus[0];
+        if (menu) {
+          menu.open = false;
+          menu.querySelector("summary")?.focus();
+        }
+        return;
+      }
+      for (const menu of menus) {
+        if (event.target instanceof Node && menu.contains(event.target)) continue;
+        menu.open = false;
+      }
+    }
+    document.addEventListener("pointerdown", dismiss);
+    document.addEventListener("keydown", dismiss);
+    desktopNav?.addEventListener("pointerover", openOnHover);
+    root?.addEventListener("pointerenter", cancelClose);
+    root?.addEventListener("pointerleave", leaveHeader);
+    root?.addEventListener("focusout", leaveFocus);
+    return () => {
+      cancelClose();
+      document.removeEventListener("pointerdown", dismiss);
+      document.removeEventListener("keydown", dismiss);
+      desktopNav?.removeEventListener("pointerover", openOnHover);
+      root?.removeEventListener("pointerenter", cancelClose);
+      root?.removeEventListener("pointerleave", leaveHeader);
+      root?.removeEventListener("focusout", leaveFocus);
+    };
+  }, []);
 
-  </header>;
+  return (
+    <header ref={header} className="ss-header" onClick={closeOnLink}>
+      <details className="ss-mobile-menu">
+        <summary aria-label="Navigation"><NavigationIcon /></summary>
+        <nav aria-label="Mobile navigation">
+          <HeaderNavItems pathname={pathname} mobile />
+          <TrackedLink href="/start-project" cta="free_audit" placement="mobile_nav">Get a free audit <SkyArrow /></TrackedLink>
+        </nav>
+      </details>
+      <Link href="/" className="ss-wordmark" aria-label="Recoup home"><PageMark /><span>Recoup</span></Link>
+      <nav className="ss-desktop-nav" aria-label="Main navigation">
+        <HeaderNavItems pathname={pathname} />
+      </nav>
+      <TrackedLink href="/start-project" cta="free_audit" placement="header" className="ss-contact">
+        <span className="nav-cta-desktop">Get a free audit</span><span className="nav-cta-mobile">Free audit</span><SkyArrow />
+      </TrackedLink>
+    </header>
+  );
 }
