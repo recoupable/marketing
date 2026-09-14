@@ -46,6 +46,17 @@
 .nav-cta-mobile {
   display: none;
 }
+.ss-tool-menu > summary[data-current] {
+  color: #087bab;
+}
+.ss-desktop-nav .ss-tool-menu > div {
+  max-height: calc(100svh - 140px);
+  overflow-y: auto;
+}
+.ss-desktop-nav .ss-tool-menu:last-child > div {
+  left: auto;
+  right: -24px;
+}
 .ss-desktop-nav > a,
 .ss-tool-menu > summary {
   display: inline-flex;

@@ -202,6 +202,10 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 - `/api/machine` is a permanent redirect to `/llms.txt`.
 - Legacy URLs (`/company/about`, `/company/recoup-records`, `/company/recoupable-records`, `/learn`, `/build/start`, `/advisory/book`) are 308 rules in `next.config.ts`; add new aliases there, not as redirecting page files.
 
+## Shared navigation
+
+The header has four primary items: Services, Products, Pricing, and Resources. Menu destinations live in `lib/copy/navigation.ts`; `components/sky/header-nav-items.tsx` renders them for both desktop and mobile. Keep changes in this shared configuration so the two navigation layouts stay aligned.
+
 ## Homepage announcement
 
 The hero announcement links to `/skills` and reads “Catalog Skills V2 is here.” Its copy lives in `components/home/sky-hero.tsx`; the New badge, hover, and link styling live in `components/home/sky.css`. See `DESIGN.md` for presentation guidance.
