@@ -44,7 +44,7 @@
 .blog-section-heading { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 29px; }
 .blog-section-heading h2 { font-size: 27px; letter-spacing: -.035em; }
 .blog-section-heading > span { font-size: 13px; color: var(--blog-muted); }
-.blog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.blog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px 28px; }
 .blog-grid > article { min-width: 0; }
 .blog-card { display: flex; flex-direction: column; height: 100%; }
 .blog-card > .blog-art { aspect-ratio: 1.6; border-radius: 17px; }
@@ -108,7 +108,7 @@
   .decision-build { left: 37%; }
   .decision-ignore { left: 25%; }
   .blog-feature-copy { padding: 30px; }
-  .blog-grid { gap: 22px; }
+  .blog-grid { gap: 48px 22px; }
   .blog-card h3 { font-size: 23px; }
 }
 @media (max-width: 760px) {
@@ -218,21 +218,7 @@
 .blog-archive-empty h3 { margin: 0 0 12px; color: #152e37; font-size: 25px; font-weight: 500; letter-spacing: -.035em; }
 .blog-archive-empty p { margin: 0; color: #586f78; font-size: 15px; line-height: 1.6; }
 .blog-archive :is(input, select, button, a):focus-visible { outline: 3px solid #077abb; outline-offset: 4px; }
-.blog-reading-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; margin-top: 68px; }
-.blog-reading-list.is-filtered { margin-top: 0; }
-.blog-reading-list-title { grid-column: 1 / -1; margin-bottom: 22px; font-size: 24px; letter-spacing: -.035em; }
-.blog-reading-list > article { min-width: 0; border-top: 1px solid #dce5e7; }
-.blog-reading-list .blog-card { display: block; padding: 25px 0 28px; }
-.blog-reading-list .blog-art { display: none; }
-.blog-reading-list .blog-card-copy { padding: 0; }
-.blog-reading-list .blog-eyebrow { margin-bottom: 9px; }
-.blog-reading-list .blog-card h3 { max-width: 36ch; font-size: 23px; line-height: 1.28; }
-.blog-reading-list .blog-card-copy > p:not(.blog-eyebrow) { display: none; }
-.blog-reading-list .blog-post-meta { margin-top: 15px; font-size: 12px; }
 @media (max-width: 600px) {
-  .blog-reading-list { grid-template-columns: minmax(0, 1fr); margin-top: 48px; }
-  .blog-reading-list .blog-card { padding: 23px 0 25px; }
-  .blog-reading-list .blog-card h3 { font-size: 22px; }
   .blog-archive-filters { grid-template-columns: 1fr; gap: 16px; padding: 18px; }
   .blog-archive .blog-section-heading { align-items: baseline; }
   .blog-archive .blog-section-heading h2 { font-size: 25px; }

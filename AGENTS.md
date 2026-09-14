@@ -250,3 +250,5 @@ Services uses the same three-option illustrated dropdown as Products, with Advis
 ## Blog thumbnails
 
 `app/blog/article-art.tsx` assigns a distinct editorial SVG composition to each illustrated article slug. `BlogArt` retains the featured decision guide and the original Sandbox / Skills covers. Never assign art by list position or rotate generic themes. When adding a post, review its thumbnail against the article and extend the mapping; `tests/blog-thumbnails.test.tsx` checks complete coverage and unique compositions. See `docs/blog-thumbnail-audit.md` for the September 2026 audit.
+
+The blog archive renders every result in the same thumbnail grid, including search/category matches. Preserve thumbnails throughout the list; do not reintroduce a separate text-only archive after the first six entries.

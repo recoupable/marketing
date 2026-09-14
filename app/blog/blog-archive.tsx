@@ -40,13 +40,9 @@ export function BlogArchive({ entries }: { entries: ArchiveEntry[] }) {
     </form>
     <div className="blog-archive-status"><p role="status" aria-live="polite" aria-atomic="true">{hasFilters ? `${filtered.length} of ${entries.length} articles` : `${entries.length} articles`}</p>{hasFilters && <button type="button" onClick={reset}>Clear filters</button>}</div>
     <div id={`${id}-results`}>
-      {filtered.length ? <>
-        {!hasFilters && <div className="blog-grid" data-reveal-group="">{filtered.slice(0, 6).map((entry) => <Fragment key={entry.slug}>{entry.card}</Fragment>)}</div>}
-        {(hasFilters || filtered.length > 6) && <div className={`blog-reading-list${hasFilters ? " is-filtered" : ""}`}>
-          {!hasFilters && <h3 className="blog-reading-list-title">From the archive</h3>}
-          {(hasFilters ? filtered : filtered.slice(6)).map((entry) => <Fragment key={entry.slug}>{entry.card}</Fragment>)}
-        </div>}
-      </> : <div className="blog-archive-empty"><h3>No articles found.</h3><p>Try a broader search or choose another category.</p></div>}
+      {filtered.length ? <div className="blog-grid" data-reveal-group="">
+        {filtered.map((entry) => <Fragment key={entry.slug}>{entry.card}</Fragment>)}
+      </div> : <div className="blog-archive-empty"><h3>No articles found.</h3><p>Try a broader search or choose another category.</p></div>}
     </div>
   </section>;
 }
