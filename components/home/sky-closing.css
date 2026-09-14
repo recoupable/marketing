@@ -6,7 +6,7 @@
 .sky-content .sky-landscape-copy h2 { max-width: 14ch; margin-top: 0; font-size: clamp(32px, 3.7vw, 54px); font-weight: 500; letter-spacing: -.055em; line-height: 1.08; text-wrap: balance; }
 .sky-landscape-description { max-width: 42ch; margin-top: 22px; font-size: 15px; line-height: 1.6; color: #eff9ff; }
 .sky-contact-note { max-width: 42ch; margin: 13px 0 0; font-size: 12px; line-height: 1.5; color: #d3e4ef; }
-.sky-landscape-cta { display: flex; align-items: center; gap: 20px; width: fit-content; margin-top: 30px; padding: 5px 5px 5px 20px; background: #d6ff62; color: #18291e; border-radius: 99px; min-height: 48px; font: 500 15px/1.4 "DM Sans", sans-serif; letter-spacing: -.01em; transition: background .2s; }
+.sky-landscape-cta { display: flex; align-items: center; gap: 20px; width: fit-content; margin-top: 30px; padding: 5px 5px 5px 20px; background: #d6ff62; color: #18291e; border-radius: 99px; min-height: 48px; font: 500 15px/1.4 "DM Sans Variable", sans-serif; letter-spacing: -.01em; transition: background .2s; }
 .sky-landscape-cta > span { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: #141d17; color: #fff; }
 .sky-landscape-cta .sky-arrow-icon { width: 17px; height: 17px; }
 .sky-landscape-cta:hover { background: #e4ff93; }

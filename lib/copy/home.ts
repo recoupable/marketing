@@ -1,3 +1,5 @@
+export const freeAuditAnswer = "We review one workflow and identify a practical first step. Bring the task and tools involved. Implementation is scoped and priced separately.";
+
 export const homeCopy = {
   statement: [
     "We help the people who create, own, and invest in music",
@@ -33,7 +35,7 @@ export const homeCopy = {
   questions: [
     {
       question: "What does the free audit include?",
-      answer: "We review one workflow and identify a practical first step. Bring the task and tools involved. Implementation is scoped and priced separately.",
+      answer: freeAuditAnswer,
     },
     {
       question: "What will our company own?",

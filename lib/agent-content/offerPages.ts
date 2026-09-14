@@ -1,4 +1,4 @@
-import { homeCopy } from "../copy/home.ts";
+import { freeAuditAnswer, homeCopy } from "../copy/home.ts";
 import { pricingInquiryHref } from "../pricing.ts";
 import type { PageSummary } from "./types.ts";
 
@@ -16,7 +16,7 @@ export const offerPages: PageSummary[] = [
       `Advisory: ${homeCopy.engagements.advisory} Build + Partner: ${homeCopy.engagements.partner}`,
       homeCopy.ownership.deliverables.map((item) => item.description).join(" "),
       homeCopy.ownership.terms,
-      homeCopy.questions[0].answer,
+      freeAuditAnswer,
       `${homeCopy.tools.introduction} ${homeCopy.tools.platform} ${homeCopy.tools.skills} ${homeCopy.tools.developers}`,
       "Work includes royalty reporting, investment review, catalog intelligence, and workflow automation. Read the case studies for the full examples.",
     ],
