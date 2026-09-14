@@ -1,0 +1,76 @@
+[
+  {
+    "title": "Your monthly royalty report shouldn’t start from scratch.",
+    "titleLines": [
+      "Your monthly",
+      "royalty report",
+      "shouldn’t start",
+      "from scratch."
+    ],
+    "body": "Keep the process. Update the numbers.",
+    "bodyLines": ["Keep the process.", "Update the numbers."],
+    "step": "THE PROBLEM"
+  },
+  {
+    "title": "But scattered files make your team repeat the same search.",
+    "titleLines": [
+      "But scattered files",
+      "make your team",
+      "repeat the",
+      "same search."
+    ],
+    "body": "Statements here. Contracts there. Context in someone’s inbox.",
+    "bodyLines": [
+      "Statements here. Contracts there.",
+      "Context in someone’s inbox."
+    ],
+    "step": "THE CAUSE"
+  },
+  {
+    "title": "Bring those inputs together before introducing AI.",
+    "titleLines": [
+      "Bring those",
+      "inputs together",
+      "before",
+      "introducing AI."
+    ],
+    "body": "Agree which sources to use and where they live.",
+    "bodyLines": ["Agree which sources to use", "and where they live."],
+    "step": "THE FIRST CHANGE"
+  },
+  {
+    "title": "Then let AI prepare a draft for your team to review.",
+    "titleLines": [
+      "Then let AI",
+      "prepare a draft",
+      "for your team",
+      "to review."
+    ],
+    "body": "Check the numbers against the original sources.",
+    "bodyLines": ["Check the numbers", "against the original sources."],
+    "step": "THE ROLE OF AI"
+  },
+  {
+    "title": "Test that process on one real report and fix the gaps.",
+    "titleLines": [
+      "Test that process",
+      "on one real report",
+      "and fix the gaps."
+    ],
+    "body": "Use a completed report to compare the results.",
+    "bodyLines": ["Use a completed report", "to compare the results."],
+    "step": "THE REAL TEST"
+  },
+  {
+    "title": "Next month, reuse the process instead of rebuilding it.",
+    "titleLines": [
+      "Next month,",
+      "reuse the process",
+      "instead of",
+      "rebuilding it."
+    ],
+    "body": "Carry forward what worked. Improve what didn’t.",
+    "bodyLines": ["Carry forward what worked.", "Improve what didn’t."],
+    "step": "THE PAYOFF"
+  }
+]

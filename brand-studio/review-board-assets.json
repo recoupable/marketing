@@ -1,5 +1,247 @@
 [
   {
+    "id": "carousel-blue-notes",
+    "title": "Blue notes",
+    "group": "carousels",
+    "preview": "assets/carousels/blue-notes/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/blue-notes/blue-notes.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/blue-notes/blue-notes.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "current": false,
+    "tool": "carousels?direction=blue-notes",
+    "description": "Expressive blue fields, bright accents and illustrated working documents.",
+    "stage": "final",
+    "code": "C01"
+  },
+  {
+    "id": "carousel-paper-trail",
+    "title": "Paper trail",
+    "group": "carousels",
+    "preview": "assets/carousels/paper-trail/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/paper-trail/paper-trail.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/paper-trail/paper-trail.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "current": false,
+    "tool": "carousels?direction=paper-trail",
+    "description": "An editorial field note: warm paper, generous margins and crisp ink diagrams.",
+    "stage": "final",
+    "code": "C02"
+  },
+  {
+    "id": "carousel-signal-study",
+    "title": "Signal study",
+    "group": "carousels",
+    "preview": "assets/carousels/signal-study/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/signal-study/signal-study.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/signal-study/signal-study.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "current": false,
+    "tool": "carousels?direction=signal-study",
+    "description": "Bold scale, abstract rhythms and simple infographics that change with the story.",
+    "stage": "final",
+    "code": "C03"
+  },
+  {
+    "id": "carousel-cobalt-press",
+    "title": "Cobalt press",
+    "group": "carousels",
+    "preview": "assets/carousels/cobalt-press/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/cobalt-press/cobalt-press.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/cobalt-press/cobalt-press.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "current": false,
+    "tool": "carousels?direction=cobalt-press",
+    "description": "A two-color print edition: cobalt ink, warm paper and oversized editorial illustrations.",
+    "stage": "final",
+    "code": "C04"
+  },
+  {
+    "id": "carousel-margin-notes",
+    "title": "Margin notes",
+    "group": "carousels",
+    "preview": "assets/carousels/margin-notes/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/margin-notes/margin-notes.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/margin-notes/margin-notes.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "current": false,
+    "tool": "carousels?direction=margin-notes",
+    "description": "A working notebook with blue annotations, generous margins and understated ink drawings.",
+    "stage": "final",
+    "code": "C05"
+  },
+  {
+    "id": "carousel-cut-paper",
+    "title": "Cut paper",
+    "group": "carousels",
+    "preview": "assets/carousels/cut-paper/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/cut-paper/cut-paper.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/cut-paper/cut-paper.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "current": false,
+    "tool": "carousels?direction=cut-paper",
+    "description": "Layered paper cutouts, torn edges and a consistent blue, lime and forest palette.",
+    "stage": "final",
+    "code": "C06"
+  },
+  {
+    "id": "carousel-night-shift",
+    "title": "Night shift",
+    "group": "carousels",
+    "preview": "assets/carousels/night-shift/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/night-shift/night-shift.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/night-shift/night-shift.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "current": false,
+    "tool": "carousels?direction=night-shift",
+    "description": "Deep forest, a restrained pool of blue light and luminous line illustrations.",
+    "stage": "final",
+    "code": "C07"
+  },
+  {
+    "id": "carousel-catalog-index",
+    "title": "Catalog index",
+    "group": "carousels",
+    "preview": "assets/carousels/catalog-index/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/catalog-index/catalog-index.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/catalog-index/catalog-index.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "current": false,
+    "tool": "carousels?direction=catalog-index",
+    "description": "An orderly reference file: indexed tabs, numbered panels and concise visual explanations.",
+    "stage": "final",
+    "code": "C08"
+  },
+  {
+    "id": "carousel-blueprint",
+    "title": "Blueprint",
+    "group": "carousels",
+    "preview": "assets/carousels/blueprint/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/blueprint/blueprint.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/blueprint/blueprint.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "current": false,
+    "tool": "carousels?direction=blueprint",
+    "description": "Pale blue construction paper, fine guide lines and clear diagrams in blue ink.",
+    "stage": "final",
+    "code": "C09"
+  },
+  {
+    "id": "carousel-spotlight",
+    "title": "Spotlight",
+    "group": "carousels",
+    "preview": "assets/carousels/spotlight/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/spotlight/spotlight.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/spotlight/spotlight.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "current": false,
+    "tool": "carousels?direction=spotlight",
+    "description": "A bold blue poster with one enlarged visual idea in a cropped cream spotlight.",
+    "stage": "final",
+    "code": "C10"
+  },
+  {
+    "id": "carousel-field-guide",
+    "title": "Field guide",
+    "group": "carousels",
+    "preview": "assets/carousels/field-guide/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/field-guide/field-guide.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/field-guide/field-guide.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "current": false,
+    "tool": "carousels?direction=field-guide",
+    "description": "Soft botanical greens and contour drawings turn the story into a simple visual journey.",
+    "stage": "final",
+    "code": "C11"
+  },
+  {
     "id": "blue-sweep-podcast-badge",
     "title": "Podcast badge",
     "group": "podcast",

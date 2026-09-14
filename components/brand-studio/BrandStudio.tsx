@@ -25,6 +25,7 @@ const groups = [
   ["backgrounds", "Backgrounds"],
   ["illustrations", "Article illustrations"],
   ["social", "Social assets"],
+  ["carousels", "Carousels"],
   ["picks", "My picks"],
 ];
 const storageHelp =

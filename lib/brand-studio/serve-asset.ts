@@ -21,6 +21,7 @@ const types: Record<string, string> = {
   ".mp4": "video/mp4",
   ".mov": "video/quicktime",
   ".zip": "application/zip",
+  ".pdf": "application/pdf",
   ".md": "text/plain; charset=utf-8",
   ".txt": "text/plain; charset=utf-8",
 };
