@@ -1,6 +1,8 @@
 # Platform hero and homepage ownership — September 14, 2026
 
-The Platform page now leads with “AI that knows your music.” and covers artists, catalogs, and releases. The compact workspace preview shows a short release-planning request and a campaign-plan document; the extra context labels, history, visible illustrative caption, and two-row composer are removed. Capability cards use direct headings and single descriptions without repeated labels or tags. Getting-started steps, FAQs, metadata, and the machine-readable summary share `lib/copy/platform.ts`. The “Explore the Platform plan” button is removed; attributed Open Recoup actions and the shared plan price remain.
+The Platform page leads with “A ready-to-use AI workspace for music teams.” Its title-only narrative distinguishes the hosted app from using Recoup tools in an existing agent or commissioning a custom system. The page explains chat over artists, catalogs, and releases; built-in research/content/recurring tools; cloud hosting and open source; Skills/API/MCP alternatives; and bespoke services. The public app source links to `recoupable/app` through `siteConfig.platformSourceUrl`.
+
+The compact preview retains one release-planning exchange and a campaign-plan document. No visible illustrative caption, redundant labels, or tag lists. The attributed Open Recoup actions and shared plan price remain. Page copy, metadata, and the machine-readable summary share `lib/copy/platform.ts`.
 
 The homepage “Built by Recoup. Owned by you.” section now has a blue surface, lime headline emphasis, and three unnumbered deliverable columns. It follows the pale numbered process section with a distinct composition. Ownership copy and terms remain shared and unchanged.
 
