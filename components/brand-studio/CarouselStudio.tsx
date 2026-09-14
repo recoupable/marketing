@@ -17,7 +17,7 @@ export function CarouselStudio() {
     directions.find((d) => d.id === `carousel-${selected}`) ?? directions[0];
   const key = direction.id.replace("carousel-", "");
   const [slide, setSlide] = useState(0);
-  const [view, setView] = useState<"slides" | "overview" | "titles">("slides");
+  const [view, setView] = useState<"slides" | "overview" | "titles">("overview");
   const overview = view === "overview";
   const titlesOnly = view === "titles";
   const base = `assets/carousels/${key}/`;
@@ -51,6 +51,7 @@ export function CarouselStudio() {
                 { scroll: false },
               );
               setSlide(0);
+              setView("overview");
             }}
           >
             <span>0{i + 1}</span>
