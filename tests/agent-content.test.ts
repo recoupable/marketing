@@ -38,8 +38,8 @@ test("the fixed public registry covers published content with canonical URLs and
   expect(index.filter(item => item.type === "docs").length).toBe(docs.length);
   expect(index.filter(item => item.type === "blog").length).toBe(posts.length);
   expect(index.filter(item => item.type === "playbook").length).toBe(chapters.length);
-  expect(index.filter(item => item.type === "page").length).toBe(23);
-  for (const path of ["/case-studies", "/case-studies/royalty-reporting", "/case-studies/investment-review", "/case-studies/catalog-intelligence"]) {
+  expect(index.filter(item => item.type === "page").length).toBe(24);
+  for (const path of ["/training", "/case-studies", "/case-studies/royalty-reporting", "/case-studies/investment-review", "/case-studies/catalog-intelligence"]) {
     expect(index.some(item => item.id === `page:${path}`), `${path} is discoverable`).toBeTruthy();
   }
   expect(new Set(index.map(item => item.id)).size).toBe(index.length);

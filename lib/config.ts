@@ -30,6 +30,7 @@ export const siteConfig = {
   docsPath: "/docs",
   githubUrl: "https://github.com/recoupable/skills",
   githubOrganizationUrl: "https://github.com/recoupable",
+  platformSourceUrl: "https://github.com/recoupable/app",
 
   /** Suggestion pills shown under the artist search once an artist is selected. */
   searchSuggestions: [

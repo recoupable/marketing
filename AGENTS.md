@@ -217,6 +217,12 @@ The header has four primary items: Services, Products, Resources, and Pricing. M
 
 Dropdown presentation lives in `components/sky/navigation-panels.css`. Products uses three decorative SVG illustrations from `nav-product-art.tsx`; Resources pairs compact icon links with one illustrated Work card from `nav-work-art.tsx`. Desktop panels extend the full header width without a gap. `site-header.tsx` opens them on fine-pointer mouse hover and delays closing by 180ms when leaving the header. Mobile keeps tap disclosures and hides the artwork. Preserve keyboard, Escape focus return, and outside dismissal.
 
+## Platform and ownership previews
+
+The `/platform` hero uses `components/platform/PlatformChatPreview.tsx` and its scoped stylesheet. It is a static workspace preview with a short release-planning exchange and document output. Keep mock controls unfocusable; do not add a visible illustrative/fictional caption. The real app action uses `AppLink` for attribution. Platform copy lives in `lib/copy/platform.ts`, shared by the page, preview, metadata, and machine-readable summary. Describe Platform as the ready-to-use, hosted AI workspace for music teams. Its heading sequence explains chat over artists/catalogs/releases, built-in tools, hosting and open source, alternatives for existing agents, and custom services. Public app source links use `siteConfig.platformSourceUrl`; Skills and API/MCP links lead to their own product pages. The unboxed `PlatformContextArt` is decorative. `PlatformToolsDemo` is the only interactive product illustration: native buttons with `aria-pressed` switch local research/content/recurring examples in a polite live region. Keep the rest of the page server-rendered, keep copy in the shared module, and do not imply that the demo schedules real tasks. Preserve the contrasting layout sequence: open collection artwork, dark tools showcase, hosting and source composition, aligned alternative-path cards, and compact split FAQ. Do not reintroduce repeated pale panels or the duplicate closing CTA.
+
+The homepage ownership section uses `components/home/sky-ownership.tsx` and `sky-narrative.css`: a blue panel with three unnumbered deliverables, visually distinct from the pale process section. Its copy and ownership terms remain in `lib/copy/home.ts`.
+
 ## Homepage announcement
 
 The hero announcement links to `/skills` and reads “Catalog Skills V2 is here.” Its copy lives in `components/home/sky-hero.tsx`; the New badge, hover, and link styling live in `components/home/sky.css`. See `DESIGN.md` for presentation guidance.
@@ -232,3 +238,19 @@ The native Next.js library lives at `/brand` (Finals) and `/brand/experiments`. 
 - The review storage key stays recoup-brand-review:v1. Page assignment stays independent of Keep / Maybe / Pass. Export/import reviews across origins.
 - /brand is excluded from indexing and the marketing sitemap. It is not access-controlled.
 - Run `pnpm test lib/brand-studio/__tests__` and `pnpm build` after integration changes.
+
+Recoup Platform is the public name of the hosted product; retain `/platform` and the `platform` pricing identifier. After the artist/catalog/release composition, the open editorial audience section explains use without a custom build, music-specific operations, and branded artist/client portals. Keep these reasons in `platformCopy.audience` so headline-only readers and machine summaries receive the same narrative. Product navigation, homepage software links, footer, and pricing use Recoup Platform.
+
+The Platform page ending pairs the hosting headline with a blue source illustration linking directly to the public app repository. Alternative-agent and custom-build options use aligned white/dark-green cards in one shared frame. Keep the FAQ compact, source links keyboard accessible, and all three areas stacked on phones.
+
+Platform section spacing uses roughly 100–140px on desktop and 70–100px on phones. Apply the shared `data-reveal`/`data-reveal-group` hooks to headings, artwork, audience reasons, tool choices, and ending content. Keep the hero immediate and avoid nested reveals; the shared controller handles reduced motion, anchor navigation, and focused controls.
+
+Services uses the same three-option illustrated dropdown as Products, with Advisory (`/advisory`), Build (`/build`), and Training (`/training`). Service artwork lives in `nav-service-art.tsx`. Desktop and mobile use shared navigation data and native disclosures. Training copy is shared with machine summaries through `lib/copy/training.ts`; its inquiry action uses the existing Team training workflow.
+
+## Blog thumbnails
+
+`app/blog/article-art.tsx` assigns a distinct editorial SVG composition to each illustrated article slug. `BlogArt` retains the featured decision guide and the original Skills cover. Never assign art by list position or rotate generic themes. When adding a post, review its thumbnail against the article and extend the mapping; `tests/blog-thumbnails.test.tsx` checks complete coverage and unique compositions. See `docs/blog-thumbnail-audit.md` for the September 2026 audit.
+
+The blog archive renders every result in the same thumbnail grid, without search/category controls. Preserve thumbnails throughout the list; do not reintroduce a separate text-only archive after the first six entries.
+
+The blog uses the compact, email-only SubscribeCard beside the blog intro on desktop and below the intro on mobile, always before the featured article. Other subscribe surfaces retain their existing fields. All variants share useSubscribeForm for submission, attribution, error state, and confirmation focus. Blog browsing goes straight from the section heading to the full thumbnail grid without filters or a result count.
