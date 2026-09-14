@@ -290,3 +290,86 @@
     padding-right: 5vw;
   }
 }
+
+.carousel-title-story {
+  background: #fff;
+  width: 100%;
+  padding: 34px;
+  border-radius: 8px;
+}
+.carousel-title-story h2 {
+  font-size: 28px;
+  font-weight: 450;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  margin: 12px 0 30px;
+}
+.carousel-title-story ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.carousel-title-story li {
+  display: flex;
+  gap: 20px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.carousel-title-story li > span {
+  font-size: 12px;
+  color: var(--muted);
+  padding-top: 6px;
+}
+.carousel-title-story li p {
+  font-size: clamp(21px, 2.2vw, 29px);
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+.carousel-title-story .carousel-story-prompt {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 24px 0 0;
+}
+.carousel-notes p.carousel-story-rule {
+  font-size: 15px;
+  line-height: 1.5;
+  border-left: 3px solid #b7df60;
+  padding-left: 14px;
+  color: var(--ink);
+}
+.carousel-story-rules {
+  margin-top: 38px;
+}
+.carousel-story-rules ol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 50px;
+  padding: 20px 20px 0;
+}
+.carousel-story-rules h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+.carousel-story-rules li p {
+  margin-top: 8px;
+}
+@media (max-width: 850px) {
+  .carousel-title-story {
+    padding: 22px;
+  }
+  .carousel-title-story li {
+    gap: 12px;
+  }
+  .carousel-title-story li p {
+    font-size: 23px;
+  }
+  .carousel-story-rules ol {
+    grid-template-columns: 1fr;
+  }
+  .carousel-view-switch {
+    flex-wrap: wrap;
+  }
+}

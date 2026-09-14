@@ -7,6 +7,7 @@ import directions from "@/brand-studio/carousel-templates-manifest.json";
 import story from "@/brand-studio/carousel-content.json";
 import { studioUrl, studioDownloadUrl } from "@/lib/brand-studio/reviews";
 import "./carousel-studio.css";
+import { CarouselTitleStory, CarouselStoryRules } from "./CarouselStory";
 
 export function CarouselStudio() {
   const params = useSearchParams();
@@ -16,7 +17,9 @@ export function CarouselStudio() {
     directions.find((d) => d.id === `carousel-${selected}`) ?? directions[0];
   const key = direction.id.replace("carousel-", "");
   const [slide, setSlide] = useState(0);
-  const [overview, setOverview] = useState(false);
+  const [view, setView] = useState<"slides" | "overview" | "titles">("slides");
+  const overview = view === "overview";
+  const titlesOnly = view === "titles";
   const base = `assets/carousels/${key}/`;
   const number = String(slide + 1).padStart(2, "0");
   const move = (delta: number) =>
@@ -69,19 +72,25 @@ export function CarouselStudio() {
           }}
         >
           {/* Native images preserve the exported artwork and do not require resizing services. */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className={overview ? "carousel-overview" : "carousel-slide"}
-            src={studioUrl(base + (overview ? "preview.jpg" : number + ".jpg"))}
-            alt={
-              overview
-                ? `${direction.title}: all six slides`
-                : `${slide + 1}. ${story[slide].title} ${story[slide].body}`
-            }
-            width={overview ? 1392 : 1080}
-            height={overview ? 1160 : 1350}
-          />
-          {!overview && (
+          {titlesOnly ? (
+            <CarouselTitleStory />
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              className={overview ? "carousel-overview" : "carousel-slide"}
+              src={studioUrl(
+                base + (overview ? "preview.jpg" : number + ".jpg"),
+              )}
+              alt={
+                overview
+                  ? `${direction.title}: all six slides`
+                  : `${slide + 1}. ${story[slide].title} ${story[slide].body}`
+              }
+              width={overview ? 1392 : 1080}
+              height={overview ? 1160 : 1350}
+            />
+          )}
+          {view === "slides" && (
             <div className="carousel-controls">
               <button
                 aria-label="Previous slide"
@@ -105,11 +114,20 @@ export function CarouselStudio() {
           <p className="carousel-eyebrow">EXPERIMENT · SAMPLE STORY</p>
           <h2>{direction.title}</h2>
           <p>{direction.description}</p>
+          <p className="carousel-story-rule">
+            The titles should tell the complete story on their own.
+          </p>
           <div className="carousel-view-switch">
-            <button aria-pressed={!overview} onClick={() => setOverview(false)}>
+            <button aria-pressed={titlesOnly} onClick={() => setView("titles")}>
+              Titles only
+            </button>
+            <button
+              aria-pressed={view === "slides"}
+              onClick={() => setView("slides")}
+            >
               Slide view
             </button>
-            <button aria-pressed={overview} onClick={() => setOverview(true)}>
+            <button aria-pressed={overview} onClick={() => setView("overview")}>
               Whole story
             </button>
           </div>
@@ -117,10 +135,12 @@ export function CarouselStudio() {
             {story.map((s, i) => (
               <li key={s.step}>
                 <button
-                  aria-current={slide === i && !overview ? "step" : undefined}
+                  aria-current={
+                    slide === i && view === "slides" ? "step" : undefined
+                  }
                   onClick={() => {
                     setSlide(i);
-                    setOverview(false);
+                    setView("slides");
                   }}
                 >
                   <span>0{i + 1}</span>
@@ -150,6 +170,7 @@ export function CarouselStudio() {
           </small>
         </aside>
       </section>
+      <CarouselStoryRules />
       <section className="carousel-specs">
         <div>
           <p className="carousel-eyebrow">BUILT FOR BOTH</p>

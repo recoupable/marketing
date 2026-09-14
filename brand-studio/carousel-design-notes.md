@@ -2,6 +2,16 @@
 
 An editorial carousel system for Recoup. Small brand signature, large plainspoken ideas, and illustrations that carry meaning. Each six-slide story moves from a recognizable problem to a useful next step. Visual scale changes with the thought: scattered inputs, a shared starting point, a draft under review, and a repeatable cycle.
 
+## Story rules come first
+
+The titles must tell the whole story when read alone, in order. A reader should understand the problem, follow the reasoning and explain the takeaway without body copy or artwork. This is a human editorial check, not an automatic pass based on word counts or transition words.
+
+Write and review the title sequence before choosing layouts. Every slide advances one idea and connects to the preceding title. Avoid fragments and ambiguous pronouns. Body copy and illustrations add detail or evidence; they cannot repair a missing connection. Choose slide types and length for the story rather than forcing every post into six steps.
+
+`carousel-content.json` is the source for the current example, including intentional line breaks. All three visual directions render that same title sequence. `carousel-story-rules.json` supplies the rules displayed in the viewer. New factual posts need sources; this reporting story remains a hypothetical example, not a client result.
+
+Blue is the lead visual direction. Paper trail, Signal study and future explorations remain available: choose the treatment to fit the story, retaining the established typography, spacing and small Recoup wordmark.
+
 ## Three directions
 
 - Blue notes: the website's blue atmosphere, paired with cream line illustrations and restrained lime highlights.
