@@ -1,5 +1,7 @@
 # Navigation consolidation — September 14, 2026
 
+The dropdowns now use coordinated wide panels: three illustrated Products cards and Resources grouped into Learn and Company, with All resources at the bottom. Shared positioning, larger text, active trigger backgrounds, and reduced-motion-aware entrance transitions live in `navigation-panels.css`. Phones retain scrollable disclosures with the same destinations and no decorative artwork. Continued on `codex/consolidate-navigation`, PR #105.
+
 The desktop header logo now matches the footer’s 23×28px symbol and 1.2 line height, alongside the existing 28px/600 wordmark and 11px gap. It retains dark ink; the footer and mobile icon-only layout retain their existing styles.
 
 The shared header now has Services, Products, Resources, and Pricing. Products groups Platform, Skills, and Developers; Resources groups Work, About, Docs, Blog, All resources, and Lab. Both desktop and mobile use `lib/copy/navigation.ts`, with native dropdowns and nested mobile disclosures. The audit action and all destination pages remain available. This follows merged PR #104 on `codex/consolidate-navigation`.

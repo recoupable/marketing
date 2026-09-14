@@ -1,0 +1,62 @@
+/* Both desktop menus share a stable anchor within the header. */
+@media (min-width: 901px) {
+  .ss-header .ss-tool-menu { position: static; }
+  .ss-header .ss-desktop-nav { gap: 12px; }
+  .ss-header .ss-desktop-nav > a,
+  .ss-header .ss-desktop-nav > details > summary { padding: 10px 12px; border-radius: 99px; }
+  .ss-header .ss-desktop-nav > a:hover,
+  .ss-header .ss-desktop-nav > details > summary:hover,
+  .ss-header .ss-desktop-nav > details[open] > summary { background: #edf3f5; color: var(--ink); }
+  .ss-header .ss-desktop-nav .ss-nav-panel {
+    top: calc(100% - 8px); left: 50%; right: auto;
+    width: min(720px, 100%); transform: translateX(-50%);
+    max-height: calc(100svh - 110px); overflow-y: auto;
+    padding: 12px; border: 0; border-radius: 22px;
+    box-shadow: 0 0 0 1px #183e4710, 0 12px 24px #183e4708, 0 28px 70px #183e471c;
+    background: #fff;
+  }
+}
+.ss-header .ss-nav-product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.ss-header .ss-tool-menu .ss-nav-product-link {
+  padding: 12px 12px 18px; gap: 8px; min-width: 0;
+  border-radius: 14px; background: #f5f8f9;
+  transition: background 160ms ease;
+}
+.ss-header .ss-tool-menu .ss-nav-product-link:hover,
+.ss-header .ss-tool-menu .ss-nav-product-link:focus-visible { background: #eaf2f5; }
+.ss-header .ss-nav-art { width: 100%; height: 120px; margin-bottom: 8px; border-radius: 9px; }
+.ss-header .ss-nav-art-platform { background: #e9f2f8; }
+.ss-header .ss-nav-art-skills { background: #edf2e5; }
+.ss-header .ss-nav-art-developers { background: #e1ebe6; }
+.ss-header .ss-nav-link-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; }
+.ss-header .ss-tool-menu .ss-nav-panel strong { font-size: 16px; line-height: 1.4; font-weight: 550; letter-spacing: -.02em; }
+.ss-header .ss-tool-menu .ss-nav-panel a > span { font-size: 14px; line-height: 1.55; color: #586f78; }
+.ss-header .ss-nav-link-title .sky-arrow-icon { width: 16px; height: 16px; flex-basis: 16px; color: #68818a; }
+.ss-header .ss-nav-resource-grid { display: grid; grid-template-columns: 1fr 1fr; padding: 12px; gap: 24px; }
+.ss-header .ss-nav-resource-grid > section + section { box-shadow: -1px 0 #e5ecef; padding-left: 24px; }
+.ss-header .ss-nav-group-label { margin: 4px 12px 10px; font-size: 11px; font-weight: 550; line-height: 1.5; letter-spacing: .09em; text-transform: uppercase; color: #586f78; }
+.ss-header .ss-tool-menu .ss-nav-resource-link { padding: 12px; gap: 4px; border-radius: 10px; }
+.ss-header .ss-tool-menu .ss-nav-resource-link:hover { background: #f0f6f8; }
+.ss-header .ss-tool-menu .ss-nav-panel-footer {
+  display: flex; flex-direction: row; align-items: center; justify-content: space-between;
+  padding: 15px 24px; margin-top: 8px; border-radius: 0 0 12px 12px;
+  box-shadow: 0 -1px #e5ecef; background: #f7f9fa;
+}
+.ss-header .ss-tool-menu .ss-nav-panel-footer strong { font-size: 14px; }
+.ss-header .ss-nav-panel-footer .sky-arrow-icon { width: 18px; height: 18px; flex-basis: 18px; }
+.ss-header .ss-tool-menu .ss-nav-panel a:focus-visible { outline-offset: -2px; }
+@media (prefers-reduced-motion: no-preference) {
+  .ss-header .ss-desktop-nav details[open] > .ss-nav-panel { animation: nav-panel-enter 160ms ease-out; }
+  @keyframes nav-panel-enter { from { opacity: 0; translate: 0 -5px; } to { opacity: 1; translate: 0 0; } }
+}
+@media (max-width: 900px) {
+  .ss-header .ss-mobile-menu .ss-nav-panel { padding: 6px; margin: 0 0 8px; background: #f6f9fa; }
+  .ss-header .ss-nav-product-grid, .ss-header .ss-nav-resource-grid { grid-template-columns: 1fr; gap: 2px; padding: 0; }
+  .ss-header .ss-mobile-menu .ss-nav-product-link { padding: 14px; background: transparent; }
+  .ss-header .ss-nav-art { display: none; }
+  .ss-header .ss-nav-resource-grid > section + section { box-shadow: 0 -1px #e5ecef; padding: 12px 0 0; margin-top: 10px; }
+  .ss-header .ss-nav-group-label { margin: 12px 14px 4px; }
+  .ss-header .ss-mobile-menu .ss-nav-resource-link { padding: 12px 14px; }
+  .ss-header .ss-mobile-menu .ss-nav-panel-footer { margin-top: 12px; padding: 14px; }
+  .ss-header .ss-mobile-menu .ss-tool-menu[open] > summary { color: #087bab; }
+}

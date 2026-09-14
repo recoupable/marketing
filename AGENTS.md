@@ -206,6 +206,8 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 
 The header has four primary items: Services, Products, Resources, and Pricing. Menu destinations live in `lib/copy/navigation.ts`; `components/sky/header-nav-items.tsx` renders them for both desktop and mobile. Keep changes in this shared configuration so the two navigation layouts stay aligned.
 
+Dropdown presentation lives in `components/sky/navigation-panels.css`. Products uses three decorative SVG illustrations from `nav-product-art.tsx`; Resources groups links into Learn and Company, with All resources below. Desktop panels share one header-relative anchor. Mobile keeps the same links in scrollable disclosures without the artwork.
+
 ## Homepage announcement
 
 The hero announcement links to `/skills` and reads “Catalog Skills V2 is here.” Its copy lives in `components/home/sky-hero.tsx`; the New badge, hover, and link styling live in `components/home/sky.css`. See `DESIGN.md` for presentation guidance.
