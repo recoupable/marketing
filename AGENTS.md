@@ -204,4 +204,4 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 
 ## Homepage announcement
 
-The hero announcement links to `/skills` and reads “Catalog Skills v2 is here.” Its copy lives in `components/home/sky-hero.tsx`; the New badge, hover, and link styling live in `components/home/sky.css`. See `DESIGN.md` for presentation guidance.
+The hero announcement links to `/skills` and reads “Catalog Skills V2 is here.” Its copy lives in `components/home/sky-hero.tsx`; the New badge, hover, and link styling live in `components/home/sky.css`. See `DESIGN.md` for presentation guidance.

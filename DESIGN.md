@@ -153,7 +153,7 @@ The impression should be **capable people building useful software for the busin
 
 ### Homepage narrative
 
-The hero places the “Catalog Skills v2 is here” announcement above the title, with a lime New badge and a link to `/skills`. Use DM Sans, a subtle inset shadow outline, and wrapping text for narrow screens. The headline reads “AI transformation for music rightsholders”; its supporting line is “We build AI systems you own and train your team to use them.”
+The hero places the “Catalog Skills V2 is here” announcement above the title, with a lime New badge and a link to `/skills`. Use DM Sans, a subtle inset shadow outline, and wrapping text for narrow screens. The headline reads “AI transformation for music rightsholders”; its supporting line is “We build AI systems you own and train your team to use them.”
 
 The hero description leads directly into the artwork, with no CTA button row between them. The navigation retains the free-audit invitation.
 
@@ -454,7 +454,7 @@ Use the section heading “What we’ve built” and an explicit Case studies la
 
 ### Homepage announcement — September 13, 2026
 
-The hero pill announces “Catalog Skills v2 is here” and links to `/skills`. Use a small lime New badge, DM Sans text, and the shared arrow. The entire pill is a keyboard-accessible link with a minimum 44px touch target.
+The hero pill announces “Catalog Skills V2 is here” and links to `/skills`. Use a small lime New badge, DM Sans text, and the shared arrow. The entire pill is a keyboard-accessible link with a minimum 44px touch target.
 
 The hero headline reads “AI transformation” followed by “for music rightsholders.” Keep its supporting copy concise: “We build AI systems you own and train your team to use them.” Set the subtitle at 24px on desktop and 18px on mobile, with balanced wrapping and a 720px maximum desktop width.
 
