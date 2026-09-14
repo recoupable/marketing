@@ -217,6 +217,12 @@ The header has four primary items: Services, Products, Resources, and Pricing. M
 
 Dropdown presentation lives in `components/sky/navigation-panels.css`. Products uses three decorative SVG illustrations from `nav-product-art.tsx`; Resources pairs compact icon links with one illustrated Work card from `nav-work-art.tsx`. Desktop panels extend the full header width without a gap. `site-header.tsx` opens them on fine-pointer mouse hover and delays closing by 180ms when leaving the header. Mobile keeps tap disclosures and hides the artwork. Preserve keyboard, Escape focus return, and outside dismissal.
 
+## Platform and ownership previews
+
+The `/platform` hero uses `components/platform/PlatformChatPreview.tsx` and its scoped stylesheet. It is a static, illustrative artist chat workspace, not a working chat form; preserve its fictional-artist caption and avoid focusable mock controls. The real app action uses `AppLink` for attribution.
+
+The homepage ownership section uses `components/home/sky-ownership.tsx` and `sky-narrative.css`: a blue panel with three unnumbered deliverables, visually distinct from the pale process section. Its copy and ownership terms remain in `lib/copy/home.ts`.
+
 ## Homepage announcement
 
 The hero announcement links to `/skills` and reads “Catalog Skills V2 is here.” Its copy lives in `components/home/sky-hero.tsx`; the New badge, hover, and link styling live in `components/home/sky.css`. See `DESIGN.md` for presentation guidance.

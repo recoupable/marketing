@@ -1,3 +1,13 @@
+# Platform hero and homepage ownership — September 14, 2026
+
+The Platform hero now uses a compact artist chat illustration: workspace navigation, artist context files, a release-planning question and response, and a decorative composer. The tall research/content/task report and tilted backplate are replaced. The “Explore the Platform plan” button is removed; the attributed Open Recoup action and shared plan price remain.
+
+The homepage “Built by Recoup. Owned by you.” section now has a blue surface, lime headline emphasis, and three unnumbered deliverable columns. It follows the pale numbered process section with a distinct composition. Ownership copy and terms remain shared and unchanged.
+
+Production build, focused lint, and 27 pricing, agent-content, and marketing-funnel tests pass. The chat is illustrative, with a fictional artist and no interactive mock controls. Changes are on `codex/platform-chat-hero` for review.
+
+---
+
 # Navigation consolidation — September 14, 2026
 
 The desktop menus now open on mouse hover and expand the full header surface. Products retains its three illustrated cards. Resources uses compact Docs, Blog, Lab, and About icon links plus one illustrated Work card; the redundant All resources footer is removed. A short mouse-leave delay keeps the menu reachable. Phones retain tap disclosures, with keyboard and Escape support preserved. Continued on `codex/consolidate-navigation`, PR #105.

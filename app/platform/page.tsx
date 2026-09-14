@@ -3,8 +3,8 @@ import { SkyArrow } from "@/components/sky/arrow";
 import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { FAQ } from "@/components/ui";
-import { ProductPreview } from "@/components/interactive/ProductPreview";
-import { PageHero, PageSection, PageCTA, PageButton } from "@/components/sky/page-ui";
+import { PlatformChatPreview } from "@/components/platform/PlatformChatPreview";
+import { PageHero, PageSection, PageCTA } from "@/components/sky/page-ui";
 import { annualDiscountPercent, planPrice, pricingPlans } from "@/lib/pricing";
 import "./platform.css";
 
@@ -40,10 +40,9 @@ export default function PlatformPage() {
         eyebrow="RECOUP PLATFORM"
         title={<>Your artists.<br /><span>In context.</span></>}
         description="Research the artist. Shape the campaign. Create the content. An AI workspace for the work around your music."
-        visual={<div className="platform-sky-preview"><div className="platform-sky-preview-backplate" aria-hidden="true" /><ProductPreview /></div>}
+        visual={<PlatformChatPreview />}
       >
         <AppLink placement="platform-hero" className="sp-button">Open Recoup<span><SkyArrow /></span></AppLink>
-        <PageButton href="/pricing#platform" secondary>Explore the {plan.name} plan</PageButton>
         <p className="platform-sky-hero-note">{planPrice(plan.id, "monthly").monthly}/month for the platform and music skill pack.</p>
       </PageHero>
 

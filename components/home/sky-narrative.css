@@ -1,18 +1,15 @@
 /* Ownership and the separate software path. */
 .sky-content .sky-section.sky-ownership { padding-top: 0; padding-bottom: 36px; }
-.sky-ownership-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 38px 60px; padding: 45px; border: 1px solid #dbe6e8; border-radius: 24px; background: #f1f6f7; background-image: var(--recoup-surface-grain),radial-gradient(ellipse at 0 0,#fff,#f1f6f7); background-size: 160px 160px,100% 100%; background-blend-mode: soft-light,normal; }
-.sky-ownership-panel .sky-section-label { font-size: 10px; color: #586f78; }
-.sky-content .sky-ownership-panel h2 { font-size: clamp(33px,3.4vw,49px); font-weight: 450; line-height: 1.1; letter-spacing: -.05em; margin: 22px 0; }
-.sky-ownership-panel h2 span { color: #087bab; }
-.sky-ownership-panel header > p:last-child { max-width: 36ch; font-size: 16px; line-height: 1.65; color: #526a74; }
-.sky-ownership-deliverables { margin: 0; }
-.sky-ownership-deliverables > div { padding: 20px 0; border-bottom: 1px solid #d5e2e6; }
-.sky-ownership-deliverables > div:first-child { padding-top: 0; }
-.sky-ownership-deliverables > div:last-child { border-bottom: 0; padding-bottom: 0; }
-.sky-ownership-deliverables dt { display: flex; align-items: center; gap: 12px; font-size: 21px; font-weight: 500; letter-spacing: -.025em; }
-.sky-ownership-deliverables dt span { display: grid; place-items: center; width: 29px; height: 29px; flex: none; border-radius: 8px; background: #d6ff62; color: #263f2b; font: 10px "IBM Plex Mono",monospace; }
-.sky-ownership-deliverables dd { margin: 9px 0 0 41px; font-size: 14px; line-height: 1.65; color: #526a74; }
-.sky-ownership-terms { grid-column: 1/-1; margin: 0; padding-top: 22px; border-top: 1px solid #d5e2e6; font-size: 12px; line-height: 1.7; color: #586f78; }
+.sky-ownership-panel { padding: 52px; border-radius: 24px; background: #2265a5; background-image: var(--recoup-surface-grain),var(--recoup-surface-blue-light),var(--recoup-surface-blue-shade); background-size: 160px 160px,100% 100%,100% 100%; background-blend-mode: soft-light,normal,normal; color: #fff; box-shadow: inset 0 0 0 1px #ffffff14; }
+.sky-ownership-panel .sky-section-label { font-size: 10px; color: #dceeff; }
+.sky-content .sky-ownership-panel h2 { font-size: clamp(38px,4.6vw,64px); font-weight: 450; line-height: 1.06; letter-spacing: -.05em; margin: 22px 0 42px; }
+.sky-ownership-panel h2 span { color: #d6ff62; }
+.sky-ownership-deliverables { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 30px; margin: 0; }
+.sky-ownership-deliverables > div { padding-top: 24px; box-shadow: 0 -1px #ffffff40; }
+.sky-ownership-deliverables dt { display: flex; flex-direction: column; align-items: flex-start; gap: 17px; font-size: 23px; font-weight: 500; line-height: 1.2; letter-spacing: -.035em; }
+.sky-ownership-deliverables dt svg { width: 25px; height: 25px; color: #d6ff62; }
+.sky-ownership-deliverables dd { max-width: 27ch; margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: #e0efff; }
+.sky-ownership-terms { max-width: 88ch; margin: 36px 0 0; font-size: 12px; line-height: 1.7; color: #dceeff; }
 
 /* The offer is explained before individual project examples. */
 .sky-content .sky-section.sky-transformation-services { padding-top: 0; padding-bottom: 72px; }
@@ -34,7 +31,8 @@
  .sky-process-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (max-width: 900px) {
- .sky-ownership-panel { gap: 32px; padding: 30px; }
+ .sky-ownership-panel { padding: 36px; }
+ .sky-ownership-deliverables { gap: 22px; }
 }
 @media (max-width: 700px) {
  .sky-content .sky-section.sky-transformation-services { padding-inline: 18px; padding-bottom: 55px; }
@@ -46,8 +44,12 @@
  .sky-process-list p { font-size: 15px; }
  .sky-process-scope { font-size: 12px; }
  .sky-content .sky-section.sky-ownership { padding-inline: 18px; }
- .sky-ownership-panel { grid-template-columns: 1fr; padding: 27px 23px; gap: 30px; }
- .sky-ownership-panel header > p:last-child { max-width: none; }
- .sky-ownership-panel h2 { margin-block: 17px; }
- .sky-ownership-deliverables dd { margin-left: 0; }
+ .sky-ownership-panel { padding: 32px 24px; border-radius: 20px; }
+ .sky-content .sky-ownership-panel h2 { margin: 20px 0 34px; font-size: clamp(32px,7.5vw,48px); }
+ .sky-ownership-deliverables { grid-template-columns: 1fr; gap: 25px; }
+ .sky-ownership-deliverables > div { padding-top: 23px; }
+ .sky-ownership-deliverables dt { flex-direction: row; align-items: center; gap: 13px; font-size: 22px; }
+ .sky-ownership-deliverables dt svg { width: 23px; height: 23px; flex: none; }
+ .sky-ownership-deliverables dd { max-width: 36ch; margin-left: 36px; }
+ .sky-ownership-terms { margin-top: 28px; }
 }
