@@ -24,7 +24,7 @@
     left: 0;
     right: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 4px;
     padding: 15px;
     border: 1px solid #e2eaed;
@@ -47,7 +47,35 @@
     background: #eff7fb;
   }
   .ss-header .ss-mobile-menu nav a:last-child {
+    background: transparent;
+  }
+  .ss-header .ss-mobile-menu > nav > a:last-child {
     background: #d6ff62;
     font-weight: 550;
+  }
+  .ss-header .ss-mobile-menu .ss-tool-menu > summary {
+    width: 100%;
+    min-height: 44px;
+    padding: 13px;
+  }
+  .ss-header .ss-mobile-menu .ss-tool-chevron {
+    margin-left: auto;
+  }
+  .ss-header .ss-mobile-menu .ss-tool-menu > div {
+    position: static;
+    width: auto;
+    padding: 5px;
+    margin: 0 0 6px 13px;
+    background: #f4f8fa;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+  .ss-header .ss-mobile-menu .ss-tool-menu a {
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .ss-header .ss-mobile-menu nav a[aria-current] {
+    color: #087bab;
   }
 }
