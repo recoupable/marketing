@@ -9,18 +9,34 @@ export const platformCopy = {
   },
   capabilitiesTitle: "Built-in tools for research, content, and recurring work.",
   capabilities: [
-    { number: "02", title: "Research", description: "Get artist and audience insights to shape your next campaign." },
-    { number: "03", title: "Create content", description: "Turn tracks and release plans into campaign ideas, visuals, and copy." },
-    { number: "04", title: "Automate repeat work", description: "Schedule research, content prompts, and reports for your roster or catalog." },
+    {
+      id: "research", title: "Research", description: "Get artist and audience insights to shape your next campaign.",
+      prompt: "Help me research the audience for Blue Hour.",
+      output: { label: "RESEARCH BRIEF", title: "Find your next listeners.", rows: [
+        { title: "The audience", detail: "Explore who listens and what else they love." },
+        { title: "The conversation", detail: "Look at how fans talk about the music." },
+        { title: "The opportunity", detail: "Turn the findings into a campaign direction." },
+      ] },
+    },
+    {
+      id: "content", title: "Create content", description: "Turn tracks and release plans into campaign ideas, visuals, and copy.",
+      prompt: "Give Blue Hour a creative direction.",
+      output: { label: "CAMPAIGN CONCEPT", title: "Blue Hour", rows: [
+        { title: "A soundtrack for the in-between.", detail: "Mara Vale / EP" },
+      ] },
+    },
+    {
+      id: "recurring", title: "Automate repeat work", description: "Schedule research, content prompts, and reports for your roster or catalog.",
+      prompt: "Keep me up to date on our catalog.",
+      output: { label: "RECURRING WORK", title: "Set the rhythm.", rows: [
+        { title: "Audience research", detail: "Every Monday" },
+        { title: "Release check-in", detail: "Every Friday" },
+        { title: "Catalog report", detail: "Every month" },
+      ] },
+    },
   ],
   start: {
-    eyebrow: "YOUR FIRST SESSION",
     title: "Work across your artists, catalogs, and releases through chat.",
-    steps: [
-      { title: "Add an artist or catalog.", description: "Start with a single release or a whole roster." },
-      { title: "Bring the details.", description: "Add release plans, reference files, and notes." },
-      { title: "Ask for what you need.", description: "Try a campaign brief, an artist report, or a content draft." },
-    ],
   },
   hosted: {
     title: ["Hosted by Recoup.", "Open source."],

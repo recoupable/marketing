@@ -1,12 +1,12 @@
-# Platform hero and homepage ownership — September 14, 2026
+# Platform visual redesign and homepage ownership — September 14, 2026
 
 The Platform page leads with “A ready-to-use AI workspace for music teams.” Its title-only narrative distinguishes the hosted app from using Recoup tools in an existing agent or commissioning a custom system. The page explains chat over artists, catalogs, and releases; built-in research/content/recurring tools; cloud hosting and open source; Skills/API/MCP alternatives; and bespoke services. The public app source links to `recoupable/app` through `siteConfig.platformSourceUrl`.
 
-The compact preview retains one release-planning exchange and a campaign-plan document. No visible illustrative caption, redundant labels, or tag lists. The attributed Open Recoup actions and shared plan price remain. Page copy, metadata, and the machine-readable summary share `lib/copy/platform.ts`.
+The Platform page now replaces repeated pale panels with a floating artist/catalog/release composition, a dark interactive tool showcase, an oversized hosting statement, paired alternative paths, and a split FAQ. Research, content, and recurring-work buttons switch local examples. The redundant onboarding checklist, feature-card tray, and separate closing banner are removed. The compact hero preview retains one release-planning exchange and a campaign-plan document. No visible illustrative caption, redundant labels, or tag lists. The attributed Open Recoup actions and shared plan price remain. Page copy, metadata, and the machine-readable summary share `lib/copy/platform.ts`.
 
 The homepage “Built by Recoup. Owned by you.” section now has a blue surface, lime headline emphasis, and three unnumbered deliverable columns. It follows the pale numbered process section with a distinct composition. Ownership copy and terms remain shared and unchanged.
 
-Production build, focused lint, and 31 pricing, agent-content, agent-discovery, and marketing-funnel tests pass. Desktop and narrow-phone layouts were checked for overflow and readable text. The workspace preview has no interactive mock controls. Changes are on `codex/platform-chat-hero` in PR #109 for review.
+Production build, focused lint, and 31 pricing, agent-content, agent-discovery, and marketing-funnel tests pass. Desktop and narrow-phone layouts were checked for overflow and readable text. The hero preview has no interactive mock controls. The tool showcase uses native pressed-state buttons with an accessible live output region; its examples do not run real tasks. Changes are on `codex/platform-chat-hero` in PR #109 for review.
 
 ---
 

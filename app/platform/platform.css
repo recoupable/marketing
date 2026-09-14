@@ -1,58 +1,153 @@
 .platform-sky .sp-hero h1 { font-size: clamp(38px, 4.1vw, 58px); text-wrap: balance; }
 .platform-sky .platform-sky-hero-note { flex-basis: 100%; margin: 7px 0 0; color: #e1f3ff; font-size: 14px; line-height: 1.5; }
-.platform-sky .platform-sky-capabilities { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; border-radius: 23px; background: #f1f3f3; padding: 10px; }
-.platform-sky .platform-sky-capability { padding: 30px; border: 1px solid #e7ebea; border-radius: 15px; background: #fff; box-shadow: 0 2px 4px #183d3608; }
-.platform-sky .platform-sky-capability-top { display: flex; align-items: center; gap: 12px; }
-.platform-sky .platform-sky-capability-icon { display: grid; place-items: center; width: 37px; height: 37px; flex-shrink: 0; border-radius: 10px; background: #d6ff62; color: #284530; }
-.platform-sky .platform-sky-capability-icon svg { width: 20px; height: 20px; }
-.platform-sky .platform-sky-capability h3 { margin: 0; font-size: 26px; font-weight: 450; line-height: 1.1; letter-spacing: -.045em; }
-.platform-sky .platform-sky-capability p { margin-top: 13px; color: #637780; max-width: 39ch; font-size: 15px; line-height: 1.55; }
-.platform-sky .platform-sky-capability-02 { background: #e9f5fa; border-color: #dcebef; }
-.platform-sky .platform-sky-capability-02 .platform-sky-capability-icon { background: #fff; color: #2c89a7; }
-.platform-sky .platform-sky-capability-03 { background: #193730; border-color: #25463c; color: #f4fff8; }
-.platform-sky .platform-sky-capability-03 p { color: #c1d4c9; }
-.platform-sky .platform-sky-start { display: grid; grid-template-columns: 1fr 1fr; padding: 10px; gap: 10px; border: 1px solid #e1ecee; border-radius: 23px; background: #edf7fb; }
-.platform-sky .platform-sky-start-copy { display: flex; flex-direction: column; align-items: flex-start; padding: 35px; }
-.platform-sky .platform-sky-start-label { font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .06em; color: #528094; }
-.platform-sky .platform-sky-start-copy h2 { margin-block: 24px 34px; font-size: clamp(29px, 3vw, 40px); text-wrap: balance; letter-spacing: -.05em; font-weight: 450; line-height: 1.12; color: #254c5a; }
-.platform-sky .platform-sky-first-session { display: flex; flex-direction: column; justify-content: center; padding: 12px 30px; margin: 0; list-style: none; border-radius: 15px; background: #fff; box-shadow: 0 3px 7px #29485108; }
-.platform-sky .platform-sky-first-session li { display: flex; gap: 16px; align-items: flex-start; padding: 23px 0; }
-.platform-sky .platform-sky-first-session li + li { border-top: 1px solid #e6eeee; }
-.platform-sky .platform-sky-first-session li > span { display: grid; place-items: center; flex-shrink: 0; width: 27px; height: 27px; border-radius: 7px; color: #4c7989; background: #ebf5f8; font-family: "IBM Plex Mono", monospace; font-size: 11px; }
-.platform-sky .platform-sky-first-session h3 { margin: 0; font-size: 21px; font-weight: 500; letter-spacing: -.03em; }
-.platform-sky .platform-sky-first-session p { margin-top: 6px; color: #647980; font-size: 14px; line-height: 1.55; }
-.platform-sky .platform-sky-tools-section .sp-section-heading { max-width: 790px; }
-.platform-sky .platform-sky-hosted { display: grid; grid-template-columns: 1fr 1.1fr; gap: 55px; align-items: center; padding: 44px; border-radius: 22px; background: #eef6fa; box-shadow: inset 0 0 0 1px #dfebef; }
-.platform-sky .platform-sky-alternatives { display: grid; grid-template-columns: 1.1fr 1fr; gap: 55px; align-items: center; padding: 45px 24px 0; box-shadow: 0 -1px #e2e9eb; }
-.platform-sky :is(.platform-sky-hosted, .platform-sky-alternatives) h2 { margin: 0; font-size: clamp(30px, 3vw, 42px); font-weight: 450; line-height: 1.12; letter-spacing: -.045em; text-wrap: balance; }
-.platform-sky :is(.platform-sky-hosted, .platform-sky-alternatives) h2 span { color: #087bab; }
-.platform-sky :is(.platform-sky-hosted, .platform-sky-alternatives) p { margin: 0; color: #586f78; font-size: 16px; line-height: 1.65; max-width: 48ch; }
-.platform-sky .platform-sky-links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 24px; }
+.platform-sky :is(.platform-context, .platform-hosted, .platform-faq, .platform-paths) { margin-inline: 20px; }
+.platform-sky h2 { font-weight: 450; letter-spacing: -.055em; line-height: 1.08; text-wrap: balance; }
+.platform-sky .platform-context { padding: 95px 0 65px; }
+.platform-context h2 { max-width: 24ch; margin: 0 auto; text-align: center; font-size: clamp(32px, 4vw, 54px); }
+.platform-context-art { position: relative; max-width: 860px; height: 280px; margin: 45px auto 0; }
+.platform-context-art > div { position: absolute; }
+.platform-context-artist { left: 2%; top: 75px; z-index: 2; display: flex; align-items: center; gap: 15px; padding: 22px; width: 278px; background: #f3f3ed; border-radius: 13px; box-shadow: 0 12px 28px #152e3712, inset 0 0 0 1px #152e3710; transform: rotate(-7deg); }
+.platform-context-avatar { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: #c8d8b6; color: #274437; font-size: 22px; font-weight: 500; }
+.platform-context-artist strong { display: block; margin-top: 4px; font-size: 18px; font-weight: 500; }
+.platform-context-artist span { font-size: 12px; color: #586f78; }
+.platform-context-artist .platform-context-star { margin-left: auto; font-size: 24px; color: #6c8451; }
+.platform-context-catalog { left: 34%; top: 12px; z-index: 1; width: 276px; padding: 19px 22px 13px; border-radius: 9px; background: #fff; box-shadow: 0 18px 45px #152e3712, 0 0 0 1px #152e3710; transform: rotate(3deg); }
+.platform-context-catalog-top { display: flex; justify-content: space-between; padding-bottom: 12px; font-size: 14px; font-weight: 500; }
+.platform-context-track { display: flex; align-items: center; gap: 10px; padding: 10px 0; box-shadow: 0 -1px #e8edee; }
+.platform-context-track strong { display: block; font-size: 13px; font-weight: 500; }
+.platform-context-track div > span { font-size: 11px; color: #586f78; }
+.platform-context-thumb { width: 33px; height: 33px; border-radius: 3px; background: linear-gradient(135deg, #153c78, #8cc4ef); }
+.platform-context-thumb-1 { background: linear-gradient(135deg, #7d2c2a, #eeb999); }
+.platform-context-thumb-2 { background: linear-gradient(135deg, #64854a, #e4e6c0); }
+.platform-context-track-number { margin-left: auto; color: #8b999f; font-family: "IBM Plex Mono", monospace; font-size: 10px; }
+.platform-context-record { right: 2%; top: 55px; z-index: 3; width: 185px; height: 185px; transform: rotate(9deg); }
+.platform-record-disc { position: absolute; width: 174px; height: 174px; right: -27px; top: 5px; border-radius: 50%; background: repeating-radial-gradient(circle, #26312f 0 2px, #1b2523 3px 4px); box-shadow: 0 10px 20px #152e3720; }
+.platform-record-disc::after { content: ""; position: absolute; inset: 62px; border-radius: 50%; background: #aac6df; box-shadow: inset 0 0 0 20px #618cac; }
+.platform-record-sleeve { position: relative; display: flex; flex-direction: column; height: 100%; padding: 17px; overflow: hidden; background: #9ccff2; color: #173d6b; box-shadow: 0 15px 28px #152e3726; }
+.platform-record-sleeve > span { z-index: 1; font-size: 10px; }
+.platform-record-sleeve > strong { z-index: 1; margin-top: 15px; font-size: 31px; line-height: 1; font-weight: 450; letter-spacing: -.06em; }
+.platform-record-waves { position: absolute; width: 270px; height: 190px; top: 97px; left: -35px; border-radius: 50%; background: #426fa4; transform: rotate(-30deg); box-shadow: 0 20px #638dbc, 0 40px #153f76, 0 -15px #c9e5ef; }
+.platform-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 65px; align-items: center; padding: 72px 65px; background: #193730; color: #f6fbf8; border-radius: 28px; }
+.platform-tools h2 { max-width: 17ch; margin: 0 0 36px; font-size: clamp(32px, 3.6vw, 48px); }
+.platform-tool-choices { display: grid; }
+.platform-tool-choices button { display: grid; grid-template-columns: 24px 1fr 20px; align-items: baseline; gap: 16px; padding: 20px 0; text-align: left; cursor: pointer; background: transparent; color: #f3faf5; border: 0; border-radius: 0; box-shadow: 0 -1px #ffffff21; font: inherit; }
+.platform-tool-index { font: 11px "IBM Plex Mono", monospace; color: #d6ff62; opacity: .55; }
+.platform-tool-name { display: block; font-size: 24px; letter-spacing: -.035em; opacity: .65; }
+.platform-tool-description { display: block; max-width: 34ch; margin-top: 9px; color: #c3d1ca; font-size: 14px; line-height: 1.6; }
+.platform-tool-choices button > svg { align-self: center; opacity: .35; transition: transform 180ms ease; }
+.platform-tool-choices button[aria-pressed="true"] :is(.platform-tool-name, .platform-tool-index, svg) { color: #d6ff62; opacity: 1; }
+.platform-tool-choices button:hover > svg { transform: translateX(4px); opacity: 1; }
+.platform-tool-choices button:focus-visible { outline: 2px solid #d6ff62; outline-offset: 5px; border-radius: 4px; }
+.platform-tool-stage { position: relative; min-width: 0; padding: 0 10px; }
+.platform-tool-prompt { position: relative; z-index: 2; display: flex; align-items: center; gap: 12px; padding: 17px 22px; margin: 0 -4px 25px 20px; background: #d6ff62; color: #193730; box-shadow: 0 8px 25px #00150c1a; border-radius: 16px 16px 3px 16px; font-size: 14px; line-height: 1.5; transform: rotate(2deg); }
+.platform-tool-prompt > span { font-size: 24px; }
+.platform-tool-result { min-height: 380px; padding: 32px; background: #fcfcf6; color: #193730; box-shadow: 0 22px 50px #001c1a38; transform: rotate(-3deg); }
+.platform-tool-output-label { display: flex; justify-content: space-between; gap: 10px; font: 10px "IBM Plex Mono", monospace; letter-spacing: .07em; }
+.platform-tool-result h3 { margin: 28px 0 28px; max-width: 12ch; font-size: clamp(28px, 3vw, 39px); line-height: 1.05; font-weight: 450; letter-spacing: -.05em; }
+.platform-tool-result-rows { display: grid; gap: 18px; }
+.platform-tool-result-rows > div { display: grid; gap: 5px; }
+.platform-tool-result-rows strong { font-size: 14px; font-weight: 500; }
+.platform-tool-result-rows span { font-size: 12px; line-height: 1.6; color: #586f78; }
+.platform-tool-result-content { position: relative; isolation: isolate; overflow: hidden; background: #b9d9f1; color: #163a6c; }
+.platform-tool-result-content h3 { position: relative; z-index: 1; font-size: 66px; margin-top: 32px; }
+.platform-tool-result-content .platform-tool-result-rows { position: absolute; z-index: 1; inset: auto 32px 28px; }
+.platform-tool-result-content .platform-tool-result-rows span { color: #274c6f; }
+.platform-tool-poster-art { position: absolute; z-index: -1; inset: 0; overflow: hidden; }
+.platform-tool-poster-art div { position: absolute; width: 150%; height: 230px; border-radius: 50%; background: #8ab9d9; left: -25%; top: 45%; transform: rotate(-27deg); }
+.platform-tool-poster-art div:nth-child(2) { top: 53%; background: #5b96c9; }
+.platform-tool-poster-art div:nth-child(3) { top: 61%; background: #dae9e8; }
+.platform-tool-result-recurring .platform-tool-result-rows { gap: 0; }
+.platform-tool-result-recurring .platform-tool-result-rows > div { position: relative; padding: 17px 0 17px 30px; box-shadow: 0 -1px #1937301c; }
+.platform-tool-result-recurring .platform-tool-result-rows > div::before { content: "↻"; position: absolute; top: 16px; left: 0; font-size: 20px; color: #5a7b40; }
+.platform-hosted { padding: 115px 0 95px; text-align: center; }
+.platform-hosted h2 { margin: 0; font-size: clamp(43px, 6.7vw, 88px); }
+.platform-hosted h2 span { color: #087bab; }
+.platform-hosted p { max-width: 54ch; margin: 28px auto 0; font-size: 16px; line-height: 1.7; color: #586f78; }
+.platform-sky .platform-sky-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 20px; }
 .platform-sky .platform-sky-links a { min-height: 44px; }
 .platform-sky .platform-sky-links svg { flex: none; }
-@media(max-width: 800px) {
-  .platform-sky .platform-sky-capabilities, .platform-sky .platform-sky-start, .platform-sky .platform-sky-hosted, .platform-sky .platform-sky-alternatives { grid-template-columns: minmax(0, 1fr); }
-  .platform-sky .platform-sky-hosted { padding: 32px; gap: 25px; }
-  .platform-sky .platform-sky-alternatives { padding-inline: 16px; gap: 25px; }
+.platform-hosted .platform-sky-links { justify-content: center; }
+.platform-paths { display: grid; grid-template-columns: 1.1fr 1fr; gap: 65px; align-items: stretch; padding-block: 20px; }
+.platform-paths article { padding: 35px 0; display: flex; flex-direction: column; align-items: flex-start; }
+.platform-paths .platform-path-custom { padding: 35px 38px; background: #e8f3d8; border-radius: 3px 38px 3px 3px; }
+.platform-path-symbol { font-size: 36px; line-height: 1; color: #087bab; margin-bottom: 28px; }
+.platform-path-custom .platform-path-symbol { color: #446b26; }
+.platform-paths h2 { margin: 0; font-size: clamp(28px, 3vw, 38px); }
+.platform-path-tools h2 span { color: #087bab; }
+.platform-paths p { margin: 22px 0 15px; color: #586f78; font-size: 15px; line-height: 1.65; max-width: 43ch; }
+.platform-path-custom p { color: #4c6546; }
+.platform-paths .platform-sky-links { margin-top: auto; padding-top: 8px; }
+.platform-path-custom > a { margin-top: auto; min-height: 44px; color: #284824; }
+.platform-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 75px; padding: 85px 0 90px; }
+.platform-faq h2 { margin: 16px 0 0; font-size: clamp(28px, 3vw, 38px); max-width: 15ch; }
+.platform-faq .faq-list { width: 100%; margin: 0; }
+@media (max-width: 1050px) {
+  .platform-tools { gap: 30px; padding: 48px 35px; }
+  .platform-tool-result { padding: 27px; }
+  .platform-context-art { max-width: 750px; }
+  .platform-context-artist { width: 240px; }
+  .platform-context-catalog { left: 31%; }
+  .platform-context-record { right: 3%; width: 165px; height: 165px; }
+  .platform-record-disc { width: 156px; height: 156px; }
+  .platform-paths { gap: 38px; }
 }
-@media(max-width: 1000px) {
-  .platform-sky .platform-sky-capability { padding: 26px; }
-  .platform-sky .platform-sky-start-copy { padding: 28px 22px; }
-  .platform-sky .platform-sky-first-session { padding: 8px 22px; }
+@media (max-width: 800px) {
+  .platform-sky .platform-context { padding: 70px 0 45px; }
+  .platform-context-art { max-width: 560px; height: 255px; margin-top: 35px; }
+  .platform-context-artist { left: 0; top: 115px; width: 225px; padding: 18px; }
+  .platform-context-catalog { left: 27%; width: 240px; padding: 16px; }
+  .platform-context-record { right: 3%; top: 100px; width: 142px; height: 142px; }
+  .platform-record-disc { width: 135px; height: 135px; right: -15px; }
+  .platform-record-sleeve { padding: 12px; }
+  .platform-record-sleeve > strong { font-size: 28px; }
+  .platform-record-waves { top: 85px; }
+  .platform-tools { grid-template-columns: 1fr; padding: 40px; gap: 35px; }
+  .platform-tools h2 { max-width: 22ch; }
+  .platform-tool-stage { width: 100%; max-width: 430px; margin: 0 auto 12px; }
+  .platform-tool-description { max-width: none; }
+  .platform-hosted { padding: 80px 0 60px; }
+  .platform-paths { gap: 28px; }
+  .platform-paths .platform-path-custom { padding: 28px; }
+  .platform-paths h2 { font-size: 28px; }
+  .platform-faq { gap: 35px; }
 }
-@media(max-width: 650px) {
-  .platform-sky .platform-sky-hosted { padding: 29px 24px; }
-  .platform-sky .platform-sky-alternatives { padding-inline: 12px; }
-  .platform-sky :is(.platform-sky-hosted, .platform-sky-alternatives) p { font-size: 15px; }
-  .platform-sky .platform-sky-capabilities, .platform-sky .platform-sky-start { grid-template-columns: 1fr; border-radius: 18px; padding: 8px; gap: 8px; }
-  .platform-sky .platform-sky-capability { padding: 24px 21px; border-radius: 12px; }
-  .platform-sky .platform-sky-capability-top { gap: 9px; }
-  .platform-sky .platform-sky-capability h3 { font-size: 26px; }
-  .platform-sky .platform-sky-capability p { font-size: 14px; }
-  .platform-sky .platform-sky-start-copy { padding: 24px 18px; }
-  .platform-sky .platform-sky-start-copy h2 { font-size: 32px; }
-  .platform-sky .platform-sky-first-session { padding: 4px 19px; border-radius: 12px; }
-  .platform-sky .platform-sky-first-session li { gap: 12px; padding-block: 21px; }
-  .platform-sky .platform-sky-first-session h3 { font-size: 20px; }
-  .platform-sky .platform-sky-first-session p { font-size: 13px; }
+@media (max-width: 550px) {
+  .platform-sky :is(.platform-context, .platform-hosted, .platform-paths, .platform-faq) { margin-inline: 10px; }
+  .platform-context h2 { font-size: 33px; }
+  .platform-context-art { height: 300px; max-width: 350px; margin-top: 32px; }
+  .platform-context-catalog { left: auto; right: 4%; top: 0; width: 215px; }
+  .platform-context-artist { top: 90px; left: 0; width: 180px; padding: 14px; gap: 9px; }
+  .platform-context-avatar { width: 42px; height: 42px; font-size: 16px; }
+  .platform-context-artist strong { font-size: 15px; }
+  .platform-context-star { display: none; }
+  .platform-context-record { top: 165px; right: 12%; width: 130px; height: 130px; }
+  .platform-record-disc { width: 124px; height: 124px; }
+  .platform-record-sleeve > strong { font-size: 26px; }
+  .platform-record-sleeve > span { font-size: 9px; }
+  .platform-record-waves { top: 75px; }
+  .platform-tools { padding: 35px 24px; border-radius: 20px; gap: 32px; }
+  .platform-tools h2 { font-size: 33px; margin-bottom: 28px; }
+  .platform-tool-choices button { grid-template-columns: 18px 1fr 18px; gap: 10px; }
+  .platform-tool-name { font-size: 23px; }
+  .platform-tool-description { font-size: 13px; }
+  .platform-tool-stage { padding: 0 2px; }
+  .platform-tool-prompt { font-size: 12px; padding: 14px; margin-left: 9px; gap: 8px; }
+  .platform-tool-result { padding: 24px; min-height: 375px; }
+  .platform-tool-result h3 { font-size: 33px; }
+  .platform-tool-result-content h3 { font-size: 55px; }
+  .platform-tool-result-content .platform-tool-result-rows { inset: auto 24px 26px; }
+  .platform-hosted h2 { font-size: 47px; }
+  .platform-hosted p { font-size: 15px; }
+  .platform-hosted .platform-sky-links { gap: 2px 15px; }
+  .platform-paths, .platform-faq { grid-template-columns: 1fr; gap: 20px; }
+  .platform-paths article { padding: 20px 8px; }
+  .platform-paths .platform-path-custom { padding: 28px; }
+  .platform-paths h2 { font-size: 32px; }
+  .platform-paths p { margin-block: 18px 12px; }
+  .platform-path-symbol { margin-bottom: 22px; }
+  .platform-faq { padding: 55px 0 65px; }
+  .platform-faq h2 { max-width: 16ch; font-size: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .platform-tool-choices button > svg { transition: none; }
 }

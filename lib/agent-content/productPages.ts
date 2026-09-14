@@ -19,7 +19,6 @@ export const productPages: PageSummary[] = [
     paragraphs: [
       platformCopy.hero.description,
       platformCopy.start.title,
-      ...platformCopy.start.steps.map(item => `${item.title} ${item.description}`),
       ...platformCopy.capabilities.map(item => `${item.title}: ${item.description}`),
       `${platformCopy.hosted.title.join(" ")} ${platformCopy.hosted.description}`,
       `${platformCopy.alternatives.title.join(" ")} ${platformCopy.alternatives.description}`,
