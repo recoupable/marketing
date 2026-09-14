@@ -35,16 +35,16 @@ export default function PlatformPage() {
       </PageHero>
 
       <section className="platform-context" id="workspace" aria-labelledby="platform-context-title">
-        <h2 id="platform-context-title">{platformCopy.start.title}</h2>
-        <PlatformContextArt />
+        <h2 id="platform-context-title" data-reveal="">{platformCopy.start.title}</h2>
+        <div data-reveal=""><PlatformContextArt /></div>
       </section>
 
       <section className="platform-audience" id="who-its-for" aria-labelledby="platform-audience-title">
-        <header>
+        <header data-reveal="">
           <p className="platform-audience-eyebrow">{platformCopy.audience.eyebrow}</p>
           <h2 id="platform-audience-title">{platformCopy.audience.title[0]} <span>{platformCopy.audience.title[1]}</span></h2>
         </header>
-        <div className="platform-audience-reasons">
+        <div className="platform-audience-reasons" data-reveal-group="">
           {platformCopy.audience.reasons.map(reason => (
             <article key={reason.title}>
               <h3>{reason.title}</h3>
@@ -57,12 +57,12 @@ export default function PlatformPage() {
       <PlatformToolsDemo title={platformCopy.capabilitiesTitle} workflows={platformCopy.capabilities} />
 
       <section className="platform-hosted" id="hosted" aria-labelledby="platform-hosted-title">
-        <div className="platform-hosted-copy">
+        <div className="platform-hosted-copy" data-reveal="">
           <h2 id="platform-hosted-title">{platformCopy.hosted.title[0]}<br /><span>{platformCopy.hosted.title[1]}</span></h2>
           <p>{platformCopy.hosted.description}</p>
           <Link className="sp-text-link" href="/developers">{platformCopy.hosted.toolsAction}<SkyArrow /></Link>
         </div>
-        <div className="platform-source-scene">
+        <div className="platform-source-scene" data-reveal="">
           <div className="platform-source-cloud" aria-hidden="true"><PageMark /><span>Recoup Platform</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 18a5 5 0 0 1-1-9.9A7 7 0 0 1 18.5 8a5 5 0 0 1-.5 10H6Z" /></svg></div>
           <a className="platform-source-repo" href={siteConfig.platformSourceUrl}>
             <span className="platform-source-code" aria-hidden="true">&lt;/&gt;</span>
@@ -72,7 +72,7 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      <section className="platform-paths" id="your-agent" aria-label="More ways to use Recoup">
+      <section className="platform-paths" data-reveal-group="" id="your-agent" aria-label="More ways to use Recoup">
         <article className="platform-path-tools">
           <span className="platform-path-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14" /></svg></span>
           <h2>{platformCopy.alternatives.title[0]}<br /><span>{platformCopy.alternatives.title[1]}</span></h2>
@@ -88,13 +88,13 @@ export default function PlatformPage() {
       </section>
 
       <section className="platform-faq" aria-labelledby="platform-faq-title">
-        <h2 id="platform-faq-title">{platformCopy.faq.title}</h2>
-        <FAQ items={[
+        <h2 id="platform-faq-title" data-reveal="">{platformCopy.faq.title}</h2>
+        <div data-reveal=""><FAQ items={[
           platformCopy.faq.audience,
           platformCopy.faq.context,
           { question: "How do plans and usage work?", answer: `The ${plan.name} plan includes the hosted workspace and music skill pack for ${planPrice(plan.id, "monthly").monthly}/month. Annual billing saves at least ${annualDiscountPercent}%. API and MCP usage is billed separately. Review the pricing page for plans and the credits documentation for usage details.` },
           platformCopy.faq.custom,
-        ]} />
+        ]} /></div>
       </section>
     </div>
   );

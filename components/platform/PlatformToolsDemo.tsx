@@ -18,8 +18,8 @@ export function PlatformToolsDemo({ title, workflows }: { title: string; workflo
   return (
     <section className="platform-tools" id="tools" aria-labelledby="platform-tools-title">
       <div className="platform-tools-copy">
-        <h2 id="platform-tools-title">{title}</h2>
-        <div className="platform-tool-choices" role="group" aria-label="Choose a workflow">
+        <h2 id="platform-tools-title" data-reveal="">{title}</h2>
+        <div className="platform-tool-choices" data-reveal-group="" role="group" aria-label="Choose a workflow">
           {workflows.map((item, index) => (
             <button type="button" key={item.id} aria-pressed={selected === index} aria-controls="platform-tool-output" onClick={() => setSelected(index)}>
               <span className="platform-tool-index">0{index + 1}</span>
@@ -29,7 +29,7 @@ export function PlatformToolsDemo({ title, workflows }: { title: string; workflo
           ))}
         </div>
       </div>
-      <div className="platform-tool-stage" id="platform-tool-output" aria-live="polite" aria-atomic="true">
+      <div className="platform-tool-stage" data-reveal="" id="platform-tool-output" aria-live="polite" aria-atomic="true">
         <div className="platform-tool-prompt"><span aria-hidden="true">↳</span>{workflow.prompt}</div>
         <div className={`platform-tool-result platform-tool-result-${workflow.id}`} key={workflow.id}>
           <div className="platform-tool-output-label"><span>{workflow.output.label}</span><span aria-hidden="true">↗</span></div>
