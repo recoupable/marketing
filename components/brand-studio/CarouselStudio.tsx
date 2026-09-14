@@ -31,9 +31,9 @@ export function CarouselStudio() {
   return (
     <main id="main" className="carousel-studio">
       <header className="carousel-topbar">
-        <Link href="/brand/experiments?view=carousels">← Experiments</Link>
-        <span>RECOUP / SOCIAL STUDIES</span>
-        <Link href="/brand">Finals ↗</Link>
+        <Link href="/brand?view=carousels">← Finals</Link>
+        <span>RECOUP / SOCIAL CAROUSELS</span>
+        <Link href="/brand/experiments">Experiments ↗</Link>
       </header>
       <div className="carousel-intro">
         <p className="carousel-eyebrow">
@@ -68,9 +68,16 @@ export function CarouselStudio() {
           className="carousel-canvas"
           role="group"
           tabIndex={0}
-          aria-label="Carousel preview. Use left and right arrow keys to change slides."
+          aria-label={
+            view === "slides"
+              ? "Carousel preview. Use left and right arrow keys to change slides."
+              : "Carousel story preview"
+          }
           onKeyDown={(e) => {
-            if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+            if (
+              view === "slides" &&
+              (e.key === "ArrowRight" || e.key === "ArrowLeft")
+            ) {
               e.preventDefault();
               move(e.key === "ArrowRight" ? 1 : -1);
             }
@@ -116,7 +123,7 @@ export function CarouselStudio() {
           )}
         </div>
         <aside className="carousel-notes">
-          <p className="carousel-eyebrow">EXPERIMENT · SAMPLE STORY</p>
+          <p className="carousel-eyebrow">APPROVED TEMPLATE · SAMPLE STORY</p>
           <h2>{direction.title}</h2>
           <p>{direction.description}</p>
           <p className="carousel-story-rule">
@@ -170,7 +177,7 @@ export function CarouselStudio() {
           </div>
           <small>
             The kit includes six JPGs, PNGs, vector SVGs and a PDF. This is
-            original example copy for choosing a design, not a client case
+            original example copy demonstrating the template, not a client case
             study.
           </small>
         </aside>

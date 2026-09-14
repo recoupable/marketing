@@ -1,5 +1,5 @@
 {
-  "description": "Selected Blue sweep banner direction and its social/podcast still templates, core identity, and approved padded white podcast logo. Earlier studies and motion awaiting selection remain experiments. Browser moves override these defaults without changing review choices.",
+  "description": "Approved Blue sweep social and podcast still templates, core identity, padded white podcast logo, and all eleven social carousel template directions. Unselected artwork and motion remain experiments. Browser moves override these defaults without changing review choices.",
   "assetIds": [
     "blue-sweep-podcast-badge",
     "blue-sweep-podcast-badge-overlay",
@@ -41,6 +41,17 @@
     "lockup-blue",
     "symbol-lime",
     "lockup-lime",
-    "blue-sweep-podcast-white-logo"
+    "blue-sweep-podcast-white-logo",
+    "carousel-blue-notes",
+    "carousel-paper-trail",
+    "carousel-signal-study",
+    "carousel-cobalt-press",
+    "carousel-margin-notes",
+    "carousel-cut-paper",
+    "carousel-night-shift",
+    "carousel-catalog-index",
+    "carousel-blueprint",
+    "carousel-spotlight",
+    "carousel-field-guide"
   ]
 }

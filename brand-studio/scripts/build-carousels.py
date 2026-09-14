@@ -1,4 +1,4 @@
-"""Build original, portable Recoup carousel experiments. Requires fonttools. Render and package with the companion scripts."""
+"""Build original, portable Recoup carousel templates. Requires fonttools. Render and package with the companion scripts."""
 from pathlib import Path
 import json,re,html
 from fontTools.ttLib import TTFont

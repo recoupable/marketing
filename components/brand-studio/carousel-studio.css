@@ -343,6 +343,8 @@
   margin-top: 38px;
 }
 .carousel-story-rules ol {
+  list-style: none;
+  margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px 50px;
@@ -367,6 +369,8 @@
     font-size: 23px;
   }
   .carousel-story-rules ol {
+    list-style: none;
+    margin: 0;
     grid-template-columns: 1fr;
   }
   .carousel-view-switch {

@@ -18,7 +18,7 @@
     "current": false,
     "tool": "carousels?direction=blue-notes",
     "description": "Expressive blue fields, bright accents and illustrated working documents.",
-    "stage": "experiment",
+    "stage": "final",
     "code": "C01"
   },
   {
@@ -40,7 +40,7 @@
     "current": false,
     "tool": "carousels?direction=paper-trail",
     "description": "An editorial field note: warm paper, generous margins and crisp ink diagrams.",
-    "stage": "experiment",
+    "stage": "final",
     "code": "C02"
   },
   {
@@ -62,7 +62,7 @@
     "current": false,
     "tool": "carousels?direction=signal-study",
     "description": "Bold scale, abstract rhythms and simple infographics that change with the story.",
-    "stage": "experiment",
+    "stage": "final",
     "code": "C03"
   },
   {
@@ -84,7 +84,7 @@
     "current": false,
     "tool": "carousels?direction=cobalt-press",
     "description": "A two-color print edition: cobalt ink, warm paper and oversized editorial illustrations.",
-    "stage": "experiment",
+    "stage": "final",
     "code": "C04"
   },
   {
@@ -106,7 +106,7 @@
     "current": false,
     "tool": "carousels?direction=margin-notes",
     "description": "A working notebook with blue annotations, generous margins and understated ink drawings.",
-    "stage": "experiment",
+    "stage": "final",
     "code": "C05"
   },
   {
@@ -128,7 +128,7 @@
     "current": false,
     "tool": "carousels?direction=cut-paper",
     "description": "Layered paper cutouts, torn edges and a consistent blue, lime and forest palette.",
-    "stage": "experiment",
+    "stage": "final",
     "code": "C06"
   },
   {
@@ -150,7 +150,7 @@
     "current": false,
     "tool": "carousels?direction=night-shift",
     "description": "Deep forest, a restrained pool of blue light and luminous line illustrations.",
-    "stage": "experiment",
+    "stage": "final",
     "code": "C07"
   },
   {
@@ -172,7 +172,7 @@
     "current": false,
     "tool": "carousels?direction=catalog-index",
     "description": "An orderly reference file: indexed tabs, numbered panels and concise visual explanations.",
-    "stage": "experiment",
+    "stage": "final",
     "code": "C08"
   },
   {
@@ -194,7 +194,7 @@
     "current": false,
     "tool": "carousels?direction=blueprint",
     "description": "Pale blue construction paper, fine guide lines and clear diagrams in blue ink.",
-    "stage": "experiment",
+    "stage": "final",
     "code": "C09"
   },
   {
@@ -216,7 +216,7 @@
     "current": false,
     "tool": "carousels?direction=spotlight",
     "description": "A bold blue poster with one enlarged visual idea in a cropped cream spotlight.",
-    "stage": "experiment",
+    "stage": "final",
     "code": "C10"
   },
   {
@@ -238,7 +238,7 @@
     "current": false,
     "tool": "carousels?direction=field-guide",
     "description": "Soft botanical greens and contour drawings turn the story into a simple visual journey.",
-    "stage": "experiment",
+    "stage": "final",
     "code": "C11"
   },
   {
