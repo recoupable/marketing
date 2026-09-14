@@ -22,15 +22,15 @@ export default function BlogPage() {
   return <div className="blog-index">
     <header className="blog-intro"><p className="blog-eyebrow">The Recoup blog</p><h1>AI. Music.<br /><span>The work in between.</span></h1><p>Ideas and practical guides for putting AI to work in the music business.</p></header>
     <Link href={`/blog/${featured.slug}`} className="blog-feature">
-      <BlogArt theme="strategy" feature />
+      <BlogArt slug={featured.slug} feature />
       <div className="blog-feature-copy"><p className="blog-eyebrow">Featured · {featured.category}</p><h2>{featured.title}</h2><p>{blogDescription(featured)}</p><div className="blog-post-meta"><span>{featured.author}</span><span>{featured.readingMinutes} min read</span></div><span className="blog-read">Read the article <SkyArrow /></span></div>
     </Link>
-    <BlogArchive entries={posts.map((post, i) => ({
+    <BlogArchive entries={posts.map((post) => ({
       slug: post.slug,
       title: post.title,
       description: blogDescription(post),
       category: post.category,
-      card: <article key={post.slug}><Link href={`/blog/${post.slug}`} className="blog-card"><BlogArt theme={["agents", "content", "release"][i % 3]} image={post.coverImage} /><div className="blog-card-copy"><p className="blog-eyebrow">{post.category}</p><h3>{post.title}</h3><p>{blogDescription(post)}</p><div className="blog-post-meta"><time dateTime={post.date}>{formatBlogDate(post.date)}</time><span>{post.readingMinutes} min read</span></div></div></Link></article>,
+      card: <article key={post.slug}><Link href={`/blog/${post.slug}`} className="blog-card"><BlogArt slug={post.slug} image={post.coverImage} /><div className="blog-card-copy"><p className="blog-eyebrow">{post.category}</p><h3>{post.title}</h3><p>{blogDescription(post)}</p><div className="blog-post-meta"><time dateTime={post.date}>{formatBlogDate(post.date)}</time><span>{post.readingMinutes} min read</span></div></div></Link></article>,
     }))} />
 <SubscribeCard source="/blog" />
     <section className="blog-cta"><div><p className="blog-eyebrow">Put an idea to work</p><h2>What would you build?</h2><p>Bring us a project, or a part of your business you want to improve.</p></div><Link className="blog-talk" href="/start-project">Get a Free Audit <SkyArrow /></Link></section>

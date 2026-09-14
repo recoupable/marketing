@@ -246,3 +246,7 @@ The Platform page ending pairs the hosting headline with a blue source illustrat
 Platform section spacing uses roughly 100–140px on desktop and 70–100px on phones. Apply the shared `data-reveal`/`data-reveal-group` hooks to headings, artwork, audience reasons, tool choices, and ending content. Keep the hero immediate and avoid nested reveals; the shared controller handles reduced motion, anchor navigation, and focused controls.
 
 Services uses the same three-option illustrated dropdown as Products, with Advisory (`/advisory`), Build (`/build`), and Training (`/training`). Service artwork lives in `nav-service-art.tsx`. Desktop and mobile use shared navigation data and native disclosures. Training copy is shared with machine summaries through `lib/copy/training.ts`; its inquiry action uses the existing Team training workflow.
+
+## Blog thumbnails
+
+`app/blog/article-art.tsx` assigns a distinct editorial SVG composition to each illustrated article slug. `BlogArt` retains the featured decision guide and the original Sandbox / Skills covers. Never assign art by list position or rotate generic themes. When adding a post, review its thumbnail against the article and extend the mapping; `tests/blog-thumbnails.test.tsx` checks complete coverage and unique compositions. See `docs/blog-thumbnail-audit.md` for the September 2026 audit.
