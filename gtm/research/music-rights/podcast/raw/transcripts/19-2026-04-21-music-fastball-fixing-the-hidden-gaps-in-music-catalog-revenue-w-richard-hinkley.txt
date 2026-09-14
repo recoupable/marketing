@@ -1,0 +1,249 @@
+# Music Fastball: Fixing the hidden gaps in music catalog revenue w/ Richard Hinkley
+# Date: 2026-04-21
+# Duration: 00:27:16
+# Guests: Richard Hinkley — Co-Founder, Repped Music Host: Tom Mullen — CEO, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen — CEO, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Music-Fastball-Fixing-the-hidden-gaps-in-music-catalog-revenue-w-Richard-Hinkley-e3i4hn8
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] hello everybody and welcome back to music fastball by standard innovation i'm tom mullen and today
+[00:14] i'm joined by richard hinckley who has 25 years of experience working at major labels in the
+[00:22] industry we have recently been talking about our castle maturity curve and today we're going to be
+[00:28] focusing on the operational pillar and by operational pillar we're talking about everything
+[00:34] that can be done after acquiring a catalog to improve its performance in the market i think
+[00:40] this is probably the broadest pillar that we'll cover and it really depends on what types of rights
+[00:46] you own whether you own recordings masters and everything else as to what levers you can pull
+[00:51] today very specifically we are going to be talking about how to manage how to optimize how to improve
+[00:58] recordings in their distribution an area that richard has a great deal of experience in
+[01:04] so rich let's let's jump straight in and i think the first misconception that we want to
+[01:09] tackle is in the streaming area people assume that everything is automatically distributed
+[01:16] everywhere but that's not the case is it yeah that's absolutely i think what most people's
+[01:22] assumption is and and that's that's not the case um there are and i think most people will have maybe
+[01:31] some anecdotal experience of this but there are recordings that are not available in every market
+[01:37] there are recordings that are not available in every streaming service so there is there are gaps in the
+[01:45] availability of artists catalogues on streaming services um and just to reference the point about
+[01:54] so that the operational aspect of recordings there's also another factor is the fact that what is there is
+[02:01] often not up to sort of we call it contemporary standards as well so there are gaps in availability
+[02:06] and sometimes what is there isn't in the standard it might be and just what do you mean exactly by that i mean
+[02:12] you know i think a lot of people just assume oh it's an mp3 or an mp4 let's whack it on the dsp
+[02:18] what are they looking for these days um so the maybe if we break it down into the two sides which is like
+[02:26] where are there issues with things being available or not and then on the the quality the qualitative side
+[02:33] of it when we're talking about things that aren't available we're often talking about albums that might
+[02:42] be in some markets and not in others maybe we can come and talk about why these things happen
+[02:47] and there are also instances where there are recordings on albums that are the classic term is it's grayed
+[02:54] out so it's just it's there's an album track listing but there are some recordings on there that are just
+[02:59] not playable in different markets um it seems absolutely bonkers doesn't it it's like oh well we've got an
+[03:05] album we've published it to one of these global platforms uh yet some of the songs just aren't available
+[03:10] in x y's and territory yeah and i think this it's important to state that very often of um these are
+[03:18] if you like sins of omission rather than anything um malicious it's just it's a function of how music
+[03:29] has historically been released so that mirrors its way over into streaming um you know the world we're in
+[03:37] now is a very different one that we're in a world now where the default is music is released globally on
+[03:45] the same date to every service right we we're coming from a world where releases were they kind of they
+[03:55] grew and they evolved you know back in the physical era music would be released in the home market and
+[04:01] then other territories as the story built would opt in as an artist developed we hear that a lot you
+[04:08] know like oh the industry's really made for a different time when you know physical was a big
+[04:13] the biggest thing the biggest driver and supply chains logistics relationships and all of those factored in
+[04:19] and it seems like we've carried on a whole bunch of those into a new way of distribution well what's
+[04:27] what's happened i suppose is as as streaming arrived that sort of the the digital footprint
+[04:34] was the the way the place to start generally was like let's port over what is on itunes and other
+[04:42] digital retail sites and that was often those releases evolved in the way that the physical
+[04:48] releases evolved as well so we're kind of market by market very often yeah um so that was just ported over
+[04:54] if you like and um and is that really a copyright thing that made them do it that way no less a
+[05:02] copyright thing it's more it has its roots really in terms of how music was marketed and how artists
+[05:07] were developed so the if you starting with a new artist the you would start developing that artist
+[05:17] in their home market and you would try you would you would look to get traction at home and then in
+[05:23] a handful of markets and grow the story globally so it's just an efficiency think it's like okay we've
+[05:30] got a global platform we could onboard all of these songs in every single market however you know there's
+[05:36] an operating overhead to do that actually we just want to bring it on for that market because that's
+[05:41] where they're big yes because the process of those if you like those releases and those setups every time
+[05:47] that that artist that artist music was released in a given market something was set up in a system that
+[05:53] indicated this should be available in a given market right so you have two options you would either go
+[05:58] back and rewrite absolutely everything or just carry over what you've got and it was obviously much
+[06:04] more efficient to carry over what you've got there's a second factor in this as well which is that
+[06:10] so we've talked about how releases often would evolve and with impartial footprints which is around
+[06:17] the the fragmentation of how music is released particularly to do with when an artist may do a
+[06:24] deal or there may be different labels with different territory rights so there are different parties
+[06:30] releasing that music in different parts of the world and of course that can cause gaps and errors and
+[06:37] things between that as well that leads to things being imperfectly available so i mean in this world
+[06:42] where we expect distribution to be global and relatively seamless we've actually got a whole
+[06:47] bunch of reasons and backstory as to why that's not necessarily the case from you know missing or messy
+[06:54] metadata specific versions of either video and or lyrics and or audio recording that's required on the
+[07:02] various platforms i mean there's a whole host of different things that could really go wrong there isn't
+[07:07] that i think the question for our audience specifically it's what are the implications commercially of these
+[07:14] gaps yeah um the fundamental issue is one of the surface area of your catalog which is if you have
+[07:24] imperfect or partial availability of your recordings then there are recordings that cannot be streamed if a
+[07:34] recording cannot be streamed it cannot earn and in a world where was it last year there were seven
+[07:41] trillion streams a lot of music consumption just happens and you that a key determinant of the success of the
+[07:49] catalog is the likelihood of your music being streamed and if you're not available to be streamed
+[07:54] then inevitably that restricts the full potential of the catalog right if you don't buy a ticket you're
+[08:03] not going to win the lottery kind of thing exactly that exactly that yeah and and that's there's two that's
+[08:10] both if you like a baseline underlying level of consumption and it also limits the the opportunity
+[08:17] or the upside when there are major moments of attention on a recording or a catalog so you know
+[08:24] a classic viral track moment that might cause consumption to accelerate globally you're not
+[08:31] going to see the full benefit from that or if there is marketing or artist activity that causes an increase in
+[08:38] interest and demand in that artist you won't be foreseeing the full benefit from that yeah which makes total
+[08:45] sense you know if you don't have the uh your entire catalog prepped primed and delivered everywhere
+[08:51] then you're just missing out on opportunities i think there's another really interesting one as well
+[08:55] isn't there particularly if we're talking about distribution through global territories is they might be the
+[09:01] earliest insights into growth in those territories you know just by not having um parts of the catalog
+[09:09] actually published there you could be missing out on critical insight to say hey actually we've noticed
+[09:14] a disproportionate uptick in streams or consumption in this uh geography or this genre in that geography
+[09:21] maybe we should go and spend a bit more time and effort if you're not getting any of that information
+[09:27] because it's not published there then you're just going to miss out aren't you and particularly when
+[09:33] maybe you have larger catalogs where there are issues within those so it's not a simply a question of
+[09:39] for instance everything's missing in canada and canada is giving you a blank but if you have got
+[09:45] part of your catalog missing in let's say canada canada may look when you're looking at your ranked
+[09:52] territories canada may look like a less significant market than it might actually be yeah which is
+[09:58] absolutely you know really critical insight particularly given the value that we get from
+[10:04] data from the streaming platforms if you're missing out and you just don't have a presence there then
+[10:09] you're going to miss those early lead indicators of opportunity or indeed decline i think just kind of
+[10:17] coming back to uh some of the reasons why the catalogs can be in that shape and recordings might not be
+[10:24] distributed evenly we've obviously talked about some of the historical ones which by and large um we can't
+[10:31] really go and change retrospectively uh however i think for a lot of the audience and people who are
+[10:37] buying music rights one of the big areas to consider is when catalogs change hand there's a whole bunch of
+[10:45] processes that have to happen can you just talk us through that and the the challenges that that
+[10:51] presents and some of the reasons why that leads to imperfect distribution yes so there's a when we talk
+[11:00] about catalogs changing hands we can talk about different aspects of catalogs changing hands but if we
+[11:06] for instance to take if you take the example even of just recordings changing hands and even at a simple
+[11:13] level where maybe a label is moving its distribution from one distribution one distributor to another
+[11:19] there is a process of re-delivery and takedown that can be um that that causes potential
+[11:28] disruption or or breakage there because has everything been re-delivered properly and has
+[11:36] everything from the prior distributor being taken down and there's a parallel issue to if you like gaps
+[11:43] in availability around duplicate and conflicting availability because sometimes the new owner may
+[11:50] deliver the catalog but the prior owner hasn't actually fully taken it all down again it's often not
+[11:58] malicious it's just oversight or it just hasn't because these teams are all busy but that will
+[12:03] mean that the new owner and you've got disputes right yeah oh then and it means that the new owner is not
+[12:08] going to earn on every single stream of that of those recordings because there are still other
+[12:13] recordings existing there um yeah and in in the case i referenced earlier the fact that sometimes
+[12:19] there may be rights may sit with two different labels with different geographic footprints
+[12:24] sometimes we've seen examples where one of those parties is inadvertently delivering some of that
+[12:30] material into the other labels markets so there are these overlaps and duplicates and conflicts as
+[12:36] well as there can be gaps yeah and i mean it's really fascinating to hear all of those things and
+[12:42] there's there's so many other reasons on there whether it be like operational pressure focus um just
+[12:49] whether they've got the the distributors that actually got the buttons on the seats to be able to do
+[12:55] these things because in many cases we're talking about hundreds of thousands in total millions hundreds of
+[13:01] billions of of records here that takes an awful lot of upkeep and we're not talking about a single
+[13:07] market single platform we're talking about hundreds of markets many many tens of platforms
+[13:12] absolutely and i think a key characteristic of the music of of the music industry particularly recorded
+[13:19] music industry is the the speed with which it moves and the relentless focus on what is now and what is
+[13:28] next that comes in be that in terms of the next recording from the artist the next artist that is being
+[13:35] signed or the next project that is being marketed from the artist in the catalog so there's there's the the the the
+[13:41] direction of view is almost entirely forward there's very little bandwidth to retrospectively check or
+[13:50] validate so so these things are often and these things are actually quite difficult to see sat in
+[13:56] one market to see what is going on in other parts of the world and there's just so many variables on
+[14:01] there you know whether it be data inconsistency whether it be operational inconsistency it takes an awful
+[14:06] lot of looking at and i think that kind of brings us on to like what can we do about it and
+[14:11] and why do we care i think uh you know obviously if you look at the market the vast majority of the
+[14:19] recordings are owned historically by the labels and that means by and large a lot of the rights that
+[14:26] are owned by funds are secondary rights or rather other rights that don't necessarily include the
+[14:33] recordings so they might be sitting there questioning okay well if we don't actually own the things
+[14:38] what can we do about it or what do we need to know so we can go and ask the right questions
+[14:43] so the people who can do something about it will actually do it and by doing it the net result should
+[14:50] be greater distribution greater consumption and therefore greater downstream value yes i think the
+[14:59] there are two things to sort of bear in mind in terms of how one would approach this
+[15:03] um the first is that where there are issues like this remedying them is to the benefit of everybody
+[15:11] concerned so if you like if if maybe a fund has royalty stream or a publishing interest in something
+[15:20] that sits where the recordings sit with a label still if there are issues in the availability of
+[15:27] that catalogue the label is going to see benefit from remedying those issues so there is a reason to care
+[15:33] the other thing to think about to consider which is where this can be difficult is just how busy those
+[15:39] labels are and understanding how these things get fixed and i think if i were to suggest that the key
+[15:49] steps to it the first of all first the first step would be to identify what those issues are yourself
+[15:55] because going to a label and say can you just check that everything is where it should be
+[16:02] that's a really open-ended question and back to our original assumption you know most things are where
+[16:11] they should be everything's where it should be those people are busy that's not a question that's going
+[16:16] to jump to the top of anybody's to-do list but if you're able to identify specifically things that are
+[16:23] missing where you know that the rights do exist for that things are missing and even more helpful would be
+[16:33] what needs to change in order to affect a remedy for it then the conversation with the label can be we've
+[16:41] identified the following gaps where affecting a change in the availability of the following album products
+[16:49] would remedy that can you confirm that that is possible and can you execute it there's a much more
+[16:55] defined ask there when people are looking to do that gap analysis like what would be to put you on the spot
+[17:04] the top three things that you would look out for as okay litmus test do we have these like are all of those
+[17:12] things that you would look out for as well as well as you would look out for as well as you would look out for
+[17:17] let me think about that um it's very difficult without actually doing the kind of work to see what issues
+[17:25] there are to speculate as to what the issues might be um because they can appear anywhere in 180 plus
+[17:34] markets on different services um but taking of you doing the audit work to identify where there are
+[17:44] inconsistencies in availability can give you a view where you can then do the work to filter the key
+[17:51] markets for that artist because obviously different artists have a different geographic footprint and
+[17:56] the you can you can then quickly identify where there are key markets with issues uh that may and if there are
+[18:05] key markets with issues that's worth addressing you know if there are some really minor markets with minor
+[18:12] issues then it's not even worth your time doing it so that's where would you put in that camp of like
+[18:18] key issues i think understanding the definition of key markets is obviously just based on consumption and
+[18:24] historical analysis but like where would you go prodding first i think the to identify that we know what
+[18:33] what key markets look like in terms of key issues obviously not every recording is the same in terms of its
+[18:40] significance but one of the the the the nature of these problems they often tend to show up in album
+[18:48] packets so it's it's not just one track here or there it'll be maybe an album that is it doesn't have its
+[18:55] delivery uh in in certain markets so i think to you you're looking at addressing the surface area point
+[19:04] so there is every reason to look to chip to to fully to make fully available your artist or that catalogue
+[19:15] discography so i mean clearly if the artist's biggest hit or biggest album is missing in the biggest
+[19:22] market there's certainly greater urgency there to it yeah um but if you're aware of there being issues
+[19:30] that in in meaningful markets you should fix it anyway because to that point around there's a baseline
+[19:39] level of consumption that you're going to shift but also opportunity comes from all sorts of different
+[19:45] angles now so you're just giving your catalogue that greater readiness whenever opportunity arises in
+[19:53] whatever form it does okay so i mean it sounds just like look there isn't a quick fix silver bullet
+[20:00] solution you just have to do the work across the catalogue that you own to check whether the recorded
+[20:09] music is in the right markets in the right formats in the right compilations of albums and collections
+[20:15] and everything else um and that is a bit of a methodical process now obviously i think with people
+[20:23] with several hundred thousand um various different rights or associated with songs then that could be a
+[20:30] pretty arduous task and i think you know knowing where to look is probably pretty key but then also just
+[20:36] having a process to be able to do that methodically is pretty important too because i mean to do it
+[20:42] manually you're just going to be spending years looking at that aren't you yes uh certainly and
+[20:47] that's why you know we spent the last um couple of years really building a capability to be able to do
+[20:54] that quickly because so that people aren't sitting there on vpns looking at what spotify looks like in
+[21:01] 100 plus markets yeah so we can do a sweep to identify where the gaps are because the gaps will
+[21:07] the gaps will be invisible to many people or to most people really because of the reason the nature of the
+[21:14] reasons that those gaps appear so if i give you an example yeah we did a project where the client had
+[21:23] rights was a label client they had rights for this artist catalogue in half of the world what we
+[21:29] identified was the third party with rights another part of the world was delivering some of their
+[21:34] recordings into client market so they could issue a takedown on that but what we also found was that
+[21:41] there were recordings miss most of the catalogue was missing from a number of markets in our clients
+[21:47] area simply because if you like the full list of territories had inadvertently omitted some countries
+[21:56] markets and so if you like it had been technically set up per the contract but the contract didn't mean to
+[22:03] omit those markets so there's like even that sort of check against contract yeah yeah yeah it had been by the
+[22:11] contract been set up properly but the spirit of the contract and what was intended was fuller availability
+[22:17] so it was that that worked to it was only by spotting the gaps that we could ask the question
+[22:22] and this is just kind of atypical of the volume that we're talking about right you know that there
+[22:26] always are um things that do fall through the gaps and i think you know a general topic that we're
+[22:32] talking about at the minute is how to fix the leak so actually how to plug these gaps so we're not
+[22:37] missing revenue that could and should be there um whether that be through distribution of
+[22:43] the recorded music in the various platforms or any other reasons that that could really lead to that
+[22:48] so i think the last question that i would have is a fund who owns rights but doesn't necessarily own the
+[22:54] recordings like who do i go and speak to at a label if i go to them with this comprehensive list to say hey
+[23:01] we've done this audit on all of the songs that we own uh we can see that in these markets either they
+[23:08] don't have the right most recent format there's a video missing or this album doesn't have that track available
+[23:14] comprehensive list super helpful who do you actually go and speak to to try and get it resolved
+[23:20] the the best place to go would be one of two places so it'd be the first of all in the
+[23:28] the territory the label that actually is the repertoire owner so for instance if it is an artist that is
+[23:35] signed to the uk you want to be speaking to the uk label so even if you're based say in the states or
+[23:40] switzerland or somewhere speak to someone at the uk label because they have the contract there
+[23:45] and speak to speak to either the actual repertoire owning label the frontline label that originally
+[23:53] signed the catalog and they could direct you or the catalog team in that uh in that market there are
+[24:02] the process of fixing involves different stakeholders because the there would be a they would need to do a
+[24:09] legal rights check to validate that just double check they actually have it the label would want to do
+[24:15] uh a check because sometimes there are reasons maybe artist relation reasons why things aren't available
+[24:21] so just actually are we cool to release that to make sure this is available and then there's a digital
+[24:25] operations element which is remedying it but the point of entry would be the label that um that signed it
+[24:35] originally or is the catalog team responsible for it and i would suggest the business affairs teams in
+[24:40] those would be the place to go and i think like in any industry getting stuff done is if you know the
+[24:46] right people your life just becomes easier and the music industry very much is a people industry so
+[24:53] building the right relationships taking the time to find people that already have those existing
+[24:58] relationships you know there's a lot of people like you guys out there who actually already have some
+[25:04] amazing relationships and can be a shortcut to getting some of these things done which is super
+[25:10] valuable so just really to to wrap up i think you know um obviously the record music is absolutely
+[25:16] critical in distribution and therefore a key component to generating revenue without it
+[25:24] we're uh we're not going to get very far and if it's not distributed equally in all of the territories
+[25:29] that's going to create gaps and i think if we think about this as the building blocks to achieve
+[25:36] more future revenue actually fixing the leaks is is really at the bottom making sure that we've got
+[25:42] everything in great order so that we know any future efforts around advertising syncs or anything else
+[25:49] are going to drive and capture the most amount of of revenue and therefore value indeed for
+[25:58] uh people who own the rights so super important like actually getting these things done doing those
+[26:04] audits is really really critical uh rich that's been really fascinating and i think if people do want
+[26:11] to reach out with rich uh rich at rep music um we'll drop a a link in the show notes uh definitely
+[26:20] worthwhile having a look at doing an audit making sure that all of the rights you own have the recordings
+[26:26] in all of the territories that you would expect getting in contact with the right people at the
+[26:31] labels to go and get those resolved i think just the general inquiries line is not going to be very
+[26:36] fruitful so lean on those relationships and uh look out for more content around this topic
+[26:42] uh really fixing the leaks and helping to improve operational maturity in managing the catalogue
+[26:49] there'll be plenty more episodes simply because it's a huge huge topic and it really varies
+[26:55] depending on the right types that you own rich thank you so much for your time today and everybody
+[27:00] thank you for tuning in to music fastball thanks tom
+[27:03] you

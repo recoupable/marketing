@@ -4,6 +4,15 @@ This is the Recoup marketing site — public website, blog, SEO pages,
 subscribe flow, CRM integration, and shared content/context for the full
 marketing funnel.
 
+## Shared GTM workspace
+
+For enterprise audience research, sales/content methods, or GTM tooling, start at
+[`gtm/AGENTS.md`](gtm/AGENTS.md). It consolidates the old GTM runtime and selected
+consulting research into this repository. Build new GTM workflows under `gtm/engine/`,
+an independent Node package with its own install and checks. This repository is public;
+private runtime data and credentials must remain outside Git. GTM research is repository
+context, not an automatically published website section.
+
 ## You Are Allowed To Improve This System
 
 If you find a better way to organize files, schemas, processes, or code —

@@ -1,0 +1,832 @@
+# What actually makes a music catalog valuable? w/ Matt Herzfeld
+# Date: 2026-04-07
+# Duration: 00:56:26
+# Guests: Matt Herzfeld, Seasons Music Group Hosts: Tom Mullen, Emma Griffiths, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen, Emma Griffiths, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/What-actually-makes-a-music-catalog-valuable--w-Matt-Herzfeld-e3hi74k
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] I would focus on melodic music because that's the kind of stuff that will eventually be
+[00:05] recrafted in some way if it's big enough and interesting enough.
+[00:09] Whereas things that are kind of driven by hype or a moment, I don't think have the same
+[00:15] lifespan.
+[00:30] Hello and welcome to the latest episode of the Music Moneyball podcast with me, Emma Griffiths
+[00:37] and my co-hosts, Tom Mullen and Sam Maury.
+[00:40] Our guest today has built a career at the intersection of creativity and dealmaking.
+[00:45] After earlier roles at Arista and Island Records, he moved into catalogue and creative dealmaking
+[00:50] at Primary Wave and later Seeker Music, sourcing catalogue sales and opportunities across contemporary
+[00:56] and legacy artists.
+[00:57] In 2022, he founded Seasons Music Group, a bespoke management and catalogue brokering firm
+[01:03] based in Los Angeles and New York, where he works on both sides of the table as a manager
+[01:08] helping artists grow their careers and as a broker helping them to realise the value of
+[01:12] their catalogues.
+[01:13] He's been involved in over $200 million of Songrise to catalogue transactions, spanning
+[01:18] Bing Crosby, Dan Wilson and Samy Sonic, Steve Kipner, Tom Whitlock and many more.
+[01:25] Please welcome Matt Hersfield.
+[01:27] Thanks for having me.
+[01:29] Great to be on this with all of you.
+[01:32] So Matt, I think it would just be really useful to start just to learn a little bit more about,
+[01:37] you know, what you're doing at Seasons Music Group, why you founded it and, you know, what
+[01:41] does your day-to-day look like?
+[01:44] Yeah, so I mean, I operate in two worlds.
+[01:47] One is just traditional talent management, primarily writers and producers, various genres, helping
+[01:54] set up songwriting sessions, negotiating their deals, helping them find opportunities as
+[02:00] songwriters and producers.
+[02:02] And the other, which I think we'll talk about more here, is deal advisory in the sense of
+[02:10] primarily sales of songwriter or producer or artist royalties or assets, as we call them,
+[02:20] and helping them find the best value for a sale or a loan against their income from music activity.
+[02:30] And sometimes that takes the form of a company itself, sometimes it takes the form of an asset
+[02:35] sale.
+[02:35] And I kind of interact with folks domestically, internationally in various territories, artists
+[02:44] and advisors in kind of every genre of music.
+[02:49] And I see probably several hundred deals a year, though, you know, a much smaller percentage
+[02:54] actually transact in the marketplace.
+[02:56] But there's quite a lot of activity going on, and I'm seeing a good portion of it.
+[03:02] That's a lot.
+[03:03] That's a lot of deal flow in a year.
+[03:07] Yeah, when it's not, they're not all exclusive to me, right?
+[03:10] More and more, I have a royalty team I'm working with now, this company called Royalty.
+[03:14] And we're getting the sell side mandate more often.
+[03:18] But I would say that, you know, a lot of people go to market and a smaller percentage actually
+[03:24] close or close in the way they anticipated to.
+[03:28] And so it requires a good amount of flexibility when you're preparing something and when you're
+[03:34] sort of exploring various offers to look at the various permutations and implications
+[03:40] of what's been presented to you.
+[03:41] And when a catalog goes to market, Matt, what are the sort of points in which they would
+[03:48] ultimately get acquired?
+[03:49] And, you know, what are the differentiating factors where, you know, you may actually
+[03:55] get acquired versus not?
+[03:58] When it comes down to a willing buyer and seller and someone perceiving value in whatever
+[04:03] you're, whatever you're trying to sell or get a loan against or whatever it is you're trying
+[04:10] to do.
+[04:10] You know, I could do plenty of deals where there's a sort of a joint venture or a go forward
+[04:15] component where they're selling material that's already been exploited and is on the radio or
+[04:21] synced or so forth.
+[04:22] And there's another component where they're looking for a partner for creative activity
+[04:27] on unexplored and new works.
+[04:30] But, you know, the different factors that add to or detract from the value really depend
+[04:37] on who's buying.
+[04:38] So you're going to look at the age of the material.
+[04:41] And traditionally in this space, I think seven years is sort of the point at which things
+[04:48] become quote unquote mature.
+[04:50] You know, the financial folks got into the space because it's a they're looking for stable
+[04:57] uncorrelated returns from royalty income.
+[05:03] And so it's uncorrelated to the stock market, but it could be very volatile if it's very young.
+[05:08] Whereas some buyers actually like the risk of that and they'll make a very conservative
+[05:13] investment that may pay off on a newer catalog.
+[05:17] Most of the material has been released in the past few years.
+[05:21] That's a portion of the marketplace.
+[05:24] What portion is that, Matt?
+[05:26] What portion is it?
+[05:28] Yeah, like because we've seen more, I suppose, documented around, I suppose, more mature assets
+[05:34] than newer stocks.
+[05:35] Yeah, well, I mean, what I would say is you kind of see the tip of the iceberg in terms
+[05:39] of the publicity around this space.
+[05:42] Yeah, yeah, yeah.
+[05:42] And I wouldn't necessarily believe all of the numbers that you see in the press because
+[05:45] they're often inflated or misleading.
+[05:48] But in any case, there's plenty of activity on newer catalogs.
+[05:55] There's also, you know, greater public education and acceptance of the potential value for a
+[06:04] younger individual to sell and then build a new catalog, right?
+[06:07] It doesn't work for everyone.
+[06:08] And I wouldn't advise it for everyone.
+[06:11] Certainly, if you're a very concentrated catalog, meaning all of the income is coming from one
+[06:16] or two titles and those titles are, say, 10 years old and maybe you're in your 30s or 40s
+[06:22] and you're not getting a lot of new cuts.
+[06:25] I wouldn't sell everything.
+[06:26] Maybe you sell one income stream, sell your writer's share, as they call it, or sell your
+[06:32] producer royalties or whatever it is that you have, artist royalties.
+[06:35] But, you know, I would be wary of selling everything if there's no chance of new income and there's
+[06:40] no good plan in place to maximize the value of that windfall from a sale.
+[06:46] But there are a lot of buyers who look at, and some of them are institutional players.
+[06:51] You may not, they may not advertise that they're doing deals, but there is a ton of activity
+[06:56] on newer catalogs.
+[06:58] And I would say even the majority of the deals I see are younger than 10 years old in terms
+[07:04] of weighted dollar age, which is fine.
+[07:08] You just have to price them accordingly.
+[07:09] They're not generating the same kinds of multiples that legacy catalogs are getting.
+[07:14] But what I've also seen in the marketplace is that the legacy catalogs are continuing to
+[07:20] generate really frothy, really rich pricing.
+[07:24] And they remain extremely competitive and buyers tend to all fight over the same deals.
+[07:33] And there are buyers who can see value in newer things and esoteric assets, for instance,
+[07:39] like lo-fi or things that might have pressure from AI, like a music production library.
+[07:48] Those are very hard to sell.
+[07:49] But there are plenty of them on the marketplace, probably because people see the writing on
+[07:55] the wall.
+[07:56] But there are buyers who will engage with things that would never really see the light of day
+[08:01] in terms of the press release, but maybe generate income.
+[08:06] And then there's a large swath of the industry that, you know, and Duetti and a few others are
+[08:11] really key in growing this space who are doing microtransactions, say under half a million,
+[08:18] under even $100,000, where they've streamlined the process to minimize the cost of transacting,
+[08:30] which can be really high relative to the value of the deal.
+[08:33] In other words, you know, the cost of a lawyer, the cost of due diligence, which can be significant.
+[08:38] And when you're dealing with something that small, you have to basically go at volume in
+[08:45] terms of number of transactions to make it work.
+[08:48] But anyway, there's plenty of stuff trading where the artist may not be a household name.
+[08:55] Most of them are not.
+[08:57] Maybe they have an audience.
+[08:58] That's an important metric for a lot of buyers.
+[09:02] But plenty of deals that you'll never hear about in the press.
+[09:06] For those, a couple of questions.
+[09:09] So I'm interested to learn more about why there's that very specific seven-year hurdle that once
+[09:17] you get past that, then things tend to study up.
+[09:21] And how much of that is just historic anecdote?
+[09:24] And how much of it still applies given the changes in the industry and everything else?
+[09:29] So let's start with that one before I bombard you with too many questions.
+[09:33] Yeah.
+[09:33] Well, I mean, that's not my metric.
+[09:35] That's something I've often heard repeated.
+[09:37] It's seven years, maybe five to seven years.
+[09:40] There's certainly buyers who do not want anything that's younger than 15 years old or 20 years
+[09:46] old.
+[09:47] And they're looking for really stable returns.
+[09:51] And maybe their thesis revolves around iconic artists or songs or well-known.
+[09:58] And I think there is an argument for obsolescence.
+[10:02] In other words, the gradual decline of something that becomes older, just from in terms of an
+[10:09] audience.
+[10:09] And then there's other issues around public domain reversions and so forth.
+[10:14] But that's one way people might look at it.
+[10:18] In terms of the seven-year thing, it also really varies by genre and territory and type of asset.
+[10:24] So hip-hop behaves a certain way.
+[10:28] Latin music behaves a certain way.
+[10:30] Various subgenres of Latin behave maybe like hip-hop.
+[10:35] EDM behaves a certain way.
+[10:37] And then older electronic music might behave slightly differently.
+[10:42] Country music behaves a certain way.
+[10:44] But I'm personally more bullish on newer country music or country music that crosses over to
+[10:51] streaming.
+[10:52] Because historically, so much of the income is concentrated around radio airplay, which is
+[10:57] in a way a dying art form, but still generates a lot of income for artists.
+[11:01] But what you'll find with country, what you'll find with, say, K-pop music is that the decay
+[11:06] or the decline in earnings is really rapid after a certain point.
+[11:11] Oh, okay.
+[11:11] Interesting.
+[11:12] It's a bit front-loaded in a way.
+[11:14] You're going to earn a lot of money up front.
+[11:16] And then eventually, you just repeat that.
+[11:19] With K-pop, I think a lot of it has to do with...
+[11:23] There are really strong fan bases for individual artists.
+[11:27] And so they'll go and buy a huge amount of physical product.
+[11:31] But it's not really replicable, as we'd call it, or recurrent, or it won't repeat itself
+[11:38] in terms of activity, right?
+[11:40] It'll fall off, and then another release will come through.
+[11:43] And so in terms of the decay curve, it's probably a bit different.
+[11:48] And I'm not an expert on this.
+[11:50] I'm not an analyst myself.
+[11:51] I have analysts I work with.
+[11:52] But also to answer your question, I mean, I think each buyer might have their own internal
+[11:58] metrics for valuing things, their own algorithm, their own process.
+[12:02] But there's also only a few approved parties, let's say, for running a valuation on behalf
+[12:12] of a bank on the buy side, running a valuation that can be used for the purpose of generating
+[12:18] a loan.
+[12:19] There's only really a few approved parties.
+[12:21] So there is probably a bit of an institutionalization of these metrics.
+[12:28] But I think you see enough deals, you kind of expect things to behave a certain way.
+[12:33] But the data is based on human activity, and humans are not always predictable.
+[12:38] So I've seen things priced a certain way, where it's a newer asset, we go into exclusivity.
+[12:44] And then a new statement comes in, which is dramatically less than expected.
+[12:48] And we have to retrade or reprice the deal.
+[12:52] And that happens a lot in newer deals.
+[12:54] And that's a risk you take as both a buyer and a seller.
+[12:57] And across all of those different genres, you know, you obviously have some models that
+[13:01] will say, OK, it's going to behave roughly like that, or it's going to behave like this.
+[13:06] How scientific are those models?
+[13:08] You know, is it people who are kind of, do people have the access to data to look almost
+[13:13] in real time about how the genre is changing, adjusting, improving by geography?
+[13:20] Or is it really just kind of historical and a little bit anecdotal?
+[13:26] I think it depends on whoever is analyzing it, right?
+[13:30] There are different companies that have built their own platforms for analyzing these things
+[13:34] that other companies outsource it.
+[13:36] But, I mean, you receive data from Luminate, which has only a slight delay, I guess.
+[13:41] And Trump Metric, same thing.
+[13:44] A lot of buyers will request Spotify for artist access, which can more or less show real-time
+[13:49] activity for fans.
+[13:52] That's an important metric for a lot, particularly on newer sellers in the acquisition space.
+[13:59] You know, how real-time is it in terms of the PRO income?
+[14:04] There's a delay there.
+[14:06] Different territories, you know, you're dealing with.
+[14:10] You're going to run across different issues with registrations, metadata issues, and so on.
+[14:16] And yes, you can get real-time, but there may also be things that you have to account for
+[14:21] and just anomalies in the marketplace that pop up.
+[14:26] So it's not really a one-size-fits-all, but it's trying to put a framework to understand,
+[14:34] you know, activity in terms of consumption.
+[14:39] Yeah, okay, cool.
+[14:41] Yeah, we've heard various different things around that.
+[14:44] What have you heard?
+[14:45] You know, that some people, it is very anecdotal and based off kind of historical models,
+[14:50] and some people have their own data teams.
+[14:53] Some of those are more or less advanced than others.
+[14:57] So it feels like there's a bit of a mix.
+[15:00] And obviously, as you said, if it's loaning money or borrowing money from a more traditional
+[15:07] organization, then they'll have their own internal processes.
+[15:10] So it doesn't feel like there's a particularly standardized way.
+[15:14] And it doesn't necessarily feel like anybody's doing a kind of really incredible job just because
+[15:22] of some of the limitations of the data, the flow through of revenues and everything else.
+[15:27] Yeah.
+[15:27] He did speak to a value actually, Matt.
+[15:30] And I asked the question of, based on the valuation that they were doing, like, where do the deals land?
+[15:39] Like, there's an underlying valuation, but, you know, someone might just be willing to pay more.
+[15:44] Like, where do you see that?
+[15:45] Like, generally, is it broadly in line or does it sort of differ depending on?
+[15:49] Depends on the buyer, right?
+[15:51] Yeah, right.
+[15:52] Profiles and some, I, and they may have different reasons to overpay for something.
+[15:57] Traditionally, depending on the incumbent, the majors are really various.
+[16:02] But oftentimes an incumbent, when they already are publishing or distributing material, might
+[16:10] make the most compelling offer.
+[16:11] They may not because they may not be that acquisitive of themselves.
+[16:14] And this is sort of just something they'll do opportunistically when they really want something.
+[16:20] And then you'll see, particularly on your material, the buyers are going to be more conservative.
+[16:24] And so they may be chasing.
+[16:26] Their whole thesis may be around what we call an arbitrage of buy at a low multiple and then get the difference in the exit or when you sell that fund and sell it at a higher multiple.
+[16:40] That's really common.
+[16:41] And different buyers at different time horizons, they may be looking to sell what they bought within three years, five years.
+[16:48] And that really varies.
+[16:51] On the legacy stuff, it really has more to do with, I think, someone's desire almost from an A&R creative cultural perspective to have a name or a software portfolio.
+[17:04] To, you know, as well as like how expensive is their debt or however they've structured their fund or their company.
+[17:13] And that plays a lot into how competitive they can be in pricing.
+[17:17] But oftentimes when something is stable, you're going to see not too wide of a difference in variables.
+[17:24] And someone might make an offer that takes it off the table.
+[17:27] But there usually isn't a huge difference.
+[17:30] And Matt, to zoom into that kind of creative A&R perspective, you know, you've worked with strategic buyers, you know, like Primary Wave and Seeker.
+[17:39] What are you seeing in terms of how, you know, they're using these levers that they can pull to increase value?
+[17:46] And, you know, how has that side of the industry changed, you know, since the streaming era?
+[17:52] You know, A&R started out with sort of scouts in sweaty clubs trying to find bands.
+[17:58] And now it's, you know, so dependent on data and algorithms and all that fun stuff.
+[18:04] So, you know, what are you kind of seeing there in terms of how that's evolved?
+[18:07] Yeah.
+[18:08] I mean, there's only a few strategic buyers who are going to buy something with the goal and ambition of going in and doing creative projects to grow the value.
+[18:23] So, usually buyers are looking for immediate uplift.
+[18:26] In other words, you know, this is being distributed at an 80-20 deal.
+[18:30] We have a preferable deal, 95-5 or 90-10, where we can take it immediately because the distro rights are available or they'll be available in a year.
+[18:40] And we get immediate uplift.
+[18:42] And so now all of a sudden you're collecting a lot more income.
+[18:45] That's most common.
+[18:46] There's, you know, maybe you're anticipating some kind of anniversary around material, you know, but that's kind of ephemeral, right?
+[18:55] A posthumous bump is often ephemeral with a catalog.
+[18:58] And so it's not going to recur year over year.
+[19:01] It's just a one-off event that might be nice for a little while.
+[19:04] But, you know, any kind of end-stage bar would also probably discount that a bit in terms of valuing all of that income.
+[19:14] So, strategic buyers, you know, it's the bigger things that make a difference, you know, making a musical, making any kind of branding partnership.
+[19:26] And I've seen with name and likeness rights, they could be outright acquired or you could do sort of like, as is common, I guess, in a record deal as well, contemporary record deal, earn money from procuring deals around the name and likeness.
+[19:40] I mean, I think naming like this is interesting.
+[19:43] It's hard to value because you may not be able to say, let's say you have a five-year brand deal with some brand attached to an artist or a state or what have you or song.
+[19:54] The value of that is really only the length of the contract because it may not be renewed, whereas with royalty income, it will continue ad infinitum for the life of the copyright.
+[20:05] But where I think it's kind of interesting is that copyright, so long as you renew them, you renew the trademarks rather, around the name and likeness.
+[20:13] Those can live on forever.
+[20:15] I mean, they live on so long as that there's cultural value.
+[20:17] So if you have a team building value around it, there's actually a lot to be done.
+[20:22] I just think from an operational standpoint, it's really expensive in terms of overhead, in terms of the number of people you bring in to get them to understand the rights that you're acquiring.
+[20:33] We have the artist royalties.
+[20:35] We have no control over approving syncs on the master.
+[20:39] We have no control over the underlying publishing.
+[20:43] So we can't go out and get covers.
+[20:44] It really makes no direct difference to how well this performs.
+[20:50] That's really tough, and I've done it.
+[20:52] And you can have some success, but most of the big successes are accidental, right?
+[20:57] You acquire all of these different copyrights, and then eventually an artist covers it or samples it or what have you.
+[21:03] And I probably pitched thousands of times, please cover or sample or interpolate it or what have you with this material that we have some rights to.
+[21:12] And a few of them actually were successful or moderately successful.
+[21:17] But in the end, the biggest successes we had as a company were things that were accidental that we had nothing to do with.
+[21:25] And so I think you can have a portfolio strategy.
+[21:28] It's a concern about A&R, right?
+[21:30] I can't really speak to how well financially certain things perform bigger picture projects, branding deals and partnerships and so on.
+[21:40] In terms of just trying to get someone to cover or sample your material or sync it, it's very hard if you don't control the copyright.
+[21:49] And you really cannot underwrite that something will happen.
+[21:53] It's like trying to underwrite a futures deal where you have a growing artist and you're hoping that they will grow even more and that your investment will pay off.
+[22:02] There's a bit of a gamble element to it.
+[22:04] And so I think you could do what you might call like a bucket strategy or an ETF strategy if you were talking about the stock market and equities is let me buy a bunch of things in this genre, in this space.
+[22:20] Let me get a bunch of 1980s rock music or a bunch of, I don't know, classic dance music, whatever it is.
+[22:29] Let me get a bunch of everything, right?
+[22:31] And if it's culturally relevant, someone will eventually do something with it.
+[22:35] And hopefully you have a sync team or you, in many cases, outsource it and you can get a little bit more specialized attention versus being at a major where you're dealing with millions of copyrights.
+[22:47] And even on huge, huge artists, the majority of the activity is probably coming in down versus going out and pitching something.
+[22:55] I'm less bullish on being a strategic buyer.
+[22:59] If I were in that space, I really think you can build a thesis where, and this is not going to be exciting to creative people who are selling,
+[23:11] but I think in terms of if you're trying to get a good return as a buyer, I would focus less on building huge overhead and trying to make a difference in sync.
+[23:21] Because sync is also so fiffle and ephemeral, right?
+[23:25] Something may be really popular historically, but people get tired of it.
+[23:30] I feel like it's a first mover space where music supervisors want to be the first person to dig up a gem.
+[23:36] And then after a while, it gets overused or you run into an exclusivity clause on car commercials.
+[23:42] And how are you going to replicate that?
+[23:44] Most buyers really are wary of any kind of sync activity and something that's driven by a lot of sync income.
+[23:51] They're going to normalize or discount a good portion of that income as one-off.
+[23:57] And so if something is earning a million dollars a year, but one quarter of that is from one-off syncs,
+[24:05] maybe you can make an argument for occurrence if it's old enough.
+[24:08] And every year you see a pattern of this kind of commercial happening.
+[24:14] But most of the time, a buyer is going to try and take a haircut on some of that activity.
+[24:21] Yeah.
+[24:21] We've certainly seen some of the strategic buyers,
+[24:27] so I suppose primary wave, pop house, trying to kind of get all of the rights
+[24:32] so that when they do any kind of brand marketing, they catch all of the different upsides.
+[24:39] They do practical deals too.
+[24:41] I mean, both, I mean, primary wave loves to go into a partner within a stake.
+[24:47] Yeah, yeah, yeah.
+[24:47] There's different ways that structure deals.
+[24:48] I probably can't talk about everything, but what I can say is that they like buying,
+[24:53] whether it's one income stream or doing it, let's say, 75% acquisition or a 50-50 partnership.
+[24:59] I mean, I think it's public that they did that with the Whitney Houston.
+[25:02] Yeah, yeah, that was on a podcast, I think.
+[25:05] And we did that with Bing Crosby as well.
+[25:08] You know, your partners, you have a team that intimately knows the material, hopefully,
+[25:13] and cares about it to help.
+[25:16] But you could also, you know, in terms of like approvals on creative,
+[25:20] it's often just a negotiation point.
+[25:22] You might outright sell something, but it may still have some purview
+[25:25] over the types of sync uses and so on that actually occur.
+[25:31] But even then, I suppose, Matt, it's very difficult to manipulate those kind of viral moments
+[25:35] or, you know, secure a sync and all that kind of stuff.
+[25:38] So it's just, yeah.
+[25:39] I mean, their companies do it really well,
+[25:41] but I think it has more to do with leverage in the marketplace
+[25:44] than whether they're good or not.
+[25:46] I think if you get enough material and you make it easier to clear a grape,
+[25:51] but, you know, a lot of the acquisitions are partial.
+[25:54] They don't include the right to administer, distribute the music,
+[25:59] and so they're probably not the first call on a potential sync placement.
+[26:04] They may have some influence, but that's why a lot of buyers really want to be able
+[26:10] to administer or distribute from day one or within a short period of time.
+[26:14] Yeah, yeah.
+[26:15] But, I mean, so, I mean, I suppose our viewpoint is those kind of A&R strategies
+[26:21] are a bit more traditional in terms of let's do a Broadway show,
+[26:24] let's do a Netflix documentary, and that should drive pull-through revenue.
+[26:29] What other things are you seeing out there that's, like, a little bit left field,
+[26:33] a little bit unusual that's actually having the same kind of effect
+[26:36] in terms of driving royalty revenues?
+[26:38] So, for example, algorithms on the platforms, so Apple Music, Spotify,
+[26:46] are you seeing anyone trying to kind of optimize that
+[26:49] or do things slightly differently to drive growth?
+[26:54] So things are trying to optimize around the DSPs?
+[26:59] Yeah.
+[26:59] And, like, playlist optimization and things like that?
+[27:03] Yeah, sure.
+[27:03] I mean, I'm sure that a lot of them have digital teams that are doing that
+[27:07] or outsource it.
+[27:08] I'm not really involved that much in that, but I can say, you know,
+[27:12] Primary Wave has a marketing team.
+[27:13] They have a digital team.
+[27:14] You know, many of them will have someone who, just as much as at a regular label,
+[27:20] every week pitches whatever they're trying to place.
+[27:23] Some of that might be around new materials, re-releases, re-records,
+[27:28] remixes, so on.
+[27:29] Some of it might be just getting some eyes on, you know,
+[27:34] because a lot of the activity I'm assuming on streaming playlists on,
+[27:38] I mean, you also make a serious station or, you know,
+[27:42] maybe you do something with Pandora.
+[27:45] A lot of that is driven by playlists now.
+[27:48] And so I'm sure that the companies that are doing this, you know.
+[27:52] Yeah, yeah.
+[27:53] Matt, just before we were talking about buyers looking for arbitrage in the multiple,
+[27:59] so buying low, selling high, typically you have to justify the arbitrage.
+[28:06] What kind of things are you seeing buyers do to justify that they've really moved the multiplier?
+[28:14] Is that an aggregation play or is it, you know, a specific...
+[28:17] Is it just applying to the end-stage buyer or justifying to the seller?
+[28:20] I'm not sure I understand.
+[28:21] So let's say somebody goes in, they buy a catalogue at X times, you know,
+[28:29] last 12 months revenue, and in five years' time they want to sell it.
+[28:34] Similarly, they haven't particularly grown the revenue.
+[28:36] Maybe it's grown in line with inflation,
+[28:39] but they're commanding a higher multiple because they've done X, Y, and Z.
+[28:43] Is that an activity that you've seen?
+[28:46] And what are those kind of X, Y, and Z things that they're doing to move the multiple?
+[28:50] The thing that they're doing to multiple is that there's a smaller marketplace for deals that generate under,
+[28:55] let's say, $200,000 or $100,000.
+[28:58] A lot of the institutional capital in this space want to see deals that are at least $3 million,
+[29:04] total check size, which is total deal size.
+[29:06] And so anything under $1 million, under $2 million,
+[29:11] unless it's truly iconic material, you're not seeing the same height of multiples.
+[29:17] A lot of it, almost all of it is trading under a 10x on last 12 months earnings.
+[29:23] So if you bundle a number of these deals in one package,
+[29:29] and suddenly your package is generating $1 million per year,
+[29:32] then you have a good justification for if you've aggregated interesting opportunities
+[29:37] and they've remained consistent, asking for much higher multiple.
+[29:40] It's a matter of just the cost of transacting.
+[29:44] And you're doing a lot of work for the end stage under buyers.
+[29:48] Like, okay, so now I have a diverse portfolio,
+[29:51] different genres, different ages of rights, different types of rights.
+[29:55] Maybe it's all producer royalties or all writer's share,
+[29:59] which is a strategy some buyers tape where they don't want to actually control.
+[30:03] They just want to basically get what we call mailbox income
+[30:06] and have the money coming in without needing to lift a finger on any of the business, really.
+[30:14] I think it's a strong argument because it's just really expensive to close any of these deals.
+[30:18] And if you're doing deals, they're often just as hard or more difficult than a $50 million transaction.
+[30:26] Yeah.
+[30:26] So actually, I think if I understand correctly, what you're saying is all of the value is in the identification,
+[30:34] any hygiene that needs to go on with those smaller catalogs,
+[30:39] putting them together and presenting a much larger catalog,
+[30:42] which is well curated to somebody else who is going to transact at that higher value.
+[30:48] Yeah.
+[30:49] People like to do larger deals.
+[30:51] Yeah.
+[30:51] Right.
+[30:52] And you can understand why.
+[30:53] And in that lower space then, are you seeing an increasing competitiveness for those deals
+[31:00] or is it relatively stable?
+[31:05] Well, it depends on what's being sold.
+[31:07] I think well-known names and songs continue to generate a lot of interest.
+[31:13] People like simple deals, right?
+[31:15] So I often encourage a seller to, if they have a, if most of the income is coming from one source,
+[31:23] distro kit or universal or whatever it might be, and they're generating a hundred dollars from,
+[31:30] you know, whatever it might be, remove the de minimis earnings.
+[31:35] You can make it harder, right?
+[31:36] The things that slow down a deal are getting approvals from outside artists,
+[31:40] getting larger direction from the various sources.
+[31:45] And so if you eliminate something that might slow down the deal that doesn't really generate
+[31:48] a lot of value, that's great.
+[31:51] But there are plenty of new entrants to the space who, and part of it is a matter of needing
+[31:57] to prove oneself as a buyer.
+[31:59] And so the lenders are going to be apprehensive to suddenly just give out $500 million to someone
+[32:05] who's unproven in the space, even if we're proven in the music space.
+[32:09] And so you're seeing plenty of funds that are $20 million, $30 million, $50 million.
+[32:15] And, you know, maybe that's a first step.
+[32:17] And then the second fund is much larger.
+[32:19] But there's definitely plenty of folks who are thinking the same thing, whereas there's less
+[32:25] competition.
+[32:26] This is definitely true.
+[32:27] There are less competition for smaller deals.
+[32:29] But I also see plenty of these small deals sit on the market for half a year or over a
+[32:33] year or even more because they're not well-known names.
+[32:37] Maybe they generate good income.
+[32:39] Maybe the expectations are too high from the seller.
+[32:43] Maybe there's complications or issues.
+[32:46] That could be legal issues.
+[32:47] That could be registration issues.
+[32:50] That could be issues getting paid.
+[32:52] And so, yes, there is more competition than there was.
+[32:56] But I think the bulk of the competition are for competitive legacy deals.
+[33:04] And they remain really competitive.
+[33:06] And because of that increase in competition and the kind of level of granularity required
+[33:11] for the smaller deals, have you seen any interesting use cases of technologies or applications of
+[33:17] technology for people to identify, uncover, analyze those assets?
+[33:24] Has that changed?
+[33:25] Do you see it changing into the future?
+[33:28] I mean, I think the first move was probably Duetti in terms of really harnessing technology
+[33:32] to identify and bring in opportunities.
+[33:36] I think it's smart, too, that they're not necessarily doing a full-on package of everything that an
+[33:44] artist or writer has, but rather cherry-picking things of value and paying what they perceive
+[33:51] as the right fair price.
+[33:54] I don't know a lot about their technology, but I know that they have it and that they've
+[33:58] spent a lot of time and investment creating it.
+[34:01] And there are other companies that are more tech-focused, and we'll see how they do.
+[34:07] But yeah, I mean, I think you can do a lot to try and find things that are not in everyone's
+[34:14] purview.
+[34:15] But because there's been so much activity in the past five years, I think that a lot of
+[34:20] things people have already thought about selling and a lot of advisors to artists, writers,
+[34:25] producers, companies have already sort of broached the topic.
+[34:29] And so my business, at least, is less prospective going out and asking people if they want to
+[34:36] sell than it used to be, and more finding opportunities via the various parties that bring them to me
+[34:42] or within my own network.
+[34:46] Yeah, fair enough.
+[34:46] That's interesting.
+[34:48] That's more the deal flow now.
+[34:50] Yeah.
+[34:50] And Matt, curious, looking at the future, we have to mention AI because it's such a talking
+[34:55] point across the industry.
+[34:56] And you mentioned earlier that, for example, production music catalogs are sort of panicking
+[35:02] and selling up and things like that.
+[35:04] But what other kind of impact do you see AI having now on the market?
+[35:07] And how do you expect that to kind of play out in the future?
+[35:12] I mean, I don't obsess over it.
+[35:14] I know everyone else does.
+[35:15] I probably should harness the use cases of it more to make my life easier.
+[35:23] But yeah, certainly companies in the music production space, sound design, I think there's
+[35:31] downward pressure in terms of pricing and interest.
+[35:34] You know, in terms of how people are maybe sourcing opportunities, how the various companies that work in royalty recovery and aggregation, they're definitely using AI to make their lives easier and the lives of potential sellers easier.
+[35:51] Any kind of audit activity, I'm assuming that they're using this a lot.
+[35:54] It's not really a big part of my world, but I'm assuming a lot of the people around me are using it quite consistently.
+[36:01] If you're a buyer, I'm sure there's tools that you can use driven by AI to make sure that everything is registered properly and find any kind of faults.
+[36:10] So you're seeing more positive then at the moment?
+[36:15] Oh, I mean, I'm not really thinking that much about the negative use cases.
+[36:22] I just don't really think about it that much.
+[36:24] Maybe I should.
+[36:26] There's negative applications, but there's also positive ones too.
+[36:30] And that's true of any technology.
+[36:32] Right.
+[36:33] I think also, like, given that these deals by the majors with the big AI platforms are still being thrashed out, it's kind of speculation, isn't it?
+[36:44] It's future gazing at the moment.
+[36:46] Yep.
+[36:47] Yeah.
+[36:48] Great.
+[36:49] Do we have any other burning questions for Matt?
+[36:52] Oh, I have plenty, but I'm conscious that we're running out of time.
+[36:56] I mean, I'm curious what you're hearing, if you've interviewed other folks in the space and getting there.
+[37:01] Yeah, it seems very much, you know, what you said about the efficiency side of things.
+[37:04] It's such a game changer for that, just because there's so much admin involved in this side of the market.
+[37:09] And yeah, like people just saying it's not really having a material impact in anything at the moment.
+[37:16] I think it's just too early.
+[37:17] Yeah.
+[37:18] I mean, I'm kind of curious to see what happens with how they attribute royalties.
+[37:24] Right.
+[37:25] Because I don't think the royalty distribution process is particularly efficient at the moment.
+[37:33] But yeah, I think it's all too early to say, I think, in terms of like making any specific comments on it.
+[37:41] I was asking even more generally, what are you hearing about the marketplace?
+[37:46] And whether it's have to go.
+[37:47] You'll have to listen to the podcast.
+[37:49] I'll have to listen.
+[37:49] Yeah, exactly.
+[37:50] Yeah.
+[37:52] I think broadly, like a couple of people we've spoken to, they anticipated like deal flow going down.
+[38:01] But that's not the case.
+[38:02] That was more so to do with interest rates and so on.
+[38:05] That's not really happened.
+[38:08] But yeah, this podcast is really designed to try and capture all the insights.
+[38:11] Yeah.
+[38:12] Well, I would actually pay the opposite now that interest rates are starting to be pushed down.
+[38:16] But it's hard to make any broad assumption on the macroeconomic environment right now.
+[38:21] But there's a lot of different financing vehicles people using, I guess, as well.
+[38:26] Yeah.
+[38:26] And people adapt, too.
+[38:27] So I'm sure that new...
+[38:30] I mean, there's something that I am particularly skeptical of that I've seen less of, but still pops up,
+[38:34] or people who are fractionalizing or securitizing songs and trying to make a marketplace out of that.
+[38:41] I just don't think there's enough volume or liquidity or retail interest in these kind of exchanges of shares.
+[38:49] Yeah.
+[38:49] And I try and stay away from that.
+[38:52] There's significantly less of those platforms than there are sort of private equity companies coming into the space from what we can see anyway.
+[39:01] Yeah.
+[39:01] Yeah.
+[39:02] Yeah.
+[39:02] I think that's another trend as well that we've definitely heard from people who are active either in the valuation space or advisory,
+[39:10] is that there are more and more institutional investors who are coming in because of the public persona of the asset class is improving or increasing,
+[39:24] not necessarily improving.
+[39:25] But invariably, that has downstream impacts in terms of what they expect, how the process goes.
+[39:33] I think also we've heard that funds are raising at different ages so that the expectation that they can actually hold assets for significantly longer
+[39:44] because the copyrights and the associated values have maybe 100 plus years of potential value.
+[39:52] And the really scarce ones are very scarce.
+[39:55] So they don't want to trade them away.
+[39:57] They want to keep them as long as they possibly can.
+[40:00] So it feels like there's certain maturity coming that we're probably more used to in other spaces, other industries, which I think is fascinating.
+[40:11] And hopefully, we can help some of the parties get better visibility, protect themselves for the future, and then also just see how it evolves.
+[40:22] I mean, it's also a more artist-friendly marketplace in terms of what you might call the primary market.
+[40:28] In other words, record deals, publishing deals.
+[40:31] Artists are more savvy.
+[40:32] There's more information out.
+[40:33] There's been more of a push over the past few years for artist-friendly deals where maybe they have rights that revert back to them.
+[40:43] And so that creates a healthy marketplace with the trading of these rights.
+[40:47] Yeah, yeah.
+[40:47] You control them.
+[40:48] So I think there's bound to be a lot more activity.
+[40:51] And what I'm finding is it's less the – I mean, there's certainly plenty of household names that are selling or considering some kind of sale or loan.
+[40:59] But a lot of the activity is in the middle of the marketplace and involving artists who have an audience but maybe are not household names.
+[41:13] Yeah.
+[41:13] And it's really a financial vehicle for a lot of them.
+[41:15] Yeah.
+[41:16] If someone's trying to buy a house or build an extension on their house, someone just wants to have a little bit of money on the side.
+[41:23] It could be estate planning.
+[41:25] It could be – you're certainly – and this is traditional, you know, pre-Merc.
+[41:30] A lot of people sold assets in the course of getting a divorce or some kind of, you know, legal proceeding where they needed to divest.
+[41:37] And that's still plenty of the valuation activity and marketplace roster on that.
+[41:42] Yeah.
+[41:43] Yeah.
+[41:44] And, you know, all the better for that, right?
+[41:46] For those people who aren't iconic names because they're really few and far between.
+[41:52] And the vast majority of music and therefore assets belong to people who aren't those household names.
+[41:58] And if it does become more liquid, if the frameworks around it do become easier to manage, then ultimately they're going to get the things that they need.
+[42:08] They're going to be able to do that extension or whatever it is.
+[42:11] And I think that's really important for the industry as a whole because in any other industry, that's the kind of activity you'd see as well, isn't it?
+[42:17] And there's also so much more activity in niche genres.
+[42:20] And so you might, you know, maybe one strategy might be just either focusing on a particular genre and trying to have a dominant position in that space or taking big artists in more esoteric areas and knowing that they have a big fan base, right?
+[42:40] All of the hype around fan platforms, I think probably, if not already, has permeated into the catalog deal space in terms of wanting to work with or acquire things that have a fan base built in around it versus something that's more lean back listening.
+[43:00] And that's a really important metric.
+[43:02] Yeah.
+[43:03] It's fascinating.
+[43:04] I feel like we could continue this conversation all afternoon.
+[43:07] So I'm going to have to introduce our quick fire round now because that's how we like to wrap up.
+[43:12] We've got some more big questions coming out on that.
+[43:14] So a couple of, this is going to be a super quick, quick fire round.
+[43:18] But, and Matt, you are welcome to plead the fifth.
+[43:21] So our first question is, do you have a particular song or album that's just like on repeat at the moment?
+[43:29] And, you know, I, a lot of my listening is sort of A&R listening.
+[43:32] I, my Spotify wrapped last year was like 23,000 artists.
+[43:38] I'm not kidding.
+[43:39] But, and so I sometimes need to force myself, even though it's the thing I want to do, is just listen to music to enjoy it and to not have any kind of purview of, oh, this would be really good with a client or this would be an interesting catalog opportunity to pursue.
+[43:57] There are definitely genres I gravitate towards more.
+[44:01] I think, I think the thing that I most consistently will listen to if I'm driving around and trying to disconnect from work is, is anything by Lana Del Rey.
+[44:09] That's kind of like my relaxation music.
+[44:12] Mm-hmm.
+[44:13] But then I've also gotten a little bit into, I bought a house on Fire Island in January and I've been building a record collection there.
+[44:23] And so I'll listen to vinyls by the beach.
+[44:26] And so.
+[44:27] That's a bit more.
+[44:28] That's cool.
+[44:28] It's kind of varied and, and it's kind of fun to pick up things that, I don't know, there's a tactility in it and a different sensation listening to something on, you know, the physical product.
+[44:40] Yeah.
+[44:40] And being intentional about listening to, to it.
+[44:43] So, you know, that, that really varies, but it's definitely more esoteric than what I listen to on a daily basis, which is primarily contemporary music.
+[44:52] Now, I, I've, I feel like I've exhausted a lot of the legacy stuff.
+[44:57] They'll occasionally go down rabbit holes.
+[44:59] So let me look into every Turkish artist.
+[45:02] That's every chart.
+[45:04] Every, some rat was on the global charts in the past.
+[45:07] No, 50 years.
+[45:09] Love that.
+[45:10] I'm not the only thing that's doing that in this space, but I am kind of good at tracking people down.
+[45:16] I, uh, I, I got a, I got a parking ticket and a Lana Del Rey gig once.
+[45:20] It's one of my bigger lessons.
+[45:23] I want to see the, uh, Jones B show with my friends a few years back, but, um, yeah, that's funny.
+[45:29] Uh, Matt, do you have a couple more minutes just to finish the quick fire?
+[45:32] Yeah.
+[45:33] Okay.
+[45:33] Amazing.
+[45:33] Um, so most memorable gig.
+[45:38] Ah, okay.
+[45:40] Um, I used to go to a lot of oldie shows with my parents.
+[45:46] They had these free shows in the park on Long Island in the suburbs here where I grew up.
+[45:51] Um, and so I would collectively say, I mean, we would see things like, uh, Herman's Hermits
+[45:56] and the association and Gary Puckett and like real oldies stuff.
+[46:01] Um, when I worked at primary wave, one of the more fun shows was seeing Paul Anka and
+[46:06] sort of the fervor that this probably like 80 some odd year old man still has for people
+[46:11] have for him.
+[46:12] Uh, maybe, maybe the best show I went to was Leonard Cohen in Montreal.
+[46:16] He was probably 82 at that point.
+[46:18] And I was going to school there.
+[46:20] Uh, that was a really memorable show.
+[46:22] That was like a three and a half hour show.
+[46:24] Wow.
+[46:24] Um, yeah, I, I've, you know, some interesting festival moments.
+[46:30] Um, I used to perform jazz too.
+[46:33] And so I've had some really great jazz shows, although I don't really actively seek it out
+[46:38] now, but, um, I'm not the big of a live show person anymore.
+[46:42] I don't love standing up just to listen to one song.
+[46:46] I rather, I, and then when you do sit down at a, at a show, it's often something where
+[46:51] people end up standing up.
+[46:52] Yeah.
+[46:52] Yeah.
+[46:52] This is how, you know, that you're getting old, right?
+[46:55] It's your, like, stand up.
+[46:56] Yeah.
+[46:57] Yeah.
+[46:58] And Matt, you've worked across so many like interesting deals and artists and, you know,
+[47:02] do you have a particular kind of pinch me moment where you were just like, you know, this is
+[47:07] ridiculous or.
+[47:09] Um, some of them I'm still working on, so I don't want to share, but I, I have had some
+[47:14] moments like that.
+[47:15] It's more just trying to find the things that impress my parents because I deal with a lot
+[47:19] of artists, you know, and, uh, and sometimes it's something that they're just in what they
+[47:24] find cool little they don't.
+[47:26] Um, but contemporary artists probably a little bit less.
+[47:29] So, I mean, most of the time I'm dealing with their attorney manager, business manager,
+[47:33] accountant.
+[47:34] Um, but sometimes I'm dealing directly with an artist or a writer and that, that can be
+[47:38] very cool, but, um, you know, it's very easy to distance yourself from the actual work
+[47:45] you're working on and just look at the numbers.
+[47:47] I think that's a lot of the activity here, um, for what it's worth.
+[47:53] Yeah.
+[47:54] And what would you say?
+[47:56] I do remember, it pinched me long.
+[47:58] I remember, uh, trying to, this didn't actually materialize, but when I worked with the, I
+[48:04] worked at the French embassy's music export office for a few years when I was coming out
+[48:07] of school.
+[48:08] And I remember that Obama was having a state dinner and, uh, and they reached out to us
+[48:13] to see if we could get, I think David Guetta or someone to perform.
+[48:16] And they ended up went with an American artist, but it was kind of interesting to see something
+[48:20] like that.
+[48:21] That would be cool.
+[48:22] Yeah.
+[48:23] That's, that's really interesting.
+[48:25] And in terms of the, the music rights investment space at the moment, what would you say is
+[48:29] the biggest underrated opportunity by now?
+[48:33] Um, underrated opportunity.
+[48:37] I mean, the value is always in the eye of the beholders.
+[48:39] So I think the best companies have a clear thesis and they stick as much as they can to
+[48:44] it.
+[48:44] It makes it easier for someone like myself, who's primarily acting in between buyers and
+[48:49] sellers, because I know what to bring to certain people and what to focus on, uh, underrated
+[48:56] opportunities.
+[48:57] I mean, it's the kind of thing that will play out over time.
+[49:01] And so there's so much growth in certain territories.
+[49:04] There's a ton of growth, um, both in terms of consumption in Brazil and other Latam, uh,
+[49:09] territories in India.
+[49:10] And, um, there's also very mature markets like, um, you know, look at, um, the biggest artists
+[49:18] in Sweden or anyone who were early adopters of Spotify, this sort of nascent to the streaming
+[49:24] space.
+[49:24] And so I'm assuming there's actually quite, uh, consistent returns, but not a lot of growth.
+[49:30] Whereas there's hyper growth in territories like Brazil, but it's hard to calculate how
+[49:35] that will play out over time.
+[49:36] And there's also a deceleration of that growth.
+[49:39] So I don't know.
+[49:41] Everyone has their own.
+[49:42] I know that's not really an answer.
+[49:43] Um, I am not, I don't really wear the buyer hat too much.
+[49:47] I, I have my own thoughts on different folks' strategies, but, um, I, I,
+[49:54] I think the best opportunities are the ones that ultimately pay off.
+[49:57] And so if you have any, I mean, some, some buyers I see moving the more contemporary space
+[50:03] will buy material from active contemporary artists who they're only buying the catalogs
+[50:13] of historic material.
+[50:15] That's already been exploited, released, et cetera, and generating income.
+[50:18] Um, but they'll do this with a purpose of partnering with artists or songwriters.
+[50:23] Let's say artists in this case, who continue to have a fan base and generate new releases,
+[50:30] um, and interest from fans.
+[50:32] And so that the thought being that any new activity from those artists will generate interest
+[50:38] in their most famous historic works.
+[50:41] Uh, I think that's a pretty smart strategy, right?
+[50:44] I'm not intimately looking at the returns of any of these companies I work with.
+[50:48] But I get a sense of what I believe in as a, a strong, uh, viewpoint on the marketplace.
+[50:55] Um, you know, and, and then maybe what is an underrated opportunity?
+[51:00] If someone has a leg in, in a high growth territory and they can, and they have maybe some technology
+[51:07] to maximize, uh, um, the way you interact with, with poorly registered, uh, works and, and so on.
+[51:17] That's probably a huge opportunity, but it's not something that I have expertise in.
+[51:21] And finally, Matt, if you could own one song, what would it be and why?
+[51:26] Oh, wow.
+[51:27] I mean, it's interesting.
+[51:30] Like I grew up listening to all these music and then I was a jazz musician.
+[51:34] And so I know the standards really well.
+[51:36] I would probably want some, someone's grand rights, you know, the right to perform works
+[51:41] theatrically.
+[51:42] I mean, it's like a, an investment opportunity.
+[51:45] Cause then you kind of see it inherently.
+[51:47] Certainly the, the works are being re-imagined in different ways.
+[51:52] It's like owning Shakespeare, right?
+[51:53] How many different ways do people do a Shakespeare play?
+[51:55] How many different ways do people, uh, uh, stage a, uh, Cole Porter or, or George Gershwin
+[52:04] production?
+[52:05] Yeah.
+[52:06] Um, so who are you putting on the play?
+[52:10] I don't know.
+[52:11] I, uh, maybe Cole Porter's catalog or something like that.
+[52:14] I mean, a lot of that is now public domain.
+[52:16] And so technically I, I do access it in a certain way, but, um, I don't know.
+[52:22] I, I haven't really thought about that because there's so many songs that are my favorite songs.
+[52:27] Um, and it really depends on my mood in the moment.
+[52:31] Um, so, I mean, I, I'm also a huge, how are you feeling right now?
+[52:34] What do you, what is that?
+[52:36] How am I feeling right now?
+[52:37] I'm a little bit tired.
+[52:38] What would you say?
+[52:39] Oh, I've been waiting to get more coffee in the other room.
+[52:43] Um, maybe some, some.
+[52:45] Two minutes to coffee.
+[52:46] I've been listening to Fugazi.
+[52:49] I'm so tired.
+[52:50] Like on repeat at the moment.
+[52:51] And I'm like, oh my God.
+[52:52] I say Fugazi.
+[52:53] But yeah.
+[52:53] Fugazi.
+[52:54] Yeah.
+[52:55] Yeah.
+[52:56] Amazing.
+[52:57] Yeah.
+[52:58] Well, Matt.
+[52:59] In terms of like, it's something like I tend to like very melodic stuff and lyric driven
+[53:05] stuff.
+[53:06] Um, I think younger audiences also pay a lot of attention to lyrics, but in different genres,
+[53:11] I would focus on melodic music.
+[53:15] Because that's the kind of stuff that will eventually be recrafted in some way if it's
+[53:19] big enough and interesting enough.
+[53:21] Whereas things that are kind of driven by hype or a moment, I don't think have the same
+[53:27] lifespan.
+[53:27] And even like, I'm by the name of an expert in K-pop.
+[53:31] There is a bit of a deceleration, I think, in activity in that space.
+[53:35] And I think a lot of it is driven less by the music and more by the fandom.
+[53:38] And so it's sort of a point of being wary around what's actually driving the income.
+[53:44] Is it fans loving?
+[53:47] Like, how many people are streaming music from the Partridge family?
+[53:51] They were a huge, or Emily Monkeys may be a bad example.
+[53:54] But, you know, look at any artists that were sort of like teen idols.
+[53:58] And how much are people streaming new kids on the blog?
+[54:05] Right?
+[54:06] I mean, I'm sure they do well.
+[54:08] And I know who their team is and whatever.
+[54:10] But like, you just look relative to the size of the fan base at a given moment.
+[54:21] You know, I think the songs ultimately, in a lot of cases, live on longer than the individuals.
+[54:30] And I think that's true of the TikTok era of music as well.
+[54:32] A lot of these artists, I'm in my inbox this morning.
+[54:35] Or someone who had a huge bar of song.
+[54:37] And I can tell you that most young people will know the song, but they won't know the name of the artist.
+[54:43] And it doesn't mean it's a bad investment opportunity.
+[54:47] But it says something about what we're putting onto the marketplace.
+[54:53] And it's not a qualifying it with good or bad.
+[54:56] But it's just more of an observation of how people are interacting with musicians and artists versus songs.
+[55:04] Yeah.
+[55:04] It's going to be super interesting, I think, to see how it all plays out.
+[55:07] But ultimately, we seem to not be able to escape K-pop on this podcast.
+[55:12] Oh, no, no, absolutely.
+[55:12] So it just keeps coming back.
+[55:14] And it's a consistent theme.
+[55:15] That's the biggest theme so far.
+[55:16] Yeah.
+[55:17] Pretty much.
+[55:18] It's an umbrella for, you know, certainly every country has their own sort of version of that.
+[55:25] And they perform differently.
+[55:27] You know, the music industry in Japan is so much different, I think, than the music industry in Korea.
+[55:31] It's something I don't know a lot about.
+[55:32] But it has its own sort of way of behaving.
+[55:36] Yeah.
+[55:37] So, yeah.
+[55:38] No, it's very much.
+[55:38] These are very much active and important parts of the music industry.
+[55:43] But maybe the deferrer is less than it was maybe a year or two ago.
+[55:50] Amazing.
+[55:51] Brilliant.
+[55:52] Yeah.
+[55:53] That was so insightful.
+[55:54] Thank you so much.
+[55:56] Thank you.
+[55:56] Yeah.
+[55:57] Such, like, thoughtful answers and just super interesting.
+[55:59] And, you know, really appreciate you giving us so much of your time.
+[56:03] I wish I could ask more of all of you for another conversation, I guess.
+[56:08] Thanks for tuning in to Music Moneyball.
+[56:11] If you enjoyed the conversation, you can subscribe at standard-innovation.com to get every episode in your inbox.
+[56:18] You can also follow the show on Spotify, Apple, or YouTube to stay ahead of the curve in music rights investment.

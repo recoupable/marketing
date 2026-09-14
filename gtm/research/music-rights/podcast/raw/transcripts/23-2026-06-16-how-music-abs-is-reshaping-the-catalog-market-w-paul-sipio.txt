@@ -1,0 +1,1825 @@
+# How music ABS is reshaping the catalog market w/ Paul Sipio
+# Date: 2026-06-16
+# Duration: 00:49:39
+# Guests: Paul Sipio, Managing Director, Apollo Hosts: Tom Mullen and Emma Griffiths, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen and Emma Griffiths, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/How-music-ABS-is-reshaping-the-catalog-market-w-Paul-Sipio-e3kq4pi
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogs.
+[00:09] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:15] Welcome back to the Music Moneyball podcast with me, Emma Griffiths, and my co-host, Tom Mullen.
+[00:21] Today, we're joined by Paul Scipio, Managing Director at Apollo, to understand how music became an institutional asset class
+[00:28] and how the financing behind this market is evolving.
+[00:31] Paul, welcome to Music Moneyball.
+[00:34] Thank you for having me, and it's great to be here with you both.
+[00:38] Yeah, Paul, thank you so much for joining us. Amazing to have you.
+[00:42] Absolutely. And Paul, you know, you've really had a front row seat to how all of this has played out,
+[00:48] having worked on some of the biggest deals in recent years.
+[00:50] So I think if we could just take a minute to set the scene and look at what's changed just over the last few years
+[00:57] that it has allowed music to go from this niche alternative asset to something that institutional capital can really finance at scale.
+[01:07] Of course. There's been a couple of large catalysts that have happened over the past 8 to 10 years,
+[01:14] all of which have been driven by the proliferation of digital streaming,
+[01:19] not only in developed economies, but throughout the world.
+[01:21] One would be the direct listing of Spotify back in 2018, where you started to see for the first time
+[01:29] the results of operations of a pure play digital streaming provider.
+[01:33] The second would be really the combination of the IPO of Warner Music Group in 2020,
+[01:40] after having been a private company for nine years,
+[01:43] and then the spinoff of Universal Music Group from Vivendi in 2021.
+[01:48] Again, you had those results of operation available when Warner was a private company
+[01:53] and when UMG was inside of Vivendi,
+[01:56] but now you were having the pure play trading on a daily basis to see
+[02:01] what those valuations looked like in the public markets.
+[02:04] And then finally would be the innovation of really large-scale asset-backed securitizations
+[02:11] of music catalogue rates with Concord's inaugural ABS in 2022,
+[02:16] which we at Apollo were lucky enough to lead.
+[02:19] Yes, amazing. And we're excited to get into that.
+[02:22] But just quickly, why specifically is music an interesting asset class for you guys at Apollo?
+[02:30] Apollo has evolved from what was once an opportunistic buyout firm
+[02:36] to today being primarily an investment-grade provider of private capital.
+[02:41] Of course, we still have our flagship private equity business,
+[02:44] but the substantial majority of our assets under management,
+[02:48] now over a trillion dollars, is credit and hybrid.
+[02:52] And the substantial majority of those credit assets under management
+[02:55] are investment-grade credit.
+[02:58] Music represents an interesting asset-liability matchup
+[03:02] because of the long, live nature of those cash flow streams.
+[03:06] If you think about, again, in most developed economies,
+[03:10] life of the last surviving author, plus 70 years,
+[03:13] being the protection period of that intellectual property,
+[03:16] you have a pretty predictable,
+[03:18] and now, again, with the advent and proliferation of digital streaming,
+[03:22] a stable cash flow stream on both the music publishing side,
+[03:26] which had historically been much more stable than the recorded music side,
+[03:31] which historically looked a lot like the filmed entertainment business,
+[03:35] you have that stable, predictable cash flow stream
+[03:38] that you can underwrite and match up against long-dated liabilities.
+[03:42] Here at Apollo, we have a retirement services provider
+[03:45] called Athene that represents a large portion of our assets under management,
+[03:50] and Athene is one of the leading sales channels of annuities in the United States.
+[03:55] So if you're thinking about, again,
+[03:56] that long-dated liability matchup to America's retirees,
+[04:00] paired with long-dated asset profiles of whether it's aviation, music, pharmaceuticals,
+[04:07] whatever it is, in this case, music,
+[04:09] it's a really nice asset liability matchup for our balance sheet.
+[04:14] Yeah, and I think that takes us in nicely to this whole ABS thing
+[04:18] that you hinted at earlier in your work with Concord,
+[04:21] and one of the reasons that we're really excited to speak with you today
+[04:24] is that we have just released this white paper
+[04:27] that is all around music ABS deals,
+[04:30] and so you very kindly also participated in that white paper,
+[04:34] so thank you for that.
+[04:36] Yes, thank you, Paul.
+[04:38] It's just been really interesting, I think,
+[04:39] to see how much that has surged in the last couple of years,
+[04:43] and I think it tells us a lot about how the market has matured.
+[04:46] So we'll definitely include a link to that paper,
+[04:50] and it's all really about kind of what are the steps for music funds
+[04:53] to become more ABS ready,
+[04:55] so we'll include a link in the show notes so you can check that out.
+[04:58] But before we get into your work specifically, Paul,
+[05:01] it'd be great to kind of just zoom out,
+[05:03] and for those who are less familiar,
+[05:05] could you just explain what an ABS deal actually is?
+[05:09] Sure.
+[05:09] An asset-backed securitization is simply the formation of a special-purpose vehicle
+[05:15] that is bankruptcy remote,
+[05:17] meaning that if the issuer, for whatever reason, went bankrupt,
+[05:21] those rights, in this case music catalog rights,
+[05:25] are unaffected, or those cash flows are unaffected,
+[05:28] and because they're set up in this secured special-purpose vehicle,
+[05:33] they can be financed at an attractive cost of funds,
+[05:37] in this case an investment-grade cost of funds,
+[05:40] where we've seen over the past three years
+[05:43] the spread to the U.S. Treasury yield
+[05:47] really tighten pretty materially
+[05:50] as music has become what we consider to be a less esoteric asset class.
+[05:56] Basically, what you're setting up
+[05:58] is a financing structure
+[06:01] that is at a certain loan-to-value ratio
+[06:04] or advance rate.
+[06:06] So if you had a music catalog
+[06:07] that was worth a billion dollars, for example,
+[06:10] and you said you were going to set it up
+[06:12] with a 65% advance rate,
+[06:16] you would issue 650 million of asset-backed notes,
+[06:20] those notes backed by the cash flows
+[06:23] of all those different music catalog rights.
+[06:26] I'll pause there,
+[06:27] and then we can get more into the detail.
+[06:31] Yeah, I think, I mean,
+[06:31] that's so interesting to hear,
+[06:33] really it's an infrastructure change, isn't it,
+[06:36] in terms of how the industry's evolved
+[06:38] that has led to this?
+[06:40] Because I think when we've spoken before,
+[06:42] you've also referenced the kind of,
+[06:44] the Bowie bonds,
+[06:45] and if you could just explain to us
+[06:47] how you think it's changed since then,
+[06:49] really what's opened the door
+[06:50] to this ABS coming in?
+[06:53] I think it's mainly just the buildup
+[06:56] of scale and diversity
+[06:57] among these music operators,
+[07:00] Concord being the best example of that
+[07:02] with where its catalog stands today.
+[07:05] But if you think about a single artist,
+[07:07] in this case, David Bowie,
+[07:09] securitizing his music catalog rights
+[07:11] in the late 90s,
+[07:13] that was a very esoteric kind of offering
+[07:15] that had to be well understood
+[07:17] and well underwritten on a song-by-song basis.
+[07:20] Where we are now is if you have a portfolio
+[07:22] over a million copyrights,
+[07:25] you can really think about the stratification
+[07:28] of that portfolio based on vintage,
+[07:32] i.e. when was the song released?
+[07:34] And if it was released 40 years ago
+[07:36] or 20 years ago,
+[07:37] it's going to be more predictable
+[07:38] than a song that was released last year,
+[07:41] the idea of catalog versus frontline.
+[07:43] You can think about those stratifications
+[07:45] on a genre basis.
+[07:46] You can think about it on a geographical basis.
+[07:51] So what geography did this recording
+[07:54] or did this composition originate from?
+[07:57] And you can think about it as the split
+[07:59] between music composition,
+[08:02] i.e. music publishing,
+[08:03] and sound recordings,
+[08:04] i.e. recorded music.
+[08:06] And the more diverse of a portfolio that you have,
+[08:10] the more opportunities that are available
+[08:12] to finance against that
+[08:14] at a pretty creative rate
+[08:16] and a pretty creative structure.
+[08:18] Right.
+[08:20] And so let's just circle back round to Concord.
+[08:22] When you first started working with them,
+[08:25] can you explain to us a little bit
+[08:26] what their financing structure looked like
+[08:29] and what the problem was
+[08:31] that they were actually trying to solve?
+[08:34] Sure.
+[08:34] So in 2022,
+[08:37] the way Concord's debt capitalization looked
+[08:40] was a bit disparate.
+[08:42] They had issued a broadly syndicated loan
+[08:46] that was non-investment grade rated.
+[08:49] That was really done at the parent company level,
+[08:54] i.e. not in a special purpose vehicle.
+[08:56] They then had a sidecar vehicle
+[08:59] that they had used
+[09:00] to acquire the music copyrights
+[09:04] of Downtown Music Publishing in 2020.
+[09:07] And then they had
+[09:09] an acquisition bridge financing facility
+[09:11] that they were using
+[09:12] to acquire the Phil Collins
+[09:14] and Genesis catalogs.
+[09:17] And so you had all these different structures
+[09:19] and we thought
+[09:20] in partnership with Concord,
+[09:22] what if we brought all of these together?
+[09:25] We have a really nice catalog.
+[09:26] At the time,
+[09:27] it was marked at over 4 billion in value.
+[09:30] Today, it's much larger than that.
+[09:31] And we also thought about the idea
+[09:35] of financing against that
+[09:37] at a lower loan-to-value ratio
+[09:39] or advance rate,
+[09:40] that concept that I brought up earlier,
+[09:43] than how precedent music
+[09:46] asset-backed securitizations
+[09:47] had been done
+[09:48] leading up to that inaugural ABS for Concord.
+[09:52] Since then,
+[09:53] a lot of the music ABSs have been done
+[09:56] at an advance rate of 65%
+[09:58] or right around 65%.
+[10:00] Where we landed on that first ABS,
+[10:04] again,
+[10:05] thinking through this
+[10:06] with the management team at Concord
+[10:08] and the board,
+[10:10] was to go in at 40%
+[10:12] and basically have
+[10:14] equity value
+[10:16] that was embedded
+[10:17] inside of that asset-backed securitization,
+[10:19] i.e. this asset go.
+[10:22] And we could use that
+[10:25] to acquire other assets
+[10:27] going forward,
+[10:28] which is exactly what we did
+[10:29] the next year.
+[10:31] But again,
+[10:31] why don't I pause there?
+[10:34] Yeah, I mean,
+[10:34] I think that approach
+[10:35] is super interesting
+[10:36] simply because,
+[10:38] you know,
+[10:39] the more competitive
+[10:40] the market becomes,
+[10:41] actually,
+[10:42] speed to action
+[10:43] is super critical, right?
+[10:46] And if you have to go through
+[10:47] all of the mechanics
+[10:48] of doing ABS,
+[10:50] once you identify
+[10:52] those targets
+[10:52] to go and acquire,
+[10:54] you're invariably going to be
+[10:55] significantly behind the curve.
+[10:57] So can you just explain
+[10:58] in a bit more detail
+[10:59] how that structure
+[11:00] allowed them to
+[11:01] execute more rapidly
+[11:03] on future cast logs
+[11:05] that they wanted to go and acquire?
+[11:07] Yeah,
+[11:08] that's exactly right.
+[11:09] Having this ABS
+[11:11] master trust structure
+[11:13] allows,
+[11:14] in this case,
+[11:14] Concord
+[11:15] or any music issuer
+[11:16] to have a wash,
+[11:19] rinse,
+[11:19] and repeat
+[11:19] type of structure
+[11:20] where
+[11:21] once you're ready
+[11:23] to tap the securitization market,
+[11:26] you can do so
+[11:26] in a very efficient manner,
+[11:28] particularly if you become
+[11:29] a known issuer
+[11:31] to the investor set
+[11:33] that you're targeting,
+[11:34] in this case,
+[11:35] large-scale insurance companies
+[11:36] that look and feel like
+[11:38] what we have
+[11:39] in our retirement services provider
+[11:40] that is a theme
+[11:41] within Apollo.
+[11:43] You can
+[11:44] contribute
+[11:48] incremental assets
+[11:49] into that diversified
+[11:51] asset portfolio
+[11:52] it becomes
+[11:53] more diversified
+[11:54] based on the scale
+[11:55] that you're contributing in
+[11:56] versus the scale
+[11:57] that you already had.
+[12:00] And
+[12:00] depending on
+[12:01] how you
+[12:02] structure it,
+[12:03] but assuming that
+[12:04] it's all cross-collateralized,
+[12:06] it's all sitting
+[12:07] in that one
+[12:07] ABS master trust structure,
+[12:10] and so you're just
+[12:11] issuing different series
+[12:12] against that
+[12:14] asset portfolio
+[12:14] over time,
+[12:16] and of course
+[12:17] you're increasing
+[12:17] the loan-to-value ratio,
+[12:19] but if you're
+[12:20] contributing assets,
+[12:21] you're increasing
+[12:22] the value
+[12:23] of that asset portfolio
+[12:24] as well.
+[12:26] Yeah,
+[12:26] and I think as well,
+[12:28] I mean,
+[12:28] you referred to it
+[12:29] in the past
+[12:30] through the lens
+[12:32] of property,
+[12:33] so taking out
+[12:34] a larger mortgage
+[12:35] than necessarily
+[12:36] you need to buy
+[12:37] the house
+[12:37] in the first instance,
+[12:38] but if you want
+[12:39] to do the extension
+[12:40] or put a garden office
+[12:42] down the back
+[12:43] of the garden,
+[12:44] you don't have to go
+[12:45] and refinance
+[12:46] off a more expensive loan,
+[12:47] you can just
+[12:48] draw down
+[12:49] on the same mortgage
+[12:50] and you're good to go.
+[12:51] Is that a relatively
+[12:52] sensible analogy?
+[12:55] Yes,
+[12:55] and what we've done
+[12:56] over time
+[12:57] in partnership
+[12:58] with Concord
+[12:59] is we've also
+[13:00] extended
+[13:01] the maturity profile
+[13:03] or really what we call
+[13:04] the anticipated
+[13:05] repayment date profile
+[13:06] of their asset-backed
+[13:08] securitization,
+[13:09] so historically,
+[13:10] all of these
+[13:11] music ABS deals
+[13:12] have been done
+[13:13] with a five-year
+[13:14] anticipated repayment date,
+[13:16] which effectively means
+[13:17] that you're going
+[13:17] to refinance it
+[13:19] within the next
+[13:20] five years
+[13:21] once it rolls off
+[13:22] of what we call
+[13:22] call protection.
+[13:24] What we did
+[13:25] last summer
+[13:26] when we refinanced
+[13:27] the inaugural ABS
+[13:29] taking advantage
+[13:30] of tighter spreads,
+[13:32] lower rates
+[13:33] just all around
+[13:34] for Concord
+[13:34] as it had become
+[13:36] a well-known issuer,
+[13:37] this was the fourth
+[13:38] securitization
+[13:39] that we had done,
+[13:40] the third publicly,
+[13:42] is we did
+[13:46] a five-year maturity,
+[13:48] a seven-year maturity,
+[13:49] and a ten-year maturity,
+[13:51] and again,
+[13:51] when I say maturity,
+[13:52] I mean anticipated
+[13:53] repayment date.
+[13:54] The staggering
+[13:55] of those profiles
+[13:57] allows for more
+[13:59] opportunistic
+[14:00] refinancing
+[14:01] at different times
+[14:02] when spreads
+[14:03] may be
+[14:04] at the tightest
+[14:06] levels they've been,
+[14:06] which we've seen
+[14:07] in the investment grade
+[14:08] securitization market,
+[14:10] or they widen out
+[14:11] and you take on
+[14:12] the optionality
+[14:13] of keeping that ABS
+[14:14] or that series
+[14:15] of that ABS
+[14:16] outstanding for longer.
+[14:18] And really,
+[14:19] all you're trying to do
+[14:20] is create
+[14:21] as much optionality
+[14:22] and flexibility
+[14:23] for the issuer.
+[14:25] Again,
+[14:25] in this case,
+[14:26] Concord,
+[14:26] but it could be
+[14:27] any music company
+[14:28] that wants to
+[14:29] have some type
+[14:30] of wash,
+[14:31] rinse,
+[14:32] and repeat
+[14:32] type of structure
+[14:33] where they're
+[14:34] dropping in assets
+[14:36] over time
+[14:36] that are scaled enough
+[14:38] and then issuing
+[14:39] debt against them
+[14:40] at a very attractive
+[14:41] cost of funds.
+[14:42] Right.
+[14:43] So, I mean,
+[14:44] there's really
+[14:45] significant motivation
+[14:46] to look at these
+[14:47] things seriously,
+[14:48] isn't there?
+[14:49] First of all,
+[14:50] a lower cost of capital,
+[14:51] greater optionality
+[14:52] going into the future,
+[14:54] and ultimately
+[14:55] speed to deployment
+[14:56] as well.
+[14:57] So, if you see
+[14:57] an asset
+[14:58] and you've got
+[14:59] everything in place,
+[15:00] you can go
+[15:01] and execute
+[15:01] on that quickly.
+[15:03] I think as much
+[15:04] as is interesting
+[15:05] in the structural
+[15:07] change of the industry
+[15:08] as a whole,
+[15:08] with streaming
+[15:09] and everything else,
+[15:10] I was also really
+[15:11] intrigued to hear
+[15:12] about the approach
+[15:13] that you guys
+[15:13] take specifically
+[15:14] with those three
+[15:15] entities,
+[15:16] Apollo Atlas
+[15:17] and Reading Ridge
+[15:18] that you mentioned,
+[15:19] and the value
+[15:20] that brings to the
+[15:21] clients that you
+[15:21] work with,
+[15:22] because I would
+[15:23] expect if they
+[15:24] weren't all
+[15:25] managed by
+[15:26] one point of
+[15:28] contact or at
+[15:29] least, you know,
+[15:30] a single shot
+[15:30] to go and
+[15:31] do this deal
+[15:32] with,
+[15:33] that could be
+[15:33] really significant
+[15:35] overhead,
+[15:36] extra overhead,
+[15:37] and probably pain
+[15:38] to go through.
+[15:40] So, can you
+[15:40] talk us through
+[15:41] a little bit
+[15:41] about the approach
+[15:42] that you've taken
+[15:43] and what value
+[15:44] that brought to
+[15:45] Concord through
+[15:45] the process?
+[15:47] Of course.
+[15:48] You're absolutely
+[15:49] right.
+[15:50] Between Apollo,
+[15:52] Reading Ridge,
+[15:54] and Atlas,
+[15:54] we've created
+[15:55] what we call
+[15:56] the one-stop shop
+[15:57] for music companies
+[15:58] and other companies
+[15:59] to come to us
+[16:00] for all different
+[16:01] types of capital
+[16:02] solutions.
+[16:03] And so,
+[16:04] within Apollo,
+[16:05] we think about it
+[16:06] from a principal
+[16:06] mindset.
+[16:07] all of the
+[16:08] structuring that
+[16:09] goes into
+[16:10] a particular
+[16:11] deal,
+[16:12] the underwriting
+[16:13] of that
+[16:13] aseclis and
+[16:14] that issuer
+[16:15] specifically.
+[16:16] At Reading Ridge,
+[16:18] we work with
+[16:19] them very
+[16:20] collaboratively
+[16:23] on the
+[16:23] structuring,
+[16:24] and more
+[16:25] importantly for
+[16:26] them,
+[16:27] on the ratings
+[16:27] advisory component
+[16:29] where Reading Ridge
+[16:30] will liaise
+[16:31] with all of the
+[16:33] different rating
+[16:34] agencies that are
+[16:35] attributing a
+[16:36] rating to that
+[16:37] asset-backed
+[16:37] securitization.
+[16:38] We have many
+[16:39] what we call
+[16:40] origination platforms
+[16:41] at Apollo,
+[16:43] including fleet
+[16:44] finance,
+[16:45] aviation finance,
+[16:46] trade finance,
+[16:47] and so we
+[16:48] ourselves,
+[16:49] for our
+[16:50] platforms,
+[16:50] are issuing
+[16:51] asset-backed
+[16:52] securitizations
+[16:53] pretty consistently,
+[16:55] and that involves
+[16:56] having a pretty
+[16:56] consistent and
+[16:57] regular dialogue
+[16:58] with the rating
+[16:59] agencies,
+[16:59] from which our
+[17:01] clients also
+[17:02] benefit because of
+[17:03] our knowledge base
+[17:03] around how
+[17:05] that asset
+[17:06] class functions
+[17:07] differently than
+[17:08] any other
+[17:09] asset class that
+[17:10] we have gotten
+[17:10] rated in the
+[17:11] past.
+[17:12] So we feel like
+[17:13] we know music
+[17:14] pretty well in
+[17:15] terms of the
+[17:16] asset class,
+[17:17] the underwrite,
+[17:18] and how rating
+[17:18] agencies evaluate
+[17:19] and look at
+[17:20] these catalogs.
+[17:21] And then Atlas
+[17:22] is a platform
+[17:25] that thinks about
+[17:26] all things
+[17:27] specialty finance,
+[17:29] but specifically
+[17:29] within syndication,
+[17:31] as well as the
+[17:32] structuring of
+[17:33] these deals,
+[17:34] and together with
+[17:35] our capital
+[17:35] solutions team
+[17:36] here at Apollo,
+[17:37] which thinks about
+[17:38] the distribution
+[17:39] to all of the
+[17:41] different investors
+[17:42] who are coming
+[17:43] in alongside
+[17:44] our retirement
+[17:45] services provider,
+[17:48] a theme,
+[17:48] to invest
+[17:51] in whatever
+[17:52] that asset
+[17:52] class is.
+[17:53] Again, in this
+[17:53] case, music
+[17:54] catalog rights,
+[17:55] having a pretty
+[17:56] consistent and
+[17:57] regular investor
+[17:58] dialogue.
+[18:00] So between
+[18:01] talking to the
+[18:02] company,
+[18:03] talking to the
+[18:03] rating agencies,
+[18:05] talking to
+[18:05] investors,
+[18:06] knowing what
+[18:08] works, what
+[18:08] doesn't work,
+[18:09] what would be
+[18:10] more innovative,
+[18:11] i.e. what we
+[18:12] had done last
+[18:13] year with the
+[18:14] staggering of
+[18:14] the ARD
+[18:15] profile or the
+[18:16] maturity profile
+[18:17] of 5,
+[18:18] 7,
+[18:18] and 10
+[18:19] years,
+[18:19] those are
+[18:20] things that
+[18:20] were in a
+[18:21] constant
+[18:21] communication
+[18:22] between not
+[18:24] only Apollo,
+[18:24] Redding Ridge,
+[18:25] and Atlas,
+[18:26] but also with
+[18:26] the company,
+[18:27] the rating
+[18:27] agencies,
+[18:28] and the
+[18:29] investors.
+[18:30] And that's
+[18:31] so important.
+[18:32] I think,
+[18:32] you know,
+[18:33] in any
+[18:33] project that
+[18:34] you go
+[18:34] through as
+[18:35] a business,
+[18:35] whether it's
+[18:36] compliance or
+[18:38] regulation or
+[18:39] anything like
+[18:39] that,
+[18:39] where there's
+[18:40] significant
+[18:40] complexity,
+[18:41] doing it for
+[18:42] the first
+[18:42] time,
+[18:43] invariably you
+[18:44] spend a
+[18:44] whole load of
+[18:45] effort,
+[18:46] burn a lot
+[18:47] of calories just
+[18:47] to get to
+[18:48] the basics.
+[18:49] And having a
+[18:50] partner who's
+[18:50] been there
+[18:51] before,
+[18:52] well,
+[18:52] you can quite
+[18:53] easily skip
+[18:53] past the
+[18:54] basics and
+[18:55] start focusing
+[18:56] your energy on
+[18:57] the interesting
+[18:58] parts.
+[18:59] So being a
+[19:00] little bit more
+[19:01] forward-thinking,
+[19:02] being a bit more
+[19:03] innovative in terms
+[19:04] of how you
+[19:05] structure it,
+[19:06] and using that
+[19:06] experience to
+[19:08] get to a better
+[19:09] outcome and
+[19:09] ultimately,
+[19:10] you know,
+[19:10] drive the industry
+[19:11] forward.
+[19:11] And I think
+[19:12] that's what
+[19:13] everybody's after,
+[19:14] isn't it?
+[19:15] As the industry
+[19:15] grows,
+[19:16] as it becomes
+[19:16] more professional,
+[19:17] then there's
+[19:18] greater opportunity
+[19:19] and already some
+[19:20] of the examples
+[19:21] that you just
+[19:21] gave us there
+[19:22] about tightening
+[19:23] of spreads and
+[19:23] everything else,
+[19:24] that's just hugely
+[19:26] valuable for
+[19:27] everybody and
+[19:28] broadly good news.
+[19:30] And I think the
+[19:30] approach that you
+[19:31] guys are taking,
+[19:32] being able to
+[19:33] shepherd people
+[19:34] through that is
+[19:35] a really sensible
+[19:36] one as well.
+[19:37] We feel incredibly
+[19:38] lucky to be able
+[19:39] to do that at
+[19:40] Apollo and with
+[19:41] our partners at
+[19:41] Reading Ridge and
+[19:42] Atlas.
+[19:43] And to your
+[19:44] point, I think
+[19:45] giving companies
+[19:47] and issuers
+[19:48] access to this
+[19:49] market to be
+[19:51] able to finance
+[19:52] against their
+[19:52] intellectual property
+[19:54] is not something
+[19:55] particularly brand
+[19:57] new, but it's
+[19:58] just become more
+[20:00] known as investors
+[20:01] have become more
+[20:02] comfortable with the
+[20:03] underwriting of
+[20:04] music as an
+[20:05] asset class and as
+[20:06] it's become less
+[20:07] and less esoteric.
+[20:09] it's something
+[20:10] that at least
+[20:11] for our
+[20:11] partnership with
+[20:12] Concord, as
+[20:13] we've done the
+[20:15] private securitization
+[20:16] that we did to
+[20:16] finance the
+[20:17] acquisition of
+[20:18] Roundtel Music
+[20:18] in 2023, and
+[20:20] then an
+[20:21] incremental add-on
+[20:22] of $850 million
+[20:24] in 2024, and
+[20:25] then the
+[20:25] refinancing last
+[20:26] year, which was
+[20:27] around $1.8
+[20:28] billion, it did
+[20:29] become that
+[20:30] wash, rinse,
+[20:31] rinse, and repeat
+[20:31] type of structure
+[20:32] where it made it
+[20:33] much easier for
+[20:34] the Concord
+[20:35] management team,
+[20:36] and it made it
+[20:36] much easier for
+[20:37] us, and it
+[20:38] actually took
+[20:39] down the
+[20:40] timeline of
+[20:41] transaction
+[20:42] execution, where
+[20:44] you see an
+[20:45] opportunity, you
+[20:46] get into the
+[20:47] market, and then
+[20:47] you market very
+[20:49] quickly and get
+[20:50] out of the
+[20:50] market, and you
+[20:51] don't have to
+[20:52] spend weeks on
+[20:53] end, because
+[20:54] again, in this
+[20:55] case, that
+[20:56] issuer being
+[20:56] Concord has
+[20:57] become well
+[20:58] known to the
+[21:00] insurance investor
+[21:01] base.
+[21:01] right.
+[21:03] And that
+[21:04] reduction in
+[21:06] risk and
+[21:07] repeatability is
+[21:08] again, really
+[21:09] what everybody's
+[21:10] after, isn't
+[21:10] it?
+[21:10] It's being
+[21:12] novel and
+[21:13] truly innovative
+[21:15] often doesn't
+[21:16] pay off, but
+[21:17] being a close
+[21:18] second follower
+[21:18] often does, and
+[21:21] it very much
+[21:22] sounds like you
+[21:23] guys have
+[21:24] taken on
+[21:25] things that
+[21:25] have been
+[21:27] precedent in
+[21:27] the past, and
+[21:29] then introduced
+[21:30] used based off
+[21:30] the change of
+[21:31] infrastructure, new
+[21:32] approaches, and
+[21:33] a new structure
+[21:34] that allows you to
+[21:35] go and work with
+[21:35] your clients in a
+[21:37] very effective way.
+[21:38] Can you just talk
+[21:39] us through a little
+[21:40] bit about how
+[21:41] Concord had to
+[21:42] change operationally?
+[21:44] Because I think
+[21:44] one of the things
+[21:45] that's really
+[21:45] important to
+[21:46] clarify is
+[21:47] achieving ABS
+[21:48] isn't necessarily
+[21:50] straightforward.
+[21:51] It's definitely
+[21:52] not the bottom
+[21:52] rung of the
+[21:53] ladder, and
+[21:54] there are a
+[21:55] whole host of
+[21:55] things that you
+[21:56] have to do to
+[21:56] prepare to get
+[21:57] there.
+[21:57] They reorganized
+[22:00] the company, and
+[22:02] we worked with
+[22:03] the management
+[22:04] team around
+[22:05] this, i.e.
+[22:06] Apollo, Reading
+[22:07] Ridge, and
+[22:07] Atlas, but we
+[22:08] also worked with
+[22:09] all of our
+[22:10] respective legal
+[22:11] councils, so
+[22:11] Concord working
+[22:12] very closely with
+[22:13] DLA Piper, us
+[22:15] working very
+[22:16] closely with
+[22:16] Milbank, around
+[22:18] setting up that
+[22:19] securitization
+[22:20] perimeter and
+[22:20] deciding what
+[22:22] rights would be
+[22:24] contributed into
+[22:26] that perimeter, and
+[22:27] then what
+[22:27] rights may not
+[22:28] be the most
+[22:29] appropriate from
+[22:30] a securitization
+[22:30] perspective.
+[22:31] One example
+[22:32] being that
+[22:33] Concord operates
+[22:34] a business
+[22:35] called Concord
+[22:36] Theatricals, and
+[22:38] that is the
+[22:39] idea of you
+[22:40] going to see a
+[22:40] play here on
+[22:41] Broadway in New
+[22:42] York.
+[22:43] That's not
+[22:43] necessarily the
+[22:44] most securitizable
+[22:45] right in terms
+[22:46] of the predictability
+[22:47] around that cash
+[22:48] flow relative to
+[22:49] a music publishing
+[22:50] copyright or a
+[22:51] recorded music
+[22:52] copyright.
+[22:53] And so the
+[22:54] idea being that
+[22:55] there are certain
+[22:57] original soundtrack
+[22:58] recordings or
+[23:00] original cast
+[23:00] recordings where
+[23:02] that was
+[23:03] contributed into
+[23:04] the securitization
+[23:05] perimeter, but the
+[23:06] actual performance
+[23:07] of the play itself
+[23:09] on Broadway was
+[23:10] not contributed, or
+[23:12] certain rights,
+[23:15] depending on
+[23:16] certain genres,
+[23:17] may not be
+[23:18] contributed because
+[23:19] they may be
+[23:20] dilutive to growth
+[23:21] over time when you
+[23:22] think about the
+[23:23] weighted average
+[23:23] growth of that
+[23:24] portfolio.
+[23:25] That took a lot
+[23:26] of time to set
+[23:27] up in the
+[23:28] beginning, and it
+[23:29] was a multi-month
+[23:30] process, particularly
+[23:31] for a catalog of
+[23:33] Concord size, the
+[23:35] inaugural ABS being
+[23:37] just over $4 billion,
+[23:38] today being well
+[23:39] over $5 billion in
+[23:41] terms of the
+[23:42] third-party valuation
+[23:43] that is attributed
+[23:44] to those rights.
+[23:45] But again, once that
+[23:46] is set up, you now
+[23:48] have this almost
+[23:49] permanent capital
+[23:51] vehicle type of
+[23:52] funding structure
+[23:53] that allows you to
+[23:54] very efficiently
+[23:55] execute in the
+[23:57] securitization market.
+[23:59] Right.
+[24:00] And I think that,
+[24:01] you know, it sounds
+[24:01] like you've both got
+[24:02] to be extremely
+[24:03] strategic, but also
+[24:04] tactical.
+[24:05] So taking a long-term
+[24:07] view, making sure
+[24:08] that any new assets
+[24:10] you're acquiring,
+[24:11] you're doing with
+[24:12] the view that you
+[24:13] would like to
+[24:14] securitize those in
+[24:15] the future, but then
+[24:16] also being tactical
+[24:17] around things that
+[24:18] you already own and
+[24:19] finding a way to
+[24:20] help them not
+[24:21] prevent you from
+[24:22] achieving those
+[24:23] objectives either.
+[24:25] That's right.
+[24:25] And being able to
+[24:28] finance at that
+[24:29] attractive cost of
+[24:31] funds, in this case
+[24:32] an investment grade
+[24:33] debt cost of capital,
+[24:35] really at the end of
+[24:36] the day, what it's
+[24:38] doing is it's
+[24:39] bringing your weighted
+[24:41] average cost of
+[24:41] capital as an
+[24:42] issuer down.
+[24:44] And if we think about
+[24:45] getting to the optimal
+[24:46] cost of capital for
+[24:48] your business, what
+[24:49] that's unlocking is
+[24:51] purportedly a higher
+[24:53] valuation on a
+[24:54] theoretical basis or
+[24:56] just more willingness
+[24:57] to pay for
+[24:58] incremental assets that
+[24:59] you will ultimately
+[25:00] contribute into this
+[25:03] ABS master trust
+[25:04] structure that you're
+[25:05] going to finance
+[25:05] against.
+[25:06] And so you kind of
+[25:07] know once you get
+[25:09] this all set up, how
+[25:11] your M&A playbook
+[25:12] looks.
+[25:12] Right.
+[25:12] And of course, over
+[25:14] the past several
+[25:14] years, we've seen
+[25:15] really no shortage of
+[25:17] M&A opportunities with
+[25:19] all of our partners here
+[25:20] at Apollo across the
+[25:21] music industry.
+[25:22] But there's been an
+[25:23] acceleration of M&A
+[25:25] activity.
+[25:27] Right.
+[25:27] And kind of coming
+[25:28] back to that
+[25:29] competitiveness out in
+[25:31] the field, speed is
+[25:32] absolutely key.
+[25:33] We know that.
+[25:34] But also removing
+[25:36] variables.
+[25:37] So really understanding
+[25:38] what your cost of
+[25:39] capital is and
+[25:40] therefore where you
+[25:41] can go with that.
+[25:42] is the second most
+[25:44] important factor, isn't
+[25:45] it?
+[25:45] OK, well, we really
+[25:46] want this asset because
+[25:47] X, Y and Z, it
+[25:48] strategically fits into
+[25:49] our portfolio.
+[25:51] OK, we can push up to
+[25:52] that level and we know
+[25:53] we're still good to go.
+[25:55] I think that that's just
+[25:56] hugely valuable in any
+[25:57] dealmaking process.
+[25:59] And can you just
+[26:00] explain to us some of
+[26:02] the things that you
+[26:03] think other funds
+[26:05] who are considering
+[26:06] ABS or even on the
+[26:07] ABS trail now, what
+[26:09] they should be thinking
+[26:10] about in their day to
+[26:11] day?
+[26:12] When they're preparing
+[26:13] for this type of
+[26:14] thing, both operationally
+[26:16] and financially?
+[26:19] I think operationally,
+[26:21] all you want to be
+[26:22] doing is just making
+[26:24] sure that you're
+[26:24] setting up as much
+[26:26] as you can early on,
+[26:27] which could be done
+[26:28] through what's called
+[26:29] a warehouse facility,
+[26:30] which our partner
+[26:31] Atlas offers.
+[26:34] And getting enough
+[26:36] size and scale where
+[26:37] it makes sense to
+[26:38] actually issue an
+[26:40] inaugural ABS, we
+[26:42] usually don't see that
+[26:43] done in the range of
+[26:44] 50 or 100 million.
+[26:46] It needs to be a bit
+[26:48] more sized to make
+[26:50] sense for the issuer,
+[26:52] particularly as they have
+[26:53] aspirations to grow the
+[26:55] value of their portfolio
+[26:56] over time, both
+[26:57] organically and
+[26:58] inorganically.
+[27:00] Financially speaking,
+[27:01] what you want to be able
+[27:03] to do is set up the
+[27:05] growth algorithm to make
+[27:07] it pretty easy to
+[27:08] understand relative to
+[27:10] everything else that's
+[27:11] come in the market.
+[27:12] So working with the
+[27:14] types of investment
+[27:15] firms, the types of
+[27:17] ratings advisory firms,
+[27:19] the type of syndication
+[27:21] agents, legal counsel,
+[27:23] not only to do the
+[27:26] setup of the
+[27:27] securitization perimeter,
+[27:28] but also to conduct
+[27:29] legal due diligence, but
+[27:31] also thinking about your
+[27:32] third party valuation,
+[27:34] firms like Virtu,
+[27:35] firms like Citrin
+[27:36] Cooperman that do a
+[27:38] lot of this work, have
+[27:39] deep expertise, but
+[27:40] also have the trust and
+[27:42] the relationships of
+[27:44] the third party investor
+[27:45] community around how
+[27:48] this potential
+[27:51] securitization is set up
+[27:52] relative to others that
+[27:54] have become before it,
+[27:56] which could be different
+[27:58] stratification profiles,
+[28:00] something that's more
+[28:00] frontline weighted than
+[28:01] catalog weighted,
+[28:03] something that has a
+[28:04] focus on specific
+[28:05] genres, whatever it may
+[28:07] be.
+[28:08] You want to be able to
+[28:09] have a pretty clean
+[28:10] story as to why it's
+[28:11] different.
+[28:12] It's not a bad thing
+[28:13] that it may be
+[28:14] financially different or
+[28:15] the financial complexion
+[28:17] of that portfolio may be
+[28:19] different, but you want to
+[28:19] be able to explain why
+[28:21] in a pretty easy and
+[28:22] simple way for investors
+[28:24] to digest.
+[28:26] Right.
+[28:26] So I think I hear loud
+[28:29] and clear their
+[28:30] preparation and
+[28:31] partnerships, making sure
+[28:32] you're preparing now and
+[28:34] understanding exactly where
+[28:36] you're going into the
+[28:37] future and then also
+[28:39] making sure that you
+[28:40] choose the right partner
+[28:41] to go and do it with.
+[28:43] Is that fair?
+[28:45] Definitely.
+[28:46] And that's something that
+[28:48] we welcome at Apollo on a
+[28:50] daily basis as we're
+[28:51] talking with music
+[28:53] companies and companies
+[28:54] and other asset classes
+[28:56] around how we can be the
+[28:58] best capital solutions
+[28:59] provider and long-term
+[29:00] financing partner to them.
+[29:03] Right.
+[29:03] And just zooming out from
+[29:05] Concord a little bit,
+[29:07] what do you think that this
+[29:09] says about where music
+[29:11] rights investment is going
+[29:13] as a whole?
+[29:14] It's definitely become more
+[29:17] institutionalized over the
+[29:19] past 10 years and it's
+[29:20] become credentialized as an
+[29:23] investable asset class.
+[29:24] I think the next wave of
+[29:28] whether we call it
+[29:29] streaming 2.0 or however
+[29:30] you want to characterize it
+[29:32] is going to be based on
+[29:34] what this now looks like
+[29:36] after Spotify and
+[29:39] other DSPs being Apple
+[29:41] music, Amazon music,
+[29:43] et cetera, have been
+[29:44] substantiated as
+[29:46] well-functioning operating
+[29:50] models.
+[29:52] If subscriber growth starts
+[29:55] to decelerate as it has
+[29:56] over the past several
+[29:57] years, what is the price
+[29:59] increase profile look like
+[30:01] for these DSPs to take a
+[30:04] page out of Netflix's
+[30:06] playbook in terms of what
+[30:08] it has done historically
+[30:09] in terms of balancing that
+[30:11] growth algorithm between
+[30:13] subscriber growth and
+[30:15] pricing growth.
+[30:16] How do the music companies
+[30:18] benefit from that as the
+[30:20] ultimate rights holders?
+[30:22] And then how does that
+[30:24] flow through all the
+[30:25] different results of
+[30:26] operations that we're
+[30:27] reviewing on our side at
+[30:29] Apollo, but also that the
+[30:30] issues are issuers are
+[30:32] experiencing just in their
+[30:34] day-to-day operations of
+[30:36] seeing outside streaming
+[30:38] growth because of some
+[30:39] viral hit, whether there's a
+[30:41] large sync placement and how
+[30:43] they're going to be able to
+[30:44] offset that going away in
+[30:47] the next period because of
+[30:48] some other sync placement.
+[30:51] Again, more diversity kind
+[30:53] of puts you in a reversion to
+[30:55] the meme.
+[30:56] And so thinking about long
+[30:58] term industry growth is
+[30:59] something we're spending a
+[31:01] lot of time at Apollo
+[31:03] thinking about not only just
+[31:05] in terms of streaming price
+[31:07] increases, but also the
+[31:08] impact of embracing
+[31:09] commercial innovation around
+[31:11] everything that's going on
+[31:12] with AI in music.
+[31:14] Right.
+[31:16] So really the macro view and
+[31:18] ultimately I think as the
+[31:20] market evolves over time, we
+[31:22] don't really know the impact.
+[31:24] We don't know whether how
+[31:25] price sensitive the consumer
+[31:27] is to their subscription to
+[31:28] Spotify or Apple Music or, you
+[31:31] know, how exactly these non
+[31:33] English speaking countries are
+[31:35] going to trend in terms of
+[31:37] consumption and creation of the
+[31:39] music as well.
+[31:39] But I think also everything
+[31:42] that you just said that
+[31:43] really stood out to me as
+[31:45] being, well, if the market's
+[31:47] reacting to that in a way
+[31:48] that we would expect the
+[31:49] public markets or a
+[31:50] commoditized market to react,
+[31:52] that invariably just shows
+[31:54] that it's becoming more
+[31:56] mature because in an open
+[31:59] market, we tend to have
+[32:00] these relationships between
+[32:02] general macro trends and
+[32:05] pricing.
+[32:05] Right.
+[32:05] That's all.
+[32:08] Well, much better said than I
+[32:10] would have said it.
+[32:12] That was very kind.
+[32:13] Paul, if you could give
+[32:15] music investors who are
+[32:17] considering doing an ABS,
+[32:20] what would the kind of three
+[32:21] biggest steps that you would
+[32:22] advise for them to take into
+[32:25] consideration?
+[32:28] One would be to form your
+[32:30] broader team because it really
+[32:31] does take a village for all of
+[32:34] these different things.
+[32:34] So again, that includes if
+[32:37] you're going to have a
+[32:38] principal investor, whether
+[32:40] it's backstop the offering or
+[32:42] really act as an anchor
+[32:45] investor and what value added
+[32:47] services can that investor
+[32:48] offer like ratings advisory or
+[32:51] syndication or whatever it may
+[32:52] be, your legal counsel, all of
+[32:56] the legal team that you have on
+[32:57] the asset side, but also on the
+[32:59] operational side, and then your
+[33:02] third party valuation agent.
+[33:03] So that's kind of the functional
+[33:05] playbook of who is in your
+[33:07] village.
+[33:08] That would be number one.
+[33:10] Number two would be making
+[33:13] sure you've got all the data in a
+[33:15] clean and easy to use fashion
+[33:18] because all those investors are
+[33:20] going to end up basically getting a
+[33:21] data tape or they're going to get
+[33:23] the output of a data tape in the
+[33:24] third party valuation that they're
+[33:27] going to pick apart and have tons of
+[33:29] different questions about.
+[33:31] The third would probably be having a
+[33:35] timeline in mind and also a game
+[33:37] plan in mind of if you're thinking
+[33:39] about being a repeat issuer in the
+[33:43] market, making that known to the
+[33:46] investor community of what they can
+[33:48] expect to see from you in terms of the
+[33:51] additional origination of that
+[33:54] securitization asset class over the
+[33:58] next year, two years, three years,
+[34:00] whatever it may be.
+[34:01] A lot of issuers are coming out saying
+[34:03] we expect to be back in the market
+[34:05] doing X million or X billion of
+[34:08] issuance per annum.
+[34:10] I think that helps give the investor
+[34:14] community enough of a preview of what's
+[34:19] to come for that issue or what they
+[34:21] expect to be able to do in terms of
+[34:22] their M&A activity, but also, again,
+[34:25] that combination of organic growth and
+[34:27] inorganic growth.
+[34:30] Yeah, interesting.
+[34:30] And I think one of the takeaways of the
+[34:33] white paper that we talked about
+[34:34] earlier is that a lot of this, you know,
+[34:37] a lot of this is specific to ABS, but
+[34:39] a lot of this is also just broadly
+[34:40] speaking what is kind of expected now
+[34:43] to operate within the institutional
+[34:45] market.
+[34:46] So I think thinking about baking these
+[34:48] things in early on to give you that
+[34:51] option in the future is something that
+[34:53] really makes sense, even for people who,
+[34:55] you know, may not be set on whether ABS is
+[34:57] the right route for them or not.
+[34:59] Definitely.
+[35:00] Yeah.
+[35:01] And with that in mind, that leads nicely
+[35:03] to the next question, which is, do you
+[35:05] think that ABS is the natural evolution
+[35:07] and the natural kind of endpoint for most
+[35:10] investors or how do you see that playing
+[35:12] out?
+[35:13] For many issuers, it has become the
+[35:16] natural endpoint because again, it has
+[35:18] that permanent capital type of structure
+[35:22] to it where you're pairing up again, the
+[35:26] predictability and still the stability and
+[35:29] durability of your cashflow stream to a
+[35:32] patient, long dated from a duration
+[35:37] perspective, investor community that likes
+[35:41] the idea of not necessarily lower growth,
+[35:44] but less volatility and growth.
+[35:48] So just having a much, much more narrow
+[35:52] confidence interval around what the future
+[35:55] looks like for this asset class.
+[35:59] There are innovations that take what ABS has
+[36:05] done even more forward in terms of more
+[36:09] creative, more bespoke capital solutions.
+[36:11] I think for the right companies at the right
+[36:14] time, that becomes an opportunity.
+[36:17] You probably have a scale limitation to that
+[36:22] where that'll be accessible by larger
+[36:26] companies, but probably not by the smaller
+[36:29] insurgents that are kind of still forming
+[36:31] the base of their catalogs.
+[36:33] And for some of those, ABS is not necessarily
+[36:37] the most appropriate capital solution at this
+[36:39] time.
+[36:39] It really is a warehouse facility then
+[36:42] transitioning into over time in ABS structure
+[36:47] when you have enough size and scale.
+[36:50] And I think that whole size and scale thing is
+[36:52] definitely worth spending time to think about
+[36:57] because these things are operationally intense
+[37:01] and almost regardless of the amount of capital
+[37:05] deployed, it's going to take roughly the same amount
+[37:09] of effort.
+[37:09] So you really want to think very seriously about
+[37:13] whether or not you want to start down that path.
+[37:16] It's not necessarily scary, not having done it
+[37:19] myself, but obviously, you know, with great advice
+[37:21] from you and other people in the industry.
+[37:24] But I think it isn't for the faint-hearted either
+[37:27] and does take a significant amount of rigor,
+[37:30] a big team size to go and deliver.
+[37:32] And it's not just the day one, you know,
+[37:35] it's not just achieving it in the first place.
+[37:37] It's also maintaining it afterwards.
+[37:40] It's going to put an awful lot of kind of compliance
+[37:43] effort onto one's plate to keep it going.
+[37:46] So it is worth taking seriously.
+[37:49] You probably don't want to be doing it for a, you know,
+[37:52] single digit kind of assets on the management style fund
+[37:59] or probably, you know, even into the mid-50s
+[38:05] or anything like that or above, I would say.
+[38:07] Is that fair too, Paul?
+[38:09] Yes, I think that's right.
+[38:11] But there are those interim steps that offer a really nice landing
+[38:19] for companies that are scaling up because maybe an issuer
+[38:23] sitting here saying, well, I don't have all of that size
+[38:27] and scale today.
+[38:28] What can I do before I'm ready for an asset-backed
+[38:31] securitization of my catalog?
+[38:33] There are a number of steps and the same types of providers
+[38:37] around these capital solutions, whether it's on the financial side
+[38:41] or the legal side or the accounting side or the valuation side,
+[38:44] whatever it is, we're all doing all different types of transactions
+[38:48] at all different types of sizes.
+[38:49] And so we're all available to help companies think through this
+[38:56] at the outset because if you think about what's ultimately happening,
+[38:59] you have this asset code that I mentioned earlier
+[39:02] that is really operating all of these music copyrights,
+[39:07] actively managing them to be able to sweat the assets
+[39:11] as much as they can and generate the most equity value.
+[39:14] You've got this fixed interest obligation.
+[39:17] And then all of that residual cash flow is basically
+[39:20] dividended back to the operating company in this instance
+[39:24] to be able to pay for all of the SG&A expense
+[39:28] that goes into actively managing that catalog.
+[39:32] And so I think about it as, yes, you're managing this asset code.
+[39:38] You have an ABS manager, all of those different types of things.
+[39:40] But functionally speaking, if you're set up anything similar to Concord,
+[39:45] which so many music issuers are, you've got this asset code,
+[39:49] op code structure, and effectively you're dividending back that cash
+[39:53] to be able to finance the rest of your operations,
+[39:55] which with an investment-grade cost of funds,
+[39:59] you should be able to have that residual cash flow available
+[40:04] to continue to grow your business,
+[40:05] whether it's on the hiring side or on the deployment side
+[40:09] or just putting different campaigns against whatever viral hit
+[40:15] that you have within your catalog at that very moment.
+[40:18] Right.
+[40:19] So it really comes back to strategy and tactics, doesn't it?
+[40:22] Even if you're not ready right now,
+[40:25] even if you've got a relatively small amount of assets
+[40:28] in the management, but you have a view that you want to move
+[40:32] up the chain in the future and ultimately achieve ABS
+[40:35] and unlock all of the value that brings,
+[40:38] you want to start thinking about it now.
+[40:40] And that takes strategy into the long term,
+[40:43] but also being tactical about, okay, well, what can we do right now?
+[40:47] What's a fit for our business right now?
+[40:49] And how can we help balance those two as we go forward?
+[40:53] That's right.
+[40:54] So I think it is time now to move into our quickfire round, Paul.
+[41:00] So we are going to start with what is the song or album
+[41:03] that you have on repeat at the moment?
+[41:07] A bunch.
+[41:09] But just as we've kind of come out of the weekend here,
+[41:15] I'm a big fan of 70s British progressive rock
+[41:21] as a catch-all term for so many different artists.
+[41:24] And within that catch-all, I'm a huge fan of Jethro Tull.
+[41:27] And so I've had their 1973 album, A Passion Play,
+[41:32] just on repeat, not only for the past couple of weeks,
+[41:36] but what feels like the entirety of my life.
+[41:40] It's a pretty controversial album within Tull's catalog
+[41:44] at the time it was released and still to this day.
+[41:49] But I find it to be really one of their best
+[41:52] in terms of not only Ian Anderson's songwriting,
+[41:56] but also the performance of the band
+[41:58] that was part of the group at that time,
+[42:00] all the different musicians
+[42:01] and the way in which they were able to perform together.
+[42:06] But there's a whole litany of not only Jethro Tull albums,
+[42:10] but other progressive rock albums,
+[42:12] and then more broadly just different albums
+[42:16] on repeat at any given moment for me,
+[42:18] like many other music fans.
+[42:21] Nice.
+[42:21] Love that.
+[42:22] And what would you say is the most underrated opportunity
+[42:25] in music rights investing that you're seeing at the moment?
+[42:28] Probably two.
+[42:32] One would be any non-Anglo music rights,
+[42:38] i.e. hyper-local content.
+[42:40] In different geographies,
+[42:42] you see local content being really, really popular.
+[42:47] One example being German rap.
+[42:50] And usually those are under-managed,
+[42:55] under-monetized assets
+[42:56] assets just because of where they sit within the ecosystem.
+[43:00] And they usually have represented,
+[43:02] at least in the past five years,
+[43:04] a real opportunity for an active manager
+[43:07] of music copyrights to come in
+[43:08] and do something pretty unnatural and acrobatic
+[43:12] with those intellectual property rights.
+[43:14] The second would be, broadly speaking,
+[43:18] name, image, and likeness rights.
+[43:20] Something that we're seeing take more hold
+[43:23] of the music M&A market,
+[43:26] particularly with AI disruption
+[43:29] and thinking about what name, image,
+[43:32] and likeness rights represent
+[43:33] for these music issuers
+[43:35] that have a portfolio of rights
+[43:37] and then have an AI
+[43:39] copying or creating some type of work of art
+[43:45] that is substantially similar
+[43:48] to something that already exists,
+[43:50] whether it's the timbre of a singer's voice,
+[43:53] whether it's a certain type of lyrical flow,
+[43:57] whatever it may be.
+[43:58] Of course, we know that you can't copyright
+[44:00] a chord progression,
+[44:01] but there's so many other things
+[44:02] about a sound recording
+[44:04] or a musical composition
+[44:05] that make it an original work of authorship.
+[44:08] Yeah, interesting.
+[44:09] They're by far and away my favorite.
+[44:11] Of all of the anecdotes
+[44:12] that we've heard
+[44:13] over the past however many episodes,
+[44:16] name, image, and likeness
+[44:18] are by far the best.
+[44:19] There's so many great stories
+[44:20] about what people have done creatively
+[44:22] that you would never, ever expect.
+[44:25] It's so great.
+[44:27] And there's much more to come on that.
+[44:29] Yeah, I bet.
+[44:31] That's super interesting.
+[44:31] And German rap.
+[44:33] You heard it here first, so.
+[44:35] Exactly.
+[44:35] And if you could own one song for,
+[44:39] what would it be and why?
+[44:43] Well, just like there's so many
+[44:44] different albums on repeat,
+[44:46] there's so many songs.
+[44:48] Probably something like Over the Rainbow
+[44:51] just because its cultural significance,
+[44:56] not only in the US,
+[44:58] but truly around the world,
+[45:01] is unparalleled.
+[45:03] There is really not one person
+[45:05] that can't hum the opening melody
+[45:09] to the song being that
+[45:12] very characteristic octave
+[45:14] to start out the melody.
+[45:18] And the idea of
+[45:21] what we've learned at Apollo
+[45:23] in partnership with all of
+[45:25] these music companies
+[45:26] that, again, we're lucky enough
+[45:28] to do a lot of
+[45:29] really interesting things with
+[45:31] is ultimately
+[45:32] you're a steward
+[45:33] of those rights
+[45:36] and it's your responsibility
+[45:38] to manage them
+[45:40] in the best way
+[45:42] possible,
+[45:43] not only for the original songwriter
+[45:44] and or artist,
+[45:46] but also for the go forward
+[45:48] of how that music is used,
+[45:49] consumed,
+[45:50] all of those different things
+[45:51] to come up with
+[45:52] new and creative uses.
+[45:54] Name, image, and likeness rights
+[45:55] form a really nice base
+[45:57] around all of that
+[45:57] to your earlier point.
+[45:59] So something that has
+[46:02] that breadth and depth
+[46:04] of quality
+[46:05] but also usage
+[46:07] over the past
+[46:08] almost 100 years
+[46:09] at this point
+[46:10] would probably be
+[46:11] the most interesting for me.
+[46:14] It's such a nice way
+[46:15] to think about it,
+[46:16] you know, stewardship.
+[46:18] And we've heard a few people
+[46:19] talk about this.
+[46:20] Josh talked about it as well
+[46:21] when we spoke to him.
+[46:23] And I think that that's
+[46:24] absolutely bang on.
+[46:25] You know, these are like
+[46:26] cultural artifacts.
+[46:27] For me, they belong
+[46:29] to society in some way.
+[46:32] And I think that that's
+[46:33] how the artists
+[46:33] would have always intended them.
+[46:35] Now, maybe there's,
+[46:37] you know, exceptions to that rule.
+[46:39] But I think by and large,
+[46:41] stewardship is the right approach.
+[46:42] That's the right terminology
+[46:43] that we should look after them.
+[46:45] And fine, you know,
+[46:46] if there's a profit
+[46:48] making sense to that,
+[46:50] that's also great
+[46:51] because invariably
+[46:51] that typically drives
+[46:53] the right behavior
+[46:54] to look after them more,
+[46:55] you know, to do better things,
+[46:57] to get them further out
+[46:58] into society.
+[46:59] And I think,
+[47:00] I think it's just such a nice way
+[47:01] to think about it.
+[47:03] Whether you're talking
+[47:04] to Bob Valentine,
+[47:05] who would say
+[47:06] you're
+[47:08] selling
+[47:11] nostalgia
+[47:11] based on
+[47:13] whatever it is
+[47:14] that your favorite
+[47:15] artist was
+[47:16] or songwriter was
+[47:17] at this one period
+[47:18] in your life.
+[47:19] or you ask
+[47:21] Rob Stringer
+[47:22] and he says
+[47:23] you're working
+[47:25] with a Picasso
+[47:27] every single
+[47:28] different song
+[47:29] that is within
+[47:30] your catalog,
+[47:31] not only within
+[47:31] a single artist's
+[47:33] catalog,
+[47:33] but also within
+[47:34] a broad portfolio
+[47:35] of rights.
+[47:37] Whatever way
+[47:38] you want to look at it,
+[47:39] at the end of the day,
+[47:40] what you're dealing
+[47:41] with is something
+[47:42] that is
+[47:43] particularly unique
+[47:44] from
+[47:45] work of authorship
+[47:48] to work of authorship
+[47:49] relative to
+[47:50] really any other
+[47:52] asiclist.
+[47:52] The only other being
+[47:53] remotely similar
+[47:55] would be film
+[47:56] and television,
+[47:57] but of course
+[47:57] that's all within
+[47:58] the broad umbrella
+[47:59] of entertainment.
+[48:00] There's
+[48:00] no other asiclist
+[48:02] that I can think of
+[48:04] that has that type
+[48:05] of reach
+[48:06] and also pull
+[48:08] from the consumer
+[48:09] or any investor
+[48:10] for that matter
+[48:11] in terms of
+[48:12] what they like,
+[48:14] what their
+[48:14] personal tastes are,
+[48:16] and what they like
+[48:16] to listen to
+[48:17] on a daily basis.
+[48:19] Yeah,
+[48:19] and it really feels
+[48:20] like that's part
+[48:21] of the story
+[48:21] of what makes
+[48:22] music so compelling
+[48:23] generally,
+[48:24] of course,
+[48:24] but also as an
+[48:25] asset class.
+[48:27] Yes.
+[48:28] Amazing.
+[48:28] Well,
+[48:29] Paul,
+[48:29] it's been a real
+[48:30] pleasure speaking
+[48:31] with you as always.
+[48:32] Thank you so much
+[48:33] for all your insights
+[48:34] and yeah,
+[48:35] super interesting.
+[48:36] Thank you for having me.
+[48:38] Yeah,
+[48:39] Paul,
+[48:39] thank you so much
+[48:40] and thank you
+[48:40] for all of your support
+[48:41] in all of the
+[48:42] initiatives that we've
+[48:43] got going on as well.
+[48:44] I think it's important
+[48:45] that everybody else,
+[48:46] our audience,
+[48:47] understands your
+[48:48] kind of commitment
+[48:48] to the space,
+[48:49] not just in your day job
+[48:51] but also in everything
+[48:52] else you've done.
+[48:52] You've been a huge,
+[48:54] huge help to us too.
+[48:55] So thank you
+[48:55] and amazing to have you on.
+[48:58] Absolutely.
+[48:58] Of course.
+[48:59] And as always,
+[49:00] thank you everybody
+[49:01] for tuning in
+[49:02] and if you could
+[49:03] give us a subscribe
+[49:03] and a comment
+[49:04] and all those great things
+[49:06] then that means a lot
+[49:07] to us
+[49:07] and as Rafi
+[49:08] just walks past me
+[49:09] in the background
+[49:10] his one appearance
+[49:12] of the show,
+[49:13] please do also remember
+[49:15] that you can download
+[49:16] our new white paper
+[49:17] and the link is in the show notes.
+[49:19] Thank you again, Paul
+[49:20] and we will see you all next time.
+[49:22] Thanks for tuning in
+[49:23] to Music Moneyball.
+[49:24] If you enjoyed the conversation,
+[49:26] you can subscribe
+[49:27] at standard-innovation.com
+[49:29] to get every episode
+[49:31] in your inbox.
+[49:32] You can also follow the show
+[49:33] on Spotify,
+[49:34] Apple or YouTube
+[49:35] to stay ahead of the curve
+[49:37] in music rights investment.

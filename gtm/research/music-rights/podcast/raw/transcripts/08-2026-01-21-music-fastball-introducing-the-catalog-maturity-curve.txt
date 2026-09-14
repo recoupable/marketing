@@ -1,0 +1,143 @@
+# Music Fastball: Introducing the Catalog Maturity Curve
+# Date: 2026-01-21
+# Duration: 00:15:39
+# Guests: [see title]
+# Hosts: Emma Griffiths, Tom Mullen, Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Music-Fastball-Introducing-the-Catalog-Maturity-Curve-e3e01ub
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] Hello and welcome to Music Fastball. I'm Tom Mullin, the CEO of Standard Innovation.
+[00:09] This is our new podcast track where we'll be talking about the operational layer of
+[00:13] music rights investing. We'll be sharing our perspective and our conversations with people
+[00:18] at the coalface of valuations, data and operations and what it means for investment funds in
+[00:25] practice. Today we're talking about building a benchmark of operational maturity and how
+[00:31] we can take inspiration from other industries to set common standards for excellence in music
+[00:37] rights investing. So Tom, we are here today to talk about maturity curves. I think probably
+[00:48] best to level set and just take a minute to explain what on earth a maturity curve is in
+[00:54] the first place. Yeah, absolutely. So maturity curves really a benchmarking framework. It
+[00:59] helps us to define what good looks like and it allows organizations to understand where they are
+[01:06] today, where they want to get to and how they're going to get there. These models are very commonly
+[01:12] used in other industries like banking, insurance, real estate and energy. And it's important to
+[01:18] clarify that it's a curve and not a straight line. And the reason it's a curve is because complexity
+[01:23] increases as you go up the curve, but so does differentiation and value. So the further you
+[01:30] get, the harder it gets to achieve those things, but actually the greater the rewards are when you get
+[01:35] there. So putting this into context, why has operating maturity become such a big topic for
+[01:42] music investment funds right now? And why is it a good time to introduce something like this to that
+[01:48] market? Well, music rights are moving from a very specialist alternative asset to a more institutional
+[01:55] one. And as markets mature, operational maturity becomes a more important driver of investor
+[02:03] confidence. In more mature industries, there are widely understood benchmarks that people can
+[02:11] leverage, lean against, but music historically hasn't had that, or at least a commonly understood one.
+[02:18] And as more institutional capital flows into music assets, their expectations increase,
+[02:25] returns get harder, and requirements from reporting and compliance increase as well. And it feels like
+[02:34] this is the right moment to try and bring something together that people can coalesce around to agree on
+[02:40] what good looks like. So let's dig into our catalogue maturity curve and everything that it entails. And if you
+[02:50] could just walk us through what that looks like, Tom, that'd be great. Yeah, so it's an operating maturity
+[02:56] benchmark designed specifically for people who invest in music catalogs and assets as a whole. It brings
+[03:03] together data, legal, financial, and operational rigor. And it's a living framework built on consulting through
+[03:10] real world engagements and refined through feedback working with those people for whom it's designed.
+[03:17] It's not at all saying that everybody needs to reach the top of the curve, but it's giving them a
+[03:24] something to a foundation to lean upon when they're making decisions as where they should invest next.
+[03:30] It's really about understanding where you are, where you'd like to get to, and how you're going to get there.
+[03:36] So Tom, if you could walk us through the various stages of the curve, that would be super helpful.
+[03:42] So stage one is really very manual. This is right at the bottom of the curve.
+[03:47] And the processes are often very thorough, but reliant on heavily fragmented data.
+[03:52] So there's a lot of manual workflows dependent on individuals. The biggest challenges here are scale.
+[03:58] So the inability to actually scale the volumes of either royalties or other processes that we can operate.
+[04:04] And a level of uncertainty. So not being able to go to the depths that I would like to reach analysis
+[04:11] rather than just retrospectively reporting.
+[04:18] The second stage is a bit more operational.
+[04:22] So a lot of core processes are standardized and there's certainly a lot more consistency across the catalogues.
+[04:29] Visibility is improving and there's some element of automation through certain parts of the process too.
+[04:38] Stage three is much, much more automated.
+[04:42] So significant portions of key workflows are automated.
+[04:47] Investment in data infrastructure is starting to pay off.
+[04:51] So at this stage, you've likely got a dedicated team of data engineers, a dedicated platform that's typically been built in-house.
+[04:58] A reporting gets easier.
+[05:00] The ability to deliver on the demands of any external investors becomes easier.
+[05:08] And the conversations that we're having a much, much higher level.
+[05:11] We're talking more about future analysis and any impacts on global trends, how that might impact the valuation of a catalog at any given time.
+[05:19] So we're really starting to get into a more data driven approach.
+[05:24] And the final stage, which is quite aspirational for a lot of people in many industries, is to get very proactive.
+[05:33] So not only to have very significant investment in data infrastructure teams, but also using the data to proactively identify risks or opportunities for future investments.
+[05:48] What kind of benefits can funds expect to reap as they begin to move up the curve?
+[05:54] Just in general, the expectation of external investors is increasing.
+[06:00] So there is a rising tide that people have to keep up with.
+[06:03] And if they don't, they will ultimately stand still and fall behind.
+[06:07] That is a tide that is, I suspect, going to keep up with the trends in other industries that are in general just more mature.
+[06:16] But having invested in that approach, having gained greater visibility, having the data and infrastructure and everything that you need, invariably that allows us to operate more efficiently.
+[06:31] It allows us to make decisions based off data, I guess also cemented in gut feel as well.
+[06:39] And I think that investment will help people to create a differentiation between themselves and the marketplace.
+[06:47] And whilst it might not change the underlying value of the assets, it certainly will allow them to identify opportunities to potentially purchase at either better than or certainly absolutely at market rates.
+[07:02] And that will create potentially an opportunity for arbitrage as some of the funds that we talk to go through an aggregation strategy.
+[07:11] Right. And as you said earlier, like this asset class is maturing.
+[07:14] So there's kind of no time like the present to really start thinking about a lot of this stuff.
+[07:20] Absolutely. Absolutely.
+[07:21] And the more mature the funds can get, the better argument they have for lower cost of capital in the future when they're doing future raises or standing up new funds.
+[07:31] So how do we actually figure out where a fund sits on the curve?
+[07:36] We benchmark across four main areas.
+[07:40] So that's data and infrastructure.
+[07:42] So how robust the data is, how much investment they've made into the teams, how much investment they made into the infrastructure to run that data.
+[07:50] Obviously, if people are outsourcing the vast majority of their operation to a commoditized provider, their ability to differentiate there would be significantly lower.
+[08:01] The second pillar is legal.
+[08:06] The third pillar is the processes and approach and the operational rigor to be able to look at all of the various complex legal components, both through the underwriting phase and in the ongoing maintenance of a given catalog.
+[08:23] The third pillar is financial, looking at how robust our reporting is, how intuitive our insights are, and making sure that we can really have a clear and consistent model for both underwriting and continual valuation during operation.
+[08:41] And the fourth and final one is operational.
+[08:46] And that is really talking about kind of getting into the weeds of managing the music assets themselves, whether that be fixing meter data, improving opportunities for sync, getting in front of UGC, and all of the things that are contained in actually managing these music assets.
+[09:08] And I'm sure the burning question that people listening to this will be thinking is, once I know where I am, how do I then move up the curve?
+[09:18] And it is a very good question.
+[09:20] To actually do that initial assessment, we have two ways.
+[09:23] We've got an online assessment that people can go and do and fill in, and that's quite a high-level one.
+[09:27] And then there's a more detailed one that we will come and sit down and go through in a workshop to really get into the kind of details of what the curve has in it.
+[09:39] And once we have that understanding of where people are and have set out where people want to get to, given the strategy, given the other important things that are contextual to their business, investment cycle, and everything else, we'll have a clear roadmap of where we want to get to.
+[09:57] Our approach is then really three-tiered, so starting with fix the leaks.
+[10:03] And when we talk about fix the leaks, what we're really talking about is to try and improve the basics that would mean that any investment into future growth would not fall through the cracks, and we will be accounting for and receiving every bit of revenue that we possibly can that is deserved by the rights holders.
+[10:23] And that could be improving meter data, and improving reconciliation and recognition indeed, and really focusing on making sure that there's no lost revenue.
+[10:34] The second part then, building on top of that, is to increase revenue, so make our existing assets perform better.
+[10:42] And depending on the rights types that the fund owns, the levers that we have available to us to pull can be obviously very, very different.
+[10:50] But the best-known ones are obviously improving sync opportunities.
+[10:55] Some of the other well-known anecdotal ones, like creating slot machines for Whitney Houston, the opportunities really are endless and very diversified depending on those rights types.
+[11:08] And the final part is using all of the experience, data, and learnings to identify and execute on future catalog acquisitions.
+[11:19] So whether that be in new territories, whether that be in existing territories, the same genre, differentiation through different genres, just making sure that our approach to identification, underwriting, and ongoing management is as seamless as it possibly can.
+[11:37] And that we know that once we bring these new catalogs in, we've got a really, really solid base.
+[11:44] So we're going to be capturing as much of their future potential as possible as well.
+[11:50] Amazing.
+[11:51] And so that's our kind of catalog accelerator model, if you like, you know, and it just shows how it compounds over time because you fix the leaks,
+[11:58] which means that, you know, everything on top of that is going to increase and then, you know, you can optimize from there.
+[12:06] Yeah, I think if you look at it like a pyramid, you know, you want to get the foundations right at the beginning to make sure that you're going to capture any future value created
+[12:13] and try and build a flywheel whereby data sits at the very center of it so you can learn, improve, progress, move forward, and become increasingly efficient.
+[12:26] And I think in general, that's what we've seen from the funds that we've been talking to.
+[12:30] There is a trend of improving efficiency.
+[12:34] Certainly, I think if you look back over the past five years and over the past 10 to 15 years, it's probably almost unrecognizable, which is fantastic.
+[12:44] But it also signals that that's the direction of travel and therefore table stakes are significantly higher.
+[12:52] For sure.
+[12:52] And I feel like pretty much every podcast episode that we've done so far really backs that up and it just shows, you know, how much people are stepping up their game.
+[13:00] Yeah, I think so.
+[13:01] And, you know, that's driven obviously by people getting better.
+[13:06] So there's increased competition.
+[13:08] Competition is largely seen as a good thing.
+[13:11] And that improvement in efficiency is attracting more capital.
+[13:16] And that's also a good thing.
+[13:17] The more liquid the industry can be, the better.
+[13:19] So the better that everybody can be operationally is going to draw even more capital.
+[13:25] And that's going to be just beneficial for music asset investment as a whole.
+[13:30] I think in that case, all boats shall rise.
+[13:35] And we really firmly believe that operational rigor and data is going to be very, very central to that.
+[13:43] And the nice thing about it as well is that it will benefit the whole music ecosystem.
+[13:47] You know, that increased transparency and that increased rigor that is required.
+[13:52] Yeah, exactly.
+[13:53] So really, you know, to keep it simple, the curve is all about understanding where you are today and then just setting out a really clear, realistic roadmap for where you want to get to.
+[14:05] Yeah, that's right.
+[14:06] And important to bear in mind that it's not that everybody has to be at the same stage of the curve.
+[14:15] People can have many curves within the overall curve that we have.
+[14:20] And depending on their strategy and how their funds organized, they may only want to move between one of the pillars and they may have ambitions to only, you know, fix some of the basics and then be a little bit more passive.
+[14:35] Others will have significantly larger OPEX budgets and their desires will be higher.
+[14:42] And equally, nobody's starting from exactly the same point either.
+[14:45] So it's about being, giving a guideline, being a bellwether.
+[14:51] It's not a rule book that we have to follow, but it's trying to get some consensus of opinion as to what good looks like.
+[14:57] Amazing. Thank you so much, Tom.
+[14:59] And just a reminder for anyone watching or listening, if you are interested in benchmarking yourself and having a rough idea of where you sit on the catalogue maturity curve, you can head to our website or check the show notes and you'll find the link to our very quick and easy baseline test.
+[15:19] Thank you so much again and see you next time.
+[15:23] Thank you for tuning in for the first episode of Music Fastball.
+[15:26] We hope you enjoy the content.
+[15:28] Please subscribe to the podcast and our newsletter on our website, standardinnovation.com.
+[15:35] And we'll see you next time.

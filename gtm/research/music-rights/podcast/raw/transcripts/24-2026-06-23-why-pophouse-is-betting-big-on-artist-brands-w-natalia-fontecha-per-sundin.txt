@@ -1,0 +1,818 @@
+# Why Pophouse is betting big on artist brands w/ Natalia Fontecha & Per Sundin
+# Date: 2026-06-23
+# Duration: 00:56:45
+# Guests: Natalia Fontecha & Per Sundin, Pophouse Entertainment Hosts: Tom Mullen and Emma Griffiths, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen and Emma Griffiths, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Why-Pophouse-is-betting-big-on-artist-brands-w-Natalia-Fontecha--Per-Sundin-e3l573n
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogues.
+[00:09] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:15] Hello and welcome back to the Music Moneyball podcast. I'm Emma Griffiths and I'm joined by
+[00:22] my co-host Tom Mullen. And today we have not one, but two members of the leadership team
+[00:28] at Pop House Entertainment joining us on the podcast. We have Per Sundin, President of Music
+[00:34] and Artist Relations, and Natalia Fontetche, Partner and Head of Capital Raising and Investor Relations.
+[00:41] Per, Natalia, welcome to the podcast. We are very excited to have you both here.
+[00:46] Thank you for having us.
+[00:48] We are.
+[00:49] Thank you. We're very excited too.
+[00:51] Yeah, amazing. And I think what really makes this interesting in particular, particularly the
+[00:57] combination of you guys joining is this balance of the creative and the capital side and how
+[01:03] those two perspectives come together to shape what you're building. So let's jump in and
+[01:09] Per, if we could start with you. What you're doing at Pop House is quite unique and you are
+[01:15] approaching this quite differently from other funds in the space. So it'd be great for you
+[01:19] to just give us a quick overview of the Pop House vision.
+[01:22] Yeah. I mean, Pop House started 2013 or 14 and it's actually started with the ABBA Museum,
+[01:33] which is located in the middle of Stockholm and have 450,000 visitors per year. And then
+[01:41] it grew from there. And we also invested and started something called Mamma Mia the Party,
+[01:47] which is, uh, it's been running in the auto arena, not in the, in the big auto arena, but
+[01:52] in a, in a old nightclub in the auto arena. And then, uh, and then we have, uh, uh, and then
+[01:59] we, we, we have running it for seven years and then we also have running it in Stockholm for
+[02:04] 10 years. And now we're on a, on a journey to roll that out in the world because it's a fantastic
+[02:10] experience if you haven't been there. We also done an Avicii experience, uh, which is a museum.
+[02:16] And we also has done ABBA Voyage in London, who has been selling over 4 million tickets and
+[02:23] over four years as a four anniversary of 27 of May. And so that's one side of Pop House. That's
+[02:29] one bucket and where everything started. And then we read it, we started to think about,
+[02:34] you know, this is what we do when we used, I mean, we can use ABBA as a blueprint and see
+[02:40] how the, you know, the attention of a band that stopped doing music 1981, uh, how they
+[02:46] come across. And we said, why don't we, why don't we, well, first it was the, first it
+[02:52] was the, the, the owner of the company said, you know, why don't we buy ABBA's assets?
+[02:56] Well, they're never going to sell. And I worked with ABBA since 98. So, uh, so I, so he said
+[03:03] that, well, okay, how we, how can we buy universes rights? They never sell that, you know, you
+[03:11] will have the crown for ABBA. And then he says, then he said, well, okay, if we, if we can,
+[03:18] can we, can we buy us other assets with what money? I said, you know, let's start a fund.
+[03:24] And that's, that's what, because it was Connie Johnson who said that, and he is, you know,
+[03:28] the chairman and mastermind of, uh, uh, and founder of EQT, one of the world's biggest,
+[03:33] you know, uh, private equity company in the world. And so we started that and, uh, and thanks
+[03:40] to having, you know, the creative people in pop house that, you know, the music industry,
+[03:44] we paired it up with, with persons from Morgan Stanley, from McKinsey, from, and from, uh,
+[03:51] from, and Jessica, you know, and with the experience from private equity business.
+[03:56] And that's really made us, and we think we are unique positions.
+[04:00] And we think that we actually are in full position combining the creative people that
+[04:06] know the music industry like myself and Natalia has, has huge experience from, you know,
+[04:12] and raising money, but also be doing your private equity to make the value add projects
+[04:20] to really increase the value of the assets we buy.
+[04:24] Yeah.
+[04:25] And as I said earlier, like, it seems like that blend of perspectives is really what, um,
+[04:28] you know, drives pop house, which is, which is great.
+[04:32] And Natalia, from your perspective, how does that translate then into your investment strategy
+[04:38] and thesis?
+[04:40] Yeah.
+[04:40] Yeah.
+[04:41] So, well, first of all, I want to, uh, I want to mention, um, Per, uh, referred to Jessica,
+[04:46] who's our new CEO who joined us in, in January.
+[04:50] Um, for those who are not familiar with pop house, um, and how, when it relates to our investment
+[04:57] strategy, I think it's very unique, uh, in that it's very artist centric and storytelling
+[05:03] is at the core of our model.
+[05:05] Um, Per was talking about Connie Johnson, who's one of our founders.
+[05:08] The other founder is, um, is Bjorn Orveos, one of the members of AVA.
+[05:13] So for pop house, it's, um, it's both about creating financial and cultural value for our
+[05:21] catalogs.
+[05:21] And we look after legacies, um, the legacies of our artists.
+[05:26] And, and really what we want is to connect generations through emotion and, and creativity.
+[05:31] And, and the way we do this is by, by harnessing the power of storytelling.
+[05:36] So we use storytelling, um, to add value to the catalogs of artists that we buy.
+[05:44] And that's really our investment strategy is, uh, is a private equity value add artist centric
+[05:50] strategy.
+[05:52] Boy, uh, I would have absolutely loved to be a fly on the wall for some of those early conversations.
+[05:57] Um, but I suspect we don't have time to go to those right now.
+[06:01] Uh, Natalia.
+[06:03] So you've obviously had a long career in private markets.
+[06:07] Uh, can you just give us a kind of quick comparison about the experience you've had historically
+[06:13] and the one that you see now in underwriting music IP and how that differs?
+[06:19] Hmm.
+[06:20] Um, well, I mean, I will start saying that, um, now I'm most of the time smiling.
+[06:26] Uh, it's one of the things that, uh, it's very different from, uh, from working in a
+[06:31] traditional private equity environment to, to, to working in, in, in music investing.
+[06:37] You know, when I go into meetings and we sit across the table with investors, um, everyone
+[06:42] is smiling, everybody is joyful and everybody has something they want to say about their
+[06:46] favorite artists or, or ideas for the pipeline.
+[06:49] So that it's, and you know, I'm a quite joyful person.
+[06:52] I'm Spanish originally, but this investing in music really brings up, uh, a lot of joy
+[06:59] and, and, and good energy into the day-to-day life more than any other traditional job I've
+[07:05] had in my long career.
+[07:06] But when it comes to, uh, investing in underwriting, I have to say underwriting music IP is just
+[07:12] as rigorous as underwriting a company.
+[07:14] You know, we apply the same institutional discipline you would expect in private equity because we
+[07:20] are private equity.
+[07:21] And, and what this means is, um, data-driven screening, investment committee approvals,
+[07:26] and full legal and financial due diligence, uh, including ESG, uh, diligence as well.
+[07:32] We, people sometimes are surprised that we underwrite cash flows bottom up, some by song.
+[07:38] We do stress test scenarios and we focus a lot on downside protection.
+[07:42] So, you know, as much as we talk about storytelling and, and, and emotional connection and, and creativity,
+[07:49] when we're analyzing the, the catalyst we're going to be investing in, we also look at music,
+[07:55] um, as something that it's, it's not niche or creative.
+[07:59] It's just analyzed with the same financial rigor as, as we will do with, um, with any other
+[08:05] financial asset.
+[08:06] So I would say underwriting, it's pretty, pretty the same.
+[08:10] I think what's a little bit different is what happens after the acquisition.
+[08:14] Yeah.
+[08:14] And I, you know, that's such a really nice marriage, isn't it?
+[08:17] Where you get to bring the art, where you get to bring the storytelling, but equally,
+[08:21] you know, there is financial rigor and you have to get those things done because if you
+[08:25] can't make it work, you know, in the accounts, then the rest just isn't going to happen anyway.
+[08:30] Right.
+[08:31] So there, when you, you've got an absolutely incredible set of assets that you now represent
+[08:40] and manage, and when you're looking at artists, what helps you define as to whether they fit
+[08:47] the pop house model and how selective do you really have to be?
+[08:51] That's a good question.
+[08:52] I think that we, since we have yesterday to, to go through the, we, we bought Swedish House
+[08:58] Mafia.
+[08:59] Then we bought, there was a first portfolio or a catalog we bought.
+[09:04] And then we bought Avicii, which is, I'm, I actually, when I was at Universal, signed myself
+[09:10] 2010 and worked with him until he unfortunately passed away.
+[09:16] And, and then we bought Cyndi Lauper and then we bought Kiss.
+[09:22] And, and that's really the four, the first four, the first four was the first stint, if
+[09:27] you say so with, and then it took one and a half year until we really went in all in on
+[09:34] Tina Turner, which we just announced that we bought the rights for.
+[09:38] And they, as you, as you can hear, they're quite different, you know, I mean, it's two EDM
+[09:43] artists, it's Cyndi Lauper from the, from the eighties, if I say so, when she had her big
+[09:49] hits and then it's Kiss.
+[09:51] I kind of brand pioneers, right?
+[09:54] Like they, their branding and merchandise has been, you know, kind of iconic.
+[09:58] And when we, when we went in to talk to Doc McGee, the legendary manager of, I mean, Mottly
+[10:04] Crew, Bon Jovi and Kiss for the last 25 years.
+[10:07] We start talking about, you know, we, we buy everything, you know, we, so we bought, you
+[10:11] know, with Kiss, we bought the, the brand, the makeup, the song, the, everything that
+[10:17] Gene and Paul wrote and, you know, what they performed.
+[10:20] I mean, the logotype, everything.
+[10:23] And if you look into the, I mean, we have, we have the value of the masters, you have the
+[10:28] value of the copyrights, meaning the songwriters.
+[10:32] And we also have something called Nilwrites, which is name, image and likeness combined with
+[10:37] the brand and having a brand that could, you can put on, I can even say there's, they,
+[10:43] they, they, they actually have coffins or caskets, you know, so you can bury yourself
+[10:49] or ask that in your, in your will to be buried in, in, in the Kiss.
+[10:53] They sold 14,000 caskets, you know.
+[10:57] 14,000.
+[10:58] Wow.
+[10:58] Yeah.
+[10:59] And they.
+[10:59] The Kiss army.
+[11:01] I can believe it.
+[11:01] And they have.
+[11:02] Yeah.
+[11:02] The whole name, image, likeness, that's got to be the most fun set of rights, hasn't
+[11:07] it?
+[11:07] Just like gives you so much scope.
+[11:09] I mean, if you have a brand where you can sell air guitar strings, then I think you made
+[11:15] it, you know.
+[11:18] That is.
+[11:19] Air guitar strings.
+[11:20] Yeah.
+[11:20] The air guitar strings.
+[11:21] Air guitar strings.
+[11:22] I like that.
+[11:24] So good.
+[11:24] I think it's, I think the key thing is, is that when we look at something, we really
+[11:29] want to see if we can make something of it.
+[11:31] Meaning that, of course, we do financial due diligence, but we also do a brand narrative
+[11:36] due diligence, meaning that we're looking into what can we develop from this?
+[11:40] How, what can we, what can we, can we, what can we do that is different?
+[11:44] That actually going to, going to expose the music, the brand, the artist to new generations
+[11:51] and to new geographies.
+[11:53] I mean, I'm using the example of the, of, of, of ABBA, who did their, did their last
+[11:59] album, 81.
+[12:02] And, and then they, they couldn't, they could make money of selling records, which was vinyl
+[12:08] at that time in North America, Western Europe, New Zealand, Australia, and Japan.
+[12:16] That was the market.
+[12:18] I mean, of course they released music in, in, in South America, but it was so small compared
+[12:22] to everything else, everything else.
+[12:24] Now the whole world is in play thanks to streaming services.
+[12:28] And with what we do, we look into, we look at this, this is, this kind of sounds maybe boring,
+[12:33] but when you look at the valuation of things, we see, you see what, what things happening
+[12:38] and it's not like you're having a company or then having a fantastic product.
+[12:43] This is more like real estate business.
+[12:45] We have an evergreen value of these catalogs.
+[12:49] They still streaming like they did when they first was released today.
+[12:55] And that's the very interesting.
+[12:56] We don't, you don't look at the P and L, you look at the balance sheet.
+[13:00] That's what's real estate companies working on.
+[13:02] And that's really what we do too.
+[13:03] We look, what's the valuation?
+[13:05] Well, how do we grow the value like a private equity company?
+[13:08] And when they look at their assets, that's the same procedure as we're doing right now.
+[13:14] And when you're looking at, you know, when you're looking at artists, they need to have
+[13:18] a certain value because a transaction cost in percentage needs to be, because we need
+[13:23] lawyers on both sides.
+[13:24] And, you know, I was fortunate to need lawyers.
+[13:29] We do the right things.
+[13:30] And I think that's, but it could be that, do we have a plan for something that is really
+[13:38] a hidden gem and I underline hidden.
+[13:41] And then it could be a thing that we can make a bet on.
+[13:45] I would say that no one may be, I mean, no one mainly remembers the search for Sugarman,
+[13:51] but that's a fantastic documentary about a forgotten guy that was just discovered.
+[13:58] And it won the Oscar for best documentary.
+[14:01] And that is a fantastic story or the documentary of Eva Cassidy.
+[14:05] That's not a huge, not many people of younger generations know who she was, but she was a
+[14:12] fantastic woman with a fantastic voice.
+[14:15] And those documentaries about those artists just made them break through and become number
+[14:20] one around the world.
+[14:23] And I think that's, if you can also compare, you know, the biggest things that ever has
+[14:30] done in the kind of, I mean, I don't think they thought they were smart.
+[14:35] I just think that they tried a thing called Drive to Survive.
+[14:39] That's not music.
+[14:40] That's Formula One.
+[14:41] But that TV series has the biggest impacts of any, and I would say, brand or product that's
+[14:51] in the, for the last, you know, 50 years.
+[14:56] And taking this Formula One from a niche sport into sports growing, especially for young women,
+[15:05] you know, which is a fantastic way of increasing the value of the brand, which, yeah, that liberty
+[15:11] did when they bought, you know, from Borne-Eckoste.
+[15:15] Yeah.
+[15:15] Yeah.
+[15:16] That's a really interesting comparison, actually, and not one that we've kind of brought up before,
+[15:20] but I can totally see that, you know, relatively institutional asset in itself by institutional
+[15:27] in the public mind, less in the capital sense of the word, and then reinvigorated, introduced
+[15:33] to new demographics, introduced to new regions and seeing growth as a result.
+[15:39] So I can definitely see that comparison.
+[15:41] And Natalia, comparably, you guys are doing a relatively small number of deals.
+[15:47] How do you think about balancing risk across the portfolio?
+[15:52] Yeah, we are highly selective by design.
+[15:55] We have a fairly concentrated portfolio, and we go after what we call Premier IP, and our
+[16:03] recent partnership with Tina Turner is a good example of how we can source and execute on
+[16:09] catalogs that are culturally significant and global, as Bear was mentioning.
+[16:13] The way we manage portfolio risk is, again, very traditional private equity-like.
+[16:21] We have some hard concentration limits.
+[16:23] No single catalog can be more than 20% of the whole portfolio, alongside the rigorous due
+[16:30] diligence that I was referring to before.
+[16:32] And then, other than the portfolio construction, you can think of, at an asset level, the fundamentals
+[16:41] of music and the music that we focus on, which is catalog music, which we define as music that
+[16:46] has been around for at least five years, where the decay curves are already very stable, and
+[16:52] actually, the catalogs are growing with the market or higher than the market.
+[16:57] That, in and of itself, it's already very resilient.
+[17:01] And we look at catalogs that have streaming revenues that are global and that have been
+[17:10] persisting across different economic cycles in ways that are completely uncorrelated.
+[17:16] So we look at those characteristics for our strong downside protection.
+[17:22] And then, you know, within that, we obviously diversify thoughtfully across genres, areas,
+[17:30] geographies.
+[17:32] And I suppose even just in the difference of rights types as well, like the opportunities
+[17:35] that that brings you for revenue streams is really quite diversified, isn't it?
+[17:40] I mean, you're getting away from just the consumption of the music, but actually to the consumption
+[17:45] of all of these other types of goods that ultimately bring revenue.
+[17:49] Yeah, and actually, thank you for bringing that up, Tom, because that's one of the things
+[17:53] that makes PopPars and our approach very, very different.
+[17:56] We focus on specifically master rights, because those are the ones that allow us to have active
+[18:01] ownership of the catalog and do all of these creative emotional initiatives with.
+[18:06] We also can buy the publishing rights for sure.
+[18:08] And as Per mentioned, we acquire name and likeness and everything that it's actually possible to
+[18:15] acquire if it's available, because that all helps increase the amount of incredible new
+[18:21] things that we can do and give an even more robust base to the acquisition.
+[18:27] Yeah, amazing.
+[18:28] And I know that, you know, we talked before about so much of the foundations of PopHouse
+[18:32] being associated with ABBA and, you know, what they've done.
+[18:36] And that's really kind of built the blueprint, essentially, for what PopHouse is doing.
+[18:42] And, you know, you guys are a founding investor in ABBA Voyage and, you know, heavily involved
+[18:48] in that.
+[18:48] But how much do you think that playbook kind of dictates what you're doing with the rest
+[18:56] of the portfolio artists?
+[18:57] And Per, kind of, how do you kind of think about scaling that across other artists and,
+[19:03] you know, how much of it is repeatable versus unique to ABBA, who are such a unique band
+[19:10] in themselves?
+[19:11] I think we have not been part of the creative setup or the production of the ABBA show.
+[19:17] I was in a position, I was CEO for President for Universal Nordic.
+[19:24] So I was responsible for the catalog and signed the first contract we did.
+[19:29] And we thought that it was, this was very interesting.
+[19:33] And, but in the first case was more like in hologram show, but we realized very quickly
+[19:39] that that's not what it is.
+[19:41] And then the two producers, Svana Gisle and Ludwig Andersson, they contacted ILM, Industrial
+[19:50] Light and Magic, which, and then they find the guy, Bailey Walsh, who was the creative director.
+[19:57] And then they started to work together with Ben Morris, who is the lead producer or CEO
+[20:03] of ILM in UK.
+[20:06] And, and they, and, and we, me and some other people were raising money because we needed
+[20:13] a lot of money for this project.
+[20:15] And then, but you, we didn't really know how it's going to be, you know?
+[20:18] And so it's, we, we, there was an idea and you can imagine investing a lot of money in something.
+[20:25] It's also for, for saying that we, in, in a venue that is 45 minutes east of, of Leicester
+[20:32] Square, you know, it's also, you know, a big gamble.
+[20:37] I say, yeah.
+[20:37] Yeah.
+[20:38] And in the middle of the pandemic, it's also, we had also say, can we make this in time to,
+[20:44] because we didn't, we actually, the, the, when you were the, about what she's is right
+[20:49] now, it's only temporary building and we have to take it down eventually.
+[20:56] And, but it's still doing so well.
+[20:58] So the economy of London still wanted to be there, which is great for, for us.
+[21:04] But in, in, when I was there, you know, four weeks before the, the premiere, they asked
+[21:10] me, now you can come in and see how it looks like, which is, you know, I, you know, and,
+[21:14] and I hadn't, I had no part of the creation of this, you know, as, as Natalia said,
+[21:19] Bjorn, of course, was, Olveus, one of the owners of Poppa's was really checking his,
+[21:24] how he looked, et cetera, et cetera, which is important to everyone, for everyone that's
+[21:30] been coming in Avatar.
+[21:31] And I went into the venue, two o'clock on a Thursday afternoon, I remember exactly when
+[21:37] it was, and they just put down the lights and they played Visitors and Lay Your Love
+[21:43] on Me.
+[21:44] And I started to cry.
+[21:44] I, it's, I get almost emotional now because I, I, I, oh, I realized.
+[21:53] He realized that it was going to work.
+[21:55] I realized it's going to work.
+[21:57] And all the people we sold in the ID to invested money in this, I felt that this, this really
+[22:03] going to be, I didn't, I didn't know it was going to be a success, but this is going to
+[22:07] be amazing.
+[22:08] And, uh.
+[22:10] It's such a brave, brave format.
+[22:12] Yeah.
+[22:13] I mean, there's so many ways that that could not have gone well, but so cool.
+[22:18] Yeah.
+[22:19] And you are.
+[22:19] Right.
+[22:20] And it's easy to assume it's ABBA, you know, iconic, but you know, you didn't know, like
+[22:24] it was a risk.
+[22:25] Right.
+[22:26] So.
+[22:26] It was, it was, it was unbelievable.
+[22:29] And then, and of course you look at ABBA and you're just thinking of ABBA's unbelievable
+[22:33] music, you know, I mean, and ABBA's capital is not Stockholm, it's London.
+[22:38] You know, I mean, it's the heart and the emotions that ABBA gets from the people in, in UK is amazing.
+[22:49] And even though you gave it zero points in the 1974 Eurovision Song Contest final.
+[22:54] So, but if you look, if you put that aside, uh, I mean, ABBA is unique and not only in,
+[23:03] I was not only in, in UK, but UK is just amazing, but in rest of Europe, in, in the Latin world,
+[23:10] you know, in, in Japan, in Australia, you know, ABBA is, has fantastic songs, fantastic
+[23:17] vocals, uh, of the two girls.
+[23:20] And I think it's, I think it's totally unique.
+[23:23] That said, of course you can do it with other artists and it totally, but you have to have a
+[23:27] different kind of approach.
+[23:28] We believe.
+[23:30] And as we, as we've done and what we've done with, when, when learned about it, it's, we
+[23:35] learned, you know, you have to have to have, you need to have the right people, the persons
+[23:39] that's creating this, hopefully together with the artists, since they, if they are alive,
+[23:44] to really create something to, uh, uh, uh, uh, concert performance or, or just an experience
+[23:52] or to, to make it for people that never saw this band live before, or never can experience
+[23:59] in this kind of band before.
+[24:01] So what we're doing with Kiss, for example, it's going to be a more of a rollercoaster.
+[24:06] And we believe it's going to be something that is going to blow your mind and it's going
+[24:12] to be epic blood spitting and fire and bombs and everything you want.
+[24:18] And then we.
+[24:19] It's going to be a joy ride.
+[24:20] It's going to be.
+[24:20] Like a, yeah.
+[24:21] Or a scary ride.
+[24:22] Yeah.
+[24:23] It'll be scary.
+[24:24] A joy ride.
+[24:25] Yeah.
+[24:25] Amazing.
+[24:26] Yeah.
+[24:26] So that's, that's really, so it's, it's, it's, it's the key thing here is that you have
+[24:31] to select, you can't do this with every brand and every artist.
+[24:34] You need to select it.
+[24:37] We don't believe they can do what we've done.
+[24:40] It's going to be a role model for everyone that follows.
+[24:44] And you're going to be able to do it in, with lower budgets in different kinds of places.
+[24:50] The technology evolves and so will the experience for the consumers.
+[24:55] I suppose as well, it kind of sets a level of courage, doesn't it?
+[24:58] You know, to, to go and do that first one is incredibly brave, incredibly ambitious.
+[25:03] And obviously, you know, you don't want to get complacent about previous success, but
+[25:08] also momentum and confidence and courage.
+[25:12] They do really matter, particularly in creative industries where actually people need that
+[25:18] kind of freedom of expression and they need the opportunity to believe and not be hamstrung
+[25:22] by, you know, what happens if it goes wrong moments.
+[25:25] It's so impressive.
+[25:26] Yeah.
+[25:28] Per definitely feels those characteristics.
+[25:30] I think that Per is a visionary and what happens in those moments is he's got some good
+[25:36] experience that allows him to continue to push through and cut through the noise.
+[25:41] Right.
+[25:42] Yeah.
+[25:42] And I think a lot of this, you know, you've, you've spoken, Per, about the importance of
+[25:47] what you do.
+[25:48] Obviously, you have these fan bases, like you've got the Kiss Army and, you know, ABBA is ABBA
+[25:54] and they have this iconic fan base.
+[25:56] But so much of this is about bringing these artists and these brands to new audiences.
+[26:01] Yes.
+[26:01] Right.
+[26:02] So when you're talking about, you know, a brand like Kiss, for example, or a brand like, you
+[26:08] know, Tina Turner, who are these iconic, iconic acts.
+[26:12] How do you approach that in terms of thinking about how you can take that to different audiences
+[26:18] and the newer generation?
+[26:20] No, but again, we, we, we, first of all, you know, as I said, we do different kinds of due
+[26:26] diligence and brand and the narrative, what story can we tell around them?
+[26:30] But then we also use data, you know, and with the, with streaming today, I'm talking not
+[26:37] only for Spotify, I'm talking everything you, you have open APIs that you can draw numbers
+[26:45] from.
+[26:45] You can see there's the, I mean, if you just talk, let's go through Spotify, you really
+[26:51] can understand, you know, how many people complete the song, you know, the, I mean, it's all data.
+[26:56] If you, if you add a song to your own playlist, if you have the new music Friday or whatever
+[27:01] you have, and you have a song that someone sent to you, you add it to your own playlist.
+[27:05] That's a big tick for the algorithm.
+[27:07] So that's really saying that this is a good song.
+[27:09] If you complete the song, meaning if you listen to the end of the song, that's also the second
+[27:15] best.
+[27:16] If you share a song, that's, that's in par with being second best.
+[27:22] And then you, and then of course you have some, something that skips before 30 seconds
+[27:28] has gone.
+[27:29] You know, that's, that's different than the, than a song is not, first of all, it's not,
+[27:33] you're not going to tick for, for numbers or for taking part of the royalty pool, but
+[27:38] it also show that you're not interested in song.
+[27:41] 33% approximately 30% of all songs started on Spotify being skipped within five seconds.
+[27:49] Think about that.
+[27:51] Oh, interesting.
+[27:52] It's an interesting data point.
+[27:54] And you've combined all the data you have, you know, and you, which generation, which age
+[27:59] listened to, of course it could mom and dad that have you, you have your credit card.
+[28:03] So you can see that.
+[28:04] And I think it's so much easier for us to make a good decision and, and make a decision
+[28:12] that we know this is what it's worth.
+[28:15] And there are institutes and companies in us that actually do valuation now on catalogs.
+[28:22] And it's also companies, you know, private equity companies and banks that really look into this
+[28:29] market and see that we have built a music as an asset class.
+[28:34] And that's actually, you can, when we, when we do, we buy big investments, we could actually
+[28:39] loan a big part of it if we want it, you know, as leverage.
+[28:43] Because the banks just said, no, your, your, your catalog is, is good as a security.
+[28:49] That's quite interesting where it's, where music has become.
+[28:53] And that's not something, and that's, so that's really talking money ball here.
+[28:57] You know, it's a different ballgame.
+[29:01] Yeah.
+[29:01] It's being able to kind of tap into those new audiences using the data that you have available,
+[29:06] which you didn't have before, which is, is really crucial.
+[29:09] That was me doing, I mean, if you have a hunch, bet the bunch.
+[29:13] That was more, more like, and I was saying, I was, I was saying to people that, you know,
+[29:18] in the record industry is being a private, private, private, venture capitalist and entertainment.
+[29:25] That's where we were, you know, going back.
+[29:27] Yes.
+[29:27] Didn't have, really have a clue.
+[29:29] We just had a feeling or when we signed an artist and spent the millions of dollars
+[29:33] in building videos, you know, recording acts and, you know, and then, and then two out
+[29:40] of 10 or one, depending on how good you are, two out of five, maybe if you were really good
+[29:44] was successes that, that actually finance everything else.
+[29:48] Now we know what we're buying.
+[29:50] We know the income streams and we know it's going to grow with the markets because the
+[29:54] market increasing.
+[29:55] Then we have, then of course, if we do value add projects like a documentary or a biopic or
+[30:02] being lucky to have a song in Stranger Things season four, like Kate Bush had, you know, then
+[30:08] you're becoming number one on the, on the world Spotify chart 37 years after release.
+[30:13] How about that as a value add?
+[30:16] Yeah.
+[30:16] And that's a classic example of introducing that artist to a whole new audience.
+[30:21] Suddenly you have a bunch of 13, 14 year olds walking around with Kate Bush t-shirts, you
+[30:26] know, which.
+[30:27] That's amazing.
+[30:27] Fascinating.
+[30:29] Yeah.
+[30:29] And for the.
+[30:30] Exactly.
+[30:30] And I feel like if you invest in the brands that you, that Pop House does, then inevitably
+[30:36] those moments are going to happen.
+[30:37] If you do the, if you do, sorry, sorry.
+[30:39] If you do that, if you really try to find the gems and then you, then you're also able
+[30:46] to be lucky or some, some, a sports guy in Sweden is, is an out, a downhill racer in
+[30:52] for ski.
+[30:53] He, he, he is, it's like the report said you had, you was very, you were very lucky today.
+[30:59] And he answered back, you know, lucky, the more I train, the more luck I have.
+[31:03] And I think that that's, that's with data today, you find the right assets and you will
+[31:09] be able to be lucky.
+[31:12] Yeah.
+[31:13] And I think there's a, you know, there is the importance of gut feel and there is still
+[31:18] that understanding of what is in the cultural zeitgeist and how that's going to transcend
+[31:24] different generations and different cultures around the world when you enter new markets
+[31:28] and things like that.
+[31:29] I don't think that will ever go away, but I think you're absolutely right.
+[31:32] Just the amount of data that we get, we can ratify some of those gut feels and start to
+[31:39] narrow the gap between kind of success and failure and hopefully just make it a little
+[31:43] bit more linear.
+[31:44] It just super fascinating.
+[31:46] And, you know, you guys are obviously right at the forefront of dealing with some of those
+[31:50] iconic artists.
+[31:51] And I think the same applies in spades really, doesn't it?
+[31:54] Yes.
+[31:55] Yeah.
+[31:56] So Per, we did want to touch on, I know we, we talked about this a little bit,
+[31:59] offline, but anyone that has watched the playlist on Netflix and it is recommended watching
+[32:06] from us because it's, it's great and a great story.
+[32:09] But, you know, we know that you were very kind of instrumental in, in driving the, the
+[32:17] streaming model and very supportive of Spotify during its inception, which is great.
+[32:22] And I think that kind of lends itself very well to how you look at things at Pop House and
+[32:27] just this very innovative approach that you have.
+[32:30] But where do you see that next wave of growth coming from?
+[32:35] You know, we know that streaming, for example, is slowing in the maturing market.
+[32:39] So what do you see?
+[32:40] What excites you now?
+[32:42] Like having, you know, that was 20 years ago when you were involved in the inception of
+[32:46] Spotify.
+[32:47] Where do you see the direction of travel now and the next wave of growth coming from?
+[32:52] I believe that, you know, we, I mean, if you talk about the total music industry, I would
+[32:58] say that it's still growing.
+[33:01] And, you know, China is close.
+[33:03] They don't have Netflix.
+[33:04] They don't have Spotify.
+[33:05] You know, they really, but they're enormous population and they growing very fast in their own Spotify
+[33:13] competitors, doubling, I think from 150 to 300 million during this, this year, paying,
+[33:21] paying subscribers.
+[33:22] And we also see, we also see Africa, you know, if we're talking about geographies, that is
+[33:29] slowly growing, but we believe that it's going to be, I mean, that's, it's going to grow.
+[33:35] It's going to be a very interesting continent.
+[33:37] Latin, we see is just the fastest growing as of today.
+[33:41] And then everyone talks about right now about AI and that's going to be the next growth model.
+[33:49] I'm not sure it will be that impactful for, for a listener, for streaming.
+[33:55] I mean, if the 75,000 Deezer came out saying 75,000 something songs every day is AI songs that
+[34:03] is uploaded into Deezer, which is just terrible.
+[34:06] It's going to be forgetify because no one in 10 years, no one going to know, remember,
+[34:13] I mean, maybe one song is going to come out and be, it happens.
+[34:16] I think that is, is we should look at AI as a fantastic tool for creators.
+[34:22] That's really what this is.
+[34:24] As you know, I talked about Avicii, you know, I mean, he couldn't play an instrument.
+[34:28] He was a World of Warcraft player, a very good one.
+[34:31] His friends was looking at him instead of playing with him.
+[34:34] They're looking when he was crushing it.
+[34:36] And so, but he just saw a documentary about a guy called Bass Hunter who did a song called
+[34:44] Booth and Anna and how he, and he showed in this documentary how he worked with the,
+[34:48] with the Fruit FL Studio, Fruit Loops.
+[34:51] And so he downloaded and he started to play with it.
+[34:55] And then he loved it and he realized that I can do songs.
+[34:59] And then after two, three years, he realized, I really can do songs.
+[35:05] And then, you know, you know, we, with his manager, you know, I met them and we said, let's go, you know,
+[35:11] and then, then we released the first, you know, the, I mean, the first real song was, was,
+[35:18] seek romance.
+[35:20] And then he was just on a roll.
+[35:23] And so for him, this, because he couldn't play an instrument and suddenly he could play all instruments and he could create music and becoming this kind of, he was a genius.
+[35:35] And, you know, that was unleashed in his brain, in his body, in his soul.
+[35:40] He had all these songs and tunes and ideas.
+[35:45] And thanks to, I mean, if, I mean, if that is not AI, I don't know what AI is, that you can do this without, with a, with a tool, like a synthesizer.
+[35:54] You can play all instruments, you can play piano.
+[35:56] And I think that is what's going to unleash new generation of creators, going to do music that we've never seen before.
+[36:04] There is a saying from Pablo Picasso that art is not to depict reality.
+[36:12] Art is to create something that no one's seen before.
+[36:16] The same thing goes with creating music with AI tools.
+[36:20] You have to do something that no one else has done before, like Billie Eilish and her brother.
+[36:26] Have he created music for her?
+[36:28] Rosalia right now, I think is also amazing, sound differently.
+[36:32] So I really, you know, think that's amazing, you know, and I, I, it's going to be fantastic to see in 10 years time what kind of music songwriters.
+[36:43] I mean, I'm talking about songwriters, artists, not, you know, AI monster.
+[36:49] They're going to create thanks to AI tools that's being created and in, in the next few years.
+[36:57] Yeah, it's so interesting that, isn't it?
+[36:59] And I think there's obviously two camps in the whole AI sphere about as to whether it will be automatically generating music that all people will consume.
+[37:07] But if you're thinking of it from the flip side, just the democratization of creativity, historically, in order to make music, you needed to play an instrument or to be able to sing.
+[37:19] And they're quite physical restrictions if you don't know any of those things.
+[37:22] And then the advent of more technology allows you to go and move that further and get it to more people.
+[37:27] And now really it's down to, okay, well, can you understand what good music actually sounds like?
+[37:32] And if you've got the tools to be able to create that, well, then why not?
+[37:36] I think the joy is still out as to whether machines should be creating fully fledged music or not.
+[37:42] But ultimately, if people consume it, I suppose they do.
+[37:46] Natalia, you have raised a really significant amount of money now, over a billion euros for pop houses to fund.
+[37:55] How do you get institutional investors comfortable with backing your approach?
+[38:03] And just to kind of continue that on, does it differ between when you're raising money for the fund and when you're raising money for the operational sides of the investment in Aber Voyage and things like that?
+[38:18] So raising our first fund, especially at the time we did, was really about education and trust.
+[38:31] So many institutional investors, they were still not that well acquainted with music as an asset class.
+[38:39] Everybody understands music culturally, of course, but not necessarily how music rights are scalable and how we turn them into something that is accessible for the institutional investors.
+[38:52] So we really spend a lot of time explaining everything that Perthold was talking about, the growth, the underlying growth of the streaming market, the durability of the cash flows, the global nature of streaming and the growth.
+[39:09] And just explaining the underwriting and the governance around how we do music investments.
+[39:16] And make sure that people understood that, you know, this was really private equity standards.
+[39:22] So a lot of education, a lot of listening to people's concerns to make sure that we could address them.
+[39:29] And I think that...
+[39:30] What were some of those biggest concerns?
+[39:33] Like, you know, in every...
+[39:34] Ultimately, it's a sales pitch is that you're having to sell them the vision, explain them the details, give them the trust.
+[39:41] But you're going to have to do some objection handling there.
+[39:44] And what were the biggest challenges that you had to overcome?
+[39:48] A lot of people were asking us about AI.
+[39:53] And, you know, as Bear mentioned, AI for us is a tool.
+[39:58] And we use it as a tool.
+[39:59] And as long as we own the IP, then we feel very confident, especially the kind of music that we focus on, the iconic artists and the catalog artists where there is data and data time and time again.
+[40:11] And shows that people like to listen to older music.
+[40:15] Even younger generations like to listen to older music.
+[40:18] So a lot of questions around AI and the impact of AI.
+[40:22] A lot of questions around understanding the infrastructure of music.
+[40:28] How do we collect music?
+[40:29] What kind of risk do we really have?
+[40:31] Who is paying?
+[40:32] Who is collecting?
+[40:34] So there was a lot of questions around this.
+[40:37] We also had to spend a lot of time explaining to people how we do the value add and how we have this active approach, which is different to any approach that had been really focused on before.
+[40:51] So, you know, everything we've been talking about during this conversation, how we put the artists at the center.
+[40:58] We believe in long-term value creation.
+[41:00] We believe in bringing the music to new audiences through different creative experiences.
+[41:07] Some of them immersive.
+[41:09] But some of them as well time-tested as a good documentary or a good movie.
+[41:15] So we have to speak about how sustainable alpha creation is in what we call entertainment IP.
+[41:23] And then a lot of people were asking about, well, we don't really know where to put you.
+[41:29] You know, we don't know if we have an allocation.
+[41:32] And actually the response was actually very, very easy.
+[41:35] Like, you know, if you have a private equity allocation, then you already have a place for music IP in your portfolio.
+[41:41] Because we have to try to govern and manage the assets with the same discipline as any P investment.
+[41:47] But of course, we can also be placed in an accredited bucket or an opportunistic bucket.
+[41:52] Or you'd be surprised.
+[41:53] When what we found out is that when people really want to invest with us, they find a place to put in.
+[41:59] Yeah, yeah, yeah.
+[42:00] Some people will categorize us as infrastructure, digital infrastructure, or even a sustainable investment.
+[42:07] Because we're responsible investors.
+[42:09] So, yeah.
+[42:10] Yeah.
+[42:11] And do you find that some of those more tangible things that you guys have that maybe some of the funds don't help with that?
+[42:18] Because owning music, and particularly with the kind of complexities of the royalty flows and everything else,
+[42:24] is not necessarily the most straightforward thing to explain.
+[42:28] And in some cases, you know, you can go and listen to the song.
+[42:32] But given you have these like really tangible assets, do you find that that helps with the conversation,
+[42:37] at least from kind of an emotional and cultural side?
+[42:40] Yes.
+[42:41] I always say that, you know, for investors to come alongside and invest with you,
+[42:46] you need to win both their hearts and their minds.
+[42:49] So, the minds, we win them by the discipline and the rigorous way we have to invest.
+[42:56] And, you know, we have Connie Johnson backing us for that.
+[42:58] And someone that is very credible in the industry and people follow.
+[43:01] It certainly helps.
+[43:02] And then it certainly helps.
+[43:04] And then the hearts, it's the creativity.
+[43:07] It's the making people dream.
+[43:09] It's the fun part.
+[43:10] It's the storytelling.
+[43:11] And that it's embedded by Bjorn.
+[43:14] And then obviously, the teams that are working alongside Bjorn in the creative and alongside Connie in everything that is investment.
+[43:22] But, yeah, the tangible power helps people experiencing what we try to convey in words by seeing how people react to a digital version of a singer or a band.
+[43:37] And, you know, people literally just connecting completely emotionally with the experience and with the others.
+[43:45] So, yeah, people get excited.
+[43:47] I can see that.
+[43:48] It's, you know, it's always easier when you have a proposal that it's financially solid.
+[43:54] Because, you know, we're here to talk about financial opportunity.
+[43:59] But it's also fun.
+[44:00] And it's meaningful.
+[44:01] More and more people want to be part of stories that matter.
+[44:05] And we offer that.
+[44:07] We offer being part of creating new formats of entertainment and really making the lives and the legacies of some of the artists to live forever.
+[44:18] Yeah.
+[44:18] And, you know, invariably, these are like long-term commitments, aren't they, from all parties, really?
+[44:24] So getting people excited and engaged with the story and the journey is as important as anything else.
+[44:31] Obviously, you know, the hygiene factors do have to add up.
+[44:34] You do have to be able to give the narrative around the financials and make sure that that's squared away.
+[44:41] But people do engage with things culturally and emotionally.
+[44:45] I think that's hugely important.
+[44:46] And I think it comes across so well in a lot of the things that you do.
+[44:51] And, I mean, for me, for sure, all of the nil rights that you own just help tell that story so well.
+[44:59] It's so nice to see some of these artists come back to life in a way that you would never have expected.
+[45:07] I think that's so true with, obviously, ABBA, but also for me specifically, some of the stuff that I've seen around KISS is just absolutely, it's so brilliant.
+[45:15] One thing, as Natalia was saying, we don't top down.
+[45:20] We have the creativity.
+[45:22] We have the financial, you know, people.
+[45:24] You know, and that's make us unique.
+[45:25] And we don't go in with three-piece suit and a PowerPoint and do a presentation to artists or to estates.
+[45:31] We try to be ourselves.
+[45:33] Because artists of today, they also think about their legacy.
+[45:38] And the key thing about that is, one thing is that, of course, they want money.
+[45:42] But they also want their legacy to be handled.
+[45:44] And it's all about trust.
+[45:46] We talk about trust with investors, Natalia.
+[45:49] We also talk about trust when it comes to why should Gene and Paul put their life work into the hands of a Swedish company.
+[45:59] And that's really is, that's, I mean, of course, you need to build that trust.
+[46:04] And that's very important.
+[46:06] It's also, for example, with Avicii, we don't have to buy everything.
+[46:10] In that case, they want to be part of the journey because they said, what you're going to do together with us looks so interesting.
+[46:17] So we want to be part of it.
+[46:18] So they still own 25% of the catalog, which we think is fantastic.
+[46:24] Then we're on a journey together.
+[46:27] And that's really what makes us, again, differently in this environment.
+[46:31] We are not only flexible.
+[46:33] We also, you know, really need to build the trust so they know that we're in here and we're going to take care of this.
+[46:39] So we're going to do a job not only for your past, but also for your future.
+[46:44] Yeah.
+[46:44] And I think that partnership and trust is so key because it's very, very seldom that somebody owns 100% of all of the rights to everything.
+[46:54] So every engagement, every piece of effort is a commitment on behalf of multiple parties.
+[47:01] And if you have warring factions within that, it's just not going to work very well, is it?
+[47:06] So, you know, your narrative, your kind of support, your experience.
+[47:10] I think, you know, Pair specifically, your industry background and the whole story with streaming is just so fascinating.
+[47:20] And who else to better than to kind of champion anybody who's invested their career in making arts and making sure that that's commercially successful to the future.
+[47:30] Like incredible stuff.
+[47:32] Really incredible.
+[47:32] Yeah, absolutely.
+[47:34] And I know that Kiss talked about, you know, being forever young and forever iconic through what you're doing with their Avatar show.
+[47:40] But, you know, that also is this they're placing trust, right?
+[47:43] Because that is forever, potentially.
+[47:45] Like they don't know how long that's going to continue.
+[47:47] So, you know, they're trusting in that you are going to continue their legacy for potentially decades to come.
+[47:54] Well, for those people who've bought a coffin, you know, until eternity.
+[47:57] Effectively, effectively.
+[47:59] Yes, that's true.
+[48:03] Yeah, amazing.
+[48:04] Okay, so I think we will move on to the quickfire round.
+[48:08] And Natalia, I will start with you.
+[48:10] Is there a particular song or album that you have on repeat at the moment?
+[48:16] Yeah, it's an easy one.
+[48:18] I've always been a fan.
+[48:18] And ever since we acquired the catalog, I can't stop listening to simply the best from Tina Turner.
+[48:27] Amazing.
+[48:28] Having a repeat.
+[48:30] Classic.
+[48:30] And Pam, moving it over to you.
+[48:32] Is there something that you can't stop listening to at the moment?
+[48:36] I would say this week is actually the, I don't call it an anniversary, but it's eight years on Tuesday, two days ago.
+[48:48] So that Tim decided, a.k.a. Avicii, decided to end his life.
+[48:54] So in honoring of that, I've been listening to, not honoring, it's always a joy to listening to his music.
+[49:01] And so that's, and I can't say a special song.
+[49:05] It's more like, you know, maybe without you.
+[49:07] And that's really what's been on my iPhone this week.
+[49:13] Yeah, that's really, really meaningful.
+[49:17] And Natalia, going back to you, in your opinion, is there a particular opportunity at the moment in music-wise investing that is particularly underrated, in your opinion?
+[49:27] Well, I mean, I don't know.
+[49:29] I think it's a bit of a hype, but at the same time, it's underrated what AI is going to do to the way we can improve, build the catalogs.
+[49:43] And it goes from the infrastructure, which you guys are experts on, but also the creative storytelling, the digital experiences.
+[49:52] So I really feel like, you know, a lot of hype around it, but still a little bit underrated.
+[49:59] Yeah, a lot of opportunities.
+[49:59] Tremendous potential of AI.
+[50:01] Yeah, yeah.
+[50:02] Even if you just look at outside of the direct musical side, but the production of the avatars and everything else, all of the opportunity around kind of keeping people ever young for better or for worse is fascinating.
+[50:19] Terrifying and amazing.
+[50:21] Even able to interact in real time, you know.
+[50:24] Exactly.
+[50:24] Yeah, yeah, yeah.
+[50:25] And just the Unreal Engine from Epic Games, you know, it's helping, you know, rendering in real time, taking down the cost.
+[50:34] So it's very interesting how AI, just we haven't seen nothing yet, what it's going to make to the society of human beings.
+[50:45] Yeah.
+[50:46] And Per, on that note, is there something related or otherwise that you think is particularly underrated in the music rights investment space?
+[50:55] I wouldn't tell you what I think is underrated because...
+[50:59] You're going to keep your face off.
+[51:03] No, I think if you look at the alpha and the, sorry, Z generation and alpha generation, look at how they, I mean, define themselves today and how I define myself when I was young.
+[51:24] I define myself when my peers would design ourselves through the music we listen to.
+[51:29] And if you came home to one of these peers or to a girl, you check the library of CDs or vinyl and then you know exactly who this person was.
+[51:39] That's not the case today because everyone is unfaithful to their, everyone listens to everything, you know.
+[51:44] And so the key, I'm not, I'm unfaithful with not having a fan relation to an artist.
+[51:51] So what happens instead is that, that the, the new generation, they, they define themselves on where they are and what they do.
+[52:01] And then they document that through your, their phones and they share it through social media.
+[52:08] Meaning that, I mean, they going to concerts, live concerts across the world, you know, Celine Dion, you know, 9 million people wanted to buy tickets to our concerts.
+[52:19] Harry Styles, you know, he's doing, I mean, you know, I don't know, Wembley Stadium, you know, now doing, I mean, I mean, it's a six concert I think he's doing in Wembley Stadium and he's doing a Europe tour in three cities, Harry Styles think it is.
+[52:33] But he's doing multiple performances.
+[52:36] Adele did, you know, 10, 80,000 seaters in Munich only because she didn't want to tour in Europe.
+[52:43] But people went there from all of Europe, including myself, because I wanted to experience her, see her live performance in her show.
+[52:51] And that is, you know, you know, that, that, it costs a lot of money, but that's what people want to spend money on.
+[52:58] So I think that that's, we're going to see more of what is, it's the young, new generation coming up.
+[53:04] They don't care really what kind of brands, clothes they have on.
+[53:08] But when it comes to, when it comes to what they're going to, what they're doing, they can spend the fortune or they go to repair and say, I want to do that because I really want to expose myself into new experiences.
+[53:20] And that's really what I believe is the future for the next five to 10 years.
+[53:25] Yeah.
+[53:26] Yeah.
+[53:26] Amazing.
+[53:27] Amazing.
+[53:27] And, and last question for you both, Natalia, I'll start with you.
+[53:31] If you could own one song, what would it be and why?
+[53:34] Um, it's, it's gotta be a song that I used to listen to when I was a little, a little girl and my father would sing to me.
+[53:45] So it's, it has a very, um, emotional and personal relevance for me.
+[53:51] And it's obviously Dancing Queen.
+[53:54] Of course.
+[53:55] I want to own that too.
+[53:57] Amazing.
+[53:58] Yeah.
+[53:58] Yeah.
+[54:00] But what it does, I said, I said it has an emotional connection.
+[54:03] It's not just because it's a great song and it's a very financially successful song.
+[54:07] It's, it really brings a lot of beautiful memories.
+[54:09] I love that.
+[54:10] And talk about manifesting.
+[54:11] I mean, you had no idea when you were a little girl that you would end up in this position today.
+[54:16] So that's, that's incredible.
+[54:19] No.
+[54:20] And I have Per to thank for that.
+[54:22] Yeah.
+[54:22] And Per, what about you?
+[54:24] If you could own one song?
+[54:25] Oh, I, I, you know, I, um, I, I stay, I, you know, I, I like fantastic songs, as you said, like creating emotions inside yourself.
+[54:36] And it's also, it's like, you can listen to them over and over.
+[54:40] And I think that Die With A Smile with Bruno Mars and Lady Gaga is a fantastic song.
+[54:46] And, uh, me being a romantic guy, no, no, people will laugh if I said that.
+[54:54] You are, you are a romantic.
+[54:57] I would say that, uh, yeah, that, uh, that is song I think is amazing.
+[55:01] And I think both those artists are doing fantastic vocal performances.
+[55:05] And, uh, again, it's Bruno Mars, which I just fall in love with when it comes to, you know, him when it comes to songwriting as an artist.
+[55:12] And, uh, Lady Gaga is also, you know, a true creative person in herself.
+[55:18] So that, and I also, Die With A Smile is really part of my, you know, my thinking, you know, because there's a book that we just read called, you know, Die With Zero.
+[55:27] Which is that you shouldn't be the richest person at this cemetery.
+[55:31] I mean, you shouldn't have children hoping, hope dads die soon so we get his money.
+[55:36] He's just, you know, spend the money on yourself, on your kids, on your peers, on your friends.
+[55:44] And Die With A Smile with Zero.
+[55:46] That's a perfect ending.
+[55:49] Yeah.
+[55:49] And in a kiss coffin.
+[55:51] In a kiss coffin with a wrap up.
+[55:53] With a smile on the front.
+[55:55] Then I would have a smile.
+[55:57] With the painted name, image, and likeness rights.
+[56:00] Of course.
+[56:03] Absolutely.
+[56:04] Amazing.
+[56:05] Well, I feel like that's the perfect place to wrap this up.
+[56:07] So thank you so much, Per and Natalia, for being an amazing guest.
+[56:11] We've loved speaking to you.
+[56:12] Thank you for having us.
+[56:13] Thank you, guys.
+[56:14] That's been a lot of fun.
+[56:15] It's been a pleasure.
+[56:16] Yes.
+[56:16] And as always, thank you everyone for tuning in.
+[56:19] And please feel free to like and subscribe because that really helps us to bring you more great content.
+[56:25] And we will see you next time.
+[56:27] Thanks for tuning in to Music Moneyball.
+[56:30] If you enjoyed the conversation, you can subscribe at standard-innovation.com to get every episode in your inbox.
+[56:38] You can also follow the show on Spotify, Apple, or YouTube to stay ahead of the curve in music rights investment.
+[56:44] Thanks for tuning in to Music Moneyball.
+[56:49] Thanks for tuning in to Music Moneyball.
+[56:50] Thanks for tuning in to Music Moneyball.
+[56:51] Thanks for tuning in to Music Moneyball.
+[56:52] Thanks for tuning in to Music Moneyball.
+[56:53] Thanks for tuning in to Music Moneyball.
+[56:54] Thanks for tuning in to Music Moneyball.
+[56:55] Thanks for tuning in to Music Moneyball.
+[56:56] Thanks for tuning in to Music Moneyball.
+[56:58] Thanks for tuning in to Music Moneyball.
+[56:59] Thanks for tuning in to Music Moneyball.
+[57:00] Thanks for tuning in to Music Moneyball.
+[57:02] Thanks for tuning in to Music Moneyball.
+[57:03] Thanks for tuning in to Music Moneyball.
+[57:04] Thanks for tuning in to Music Moneyball.
+[57:06] Thanks for tuning in to Music Moneyball.
+[57:07] Thanks for tuning in to Music Moneyball.
+[57:08] Thanks for tuning in to Music Moneyball.
+[57:09] Thanks for tuning in to Music Moneyball.
+[57:10] Thanks for tuning in to Music Moneyball.

@@ -1,0 +1,555 @@
+# Reactivating icons: the Bing Crosby holiday playbook w/ Primary Wave's Adam Lowenberg
+# Date: 2025-12-16
+# Duration: 00:52:31
+# Guests: Adam Lowenberg — Chief Marketing Officer, Primary Wave Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Reactivating-icons-the-Bing-Crosby-holiday-playbook-w-Primary-Waves-Adam-Lowenberg-e3ce0cd
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogues.
+[00:09] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:15] Welcome to our very special festive edition of the Music Moneyball podcast.
+[00:20] I'm Emma Griffiths and as always, I'm joined by my co-hosts Tom Mullen and Sam Borey.
+[00:25] Our guest today is someone who's helped rewrite the rules of how legendary catalogues get marketed.
+[00:31] He's the chief marketing officer at Primary Wave, the powerhouse reshaping how classic catalogues aren't just preserved, but reactivated and brought back into the cultural conversation.
+[00:41] This is the team behind Aerosmith Lottery Scratch Cards, Alice Cooper Hot Sources, Whitney Houston Slot Machines and Biopics, and, if you're Smokey Robinson, your own branded holiday.
+[00:51] He brings 35 years of experience in the music business and has previously held senior marketing roles at Island Def Jam, Virgin and Arista.
+[01:00] And today, in honor of the holidays, we're going to focus on his work with the absolutely iconic Bing Crosby catalog.
+[01:06] We'll dig into the playbook for seasonal optimization and how you keep the voice of a cultural icon and classics like White Christmas feeling current eight decades on.
+[01:16] Please welcome Adam Lohenberg.
+[01:18] Thank you, everybody. Thank you, Emma.
+[01:20] Pleasure to be here.
+[01:22] But, Adam, it's so brilliant to have you here.
+[01:24] We are so excited to have this conversation.
+[01:28] As I said, I've researched Bing Crosby's entire backstory.
+[01:32] And, you know, he's the OG.
+[01:34] He's before Mariah was defrosting and Bublé was coming out of the cave.
+[01:39] It was Bing Crosby.
+[01:41] So, you know, amazing to dig into that shortly.
+[01:44] But before we do kick off, we would love to know if we could introduce you with a song.
+[01:51] What would it be and why?
+[01:52] Oh, boy.
+[01:54] Well, that's that that is a great question.
+[01:56] I mean, there's so many.
+[01:59] Depending on my moods, which which there are many, depending on the day and the year that could that could range.
+[02:09] But I would say as a as a whole, as a catch all and not just because he's part of the primary wave family.
+[02:20] But I always found Three Little Birds by Bob Marley to be.
+[02:27] Just the perfect song for when you're feeling amazing, when you're feeling not so amazing.
+[02:34] And it just is kind of a catch all for for all moods.
+[02:39] So, you know, don't worry about a thing.
+[02:43] Every little thing is going to be all right.
+[02:44] That's as I've gotten older and hopefully wiser, I try to subscribe to that lyric throughout my whole lifestyle.
+[03:00] So I would say that now that being said, it's not our song, but the Smashing Pumpkins.
+[03:11] And I can't remember the name of the song, but by the Smashing Pumpkins.
+[03:13] But the line, despite all my rage, I am still just a rat in the cage.
+[03:19] I think it's one of the most brilliant lines of all time.
+[03:22] So when you're feeling really bad, that's like that's that's the perfect song for that.
+[03:27] But Three Little Birds would be my ultimate walk up song, intro song.
+[03:33] Nice.
+[03:34] And what a great song it is.
+[03:35] And what an amazing artist.
+[03:37] I got married to two of his songs.
+[03:40] Did you?
+[03:41] Yeah.
+[03:41] On the day that we signed the register and then also leaving the ceremony.
+[03:46] My wife and I are big fats.
+[03:49] You know, we have so many.
+[03:51] We call ourselves the home of legends for a reason.
+[03:54] And, you know, gosh, I mean, Bob Marley is.
+[03:59] Without a doubt on on our primary wave Mount Rushmore.
+[04:03] Right.
+[04:04] I mean, it's just.
+[04:06] Even if you're just a casual fan, those songs carry so much different meaning and such a global power through through all of those.
+[04:16] And we found that specifically during COVID, the streams of the Bob Marley catalog went up a hundredfold.
+[04:30] That's interesting.
+[04:31] Yeah.
+[04:31] And the underlying reason for that was, especially during that time, which was, you know, just insane for everyone.
+[04:40] And people gravitated to Bob Marley's music on the streaming services because it gave them a sense of positivity and uplifting and and carried them through that insane time that we were going through globally.
+[04:59] Love that.
+[05:00] That's amazing.
+[05:00] Adam, I think, you know, one of the things that really stands out about primary wave in the marketplace, you know, obviously all the creative activations that you work on, but also it's this approach that you guys have to partnering and looking at deals in a completely different way to, you know, how others are doing that in the market.
+[05:19] And so it would be great to touch on before we get into your work with Bing Crosby and his estate.
+[05:25] It'd be great to touch on, you know, just what about this made it such a compelling deal for you guys.
+[05:31] You know, what did you look at and what made you think, wow, this is this is one of those opportunities where it's an absolute icon.
+[05:37] But there's definitely some something undervalued and under under monetized here that we can really kind of get our teeth into.
+[05:44] Absolutely.
+[05:45] And that that's something that at the core is what we look at as especially from from the marketing side of things.
+[05:56] How much is there that we really feel that we could get under the hood and.
+[06:07] Create this whole new awareness and visibility in a platform, because at the end of the day, whether it's Bing or James Brown or Bob Marley.
+[06:18] The main goal and what I wake up every morning thinking about and try to instill into my team is how are we going to introduce these amazing legends and their music to the youth of today?
+[06:38] That that is in a nutshell what our job is.
+[06:43] So.
+[06:44] With Bing.
+[06:46] You know, it was it was definitely an interesting one when it was first brought to to the table.
+[06:52] And and when we started having discussions overall as a company, because that's what we do, like, you know, OK, from a financial standpoint, it means this.
+[07:03] But again, at the end of the day, hey, marketing team, you know, can you do enough to increase the revenue, not just the branding, you know, year over year?
+[07:16] So. So we with Bing, we one of the first things we did was.
+[07:25] Realize I didn't take my it was it was it was it was quite obvious that the songs that he was synonymous and and and the perfect entryway was was through the holiday season.
+[07:38] There's so much more to him.
+[07:40] And that would come, you know, later on in the process.
+[07:45] But initially we had to strike where we felt there was, you know, really goal to be had.
+[07:53] And one of the first things we decided was, OK.
+[07:58] Similarly to using Mariah as somewhat of an aspirational goal, you know, take a song like White Christmas and.
+[08:12] How do we come up with ways to make it for 2025 and 2028 and 2030?
+[08:21] So. Our digital team are absolutely phenomenal.
+[08:28] We have an entire team of 15 people that only do digital marketing, social media and Bing had had no.
+[08:40] Social media presence.
+[08:42] Similarly to our other.
+[08:45] Not a great deal of surprise.
+[08:47] Right. Exactly. Exactly.
+[08:48] And by the and by the way, not to get off topic, but that is another running theme, you know, for a lot of our artists, Paul Anka, Neil Sedaka.
+[08:57] So we have become so good at building their social media channels for all of these artists and giving them a whole new a whole new life.
+[09:07] So anyway, on Bing, a woman named Sarah on our digital team doing exactly what you were saying, Emma, like just dove headfirst into Bing Crosby, you know, inundating herself with everything possible and found through her research that.
+[09:25] And the artist V from the band, the artist V from the band BTS was a huge Bing Crosby fan.
+[09:33] And she didn't bring it to us at first.
+[09:36] She wanted to dig in a little bit more and found even more so videos of V driving around in his car, singing along with Bing Crosby standards.
+[09:49] Oh, the hazing.
+[09:51] Amazing. Amazing. Amazing.
+[09:52] And we find out, you know, again, through Sarah's research, he grew up with his parents playing Bing Crosby in the house and just became and he has that.
+[10:02] This that croonery kind of feel to his his personal vocal style.
+[10:06] And so this is happening at the same time as I'm saying, OK, let's take White Christmas, as I started saying before, let's take White Christmas and let's make that an annual event.
+[10:24] Let's let's take because since we have an own Bing's original vocal, let's take that Bing original vocal and let's create brand new duets that are going to introduce Bing to completely different audiences.
+[10:41] So as we're putting that forward and we're discussing and we're whiteboarding, OK, do we go after Post Malone?
+[10:50] Do we go after this one or that one?
+[10:54] Sarah says, hey, I think I found our first artist.
+[10:59] And we dove headfirst into that and it took a very long time and had amazing conversations with V's team and the folks at Hybe and Universal.
+[11:12] And lo and behold, last December, the, you know, V, Bing Crosby, White Christmas duet was released.
+[11:24] My original thought process was let's do this on a yearly basis.
+[11:30] So.
+[11:31] This year, with the song Let It Snow, we did a similar thing with Laini Wilson.
+[11:39] So now we've got the K-pop young audience.
+[11:44] You know, very curious, who is this Bing Crosby?
+[11:47] What is this?
+[11:48] And now we've got Laini Wilson in the country audience.
+[11:51] And that Let It Snow version just came out.
+[11:54] So we're like knee deep and all that.
+[11:57] Now we're about to release a video.
+[12:00] Laini's performing it on the Thanksgiving Day Parade.
+[12:04] So.
+[12:05] These are all just little glimpses into my thought process and in very long winded way of answering your question.
+[12:13] You know, we were kind of in the days leading up to the conversation today, we were discussing how on earth do you take an artist, an actor, a celebrity who was famous so many years ago with obviously limited access to creativity?
+[12:36] We can't have them re-recording songs or anything like that, where they largely did the singing and didn't necessarily write many of the songs.
+[12:48] How on earth do you recreate that and make them relevant to today's market, to people who are on TikTok and everything else?
+[12:56] And I think that you've just explained that's a masterclass, isn't it?
+[13:01] That's such an impressive way and so cool as well.
+[13:05] I think on many levels that actually there's people like BTS stars who still reference these iconics from back in the day.
+[13:16] And they can carry on that cultural link, I guess, because it's creating a bridge, isn't it?
+[13:24] Just amazing.
+[13:25] So impressive.
+[13:27] Thank you.
+[13:27] And absolutely.
+[13:28] And that's, again, there are many, we'll touch on many of them.
+[13:32] And it's not even to sound, you know, egotistical, but it's purely math.
+[13:38] We, and I'm sure you've seen in the research, our competitors have so many more songs than we have, right?
+[13:46] All the majors have millions of songs.
+[13:50] We have less than 100,000.
+[13:53] So we have 115 people working at Primary Wave.
+[13:57] So it gives us an advantage because we can spend more time and spend more marketing time and looking at the right data and trends to find things like Sarah finding that V is a huge Bing Crosby fan.
+[14:15] It's not just, you know, okay, let's, you know, wait for the latest movie to call us for Three Little Birds or for, you know, James Brown's I Feel Good.
+[14:28] And that's something that Larry Mistel, you know, purposely set out 20 years ago when he started the company.
+[14:36] That was going to be the overall ethos for the company.
+[14:41] And it's work, to your point.
+[14:43] It gives us that ability.
+[14:45] And in terms of the strategy, Adam, when you're looking at an estate partnership, a catalog, what are some of the kind of non-negotiables that you guys need to have in place in order to make these things?
+[14:57] A reality?
+[14:58] Because obviously we're talking about the infrastructure and how you're executing.
+[15:01] But before that comes into place, like what are the non-negotiables in terms of rights and things that you're looking for to make that a reality?
+[15:13] Yeah, no, that's a great question.
+[15:14] I wouldn't say non-negotiable is a very strict word.
+[15:22] Because of the fact that we truly, it's not just word salad.
+[15:32] We truly look at all of our catalogs as full-on partnerships.
+[15:40] There are very, very few cases.
+[15:43] I could probably count on one hand the number of catalogs that we own 100% of.
+[15:52] We just don't like doing that because, and when you talk about Bing as a perfect example, you've got his daughter Mary, his son Harry, a gentleman named Robert Bader, who they had in place as the estate.
+[16:10] To kind of like, you know, really roll his sleeves up and dig into the archives and things like that.
+[16:15] So it makes for not having to have non-negotiables.
+[16:24] Because it's a partnership.
+[16:26] So we're going to them and going to the family and saying, okay, we're thinking of this, this, and this.
+[16:32] And before the whole process even begins, we sit down with them with an actual three to five year marketing plan.
+[16:40] And some of the stuff is not going to happen.
+[16:45] And it's very fluid.
+[16:46] But they get to see and hold us accountable.
+[16:50] They get to see exactly how we're thinking.
+[16:53] And how this is all going to, you know, work over that extended period of time.
+[16:59] And they sign off on it.
+[17:01] So when you say non-negotiable, you know, and the same applies whether or not it is a, only a publishing deal.
+[17:11] And we only have the publishing rights.
+[17:14] Or whether it's masters or an estate or a mix and match of any of them.
+[17:20] So that's, that's the, you know, again, that's the way that it was set up from the beginning.
+[17:25] And that's the way we all work.
+[17:27] So there really isn't a non-negotiable.
+[17:29] You know, if someone says to us, if an artist says to us, you know, look, I'm not doing this unless I have, you know, final creative control or whatever.
+[17:42] No problem.
+[17:43] That's, you know, we're, again, we're here to, to work as, as partners.
+[17:51] It's the only way we know, we know, it's the only way we know how to work.
+[17:54] Our partnership with Pat Houston, who runs the Whitney Houston estate, is phenomenal.
+[18:02] You know, and we've taken Whitney and grown, and grown her catalog, you know, tremendous numbers.
+[18:13] And again, because she has complete confidence in us and everything is with her approval.
+[18:20] And because she knows what Whitney would have wanted and what she wouldn't.
+[18:25] So it's the only way we can work.
+[18:28] I think one of the things that Primary Wave is very well known for is managing and finding that fine balance between commerciality and the respects of either the estate, the artist, or whoever's the counterparty.
+[18:44] With that said, you are a marketeer, and you do have to do things which are commercially valuable.
+[18:52] And like any business, you know, the ROI is going to come into play.
+[18:57] How do you go about curating that list of things to do?
+[19:01] Can you just talk us through that process?
+[19:04] Yeah.
+[19:05] I mean, the respect part, you nailed it, is of the utmost importance to us.
+[19:11] And we take that very, very seriously.
+[19:17] For, you know, again, for someone like Bing, to start with his music and to start with his original vocal, that is incredibly respectful and can both satisfy that side of things and the commercial side of things.
+[19:40] And, you know, similarly with Bing, and again, the more research that we do on any of these artists and uncover other opportunities, you know, someone my age would know that there was a Bing Crosby golf tournament every year, a Pro-Am Pebble Beach golf tournament that, you know, my son would not know about.
+[20:06] But how do we go back to AT&T, who were the main sponsors of that Pebble Beach Pro-Am?
+[20:14] How do we get golf, which is now becoming even bigger than ever?
+[20:20] And how do we associate Bing with that?
+[20:23] So our brand team, again, another differentiating factor that we have a 10-person team that does nothing but branding.
+[20:33] They reached out to Adidas Golf and Malbon and created a whole limited edition collection of Bing clothing and golf wear with these two great, credible brands in Adidas and Malbon.
+[20:58] And that was in year one.
+[21:02] So as we're doing the White Christmas with V, the brand team is focusing on these other areas that we're uncovering.
+[21:13] We did a deal with Narragansett Beer and created a winter ale.
+[21:22] It is worth noting that we tried to buy some and Sam and I were also attempting to enter our cards into the Pro-Am, but we felt that we probably didn't have enough golf balls to get around Pebble Beach.
+[21:37] We'll have to work on that.
+[21:39] But yeah, I think those are two very good examples of how we are constantly being very mindful of what is organic to a specific artist or not.
+[21:59] You mentioned the scratch-off lottery card earlier.
+[22:04] That relationship, which started, gosh, 15 years ago, we maintained throughout the years.
+[22:11] And that led to us doing a Whitney Houston slot machine, which is now in hundreds of casinos.
+[22:21] Industry-renowned, that slot machine.
+[22:23] It's the example that everybody references.
+[22:25] Yeah, we're so proud of it.
+[22:29] And, you know, again, so yes, on the commercial side, it is a goldmine.
+[22:34] I mean, it's earning so much money.
+[22:35] But from a respectful side and from what is authentic and organic, and again, this is where the partnership comes in hand with Pat.
+[22:53] Because Pat's able to tell us, guys, Whitney, after her shows, she used to put on a wig and, you know, glasses.
+[23:02] And when she was playing in and around casinos, would go into the casinos and play slot machines for hours.
+[23:10] That's such an amazing insight.
+[23:12] Yeah.
+[23:13] You know, you first hear that anecdote and you're like, Whitney Houston slot machines, really?
+[23:18] Like, where do you draw that correlation?
+[23:20] I know.
+[23:22] But that's something we never, no matter how much research we did, we never would have found that out if we didn't have the relationship with Pat Houston and the partnership with Pat Houston.
+[23:33] Because when, you know, a lot of these times, you know, we think the idea is phenomenal.
+[23:39] But again, you still, when we're presenting it to our partners, you still don't know ultimately how they're going to react.
+[23:47] So we're like, we have this amazing slot machine idea.
+[23:50] She's going to be like one of the first to do this, blah, blah, blah, blah, blah.
+[23:54] What do you think?
+[23:56] And she loves it.
+[23:58] So, yeah.
+[23:59] That's cool.
+[23:59] And do you find that it becomes a little bit self-perpetuating?
+[24:03] So the longer you work with the estate, the more you get to know them, the more you can kind of prove out some of these, let's say, more creative ideas actually come to fruition?
+[24:16] For sure.
+[24:17] For sure.
+[24:17] And it is that it is both sides trusting each other enough.
+[24:23] And again, us constantly reinforcing with any of our partners, hey, guys, if there's something that you feel crosses the line or just doesn't feel right, you know, tell us right away.
+[24:41] We have very thick skin.
+[24:43] There's no ego.
+[24:44] So we want everyone to be happy with what we're doing.
+[24:51] Alan, you've just brought off some incredible examples there.
+[24:54] I think we all know that the kind of the skill is in the execution of a lot of these ideas, right?
+[24:59] So it seems like Prime and Wave have a special source around that.
+[25:04] Like give us a bit more insight, if you can, about how you pull these kind of big, chunky projects off.
+[25:11] Well, a lot of it is getting input from all sides of the company.
+[25:19] I mentioned the digital team.
+[25:21] I mentioned the brand team.
+[25:23] I mentioned the fact that we have 115 people.
+[25:27] You know, we have six at the end of the day right now, and it's constantly evolving, but we have six different kind of teams on the creative side.
+[25:37] So digital branding, traditional marketing, content creation, obviously being a publisher at its core, an amazing sync team, and an A&R team.
+[25:51] So all of us work synergistically.
+[25:57] And there are, you know, weekly meetings.
+[26:01] We try not to do too many meetings because we all know how, you know, the jury's still out on whether or not those are efficient.
+[26:09] But our A&R team have become so adept at taking pieces of our deeper cuts and reinventing them with remixes and dance mixes and producers.
+[26:27] So we have a song in the Russ Ballard catalog.
+[26:34] Again, aging myself, but there was a band in the 70s called Exile, and they had an amazing, like, yacht-rocky, one-hit-ish wonder song called I Want to Kiss You All Over.
+[26:48] And, by the way, it's a great song.
+[26:50] You should go back and listen to it.
+[26:51] That's not the point.
+[26:52] The point is, Jack went through the entire song and found a piece of the song, not the chorus, not I Want to Kiss You All Over, but found kind of like a B section that kept repeating, stay with me, stay with me.
+[27:10] And he took that piece and created, because he's a producer as well.
+[27:16] A lot of our A&R team are also producers, which certainly helps.
+[27:20] He created a demo version of this kind of dance remix.
+[27:23] And because of our relationships with various producers and managers and labels, got that song that he created around our copyright and got it to the DJ Fisher.
+[27:41] And it came out last year.
+[27:42] It's called Stay.
+[27:43] I mean, you could look up the numbers.
+[27:44] There are tens of millions of streams for this brand new copyright that, you know, is basically found money for us at the end of the day.
+[27:57] And it wasn't much of a heavy lift, because this is what our A&R team do on a daily basis.
+[28:03] So having the ability as a team, as a creative team, to spend time on those kind of deeper cuts and those lesser known cuts, while we are also doing the Whitney's and the Bing's and the Prince's and all that stuff, that's a phenomenal advantage.
+[28:27] And those, an example like that, is that all intuition, or is it kind of data-led insight or a combination of the two?
+[28:38] Yeah, no, that's good.
+[28:40] It's certainly a combination.
+[28:43] So a lot of it, it's not so much intuition, though I'd like to say that, but a lot of it is, and again, I'm sorry for repeating myself, but because of the fact that we have 115 people and we have less than 100,000 songs, even, you know, it doesn't matter what your position is within the company.
+[29:09] You need to spend time listening to the primary way of music.
+[29:14] So we have various playlists, and we're all, that is the job.
+[29:21] And it's not a bad job to just listen to music all the time.
+[29:24] So to answer your question specifically, you know, it could be like, you know, me on a Sunday morning going for a walk and flipping through stuff and saying, and then texting my partner Justin on the A&R side and saying,
+[29:39] man, you got to have your guys and girls look at, you know, this song, like this, like, you know, driving my life away from Eddie Rabbit or, you know, whatever.
+[29:52] There's got to be something we can do with that.
+[29:55] You know, we recently partnered with the band The Cars and their catalog.
+[30:02] That's like an insane catalog, right?
+[30:05] And most people know just what I needed and drive and the bigger songs.
+[30:10] But what can we do with songs like Shake It Up or Moving in Stereo?
+[30:15] So it's not so much intuition.
+[30:19] It's more like, you know, have we thought about this when the A&R team actually sits down and listens to it?
+[30:27] Is there a nugget in there similar to Jack finding that piece of stay?
+[30:30] Is there a certain instrumental beat?
+[30:33] So it's that.
+[30:35] And then, yes, the data side certainly also plays into it.
+[30:39] You know, we've got our streaming department are constantly and more and more are our TikTok department identifying trends,
+[30:52] hopefully, you know, as they're just beginning to happen and coming back to us and saying, hey, this song, we're not sure exactly why yet, but this song is starting to take on a life.
+[31:07] Let's dive into that.
+[31:09] Let's put gasoline on that fire.
+[31:11] Let's create new versions.
+[31:13] Let's do a sped up version.
+[31:14] All that.
+[31:15] So, I mean, it sounds like, you know, there's a really healthy combination of gut feel, serendipity, data led, deep focus on your catalog, understanding of the industry.
+[31:29] And actually, all of those things come together, creates ideas, and then you run your ideas through a process and some invariably at the bill, some don't.
+[31:40] And then, yeah, sounds like a pretty organic, but also quite repeatable approach.
+[31:46] Yeah, it is.
+[31:49] You make it sound a lot more easy.
+[31:53] You're kind of reading off these examples, but actually, they're kind of big things to deliver.
+[31:59] But I think that's the thing, right?
+[32:00] If it was easy, everyone would be doing it.
+[32:02] You know, it is your secret sauce.
+[32:05] So, Adam, when you're assessing an iconic catalog like Bing Crosby's, what determines whether it's still a smart investment nearly a century after its prime?
+[32:12] And once you factored in things like decay curve, seasonal behavior, a long-term performance, like give us an idea of like the kind of revenue streams from iconic artists that was in there prior nearly a century ago.
+[32:24] You know, again, purposefully when we set out in the beginning, it isn't this quick fix, you know, okay, what can be done in year one?
+[32:35] It truly is, as I say, at least in the beginning, a three- to five-year plan.
+[32:40] And then, obviously, that continues to get adjusted.
+[32:45] So, we work on a timeline.
+[32:49] We want to make sure that there is something happening each year.
+[32:56] Some years, it may prove to be a bit more fruitful.
+[33:00] But as long as we are, and again, in a case like Bing, as long as we are, even if it's slow, increasing his awareness and his visibility, that's ultimately a win.
+[33:16] So, you know, when I say, you know, okay, we started with White Christmas.
+[33:20] This year, we have Let It Snow.
+[33:23] Next year, we are already starting to speak to DJs about doing an actual, you know, dance-oriented mix of, you know, whether it be White Christmas or, you know, do we find another one of his Christmas songs.
+[33:40] So, we're really going to have a stranglehold on Christmas and hopefully, you know, unseat Mariah one day.
+[33:48] But, but it would be very easy to fall into a trap from a marketing perspective.
+[33:56] Like, okay, Bing, Christmas, Bing, Christmas, Bing, Christmas.
+[33:59] But as I said before, with his relationship with Goff, his family, you know, he, we have ownership of his old radio shows from the 60s and the 70s.
+[34:16] We're now putting plans together.
+[34:18] How do we repurpose those?
+[34:20] We partnered with SiriusXM.
+[34:23] So, now there's a Bing Crosby channel.
+[34:27] Oh, cool.
+[34:28] These are all, and, you know, I don't want to say it's the Holy Grail because that's unfair, but we firmly believe, strongly believe that there's a Bing Crosby biopic to be created at some point.
+[34:47] I mean, again, the more that you dig, there's so many layers of his story.
+[34:54] So, that's something that, you know, we would love to see happen, you know, two, three, four years from now, which would then be, you know, another huge, huge domino for us.
+[35:07] And again, hopefully take him from, you know, Father Christmas into, into more of a, you know, this is a whole year.
+[35:17] Yeah, yeah.
+[35:18] It sounds like you're trying to, I suppose, diversify from the seasonal kind of focus, I guess.
+[35:25] Well, yeah, only because, listen, I mean, I'm sure.
+[35:29] I imagine it's brilliant at Christmas, though, when you see all the streams pumping out.
+[35:32] It, it, it, it's fantastic, and we just did a, we just did a partnership with, I don't know if you guys are familiar with King's Hawaiian.
+[35:43] It's an incredible.
+[35:44] We are now.
+[35:46] Oh, could you.
+[35:48] King's Hawaiian is an unbelievable bread roll.
+[35:54] King's Hawaiian is an unbelievable bread roll.
+[36:24] Christmas, it's Christmas.
+[36:25] But the only way we're going to take Bing's earnings to a whole different dimension, really, you know, obviously at the end of the day, that's what we do from a business standpoint.
+[36:39] It still comes back to, to the revenue.
+[36:43] The only way that's going to happen is if, if we take it away just from Christmas.
+[36:48] Adam, how do you take some of that thing and then make him relevant in markets that it's completely unknown?
+[36:55] Another great question.
+[36:56] Um, so to that point, um, over the last few years, we've, we've begun to make a more concerted, concerted effort into how are we going to get our artists, our copyrights, um, their brand in to other marketplaces.
+[37:19] So a few years ago, we bought a company, uh, a music company in India called Times of India.
+[37:29] So what that enables us to do as, as you're seeing, obviously the emerging markets, uh, you know, especially from, from, from streaming standpoints, um, that enables us to have not just boots on the ground in those markets, but it enables us to, you know.
+[37:48] So, um, so I won't, I won't use Bing again as, as a specific example, but, um, we, we have the, uh, Sarah McLachlan catalog, which again is another just mind blowing gem.
+[38:04] Um, so our, again, going back to our A&R team who speak obviously, you know, daily and weekly with the A&R folks in India who understand their market, we were able to take Sarah's song Angel and have that covered by a top Indian artist.
+[38:29] So now we're trying to figure out a release strategy.
+[38:32] So that's going to open up Sarah and Sarah's music even more, um, over, over in India.
+[38:39] Similarly, we had, uh, a couple of our producers, uh, spend a couple of weeks over there and actually have songwriting camps.
+[38:50] Again, trying to take pieces of our songs, mesh them somehow, uh, with, with the culture and, and the music, uh, of times of India and, and, and create these new, um, new works and new ways of getting people to hear our music.
+[39:11] And we're, we're doing the same thing, um, in Brazil.
+[39:14] Uh, we partnered with a company down there and that's going to be, um, a major theme throughout.
+[39:20] The next, uh, five years or so.
+[39:23] Um, to your point, how will we get these songs even more so to a global audience?
+[39:30] It seems like there's a huge theme of collaboration.
+[39:32] It's really good.
+[39:33] Um, right across the business.
+[39:36] So, yeah, no, it is.
+[39:37] It's again, I, I, I think it's just instilled in us from, from day one that, um, it's just always going to work better that way.
+[39:49] When you're making those decisions to go into a new market, how much insight and analysis are you doing ahead of time?
+[39:58] And given that the local jurisdiction regulations are very different, what are you having to do to make sure you get that right?
+[40:09] Well, I think it's more about once.
+[40:14] And we have, we have partners, we have primary wave partners, um, throughout the world.
+[40:21] We have a gentleman named David Lloyderton who oversees, uh, Asia and, and Australia and various territories.
+[40:31] We have, we have a, we have a few people like that and we rely on them, um, for, for their real expertise, right?
+[40:40] Because nothing's ever going to be like having someone who lives and understands that space.
+[40:46] So when we sit down with, with our international partners and they say, Hey, I think we've got a very, very, uh, interesting opportunity in this market or that market.
+[41:00] Um, that's when we can really start diving in, looking at financials, looking at investments, what makes sense, what doesn't.
+[41:10] Um, and you know, is that market as a whole ripe, um, in, in, in terms of, in terms of emerging?
+[41:19] So, I mean, it sounds like, again, there's a significant amount of local knowledge analysis ahead of time, and then quite an iterative approach to understand what's going to work.
+[41:30] Is it sufficiently large to invest pretty much like any expansion in any other category really?
+[41:37] Absolutely correct.
+[41:38] That's, that, that's what that, and again, that's, there are other people within primary wave that excel at that.
+[41:46] I, I can only, my, only my creative mind can work.
+[41:50] Um, but yeah, we, we have so many great people within the organization that that that's, that's what they do.
+[41:56] And do you find that those, some of those approaches that you take, they transcend borders and cultures to some degree, or is it really very, very different depending on the local market?
+[42:07] You know, can you do a, a collaboration with somebody in South America and expect it to go as well as the recent one that you did with V from BTS?
+[42:18] I, I think, I, I think, and if you, if you're very thoughtful about what is the right match and what is, what is the right collaboration in each of those markets?
+[42:33] I do believe, and again, when you go back to data, we, we have, we do go into a lot of these conversations and thoughts with, okay, we know just from looking at, at streaming that X artist, uh, their first, their biggest market may very well be the United States.
+[42:56] But, oh, wow, look at this, their second biggest market is Brazil, or their third biggest market, uh, is the Philippines.
+[43:07] Um, Air Supply, one of our artists, um, we, we noticed that early on.
+[43:15] Again, looking at the different markets, they are huge in the Philippines.
+[43:21] Um, so, you know, again, and I'm, and I'm sorry for repeating myself, but I love repeating our successes.
+[43:30] One of our A&R folks, um, had a great relationship with a couple of producers in the Philippines and took, uh, one of our Air Supply songs, had them, had the artists in the Philippines cover it.
+[43:46] And, uh, became a top 10 song in the Philippines.
+[43:50] Streams increase.
+[43:52] Again, those are perfect examples, uh, of, of how we can identify and then actually execute.
+[44:01] That's a, such a common message.
+[44:03] And, you know, one that we're, uh, particularly fond of and have always, uh, sought to propel with clients that we work with is data.
+[44:14] So important to give you the insight and to help you make decisions, but ultimately the decisions are going to be yours.
+[44:21] And that's based on experience, uh, knowledge of the local territory or the artist or the partnership that you're working with.
+[44:30] And it's very much a kind of a collaboration between the science and the artists.
+[44:35] I, I'm going to write that down and steal that for my next interview.
+[44:39] That's perfect.
+[44:40] I think that's, that's bang on.
+[44:41] Yeah.
+[44:41] I was going to say, like, that's, uh, I think you said quite nicely there.
+[44:45] Yeah.
+[44:46] Yeah.
+[44:46] That feels like a great place to, to wrap up.
+[44:48] And then maybe we go into our very festive themed quickfire round.
+[44:52] Yeah, of course.
+[44:53] This is great.
+[44:54] So Adam, what is your favorite festive song?
+[44:57] I think it's, uh, the most wonderful time of the year.
+[45:02] Um, I love, and it's our competition.
+[45:06] I don't even, I don't even know who specifically.
+[45:08] I love that that song is being now used.
+[45:12] Not again, not just in Christmas.
+[45:14] Um, but there's something about it.
+[45:17] Um, especially where I live in, in, I live in the Northeast.
+[45:21] So I have the change of seasons and, um, you know, snow occasionally and there's just
+[45:27] the leaves falling.
+[45:28] So there's something about the most wonderful time of the year that just is very, uh, hopeful.
+[45:35] Um, and, and makes me warm and fuzzy.
+[45:39] Yeah, that's a great answer.
+[45:40] And what's been so far with your experience working with the Bing Crosby estate?
+[45:45] What's been a real pinch me moment that stands out for you?
+[45:49] Wow.
+[45:50] There are many, many, many pinch me moments so far.
+[45:54] Um, well, I think from, from a personal standpoint, just, um, so Mary Crosby, uh, who, who is Bing's
+[46:04] daughter, um, again, being not to age myself, but being like a child of the eighties, there
+[46:11] is a hugely, hugely popular show called Dallas and Mary Crosby famously, uh, her character
+[46:20] actually was the one who shot J.R.
+[46:23] There was a whole who shot J.R. thing.
+[46:25] It was like massive here in the States.
+[46:27] Um, spoiler alert.
+[46:29] So, I mean, that's 40 years ago.
+[46:32] Come on.
+[46:35] Um, but the first time I was on a zoom with Mary, I was like a little starstruck.
+[46:41] I'm like, oh my God.
+[46:42] Like, like, so that was, that was a pinch me moment from a, from a personal standpoint,
+[46:48] from, um, from a business standpoint, the whole thing on Bing, uh, has, has been pinch
+[46:55] me.
+[46:55] There were a lot of, I don't want to say naysayers.
+[46:58] That's not fair, but there were definitely a lot of raised eyebrows, uh, throughout the
+[47:03] industry when we first announced that we were entering into a partnership with Bing Crosby.
+[47:09] Because I, again, I think the initial feeling is, would be why, why would they, you know,
+[47:15] yes, we know why Christmas, but again, without doing the research and really digging in, there
+[47:21] are, there are a number of people who kind of, you know, raise their eyebrows a bit.
+[47:25] So it's always incredibly satisfying to deliver when, when people aren't expecting it.
+[47:33] Amazing.
+[47:34] And what would you say is the most underrated opportunity when you're working?
+[47:39] With seasonal music rights.
+[47:41] The whole, the whole seasonal, uh, ability to marry with music is, um, still to this day
+[47:53] untapped.
+[47:53] I mean, even if you listen to, you know, any of the radio stations that switch over to holiday
+[47:58] music and you look at holiday charts, you're seeing, you know, essentially, um, the same
+[48:04] songs in there in the top 30 and the top 40, but the more, um, the more deals that we do
+[48:12] and when you can unearth, um, you know, I, I never, I'm a huge Ramones fan.
+[48:19] I never knew that there was a Christmas song.
+[48:22] Merry Christmas.
+[48:22] Merry Christmas.
+[48:23] I don't want to fight about it.
+[48:24] Um, you know, we just got that.
+[48:27] Our sync team just got that placed in a, in a massive national campaign, uh, television
+[48:33] campaign.
+[48:34] Um, you know, similarly, you, you, we have the catalog of Stevie Van Zandt.
+[48:40] And he wrote, um, an amazing Christmas song for Darlene Love that was in the Home Alone
+[48:47] movie.
+[48:48] So I think that there's a very much an untapped, uh, area that we can go into with, with a
+[48:58] lot of our, our seasonal music.
+[49:00] I mean, we have, do you hear what I hear?
+[49:01] We have, I saw Mommy Kissing Santa Claus.
+[49:04] These aren't bang songs.
+[49:05] These are, these are just in our other catalog.
+[49:08] So the, the opportunities for, for holiday music as a whole, uh, in my opinion, as a marketer
+[49:14] are, are endless.
+[49:16] It almost sounds like the kind of being case study is a brilliant one for how to take what
+[49:25] is essentially a mega Christmas artist and bring him out to broader society through the
+[49:31] rest of the year, uncouple the seasonality.
+[49:35] One thousand percent.
+[49:37] And last but not least, Adam, if you could own one holiday song, what would it be and
+[49:42] why?
+[49:43] Well, I don't want to end this great conversation on a, on a, on a, on a unjoyous note.
+[49:52] But when you, when, when, when you put, when you pose that question, um, I just think Fairytale
+[50:00] of New York is just one of the most brilliant, gut-wrenching songs of, of all time.
+[50:10] So, um, the Pogues and Kirsten McCall, uh, Fairytale of New York would be, would, would be the
+[50:18] holiday song that I, that I would want to own.
+[50:20] I think there's, again, I don't know who owns it.
+[50:23] Um, but whoever does, they're not doing a great job.
+[50:27] And it's an absolutely great tune, isn't it?
+[50:30] It's so good.
+[50:31] You need to get it on the primary way of Christmas list.
+[50:34] I think, I think there could be a movie made around it.
+[50:37] But I think, I mean, I think there's so much you can do with that.
+[50:39] Yeah.
+[50:39] That's a great.
+[50:40] I don't want to give away my secrets though.
+[50:42] Yeah.
+[50:42] I love that.
+[50:43] I have a strange, some family connection to one of the people in the Pogues.
+[50:49] No way.
+[50:50] This is how, this is how we're going to make this happen, Adam.
+[50:53] Exactly.
+[50:54] Someone's going to do the intro.
+[50:56] It's, it's, it's, it's quite, it's quite tenuous.
+[50:59] I think, uh, it's my godfather's cousin or close relative.
+[51:07] Was in the Pogues.
+[51:07] Yeah.
+[51:08] I'll find out whose name it's.
+[51:10] And I'll let you know.
+[51:11] I feel like I should already know, but.
+[51:13] Please do.
+[51:14] Please do.
+[51:14] That's amazing.
+[51:15] Comes up every year, you know, at the Christmas dinner table.
+[51:18] Love that.
+[51:19] Oh, you know, you're semi-related to this guy, the Pogues.
+[51:22] Not really, am I?
+[51:27] That's great.
+[51:28] That was amazing.
+[51:29] Honestly, that was the festive, the festive episode that we have been waiting for.
+[51:33] And like, yeah, really interesting.
+[51:35] And I'm just such a fan of everything that you guys do at Primary Wave.
+[51:39] Like I said earlier, you're just killing it.
+[51:41] Thank you.
+[51:42] Thank you.
+[51:42] Thank you.
+[51:42] And this is my pleasure.
+[51:43] Honestly, my pleasure.
+[51:44] This has been fantastic.
+[51:46] You guys are awesome.
+[51:49] Happy to come back anytime.
+[51:51] Amazing.
+[51:52] Thank you so much.
+[51:53] Yeah.
+[51:53] Thanks, Adam.
+[51:54] Really?
+[51:54] Yeah.
+[51:55] I really love what you're doing.
+[51:56] Yeah.
+[51:56] That's great.
+[51:56] Thank you.
+[51:58] Happy holidays.
+[51:58] We have to say happy holidays to all of our audience.
+[52:01] And also stay tuned because we will have some other festive episodes and content coming up shortly.
+[52:07] So we will see you then.
+[52:10] Amazing.
+[52:11] Thank you, Adam.
+[52:12] Thanks.
+[52:12] Thanks for tuning in to Music Moneyball.
+[52:15] If you enjoyed the conversation, you can subscribe at standard-innovation.com to get every episode in your inbox.
+[52:23] You can also follow the show on Spotify, Apple or YouTube to stay ahead of the curve in music rights investment.
+[52:34] Thank you.

@@ -1,0 +1,231 @@
+# Music Fastball: What are you actually buying in a catalog deal? w/ Cliff Fluet
+# Date: 2026-03-17
+# Duration: 00:22:00
+# Guests: Cliff Fluet, Partner, Lewis Silkin Host: Tom Mullen Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Music-Fastball-What-are-you-actually-buying-in-a-catalog-deal--w-Cliff-Fluet-e3gc69a
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] hello and welcome back to music fastball uh this week i've got a special guest cliff
+[00:14] fluey from lewis silken and we are going to be talking about the legal process that happens
+[00:21] either side of a transaction cliff if you wouldn't mind giving yourself a very quick intro
+[00:26] and then we'll get into it so a bit about me i'm a partner with the law firm lewis silken i've been
+[00:31] here for the last 20 years and i've all together i spent the best part 30 years advising on music
+[00:36] rights transactions because before that i was head of business affairs at warner music and general
+[00:42] counsel at global radio so i've seen how it works from the inside and from the outside and really
+[00:47] how i think about these transactions is probably less abstract and much more commercial amazing
+[00:53] and that experience that you've got both working at a label and now largely with financial investors
+[00:59] can you talk me through the difference in diligence and the importance of it for financial investors
+[01:06] where potentially for labels it wasn't quite as important well i think it's in many ways the other
+[01:12] way around tom it was not that it wasn't important um you know in business affairs to a certain extent
+[01:19] we would run a lot of these deals but really what they weren't seen as something that was sort of
+[01:24] additional to these deals that the rights were at the heart of it these are rights businesses um now
+[01:29] when labels bought catalogues and they still do they can take a view they've got the context they've
+[01:34] got the artists they know the counterparties they know how these things go back they have operational
+[01:39] leverage so it's something messy you could work it out over time um and financial buyers my sense is they
+[01:46] just don't have that luxury they're buying an asset they need to be able to exit liquidate securitize
+[01:52] and the people they're selling to as well they'll be brutal they'll don't really about the context
+[01:57] they're much more about things like clean title and consents and audible income streams so really um and
+[02:04] again i'm aware that there might be a view that look you're a lawyer you're going to see everything
+[02:07] with rights lens but actually it's the money that needs the diligence the capital requires it
+[02:13] and you know i often say to clients tom that you know you've got to think of it like property
+[02:18] would you buy a house without a survey now property developer might they've got the expertise to spot
+[02:23] the problems and price them but the bank that's going to give you the mortgage or a buyer paying for
+[02:28] trophy asset prices they need the same assurance they they absolutely the same logic applies and
+[02:35] they don't take a view they need to take a position yeah i think you're absolutely right i think the
+[02:40] point as well historically for the labels their margin profile is just very different isn't it i mean the
+[02:45] whole business is is quite different from a financial investor and that means that there isn't as much
+[02:50] variance and they potentially don't have as much leeway to go and do the engineering afterwards
+[02:55] i've got to understand from a label perspective they're looking at through many lens it may be getting
+[02:59] an artist it may be securing their back catalogue against newer catalogue and maybe things like market share
+[03:04] which aren't necessarily going to be troubling financial acquirers in exactly the same way
+[03:09] yeah and i think you know one of the the major points that we hear when people go through these
+[03:14] transactions is actually um an element of education is required for the sellers more and more the people
+[03:22] who are buying the catalogs are getting you know they do it regularly so they're getting educated about
+[03:27] the process and the challenges but when it comes to the sellers that's not necessarily the case
+[03:31] and you've stated before that it's incredibly important that the sellers really do understand
+[03:37] what they're selling first can you talk me through that yeah there is this view and i've had it from
+[03:43] a number of buyers i work with is that sellers don't know what they're selling it's not that they're
+[03:48] hiding anything it's just they've never had to be that precise they've collected income for years
+[03:53] maybe decades the money arrives it's fine and then when someone says i'm selling the catalogue
+[03:59] often it can mean a lot of things is it revenues is receivables is it the right to collect what's
+[04:05] flowing is it underlying rights is it ancillaries is it sync pipeline the truth is it could be some
+[04:11] it could be all of these and a lot is lost in translation the buyer will come to be absolutely
+[04:16] clear what they're buying and then when it actually the rubber hits the road and people are going into
+[04:21] the diligence and asset purchase agreements then everyone gets a lot more granular and then there
+[04:26] are some horrible surprises for those who are selling my view is that if you can't articulate what
+[04:31] you're selling then the buyer will decide for you and you may not like their version so getting the
+[04:36] sellers to make sure that they're as clear on this as the buyers is really important and i think that's
+[04:42] super important as well as a deal progresses because if you're not aligned at the beginning then when
+[04:47] you get to the end when you come to sign those piece of paper and alignment doesn't happen and you're
+[04:52] going to revalue a deal then invariably that doesn't typically go very well that's correct i've never
+[05:00] seen it work well yeah and i think associated with that as well cliff you know anecdotally we hear
+[05:06] that people go in and you know the sellers oftentimes will agree heads of terms and otherwise
+[05:12] and then they'll say right okay we'll get the lawyers involved to go and kind of paper it all up
+[05:16] and we'll see where we come out uh that doesn't feel like a very sensible approach for many reasons
+[05:22] but i think it also happens more regularly than it should can you just talk us through some of the
+[05:27] experiences that you've seen that tom that happens more than you think and it really does amaze me
+[05:31] all of these years look i often say to people there are reasons and there are excuses i understand the
+[05:37] reason the view is is actually let's get it done and let's go and find the paperwork and chat to the
+[05:42] lawyers almost isn't ancillary element but also from a deal perspective what happens is the price gets
+[05:48] locked it becomes anchored that's often based on historic income and what statements have shown but
+[05:53] you're not buying royalty statements you're buying underlying rights and that really isn't what it's
+[05:59] about what do you own what consents what's changed and if you don't know those answers until you've
+[06:05] agreed a number and this is to both sides you are handing the leverage to the other side every gap
+[06:10] becomes a reason to lose trust or chip the price and you're not negotiating anymore both sides are
+[06:17] defending a position so really you know price is yesterday's incomes but deals close on today's
+[06:23] rights and if you don't know the difference between those things you really are negotiating blind
+[06:27] yeah and that's a really important part isn't it you know we talk about valuations and invariably
+[06:32] that's some kind of discounted cash flow based on historical royalties taking into some of the
+[06:38] context of things might have been going on but the rights are a static point of time and they're
+[06:44] reflective as of now aren't they absolutely right and income is in and of itself backward looking
+[06:51] you've got three years of statements or five years of royalty data and whatever model you use and
+[06:56] you guys talk a lot about your decay curve models but that tells you what it's earned it doesn't tell
+[07:01] you what it's will earn and i think a point that's really missed is what it will or could earn so the
+[07:08] deal really is it needs to be understood on an understanding of the current state a revision a reversion
+[07:13] might have triggered or a key agreement might have expired or one thing that really shocks a lot of
+[07:18] financial buyers as a legal claim surfaces an administrator might have changed that may be a
+[07:23] divorce or a divorcee that's involved the income model totally assumes continuity subject to a curve
+[07:30] but the contracts might or the legal position more generally might tell you a very different stories and
+[07:35] if you don't reconcile those things before you agree a price you are building on sand yeah absolutely
+[07:41] and that's a really valid point you know we can spend a bunch of time looking at a decay from a given
+[07:47] genre or looking very specifically on a personal basis as we we heard recently in our live event
+[07:54] but i think actually if you don't correlate that with what the paperwork says what the contracts say
+[08:01] and what the legal say you could be in for a very nasty surprise absolutely and again you know we've
+[08:07] talked about things like decay curve um and that does assume there's some sort of continuity and you
+[08:13] can price for it and to what you guys and the guys you work with do in terms of capital valuation but
+[08:17] legal risk doesn't work like that it doesn't decay income it can destroy it you know it a title dispute
+[08:24] can switch off dispute entirely i've got a number of people who are just genuinely shocked that that can
+[08:31] happen it can put your income in suspense indefinitely and these aren't gradual declines these are
+[08:36] absolute sudden stops so your beautifully modeled decay curve might become a flat line
+[08:42] yeah when the decay curve hits a wall what happens then well this is it
+[08:47] the blame game starts is the real answer to that yeah do you have any good examples of where that's
+[08:55] happened in the past oh well i mean you know there are things that you can't claim for things like
+[08:59] sampling or things like that you know the sample claim comes out now of course if you're a label or
+[09:04] you're a publisher you know you kind of put that on the on the pile and deal with it in due course
+[09:09] but it can cause absolute terror amongst a financial investor that's modeled a certain return or a
+[09:16] certain arr in relation to that other elements as well where they found out subsequently when isrc and
+[09:22] iswcs sorry iswcs don't reconcile or more importantly now what's happening is that people are finding
+[09:29] these incredible companies out there like cworks and others that can go through and cause fixes
+[09:34] these might increase your yield massively or it might end it because you're being overpaid or
+[09:40] reattributed as well happens all the time and unfortunately too many times it's done after the
+[09:47] deal what really needs to happen is a kind of a broad view of the rights position and the financial
+[09:53] position and the data i'm not saying the legal stuff is more important i'm not even saying it's as
+[09:58] important but it is important yeah these all of these things have to happen together don't they it's a
+[10:05] cohesive effort to try and understand kind of value now and into the future and i think also it's really
+[10:11] worth bearing in mind that of course through these diligence processes we can find lots of challenges
+[10:16] we can find decay curves that become flat lines very quickly but actually i think there's also
+[10:22] opportunities to find significant value on both sides of the deal aren't there absolutely and and i think
+[10:29] that's a point and an opportunity that really people are missing again if you're just seeing these as
+[10:35] buying royalty statements it can be missed quite a lot now of course from a legal perspective we are
+[10:41] looking at risk we're looking at gaps we're looking at consent requirements reversions claims
+[10:45] absolutely as i've said earlier all of those things can destroy value but there is upside
+[10:49] that maybe neighboring rights have never been registered where the collections have been
+[10:53] patchy or audit recoveries or sink opportunities that have been blocked by unclear pupils if you can
+[10:59] fix the approval chain you might unlock a revenue stream and i think that really the question is that
+[11:04] that's an argument for doing the diligence properly not just cheaply or to keep a lender happy so i think
+[11:11] really what i'd like to sort of emphasize is that this isn't just insurance it might be form of
+[11:15] archaeology sometimes you can find problems but other times you can find amazing treasure
+[11:20] exactly exactly people still seem to think that it's part of the process that they can skip or
+[11:26] you know it can come at the end and we don't have to start doing these things at the beginning whether
+[11:31] that's because they're just not familiar with it or because they want to save money or whatever it is
+[11:36] but actually i think there's a real hidden cost of not doing these things i think that's absolutely
+[11:43] and look um i was a client before you know being in private practice and i understand the logic legal
+[11:49] fees aren't cheap why pay for it twice oh it will deal with it in diligence oh the lawyers will have
+[11:56] um insurance if they get it wrong another one that's really important actually is that what's
+[12:01] really different about this asset is that it doesn't necessarily work that the amount of hassle and
+[12:07] background and legal problems that a deal can have is somehow concomitant with the value
+[12:12] you know we found that some of these really really small deals you can spend much much more than a
+[12:17] really big number which has been a well looked after well-run catalog so but i think the logic is
+[12:24] really backwards and if you don't spend the money prepared you're not saving costs you're just
+[12:28] depressing the value you're handing the buyer reason to discount or you're creating uncertainty
+[12:33] that they're going to price you out whether or not you like it and every gap a buyer finds is leverage
+[12:39] against you and once you're in exclusivity you've got very little room to maneuver so really you know
+[12:46] this is more on the seller's side if you're looking after a seller and you're an accountant or business
+[12:51] manager or family office or whatever if you really want to hold the price come to the market with a
+[12:56] clean legal pack and your diligence becomes confirmatory and not investigative it becomes a
+[13:02] completely different dynamic and you know i think the really the question is is when are you going to
+[13:06] pay for it are you going to pay for in preparation or are you going to pay for in price either way
+[13:11] you're going to be packed yeah and you know the talking about doing deals and information asymmetry
+[13:19] it's kind of the 101 of deal making isn't it the side who has the more information invariably has
+[13:24] a better chance of finding an outcome which is more beneficial to them which is not really what we
+[13:30] want in the end of the day a deal should be a deal it should be valuable and equitable to both
+[13:35] parties but if one party just doesn't have the right information and finds it out through the
+[13:41] process that's never going to end well and it might end you know commercially objectively well
+[13:47] but if it doesn't match their sentiment and the subjective side at the beginning then probably not
+[13:54] going to happen anyway which is a lot of time effort fees spent in getting somewhere which is the end of
+[14:01] you know an outcome which neither side want which is not great so absolutely also sorry that's
+[14:08] sorry to interrupt but i think a really important part is um often when the parties are stuck in a
+[14:14] deal under an loi or under exclusivity they then get boxed into bad decisions whereas actually better
+[14:21] decisions can be made if you do some of this diligence up front you work out no that's the absolute
+[14:26] for my value if i'm the seller and if i'm the buyer i'll have a really really clear idea of how far i want
+[14:32] to push things where i want to go on the price hankering where i want to go in relation to that
+[14:36] what conditions i want to put into the deal all of these things will grow trust if you come to the table
+[14:43] with those possibilities if you fixate on a value or what's a price then you've got very little place
+[14:49] to go and trust will erode yeah absolutely and i think that that's the key part isn't it is when
+[14:56] expectations don't match problems occur so we hear a lot about uh the education making sure that the
+[15:06] sellers actually understand what they need to know what would be the things that you recommend that they
+[15:11] clarify before going to market well look i mean of course yeah a lot of this is going to sound basic but
+[15:18] given the fact it comes up in yearly every deal it would clear it's not you know so what are you
+[15:24] selling is it underlying rights is it masters is it publishing publishing is thrown around all the
+[15:28] time and then we say right is it right to share or is it subject reversion or the coast you know and you
+[15:34] you get a bit of a shrug as it were so what are you selling what are you keeping get precise write it
+[15:40] down what are the sources of the income what consents you need just be up front about the encumbrances
+[15:46] that might do that could be reversions or mfns or side letters or all the stuff you haven't looked at
+[15:51] and also it really does engender trust if you come to the table and say things are missing
+[15:56] wrong that being found out further on it's a very very different dynamic and if you can't answer those
+[16:03] questions up front a buyer's going to like is going to find it's us and you may not like those answers
+[16:08] so i think that really the clarity a lot of the time that's we work with now we build them playbooks
+[16:13] to give to the seller almost like a here's a pre-flight check before you bought this played
+[16:18] this is what we want this is how to do it's all plain english it's done in a way that really does
+[16:23] create trust and everyone that's put them out there said it's saved them a lot of time and hassle
+[16:28] yeah i can imagine that and you know the more effort that the seller can put in ahead of time
+[16:34] not only does it set their expectations right but also it means that they come well prepared and
+[16:39] understand things that are missing can get advice on that can go and understand how that's going to
+[16:45] impact valuation and pricing and everything else can you all let's also just talk a bit i mean
+[16:50] particularly for the the older catalogues invariably if you've had uh an artist who's been recording for
+[17:00] many decades the chance of them having a very very clean and well documented catalog of rights
+[17:08] and all of the financials and legals and even the commercial side of it being top-notch is probably
+[17:16] pretty unlikely but where does it go from being okay well this is kind of normal yeah there's some
+[17:24] things in a shoebox to okay this is a massive red flag where's that line live well again i mean it's an
+[17:31] excellent question um i don't live in the world of perfection i live in the world of reality and then
+[17:38] also there's a world of getting deals done so a lot of the time um and again just imagine i keep coming
+[17:44] back to a property um analogy forgive me i did spend a whole six months as a qualified real estate
+[17:50] buyer but i often find it has to do that if you're selling a property and you tell everyone you know
+[17:56] oh well there's a leak in the back and or we're not quite sure all of those things can be priced in
+[18:02] people get insurance people look to fix the gaps they can be able to build for that they'll be able to
+[18:07] say right okay we'll work with you we'll hold back 10 of the revenue until all of those things are
+[18:12] workable if those things are found out during diligence it has a completely different effect
+[18:19] to the physics of the deal yeah and i think that makes good sense and do you have any good examples of
+[18:25] you know a subset of documentation which is absolutely critical and if that's missing it has a very material
+[18:33] outcome um and you know whether that be specific consents that they have whether it just be a gap
+[18:40] in the the audit trail very difficult to give a pattern to that one um and in truth you know lots
+[18:47] of people get quite animated about whether or not they've got signed and you know do you have any
+[18:52] juicy anecdotes cliff that's what i really want to hear any like juicy anecdotes don't need to name
+[18:57] names but well any juicy anecdotes of i i have plenty of juicy anecdotes but lots of ones that i can't
+[19:07] share on the podcast oh that's a shame but the the genuine truth is not the what but the when
+[19:13] when does this come out and if you walk into a deal knowing that these issues are there or potentially
+[19:21] there and look if it's a superstar catalog that has been running quite nicely for the last 30 years
+[19:27] without any claims well beyond the statute of limitation that labels paid you blah blah blah
+[19:32] people are going to take more of a view but people can get terribly embarrassed about these things
+[19:37] i've got fires and i've got stuff lost in i've got people who failed to sign it got people who you know
+[19:44] sort of backwards uh dated things and all the things that just be really up front as to what all of those
+[19:49] are those will help your deal look i think that the themes are really clear and this has been
+[19:56] a fantastic uh episode around getting prepared for the sale process trying to break down the
+[20:04] information asymmetry making sure as a seller that you really understand what you're selling the
+[20:09] implications of that going through the sales process are there any other key takeaways that you
+[20:15] think people need to know before we wrap up i think the real question on this is that i think that
+[20:23] there is a real question of look clean means no disasters no fight you know fatal issues no hidden
+[20:31] claims but if you're documented mapped that becomes really easy to underwrite and you know clean
+[20:38] catalogues of the floor but if you're ready it's the edge and that's for both buy it and sell it so
+[20:44] really what i'd say is just get ready prep for this don't leave it to the legals as it were because
+[20:50] you know you may end up regretting it get us involved early speak earlier prepare ask the
+[20:56] difficult questions up front it'll go better that way yeah i think that's really good advice you know
+[21:01] setting the level right at the beginning so both parties really know what they're talking about
+[21:07] exactly it what it is they're buying what kind of state all of the records to prove that it is are
+[21:15] and are in place and then with that transparency you're more likely to be able to reach an outcome
+[21:21] which both parties think sensible and have planned for ultimately cliff this has been amazing um this
+[21:28] is part one of a two-part series small series uh and we shall be airing the second part in not too
+[21:36] long so thank you very much for tuning into this week's episode of music fastball cliff thank you so
+[21:42] much for your insight and look forward to seeing you again soon see you again
+[21:47] you

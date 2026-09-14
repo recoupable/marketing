@@ -1,15 +1,9 @@
 # workflows
 
-Shared home for non-UI marketing automation.
+Shared GTM research, context, and automation development now live in
+[`gtm/`](../gtm/README.md). Agents start at [`gtm/AGENTS.md`](../gtm/AGENTS.md),
+and executable work belongs in [`gtm/engine/`](../gtm/engine/README.md).
 
-Use this directory for code that powers recurring marketing operations but does
-not belong inside a specific frontend app, for example:
-
-- email funnel automation
-- audience sync jobs
-- campaign scheduling
-- CRM enrichment or cleanup
-- reporting exports
-
-Keep app-specific UI inside `apps/web` or `apps/ops`. Put shared automation
-here so internal tools and future workers can reuse the same workflow logic.
+Use that home for audience research, review queues, CRM adapters, campaign
+workflows, and outcome reporting. Keep website pages and request handlers in
+the existing application structure described by the root agent instructions.

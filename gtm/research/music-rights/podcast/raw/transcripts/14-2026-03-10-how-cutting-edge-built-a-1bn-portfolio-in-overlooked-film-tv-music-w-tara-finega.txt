@@ -1,0 +1,667 @@
+# How Cutting Edge built a $1bn portfolio in overlooked film & TV music w/ Tara Finegan & Philip Moross
+# Date: 2026-03-10
+# Duration: 00:50:48
+# Guests: Tara Finegan, COO & Philip Moross, CEO, Cutting Edge Group Hosts: Tom Mullen, Sam Morey, Emma Griffiths Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen, Sam Morey, Emma Griffiths Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/How-Cutting-Edge-built-a-1bn-portfolio-in-overlooked-film--TV-music-w-Tara-Finegan--Philip-Moross-e3g7kri
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] I said, we'd like to buy the Warner Brothers music.
+[00:04] And she said, we don't own any.
+[00:05] We've sold it all.
+[00:07] It's gone with the Warner Music Group.
+[00:10] And I said, no, you do.
+[00:11] You own a lot of music.
+[00:13] It's all the film music and the television music that you hear.
+[00:15] And it was producing tens of millions of income.
+[00:19] And she said, no, we don't.
+[00:20] So I said, will you go and check, please?
+[00:23] And then we came back.
+[00:25] Down the back of the sofa.
+[00:30] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogs.
+[00:36] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:42] Well, Philip and Tara, it's a real pleasure to welcome you to the podcast today.
+[00:47] Delighted to have you here.
+[00:48] So we thought we'd kick off, Philip, with a little bit of backstory.
+[00:52] And we were wondering if you could just give us the 60-second version of Cutting Edge,
+[00:59] the Inception story, and how you got into this business.
+[01:02] Because you weren't always in music.
+[01:05] No, I started my career in real estate and was building multifamily housing in London
+[01:13] and then into Central Europe.
+[01:17] And during the crash of 92.3, my business was with Mark McCormack at that time in real estate.
+[01:25] So we learned the principle of licensing.
+[01:28] The licensing using talent.
+[01:30] His was principally sports talent to sell merchandise.
+[01:33] So Andre Agassi or Bjorn Borg using Fila and Andre Agassi using Nike and the like.
+[01:40] And it was really using television to sell that merchandise.
+[01:45] Because when they were playing tennis, they basically would be promoting on television Nike if it was Agassi, etc.
+[01:53] So in 93, I started a licensing business where I bought a ladies manufacturing clothing company,
+[02:02] which my wife was involved with.
+[02:05] And we bought into that and converted it into a licensing business.
+[02:09] And we signed celebrity talent from television to own their rights.
+[02:14] And we would manufacture the clothing and then effectively sell it through the major mail order companies.
+[02:19] But those licenses only lasted a relatively short period of time.
+[02:24] And so I looked for a product that was adjacent using television stroke visual medium to sell product.
+[02:34] And so I fell into music at that time and chose media music because really I was piggybacking other people's marketing budgets to sell our music.
+[02:46] And at that time, I could still retain a lifetime of copyright, which most other people couldn't.
+[02:52] So I say that because I didn't come out of the music business.
+[02:55] I came out of an adjacent business.
+[02:58] I ran the real estate business and the music business right the way through till 2010.
+[03:04] When Tara graduated, came down to Los Angeles.
+[03:11] And then I gave up the real estate completely other than my own stuff that I just owned long term.
+[03:19] And Tara joined and we started to build this business.
+[03:22] And there was a handful of people working for us.
+[03:25] And Tara has effectively helped navigate the future.
+[03:28] And at the same time, I suppose, Claudia joined six, seven years later and Freddie joined eight, nine years later.
+[03:39] So it's me and the three children and we all sort of effectively work for my wife.
+[03:45] That's amazing.
+[03:47] Yeah.
+[03:48] Yeah.
+[03:49] It's brilliant.
+[03:50] It's a true family business.
+[03:51] Yeah.
+[03:52] We love that.
+[03:52] And also be great just to get into the specifics of media music, because I think most of our audience is very familiar with the commercial music model.
+[04:02] But media music looks quite different structurally and in terms of revenue and risk and things like that.
+[04:09] So if we could get into some of that, that would be really helpful.
+[04:12] Just just comparing the two.
+[04:14] So I didn't know anything about music.
+[04:18] And for me, if I know a hit when it hits me between the eyes, but I wouldn't be able to see it on the way up.
+[04:26] And the other thing is, if I was going to buy a Bob Dylan catalog, I'd prefer to buy all his albums on vinyl for $300 than pay $300 million for his catalog.
+[04:38] I guess much pleasure out of that for me.
+[04:41] For me, it's about understanding the economic value.
+[04:44] And as I said, the media music business, really, you're piggybacking other people's budgets.
+[04:48] The marketing budget of a film promotes your music, which sits there within the film.
+[04:53] The other thing is, there was a very poor relation in the overall music industry.
+[04:59] And it still is considered to be an adjacent.
+[05:03] When somebody is making a film, they are looking at the picture rather than the music.
+[05:08] Music comes in towards the end.
+[05:09] And yes, it's vitally important.
+[05:11] And the creative people do make it very important.
+[05:14] But it's 1% or 2% of the budget.
+[05:16] It's not what the director is going to be seeing.
+[05:19] He's looking at the talent on screen.
+[05:22] I'm talking about principally most films.
+[05:26] If you look at the new movie Song Song Blue, which is around Neil Diamond's catalog, that's different.
+[05:32] That is, music is a character and is a principal character in the movie.
+[05:36] In the movie.
+[05:38] But in most films, it sits there and enhances other people's content.
+[05:43] So it's understanding.
+[05:45] If you watch a movie where the music is bad, you know.
+[05:49] If the music is too loud, you know.
+[05:51] If the music is really good, to be frank, you probably won't know.
+[05:54] It just is there.
+[05:55] But in a film where music is really powerful, like Schindler's List, for example, it really enhances the visual image of that.
+[06:08] And so it's an attractive creative tool, which is effectively a functional tool that enhances other people's entertainment product.
+[06:16] And most people in the music industry don't really see it.
+[06:23] Now it's becoming a much more important part of the process.
+[06:26] Tara, do you want to carry on and talk a little bit more about the fundamentals of media music?
+[06:32] Yeah, absolutely.
+[06:32] And I think just to add one point to what you were saying, when we started in particular, you really had these two industries, film and music.
+[06:44] And if you think about it, music's the only part of a film or a TV show that has a completely separate industry.
+[06:50] So if you're dealing with the visual effects or you're dealing with the production design, everything's geared around how the film system works.
+[06:58] Whereas music is its complete separate own business with its own legal rules, its own complexity, its own expectations.
+[07:07] And so there really was this gap between helping people navigate how to deal with the music industry to best serve the creative needs and the business needs of their film and TV show.
+[07:21] And so we really targeted that gap where we could really be in the intersection of these two different industries.
+[07:26] And then from a kind of fundamental back to basics perspective, media music is just whatever the music is in a film, TV show, video game, advert, anything where the music is primarily enhancing visual media.
+[07:45] And it can be everything from the underlying score that's typically created for those scenes and written by a composer to the songs that are licensed in, a Rolling Stones song licensed in to a particular scene or an original song created for that particular movie moment.
+[08:06] But the primary driving factor is how does that piece of music enhance the storytelling and how does it complement the vision of that larger piece of entertainment product?
+[08:21] Is it fair to say that the reverse is true as well in that, you know, you might have a music video for a piece of music, a song, but it's unlikely that it's really going to be the thing that stands the test of time.
+[08:35] Whereas in the media business, if you have a piece of music that scores a film and the film becomes huge, then obviously the music becomes equally large and associated with that and extends the lifetime and the value and the cultural association and the zeitgeist and everything else.
+[08:53] Absolutely.
+[08:53] There is something in that, although the music videos were created as marketing tools for the album.
+[09:00] Yeah.
+[09:01] And you go back into the genesis of MTV and that was there to promote music.
+[09:09] Whereas in our world, music has always been a fundamental part of it.
+[09:15] The music industry is not that old.
+[09:17] When jazz singer, which is one of the older titles in our Warner Brothers catalog, it was the first time that music was really used in a, in a speaky, as it were.
+[09:31] This was only a hundred odd years ago.
+[09:33] So it's, this is a, music has always been an enhancement tool to the visual in film and television.
+[09:41] Whereas in music, the music videos were marketing tools for the actual pop music.
+[09:48] Yeah.
+[09:48] Yeah.
+[09:49] Yeah.
+[09:49] I think it's just a really interesting idiosyncrasy of how one supports the other.
+[09:55] Yeah.
+[09:56] I mean, music tells you how to feel in a scene.
+[10:00] So you have all of, you know, you have the, the actors and the dialogue and you have the beautiful effects and that's all kind of intellectually telling you what's going on.
+[10:11] And the music is essentially speaking straight to your emotions to guide you into how you're supposed to feel moment to moment.
+[10:19] And I think it's still undervalued.
+[10:21] I think people still don't understand how important it is to actually make the story work.
+[10:27] Yeah.
+[10:27] And it's like, you know, the whole relationship with smell or sense, isn't it?
+[10:31] You can hear a section from a score of a film and you immediately transport it back there.
+[10:37] And okay, you might get that with some songs if it's very specific to you to a particular event.
+[10:43] But I think broadly, if you hear a song from the Gladiator or as you say from a few of those, you kind of immediately back in the film if you've watched it.
+[10:52] And that transcends, well, almost time forever, doesn't it?
+[10:56] That's very true.
+[10:58] There's all these amazing social media videos now where they've replaced the music with something completely adjacent and different.
+[11:06] And you can kind of get a glimpse of what we go through when we see an initial cut without music.
+[11:13] And you see how odd the scene feels until you actually fill it out with music.
+[11:20] Amazing.
+[11:21] And can you just talk us through how the copyright structures differ as well and how the flow down of the commercials differ to traditional commercial music?
+[11:31] I think a lot of the audience will really understand the complexities of copyright and the flow down.
+[11:37] But I think for you guys, it's probably a little bit different.
+[11:40] Yeah, I think the big main initial difference is that the music is typically created for this larger production.
+[11:49] So putting to a side when you do license the Rolling Stones song and putting that into kind of a separate category for a second.
+[11:54] When we're talking about the actual scores and original songs that are created for films and TV shows, they've been commissioned for this broader production.
+[12:05] And so they're part of a kind of collective copyright work.
+[12:09] And because of that, there are more significant copyright protections, particularly in the United States, than you get on music that's just been created to be released commercially.
+[12:20] So this music can be created under a work for hire system, which allows the copyright to really be retained for the longest amount of time in terms of the copyright law in each country without reversion rights and terminations.
+[12:36] And the concept behind that, it's the specific exclusion in the United States copyright law around audiovisual work.
+[12:42] It's because this is considered part of the same work as the director and the production designer and the visual effects creator.
+[12:51] And so there isn't necessarily a clean way for that work to revert back to any one of those creatives.
+[12:58] Yeah, that makes sense.
+[13:00] It provides us an opportunity to then actually buy these things for the long dated rights, as Philip said earlier.
+[13:06] A bit more defensible in the long term.
+[13:09] Exactly, exactly.
+[13:12] And then in terms of how the kind of economics and the revenue streams work, the majority of the revenue coming from this music is based on the actual film or the TV show or the video game itself.
+[13:26] So when a film plays at the cinema internationally or when it plays on BBC or when it plays on Netflix, it's a kind of performance of that film.
+[13:37] And so it generates what's called a performance royalty.
+[13:40] And that gets collected by these different societies in different territories and then gets paid out to the publisher.
+[13:46] So the owner of the music and the composer.
+[13:49] And so whereas in traditional commercial music, you're mainly looking at what's called a mechanical royalty that gets generated when a track plays on Spotify.
+[13:59] Here you're looking at a performance royalty as the main source of income.
+[14:03] But it's very similar otherwise because, you know, a Spotify stream generates that mechanical royalty, whereas a Netflix stream might generate a performance royalty.
+[14:13] But essentially it's the same consumer behavior.
+[14:16] It's the audience finding and listening to that music.
+[14:19] And is there a trigger?
+[14:21] I mean, that all makes good sense.
+[14:22] Is there a trigger in terms of how much of the film or program somebody has to watch for the royalty to be paid?
+[14:31] No, they just do it on.
+[14:33] Well, I think there's a small trigger if you just click on it and you watch 10 seconds and you click off.
+[14:38] I don't think that counts.
+[14:39] But typically they're really just as soon as you start watching a film or a TV show, an episode of a TV show, I should say, they're then counting that as a stream of that particular piece of content.
+[14:54] I remember there was an article a couple of years ago and a lot of TV composers were kind of in uproar because everyone was being able to skip the opening credits.
+[15:05] That's my work.
+[15:06] Yes, that might upset people from a creative standpoint, but fear not.
+[15:12] They're still getting paid for those opening credits even when you skip them.
+[15:16] That's what I was concerned about because obviously there's been a whole load of manipulation around Spotify, like length of songs and how long they're listened to and things like that determines the amount of royalties.
+[15:27] But okay, cool.
+[15:29] I would say our struggle is more about we don't get as much transparent data, which is improving year by year.
+[15:36] But whereas on Spotify, anyone can publicly see how much a song has been streamed.
+[15:41] Netflix and the other audiovisual platforms keep that very, very, very close to the chest.
+[15:46] And so that's more, I think, the kind of area of concern and improvement that we keep seeing every year as things get more and more transparent.
+[15:54] Putting into context, when I started back in 2000-ish, there, there were about 25 territories that we could actually track the amount of royalties that were being paid per minute when they were being played on television.
+[16:15] And it was at that stage, there was no streaming.
+[16:17] There was no Netflix, et cetera.
+[16:20] And we would know exactly what they were paid.
+[16:23] But when I got the statement and when I came here coming out of real estate business, when I rented a property, I knew exactly what rent I was going to get.
+[16:30] And if I didn't get it, I would replace the tenant.
+[16:33] They'd pay me 5% more or 5% less.
+[16:36] But at the end of the day, I knew what I was going to be entitled to.
+[16:38] So here, I came in.
+[16:40] In the first quarter, we got our rent, our royalties statements.
+[16:44] I would say, well, that 100,000 is about right because last quarter, it was about right.
+[16:50] But nobody ever went back to the first quarter and saw whether actually that was right or wrong.
+[16:55] And so over the next, what, 20 years, we've now been able to build systems and tools that allow us to track very carefully.
+[17:04] And the digitization has really helped that because we can track extremely carefully what is going.
+[17:11] And when you are able to acquire the type of content that we have, which is very highbrow, it gets played an awful lot around the world.
+[17:23] And we understand and Tara's team understand exactly how to go and find revenue that may not have been paid through.
+[17:31] That's really interesting.
+[17:32] Have you found that Netflix is obviously almost monopolistic?
+[17:38] I think it's changed a bit over the past two or three years with more entrants and things like that.
+[17:43] Have you found that being beneficial or more challenging for you guys in the negotiations with them?
+[17:48] And do you even have direct negotiations with them?
+[17:51] I would actually disagree that Netflix is monopolistic, at least from our perspective.
+[17:56] You know, we find that when we have the windowing of content on these different platforms.
+[18:03] So we are lucky enough to own music in the U.S. office, for example.
+[18:10] And we find that when the U.S. office came off of Netflix and then windowed onto Peacock here in the U.S.,
+[18:16] we actually got even more royalties from those streams on Peacock.
+[18:20] And so, you know, I think it's interesting that in the audiovisual business, they've been able to make content a differentiating factor so that people have multiple of these platforms depending on what they want to watch.
+[18:34] As opposed to in the commercial music business, you know, all content is available on every single platform.
+[18:41] And unless you're like very unusual like me in the business, you're not going to have Spotify and Apple Music and Amazon Music and you're not going to have multiple of them.
+[18:48] And it's more about a kind of UI, UX preference.
+[18:53] Yeah, and that is true.
+[18:54] Yeah, I think just as a consumer, you know, we've seen over the past couple of years that there's a significant differentiation in terms of the content that they produce, how they present it.
+[19:03] And even just the engagement model, I think if you look at Amazon Prime and Netflix, maybe three years ago, there were very, very similar services.
+[19:12] But now as a user, they feel really quite differentiated.
+[19:15] And it sounds like you guys see that commercially as well.
+[19:19] Well, you're looking at S-quads, so subscription video on demand.
+[19:23] There is advertising video on demand, which is coming through that you can check to.
+[19:27] But then there's also the fast channels.
+[19:29] Now, if I tell you, well, I'm going to ask you, you won't know, so I won't try and get you to guess.
+[19:36] The leading show on the leading fast channel in America last year was Little House on the Prairie, 50 years old.
+[19:46] Wow.
+[19:47] I don't know, Tara, was it 13 billion minutes or 13 billion hours of stream time for that show?
+[19:53] Ridiculous.
+[19:53] I don't know how to tell you.
+[19:55] It's an awful lot of time being spent on a fast channel watching Little House on the Prairie.
+[20:00] And this is a whole new dawn of people going back to basics and watching nostalgic shows.
+[20:06] I think in the catalogs that we go, I think the Gilmore Girls last year was one of the biggest shows on out the big street.
+[20:13] Because these are nostalgic shows.
+[20:16] And there's a massive change in consumer consumption of television, which is not specifically Netflix only.
+[20:27] Netflix, of course, is huge and doing extremely well.
+[20:30] And it's unbelievably good business.
+[20:32] But there are many, many other strands.
+[20:34] And there are a lot of people who don't have Netflix yet.
+[20:36] Yes, they have hundreds of millions of subscribers.
+[20:38] But there are billions of people in the world.
+[20:40] That's why YouTube is still the biggest AVOD platform.
+[20:44] And it's got, what, 2.6 billion subscribers and what Netflix has maybe 300 million or thereabouts.
+[20:52] So, you know, there's a massive movement, of course, away from your traditional cable, but into this new world, which presents huge opportunities for us.
+[21:04] Yes, which is huge.
+[21:05] And I just wanted to kind of come back to how the mechanics of the royalties worked.
+[21:12] And one of the things that we looked at whilst we were doing some research, and please correct me if I'm wrong, but it sounds like the traditional model is you have a composer or whoever writes the score.
+[21:24] And then you have effectively the producer or the publisher who goes and makes it with an orchestra or the band or whatever else.
+[21:31] It sounded like that you guys were kind of moving to collapse those two and actually give that as an offering to the film studios.
+[21:40] Is that a correct assumption?
+[21:42] So doing the production and getting the people to do the writing and therefore getting a greater share of the royalty?
+[21:50] So most of the time, the composer on film scores is also the producer.
+[21:56] So usually when you hire a composer, you're hiring them frequently in what they call a package deal, where they're basically saying that I'll also handle all of the recording and I will come to you with a fully baked score.
+[22:09] And frequently the composer conducts the orchestra sessions, like produces the music, really understands what he or she are trying to get at when they initially wrote that down.
+[22:21] So I would say that those two roles have been collapsed for a while now.
+[22:27] And it's the reason if you go on Spotify and you stream score soundtracks, you'll find that the artist is listed as the composer because they are considered the kind of origination of that music, even if they're not the one actually playing the first violin in the orchestra.
+[22:44] What I'd say what we're offering is essentially a business model to help fund those costs and to prioritize those costs.
+[22:55] And then once we have a piece of ownership in that music, being a publisher, whether we can make sure the royalties have all been collected properly, that the music can have a secondary life outside of the film, whether that's syncing it in other places, whether that's creating live to film concerts, whether that's sampling the music into hip hop tracks.
+[23:18] You know, we operate as a publisher, you know, we operate as a publisher, taking that music and trying to give it as big a life as possible and really being the partner to the composer in that process.
+[23:29] So really, I think that maybe I got the terminology slightly incorrect, but actually it's the role of the publisher, which was traditionally done by the studio that you guys step into, help with the producer writing the score and then present back to the film studio.
+[23:46] So a more comprehensive, okay, well, here's the piece of work and everything else.
+[23:52] We can help fund that.
+[23:53] And then we retain the royalties afterwards.
+[23:57] Yes, that's one of our models.
+[23:58] And really, I mean, what I would say is we, we end up being the partner to the studio, helping augment their music departments and we're the partner to the composer.
+[24:07] So we're kind of in that in-between space as real media music experts.
+[24:13] And is that quite non-traditional, so quite differentiated for you?
+[24:17] What we don't do is we, we never compromise the creative integrity.
+[24:21] So the director chooses what he wants, producers choose what they want, and we facilitate them getting it.
+[24:28] Amazing.
+[24:29] And that's, and that's a really important differentiator between what we do and what you do in the commercial space.
+[24:35] Yeah, that's interesting.
+[24:37] Is it fair to say that there's not many other people offering that very specific proposition in the media music business as well?
+[24:45] You know, there's a lot of individual, amazingly talented freelance people who do one specific part of the process.
+[24:55] And I think where we're differentiated is that we are a horizontally integrated outsourced music department, if you will, where we have every different aspect from helping execute the creative vision through to publishing the music, collecting the royalties.
+[25:12] We have a leading independent soundtrack business in the world, Licture Records, that helps distribute those albums, and a top class secondary exploitation team that then thinks about the music in its secondary, tertiary, you know, life.
+[25:29] So we really are differentiated in the sense that we are kind of a one-stop shop for all those different things.
+[25:34] And that we have capital.
+[26:04] And our catalog generates 5, 6% of the revenue.
+[26:08] So we're not looking there and having one song producing 80% of everything that we have.
+[26:13] Yeah.
+[26:13] And we have, what, hundreds of thousands of titles.
+[26:17] So it's, but it does allow us to deliver to a composer.
+[26:22] We're right now talking to a composer, we're about to buy his catalog, and he's done some very, very good work in the whole space.
+[26:28] And when I sat with him recently, I asked him, actually, what is it that you want to do going forward?
+[26:35] And he said he'd love to do operatic versions of pop songs.
+[26:40] So I said, fine, well, we'll just record an album of operatic songs which you can deliver.
+[26:46] Now, if you think about Rosalia at the moment, she's brilliant, and she's one of the top artists in America at the moment.
+[26:53] And then he thinks, actually, these are people I can partner with, because we're looking to solve his career problem rather than just buying his gaplock.
+[27:04] And that's because of the team that Tara has.
+[27:06] And, you know, we bought the music from, again, Jamie Hartman.
+[27:13] We bought his writer's share.
+[27:16] And we have had him record a whole bunch of the songs that he's written for others.
+[27:20] So, for example, Human by Rag & Bone Man.
+[27:23] He wrote that with Rag & Bone Man.
+[27:26] And so we own that share of his things.
+[27:28] And we've had a new master created by him.
+[27:30] And he's got an unbelievably good voice.
+[27:32] So we'll now look to place that song.
+[27:34] Well, we've got a big advert that we're putting it on right now, we hope, Cutch would.
+[27:38] But with his voice rather than Rag & Bone Man's voice.
+[27:41] So these are things that you realize we're an operating company that is serving the creative team,
+[27:48] whether it is the artist, in the case of Jamie, or the composer I mentioned,
+[27:52] or the music department, for example, in Warner Brothers,
+[27:56] where actually they can just rely on us, offload a lot of their work to Tara and her team.
+[28:02] And we are true partners.
+[28:04] We're not just there as a checkbook.
+[28:07] Obviously, there's a bit of a continuum.
+[28:09] But what we see in the commercial music space is there are a fair few people who are really investing passively.
+[28:18] And they're not expecting to work the rights or the assets that they acquire that heavily.
+[28:24] But it seems to me here that actually almost all of the opportunity is in being able to work it,
+[28:31] being able to invest in the operational side, invest in the relationships,
+[28:36] find future opportunities, franchises and everything else.
+[28:39] Can you just talk us through some of the playbook that you look at?
+[28:42] I think that you're absolutely right.
+[28:45] From an economic standpoint, our ability to go and find money is significantly important.
+[28:52] And that's active management of the catalog.
+[28:57] A smaller part, but more emotionally important,
+[29:00] is our ability to work with the composers to achieve their long-term goals,
+[29:05] which is important to us.
+[29:07] And them, of course.
+[29:08] And then, because they have effectively sold us the rights,
+[29:12] they can go and start music again the next day.
+[29:15] And we are able to sort of manage that because it's an important process.
+[29:19] And the people who are buying catalogs at the moment,
+[29:21] they come to us and ask us if they can put their songs in the films we're working on
+[29:25] or on the advertising campaigns we're working on.
+[29:27] So they are trying to actively manage,
+[29:30] but they come to us because a large part of the growth is in this synchronization.
+[29:37] As Golnar told on her podcast with you, it's a really important part of the process.
+[29:44] Financially, it's not that important to us.
+[29:46] Financially, what is important to us is collecting revenue that's out there,
+[29:49] that may be going to someone else or hasn't been paid through.
+[29:53] It's in black box.
+[29:54] So that's very important in the overall mix of what we're doing.
+[30:01] Yeah.
+[30:02] Interesting.
+[30:02] When a composer decides to sell their catalog, it's an intensely personal decision.
+[30:10] And so, you know, we really think about it as a very, very long-term proposition for us.
+[30:14] We've been here, obviously, 20 years.
+[30:17] We're planning to be here for another 20 years, if not longer.
+[30:20] And so a lot of these conversations evolve over time.
+[30:23] You know, they start by a composer calling and asking,
+[30:26] we saw that you did this deal.
+[30:28] How did that actually work?
+[30:29] Why did that composer do it?
+[30:31] And we have these conversations that sometimes last years before they decide,
+[30:35] actually, no, I do want to sell at this point in time.
+[30:37] I do want to diversify my assets.
+[30:41] I do want to take liquidity to buy this house or to invest in this other business or to sometimes,
+[30:47] you know, to have the freedom to then only take projects that I creatively really want to take,
+[30:53] as opposed to having pressure to take them for monetary reasons.
+[30:57] And so we have these long-term conversations with people about really designing a financial
+[31:03] structure that makes sense.
+[31:04] And that might be that we buy 100% of their catalogue.
+[31:08] That might be that we buy a percentage.
+[31:11] That might be that we set up a new business with them in the area that they're looking to move into.
+[31:17] And our operational capability really enables us to have that flexibility.
+[31:23] Yeah.
+[31:24] Amazing.
+[31:24] And 2025 was a pretty major year for you guys in terms of deals.
+[31:30] You know, with the Warner Brothers catalogue and the AMC catalogue as well.
+[31:36] And I think it would be really interesting just to talk through those as well and why those were such a game changer.
+[31:42] I know, for example, the Warner Brothers deal took 10 plus years to get done, which is a long time.
+[31:48] So, yeah.
+[31:49] I mean, why were those deals worth chasing for you?
+[31:52] And what has that brought to the company?
+[31:54] I'll talk about Warners, Tyrone.
+[31:56] And you can talk about AMC and you can interject on Warners as and when.
+[32:00] But the...
+[32:01] So, I had done a deal when...
+[32:05] The first deal I did coming into America was with Joel Silver and Warner Brothers.
+[32:09] And we did a 15-picture deal in the context of what you were saying, providing them with finance to make the music for the music rights.
+[32:18] And that was his Dark Castle slate.
+[32:21] And Doug Frank, who was the head of music at Warner Brothers at that time, never gave up any music.
+[32:27] Warner Brothers hadn't done.
+[32:28] They had the Warner Music Group within their business as Warner Chapel.
+[32:34] They'd sold that.
+[32:35] And then they kept everything.
+[32:36] And he said, you can't have this music.
+[32:39] I said, well, we already bought it.
+[32:40] So, you can't say we can't have it.
+[32:42] So, we eventually became friends after a little bit of a testy start.
+[32:47] And that got me into the Warner Brothers realm and started allowing us to really understand what it was.
+[32:54] Joel Silver was sitting in Frank Sinatra's office, to be honest with you.
+[32:58] Oh, wow.
+[32:59] He was the lead producer on the set.
+[33:02] He'd made The Matrix.
+[33:03] He'd made all these really big things.
+[33:05] I'm an unbelievably gifted producer.
+[33:09] So, he gave me the insight into the Warner Brothers.
+[33:14] This would have been 2008-9.
+[33:17] It's as long ago as that.
+[33:18] Tara joined the business in 2010-11.
+[33:22] And one of the first meetings we had was up in New York with the woman who worked in the development team at Time Warner.
+[33:33] And we went up there.
+[33:36] We saw her.
+[33:37] And I can't remember her name.
+[33:38] But she was a lovely girl.
+[33:39] And I said, we'd like to buy the Warner Brothers music.
+[33:43] And she said, we don't own any.
+[33:45] We've sold it all.
+[33:46] It's gone with the Warner Music Group.
+[33:49] It wasn't called Warner Music Group at the time.
+[33:51] It was Warner Chapel.
+[33:52] But it's gone.
+[33:54] And I said, no, you do.
+[33:55] You own a lot of music.
+[33:56] It's all the film music and the television music that you hear.
+[33:59] And it was producing tens of millions of income.
+[34:03] And she said, no, we don't.
+[34:05] So, I said, will you go and check, please?
+[34:07] And never came back.
+[34:09] Down the back of the sofa.
+[34:10] Yeah, basically, it was just kind of there as a sinking fund.
+[34:17] Anyway, so we got nowhere with that.
+[34:20] And then a couple of years later, or there or thereabouts, they sold the business.
+[34:25] I think Time Warner sold it to AOL.
+[34:27] And then AOL sold it to AT&T.
+[34:31] And then AT&T sold it to Warner Brothers Discovery.
+[34:34] And each juncture, we went along to try and find a way.
+[34:37] I remember writing to the people at AT&T and putting a very – and clearly, it was not even on their radar at AT&T.
+[34:44] But where we got lucky was when they sold it to Warner Brothers Discovery.
+[34:48] And we got friendly with Bruce Campbell, who is the chief operating officer.
+[34:54] He's obviously a very important guy there.
+[34:57] He had been at Discovery.
+[34:59] We'd already tried to buy the music from Discovery, and that wasn't for sale.
+[35:02] So, when we got to it, it took us three or four years.
+[35:05] And eventually, the timing was right.
+[35:09] And we put a structure in place for them that appealed to the music department.
+[35:15] Because we weren't going to step on their toes.
+[35:17] We were going to work with them to enable their team to actually get the most out of the music.
+[35:25] And so, we worked closely with the creative people, the music department, and the financial people,
+[35:31] and structured a deal that worked for everyone.
+[35:33] And so, yeah, I think it was probably 12 years after we started.
+[35:37] And it took us about a year to close that deal.
+[35:41] And yeah, it's a momentous deal for us.
+[35:44] And it's a big thing.
+[35:45] And to be fair, a small, independent British music company managing to secure that,
+[35:52] it is one of the deals of my life so far.
+[35:57] Yeah, amazing.
+[35:58] It's incredibly impressive.
+[35:58] And then you went on through that to AMC.
+[36:02] And I'm sure there will be many more in the future.
+[36:05] But yeah, it'd be great to hear more about that.
+[36:08] Yeah, absolutely.
+[36:09] You know, AMC, we already had a relationship with, kind of slightly similar to Philip Story and Warner Brothers.
+[36:15] We had been working with AMC on the soundtrack process.
+[36:19] So, we actually released the soundtrack album to The Walking Dead, Ben McCreary's phenomenal score.
+[36:25] And that was their biggest hit.
+[36:27] So, we had started working with them on that in 2015, 2016.
+[36:31] And so, we had a longstanding kind of trust relationship with the AMC team.
+[36:36] And when they started to look to how they best could monetize their music assets and how they best could really get the most value out of them,
+[36:47] we were kind of the first port of call for them to ask and see what we'd be interested in doing there.
+[36:52] And we very quickly were able to value the catalog, come up with, again, a structure that really made sense for what they wanted to do.
+[36:59] They wanted to have the freedom and flexibility to use this music that they had built in anything that they might want to produce in the future.
+[37:08] Whether it's, you know, another Walking Dead spinoff, a theme park for The Walking Dead,
+[37:13] whether it's something in their interview with the Vampire series.
+[37:16] You know, these shows are very interconnected and music becomes essentially the brand ID of a lot of these stories.
+[37:27] And so, we were able to design something where they could retain the freedom and flexibility to still utilize all this music
+[37:34] and yet sell it to us and make sure they get the most value for it now.
+[37:40] So, we were very, very happy to have closed that deal at the end of last year as well.
+[37:44] Like, two amazing deals.
+[37:47] So, kudos, congrats, particularly putting all that effort in for such a significant amount of time.
+[37:52] And I know as well, the AMC might have been a slightly shorter burn,
+[37:57] but a lot of these things are based on relationships and trust and everything else.
+[38:02] So, you've obviously been doing all the right things along the way.
+[38:05] Once they closed, did you just have a mountain of operational work to do, Tara?
+[38:12] 400,000 tracks, right?
+[38:14] Yeah.
+[38:17] Obviously, once they close, you do have to try and integrate it.
+[38:21] What I would say, particularly on the Warner Brothers deal, the one benefit for the deal having taken as long as it did
+[38:29] was we actually had already been able to have a bit of a head start network.
+[38:33] And in particular, on Warner Brothers, it's a joint venture.
+[38:36] And so, the reason that the actual kind of paperwork took a while is we really spent time figuring out exactly how every single scenario would work.
+[38:47] And we did that upfront and with a lot of thought and painstaking detail.
+[38:53] But the kind of benefit of that was once we closed, we've had absolutely no problems in the past year.
+[39:00] Everything kind of has gone exactly the way we thought.
+[39:03] Things have come up and we already understand who's going to make a decision on this point, who's going to weigh in on that point.
+[39:10] And it's run really, really smoothly.
+[39:12] Well, that's interesting.
+[39:13] So, you already have a lot of the systems in place.
+[39:16] You'd already been operating because it's a joint venture.
+[39:19] Then, actually, you got quite a lot of foresight into how it was going to work in the day-to-day.
+[39:24] And that allowed you to structure the deal a bit more effectively.
+[39:27] Yeah, and credit to Bruce Campbell and Dan Fox and their team at Warner Brothers because they're on the corporate side.
+[39:35] But what they did was they brought the music department into the kind of negotiations of the paperwork and the structuring of the deal.
+[39:43] And so, we were able to get into really granular detail around how we were going to move these compositions over,
+[39:51] how we were going to handle new requests to use the music, approvals, vetoes, how we were going to actually work and operate together.
+[40:00] And because it took a while for us to work through these scenarios and figure things out,
+[40:06] we became even closer to the Warner Music team than we had been.
+[40:10] And we're able to kind of use that foundation once we closed in the first kind of iteration of actually executing on this.
+[40:19] And so, at the time, you know, we were pulling our hair up being like, we just want to close.
+[40:24] But, you know, in hindsight, it was actually a big benefit.
+[40:29] And the other thing is, these guys in the music team had had four previous owners in the space of 10, 15 years.
+[40:39] And so, we didn't go in simply through the corporate team who'd only been owning the business for a few years.
+[40:47] We went in through both sides.
+[40:49] And that was the magic of the deal because now we're very close with both ends of it.
+[40:55] And we'll carry on whatever happens to the Warner Brothers deal going forward.
+[41:01] So, whether Netflix or Paramount buys it or whatever happens, we're still tight and within the overall team.
+[41:06] And that's a benefit for being integrated.
+[41:10] Yeah, it sounds very valuable.
+[41:12] And I think from having listened to you for the last half an hour, 35 minutes,
+[41:17] that actually the operating side of the business is so critical to how you work and what differentiates you.
+[41:25] Obviously, buying the right things at the right price is kind of table stakes.
+[41:30] It's not straightforward, but definitely, you know, you need to get the basics right.
+[41:34] But actually, the differentiator is really how you work with all of the various stakeholders,
+[41:41] how you maximize the value for them and how that flows down to you guys as well.
+[41:44] And I think that's quite fascinating to see.
+[41:47] The team have worked together for a long time.
+[41:50] And because we didn't come out of the music industry, a lot of us,
+[41:54] most of the people in our business are musicians or love music.
+[41:58] Everybody in our business has a very high intellect.
+[42:00] So, when I come up with some crazy idea, they try and find a way to work it into the system.
+[42:07] And one time out of 10, it works.
+[42:11] The rest of it, they say, Philip, please.
+[42:13] And so, so...
+[42:15] But that one time out of 10 is the game changers of our business, to be clear.
+[42:20] That's amazing.
+[42:21] And it is.
+[42:23] So, Tara's got this very strong, but obviously, given that Tara's my daughter,
+[42:27] she understands me very well and therefore has patience.
+[42:30] So, it's kind of...
+[42:31] And everybody in the business is like that.
+[42:33] So, we're all having a lot of fun and we're very entrepreneurial.
+[42:36] And we take a pretty guerrilla approach to everything that we do.
+[42:40] Because we're independent.
+[42:42] We don't have to bid to the master of one of the major labels.
+[42:47] We work with all of them.
+[42:48] We're very close with a number of them.
+[42:51] And so, we can play to our own tune.
+[42:56] And hopefully, it's in tune.
+[42:58] And as kind of last question before we go on to the quickfire round.
+[43:04] As the competition will increase over time, you know, when you're doing a good job,
+[43:10] the only downside of that is people pay attention and then more people want to come and do it.
+[43:15] So, as that competition increases, what do you think is going to set you apart from future entrants or existing ones who are growing?
+[43:24] Well, we have a very deep pipeline of deals that we're currently doing because we have a team of people who are very well networked.
+[43:33] A significant majority of what we are acquiring is the word of mouth.
+[43:39] And therefore, we are very rarely involved in an auction of any sort because people want to sell to us or partner with us in the way that Tara was talking earlier.
+[43:50] So, we have access to deals.
+[43:54] To be fair, we won't pay more than we think it's worth and other people might, which means that just elevates the value of our catalog.
+[44:03] Tara and her legal team know the system very well.
+[44:06] And we won't go into a negotiation once it gets to a level of long form unless we know we're going to close.
+[44:16] So, and that's the reputation Tara has built with all the lawyers on in Hollywood.
+[44:20] Is that we don't make promises we can't keep.
+[44:25] Yeah, that's the most important thing.
+[44:27] We hold our reputation very, very dear.
+[44:30] And we just say what we're going to do.
+[44:33] And there's a lot of noise.
+[44:36] And particularly as you have more competition, you get more and more noise.
+[44:39] And we just try to stay true to what we've been doing for a long time now.
+[44:43] And whatever promises we make, we keep.
+[44:47] And then the other part of it is I hope with more competition that we actually do get more transparency and improved data collection tools.
+[44:59] And, you know, all of those types of things are the benefit of more and more people focusing on this area of the industry.
+[45:05] Yeah, absolutely.
+[45:06] You know, competition invariably breeds improvement.
+[45:10] And that might be increased liquidity.
+[45:11] As you say, it might be improved systems.
+[45:13] It might be increased lobbying power with the various people that you have to deal with for negotiations and things like that.
+[45:19] So I think it's broadly beneficial.
+[45:21] It also sounds like, you know, you've got an amazing ecosystem, which in general acts as a huge moat for making sure your business stays afloat for the next 30, 40, 50 years.
+[45:34] One anecdote before we go on to this quick fire round is there's a very significant composer whose music we've just bought or closed end of last year.
+[45:44] And that was three years in the making.
+[45:47] And we had agreed a deal.
+[45:51] They pulled the deal and went with somebody else and then eventually came back to us because the actual composer wanted to do the deal with us.
+[45:57] So it took us a long time to close.
+[46:01] And but they came back to us largely because of Tara's reputation with the lawyers.
+[46:06] And these are tough lawyers.
+[46:07] But it's much easier just to tell them exactly what it is.
+[46:11] And if they don't like it, don't worry about it.
+[46:13] But when somebody else lets you down, come back and whistle be here.
+[46:17] And that's.
+[46:17] Yeah, that's very valuable.
+[46:18] Yeah.
+[46:19] Happened a lot.
+[46:20] Yeah.
+[46:21] I mean, I feel like Cutting Edge has established such a great reputation in the market.
+[46:25] And, you know, you guys have been doing such a good job for 15 plus years.
+[46:29] So I'm sure it will only continue to go in that direction.
+[46:33] Yeah, I'm very proud of the team, to be frank, because they have really taken the idea and moved it to the next stage.
+[46:41] And we have a lot of fun doing what we do.
+[46:43] Amazing.
+[46:43] That's key too.
+[46:45] Emma, should we do it?
+[46:47] We don't have a great deal of time left.
+[46:48] It is going to be quick.
+[46:50] Yeah, it's going to be a quick, quick fire round.
+[46:52] Yeah, three questions, guys.
+[46:53] It would be great to just get your answers on these.
+[46:58] So first of all, and I guess we'll start with Tara and then Philip, you can go.
+[47:03] What is the song or album that you've got on repeat at the moment?
+[47:08] So I spend all day, every day listening to an artist called Monster Truck on Spotify because of my four-year-old boy, who does not let me listen to anything else.
+[47:20] It's this artist who has created incredibly detailed songs of different types of monster trucks.
+[47:27] Oh, wow.
+[47:27] I have no idea what they were until Leo forced me into this universe.
+[47:35] Amazing.
+[47:36] Yeah, it's at least different from K-pop demon hunters, which is what we hear from most people with kids.
+[47:41] Fair enough, fair enough.
+[47:43] Philip, over to you.
+[47:45] Bob Moses, because my wife puts it on every night.
+[47:48] Bob Moses, I wouldn't be able to do the album, but it's actually pretty good.
+[47:53] Lovely.
+[47:54] And what do you each think is the most underrated opportunity in music rights investment at the moment?
+[48:00] I think grand rights, so theatrical music rights, we're seeing how important the live space is, not just to music, but just across the board, you know, how live experiences are becoming more and more important to everyone.
+[48:18] And so I think there's kind of an undervalued look at music in Broadway musicals, Western musicals, you know, really how that kind of propels people into the theatres.
+[48:31] Yeah, that's really interesting.
+[48:32] And that's not an answer that we've had so far on the podcast.
+[48:35] Brilliant.
+[48:36] And Philip, what about you?
+[48:38] Computer games, without a doubt.
+[48:40] The change in the dynamic of how music is going to be paid for in the games world.
+[48:46] Having been physical property like CDs or in the past going into streaming in the future.
+[48:53] And the royalties are going to have to be paid through in that world.
+[48:57] So this is like our film and television music business 20 years ago, the games industry is now.
+[49:05] Excellent.
+[49:06] And last but not least, if you could own what song, what would it be and why?
+[49:11] Ooh.
+[49:16] I'd say Somewhere Over the Rainbow because it's just a perennial.
+[49:21] It's a classic.
+[49:22] It's what I'm currently singing to my baby every night to try and get her to sleep.
+[49:27] And it just, it just lost forever.
+[49:30] That's a goodie.
+[49:32] And mine is the Christmas song, Napkin Co.
+[49:34] Why?
+[49:34] Because I tried to buy it with Bob Wise many years ago and I just know I'm the way it makes.
+[49:41] It's the second biggest Christmas song and it just coins it.
+[49:45] And it's just what, it's just every year people sing that song and it gets synced everywhere.
+[49:51] So the Christmas song, Chestnuts Roasting on an Open Flair.
+[49:55] I love that song.
+[49:55] I mean, amazing.
+[49:56] You can't go wrong with a Christmas song.
+[49:58] It's a classic.
+[49:59] No, that one.
+[50:00] White Christmas.
+[50:01] That one.
+[50:02] Slain.
+[50:02] Yeah, yeah.
+[50:04] We did a previous episode all about White Christmas, which was fascinating.
+[50:08] I know the numbers on that one and it's valuable.
+[50:12] It's impressive.
+[50:13] Amazing.
+[50:14] Well, Philip, Tara, it has been such a pleasure speaking to you both today.
+[50:17] Thank you so much for taking the time.
+[50:19] Thank you.
+[50:20] Thank you.
+[50:21] Thank you.
+[50:21] Congratulations on your podcast.
+[50:23] It's a really, really important, having listened to the episodes, I've enjoyed both,
+[50:29] but I've listened to in the past and thank you for having us.
+[50:31] Thanks for tuning in to Music Moneyball.
+[50:34] If you enjoyed the conversation, you can subscribe at standard-innovation.com to get every episode
+[50:40] in your inbox.
+[50:42] You can also follow the show on Spotify, Apple, or YouTube to stay ahead of the curve in music
+[50:47] rights investment.
+[50:50] Bye.
+[50:51] Bye.
+[50:52] Bye.
+[50:53] Bye.
+[50:53] Bye.
+[50:54] Bye.
+[50:54] Bye.
+[50:55] Bye.
+[50:55] Bye.
+[50:55] Bye.
+[50:56] Bye.
+[50:56] Bye.
+[50:57] Bye.
+[50:57] Bye.
+[50:57] Bye.

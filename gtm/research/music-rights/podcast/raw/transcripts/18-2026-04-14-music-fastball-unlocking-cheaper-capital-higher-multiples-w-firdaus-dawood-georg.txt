@@ -1,0 +1,237 @@
+# Music Fastball: Unlocking cheaper capital & higher multiples w/ Firdaus Dawood & George Williams
+# Date: 2026-04-14
+# Duration: 00:24:41
+# Guests: Firdaus Dawood — Private credit, institutional capital (ex-BlackRock)George Williams — Private equity and M&A Host: Tom Mullen Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Music-Fastball-Unlocking-cheaper-capital--higher-multiples-w-Firdaus-Dawood--George-Williams-e3hrslu
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] Hello and welcome back to Music Fastball. On this episode we are talking about the financial
+[00:15] pillar of our maturity curve and we've got two guests with great experience to help us
+[00:22] understand how maturity in the financial operations of really any business but very specifically
+[00:29] a music catalogue operations can help drive two key important things and the first one that
+[00:36] everybody's talking about is achieving a low cost of capital and the second one that everybody's
+[00:41] talking about is trying to expand the multiple so exit on a higher multiple than you acquired any
+[00:47] asset. We have Ferd Alstowood who's got 10 years of experience in institutional capital and most
+[00:55] recently four years at BlackRock in private credit and we've got George Williams who has 10 years of
+[01:02] experience in mid-market private equity and four or five years of experience in-house doing M&A. So
+[01:09] very experienced, know both ends of the spectrum, knows what it takes to achieve both of those things
+[01:15] and hopefully we're going to get into some of that detail today. So Ferd Alstowood I think let's try and
+[01:21] set the scene first of all when we talk about lowering the cost of capital what do we actually
+[01:27] mean and how does that differ between debt and equity? So I think in a I guess very literal sense
+[01:37] it's your cost of capital is just the price you're paying to access capital right whether that's debt
+[01:43] or equity but I also think it's essentially a confidence tax right so the more opaque your cash
+[01:50] flows are the less predictable the business the more uncertain the future looks the higher the return
+[01:57] a lender or an investor is going to require to compensate for that and of course as you've touched
+[02:04] on in the podcast things like operational maturity and reporting quality those things can directly lower
+[02:09] that perception of risk which then allows you to access better price capital ultimately. In debt and I
+[02:15] think in private credit in particular that would normally get priced into your spread. I think what's
+[02:22] actually interesting on the private credit side right now is that spread compression over the last couple
+[02:26] years has kind of broken that relationship. I think it's worth flagging because music is a similarly
+[02:34] long duration illiquid asset class and so you're kind of looking at potentially a similar landscape.
+[02:44] PIMCO actually published a piece recently that was talking about how spreads between direct lending and
+[02:49] public credit have compressed to the point where you are seeing investors not adequately compensated for
+[02:56] the illiquidity that they're taking on in private credit and so the the all-in cost of debt or cost of
+[03:03] capital for borrowers is getting cheaper but it's not because the underlying credits have gotten better
+[03:09] or reporting infrastructure is better which is what you would want to see it's because too much capital
+[03:14] has flowed into the space and is chasing too few good deals and you can kind of see that parallel
+[03:20] potentially happen one day in music and so it's a good learning point I think you're seeing lenders
+[03:27] just getting compensated less for the same or greater amount of risk.
+[03:33] Yeah and I think that's really interesting I mean and that's a very kind of traditional basic market
+[03:38] dynamic of supply and demand isn't it you know when you've got an influx of supply and potentially
+[03:42] it's outstripping demand then invariably the the cost is going to go down the scarcity is going to go
+[03:50] down so actually you know that makes total sense but I think but until that happens in the music
+[03:58] industry until we get there I would expect that there's a significant amount of effort around
+[04:02] maturity that has to be put in place and that comes from operational maturity so people proving
+[04:09] out that they actually can manage funds of that size in a given asset class and that's what gives
+[04:16] people the confidence to introduce more liquidity and that then has a net impact of obviously increasing
+[04:23] supply and therefore reducing the cost. Can you just talk us through the mechanics about visibility
+[04:30] and confidence I think those two things are really really critical and invariably you know we can't
+[04:36] predict the future so we have to look some way into the past or get confidence as to how and why we
+[04:43] should underwrite something or lend it a particular um particular value? Yeah um I think that trust in a
+[04:53] lending context is more or less just another word for your information quality right as you mentioned
+[04:59] before um in public markets that's very easy you have Moody's or S&P or the ratings agencies that are
+[05:06] kind of doing that translation for you um of sort of the confidence level into an actual rating number
+[05:12] uh but in places like middle market direct lending or in music the risk rating is almost always an
+[05:19] internal one that the lending team assigns themselves based entirely on what they see uh in their analysis
+[05:28] and so poor visibility or poor reporting means the lender has to assume a lot more uncertainty which
+[05:34] will then push your rating towards the riskier end of the scale um and a riskier rating is going to
+[05:39] then translate into a wider spread right uh the less visibility that a lender has into a business the
+[05:47] higher that number and the more expensive your capital is going to be um what makes again kind of
+[05:53] middle market direct lending a good map over to music is that the majority of these borrowers are
+[05:57] unrated at close so the lender is underwriting the credit entirely on the basis of their own internal
+[06:02] analysis and that internal assessment isn't going to be stress tested until
+[06:07] maybe way after the deal has closed and that's not so different how music debt financing works
+[06:14] there's always that competitive tension isn't there you know if you're looking at a market which isn't
+[06:20] necessarily um arbitrated by a third party then the only point of comparison you have is other people
+[06:27] in the market so by default you start to draw comparisons okay out of these uh who we're going to
+[06:34] lend money to which of them do we have the most confidence in and that then starts to set the
+[06:40] standards and when somebody sets the standard people start to follow that leads to norms and it gives you
+[06:46] know greater trust greater inflow of capital like you must have seen that so many different times have
+[06:52] you got any specific examples or industry verticals where you've really seen that change happen
+[06:58] i would say um you could kind of see the dichotomy happen in private credit um so software is i think
+[07:07] a good space to talk about this in especially because software is such a big big topic for people right
+[07:13] now um but particularly in kind of the 2023 2024 vintage of deals the share of software loans at that
+[07:20] point in bdc portfolios had more than doubled in a decade and you could have two businesses in the same
+[07:26] subsector that look almost identical on paper similar arr net revenue retention leverage multiples
+[07:33] but the financial infrastructure and kind of the qualitative story behind those numbers just completely
+[07:38] different um and i think a actually kind of good parallel to music in that space is vertical sas
+[07:44] companies because you have this recurring revenue that is really the entire thesis um and one company
+[07:50] could have a a very proper cfo who'd been through a full audit cycle very experienced you've got
+[07:56] clean data clean monthly management accounts that can actually be reconciled to bank statements
+[08:00] uh you've got a very coherent data set right uh the other is maybe founder led they're running on
+[08:07] you know excel spreadsheets a path to work of systems uh their financial statements are maybe prepared by
+[08:13] an outside accountant that has touched the books maybe quarterly um and an arr schedule that's just never
+[08:20] been independently tested so you're you're kind of functioning in this place of low visibility and low trust
+[08:26] um both of those companies might get to term sheet phase but on the well-run company the gap would be
+[08:32] what you know is a lender what's actually happening inside the business it's very narrow your reporting's
+[08:38] very transparent it's timely it's easy to verify um on the other end of the spectrum that gap is very
+[08:44] wide for the other company that wide information asymmetry is going to get priced in two ways you see it in
+[08:51] the spread and then and the price the cost of capital but then you also see it in the optionality that that
+[08:59] company has over the life of the deal so the well-run company can go back to the market many times they can
+[09:05] get an incremental facility they can get an amendment on reasonable terms um because lenders are comfortable
+[09:11] with what they can see the other company is going to face a lot more friction in any future financing
+[09:16] conversation because that trust deficit just kind of accumulates and i mean this is all really just
+[09:23] talking about the unknown isn't it and how comfortable we can get with the unknown i think what
+[09:28] i was doing some research around this episode and trying to you know have a think about how we think about
+[09:34] the unknown and interestingly the ancient greeks used to uh talk about walking backwards into the future
+[09:42] so we can look into the past with absolute clarity but the future is totally unknown so it's as if we're
+[09:49] using the past to help guide us as to what the future might look like but it is unknown and therefore
+[09:55] we're ultimately walking backwards into it and i think that actually plays so well into what we're
+[10:01] talking about here isn't it it's okay we all know that we can't predict the future that's just an
+[10:06] impossibility but we certainly can draw signals and confidence from the past now you could argue
+[10:12] there's some danger in doing that as well but it's really the only tangible thing that we actually
+[10:17] can hold on to so we are humans we're going to hold on to it and making sure that you can show that the
+[10:23] past is as clear transparent and repeatable as possible is going to send the signals out to the
+[10:30] people who are going to loan the capital run let's talk a little bit about the implications
+[10:35] of this um obviously notionally everybody wants a lower cost of capital but like what does that
+[10:43] actually mean in terms of going and raising the money and indeed the impact downstream so what are you
+[10:52] going to benefit from it and what would that mean in like real returns over say five or seven year
+[10:58] period that you're going to invest in it um so the way i think about it is kind of in two different
+[11:06] ways but it's what that debt is actually unlocking for you so what what does it give you the capacity
+[11:12] to do um including building more trust and visibility but also what it costs to get it um and so to your
+[11:19] point the spread difference between a platform with you know strong operational and reporting
+[11:25] infrastructure and one without in terms of a spread up front could be 150 to 200 basis points maybe more
+[11:32] um on you know 500 million dollars that's potentially 10 million a year in additional
+[11:40] financing costs that's flowing away from your equity return um but the spread i think is only part of the
+[11:46] story without that operational transparency and infrastructure in place to support a rating agency process
+[11:53] you're also locked out of the rated abs market entirely which means that you can't reach investors
+[11:59] with investment grade mandates who represent you know some of the deepest and kind of most patient
+[12:06] pools of capital in the space and so that um having strong operational and reporting infrastructure makes
+[12:12] a big difference um not just in spread which could cost you you know on 500 million dollars maybe 50 to 70
+[12:19] million over five to seven year period but you're also looking at being locked out of other markets
+[12:24] where you could get long deep capital um so it's not only just an like a physical monetary cost that you
+[12:33] have to burden yourselves with as you go but also there's a huge opportunity cost because you know if you
+[12:39] just don't have the rigor then you don't get access to these other types of vehicles which are proxies for
+[12:45] very very very large sums of invested capital that typically have significantly longer life cycles
+[12:53] yes definitely um and i think it's very high on people's agendas because of what that capital enables
+[13:01] right if you have the ability to access those types of markets even if you look at concord they were
+[13:07] able to do 1.8 billion in 2022 in an abs and then they use that to acquire round hill then they came
+[13:14] back for another 850 million in 2024 another 1.7 billion in 2025 and every time they go to market
+[13:21] they're using the strength of everything they've built before that their existing catalog the quality
+[13:27] of their reporting infrastructure to unlock that next wave of acquisitions and so that debt is the
+[13:33] mechanism that lets you stay in the market continuously and also move at a speed that this opportunity
+[13:38] particularly music demands rather than you know maybe waiting around for your next equity raise while
+[13:43] someone else is buying the catalog you wanted um so yeah i think that that's in why people think it's
+[13:50] it's very high on people's list of things to think about and a big priority yeah and look i think it
+[13:56] makes total sense and almost everybody that we speak to who's out there doing it this is number one
+[14:01] priority is okay what do we need to do to invest into our operations to actually be able to go and achieve
+[14:07] a lower cost of capital and to be able to do that just more easily you know greater liquidity
+[14:12] greater optionality um makes total sense now george on the flip side the other thing that everybody talks
+[14:20] about is multiple expansion so how are we going to invest in uh operational excellence that will allow
+[14:27] us to buy catalogs at one multiple combine them up and sell them at another i think this is a relatively
+[14:34] well-trodden path in pe particularly mid-market pe can you just explain a little bit um you know when
+[14:42] we talk about p one of the the big metrics that we look at is is ebitda um but as ferdals explained
+[14:50] those two things aren't always equal you know if you've got a sas company or two sas companies doing
+[14:55] the same arr they don't actually necessarily warrant the same valuation and it's the same in the p world
+[15:02] doesn't it if you've got a company doing a certain ebitda um and another one very similar actually what
+[15:08] it comes down to is judging their operations how cleanly they're run how much transparency you've got
+[15:13] can you just talk us through that and the implications of it in the pe world and how that might translate to
+[15:18] the the music funds yeah i mean i think it's all to do with i think it's for house explained really
+[15:25] it's it's confidence so um a lot of it is about quality that impacts the multiple so quality of earnings is
+[15:33] is something that that we've talked about that that sort of visibility repeatability contractability of
+[15:38] of those of those revenues going forward um because that gives you a sort of underlying stability of cash flows
+[15:45] um and certainly allows you to to then service your debt with confidence um that allows you to leverage an asset
+[15:51] a bit more uh which means you put less equity in you grow your business and and and get you get a
+[15:57] better equity return in the end so so i think quality of earnings is a really significant point
+[16:02] but then you've got certainly the mid-market pe element you've you've then got a number of other
+[16:08] sort of more subjective factors i would say in particular things like looking at the quality and
+[16:13] experience of the management team um looking at the the rest of the market and how you sit and sit
+[16:19] against the rest of the market um there'll be other things like you know the technology the quality of
+[16:25] the reporting all of these things sort of give a a sort of perception of quality which ultimately goes to
+[16:31] to the multiple um now it's it's it's curious you sort of look at sort of emerging markets where
+[16:39] institutional investors are coming into for the first time um and you know those guys are sort of
+[16:45] going in they'll find the best assets they'll pick those off usually at a sensible price that drives
+[16:50] more investment into the market pushes the prices up but then it also has the the corresponding effect
+[16:57] of sort of improving you know people realize they need to improve the assets in the market in order to
+[17:02] get the best price and it also drives investment in those assets so you start getting things like
+[17:08] folks like investment bankers coming in advising businesses saying right you need to get
+[17:13] your kpis to this sort of level to to achieve the sorts of multiples that you want to achieve
+[17:19] so it becomes this sort of snowball effect a bit of a self-fulfilling prophecy if you like um as people
+[17:25] start investing in in a particular sector and that's the majority happening absolutely and you know you
+[17:32] start to see richer ecosystems of service providers greater sharing of information between the incumbents
+[17:39] obviously new incumbents because they hear and see about it in the press and more capitals deployed so
+[17:44] it does become self-fulfilling and i think actually in the early days is making sure that nobody trips
+[17:51] themselves up and creates any bad press which would put fear into prospective investors and things like
+[17:58] that so actually seeing the market rise as a whole is just really important isn't it and i think also i mean
+[18:04] you know that that multiple a lot of p is about multiple arbitrage certainly it's about ebit dial
+[18:10] graphe you know that that's that's the sort of underlying thing that you have to achieve along the
+[18:14] way but but improving that perception of quality and a lot of that is comes out of you know how can
+[18:20] you slice and dice the information um you know to demonstrate that the business is is better quality
+[18:26] that you have better control of it you can make quicker more informed decisions um you know all of that
+[18:32] leads to that shift in the multiple over time um and the multiple arbitrage is really where private
+[18:40] equity makes its super returns yeah and that is really significantly important as well you know if
+[18:46] you take the traditional buy and build approach where you have a platform business and you go and do a bunch
+[18:52] of acquisitions and you integrate them into the main business actually the importance of having
+[18:59] repeatable processes systems and good clarity and definitions is so key because otherwise you just
+[19:04] end up with a sprawling mess that is quite unwieldy very very difficult to report on doesn't give you a
+[19:11] great deal of clarity about where you're going and there's so many parallels in music rights investing
+[19:17] in that the vast majority of the catalogues are small and therefore need to be brought in aggregated
+[19:25] together and compiled into an operating platform which is not only fit for kind of purpose today
+[19:32] but also fit for scale into the future and that quite quickly becomes the thing which helps differentiate
+[19:38] the multiple that you pay for a smaller catalog versus the multiple you might pay for a well-prened
+[19:46] portfolio of catalogues that have been kind of through the mail and they've been tidied up and
+[19:51] they have the visibility and an analytical process around that to be able to say okay well we can now
+[19:56] trade this on if required definitely i mean you would pay a premium for um well-established scalable
+[20:03] systems controls and processes i mean that that's that's sort of a sort of inherent sort of fundamental
+[20:10] truth i think um and from there you're quite right you can go out you can you pay a premium for your
+[20:17] platform acquisition uh then you pay you know lower multiples for these sort of bolt-ons if you like
+[20:23] which might be catalogs smaller catalogs of music but you you bring them into the platform so as a
+[20:30] result your blended entry multiple from your platform and all the acquisitions you've made sort of comes
+[20:35] down as you buy more and more bolt-ons um but at the same time as you integrate those um you're
+[20:42] bringing them into the sort of quality of the uh the initial platform you're building scale uh and
+[20:49] then you've created you know an asset that didn't exist in the market before and that's where you can
+[20:55] generate some really strong returns because as your blended entry multiple comes down by buying all these
+[21:00] smaller fragmented books of business when you exit you will achieve you know hopefully a very
+[21:07] significant multiple and i think that that's really important too right in that you know if you look
+[21:13] at doing each of the individual deals whether it be in mid-market pe or whether it be um acquiring a new
+[21:20] catalog in music actually the size there is a relationship between complexity and size or at least
+[21:27] funds deployed but there's also a lower limit isn't there so if you're looking at the the larger
+[21:33] institutional um capital providers they'll be wanting to deploy several billion if not hundreds
+[21:41] of billions of dollars and they'll see any um either acquisition or deployment with effectively you
+[21:51] know roughly the same amount of effort because it's the same teams it's the same process they have to go
+[21:55] through the same rigor so it just makes much much better sense for them to work on significantly larger
+[22:01] deals and therefore it creates some space beneath them in the ecosystem to say well hey if we can go
+[22:07] and do these smaller deals at a uh a lower effort a lower cost of overhead in actually doing the deals
+[22:14] and then building up the portfolio and getting them ready for those big guys who want to deploy the
+[22:19] really significant amounts of capital that can be very attractive can't it and in fact by doing that
+[22:25] it creates value for the institutional guys who've got you know mountains of cash to go and deploy
+[22:31] yeah absolutely i mean you see it in all sorts of other markets and if you look at the
+[22:35] uh uk sort of private equity market over the past 10 years you know these sorts of mini consolidations
+[22:42] have been happening prolifically i mean the insurance breaking sector ifa and wealth management
+[22:48] accountancy practices vets dentists you know all of these industries have been consolidated by
+[22:56] sort of lower mid-market private equity funds they've got out and done their buy and build they
+[23:00] sell them onto mid-market funds they do the same and then you know they sell them onto the large cap
+[23:06] funds or or put them on the public markets so it's a well-trodden path certainly and i think you know
+[23:13] the music catalog sector is ripe for that kind of um kind of maturity over the next sort of five to ten years
+[23:20] fantastic so i mean i think it's really clear that actually investing in those processes investing in
+[23:29] what we would call financial maturity so reporting transparency and everything else visibility making
+[23:36] sure that you have a good track record a good history a good audit trail not only is going to
+[23:41] help you achieve a lower cost of capital it's going to give you greater optionality to go and raise
+[23:47] capital from all of the various different um venues avenues and also it's going to help you to
+[23:54] build out that platform which should you then be able to show okay well we've acquired these at this
+[24:00] multiple we've really invested significantly in the operation and we're now worth x instead um i mean
+[24:09] it feels like an absolute no-brainer to be doing these things third house george that was a great
+[24:15] conversation thank you so much for your um professional insight and sharing that with our listeners uh
+[24:21] everybody thank you for tuning into this episode of music fastball and we'll see you soon thank you very
+[24:26] much thanks tom

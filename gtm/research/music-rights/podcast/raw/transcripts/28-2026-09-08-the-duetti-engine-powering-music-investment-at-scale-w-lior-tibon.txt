@@ -1,0 +1,629 @@
+# The Duetti engine powering music investment at scale w/ Lior Tibon
+# Date: 2026-09-08
+# Duration: 00:52:13
+# Guests: Lior Tibon, CEO and Co-Founder of Duetti Hosts: Tom Mullen and Emma Griffiths, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen and Emma Griffiths, Standard Innovation Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/The-Duetti-engine-powering-music-investment-at-scale-w-Lior-Tibon-e3ogs18
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogues.
+[00:09] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:15] Welcome back to the Music Moneyball podcast. I'm Emma Griffiths. I'm here with my co-host Tom Mullin.
+[00:22] Hello.
+[00:22] And today we are delighted to be joined by Lior Thibon, the CEO and co-founder of Duetti, a company that is reinventing music catalogues for independent artists.
+[00:34] Lior, welcome to the podcast.
+[00:36] Thank you for having me.
+[00:38] Yeah, Lior, so good to have you on, yeah.
+[00:41] Yeah, we are such big fans of Duetti and the Duetti team and, you know, you guys are really doing some amazing things.
+[00:48] It feels like we see a new announcement from you guys every week with something exciting.
+[00:53] So today we really want to dig a little bit deeper into the engine behind it all and look at, you know, the data, the technology, the people and everything that makes that possible, really.
+[01:07] Looking forward to it.
+[01:08] So I think before we get into that, we feel that there's a little bit of a misconception around Duetti in the market that we wanted to get into and we wanted to set the record straight because we think that most people think that Duetti is a investment fund, right?
+[01:26] Doing these deals, these smaller deals at a vast scale, which, you know, the deal part is obviously true, but the way that you operate as a company and your business model is actually very different to others that are out there.
+[01:40] So I feel like if we could get into that and you could just like tell us in your words what Duetti is, that would be great.
+[01:47] Okay, wow. A lot to unpack, a lot to unpack with this question, but I'm happy to start and kind of go from there.
+[01:56] But yeah, look, I think just to pick on what you said, Emma, and, you know, Duetti really is a company. It's not a fund.
+[02:02] So what does that mean? It means that our equity capital is not LP capital.
+[02:07] All the equity that we've raised, and we've raised over $100 million, that funding sits on our balance sheet and it doesn't have an expiry date, meaning that we don't need to return at a fixed time period the funding to the investors.
+[02:25] And so we're not operating under kind of a time clock, so to speak, in terms of how we think about the business and how we shape our business strategy.
+[02:32] So that sounds a pretty technical kind of explanation, but it does mean a lot of different things in terms of how we operate, right?
+[02:41] We're able to, you know, really build a significant platform for the very long term, right?
+[02:48] Because we're not thinking in like a five to seven year increments necessarily.
+[02:52] You know, we're able to invest more as it comes to kind of the data side of the business.
+[02:57] It's our sourcing team, right?
+[03:00] Our A&Rs and sourcing managers that go out there and talk to artists and songwriters and kind of create kind of the deal making machines, so to speak, that we have.
+[03:09] And then the other piece is really the value add piece, right?
+[03:14] So once we partner with artists and songwriters on the capital, we have a whole separate team that all they do all day long is to try to kind of do the value creation.
+[03:22] Which usually with a Vita tool, one part is really the collections and making sure that the catalogs are properly managed.
+[03:29] And the other part is really the marketing and finding new audiences.
+[03:33] Yeah.
+[03:34] And let's talk about the way your capital is structured.
+[03:37] So you have the equity that sits behind the platform and then you have the debt, which sits behind your acquisition engine.
+[03:46] So tell us how that helps you with this growth plan and lets you run Dueti as it is today.
+[03:52] Yeah, that's right.
+[03:54] So we have Dueti, the main company, right?
+[03:57] It's really the company where the employee and the management, we all sit and kind of operate the business.
+[04:04] All the marketing expenses or the kind of tech expenses, engineering expenses sit on that company.
+[04:10] And then we have various SPVs, so special purpose vehicles.
+[04:14] And those SPVs have various debt facilities that are associated with them in order to provide kind of ongoing funding for the rights that we acquire.
+[04:25] And so we kind of almost have kind of a process whereby the company itself buys the assets.
+[04:33] And, you know, we do buy catalogs every single day, right?
+[04:38] And so it's a very much a pretty high velocity kind of acquisition situation.
+[04:45] And then based on the nature of the catalog and a lot of different considerations, we place it in the various SPVs based on the funding that's there and what's available and what's possible.
+[04:56] Right?
+[04:56] So it's a pretty sophisticated perspective on how you want to manage the capital stack.
+[05:02] And so we do have multiple different funding lines that run in parallel because we're doing different things.
+[05:08] And depending on kind of the age of the catalogs and many other considerations.
+[05:13] And Leo, you talk then about the volume of deals that you're doing.
+[05:20] The capital structure allows you to do those deals to some regard.
+[05:25] But I think actually, firstly, when we're talking about volume, we're talking about what, like 80 plus deals a month that you guys are acting on,
+[05:35] which is really an incredible amount in comparison to other people operating in the space.
+[05:41] I think what really intrigues me is how that capital structure is set up.
+[05:47] And most importantly, the investment that you are able to make into the operating company really is the foundation for that, isn't it?
+[05:55] Can you just talk us through like what processes, what you've put in place to really refine that operating team to be able to say,
+[06:04] OK, well, we're committed to the technology, we're committed to hiring the best people, we're committed to the volume game.
+[06:11] And that is invariably centered around data and everything else.
+[06:16] That takes more than just, you know, a bit of capital.
+[06:19] That's like culture, that's approach, everything.
+[06:22] Can you just talk us through that?
+[06:24] Like, firstly, why did you or what stage did you appreciate that that was going to be incredibly important for you?
+[06:33] And what are the key things that you've done along the way to actually put it in place?
+[06:38] Yeah.
+[06:38] So thank you.
+[06:39] Thank you for the intro and saying that.
+[06:42] And it's pretty much spot on in terms of how we think about the way in what we're building here.
+[06:48] And so to kind of address the question directly, we realize that that's what we want to do from day zero.
+[06:54] Right.
+[06:54] And it's really like when we approach the challenge of how we think about the company and what we want to establish,
+[07:00] we kind of had a pretty clear decision tree.
+[07:04] Do we want to go down kind of the LPGP route?
+[07:07] Right.
+[07:07] Which I think a lot of the other catalog buyers out there, kind of the more financially minded catalog buyers, shall we say, have taken.
+[07:17] Versus going through a process of really a startup.
+[07:22] Right.
+[07:22] And VC capital, which is what we did in the first few years.
+[07:26] Right.
+[07:26] And raising capital that sits on the balance sheet that doesn't have an expiry data that I said before.
+[07:32] And really allow us to invest ahead of time in building a pretty significant team and data systems and so on and so forth.
+[07:39] And so from really from day zero, we basically made the determination that the only way for this to work at scale is to go with auction two.
+[07:49] So that means going out there, we spoke with VCs, you know, folks that are willing to put capital to work, even if it's a few million dollars to start with.
+[07:59] Really primarily geared to hiring engineers and investing in data infrastructure and, you know, investing in core operations of a business and building it like that.
+[08:11] Versus using the funding that you got to really do deals and kind of building it on kind of a deal by deal basis.
+[08:18] And that's a really different risk profile as well.
+[08:22] You know, you're talking about a totally different subset of investors when you're in the VC world.
+[08:26] Their expectations of risk are obviously significantly higher, but so are the returns.
+[08:31] Right.
+[08:31] So, you know, you have to be talking about scale game.
+[08:35] Correct.
+[08:35] Correct.
+[08:36] So it's all about scale.
+[08:37] And frankly, you know, the first the first, you know, few investors that we brought into the company actually have had no experience whatsoever in music.
+[08:47] They really came from a perspective of financial technology play.
+[08:50] Right.
+[08:51] And so those those VCs have invested in companies like Affirm and SoFi.
+[08:56] And so, you know, folks that have really kind of let's call it asset heavy or asset driven businesses.
+[09:03] But the focus is on the technology and the infrastructure to originate and to manage these assets at scale.
+[09:10] Right.
+[09:10] And so I think I do think it's interesting because we spoke with a lot of different folks.
+[09:14] Right.
+[09:14] That like at the beginning, the first few years, actually, you know, the business model and the approach did not really make, I think, a ton of sense to more traditional music investors.
+[09:24] And we kind of had to bring into the table folks that really looked at it with, you know, fresh eyes coming from completely different industries and think, OK, let's let, you know, if you look at SoFi, for example, and what they did with student loans and how they started.
+[09:38] But obviously now they're a much, you know, bigger company that they're doing a lot of different things, you know, here in the U.S.
+[09:45] But, you know, you're kind of going back to their origin.
+[09:48] The key thesis was, you know, student loans are, you know, it's an area that is underserved.
+[09:54] You know, existing banks and players don't know how to, you know, provide it efficiently.
+[09:59] And like, let's inject technology and kind of a sophisticated underwriting platform in order to do that at scale.
+[10:05] Right.
+[10:05] And so I think that was kind of the approach that we took a little bit and definitely our investors when we started to build the business in the first couple of years.
+[10:13] Interesting.
+[10:14] Because, yeah, you know, you're ultimately selling to two different types of investors, aren't you?
+[10:19] As you say, the more traditional music orientated ones, they're talking about discounted cash flows and they're talking about, you know, annuity revenue or all this.
+[10:31] And you guys come along and go, okay, yes, but we want to invest hundreds of millions of pounds into building a data platform as well.
+[10:39] Very different metric.
+[10:40] Yeah, it's very, very, very difficult.
+[10:42] Right.
+[10:42] So I think, you know, from kind of a pure VC perspective, when you kind of start out, you know, convincing, as you said, right, like there is a real scale here and the returns could ultimately make sense.
+[10:57] You know, like a VC style returns.
+[10:59] It's pretty difficult.
+[11:00] And you need to take a lot of different assumptions and risks in order to kind of make believe in that business plan.
+[11:08] And I think, you know, I think there is like this kind of two sides of the equation, right?
+[11:12] On the one side, you have tech investors that are not very familiar, not very comfortable with music.
+[11:17] And we see it in different ways.
+[11:20] And on the other side, you know, music investors are not necessarily very comfortable, like music cash flow investors, as you said, right?
+[11:25] From a catalog standpoint, I'm not necessarily very comfortable with a tech play, right?
+[11:30] And actually, as the company matures, and we brought on, you know, more recent investors that are, you know, more into kind of maybe the music side of the equation, the story is shifting.
+[11:42] And now the more consideration needs to go into telling the story around the tech side, because they really understand the cash flow side.
+[11:49] Yeah.
+[11:49] But I feel that that's kind of completely shifted versus the early days of the company.
+[11:53] Which I can imagine.
+[11:54] And how comfortable did people get with having exposure to, I mean, they're almost two separate asset classes, aren't they?
+[12:01] Like, how much did people get comfortable with having exposure to the other one?
+[12:06] Yeah.
+[12:06] So I think, look, I think you can ask my investors in terms of how they ultimately valued and thought about the business.
+[12:12] I really try, I really do try to tell the story from both different directions, because I think ultimately, as you think about Dwayne and what we're doing, that's really the value of the company, right?
+[12:23] The value is divided to two.
+[12:24] There is the value of the catalog that we own.
+[12:27] And that's pretty much, you know, something that you guys are talking in this podcast on, you know, every single episode.
+[12:34] But then there's also the value of the technology platform and the branding and kind of the ongoing engine and the sophistication of what we're building.
+[12:43] And that's another part, right?
+[12:44] And one way that I think about it, right, and the way that I pitch it sometimes, right, when I'm talking to people is to say, in a completely theoretical scenario, which we don't want to do and we're not going to do, if Dwayne sells today its entire catalog to someone else, what happens the day after?
+[13:03] We're not starting from scratch, right?
+[13:33] And the marketing and things like that that we can talk about as well.
+[13:36] And those two things become self-perpetuating, don't they?
+[13:40] You know, like firstly, now you've got a bit of history in the rearview mirror.
+[13:47] You can talk to it.
+[13:48] You can explain it a bit easier.
+[13:50] You know, I suppose arguably now that more capital is coming into the music rights investing, great.
+[13:56] You've got experience there and you can show them.
+[13:58] I think, look from an outside point to view, the harder part is probably the platform explanation.
+[14:04] But you're operating at significant scale now.
+[14:07] You're seeing good returns, I would imagine, on that investment already.
+[14:11] Like, and then, okay, well, amazing story.
+[14:13] By the way, this one over here feeds that one.
+[14:16] And it's significant amounts of automation.
+[14:19] And I think let's just get into that now.
+[14:23] So you have made a very significant investment into the platform.
+[14:27] You do have a very established team.
+[14:29] You do have like a very data-centric culture.
+[14:33] That's absolutely clear kind of from where we sit.
+[14:36] A lot of the headlines that we see are, oh, Duetti can now underwrite deals at three months old or six months old or, you know, getting shorter every day.
+[14:47] So I'm not exactly sure whether it's five minutes now or 10 minutes that you can get down to.
+[14:52] But just talk us through, like, what gives you the confidence and your investors the confidence with the technology that you've built to be able to say, yeah, we're comfortable to do that?
+[15:03] Yeah.
+[15:05] So, yeah, we did announce back in June that we are now open to do on the master side, you know, a catalog that are as young as six months.
+[15:14] And so thank you for mentioning that.
+[15:16] Which is so cool.
+[15:17] And I think for many people, it's mind-blowing.
+[15:20] They're like, what the hell?
+[15:23] Yeah.
+[15:23] So, look, I actually go back right when we started a business in 2022.
+[15:27] And we started to do deals that are younger than five years, right?
+[15:30] Like four years, three years, et cetera, right?
+[15:32] Publicly, we've been saying since then, up until June, that the minimum is two years.
+[15:38] We were perceived to be pretty out there and kind of pretty, you know, aggressive in terms of how we think about it, right?
+[15:46] Like before we came to the scene, there was a very hard rule, particularly driven by the financing providers of five years, right?
+[15:54] Anything below five years was just perceived to be, you know, way too risky and way too volatile to even look at, right?
+[16:02] And so I humbly would say that we kind of opened up the market back a few years ago into going a little bit younger than five.
+[16:09] And we're now proud to continue and kind of push the envelope.
+[16:12] And who knows, as you said, maybe one day it will be even younger than six months.
+[16:16] That was definitely my ambition.
+[16:17] So just chart that for us then, you know, so what was the first thing that gave you confidence and your investors confidence to say, okay, sub five?
+[16:29] And then like, obviously, you know, it's probably not been a linear process going from five to six months.
+[16:37] Can you just talk us through that process?
+[16:40] Like what days do you look at?
+[16:42] What platforms you put in place that's actually allowed you to take that journey?
+[16:47] Yeah, absolutely.
+[16:49] So it is all about the data, right?
+[16:52] Ultimately, the debt investors in particular, right?
+[16:54] Like they're very focused on kind of looking at the performance and looking at the information.
+[16:58] And obviously, they're very, very focused on downside production.
+[17:02] And so, yes, our approach from the very, very beginning has been very data driven.
+[17:08] We've been looking at individual performance of tracks going back a decade.
+[17:14] And kind of looking at kind of statistical models and statistical analysis, machine learning.
+[17:21] We call it neural networks, right?
+[17:23] So it's type of AI models that we're implementing in order to kind of come up with different patterns of how tracks behave.
+[17:31] And what we've been seeing, right, which was maybe the biggest insight that I think now people are a little bit more comfortable with, but back then was maybe unusual, is to say that even tracks that are younger than five years, right?
+[17:47] Going all the way back to two years back then, you know, ultimately the outcome after a few years has a pretty well behaved normal distribution with a very right hand tail in the equation, right?
+[18:00] And so that ultimately is the core insight, right?
+[18:03] That like if you're investing in younger songs, right, ultimately the outcomes could be pretty predictable, especially as you look at it from a portfolio perspective, right?
+[18:16] Sometimes I tell some of the debt investors, right?
+[18:19] Like I phrase it in a way that they understand and it's almost like an index fund, right?
+[18:23] On a big section of the industry.
+[18:25] And so the approach is, you know, ultimately the approach has to be a portfolio approach.
+[18:31] We are looking, and I do want to emphasize, we are looking at every individual deal from the bottom up.
+[18:37] We are analyzing and spending a lot of time and human resources, right?
+[18:41] Looking at the models on a track by track level and we come up with practice for every single track that we're looking at.
+[18:47] However, taking a step back from an overall portfolio performance perspective, the approach is aggregated as you think are the outcomes.
+[18:59] Yeah.
+[18:59] And I think that those two things also play really importantly together, don't they?
+[19:04] So to be able to get down that path in the first place, you have to have conviction in the data because you don't just start with a diversified portfolio or an index fund per se.
+[19:18] You know, you start with your first investment and your second one.
+[19:22] So you have to have confidence in the data.
+[19:24] Correct.
+[19:24] Again, it kind of becomes self-perpetuating, doesn't it?
+[19:27] So if you've got a very, very highly diverse portfolio, then the risk profile changes as well for every incremental catalog that you add.
+[19:38] 100% right.
+[19:39] That's exactly the approach.
+[19:41] And I do want to add one thing which is critical.
+[19:44] The data can only take you so far, right?
+[19:47] You have to have a very deep industry understanding and making sense of the data.
+[19:53] And I know you guys spoke about it in the past and I'm a fan of the podcast and I've seen you guys talking about it with other guests.
+[20:00] The music industry, I think, has almost like a data illusion problem because there is so much data, right?
+[20:10] Every stream counts.
+[20:11] There is like terabytes of data, multiples of that.
+[20:16] And so, you know, folks get really excited and we can get really forensic about it.
+[20:20] But you know what?
+[20:21] Getting from a streaming curve, for example, into a cash flow analysis in terms of what's going to happen and beyond even the cash flow analysis, actually cashing the bank.
+[20:33] And when is it paid?
+[20:34] And what does it mean?
+[20:35] And what are the risks that you're taking?
+[20:37] That you have to think about all these things.
+[20:39] That has to come from very, very deep understanding of how this industry actually works.
+[20:45] And so, you know, as you guys probably know, right, before Dwayde, I spent, you know, over seven years at Tidal as the COO there.
+[20:54] And so, you know, I had the benefit of kind of looking at it from kind of a DSP standpoint and understanding kind of the royalty calculations and the pay flow, the payment flows on the publishing side and on the master side.
+[21:05] I don't think I would have been able to start this company without that experience and without that track record just because it's not really looking at a spreadsheet.
+[21:17] It's really bridging from the spreadsheet into cash in the bank.
+[21:22] And that's pretty difficult in our industry as we all know.
+[21:24] Yeah, and, you know, there are latent complexities in the music industry and that is expanded as you go into other territories outside of what would be considered the main Western markets, which probably brings me on to the next question.
+[21:42] When you're looking at these opportunities, not to say that the market's becoming saturated or anything like that, because I think that there's still a very, very long way to run.
+[21:51] But I think this approach, these tools also give you a different perspective of what value looks like as well when you go and evaluate catalogs.
+[22:04] Whereas, you know, more traditional funds might be very name led.
+[22:09] They might be looking, you know, at the iconics potentially depending on their strategy.
+[22:14] But what are the markets that open up to you or other kind of points of view when you're proactively going to acquire new catalogs that other people might overlook that you just have the capability to see and evaluate because of this industry expertise and the volume and level of data that you guys have?
+[22:34] Yeah, so I think, I think, I think we talked about market in terms of just the age, right, globally, but like, you know, think about age as an obvious way that you started really that's the core of the already.
+[22:46] But I think on a territorial basis, that's another kind of aspect there, right?
+[22:50] Because ultimately, and you know, I always extend kind of people from outside the industry.
+[22:56] And it's not, maybe it's not obvious if you're from the outside.
+[23:00] Ultimately, you know, the same kind of cash flow sources exist across the globe, right?
+[23:07] Like there are some of some small variations.
+[23:09] But especially on the master side, you're really talking about, you know, YouTube, Spotify, Apple, Amazon, and kind of a few other services that operate in a very similar manner.
+[23:20] And these really comprise of the majority of the cash flows of anything that you're looking at.
+[23:24] And so to the extent that you get really, really comfortable with kind of that piece and how it all works, you can definitely, you can definitely go broadly and go outside the US as well and outside Europe pretty quickly.
+[23:40] Yeah.
+[23:41] And I think that, you know, when you're looking at also the diversification that you guys have and the reduction, I suppose, concentration in revenue that comes with that, proportionality becomes a big thing as well, doesn't it?
+[23:56] So, you know, if you have a very high concentration of assets or revenue to assets, then the incremental thing that you have to do, by definition, has to be quite a big move.
+[24:08] And that comes with risk and it comes with capital and everything else.
+[24:11] I think for you guys, you know, you can go and find a smaller market and find an artist who would be a very common name in that artist.
+[24:21] And they might not be comparable to a big name in, you know, the US or the UK potentially.
+[24:26] But actually, they still have all of the other facets that are of interest.
+[24:31] So cultural relevance, are they going to stick around?
+[24:35] You know, these things feed in as well, right?
+[24:37] That's exactly right.
+[24:39] And in fact, right, we're riding a very significant wave that has been talked about, right?
+[24:43] Like some folks call it the localization of music, right?
+[24:47] And so if you're looking at the top 50 tracks right now on Spotify in France or Germany, as an example, right?
+[24:54] And both of these markets are markets that we've been very excited about and we've done some pretty exciting deals in.
+[25:01] A lot of these music would be local music, right?
+[25:05] And maybe that was not the case 20 years ago or even 10 years ago, but there was a lot more, you know, UK and US music there.
+[25:13] And so streaming, in a way, actually created more and more pockets in like local markets.
+[25:21] And so the Dueti approach, I would argue, would be particularly suited and relevant for them.
+[25:26] Yeah, it's global communities, isn't it?
+[25:30] On a shared platform, but ultimately locally.
+[25:34] And obviously, you know, you guys need to tap into the cultural side.
+[25:39] You know, you need to be able to understand, well, what is culturally relevant?
+[25:44] What data sources are you looking at for that?
+[25:47] Is it people on the ground?
+[25:48] Is it UGC?
+[25:50] Is it other insights that you gleam?
+[25:52] Yeah, so we do have, again, as you said at the outset, right?
+[25:58] And we do have a very data-driven approach, right?
+[26:01] And so we are collecting a lot of different signals and information, starting from the core streaming and consumption data,
+[26:08] but going through kind of other data sources in the industry and social media and so on and so forth.
+[26:12] But we do have folks that are very specialized in specific communities.
+[26:17] In fact, one of the biggest decisions we've made early on, talking about VCs and kind of all those conversations and how they started,
+[26:28] you know, some folks told us, oh, that's really cool.
+[26:32] You guys are really building some type of evaluation engine, right, for music rights.
+[26:38] And maybe you can create like what in the U.S. we call Zillow, right?
+[26:42] In the U.K., it's like Rightmove, right?
+[26:45] So a real estate platform that you can kind of go and maybe type an address of a house and you get like an evaluation.
+[26:52] It sounds so cool.
+[26:53] But we were actually, since the very beginning, been pretty much against that.
+[26:58] And we do think that, you know, music ultimately is about the culture and is about connecting with creators and understand where they stand and where they're going.
+[27:08] And so we're not doing that, right?
+[27:10] We do have a lot of tools in-house, but everything that we do is really interfaced with a great team of A&Rs and kind of sourcing professionals that really talk to artists and managers and songwriters and understand the context and understand the cultural context and kind of discuss kind of deal options with them.
+[27:31] And it's not kind of like an automatic platform of like, okay, let me just put some numbers in and get an output out.
+[27:39] And all of those things really do feed into each other.
+[27:43] I've always been a huge, huge fan of the Tesco Club Card Scheme.
+[27:48] So for those people outside of the U.K., it's a globally renowned or at least should be globally renowned reward scheme and was one of the largest kind of consumer-centric big data projects.
+[28:00] There's some great literature around it and I highly recommend reading it.
+[28:04] But a few things that really stuck with me were when you have data of that size, which I should imagine that you guys do, that the art isn't to stare into the data and ask it to tell you things.
+[28:17] It's to start with your understanding of the industry, of the challenge, of the problem set, and to ask the data very specific questions and see if it can back up, you know, your thesis, your gut feel.
+[28:29] And I think that like that shift in mindset is so critical.
+[28:34] And I can imagine that, you know, given music is very culturally relevant and is societally incredibly important, that you must be employing that.
+[28:45] You know, there's no way you sit there and go, oh, data, tell us the answers.
+[28:48] Like, that's just not what happens, is it?
+[28:50] That's exactly right.
+[28:52] And like, you know, you even look at our office footprint, right?
+[28:54] So Dueli right now is close to 100 full-time employees.
+[28:59] And, you know, if you think about our main offices in New York, and that's where our hot quarter is at, we do have local offices in kind of key music markets in the U.S., right?
+[29:09] So L.A., Miami, and Nashville most recently.
+[29:12] But we also have offices and small presence in London, in Paris, in Rio, and a lot more to come over the next 12 months.
+[29:20] And so we do believe that in this industry, it's not about sitting on a desktop somewhere and kind of have some inputs in and outputs.
+[29:29] It's really about being part of the music community in different places and making that connection exactly.
+[29:37] So, as you said, making sense of the data.
+[29:39] Yeah.
+[29:40] And I think that, you know, it really is a combination of those two things.
+[29:43] And I think that's why when we look at the market, when we look at people operating it, and when we look at what you guys are doing, not only the kind of fundamental structure of your business in terms of the balance sheet and everything else, but also culturally, organizationally, how you guys are set out.
+[30:03] I think it just puts you on quite a different path, which is incredibly exciting to see.
+[30:08] Thank you. I appreciate you saying it.
+[30:11] And that's one of the reasons why I think we've become known a little bit for our parties that we organize a few times a year, whether it's during the Grammys or in L.A. or in New York Music Week.
+[30:21] And we will continue to do that.
+[30:23] But, you know, it's really, and kind of, you know, jokes aside, it's really how we want to show ourselves, right?
+[30:28] Like, this is not kind of a nameless data company that sits, you know, somewhere in an office.
+[30:35] We're out there.
+[30:35] We're engaging with the artists.
+[30:36] We have multiple marketing programs that we run with artists that choose to partner with the other, and we do see it as a partnership.
+[30:45] We have billboards on Times Square and in L.A. and other places where we showcase, you know, artists that are doing deals with us.
+[30:54] And in many cases, you know, it's really based on their priorities, right?
+[30:57] Like, if they want to kind of promote and put out their, actually new music they come up with, even though it's not connected to the catalog, we, our philosophy is that we want to be there and team up with them and help them kind of put the world out.
+[31:09] And, you know, similarly, we, you know, anything from, you know, partnering with kind of customized marketing campaigns.
+[31:16] We have a whole department that does that and so on and so forth, right?
+[31:19] So that's really the approach we're trying to take.
+[31:21] And that's very reassuring as well for the artists.
+[31:24] And I think, you know, it comes on to the next topic that we want to talk about.
+[31:28] It's clear from, you know, the statistics and activity in the industry that more and more capital is coming into music rights investing.
+[31:38] So people, it's going to invariably be more competitive.
+[31:42] And typically when an industry gets more competitive, it's the mid-market and the lower end of the market that sees that competition increase both more quickly and more voraciously.
+[31:55] What does that mean for you guys?
+[31:57] And, you know, is that something that is a real consideration?
+[32:00] Are you concerned about it?
+[32:02] Is that a positive thing?
+[32:05] Yeah.
+[32:05] So look, overall, we're obviously looking and kind of thinking all the time in terms of what's happening in the market and the different dynamics.
+[32:14] I would say, right, like we're talking with many hundreds of artists, songwriters and other sellers every single month.
+[32:22] And so we do think we have a pretty good read.
+[32:24] And sometimes it doesn't necessarily match what's out there in the press releases, right, in terms of certain announcements and folks that are saying they're going to do certain things.
+[32:35] But then, you know, we do have the kind of boots on the ground, so to speak, right, to really have a perspective of who's actually talking to folks that could be relevant for Duet.
+[32:44] And so, look, where we see today, I do think generally my assumption is always that, you know, competition is going to intensify.
+[32:54] But, you know, I also think about it as, you know, what we do is really, really difficult, you know, and, you know, maybe I'm biased by saying it, but I genuinely believe in it, right?
+[33:09] Like we have, as I mentioned before, we have close to 100 people out there running around, deciphering deals, talking to artists, talking to, you know, distribution companies and record labels.
+[33:23] And, you know, you can, why not do a deal?
+[33:25] And you may think you can do the deal and you may do the LOI, but actually closing the deal and having the right mechanisms and understanding.
+[33:32] Like it took us years to be where we are now and we still have a lot to learn.
+[33:38] And so, you know, I do get sometimes the question on competition and so on and so forth.
+[33:42] And sure, we're looking around.
+[33:44] Right now, we're not seeing anyone that, you know, of any significance, right, that's really consistently able to run an infrastructure and be at this scale for this type of deals, as do I be.
+[34:00] Yeah, I think as well, you know, if you, I guess the way I look at it to some degree is given that there's two parts of your business and obviously, you know, they work harmoniously together.
+[34:14] But if we just go back to kind of boiling it down, you've got the platform side, which looks a bit more like kind of tech startup, heavy investment into technology, different investment thesis.
+[34:26] And if you look globally at any company that looks a bit like that, the one key thing that stands the test of time is distribution.
+[34:36] Do you have access to the market?
+[34:38] Does the market understand and appreciate you?
+[34:41] Can you deliver on the thing that you're taking to market?
+[34:45] And regardless how competitive the market is, if you control distribution, you're good to go.
+[34:51] And I think that that's kind of fascinating.
+[34:54] Is that how you think about it as well?
+[34:57] It is.
+[34:57] But we also, one thing I would add is that for us, it's really important to create what I would say a transparent and healthy relationships with all the creators, artists, songwriters, producers, maybe labels and publishers that are working with us and sold us catalogs and partner with us in catalogs.
+[35:18] And so what do I mean by that?
+[35:19] We want to be a counterparty of choice for those folks as they think about financing and catalogs and ad hoc management.
+[35:30] So in our deals, if you look at any of the deals that Duarte have done, and that's consistent across the well over a thousand deals at this point that we've done since we started, we do not have a roffer close, right?
+[35:43] Right.
+[35:43] So first refusal.
+[35:44] We don't have a lock, right?
+[35:46] Of like a first look, right?
+[35:47] We don't have matching rights.
+[35:51] And that's extremely unusual in our industry, as you guys, I'm sure, know.
+[35:56] You know, we don't believe that the right approach is to compel people to work with you.
+[36:04] We think people need to want to come and work with you and because you prove that you have the value.
+[36:10] And so I couldn't agree more.
+[36:12] I think it's the distribution and I think it's the relationships and the fact that we have well over a thousand folks that have done catalog deals with us.
+[36:20] But the way that we want to keep that distribution and expand is not by locking them into an arrangement that frustrates them sometimes.
+[36:27] It's by executing really, really well the first deal.
+[36:32] And then we are seeing time and time again folks come back, right?
+[36:35] Because usually in almost all cases, the folks that we work with, they're not selling us everything, right?
+[36:41] It's more like a few tracks or a few compositions, right?
+[36:45] Or like just the writer's share or, you know, things that are a little bit more modular.
+[36:49] And so we do see time and time again folks come back for a second and third and fourth and sometimes even longer.
+[36:56] And that's what we want to be known for.
+[36:58] We don't want to do it by forcing anyone.
+[37:01] And even when you, you know, I hadn't necessarily considered that life cycle that you just explained there.
+[37:09] I think broadly because by and large, that isn't the typical approach.
+[37:14] It's kind of a one and done, right?
+[37:16] I think obviously in mid-market that will change a little bit.
+[37:20] But given for the vast majority of people out there, the overhead of doing deals can be a bit prohibitive.
+[37:27] So, you know, invariably you wouldn't try and bring as much into the initial deal as possible.
+[37:33] But I think it also just changes the perspective of who you're dealing with as well, doesn't it?
+[37:38] It's like it is a bit more kind of Silicon Valley.
+[37:41] Well, we're looking at the consumer here.
+[37:44] We're being consumer-centric.
+[37:46] We're giving them a solution.
+[37:47] And that's going to mean that actually they could be our customer for the next 15 years.
+[37:51] Could be our customer for the next 25 years if they're right at the start of their career.
+[37:56] Did you really factor that in at the beginning or is that just a happy coincidence?
+[38:00] No, that was the approach from day one, right?
+[38:03] Like the approach has been, right?
+[38:04] Like we've made all these determinations from day one and we haven't changed it since then, right?
+[38:09] So the decision to not lock people in, not doing complicated deals to actually simplify our deals pretty significantly.
+[38:18] Part of it is out of necessity, right?
+[38:20] We obviously, we're doing over 80 deals every month, so we cannot have, you know, extremely complex.
+[38:26] But the other part, the other part though is, you know, coming from the industry and being an operator in the industry before we started already.
+[38:33] You know, I keep hearing and I hear to this very day, and by the way, we're seeing it every day in situations that folks come to us and ask us to try and untundle for them.
+[38:44] You know, people sign up to agreements and to arrangements that they simply do not understand.
+[38:50] Right.
+[38:51] Because it's really impossible to understand, right?
+[38:53] Like, as we all know, our industry is notoriously over-lawyerized and, you know, simple deals that can be super straightforward end up in a 90-page document.
+[39:03] And so for us, the principle of being very transparent and clear was really important.
+[39:09] I'll give you another example.
+[39:11] When we started, there was the whole discussion around, should we have a buyback clause?
+[39:16] And some people do that, right?
+[39:17] Meaning that, especially in our market segment, right?
+[39:20] Meaning that, okay, I'm sending the catalog to Dueti, but maybe in two or three years from now, there's like an option to come and buy it back for like a great great price or whatever mechanism.
+[39:31] And it sounds appealing, right?
+[39:33] Initially.
+[39:34] But then as we thought about it, we were like, this is actually not the right, it felt like too kind of traditional music industry perspective.
+[39:45] To say, oh, you sell it, but maybe you can buy it back.
+[39:49] And like, there will be like this, like, you know, specific window and the price and it would be complicated.
+[39:54] And ultimately, if someone actually wants to do it, it's almost impossible to execute.
+[39:59] And so we said, you know, we really want people to understand what they sign up for.
+[40:04] I don't want anyone to sign a deal with Dueti without them understanding that this is a perpetuity sale.
+[40:10] Yeah.
+[40:10] And you need to be comfortable with it.
+[40:11] And if you're not comfortable with it, that's fine.
+[40:14] But I do think everyone can understand what it means to sell something in perpetuity.
+[40:18] And everyone can understand the price.
+[40:20] And so as long as you understand these two parameters, that is really all you need to understand in terms of the core dynamics of a Dueti deal.
+[40:29] And you don't need to worry about anything else.
+[40:30] And it is decisions like that that also pave the way for the level of scale and automation that you guys have achieved.
+[40:40] You know, if you were going to do more complex deals, more bespoke deals, then there's just absolutely no one on the planet.
+[40:47] You're going to get to 80 deals a month.
+[40:49] And I can only imagine that, you know, you want that number to continually go up.
+[40:53] And why shouldn't you?
+[40:54] And I think, yeah, I think sometimes simplicity is incredibly difficult to achieve, particularly when you're talking about, you know, acquiring anything really.
+[41:05] That comes a level of legal documentation and there's so much scope for change, you know, scope group here, a bit of, okay, we'll make an exception there.
+[41:16] And unless you're very, very focused, those things are the things that invariably tie you up in knots, slow you down, making progress difficult.
+[41:28] That's exactly right.
+[41:28] And, you know, I would say, right, some of my best friends are lawyers, but our dear lawyer friends, right, tend to almost have like a vested interest in making things extremely complicated.
+[41:42] And so, you know, we're really trying to steer away from that.
+[41:45] And that's not to say that we don't have, you know, a great legal team in-house.
+[41:49] And we don't, we obviously recommend to any person that works with us to engage a lawyer if they so choose to look at what we do.
+[41:55] But, you know, one, one other maybe perspective to say, you know, one, when we started the company, we thought about it a little bit in a sense of kind of fundraising in Silicon Valley when, I don't know if you guys are familiar with the concept of like SafeNote.
+[42:09] And so this is kind of a Y Combinator type approach that said, okay, if someone wants to start and raise $200,000 or even a million dollars these days, right, is considered not that much money.
+[42:22] Instead of them ending up spending, you know, 30% of that funding on legal fees because you need to create a super complicated agreement.
+[42:31] And Y Combinator came up with a template that you can actually go right now to their website and download.
+[42:37] This is a super short, super easy to understand template that push out some of the bigger decisions that really allow folks to do, to get that initial funding or that first funding without over-lawyerizing everything.
+[42:50] Right.
+[42:50] And so we're not all the way there for various reasons.
+[42:54] We don't have the DoA-Li template on our website just yet.
+[42:57] But I can tell you that the templates we have, you know, they're very, very consistent.
+[43:03] Sure, every deal does have some negotiations.
+[43:05] And sure, if people have specific concerns or specific aspects to talk about, of course, we go and do that.
+[43:11] But at the same time, I do want to say, like, for me, if I put myself in the seller's shoes, the fact that well over a thousand deals were done under the same template, I think should give people a lot of reassurance.
+[43:25] This is pretty consistent and no one is trying to kind of get you on some legal exercises here.
+[43:33] Right. And I think, you know, from a legal point's view, invariably, in most cases, lawyers are there to consider all of the eventualities.
+[43:44] And when you consider all of the eventualities, you get a lot of fan out of different circumstances and everything else that you need to consider.
+[43:51] And that's fine.
+[43:53] But that's not a scale thing.
+[43:55] Like, you know, if you want simplicity and scale, then you have to really narrow down the circumstances that you're willing to cover or consider and just be comfortable.
+[44:06] Yeah, there is going to be a bit of obscurity.
+[44:08] There's going to be a few unknowns, but that's how it is.
+[44:10] Like, that's part of the deal.
+[44:12] And as you say, Preston certainly helps give confidence.
+[44:16] And then it comes down.
+[44:17] Well, in any contract, no matter how long or well written it is, there's always an element of risk.
+[44:22] And it's just, are both parties willing to engage with that level of risk?
+[44:26] And Preston, for sure, certainly helps.
+[44:30] That's exactly right.
+[44:31] Can you talk a little bit about, like, what the ambition for Duet is and where you see that going in kind of five to ten years' time?
+[44:42] So we're very ambitious and we're only getting started.
+[44:45] So I'll start by saying that, right?
+[44:47] Like, we're not, you know, we're really investing for the very long term.
+[44:51] And, you know, we're not here to build a catalog and kind of flip it or sell it, so to speak.
+[44:57] And part of it is because of just what we want to do.
+[44:59] And part of it, as we talked about at the very beginning of this episode, is due to the capital structure we have that enable us to do it,
+[45:06] which is a result of kind of where we want to go.
+[45:09] Look, I think, as I take a step back, right, like, as we know, the music industry is very fragmented, at least in parts of it, right?
+[45:19] Anything outside kind of the major label, publisher kind of ecosystem.
+[45:23] I think the world is going to a place where it's going to become harder and harder to properly manage IP, a valuable IP, right?
+[45:33] And we think about all the changes that we all are very well aware of in terms of the flood of noise type content and many other challenges.
+[45:42] And so, you know, where we want to be five or 10 years from now, we want to be known as the most trusted party to anyone that has valuable,
+[45:53] financially valuable music IP, music catalogs, in terms of managing those catalogs, creating additional value over time.
+[46:03] And being almost the custodian of valuable music catalogs in this new world we're all kind of going into.
+[46:10] And we've heard that before.
+[46:13] And I think it's a term that I really appreciate, actually, you know, being a custodian of what is consumed by,
+[46:22] it's almost like a public good to some degree.
+[46:25] Obviously, the rights mean that it's not.
+[46:27] But in terms of consumption and how it impacts culture, as you said, and all of those things,
+[46:33] I just like the notion of being a custodian, looking after these things for future generations, because they are important.
+[46:41] You know, you can look back through society forever and music has been incredibly important.
+[46:48] And, yeah, it's great to hear that you guys have that right at the forefront in what you're doing.
+[46:54] And obviously, as well, you know, you're focused on being efficient, growing a great business and super fascinating to see.
+[47:02] Thank you.
+[47:03] So, Lior, I think we are going to head into your quickfire round now.
+[47:10] And we are going to start with the song, album, playlist, whatever you want to make it that you have on repeat at the moment.
+[47:20] Right.
+[47:20] So I'm kind of like, I like a lot of different types of music.
+[47:23] But at the core, at my heart, I'm an EDM dance guy.
+[47:28] Maybe that's my 20s in London and kind of being part of that scene back in the day.
+[47:34] And so I would choose something a little bit more recent.
+[47:37] And I don't know if you guys are familiar with the DJ and producer Alesso from Sweden.
+[47:41] I'm a big fan.
+[47:43] And he just released, I think, this summer, In Your Eyes, a mix with One Republic.
+[47:49] And so that will be one record that I'm definitely listening to.
+[47:53] Nice.
+[47:53] You know, we often ask people that we speak to in the industry and sometimes our guests,
+[48:00] do you listen to the music that, you know, you're evaluating a catalogue for and everything else?
+[48:05] I think for you, that would be a very, very tricky, unequlectic task.
+[48:10] It's like the longest playlist ever.
+[48:12] It is, but we do listen.
+[48:14] I do have to say we do listen.
+[48:16] And we have, maybe not me personally to every single deal, but we have.
+[48:20] Oh, yeah.
+[48:20] I bet your teams are all over.
+[48:23] But I think, oh, yes, as a picture, right.
+[48:26] Playlist, fast forward, every single track, 80 of them go.
+[48:30] And secondly, what is the most underrated opportunity in music rights that you see at the moment?
+[48:38] I would go with what we talked about, right?
+[48:42] Like younger rights.
+[48:44] To me, everything we see at the moment.
+[48:48] You know, you can definitely forecast and have some type of within a probability range, a trajectory pretty early on.
+[48:59] Some would say a lot earlier than six months.
+[49:02] And so I think really the biggest constraint there is for our financing partners to get comfortable with the fact that even earlier on in the curve, you can have a pretty high confidence, especially on a portfolio level.
+[49:16] And so for me, that's a very exciting space to continue and explore.
+[49:20] I'm looking forward to the next press release.
+[49:23] Yeah.
+[49:23] Yeah.
+[49:24] It's been the fastest growing segment of the industry, you know, for some time now.
+[49:28] And I think, you know, you definitely see it as this growth sector.
+[49:32] I know you put that in your latest index.
+[49:33] So, yeah.
+[49:35] Super interesting to see how that plays out.
+[49:36] And last but certainly not least, if you could own one song, Lior, what would it be and why?
+[49:44] So it's a really difficult question.
+[49:47] And I've been thinking, you know, what to say.
+[49:50] You know, for me, I would choose an answer that relates to my own personal professional journey in the music industry.
+[49:57] And so the first ever decay curve that I looked at was maybe 16 years ago when I was a young analyst in Deutsche Bank.
+[50:06] That was my entry point into the music industry.
+[50:08] And I was working on kind of credit lines for potential buyers at the time of Warner Music Group that was sold.
+[50:17] And so I remember really the first song that I looked at to come up with an analysis was Happy Birthday, which at the time was owned by Warner Chappell.
+[50:27] I think a few years later there was like some big court case and that changed.
+[50:31] But at least at the time that was the case.
+[50:34] And so I remember me clotting the decay curves going all the way back to the 30s and kind of trying to understand that was only on the publishing side.
+[50:43] And kind of trying to understand kind of the different cash flows from TV and film and, you know, things like that.
+[50:49] And so I don't even know if it's even possible to own pieces of Happy Birthday anymore.
+[50:54] But to me, that's always kind of a story that I go back to as I think about how this industry has evolved on the one side.
+[51:01] But on the other side, some principles have remained pretty constant for a very long time.
+[51:06] I mean, what did that decay curve look like?
+[51:08] Surely it was a growth curve, like more people being born, more Happy Birthdays.
+[51:12] It was very, very stable.
+[51:15] It was very, very stable.
+[51:16] Yes, yes, that's right.
+[51:17] Amazing.
+[51:18] I think you are actually the second person to choose that answer on the podcast.
+[51:22] If I remember correctly, I think Golnar Kozashahi from Reservoir.
+[51:26] Oh, wow.
+[51:27] Was the other one, I think.
+[51:28] So you're in good company.
+[51:30] But yeah, that's a great choice.
+[51:31] That's a good to hear.
+[51:33] Yes.
+[51:34] Well, Lior, thank you so much for coming on the podcast.
+[51:38] It's been fascinating.
+[51:39] We are endlessly impressed by Duetti and everything that you do.
+[51:45] So yeah, look forward to hearing more about the future.
+[51:49] Yeah, Lior, absolute pleasure.
+[51:51] Thank you so much for coming on.
+[51:52] Really enjoyed the conversation.
+[51:53] Thank you very much for having me.
+[51:55] Thanks for tuning in to Music Moneyball.
+[51:58] If you enjoyed the conversation, you can subscribe at standard-innovation.com to get every episode
+[52:05] in your inbox.
+[52:06] You can also follow the show on Spotify, Apple, or YouTube to stay ahead of the curve in music
+[52:11] rights investment.
+[52:12] Because of all that in music rights events.
+[52:16] Thank you.
+[52:17] Thank you.
+[52:18] Thank you.
+[52:19] Thank you.
+[52:20] Thank you.
+[52:20] Thank you.
+[52:22] Thank you.
+[52:22] Thank you.
+[52:23] Thank you.
+[52:24] Thank you.
+[52:25] Thank you.
+[52:26] Thank you.
+[52:26] Thank you.
+[52:27] Thank you.
+[52:28] Thank you.
+[52:29] Thank you.
+[52:30] Thank you.
+[52:30] Thank you.
+[52:31] Thank you.
+[52:31] Thank you.
+[52:32] Thank you.
+[52:32] Thank you.
+[52:33] Thank you.
+[52:34] Thank you.
+[52:34] Thank you.
+[52:35] Thank you.
+[52:35] Thank you.
+[52:36] Thank you.
+[52:37] Thank you.
+[52:37] Thank you.
+[52:38] Thank you.
+[52:38] Thank you.
+[52:39] Thank you.
+[52:39] Thank you.
+[52:40] Thank you.
+[52:40] Thank you.
+[52:41] Thank you.

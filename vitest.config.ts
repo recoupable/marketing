@@ -4,7 +4,7 @@ import path from "path";
 export default defineConfig({
   test: {
     include: ["**/*.test.ts", "**/*.test.tsx"],
-    exclude: ["**/node_modules/**", "**/.next/**", "**/.git/**"],
+    exclude: ["**/node_modules/**", "**/.next/**", "**/.git/**", "gtm/engine/**"],
   },
   resolve: {
     alias: { "@": path.resolve(__dirname, ".") },

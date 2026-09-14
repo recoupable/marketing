@@ -1,0 +1,725 @@
+# Where the catalog market is moving next w/ Cynthia Katz
+# Date: 2026-02-24
+# Duration: 01:13:05
+# Guests: Cynthia Katz, Partner, Fox Rothschild Hosts: Tom Mullen, Sam Morey, Emma Griffiths Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen, Sam Morey, Emma Griffiths Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Where-the-catalog-market-is-moving-next-w-Cynthia-Katz-e3fhl0i
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] I still think it's a very robust, healthy market that doesn't have an end in sight in the more
+[00:07] established Western markets. And because you can always, like you say, have secondary sales and,
+[00:12] you know, sort of repackaging, but there's certainly more growth opportunities
+[00:16] when we start looking at emerging markets.
+[00:22] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogs.
+[00:28] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:35] Welcome to another episode of the Music Moneyball podcast with me, Emma Griffiths,
+[00:40] and my co-hosts, Tom Wallen and Sam Maury. Our guest today is one of the top dealmakers at the
+[00:46] heart of music catalog M&A, so she understands not just how rights get sold, but how value gets
+[00:51] created. She's a partner at Fox Rothschild, working on catalog sales, corporate transactions,
+[00:57] and entertainment deals, and she started her career inside EMI's legal and business affairs
+[01:02] team, so she knows how this industry works from the inside out. She's ahead of the curve
+[01:06] on how the acquisition market is evolving, from deals that are deeper in rights to catalogs
+[01:11] that are more global in scope and less dominated by traditional anglophone hits. She's also been
+[01:16] recognized by Billboard, Variety and The Hollywood Reporter as one of the leading music lawyers
+[01:21] and dealmakers in the business. Please welcome Cynthia Katz.
+[01:25] Thank you guys. Happy to be here. That was a lovely introduction. I feel honored.
+[01:31] Thanks for joining us.
+[01:33] Yeah, thanks for joining us, Cynthia.
+[01:35] Excited to chat.
+[01:37] Yeah, so we are super excited to dig into what you're seeing in the market, Cynthia. We thought
+[01:41] we'd start with, you know, just what you're seeing in the market at the moment and how it's evolving.
+[01:46] Obviously, established markets like the US and the UK feel more mature now, but they're also changing
+[01:53] shape, and there's more institutional capital around and, you know, a much stronger ecosystem
+[01:58] of buyers and sellers, especially on the secondary side. So when you're sitting across the table from
+[02:04] your institutional clients today, what are they actually asking for?
+[02:07] Sure. So just to kind of set the scene, I represent numerous large private equity funds and then also
+[02:17] some strategic buyers as well with, you know, a steady, robust stream of deals coming across.
+[02:27] You know, we've been doing this now for 15 years or so probably, you know, but the real boom maybe
+[02:35] being the last 10. And then obviously when we had interest rates that came down around COVID,
+[02:40] that was maybe like the height. But I'm still seeing a very, very strong, very active market
+[02:49] with optimistic forecasts across the board. You know, some pricing has come down a little bit. I mean,
+[02:57] you have healthy competition and everybody is still recognizing these assets as, you know,
+[03:06] some of the best alternative, you know, asset structures. We have new financing schemes. There's
+[03:12] a lot of interest. Everybody wants in. There is more demand than there is supply. So that is keeping
+[03:17] multiples up. But we also have, you know, high interest rates and, you know, other macroeconomic
+[03:23] conditions that have somewhat settled multiples a little bit and kind of kept pricing, perhaps not
+[03:32] at the peak. But it's still, it's still, you know, fairly stable and, and, you know, willing buyers and
+[03:40] willing sellers are meeting, you know, 10 times a day every day. As far as institutional, you know,
+[03:46] investors, the way that things are shaping up and how it has changed, I think that there's a
+[03:52] much higher level of sophistication now than there was even five years ago where a lot of these
+[03:58] investors, you know, that are coming out of finance, music was something they had to learn,
+[04:03] you know, their, their finance first. And so there was a little bit of a, you know, jump in and figure
+[04:10] it out kind of later. And then obviously you learn from mistakes and you learn, you know, how
+[04:16] unique these type assets are and that they're not necessarily the same as just investing in real
+[04:23] estate or, or, you know, other types of financial products. So, or commodities. So we're learning,
+[04:31] they're, they're starting to demand a higher level of data and, and reporting and, you know,
+[04:42] understanding exactly, you know, trying to clean up catalogs and make sure we have all the correct
+[04:48] ISRC codes and, you know, that we're not having leakage anywhere and, you know, that everything
+[04:53] is properly registered and, you know, can certainly get tricky too. They're learning how there are
+[04:57] sometimes 10 different versions of the same song and, you know, people that, that artists sort of
+[05:02] have been at multiple different PROs and, and, you know, CROs over the years and not, you know,
+[05:08] different publishers and labels and how important it is to get all the splits and the royalty rates,
+[05:16] everything correct. And to make sure that all of the metadata matches up everywhere along,
+[05:24] you know, the chain to really maximize the value of these assets. So they've gotten more demanding
+[05:30] in terms of the level of diligence that has to be done and how clean and precise the schedule
+[05:38] and the, you know, diligence, diligence materials need to be before we close. We've also gotten,
+[05:47] you know, just, just more, it used to be kind of a little bit, we just want to get the deal done.
+[05:53] You know, we've agreed on the material terms, what's going on. And I think that as, as we've done
+[05:58] more of these, and as people are looking to secondary markets too, they're having a better perspective in
+[06:04] terms of, okay, well, are we going to securitize? Are we going to sell the fund in a couple of years?
+[06:10] What is the next, you know, investor or person in the chain going to demand? So it's not just about,
+[06:17] you know, our risk tolerance, but it's about their risk tolerance. So that's just sort of forcing
+[06:23] everyone to level up in terms of how much they really dig into the details. And there's a lot of
+[06:31] details in music assets. So, you know. Is that, is that trends, Cynthia? Is that kind of happened
+[06:40] more in the past few years compared to previously or? Yes. Where is that level of diligence has kind
+[06:46] come in? I would say in the last even, you know, three to five years, it has dramatically or at least
+[06:56] noticeably increased the demands that we are getting for cleaner and better data and, you know,
+[07:05] less risk tolerance, I guess. Does that correlated as well to the types of investor? So you said you
+[07:15] represent, you know, some institutional capital, some family offices or high net worths, do they have
+[07:21] different demands and requirements or are they roughly trending in the same direction? So, so that's
+[07:27] a good question. Actually, it's funny, the strategic buyers, I think, will tolerate a little bit messier
+[07:33] of a catalog because I think they have more control and they also have more of a historic perspective
+[07:40] of, you know, that's how the music industry is done. Things are messy a little bit. You know,
+[07:46] they, they remember, you know, back in the day when, you know, we had people would, you know,
+[07:53] handwritten contracts lost in boxes. Nobody knew who owned what, you know, we didn't have good
+[07:59] reporting. So they, they have a little bit more historical context in terms of where we've come.
+[08:05] Um, and also because they have more control, generally they're more in the weeds on the
+[08:11] administration and they have more of the relationships to clean things up post-close.
+[08:15] They have a little bit higher risk tolerance than some of the funds and financial buyers who also
+[08:20] have more people to answer to, um, in terms of LPs and, you know, um, in retail investors now that are
+[08:27] starting to get into the, the, um, the mix and, and, you know, as everybody's interest in securitization,
+[08:33] um, they are, um, a little bit stricter, um, on the data. Um, and I think that's also just the nature
+[08:43] of, you know, the industries that they've come up in coming up in, you know, finance as opposed to
+[08:49] coming up in, um, music, you, you kind of have a different perspective on, you know, numbers and
+[08:56] spreadsheets and data and all of that. So, um, that's a little bit different. Then on the other hand,
+[09:01] you have these family offices, um, which, um, sometimes have even less of an understanding of
+[09:11] the music industry. And so that can go kind of two ways. Some of them, they just don't even know what
+[09:16] they should be afraid of. So, you know, sometimes they, they, um, just want to, and they also
+[09:24] sometimes have less of a reputation. So they've less leverage. Everything always in all dealmaking
+[09:29] comes back to leverage, you know, how much can you drag a deal out? How much can you take your time
+[09:35] and go slow? You know, every seller wants to close yesterday and where's my money, where's my money?
+[09:40] You know, um, what catalogs can you go after, you know, more sophisticated, um, catalogs that have,
+[09:49] you know, um, more professionals on the sell side, uh, helping to get the catalog in good shape,
+[09:56] you know, um, do you see a little bit of that as well? So people kind of proactively acquiring
+[10:02] catalogs that are potentially not as well maintained with a view that they've got the
+[10:08] infrastructure or the process that they can put some of that in place and actually achieve some
+[10:14] arbitrage on the multiple through hygiene and cleanliness.
+[10:19] Especially, you know, with the emerging markets, um, you will see, I mean, that's, uh,
+[10:23] something that people are targeting, you know, the biggest thing is how can I acquire this and then,
+[10:28] you know, um, optimize it. Right. And especially there, there's an idea that if I clean it up after
+[10:36] acquisition, if I, you know, fix the administration and get things registered where they weren't, you
+[10:41] know, um, that there's a lot of, that they're completely undervalued because they're missing money
+[10:46] and that I can buy it and then, you know, work to fix that, um, and clean it up. But, you know,
+[10:53] sort of as I would, you have to be the right type of buyer to be able to do that. You have to have the
+[10:57] staff or, you know, the money to hire, you know, outsourcing or software or, you know, um, figure out,
+[11:05] um, how you're going to do that. But, but for the larger funds that, um, I think really believe
+[11:11] that they have the capability to do that. That's certainly a big focus. You know, where can I see,
+[11:17] um, catalogs that are undervalued because of poor administration, because of poor data?
+[11:24] And then how can I fix that and, you know, better optimize it and, and realize that lost value?
+[11:32] Yeah. And could you talk us through some of the experience that you guys have had with those
+[11:36] international markets? I think broadly, there's an acceptance in the industry that,
+[11:40] uh, the more traditional markets are reaching maturity, but there's high growth in other areas
+[11:48] of the globe and that those areas are particularly interesting for new acquisitions. But I think that
+[11:55] there's probably significant challenges associated with those opportunities. And we'd love to hear a
+[12:01] little bit about the experiences you've had. Sure. So I've done a number of, um, you know,
+[12:09] international acquisitions. Um, it, like you say, with every opportunity, there are challenges and in,
+[12:17] it's about finding the right balance of, you know, what you can work with. Um, the, the, uh,
+[12:24] one of the big advantages is that we haven't hit saturation with streaming, um, across the globe.
+[12:29] Also, um, you know, regional or local, um, artists or writers, um, particularly will have a lot of sync
+[12:39] appeal, um, in regional or local programming and all of that is still growing at a much higher rate
+[12:45] and populations are just growing, you know, at a much higher rate, um, outside of, you know, the
+[12:51] Western, you know, Europe and, and Australia, United States. Um, so there's, there's tremendous
+[12:57] opportunity there. There's also tremendous opportunity. Um, like we said, because, uh, even,
+[13:03] even those that have found success there are not being usually administered, uh, as well as they
+[13:09] could be, if things were better registered, if things were, um, you know, the data was, was better,
+[13:15] you know, all that we would be, we weren't leaking money. Um, they, they would, you know, make more
+[13:20] money. So there's a tremendous interest there. The challenges that come, um, one is just international
+[13:26] tax is always, um, a big issue and, you know, currency volatility and risk. And so we have to
+[13:32] start out with, okay, you know, we're going to have money being paid from various payors in different
+[13:37] countries and what currencies and how is that going to be taxed when it's repatriated and all that. So
+[13:42] we, we kind of, um, you know, and everyone is very familiar to, at least in the U S you know, with,
+[13:50] okay, what's going to be capital gains, what's going to be ordinary income, how is this going to work?
+[13:53] You know, it's a whole different set of considerations when we start looking at, um,
+[13:57] international tax issues, taking that aside, then you have, um, all of these different
+[14:03] collection agencies or societies, you know, locally and regionally that are, um, collecting
+[14:09] the royalties, administering the royalties. Some of them only operate in certain languages. Some of
+[14:13] them have local presence requirements where, you know, you can only be registered and have an account
+[14:19] if you, you know, have an actual local address and that can be tricky. And then that leads to,
+[14:25] you know, we always find a way to do it if we want to, but, you know, more creative structures
+[14:30] in terms of joint ventures with some of the majors that have more local presence in different places,
+[14:35] um, setting up new entities, um, in different jurisdictions, you have some of these societies.
+[14:42] I mean, even if you go back, I don't know, even five years at this point in the U S and you think
+[14:46] about something like sound exchange, um, they were adverse to and ill-equipped the concept of you
+[14:55] selling your featured artist royalties. And then, you know, assigning that over was like,
+[15:00] we can't do that. And we don't know how to do that. And, you know, there was all of these weird
+[15:05] things like DACA accounts that people were setting up where they wouldn't transfer it, but then you
+[15:08] could have this secret bank account that was in the name of the seller, but then administered by the
+[15:12] buyer. And like, you know, it took a while for sound exchange to say, okay, this is something
+[15:16] people want to do. We have to create a bunch of paperwork and rules and processes, you know, for,
+[15:23] for how we're going to do these transfers. Um, a lot of the societies around the world are just
+[15:28] getting there or not there. Um, you know, not kind of signed up for that. Um, and they have to create,
+[15:34] you know, standard letters of direction or assignment forms or bank account transfers. Um,
+[15:39] you know, in general, every time you're moving assets around, there's a lot of administrative
+[15:45] work that has to happen. And so obviously different, um, distributors, labels, administrators,
+[15:51] societies have different levels of, um, staff and technological capabilities that they can actually
+[15:57] handle. And then sometimes as deals get tricky where you're splitting, you're saying, okay, I'm
+[16:02] selling 75%, I'm selling 25, you know, you're seeing a lot of split deals. That's a further
+[16:06] accounting, um, challenge for some of them. Um, and then you have the copyright aspect where
+[16:12] that is also extremely, um, you know, uh, tricky, um, where you have, you know, in the U S and,
+[16:20] and, and, you know, some other, just, we know very well what copyright reversions, you know,
+[16:25] look like and what, how, how that works. And we know, you know, how long you have registrations
+[16:30] for, and we know what it means to be registered or not to be registered and, you know, all the
+[16:34] different acts. So now we have to learn the laws in different countries and then what rights do they
+[16:41] have if it was created in one country. And, um, you know, for example, there are certain countries
+[16:46] that, you know, the producer typically owns the copyright and others, you know, it's more the
+[16:51] recording artist and some, whether you register makes a difference in some, they don't have a
+[16:56] copyright registration regime. And then, you know, um, for example, in the U S too, if you want to
+[17:02] perfect your interest in certain things, we have a whole, um, UCC, um, you know, security interest
+[17:11] kind of filing system. And then we have the copyright office and, um, there are different
+[17:15] paperwork that you do to perfect your interest. Um, every other country and regime has a whole
+[17:21] different set of rules and sometimes you're not able to protect yourself as well. Um, and then you
+[17:26] get to the question of enforcement. If there's an issue, you know, where are we going to be able
+[17:32] to enforce our rights? Um, where does the seller have assets that we could potentially, you know,
+[17:38] go after or if we have issues? Um,
+[17:42] And do you try and always bring that back to the U S jurisdiction or is it just unfeasible to do that?
+[17:49] We try to operate in the U S the best that we can because, um, it's just the most robust system
+[17:56] at this point in terms of rules and right, you know, there's just the volume.
+[18:01] Well, you guys as well.
+[18:03] Yes, yes, for sure. That helps. Um, and that also helps just, you know, when we have to have
+[18:10] multiple counsel and multiple, which we, we, we do, uh, often, but you know, the fewer lawyers we can
+[18:18] have to involve the better.
+[18:20] Right. And like when you, when you go through some of these deals abroad, I suppose, first question,
+[18:27] are you seeing as much deal flow or an increase in deal flow from international opportunities?
+[18:34] Is it trending upwards?
+[18:36] It's definitely trending upwards. It's not, you know, at the same volume, um, that, that you're
+[18:41] going to have, um, maybe growing a bit faster, but it's growing, it's growing a bit faster and
+[18:45] everybody is identifying, you know, that as a large portion of the future. Um, and I think,
+[18:52] you know, it's, it's, they're both happening. The, the increased interest is also, um, you know,
+[18:58] increasing investment in the infrastructure in those countries and, you know, they're, they're,
+[19:02] you know, to, to try and, um, be able to meet the demand. Um, and are you guys able to kind of put
+[19:11] in place some structures that are repeatable that make some of these challenges a bit easier over
+[19:16] time or is it really every single deal is a new one, a new challenge, some new dragons behind?
+[19:23] So, no. So, yes, we are doing that. And, um, in particular, um, you know, the question is,
+[19:29] do we set up entities? So, so that's another thing too, for various tax reasons, uh, sometimes in,
+[19:35] um, other jurisdictions, it's more advantageous to do an equity deal where you are buying, um,
+[19:41] you know, a company that, um, and whether it might be you're investing in a label and the
+[19:46] copyrights that they own, or the artist has set up some sort of, um, you know, single purpose vehicle
+[19:52] where they, um, house their assets and then you buy that vehicle rather than buying the assets out
+[19:59] from the vehicle. Okay. Interesting. Yeah. Then you have to, often then you're going to continue to
+[20:05] operate, um, um, on a, um, ongoing basis sometimes, you know, in a company in another jurisdiction.
+[20:12] So, um, you know, we have set up, um, entities, uh, and largely this is driven by tax planning,
+[20:21] but, um, we have set up some entities in certain jurisdictions where we feel we're going to do
+[20:27] multiple deals, um, and then continue to use those vehicles, um, and try to everyone, you know,
+[20:35] how can we not reinvent the wheel every time? How can we, um, you know, because what, what the
+[20:41] biggest thing that has happened that, that I, I feel has, you know, been great over the past five
+[20:47] years is setting standard. Everybody wants, you know, standard policies, procedures, efficiency,
+[20:53] you know, let's run smooth as we can. Let's, let's, you know, standardize our diligence reports
+[21:00] and our diligence questionnaires and our forms and our exhibits. And, you know, um, I can imagine
+[21:06] that that's great when you've done it a lot in mature markets, but going into a new one,
+[21:10] you're kind of having to do a, a, a, either all over again or just on a more ad hoc basis.
+[21:17] Yes. So, so we're, we are trying, you know, every time we do something, okay, how can we
+[21:24] leverage what we've done? Um, and also, you know, the, the legal costs and the administrative costs of
+[21:30] getting something set up, it spurs a, a, a desire to let's not, you know, have this be a one-off.
+[21:37] Now we've done it. We can, you know, like, like we built a, a butter making machine. We shouldn't
+[21:44] make butter once we should keep making butter. So I don't know if that's a great analogy, but,
+[21:49] you know, something like that. Um, so yes, that has definitely spurred and we've had, um, some,
+[21:56] some, you know, repeat deals where we're trying to do the same thing over and over.
+[22:00] And are the challenges, are they kind of equally spread across legal tax and commercial or is there
+[22:09] a bit of an imbalance and does that change over time? I think commercial is always the easiest
+[22:18] to overcome. We can always overcome commercial, you know, um, yes, there are certain cultural nuances,
+[22:24] um, you know, that, that, um, are different in, you know, in, in, in different, um, you know,
+[22:33] jurisdictions, um, and, you know, some jurisdictions, you know, there's sort of a different attitude
+[22:38] towards creativity, um, and, and, you know, capitalism and, and things like that, um, and,
+[22:45] and preferences too for, you know, um, local, um, ownership, but commercials usually always
+[22:52] can be overcome and it's the easiest, you know, we'll find a way to make a deal that makes everyone
+[22:58] comfortable. Tax, um, tax is always important on anything and it often, um, can be the real driver
+[23:07] because the numbers can get up there. And it's also something that fewest people understand.
+[23:12] Like whenever everybody says like, Oh, we have to bring in tax lawyers. They're the worst of all,
+[23:17] you know, people are the least happy about that. Like the copyright lawyers is,
+[23:21] is less daunting the, you know, um, transactional M and a lawyers, but the tax, because,
+[23:28] because it's complicated and people don't understand and all they're hearing is I'm going
+[23:31] to owe a lot of money. And I don't know if I'm mid paying, you know, with tax too, a lot of times,
+[23:35] I don't even know if I'm paying it right, or am I going to get a letter, you know, and that's
+[23:39] governments and that can be a little bit scary. Um, but tax efficiency, you know, and, and good tax
+[23:45] planning, um, which is something that, you know, tax lawyers do. It's slightly different than,
+[23:52] you know, accountants, um, is strategy about minimizing taxes. Um, if done efficiently can,
+[23:59] I mean, add up to, to millions and millions of dollars in savings. So that is always something
+[24:05] that's going to be a driver. Um,
+[24:07] And I assume that must be factored into the commercial discussions as well, right?
+[24:12] So you need to have a really good handle on what the tax implications are in the local regime,
+[24:18] what they are for repatriating any money or anything like that.
+[24:22] Uh, and then.
+[24:24] And it's very, it's very tricky. It's something that we, we actually struggle with because
+[24:29] it's expensive, right? So people want to get into an LOI. They want to get into exclusivity.
+[24:34] They want to make sure they have a deal before they start spending a lot of money on lawyers.
+[24:39] So often somewhat, unfortunately they get into an LOI, you know, they don't bring the lawyers in
+[24:45] before they have a deal, particularly not the most, you know, something like tax, that's never going
+[24:51] to give you an answer quickly or easily. They're going to say, you know, we need to spend a week and
+[24:55] look at a lot of things and give you a large bill. Um, so then after the deal is made, then,
+[25:03] you know, all of the tax lawyers and professionals get involved and they're like, okay, uh, this
+[25:10] structure's got some issues. How can we fix it? What could we do better? That kind of thing. Um,
+[25:16] so it's somewhat unfortunate that sometimes we have to, um, uh, like go back to the drawing board a
+[25:23] little bit on structure, um, after the fact, but, you know, generally like it's got, you know,
+[25:32] the earlier, the better that it informs the structure. Um, and then that that informs the
+[25:37] commercial terms, the better. Um, and then on the legal side, for the most part, while there are
+[25:43] challenges, I, I believe that the good lawyer, you know, will always find a solution, whether,
+[25:48] you know, whatever we have to do, you know, you can always be creative, um, in terms of.
+[25:55] And I suppose it's a bit more after the fact, isn't it? You know, once the deal has been agreed,
+[25:59] once all of the tax implications are understood, then it's over to you guys to find a way to make
+[26:06] it happen in terms of operating model as well, whether that's local entity and then all of the
+[26:12] paperwork that goes with it. Do you see that the, the countries that you're more often operating in,
+[26:22] um, do they tend to have relatively stable tax regimes or IE. So once you've kind of done your
+[26:29] first deal and you've got good precedent for the next one, you can advise your clients on what that
+[26:34] LOI needs to look like and they kind of have a bit more flexibility or is it really changing a lot
+[26:41] and every single deal's new? I wish it was more stable than it is, but for some reason, like even
+[26:48] the UK and the US and I'll show you like our taxes seem to change, you know, all the time. Um, and,
+[26:55] and there's always something new, but at the same time, you know, you have longstanding trees in,
+[27:01] you know, um, among, um, sort of major countries that, that tend to, um, at least give you,
+[27:07] you know, some idea of, of the framework that you're going to be in, but we do kind of have
+[27:13] to look at it and new. I mean, it depends on your time horizon too. If we're doing,
+[27:16] you know, five deals within six months, it's not going to change, you know, it's probably going to
+[27:20] be the same. Yeah. If there's a, uh, yeah. If, if there's a change in governments or anything like
+[27:26] that, or, you know, an annual budget, which we've just gone through recently in the UK, then
+[27:30] clearly implications. Yeah. And it's funny because everybody always has this,
+[27:35] you know, end of the year push. It's always, we have to get things done by,
+[27:39] you know, December 31st and nobody or few people articulate exactly why they feel that. I think
+[27:45] it's somewhat of a psychological, like, you know, I started this in 2025, I'm finishing it in 2025,
+[27:51] um, kind of thing. But, um, and then some people even say, you know, oh, well, I want to close in
+[27:58] this year, but then actually I want the income, you know, in next year. So I get offset. So then
+[28:02] they want to fund the next year, but there's always this sort of like, we've got to get it done now
+[28:06] because we don't know what next year is going to be like. Um, from tax perspective, you'll hear that
+[28:11] a lot, but, you know, usually outside of a big, um, you know, election year or, you know, something
+[28:19] like that. Um, there aren't too many crazy changes. Um, but you guys having to establish local
+[28:28] working relationships, whether that be with local lawyers, local tax advisors, or, you know,
+[28:35] people supporting corporate finance, investment bankers, um, maintaining those relationships or
+[28:41] moreover, you're starting to invest in putting those roots down yourselves. Um, so it, it does
+[28:49] always depend deal by deal, but generally when we're operating in a different jurisdiction, I mean,
+[28:53] even if we have, you know, us, you know, choice of law, we are consulting with local counsel almost
+[29:00] always, um, you know, just to, to, you know, have them sort of, even at the very least, you know,
+[29:08] give it a once over, make sure you're not missing anything, you know, um, cover your basis. And we do
+[29:16] always, you know, maintain as a, as a, at least Fox, you know, a large AM law 100 for, you know,
+[29:21] we have relationships all over the globe. Um, and then myself and some of my partners were part of
+[29:27] the international association of entertainment lawyers. Um, you know, so we, you know, always
+[29:32] reach out. It is a big network of, um, professionals across the globe. Um, and you know, we like
+[29:40] something like the UK, you know, all the major firms there, we all work together all the time,
+[29:44] you know, even on just regular, you know, entertainment deals, you're always going to have,
+[29:49] you know, British U S a lot of crossover. So, um, you know, we have good relationships with them and,
+[29:58] and, um, those ones are always the easiest cause it's just, you know, Hey, I got another one for
+[30:02] you, you know, Hey, how you do, you know, we work together all the time, but, um, you know, even when
+[30:07] we, I have a couple of deals right now in, uh, the Netherlands and Sweden, you know, I don't work with
+[30:12] them as often, but, you know, I just reach out, you know, maybe it's second degree as opposed to
+[30:17] first degree connections and somebody introduced me to somebody. And we definitely, uh, have a network
+[30:24] of, you know, international cooperation. Yeah. Which is super helpful. I mean, going through deals
+[30:31] invariably, it's a bit of a people game as well. It's that you've got to pull everybody together and
+[30:36] make sure that everybody's thinking in the same way. And do you feel that when you go into these
+[30:42] new markets that you're having to do more education on both sides of the fence for whoever you're
+[30:49] representing, which is typically by side, but then also kind of pre-preparing the sell site.
+[30:56] Yes. A hundred percent. I mean, and a lot of it always comes down to who the council is too. Um,
+[31:02] you know, counsel that, um, the, and you have different, um, kinds of types of counsel that
+[31:09] you'll see across these deals. You have lawyers that are primarily music lawyers, um, or film and
+[31:16] TV. And, you know, this is the, the one or two, you know, they have a handful of catalog sales that
+[31:23] have come up for their regular clients every once in a while. And, you know, they've been their lawyers
+[31:28] for, you know, their careers and they're, you know, kind of doing this. Then you have lawyers who are,
+[31:35] you know, primarily M&A lawyers. Um, they don't have too much experience or expertise in the music
+[31:42] industry, but they've been brought in to do this sort of like larger type, um, you know, transaction.
+[31:50] Um, I mean, and then you have, sometimes you have, you know, just a random, you know, it could be
+[31:57] my uncle is a, you know, whatever real estate lawyer and, um, he's kind of, he's going to come
+[32:04] and look after it. Yeah. I can imagine they're the most difficult ones where you've got somebody
+[32:08] who knows enough to be dangerous, but doesn't really know the ins and outs. And then, you know,
+[32:13] the counterparty is advised in a slightly suspicious way and you think, oh, crikey,
+[32:20] big education job. Yes. And it's funny because there are a lot of like norms and, you know,
+[32:26] obviously market standards and things that you'll see across what we quote unquote called normal M&A or
+[32:32] M&A in industries other than music. And then the way things are done in music is always just a little
+[32:38] bit different. Um, and so people who are really working in the weeds on this, you know, all day,
+[32:45] every day, like they, you know, it's so much easier because we know exactly what is happening. Um,
+[32:52] and you know, what, what people are agreeing to, how the forms are changing, what the issues are,
+[33:01] we're all on the same page, you know? Um, so, so it really is its own unique kind of niche and there are,
+[33:07] um, you know, I don't know, maybe a dozen or so lawyers, you know, that you'll see that,
+[33:14] you know, they're doing sophisticated M&A in the music industry day in, day out. And so those are
+[33:19] always kind of. The best people to work with. Yeah. Yes. Although sometimes they can, you know,
+[33:25] yeah, they can be, um, you know, like, like healthy rivalries kind of. Yeah. I can imagine too.
+[33:33] And like outside of the tax advice and the complication that that brings, are there any
+[33:40] other major pinch points that you've faced in doing deals overseas that people should look out for?
+[33:48] Sure. So, I mean, obviously one of the biggest ones that we have to look at, and when we look at what
+[33:53] the different assets, you know, we've got copyrights and we've got various income streams,
+[33:56] um, and, um, you know, neighboring rights or digital performance, um, you know, PR performing rights,
+[34:05] um, you know, artist royalties, producer royalties, um, you know, writer, um, copyrights,
+[34:15] and then also just the income streams, um, and, uh, name image likeness and trademarks. Um,
+[34:21] and sometimes often now we're seeing a lot of bundling in of, um, some film and TV, uh, royalty
+[34:30] participation as well. Um, and any, all of the different, um, collection societies in particular,
+[34:39] um, related to some of these income streams and also the registration systems for the copyrights and
+[34:45] the reversion, um, rights, um, and how, you know, what, how copyrights can be impacted, um, what kind
+[34:55] of terminations can happen. Those are very jurisdiction specific. Um, so one, you have to
+[35:00] understand them. And then, um, some of them, like all of the deals are easier. There's, there's
+[35:06] relationships involved with everything. Like for example, I, everyone who works at ASCAP, I know on a
+[35:11] first name basis or BMI or sound exchange, you know, I can pick up the phone, I can call them,
+[35:17] you know, they know that this is our, you know, 10th deal of the week and they know exactly what we
+[35:24] need and who we are and, you know, who we represent. And so, you know, we're just, things move more still,
+[35:31] more fast because, you know, we know each other and that always, you know, the human connection
+[35:38] always makes all of the wheels go better. Um, when you don't have those relationships,
+[35:44] when you're contacting someone for the first time, because someone gave you a name, um, you know,
+[35:49] that is, can be a little bit more tricky. And also just when you're trying to set up, you can't just
+[35:54] pick up the phone sometimes and call China. Like you've got time differences and language barriers
+[35:59] and, you know, cultural issues. So, you know, you've got all of that. Um, you know, so, so,
+[36:08] I mean, it's, it's really, you know, the copyright, um, and the sort of society, um, you know,
+[36:17] personnel and the personal relationships, and then just the legal, you know, um, structures of the law
+[36:24] and how that works. So those are all going to be an extra step that's going to make it more difficult,
+[36:29] but I think, you know, it's trending and it's going towards, you know, the upside is starting to
+[36:36] justify the, the, you know, additional work. Um, and of course everybody, um, there's always like,
+[36:45] you know, first mover, you know, we go back to, you know, who really started this mark, this,
+[36:51] you know, real interest in the catalog market. And there's always a first mover advantage and always,
+[36:57] you know, how do I find what's undervalued that other people are not, you know, seeing that's
+[37:03] always the smart person is what are other people, you know, if you, if you follow the crowd or you're
+[37:07] a leader. So, so everybody wants to be early smart, people want to be leaders, um, you know,
+[37:13] and they're going to go in and do the hard work and try to find the opportunity rather than,
+[37:19] you know, tacking on once it's sort of quote unquote more safe, you know? Um, so, so just,
+[37:26] just given where, you know, like, as we said at the beginning, I, I still think it's a very robust,
+[37:34] a healthy market that doesn't have an end in sight in the, um, sort of more established Western
+[37:42] markets. And because you can always, like you say, have secondary sales and, um, you know,
+[37:47] sort of repackaging, but, um, there's certainly more growth opportunities, you know, uh, when we
+[37:54] start looking, um, at emerging markets. Um, so those, you know, let's skip to that. It's really
+[38:01] interesting to hear how like everything works behind the scenes. Cause you see, I think, um,
+[38:06] one of our other guests was saying that a lot of these deals are done like behind closed doors
+[38:10] and kind of not a lot is made very public. So it's kind of nice to see there is a community feel
+[38:16] across, across the globe, um, that gets these deals done and supports obviously the kind of
+[38:21] end to end ecosystem. It's so funny too, because the press, um, you know, that tries to report what
+[38:26] the best deals were that happened and who, you know, they're, they're always off. Like you're always,
+[38:33] you know, you're always like, well, that is half true. And, you know, sort of maybe,
+[38:39] you know, you're not getting the full story. So, I mean, which I imagine is the case in anything.
+[38:43] I think if I, if I worked in politics, probably I'd be laughing at whatever stories, you know,
+[38:47] how they, how they spin it. But, um, I think it's like the, cause there's famous people involved.
+[38:53] They kind of cling onto the, that and use it as like, I think all media is kind of quick targets
+[39:00] now, isn't it already in some respects, but, um, it's feeling way region is. Um, so like touching
+[39:06] on those sort of opportunity sides, what are, what are the kind of, from an emerging markets
+[39:09] perspective, Cynthia, what are the most attractive opportunities you're seeing and what do the best
+[39:14] investors that you're working with kind of do to capture them?
+[39:17] Sure. So, you know, obviously there, um, is kind of a, a sweet spot of, you know, the types of
+[39:26] catalogs we're looking at decay curves, we're looking at, you know, um, like what, you know,
+[39:33] different sync ability, we're looking at, you know, how strong they are in, um, you know,
+[39:38] streaming and what the, um, you know, potential for growth in streaming is based on where they are.
+[39:46] We're looking at, you know, like I said, sync and licensing opportunities. We're looking at branding,
+[39:52] um, and how, um, you know, which kind of goes in with sync in a way too, because it's always like,
+[39:59] it's another way to, to sort of maximize, you know, the catalog goes hand in hand with the artist and
+[40:07] then their brand and then how they can be featured, you know, as we are, you know, more and more
+[40:14] in sort of this digital world in terms of, you know, your presence on various, there's a video
+[40:21] aspect to everything. There's a social media aspect to everything. Um, so, you know, kind of,
+[40:29] um, identifying where there's more opportunity because, um, of, of sort of a global appeal
+[40:37] and where there's more room, um, to grow, you know, within a, within a region based on,
+[40:45] you know, ability to, to be featured in, in sort of sync and licensing opportunities and branding.
+[40:52] Um, you know, do you think those are kind of, I suppose, those more opportunities that are
+[40:59] kind of probably more optimized for in more mature markets are kind of newer opportunities
+[41:06] in more emerging markets. Is that fair? I mean, I think there's certainly opportunities and
+[41:11] they're different, um, and different, like in the US, you know, you might, it's almost like,
+[41:16] um, you have a lot of the sort of, um, new things that you can do with the older catalogs,
+[41:25] introducing them to younger audiences. Like there's a lot of things that have been done,
+[41:29] you know, with kind of, um, you know, everybody knows like the Kate Bush, you know, and the
+[41:34] Stranger Things example, or, you know, some of the things that have been done with, um, Bob Marley.
+[41:40] And I mean, everybody knows, but like, you know, the, the different experiences that,
+[41:45] and ABBA that they've done in Vegas with these sort of, you know, experiences, so to speak, and,
+[41:51] you know, um, kind of refreshing the way that younger generations are interacting with these
+[41:57] evergreen, um, you know, uh, older catalogs. Um, and then, you know, um, it's, it's different in the,
+[42:07] uh, maybe you're looking at younger, um, um, less sort of evergreen in some of the, um,
+[42:16] emerging markets, but completely, you know, um, the video content is just sort of coming into play
+[42:24] in terms of, I mean, even, you know, religious music across, you know, um, the Arabic, you know,
+[42:29] and Islamic world and, and, um, a lot of programming that is starting to come to be created for children,
+[42:36] you know, um, and then like, there's a lot more, um, new, new opportunities for expanding the reach
+[42:46] of some of this regional music. Yeah. I think it's, that's kind of, it's got multiple dimensions,
+[42:51] isn't it? Music. It's not just like a sort of static building. Uh, you can kind of, you know,
+[42:57] um, squish in different ways. So if you were to, um, you know, if, if an investor was looking to,
+[43:02] um, I suppose, go on the course of looking at more international rights and you had to give them
+[43:09] like three, the top three things to kind of, um, avoid or like bear traps to avoid, for example,
+[43:17] like what would those three things be? Like it's a, so they don't sort of go down the potholes,
+[43:22] so to speak. Sure. So for one, you know, um, doing, buying catalogs, unfortunately, you know,
+[43:33] where, um, the data and the paperwork, you know, to, to support, um, you know, where people sort of say
+[43:42] like famous last words, well, we haven't had any issues and we have, you know, and everything's been
+[43:47] okay. Like, you know, you gotta be really, really careful, um, about the paperwork, um, supporting,
+[43:54] you know, all of the creative contributors. Um, you, you know, everybody's obviously talking about
+[44:00] AI right now too. So we're also looking at, you know, um, at what regime we're in and where they
+[44:06] are on AI and how we think that's going to impact, um, you know, the value of the IP, um, just in
+[44:14] general, you know, the copyright, but, but, um, having good data in terms of, you know, all of
+[44:21] the metadata that's going to get shared, because ultimately that's going to be how we collect money
+[44:26] is, is by following the data and, you know, tracking it, using that to, to get the royalties
+[44:32] that we need on all, you know, we don't a hundred percent know what the future is going to be in terms
+[44:37] of, you know, how these things are going to get exploited. Um, but tracking is at the heart of it.
+[44:43] So where the data is, is not there, you know, it's going to be more difficult. Um, and when we're
+[44:52] looking at a, when the paperwork is completely absent, that's going to be more difficult, you
+[44:58] know, then you're, you're crossing your fingers about lawsuits and, um, you know, also a lot of
+[45:04] payors and societies and everything like that. When, you know, sometimes they just, when there's any
+[45:10] discrepancy about who, what the right splits are and who should get paid, what, what they just kind
+[45:14] of throw their hands up and say frozen, you know, until we figure it out. And that can be really
+[45:21] tricky. I've had a couple ones where, you know, we have these holds that are put on because,
+[45:26] you know, somebody even makes what we think are uncolorable claims, but they're like, you sort it out,
+[45:32] go have a lawsuit and come back or go find a paperwork and come back. And we're just going to hold all
+[45:37] your money until, you know, you show me, you know, proper chain of titles. So, um, and then obviously
+[45:43] there's time value and delay, you know, while payors are holding things, um, and you're not collecting,
+[45:49] um, that's not great. So, um, you know, those are kind of the, you know, big things that you have to
+[45:58] kind of, um, you know, look out for. And, and obviously sort of on the other side of the coin
+[46:07] is where you have more control over the assets that you're buying. I mean, that's always great,
+[46:11] but you have the ability to, you know, select the right partners to help you work through it post
+[46:18] close. Because sometimes if you get something through, um, the right label or the right publisher
+[46:25] or the right, they can help you with the work in terms of getting things registered, in terms of
+[46:29] cleaning things up, in terms of, you know, making the connections that you need to get to help you
+[46:33] clean it up. Um, and you can find the right partners and you can, you know, engage the right,
+[46:41] um, you know, consultants and all of that when you have more control. So, um,
+[46:47] How long did that take? So I think we talked a lot about kind of getting deals done, but
+[46:52] I think you mentioned previously, uh, Cynthia, when we spoke last week about how there's quite a lot of
+[46:58] effort that goes into, um, you know, the post close, how long does that generally sort of take?
+[47:06] So, I mean, well, so, so, you know, the best case, the easiest, cleanest, perfect catalogs that,
+[47:13] you know, um, we've bought and sold, you know, I'm going to say like 30 days and, you know, from LOI
+[47:20] to close and maybe six months post close, we're working on making sure all of the money is flowing
+[47:30] the way that it needs to, that, you know, portal access is provided, that statements are going where
+[47:35] they need to go, that, um, you know, any kind of filings and registrations have happened and that's it.
+[47:42] Um, you know, worst case, you know, I, we have deals that take a year to get done and then take a year
+[47:50] post close. Well, actually worst case, I have one that's three years post close and we're still
+[47:55] trying to make it, um, you know, flow the way it's supposed to flow and work the way it was supposed
+[48:02] to work. Um, but interesting. So is that a lot of the things you talked about before with getting all
+[48:09] of that, all that detail, like the ISRCs, is there any leakage? Are you registered? What's the,
+[48:16] what are the splits? That's all feeding into optimizing the kind of post post close work,
+[48:22] right? I'm assuming. Yes, of course. The more, um, you do upfront, the smoother you're going to
+[48:28] have on the backend. Um, and it's just a question of balancing, you know, sort of where the right place
+[48:36] to, to get it done. I mean, and then we always have conversations of like, everybody wants to close,
+[48:40] but these are the issues. Do we do a hold back? Do we do, you know, um, some kind of like deferred,
+[48:48] you know, payment structure tied to, you know, we're missing certain agreements or certain things
+[48:54] to be motorized or, you know, there's a, uh, uh, lien or something once it gets removed, you know,
+[49:01] then the, you know, and how, how we kind of, and often that gets discovered during diligence. So it's
+[49:07] a revisiting of the initial commercial terms and we do something like that. And then sometimes we're
+[49:13] happy that we did that because we got the deal done and then everybody's happy and in a, you know,
+[49:18] cooperative mood and we just sort through it. And sometimes we're like, that was the biggest
+[49:21] nightmare because as soon as we closed, everybody disappeared. And now it's, it's, you know, a year
+[49:28] later and we're nowhere towards getting where we need to be. Yeah, there's no kind of tie in. Yeah.
+[49:33] When you've got one of those deals that's long running, how do you typically distribute existing
+[49:41] revenues? So, I mean, I, and some of it is often, um, sometimes there's holds and everything is on hold.
+[49:49] Um, and then that in some way. By that, do you just mean that it's going into like an escrow account
+[49:55] or a third party account or even your client account for the time being or? Uh, sometimes it's going into
+[50:01] an escrow account or something like that, or sometimes the, the label or the publisher or the society is
+[50:05] holding it for you and not paying anyone, um, and just holding it. And then unfortunately they're
+[50:11] probably keeping the interest to the extent that there is, because that's another thing. If you're
+[50:15] going to have a hold in a different, you know, then there's some negotiation about if there's
+[50:20] interest and who's keeping the interest and, uh, who's paying the fees and, you know, all of that.
+[50:26] And then that somewhat depends how much money it is, whether it's worth even having those
+[50:30] negotiations or not. Um, but a lot of times, um, like even going into a deal to just to,
+[50:38] you know, you, you might alert the payors, um, to put everything on hold and not pay anybody because
+[50:45] when, when you're sorting out which money should go where and then it goes to the wrong place and
+[50:52] then you've got to claw it back and then you got to move it over and then you got to do deductions.
+[50:56] And then every time you do that, is it a taxable event? Is it recorded as income that then you got
+[51:01] a deduction? You know, so sometimes it's just easier to put all of the money on hold while you're
+[51:06] sorting through a deal. Um, and then also some of that is leverage in terms of incentivizing. You're
+[51:12] always like, what's incentivizing people to cooperate? What's incentivizing people to be
+[51:16] efficient? What's, you know, um, so, so. Do you think you've reached like a best practice kind of
+[51:23] like model for that now? Yeah, I think we have a, we have a learning from experience, you know,
+[51:32] perspective on it, um, in terms of that, but then it also always comes down to leverage in certain
+[51:38] deals too. Like I know what I would like to do that's best for my client, which is often
+[51:42] of a different opinion than the other side. Um, and just the question of what leverage we have,
+[51:49] you know, if, if we can say this is the way we're doing it and, you know, there's no more room for
+[51:55] accommodation or, you know, we have to bend over backwards because we don't want to lose the deal.
+[52:01] Um, so that kind of always. It's kind of a balance of risk and the world, isn't it?
+[52:06] Yeah. And I mean, it's always nice when you have, when you have more leverage, but you usually have
+[52:14] less leverage with the more exciting, you know, like, Ooh, I really want this. Um. Oh yeah. Right.
+[52:20] So it's, it's like tricky, you know, what kind of deal do you like, you know, when your clients call you,
+[52:24] you know, every, every other day or, you know, whatever we had a new deal, you know, it's like,
+[52:29] and then they say a name, you know, and it's, it's someone you really like or someone big or
+[52:33] something that you're like, Ooh, exciting. And then you're also like, Oh, because you know,
+[52:37] sometimes the bigger, the name, the big, like the more and the less power you're going to have.
+[52:44] But then sometimes it's like, Oh, it's so-and-so. And you're like, who? Then you're like,
+[52:48] all right, this one's probably getting, you know, more trivial. Yeah. It's going to be more trivial
+[52:52] and we're going to have all the power and it's, you know, going to be an easier deal to get done
+[52:56] and be efficient, but it's less sexy. So, you know, um, usually the more sexy, the more difficult,
+[53:04] but yeah, a good, a good healthy mix. Like we usually like to have, you know, what one sexy
+[53:11] one and a couple easy ones at the same time. Cause it was a good balance. Yeah. And then,
+[53:18] you know, it also helps to, like I say, the more that it's the same lawyers, um, you know,
+[53:27] you know, I'm buying from you today, I'm selling from you tomorrow, like helps everybody, or at least
+[53:33] it should, but it, but it does a little bit, you know, um, not at, you know, not, not always,
+[53:40] you know, push the leverage to the maximum extent that you can. Cause you're like, I'm,
+[53:46] I'm going to need you, you know, I can't make this. Yeah. Well, ultimately you might be on the
+[53:51] other side of the table in three years time when you, you know, redoing the deal on behalf of another
+[53:55] customer or. Yes. That's actually funny too. I've had some, um, so where like, um, we had, you know,
+[54:05] certain lawyers were involved in buying the assets from the artists for one fund. And then,
+[54:12] you know, a couple of years go by now they're presenting another fund that's buying the first
+[54:16] fund. And then they're trying to sort of re diligence, the diligence that they did the first
+[54:20] time. And then you're like, Oh, I'm looking at my own work from, you know, five years ago or whatnot,
+[54:25] or, you know, I'm, I'm doing diligence for the bank that's securitizing the assets and, you know,
+[54:30] that like, yeah. Or even more so, I have some partners too, who the underlying recording agreements
+[54:36] are from when they were at the label and they're like, Oh, that's my signature, you know,
+[54:39] on that document from 20 years ago. So, um, I thought it was interesting though, what you're
+[54:44] saying about how there's more focus on all the different kind of component parts earlier,
+[54:49] I think at the start of the, of the podcast, you know, um, cause we've not really heard that
+[54:55] before. A lot of people kind of said, yeah, it's a bit of a theme, but no one's kind of gone
+[55:00] explained. Actually, these are kind of requirements from a, from a buyer perspective now. So that's quite
+[55:06] interesting. Yeah. Um, you know, all of the, there's a lot of different moving parts, um, in,
+[55:14] in all of these deals and a lot of different income streams. And then obviously diversification,
+[55:18] um, you know, makes everything more valuable. So the more, um, different, uh, income streams and,
+[55:26] um, payors and types of rights that you're bundling together, you know, the more complicated and
+[55:36] difficult, but then the more value, you know, because you're, you're diversifying the risk that,
+[55:41] you know, um, if, if, you know, one pay or whatever, you know, it puts a hold or there's a,
+[55:50] you know, an issue with one time, you know, you've got others, um, the catalogs in the same kind of
+[55:55] thing. Yeah. Yeah. Yeah. Interesting. Yeah. And then of course there's the, the other piece,
+[56:00] I mean, you know, aside from, you know, the emerging markets, everybody's also looking to
+[56:05] some of the more independent stuff. Um, that's a big theme of this year, um, which, you know, um,
+[56:13] is often under exploited in terms of, you know, people think they could do a better job at finding
+[56:20] new licensing opportunities for it, better, you know, branding, but, but it's also got,
+[56:26] you know, probably even worse data collection and accounting and royalties. Um, so, you know,
+[56:35] that's a big thing. People are looking at futures now, how can we bundle, you know, we can maximize
+[56:40] the value of the catalog or, or help better optimize it by doing a futures deal as well.
+[56:45] So for new music with the same artists that we can, which you often have more, um, flexibility to do
+[56:51] with independent artists than major artists, because, you know, they're not already tied up.
+[56:55] And so if you can get them on board to do a futures deal, they can help promote, you know,
+[56:59] futures help promote the catalog, you know, um, like, you know, Justin Bieber puts out new music,
+[57:06] it spurs an interest in some of his old music, you know, that kind of thing. Um, and then to the
+[57:11] extent that, you know, you're kind of working on frontline stuff, um, that's a little bit more
+[57:17] branding, you know, friendly, you have a new music out, you know, that ties into more sponsorship
+[57:23] opportunities, more social media posts, more things like that, which, um, create more sync
+[57:29] opportunities for older songs. Um, so people are doing a lot of that, which is easier to do,
+[57:35] like I said, with independent artists who are allowed to put out, you know, new, new music,
+[57:39] um, with partners of their choice. Um, so, so that's, you know, another sort of big theme,
+[57:47] um, in terms of new types of deals, um, that are going on, but, um, you know, and everybody's
+[57:54] looking at new things. So, you know, there are people who are like, I only want to do, you know,
+[57:57] um, composer music, you know, for film and TV. Um, uh, there are people who, you know, I'm, I'm
+[58:05] only going to do producers royalty streams because, um, there's less demand for those because
+[58:11] we're more difficult to assign because the producer is tied to the artist in a way
+[58:18] that they have less control. And oftentimes, uh, they're not allowed to do things without consent
+[58:25] of the artist. Um, which can be tricky. You have a lot of producers that have produced like,
+[58:30] you know, the top names in the business, you know, and telling them, okay, you know, they don't have,
+[58:36] you know, Kendrick Lamar and Justin Bieber on speed dial, even though they might've helped produce some
+[58:40] music for them, you know, years ago, but saying like, well, you can't sell your, you know, your,
+[58:45] your stuff without, you know, getting them to, okay, it, they, they don't, might not have the
+[58:51] ability to do that. Um, you know, that was something that was surprising to me.
+[58:55] I always sort of had this vision in my mind that producers that artists and producers that they
+[59:00] worked with and, you know, co-writers that like, they were always all really good friends and knew
+[59:05] each other and could, you know, but sometimes they don't see each other for 10 years, you know,
+[59:10] like not really, like they were kind of mushed together in a room, you know, they're all traveling
+[59:14] the globe doing what, you know, and they're like, who? And they're like, you know, your producer on your
+[59:19] biggest hit. Like, Oh, so, you know, we're like, who else was a writer on your song?
+[59:25] And they don't even know, you know, who wrote on their own songs. So that's what's very
+[59:31] I guess that's going to start influencing some of the kind of ways that perhaps things are going to
+[59:36] change in the future as well though, right? You know, maybe for producers to be less reliant on,
+[59:42] um, on that, the way that the kind of revenue streams today through the recording side.
+[59:48] It's, you know, obviously going to be one of the really good things about AI that we're seeing is
+[59:53] AI is going to change the way music is created. Um, you know, and it's a new tool for creation.
+[01:00:00] So I think that will be really interesting to see how it affects the relationships. Um, and how,
+[01:00:06] how, um, I mean, aside from all the issues that we have about, you know, completely AI generated music
+[01:00:12] and, um, you know, cut it like that's trained, you know, but even human made music, but the,
+[01:00:20] just the tools and the process and the way that, that people work, um, whether that gets more sort
+[01:00:27] of siloed because we have technology doing things. Um, yeah, that's really fascinating. Actually,
+[01:00:33] we've talked a lot about AI on previous episodes and invariably we always talk about AI using existing
+[01:00:43] music and maybe it creating music and we having to license that out in a specific way throughout
+[01:00:51] attribution or anything else. Um, but we haven't actually flipped the coin and to say, well, hang on,
+[01:00:56] if you're an artist and you use a bunch of AI, then should we be giving it some rights in,
+[01:01:02] in this process and how would that work? I think everybody's just assumed that, oh,
+[01:01:06] we'll pay a license fee and that's that. Yeah. Yeah. And the disclosure, you know,
+[01:01:12] it's interesting too. I think a lot of artists are using AI in certain ways and whether or not
+[01:01:16] they're disclosing the extent to which they are, um, is interesting. And, and, you know, um,
+[01:01:24] just what the, what the capabilities are and tools and how that it'll change, how everybody works
+[01:01:30] together and how everything will get tracked, um, is, is, you know, um, I guess to be seen, but,
+[01:01:39] um, you know, like, I mean, if you think about it, even, you know, usually even before we even like,
+[01:01:45] like when the only way to make a drum sound was to have a person, you know, hitting a drum and,
+[01:01:49] you know, um, we've gotten a lot of really amazing music out of, um, you know, technological
+[01:01:57] advancement. So, you know, I'm going to be optimistic that, um, it'll never be an easy
+[01:02:02] path. There'll be, you know, hiccups, but hopefully we'll get to a place where we have
+[01:02:08] more creativity as opposed to less would be my, my hope. Yeah. Yeah. And you know, how,
+[01:02:13] how funny would that be if actually what we ended up with is loads of amazing new music and just some
+[01:02:18] of this AI creditors as a producer onto these tracks rather than the inverse where you get
+[01:02:25] stealing everybody's, uh, I think it does give that opportunity though to, you know, kind of new
+[01:02:31] artists who, you know, it's really hard to get, like, get through, right. It's very traditional
+[01:02:36] route now. Um, and there's, I think we've talked about this before, like there's been examples where,
+[01:02:41] um, you know, some of the kind of YouTube stars now kind of never done a, never done a concert.
+[01:02:48] But they're doing pretty well on, you know, off, off YouTube, right. So yeah, you can,
+[01:02:53] and yeah, yeah. Yeah. And then, you know, I, we have, which is going to be tricky, but we'll have
+[01:02:58] to see, you know, the, at least the U S copyright office has come out and you're sort of the position
+[01:03:02] is obviously if it's completely AI generated, it's not capable of copyright protection, but where it is
+[01:03:08] in the middle, um, it is, you know, it's a combination of human and, um, uh, AI and that,
+[01:03:16] you know, sort of sorting that out. And they're almost like on a case by case basis, you know,
+[01:03:22] is, is going to be very tricky. Um, but you know, we'll figure it out, I guess. And then,
+[01:03:30] yeah, I guess there's responsibility on both sides of the coin, isn't there? If you're going to
+[01:03:33] use it and reference it, then maybe an obligation to do that and vice versa, if it's going to use your
+[01:03:41] stuff and should have referenced it and give you rights. Yeah. But so I guess, yeah, we'll see,
+[01:03:49] but it's exciting. I mean, it's at the end of the day, like the music industry is, is, um,
+[01:03:56] you know, and maybe you even lump it in with the, you know, it's music is one form of content, but
+[01:04:01] you know, like IP and content and rates, it's one of the most, um, you know, enduring, um, you know,
+[01:04:11] not tied necessarily to macroeconomic trends, um, diversified, you know, like, like best asset
+[01:04:21] classes. I think that will always stand the test of time. And, um, particularly now, you know,
+[01:04:28] one of the good things that has come out of sort of the technological advancement, you know,
+[01:04:35] of streaming and everything, you know, is more data, you know, it's same as that is, I guess,
+[01:04:41] across a lot of industries, but the data has just helped support kind of what we all know, um,
+[01:04:46] about how valuable these assets are and more investable. Um, also just the global reach of
+[01:04:53] those platforms, you know, we spend a bunch of time talking about, uh, the growth of new geographies
+[01:05:00] and the impact. And I think invariably that's going to have a positive impact on creativity because you
+[01:05:05] have different cultural references. I think we heard the other day that people were, um, using
+[01:05:12] historical music and, uh, current pop stars to do remixes and duets. And, you know, you see the
+[01:05:20] likes of Ed Sheer and doing, going off into different geographies, using different language
+[01:05:24] and actually breaking down the barriers. I think that's a really positive thing too.
+[01:05:28] Yeah. I mean, it's, especially when you talk about, you know, the only way you used to be able to,
+[01:05:32] you know, access, um, you know, like regional African music, you know, would be in those
+[01:05:39] go over there. Yeah. Yeah. You wouldn't go into the, you know, tower records and, and, you know,
+[01:05:45] find that. Um, so, and the fact that also you're able to experiment and see if you like it without,
+[01:05:52] like it used to be, you know, a commitment. If you want to hear music, you got to go buy a CD,
+[01:05:56] a tape or whatever. So people, you know, are not likely to buy something they don't know that they
+[01:06:01] like, but when you have the subscription, all you can eat model, it's much more like, let me listen
+[01:06:06] to this. There's no additional costs. You know, let me see. Much greater breadth and probably
+[01:06:11] slightly less depth to begin with, but then, you know, down a rabbit hole and away you get.
+[01:06:16] Yeah. Yeah.
+[01:06:17] Cynthia, this has been amazing, but I'm very conscious of time and I know that we have to
+[01:06:21] get our, uh, famed quickfire round in. So Emma, should we, uh, should we jump onto that?
+[01:06:28] Yeah. This was like a good time to, to move into that, uh, Cynthia. So, uh, kicking off,
+[01:06:34] is there a particular song or album that is on repeat for you at the moment?
+[01:06:41] Well, okay. So I'll give a couple answers. Um, one, I have little children. Um, and so there
+[01:06:50] is always, uh, a constant, um, you know, like, like, um, children theme, Coco Melon, you know,
+[01:07:01] um, uh, Spider-Man, Danny Go kind of children's music that is happening in the car all the time.
+[01:07:09] Um, uh, on the other hand, you know, at my sort of core, um, you know, I have just a love for kind
+[01:07:17] of, you know, nineties hip hop. So I always have some of that, you know, um, like, you know,
+[01:07:23] I'm just throwing out like, you know, Camp Low or something like, you know, saved, but at the,
+[01:07:29] yeah, at the very moment, uh, I also really have been listening to the, the Daisies from this past
+[01:07:35] year from Justin Bieber. I think that might be, you know, it's a really good song. One of the best
+[01:07:39] songs of the year from last year. So, um, I'm, I'm, I find myself hitting that over and over again.
+[01:07:48] Nice. Amazing. It seems to be most of our guests are very, uh, influenced by what their kids are
+[01:07:54] listening to and then they have their own thing. So yeah, that's a common theme. Um, and Cynthia,
+[01:08:00] you've obviously worked on so many interesting deals and with so many interesting people, but is
+[01:08:03] there a particular pinch me moment that stands out for you? Yeah. Well, so I think one of the first,
+[01:08:11] um, because you always have all these lawyer things, you know, best lawyer, best, but when,
+[01:08:17] um, they had this, you know, top, uh, women in music and I think there were very few lawyers and it was,
+[01:08:23] you know, a lot of artists and other people. And when I first won that award a couple of years ago,
+[01:08:28] I don't know, it felt really, really special to me. It felt like, oh my goodness, you know,
+[01:08:33] cause, cause, um, you know, I'm having a real impact on the industry. Um, uh, and some of the
+[01:08:39] things, you know, that they, they talked about, you know, not just, you know, amongst lawyers, but,
+[01:08:45] um, as one of the players helping sort of shape the market. So that one felt really special to me.
+[01:08:50] And then it was also just sort of a looking at who all of the other women were like, you know, how
+[01:08:56] much, um, how nice it was to see, you know, even from the beginning of my career to now, um,
+[01:09:03] more power roles that women were having in, you know, the industry, uh, overall. And I just felt
+[01:09:10] in really good company. So that was great. And then one of the early, well, not early, but one of
+[01:09:16] the, it's only been a couple of years, but bigger. Now I've had many deals that are, you know, everything
+[01:09:22] is relative, right? The amount of money just keeps getting bigger and bigger. And you're like, Oh,
+[01:09:26] you know, hundreds of millions of dollars, that's nothing. Um, but when, uh, I represented Motley
+[01:09:32] Crew and we sold their catalog to, uh, BMG, I think it was the biggest, um, one at the time. Um, and,
+[01:09:40] uh, it felt like, you know, crazy numbers that we were talking and, and I was like, Oh wow,
+[01:09:46] this is, you know, like, like history. And now it's funny. Cause yeah. Yeah. Plus I never,
+[01:09:52] you know, really thought as a child, I would be speaking with, you know, Vince Neil and Tommy,
+[01:09:58] but yeah, you know, proper rock and roll. I love that. Yeah. And is there a particular opportunity
+[01:10:04] at the moment, Cynthia, that you think is really underrated in music rights investment at the moment?
+[01:10:09] Um, you know, I think I wouldn't necessarily, I mean, I think people know where the, the value is
+[01:10:19] in terms of independence, in terms of different markets, in terms of, you know, and I'm certainly
+[01:10:23] not the only one to say this, but gaming, I think is something that, um, probably not the only one to
+[01:10:27] say it, but, uh, it's going to be huge. Um, you know, you are so far the only one who said it. So
+[01:10:34] there you go. Yeah. Music. And, and, um, I actually know, I represent labels that make music
+[01:10:44] specifically for video games. Um, and it's not even just licensing of existing music, like, you know,
+[01:10:50] music that is actually made for the game and some of these sort of super fans of the gaming and then
+[01:10:56] who also, you know, are on Twitch and whatever and doing that. They will know that music from the
+[01:11:01] game, you know, we all know the super Mario, like do, do, do, do, do, whatever. Yeah. Yeah. Right.
+[01:11:05] Like, you know, um, they will know the music that was, you know, from that. And, and I think, um,
+[01:11:14] we'll actually listen to that as a super fan kind of thing. Um, you know, so gaming catalogs, I will say.
+[01:11:22] Yeah. That's interesting. Yeah. Yeah. Yeah. Yeah.
+[01:11:23] And, uh, last but not least, is there a particular song that you would own if you could own a one and,
+[01:11:30] and what would it be? Yes. Uh, Mariah Carey's All I Want for Christmas. Yes. Finally.
+[01:11:39] She'd be a very wealthy, very, very wealthy woman, um, with some generational wealth as well.
+[01:11:47] Yeah. She's rocking it right now, I guess. Amazing. And how great would this time be?
+[01:11:52] You'd just be like, that's me. Yeah. Amazing. I mean, I think it's, it's one of the,
+[01:11:58] like a few songs that literally has no decay. It just, it just, you know,
+[01:12:04] Keeps on going. Yeah. Keeps on going. I think, you know, it'll outlive her as well.
+[01:12:12] Yeah. And hopefully, you know, has, has worldwide, uh, appeal, uh, as a,
+[01:12:18] it's just a classic Christmas song. Yeah.
+[01:12:20] Yeah. It's a goody. Yes.
+[01:12:22] Yeah. Well, Cynthia, really, you've been such a wealth of knowledge. Like we could speak to you
+[01:12:27] all day. And I think this is like an essential listen to anybody looking to get into, you know,
+[01:12:33] other markets outside of the UK and the US and just thinking about things differently. So thank you so
+[01:12:39] much. Of course. It was my pleasure. Yeah. Thank you, Cynthia. It was a pleasure having you on. Thank you so much.
+[01:12:45] Thank you guys. Thanks for tuning in to Music Moneyball. If you enjoyed the conversation,
+[01:12:52] you can subscribe at standard-innovation.com to get every episode in your inbox. You can also
+[01:12:58] follow the show on Spotify, Apple, or YouTube to stay ahead of the curve in music rights investment.

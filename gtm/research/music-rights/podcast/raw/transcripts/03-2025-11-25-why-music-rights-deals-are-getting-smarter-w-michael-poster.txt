@@ -1,0 +1,499 @@
+# Why music rights deals are getting smarter w/ Michael Poster
+# Date: 2025-11-25
+# Duration: 00:39:49
+# Guests: Michael Poster — Partner and Chair of Music Acquisitions & Financing at Michelman & Robinson Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Why-music-rights-deals-are-getting-smarter-w-Michael-Poster-e3bejci
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogs.
+[00:08] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:14] Welcome back to the Music Moneyball podcast with me, Emma Griffiths, and my co-hosts, Tom Mullen and Sam Morey.
+[00:21] Our guest today is one of music's top dealmakers and a name behind many of the transactions quietly reshaping the global music industry.
+[00:28] He's a partner and chair of music acquisitions and financing at Michaelman & Robinson, where he advises on mergers, acquisitions, financing, and catalog sales that collectively move billions of dollars across music publishing, recorded rights, and entertainment finance.
+[00:43] In 2024 alone, he was central to more than $600 million in secondary catalog transactions, likely the most of any lawyer in his space.
+[00:52] His deals span everything from $5 million to $1 billion, involving investors, rights owners, and some of the world's largest media companies.
+[01:00] This year, he's been recognized among Variety's music legal elite and is one of Billboard's top music lawyers every year since 2018.
+[01:09] And depending on who you ask, he's either the most evil lawyer in the world or the most effective dealmaker in music.
+[01:16] Please welcome Michael Poster.
+[01:19] Thank you.
+[01:20] We love that. That's so good.
+[01:22] Yeah, somebody actually did once refer to me that way behind my back, to which my reaction was, muhahaha.
+[01:30] We know it was particularly poignant, given it's Halloween tomorrow as well.
+[01:34] Exactly, right. If I should be wearing horns or something like that.
+[01:37] And to kick us off, Michael, we like to introduce our guests with a song.
+[01:42] Obviously, we can't actually play the song, sadly, because we don't have a licensing budget.
+[01:45] But if we could, what would be the song that you would like to be introduced with?
+[01:49] So my musical tastes always go back to my college days.
+[01:52] So I'm going to pick Ain't No Right by Gene's Addiction, because it's one of those songs that just comes out and kicks you right in the head.
+[01:58] And that's how I like to start things off.
+[02:01] Michael, I've really enjoyed researching your background and your career.
+[02:05] It's been one of the fun parts of our podcast is we get to meet some incredible people.
+[02:12] And yeah, it was really interesting looking at your background.
+[02:16] I think one of the topics you suggested that we cover was around how the market's diversified over a period of time.
+[02:25] Deal sizes, rights, types, genres, geographical focus and structures and so on.
+[02:29] So I thought, let's start there.
+[02:31] Let's begin to get your thoughts on that and how things have changed.
+[02:35] Part of the upside of the downside of doing this as long as I have is that I've seen a lot of cyclicality in this world.
+[02:42] Like I started doing music deals in the mid to late 90s.
+[02:46] So because of that, I've seen different types of things kind of fall in and out of fashion in terms of what people were looking at.
+[02:55] But certainly anybody who was involved in any kind of music acquisitions, call it before the global financial crisis.
+[03:02] It was all just the only things people were really transacting in were really, you know, class A, classic rock, pop, soul, you know, active share, you know, active copyright interest and all of that.
+[03:17] Like you had passive interest.
+[03:18] Nobody wanted to talk to you.
+[03:19] If you had film and TV music, nobody would even take the call.
+[03:22] If you had hip hop, forget it.
+[03:24] I mean, all of that stuff back then, nobody was even considering.
+[03:28] Okay.
+[03:29] So fast forward then to call it like around 2000, we saw this massive upswell in interest in music investment.
+[03:36] We started seeing some level of diversification and we started seeing some people starting to pursue different strategies where they didn't want to chase sort of the, you know, the 20 X multiples for the, you know, $100 million, you know, $200 million transactions.
+[03:55] Cause they knew that the pricing was going to get too high.
+[03:57] There was no return for them in any meaningful way.
+[04:01] And it was more of an ego play or maybe a strategic play in a lot of ways, more than it was a sound investment thesis for many of them.
+[04:09] So a lot of buyers, either this is back in 2019, 2010, we started seeing people pursuing other strategies, which is, um, smaller deals, call it sub 10 million, sub $5 million acquisition.
+[04:21] Looking at passive interests, uh, looking at, um, producer rights, um, other genres outside of rock pop, uh, and even country, looking at hip hop, looking at electronic, uh, metal, Christian, um, Latin, you know, all of that.
+[04:38] What it means is that, you know, have a marketplace that is much broader, deeper, wider, however you want to characterize it than it's ever been before of just about any rights type of almost any side is transactable.
+[04:53] That was not the case five years ago.
+[04:56] Um, and I think that's fantastic.
+[04:59] And what it means is that there are solutions for everybody who wants to be in this space, whether you're on the buy side, the sell side or whatever.
+[05:06] Um, I think, um, there's, you know, whether you're a country producer who looks, is looking for liquidity and literally five years ago, nobody was going to take your calls.
+[05:15] Now you have that.
+[05:16] Um, and it just means that you then have different people accumulating those rights.
+[05:21] And for the people who accumulate smaller deals, inevitably their strategy is we're going to buy a bunch of stuff that preferred multiples on the lower, you know, smaller deals.
+[05:29] Accumulate those into a great critical mass of whatever.
+[05:33] Ideally exit at a, you know, on better financing terms on, you know, first of all, get better financing in the interim, exit on a better multiple.
+[05:41] Um, and, and then, you know, rinse, repeat and do whatever else you're going to do.
+[05:45] But we've seen several people successfully do that life cycle, raise the capital, deploy the capital, successfully exit, reload.
+[05:53] And I think enough people are taking notes on what's going on right now that that's what they're doing.
+[05:58] But at the moment when somebody is coming into the marketplace, the real question is, what is your angle?
+[06:03] What is your approach?
+[06:04] How is that different than, you know, Concord, Primary Wave, Hard Review, you know, a hundred, you know, however many other well-financed, well-established competitors.
+[06:14] What's different about what you're doing?
+[06:16] What are you seeing that's different?
+[06:18] And have you seen anybody taking a really interesting technology and data approach to that?
+[06:24] I think one of the things that we've understood is, uh, there is a greater desire to take on some of the smaller catalogs, do some aggregation and get some arbitrage in the multiple, but it, it's significantly more work.
+[06:38] You know, the, the overhead of doing a deal is they're actually sourcing the songs, the assets, the catalogs, which are more valuable, perhaps more obscure is, is a lot of hard effort.
+[06:50] Have you seen anybody taking a really novel approach to using data and technology to do that?
+[06:56] I know a few people who are really looking at those types of solutions regarding, um, identifying untapped revenue sources.
+[07:06] Um, you know, Hey, we're seeing a lot of YouTube action in such and such a jurisdiction, but in looking at this catalog, we see that they're not necessarily registered to pick up all the revenues associated with the YouTube exploitation.
+[07:20] Um, that's untapped. Um, I'm seeing, uh, in one issue that came up recently in film and TV was that there were certain mechanical royalties from foreign territories that were being paid through, but they weren't necessarily being accounted properly to the writer.
+[07:35] So if you're buying from the writer, you know, you have an opportunity to potentially capitalize on that and get uplifted revenue.
+[07:42] Yeah. But I suppose even notionally, have you seen that approach change over the past five or 10 years where 10 years ago,
+[07:50] it might've been more, okay, well, we'll, we'll take a traditional approach to identifying, managing, uh, and then flipping on the catalog to now, even if you can't share the details of who's doing it.
+[08:05] Right. So remember deal sourcing is always a relationship business. The whole industry is a relationship business, right?
+[08:10] So it ultimately has to start with the relationships among the parties here. Ideally that you, that the buyers and either intermediaries and the buyers and sellers or the sellers and intermediaries, like there's some series of relationships that's happening in there, which is always fundamental to what's going on.
+[08:26] Um, I think the technology can be used to potentially identify untapped opportunities, which of course, then you try to use your relationships to get in front of.
+[08:35] Um, it may be used by people to figure out there's, um, money being left on the table where you can then, you know, once you buy something, you can then use it for the uplift and recover some of your price.
+[08:48] Um, but back to what you said earlier, you're right. Every one of these types of deals, especially the smaller transactions requires a lot more legwork.
+[08:56] Okay. It's often when they come to market, they're not necessarily as well organized. The files aren't in order. We don't have all the downloads from all the various, you know, payment sources, or there's things missing.
+[09:09] And in certain genres, there's nothing at all. Like there's no paperwork, there's no accounting history, there's no documentation. We've seen that a whole bunch.
+[09:15] Um, you know, these types of things do tend to come up. And so as a buyer, one, it's more legwork and more time and transaction costs relative to the purchase price.
+[09:27] So if you're usually paying, say 1% of your purchase price and transaction costs with that deal, it's going to be a higher percentage. On the other hand, if you're getting it at a good price and there's a lot of uplift opportunity, you effectively kind of hold that cost in to your purchase price and net net, you may be well ahead of the game.
+[09:42] Once you factor in these other, other things. I mean, if you're paying, Oh, I'm paying 16 X, the current number, but if that current number is in fact deflated through ineptitude or whatever, however you're going to characterize it by, you know, 40%. By the time you right size that number.
+[09:59] Now suddenly you recharacterize that multiple. I got a great deal. So those are all things that kind of go into the map.
+[10:04] And do you see that happen quite often? So people who have a well-prepared catalog are able to command a higher multiple versus those who don't even at that low level.
+[10:14] But look, having the catalog well-prepared and getting things in order is always helpful. It makes it look better. It makes your transaction faster, all of that. It's not just about well-prepared. It's also about if the catalog has been really well managed from the point of view of making sure that all of the potential revenue streams associated with that catalog are being fully captured.
+[10:39] Um, um, um, certainly there's the active management part of sync, um, covers, sampling, all of that kind of stuff, um, which can all be certainly worked. So that's another part of really good management. Um, and you know, if you see that kind of a catalog, that's really, really been well managed and really, really, really been well collected.
+[11:01] Because a buyer, you understand there may not necessarily be a lot of opportunities for uplift there other than, I mean, you'll, there'll be some organic stuff that happens simply by, you know, just general uplift and royalty rates or general uplift and streaming adoption and, you know, so on. Um, you may not have quite as many ways to lever up that number.
+[11:22] But then at the same time, there's less unknowns, right? So if it's well managed, you've got good visibility, you actually can say, okay, well, we can justify a high number because we've got better visibility into the revenue streams into the future.
+[11:37] Right. And it also supports a higher valuation, which of course supports the financing you get associated with the catalog because your bank or your other financing sources are going to be more confident in advancing, you know, giving better financing or more financing on a catalog where things look clean and all of that. It's not just a bunch of, we think we can uplift this versus, um, okay, this is, this is rock solid. You know, it's different types.
+[12:03] Michael D are you typically buy side or sell side or mixture of the two?
+[12:08] I'm buy side, probably somewhere between 80 and 90% of the time. Um, I do one or two sell side deals a year. Usually, um, yeah, so we, we did, um, yeah, that sounds about right. Um, usually one or two sell side deals a year.
+[12:24] And sometimes that's on behalf of a writer. Sometimes it's on behalf of a company, um, uh, or somebody who we talked earlier about the secondary sales.
+[12:35] So that's where somebody has accumulated a portfolio of catalog. So the past few years, and they're now exiting out of that, that portfolio, that whole group of catalog.
+[12:43] So we've done, uh, we've done four of those deals, uh, already, and we have another one hybrid, which is really fascinating. And I think it was, we'd like to understand a little bit more about the model that you've created around, um, that approach to being able to have that repeatable sale.
+[13:05] Yeah. So basically we set the deal up. It's not set up like a music catalog sale. We set it up like a private equity transaction. Um, and in, in the world of private equity and corporate MNA, the deals are just, there, there's a lot of elements of those deals that are structured differently than a music deal. Okay. And because of that, there are things like, you know, uses of what's called representation of warranty insurance, uh, and other elements that are very seller friendly that we can use.
+[13:35] We can use to set up that transaction, uh, in the secondary sale that makes it very favorable to the, the, the founders and the, and the, and people who acquired all the catalogs. Um, and it's a very clean transaction for them. Um, and it's relatively, it's, it's a simpler way to get things done. Uh, and, and we've done it now several times and it works very well.
+[13:57] Um, I think that does that speak really volumes to how the industry has evolved as well, you know, being able to take an asset as a pure asset class and do the preparation, make the investments with a view to turning it in three, five, seven years time. Whereas it sounds like 10 years ago, that just wasn't really a thing.
+[14:20] Um, 10 years ago, it actually, there was an element to which it was a thing, uh, a number of years ago. It wasn't, it existed. Cause I remember when, when BMG was doing a lot of its very active rollups in college, um, the early, you know, early to mid aughts, we were seeing them do a lot of that type of buying, um, and then eventually selling off, uh, as well. So we were seeing it, but I think it's become a little bit more of the business plan.
+[14:50] Now, if you're a catalog acquirer, um, once you raise your money, you're going to buy a bunch of stuff, ideally, you know, especially if you're following sort of the smaller than mid size, uh, transaction strategy, you're going to require, you know, five things, 15 things, 35 things, whatever it is.
+[15:06] Bundling into one transaction and there are buyers out there who don't want to buy a bunch of $10 million thing. They don't want to execute all those little transactions. They don't have the bandwidth. They don't want to, they don't have the time. They don't want to do the cleanup.
+[15:18] They don't necessarily even have the industry knowledge to be able to dig into the weeds that deeply. And so they want something that's been accumulated, cleaned up, diversified.
+[15:26] It's diversified. Um, it has a lot of things that are very attractive to an investor where they can deploy a hundred, 200, $300 million in one, one single transaction and get this nice bundle of stuff.
+[15:38] That's, you know, very attractive to that.
+[15:41] And Michael, on the, um, we kind of talked about earlier about kind of way that, um, obviously purchase prices might actually be inflated from the core valuation and valuations tend to be built predominantly on at the moment on discounted cashflow.
+[15:59] But how do you think that will change in the future with obviously AI and training data and so on? Are you seeing any of that come through, um, I suppose on, on your side of the desk at the moment?
+[16:10] Well, I think valuations are going to continue to be based on discounted cashflow.
+[16:16] Because frankly, I think that's the most sound method of valuation and anything else is, doesn't certainly make a lot of sense.
+[16:22] I mean, some of the specific methodologies that are used in the discounted cashflow analysis may evolve, but I'm, I'm not a valuation person or an economist by any stretch of the imagination.
+[16:32] So I can't even begin to scratch the surface of, of the, of the intricacies of that.
+[16:37] Um, and I do not want to sell short the level of sophistication that really good valuation people bring to this.
+[16:45] Um, but I could certainly see where they could be using that AI to do something associated with what they do.
+[16:51] Yeah.
+[16:52] It was more about the revenues from AI.
+[16:54] So if you see like the deal that's been done today, I think with, um, universal, um, and how that's going to generate a revenue stream, I suppose.
+[17:05] I'm not quite sure if that's been sort of nailed down, but I suppose it can follow a similar, similar model.
+[17:11] Well, I think that's actually, I think that's actually a key question, which is what is the payment model going to be for AI uses?
+[17:20] Okay.
+[17:20] Whether it's opt in, opt out, whether it's, um, you know, I know a couple of people, uh, in, in the space, um, have dug really deeply into sort of the attribution concept of how much when an AI song, when AI is making a new song, to what extent are, is that creative process attributable to various types of works?
+[17:42] And to what extent and what degrees, et cetera, and, and allocating payment for some sort of credit based on that.
+[17:50] And, you know, having the payment flow from that, which I think is a, the more I hear about that, it seems like a very sensible approach as a, because not all pieces of music are created equal.
+[17:59] Um, and I think there should be some level of credit that is given to the songs that are the most influential in the creation of the song and the creation of the AI work.
+[18:09] Right.
+[18:09] So, um, now how that's going to translate into a payment model, I think remains to be seen.
+[18:16] Um, it it's, you know, it's, I think it's a critical question, um, how that's going to unfold.
+[18:23] I don't think anybody wants to do a sort of a compulsory license type model.
+[18:27] Well, certainly nobody on the rights holder side wants to do a compulsory license type model.
+[18:31] Nobody wants to do a regulated model.
+[18:33] Um, certainly nobody on the rights holder side wants to do that.
+[18:35] Um, so I assume it's going to be some kind of a negotiated model and just a function of how that, how that gets negotiated.
+[18:41] But I think devising that payment model is going to be one of the critical issues facing music economics.
+[18:48] Honestly, it may be the most critical issue facing music economics right now.
+[18:51] And is that something that fills you with a joy or dread when you think about that as a future deal that you're going to have to negotiate around paper around?
+[19:02] Well, look, I think, I think anybody who's been around the block in this industry knew that something was going to have to get negotiated.
+[19:10] Okay.
+[19:11] Trying to have any of this be implemented by courts or by various branches of government, I think is a bit of a fool's errand because we've seen a lot of the shortcomings.
+[19:23] What happens when people who don't live and breathe this industry or don't really understand the technology or don't really understand economics try to do this stuff as, like I said, as a judge or, you know, a member of Congress, God help you or, you know, whatever it happens to be.
+[19:37] Right.
+[19:37] So I think the industry coming together is inevitably going to create a better solution.
+[19:42] And I think the Music Modernization Act is a great example of that, where people from the industry came together and found a solution where the economics worked and the systems worked and the processes worked.
+[19:51] And I mean, look, it's not flawless.
+[19:53] There's certainly issues that any number of people have pointed out, but it is ultimately a reasonably good system.
+[19:59] And it's certainly a lot better than what we had before.
+[20:01] Okay.
+[20:01] So I think what we have is, you know, there's a bit of a negotiation at gunpoint going on here because there's all this litigation that was flying around, which was increasing on a daily basis.
+[20:15] It was not going away.
+[20:17] And so there needed to be a negotiation.
+[20:20] And yes, it was in the context of the litigations that were pending.
+[20:23] Um, but I think in negotiation solutions, the only viable answer here, um, how that again, translates into actual economics remains to be seen.
+[20:34] And I think inevitably, whatever the first solution that anybody comes out with is not always going to be the best solution.
+[20:42] Okay.
+[20:42] Are people going to pattern after it?
+[20:44] Of course, because it's easy.
+[20:45] Oh, you did that deal with universal.
+[20:46] I'll do that deal with so-and-so.
+[20:47] Right.
+[20:47] So it may be the most convenient solution going forward, but, you know, I think as we've seen certainly in, um, like digital music from like the Spotify versus SoundCloud versus, you know, Apple versus other kinds of models.
+[21:01] It's not always the, the first isn't always the best and simplest isn't always the best.
+[21:06] Um, it may not be the most fair.
+[21:08] It may not be, you know, all of those things together.
+[21:12] Um, but I think you got to start somewhere.
+[21:13] And, and I think hopefully this will be the basis for a framework for that, where that actually goes.
+[21:20] Yeah.
+[21:21] I think we're all interested to see it.
+[21:23] It is.
+[21:24] I mean, is it coming up in any of your like conversations with clients or buyers or sellers?
+[21:31] It's, it's these kinds of conversations.
+[21:32] It's, it's, it's, it's a relative, it's a relatively theoretical conversation at this point because we haven't actually, first of all, we haven't seen what the framework is for payment.
+[21:41] And no matter what the framework is, then we need to see how much it's actually showing up at an accounting state.
+[21:47] Okay.
+[21:48] Hey, we devised this terrific payment, blah, blah, blah, blah, blah.
+[21:50] You know, you know, 30 guys from MIT and whatever, you know, came together and came up with this thing.
+[21:55] Fine.
+[21:57] What does it actually turn into from a dollar's point of view?
+[22:00] Okay.
+[22:00] How frequently are you getting paid?
+[22:01] What level of transparency do you get?
+[22:03] You know, are the songwriters getting paid the same way as the recording artists or the publishers and the labels being traded the same?
+[22:07] Are they, you know, how are all these different components kind of coming together?
+[22:12] Um, once we actually see how it's manifesting itself in royalties and the consistency of that, you know, whether it's, whether it's level, whether it's growing or, you know, whatever it is, um, then it's going to really start manifesting itself or really start being reflected in the valuations.
+[22:29] And then it's really going to be a factor in the deal making and the buying and selling catalog until a bunch of those things actually come together.
+[22:37] It's going to be fairly speculative.
+[22:40] So it's not kind of affecting deal flow for you at the moment.
+[22:43] At the moment.
+[22:43] No.
+[22:44] No.
+[22:45] And where's, where do you think, like, I mean, there's a lot of, um, a lot of deals that obviously happen without anyone really knowing there's some public statements.
+[22:55] Like what's the percentage in your, from your perspective of like what's public?
+[23:00] Upwards of 90% of the deals that happened are never announced.
+[23:03] Yeah.
+[23:04] Yeah.
+[23:04] Okay.
+[23:04] That's really interesting.
+[23:06] Oh, absolutely.
+[23:07] Like I have clients.
+[23:08] I mean, there's certain clients we've done dozens of deals for.
+[23:10] They've never announced the thing.
+[23:12] Um, and in, honestly, in certain cases, that was a strategy because there were certain, like, okay, let's go back a few years.
+[23:20] Let's go back 2019, 2020 there are starting back then where you're starting to see certain buyers who were very, very public about what they were doing.
+[23:28] Now, part of it was because in certain cases, they were publicly traded companies.
+[23:31] It was going to come out anyway.
+[23:33] So you might as well seize the opportunity as opposed to not seizing it.
+[23:37] But there were certain buyers who were being very, very public about what they were doing.
+[23:41] Okay.
+[23:42] For the sellers in certain cases that created some discomfort.
+[23:46] For a lot of people, they, they're perfectly happy not to have the rest of the world know that they've done this transaction.
+[23:52] Like take the money, bank it, do something with it.
+[23:54] I don't want people showing up in my house.
+[23:55] I don't want people, you know, hitting me up.
+[23:57] I don't want, you know, cousins asking me for loans.
+[24:00] Whatever.
+[24:00] I'm, I'm cool.
+[24:01] Um, and so this, you know, I, I, I would say, yeah.
+[24:06] And realize the other thing to remember is this, that for every one of the big high profile deals that we see announced in the trades, you know, for the, you know, these are, you know, eight figures, nine figures kind of transactions.
+[24:16] Or at the moment, even like 10 figure transaction, which has been, you know, coming around in the trades a little bit recently.
+[24:22] There are exponentially more call it sub 10 million dollar deals that are in the marketplace every single day.
+[24:31] Um, and by the way, that's what actually feeds the strategy we talked about earlier, which is why do people pursue smaller deals?
+[24:37] Because just by basic economics, when you have a lot more supply, the, the, the inherent economic impact is that it reduces price.
+[24:45] So that's where you can get better pricing on a $70 million deal than you're going to get on the 70 or $80 million deal.
+[24:52] Simply because there's much more of them and there's, there's perhaps fewer, less competition for it.
+[24:57] But do you think like in the next five years, do you think that there'll be less supply or do you think it would be broadly the same?
+[25:07] I mean, you're pretty close to this microservice engine to get your thoughts.
+[25:10] I don't know if there's less supply.
+[25:11] I think it's going to be different supply.
+[25:14] Okay.
+[25:14] So let me give you an example.
+[25:15] Okay.
+[25:16] So like over the last five years, there was a huge feeding frenzy of people buying.
+[25:20] Right.
+[25:20] So are there a lot of like really great classic British rock catalogs that are floating around out there that nobody's bought yet?
+[25:28] Not that many.
+[25:30] Yeah.
+[25:30] Are there some?
+[25:30] Yeah.
+[25:30] I mean, look, I guess if you're and come up with a couple of names off the top of my head of nobody who's traded or nobody's done anything.
+[25:36] Fine.
+[25:36] Okay.
+[25:37] But there's certainly not as many as there were.
+[25:39] And a lot of people took advantage of that market appetite to sell.
+[25:43] Okay.
+[25:44] So are there still things in the marketplace?
+[25:45] Absolutely.
+[25:46] Are there still some of the older things?
+[25:48] Absolutely.
+[25:49] But I think what we're going to now start seeing as part of the broadening of the market is more and more buyers looking outside of classic English language rock pop sold.
+[25:59] Right.
+[25:59] That's where we started.
+[26:00] Right.
+[26:01] Of they're going to look at EDM.
+[26:03] They're going to look at, you know, Mexican regional.
+[26:06] They're going to look at continental Europe.
+[26:08] They're going to look at, you know, Japan and Korea and India, sub-Saharan Africa.
+[26:13] They're going to look at different, you know, whether, you know, they're, you know, for years, people have like been turning their nose up at producer deals.
+[26:20] God, I hate producer deals.
+[26:21] I hate them.
+[26:22] I hate them.
+[26:22] I hate them because they're a real pain in the neck to get them done.
+[26:24] If you know how to do them and you really have the infrastructure, it's a deal structure that can work.
+[26:30] And when the rest of the, what my theory is always, if the rest of the industry is turning their nose up at an asset, that's the asset I want to look at.
+[26:37] Because again, supply and demand, you don't, and nobody else wants it.
+[26:39] Fine.
+[26:40] I'm the only game in town.
+[26:41] I'll take that at an eight times multiple.
+[26:42] Done.
+[26:43] And yeah, if I have to do some legwork and I have to build out some infrastructure to do it, that's fine.
+[26:48] But I was on a panel discussion earlier this year and the exact same dynamic came up where I was on the panel with three other people and the moderator said, okay, what kind of music rights would you want to invest in?
+[27:00] The first three people all said publishing.
+[27:02] And I was like, I want NIL.
+[27:04] I want other genres.
+[27:06] I want math.
+[27:06] I want everything that they're not looking at.
+[27:09] Because if this is a microcosm and 75% of the market is chasing that, terrific.
+[27:13] That means I got everything else to myself.
+[27:14] I got no competition.
+[27:16] Yeah.
+[27:16] That's just my business.
+[27:17] That's the money ball thesis, right?
+[27:19] Right there, Mike.
+[27:20] That's right.
+[27:21] I mean, and look, if you have catalogs that you can buy, does the catalog, you know, does the catalog itself get spinned a lot?
+[27:28] Not necessarily.
+[27:29] But if the catalog is getting picked up in samples, like it's like sample date, like other people, and you're getting the second life on these songs over and over and over again, remixes, new use, like that's gold.
+[27:41] I mean, yeah.
+[27:41] Does everybody want that shot in the dark, one in a million sink?
+[27:44] Like if you can get, you know, running up that hill, like on Stranger Things, which suddenly that song like, right.
+[27:50] Look, we'd all love that.
+[27:52] Okay.
+[27:52] Every catalog owner wants that.
+[27:54] And every catalog owner will do pretty much anything to get that kind of a placement into like a pop, top, top show.
+[28:02] That's a one in a million shot.
+[28:04] And that's probably being generated.
+[28:05] Okay.
+[28:06] However, the ability to take, you know, an old, you know, an alt rock song from 1981, then remix it as part of a brand new EDM song or a pop song or a hip hop song that's going up the chart.
+[28:21] There's, there's a huge value unlock that can happen there.
+[28:25] And that's just A&R and creative and all of that.
+[28:29] And I think that's also, again, part of the strategies that people are going to start to employ.
+[28:34] That's where you really get where the value of the creative team really comes into play as a buyer.
+[28:38] It's not just, the buyer doesn't necessarily need to be a bag of cash with a bunch of analysts.
+[28:43] I mean, if you had that creative engine and the ability to work that creative side, that unlocks opportunity.
+[28:48] Do you think there'll be some kind of consolidation?
+[28:52] So where I'm going with this is it's been a lot of buyer activity in the past five years, which you mentioned.
+[28:59] Clearly there's like aggregation that's, that's happened there.
+[29:02] So, you know, with liquidity events coming up, you know, do you expect there'll be catalogs that have been aggregated that will change hands more so in the future?
+[29:14] Yes, is the answer.
+[29:15] Okay.
+[29:15] Is that I think, you know, if you're, if you're, if you're dealing with one of the very, excuse me, very large asset managers, right?
+[29:23] Apollo, BlackRock, you know, Carlisle, you know, if you, those guys are only transacting in deals that start with a B most of the time.
+[29:32] Right.
+[29:33] So, but if you can accumulate, you know, a whole bunch of these different portfolios and a whole bunch of these catalogs in a very diversified way.
+[29:41] And, you know, that's the kind of thing that gets, that's attractive to the very large asset managers or pension funds or whatever.
+[29:50] And so, yes, I think the inevitable result of this is that there will be a certain amount of that, that there will be, you know, like hypnosis was and others were as well of, you know, these, you know, very large, very diversified catalogs that are the product of lots of other people's acquisitions.
+[30:05] That'll happen.
+[30:06] But the beauty of this industry is there's new music being created every single day.
+[30:10] Okay.
+[30:12] You know, there's one client who I work with where we sold his first catalog in 2019.
+[30:16] Five years later, we sold the second catalog.
+[30:18] What was the second catalog?
+[30:19] All the stuff he'd written since 2019.
+[30:21] Okay.
+[30:22] And chances are in five years, we're going to rinse, repeat.
+[30:24] We're going to do the same thing all over again.
+[30:26] Music is constantly being renewed.
+[30:28] It's constantly coming out.
+[30:30] It's, it's constantly being created.
+[30:32] And the beauty of that is that it creates new opportunities every single day.
+[30:36] And with that volume of transactions, are you seeing, we already talked about you having a model, an approach to do it.
+[30:43] Do you think the overhead of doing a transaction is going to decrease over time?
+[30:47] So it actually creates less friction, which will create more liquidity, which will create more opportunity.
+[30:56] I do think the transaction costs are going to go down in certain cases.
+[31:01] I think AI will help that in terms of be using AI to do things like royalty analytics and some aspects of legal due diligence and some things like that, that can be time consuming and expensive.
+[31:14] So I think there will be some aspects of that that simplify things.
+[31:22] I mean, there's still a deal to be negotiated.
+[31:23] So there's still going to be a contract that needs to get hammered out with allocations of risk and, you know, contingencies and payments and so on.
+[31:32] And, you know, as far as I know, there's no chat bot that's quite able to do that yet.
+[31:37] But I think that will lead to some simplification.
+[31:39] But remember, with all this AI stuff and with all technology, it's garbage in, garbage out, right?
+[31:44] So if somebody comes to the marketplace and they don't have all the royalty statements or they're in crappy format or they're not in the right, you don't have all the information and all that, it's inevitably, you know, the AI or whatever can only process what it gets.
+[31:59] And that's assuming that those things are of decent enough quality.
+[32:02] There's giant holes in it.
+[32:03] Then you're going to get terrible output.
+[32:05] And it is what it is.
+[32:06] That said, I do expect some level of simplification and efficiency will come out of that.
+[32:13] Should we move into the quickfire rounds?
+[32:15] The lightning rounds?
+[32:16] Okay.
+[32:18] All right, Michael.
+[32:19] What is the one song or album that is just stuck on repeat in your phone, playlist, whatever it is at the moment?
+[32:27] At the moment, I've been re-listening to Mother Love Bone's Apple album.
+[32:33] There's a couple of songs in there that absolutely just frank.
+[32:36] We play them in the car and love them.
+[32:39] So that's the current thing in the next thread.
+[32:42] I feel like we need to do a playlist for this for our audience because it's just going to be so varied and mixed.
+[32:48] Like, it's just brilliant.
+[32:50] And yeah, Michael, what's your most memorable gig?
+[32:53] So before I was in law, I was a stagehand in the concert business.
+[32:59] So I spent four years as basically like a guitar tech and a steel rigger and a stagehand and all of that.
+[33:03] So I worked in concert.
+[33:06] So I got to see actually a lot of really, really fun shows.
+[33:09] And often from either backstage or under the stage or whatever.
+[33:13] So I would say like the best show I ever worked on, the most memorable was a New Year's Eve show I worked on.
+[33:19] This would be like New Year's Eve, like 1992, I would say.
+[33:24] My timing, I may be off by a year or so.
+[33:26] It's all blur.
+[33:27] But there were two opening.
+[33:29] This was in a small theater in New York City.
+[33:32] It was a televised concert.
+[33:34] The opening acts, as I recall, were Lenny Kravitz and Pearl Jam.
+[33:43] And the headliner was Keith Richards' solo band.
+[33:45] Keith Richards, around that time period, put up a solo record of super bluesy material with his own band.
+[33:52] And it's an awesome, awesome, awesome album.
+[33:54] It's called Mean Offender.
+[33:55] It's a fantastic album.
+[33:56] It's actually one of my favorite albums of all time.
+[33:59] But like I said, it was in this very, very small venue.
+[34:02] Bill Graham was there.
+[34:03] He was like the promoter.
+[34:04] I mean, there's a lot of music royalty kind of stuff going on there.
+[34:07] I was 20 years old, carrying, you know, like a C-wrench and a claw hammer because I was staging.
+[34:14] And what did I know?
+[34:15] But all I mean, all I knew is that basically I was literally right in front of the stage the whole time and just have time in my life.
+[34:23] So cool.
+[34:24] Yeah, I tried to get into the roadie side of things.
+[34:27] I actually went to roadie school for a year and got a roadie diploma.
+[34:31] Really?
+[34:32] Is it printed on the side of a road box?
+[34:34] Is it like written in Sharpie?
+[34:35] Right.
+[34:36] Next question, Michael.
+[34:37] What's your biggest pinch me moment?
+[34:40] And I feel like you're just going to have so many.
+[34:41] It's going to be really hard.
+[34:42] But like, is there one that stands out particularly?
+[34:45] Again, I'm going to go back to my roadie days because that was when I had some cool experiences.
+[34:52] I was working on a U2 show at Yankee Stadium.
+[34:56] This is on the Zoo TV tour.
+[34:59] And I'm standing next to the right next to the soundboard at a big outdoor show.
+[35:03] So there's this area that's sort of get a roped off and stuff for the VIPs.
+[35:08] But in the stagehands, I mean, you may be familiar with this term.
+[35:12] We used to call it the poser deck, right?
+[35:14] So like there's a bunch of people, a bunch of VIPs standing on the poser deck.
+[35:17] And I'm sort of standing next to the deck because we were on to the show call.
+[35:20] And somebody bumps into me really hard from behind.
+[35:23] And I turn around like, what's up?
+[35:25] It's Phil Spector.
+[35:26] Okay.
+[35:27] So now he was cool.
+[35:29] And so he was like, oh, you're stationed.
+[35:31] You have all access.
+[35:32] I have all access.
+[35:32] Can you take me to YouTube's dressing room?
+[35:34] Because I'm supposed to have drinks with them.
+[35:37] Sure.
+[35:37] So we had to kind of go the long way around.
+[35:39] This is in Yankee Stadium.
+[35:40] So I'm literally walking with Phil Spector through the bowels of Yankee Stadium for like 15 minutes, like chatting with him.
+[35:48] I'm 19.
+[35:49] Okay.
+[35:50] And walking with him, like just asking about stuff and talking about stuff.
+[35:53] He's like, oh, you should come in and have drinks with us.
+[35:54] I'm like, I was completely like, because like at the time, like I really was a huge fan of his, like I, I thought I wanted to be a producer at the time or really wanted to get into, you know, more of the sound mixing side of things.
+[36:06] So like, I'm like sitting here, sitting next to like, what are the gods of music production, the wall, the sound itself.
+[36:12] Right.
+[36:13] But anyway, we ended up having this very funny conversation.
+[36:16] And the funny, what really blew my head was that I had actually met Phil about two years earlier.
+[36:23] I had, because I was at some other show where I was completely hammered.
+[36:26] And I staggered up to him and I said, hi, I'm like, you know, I am.
+[36:30] And I said to Phil, I'm like, you actually, you and I actually met once before.
+[36:35] He's like, oh yeah, it was like two years ago.
+[36:36] And he, I still had almost a photographic memory for that, which I had no idea about.
+[36:41] But I was like, holy crap.
+[36:43] I hope that didn't seem to be really offensive.
+[36:45] But, um, that was, that was probably about as close to a pinch me moment.
+[36:49] Yeah.
+[36:50] Wow.
+[36:50] Amazing.
+[36:51] And, uh, if, if you, uh, if you could own one song, Michael and, you know, get the royalties, you know, it doesn't have to come from a place of greed, but if it does, what would it be?
+[37:05] And what would you go for?
+[37:06] Um, I would basically own anything on Exile of Main Street, Budstones.
+[37:15] Uh, that's, again, one of my favorite albums of all time.
+[37:19] So I would take it like a tiny little piece of anything that's on that album.
+[37:26] So that, that would be sort of top of my list.
+[37:29] And last but not least, what do you think is the most underrated opportunity in music rights investment?
+[37:35] Easy out.
+[37:36] Oh, that's a whole type.
+[37:38] There, yes.
+[37:39] There is no genre of music that is more global.
+[37:43] You put, you, you put on something at 180 beats per minute and with, you know, the right bass lines and the right, the right production or whatever.
+[37:51] And by the way, this can be, this is the kind of stuff that people can create like on their desktop, like right here.
+[37:56] Right.
+[37:56] And, and, and there was no, people will dance to that music, whether they're in Busan, Dubai, Rome, or Peoria.
+[38:09] It doesn't make a difference.
+[38:10] They'll still dance to it and they'll still appreciate it and still listen to it.
+[38:13] And they'll still groove with it.
+[38:15] It is the most universal form of music.
+[38:17] I think, um, uh, it, it, there's a huge live experiential element to that genre.
+[38:23] There's the whole DJ, like the outdoor DJ performance world, which in the U S isn't as much of a thing, but like you get to Europe and it's monstrous.
+[38:31] Right.
+[38:32] Uh, you people still need 200,000 people in a stadium to watch somebody spin.
+[38:36] Um, to me, I, I think that's the biggest, uh, that's the biggest opportunity.
+[38:43] Now, look, those are, those are, that's a genre that's generally, you know, it may not trade as high, as high a multiple.
+[38:49] I mean, maybe the valuations are going to be different because the performance is different.
+[38:52] It works differently.
+[38:53] Okay.
+[38:54] I get all of that.
+[38:55] As that said, I think it is largely untapped.
+[38:57] Um, and it is, uh, it's a tremendous opportunity.
+[39:02] Amazing.
+[39:03] Well, what a place to end.
+[39:04] And I'm so pleased that it wasn't K-pop.
+[39:06] It would finally, finally getting away from K-pop.
+[39:10] Yes.
+[39:10] No.
+[39:11] Yes.
+[39:11] I'm sure Golden, uh, from K-pop Demon Hunters will be 20 years from now.
+[39:16] People will be singing that for karaoke, but yeah.
+[39:19] Or maybe not.
+[39:19] Maybe they'll forget about it in six weeks.
+[39:21] We'll see.
+[39:22] Well, thank you so much, Michael.
+[39:24] That was super interesting.
+[39:26] Uh, my pleasure.
+[39:27] Excellent to have you on the podcast.
+[39:29] Thank you.
+[39:30] Thanks very much.
+[39:31] Thanks for tuning in to Music Moneyball.
+[39:34] If you enjoyed the conversation, you can subscribe at standard-innovation.com to get every episode
+[39:40] in your inbox.
+[39:42] You can also follow the show on Spotify, Apple, or YouTube to stay ahead of the curve in music
+[39:47] rights investment.
+[39:48] Thank you.

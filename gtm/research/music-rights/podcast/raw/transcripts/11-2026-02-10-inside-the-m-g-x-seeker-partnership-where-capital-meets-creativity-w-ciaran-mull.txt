@@ -1,0 +1,672 @@
+# Inside the M&G x Seeker partnership: where capital meets creativity w/ Ciaran Mulligan & Evan Bogart
+# Date: 2026-02-10
+# Duration: 00:49:58
+# Guests: Evan Bogart, Founder and CEO of Seeker Music, and Ciaran Mulligan, CIO at M&G Life Hosts: Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Inside-the-MG-x-Seeker-partnership-where-capital-meets-creativity-w-Ciaran-Mulligan--Evan-Bogart-e3et282
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] We think about it in the sense of like, is there something we can do right away when we acquire this,
+[00:05] that's going to change the trajectory of this catalog that hasn't been changed in that trajectory in years?
+[00:11] And if that, if we feel like we can check those boxes, then our finance team starts modeling it.
+[00:17] Only then. Like, we don't model it to see whether it's worth buying before we even,
+[00:21] before we're convinced we know what to do with it and that we want to do something with it.
+[00:25] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogs.
+[00:34] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:40] Welcome back to the Music Moneyball podcast with me, Emma Griffiths, and my co-host, Sam Maury.
+[00:46] We have a very special double guest episode today,
+[00:49] and it's a perfect example of what happens when creativity meets capital in music.
+[00:54] One of our guests is a Grammy-winning songwriter behind hits like Beyonce's Halo and Rihanna's SOS,
+[01:00] and he now sits on the executive side of the table as CEO and founder of Seeker Music,
+[01:05] a company turning old hits into new tricks and rethinking how artists develop, own, and grow their catalogs.
+[01:11] The other is the chief investment officer at M&G Life,
+[01:14] where he oversees long-term capital allocation across multiple asset classes,
+[01:19] including a $300 million investment into Seeker Music,
+[01:21] and he brings an institutional lens to how rights should be valued and scaled.
+[01:26] Please welcome Evan Bogart and Kieran Mulligan.
+[01:29] Hi. Yay.
+[01:31] Hi, guys.
+[01:33] Great to have you on, guys. Thank you for joining.
+[01:35] Yeah, thanks for having us.
+[01:37] Yeah, exciting. Thank you.
+[01:38] We thought we'd start just by digging into the origin story,
+[01:41] because I think it's super interesting how you guys came together to form Seeker
+[01:45] and how that relationship started.
+[01:48] So I don't know which one of you wants to kick things off, but yeah, super interesting to hear.
+[01:53] Let me kick off, Evan, just to intro it, and then I can let you give the bread and butter of Seeker,
+[01:58] because if you just take a step back in terms of my role, you introduced it quite well.
+[02:02] In terms of the funds that I'm responsible for, it's a large £300 billion company that I work in,
+[02:09] and I'm responsible for £150 billion worth of assets.
+[02:12] Now, within that big fund, there's multiple different types of asset classes across public and private markets,
+[02:18] and we're always looking for different sources of return,
+[02:20] different types of kind of investments that we can make that sits alongside the equities,
+[02:24] the bonds, the property, etc.
+[02:25] And then it was one of these things that we said,
+[02:28] okay, in the royalties world, we're underexposed here.
+[02:30] And these weightless assets that we're finding ourselves more and more popular,
+[02:34] we really want to get into that to try and actually get a different diversified sources of return.
+[02:40] So that led us thinking about royalties, music royalties, and then Evan came into the picture.
+[02:45] Yeah, and that was it? No.
+[02:48] Yeah, no, and M&G was on this diligence mission.
+[02:52] You know, they had spent like, you know, this year plus kind of meeting everybody in the music space
+[02:59] and just trying to figure out what, if they were going to invest in music,
+[03:02] what was the best way to get into it?
+[03:04] They had some incredible consultants that were working for them who are, you know,
+[03:08] super, super connected in the industry.
+[03:12] And one of them actually is still now is the chairman of our board,
+[03:15] and a gentleman named John Smith, who's, you know, had spent 25 years at the BBC
+[03:21] and was the CEO of BBC Worldwide.
+[03:24] And when we met, I was kind of, you know, I had spent 20 years or so as a songwriter,
+[03:32] as a full-time songwriter.
+[03:33] And about half of that, I was also signing and developing emerging talent.
+[03:39] And, you know, kind of wearing two hats, like trying to write hits for existing talent,
+[03:44] trying to break the next crop of hit makers.
+[03:48] And I was looking to kind of build a bigger ship.
+[03:51] I had just been elected to a role, like a leadership role at the Grammys,
+[03:58] of which now I'm vice chair of the Grammys.
+[03:59] I've kind of risen up the ranks there.
+[04:01] But I had just felt like I was being called to be more in the corner of music creators
+[04:06] than less of the music creator myself.
+[04:08] And so I was on this mission where I was meeting with every major and independent
+[04:12] and investors and our paths crossed, as fate would have it.
+[04:16] And we hit it off right away.
+[04:17] We were looking kind of to build the same thing,
+[04:19] which we felt like could really be a differentiator in the business,
+[04:24] which was really marrying M&G's institutional grade financial discipline of investment
+[04:31] with my creative discipline and experience of the 30 years, you know.
+[04:36] And in a way that was independent, well-funded and well thought out.
+[04:42] And after about four months of sharing ideas and visions and strategies,
+[04:46] we actually shook hands the day after Grammys 2020 and said,
+[04:49] let's go build this company, which would very soon thereafter be called Secret Music.
+[04:55] And then, of course, soon thereafter, we would have to contend with doing it
+[04:59] from our living rooms wearing N95 masks, which was also an interesting curveball.
+[05:04] You're going to mask them, yeah.
+[05:06] Yeah, yeah.
+[05:07] But yeah, I mean, we hit the ground running.
+[05:09] We acquired nine catalogs in that first year.
+[05:11] So it's just, you know, it feels like forever ago,
+[05:16] but it also feels like yesterday.
+[05:17] It's just been kind of this nonstop growth ride of, you know, celebrating music.
+[05:23] It's just, it's been a perfect marriage.
+[05:25] I think that's a perfect example as well, Evan.
+[05:27] You mentioned COVID there.
+[05:29] And if I look at, again, what it brings to the portfolio in terms of that resilience,
+[05:33] the streaming, we're all still streaming music in COVID.
+[05:35] We're all still kind of trying to, you know, listen to in the background,
+[05:38] irrespective of what markets are doing.
+[05:40] So therefore, you can kind of see how that fits into a wider portfolio,
+[05:43] giving you a different type of exposure, different sources of return.
+[05:46] And again, that's exactly, from my perspective,
+[05:47] why this asset class and seeker is so attractive.
+[05:50] Yeah, it kind of proved that thesis, right?
+[05:53] That music is a kind of almost non-coronated asset, I think.
+[05:57] Exactly.
+[05:58] The pandemic was a really, yeah, good proof point of that.
+[06:00] So, well, that's great.
+[06:02] It sounds like it was a match made in heaven from the beginning.
+[06:05] Yeah, we're still going.
+[06:06] It's awesome.
+[06:07] Still going.
+[06:07] Yeah.
+[06:08] Kieran, you mentioned around how this sits within your fund,
+[06:14] but how much did you know about like some of the challenges in the music industry
+[06:18] from like a data perspective before going into this?
+[06:23] It's definitely an education.
+[06:24] You know, as you say, the data of this asset class isn't as readily available
+[06:28] as other mainstream assets, even in the alternative space,
+[06:31] you know, private equity, for example, or, you know, or infrastructure.
+[06:34] So it's why you really need to do, and I like everyone's word partnership,
+[06:37] you really need to get into a partnership with experts in the business.
+[06:40] So if you're going to actually put a significant amount of money into an investment,
+[06:45] into a partnership, into a collaboration, you want to be doing it with industry experts
+[06:48] because this is not something that you want to basically dip a toe in the water
+[06:52] and then realize three months later you didn't do the research,
+[06:54] you didn't know what you were doing, you have to kind of back out of it.
+[06:56] So I don't think we would have done this unless we had the relationship with Evan
+[07:00] and with Seeker because Evan is actually able to navigate the music scene,
+[07:04] tell us what exactly we should be focusing on,
+[07:06] tell us exactly what the opportunities are in a way that we just couldn't.
+[07:10] And then the way in which we run our book is finding experts like Evan
+[07:12] to try and partner with, to try and actually then generate that safety
+[07:16] or that comfort in terms of a new asset class.
+[07:19] So I absolutely wouldn't have done this unless we had the industry knowledge
+[07:22] that Evan provides.
+[07:24] Yeah, a lot of people say that like royalties are really good for pension funds
+[07:28] because they're generating cash, right?
+[07:30] But equally, stability is also as important.
+[07:33] So yeah, it sounds like you've managed to find a good middle ground there.
+[07:37] Absolutely.
+[07:37] And again, we'll let Evan come in here in a minute in terms of the relationship.
+[07:42] But if you think about what we're trying to generate, it's long-term stable returns.
+[07:45] It's long-term, you know, people who are saving for their pensions,
+[07:49] people who are drawing down and decumulation and trying to fund the lifestyle.
+[07:53] I don't want to take undue risk in these funds.
+[07:55] I don't want to take undue risk in these strategies.
+[07:57] They're there to actually reduce the risk of an overall portfolio.
+[08:00] But that long-term nature, again, it lends itself to these asset classes
+[08:04] because these are annuity-like in nature in terms of the payback profile.
+[08:07] So it really does make a lot of sense to an asset class.
+[08:10] But then you can undo a lot of that good asset class thinking if you get the wrong investment,
+[08:14] which is why the two need to come together so, so, so, so closely.
+[08:17] And that's what I was going to add to that,
+[08:18] which is it really then comes down to the acquisition strategy.
+[08:21] I mean, the stuff that we've acquired is largely stable cash flows, seasoned assets.
+[08:26] We're not, it's not like we're investing in like really risky parts of the market.
+[08:31] You know, I'm like, obviously, obviously, you know,
+[08:33] I don't want to go off on an AI tangent as it tends to mention as soon as you say AI,
+[08:38] but the, you know, we're not investing in music production libraries.
+[08:42] We're not investing in things that will be more at risk to new technologies coming in.
+[08:47] And, you know, we're investing in seasoned assets that are branded,
+[08:52] that we feel like we can do lots of fun, creative things with to create an alpha,
+[08:58] you know, on top of what we're investing in.
+[09:00] When we invest, we're really only investing in the passive case,
+[09:05] in the stable cash flow part of it, right?
+[09:07] And we're not underwriting any of what we can do creatively.
+[09:11] So we're not taking these massive risks and gambles.
+[09:15] We're, you know, we're investing smart.
+[09:16] We're investing in things we're excited about, but we're also not,
+[09:20] we're not going crazy trying to buy a bunch of things that are either risky or too expensive.
+[09:24] Okay. Interesting. Yeah, yeah, yeah.
+[09:26] That's what I meant about marrying the financial discipline and the creative discipline, right?
+[09:30] It's like, it is that perfect partnership where we respect what each other bring to the table
+[09:35] and it makes, it makes for smart investments.
+[09:37] This does segue perfectly into, you know, really the, the approach that you take at Seeker.
+[09:43] And we love this, this idea that you think of it, you know, essentially these are catalog songs,
+[09:48] but you thinking of it completely from a frontline perspective, right?
+[09:51] Absolutely. Yeah.
+[09:52] How can we breathe new life into these assets?
+[09:54] So, you know, it would be great to know just how you go about doing that.
+[09:59] It was interesting.
+[09:59] It was one of the first questions that the folks at MNG asked me when we first met and we started talking about how we might build a company where we acquire catalogs.
+[10:09] And they were listening to me talk about how I've signed and developed writers and artists and producers successfully.
+[10:16] And I had one of the biggest producers of the last decade that I had signed off of a demo, one song and never had a cut.
+[10:22] And, you know, now he's a three-time nominated producer of the year award, you know, at the Grammys and, you know, discovered Lizzo and blah, blah, blah.
+[10:30] And so I, I, they had said to me, how would you apply what you do to songwriters and artists?
+[10:36] How could you apply that to catalog?
+[10:38] Which I had never thought about because I wasn't in the catalog business.
+[10:41] So for, for there, I basically created this, this strategy, which I then came back to MNG with, which was how I would apply all of the frontline techniques that I had successfully run over the course of the last couple decades and learn from all of my experience.
+[10:56] How would I apply that to catalog?
+[10:58] And to me, the obvious thing was if you're going to extend the life of the catalog, you can't just focus on super serving existing fan base because that fan base is going to age out or potentially die.
+[11:09] Right. But, but not to get morbid, but, but, but, but, you know, they're going to, you know, listen, be listening to other things as they get older.
+[11:17] I mean, they have kids, maybe you start listening to younger things again, et cetera. Right.
+[11:20] So you have to think about how do you build the brand and build new fans.
+[11:25] And so by, in order to do that, you have to populate a company, creative company with people who know how to break artists, who know how to break songs.
+[11:33] And so that's what most of the people who work at seeker come from the frontline side of the business, not the catalog side of the business.
+[11:39] When we acquire something, we're looking at it like, how do we break this as if it's never been broken before.
+[11:44] Right. I mean, we're cheating a little bit because we know the songs are already hits.
+[11:50] So, so it takes that part of the guesswork out of it, but we, we get to basically break those songs again with a whole new group of fan, a whole new group of consumers, a whole new group of fans, a whole new generation.
+[12:02] Right. And so we apply the, you know, marketing that we would do on DSPs or social engagement or short form content platforms or YouTube, YouTube monetization or music creator platforms or sampling and interpolating, you know, very proactive sync thinking, you know, you know, being creative in the sync world, creative licensing.
+[12:20] All of these things that you would do when you signed a new band and you were trying to break that band, we would apply that to a catalog like Joan Jett or Christopher Cross or the Go-Go's or someone like that.
+[12:34] And what you get is you, you start tapping into all of these new people like, man, that's amazing. Or like the fans start, you know, you start watching all the metrics rise everywhere and then they stick.
+[12:42] And so, you know, when you're basically raising their new, their, their, their streaming numbers, their metrics to a new level, and then it sticks there, whether you take the foot off the pedal or not, you're, you know, that you've now kind of re-level set their, their, their, their consumer, you know, grow their consumers, you know, engagement, but they've also re-level set their revenues.
+[13:02] And so that's kind of the approach. I mean, we obviously will do box sets and re-issues and things for the, you know, for the existing fan base, but the existing fan base is going to come along with us on this journey.
+[13:13] We're creating new, exciting things for them to tap into that no one would have thought of if they were just focused on another box set.
+[13:19] I think that to me, if I bring it back down to like thinking of this as a, as an asset class and as an investment, this is a very much a differentiated active strategy, you know, to use parlance that we take in like the public equity world or the fixed income world.
+[13:31] It's not just a, a passive buy and hold. It's actually, there's creativity there. And in any asset class that you have, if there's inefficiencies that you can exploit through creative, you know, skill sets, then that's what you want from an investment perspective, because you get multiple layers of actually different revenue sources and different, different income profiles.
+[13:46] So I think that, that again, to me, de-risks the asset class because, you know, there's multiple levers that you're trying to pull on in terms of actually trying to generate that return for your, for your asset.
+[13:55] You guessed our next question actually, Kieran. So that was exactly what it was.
+[14:00] How does it differ in, in, in this, you know, in this asset class versus others? But I think it's really interesting that you've set your baseline at, you know, underwriting level and that creative is kind of on top. That seems really sensible.
+[14:14] All cherry on top. It's all the, it's all alpha.
+[14:16] How does all of this kind of influence your acquisition strategy? And is there something, you know, is there a particular thing that you look for in a catalog to say, you know, that's what gives it this reactivation, you know, potential?
+[14:29] Our rule when it was just me and MNG and the, and the, you know, a small board was, uh, I have to love it first, right? Like first and foremost, if I don't, if I don't love it, we pass. It's good for somebody else. I know maybe it's got a, it's earning a million dollars a year.
+[14:46] And, you know, there's a lot of big fans and it's just, if it's not something that I can a hundred percent put my heart into, then somebody else should, should do it.
+[14:56] And not just for the life of seeker, but for the, for the, for the good of the music itself, where there's a bigger fan of it. Right. Second, if I do love it, we need to have a strategy for it that we feel like is uniquely, uh, suited for seeker to execute.
+[15:10] That we feel like we can win with the strategy. And so, you know, I feel like a lot of people, a lot of peers of ours potentially buy a bunch of rights and then try to figure out what to do with it afterwards.
+[15:22] For us, we think about it in the sense of like, is, does this fit the machine that we've built and all the different things that we're great at? And there's certain things that we're great at.
+[15:32] Will this fit some of those slots? Is there something we can do right away when we acquire this, that's going to change the trajectory of this catalog that hasn't been changed in that trajectory in years.
+[15:43] And if that, if we feel like we can check those boxes, then our finance team starts modeling it only then, like we don't model it to see whether it's worth buying before we even, before we're convinced we know what to do with it and that we want to do something with it.
+[15:58] At that point we model it and then we bring it to our investment committee and our, and our, and our, I see very, very much largely models M and G's. I see it's like, you know, we, we have that it's that rigorous in that process, you know?
+[16:11] And so it's, it goes through this rigorous creative process. Then it goes through this rigorous finance process. And then if both of those check, all the boxes are checked, we make an offer and we go after it.
+[16:21] And even with that rigorous process, we've still closed 37 catalogs, 17,000 songs in copyrights. We have some of the most iconic names in music, some of the legendary songs in music. And so we're doing something right.
+[16:33] But, but, but because we know what we do really well creatively and because we know what we feel like we can close, that kind of informs the things that we go after.
+[16:43] We're very proactive, proactively sourcing stuff too. You know, it's not like we're just waiting for the phone to ring and some lawyer to call us or somebody to say, Hey, I got a catalog for it.
+[16:52] We do get all of those calls at this point. Obviously we're on everybody's lists, but we take a very proactive approach as to, wow, this era, this genre, these types of things, we seem to be working, working in the zeitgeist here.
+[17:05] And we have a little bit of it. We could expose, add more exposure to this genre or this vintage because we can do amazing things with it. Now let's make a list of the ones that we think are great.
+[17:14] Now let's go see if any of those are available for acquisition or investment. And then we reach out to people and more than half of the catalogs we've closed have come from proactive outreach.
+[17:23] Oh, interesting.
+[17:24] Not just from getting a phone call. So largely we don't end up in auction processes because we're either the only horse in the race or maybe there's one or two others.
+[17:33] And, and in, in those cases, we, we end up winning out, even if we don't have the highest offer, because people believe that we're the right stewards for their legacy.
+[17:40] Of your creative approach. What surprised you? Um, when you've kind of gone all in into it, it's good. I can see from your character, you kind of put everything into it.
+[17:52] They've been like, what's, what's kind of surprised you on, on, on that?
+[17:56] How challenging sometimes it is to, when you have a fractional ownership of a song from the, on the publishing side, how challenging it is to get your partners to want to participate and do stuff with you.
+[18:06] And, you know, not naming any names, but like, you know, sometimes it's like hard to like understand, like, wait, why don't you want to work this?
+[18:14] Like you own 30% of it and we're, we have a plan just come and do it with us. It's like, it's just weird. Like how passive in nature, many other companies are.
+[18:24] I think that was surprising to me that there, that there's, there's such like a, uh, uh, bare minimalist approach to, to, to monetize and catalog and other, at other. And I don't mean like necessarily our peers. I mean like the majors.
+[18:38] Yeah, there is, there's definitely like distinct ends of the spectrum. Um, we were going to sort of touch on obviously what like Pop House doing. And obviously you've got a big history with, with Kiss, um, Evan, with your, with your, with your man, like discovering them, managing them and so on. So.
+[18:55] So cool. And your dad. Yeah. Yeah. Yeah. Yeah. What's your view on what those guys doing? Cause that's slightly different, I think, to what you're doing is you're a bit more digitally focused in terms of some of that.
+[19:04] We've actually created a hologram of my mom. Who's going to manage their hologram. No, I'm saying, um, but, but, but, um, no, I, I, I, I love what they're doing. You know what I love about the, about the catalog space now? Um, which I think is the best, best version of the catalog space since we got into it in 2020 is that like when we got into it in 2020 and we had this kind of like, thankfully we had this runway where we closed those nine catalogs before 2021.
+[19:34] When like everybody got into it, including the majors and the interest rates dropped. And then it became like the most en vogue thing in the world to like make an announcement that you have a blank, you have a blank checkbook and you're buying catalogs. And then most of those companies didn't ever buy anything and you never heard from them ever again. And that was like 21 and 22. But at some point in 21, I asked one of our lawyers, when you're pitching catalogs, how many people are on your list now? And he said over 150.
+[19:57] There was over 150 people in two by the end of 2021 buying catalogs, which went once obviously, you know, rates change, et cetera, that number dropped. Lots of people who were hobbyists in it got out who never bought anything. Um, and now slowly but surely more people are getting in, but everybody kind of has like their own character.
+[20:18] Now, like they're like, they're like, they're like, they're getting in with a very defined strategy of how they do it, why they do it and what their whole plan is, as opposed to just I buying rights.
+[20:28] And so you kind of know when you go to the battlefield, when you're up against other people, you know, which, which other ones you're probably going to be up against based on the genre and the vintage, because every you kind of you can guess, um, you know, cause everybody has their own character.
+[20:43] So like pop house has their thing, right? Like, you know, and, and it's very specific primary has their thing, or, you know, even like a duetti has their thing or Harborview has their thing.
+[20:54] And, uh, uh, uh, uh, around you'll definitely has their thing. Like, you know, you could, you can kind of influence, like you kind of know who's doing what.
+[21:02] And so when you're interested in something, you can also project like, oh, we'll probably be up against this person and that person.
+[21:08] And here's how they're probably thinking about it. And here's how we're thinking about it. Cause we're not exactly the same, but we overlap in these areas.
+[21:15] It's actually pretty cool. I like, I kind of, it kind of reminds me of nineties hip hop in a way where everybody had like a cartoon character vibe.
+[21:22] And it feels like each catalog company has their own, like, you know, special sauce.
+[21:28] Yeah. It really feels like everybody has their distinct kind of brand and approach, which is quite exciting.
+[21:32] And I think also because of just the nature of rights in the music industry, that actually it kind of all benefits everybody in a way.
+[21:40] Totally. Totally.
+[21:41] Only a good thing that there's this competition.
+[21:44] People are always saying you're competitors and I'm like, I kind of view it as our peers.
+[21:47] Like I go out to lunch with a lot of the CEOs of these companies are like, you know, well, coffee or dinner or something like that when I'm in New York or whatever.
+[21:54] Like we're all sharing stories and concepts and strategies and ideas.
+[21:59] Like we're kind of all in it together, even though we go up against each other.
+[22:02] I think we all kind of view it as kind of a community now.
+[22:05] So Evan, it would be great to get into, we were talking about your creative approach and just kind of rethinking what a song looks like in 2025, 2026, whatever it is.
+[22:14] Can you walk us through a specific example of a song that you've taken and reimagined and just kind of what the effect of that was?
+[22:22] The first song I ever took and reimagined was my first cut ever, which was a song called SOS for Rihanna.
+[22:29] That was my first hit and it launched my songwriting career 20 years ago.
+[22:34] And so flipping songs, reimagining songs is something that's part of my DNA.
+[22:39] I mean, all the way back to when I was, you know, 13 years old and I wanted to be DJ Premier or Pete Rock or, you know, RZA from Wu-Tang Clan and I was sampling songs.
+[22:49] And that was kind of like my first exposure to like blues and soul and lots of kind of like smaller genre music because I was crate digging and I was learning about music and stuff.
+[22:58] So, you know, sampling and interpolating and reimagining songs has just been part of my DNA since I literally can imagine listening to the first thing.
+[23:07] I mean, the Beastie Boys licensed to ill when I was eight years old, you know, it's like all these Led Zeppelin.
+[23:12] I mean, they're incredible, right?
+[23:13] And so like when we started Seeker, it was one of the main business strategies is one day we're going to flip stuff and we're going to do it better than other people.
+[23:23] We're going to sample and interpolate things better than any other catalog company.
+[23:26] So, you know, we're kind of armed to do that.
+[23:29] It's a specific vertical at Seeker where we literally day in and day out set up sessions, camps.
+[23:35] We have partnerships with tons of different producers, writers.
+[23:38] We're, you know, partnering on artist projects.
+[23:41] And literally all we do is think about how to flip our catalog into new hits.
+[23:44] The biggest example which gets used often is obviously is a song called A Bar Song by Shibuzi, which came, you know, came, I mean, I got to give credit to Shibuzi and his songwriters and producers.
+[23:57] It came from partially our involvement of getting them to flip a song called Tipsy by Jay Kwan from our catalog that we bought back in 2020.
+[24:07] And, you know, that that song, as of today, is the longest running number one in the history of Billboard.
+[24:17] As of next Monday, Mariah Carey will take over that title with her 20th week at number one.
+[24:23] So we will now be the second longest running number one in the history of Billboard.
+[24:27] But Queen Mariah will always have a number one for at least three or four weeks every December.
+[24:32] Long may she reign.
+[24:33] Hard to beat.
+[24:34] Hard to beat.
+[24:35] But yeah, I mean, that's a perfect example of of of looking at a song, almost almost entirely acquiring it because of its sample ability.
+[24:46] And then a few years later, after pitching it in many sessions, we pitched that song to many different artists and it was the Shibuzi one that clicked.
+[24:55] And it was a very unique take on it by flipping it into a country record and obviously a massive success.
+[25:01] That's definitely mentioned a lot across the industry.
+[25:05] Sure. I mean, it's hard. It's hard. It's hard. It's hard not to mention it.
+[25:08] I mean, I think the fact you're leaning into it, you're leaning into being frontline, I think, is creating this opportunity.
+[25:14] Right.
+[25:14] Our entire A&R strategy is flipping. That is it. That's all my entire A&R team is literally focused day in and day out on how to get old songs cut into new songs.
+[25:25] It's fascinating. I think some of the approaches that you're taking with these niche communities is really interesting and especially the gaming side of things, because that's actually not something that comes up a lot on our podcast.
+[25:37] And we had somebody recently said it was such an underrated opportunity.
+[25:40] And I know that you're involved in like Twitch and Discord and that kind of thing.
+[25:44] So that's that's super interesting.
+[25:46] Super, super. And the issue, obviously, being that it's really hard in the gaming world for, you know, fractional ownership in the gaming world.
+[25:58] Don't don't don't they don't align well.
+[26:00] So getting over that hump, I mean, you obviously have these companies like Monster Cat that are like, you know, gaming labels that are, you know, but they're creating these kind of nondescript faceless, you know, they're known in the gaming world, but outside of the gaming world, kind of nondescript faceless.
+[26:14] But then you have these, you know, you know, Odatari or David and other other artists that that broke through gaming. Right.
+[26:20] And then so it's really interesting to try to figure out how do you take a catalog company and make it work in gaming.
+[26:27] And it does come down to to overcoming the obstacles of licensing.
+[26:33] It really comes down to that, you know, moving on to a little bit more in terms of the positive tension that is formed between finance and music.
+[26:41] Like one of the key themes that we we speak to a lot of funds.
+[26:45] Right. And definitely there's sometimes some challenges in terms of translating the music industry into the finance world and sometimes vice versa.
+[26:56] And clearly, like you've formed a partnership here.
+[26:58] So like, Kieran, from your perspective, how do you structure that, like, in a way that gives you what you need, but still allow for the creative side to exist?
+[27:10] Yeah, no, it's a good question.
+[27:12] I think you listen to Evan speak there and the passion for the music shines through.
+[27:16] And as you say, that's the number one that has to be the start.
+[27:19] But as I listen to Evan, I was just reflecting on how investment orientated it is and how institutional quality is in the thinking in terms of the origination, the sourcing of ideas.
+[27:29] We could be talking about any asset class here.
+[27:31] We could be talking about, you know, music.
+[27:33] We could be talking about, you know, any private asset where you need to actually work to actually generate a return.
+[27:39] And then I was thinking when we talked about the competition and Evan welcoming the competition because even the competition gives more credence to music royalties as an asset class itself.
+[27:49] Because, you know, it actually, the more people are in there, the more demand is, the more the pipeline grows, et cetera, et cetera.
+[27:55] So this is an evolving asset class, but it really is becoming one that you can see dispersions of returns, be it in an active strategy or passive strategy, because of the creativity that Evan brings to the table.
+[28:06] So for me, it gets so much easier as you get deeper and deeper into understanding the possibilities that exist.
+[28:12] And therefore, how you structure the investment and how you actually put it alongside other investments becomes easier and easier as the asset class takes a foothold.
+[28:20] I think we were looking back, I don't know, say five, 10 years ago.
+[28:23] We probably really struggled to actually understand the risk return characteristics of this asset class and compared it to others.
+[28:28] And do we want to actually spend any risk budget there?
+[28:30] But then you hear Evan talk about the opportunities that might exist in the future in terms of the gaming world or where this might go.
+[28:36] It's just there's a plethora of different things and a more, not necessarily crowded in a bad way, but a more interest in the asset class that just drives better behaviors and drives things like people having investment committees.
+[28:47] It's easy to get caught up in the coolness of the songs and the Joan Jets, et cetera.
+[28:53] But when you look at the rigor of the process, it's quite institutional in its nature, quite like an asset class that you would want to be involved in because you know that it's done properly.
+[29:04] And I think that's how you get the comfort actually allocating at size like we've done.
+[29:08] We definitely see there's like a trend towards like the whole sector, like on a level of professionalizing ultimately.
+[29:15] And with that is, you know, comes, you know, reporting and everything else.
+[29:20] Like we do all of that.
+[29:22] We do all of that.
+[29:24] But it's definitely, so if someone like me is, let's say an early investor into music royalty through Seeker, but then you're getting all the requirements and say, listen, we need the reporting.
+[29:34] We need the MI.
+[29:35] We need all this sort of stuff.
+[29:36] So it makes it easier then for the next investors to say, listen, that's actually something I want.
+[29:40] Do they have X, Y, Z, the reporting, et cetera?
+[29:42] And Evan and the guys can go, yes, we do.
+[29:45] Then it's a bit more of like a safety in numbers in terms of, I'm not saying we're the first mover, but it's harder to be the first mover because you don't have that comfort that other people are doing it.
+[29:55] But when you see people like us doing and you see the results that Evan's had in terms of the strategy that he employs, then other people can go, actually, if it works for those guys, then I want a bit of that.
+[30:04] And then it self-perpetuates the kind of interest in music as a tangible asset class.
+[30:10] Some investors struggle with the volatility.
+[30:12] So, you know, like once a song, because it's obviously consumption based, you'll get, you might get like a viral moment and then it kind of spikes and then, you know, it drifts off or actually they're just, there's not understood why it's drift off.
+[30:27] And it's something in the back end where there's, you know, a royalty that's kind of slipped and it's like blocked at the MLC or something.
+[30:35] And like translating that can be challenging because there's so much backstory to how that all hangs together.
+[30:42] I think that goes back, Evan, to your point about what kind of catalogs you're looking for and where they are in their history, right?
+[30:47] Yeah. But, but, but, but, but on top of that, you do have to have them.
+[30:50] We have an amazing rights and royalties team that's constantly monitoring income tracking, constantly monitoring.
+[30:55] Obviously we spoke earlier about, you know, Sintank and, you know, we, we have everything and using Iris and Arm and everything back there to help us with all of that.
+[31:02] But I think, you know, you, even with the right acquisitions, you still have to stay on top of it and make sure you make sure you're getting all your money and getting, make sure you're getting out of time.
+[31:11] And the other thing is we, we took in and we took in at the top of this year, I spent, we spent two years populating everything into Iris and Arm and actually populating the historicals, which we were told at the time we were insane for doing, but we did.
+[31:26] And, and, and, you know, billions of lines of data that we could analyze that went into this, this, this program.
+[31:33] And we, in January 1st this year, we turned the keys and took administration in house in the U S led by Jennifer, Jennifer Blakeman, who's our chief, chief rights and royalties officer who had built, bought and, you know, built and sold admin companies in the past.
+[31:48] She'd been doing it for three decades and she spent two years with her and her team back, you know, populating all of these, all of this data in order to turn the keys in January.
+[31:56] And so about 40, 45% of our catalog is self-administered in the U S now.
+[32:02] And to your, to, to your point, being able to, to figure out what's wrong, if something is wrong and having a direct relationship with the MLC or the PROs is, it's incredibly beneficial to be able to do direct licensing in the U S for that same portion of catalog X U S.
+[32:19] Cause we're not crazy.
+[32:21] We, we, we, we, we put, we put it with cobalt, but, but, and then, you know, and the rest of our publishing catalog is still administered by, you know, the Sony's and Warner chapels and BMG's, et cetera.
+[32:32] And, and universals, but you know, those rights will come back to us.
+[32:35] And we, we decided to do that at a point in time that we felt like was early enough, was far enough in our journey, but early enough in our journey that we could scale with it.
+[32:43] As opposed to, I had kind of seen some of our peers in the past, try to take on admin in house once they've already acquired a hundred thousand copyrights and trying to swallow that elephant usually backfired on them.
+[32:56] And then they gave up after a couple of years.
+[32:58] And so for us, it was, it was important to do it at the right moment with the right people and had taken two years to set it up and be very thoughtful and methodical about it.
+[33:06] But, but to your point, it does give us insight into things earlier, quicker, and more direct so that we can track quicker and we can fix things if, if issues arise.
+[33:19] That's a really smart move.
+[33:20] I think there's so much opportunity in that space just in terms of optimization ultimately.
+[33:26] Definitely.
+[33:27] Yeah.
+[33:27] It's one of the things that we focus on.
+[33:29] We've already talked about that specifically, like bringing admin in house with, with many guests, to be honest.
+[33:36] But it's, yeah, that's, that's pretty interesting actually.
+[33:39] A lot of people are very focused on the creative, which is so important, but like, you know, the administration, the operations is like, you know, a huge part of the puzzle that I think you've really got to think what was your strategy on that.
+[33:50] Back in the day when we, the day we, we spent 10 hours in a boardroom, me and some folks from M&G basically sketching out what a company was going to look like.
+[33:59] And then we shook hands and said, let's go try to build this thing.
+[34:02] And in that meeting, along with the conversation of how would you apply what you know to catalog, because that became our process for catalog exploitation and enhancement, right?
+[34:13] When we were creating processes in that same meeting that, you know, we had, we talked about things like that.
+[34:19] We talked about, should we focus, should we focus on admin first?
+[34:24] Should we focus on building creative first?
+[34:27] And I think we all kind of agreed that if you were going to have a songwriter become your CEO, that you would probably focus on creative first.
+[34:35] And, and we went with downtown for admin at that moment.
+[34:39] You know, we met with a bunch of people and we chose downtown back in the day.
+[34:42] And, and now obviously we're with Cobalt XUS, but we, we made that decision at that time that we were going to build our creative platform first.
+[34:52] And then we were going to follow that up with our admin platform.
+[34:56] But, but it was a very, but it was a very intentional decision from the, from the beginning.
+[35:00] What kind of results have you seen from bringing it in house so far?
+[35:03] We're getting money in quicker.
+[35:04] We have again, more insight into where, you know, we're still in our first year, right?
+[35:09] So like the keys turned throughout the year.
+[35:11] So we, we only started receiving that money towards the second half of this year, but like, you know, directly, but obviously you obviously don't have to pay an admin fee.
+[35:20] You get, you get your, you get your money in a, you know, a quarter or semi-annually quicker than you typically would.
+[35:26] And, and then the, you know, the direct licensing in sync or the being able to approve samples or being able to opt into certain platforms directly.
+[35:39] As opposed to having to, you know, ask somebody else for permission to do that, to issue licenses, to collect money.
+[35:45] I mean, there's so many more benefits to it because we're creative first company.
+[35:50] We're an active management company.
+[35:52] Being able to then pull the lever and not have to go to like mom and dad at a different company and say, can you issue this license for us?
+[35:58] Look at that.
+[35:59] What is that?
+[35:59] That was cool.
+[36:00] Oh.
+[36:01] Oh, that was cool for the vodka.
+[36:03] What was that?
+[36:05] Did you do it again?
+[36:06] No, it didn't work.
+[36:07] It was a one-time thing.
+[36:10] But not having to ask for permission to do stuff is, is, is huge for a company that's active managing, actively managed.
+[36:17] Yeah.
+[36:17] Yeah.
+[36:18] And I think for you, from your side, Kieran, like accelerating cash flows, you know, reducing costs of OPEX for the fund, that's like all the things you want to hear, right?
+[36:26] Absolutely.
+[36:26] It just makes it like a more, a more efficient operation, more institutional quality.
+[36:30] Like there's absolutely not a lot that energy can help out from the creativity point of view in the music world.
+[36:38] But, you know, we can help in terms of actually understanding how efficiencies work in other companies that we see in our portfolios and say, listen, this is something you may or may not want to consider.
+[36:45] We talked about the kind of borrowing from different kind of, you know, industries, the financial industry and the music industry.
+[36:51] We're absolutely getting the benefit of the exposure to the music industry, but then you see a lot of good companies and good corporate practices that you gain.
+[36:58] It's great to see them in the underlying companies such as Seeker because you just have more efficiency, more, more reliability.
+[37:05] And it's just a better, it's a better company, right?
+[37:07] And Evan, have you learned that thing from like interfacing into M&G, like into different sort of sectors?
+[37:14] Because you've been music in the music industry for like your whole career, right?
+[37:18] So have you sort of seen anything from other M&G portfolio companies that's kind of interested you from your side?
+[37:25] The knowledge that I've learned over the last six years is insane.
+[37:29] Like, I feel like I've gotten an MBA.
+[37:32] I mean, like I've gone to school.
+[37:35] I mean, it's insane.
+[37:36] Every year we're focused on something new in finance and I'm learning and mastering it.
+[37:43] And it's incredible.
+[37:44] Like it's exactly what I was hoping this journey would be.
+[37:47] You know, I feel like especially when you're in the same industry for a long period of time, you start to think like, how do I grow?
+[37:54] Like, how do I evolve?
+[37:55] Is there anything more for me to learn?
+[37:57] I'd like a new challenge.
+[37:59] And boy, boy, did I get, you know, be careful what you wish for, right?
+[38:07] But it's great.
+[38:08] I mean, folks at M&G have been such amazing mentors for me as has John Smith, our chair.
+[38:12] And I picked up on it really quickly.
+[38:15] I mean, the things that I even saying in this podcast, I mean, I couldn't imagine saying half the things I'm saying six years ago.
+[38:22] I didn't even know it.
+[38:23] So, you know.
+[38:23] And I'd say the same from our side.
+[38:25] I mean, would we have even been able to do this six, seven years ago without the knowledge that Evans brought to the table in terms of the music industry and what it means as an investment?
+[38:33] Absolutely not.
+[38:34] This is why that partnership works, right?
+[38:36] Because it's mutually beneficial.
+[38:38] And is that giving you more confidence to deploy more capsule into the space?
+[38:41] We're always looking for different sources of return, right?
+[38:43] This has been a great investment.
+[38:44] And we're just loving how it's going and seeing how it goes there.
+[38:47] But in terms of any investment, we're constantly scarring in terms of we've got 40 different types of investment in our wider portfolio.
+[38:55] This is like the most talked about one.
+[38:57] People like to talk about music.
+[38:58] They want this tangible.
+[38:59] They want to know what, like I go home to my family at Christmas.
+[39:01] They'll be asking me, what's the latest kind of catalog they want to know about Joan Jett?
+[39:05] They'll want to know about this thing.
+[39:06] They'll play bar song in the background.
+[39:10] It'll be that kind of a thing because it's tangible.
+[39:12] It's kind of like it's new.
+[39:15] It's exciting.
+[39:16] But no, it's been great so far.
+[39:18] But yeah, we're all always on the lookout for different types of investments.
+[39:22] You just celebrated your five-year anniversary thing.
+[39:25] I saw some photos of your celebration in LA.
+[39:28] Crazy.
+[39:28] So each of you, what's your biggest kind of learning or takeaway?
+[39:32] Prior to meeting M&G, I didn't understand what process was or what process meant.
+[39:39] And I am now like the biggest champion of everything and the process of everything.
+[39:46] And like through process, through strategy, you know, is, you know, I always say people like
+[39:53] through organization, through process, through like strict procedures, you find freedom to
+[40:00] do more things and you find freedom to really be successful.
+[40:03] And I didn't realize I was so process oriented until I met M&G.
+[40:06] Uh, and now I instill it across the board.
+[40:09] It sounds really boring and it sounds really laborious, but it actually frees you up to
+[40:16] be more creative and to do more fun things when you know that you have a process and that
+[40:20] process works and you can apply that process from there.
+[40:23] You can just build the, you could build, you know, the sky's the limit.
+[40:26] And if I was to answer that question, there's two things for me.
+[40:29] It's the first thing is admit what you don't know.
+[40:31] You know, we M&G before, but we did not know enough to make a meaningful investment into the
+[40:35] music business.
+[40:35] So when you don't know something, find someone who does.
+[40:38] And when you find someone who does make sure that they've got the same beliefs and goals
+[40:41] as you do.
+[40:42] Like all of the things that Evan's talking about, and there's a, you know, the long-term
+[40:45] nature of the investment, the, the, the, the process orientated, the, you know, making
+[40:48] sure that you're actually employing active strategies.
+[40:51] They're all the things that we do and Evan does them and therefore it makes that partnership
+[40:55] so much easier.
+[40:56] It makes that, you know, marriage a longstanding one, but it starts from just basically getting,
+[41:00] getting a strategic partnership with somebody who can actually fill a gap and a void in
+[41:04] your knowledge base.
+[41:04] And once you do that, opportunities are present themselves.
+[41:07] And it feels like, you know, from what we've learned, it's having a really positive impact
+[41:11] on the music industry as a whole, because it's kind of forcing a level of transparency that
+[41:17] hasn't really been existing so far.
+[41:21] So it feels like, you know, this side of the industry, the investing side can feel quite
+[41:25] separate from, you know, the other side of the music industry, but it feels like it's
+[41:30] a real positive force on the whole.
+[41:33] And the liquidity offers to rice holders as well that previously had, you know, didn't
+[41:38] have options for that.
+[41:40] So totally.
+[41:40] And that's across the board, you know, this could be like just someone buying a house
+[41:44] like, you know.
+[41:45] Um, so it can be life changing.
+[41:48] Okay.
+[41:48] So quick fire round, uh, number one, and either of you can go first or you can say your answer
+[41:53] at the same time.
+[41:55] What is the song or album that you have had on repeat recently?
+[42:01] I've recently invested in a, in a, in a vinyl player.
+[42:05] And one of my favorite bands, you'll be not be surprised given my Oasis song later on is
+[42:08] a band called James.
+[42:10] And they've got an album from live at the Acropolis.
+[42:12] And I've just basically been getting into that.
+[42:14] It's all like acoustic versions of their main, of their main, main track.
+[42:17] So that's, that's being played a lot in my, in my house at the moment.
+[42:21] I'm biased because we publish eight songs on the album, but the album is absolutely insane.
+[42:26] And I'm sure this will not come as a surprise, but Lily Allen, West End Girl, uh, the, the
+[42:30] new Lily Allen album is absolutely phenomenal.
+[42:33] And, uh, one of our songwriters that we signed at Secret in Quito executive produced the album
+[42:39] and co-wrote and produced eight songs on it.
+[42:41] Um, so, uh, that it's just the storytelling on there.
+[42:46] It's like, you just feel like you're in her life and it's just, it's, it's very rare that
+[42:51] you hear a concept album from start to finish where the songwriting is so good.
+[42:55] And it's just, it's like a, it's like a movie that you're hearing someone sing to you.
+[43:00] It's incredible.
+[43:02] Both of you, I would love to know, um, within the context of your work in music, what's been
+[43:06] your biggest pinch me moment so far?
+[43:08] And Evan, I don't know what you're going to put out of the bag because you have so many
+[43:13] that, um, Oh man.
+[43:17] Okay.
+[43:17] Wait.
+[43:18] Um, yeah, there's like four or five that come to mind.
+[43:23] Um, I think the, I think for me, so I got a phone call from my manager who was like, Hey,
+[43:28] do you want to hear?
+[43:29] Cause when we wrote halo, Beyonce cut it on her own.
+[43:33] It's like, she doesn't record vocals with, with any of the writers or producers.
+[43:36] So she just does it herself.
+[43:37] And then, so they were like, do you want to hear her version of it?
+[43:41] And I was like, yeah.
+[43:43] And so they were like, so, so there's a legendary recording studio in Hollywood called the record
+[43:47] plant.
+[43:48] And there was, there's a famous, uh, English mixer named Spike stent, who was mixing her
+[43:53] album.
+[43:54] And they were like, um, uh, go to spikes at record plant mixing it right now.
+[43:59] You should go over there.
+[44:00] So I walked in there and spikes like, do you want to hear it?
+[44:01] And I was like, it's massive.
+[44:02] I mean, the a room at, at, at record plan, massive SSL board, just giant board.
+[44:07] You know, it's just me and spike in the room.
+[44:09] And he like presses play and just leaves the room.
+[44:11] And I'm just sitting there by myself in these like massive studio with these giant speakers.
+[44:15] And it just comes on and like hearing her start singing it.
+[44:18] I just immediately just started crying hysterically.
+[44:21] Like it was the most beautiful thing I'd ever heard.
+[44:23] And I just, I was just like, I cannot believe I'm listening to Beyonce sing this song.
+[44:29] It's amazing.
+[44:30] I get chills even just thinking about it.
+[44:31] It's incredible.
+[44:32] Feel free to choose another one.
+[44:33] Cause I got nothing that compares to hearing Beyonce lyrics for the first time.
+[44:38] I changed the question just to be slightly into what was the kind of pinch me moment in
+[44:41] investing.
+[44:41] And it's when you get the ability to run a fund that this size that can then go and actually
+[44:47] invest in something like the work that Evan's talking about.
+[44:50] That's, that's a pinch me moment.
+[44:51] It goes beyond traditional kind of things that are a little bit, maybe more mainstream,
+[44:55] a bit more boring, can I say it in terms of public markets.
+[44:57] And you can actually have these sort of conversations with creative people like Evan.
+[45:01] When you, when you, when you realize that you've kind of evolved your role into something
+[45:05] like that, that's a, that's a huge privilege and a pinch me moment.
+[45:08] And what would you say in the music wise investment space is the most underrated opportunity at
+[45:13] the moment?
+[45:14] Music investment space for us means so many things.
+[45:18] So I'm going to choose one thing where I feel like people aren't paying enough attention
+[45:21] to it, which is music creator communities.
+[45:25] I think that today people don't just consume music.
+[45:29] They create it while they're consuming it.
+[45:31] And I think that there's a huge opportunity, you know, with, with BandLab and Airbit and a
+[45:37] bunch of different, you know, even in Twitch and, you know, with discord community, creator
+[45:41] communities and discord, et cetera.
+[45:43] There's a huge opportunities for catalog investment companies to get, to get, you know, more involved
+[45:48] with the creator community themselves and find partnerships there.
+[45:52] And so may not be buying them from an investment standpoint, but I think it is an investment in
+[45:57] time and investment in energy and an investment in creating new revenues.
+[46:01] Totally.
+[46:01] It's investing in future value, right.
+[46:03] To be creative.
+[46:04] So, yeah.
+[46:05] And last but not least, which, if, if each of you could own one song, what would it be
+[46:10] and why?
+[46:11] I saw this question come through and I said, I immediately went for my, my Spotify, you
+[46:15] know, the rap to see what was my number one song last year.
+[46:17] Cause I'm not going to listen to it that much.
+[46:19] It'd be nice to get some money back every time I play it.
+[46:22] And it's a great song too.
+[46:24] And I just think, you know, you think about it uplifting songs at the end of movies.
+[46:26] I think this song plays into it.
+[46:28] It would be a good life by one Republic.
+[46:30] Oh, good one.
+[46:32] Great song.
+[46:33] And I'm just thinking, you know, that's a, if it's the tip number one, my Spotify rap,
+[46:36] then yeah, that would be, that would probably be my answer.
+[46:38] To me, it depends if we're talking about from like a love standpoint or revenue standpoint.
+[46:42] And I'm not saying I don't love the revenue answers, but from a pure, from a purely love,
+[46:47] love standpoint.
+[46:48] I would say either Kathy Dennis or bloodshy and Avon's catalog because of toxic Britney Spears.
+[46:56] And I think that's the most perfect pop song written in the last, you know, a couple of
+[47:02] decades.
+[47:04] It's, I just love, I just think it's so well-written and I'm just such a respect, great songwriting
+[47:11] and great craft.
+[47:11] And it's just a great song.
+[47:12] I learned a very interesting fact about that song recently.
+[47:15] I don't know if you know this, but we have a program called the super vet over here in
+[47:20] the UK, which is like this, it follows this amazing vet and he saves all these animals
+[47:24] lives.
+[47:24] And that song was actually written about the super vet.
+[47:27] Oh, that's so crazy.
+[47:28] So the songwriter was dating the super vet and he was obviously quite toxic.
+[47:32] So.
+[47:33] I used to write with Kathy and Kathy told me, you know, of course I would ask her questions
+[47:37] about that.
+[47:37] And, you know, can't get you out of my head, Kylie Minogue and all the other great songs that
+[47:40] she wrote, but she told me that she was in Sweden and she was in a hotel room and she
+[47:47] had written many versions of that song and every single one she thought was wrong or that
+[47:51] bloodshed Yvonne thought wasn't right yet.
+[47:53] And so she was in her hotel room and she wrote the version that we all know today.
+[47:56] And she was like, I mean, she had to get, she had to make her plane.
+[47:59] So she was like, I guess this is the version.
+[48:02] And like stopped by the studio on the way there and like laid down her demo vocal and then
+[48:06] went to the airport to go.
+[48:07] But it was like a kind of like defeatist, like this is the best I could do.
+[48:11] And in my opinion, it's like, it's a perfect, perfectly written pop song from start to finish
+[48:17] everything about it.
+[48:18] And there's, there's others, but for me, that's the one where I'm like, this is perfect.
+[48:23] But from a revenue standpoint, I also want to, I also would like to point out, I'm really,
+[48:27] really big on the holiday music.
+[48:29] I'm a huge Halloween fan.
+[48:31] Uh, I, I make, I make Halloween music on my own spare time that, that, that I've, I just
+[48:38] put out my seventh album of Halloween music this last year.
+[48:40] Oh, really?
+[48:41] Oh, wow.
+[48:43] Oh, wow.
+[48:44] So, um, some, somebody's watching me by Rockwell, which I think, which I still, I think is still
+[48:50] available and I still would love to go acquire it.
+[48:52] Um, but, uh, is a, is a Halloween staple.
+[48:56] And then of course you can't, I mean, I can't say, I wouldn't want to buy Mariah Carey.
+[49:01] All I want for Christmas is you, because as we mentioned earlier, uh, every, every year
+[49:06] we'll go number one for a month for the rest.
+[49:08] Like, like, like we could all be gotten nuclear hot asteroid.
+[49:12] That song's still going.
+[49:13] Number one.
+[49:14] Does not have a to K-K of that.
+[49:16] That's all.
+[49:18] Amazing guys.
+[49:19] That's been absolutely amazing.
+[49:20] Thank you very much for coming on.
+[49:22] Yeah.
+[49:22] Thank you.
+[49:23] Thanks for having us.
+[49:24] Yeah.
+[49:24] Thank you.
+[49:24] And I think we're going to have to pick you up for a Music Moneyball theme song or rap
+[49:29] at some point, Evan.
+[49:30] Music Moneyball is a dope title.
+[49:33] I love it.
+[49:34] That's cool.
+[49:34] We'll do a clip of that.
+[49:35] Yeah.
+[49:36] Yeah.
+[49:37] We will definitely clip that.
+[49:39] Thanks guys.
+[49:41] Thanks for tuning in to Music Moneyball.
+[49:43] If you enjoyed the conversation, you can subscribe at standard-innovation.com to get every episode
+[49:49] in your inbox.
+[49:50] You can also follow the show on Spotify, Apple, or YouTube to stay ahead of the curve in music
+[49:56] rights investment.
+[49:58] Thanks.
