@@ -9,6 +9,9 @@ def add(id,title,group,preview,files,collection,current=False,**extra):
  seen.add(id)
  files=[f for f in files if (ROOT/f['path']).is_file()]
  items.append(dict(id=id,title=title,group=group,preview=preview,files=files,collection=collection,current=current,**extra))
+if (ROOT/'carousel-templates-manifest.json').exists():
+    for a in json.loads((ROOT/'carousel-templates-manifest.json').read_text()):
+        add(**a)
 if (ROOT/'podcast-blue-sweep-manifest.json').exists():
     for a in json.loads((ROOT/'podcast-blue-sweep-manifest.json').read_text()):
         add(**a)
@@ -64,7 +67,7 @@ for a in items:a['stage']='final' if a['id'] in final_ids else 'experiment'
 previous={}
 p=ROOT/'review-board-assets.json'
 if p.exists():previous={a['id']:a['code'] for a in json.loads(p.read_text())}
-prefix={'podcast':'P','blog':'B','logos':'L','backgrounds':'BG','illustrations':'I','social':'S'};used=set(previous.values());counts=collections.Counter()
+prefix={'podcast':'P','blog':'B','logos':'L','backgrounds':'BG','illustrations':'I','social':'S','carousels':'C'};used=set(previous.values());counts=collections.Counter()
 for a in items:
  if a['id'] in previous:a['code']=previous[a['id']];continue
  k=prefix[a['group']]

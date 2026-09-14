@@ -401,6 +401,402 @@
     "size": 23808329,
     "sha256": "cca8b9677560315025d6da47c1b3c3bad3b7423e5b2aab756812676911634fb6"
   },
+  "assets/carousels/blue-notes/01.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/8dba39e56d0a3b7a6df6/assets/carousels/blue-notes/01.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/8dba39e56d0a3b7a6df6/assets/carousels/blue-notes/01.jpg?download=1",
+    "size": 117718,
+    "sha256": "8dba39e56d0a3b7a6df6598681d993463ac4607b83b9a0da4d6e9fa1de446311"
+  },
+  "assets/carousels/blue-notes/01.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/97b592f4bfa81635d72e/assets/carousels/blue-notes/01.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/97b592f4bfa81635d72e/assets/carousels/blue-notes/01.png?download=1",
+    "size": 189011,
+    "sha256": "97b592f4bfa81635d72efcf29ed8b4dac2f874902cfe841ab44adf3e8c390d0b"
+  },
+  "assets/carousels/blue-notes/01.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/6dd8c02b57a2e271be88/assets/carousels/blue-notes/01.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/6dd8c02b57a2e271be88/assets/carousels/blue-notes/01.svg?download=1",
+    "size": 106379,
+    "sha256": "6dd8c02b57a2e271be88c1978d7f5b34db6fe00e1c66f1477058869df733cb0d"
+  },
+  "assets/carousels/blue-notes/02.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/fa24372b59e3fcf3535f/assets/carousels/blue-notes/02.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/fa24372b59e3fcf3535f/assets/carousels/blue-notes/02.jpg?download=1",
+    "size": 97731,
+    "sha256": "fa24372b59e3fcf3535f14a9e39b7fe15806af73d649903404b786832ca4e31f"
+  },
+  "assets/carousels/blue-notes/02.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/17c2a5bfc348f950ad96/assets/carousels/blue-notes/02.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/17c2a5bfc348f950ad96/assets/carousels/blue-notes/02.png?download=1",
+    "size": 167079,
+    "sha256": "17c2a5bfc348f950ad967d2600f3384ce79e54801d12d22238f7eef59d64037b"
+  },
+  "assets/carousels/blue-notes/02.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/58cc7bb6642fdb95698f/assets/carousels/blue-notes/02.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/58cc7bb6642fdb95698f/assets/carousels/blue-notes/02.svg?download=1",
+    "size": 118899,
+    "sha256": "58cc7bb6642fdb95698f3f6ec0269748da2d0bcd261d10b2698bb4c61dea48da"
+  },
+  "assets/carousels/blue-notes/03.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/806cdb684669eb9a665a/assets/carousels/blue-notes/03.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/806cdb684669eb9a665a/assets/carousels/blue-notes/03.jpg?download=1",
+    "size": 89618,
+    "sha256": "806cdb684669eb9a665abfb5d5750defd9494c82b75a91e7d2289e38b0c15018"
+  },
+  "assets/carousels/blue-notes/03.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/7b684ac04de2366ddc3d/assets/carousels/blue-notes/03.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/7b684ac04de2366ddc3d/assets/carousels/blue-notes/03.png?download=1",
+    "size": 149013,
+    "sha256": "7b684ac04de2366ddc3dfcbcf718d22f4346efe5480334a1eddb1af9153f3b01"
+  },
+  "assets/carousels/blue-notes/03.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d8eabf386620e36747e1/assets/carousels/blue-notes/03.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d8eabf386620e36747e1/assets/carousels/blue-notes/03.svg?download=1",
+    "size": 142864,
+    "sha256": "d8eabf386620e36747e1d4dd71433f5fc80f27f202b397bbbc0042263b3a6572"
+  },
+  "assets/carousels/blue-notes/04.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/c8659148cae3aab2b8dc/assets/carousels/blue-notes/04.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/c8659148cae3aab2b8dc/assets/carousels/blue-notes/04.jpg?download=1",
+    "size": 92539,
+    "sha256": "c8659148cae3aab2b8dc0a0962c108dc65f48550ad927b9a773381ef8e1fd1e1"
+  },
+  "assets/carousels/blue-notes/04.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/65c423f573dd2420f79b/assets/carousels/blue-notes/04.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/65c423f573dd2420f79b/assets/carousels/blue-notes/04.png?download=1",
+    "size": 159505,
+    "sha256": "65c423f573dd2420f79b1cc946f8a17869d61f81bdeed7ac5a376d5b7b682aed"
+  },
+  "assets/carousels/blue-notes/04.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/43b023931b40cdb44a00/assets/carousels/blue-notes/04.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/43b023931b40cdb44a00/assets/carousels/blue-notes/04.svg?download=1",
+    "size": 122080,
+    "sha256": "43b023931b40cdb44a00bf04b60f74f05ac02f3afe4f805c599e3973ba7d941c"
+  },
+  "assets/carousels/blue-notes/05.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d4798f27c2494d2b2ca8/assets/carousels/blue-notes/05.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d4798f27c2494d2b2ca8/assets/carousels/blue-notes/05.jpg?download=1",
+    "size": 85914,
+    "sha256": "d4798f27c2494d2b2ca80a942a4cfb057da5d8f4354b97b926a94d782e929c63"
+  },
+  "assets/carousels/blue-notes/05.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/043e9b71c5f35b65fbdc/assets/carousels/blue-notes/05.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/043e9b71c5f35b65fbdc/assets/carousels/blue-notes/05.png?download=1",
+    "size": 160013,
+    "sha256": "043e9b71c5f35b65fbdc93323f9a3bef51e083f80a21712842b8881b1c4a9e61"
+  },
+  "assets/carousels/blue-notes/05.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/08ce75986b988f1b4e01/assets/carousels/blue-notes/05.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/08ce75986b988f1b4e01/assets/carousels/blue-notes/05.svg?download=1",
+    "size": 115077,
+    "sha256": "08ce75986b988f1b4e01e5fc1f19dbf259ea2ca4e78565fda526468b54d7b74d"
+  },
+  "assets/carousels/blue-notes/06.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/04bb433e7ae9e629241e/assets/carousels/blue-notes/06.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/04bb433e7ae9e629241e/assets/carousels/blue-notes/06.jpg?download=1",
+    "size": 101907,
+    "sha256": "04bb433e7ae9e629241e5ff281f619465ccf8f1cd9b7662f854a9496c7c71dae"
+  },
+  "assets/carousels/blue-notes/06.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/69682bd1b385783844fc/assets/carousels/blue-notes/06.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/69682bd1b385783844fc/assets/carousels/blue-notes/06.png?download=1",
+    "size": 175083,
+    "sha256": "69682bd1b385783844fcb5426b340c573ff58f0cddd783e93af74a46bc39407b"
+  },
+  "assets/carousels/blue-notes/06.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/a99cc78d36172da07c80/assets/carousels/blue-notes/06.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/a99cc78d36172da07c80/assets/carousels/blue-notes/06.svg?download=1",
+    "size": 132235,
+    "sha256": "a99cc78d36172da07c80ec2b392353575d150d54321ae8e9fcbb31bf44795c09"
+  },
+  "assets/carousels/blue-notes/README.md": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/1e4101e9d1b1e992839c/assets/carousels/blue-notes/README.md",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/1e4101e9d1b1e992839c/assets/carousels/blue-notes/README.md?download=1",
+    "size": 604,
+    "sha256": "1e4101e9d1b1e992839c0d1ae3998a03c713eb761610f8f84b1639611d002ec2"
+  },
+  "assets/carousels/blue-notes/blue-notes.pdf": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/4e91a4a2e5bcc9c13481/assets/carousels/blue-notes/blue-notes.pdf",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/4e91a4a2e5bcc9c13481/assets/carousels/blue-notes/blue-notes.pdf?download=1",
+    "size": 736768,
+    "sha256": "4e91a4a2e5bcc9c13481bfc8c83585d421f3b478bc5e480628c3510704f6af89"
+  },
+  "assets/carousels/blue-notes/blue-notes.zip": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/b230cac0fed2a8feca8a/assets/carousels/blue-notes/blue-notes.zip",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/b230cac0fed2a8feca8a/assets/carousels/blue-notes/blue-notes.zip?download=1",
+    "size": 2162601,
+    "sha256": "b230cac0fed2a8feca8af4f3f52237490ccbdfeb2bc679ea91743b8c38405ce5"
+  },
+  "assets/carousels/blue-notes/preview.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/c83cbc9062ecaf71dc2f/assets/carousels/blue-notes/preview.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/c83cbc9062ecaf71dc2f/assets/carousels/blue-notes/preview.jpg?download=1",
+    "size": 206277,
+    "sha256": "c83cbc9062ecaf71dc2fab3fd3770264e9c1f0352e522cc55f567835d768ba2d"
+  },
+  "assets/carousels/paper-trail/01.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/290f6ec9fe5b0be14bb1/assets/carousels/paper-trail/01.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/290f6ec9fe5b0be14bb1/assets/carousels/paper-trail/01.jpg?download=1",
+    "size": 101071,
+    "sha256": "290f6ec9fe5b0be14bb1e2d053edc32b50bb50d5c8508e35d8cf65f9bfd95d79"
+  },
+  "assets/carousels/paper-trail/01.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/3a41a915498fcc5662c9/assets/carousels/paper-trail/01.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/3a41a915498fcc5662c9/assets/carousels/paper-trail/01.png?download=1",
+    "size": 137044,
+    "sha256": "3a41a915498fcc5662c9fdf5d675d2e65d797893b495c13131929d284cd95fc5"
+  },
+  "assets/carousels/paper-trail/01.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/00335cf1ef281a50a59a/assets/carousels/paper-trail/01.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/00335cf1ef281a50a59a/assets/carousels/paper-trail/01.svg?download=1",
+    "size": 116910,
+    "sha256": "00335cf1ef281a50a59afc05bc8402673803424e3214b25bfa4667b8137ca8e9"
+  },
+  "assets/carousels/paper-trail/02.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/b5bb56c377e01e569fd2/assets/carousels/paper-trail/02.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/b5bb56c377e01e569fd2/assets/carousels/paper-trail/02.jpg?download=1",
+    "size": 83138,
+    "sha256": "b5bb56c377e01e569fd2840672e6315e4e74b2d9c3bcd9a321c43839505a06c1"
+  },
+  "assets/carousels/paper-trail/02.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/c94449ea35d12ab2c550/assets/carousels/paper-trail/02.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/c94449ea35d12ab2c550/assets/carousels/paper-trail/02.png?download=1",
+    "size": 109857,
+    "sha256": "c94449ea35d12ab2c550999cba24e579c34ee655081e4678e48e6b0b0495d6d7"
+  },
+  "assets/carousels/paper-trail/02.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/98142537de805a704218/assets/carousels/paper-trail/02.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/98142537de805a704218/assets/carousels/paper-trail/02.svg?download=1",
+    "size": 118855,
+    "sha256": "98142537de805a704218d6112975627317bb8deb093a9f8ddf85da879e4323a2"
+  },
+  "assets/carousels/paper-trail/03.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d3d02a395cc83fafd2c1/assets/carousels/paper-trail/03.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d3d02a395cc83fafd2c1/assets/carousels/paper-trail/03.jpg?download=1",
+    "size": 73099,
+    "sha256": "d3d02a395cc83fafd2c16262495f02a3141de9d14997f3fca40e8ac184a8748c"
+  },
+  "assets/carousels/paper-trail/03.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/6eb232e5226c8572c8a1/assets/carousels/paper-trail/03.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/6eb232e5226c8572c8a1/assets/carousels/paper-trail/03.png?download=1",
+    "size": 105257,
+    "sha256": "6eb232e5226c8572c8a1598b4d8511f6ec963bf8d9c4f06a75fbbf230a5d1499"
+  },
+  "assets/carousels/paper-trail/03.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d5e33bb9e4800835d164/assets/carousels/paper-trail/03.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d5e33bb9e4800835d164/assets/carousels/paper-trail/03.svg?download=1",
+    "size": 111807,
+    "sha256": "d5e33bb9e4800835d16404f72a1ae99f6b9a490edd6f91b294a0d182e96d830b"
+  },
+  "assets/carousels/paper-trail/04.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/f1ab3785c16c1ac9fdde/assets/carousels/paper-trail/04.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/f1ab3785c16c1ac9fdde/assets/carousels/paper-trail/04.jpg?download=1",
+    "size": 77218,
+    "sha256": "f1ab3785c16c1ac9fdde6adfd3b7ab272e5ce63a078e522ff4ab194a0bd3d0f9"
+  },
+  "assets/carousels/paper-trail/04.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/edd6fdeb6faa734804d2/assets/carousels/paper-trail/04.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/edd6fdeb6faa734804d2/assets/carousels/paper-trail/04.png?download=1",
+    "size": 104080,
+    "sha256": "edd6fdeb6faa734804d2ab4b4a2033fcd82a1b918c9ddabc3ac9679551c1fe8b"
+  },
+  "assets/carousels/paper-trail/04.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/c0ce076542bda7b0186b/assets/carousels/paper-trail/04.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/c0ce076542bda7b0186b/assets/carousels/paper-trail/04.svg?download=1",
+    "size": 125755,
+    "sha256": "c0ce076542bda7b0186b1cdfde20b039afc200615e5621dbcc4fae60a83a608e"
+  },
+  "assets/carousels/paper-trail/05.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/6098fd92f11b4f4e9d6d/assets/carousels/paper-trail/05.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/6098fd92f11b4f4e9d6d/assets/carousels/paper-trail/05.jpg?download=1",
+    "size": 67167,
+    "sha256": "6098fd92f11b4f4e9d6da271f38ff1976e8baca63d43c0dbbb6ec6f8cab88464"
+  },
+  "assets/carousels/paper-trail/05.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/00c7c3fbd2338bf43990/assets/carousels/paper-trail/05.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/00c7c3fbd2338bf43990/assets/carousels/paper-trail/05.png?download=1",
+    "size": 83851,
+    "sha256": "00c7c3fbd2338bf439901feccbc28f1314314e83bca1ed484ebbbee07ec7622a"
+  },
+  "assets/carousels/paper-trail/05.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/1fcff4c998282c87dcaf/assets/carousels/paper-trail/05.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/1fcff4c998282c87dcaf/assets/carousels/paper-trail/05.svg?download=1",
+    "size": 143508,
+    "sha256": "1fcff4c998282c87dcafd35190bd7587bdb764db6619e761df0869b13fba05e2"
+  },
+  "assets/carousels/paper-trail/06.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/12a7adc13e4e23845cb0/assets/carousels/paper-trail/06.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/12a7adc13e4e23845cb0/assets/carousels/paper-trail/06.jpg?download=1",
+    "size": 71816,
+    "sha256": "12a7adc13e4e23845cb052edf2b32e0b55e680588f5801ef0089fc485f18f432"
+  },
+  "assets/carousels/paper-trail/06.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/57f6199fd8e2256014e8/assets/carousels/paper-trail/06.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/57f6199fd8e2256014e8/assets/carousels/paper-trail/06.png?download=1",
+    "size": 93572,
+    "sha256": "57f6199fd8e2256014e876a89b8ffe33128021fd50d5118e47b6daf596f7d8ac"
+  },
+  "assets/carousels/paper-trail/06.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/135ee7cb79333abc4a54/assets/carousels/paper-trail/06.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/135ee7cb79333abc4a54/assets/carousels/paper-trail/06.svg?download=1",
+    "size": 131967,
+    "sha256": "135ee7cb79333abc4a5477cbde65300a9667199b36f6ec1f2b91292f1db6e7b7"
+  },
+  "assets/carousels/paper-trail/README.md": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/34e074856b1bb4a7cd07/assets/carousels/paper-trail/README.md",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/34e074856b1bb4a7cd07/assets/carousels/paper-trail/README.md?download=1",
+    "size": 610,
+    "sha256": "34e074856b1bb4a7cd07afff1a7cfce7131617cf2a971d85d43f2546ba5a2300"
+  },
+  "assets/carousels/paper-trail/paper-trail.pdf": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/0eaf9c2a826ec7a029b2/assets/carousels/paper-trail/paper-trail.pdf",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/0eaf9c2a826ec7a029b2/assets/carousels/paper-trail/paper-trail.pdf?download=1",
+    "size": 578669,
+    "sha256": "0eaf9c2a826ec7a029b2256a28423b57d37b28718329a44285dd76e3bf0974c3"
+  },
+  "assets/carousels/paper-trail/paper-trail.zip": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/679a493c716ff90e83fd/assets/carousels/paper-trail/paper-trail.zip",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/679a493c716ff90e83fd/assets/carousels/paper-trail/paper-trail.zip?download=1",
+    "size": 1476530,
+    "sha256": "679a493c716ff90e83fdcb7afe420a2f71f975a13cf9870a509753daae4310d4"
+  },
+  "assets/carousels/paper-trail/preview.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/51bf11368a6b4d36a880/assets/carousels/paper-trail/preview.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/51bf11368a6b4d36a880/assets/carousels/paper-trail/preview.jpg?download=1",
+    "size": 178417,
+    "sha256": "51bf11368a6b4d36a88033c6301ea0bae0be167a87f93fff63968c17909c1f11"
+  },
+  "assets/carousels/signal-study/01.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/f765f4457984eed95b79/assets/carousels/signal-study/01.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/f765f4457984eed95b79/assets/carousels/signal-study/01.jpg?download=1",
+    "size": 93741,
+    "sha256": "f765f4457984eed95b797491e32a2f536ee1c67da45212a10da1050186804e67"
+  },
+  "assets/carousels/signal-study/01.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/08d9a039f56e336b08b9/assets/carousels/signal-study/01.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/08d9a039f56e336b08b9/assets/carousels/signal-study/01.png?download=1",
+    "size": 126532,
+    "sha256": "08d9a039f56e336b08b92bbe82c592cf7a65c0b910c9d3c041ffb3c35320df54"
+  },
+  "assets/carousels/signal-study/01.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d4bcd714059b7d2fb5bb/assets/carousels/signal-study/01.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d4bcd714059b7d2fb5bb/assets/carousels/signal-study/01.svg?download=1",
+    "size": 83760,
+    "sha256": "d4bcd714059b7d2fb5bbfd7564488fc151349c37552715d44b6fb636cd37f314"
+  },
+  "assets/carousels/signal-study/02.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/9520b2cab5dc85ba58b7/assets/carousels/signal-study/02.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/9520b2cab5dc85ba58b7/assets/carousels/signal-study/02.jpg?download=1",
+    "size": 59644,
+    "sha256": "9520b2cab5dc85ba58b74c783d339715147f8fae77301f14aa9f51445f26002d"
+  },
+  "assets/carousels/signal-study/02.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/f9babaff37f89ce0e0d9/assets/carousels/signal-study/02.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/f9babaff37f89ce0e0d9/assets/carousels/signal-study/02.png?download=1",
+    "size": 77296,
+    "sha256": "f9babaff37f89ce0e0d99d6d1f4a4d8250b5a5cea9fd70ba5087367035ec8dd3"
+  },
+  "assets/carousels/signal-study/02.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/f401525168adb16c661f/assets/carousels/signal-study/02.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/f401525168adb16c661f/assets/carousels/signal-study/02.svg?download=1",
+    "size": 118395,
+    "sha256": "f401525168adb16c661feafbfd718c42548192ff661d61e835294eea3decfeb9"
+  },
+  "assets/carousels/signal-study/03.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/5233078f00d53db0aa54/assets/carousels/signal-study/03.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/5233078f00d53db0aa54/assets/carousels/signal-study/03.jpg?download=1",
+    "size": 65591,
+    "sha256": "5233078f00d53db0aa54004f19d0603039ea28501ad0c896bb7e0f9997ca2f3a"
+  },
+  "assets/carousels/signal-study/03.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/1a77213bd8cac5d299e1/assets/carousels/signal-study/03.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/1a77213bd8cac5d299e1/assets/carousels/signal-study/03.png?download=1",
+    "size": 91592,
+    "sha256": "1a77213bd8cac5d299e1a1b68f97daca83ea04612b09754ba555d60b4976b279"
+  },
+  "assets/carousels/signal-study/03.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d28f294ac903e55488f0/assets/carousels/signal-study/03.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d28f294ac903e55488f0/assets/carousels/signal-study/03.svg?download=1",
+    "size": 110574,
+    "sha256": "d28f294ac903e55488f0ff866999264951347c5f9dd059a78d6303a2b6bbfd6d"
+  },
+  "assets/carousels/signal-study/04.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/8214862987fd3fae940f/assets/carousels/signal-study/04.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/8214862987fd3fae940f/assets/carousels/signal-study/04.jpg?download=1",
+    "size": 70492,
+    "sha256": "8214862987fd3fae940fb6721c1114e9e1d4d2cdf2678b3866a5f8cb3a9ce0dd"
+  },
+  "assets/carousels/signal-study/04.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/ac0851af492b27b9569d/assets/carousels/signal-study/04.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/ac0851af492b27b9569d/assets/carousels/signal-study/04.png?download=1",
+    "size": 83408,
+    "sha256": "ac0851af492b27b9569d5d460bf9d85d8376337ee67a8bf77ee65a0532cc9dd6"
+  },
+  "assets/carousels/signal-study/04.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/2c4d397c81fc3f169694/assets/carousels/signal-study/04.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/2c4d397c81fc3f169694/assets/carousels/signal-study/04.svg?download=1",
+    "size": 113974,
+    "sha256": "2c4d397c81fc3f1696947e1e62646aa1cf5ca8a09a566a4e1a9cd3d08977d5ab"
+  },
+  "assets/carousels/signal-study/05.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/0d7f8359f330d18a1a7b/assets/carousels/signal-study/05.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/0d7f8359f330d18a1a7b/assets/carousels/signal-study/05.jpg?download=1",
+    "size": 64763,
+    "sha256": "0d7f8359f330d18a1a7b65a43acf9466904cb2ec9de2941bb472a74f09feae6c"
+  },
+  "assets/carousels/signal-study/05.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d0447588e9fd081cec43/assets/carousels/signal-study/05.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/d0447588e9fd081cec43/assets/carousels/signal-study/05.png?download=1",
+    "size": 86280,
+    "sha256": "d0447588e9fd081cec43adb3796dbdf6ec2f3e2db64b327a771369704c7f26b8"
+  },
+  "assets/carousels/signal-study/05.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/dc02b9975b0c718674ab/assets/carousels/signal-study/05.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/dc02b9975b0c718674ab/assets/carousels/signal-study/05.svg?download=1",
+    "size": 83536,
+    "sha256": "dc02b9975b0c718674aba0db37dd01ff8408c5d506fff1db9bec672c415d5e1e"
+  },
+  "assets/carousels/signal-study/06.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/cecfe690cd6b60fb5ebd/assets/carousels/signal-study/06.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/cecfe690cd6b60fb5ebd/assets/carousels/signal-study/06.jpg?download=1",
+    "size": 110273,
+    "sha256": "cecfe690cd6b60fb5ebde8aea79abbedb49f848e260b039a66b5d077a1b65e76"
+  },
+  "assets/carousels/signal-study/06.png": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/5ff7aff2d4140f033cf2/assets/carousels/signal-study/06.png",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/5ff7aff2d4140f033cf2/assets/carousels/signal-study/06.png?download=1",
+    "size": 96197,
+    "sha256": "5ff7aff2d4140f033cf2cc7599f79ae058658486037483d7e790fe4fbb04b0e5"
+  },
+  "assets/carousels/signal-study/06.svg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/ecb76910da6c07f0d211/assets/carousels/signal-study/06.svg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/ecb76910da6c07f0d211/assets/carousels/signal-study/06.svg?download=1",
+    "size": 133256,
+    "sha256": "ecb76910da6c07f0d21178a3488a0e466843091c84c65a70aba9bc0c6522b767"
+  },
+  "assets/carousels/signal-study/README.md": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/de8f1a1817f88be76395/assets/carousels/signal-study/README.md",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/de8f1a1817f88be76395/assets/carousels/signal-study/README.md?download=1",
+    "size": 615,
+    "sha256": "de8f1a1817f88be763958572fb053c59fc94ef2f4ef454d21b60d678120979e0"
+  },
+  "assets/carousels/signal-study/preview.jpg": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/e00f6c1e01b54c6ad757/assets/carousels/signal-study/preview.jpg",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/e00f6c1e01b54c6ad757/assets/carousels/signal-study/preview.jpg?download=1",
+    "size": 175253,
+    "sha256": "e00f6c1e01b54c6ad757bd4bb26019d7781e6cd09b07c1bdd3d2d750fb3c4913"
+  },
+  "assets/carousels/signal-study/signal-study.pdf": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/751290acdd531acf307b/assets/carousels/signal-study/signal-study.pdf",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/751290acdd531acf307b/assets/carousels/signal-study/signal-study.pdf?download=1",
+    "size": 567567,
+    "sha256": "751290acdd531acf307b526511038e62ac7afb1461f8c83785272b71d26d29fa"
+  },
+  "assets/carousels/signal-study/signal-study.zip": {
+    "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/2ab09300cdb48f68d4ae/assets/carousels/signal-study/signal-study.zip",
+    "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/2ab09300cdb48f68d4ae/assets/carousels/signal-study/signal-study.zip?download=1",
+    "size": 1372964,
+    "sha256": "2ab09300cdb48f68d4aee4a628c4384e6a03847a05760d140035ef17b7f0a048"
+  },
   "assets/daylight-blog/choose-your-first-ai-project.png": {
     "url": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/49dd4d60176f0d56e288/assets/daylight-blog/choose-your-first-ai-project.png",
     "downloadUrl": "https://5zybebgzc9yyhaph.public.blob.vercel-storage.com/brand/49dd4d60176f0d56e288/assets/daylight-blog/choose-your-first-ai-project.png?download=1",

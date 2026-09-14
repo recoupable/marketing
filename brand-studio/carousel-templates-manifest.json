@@ -1,0 +1,59 @@
+[
+  {
+    "id": "carousel-blue-notes",
+    "title": "Blue notes",
+    "group": "carousels",
+    "preview": "assets/carousels/blue-notes/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/blue-notes/blue-notes.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/blue-notes/blue-notes.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "tool": "carousels?direction=blue-notes",
+    "description": "Expressive blue fields, bright accents and illustrated working documents."
+  },
+  {
+    "id": "carousel-paper-trail",
+    "title": "Paper trail",
+    "group": "carousels",
+    "preview": "assets/carousels/paper-trail/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/paper-trail/paper-trail.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/paper-trail/paper-trail.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "tool": "carousels?direction=paper-trail",
+    "description": "An editorial field note: warm paper, generous margins and crisp ink diagrams."
+  },
+  {
+    "id": "carousel-signal-study",
+    "title": "Signal study",
+    "group": "carousels",
+    "preview": "assets/carousels/signal-study/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/signal-study/signal-study.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/signal-study/signal-study.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "tool": "carousels?direction=signal-study",
+    "description": "Bold scale, abstract rhythms and simple infographics that change with the story."
+  }
+]

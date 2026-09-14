@@ -66,6 +66,16 @@ describe("Brand Studio assets", () => {
 });
 
 describe("Hosted Brand Studio media", () => {
+  it("delivers carousel PDFs from storage as document downloads", async () => {
+    const key = "assets/carousels/blue-notes/blue-notes.pdf";
+    const response = await serveAsset(
+      new Request("https://example.com/brand/" + key + "?download=1"),
+      key.split("/"),
+      "/no-local-media",
+    );
+    expect(response.status).toBe(307);
+    expect(response.headers.get("location")).toBe(blobAssets[key].downloadUrl);
+  });
   it("resolves a versioned media URL without requiring the original local file", async () => {
     const [key, media] = Object.entries(blobAssets)[0];
     const r = await serveAsset(
