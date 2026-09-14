@@ -147,6 +147,8 @@ def signal(n):
   s+=text('Build on it.',75,1164,73,LIME)+arrow(820,1134,150,LIME)
  return s+(rect(0,1236,1080,114,bg) if n==0 else "")+footer(n,fg)
 DIRECTIONS=[('blue-notes','Blue notes','Expressive blue fields, bright accents and illustrated working documents.',blue),('paper-trail','Paper trail','An editorial field note: warm paper, generous margins and crisp ink diagrams.',paper),('signal-study','Signal study','Bold scale, abstract rhythms and simple infographics that change with the story.',signal)]
+from carousel_directions import extra_directions
+DIRECTIONS += extra_directions(globals())
 manifest=[]
 for key,title,desc,fn in DIRECTIONS:
  d=OUT/key;d.mkdir(exist_ok=True)
@@ -156,4 +158,4 @@ for key,title,desc,fn in DIRECTIONS:
  manifest.append(dict(id='carousel-'+key,title=title,group='carousels',preview=f'assets/carousels/{key}/preview.jpg',files=[dict(label='LinkedIn PDF',path=f'assets/carousels/{key}/{key}.pdf'),dict(label='Full template kit',path=f'assets/carousels/{key}/{key}.zip')],collection='Social carousel templates',tool='carousels?direction='+key,description=desc))
 (ROOT/'carousel-templates-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 
-print('Created 18 SVG slides')
+print(f'Created {len(DIRECTIONS)*len(STORY)} SVG slides')

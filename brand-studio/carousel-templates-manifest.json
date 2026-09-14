@@ -55,5 +55,157 @@
     "collection": "Social carousel templates",
     "tool": "carousels?direction=signal-study",
     "description": "Bold scale, abstract rhythms and simple infographics that change with the story."
+  },
+  {
+    "id": "carousel-cobalt-press",
+    "title": "Cobalt press",
+    "group": "carousels",
+    "preview": "assets/carousels/cobalt-press/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/cobalt-press/cobalt-press.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/cobalt-press/cobalt-press.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "tool": "carousels?direction=cobalt-press",
+    "description": "A two-color print edition: cobalt ink, warm paper and oversized editorial illustrations."
+  },
+  {
+    "id": "carousel-margin-notes",
+    "title": "Margin notes",
+    "group": "carousels",
+    "preview": "assets/carousels/margin-notes/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/margin-notes/margin-notes.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/margin-notes/margin-notes.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "tool": "carousels?direction=margin-notes",
+    "description": "A working notebook with blue annotations, generous margins and understated ink drawings."
+  },
+  {
+    "id": "carousel-cut-paper",
+    "title": "Cut paper",
+    "group": "carousels",
+    "preview": "assets/carousels/cut-paper/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/cut-paper/cut-paper.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/cut-paper/cut-paper.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "tool": "carousels?direction=cut-paper",
+    "description": "Layered paper cutouts, torn edges and a consistent blue, lime and forest palette."
+  },
+  {
+    "id": "carousel-night-shift",
+    "title": "Night shift",
+    "group": "carousels",
+    "preview": "assets/carousels/night-shift/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/night-shift/night-shift.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/night-shift/night-shift.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "tool": "carousels?direction=night-shift",
+    "description": "Deep forest, a restrained pool of blue light and luminous line illustrations."
+  },
+  {
+    "id": "carousel-catalog-index",
+    "title": "Catalog index",
+    "group": "carousels",
+    "preview": "assets/carousels/catalog-index/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/catalog-index/catalog-index.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/catalog-index/catalog-index.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "tool": "carousels?direction=catalog-index",
+    "description": "An orderly reference file: indexed tabs, numbered panels and concise visual explanations."
+  },
+  {
+    "id": "carousel-blueprint",
+    "title": "Blueprint",
+    "group": "carousels",
+    "preview": "assets/carousels/blueprint/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/blueprint/blueprint.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/blueprint/blueprint.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "tool": "carousels?direction=blueprint",
+    "description": "Pale blue construction paper, fine guide lines and clear diagrams in blue ink."
+  },
+  {
+    "id": "carousel-spotlight",
+    "title": "Spotlight",
+    "group": "carousels",
+    "preview": "assets/carousels/spotlight/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/spotlight/spotlight.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/spotlight/spotlight.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "tool": "carousels?direction=spotlight",
+    "description": "A bold blue poster with one enlarged visual idea in a cropped cream spotlight."
+  },
+  {
+    "id": "carousel-field-guide",
+    "title": "Field guide",
+    "group": "carousels",
+    "preview": "assets/carousels/field-guide/preview.jpg",
+    "files": [
+      {
+        "label": "LinkedIn PDF",
+        "path": "assets/carousels/field-guide/field-guide.pdf"
+      },
+      {
+        "label": "Full template kit",
+        "path": "assets/carousels/field-guide/field-guide.zip"
+      }
+    ],
+    "collection": "Social carousel templates",
+    "tool": "carousels?direction=field-guide",
+    "description": "Soft botanical greens and contour drawings turn the story into a simple visual journey."
   }
 ]

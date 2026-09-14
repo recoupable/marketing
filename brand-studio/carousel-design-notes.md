@@ -8,17 +8,23 @@ The titles must tell the whole story when read alone, in order. A reader should 
 
 Write and review the title sequence before choosing layouts. Every slide advances one idea and connects to the preceding title. Avoid fragments and ambiguous pronouns. Body copy and illustrations add detail or evidence; they cannot repair a missing connection. Choose slide types and length for the story rather than forcing every post into six steps.
 
-`carousel-content.json` is the source for the current example, including intentional line breaks. All three visual directions render that same title sequence. `carousel-story-rules.json` supplies the rules displayed in the viewer. New factual posts need sources; this reporting story remains a hypothetical example, not a client result.
+`carousel-content.json` is the source for the current example, including intentional line breaks. All eleven visual directions render that same title sequence. `carousel-story-rules.json` supplies the rules displayed in the viewer. New factual posts need sources; this reporting story remains a hypothetical example, not a client result.
 
 Blue is the lead visual direction. Paper trail, Signal study and future explorations remain available: choose the treatment to fit the story, retaining the established typography, spacing and small Recoup wordmark.
 
-## Three directions
+## Visual directions
 
 - Blue notes: the website's blue atmosphere, paired with cream line illustrations and restrained lime highlights.
 - Paper trail: warm paper, forest typography, generous margins, and editorial diagrams. The calmest direction.
 - Signal study: full-color changes, cropped geometry, oversized circles and sparse flow diagrams. The boldest direction.
 
 The copy is an original sample story about recurring reporting work, selected to be relevant to music rightsholder and fund executives. It is not drawn from private meeting content and does not claim client outcomes.
+
+## Further visual exploration
+
+The initial three directions are joined by Cobalt press, Margin notes, Cut paper, Night shift, Catalog index, Blueprint, Spotlight and Field guide. Each keeps the same title narrative while changing the illustration scale, composition, paper treatment or visual metaphor. Every direction maintains a coherent palette and illustration language across its six slides; variety comes between directions without making an individual story feel inconsistent.
+
+The viewer opens in Whole story, including when switching designs. Blue notes remains the lead direction, with the other treatments available according to the story.
 
 ## Production
 

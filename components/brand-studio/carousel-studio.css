@@ -373,3 +373,28 @@
     flex-wrap: wrap;
   }
 }
+
+.carousel-directions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  gap: 10px;
+}
+.carousel-directions button {
+  padding: 14px 16px;
+  font-size: 16px;
+  gap: 14px;
+  align-items: center;
+  text-align: left;
+}
+@media (max-width: 850px) {
+  .carousel-directions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+  }
+  .carousel-directions button {
+    font-size: 14px;
+    white-space: normal;
+    padding: 12px;
+    gap: 9px;
+  }
+}

@@ -36,7 +36,9 @@ export function CarouselStudio() {
         <Link href="/brand">Finals ↗</Link>
       </header>
       <div className="carousel-intro">
-        <p className="carousel-eyebrow">THREE DIRECTIONS · SIX SLIDES EACH</p>
+        <p className="carousel-eyebrow">
+          {directions.length} DIRECTIONS · SIX SLIDES EACH
+        </p>
         <h1>A story worth swiping.</h1>
         <p>
           Short ideas. Room to breathe. Illustrations that help tell the story.
@@ -56,7 +58,7 @@ export function CarouselStudio() {
               setView("overview");
             }}
           >
-            <span>0{i + 1}</span>
+            <span>{String(i + 1).padStart(2, "0")}</span>
             {d.title}
           </button>
         ))}
@@ -146,7 +148,7 @@ export function CarouselStudio() {
                     setView("slides");
                   }}
                 >
-                  <span>0{i + 1}</span>
+                  <span>{String(i + 1).padStart(2, "0")}</span>
                   <span>{s.title}</span>
                 </button>
               </li>
@@ -187,13 +189,13 @@ export function CarouselStudio() {
           </p>
           <p>
             Our export target is under 2 MB per image. The supplied images are
-            all under 150 KB.
+            all under 200 KB.
           </p>
         </div>
         <div>
           <h3>LinkedIn</h3>
           <p>
-            Upload the six-page PDF as a document post. These files are under 1
+            Upload the six-page PDF as a document post. These files are under 2
             MB, well below LinkedIn’s 100 MB / 300-page limits.
           </p>
           <p>4:5 is our shared design format, not a required LinkedIn size.</p>
