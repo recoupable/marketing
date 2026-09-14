@@ -33,7 +33,7 @@ export function SkyHero() {
       <div className="sky-hero-copy">
         <Link className="sky-hero-pill" href="/skills">
           <span className="sky-hero-pill-badge">New</span>
-          <span>Catalog Skills v2 is here</span>
+          <span>Catalog Skills V2 is here</span>
           <SkyArrow />
         </Link>
         <h1 id="sky-title">

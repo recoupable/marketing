@@ -1,53 +1,30 @@
 /* Three buying situations. Transformation is the main partnership. */
 .sky-offer-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(36px,5vw,76px); align-items: start; }
 .sky-offer-layout .sky-services-heading { position: sticky; top: 70px; }
-.sky-content .sky-offer-layout h2 { margin: 23px 0; font-size: clamp(36px,3.9vw,55px); line-height: 1.07; font-weight: 500; letter-spacing: -.048em; }
-.sky-content .sky-offer-layout h2 span { color: #087bab; }
-.sky-offer-intro { margin: 0 0 20px; max-width: 36ch; font-size: 17px; line-height: 1.65; color: #526a74; }
-.sky-offer-assurance { margin: 0 0 29px; padding-left: 17px; border-left: 2px solid #087bab; max-width: 33ch; font-size: 14px; line-height: 1.65; color: #365560; }
+.sky-content .sky-offer-layout h2 { max-width: 15ch; margin: 23px 0 30px; font-size: clamp(36px,3.9vw,55px); line-height: 1.07; font-weight: 500; letter-spacing: -.048em; text-wrap: balance; }
 .sky-offer-list { display: grid; gap: 19px; min-width: 0; }
-.sky-offer { min-width: 0; padding: clamp(25px,3vw,38px); border: 1px solid #dbe5e9; border-radius: 22px; background-color: #f6fafb; background-image: var(--recoup-surface-grain),linear-gradient(135deg,#ffffffa8,#ffffff00); background-size: 160px 160px,100% 100%; background-blend-mode: soft-light,normal; }
+.sky-offer { min-width: 0; padding: clamp(24px,2.6vw,32px); border: 1px solid #dbe5e9; border-radius: 22px; background-color: #f6fafb; background-image: var(--recoup-surface-grain),linear-gradient(135deg,#ffffffa8,#ffffff00); background-size: 160px 160px,100% 100%; background-blend-mode: soft-light,normal; }
 .sky-offer-top { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
-.sky-offer-audience { margin: 0 0 12px; max-width: 30ch; color: #526a74; font-size: 11px; line-height: 1.5; }
 .sky-content .sky-offer h3 { margin: 0; font-size: clamp(29px,2.7vw,38px); font-weight: 550; letter-spacing: -.04em; line-height: 1.1; }
-.sky-offer-symbol { flex: 0 0 86px; width: 86px; height: 86px; color: #087bab; }
-.sky-offer-benefit { margin: 24px 0 9px; font-size: 21px; line-height: 1.3; font-weight: 500; letter-spacing: -.025em; }
-.sky-offer-description { margin: 0; max-width: 53ch; color: #526a74; font-size: 15px; line-height: 1.65; }
-.sky-offer ul { display: grid; gap: 8px; list-style: none; margin: 25px 0; padding: 0; }
-.sky-offer li { display: flex; align-items: start; gap: 9px; color: #45636e; font-size: 12px; line-height: 1.55; }
-.sky-offer li svg { width: 15px; height: 15px; flex: none; color: #087bab; margin-top: 2px; }
+.sky-offer-symbol { flex: 0 0 64px; width: 64px; height: 64px; color: #087bab; }
+.sky-offer-description { margin: 18px 0 22px; max-width: 53ch; color: #526a74; font-size: 15px; line-height: 1.65; }
 .sky-offer > a { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 44px; padding-top: 15px; border-top: 1px solid #dbe5e9; color: #087bab; font-size: 14px; text-decoration: none; }
 .sky-offer > a svg { width: 20px; height: 20px; flex: none; }
 .sky-offer-transformation { background-color: #d6ff62; border-color: #c7eb62; box-shadow: 0 14px 28px -18px #6e912969; }
-.sky-offer-transformation :is(.sky-offer-symbol, .sky-offer-audience, .sky-offer-description, li, li svg, a) { color: #29462b; }
+.sky-offer-transformation :is(.sky-offer-symbol, .sky-offer-description, a) { color: #29462b; }
 .sky-offer-transformation > a { border-color: #a9cb55; }
 .sky-offer-transformation h3 { color: #172e27; }
-.sky-offer-outputs { margin-top: 42px; padding-top: 28px; border-top: 1px solid #dce6e9; display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(36px,5vw,76px); }
-.sky-offer-outputs p:last-child { margin: 12px 0 0; color: #526a74; font-size: 14px; line-height: 1.6; max-width: 35ch; }
-.sky-offer-outputs nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; }
-.sky-offer-outputs a { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px; font-size: 13px; color: #087bab; text-decoration: underline; text-underline-offset: 4px; }
-.sky-offer-outputs svg { flex: none; width: 16px; height: 16px; }
 @media (max-width:900px) {
  .sky-offer-layout { grid-template-columns: 1fr; gap: 32px; }
  .sky-offer-layout .sky-services-heading { position: static; }
  .sky-content .sky-offer-layout h2 { max-width: 19ch; }
- .sky-offer-intro { max-width: 53ch; }
- .sky-offer-assurance { max-width: none; }
- .sky-offer-outputs { grid-template-columns: 1fr; gap: 20px; }
 }
 @media (max-width:600px) {
  .sky-offer { padding: 25px 21px; border-radius: 18px; }
- .sky-offer-top { display: grid; grid-template-columns: minmax(0,1fr) 56px; gap: 13px; }
- .sky-offer-top > div { display: contents; }
- .sky-offer-top .sky-offer-audience { grid-column: 1; grid-row: 1; margin: 0; }
- .sky-offer-top .sky-offer-symbol { grid-column: 2; grid-row: 1; }
- .sky-offer-top h3 { grid-column: 1/-1; grid-row: 2; }
- .sky-offer-symbol { flex-basis: 56px; width: 56px; height: 56px; }
+ .sky-offer-top { gap: 13px; }
+ .sky-offer-symbol { flex-basis: 48px; width: 48px; height: 48px; }
  .sky-content .sky-offer h3 { font-size: clamp(26px,7vw,29px); }
- .sky-offer-intro { font-size: 16px; }
- .sky-offer-benefit { font-size: 21px; }
- .sky-offer li { font-size: 13px; }
- .sky-offer-outputs nav { grid-template-columns: 1fr; }
 }
+@media (max-width:380px) { .sky-offer-symbol { display: none; } }
 @media (max-height:650px) { .sky-offer-layout .sky-services-heading { position: static; } }
 @media print { .sky-offer-layout .sky-services-heading { position: static; }.sky-offer { break-inside: avoid; } }

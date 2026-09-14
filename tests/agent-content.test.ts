@@ -142,6 +142,12 @@ test("marketing responses visibly identify summaries and point to the complete p
   expect(publicTools.markdown).toMatch(/do not access private account or client information/);
 });
 
+test("homepage summary preserves the free audit scope and separate implementation pricing", async () => {
+  const result = await readAgentContent({ id: "page:/" });
+  expect(result.markdown).toContain("We review one workflow and identify a practical first step.");
+  expect(result.markdown).toContain("Implementation is scoped and priced separately.");
+});
+
 test("MDX presentation becomes readable Markdown without losing prose, links, or executable examples", () => {
   const source = [
     '<CardGroup cols={2}>',

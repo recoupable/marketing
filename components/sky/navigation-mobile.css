@@ -38,10 +38,8 @@
     min-height: 44px;
     padding: 11px 13px;
     gap: 0;
-    font:
-      500 11px/1.4 "IBM Plex Mono",
-      monospace;
-    letter-spacing: 0.02em;
+    font: 550 13px/1.4 var(--body);
+    letter-spacing: -0.01em;
     text-transform: none;
     white-space: nowrap;
   }

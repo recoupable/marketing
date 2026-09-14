@@ -4,7 +4,7 @@
   --nav-brand-gap: 11px;
   --nav-symbol-width: 20px;
   --nav-symbol-height: 24px;
-  --nav-link-gap: 21px;
+  --nav-link-gap: 24px;
 }
 
 .sky-site .ss-header .ss-wordmark {
@@ -32,6 +32,11 @@
 }
 .ss-header .ss-contact {
   justify-self: end;
+  font: 550 14px/1.4 var(--body);
+  letter-spacing: -0.01em;
+  text-transform: none;
+  min-height: 48px;
+  gap: 16px;
 }
 .ss-header .ss-desktop-nav {
   margin-left: 0;
@@ -47,11 +52,9 @@
   align-items: center;
   min-height: 38px;
   padding: 8px 0;
-  font:
-    400 11px/1.6 "IBM Plex Mono",
-    monospace;
-  letter-spacing: 0.065em;
-  text-transform: uppercase;
+  font: 500 14px/1.4 var(--body);
+  letter-spacing: -0.01em;
+  text-transform: none;
   white-space: nowrap;
 }
 

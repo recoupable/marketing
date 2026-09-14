@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { planPrice, pricingPlans, type PricingSelection } from "@/lib/pricing";
+import { homeCopy } from "@/lib/copy/home";
 
 /** The plan a visitor arrived with from /pricing, shown beside the brief so they can change it. */
 export function SelectedPlanAside({ selection }: { selection: PricingSelection }) {
@@ -12,6 +13,7 @@ export function SelectedPlanAside({ selection }: { selection: PricingSelection }
         <h2>{plan?.name ?? "Enterprise"}</h2>
         {price ? (
           <>
+            <p className="lead-selected-plan-terms">{homeCopy.engagements.startingAt}</p>
             <p className="lead-selected-plan-price"><strong>{price.monthly}</strong> / month</p>
             <p className="lead-selected-plan-terms">{price.terms} · USD</p>
           </>

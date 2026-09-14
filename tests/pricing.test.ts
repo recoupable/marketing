@@ -67,7 +67,7 @@ test("inquiry links round trip billing choices and enterprise makes no recurring
   const enterprise = parsePricingSelection("enterprise", "annual")!;
   expect(enterprise).toStrictEqual({ plan: "enterprise", billing: "monthly" });
   expect(pricingSelectionLabel(enterprise)).toBe("Enterprise · Custom engagement");
-  expect(pricingSelectionLabel({ plan: "advisory", billing: "annual" })).toBe("Advisory · $799/month · $9,588 billed annually");
+  expect(pricingSelectionLabel({ plan: "advisory", billing: "annual" })).toBe("Advisory · Starting at $799/month · $9,588 billed annually");
 });
 
 test("full plan and billing context survives edited briefs through copied email and CRM notes", async () => {

@@ -40,12 +40,14 @@
     gap: 15px;
     padding: 13px;
     border-radius: 9px;
-    font-size: 14px;
+    font: 500 14px/1.4 var(--body);
+    letter-spacing: -0.01em;
   }
   .ss-header .ss-mobile-menu nav a:hover {
     background: #eff7fb;
   }
   .ss-header .ss-mobile-menu nav a:last-child {
     background: #d6ff62;
+    font-weight: 550;
   }
 }

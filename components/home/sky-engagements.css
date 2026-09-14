@@ -1,9 +1,7 @@
 .sky-content .sky-section.sky-engagements { padding-top: 70px; padding-bottom: 42px; }
 .sky-engagement-heading { display: flex; justify-content: space-between; align-items: end; gap: 40px; }
-.sky-content .sky-engagements h2 { margin: 20px 0 24px; font-size: clamp(38px,4.4vw,62px); line-height: 1.06; letter-spacing: -.05em; font-weight: 500; }
+.sky-content .sky-engagements h2 { max-width: 13ch; margin: 20px 0 0; font-size: clamp(38px,4.4vw,62px); line-height: 1.06; letter-spacing: -.05em; font-weight: 500; }
 .sky-engagements h2 span { color: #087bab; }
-.sky-engagement-keep { white-space: nowrap; }
-.sky-engagement-heading > div > p:last-child { max-width: 580px; margin: 0; color: #526a74; font-size: 17px; line-height: 1.65; }
 .sky-engagement-billing { flex: none; border: 0; padding: 0; margin: 0 0 3px; }
 .sky-engagement-billing legend { padding: 0; margin-bottom: 10px; font-size: 12px; color: #526a74; }
 .sky-engagement-billing > div { display: flex; padding: 5px; background: #eef3f4; border: 1px solid #dee8eb; border-radius: 40px; }
@@ -16,18 +14,17 @@
 .sky-engagement-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; margin-top: 44px; }
 .sky-engagement-card { position: relative; display: flex; flex-direction: column; min-width: 0; padding: clamp(25px,3vw,44px); border: 1px solid #dce7e9; border-radius: 25px; background: #f6fafb; background-image: var(--recoup-surface-grain),radial-gradient(ellipse at 0 0,#fff 10%,#f0f7fa); background-size: 160px 160px,100% 100%; background-blend-mode: soft-light,normal; box-shadow: 0 3px 3px #16372e03,0 16px 38px -28px #16372e33; }
 .sky-engagement-card--partner { color: #fff; border-color: #31594c; background-color: #15352c; background-image: var(--recoup-surface-grain),radial-gradient(ellipse at 95% 0,#315c4d,#15352c 65%); box-shadow: 0 3px 3px #16372e08,0 20px 40px -25px #16372e55; }
-.sky-engagement-card-top { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 30px; }
+.sky-engagement-card-top { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 22px; }
 .sky-engagement-mark { display: grid; place-items: center; flex: none; width: 48px; height: 48px; background: white; color: #087bab; border: 1px solid #dce8ed; border-radius: 14px; box-shadow: 0 4px 10px #17332c08; }
 .sky-engagement-mark svg { width: 29px; height: 29px; }
 .sky-engagement-card--partner .sky-engagement-mark { background: #d6ff62; color: #18382e; border-color: #e3ff9b; }
-.sky-engagement-mode { font: 10px/1.5 "IBM Plex Mono",monospace; letter-spacing: .09em; color: #526a74; text-align: right; }
-.sky-engagement-card--partner .sky-engagement-mode { color: #d6ff62; }
 .sky-content .sky-engagement-card h3 { margin: 0 0 13px; font-size: clamp(29px,2.8vw,39px); line-height: 1.1; letter-spacing: -.04em; font-weight: 500; color: inherit; }
 .sky-engagement-description { max-width: 40ch; margin: 0; min-height: 53px; color: #526a74; font-size: 16px; line-height: 1.65; }
 .sky-engagement-card--partner .sky-engagement-description { color: #c3d8cf; }
-.sky-engagement-price { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 10px; margin-top: 31px; }
+.sky-engagement-price { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 10px; margin-top: 28px; }
 .sky-engagement-price strong { font-size: clamp(47px,4.6vw,66px); line-height: 1; font-weight: 500; letter-spacing: -.06em; font-variant-numeric: tabular-nums; }
 .sky-engagement-price > span { font-size: 14px; color: #526a74; }
+.sky-engagement-price-label { flex-basis: 100%; margin-bottom: 8px; line-height: 1.4; }
 .sky-engagement-terms { margin: 12px 0 25px; font-size: 12px; line-height: 1.5; color: #526a74; font-variant-numeric: tabular-nums; }
 .sky-engagement-card--partner :is(.sky-engagement-price > span,.sky-engagement-terms) { color: #bfd5ca; }
 .sky-engagement-action { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 54px; padding: 7px 8px 7px 21px; border: 1px solid #cbdcdf; border-radius: 40px; background: white; color: #18372e; font-size: 15px; font-weight: 500; text-decoration: none; transition: background .2s; }
@@ -37,40 +34,25 @@
 .sky-engagement-card--partner .sky-engagement-action > span { background: #16372e; color: #d6ff62; }
 .sky-engagement-action:hover { background: #eaf3f6; }
 .sky-engagement-card--partner .sky-engagement-action:hover { background: #c6f34e; }
-.sky-engagement-inclusions { border-top: 1px solid #d9e5e8; padding-top: 25px; margin-top: 28px; }
-.sky-engagement-inclusions > p { margin: 0 0 17px; font-size: 13px; font-weight: 600; }
-.sky-engagement-inclusions ul { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
-.sky-engagement-inclusions li { display: flex; align-items: start; gap: 10px; font-size: 14px; line-height: 1.5; color: #48616b; }
-.sky-engagement-inclusions li svg { width: 20px; height: 20px; flex: none; color: #087bab; }
-.sky-engagement-card--partner .sky-engagement-inclusions { border-color: #ffffff25; }
-.sky-engagement-card--partner li { color: #d4e4dc; }
-.sky-engagement-card--partner li svg { color: #d6ff62; }
-.sky-engagement-scope { margin: auto 0 0; padding-top: 27px; font-size: 12px; line-height: 1.6; color: #526a74; }
+.sky-engagement-scope { margin: 16px 0 0; font-size: 12px; line-height: 1.6; color: #526a74; }
 .sky-engagement-card--partner .sky-engagement-scope { color: #b9d0c4; }
-.sky-engagement-next { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 30px 2px 0; }
-.sky-engagement-next strong { font-size: 16px; font-weight: 500; }
-.sky-engagement-next p { margin: 7px 0 10px; color: #526a74; font-size: 14px; line-height: 1.6; }
-.sky-engagement-next > div > a { display: inline-flex; align-items: center; min-height: 44px; }
+.sky-engagement-next { display: flex; justify-content: flex-end; padding: 20px 2px 0; }
 .sky-engagement-next a { color: #087bab; text-decoration: none; font-size: 14px; }
 .sky-engagement-next a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .sky-engagement-next svg { width: 16px; height: 16px; vertical-align: middle; margin-left: 8px; }
-.sky-engagement-compare { flex: none; }
-.sky-engagement-compare > span { display: flex; align-items: center; gap: 10px; margin-top: 7px; color: #526a74; font-size: 12px; }
+.sky-engagement-compare { display: inline-flex; align-items: center; min-height: 44px; }
 @media (max-width: 760px) {
  .sky-content .sky-section.sky-engagements { padding: 40px 18px 34px; }
  .sky-engagement-heading { display: block; }
- .sky-engagement-heading > div > p:last-child { font-size: 16px; }
  .sky-engagement-billing { width: fit-content; margin-top: 26px; }
  .sky-engagement-grid { grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
  .sky-engagement-card { padding: 27px; border-radius: 21px; }
  .sky-engagement-card-top { margin-bottom: 25px; }
  .sky-engagement-description { min-height: 0; }
  .sky-engagement-price strong { font-size: 56px; }
- .sky-engagement-next { align-items: start; flex-direction: column; gap: 24px; }
- .sky-engagement-compare { border-top: 1px solid #dce7ea; padding-top: 20px; width: 100%; }
+ .sky-engagement-next { justify-content: flex-start; }
 }
 @media (max-width: 360px) {
  .sky-engagement-card { padding: 23px 20px; }
  .sky-engagement-price strong { font-size: 49px; }
- .sky-engagement-mode { font-size: 9px; }
 }

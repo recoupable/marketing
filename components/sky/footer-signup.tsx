@@ -5,6 +5,7 @@ import Link from "next/link";
 import { SkyArrow } from "./arrow";
 import { useSubscribeForm } from "@/hooks/useSubscribeForm";
 import "./footer-signup.css";
+import { footerCopy } from "@/lib/copy/footer";
 
 export function FooterSignup() {
   const id = useId();
@@ -34,7 +35,7 @@ export function FooterSignup() {
           aria-describedby={`${id}-note`}
         >
           <label className="footer-signup-label" htmlFor={`${id}-email`}>
-            Stay updated with our latest insights.
+            {footerCopy.signupLabel}
           </label>
           <fieldset className="footer-signup-field" disabled={form.busy}>
             <input
