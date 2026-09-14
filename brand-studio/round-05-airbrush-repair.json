@@ -1,0 +1,48 @@
+[
+  {
+    "subject": "book",
+    "title": "Open book \u00b7 painted airbrush",
+    "description": "A blank open book rendered as exaggerated rounded page shapes with one curling page, broad lime shading and soft sprayed-pigment stippling.",
+    "prompt": "Use case: illustration-story.\nCreate a BOLD EXPRESSIVE TWO-DIMENSIONAL AIRBRUSH ILLUSTRATION for retro album art. This must unmistakably look like an artist PAINTED it with sprayed pigment, using exaggerated plush rounded forms, simplified hand-painted imperfect curves, opaque painted fills, soft stippled spray shadows and bright colored edges. Invented painterly volume, not real-world product lighting. The surface texture is made of colored dry spray dots, not actual material texture. Simplify aggressively: no tiny realistic manufacturing details. Confident, playful, visually striking 1980s poster illustration.\nColors: deep forest #132B26, opaque warm ivory #F8FAF5, bright luminous lime #D6FF62. Make lime an emphatic painterly color: broad lime shaded edges and lime/forest colored shadows within the form, not merely one thin accent. Use a few broad uneven color transitions that follow the illustrated object. A soft 2D airbrushed rendering with plush shape language, not sharp vector, ink hatching, paper collage, glass or 3D product rendering.\nONE single centered object fills roughly 80 percent of a square canvas with transparent margins all around. Deliver a genuine RGBA PNG with fully transparent alpha outside the object. NO background image or color; all surrounding pixels must be alpha 0. Internal ivory painted areas remain fully opaque. No gradient background, backdrop, floor, shadow plane, surrounding cast shadow, panel, frame, checkerboard pattern, photograph, photographic material texture, glossy reflections, metallic glints, logos, letters, numbers, text or watermark. No realistic product shot. This is a standalone painted illustration on true transparency.\n\nSubject: one open blank book with exactly one page curling upward from the right side toward the center. View from a gentle elevated three-quarter angle, book rotated slightly clockwise, spine extending away from the viewer. Keep the familiar open-book silhouette.\nPAINTED SHAPE LANGUAGE: construct the book from two broad opaque ivory page-block shapes that are exaggerated, plush and rounded, with a thick forest-and-lime cover underneath. A single broad page curls upward like a soft hand-painted ribbon, still clearly attached to the book and not an extra object. No actual page-stack microdetail: just two or three curved strokes suggesting page layers. Generous BRIGHT LIME sprayed shading wraps around the cover and page-block edges; deep forest colored shadows model the underside of the curling page. Visible dry spray-pigment stippling dissolves the broad shading into opaque ivory. Simplified irregular painterly contours, expressive soft rounded forms, retro 1980s album-art airbrush illustration. No photoreal paper fiber, hard product rendering, wet gloss, ink hatching or text. Entire single book stays inside the square canvas.",
+    "id": "style05-art-book-airbrush",
+    "kind": "illustration",
+    "style": "airbrush",
+    "status": "proposed",
+    "referenced_image_paths": [],
+    "generator": "image_gen (built-in)",
+    "supersedes": "assets/style-lab/illustrations/book-airbrush.png",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-1f280c73-b995-48a8-9137-cb4908740dc8.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.4652,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "preview": "assets/style-lab/illustrations/book-airbrush-painted-v2.png"
+  },
+  {
+    "subject": "record",
+    "title": "Record and sleeve \u00b7 painted airbrush",
+    "description": "A simplified record and sleeve with plush painted forms, a large lime label, broad colored shading and visible dry spray stippling.",
+    "prompt": "Use case: illustration-story.\nCreate a BOLD EXPRESSIVE TWO-DIMENSIONAL AIRBRUSH ILLUSTRATION for retro album art. This must unmistakably look like an artist PAINTED it with sprayed pigment, using exaggerated plush rounded forms, simplified hand-painted imperfect curves, opaque painted fills, soft stippled spray shadows and bright colored edges. Invented painterly volume, not real-world product lighting. The surface texture is made of colored dry spray dots, not actual material texture. Simplify aggressively: no tiny realistic manufacturing details. Confident, playful, visually striking 1980s poster illustration.\nColors: deep forest #132B26, opaque warm ivory #F8FAF5, bright luminous lime #D6FF62. Make lime an emphatic painterly color: broad lime shaded edges and lime/forest colored shadows within the form, not merely one thin accent. Use a few broad uneven color transitions that follow the illustrated object. A soft 2D airbrushed rendering with plush shape language, not sharp vector, ink hatching, paper collage, glass or 3D product rendering.\nONE single centered object fills roughly 80 percent of a square canvas with transparent margins all around. Deliver a genuine RGBA PNG with fully transparent alpha outside the object. NO background image or color; all surrounding pixels must be alpha 0. Internal ivory painted areas remain fully opaque. No gradient background, backdrop, floor, shadow plane, surrounding cast shadow, panel, frame, checkerboard pattern, photograph, photographic material texture, glossy reflections, metallic glints, logos, letters, numbers, text or watermark. No realistic product shot. This is a standalone painted illustration on true transparency.\n\nSubject: one stylized plain vinyl record half emerging from a square ivory record sleeve, slight three-quarter angle, sleeve tilted gently clockwise with its top edge sloping down to the right, disc emerging upward/right. Preserve the simple circle-plus-square reading and overall familiar record-and-sleeve arrangement.\nPAINTED SHAPE LANGUAGE: a thick rounded forest-colored disc, slightly wonky hand-painted circular contour, exactly two or three broad curved suggestions of grooves at most, no realistic tight concentric grooves. Large bright lime circle label, blank. The ivory sleeve has gently softened almost cushion-like corners, a broad glowing lime/forest SPRAY-PAINTED shaded edge, and a quiet opaque ivory face. Deliberately exaggerated rounded volume and a few obvious imperfect hand-painted curves. All rendering is smooth opaque sprayed pigment plus visible fine-to-medium stippling, painterly broad colored shadows, never photoreal plastic, vinyl, metal or paper. The image should read at a glance as retro airbrush album-art illustration. The bottom of sleeve and top of record stay inside the square canvas.",
+    "id": "style05-art-record-airbrush",
+    "kind": "illustration",
+    "style": "airbrush",
+    "status": "proposed",
+    "referenced_image_paths": [],
+    "generator": "image_gen (built-in)",
+    "supersedes": "assets/style-lab/illustrations/record-airbrush.png",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-eaa506b7-8e65-4750-9e9d-57f0c49f5d69.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true,
+    "transparentPixelFraction": 0.3826,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "preview": "assets/style-lab/illustrations/record-airbrush-painted-v2.png"
+  }
+]

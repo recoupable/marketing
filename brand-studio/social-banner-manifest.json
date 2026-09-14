@@ -1,0 +1,478 @@
+[
+  {
+    "id": "social-kit-linkedin-personal",
+    "slug": "linkedin-personal",
+    "title": "LinkedIn \u00b7 personal",
+    "width": 1584,
+    "height": 396,
+    "description": "Your selected banner, preserved exactly. Lower-left stays clear for the profile photo.",
+    "source": "https://www.linkedin.com/help/linkedin/answer/a568217/?lang=en-US",
+    "spec": "Recommended 1584 \u00d7 396; JPG or PNG; under 8 MB.",
+    "kind": "Cover",
+    "limit": 8000000,
+    "group": "social",
+    "preview": "assets/social-banner-kit/linkedin-personal.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/linkedin-personal.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/linkedin-personal.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#linkedin-personal",
+    "bytes": 120186
+  },
+  {
+    "id": "social-kit-linkedin-company",
+    "slug": "linkedin-company",
+    "title": "LinkedIn \u00b7 company Page",
+    "width": 4200,
+    "height": 700,
+    "description": "A wider, shallower layout for the company Page. Main message and cards move inward from the edges.",
+    "source": "https://www.linkedin.com/help/linkedin/answer/a563309?hcppcid=search",
+    "spec": "Current Page recommendation 4200 \u00d7 700; PNG or JPEG; maximum 3 MB.",
+    "kind": "Cover",
+    "limit": 3000000,
+    "group": "social",
+    "preview": "assets/social-banner-kit/linkedin-company.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/linkedin-company.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/linkedin-company.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#linkedin-company",
+    "bytes": 335727
+  },
+  {
+    "id": "social-kit-youtube",
+    "slug": "youtube",
+    "title": "YouTube \u00b7 channel",
+    "width": 2560,
+    "height": 1440,
+    "description": "Upload the full image. Logo, headline, subline, and cards sit inside a centered 1540 \u00d7 420 area; preview the narrow crop below.",
+    "source": "https://support.google.com/youtube/answer/10456525?hl=en",
+    "spec": "Recommended 2560 \u00d7 1440; minimum 2048 \u00d7 1152; text/logo safe area 1235 \u00d7 338 at minimum size; maximum 6 MB.",
+    "kind": "Cover",
+    "limit": 6000000,
+    "group": "social",
+    "preview": "assets/social-banner-kit/youtube.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/youtube.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/youtube.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#youtube",
+    "bytes": 423379
+  },
+  {
+    "id": "social-kit-x",
+    "slug": "x",
+    "title": "X \u00b7 header",
+    "width": 1500,
+    "height": 500,
+    "description": "A deeper blue field, with the headline away from the lower-left avatar and the top/bottom crop zones.",
+    "source": "https://help.x.com/articles/166743",
+    "spec": "Recommended 1500 \u00d7 500. Up to 60 px at the top and bottom can crop.",
+    "kind": "Cover",
+    "limit": null,
+    "group": "social",
+    "preview": "assets/social-banner-kit/x.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/x.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/x.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#x",
+    "bytes": 125833
+  },
+  {
+    "id": "social-kit-bluesky",
+    "slug": "bluesky",
+    "title": "Bluesky \u00b7 header",
+    "width": 1500,
+    "height": 500,
+    "description": "A deeper blue field, with the headline away from the lower-left avatar and the top/bottom crop zones.",
+    "source": "https://github.com/bluesky-social/social-app/blob/main/src/view/com/util/UserBanner.tsx",
+    "spec": "Official app uses a 3:1 crop. 1500 \u00d7 500 is our export choice, not a published mandatory pixel size.",
+    "kind": "Cover",
+    "limit": 1000000,
+    "group": "social",
+    "preview": "assets/social-banner-kit/bluesky.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/bluesky.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/bluesky.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#bluesky",
+    "bytes": 125833
+  },
+  {
+    "id": "social-kit-mastodon",
+    "slug": "mastodon",
+    "title": "Mastodon \u00b7 header",
+    "width": 1500,
+    "height": 500,
+    "description": "A deeper blue field, with the headline away from the lower-left avatar and the top/bottom crop zones.",
+    "source": "https://docs.joinmastodon.org/user/profile/",
+    "spec": "Headers are downscaled to 1500 \u00d7 500; maximum 2 MB. Instance rules can vary.",
+    "kind": "Cover",
+    "limit": 2000000,
+    "group": "social",
+    "preview": "assets/social-banner-kit/mastodon.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/mastodon.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/mastodon.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#mastodon",
+    "bytes": 125833
+  },
+  {
+    "id": "social-kit-facebook",
+    "slug": "facebook",
+    "title": "Facebook \u00b7 cover",
+    "width": 1702,
+    "height": 630,
+    "description": "A 2\u00d7 export of the 851 \u00d7 315 cover canvas. Important content is concentrated in the middle; use Facebook\u2019s final repositioning preview.",
+    "source": "https://www.facebook.com/help/125379114252045",
+    "spec": "851 \u00d7 315 guidance corroborated by a secondary source; Meta help was login-gated during research. Exported at 1702 \u00d7 630.",
+    "kind": "Cover",
+    "limit": null,
+    "group": "social",
+    "preview": "assets/social-banner-kit/facebook.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/facebook.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/facebook.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#facebook",
+    "bytes": 149631
+  },
+  {
+    "id": "social-kit-twitch",
+    "slug": "twitch",
+    "title": "Twitch \u00b7 profile banner",
+    "width": 1200,
+    "height": 480,
+    "description": "Left-weighted typography follows Twitch\u2019s guidance. Channel UI and browser width can change how much of the banner is visible.",
+    "source": "https://help.twitch.tv/s/article/channel-page-setup?language=en_US",
+    "spec": "Recommended 1200 \u00d7 480; graphics concentrated on the left.",
+    "kind": "Cover",
+    "limit": null,
+    "group": "social",
+    "preview": "assets/social-banner-kit/twitch.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/twitch.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/twitch.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#twitch",
+    "bytes": 111774
+  },
+  {
+    "id": "social-kit-pinterest",
+    "slug": "pinterest",
+    "title": "Pinterest \u00b7 business cover",
+    "width": 1600,
+    "height": 900,
+    "description": "A spacious landscape composition with the same card details and blue sweep.",
+    "source": "https://help.pinterest.com/en/business/article/personalize-your-profile",
+    "spec": "Business profile cover: minimum 800 \u00d7 450, recommended 16:9. Our export is 1600 \u00d7 900.",
+    "kind": "Cover",
+    "limit": null,
+    "group": "social",
+    "preview": "assets/social-banner-kit/pinterest.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/pinterest.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/pinterest.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#pinterest",
+    "bytes": 195621
+  },
+  {
+    "id": "social-kit-tumblr",
+    "slug": "tumblr",
+    "title": "Tumblr \u00b7 header",
+    "width": 2048,
+    "height": 1152,
+    "description": "A spacious landscape composition with the same card details and blue sweep.",
+    "source": "https://help.tumblr.com/knowledge-base/appearance-options/",
+    "spec": "Ideal 2048 \u00d7 1152, 16:9; maximum 10 MB.",
+    "kind": "Cover",
+    "limit": 10000000,
+    "group": "social",
+    "preview": "assets/social-banner-kit/tumblr.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/tumblr.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/tumblr.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#tumblr",
+    "bytes": 280732
+  },
+  {
+    "id": "social-kit-reddit-desktop",
+    "slug": "reddit-desktop",
+    "title": "Reddit \u00b7 community desktop",
+    "width": 2144,
+    "height": 256,
+    "description": "Community artwork, not a personal profile header. The shallow format uses one headline line and a compact card group.",
+    "source": "https://support.reddithelp.com/hc/en-us/articles/15484339588884-Banner",
+    "spec": "Desktop minimum 1072 \u00d7 128; mobile minimum 1080 \u00d7 128. These exports are 2\u00d7 the respective minimums.",
+    "kind": "Cover",
+    "limit": null,
+    "group": "social",
+    "preview": "assets/social-banner-kit/reddit-desktop.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/reddit-desktop.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/reddit-desktop.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#reddit-desktop",
+    "bytes": 104669
+  },
+  {
+    "id": "social-kit-reddit-mobile",
+    "slug": "reddit-mobile",
+    "title": "Reddit \u00b7 community mobile",
+    "width": 2160,
+    "height": 256,
+    "description": "Community artwork, not a personal profile header. The shallow format uses one headline line and a compact card group.",
+    "source": "https://support.reddithelp.com/hc/en-us/articles/15484339588884-Banner",
+    "spec": "Desktop minimum 1072 \u00d7 128; mobile minimum 1080 \u00d7 128. These exports are 2\u00d7 the respective minimums.",
+    "kind": "Cover",
+    "limit": null,
+    "group": "social",
+    "preview": "assets/social-banner-kit/reddit-mobile.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/reddit-mobile.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/reddit-mobile.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#reddit-mobile",
+    "bytes": 104671
+  },
+  {
+    "id": "social-kit-discord-profile",
+    "slug": "discord-profile",
+    "title": "Discord \u00b7 profile banner",
+    "width": 1360,
+    "height": 480,
+    "description": "Keeps the lower-left clear for the avatar. Requires a Nitro account with profile banner access.",
+    "source": "https://support.discord.com/hc/en-us/articles/4403147417623-Custom-Profiles",
+    "spec": "Minimum 680 \u00d7 240; maximum 10 MB. Exported at 1360 \u00d7 480.",
+    "kind": "Cover",
+    "limit": 10000000,
+    "group": "social",
+    "preview": "assets/social-banner-kit/discord-profile.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/discord-profile.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/discord-profile.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#discord-profile",
+    "bytes": 114537
+  },
+  {
+    "id": "social-kit-discord-server",
+    "slug": "discord-server",
+    "title": "Discord \u00b7 server banner",
+    "width": 960,
+    "height": 540,
+    "description": "Art-only: blue sweep and report/catalog/review illustrations. No text or logo; the top remains quiet for the server name.",
+    "source": "https://support.discord.com/hc/en-us/articles/360028716472",
+    "spec": "Minimum 960 \u00d7 540, 16:9. Keep top 48 px clear; avoid logos and text. Requires an eligible boosted or partnered server.",
+    "kind": "Cover",
+    "limit": null,
+    "group": "social",
+    "preview": "assets/social-banner-kit/discord-server.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/discord-server.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/discord-server.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#discord-server",
+    "bytes": 83690
+  },
+  {
+    "id": "social-kit-soundcloud",
+    "slug": "soundcloud",
+    "title": "SoundCloud \u00b7 header",
+    "width": 2480,
+    "height": 520,
+    "description": "Art-only, following SoundCloud\u2019s recommendation to avoid text in headers. The music-business illustrations carry the brand.",
+    "source": "https://help.soundcloud.com/hc/en-us/articles/115003450007-Profile-image-and-header",
+    "spec": "At least 2480 \u00d7 520; JPG or PNG; maximum 2 MB.",
+    "kind": "Cover",
+    "limit": 2000000,
+    "group": "social",
+    "preview": "assets/social-banner-kit/soundcloud.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/soundcloud.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/soundcloud.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "tool": "social-banner-kit.html#soundcloud",
+    "bytes": 139878
+  },
+  {
+    "id": "social-kit-instagram-threads",
+    "slug": "instagram-threads",
+    "title": "Instagram / Threads \u00b7 portrait post",
+    "width": 1080,
+    "height": 1350,
+    "description": "Companion post artwork in a chosen 4:5 canvas. This is not a profile banner.",
+    "source": "",
+    "spec": "Chosen 1080 \u00d7 1350 post canvas; not a profile-header specification.",
+    "kind": "Companion",
+    "limit": null,
+    "group": "social",
+    "preview": "assets/social-banner-kit/instagram-threads.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/instagram-threads.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/instagram-threads.svg"
+      }
+    ],
+    "collection": "Blue sweep / companion posts",
+    "current": true,
+    "tool": "social-banner-kit.html#instagram-threads",
+    "bytes": 226503
+  },
+  {
+    "id": "social-kit-tiktok-reels",
+    "slug": "tiktok-reels",
+    "title": "TikTok / Reels \u00b7 vertical cover",
+    "width": 1080,
+    "height": 1920,
+    "description": "Companion video-cover artwork in a chosen 9:16 canvas. Keep the final app\u2019s captions and controls in mind when positioning.",
+    "source": "",
+    "spec": "Chosen 1080 \u00d7 1920 video-cover canvas; not a profile-header specification.",
+    "kind": "Companion",
+    "limit": null,
+    "group": "social",
+    "preview": "assets/social-banner-kit/tiktok-reels.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/tiktok-reels.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/tiktok-reels.svg"
+      }
+    ],
+    "collection": "Blue sweep / companion posts",
+    "current": true,
+    "tool": "social-banner-kit.html#tiktok-reels",
+    "bytes": 285431
+  }
+]

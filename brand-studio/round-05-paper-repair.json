@@ -1,0 +1,34 @@
+[
+  {
+    "id": "style05-art-book-paper",
+    "subject": "book",
+    "style": "paper",
+    "title": "Open book / Flat cut paper",
+    "description": "An open book with one curling page, built from simple flat layers of forest, ivory, and lime paper.",
+    "prompt": "Create one square standalone editorial illustration on a genuinely transparent RGBA background with an alpha channel. The subject occupies around 85 percent of the square. Use FLAT 2D CUT-PAPER ART: simple geometric silhouettes made from clearly separate sheets of SOLID COLOR paper, with handmade scissor-cut or slightly torn imperfect edges. Palette limited to deep forest #132B26, warm ivory #F8FAF5, vivid lime #D6FF62. This must read as graphic flat collage, not a realistic object, product photograph, 3D render, painted realism or photographic paper sculpture. No perspective depth, no realistic specular highlights, no reflections, no gradients; little or no shading. No text, logo, watermark, border, scene, background color, background panel, checkerboard pattern or transparency grid. The entire area outside the subject must be genuinely transparent, not white and not a drawn checkerboard. Subject: a FLAT PAPER COLLAGE depiction of an open book with ONE curling page. View it from directly overhead as a graphic silhouette. The open book consists of two broad irregular ivory cut-paper page shapes meeting at a forest central spine on a slightly larger deep-forest cut-paper cover silhouette. Depict the one curling page entirely through a simple overlapping solid ivory shape and a solid lime underside wedge; absolutely no modeled light-and-shadow curl, photoreal bending or dimensional rendering. An irregular forest ink-like cut-paper line may separate the pages. Pages are blank. Use only a few broad flat pieces, not dozens of thin pages. Keep shape edges visibly scissor-cut and a little imperfect, bold and graphic like contemporary handmade editorial collage. It should unmistakably look like paper shapes forming an illustration of a book, NOT a real book photographed on a transparent background.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-fb57ef30-52dc-4102-9db1-5a2a856dc02f.png",
+    "kind": "illustration",
+    "status": "proposed",
+    "referenced_image_paths": [],
+    "preview": "assets/style-lab/illustrations/book-paper-flat-v2.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true
+  },
+  {
+    "id": "style05-art-record-paper",
+    "subject": "record",
+    "style": "paper",
+    "title": "Record / Flat cut paper",
+    "description": "A record half outside an ivory sleeve, assembled from flat forest, ivory, and lime cut-paper shapes.",
+    "prompt": "Create one square standalone editorial illustration on a genuinely transparent RGBA background with an alpha channel. The subject occupies around 85 percent of the square. Use FLAT 2D CUT-PAPER ART: simple geometric silhouettes made from clearly separate sheets of SOLID COLOR paper, with handmade scissor-cut or slightly torn imperfect edges. Palette limited to deep forest #132B26, warm ivory #F8FAF5, vivid lime #D6FF62. This must read as graphic flat collage, not a realistic object, product photograph, 3D render, painted realism or photographic paper sculpture. No perspective depth, no realistic specular highlights, no reflections, no gradients; little or no shading. No text, logo, watermark, border, scene, background color, background panel, checkerboard pattern or transparency grid. The entire area outside the subject must be genuinely transparent, not white and not a drawn checkerboard. Subject: a FLAT PAPER COLLAGE depiction of a music record half out of a plain ivory sleeve. Frontal graphic view. The sleeve is an imperfect scissor-cut ivory square covering the lower-left half of one deep-forest paper circle, so the record emerges at upper-right. The record itself is nothing but a solid forest paper disc, a smaller lime circle label at its center, and a tiny forest circle at the middle. At most THREE thin cut-paper concentric rings may suggest grooves, but NO realistic microgrooves, shiny vinyl, shine or texture rendering. The sleeve has no folds, printing, seam realism or photographic volume. Make the paper edges clearly and confidently handmade. Simple bold flat silhouettes with a slight irregularity to the circle and square. It must unmistakably look like someone used scissors to cut forest, ivory and lime paper shapes and assembled this 2D image.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-e0a362f3-0842-4ec2-a87f-3b5efa40d91a.png",
+    "kind": "illustration",
+    "status": "proposed",
+    "referenced_image_paths": [],
+    "preview": "assets/style-lab/illustrations/record-paper-flat-v2.png",
+    "width": 1254,
+    "height": 1254,
+    "hasAlpha": true
+  }
+]

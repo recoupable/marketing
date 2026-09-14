@@ -1,0 +1,94 @@
+[
+  {
+    "id": "editorial10-03",
+    "category": "editorial-10",
+    "family": "geometry",
+    "title": "Layered panels",
+    "sampleTitle": "Build systems your team can trust",
+    "headline": "Choose your first\nAI project.",
+    "description": "Three broad panels overlap at different heights, extending the rounded surfaces used on the Recoup website.",
+    "patternRule": "Use generous rounded rectangles, stepped overlap, and a deliberate edge crop. Keep them empty so the structure carries the image.",
+    "gradientRule": "Light travels down the panels. The pale background stays flat; each layer has a different tonal range.",
+    "paletteName": "Pale blue / blue / lime",
+    "preview": "assets/editorial-10/option-03.png",
+    "artPreview": "assets/editorial-10/option-03-art.png",
+    "feedPreview": "assets/editorial-10/option-03-feed.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-10/option-03.png"
+      },
+      {
+        "label": "Thumbnail editable SVG",
+        "path": "assets/editorial-10/option-03.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-10/option-03-art.png"
+      },
+      {
+        "label": "Artwork editable SVG",
+        "path": "assets/editorial-10/option-03-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-03-feed.png"
+      },
+      {
+        "label": "Example article editable SVG",
+        "path": "assets/editorial-10/option-03-feed.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "Actual DM Sans 450",
+    "status": "proposed",
+    "generator": "native SVG"
+  },
+  {
+    "id": "editorial10-06",
+    "category": "editorial-10",
+    "family": "geometry",
+    "title": "Soft imprint",
+    "sampleTitle": "Give your team a clear starting point",
+    "headline": "Choose your first\nAI project.",
+    "description": "One enlarged, blurred impression of the Recoup symbol carries soft light through the blue field. The headline sits clear of it.",
+    "patternRule": "Use one cropped impression of the exact Recoup mark. Blur its edges enough to read as atmosphere; keep the rest of the composition quiet.",
+    "gradientRule": "A diffuse cyan highlight lives within the left-hand imprint. The lower-right title area is an even blue.",
+    "paletteName": "Blue / diffused cyan",
+    "preview": "assets/editorial-10/option-06.png",
+    "artPreview": "assets/editorial-10/option-06-art.png",
+    "feedPreview": "assets/editorial-10/option-06-feed.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-10/option-06.png"
+      },
+      {
+        "label": "Thumbnail editable SVG",
+        "path": "assets/editorial-10/option-06.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-10/option-06-art.png"
+      },
+      {
+        "label": "Artwork editable SVG",
+        "path": "assets/editorial-10/option-06-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-06-feed.png"
+      },
+      {
+        "label": "Example article editable SVG",
+        "path": "assets/editorial-10/option-06-feed.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "Actual DM Sans 450",
+    "status": "proposed",
+    "generator": "native SVG"
+  }
+]

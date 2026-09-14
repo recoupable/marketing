@@ -1,0 +1,82 @@
+[
+  {
+    "id": "linkedin-art-card-details",
+    "title": "01 \u00b7 Working cards",
+    "description": "Small report, catalog, and review illustrations add detail to the cards.",
+    "group": "social",
+    "preview": "assets/linkedin-art/card-details.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-art/card-details.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-art/card-details.svg"
+      }
+    ],
+    "collection": "LinkedIn / art details",
+    "current": true,
+    "tool": "linkedin-banners.html#art-card-details"
+  },
+  {
+    "id": "linkedin-art-light-planes",
+    "title": "02 \u00b7 Light planes",
+    "description": "Large translucent planes frame the composition with a sharper editorial edge.",
+    "group": "social",
+    "preview": "assets/linkedin-art/light-planes.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-art/light-planes.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-art/light-planes.svg"
+      }
+    ],
+    "collection": "LinkedIn / art details",
+    "current": true,
+    "tool": "linkedin-banners.html#art-light-planes"
+  },
+  {
+    "id": "linkedin-art-catalog-press",
+    "title": "03 \u00b7 Catalog press",
+    "description": "Cropped record rings and a fine grid add a music and print reference.",
+    "group": "social",
+    "preview": "assets/linkedin-art/catalog-press.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-art/catalog-press.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-art/catalog-press.svg"
+      }
+    ],
+    "collection": "LinkedIn / art details",
+    "current": true,
+    "tool": "linkedin-banners.html#art-catalog-press"
+  },
+  {
+    "id": "linkedin-art-blue-sweep",
+    "title": "04 \u00b7 Blue sweep",
+    "description": "A broad translucent sweep brings movement through the blue field.",
+    "group": "social",
+    "preview": "assets/linkedin-art/blue-sweep.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-art/blue-sweep.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-art/blue-sweep.svg"
+      }
+    ],
+    "collection": "LinkedIn / art details",
+    "current": true,
+    "tool": "linkedin-banners.html#art-blue-sweep"
+  }
+]

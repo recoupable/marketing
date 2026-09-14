@@ -1,0 +1,85 @@
+[
+  {
+    "id": "editorial09-p01",
+    "title": "Nested contours \u00b7 subtle edge",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "The existing blue type-and-pattern cover with a small, soft cyan-to-lime shift at the lower-right edge.",
+    "category": "editorial-09",
+    "family": "thumbnail",
+    "paletteName": "Blue",
+    "palette": {
+      "background": "#0565BB",
+      "text": "#FFFFFF",
+      "accents": [
+        "#132B26",
+        "#C2EDFF",
+        "#D6FF62"
+      ]
+    },
+    "preview": "assets/editorial-09/pattern-01.png",
+    "originalPreview": "assets/editorial-08/pattern-01.png",
+    "prompt": "Edit the supplied finished Recoup editorial thumbnail with the smallest possible change. This is a precision background-only edit, not a redesign. Preserve exactly the original 1672\u00d7941 landscape canvas, all existing title wording, punctuation, two-line break, font appearance, letterforms, weight, size, tracking, location, white text color, and ALL existing dark-forest and pale-blue contour strokes and their positions. Exact title remains:\nChoose your first\nAI project.\nKeep the entire image virtually unchanged. Add ONLY a barely perceptible soft color gradient at the very bottom-right outer edge, BEHIND the existing contour arcs. The blue base in the original is authoritative: do not recolor it. Only the extreme bottom-right edge should drift slightly toward cyan with a tiny trace of Recoup lime #D6FF62 confined to the farthest corner tip. Think 95% of the original appearance, 5% added atmosphere; dial strength down dramatically. Smooth feathered falloff, no visible patch boundary. At least 85\u201390% of the canvas must look like the original flat uninterrupted blue. The entire headline region and all upper/left/central space stay unchanged. No color wash across the composition. Do not add grain, noise, blur to typography or pattern, texture, shapes, icons, objects, logos, or other text. Do not move, reshape, remove, or add any curve. Preserve all original compositional geometry and crispness. Output ONE finished edited PNG only.",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09320-6448-7823-a493-4679aa51ebc3/exec-fddaf236-86dd-4b89-88b7-8942a379384f.png",
+    "referencePaths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-01.png"
+    ],
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-01.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-01.txt"
+      }
+    ],
+    "typography": "Existing DM Sans-style regular typography preserved",
+    "generator": "image_gen (built-in edit)",
+    "sha256": "a698e845d82c5eeef14e580ec59b925c0a9e5197229e778cef7cbdc6bd36d05e"
+  },
+  {
+    "id": "editorial09-p02",
+    "title": "Converging lines \u00b7 subtle edge",
+    "sampleTitle": "Connect your company\u2019s knowledge",
+    "headline": "Connect your\ncompany\u2019s knowledge.",
+    "description": "The existing forest type-and-pattern cover with a restrained blue gradient confined to the lower-right edge.",
+    "category": "editorial-09",
+    "family": "thumbnail",
+    "paletteName": "Forest",
+    "palette": {
+      "background": "#132B26",
+      "text": "#D6FF62",
+      "accents": [
+        "#C2EDFF",
+        "#007EBD"
+      ]
+    },
+    "preview": "assets/editorial-09/pattern-02.png",
+    "originalPreview": "assets/editorial-08/pattern-02.png",
+    "prompt": "Edit the supplied finished Recoup editorial thumbnail with the smallest possible change. This is a precision background-only edit, not a redesign. Preserve exactly the original 1672\u00d7941 landscape canvas, all existing title wording, punctuation, two-line break, font appearance, letterforms, weight, size, tracking, location, lime text color, and ALL existing pale-ice converging lines and endpoint circles and their positions. Exact title remains:\nConnect your\ncompany\u2019s knowledge.\nKeep the entire image virtually unchanged. Add ONLY an extremely subtle soft gradient in the very bottom-right outer corner BEHIND the existing converging lines. The original deep forest green background is authoritative; do not change or lighten the base color. Let the farthest bottom-right edge have only a restrained hint of Recoup blue #007EBD softly blended into forest #132B26. The effect should be barely perceptible and smaller/quieter than a usual gradient. Think 95% of the original appearance, 5% added atmosphere. Smooth soft falloff, no sharply bounded patch. At least 85\u201390% of the image must remain the same deep forest field. The entire headline region, all upper/left/central space and the lime type stay unchanged. Do not spread blue into a color wash. No glow behind the headline. Do not add grain, noise, texture, blur to typography or pattern, shapes, objects, icons, logos, or any text. Do not move, reshape, remove or add any existing line or circle. Keep all original compositional geometry and crispness. Output ONE finished edited PNG only.",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09320-6448-7823-a493-4679aa51ebc3/exec-7c4d7033-17a7-449a-98f7-112f51d6ec09.png",
+    "referencePaths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-08/pattern-02.png"
+    ],
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-02.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-02.txt"
+      }
+    ],
+    "typography": "Existing DM Sans-style regular typography preserved",
+    "generator": "image_gen (built-in edit)",
+    "sha256": "2bd79df2681b78ee61726939deb92e54d4a1d5bd386f0e5060e71f373042b5ae"
+  }
+]

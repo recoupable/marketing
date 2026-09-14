@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>The Recoup Podcast — Kit study</title>
+  <link rel="icon" href="assets/logos/symbol-ink.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="podcast-kit.css">
+</head>
+<body>
+  <a class="skip" href="#preview">Skip to the preview</a>
+  <header class="top"><a href="./?collection=podcast#browse">↖ Brand Studio</a><span>THE RECOUP PODCAST <i>/</i> KIT STUDY 01</span><span class="draft">Proposed</span></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">A show that feels like Recoup.</p><h1>The podcast kit.</h1></div><p>One identity from the opening to the conversation. <br>Compare three directions, then try the whole set.</p></div>
+    <div id="directions" class="directions" role="group" aria-label="Podcast direction"></div>
+    <section class="workspace" id="preview" aria-label="Podcast kit preview">
+      <div class="workspace-heading"><div><span class="eyebrow" id="direction-number"></span><h2 id="direction-name"></h2></div><div id="formats" class="formats" role="group" aria-label="Preview format"></div></div>
+      <div id="stage" class="stage" role="img" aria-label="Podcast artwork preview"><p>Loading the podcast kit…</p></div>
+      <div class="player"><div class="playback"><button id="play" type="button">Play opening</button><button id="replay" type="button" aria-label="Restart animation">↺</button><input id="timeline" type="range" min="0" max="6" step="0.05" value="3" aria-label="Animation position"><span id="time">3.0 / 6.0</span></div><span id="motion-note">Six-second opening · silent</span></div>
+      <div class="under-stage"><div><p id="format-note"></p><label class="export-layer" id="export-layer-label" hidden>Download layer <select id="export-layer"><option value="frame">Frame + camera windows</option><option value="labels">Labels only for moving background</option></select></label></div><div class="export-actions"><button id="download-png" type="button">PNG ↓</button><button id="download-svg" type="button">Editable SVG ↓</button><a id="download-video" download>Opening MP4 ↓</a></div></div>
+      <details class="details"><summary>Edit the example episode <span>+</span></summary><form id="episode-form"><label class="title-field">Episode title<input name="title" maxlength="96" value="AI and the business of music" autocomplete="off"></label><label>Episode<input name="episode" maxlength="6" value="01" autocomplete="off"></label><label>Host<input name="host" maxlength="40" value="Host name" autocomplete="off"></label><label>Guest<input name="guest" maxlength="40" value="Guest name" autocomplete="off"></label></form><p>These are example details. Downloads use your text; the camera windows export as transparent openings.</p></details>
+    </section>
+    <section class="kit" aria-labelledby="kit-title"><div class="section-heading"><div><p class="eyebrow">Same identity. Every scene.</p><h2 id="kit-title">See the kit together.</h2></div><p>The background continues; the branding gets quieter <br>when the conversation begins.</p></div><div id="kit-grid" class="kit-grid"></div></section>
+    <section class="decisions"><div><span class="eyebrow">The idea to carry forward</span><h2>The people lead.<br>The brand holds the frame.</h2></div><div class="principles"><p><strong>A recognizable opening.</strong> The Recoup symbol introduces the show, then makes room for the title.</p><p><strong>A calm conversation.</strong> Large video windows, one small show lockup, and movement kept to the surrounding background.</p><p><strong>A consistent episode series.</strong> The same type, palette, and spacing connect each thumbnail to the show.</p></div></section>
+    <footer><p>Earlier kit study · <a href="podcast-kit-v2.html">See the new podcast kit options ↗</a><br>No soundtrack or guest footage included.</p><a href="assets/podcast-kit/recoup-podcast-directions.zip" download>Download the three sample kits ↓</a></footer>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+  <script type="module" src="podcast-kit.js"></script>
+</body>
+</html>

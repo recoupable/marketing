@@ -1,0 +1,143 @@
+[
+  {
+    "id": "editorial12-01",
+    "category": "editorial-12",
+    "family": "geometry",
+    "title": "Stronger contrast",
+    "sampleTitle": "Choose your first AI project",
+    "description": "The same crop, with a pale cyan middle shape and a forest back shape.",
+    "changes": [
+      "Pale cyan and forest create clear separation.",
+      "The background, crop, and headline match the original."
+    ],
+    "preview": "assets/editorial-12/option-01.png",
+    "artPreview": "assets/editorial-12/option-01-art.png",
+    "originalPreview": "assets/editorial-10/option-01-feed.png",
+    "originalId": "editorial10-01",
+    "patternRule": "Preserve the liked Offset blocks geometry. Change one main variable: contrast, depth, or crop.",
+    "gradientRule": "Flat color. The difference comes from the light and dark values of the filled shapes.",
+    "paletteName": "Blue / cyan / lime / forest",
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "width": 1920,
+    "height": 1080,
+    "status": "proposed",
+    "generator": "native SVG",
+    "files": [
+      {
+        "label": "Stronger contrast PNG",
+        "path": "assets/editorial-12/option-01.png"
+      },
+      {
+        "label": "Stronger contrast SVG",
+        "path": "assets/editorial-12/option-01.svg"
+      },
+      {
+        "label": "Artwork without text PNG",
+        "path": "assets/editorial-12/option-01-art.png"
+      },
+      {
+        "label": "Artwork without text SVG",
+        "path": "assets/editorial-12/option-01-art.svg"
+      }
+    ],
+    "tags": [
+      "Stronger contrast",
+      "Visible differences",
+      "Offset blocks"
+    ]
+  },
+  {
+    "id": "editorial12-02",
+    "category": "editorial-12",
+    "family": "geometry",
+    "title": "Dimensional surfaces",
+    "sampleTitle": "Choose your first AI project",
+    "description": "The same crop, with broad light across the faces and shadows at their overlaps.",
+    "changes": [
+      "Lighter upper faces make the layers more distinct.",
+      "Shadows at the overlaps add visible depth."
+    ],
+    "preview": "assets/editorial-12/option-02.png",
+    "artPreview": "assets/editorial-12/option-02-art.png",
+    "originalPreview": "assets/editorial-10/option-01-feed.png",
+    "originalId": "editorial10-01",
+    "patternRule": "Preserve the liked Offset blocks geometry. Change one main variable: contrast, depth, or crop.",
+    "gradientRule": "Directional gradients belong to the shape faces. Restrained rims and overlap shadows separate the layers.",
+    "paletteName": "Blue / cyan / lime",
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "width": 1920,
+    "height": 1080,
+    "status": "proposed",
+    "generator": "native SVG",
+    "files": [
+      {
+        "label": "Dimensional surfaces PNG",
+        "path": "assets/editorial-12/option-02.png"
+      },
+      {
+        "label": "Dimensional surfaces SVG",
+        "path": "assets/editorial-12/option-02.svg"
+      },
+      {
+        "label": "Artwork without text PNG",
+        "path": "assets/editorial-12/option-02-art.png"
+      },
+      {
+        "label": "Artwork without text SVG",
+        "path": "assets/editorial-12/option-02-art.svg"
+      }
+    ],
+    "tags": [
+      "Dimensional surfaces",
+      "Visible differences",
+      "Offset blocks"
+    ]
+  },
+  {
+    "id": "editorial12-03",
+    "category": "editorial-12",
+    "family": "geometry",
+    "title": "Bolder crop",
+    "sampleTitle": "Choose your first AI project",
+    "description": "The original motif is enlarged and cropped more tightly into the right and lower edges.",
+    "changes": [
+      "The pattern is visibly larger and enters from the top edge.",
+      "The original colors, finish, and headline stay the same."
+    ],
+    "preview": "assets/editorial-12/option-03.png",
+    "artPreview": "assets/editorial-12/option-03-art.png",
+    "originalPreview": "assets/editorial-10/option-01-feed.png",
+    "originalId": "editorial10-01",
+    "patternRule": "Preserve the liked Offset blocks geometry. Change one main variable: contrast, depth, or crop.",
+    "gradientRule": "Use the original tonal blue gradients. Only the motif scale and crop change.",
+    "paletteName": "Blue / cyan / lime",
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "width": 1920,
+    "height": 1080,
+    "status": "proposed",
+    "generator": "native SVG",
+    "files": [
+      {
+        "label": "Bolder crop PNG",
+        "path": "assets/editorial-12/option-03.png"
+      },
+      {
+        "label": "Bolder crop SVG",
+        "path": "assets/editorial-12/option-03.svg"
+      },
+      {
+        "label": "Artwork without text PNG",
+        "path": "assets/editorial-12/option-03-art.png"
+      },
+      {
+        "label": "Artwork without text SVG",
+        "path": "assets/editorial-12/option-03-art.svg"
+      }
+    ],
+    "tags": [
+      "Bolder crop",
+      "Visible differences",
+      "Offset blocks"
+    ]
+  }
+]

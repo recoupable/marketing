@@ -1,0 +1,624 @@
+[
+  {
+    "id": "exp02-gradient-01",
+    "title": "Blue to lime / Smooth",
+    "description": "Blue-to-lime color transition with an almost smooth finish, to compare directly with the fine and coarse grain versions.",
+    "noiseLevel": "Almost none",
+    "paletteId": "blue-lime",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#C2EDFF",
+      "#D6FF62"
+    ],
+    "prompt": "Create a single standalone high-resolution landscape 16:9 graphic background, ideally 2560\u00d71440 or larger. This is a flat editorial color-gradient background for Recoup, meant to sit behind typography added later. The canvas must have no text whatsoever, no letters, no logo, no symbols, no objects, no scenery, no clouds, no horizons, no glass, no glassmorphism, no embossing, no folded materials, no shadows, no dimensional surfaces, no light beams, no UI, no frame, no border, no contact sheet. Use beautiful strong clean luminosity and very soft broad transitions between colors, without banding. Keep most of the upper-left and central image usable behind type. Full bleed. Composition for a controlled gradient comparison: rich sky blue #007EBD covers the upper-left and most of the top/center, shifting softly through bright blue #168DDD and clear cyan across the center-right. A broad luminous citron-lime #D6FF62 glow enters from the lower-right edge and sweeps gently along the bottom, with soft pale aqua #C2EDFF transition between blue and lime. About two thirds blue and one third pale aqua/lime. Flat color atmosphere with no identifiable forms. Surface: almost perfectly smooth color, no visible grain, no visible texture. The reference supplies only the broad blue-to-lime arrangement and color family. Remove its grain completely. Do not add any photographic texture.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/refinements/refine-noise-gradient-v2.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-f56d49b1-a6c2-453e-92cb-4a031558139a.png",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "gradients",
+    "style": "Gradients",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/gradient-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-01.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-gradient-02",
+    "title": "Blue to lime / Fine grain",
+    "description": "The same broad blue-to-lime direction with a delicate, even analog grain across the color.",
+    "noiseLevel": "Fine",
+    "paletteId": "blue-lime",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#C2EDFF",
+      "#D6FF62"
+    ],
+    "prompt": "Create a single standalone high-resolution landscape 16:9 graphic background, ideally 2560\u00d71440 or larger. This is a flat editorial color-gradient background for Recoup, meant to sit behind typography added later. The canvas must have no text whatsoever, no letters, no logo, no symbols, no objects, no scenery, no clouds, no horizons, no glass, no glassmorphism, no embossing, no folded materials, no shadows, no dimensional surfaces, no light beams, no UI, no frame, no border, no contact sheet. Use beautiful strong clean luminosity and very soft broad transitions between colors, without banding. Keep most of the upper-left and central image usable behind type. Full bleed. Composition for a controlled gradient comparison: rich sky blue #007EBD covers the upper-left and most of the top/center, shifting softly through bright blue #168DDD and clear cyan across the center-right. A broad luminous citron-lime #D6FF62 glow enters from the lower-right edge and sweeps gently along the bottom, with soft pale aqua #C2EDFF transition between blue and lime. About two thirds blue and one third pale aqua/lime. Flat color atmosphere with no identifiable forms. Surface: delicate fine analog film grain uniformly across the canvas, just enough to feel tactile close up while preserving a clean luminous gradient at thumbnail size. Tiny even stochastic color noise, flat and matte, never scratches or dirt. The reference supplies the broad color arrangement and fine noise; do not infer any objects or surfaces.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/refinements/refine-noise-gradient-v2.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-66dec715-1eb3-452c-a6fa-2fa5ac0a857a.png",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "gradients",
+    "style": "Gradients",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/gradient-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-02.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-gradient-03",
+    "title": "Blue to lime / Printed grain",
+    "description": "The same blue-to-lime direction with noticeably stronger printed grain, to compare texture strength.",
+    "noiseLevel": "Coarse",
+    "paletteId": "blue-lime",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#C2EDFF",
+      "#D6FF62"
+    ],
+    "prompt": "Create a single standalone high-resolution landscape 16:9 graphic background, ideally 2560\u00d71440 or larger. This is a flat editorial color-gradient background for Recoup, meant to sit behind typography added later. The canvas must have no text whatsoever, no letters, no logo, no symbols, no objects, no scenery, no clouds, no horizons, no glass, no glassmorphism, no embossing, no folded materials, no shadows, no dimensional surfaces, no light beams, no UI, no frame, no border, no contact sheet. Use beautiful strong clean luminosity and very soft broad transitions between colors, without banding. Keep most of the upper-left and central image usable behind type. Full bleed. Composition for a controlled gradient comparison: rich sky blue #007EBD covers the upper-left and most of the top/center, shifting softly through bright blue #168DDD and clear cyan across the center-right. A broad luminous citron-lime #D6FF62 glow enters from the lower-right edge and sweeps gently along the bottom, with soft pale aqua #C2EDFF transition between blue and lime. About two thirds blue and one third pale aqua/lime. Flat color atmosphere with no identifiable forms. Surface: noticeably stronger coarse analog printed grain over the whole image. Fine-to-medium stochastic pigment variation like a beautiful screenprinted poster viewed close up, visible even at reduced size. The texture is even, controlled and fully flat; color fields stay luminous and spacious. No distressing, no grunge, no scratches, no dirty specks, no paper folds. This must feel much grainier than a smooth digital gradient.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-ca3c46e7-f946-4c70-bc71-d8dcc7d446c9.png",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "gradients",
+    "style": "Gradients",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/gradient-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-03.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-gradient-04",
+    "title": "Blue and ice / Lime edge",
+    "description": "A cooler blue, cyan, and ice palette with lime restricted to a slim lower edge.",
+    "noiseLevel": "Fine",
+    "paletteId": "blue-ice-lime",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#C2EDFF",
+      "#F0F7FA",
+      "#D6FF62"
+    ],
+    "prompt": "Create a single standalone high-resolution landscape 16:9 graphic background, ideally 2560\u00d71440 or larger. This is a flat editorial color-gradient background for Recoup, meant to sit behind typography added later. The canvas must have no text whatsoever, no letters, no logo, no symbols, no objects, no scenery, no clouds, no horizons, no glass, no glassmorphism, no embossing, no folded materials, no shadows, no dimensional surfaces, no light beams, no UI, no frame, no border, no contact sheet. Use beautiful strong clean luminosity and very soft broad transitions between colors, without banding. Keep most of the upper-left and central image usable behind type. Full bleed. Composition: cool luminous blue #007EBD along the far-left edge and top-left, transitioning across a broad spacious central area of bright cyan #168DDD into very pale icy blue #C2EDFF and #F0F7FA at the upper-right and lower-right. Keep the majority light and airy. A restrained lime #D6FF62 glow peeks in only as a slim soft sliver at the bottom-right edge, less than ten percent of the canvas. Color contrast is clean and modern. Apply extremely fine, even analog grain for a very subtle tactile finish. Absolutely no literal clouds or photographic subject.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-308be7ba-e553-4209-b0d2-a65d7588c116.png",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "gradients",
+    "style": "Gradients",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/gradient-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-04.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-gradient-05",
+    "title": "Citron / Blue corner",
+    "description": "A lime-dominant gradient with a diffused blue corner, reversing the balance of the blue-led studies.",
+    "noiseLevel": "Fine",
+    "paletteId": "citron-blue",
+    "colors": [
+      "#D6FF62",
+      "#C2EDFF",
+      "#007EBD",
+      "#168DDD"
+    ],
+    "prompt": "Create a single standalone high-resolution landscape 16:9 graphic background, ideally 2560\u00d71440 or larger. This is a flat editorial color-gradient background for Recoup, meant to sit behind typography added later. The canvas must have no text whatsoever, no letters, no logo, no symbols, no objects, no scenery, no clouds, no horizons, no glass, no glassmorphism, no embossing, no folded materials, no shadows, no dimensional surfaces, no light beams, no UI, no frame, no border, no contact sheet. Use beautiful strong clean luminosity and very soft broad transitions between colors, without banding. Keep most of the upper-left and central image usable behind type. Full bleed. Composition: the canvas is predominantly luminous citron-lime #D6FF62 with light lemon and green-yellow variations, taking up roughly three quarters of the area. A rich deep sky-blue #007EBD glow diffuses inward from the lower-left corner, moving through #168DDD and pale cyan before it meets the lime. This is a radically lime-dominant variation, not a balanced blue-and-green image. Let blue remain concentrated at that corner and softly feather toward the center. Keep upper and right areas beautifully open and luminous. Delicate uniform fine analog grain, perfectly flat. No sphere, circle, aurora, beam, streak or other discrete shape.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-55b7b105-ad8d-469b-99ae-d81334936776.png",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "gradients",
+    "style": "Gradients",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/gradient-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-05.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-gradient-06",
+    "title": "Deep blue / Luminous lime",
+    "description": "Deeper blue and cobalt-like tones with bright sky blue and a concentrated lime glow for stronger contrast.",
+    "noiseLevel": "Medium",
+    "paletteId": "deep-blue-lime",
+    "colors": [
+      "#0565BB",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "prompt": "Create a single standalone high-resolution landscape 16:9 graphic background, ideally 2560\u00d71440 or larger. This is a flat editorial color-gradient background for Recoup, meant to sit behind typography added later. The canvas must have no text whatsoever, no letters, no logo, no symbols, no objects, no scenery, no clouds, no horizons, no glass, no glassmorphism, no embossing, no folded materials, no shadows, no dimensional surfaces, no light beams, no UI, no frame, no border, no contact sheet. Use beautiful strong clean luminosity and very soft broad transitions between colors, without banding. Keep most of the upper-left and central image usable behind type. Full bleed. Composition: deepen the blue substantially for a richer more electric high-contrast variation. Cobalt-like deep blue #0565BB and dark saturated #007EBD fill the top and left three quarters of the canvas. Bright sky blue #168DDD gently illuminates the lower center. A concentrated luminous lime #D6FF62 color glow blooms softly from the far-right edge, around the lower half, fading through pale cyan #C2EDFF into blue without becoming a discrete shape. More dramatic than an icy pale gradient, with generous rich-blue space for cream headlines. Even fine-to-medium analog film grain for a visibly tactile flat finish. Never black, never purple, never a glass or metallic material. Pure soft color transitions.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-95055f6f-ea5f-423b-89b4-82e1484672ff.png",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "gradients",
+    "style": "Gradients",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/gradient-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-06.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-airbrush-01",
+    "title": "Lime crescent on blue",
+    "description": "A broad lime crescent sweeps through saturated blue with medium dry pigment stippling and a quiet central opening.",
+    "noiseLevel": "medium",
+    "colors": [
+      "#007EBD",
+      "#D6FF62",
+      "#168DDD",
+      "#C2EDFF"
+    ],
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png"
+    ],
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "airbrush",
+    "style": "Grainy airbrush",
+    "paletteId": "blue-lime",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "prompt": "Use case: stylized-concept. Make ONE complete high-resolution wide 16:9 landscape image: text-free grainy airbrush abstract print artwork, a full-bleed background for editorial design.\nMedium: soft analog spray paint and tactile dry pigment stippling. Soft large-scale color transitions with visible fine-to-medium sprayed pigment grains at the transitions; an authentic flat printed or airbrushed surface. High-contrast soft color, expressive composition, useful quiet space. Every mark is abstract, not a representation of scenery.\nPrimary color family: rich blue #007EBD, luminous yellow-lime #D6FF62; allowed extensions brighter blue #168DDD, deep blue #0565BB, ice blue #C2EDFF, and restrained forest depth #132B26. Keep the pigments vivid.\nNO text, lettering, logo, symbols, user interface, editorial card, frame, border, watermark, objects, people, horizon, sky, cloudscape, fields, leaves, water, landscape, 3D objects, glossy highlights, glass, pebbled or frosted textures, embossed texture, or photographed materials. No contact sheet, collage of multiple designs, tiled preview, or mockup. No sharp vector outlines, hard geometry, thick paint ridges, or large liquid splashes. This is the background only, no text at all.\n\nReference image: use the supplied approved-favorite grainy airbrush background for its vivid pigment, dry-grain softness, and color confidence, while creating a new composition. Extend that direction with one LARGE crescent-like lime sweep curling from the lower-left through the bottom and up the right edge, enclosing an open saturated-blue center. The crescent is broad and incomplete, has fully feathered sprayed edges and varied pigment density, and must not read as a moon, object, outlined circle, or logo. A small ice-blue overspray at the opposite upper edge balances it. Blue remains dominant. Medium dry stippling, richer and more organic than a clean digital gradient.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-1ae3fc3b-178d-4ddb-b9bf-6b93239ef937.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/explorations-02/airbrush-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-01.png"
+      }
+    ]
+  },
+  {
+    "id": "exp02-airbrush-02",
+    "title": "Overlapping lime and ice spray",
+    "description": "Large asymmetric lime and ice-blue pigment forms overlap a rich-blue opening, with flat matte color, diffuse overspray edges, and fine dry powder stippling.",
+    "noiseLevel": "fine",
+    "colors": [
+      "#007EBD",
+      "#D6FF62",
+      "#0565BB",
+      "#C2EDFF"
+    ],
+    "referenced_image_paths": [],
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "airbrush",
+    "style": "Grainy airbrush",
+    "paletteId": "blue-lime",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "prompt": "Use case: stylized-concept. Create ONE high-resolution wide 16:9 landscape abstract airbrush background, full bleed, no text or graphics.\n\nA bold two-dimensional analog airbrush print made of FLAT MATTE SPRAYED PIGMENT. Use only colored ink density and very fine dry powder stippling to make texture, on an optically flat smooth surface. The image must have NO relief, NO light catching texture, NO cellular or granular glass structure. Fine dry flat noise, continuous diffuse overspray boundaries, soft optical transitions. Think opaque matte color sprayed in layers, never a photograph of a textured material.\n\nComposition: rich saturated Recoup blue #007EBD and brighter blue #168DDD dominate the whole lower half and an asymmetric opening through the middle. A large irregular luminous lime #D6FF62 spray form extends inward from the upper-left and left edge, and a softer ice-blue #C2EDFF spray form enters from the top-right. They overlap subtly with uneven pigment density and soft falling-off boundaries. These are purely abstract colored pigment masses, not clouds in the sky. Let the blue cut a quiet broad passage between them at the lower-middle, no centered glow or symmetrical vignette. Keep color vivid and bold, never washed out grey. Lime and ice have distinct masses and unequal scale, not a repeat of a crescent or circular halo. Fine powder stippling becomes more visible only in transitional edges.\n\nThe full image is entirely NONREPRESENTATIONAL and FLAT: no text, letters, logos, symbols, interface, objects, figures, border, frame, watermark, scenery, horizon, sky, cloudscape, water, leaves, landscape, moon, orb, bubbles, glass, frost, embossed relief, cellular surface, pebbles, droplets, wet paint, shiny highlights, large paint splashes, woven paper, or mockup. No raised dots or material shadows. No split canvas or collage. One complete high-resolution background image.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-e2620ea8-f20a-44ed-aa8b-03045e753ff9.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/explorations-02/airbrush-02-v2.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-02-v2.png"
+      },
+      {
+        "label": "Original PNG",
+        "path": "assets/explorations-02/airbrush-02.png"
+      }
+    ],
+    "previousVersions": [
+      {
+        "id": "exp02-airbrush-02",
+        "title": "Overlapping lime and ice spray",
+        "description": "Asymmetric lime and ice-blue spray forms overlap over a rich blue field, with soft granular edges and calm blue space.",
+        "noiseLevel": "medium",
+        "colors": [
+          "#007EBD",
+          "#D6FF62",
+          "#0565BB",
+          "#C2EDFF"
+        ],
+        "referenced_image_paths": [
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/refinements/refine-cover-blue-lime.png"
+        ],
+        "category": "explorations-02",
+        "kind": "Background",
+        "family": "airbrush",
+        "style": "Grainy airbrush",
+        "paletteId": "blue-lime",
+        "status": "proposed",
+        "generator": "image_gen (built-in)",
+        "prompt": "Use case: stylized-concept. Make ONE complete high-resolution wide 16:9 landscape image: text-free grainy airbrush abstract print artwork, a full-bleed background for editorial design.\nMedium: soft analog spray paint and tactile dry pigment stippling. Soft large-scale color transitions with visible fine-to-medium sprayed pigment grains at the transitions; an authentic flat printed or airbrushed surface. High-contrast soft color, expressive composition, useful quiet space. Every mark is abstract, not a representation of scenery.\nPrimary color family: rich blue #007EBD, luminous yellow-lime #D6FF62; allowed extensions brighter blue #168DDD, deep blue #0565BB, ice blue #C2EDFF, and restrained forest depth #132B26. Keep the pigments vivid.\nNO text, lettering, logo, symbols, user interface, editorial card, frame, border, watermark, objects, people, horizon, sky, cloudscape, fields, leaves, water, landscape, 3D objects, glossy highlights, glass, pebbled or frosted textures, embossed texture, or photographed materials. No contact sheet, collage of multiple designs, tiled preview, or mockup. No sharp vector outlines, hard geometry, thick paint ridges, or large liquid splashes. This is the background only, no text at all.\n\nReference image: use ONLY the colored airbrush BACKGROUND and the vivid blue/lime/ice pigment relationships from the supplied editorial cover. Ignore and remove all typography and graphic content from your inspiration: do not reproduce any letters, logos, words, or layout blocks. New composition: two very large asymmetric overlapping clouds of SPRAYED COLOR, one luminous lime rising from the left edge and one ice-blue form descending from the upper-right, overlap softly across a rich-blue field. These are flat abstract spray forms, NOT sky clouds, with irregular diffuse pigment falloff and no cumulus outlines. The central-lower region remains saturated blue. Medium-fine pigment stippling and visibly uneven analog spray density. A new arrangement distinct from a crescent or a halo.",
+        "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-4fe1b75c-5f9c-4986-9dd3-d07ae22c3741.png",
+        "width": 1672,
+        "height": 941,
+        "preview": "assets/explorations-02/airbrush-02.png",
+        "files": [
+          {
+            "label": "PNG",
+            "path": "assets/explorations-02/airbrush-02.png"
+          }
+        ]
+      }
+    ],
+    "revisionNote": "Revised without image references to replace the pronounced cellular or embossed surface with flat matte sprayed pigment."
+  },
+  {
+    "id": "exp02-airbrush-03",
+    "title": "Diagonal blue and lime overspray",
+    "description": "Broad diagonal color ribbons cross the image with pronounced dry overspray and irregular granular margins.",
+    "noiseLevel": "coarse",
+    "colors": [
+      "#007EBD",
+      "#D6FF62",
+      "#168DDD",
+      "#0565BB",
+      "#C2EDFF"
+    ],
+    "referenced_image_paths": [],
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "airbrush",
+    "style": "Grainy airbrush",
+    "paletteId": "blue-lime",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "prompt": "Use case: stylized-concept. Make ONE complete high-resolution wide 16:9 landscape image: text-free grainy airbrush abstract print artwork, a full-bleed background for editorial design.\nMedium: soft analog spray paint and tactile dry pigment stippling. Soft large-scale color transitions with visible fine-to-medium sprayed pigment grains at the transitions; an authentic flat printed or airbrushed surface. High-contrast soft color, expressive composition, useful quiet space. Every mark is abstract, not a representation of scenery.\nPrimary color family: rich blue #007EBD, luminous yellow-lime #D6FF62; allowed extensions brighter blue #168DDD, deep blue #0565BB, ice blue #C2EDFF, and restrained forest depth #132B26. Keep the pigments vivid.\nNO text, lettering, logo, symbols, user interface, editorial card, frame, border, watermark, objects, people, horizon, sky, cloudscape, fields, leaves, water, landscape, 3D objects, glossy highlights, glass, pebbled or frosted textures, embossed texture, or photographed materials. No contact sheet, collage of multiple designs, tiled preview, or mockup. No sharp vector outlines, hard geometry, thick paint ridges, or large liquid splashes. This is the background only, no text at all.\n\nNo image references. Compose three BROAD DIAGONAL overspray ribbons rising from bottom-left to top-right, alternating rich blue, bright sky blue, and one luminous lime ribbon of unequal width. Each is an airbrushed pigment passage with a soft body and PRONOUNCED DRY GRAIN along its diffusing margins. Vary ribbon angle slightly and allow colors to overlap; they must not be neat parallel stripes or sharply outlined graphic ribbons. Fine and medium spray dots form an uneven grain density with a few coarser powder flecks, not liquid splashes or scraped paint. Keep a substantial quiet deep-blue triangular-feeling open area toward upper-left, with no hard triangle contour. Strong energetic diagonal composition, tactile matte ink.\n\nCRITICAL MATERIAL DIRECTION: absolutely FLAT MATTE SPRAYED PIGMENT, smooth underlying substrate with fine dry powder stippling and diffuse overspray boundaries. Grain is flat printed specks of color density, never cellular structure. No relief, embossing, cellular pattern, cobblestone, pebbled surface, frosted glass, droplets, bubbles, or reflective texture. No light-and-shadow on individual grains. Bold color and composition, a 2D analog airbrush print.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-edce00f2-9743-4285-b251-ded66a640984.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/explorations-02/airbrush-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-03.png"
+      }
+    ]
+  },
+  {
+    "id": "exp02-airbrush-04",
+    "title": "Lime field with blue spray edges",
+    "description": "Lime dominates an open central area, surrounded by deep blue dry-sprayed edges and a tiny ice-blue accent.",
+    "noiseLevel": "medium",
+    "colors": [
+      "#D6FF62",
+      "#007EBD",
+      "#0565BB",
+      "#C2EDFF"
+    ],
+    "referenced_image_paths": [],
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "airbrush",
+    "style": "Grainy airbrush",
+    "paletteId": "blue-lime",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "prompt": "Use case: stylized-concept. Make ONE complete high-resolution wide 16:9 landscape image: text-free grainy airbrush abstract print artwork, a full-bleed background for editorial design.\nMedium: soft analog spray paint and tactile dry pigment stippling. Soft large-scale color transitions with visible fine-to-medium sprayed pigment grains at the transitions; an authentic flat printed or airbrushed surface. High-contrast soft color, expressive composition, useful quiet space. Every mark is abstract, not a representation of scenery.\nPrimary color family: rich blue #007EBD, luminous yellow-lime #D6FF62; allowed extensions brighter blue #168DDD, deep blue #0565BB, ice blue #C2EDFF, and restrained forest depth #132B26. Keep the pigments vivid.\nNO text, lettering, logo, symbols, user interface, editorial card, frame, border, watermark, objects, people, horizon, sky, cloudscape, fields, leaves, water, landscape, 3D objects, glossy highlights, glass, pebbled or frosted textures, embossed texture, or photographed materials. No contact sheet, collage of multiple designs, tiled preview, or mockup. No sharp vector outlines, hard geometry, thick paint ridges, or large liquid splashes. This is the background only, no text at all.\n\nNo image references. This variation is LIME-DOMINANT: roughly two-thirds luminous yellow-lime pigment, maintaining real saturated color rather than pale yellow. A large open irregular lime field fills the center and upper area. Deep blue sprayed color intrudes from the lower-left and along part of the right edge, creating an asymmetric off-center contrast; its dry granular edge dissolves into greenish transitional pigment, not black. A tiny ice-blue overspray accent appears near the upper-right perimeter. Avoid a circular spotlight, centered halo, sweeping crescent, diagonal ribbon, or neat vignette. Medium grain, open lively lime with fine quiet stippling across its broad area.\n\nCRITICAL MATERIAL DIRECTION: absolutely FLAT MATTE SPRAYED PIGMENT, smooth underlying substrate with fine dry powder stippling and diffuse overspray boundaries. Grain is flat printed specks of color density, never cellular structure. No relief, embossing, cellular pattern, cobblestone, pebbled surface, frosted glass, droplets, bubbles, or reflective texture. No light-and-shadow on individual grains. Bold color and composition, a 2D analog airbrush print.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-6c7a37d8-d2f6-4235-bccf-08c179a1c90e.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/explorations-02/airbrush-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-04.png"
+      }
+    ]
+  },
+  {
+    "id": "exp02-airbrush-05",
+    "title": "Airy blue and citron pools",
+    "description": "Luminous ice-blue space with vivid blue and citron color pools and fine airbrush grain.",
+    "noiseLevel": "fine",
+    "colors": [
+      "#C2EDFF",
+      "#168DDD",
+      "#007EBD",
+      "#D6FF62"
+    ],
+    "referenced_image_paths": [],
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "airbrush",
+    "style": "Grainy airbrush",
+    "paletteId": "blue-lime",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "prompt": "Use case: stylized-concept. Make ONE complete high-resolution wide 16:9 landscape image: text-free grainy airbrush abstract print artwork, a full-bleed background for editorial design.\nMedium: soft analog spray paint and tactile dry pigment stippling. Soft large-scale color transitions with visible fine-to-medium sprayed pigment grains at the transitions; an authentic flat printed or airbrushed surface. High-contrast soft color, expressive composition, useful quiet space. Every mark is abstract, not a representation of scenery.\nPrimary color family: rich blue #007EBD, luminous yellow-lime #D6FF62; allowed extensions brighter blue #168DDD, deep blue #0565BB, ice blue #C2EDFF, and restrained forest depth #132B26. Keep the pigments vivid.\nNO text, lettering, logo, symbols, user interface, editorial card, frame, border, watermark, objects, people, horizon, sky, cloudscape, fields, leaves, water, landscape, 3D objects, glossy highlights, glass, pebbled or frosted textures, embossed texture, or photographed materials. No contact sheet, collage of multiple designs, tiled preview, or mockup. No sharp vector outlines, hard geometry, thick paint ridges, or large liquid splashes. This is the background only, no text at all.\n\nNo image references. A LIGHTER AIRY variation with luminous ice-blue negative space, two soft saturated sky-blue color pools, and a small punchy citron-lime bloom. Maintain vivid blues and lime: do not wash the image to grey or near-white. Use a loose irregular arrangement, with a large blue pool concentrated in the left-middle and a smaller blue pool touching the lower-right; let a diffuse citron-lime pigment area breathe near the upper-middle and right. Pools should overlap softly through ice-blue, never appear as 3D bubbles or defined circles. Very fine tactile dry airbrush grain, soft delicate feathering, generous open space. No horizon or landscape interpretation; completely nonrepresentational color.\n\nCRITICAL MATERIAL DIRECTION: absolutely FLAT MATTE SPRAYED PIGMENT, smooth underlying substrate with fine dry powder stippling and diffuse overspray boundaries. Grain is flat printed specks of color density, never cellular structure. No relief, embossing, cellular pattern, cobblestone, pebbled surface, frosted glass, droplets, bubbles, or reflective texture. No light-and-shadow on individual grains. Bold color and composition, a 2D analog airbrush print.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-9e508afc-18e6-4e75-9dac-7f81abef4f52.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/explorations-02/airbrush-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-05.png"
+      }
+    ]
+  },
+  {
+    "id": "exp02-airbrush-06",
+    "title": "Lime halo with blue and forest depth",
+    "description": "A punchy off-center lime halo dissolves into rich blue and a restrained forest edge, with subtle coarse spray grains.",
+    "noiseLevel": "coarse",
+    "colors": [
+      "#007EBD",
+      "#D6FF62",
+      "#0565BB",
+      "#132B26",
+      "#C2EDFF"
+    ],
+    "referenced_image_paths": [],
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "airbrush",
+    "style": "Grainy airbrush",
+    "paletteId": "blue-lime",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "prompt": "Use case: stylized-concept. Make ONE complete high-resolution wide 16:9 landscape image: text-free grainy airbrush abstract print artwork, a full-bleed background for editorial design.\nMedium: soft analog spray paint and tactile dry pigment stippling. Soft large-scale color transitions with visible fine-to-medium sprayed pigment grains at the transitions; an authentic flat printed or airbrushed surface. High-contrast soft color, expressive composition, useful quiet space. Every mark is abstract, not a representation of scenery.\nPrimary color family: rich blue #007EBD, luminous yellow-lime #D6FF62; allowed extensions brighter blue #168DDD, deep blue #0565BB, ice blue #C2EDFF, and restrained forest depth #132B26. Keep the pigments vivid.\nNO text, lettering, logo, symbols, user interface, editorial card, frame, border, watermark, objects, people, horizon, sky, cloudscape, fields, leaves, water, landscape, 3D objects, glossy highlights, glass, pebbled or frosted textures, embossed texture, or photographed materials. No contact sheet, collage of multiple designs, tiled preview, or mockup. No sharp vector outlines, hard geometry, thick paint ridges, or large liquid splashes. This is the background only, no text at all.\n\nNo image references. Invent a fresh composition with tactile dry pigment, vivid blue/lime contrast, and a soft printed feel. A punchy irregular LIME HALO sits off-center toward the upper-middle, a diffuse luminous ring-like concentration of airbrushed pigment with an incomplete soft gap, not a moon, disc, object, logo, or sharply outlined circle. Most of the image remains rich blue with restrained forest-green depth around one outer edge and a small ice-blue powder trace. The lime is concentrated and vibrant rather than large pale glare. Subtle COARSER SPRAY NOISE is scattered within otherwise fine grain, tactile flat pigment with quiet spacious blue at the lower-left. Do not use a large edge-to-edge crescent.\n\nCRITICAL MATERIAL DIRECTION: absolutely FLAT MATTE SPRAYED PIGMENT, smooth underlying substrate with fine dry powder stippling and diffuse overspray boundaries. Grain is flat printed specks of color density, never cellular structure. No relief, embossing, cellular pattern, cobblestone, pebbled surface, frosted glass, droplets, bubbles, or reflective texture. No light-and-shadow on individual grains. Bold color and composition, a 2D analog airbrush print.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-8769263b-1a29-4007-afdd-99f545a70c2b.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/explorations-02/airbrush-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-06.png"
+      }
+    ]
+  },
+  {
+    "id": "exp02-forest-01",
+    "title": "Forest with a blue edge",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "forest",
+    "style": "Forest + blue + lime",
+    "description": "A spacious forest field with a vivid blue right edge and narrow diffused lime transition.",
+    "noiseLevel": "Fine",
+    "paletteId": "forest-blue-lime",
+    "colors": [
+      "#132B26",
+      "#1E493E",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "status": "proposed",
+    "prompt": "Use case: stylized-concept.\nAsset: ONE complete wide 16:9 text-free abstract brand background, ideally 1672 x 941 or higher with the same landscape ratio.\nPrimary request: deep forest green occupies roughly 70 percent of the composition, softly graded between #132B26 and #1E493E, with a diffused luminous sky-blue edge entering from the right and a very thin yellow-lime light transition along that blue edge. Keep the upper-left and broad center spacious and quiet for typography to be added separately. Forest must remain visibly green, not near-black. The blue is vivid and fresh and the lime is luminous: this must POP while staying sophisticated and soft.\nPalette: #132B26 deep forest, #1E493E lighter forest, #007EBD sky, #168DDD bright blue, #D6FF62 lime; tiny #C2EDFF ice highlights only.\nStyle/medium: flat matte color-field art with seamless, softly irregular optical diffusion; very fine uniform analog film noise, only perceptible up close. All major edges are diffuse. Light drifts asymmetrically in from the right perimeter, not a centered spotlight.\nConstraints: strictly nonrepresentational, flat picture plane. No text, letters, logos, symbols, objects, scenery, actual trees or forest, landscapes, horizons, cloud shapes, water, UI, frames, borders, mockups, contact sheet, collage, hard-edged shapes, sharp stripes, visible circles, 3D forms, glossy highlights, glass, droplets, ripples, embossing, or coarse material texture. No black-dominated composition, muddy olive, gray sludge, purple, neon cyberpunk, or generic technological glow. Finished background art only.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-45d5abf9-7ec3-435c-827a-9c1ae048915c.png",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/forest-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-01.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-forest-02",
+    "title": "Blue light in forest",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "forest",
+    "style": "Forest + blue + lime",
+    "description": "A bright blue wash opens into a calm forest field, with a small lime highlight and lightly textured pigment.",
+    "noiseLevel": "Light",
+    "paletteId": "forest-blue-lime",
+    "colors": [
+      "#132B26",
+      "#1E493E",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "status": "proposed",
+    "prompt": "Use case: stylized-concept.\nAsset: ONE complete wide 16:9 abstract brand background, ideally 1672 x 941 or higher, text-free.\nCreate a deep forest majority composition with one pronounced luminous BLUE color pool, not a literal pool, diffusing broadly through the lower-left quarter and left edge. A tiny lime contrast glow rests at the upper limit of that blue diffusion. The calm central and right portions remain rich visible forest green, with a touch of lighter green to prevent black domination. Color allocation about 60% forest, 35% bright blue, 5% luminous lime and ice highlights. The blue must feel bright, concentrated and saturated, not muted teal. Make the brightness feel exciting against the forest, while all contours remain softly blurred.\nNumeric palette only: deep forest #132B26, lighter forest #1E493E, sky blue #007EBD, luminous blue #168DDD, lime #D6FF62, tiny ice #C2EDFF.\nMedium: matte soft airbrush pigment with light, fine dry pigment grain. Large organic and irregular diffusion with no identifiable shape. Usable quiet space through the upper center and right, for typography to be placed independently later.\nStrict exclusions: no text, logo, letters, symbols, objects, scenery, trees, leaves, sky or cloud shapes, landscape, horizon, water, 3D blobs, circles, sharp geometry, interface, frame, border, contact sheet, collage, glossy highlight, glass, droplets, ripples, embossed relief, neon cyberpunk, purple, muddy olive, black-heavy grading. Completely abstract flat color only.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-b9d48d6e-c5f4-4cb6-b6b7-bb3c9fb248c6.png",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/forest-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-02.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-forest-03",
+    "title": "Forest and blue with lime",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "forest",
+    "style": "Forest + blue + lime",
+    "description": "Equal broad forest and bright-blue regions meet along a soft diagonal lime glow, with fine matte grain.",
+    "noiseLevel": "Fine",
+    "paletteId": "forest-blue-lime",
+    "colors": [
+      "#132B26",
+      "#1E493E",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "status": "proposed",
+    "prompt": "Use case: stylized-concept.\nMake ONE text-free wide 16:9 abstract brand background, 1672 x 941 or higher at the same ratio. A balanced meeting of rich forest green and bright sky blue, roughly equal visible areas, with a luminous narrow lime transition separating and blending their broad soft masses. Forest fills the lower-left side and blue fills the upper-right; the transition climbs diagonally in one softly irregular sweep, with no horizon or line. Give each color broad calm open space. Forest must remain visibly green and blue must remain vivid rather than merging into a muddy teal middle. The lime boundary provides a sharp COLOR contrast but NO sharp contour.\nNumeric palette only: #132B26 deep forest, #1E493E lighter forest, #007EBD sky blue, #168DDD vivid blue, #D6FF62 lime, optional trace #C2EDFF.\nMedium: optically diffused matte gradient, very fine soft analog grain, no physical surface relief. All color zones are large and softly graded. Rich, luminous, confident color, usable as an editorial background for typography later.\nNo text, typography, logos, objects, recognizable scenery, trees, leaves, forest scene, clouds, horizon, landscape, water, sharp geometry, hard-edged stripes, circular forms, 3D shapes, glass, frosted glass, droplets, ripples, embossing, black-dominated areas, muddy olive, purple, cyberpunk, UI, frame, border, collage, or contact sheet. Single full-bleed nonrepresentational color field only.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-028f96bc-eeef-4b03-a8d7-3369f59ae170.png",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/forest-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-03.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-forest-04",
+    "title": "Lime wash over forest",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "forest",
+    "style": "Forest + blue + lime",
+    "description": "A broad lime airbrush wash spreads from the upper edge into quiet forest, with a slight cool-blue accent and powder grain.",
+    "noiseLevel": "Medium",
+    "paletteId": "forest-blue-lime",
+    "colors": [
+      "#132B26",
+      "#1E493E",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "status": "proposed",
+    "prompt": "Use case: stylized-concept.\nAsset: ONE complete wide 16:9 text-free abstract brand background, 1672 x 941 or higher at same ratio.\nPaint a soft, broad LIME AIRBRUSH WASH across an open deep-forest background. The main lime pigment is luminous yellow-lime, #D6FF62, irregularly diffusing downward from the upper central edge and spreading loosely toward the left, fading broadly rather than forming a circular spotlight. Let a slight, small wash of ice blue appear at the rightmost overlap of lime and forest, cool and delicate. Deep #132B26 and lighter #1E493E forest remain the grounded base with generous calm space across the lower half. Lime takes approximately 35 percent of the overall image and reads luminous, fresh and unapologetic; forest roughly 60 percent; ice and a very slight sky-blue trace under 5 percent. Keep the forest green visible and warm enough to avoid black. Numeric colors: #132B26, #1E493E, #D6FF62, #C2EDFF, trace #007EBD.\nMedium: flat matte sprayed pigment on a smooth plane, gentle powder softness, medium-fine irregular analog grain. Diffuse asymmetric color with no visible hard shape, no paint ridge or physical relief. Usable quiet forest area for later typography. The colors should pop together.\nNo text, logos, letters, objects, recognizable scene, actual forest, trees, leaves, grass, landscape, horizon, clouds, sky scene, water, ribbons, circles, 3D forms, sharp geometry, glass, frosted glass, droplets, glossy reflections, embossed texture, muddy olive, black domination, purple, neon cyberpunk, frames, borders, interface, collage or contact sheet. Pure nonrepresentational full-bleed background only.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-5c5cbe45-4f2c-4cbd-9f8a-d429c00edf3a.png",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/forest-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-04.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-forest-05",
+    "title": "Blue and lime crossing light",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "forest",
+    "style": "Forest + blue + lime",
+    "description": "Broad blurred blue and lime light bands cross off-center on forest, leaving a quiet green region at the right.",
+    "noiseLevel": "Fine",
+    "paletteId": "forest-blue-lime",
+    "colors": [
+      "#132B26",
+      "#1E493E",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "status": "proposed",
+    "prompt": "Use case: stylized-concept.\nCreate ONE wide 16:9 abstract brand background, 1672 x 941 or higher at the same ratio. Text-free, pure color.\nA deep yet visibly green FOREST base supports two very broad and highly defocused swaths of color light crossing softly off-center: one luminous blue swath from the upper-left toward the lower-right, and one shorter lime swath from the lower-left toward the upper-middle. Their overlap dissolves into a little pale ice light. These are indistinct wide color diffusions, NOT literal beams, not straight geometric stripes, not laser lights. Leave the far-right third and upper-right generously calm forest. The crossing produces a varied asymmetrical composition distinct from a single linear gradient. Saturated fresh blue and citron should POP against the grounded forest, without making the frame look black.\nNumeric palette only: base #132B26 and #1E493E; blue #007EBD and #168DDD; lime #D6FF62; tiny ice #C2EDFF.\nMedium: seamless optical defocus, matte flat color plane, subtle super-fine film grain. No sharp or fully defined contours. No physical surface relief. Forest 50-60%, bright blue 25-35%, lime approximately 15%.\nNo text, logo, typography, symbols, objects, scenery, actual forest, trees, foliage, landscape, horizon, cloud shapes, sky scene, stars, water, glass, frosted glass, droplets, ripples, embossed texture, 3D forms, ribbons, sharp geometry, dark black domination, muddy olive, purple, neon cyberpunk, lens flares, UI, frame, border, contact sheet or collage. Background only, suitable for independent editorial typography later.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-ded37f36-b73d-4c17-96b4-a9040ebbc0d4.png",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/forest-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-05.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-forest-06",
+    "title": "Forest, blue and citron print",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "forest",
+    "style": "Forest + blue + lime",
+    "description": "A forest center sits between bright blue at the upper right and citron at the lower left, with coarse powdery print grain.",
+    "noiseLevel": "Coarse",
+    "paletteId": "forest-blue-lime",
+    "colors": [
+      "#132B26",
+      "#1E493E",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "status": "proposed",
+    "prompt": "Use case: stylized-concept.\nAsset: ONE complete wide 16:9 text-free abstract brand background, 1672 x 941 or higher at same ratio.\nInput image 1 is a reference for dry powdery printed texture and vivid blue/citron color contrast ONLY. Do not reproduce its composition or its blue majority. Create a new FOREST-led arrangement.\nComposition: broad deep-forest and lighter-forest color masses occupy about 55% of the image, especially a generous quiet center-left zone. An irregular sweep of bright blue enters from the upper-right edge, crossing toward the center but dissolving before it reaches the left edge. A substantial luminous citron-lime bloom rises softly from the lower-left perimeter and kisses the forest. Blue roughly 30%, lime roughly 15%. The large masses remain diffuse and abstract; a little powdery colored overlap makes the image feel printed. Deep green must remain green, blue must be bright and saturated, lime must POP.\nPalette: #132B26 deep forest, #1E493E lighter forest, #007EBD sky blue, #168DDD vivid almost-cobalt blue, #D6FF62 citron lime, optional very slight #C2EDFF ice.\nMedium: COARSE POWDERY PRINT texture, visibly granular and tactile, more pronounced than a smooth gradient. Fine-to-medium dry pigment speckling distributed within broad soft diffusion, irregular ink transfer and dry overspray at color boundaries. Flat matte print; no actual raised grain, no surface relief, no glossy effect, no simulated glass or water. Strong color, modern editorial restraint, enough quiet space for separate typography later.\nNo text, logos, letters, symbols, recognizable objects, trees, leaves, forest scene, landscapes, horizon, sky or cloud shapes, scenery, water, droplets, ripples, thick paint, sharp hard-edged blobs, circles, geometry, 3D forms, metallic material, black domination, muddy olive, purple, neon cyberpunk, UI, frames, borders, collage or contact sheet. Single full-bleed nonrepresentational background only.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-36a13348-01da-49fd-bed4-6731f2b0dccf.png",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/forest-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-06.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  }
+]

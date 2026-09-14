@@ -1,0 +1,320 @@
+[
+  {
+    "id": "editorial10-01",
+    "category": "editorial-10",
+    "family": "geometry",
+    "title": "Offset blocks",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "Broad blue blocks step across the lower-right area. Curved joins and one small lime inset connect the artwork to Recoup\u2019s symbol without repeating it.",
+    "patternRule": "Use two or three filled rectangular fragments with offset levels and a small number of generous concave or convex joins. Crop the cluster into the edge; preserve a large quiet field.",
+    "gradientRule": "Keep the base absolutely flat. Put directional cyan light inside one broad filled block, with a second tonal-blue face and one small solid lime inset.",
+    "paletteName": "Blue / cyan / lime",
+    "preview": "assets/editorial-10/option-01.png",
+    "artPreview": "assets/editorial-10/option-01-art.png",
+    "feedPreview": "assets/editorial-10/option-01-feed.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-10/option-01.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-10/option-01.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-10/option-01-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-10/option-01-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-01-feed.png"
+      },
+      {
+        "label": "Example article SVG",
+        "path": "assets/editorial-10/option-01-feed.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG",
+    "recipe": "editorial-10-recipe.md",
+    "tags": [
+      "Recoup pattern options",
+      "Offset blocks",
+      "Blue / cyan / lime"
+    ],
+    "bundle": "assets/editorial-10/recoup-pattern-options.zip"
+  },
+  {
+    "id": "editorial10-02",
+    "category": "editorial-10",
+    "family": "geometry",
+    "title": "Cutout join",
+    "sampleTitle": "Connect your company\u2019s knowledge",
+    "headline": "Choose your first\nAI project.",
+    "description": "A single blue cutout enters from the left, leaving the forest field and lime headline open. Its step and curved notch use the same construction as Recoup\u2019s mark.",
+    "patternRule": "Start with one oversized filled shape. Use an asymmetric edge crop, a broad step and a generous curved notch. The negative space should be as deliberate as the form.",
+    "gradientRule": "Confine a subtle blue-to-cyan band to the left-hand shape. The surrounding forest and the entire right edge stay flat.",
+    "paletteName": "Forest / blue / lime",
+    "preview": "assets/editorial-10/option-02.png",
+    "artPreview": "assets/editorial-10/option-02-art.png",
+    "feedPreview": "assets/editorial-10/option-02-feed.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-10/option-02.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-10/option-02.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-10/option-02-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-10/option-02-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-02-feed.png"
+      },
+      {
+        "label": "Example article SVG",
+        "path": "assets/editorial-10/option-02-feed.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG",
+    "recipe": "editorial-10-recipe.md",
+    "tags": [
+      "Recoup pattern options",
+      "Cutout join",
+      "Forest / blue / lime"
+    ],
+    "bundle": "assets/editorial-10/recoup-pattern-options.zip"
+  },
+  {
+    "id": "editorial10-03",
+    "category": "editorial-10",
+    "family": "geometry",
+    "title": "Layered panels",
+    "sampleTitle": "Build systems your team can trust",
+    "headline": "Choose your first\nAI project.",
+    "description": "Three broad panels overlap at different heights, extending the rounded surfaces used on the Recoup website.",
+    "patternRule": "Use generous rounded rectangles, stepped overlap, and a deliberate edge crop. Keep them empty so the structure carries the image.",
+    "gradientRule": "Light travels down the panels. The pale background stays flat; each layer has a different tonal range.",
+    "paletteName": "Pale blue / blue / lime",
+    "preview": "assets/editorial-10/option-03.png",
+    "artPreview": "assets/editorial-10/option-03-art.png",
+    "feedPreview": "assets/editorial-10/option-03-feed.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-10/option-03.png"
+      },
+      {
+        "label": "Thumbnail editable SVG",
+        "path": "assets/editorial-10/option-03.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-10/option-03-art.png"
+      },
+      {
+        "label": "Artwork editable SVG",
+        "path": "assets/editorial-10/option-03-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-03-feed.png"
+      },
+      {
+        "label": "Example article editable SVG",
+        "path": "assets/editorial-10/option-03-feed.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG",
+    "recipe": "editorial-10-recipe.md",
+    "tags": [
+      "Recoup pattern options",
+      "Layered panels",
+      "Pale blue / blue / lime"
+    ],
+    "bundle": "assets/editorial-10/recoup-pattern-options.zip"
+  },
+  {
+    "id": "editorial10-04",
+    "category": "editorial-10",
+    "family": "geometry",
+    "title": "Interwoven bands",
+    "sampleTitle": "Keep people in the review.",
+    "controlledTitle": "Choose your first AI project.",
+    "description": "Three broad bands cross at the upper-right, with negative-space cuts and one lime interval. The headline sits in the open white field below.",
+    "patternRule": "Use two or three broad flat bands, roughly 100 px wide, with rounded bends and visible over-under gaps. Borrow the Recoup mark\u2019s connection geometry without repeating the full mark.",
+    "gradientRule": "No gradient. Pure flat colors and an uninterrupted white field.",
+    "paletteName": "White / forest / blue",
+    "preview": "assets/editorial-10/option-04.png",
+    "artPreview": "assets/editorial-10/option-04-art.png",
+    "feedPreview": "assets/editorial-10/option-04-feed.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-10/option-04.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-10/option-04.svg"
+      },
+      {
+        "label": "Art PNG",
+        "path": "assets/editorial-10/option-04-art.png"
+      },
+      {
+        "label": "Art SVG",
+        "path": "assets/editorial-10/option-04-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-04-feed.png"
+      },
+      {
+        "label": "Example article SVG",
+        "path": "assets/editorial-10/option-04-feed.svg"
+      }
+    ],
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG",
+    "width": 1920,
+    "height": 1080,
+    "recipe": "editorial-10-recipe.md",
+    "tags": [
+      "Recoup pattern options",
+      "Interwoven bands",
+      "White / forest / blue"
+    ],
+    "bundle": "assets/editorial-10/recoup-pattern-options.zip"
+  },
+  {
+    "id": "editorial10-05",
+    "category": "editorial-10",
+    "family": "geometry",
+    "title": "Stepped ribbons",
+    "sampleTitle": "Turn repeated work into a system.",
+    "controlledTitle": "Choose your first AI project.",
+    "description": "Broad filled ribbons step across the lower edge of a dominant lime field. A faint horizontal wash sits below the artwork, leaving the headline area flat.",
+    "patternRule": "Build three filled offset ribbons from rectangular runs connected by soft convex and concave joins. Crop them across the bottom, varying their offset and palette rather than using thin repeated contours.",
+    "gradientRule": "A low-intensity, full-width tonal wash in the bottom 240 px only. No corner glow, radial bloom, or tint behind the headline.",
+    "paletteName": "Lime / forest / blue",
+    "preview": "assets/editorial-10/option-05.png",
+    "artPreview": "assets/editorial-10/option-05-art.png",
+    "feedPreview": "assets/editorial-10/option-05-feed.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-10/option-05.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-10/option-05.svg"
+      },
+      {
+        "label": "Art PNG",
+        "path": "assets/editorial-10/option-05-art.png"
+      },
+      {
+        "label": "Art SVG",
+        "path": "assets/editorial-10/option-05-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-05-feed.png"
+      },
+      {
+        "label": "Example article SVG",
+        "path": "assets/editorial-10/option-05-feed.svg"
+      }
+    ],
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG",
+    "width": 1920,
+    "height": 1080,
+    "recipe": "editorial-10-recipe.md",
+    "tags": [
+      "Recoup pattern options",
+      "Stepped ribbons",
+      "Lime / forest / blue"
+    ],
+    "bundle": "assets/editorial-10/recoup-pattern-options.zip"
+  },
+  {
+    "id": "editorial10-06",
+    "category": "editorial-10",
+    "family": "geometry",
+    "title": "Soft imprint",
+    "sampleTitle": "Give your team a clear starting point",
+    "headline": "Choose your first\nAI project.",
+    "description": "One enlarged, blurred impression of the Recoup symbol carries soft light through the blue field. The headline sits clear of it.",
+    "patternRule": "Use one cropped impression of the exact Recoup mark. Blur its edges enough to read as atmosphere; keep the rest of the composition quiet.",
+    "gradientRule": "A diffuse cyan highlight lives within the left-hand imprint. The lower-right title area is an even blue.",
+    "paletteName": "Blue / diffused cyan",
+    "preview": "assets/editorial-10/option-06.png",
+    "artPreview": "assets/editorial-10/option-06-art.png",
+    "feedPreview": "assets/editorial-10/option-06-feed.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-10/option-06.png"
+      },
+      {
+        "label": "Thumbnail editable SVG",
+        "path": "assets/editorial-10/option-06.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-10/option-06-art.png"
+      },
+      {
+        "label": "Artwork editable SVG",
+        "path": "assets/editorial-10/option-06-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-06-feed.png"
+      },
+      {
+        "label": "Example article editable SVG",
+        "path": "assets/editorial-10/option-06-feed.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG",
+    "recipe": "editorial-10-recipe.md",
+    "tags": [
+      "Recoup pattern options",
+      "Soft imprint",
+      "Blue / diffused cyan"
+    ],
+    "bundle": "assets/editorial-10/recoup-pattern-options.zip"
+  }
+]

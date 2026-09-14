@@ -12,7 +12,11 @@
     "lint:fix": "eslint . --fix",
     "docs:build": "node scripts/build-docs.mjs",
     "docs:check": "node scripts/import-docs-check.mjs",
-    "agents:check": "node scripts/audit-agents.mjs"
+    "agents:check": "node scripts/audit-agents.mjs",
+    "brand-studio": "next dev --turbopack --port 3012",
+    "brand-studio:index": "python3 brand-studio/scripts/build-review-board.py",
+    "brand-studio:legacy": "python3 brand-studio/scripts/serve.py",
+    "brand-studio:publish-assets": "node scripts/publish-brand-assets.mjs"
   },
   "dependencies": {
     "@privy-io/react-auth": "^3.31.0",
@@ -53,7 +57,8 @@
     "prettier": "3.3.3",
     "tailwindcss": "^4.1.17",
     "typescript": "^5",
-    "vitest": "^4.1.8"
+    "vitest": "^4.1.8",
+    "@vercel/blob": "^2.8.0"
   },
   "engines": {
     "node": ">=24.0.0"

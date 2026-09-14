@@ -1,0 +1,154 @@
+[
+  {
+    "id": "style05-bg-fine-grain-blue-major",
+    "kind": "background",
+    "family": "fine-grain",
+    "colorway": "blue-major",
+    "colorLabel": "Blue dominant",
+    "title": "Fine grain / Blue dominant",
+    "description": "Flat fine-grain gradient with blue across roughly 70% of the left and top, and lime diffusing from the lower right.",
+    "prompt": "Create one standalone, full-bleed, high-quality landscape 16:9 background around 1672\u00d7941. This is a controlled visual material and color comparison, not a finished cover. No text, letters, symbols, objects, illustrations, people, scenery, logos, watermarks, frames, borders, panels or inset rectangles. Composition: approximately 70 percent saturated blue #007EBD/#168DDD occupying left, top and most of the center, softly transitioning into approximately 30 percent luminous lime #D6FF62 diffused through the lower-right corner. Preserve a simple broad diagonal color boundary from upper-right to lower-center. Make the dominant-color area truly blue, not mostly white or pale cyan. Use the provided image as the reference for the flat matte color transition and delicate, even fine analog grain. The image must remain purely flat and softly luminous with no discernible forms, refraction, glass, folds, fabric, rays, contours or gradients that look like objects. Very fine uniform analog noise, visible at full size but subtle at thumbnail scale. Smooth soft transitions, no banding. Keep this geometry clear so later edits can test color swaps against the same structure.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/explorations-02/gradient-02.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-b39262be-d8ab-4299-a6f2-378ce0c49140.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/fine-grain-blue-major.png",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "style05-bg-fine-grain-inverted",
+    "kind": "background",
+    "family": "fine-grain",
+    "colorway": "inverted",
+    "colorLabel": "Inverted palette",
+    "title": "Fine grain / Inverted palette",
+    "description": "The base geometry recolored with inverted anchor colors: 70% orange and 30% violet, as an exploratory palette comparison.",
+    "prompt": "Edit the supplied image as a controlled color comparison. Final remains one full-bleed high-quality landscape 16:9 background around 1672\u00d7941. Change ONLY the two anchor colors using their literal RGB-inverted counterparts: blue #007EBD maps to orange #FF8142; lime #D6FF62 maps to deep violet #29009D. Preserve the original blue-major geometry exactly, with approximately 70 percent ORANGE across left/top/center and approximately 30 percent VIOLET at the lower-right. Keep the same soft transition boundary, texture and spatial arrangement. No original blue, cyan, green or lime should remain. This is an exploratory orange/violet palette inversion, NOT a direction reversal and NOT a shape or material change. Keep the anchors clearly orange and violet, not mostly pale peach or gray. Preserve the exact flat matte finish with the same very fine analog grain. Broad luminous color only, absolutely no glass, optical relief, forms, banded objects, folds, shadows or new texture. No text, symbols, logos, watermarks, border, panels, frames, scene, objects, illustrations, or extra elements. Preserve overall visual structure as closely as possible.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/fine-grain-blue-major.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-1e9a8b6a-93ee-4483-9d8f-2b042558bcd7.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/fine-grain-inverted.png",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "style05-bg-fine-grain-lime-major",
+    "kind": "background",
+    "family": "fine-grain",
+    "colorway": "lime-major",
+    "colorLabel": "Lime dominant",
+    "title": "Fine grain / Lime dominant",
+    "description": "The same geometry and texture, recolored to roughly 70% lime across left/top and 30% blue at lower right.",
+    "prompt": "Edit the supplied image as a controlled color comparison. Final remains one full-bleed high-quality landscape 16:9 background around 1672\u00d7941. Swap the roles of the two colors without moving any part of the composition: every broad area currently blue in the left/top/center becomes luminous lime #D6FF62, which now occupies approximately 70 percent of the canvas. The current lime region at lower-right becomes saturated blue #007EBD/#168DDD, occupying approximately 30 percent. Keep the same soft diagonal transition boundary and exactly the same spatial structure. This is a color-role swap, NOT a mirror, flip, rotation or direction reversal. Lime must clearly dominate on the left and top; blue must be localized in the lower-right. Preserve the exact flat matte finish with the same very fine analog grain. Broad luminous color only, absolutely no glass, optical relief, forms, banded objects, folds, shadows or new texture. No text, symbols, logos, watermarks, border, panels, frames, scene, objects, illustrations, or extra elements. Preserve overall visual structure as closely as possible.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/fine-grain-blue-major.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-443e7938-1010-4e11-a19e-bf805af278b0.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/fine-grain-lime-major.png",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "style05-bg-fine-grain-reverse",
+    "kind": "background",
+    "family": "fine-grain",
+    "colorway": "reverse",
+    "colorLabel": "Reversed direction",
+    "title": "Fine grain / Reversed direction",
+    "description": "The same blue-dominant balance, with lime moved to the upper left and blue occupying right/bottom.",
+    "prompt": "Edit the supplied image as a controlled color comparison. Final remains one full-bleed high-quality landscape 16:9 background around 1672\u00d7941. Reverse ONLY the gradient's direction: make approximately 70 percent of the canvas saturated blue #007EBD/#168DDD across the RIGHT, BOTTOM and center, and move the approximately 30 percent luminous lime #D6FF62 region to the UPPER-LEFT corner. This is the base gradient's direction reversed diagonally, as if its color distribution were rotated 180 degrees, while retaining the same texture strength and material character. Do not swap which color is dominant: blue must still occupy most of the image. Preserve the same width/softness of the color transition. Preserve the exact flat matte finish with the same very fine analog grain. Broad luminous color only, absolutely no glass, optical relief, forms, banded objects, folds, shadows or new texture. No text, symbols, logos, watermarks, border, panels, frames, scene, objects, illustrations, or extra elements. Preserve overall visual structure as closely as possible.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/fine-grain-blue-major.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-b36791c7-1538-4e87-8b3f-c1394f3ea54f.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/fine-grain-reverse.png",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "style05-bg-glass-blue-major",
+    "kind": "background",
+    "family": "glass",
+    "colorway": "blue-major",
+    "colorLabel": "Blue dominant",
+    "title": "Frosted glass / Blue dominant",
+    "description": "Optically diffused frosted-glass color with broad soft vertical refractions, blue dominant at left/top and lime at lower right.",
+    "prompt": "Create one standalone, full-bleed, high-quality landscape 16:9 background around 1672\u00d7941. This is a controlled visual material and color comparison, not a finished cover. No text, letters, symbols, objects, illustrations, people, scenery, logos, watermarks, frames, borders, panels or inset rectangles. Composition: approximately 70 percent saturated blue #007EBD/#168DDD occupying left, top and most of the center, softly transitioning into approximately 30 percent luminous lime #D6FF62 diffused through the lower-right corner. Preserve a simple broad diagonal color boundary from upper-right to lower-center. Make the dominant-color area truly blue, not mostly white or pale cyan. Use the provided image as a MATERIAL reference only: rich optically diffused frosted-glass light, a delicate tactile frosted surface, softened luminous refraction. Recompose its color to the required blue-left/top and lime-lower-right geometry. Add three to four broad, very soft vertical translucent refraction bands extending continuously from top edge to bottom edge, unevenly spaced, changing local brightness subtly; no hard partitions. Make this visibly different from a plain flat noisy gradient: the light travels through a frosted optical material with softness, subtle layered translucency and a small amount of fine glass texture. No actual glass object or panel edges, no product, no border, no recognizable outdoor scenery, no literal window, no droplets, no excessive blobs or bokeh circles. All light remains abstract blue and lime, with gentle pale highlights. This physical optical structure should be simple and stable for subsequent color-only edits.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-05-01.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-d4a18165-e814-4b0d-88f4-a6b2d22a7107.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/glass-blue-major.png",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "style05-bg-glass-inverted",
+    "kind": "background",
+    "family": "glass",
+    "colorway": "inverted",
+    "colorLabel": "Inverted palette",
+    "title": "Frosted glass / Inverted palette",
+    "description": "The base geometry recolored with inverted anchor colors: 70% orange and 30% violet, as an exploratory palette comparison.",
+    "prompt": "Edit the supplied image as a controlled color comparison. Final remains one full-bleed high-quality landscape 16:9 background around 1672\u00d7941. Change ONLY the two anchor colors using their literal RGB-inverted counterparts: blue #007EBD maps to orange #FF8142; lime #D6FF62 maps to deep violet #29009D. Preserve the original blue-major geometry exactly, with approximately 70 percent ORANGE across left/top/center and approximately 30 percent VIOLET at the lower-right. Keep the same soft transition boundary, texture and spatial arrangement. No original blue, cyan, green or lime should remain. This is an exploratory orange/violet palette inversion, NOT a direction reversal and NOT a shape or material change. Keep the anchors clearly orange and violet, not mostly pale peach or gray. Preserve the exact frosted-glass physical surface and existing vertical translucent refraction bands: same positions, widths, delicate optical texture, and lighting relief. Only the colors should change. Maintain optical diffusion and depth, never flatten this into an ordinary matte gradient. No text, symbols, logos, watermarks, border, panels, frames, scene, objects, illustrations, or extra elements. Preserve overall visual structure as closely as possible.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/glass-blue-major.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-491a0ef8-ed2d-4dbe-97e9-945d2cd7c507.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/glass-inverted.png",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "style05-bg-glass-lime-major",
+    "kind": "background",
+    "family": "glass",
+    "colorway": "lime-major",
+    "colorLabel": "Lime dominant",
+    "title": "Frosted glass / Lime dominant",
+    "description": "The same geometry and texture, recolored to roughly 70% lime across left/top and 30% blue at lower right.",
+    "prompt": "Edit the supplied image as a controlled color comparison. Final remains one full-bleed high-quality landscape 16:9 background around 1672\u00d7941. Swap the roles of the two colors without moving any part of the composition: every broad area currently blue in the left/top/center becomes luminous lime #D6FF62, which now occupies approximately 70 percent of the canvas. The current lime region at lower-right becomes saturated blue #007EBD/#168DDD, occupying approximately 30 percent. Keep the same soft diagonal transition boundary and exactly the same spatial structure. This is a color-role swap, NOT a mirror, flip, rotation or direction reversal. Lime must clearly dominate on the left and top; blue must be localized in the lower-right. Preserve the exact frosted-glass physical surface and existing vertical translucent refraction bands: same positions, widths, delicate optical texture, and lighting relief. Only the colors should change. Maintain optical diffusion and depth, never flatten this into an ordinary matte gradient. No text, symbols, logos, watermarks, border, panels, frames, scene, objects, illustrations, or extra elements. Preserve overall visual structure as closely as possible.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/glass-blue-major.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-7192a341-74e6-424d-8041-ad82b546a2ff.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/glass-lime-major.png",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "style05-bg-glass-reverse",
+    "kind": "background",
+    "family": "glass",
+    "colorway": "reverse",
+    "colorLabel": "Reversed direction",
+    "title": "Frosted glass / Reversed direction",
+    "description": "The same blue-dominant balance, with lime moved to the upper left and blue occupying right/bottom.",
+    "prompt": "Edit the supplied image as a controlled color comparison. Final remains one full-bleed high-quality landscape 16:9 background around 1672\u00d7941. Reverse ONLY the gradient's direction: make approximately 70 percent of the canvas saturated blue #007EBD/#168DDD across the RIGHT, BOTTOM and center, and move the approximately 30 percent luminous lime #D6FF62 region to the UPPER-LEFT corner. This is the base gradient's direction reversed diagonally, as if its color distribution were rotated 180 degrees, while retaining the same texture strength and material character. Do not swap which color is dominant: blue must still occupy most of the image. Preserve the same width/softness of the color transition. Preserve the exact frosted-glass physical surface and existing vertical translucent refraction bands: same positions, widths, delicate optical texture, and lighting relief. Only the colors should change. Maintain optical diffusion and depth, never flatten this into an ordinary matte gradient. No text, symbols, logos, watermarks, border, panels, frames, scene, objects, illustrations, or extra elements. Preserve overall visual structure as closely as possible.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/glass-blue-major.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-7061a26b-804e-4ee3-95ca-c77a99fb80f5.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/style-lab/backgrounds/glass-reverse.png",
+    "width": 1672,
+    "height": 941
+  }
+]

@@ -1,0 +1,6685 @@
+[
+  {
+    "id": "blue-sweep-podcast-badge",
+    "title": "Podcast badge",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/badge.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/badge.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/badge.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "tool": "podcast-kit-blue-sweep.html?format=badge#preview",
+    "stage": "final",
+    "code": "P37"
+  },
+  {
+    "id": "blue-sweep-podcast-badge-overlay",
+    "title": "Corner badge overlay",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/badge-overlay.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/badge-overlay.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/badge-overlay.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "tool": "podcast-kit-blue-sweep.html?format=badge-overlay#preview",
+    "stage": "final",
+    "code": "P38"
+  },
+  {
+    "id": "blue-sweep-podcast-title",
+    "title": "Show title",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/title.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/title.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/title.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "tool": "podcast-kit-blue-sweep.html?format=title#preview",
+    "stage": "final",
+    "code": "P39"
+  },
+  {
+    "id": "blue-sweep-podcast-cover",
+    "title": "Square show cover",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/cover.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/cover.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/cover.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "tool": "podcast-kit-blue-sweep.html?format=cover#preview",
+    "stage": "final",
+    "code": "P40"
+  },
+  {
+    "id": "blue-sweep-podcast-thumbnail",
+    "title": "Episode thumbnail",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/thumbnail.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/thumbnail.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/thumbnail.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "tool": "podcast-kit-blue-sweep.html?format=thumbnail#preview",
+    "stage": "final",
+    "code": "P41"
+  },
+  {
+    "id": "blue-sweep-podcast-solo",
+    "title": "Solo video frame",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/solo-preview.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/solo.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/solo.svg"
+      },
+      {
+        "label": "Name labels PNG",
+        "path": "assets/podcast-kit-blue-sweep/solo-labels.png"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Transparent camera openings; separate name labels.",
+    "tool": "podcast-kit-blue-sweep.html?format=solo#preview",
+    "stage": "final",
+    "code": "P42"
+  },
+  {
+    "id": "blue-sweep-podcast-duo",
+    "title": "Two-person video frame",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/duo-preview.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/duo.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/duo.svg"
+      },
+      {
+        "label": "Name labels PNG",
+        "path": "assets/podcast-kit-blue-sweep/duo-labels.png"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Transparent camera openings; separate name labels.",
+    "tool": "podcast-kit-blue-sweep.html?format=duo#preview",
+    "stage": "final",
+    "code": "P43"
+  },
+  {
+    "id": "blue-sweep-podcast-vertical",
+    "title": "Vertical clip frame",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/vertical-preview.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/vertical.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/vertical.svg"
+      },
+      {
+        "label": "Name labels PNG",
+        "path": "assets/podcast-kit-blue-sweep/vertical-labels.png"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Transparent camera openings; separate name labels.",
+    "tool": "podcast-kit-blue-sweep.html?format=vertical#preview",
+    "stage": "final",
+    "code": "P44"
+  },
+  {
+    "id": "blue-sweep-podcast-quote",
+    "title": "Quote card",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/quote.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/quote.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/quote.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "tool": "podcast-kit-blue-sweep.html?format=quote#preview",
+    "stage": "final",
+    "code": "P45"
+  },
+  {
+    "id": "blue-sweep-podcast-announcement",
+    "title": "Episode announcement",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/announcement.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/announcement.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/announcement.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "tool": "podcast-kit-blue-sweep.html?format=announcement#preview",
+    "stage": "final",
+    "code": "P46"
+  },
+  {
+    "id": "blue-sweep-podcast-endcard",
+    "title": "End card",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/endcard.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/endcard.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/endcard.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "tool": "podcast-kit-blue-sweep.html?format=endcard#preview",
+    "stage": "final",
+    "code": "P47"
+  },
+  {
+    "id": "blue-sweep-podcast-background",
+    "title": "Landscape background",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/background.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/background.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/background.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "tool": "podcast-kit-blue-sweep.html?format=background#preview",
+    "stage": "final",
+    "code": "P48"
+  },
+  {
+    "id": "blue-sweep-podcast-square-background",
+    "title": "Square background",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/square-background.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/square-background.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/square-background.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "tool": "podcast-kit-blue-sweep.html?format=square-background#preview",
+    "stage": "final",
+    "code": "P49"
+  },
+  {
+    "id": "blue-sweep-podcast-portrait-background",
+    "title": "Portrait background",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/portrait-background.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-blue-sweep/portrait-background.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/portrait-background.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Blue sweep podcast kit. Episode text is editable in the kit.",
+    "tool": "podcast-kit-blue-sweep.html?format=portrait-background#preview",
+    "stage": "final",
+    "code": "P50"
+  },
+  {
+    "id": "blue-sweep-podcast-intro",
+    "title": "Opening \u00b7 Connection pass",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/title.png",
+    "files": [
+      {
+        "label": "MP4",
+        "path": "assets/podcast-kit-blue-sweep/intro.mp4"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Silent 1080p motion. 5.5-second symbol reveal, docking, and wordmark reveal.",
+    "video": "assets/podcast-kit-blue-sweep/intro-connection.mp4",
+    "tool": "podcast-kit-blue-sweep.html#motion",
+    "stage": "experiment",
+    "code": "P51"
+  },
+  {
+    "id": "blue-sweep-podcast-outro",
+    "title": "Outro",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/title.png",
+    "files": [
+      {
+        "label": "MP4",
+        "path": "assets/podcast-kit-blue-sweep/outro.mp4"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Silent 1080p motion. ",
+    "video": "assets/podcast-kit-blue-sweep/outro.mp4",
+    "tool": "podcast-kit-blue-sweep.html#motion",
+    "stage": "experiment",
+    "code": "P52"
+  },
+  {
+    "id": "blue-sweep-podcast-background-loop",
+    "title": "Background loop",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-blue-sweep/background.png",
+    "files": [
+      {
+        "label": "MP4",
+        "path": "assets/podcast-kit-blue-sweep/background-loop.mp4"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "description": "Silent 1080p motion. ",
+    "video": "assets/podcast-kit-blue-sweep/background-loop.mp4",
+    "tool": "podcast-kit-blue-sweep.html#motion",
+    "stage": "experiment",
+    "code": "P53"
+  },
+  {
+    "id": "social-kit-linkedin-personal",
+    "title": "LinkedIn \u00b7 personal",
+    "group": "social",
+    "preview": "assets/social-banner-kit/linkedin-personal.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/linkedin-personal.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/linkedin-personal.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "linkedin-personal",
+    "width": 1584,
+    "height": 396,
+    "description": "Your selected banner, preserved exactly. Lower-left stays clear for the profile photo.",
+    "source": "https://www.linkedin.com/help/linkedin/answer/a568217/?lang=en-US",
+    "spec": "Recommended 1584 \u00d7 396; JPG or PNG; under 8 MB.",
+    "kind": "Cover",
+    "limit": 8000000,
+    "tool": "social-banner-kit.html#linkedin-personal",
+    "bytes": 120186,
+    "stage": "final",
+    "code": "S33"
+  },
+  {
+    "id": "social-kit-linkedin-company",
+    "title": "LinkedIn \u00b7 company Page",
+    "group": "social",
+    "preview": "assets/social-banner-kit/linkedin-company.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/linkedin-company.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/linkedin-company.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "linkedin-company",
+    "width": 4200,
+    "height": 700,
+    "description": "A wider, shallower layout for the company Page. Main message and cards move inward from the edges.",
+    "source": "https://www.linkedin.com/help/linkedin/answer/a563309?hcppcid=search",
+    "spec": "Current Page recommendation 4200 \u00d7 700; PNG or JPEG; maximum 3 MB.",
+    "kind": "Cover",
+    "limit": 3000000,
+    "tool": "social-banner-kit.html#linkedin-company",
+    "bytes": 335727,
+    "stage": "final",
+    "code": "S34"
+  },
+  {
+    "id": "social-kit-youtube",
+    "title": "YouTube \u00b7 channel",
+    "group": "social",
+    "preview": "assets/social-banner-kit/youtube.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/youtube.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/youtube.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "youtube",
+    "width": 2560,
+    "height": 1440,
+    "description": "Upload the full image. Logo, headline, subline, and cards sit inside a centered 1540 \u00d7 420 area; preview the narrow crop below.",
+    "source": "https://support.google.com/youtube/answer/10456525?hl=en",
+    "spec": "Recommended 2560 \u00d7 1440; minimum 2048 \u00d7 1152; text/logo safe area 1235 \u00d7 338 at minimum size; maximum 6 MB.",
+    "kind": "Cover",
+    "limit": 6000000,
+    "tool": "social-banner-kit.html#youtube",
+    "bytes": 423379,
+    "stage": "final",
+    "code": "S35"
+  },
+  {
+    "id": "social-kit-x",
+    "title": "X \u00b7 header",
+    "group": "social",
+    "preview": "assets/social-banner-kit/x.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/x.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/x.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "x",
+    "width": 1500,
+    "height": 500,
+    "description": "A deeper blue field, with the headline away from the lower-left avatar and the top/bottom crop zones.",
+    "source": "https://help.x.com/articles/166743",
+    "spec": "Recommended 1500 \u00d7 500. Up to 60 px at the top and bottom can crop.",
+    "kind": "Cover",
+    "limit": null,
+    "tool": "social-banner-kit.html#x",
+    "bytes": 125833,
+    "stage": "final",
+    "code": "S36"
+  },
+  {
+    "id": "social-kit-bluesky",
+    "title": "Bluesky \u00b7 header",
+    "group": "social",
+    "preview": "assets/social-banner-kit/bluesky.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/bluesky.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/bluesky.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "bluesky",
+    "width": 1500,
+    "height": 500,
+    "description": "A deeper blue field, with the headline away from the lower-left avatar and the top/bottom crop zones.",
+    "source": "https://github.com/bluesky-social/social-app/blob/main/src/view/com/util/UserBanner.tsx",
+    "spec": "Official app uses a 3:1 crop. 1500 \u00d7 500 is our export choice, not a published mandatory pixel size.",
+    "kind": "Cover",
+    "limit": 1000000,
+    "tool": "social-banner-kit.html#bluesky",
+    "bytes": 125833,
+    "stage": "final",
+    "code": "S37"
+  },
+  {
+    "id": "social-kit-mastodon",
+    "title": "Mastodon \u00b7 header",
+    "group": "social",
+    "preview": "assets/social-banner-kit/mastodon.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/mastodon.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/mastodon.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "mastodon",
+    "width": 1500,
+    "height": 500,
+    "description": "A deeper blue field, with the headline away from the lower-left avatar and the top/bottom crop zones.",
+    "source": "https://docs.joinmastodon.org/user/profile/",
+    "spec": "Headers are downscaled to 1500 \u00d7 500; maximum 2 MB. Instance rules can vary.",
+    "kind": "Cover",
+    "limit": 2000000,
+    "tool": "social-banner-kit.html#mastodon",
+    "bytes": 125833,
+    "stage": "final",
+    "code": "S38"
+  },
+  {
+    "id": "social-kit-facebook",
+    "title": "Facebook \u00b7 cover",
+    "group": "social",
+    "preview": "assets/social-banner-kit/facebook.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/facebook.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/facebook.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "facebook",
+    "width": 1702,
+    "height": 630,
+    "description": "A 2\u00d7 export of the 851 \u00d7 315 cover canvas. Important content is concentrated in the middle; use Facebook\u2019s final repositioning preview.",
+    "source": "https://www.facebook.com/help/125379114252045",
+    "spec": "851 \u00d7 315 guidance corroborated by a secondary source; Meta help was login-gated during research. Exported at 1702 \u00d7 630.",
+    "kind": "Cover",
+    "limit": null,
+    "tool": "social-banner-kit.html#facebook",
+    "bytes": 149631,
+    "stage": "final",
+    "code": "S39"
+  },
+  {
+    "id": "social-kit-twitch",
+    "title": "Twitch \u00b7 profile banner",
+    "group": "social",
+    "preview": "assets/social-banner-kit/twitch.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/twitch.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/twitch.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "twitch",
+    "width": 1200,
+    "height": 480,
+    "description": "Left-weighted typography follows Twitch\u2019s guidance. Channel UI and browser width can change how much of the banner is visible.",
+    "source": "https://help.twitch.tv/s/article/channel-page-setup?language=en_US",
+    "spec": "Recommended 1200 \u00d7 480; graphics concentrated on the left.",
+    "kind": "Cover",
+    "limit": null,
+    "tool": "social-banner-kit.html#twitch",
+    "bytes": 111774,
+    "stage": "final",
+    "code": "S40"
+  },
+  {
+    "id": "social-kit-pinterest",
+    "title": "Pinterest \u00b7 business cover",
+    "group": "social",
+    "preview": "assets/social-banner-kit/pinterest.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/pinterest.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/pinterest.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "pinterest",
+    "width": 1600,
+    "height": 900,
+    "description": "A spacious landscape composition with the same card details and blue sweep.",
+    "source": "https://help.pinterest.com/en/business/article/personalize-your-profile",
+    "spec": "Business profile cover: minimum 800 \u00d7 450, recommended 16:9. Our export is 1600 \u00d7 900.",
+    "kind": "Cover",
+    "limit": null,
+    "tool": "social-banner-kit.html#pinterest",
+    "bytes": 195621,
+    "stage": "final",
+    "code": "S41"
+  },
+  {
+    "id": "social-kit-tumblr",
+    "title": "Tumblr \u00b7 header",
+    "group": "social",
+    "preview": "assets/social-banner-kit/tumblr.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/tumblr.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/tumblr.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "tumblr",
+    "width": 2048,
+    "height": 1152,
+    "description": "A spacious landscape composition with the same card details and blue sweep.",
+    "source": "https://help.tumblr.com/knowledge-base/appearance-options/",
+    "spec": "Ideal 2048 \u00d7 1152, 16:9; maximum 10 MB.",
+    "kind": "Cover",
+    "limit": 10000000,
+    "tool": "social-banner-kit.html#tumblr",
+    "bytes": 280732,
+    "stage": "final",
+    "code": "S42"
+  },
+  {
+    "id": "social-kit-reddit-desktop",
+    "title": "Reddit \u00b7 community desktop",
+    "group": "social",
+    "preview": "assets/social-banner-kit/reddit-desktop.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/reddit-desktop.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/reddit-desktop.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "reddit-desktop",
+    "width": 2144,
+    "height": 256,
+    "description": "Community artwork, not a personal profile header. The shallow format uses one headline line and a compact card group.",
+    "source": "https://support.reddithelp.com/hc/en-us/articles/15484339588884-Banner",
+    "spec": "Desktop minimum 1072 \u00d7 128; mobile minimum 1080 \u00d7 128. These exports are 2\u00d7 the respective minimums.",
+    "kind": "Cover",
+    "limit": null,
+    "tool": "social-banner-kit.html#reddit-desktop",
+    "bytes": 104669,
+    "stage": "final",
+    "code": "S43"
+  },
+  {
+    "id": "social-kit-reddit-mobile",
+    "title": "Reddit \u00b7 community mobile",
+    "group": "social",
+    "preview": "assets/social-banner-kit/reddit-mobile.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/reddit-mobile.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/reddit-mobile.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "reddit-mobile",
+    "width": 2160,
+    "height": 256,
+    "description": "Community artwork, not a personal profile header. The shallow format uses one headline line and a compact card group.",
+    "source": "https://support.reddithelp.com/hc/en-us/articles/15484339588884-Banner",
+    "spec": "Desktop minimum 1072 \u00d7 128; mobile minimum 1080 \u00d7 128. These exports are 2\u00d7 the respective minimums.",
+    "kind": "Cover",
+    "limit": null,
+    "tool": "social-banner-kit.html#reddit-mobile",
+    "bytes": 104671,
+    "stage": "final",
+    "code": "S44"
+  },
+  {
+    "id": "social-kit-discord-profile",
+    "title": "Discord \u00b7 profile banner",
+    "group": "social",
+    "preview": "assets/social-banner-kit/discord-profile.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/discord-profile.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/discord-profile.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "discord-profile",
+    "width": 1360,
+    "height": 480,
+    "description": "Keeps the lower-left clear for the avatar. Requires a Nitro account with profile banner access.",
+    "source": "https://support.discord.com/hc/en-us/articles/4403147417623-Custom-Profiles",
+    "spec": "Minimum 680 \u00d7 240; maximum 10 MB. Exported at 1360 \u00d7 480.",
+    "kind": "Cover",
+    "limit": 10000000,
+    "tool": "social-banner-kit.html#discord-profile",
+    "bytes": 114537,
+    "stage": "final",
+    "code": "S45"
+  },
+  {
+    "id": "social-kit-discord-server",
+    "title": "Discord \u00b7 server banner",
+    "group": "social",
+    "preview": "assets/social-banner-kit/discord-server.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/discord-server.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/discord-server.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "discord-server",
+    "width": 960,
+    "height": 540,
+    "description": "Art-only: blue sweep and report/catalog/review illustrations. No text or logo; the top remains quiet for the server name.",
+    "source": "https://support.discord.com/hc/en-us/articles/360028716472",
+    "spec": "Minimum 960 \u00d7 540, 16:9. Keep top 48 px clear; avoid logos and text. Requires an eligible boosted or partnered server.",
+    "kind": "Cover",
+    "limit": null,
+    "tool": "social-banner-kit.html#discord-server",
+    "bytes": 83690,
+    "stage": "final",
+    "code": "S46"
+  },
+  {
+    "id": "social-kit-soundcloud",
+    "title": "SoundCloud \u00b7 header",
+    "group": "social",
+    "preview": "assets/social-banner-kit/soundcloud.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/soundcloud.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/soundcloud.svg"
+      }
+    ],
+    "collection": "Blue sweep / platform kit",
+    "current": true,
+    "slug": "soundcloud",
+    "width": 2480,
+    "height": 520,
+    "description": "Art-only, following SoundCloud\u2019s recommendation to avoid text in headers. The music-business illustrations carry the brand.",
+    "source": "https://help.soundcloud.com/hc/en-us/articles/115003450007-Profile-image-and-header",
+    "spec": "At least 2480 \u00d7 520; JPG or PNG; maximum 2 MB.",
+    "kind": "Cover",
+    "limit": 2000000,
+    "tool": "social-banner-kit.html#soundcloud",
+    "bytes": 139878,
+    "stage": "final",
+    "code": "S47"
+  },
+  {
+    "id": "social-kit-instagram-threads",
+    "title": "Instagram / Threads \u00b7 portrait post",
+    "group": "social",
+    "preview": "assets/social-banner-kit/instagram-threads.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/instagram-threads.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/instagram-threads.svg"
+      }
+    ],
+    "collection": "Blue sweep / companion posts",
+    "current": true,
+    "slug": "instagram-threads",
+    "width": 1080,
+    "height": 1350,
+    "description": "Companion post artwork in a chosen 4:5 canvas. This is not a profile banner.",
+    "source": "",
+    "spec": "Chosen 1080 \u00d7 1350 post canvas; not a profile-header specification.",
+    "kind": "Companion",
+    "limit": null,
+    "tool": "social-banner-kit.html#instagram-threads",
+    "bytes": 226503,
+    "stage": "final",
+    "code": "S48"
+  },
+  {
+    "id": "social-kit-tiktok-reels",
+    "title": "TikTok / Reels \u00b7 vertical cover",
+    "group": "social",
+    "preview": "assets/social-banner-kit/tiktok-reels.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/social-banner-kit/tiktok-reels.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/social-banner-kit/tiktok-reels.svg"
+      }
+    ],
+    "collection": "Blue sweep / companion posts",
+    "current": true,
+    "slug": "tiktok-reels",
+    "width": 1080,
+    "height": 1920,
+    "description": "Companion video-cover artwork in a chosen 9:16 canvas. Keep the final app\u2019s captions and controls in mind when positioning.",
+    "source": "",
+    "spec": "Chosen 1080 \u00d7 1920 video-cover canvas; not a profile-header specification.",
+    "kind": "Companion",
+    "limit": null,
+    "tool": "social-banner-kit.html#tiktok-reels",
+    "bytes": 285431,
+    "stage": "final",
+    "code": "S49"
+  },
+  {
+    "id": "linkedin-azure-music-rightsholders",
+    "title": "Azure / music rightsholders",
+    "group": "social",
+    "preview": "assets/linkedin-refined/azure-music-rightsholders.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-refined/azure-music-rightsholders.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-refined/azure-music-rightsholders.svg"
+      }
+    ],
+    "collection": "LinkedIn / Azure refinement",
+    "current": true,
+    "description": "AI transformation for music rightsholders.",
+    "tool": "linkedin-banners.html#azure-music-rightsholders",
+    "stage": "experiment",
+    "code": "S29"
+  },
+  {
+    "id": "linkedin-azure-music-business",
+    "title": "17 \u00b7 Azure refined / music business",
+    "group": "social",
+    "preview": "assets/linkedin-refined/azure-music-business.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-refined/azure-music-business.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-refined/azure-music-business.svg"
+      }
+    ],
+    "collection": "LinkedIn / Azure refinement",
+    "current": true,
+    "description": "The earlier broader headline, kept for comparison.",
+    "tool": "linkedin-banners.html#azure-music-business",
+    "stage": "experiment",
+    "code": "S27"
+  },
+  {
+    "id": "linkedin-art-card-details",
+    "title": "01 \u00b7 Working cards",
+    "group": "social",
+    "preview": "assets/linkedin-art/card-details.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-art/card-details.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-art/card-details.svg"
+      }
+    ],
+    "collection": "LinkedIn / art details",
+    "current": true,
+    "description": "Small report, catalog, and review illustrations add detail to the cards.",
+    "tool": "linkedin-banners.html#art-card-details",
+    "stage": "experiment",
+    "code": "S28"
+  },
+  {
+    "id": "linkedin-art-light-planes",
+    "title": "02 \u00b7 Light planes",
+    "group": "social",
+    "preview": "assets/linkedin-art/light-planes.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-art/light-planes.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-art/light-planes.svg"
+      }
+    ],
+    "collection": "LinkedIn / art details",
+    "current": true,
+    "description": "Large translucent planes frame the composition with a sharper editorial edge.",
+    "tool": "linkedin-banners.html#art-light-planes",
+    "stage": "experiment",
+    "code": "S30"
+  },
+  {
+    "id": "linkedin-art-catalog-press",
+    "title": "03 \u00b7 Catalog press",
+    "group": "social",
+    "preview": "assets/linkedin-art/catalog-press.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-art/catalog-press.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-art/catalog-press.svg"
+      }
+    ],
+    "collection": "LinkedIn / art details",
+    "current": true,
+    "description": "Cropped record rings and a fine grid add a music and print reference.",
+    "tool": "linkedin-banners.html#art-catalog-press",
+    "stage": "experiment",
+    "code": "S31"
+  },
+  {
+    "id": "linkedin-art-blue-sweep",
+    "title": "04 \u00b7 Blue sweep",
+    "group": "social",
+    "preview": "assets/linkedin-art/blue-sweep.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-art/blue-sweep.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-art/blue-sweep.svg"
+      }
+    ],
+    "collection": "LinkedIn / art details",
+    "current": true,
+    "description": "A broad translucent sweep brings movement through the blue field.",
+    "tool": "linkedin-banners.html#art-blue-sweep",
+    "stage": "final",
+    "code": "S32"
+  },
+  {
+    "id": "linkedin-azure-playbooks",
+    "title": "12 \u00b7 Azure / playbooks",
+    "group": "social",
+    "preview": "assets/linkedin-blue/azure-playbooks.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-blue/azure-playbooks.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-blue/azure-playbooks.svg"
+      }
+    ],
+    "collection": "LinkedIn / blue variations",
+    "current": true,
+    "description": "Bright blue with a compact playbook fan and a smaller wordmark.",
+    "tool": "linkedin-banners.html#azure-playbooks",
+    "stage": "experiment",
+    "code": "S22"
+  },
+  {
+    "id": "linkedin-ice-playbooks",
+    "title": "13 \u00b7 Ice / blue on blue",
+    "group": "social",
+    "preview": "assets/linkedin-blue/ice-playbooks.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-blue/ice-playbooks.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-blue/ice-playbooks.svg"
+      }
+    ],
+    "collection": "LinkedIn / blue variations",
+    "current": true,
+    "description": "Pale blue, dark type, and a tonal blue card family.",
+    "tool": "linkedin-banners.html#ice-playbooks",
+    "stage": "experiment",
+    "code": "S23"
+  },
+  {
+    "id": "linkedin-deep-blue-work",
+    "title": "14 \u00b7 Deep blue / connected work",
+    "group": "social",
+    "preview": "assets/linkedin-blue/deep-blue-work.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-blue/deep-blue-work.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-blue/deep-blue-work.svg"
+      }
+    ],
+    "collection": "LinkedIn / blue variations",
+    "current": true,
+    "description": "A deeper blue with two readable working cards.",
+    "tool": "linkedin-banners.html#deep-blue-work",
+    "stage": "experiment",
+    "code": "S24"
+  },
+  {
+    "id": "linkedin-cobalt-services",
+    "title": "15 \u00b7 Cobalt / service cards",
+    "group": "social",
+    "preview": "assets/linkedin-blue/cobalt-services.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-blue/cobalt-services.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-blue/cobalt-services.svg"
+      }
+    ],
+    "collection": "LinkedIn / blue variations",
+    "current": true,
+    "description": "Three wide service cards step across the right side.",
+    "tool": "linkedin-banners.html#cobalt-services",
+    "stage": "experiment",
+    "code": "S25"
+  },
+  {
+    "id": "linkedin-daylight-open",
+    "title": "16 \u00b7 Daylight / open space",
+    "group": "social",
+    "preview": "assets/linkedin-blue/daylight-open.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-blue/daylight-open.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-blue/daylight-open.svg"
+      }
+    ],
+    "collection": "LinkedIn / blue variations",
+    "current": true,
+    "description": "The approved Daylight atmosphere with a simple typographic composition.",
+    "tool": "linkedin-banners.html#daylight-open",
+    "stage": "experiment",
+    "code": "S26"
+  },
+  {
+    "id": "linkedin-sky-cards",
+    "title": "09 \u00b7 Sky / music playbooks",
+    "group": "social",
+    "preview": "assets/linkedin-website/sky-cards.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-website/sky-cards.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-website/sky-cards.svg"
+      }
+    ],
+    "collection": "LinkedIn / website direction",
+    "current": true,
+    "description": "The website\u2019s blue sky and white, lime, and forest playbooks, composed for a wide banner.",
+    "tool": "linkedin-banners.html#sky-cards",
+    "stage": "experiment",
+    "code": "S19"
+  },
+  {
+    "id": "linkedin-skills-cards",
+    "title": "10 \u00b7 Paper / skills in focus",
+    "group": "social",
+    "preview": "assets/linkedin-website/skills-cards.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-website/skills-cards.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-website/skills-cards.svg"
+      }
+    ],
+    "collection": "LinkedIn / website direction",
+    "current": true,
+    "description": "The same layered playbook language as the website, with a concrete service headline.",
+    "tool": "linkedin-banners.html#skills-cards",
+    "stage": "experiment",
+    "code": "S20"
+  },
+  {
+    "id": "linkedin-connected-cards",
+    "title": "11 \u00b7 Forest / connected work",
+    "group": "social",
+    "preview": "assets/linkedin-website/connected-cards.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-website/connected-cards.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-website/connected-cards.svg"
+      }
+    ],
+    "collection": "LinkedIn / website direction",
+    "current": true,
+    "description": "Translucent data and catalog cards show the work behind the service.",
+    "tool": "linkedin-banners.html#connected-cards",
+    "stage": "experiment",
+    "code": "S21"
+  },
+  {
+    "id": "linkedin-daylight",
+    "title": "01 \u00b7 Daylight / one clear line",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/daylight.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/daylight.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/daylight.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "description": "A wide headline follows the folds; a small wordmark anchors the upper right.",
+    "tool": "linkedin-banners.html#daylight",
+    "stage": "experiment",
+    "code": "S11"
+  },
+  {
+    "id": "linkedin-paper",
+    "title": "02 \u00b7 Paper / counterweight",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/paper.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/paper.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/paper.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "description": "Pale space and a strong blue edge balance a generous two-line headline.",
+    "tool": "linkedin-banners.html#paper",
+    "stage": "experiment",
+    "code": "S12"
+  },
+  {
+    "id": "linkedin-tempo",
+    "title": "03 \u00b7 Tempo / bold statement",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/tempo.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/tempo.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/tempo.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "description": "Large type and a smaller supporting line carry the composition; rhythm stays at the edge.",
+    "tool": "linkedin-banners.html#tempo",
+    "stage": "experiment",
+    "code": "S13"
+  },
+  {
+    "id": "linkedin-woven",
+    "title": "04 \u00b7 Forest / diagonal balance",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/woven.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/woven.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/woven.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "description": "Oversized corner shapes balance a lime headline across an open forest field.",
+    "tool": "linkedin-banners.html#woven",
+    "stage": "experiment",
+    "code": "S14"
+  },
+  {
+    "id": "linkedin-lime",
+    "title": "05 \u00b7 Lime / blue punctuation",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/lime.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/lime.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/lime.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "description": "A small wordmark, a large second line, and one oversized blue crop.",
+    "tool": "linkedin-banners.html#lime",
+    "stage": "experiment",
+    "code": "S15"
+  },
+  {
+    "id": "linkedin-night",
+    "title": "06 \u00b7 Night / quiet confidence",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/night.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/night.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/night.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "description": "A restrained one-line message, dark blue space, and a shallow sweep of light.",
+    "tool": "linkedin-banners.html#night",
+    "stage": "experiment",
+    "code": "S16"
+  },
+  {
+    "id": "linkedin-identity",
+    "title": "07 \u00b7 Identity / open space",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/identity.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/identity.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/identity.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "description": "A large wordmark takes the lead, balanced against a generous crop of Daylight blue.",
+    "tool": "linkedin-banners.html#identity",
+    "stage": "experiment",
+    "code": "S17"
+  },
+  {
+    "id": "linkedin-services",
+    "title": "08 \u00b7 Services / typographic",
+    "group": "social",
+    "preview": "assets/linkedin-options-v2/services.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-options-v2/services.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-options-v2/services.svg"
+      }
+    ],
+    "collection": "LinkedIn banner options",
+    "current": true,
+    "description": "A direct service line uses the full width, with a fine blue rule and restrained branding.",
+    "tool": "linkedin-banners.html#services",
+    "stage": "experiment",
+    "code": "S18"
+  },
+  {
+    "id": "daylight-title",
+    "title": "Daylight folds \u00b7 show identity",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/title.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-daylight/title.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-daylight/title.svg"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "tool": "podcast-kit-daylight.html?format=title#preview",
+    "dark": false,
+    "stage": "experiment",
+    "code": "P01"
+  },
+  {
+    "id": "daylight-cover",
+    "title": "Square show cover",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/cover.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-daylight/cover.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-daylight/cover.svg"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "tool": "podcast-kit-daylight.html?format=cover#preview",
+    "dark": false,
+    "stage": "experiment",
+    "code": "P02"
+  },
+  {
+    "id": "daylight-solo",
+    "title": "Solo video frame",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/solo-preview.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-daylight/solo.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-daylight/solo.svg"
+      },
+      {
+        "label": "Name labels PNG",
+        "path": "assets/podcast-kit-daylight/solo-labels.png"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "tool": "podcast-kit-daylight.html?format=solo#preview",
+    "dark": false,
+    "stage": "experiment",
+    "code": "P03"
+  },
+  {
+    "id": "daylight-duo",
+    "title": "Two-person video frame",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/duo-preview.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-daylight/duo.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-daylight/duo.svg"
+      },
+      {
+        "label": "Name labels PNG",
+        "path": "assets/podcast-kit-daylight/duo-labels.png"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "tool": "podcast-kit-daylight.html?format=duo#preview",
+    "dark": false,
+    "stage": "experiment",
+    "code": "P04"
+  },
+  {
+    "id": "daylight-vertical",
+    "title": "Vertical clip frame",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/vertical-preview.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-daylight/vertical.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-daylight/vertical.svg"
+      },
+      {
+        "label": "Name labels PNG",
+        "path": "assets/podcast-kit-daylight/vertical-labels.png"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "tool": "podcast-kit-daylight.html?format=vertical#preview",
+    "dark": false,
+    "stage": "experiment",
+    "code": "P05"
+  },
+  {
+    "id": "daylight-thumbnail",
+    "title": "Episode thumbnail",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/thumbnail.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-daylight/thumbnail.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-daylight/thumbnail.svg"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "tool": "podcast-kit-daylight.html?format=thumbnail#preview",
+    "dark": false,
+    "stage": "experiment",
+    "code": "P06"
+  },
+  {
+    "id": "daylight-quote",
+    "title": "Podcast quote card",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/quote.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-daylight/quote.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-daylight/quote.svg"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "tool": "podcast-kit-daylight.html?format=quote#preview",
+    "dark": false,
+    "stage": "experiment",
+    "code": "P07"
+  },
+  {
+    "id": "daylight-announcement",
+    "title": "Episode announcement",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/announcement.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-daylight/announcement.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-daylight/announcement.svg"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "tool": "podcast-kit-daylight.html?format=announcement#preview",
+    "dark": false,
+    "stage": "experiment",
+    "code": "P08"
+  },
+  {
+    "id": "daylight-endcard",
+    "title": "End card",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/endcard.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-daylight/endcard.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-daylight/endcard.svg"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "tool": "podcast-kit-daylight.html?format=endcard#preview",
+    "dark": false,
+    "stage": "experiment",
+    "code": "P09"
+  },
+  {
+    "id": "daylight-badge",
+    "title": "Blue podcast badge",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/badge.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-daylight/badge.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-daylight/badge.svg"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "tool": "podcast-kit-daylight.html?format=badge#preview",
+    "dark": false,
+    "stage": "experiment",
+    "code": "P10"
+  },
+  {
+    "id": "daylight-badge-overlay",
+    "title": "Corner badge overlay",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/badge-overlay.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-daylight/badge-overlay.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-daylight/badge-overlay.svg"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "tool": "podcast-kit-daylight.html?format=badge-overlay#preview",
+    "dark": true,
+    "stage": "experiment",
+    "code": "P11"
+  },
+  {
+    "id": "daylight-white-logo",
+    "title": "White podcast logo \u00b7 padded",
+    "group": "logos",
+    "preview": "assets/podcast-kit-daylight/recoup-podcast-white-padded.png",
+    "files": [
+      {
+        "label": "Transparent PNG",
+        "path": "assets/podcast-kit-daylight/recoup-podcast-white-padded.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-daylight/recoup-podcast-white-transparent.svg"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "dark": true,
+    "stage": "experiment",
+    "code": "L01"
+  },
+  {
+    "id": "daylight-background",
+    "title": "Daylight folds \u00b7 clean background",
+    "group": "backgrounds",
+    "preview": "assets/podcast-kit-daylight/background.png",
+    "files": [
+      {
+        "label": "Landscape PNG",
+        "path": "assets/podcast-kit-daylight/background.png"
+      },
+      {
+        "label": "Square PNG",
+        "path": "assets/podcast-kit-daylight/square-background.png"
+      },
+      {
+        "label": "Portrait PNG",
+        "path": "assets/podcast-kit-daylight/portrait-background.png"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "stage": "experiment",
+    "code": "BG01"
+  },
+  {
+    "id": "daylight-intro",
+    "title": "Podcast opening",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/title.png",
+    "files": [
+      {
+        "label": "MP4",
+        "path": "assets/podcast-kit-daylight/intro.mp4"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "video": "assets/podcast-kit-daylight/intro.mp4",
+    "stage": "experiment",
+    "code": "P12"
+  },
+  {
+    "id": "daylight-outro",
+    "title": "Podcast closing",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/title.png",
+    "files": [
+      {
+        "label": "MP4",
+        "path": "assets/podcast-kit-daylight/outro.mp4"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "video": "assets/podcast-kit-daylight/outro.mp4",
+    "stage": "experiment",
+    "code": "P13"
+  },
+  {
+    "id": "daylight-background-loop",
+    "title": "Daylight background loop",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-daylight/background.png",
+    "files": [
+      {
+        "label": "MP4",
+        "path": "assets/podcast-kit-daylight/background-loop.mp4"
+      }
+    ],
+    "collection": "Daylight kit",
+    "current": true,
+    "video": "assets/podcast-kit-daylight/background-loop.mp4",
+    "stage": "experiment",
+    "code": "P14"
+  },
+  {
+    "id": "daylight-blog-choose-your-first-ai-project",
+    "title": "Choose your first AI project",
+    "group": "blog",
+    "preview": "assets/daylight-blog/choose-your-first-ai-project.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/daylight-blog/choose-your-first-ai-project.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/daylight-blog/choose-your-first-ai-project.svg"
+      }
+    ],
+    "collection": "Daylight blog",
+    "current": true,
+    "tool": "daylight-blog.html",
+    "stage": "experiment",
+    "code": "B01"
+  },
+  {
+    "id": "daylight-blog-know-your-catalog-earnings",
+    "title": "Know what your catalog is earning",
+    "group": "blog",
+    "preview": "assets/daylight-blog/know-your-catalog-earnings.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/daylight-blog/know-your-catalog-earnings.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/daylight-blog/know-your-catalog-earnings.svg"
+      }
+    ],
+    "collection": "Daylight blog",
+    "current": true,
+    "tool": "daylight-blog.html",
+    "stage": "experiment",
+    "code": "B02"
+  },
+  {
+    "id": "editorial15-01",
+    "title": "Tonal repeat",
+    "group": "blog",
+    "preview": "assets/editorial-15/option-01.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-01.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-15/option-01.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-15/option-01-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-15/option-01-art.svg"
+      }
+    ],
+    "collection": "Large patterns",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-15#browse",
+    "stage": "experiment",
+    "code": "B03"
+  },
+  {
+    "id": "editorial15-02",
+    "title": "Oversized planes",
+    "group": "blog",
+    "preview": "assets/editorial-15/option-02.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-02.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-15/option-02.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-15/option-02-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-15/option-02-art.svg"
+      }
+    ],
+    "collection": "Large patterns",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-15#browse",
+    "stage": "experiment",
+    "code": "B04"
+  },
+  {
+    "id": "editorial15-03",
+    "title": "Woven field",
+    "group": "blog",
+    "preview": "assets/editorial-15/option-03.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-03.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-15/option-03.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-15/option-03-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-15/option-03-art.svg"
+      }
+    ],
+    "collection": "Large patterns",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-15#browse",
+    "stage": "experiment",
+    "code": "B05"
+  },
+  {
+    "id": "editorial15-04",
+    "title": "Monumental layers",
+    "group": "blog",
+    "preview": "assets/editorial-15/option-04.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-04.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-15/option-04.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-15/option-04-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-15/option-04-art.svg"
+      }
+    ],
+    "collection": "Large patterns",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-15#browse",
+    "stage": "experiment",
+    "code": "B06"
+  },
+  {
+    "id": "editorial15-05",
+    "title": "Pattern under paper",
+    "group": "blog",
+    "preview": "assets/editorial-15/option-05.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-05.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-15/option-05.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-15/option-05-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-15/option-05-art.svg"
+      }
+    ],
+    "collection": "Large patterns",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-15#browse",
+    "stage": "experiment",
+    "code": "B07"
+  },
+  {
+    "id": "editorial15-06",
+    "title": "Broad sweep",
+    "group": "blog",
+    "preview": "assets/editorial-15/option-06.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-06.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-15/option-06.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-15/option-06-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-15/option-06-art.svg"
+      }
+    ],
+    "collection": "Large patterns",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-15#browse",
+    "stage": "experiment",
+    "code": "B08"
+  },
+  {
+    "id": "editorial14-01",
+    "title": "Kinetic fan",
+    "group": "blog",
+    "preview": "assets/editorial-14/option-01.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-14/option-01.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-14/option-01.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-14/option-01-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-14/option-01-art.svg"
+      }
+    ],
+    "collection": "Dynamic patterns",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-14#browse",
+    "stage": "experiment",
+    "code": "B09"
+  },
+  {
+    "id": "editorial14-02",
+    "title": "Woven loop",
+    "group": "blog",
+    "preview": "assets/editorial-14/option-02.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-14/option-02.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-14/option-02.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-14/option-02-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-14/option-02-art.svg"
+      }
+    ],
+    "collection": "Dynamic patterns",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-14#browse",
+    "stage": "experiment",
+    "code": "B10"
+  },
+  {
+    "id": "editorial14-03",
+    "title": "Slanted rhythm",
+    "group": "blog",
+    "preview": "assets/editorial-14/option-03.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-14/option-03.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-14/option-03.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-14/option-03-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-14/option-03-art.svg"
+      }
+    ],
+    "collection": "Dynamic patterns",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-14#browse",
+    "stage": "experiment",
+    "code": "B11"
+  },
+  {
+    "id": "editorial14-04",
+    "title": "Paper turn",
+    "group": "blog",
+    "preview": "assets/editorial-14/option-04.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-14/option-04.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-14/option-04.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-14/option-04-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-14/option-04-art.svg"
+      }
+    ],
+    "collection": "Dynamic patterns",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-14#browse",
+    "stage": "experiment",
+    "code": "B12"
+  },
+  {
+    "id": "editorial14-05",
+    "title": "Crossed lenses",
+    "group": "blog",
+    "preview": "assets/editorial-14/option-05.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-14/option-05.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-14/option-05.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-14/option-05-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-14/option-05-art.svg"
+      }
+    ],
+    "collection": "Dynamic patterns",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-14#browse",
+    "stage": "experiment",
+    "code": "B13"
+  },
+  {
+    "id": "editorial14-06",
+    "title": "Switchback",
+    "group": "blog",
+    "preview": "assets/editorial-14/option-06.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-14/option-06.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-14/option-06.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-14/option-06-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-14/option-06-art.svg"
+      }
+    ],
+    "collection": "Dynamic patterns",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-14#browse",
+    "stage": "experiment",
+    "code": "B14"
+  },
+  {
+    "id": "editorial10-01",
+    "title": "Offset blocks",
+    "group": "blog",
+    "preview": "assets/editorial-10/option-01.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-10/option-01.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-10/option-01.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-10/option-01-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-10/option-01-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-01-feed.png"
+      },
+      {
+        "label": "Example article SVG",
+        "path": "assets/editorial-10/option-01-feed.svg"
+      }
+    ],
+    "collection": "Original pattern directions",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-10#browse",
+    "stage": "experiment",
+    "code": "B15"
+  },
+  {
+    "id": "editorial10-02",
+    "title": "Cutout join",
+    "group": "blog",
+    "preview": "assets/editorial-10/option-02.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-10/option-02.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-10/option-02.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-10/option-02-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-10/option-02-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-02-feed.png"
+      },
+      {
+        "label": "Example article SVG",
+        "path": "assets/editorial-10/option-02-feed.svg"
+      }
+    ],
+    "collection": "Original pattern directions",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-10#browse",
+    "stage": "experiment",
+    "code": "B16"
+  },
+  {
+    "id": "editorial10-03",
+    "title": "Layered panels",
+    "group": "blog",
+    "preview": "assets/editorial-10/option-03.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-10/option-03.png"
+      },
+      {
+        "label": "Thumbnail editable SVG",
+        "path": "assets/editorial-10/option-03.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-10/option-03-art.png"
+      },
+      {
+        "label": "Artwork editable SVG",
+        "path": "assets/editorial-10/option-03-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-03-feed.png"
+      },
+      {
+        "label": "Example article editable SVG",
+        "path": "assets/editorial-10/option-03-feed.svg"
+      }
+    ],
+    "collection": "Original pattern directions",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-10#browse",
+    "stage": "experiment",
+    "code": "B17"
+  },
+  {
+    "id": "editorial10-04",
+    "title": "Interwoven bands",
+    "group": "blog",
+    "preview": "assets/editorial-10/option-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-10/option-04.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-10/option-04.svg"
+      },
+      {
+        "label": "Art PNG",
+        "path": "assets/editorial-10/option-04-art.png"
+      },
+      {
+        "label": "Art SVG",
+        "path": "assets/editorial-10/option-04-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-04-feed.png"
+      },
+      {
+        "label": "Example article SVG",
+        "path": "assets/editorial-10/option-04-feed.svg"
+      }
+    ],
+    "collection": "Original pattern directions",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-10#browse",
+    "stage": "experiment",
+    "code": "B18"
+  },
+  {
+    "id": "editorial10-05",
+    "title": "Stepped ribbons",
+    "group": "blog",
+    "preview": "assets/editorial-10/option-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-10/option-05.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-10/option-05.svg"
+      },
+      {
+        "label": "Art PNG",
+        "path": "assets/editorial-10/option-05-art.png"
+      },
+      {
+        "label": "Art SVG",
+        "path": "assets/editorial-10/option-05-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-05-feed.png"
+      },
+      {
+        "label": "Example article SVG",
+        "path": "assets/editorial-10/option-05-feed.svg"
+      }
+    ],
+    "collection": "Original pattern directions",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-10#browse",
+    "stage": "experiment",
+    "code": "B19"
+  },
+  {
+    "id": "editorial10-06",
+    "title": "Soft imprint",
+    "group": "blog",
+    "preview": "assets/editorial-10/option-06.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-10/option-06.png"
+      },
+      {
+        "label": "Thumbnail editable SVG",
+        "path": "assets/editorial-10/option-06.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-10/option-06-art.png"
+      },
+      {
+        "label": "Artwork editable SVG",
+        "path": "assets/editorial-10/option-06-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-06-feed.png"
+      },
+      {
+        "label": "Example article editable SVG",
+        "path": "assets/editorial-10/option-06-feed.svg"
+      }
+    ],
+    "collection": "Original pattern directions",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-10#browse",
+    "stage": "experiment",
+    "code": "B20"
+  },
+  {
+    "id": "symbol-ink",
+    "title": "Recoup symbol / ink",
+    "group": "logos",
+    "preview": "assets/logos/symbol-ink.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/symbol-ink.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/symbol-ink.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=logos#browse",
+    "stage": "final",
+    "code": "L02"
+  },
+  {
+    "id": "lockup-ink",
+    "title": "Recoup lockup / ink",
+    "group": "logos",
+    "preview": "assets/logos/lockup-ink.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/lockup-ink.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/lockup-ink.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=logos#browse",
+    "stage": "final",
+    "code": "L03"
+  },
+  {
+    "id": "symbol-white",
+    "title": "Recoup symbol / white",
+    "group": "logos",
+    "preview": "assets/logos/symbol-white.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/symbol-white.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/symbol-white.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": true,
+    "dark": true,
+    "tool": "explore.html?collection=logos#browse",
+    "stage": "final",
+    "code": "L04"
+  },
+  {
+    "id": "lockup-white",
+    "title": "Recoup lockup / white",
+    "group": "logos",
+    "preview": "assets/logos/lockup-white.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/lockup-white.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/lockup-white.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": true,
+    "dark": true,
+    "tool": "explore.html?collection=logos#browse",
+    "stage": "final",
+    "code": "L05"
+  },
+  {
+    "id": "symbol-blue",
+    "title": "Recoup symbol / blue",
+    "group": "logos",
+    "preview": "assets/logos/symbol-blue.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/symbol-blue.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/symbol-blue.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=logos#browse",
+    "stage": "final",
+    "code": "L06"
+  },
+  {
+    "id": "lockup-blue",
+    "title": "Recoup lockup / blue",
+    "group": "logos",
+    "preview": "assets/logos/lockup-blue.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/lockup-blue.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/lockup-blue.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": true,
+    "dark": false,
+    "tool": "explore.html?collection=logos#browse",
+    "stage": "final",
+    "code": "L07"
+  },
+  {
+    "id": "symbol-lime",
+    "title": "Recoup symbol / lime",
+    "group": "logos",
+    "preview": "assets/logos/symbol-lime.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/symbol-lime.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/symbol-lime.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": true,
+    "dark": true,
+    "tool": "explore.html?collection=logos#browse",
+    "stage": "final",
+    "code": "L08"
+  },
+  {
+    "id": "lockup-lime",
+    "title": "Recoup lockup / lime",
+    "group": "logos",
+    "preview": "assets/logos/lockup-lime.png",
+    "files": [
+      {
+        "label": "Outlined SVG",
+        "path": "assets/logos/lockup-lime.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/logos/lockup-lime.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": true,
+    "dark": true,
+    "tool": "explore.html?collection=logos#browse",
+    "stage": "final",
+    "code": "L09"
+  },
+  {
+    "id": "podcast-open-sky",
+    "title": "The Recoup Podcast / Open sky",
+    "group": "podcast",
+    "preview": "assets/podcast/podcast-open-sky.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast/podcast-open-sky.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/podcast/podcast-open-sky.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=podcast#browse",
+    "stage": "experiment",
+    "code": "P15"
+  },
+  {
+    "id": "podcast-dark-studio",
+    "title": "The Recoup Podcast / Dark studio",
+    "group": "podcast",
+    "preview": "assets/podcast/podcast-dark-studio.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast/podcast-dark-studio.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/podcast/podcast-dark-studio.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=podcast#browse",
+    "stage": "experiment",
+    "code": "P16"
+  },
+  {
+    "id": "podcast-editorial-white",
+    "title": "The Recoup Podcast / Editorial white",
+    "group": "podcast",
+    "preview": "assets/podcast/podcast-editorial-white.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast/podcast-editorial-white.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/podcast/podcast-editorial-white.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=podcast#browse",
+    "stage": "experiment",
+    "code": "P17"
+  },
+  {
+    "id": "social-insight",
+    "title": "Social / Insight",
+    "group": "social",
+    "preview": "assets/social/social-insight.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-insight.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-insight.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=social#browse",
+    "stage": "experiment",
+    "code": "S01"
+  },
+  {
+    "id": "social-quote",
+    "title": "Social / Quote",
+    "group": "social",
+    "preview": "assets/social/social-quote.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-quote.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-quote.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=social#browse",
+    "stage": "experiment",
+    "code": "S02"
+  },
+  {
+    "id": "social-announcement",
+    "title": "Social / Announcement",
+    "group": "social",
+    "preview": "assets/social/social-announcement.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-announcement.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-announcement.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=social#browse",
+    "stage": "experiment",
+    "code": "S03"
+  },
+  {
+    "id": "social-case-study",
+    "title": "Social / Case study",
+    "group": "social",
+    "preview": "assets/social/social-case-study.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-case-study.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-case-study.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=social#browse",
+    "stage": "experiment",
+    "code": "S04"
+  },
+  {
+    "id": "social-carousel",
+    "title": "Social / Carousel",
+    "group": "social",
+    "preview": "assets/social/social-carousel.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-carousel.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-carousel.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=social#browse",
+    "stage": "experiment",
+    "code": "S05"
+  },
+  {
+    "id": "social-podcast-clip",
+    "title": "The Recoup Podcast / Vertical clip",
+    "group": "social",
+    "preview": "assets/social/social-podcast-clip.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-podcast-clip.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-podcast-clip.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=social#browse",
+    "stage": "experiment",
+    "code": "S06"
+  },
+  {
+    "id": "banner-linkedin",
+    "title": "LinkedIn banner / 1584 \u00d7 396",
+    "group": "social",
+    "preview": "assets/social/banner-linkedin.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/banner-linkedin.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/banner-linkedin.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=social#browse",
+    "stage": "experiment",
+    "code": "S07"
+  },
+  {
+    "id": "banner-youtube",
+    "title": "YouTube banner / 2560 \u00d7 1440",
+    "group": "social",
+    "preview": "assets/social/banner-youtube.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/banner-youtube.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/banner-youtube.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=social#browse",
+    "stage": "experiment",
+    "code": "S08"
+  },
+  {
+    "id": "banner-x",
+    "title": "X banner / 1500 \u00d7 500",
+    "group": "social",
+    "preview": "assets/social/banner-x.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/banner-x.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/banner-x.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=social#browse",
+    "stage": "experiment",
+    "code": "S09"
+  },
+  {
+    "id": "editorial-royalty-review",
+    "title": "Editorial / Royalty review",
+    "group": "blog",
+    "preview": "assets/editorial/editorial-royalty-review.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-royalty-review.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-royalty-review.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial#browse",
+    "stage": "experiment",
+    "code": "B21"
+  },
+  {
+    "id": "editorial-investment-review",
+    "title": "Editorial / Investment review",
+    "group": "blog",
+    "preview": "assets/editorial/editorial-investment-review.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-investment-review.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-investment-review.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial#browse",
+    "stage": "experiment",
+    "code": "B22"
+  },
+  {
+    "id": "editorial-catalog-index",
+    "title": "Editorial / Catalog index",
+    "group": "blog",
+    "preview": "assets/editorial/editorial-catalog-index.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-catalog-index.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-catalog-index.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial#browse",
+    "stage": "experiment",
+    "code": "B23"
+  },
+  {
+    "id": "editorial-workflow",
+    "title": "Editorial / Workflow mapping",
+    "group": "blog",
+    "preview": "assets/editorial/editorial-workflow.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-workflow.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-workflow.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial#browse",
+    "stage": "experiment",
+    "code": "B24"
+  },
+  {
+    "id": "editorial-team-playbook",
+    "title": "Editorial / Team playbook",
+    "group": "blog",
+    "preview": "assets/editorial/editorial-team-playbook.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-team-playbook.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-team-playbook.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial#browse",
+    "stage": "experiment",
+    "code": "B25"
+  },
+  {
+    "id": "editorial-source-trace",
+    "title": "Editorial / Source trace",
+    "group": "blog",
+    "preview": "assets/editorial/editorial-source-trace.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-source-trace.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-source-trace.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial#browse",
+    "stage": "experiment",
+    "code": "B26"
+  },
+  {
+    "id": "editorial-connected-tools",
+    "title": "Editorial / Connected tools",
+    "group": "blog",
+    "preview": "assets/editorial/editorial-connected-tools.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-connected-tools.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-connected-tools.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial#browse",
+    "stage": "experiment",
+    "code": "B27"
+  },
+  {
+    "id": "editorial-release-review",
+    "title": "Editorial / Release review",
+    "group": "blog",
+    "preview": "assets/editorial/editorial-release-review.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial/editorial-release-review.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/editorial/editorial-release-review.png"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial#browse",
+    "stage": "experiment",
+    "code": "B28"
+  },
+  {
+    "id": "logo-intro",
+    "title": "Logo intro / 3 seconds",
+    "group": "podcast",
+    "preview": "assets/motion/logo-intro-poster.png",
+    "files": [
+      {
+        "label": "MP4 \u00b7 H.264",
+        "path": "assets/motion/logo-intro.mp4"
+      },
+      {
+        "label": "Poster PNG",
+        "path": "assets/motion/logo-intro-poster.png"
+      },
+      {
+        "label": "Editable generating source",
+        "path": "scripts/build-assets.py"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=motion#browse",
+    "stage": "experiment",
+    "code": "P18"
+  },
+  {
+    "id": "logo-outro",
+    "title": "Logo outro / 3 seconds",
+    "group": "podcast",
+    "preview": "assets/motion/logo-outro-poster.png",
+    "files": [
+      {
+        "label": "MP4 \u00b7 H.264",
+        "path": "assets/motion/logo-outro.mp4"
+      },
+      {
+        "label": "Poster PNG",
+        "path": "assets/motion/logo-outro-poster.png"
+      },
+      {
+        "label": "Editable generating source",
+        "path": "scripts/build-assets.py"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=motion#browse",
+    "stage": "experiment",
+    "code": "P19"
+  },
+  {
+    "id": "sky-background-loop",
+    "title": "Sky background loop / 8 seconds",
+    "group": "podcast",
+    "preview": "assets/motion/sky-background-loop-poster.png",
+    "files": [
+      {
+        "label": "MP4 \u00b7 H.264",
+        "path": "assets/motion/sky-background-loop.mp4"
+      },
+      {
+        "label": "Poster PNG",
+        "path": "assets/motion/sky-background-loop-poster.png"
+      },
+      {
+        "label": "Editable generating source",
+        "path": "scripts/build-assets.py"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=motion#browse",
+    "stage": "experiment",
+    "code": "P20"
+  },
+  {
+    "id": "social-announcement-v2",
+    "title": "Social / Announcement v2 simplified",
+    "group": "social",
+    "preview": "assets/social/social-announcement-v2.png",
+    "files": [
+      {
+        "label": "Editable SVG",
+        "path": "assets/social/social-announcement-v2.svg"
+      },
+      {
+        "label": "PNG",
+        "path": "assets/social/social-announcement-v2.png"
+      },
+      {
+        "label": "Editable generating source",
+        "path": "scripts/build-announcement-v2.py"
+      }
+    ],
+    "collection": "Original studio",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=social#browse",
+    "stage": "experiment",
+    "code": "S10"
+  },
+  {
+    "id": "editorial13-01",
+    "title": "Folded light",
+    "group": "blog",
+    "preview": "assets/editorial-13/option-01.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-13/option-01.png"
+      },
+      {
+        "label": "Generation prompt",
+        "path": "assets/editorial-13/option-01-prompt.txt"
+      }
+    ],
+    "collection": "Editorial experiments",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-13#browse",
+    "stage": "experiment",
+    "code": "B29"
+  },
+  {
+    "id": "editorial13-02",
+    "title": "Paper interruption",
+    "group": "blog",
+    "preview": "assets/editorial-13/option-02.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-13/option-02.png"
+      },
+      {
+        "label": "Generation prompt",
+        "path": "assets/editorial-13/option-02-prompt.txt"
+      }
+    ],
+    "collection": "Editorial experiments",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-13#browse",
+    "stage": "experiment",
+    "code": "B30"
+  },
+  {
+    "id": "editorial13-03",
+    "title": "Optical interval",
+    "group": "blog",
+    "preview": "assets/editorial-13/option-03.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-13/option-03.png"
+      },
+      {
+        "label": "Generation prompt",
+        "path": "assets/editorial-13/option-03-prompt.txt"
+      }
+    ],
+    "collection": "Editorial experiments",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-13#browse",
+    "stage": "experiment",
+    "code": "B31"
+  },
+  {
+    "id": "editorial13-04",
+    "title": "Type takes the lead",
+    "group": "blog",
+    "preview": "assets/editorial-13/option-04.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-13/option-04.png"
+      },
+      {
+        "label": "Generation prompt",
+        "path": "assets/editorial-13/option-04-prompt.txt"
+      }
+    ],
+    "collection": "Editorial experiments",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-13#browse",
+    "stage": "experiment",
+    "code": "B32"
+  },
+  {
+    "id": "editorial13-05",
+    "title": "Transparent overlap",
+    "group": "blog",
+    "preview": "assets/editorial-13/option-05.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-13/option-05.png"
+      },
+      {
+        "label": "Generation prompt",
+        "path": "assets/editorial-13/option-05-prompt.txt"
+      }
+    ],
+    "collection": "Editorial experiments",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-13#browse",
+    "stage": "experiment",
+    "code": "B33"
+  },
+  {
+    "id": "editorial13-06",
+    "title": "Ink impression",
+    "group": "blog",
+    "preview": "assets/editorial-13/option-06.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-13/option-06.png"
+      },
+      {
+        "label": "Generation prompt",
+        "path": "assets/editorial-13/option-06-prompt.txt"
+      }
+    ],
+    "collection": "Editorial experiments",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-13#browse",
+    "stage": "experiment",
+    "code": "B34"
+  },
+  {
+    "id": "editorial12-01",
+    "title": "Stronger contrast",
+    "group": "blog",
+    "preview": "assets/editorial-12/option-01.png",
+    "files": [
+      {
+        "label": "Stronger contrast PNG",
+        "path": "assets/editorial-12/option-01.png"
+      },
+      {
+        "label": "Stronger contrast SVG",
+        "path": "assets/editorial-12/option-01.svg"
+      },
+      {
+        "label": "Artwork without text PNG",
+        "path": "assets/editorial-12/option-01-art.png"
+      },
+      {
+        "label": "Artwork without text SVG",
+        "path": "assets/editorial-12/option-01-art.svg"
+      }
+    ],
+    "collection": "Contrast studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-12#browse",
+    "stage": "experiment",
+    "code": "B35"
+  },
+  {
+    "id": "editorial12-02",
+    "title": "Dimensional surfaces",
+    "group": "blog",
+    "preview": "assets/editorial-12/option-02.png",
+    "files": [
+      {
+        "label": "Dimensional surfaces PNG",
+        "path": "assets/editorial-12/option-02.png"
+      },
+      {
+        "label": "Dimensional surfaces SVG",
+        "path": "assets/editorial-12/option-02.svg"
+      },
+      {
+        "label": "Artwork without text PNG",
+        "path": "assets/editorial-12/option-02-art.png"
+      },
+      {
+        "label": "Artwork without text SVG",
+        "path": "assets/editorial-12/option-02-art.svg"
+      }
+    ],
+    "collection": "Contrast studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-12#browse",
+    "stage": "experiment",
+    "code": "B36"
+  },
+  {
+    "id": "editorial12-03",
+    "title": "Bolder crop",
+    "group": "blog",
+    "preview": "assets/editorial-12/option-03.png",
+    "files": [
+      {
+        "label": "Bolder crop PNG",
+        "path": "assets/editorial-12/option-03.png"
+      },
+      {
+        "label": "Bolder crop SVG",
+        "path": "assets/editorial-12/option-03.svg"
+      },
+      {
+        "label": "Artwork without text PNG",
+        "path": "assets/editorial-12/option-03-art.png"
+      },
+      {
+        "label": "Artwork without text SVG",
+        "path": "assets/editorial-12/option-03-art.svg"
+      }
+    ],
+    "collection": "Contrast studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-12#browse",
+    "stage": "experiment",
+    "code": "B37"
+  },
+  {
+    "id": "editorial11-01",
+    "title": "Offset blocks",
+    "group": "blog",
+    "preview": "assets/editorial-11/option-01.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-11/option-01.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-11/option-01.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-11/option-01-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-11/option-01-art.svg"
+      }
+    ],
+    "collection": "Subtle refinements",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-11#browse",
+    "stage": "experiment",
+    "code": "B38"
+  },
+  {
+    "id": "editorial11-02",
+    "title": "Cutout join",
+    "group": "blog",
+    "preview": "assets/editorial-11/option-02.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-11/option-02.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-11/option-02.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-11/option-02-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-11/option-02-art.svg"
+      }
+    ],
+    "collection": "Subtle refinements",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-11#browse",
+    "stage": "experiment",
+    "code": "B39"
+  },
+  {
+    "id": "editorial11-03",
+    "title": "Layered panels",
+    "group": "blog",
+    "preview": "assets/editorial-11/option-03.png",
+    "files": [
+      {
+        "label": "Refined cover PNG",
+        "path": "assets/editorial-11/option-03.png"
+      },
+      {
+        "label": "Refined cover SVG",
+        "path": "assets/editorial-11/option-03.svg"
+      },
+      {
+        "label": "Artwork without text PNG",
+        "path": "assets/editorial-11/option-03-art.png"
+      },
+      {
+        "label": "Artwork without text SVG",
+        "path": "assets/editorial-11/option-03-art.svg"
+      }
+    ],
+    "collection": "Subtle refinements",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-11#browse",
+    "stage": "experiment",
+    "code": "B40"
+  },
+  {
+    "id": "editorial11-04",
+    "title": "Interwoven bands",
+    "group": "blog",
+    "preview": "assets/editorial-11/option-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-11/option-04.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-11/option-04.svg"
+      },
+      {
+        "label": "Art PNG",
+        "path": "assets/editorial-11/option-04-art.png"
+      },
+      {
+        "label": "Art SVG",
+        "path": "assets/editorial-11/option-04-art.svg"
+      }
+    ],
+    "collection": "Subtle refinements",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-11#browse",
+    "stage": "experiment",
+    "code": "B41"
+  },
+  {
+    "id": "editorial11-05",
+    "title": "Stepped ribbons",
+    "group": "blog",
+    "preview": "assets/editorial-11/option-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-11/option-05.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-11/option-05.svg"
+      },
+      {
+        "label": "Art PNG",
+        "path": "assets/editorial-11/option-05-art.png"
+      },
+      {
+        "label": "Art SVG",
+        "path": "assets/editorial-11/option-05-art.svg"
+      }
+    ],
+    "collection": "Subtle refinements",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-11#browse",
+    "stage": "experiment",
+    "code": "B42"
+  },
+  {
+    "id": "editorial11-06",
+    "title": "Soft imprint",
+    "group": "blog",
+    "preview": "assets/editorial-11/option-06.png",
+    "files": [
+      {
+        "label": "Refined cover PNG",
+        "path": "assets/editorial-11/option-06.png"
+      },
+      {
+        "label": "Refined cover SVG",
+        "path": "assets/editorial-11/option-06.svg"
+      },
+      {
+        "label": "Artwork without text PNG",
+        "path": "assets/editorial-11/option-06-art.png"
+      },
+      {
+        "label": "Artwork without text SVG",
+        "path": "assets/editorial-11/option-06-art.svg"
+      }
+    ],
+    "collection": "Subtle refinements",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-11#browse",
+    "stage": "experiment",
+    "code": "B43"
+  },
+  {
+    "id": "editorial09-p01",
+    "title": "Nested contours \u00b7 subtle edge",
+    "group": "blog",
+    "preview": "assets/editorial-09/pattern-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-01.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-01.txt"
+      }
+    ],
+    "collection": "Edge gradients",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-09#browse",
+    "stage": "experiment",
+    "code": "B44"
+  },
+  {
+    "id": "editorial09-p02",
+    "title": "Converging lines \u00b7 subtle edge",
+    "group": "blog",
+    "preview": "assets/editorial-09/pattern-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-02.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-02.txt"
+      }
+    ],
+    "collection": "Edge gradients",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-09#browse",
+    "stage": "experiment",
+    "code": "B45"
+  },
+  {
+    "id": "editorial09-p03",
+    "title": "Bending dot lattice \u2014 subtle edge",
+    "group": "blog",
+    "preview": "assets/editorial-09/pattern-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-03.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-03.txt"
+      }
+    ],
+    "collection": "Edge gradients",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-09#browse",
+    "stage": "experiment",
+    "code": "B46"
+  },
+  {
+    "id": "editorial09-p04",
+    "title": "Open orbits \u2014 subtle edge",
+    "group": "blog",
+    "preview": "assets/editorial-09/pattern-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-04.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-04.txt"
+      }
+    ],
+    "collection": "Edge gradients",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-09#browse",
+    "stage": "experiment",
+    "code": "B47"
+  },
+  {
+    "id": "editorial09-p05",
+    "title": "Parallel curves \u2014 subtle edge",
+    "group": "blog",
+    "preview": "assets/editorial-09/pattern-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/pattern-05.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-09/pattern-05.txt"
+      }
+    ],
+    "collection": "Edge gradients",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-09#browse",
+    "stage": "experiment",
+    "code": "B48"
+  },
+  {
+    "id": "editorial09-a01",
+    "title": "Answers linked to their sources",
+    "group": "illustrations",
+    "preview": "assets/editorial-09/article-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/article-01.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-09/article-01.txt"
+      }
+    ],
+    "collection": "Edge gradients",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-09#browse",
+    "stage": "experiment",
+    "code": "I01"
+  },
+  {
+    "id": "editorial09-a02",
+    "title": "A human review step",
+    "group": "illustrations",
+    "preview": "assets/editorial-09/article-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/article-02.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-09/article-02.txt"
+      }
+    ],
+    "collection": "Edge gradients",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-09#browse",
+    "stage": "experiment",
+    "code": "I02"
+  },
+  {
+    "id": "editorial08-i01",
+    "title": "Opening possibilities",
+    "group": "illustrations",
+    "preview": "assets/editorial-08/illustration-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-01.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-01.txt"
+      }
+    ],
+    "collection": "Illustration and pattern pairs",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-08#browse",
+    "stage": "experiment",
+    "code": "I03"
+  },
+  {
+    "id": "editorial08-p01",
+    "title": "Nested contours",
+    "group": "blog",
+    "preview": "assets/editorial-08/pattern-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/pattern-01.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-08/pattern-01.txt"
+      }
+    ],
+    "collection": "Illustration and pattern pairs",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-08#browse",
+    "stage": "experiment",
+    "code": "B49"
+  },
+  {
+    "id": "editorial08-i02",
+    "title": "Knowledge held together",
+    "group": "illustrations",
+    "preview": "assets/editorial-08/illustration-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-02.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-02.txt"
+      }
+    ],
+    "collection": "Illustration and pattern pairs",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-08#browse",
+    "stage": "experiment",
+    "code": "I04"
+  },
+  {
+    "id": "editorial08-p02",
+    "title": "Converging lines",
+    "group": "blog",
+    "preview": "assets/editorial-08/pattern-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/pattern-02.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-08/pattern-02.txt"
+      }
+    ],
+    "collection": "Illustration and pattern pairs",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-08#browse",
+    "stage": "experiment",
+    "code": "B50"
+  },
+  {
+    "id": "editorial08-i03",
+    "title": "A supported span",
+    "group": "illustrations",
+    "preview": "assets/editorial-08/illustration-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-03.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-03.txt"
+      }
+    ],
+    "collection": "Illustration and pattern pairs",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-08#browse",
+    "stage": "experiment",
+    "code": "I05"
+  },
+  {
+    "id": "editorial08-p03",
+    "title": "Bending dot lattice",
+    "group": "blog",
+    "preview": "assets/editorial-08/pattern-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/pattern-03.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-08/pattern-03.txt"
+      }
+    ],
+    "collection": "Illustration and pattern pairs",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-08#browse",
+    "stage": "experiment",
+    "code": "B51"
+  },
+  {
+    "id": "editorial08-i04",
+    "title": "Careful human adjustment",
+    "group": "illustrations",
+    "preview": "assets/editorial-08/illustration-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-04.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-04.txt"
+      }
+    ],
+    "collection": "Illustration and pattern pairs",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-08#browse",
+    "stage": "experiment",
+    "code": "I06"
+  },
+  {
+    "id": "editorial08-p04",
+    "title": "Open orbits",
+    "group": "blog",
+    "preview": "assets/editorial-08/pattern-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/pattern-04.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-08/pattern-04.txt"
+      }
+    ],
+    "collection": "Illustration and pattern pairs",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-08#browse",
+    "stage": "experiment",
+    "code": "B52"
+  },
+  {
+    "id": "editorial08-i05",
+    "title": "A repeatable rhythm",
+    "group": "illustrations",
+    "preview": "assets/editorial-08/illustration-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/illustration-05.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-08/illustration-05.txt"
+      }
+    ],
+    "collection": "Illustration and pattern pairs",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-08#browse",
+    "stage": "experiment",
+    "code": "I07"
+  },
+  {
+    "id": "editorial08-p05",
+    "title": "Parallel curves",
+    "group": "blog",
+    "preview": "assets/editorial-08/pattern-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-08/pattern-05.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-08/pattern-05.txt"
+      }
+    ],
+    "collection": "Illustration and pattern pairs",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-08#browse",
+    "stage": "experiment",
+    "code": "B53"
+  },
+  {
+    "id": "editorial07-01",
+    "title": "Archive architecture",
+    "group": "blog",
+    "preview": "assets/editorial-07/editorial-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-01.png"
+      },
+      {
+        "label": "Image prompt",
+        "path": "assets/editorial-07/editorial-01-prompt.txt"
+      }
+    ],
+    "collection": "Photography studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-07#browse",
+    "stage": "experiment",
+    "code": "B54"
+  },
+  {
+    "id": "editorial07-02",
+    "title": "The master recording",
+    "group": "blog",
+    "preview": "assets/editorial-07/editorial-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-02.png"
+      },
+      {
+        "label": "Image prompt",
+        "path": "assets/editorial-07/editorial-02-prompt.txt"
+      }
+    ],
+    "collection": "Photography studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-07#browse",
+    "stage": "experiment",
+    "code": "B55"
+  },
+  {
+    "id": "editorial07-03",
+    "title": "Optical sound",
+    "group": "blog",
+    "preview": "assets/editorial-07/editorial-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-03.png"
+      },
+      {
+        "label": "Image prompt",
+        "path": "assets/editorial-07/editorial-03-prompt.txt"
+      }
+    ],
+    "collection": "Photography studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-07#browse",
+    "stage": "experiment",
+    "code": "B56"
+  },
+  {
+    "id": "editorial07-04",
+    "title": "Live performance in motion",
+    "group": "blog",
+    "preview": "assets/editorial-07/editorial-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-04.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-07/editorial-04.txt"
+      }
+    ],
+    "collection": "Photography studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-07#browse",
+    "stage": "experiment",
+    "code": "B57"
+  },
+  {
+    "id": "editorial07-05",
+    "title": "Rhythm in folded paper",
+    "group": "blog",
+    "preview": "assets/editorial-07/editorial-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-05.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-07/editorial-05.txt"
+      }
+    ],
+    "collection": "Photography studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-07#browse",
+    "stage": "experiment",
+    "code": "B58"
+  },
+  {
+    "id": "editorial07-06",
+    "title": "A longer view",
+    "group": "blog",
+    "preview": "assets/editorial-07/editorial-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-06.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-07/editorial-06.txt"
+      }
+    ],
+    "collection": "Photography studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-07#browse",
+    "stage": "experiment",
+    "code": "B59"
+  },
+  {
+    "id": "editorial07-07",
+    "title": "Printed research edition",
+    "group": "blog",
+    "preview": "assets/editorial-07/editorial-07.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-07.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-07/editorial-07.txt"
+      }
+    ],
+    "collection": "Photography studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-07#browse",
+    "stage": "experiment",
+    "code": "B60"
+  },
+  {
+    "id": "editorial07-08",
+    "title": "Studio instrument",
+    "group": "blog",
+    "preview": "assets/editorial-07/editorial-08.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-08.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-07/editorial-08.txt"
+      }
+    ],
+    "collection": "Photography studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-07#browse",
+    "stage": "experiment",
+    "code": "B61"
+  },
+  {
+    "id": "editorial07-09",
+    "title": "Sound as cyanotype",
+    "group": "blog",
+    "preview": "assets/editorial-07/editorial-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-09.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-07/editorial-09.txt"
+      }
+    ],
+    "collection": "Photography studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-07#browse",
+    "stage": "experiment",
+    "code": "B62"
+  },
+  {
+    "id": "editorial07-10",
+    "title": "Typography-first editorial",
+    "group": "blog",
+    "preview": "assets/editorial-07/editorial-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-10.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-07/editorial-10.txt"
+      }
+    ],
+    "collection": "Photography studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-07#browse",
+    "stage": "experiment",
+    "code": "B63"
+  },
+  {
+    "id": "blog06-01",
+    "title": "Royalty reports. Ready for review.",
+    "group": "blog",
+    "preview": "assets/blog-thumbnails/blog-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-01.png"
+      }
+    ],
+    "collection": "Early illustrated thumbnails",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=blog-thumbnails#browse",
+    "stage": "experiment",
+    "code": "B64"
+  },
+  {
+    "id": "blog06-02",
+    "title": "Know your catalog.",
+    "group": "blog",
+    "preview": "assets/blog-thumbnails/blog-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-02.png"
+      }
+    ],
+    "collection": "Early illustrated thumbnails",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=blog-thumbnails#browse",
+    "stage": "experiment",
+    "code": "B65"
+  },
+  {
+    "id": "blog06-03",
+    "title": "Check the source.",
+    "group": "blog",
+    "preview": "assets/blog-thumbnails/blog-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-03.png"
+      }
+    ],
+    "collection": "Early illustrated thumbnails",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=blog-thumbnails#browse",
+    "stage": "experiment",
+    "code": "B66"
+  },
+  {
+    "id": "blog06-04",
+    "title": "Investment review. Start with the sources.",
+    "group": "blog",
+    "preview": "assets/blog-thumbnails/blog-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-04.png"
+      }
+    ],
+    "collection": "Early illustrated thumbnails",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=blog-thumbnails#browse",
+    "stage": "experiment",
+    "code": "B67"
+  },
+  {
+    "id": "blog06-05",
+    "title": "Make room for human judgment.",
+    "group": "blog",
+    "preview": "assets/blog-thumbnails/blog-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-05.png"
+      }
+    ],
+    "collection": "Early illustrated thumbnails",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=blog-thumbnails#browse",
+    "stage": "experiment",
+    "code": "B68"
+  },
+  {
+    "id": "blog06-06",
+    "title": "One catalog. Connected data.",
+    "group": "blog",
+    "preview": "assets/blog-thumbnails/blog-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-06.png"
+      }
+    ],
+    "collection": "Early illustrated thumbnails",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=blog-thumbnails#browse",
+    "stage": "experiment",
+    "code": "B69"
+  },
+  {
+    "id": "blog06-07",
+    "title": "YOUR NEXT AI PROJECT.",
+    "group": "blog",
+    "preview": "assets/blog-thumbnails/blog-07.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-07.png"
+      }
+    ],
+    "collection": "Early illustrated thumbnails",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=blog-thumbnails#browse",
+    "stage": "experiment",
+    "code": "B70"
+  },
+  {
+    "id": "blog06-08",
+    "title": "Teach your team. Build confidence.",
+    "group": "blog",
+    "preview": "assets/blog-thumbnails/blog-08.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-08.png"
+      }
+    ],
+    "collection": "Early illustrated thumbnails",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=blog-thumbnails#browse",
+    "stage": "experiment",
+    "code": "B71"
+  },
+  {
+    "id": "blog06-09",
+    "title": "Less copying. More reviewing.",
+    "group": "blog",
+    "preview": "assets/blog-thumbnails/blog-09-v2.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-09-v2.png"
+      }
+    ],
+    "collection": "Early illustrated thumbnails",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=blog-thumbnails#browse",
+    "stage": "experiment",
+    "code": "B72"
+  },
+  {
+    "id": "blog06-10",
+    "title": "WHAT CHANGED IN YOUR CATALOG?",
+    "group": "blog",
+    "preview": "assets/blog-thumbnails/blog-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-10.png"
+      }
+    ],
+    "collection": "Early illustrated thumbnails",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=blog-thumbnails#browse",
+    "stage": "experiment",
+    "code": "B73"
+  },
+  {
+    "id": "blog06-11",
+    "title": "AI agents. Clear responsibilities.",
+    "group": "blog",
+    "preview": "assets/blog-thumbnails/blog-11.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-11.png"
+      }
+    ],
+    "collection": "Early illustrated thumbnails",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=blog-thumbnails#browse",
+    "stage": "experiment",
+    "code": "B74"
+  },
+  {
+    "id": "blog06-12",
+    "title": "Your tools. Working together.",
+    "group": "blog",
+    "preview": "assets/blog-thumbnails/blog-12.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-12.png"
+      }
+    ],
+    "collection": "Early illustrated thumbnails",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=blog-thumbnails#browse",
+    "stage": "experiment",
+    "code": "B75"
+  },
+  {
+    "id": "layered04-hand-gradient",
+    "title": "Human review / Blue + lime",
+    "group": "illustrations",
+    "preview": "assets/layered-editorial/hand-gradient.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/hand-gradient.png"
+      }
+    ],
+    "collection": "Layered illustrations",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=layered-editorial#browse",
+    "stage": "experiment",
+    "code": "I08"
+  },
+  {
+    "id": "layered04-hand-headline",
+    "title": "Human review / With headline",
+    "group": "illustrations",
+    "preview": "assets/layered-editorial/hand-headline.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/hand-headline.png"
+      }
+    ],
+    "collection": "Layered illustrations",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=layered-editorial#browse",
+    "stage": "experiment",
+    "code": "I09"
+  },
+  {
+    "id": "layered04-hand-color",
+    "title": "Human review / Butter + lime",
+    "group": "illustrations",
+    "preview": "assets/layered-editorial/hand-color.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/hand-color.png"
+      }
+    ],
+    "collection": "Layered illustrations",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=layered-editorial#browse",
+    "stage": "experiment",
+    "code": "I10"
+  },
+  {
+    "id": "layered04-review-gradient",
+    "title": "Source review / Blue + lime",
+    "group": "illustrations",
+    "preview": "assets/layered-editorial/review-gradient.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/review-gradient.png"
+      }
+    ],
+    "collection": "Layered illustrations",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=layered-editorial#browse",
+    "stage": "experiment",
+    "code": "I11"
+  },
+  {
+    "id": "layered04-review-headline",
+    "title": "Source review / With headline",
+    "group": "illustrations",
+    "preview": "assets/layered-editorial/review-headline.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/review-headline.png"
+      }
+    ],
+    "collection": "Layered illustrations",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=layered-editorial#browse",
+    "stage": "experiment",
+    "code": "I12"
+  },
+  {
+    "id": "layered04-review-color",
+    "title": "Source review / Forest + cobalt",
+    "group": "illustrations",
+    "preview": "assets/layered-editorial/review-color.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/review-color.png"
+      }
+    ],
+    "collection": "Layered illustrations",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=layered-editorial#browse",
+    "stage": "experiment",
+    "code": "I13"
+  },
+  {
+    "id": "layered04-flower-gradient",
+    "title": "White flower on blue and lime",
+    "group": "illustrations",
+    "preview": "assets/layered-editorial/flower-gradient.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/flower-gradient.png"
+      }
+    ],
+    "collection": "Layered illustrations",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=layered-editorial#browse",
+    "stage": "experiment",
+    "code": "I14"
+  },
+  {
+    "id": "layered04-flower-headline",
+    "title": "Flower with catalog headline",
+    "group": "illustrations",
+    "preview": "assets/layered-editorial/flower-headline.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/flower-headline.png"
+      }
+    ],
+    "collection": "Layered illustrations",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=layered-editorial#browse",
+    "stage": "experiment",
+    "code": "I15"
+  },
+  {
+    "id": "layered04-flower-color",
+    "title": "White flower on lavender and blue",
+    "group": "illustrations",
+    "preview": "assets/layered-editorial/flower-color.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/flower-color.png"
+      }
+    ],
+    "collection": "Layered illustrations",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=layered-editorial#browse",
+    "stage": "experiment",
+    "code": "I16"
+  },
+  {
+    "id": "layered04-cables-gradient",
+    "title": "Connected cables on blue and lime",
+    "group": "illustrations",
+    "preview": "assets/layered-editorial/cables-gradient.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/cables-gradient.png"
+      }
+    ],
+    "collection": "Layered illustrations",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=layered-editorial#browse",
+    "stage": "experiment",
+    "code": "I17"
+  },
+  {
+    "id": "layered04-cables-headline",
+    "title": "Cables with shared-context headline",
+    "group": "illustrations",
+    "preview": "assets/layered-editorial/cables-headline.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/cables-headline.png"
+      }
+    ],
+    "collection": "Layered illustrations",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=layered-editorial#browse",
+    "stage": "experiment",
+    "code": "I18"
+  },
+  {
+    "id": "layered04-cables-color",
+    "title": "Connected cables on warm apricot",
+    "group": "illustrations",
+    "preview": "assets/layered-editorial/cables-color.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/cables-color.png"
+      }
+    ],
+    "collection": "Layered illustrations",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=layered-editorial#browse",
+    "stage": "experiment",
+    "code": "I19"
+  },
+  {
+    "id": "editorial03-01",
+    "title": "Sculptural still life",
+    "group": "blog",
+    "preview": "assets/editorial-lab/editorial-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-01.png"
+      }
+    ],
+    "collection": "First editorial directions",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-lab#browse",
+    "stage": "experiment",
+    "code": "B76"
+  },
+  {
+    "id": "editorial03-02",
+    "title": "Vinyl macro",
+    "group": "blog",
+    "preview": "assets/editorial-lab/editorial-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-02.png"
+      }
+    ],
+    "collection": "First editorial directions",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-lab#browse",
+    "stage": "experiment",
+    "code": "B77"
+  },
+  {
+    "id": "editorial03-03",
+    "title": "Botanical portrait",
+    "group": "blog",
+    "preview": "assets/editorial-lab/editorial-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-03.png"
+      }
+    ],
+    "collection": "First editorial directions",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-lab#browse",
+    "stage": "experiment",
+    "code": "B78"
+  },
+  {
+    "id": "editorial03-04",
+    "title": "Human detail",
+    "group": "blog",
+    "preview": "assets/editorial-lab/editorial-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-04.png"
+      }
+    ],
+    "collection": "First editorial directions",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-lab#browse",
+    "stage": "experiment",
+    "code": "B79"
+  },
+  {
+    "id": "editorial03-05",
+    "title": "Expressive line illustration",
+    "group": "blog",
+    "preview": "assets/editorial-lab/editorial-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-05.png"
+      }
+    ],
+    "collection": "First editorial directions",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-lab#browse",
+    "stage": "experiment",
+    "code": "B80"
+  },
+  {
+    "id": "editorial03-06",
+    "title": "Paper bridge",
+    "group": "blog",
+    "preview": "assets/editorial-lab/editorial-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-06.png"
+      }
+    ],
+    "collection": "First editorial directions",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-lab#browse",
+    "stage": "experiment",
+    "code": "B81"
+  },
+  {
+    "id": "editorial03-07",
+    "title": "Recording archive collage",
+    "group": "blog",
+    "preview": "assets/editorial-lab/editorial-07.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-07.png"
+      }
+    ],
+    "collection": "First editorial directions",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-lab#browse",
+    "stage": "experiment",
+    "code": "B82"
+  },
+  {
+    "id": "editorial03-08",
+    "title": "Sources through review",
+    "group": "blog",
+    "preview": "assets/editorial-lab/editorial-08.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-08.png"
+      }
+    ],
+    "collection": "First editorial directions",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-lab#browse",
+    "stage": "experiment",
+    "code": "B83"
+  },
+  {
+    "id": "editorial03-09",
+    "title": "Make AI useful",
+    "group": "blog",
+    "preview": "assets/editorial-lab/editorial-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-09.png"
+      }
+    ],
+    "collection": "First editorial directions",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-lab#browse",
+    "stage": "experiment",
+    "code": "B84"
+  },
+  {
+    "id": "editorial03-10",
+    "title": "Blue passage and lime threshold",
+    "group": "blog",
+    "preview": "assets/editorial-lab/editorial-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-10.png"
+      }
+    ],
+    "collection": "First editorial directions",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=editorial-lab#browse",
+    "stage": "experiment",
+    "code": "B85"
+  },
+  {
+    "id": "style05-art-book-airbrush",
+    "title": "Open book \u00b7 painted airbrush",
+    "group": "illustrations",
+    "preview": "assets/style-lab/illustrations/book-airbrush-painted-v2.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I20"
+  },
+  {
+    "id": "style05-art-book-glass",
+    "title": "Open book \u00b7 frosted glass",
+    "group": "illustrations",
+    "preview": "assets/style-lab/illustrations/book-glass.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I21"
+  },
+  {
+    "id": "style05-art-book-ink",
+    "title": "Open book \u00b7 expressive ink",
+    "group": "illustrations",
+    "preview": "assets/style-lab/illustrations/book-ink.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I22"
+  },
+  {
+    "id": "style05-art-book-paper",
+    "title": "Open book / Flat cut paper",
+    "group": "illustrations",
+    "preview": "assets/style-lab/illustrations/book-paper-flat-v2.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I23"
+  },
+  {
+    "id": "style05-art-record-airbrush",
+    "title": "Record and sleeve \u00b7 painted airbrush",
+    "group": "illustrations",
+    "preview": "assets/style-lab/illustrations/record-airbrush-painted-v2.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I24"
+  },
+  {
+    "id": "style05-art-record-glass",
+    "title": "Record and sleeve \u00b7 frosted glass",
+    "group": "illustrations",
+    "preview": "assets/style-lab/illustrations/record-glass.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I25"
+  },
+  {
+    "id": "style05-art-record-ink",
+    "title": "Record and sleeve \u00b7 expressive ink",
+    "group": "illustrations",
+    "preview": "assets/style-lab/illustrations/record-ink.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I26"
+  },
+  {
+    "id": "style05-art-record-paper",
+    "title": "Record / Flat cut paper",
+    "group": "illustrations",
+    "preview": "assets/style-lab/illustrations/record-paper-flat-v2.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I27"
+  },
+  {
+    "id": "style05-bg-airbrush-blue-major",
+    "title": "Airbrush / Blue majority",
+    "group": "illustrations",
+    "preview": "assets/style-lab/backgrounds/airbrush-blue-major.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I28"
+  },
+  {
+    "id": "style05-bg-airbrush-inverted",
+    "title": "Airbrush / Orange and violet",
+    "group": "illustrations",
+    "preview": "assets/style-lab/backgrounds/airbrush-inverted.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I29"
+  },
+  {
+    "id": "style05-bg-airbrush-lime-major",
+    "title": "Airbrush / Lime majority",
+    "group": "illustrations",
+    "preview": "assets/style-lab/backgrounds/airbrush-lime-major.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I30"
+  },
+  {
+    "id": "style05-bg-airbrush-reverse",
+    "title": "Airbrush / Reversed direction",
+    "group": "illustrations",
+    "preview": "assets/style-lab/backgrounds/airbrush-reverse.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I31"
+  },
+  {
+    "id": "style05-bg-fine-grain-blue-major",
+    "title": "Fine grain / Blue dominant",
+    "group": "illustrations",
+    "preview": "assets/style-lab/backgrounds/fine-grain-blue-major.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I32"
+  },
+  {
+    "id": "style05-bg-fine-grain-inverted",
+    "title": "Fine grain / Inverted palette",
+    "group": "illustrations",
+    "preview": "assets/style-lab/backgrounds/fine-grain-inverted.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I33"
+  },
+  {
+    "id": "style05-bg-fine-grain-lime-major",
+    "title": "Fine grain / Lime dominant",
+    "group": "illustrations",
+    "preview": "assets/style-lab/backgrounds/fine-grain-lime-major.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I34"
+  },
+  {
+    "id": "style05-bg-fine-grain-reverse",
+    "title": "Fine grain / Reversed direction",
+    "group": "illustrations",
+    "preview": "assets/style-lab/backgrounds/fine-grain-reverse.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I35"
+  },
+  {
+    "id": "style05-bg-glass-blue-major",
+    "title": "Frosted glass / Blue dominant",
+    "group": "illustrations",
+    "preview": "assets/style-lab/backgrounds/glass-blue-major.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I36"
+  },
+  {
+    "id": "style05-bg-glass-inverted",
+    "title": "Frosted glass / Inverted palette",
+    "group": "illustrations",
+    "preview": "assets/style-lab/backgrounds/glass-inverted.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I37"
+  },
+  {
+    "id": "style05-bg-glass-lime-major",
+    "title": "Frosted glass / Lime dominant",
+    "group": "illustrations",
+    "preview": "assets/style-lab/backgrounds/glass-lime-major.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I38"
+  },
+  {
+    "id": "style05-bg-glass-reverse",
+    "title": "Frosted glass / Reversed direction",
+    "group": "illustrations",
+    "preview": "assets/style-lab/backgrounds/glass-reverse.png",
+    "files": [],
+    "collection": "Illustration styles",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=style-lab#browse",
+    "stage": "experiment",
+    "code": "I39"
+  },
+  {
+    "id": "refine-noise-gradient",
+    "title": "Noisy blue and lime gradient",
+    "group": "backgrounds",
+    "preview": "assets/refinements/refine-noise-gradient-v2.png",
+    "files": [
+      {
+        "label": "PNG - v2",
+        "path": "assets/refinements/refine-noise-gradient-v2.png"
+      },
+      {
+        "label": "Previous PNG",
+        "path": "assets/refinements/refine-noise-gradient.png"
+      }
+    ],
+    "collection": "First refinements",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=refinements#browse",
+    "stage": "experiment",
+    "code": "BG02"
+  },
+  {
+    "id": "refine-light-bands",
+    "title": "Diffused light bands",
+    "group": "backgrounds",
+    "preview": "assets/refinements/refine-light-bands.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/refinements/refine-light-bands.png"
+      }
+    ],
+    "collection": "First refinements",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=refinements#browse",
+    "stage": "experiment",
+    "code": "BG03"
+  },
+  {
+    "id": "refine-soft-mesh",
+    "title": "Soft blue and lime color pools",
+    "group": "backgrounds",
+    "preview": "assets/refinements/refine-soft-mesh-v2.png",
+    "files": [
+      {
+        "label": "PNG - v2",
+        "path": "assets/refinements/refine-soft-mesh-v2.png"
+      },
+      {
+        "label": "Previous PNG",
+        "path": "assets/refinements/refine-soft-mesh.png"
+      }
+    ],
+    "collection": "First refinements",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=refinements#browse",
+    "stage": "experiment",
+    "code": "BG04"
+  },
+  {
+    "id": "refine-frosted-pigment",
+    "title": "Frosted blue and lime pigment",
+    "group": "backgrounds",
+    "preview": "assets/refinements/refine-frosted-pigment.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/refinements/refine-frosted-pigment.png"
+      }
+    ],
+    "collection": "First refinements",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=refinements#browse",
+    "stage": "experiment",
+    "code": "BG05"
+  },
+  {
+    "id": "refine-cover-blue-lime",
+    "title": "Editorial cover / Blue + lime",
+    "group": "backgrounds",
+    "preview": "assets/refinements/refine-cover-blue-lime.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/refinements/refine-cover-blue-lime.png"
+      }
+    ],
+    "collection": "First refinements",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=refinements#browse",
+    "stage": "experiment",
+    "code": "BG06"
+  },
+  {
+    "id": "refine-cover-forest-lime",
+    "title": "Editorial cover / Forest + lime",
+    "group": "backgrounds",
+    "preview": "assets/refinements/refine-cover-forest-lime.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/refinements/refine-cover-forest-lime.png"
+      }
+    ],
+    "collection": "First refinements",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=refinements#browse",
+    "stage": "experiment",
+    "code": "BG07"
+  },
+  {
+    "id": "exp02-gradient-01",
+    "title": "Blue to lime / Smooth",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/gradient-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-01.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG08"
+  },
+  {
+    "id": "exp02-gradient-02",
+    "title": "Blue to lime / Fine grain",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/gradient-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-02.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG09"
+  },
+  {
+    "id": "exp02-gradient-03",
+    "title": "Blue to lime / Printed grain",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/gradient-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-03.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG10"
+  },
+  {
+    "id": "exp02-gradient-04",
+    "title": "Blue and ice / Lime edge",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/gradient-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-04.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG11"
+  },
+  {
+    "id": "exp02-gradient-05",
+    "title": "Citron / Blue corner",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/gradient-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-05.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG12"
+  },
+  {
+    "id": "exp02-gradient-06",
+    "title": "Deep blue / Luminous lime",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/gradient-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/gradient-06.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG13"
+  },
+  {
+    "id": "exp02-airbrush-01",
+    "title": "Lime crescent on blue",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/airbrush-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-01.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG14"
+  },
+  {
+    "id": "exp02-airbrush-02",
+    "title": "Overlapping lime and ice spray",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/airbrush-02-v2.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-02-v2.png"
+      },
+      {
+        "label": "Original PNG",
+        "path": "assets/explorations-02/airbrush-02.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG15"
+  },
+  {
+    "id": "exp02-airbrush-03",
+    "title": "Diagonal blue and lime overspray",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/airbrush-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-03.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG16"
+  },
+  {
+    "id": "exp02-airbrush-04",
+    "title": "Lime field with blue spray edges",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/airbrush-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-04.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG17"
+  },
+  {
+    "id": "exp02-airbrush-05",
+    "title": "Airy blue and citron pools",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/airbrush-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-05.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG18"
+  },
+  {
+    "id": "exp02-airbrush-06",
+    "title": "Lime halo with blue and forest depth",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/airbrush-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-06.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG19"
+  },
+  {
+    "id": "exp02-forest-01",
+    "title": "Forest with a blue edge",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/forest-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-01.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG20"
+  },
+  {
+    "id": "exp02-forest-02",
+    "title": "Blue light in forest",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/forest-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-02.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG21"
+  },
+  {
+    "id": "exp02-forest-03",
+    "title": "Forest and blue with lime",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/forest-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-03.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG22"
+  },
+  {
+    "id": "exp02-forest-04",
+    "title": "Lime wash over forest",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/forest-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-04.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG23"
+  },
+  {
+    "id": "exp02-forest-05",
+    "title": "Blue and lime crossing light",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/forest-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-05.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG24"
+  },
+  {
+    "id": "exp02-forest-06",
+    "title": "Forest, blue and citron print",
+    "group": "backgrounds",
+    "preview": "assets/explorations-02/forest-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-06.png"
+      }
+    ],
+    "collection": "Color and texture",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=explorations-02#browse",
+    "stage": "experiment",
+    "code": "BG25"
+  },
+  {
+    "id": "bg-01-01",
+    "title": "Soft-focus fields / Blue day",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-01-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-01-01.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG26"
+  },
+  {
+    "id": "bg-01-02",
+    "title": "Soft-focus fields / Forest + ice",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-01-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-01-02.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG27"
+  },
+  {
+    "id": "bg-01-04",
+    "title": "Soft-focus fields / Electric blue",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-01-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-01-04.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG28"
+  },
+  {
+    "id": "bg-01-05",
+    "title": "Soft-focus fields / Lime forward",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-01-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-01-05.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG29"
+  },
+  {
+    "id": "bg-01-06",
+    "title": "Soft-focus fields / Chalk + forest",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-01-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-01-06.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG30"
+  },
+  {
+    "id": "bg-02-01",
+    "title": "Water reflections / Blue + lime",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-02-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-02-01.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG31"
+  },
+  {
+    "id": "bg-02-02",
+    "title": "Water reflections / Forest + ice",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-02-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-02-02.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG32"
+  },
+  {
+    "id": "bg-02-05",
+    "title": "Water reflections / Lime forward",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-02-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-02-05.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG33"
+  },
+  {
+    "id": "bg-02-09",
+    "title": "Water reflections / Reference tonality",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-02-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-02-09.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG34"
+  },
+  {
+    "id": "bg-02-10",
+    "title": "Water reflections / Open exploration",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-02-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-02-10.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG35"
+  },
+  {
+    "id": "bg-03-01",
+    "title": "Light through foliage / Blue + lime",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-03-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-03-01.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG36"
+  },
+  {
+    "id": "bg-03-02",
+    "title": "Light through foliage / Forest + ice",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-03-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-03-02.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG37"
+  },
+  {
+    "id": "bg-03-05",
+    "title": "Light through foliage / Lime forward",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-03-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-03-05.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG38"
+  },
+  {
+    "id": "bg-03-09",
+    "title": "Light through foliage / Reference tonality",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-03-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-03-09.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG39"
+  },
+  {
+    "id": "bg-03-10",
+    "title": "Light through foliage / Open exploration",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-03-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-03-10.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG40"
+  },
+  {
+    "id": "bg-04-01",
+    "title": "Sky and atmosphere / Blue + lime",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-04-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-04-01.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG41"
+  },
+  {
+    "id": "bg-04-02",
+    "title": "Sky and atmosphere / Forest + ice",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-04-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-04-02.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG42"
+  },
+  {
+    "id": "bg-04-03",
+    "title": "Sky and atmosphere / Pale daylight",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-04-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-04-03.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG43"
+  },
+  {
+    "id": "bg-04-04",
+    "title": "Sky and atmosphere / Electric blue",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-04-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-04-04.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG44"
+  },
+  {
+    "id": "bg-04-05",
+    "title": "Sky and atmosphere / Lime forward",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-04-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-04-05.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG45"
+  },
+  {
+    "id": "bg-05-01",
+    "title": "Glass and diffused light / Blue + lime",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-05-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-05-01.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG46"
+  },
+  {
+    "id": "bg-05-02",
+    "title": "Glass and diffused light / Forest + ice",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-05-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-05-02.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG47"
+  },
+  {
+    "id": "bg-05-05",
+    "title": "Glass and diffused light / Lime forward",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-05-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-05-05.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG48"
+  },
+  {
+    "id": "bg-05-09",
+    "title": "Glass and diffused light / Reference tonality",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-05-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-05-09.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG49"
+  },
+  {
+    "id": "bg-05-10",
+    "title": "Glass and diffused light / Open exploration",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-05-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-05-10.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG50"
+  },
+  {
+    "id": "bg-06-01",
+    "title": "Grainy airbrush / Blue and lime",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-06-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-06-01.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG51"
+  },
+  {
+    "id": "bg-06-02",
+    "title": "Grainy airbrush / Forest + ice",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-06-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-06-02.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG52"
+  },
+  {
+    "id": "bg-06-05",
+    "title": "Grainy airbrush / Lime forward",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-06-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-06-05.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG53"
+  },
+  {
+    "id": "bg-06-09",
+    "title": "Grainy airbrush / Reference tonality",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-06-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-06-09.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG54"
+  },
+  {
+    "id": "bg-06-10",
+    "title": "Grainy airbrush / Open exploration",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-06-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-06-10.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG55"
+  },
+  {
+    "id": "bg-07-01",
+    "title": "Risograph and halftone / Blue + lime",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-07-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-07-01.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG56"
+  },
+  {
+    "id": "bg-07-02",
+    "title": "Risograph and halftone / Forest + ice",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-07-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-07-02.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG57"
+  },
+  {
+    "id": "bg-07-05",
+    "title": "Risograph and halftone / Lime forward",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-07-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-07-05.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG58"
+  },
+  {
+    "id": "bg-07-09",
+    "title": "Risograph and halftone / Reference tonality",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-07-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-07-09.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG59"
+  },
+  {
+    "id": "bg-07-10",
+    "title": "Risograph and halftone / Open exploration",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-07-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-07-10.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG60"
+  },
+  {
+    "id": "bg-08-01",
+    "title": "Fluid pigment / Blue + lime",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-08-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-08-01.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG61"
+  },
+  {
+    "id": "bg-08-02",
+    "title": "Fluid pigment / Forest + ice",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-08-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-08-02.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG62"
+  },
+  {
+    "id": "bg-08-05",
+    "title": "Fluid pigment / Lime forward",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-08-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-08-05.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG63"
+  },
+  {
+    "id": "bg-08-09",
+    "title": "Fluid pigment / Reference tonality",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-08-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-08-09.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG64"
+  },
+  {
+    "id": "bg-08-10",
+    "title": "Fluid pigment / Open exploration",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-08-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-08-10.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG65"
+  },
+  {
+    "id": "bg-09-01",
+    "title": "Paper and soft geometry / Blue + lime",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-09-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-09-01.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG66"
+  },
+  {
+    "id": "bg-09-02",
+    "title": "Paper and soft geometry / Forest + ice",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-09-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-09-02.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG67"
+  },
+  {
+    "id": "bg-09-05",
+    "title": "Paper and soft geometry / Lime forward",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-09-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-09-05.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG68"
+  },
+  {
+    "id": "bg-09-09",
+    "title": "Paper and soft geometry / Reference tonality",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-09-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-09-09.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG69"
+  },
+  {
+    "id": "bg-09-10",
+    "title": "Paper and soft geometry / Open exploration",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-09-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-09-10.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG70"
+  },
+  {
+    "id": "bg-10-01",
+    "title": "Kinetic bands / Blue + lime",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-10-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-10-01.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG71"
+  },
+  {
+    "id": "bg-10-02",
+    "title": "Kinetic bands / Forest + ice",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-10-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-10-02.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG72"
+  },
+  {
+    "id": "bg-10-05",
+    "title": "Kinetic bands / Lime forward",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-10-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-10-05.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG73"
+  },
+  {
+    "id": "bg-10-09",
+    "title": "Kinetic bands / Reference tonality",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-10-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-10-09.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG74"
+  },
+  {
+    "id": "bg-10-10",
+    "title": "Kinetic bands / Open exploration",
+    "group": "backgrounds",
+    "preview": "assets/backgrounds/bg-10-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-10-10.png"
+      }
+    ],
+    "collection": "Background studies",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=backgrounds#browse",
+    "stage": "experiment",
+    "code": "BG75"
+  },
+  {
+    "id": "environment-open-sky",
+    "title": "Environment / Open sky",
+    "group": "backgrounds",
+    "preview": "assets/environments/open-sky.webp",
+    "files": [
+      {
+        "label": "WebP source",
+        "path": "assets/environments/open-sky.webp"
+      }
+    ],
+    "collection": "Website environments",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=environments#browse",
+    "stage": "experiment",
+    "code": "BG76"
+  },
+  {
+    "id": "environment-meadow",
+    "title": "Environment / Meadow",
+    "group": "backgrounds",
+    "preview": "assets/environments/meadow.webp",
+    "files": [
+      {
+        "label": "WebP source",
+        "path": "assets/environments/meadow.webp"
+      }
+    ],
+    "collection": "Website environments",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=environments#browse",
+    "stage": "experiment",
+    "code": "BG77"
+  },
+  {
+    "id": "environment-listening-room",
+    "title": "Environment / Sunlit listening room",
+    "group": "backgrounds",
+    "preview": "assets/environments/sunlit-studio-v1.png",
+    "files": [
+      {
+        "label": "PNG source",
+        "path": "assets/environments/sunlit-studio-v1.png"
+      }
+    ],
+    "collection": "Website environments",
+    "current": false,
+    "dark": false,
+    "tool": "explore.html?collection=environments#browse",
+    "stage": "experiment",
+    "code": "BG78"
+  },
+  {
+    "id": "podcast-v4-current",
+    "title": "Soft current",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/current.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/current.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/current-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=current#preview",
+    "stage": "experiment",
+    "code": "P21"
+  },
+  {
+    "id": "podcast-v4-refraction",
+    "title": "Blue refraction",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/refraction.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/refraction.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/refraction-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=refraction#preview",
+    "stage": "experiment",
+    "code": "P22"
+  },
+  {
+    "id": "podcast-v4-orbits",
+    "title": "Lime apertures",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/orbits.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/orbits.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/orbits-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=orbits#preview",
+    "stage": "experiment",
+    "code": "P23"
+  },
+  {
+    "id": "podcast-v4-woven",
+    "title": "Woven light",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/woven.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/woven.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/woven-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=woven#preview",
+    "stage": "experiment",
+    "code": "P24"
+  },
+  {
+    "id": "podcast-v4-contour",
+    "title": "Ice contours",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/contour.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/contour.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/contour-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=contour#preview",
+    "stage": "experiment",
+    "code": "P25"
+  },
+  {
+    "id": "podcast-v4-interference",
+    "title": "Blue interference",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/interference.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/interference.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/interference-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=interference#preview",
+    "stage": "experiment",
+    "code": "P26"
+  },
+  {
+    "id": "podcast-v4-sky",
+    "title": "Painted sky",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/sky.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/sky.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/sky-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=sky#preview",
+    "stage": "experiment",
+    "code": "P27"
+  },
+  {
+    "id": "podcast-v4-sky-print",
+    "title": "Cloud print",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/sky-print.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/sky-print.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/sky-print-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=sky-print#preview",
+    "stage": "experiment",
+    "code": "P28"
+  },
+  {
+    "id": "podcast-v4-blue-exposure",
+    "title": "Blue exposure",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/blue-exposure.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/blue-exposure.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/blue-exposure-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=blue-exposure#preview",
+    "stage": "experiment",
+    "code": "P29"
+  },
+  {
+    "id": "podcast-v4-glass-original",
+    "title": "Glass / Original",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/glass-original.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/glass-original.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/glass-original-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=glass-original#preview",
+    "stage": "experiment",
+    "code": "P30"
+  },
+  {
+    "id": "podcast-v4-glass-blue",
+    "title": "Glass / Blue dominant",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/glass-blue.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/glass-blue.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/glass-blue-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=glass-blue#preview",
+    "stage": "experiment",
+    "code": "P31"
+  },
+  {
+    "id": "podcast-v4-glass-lime",
+    "title": "Glass / Lime light",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/glass-lime.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/glass-lime.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/glass-lime-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=glass-lime#preview",
+    "stage": "experiment",
+    "code": "P32"
+  },
+  {
+    "id": "podcast-v4-daylight-refined",
+    "title": "Daylight folds / Refined",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v4/daylight-refined.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v4/daylight-refined.png"
+      },
+      {
+        "label": "Background",
+        "path": "assets/podcast-kit-v4/daylight-refined-background.png"
+      }
+    ],
+    "collection": "Podcast background studies",
+    "current": false,
+    "tool": "podcast-kit-v4.html?study=daylight-refined#preview",
+    "stage": "experiment",
+    "code": "P33"
+  },
+  {
+    "id": "podcast-v2-cut",
+    "title": "Cut and shift",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v2/cut-intro.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v2/cut-intro.png"
+      }
+    ],
+    "collection": "Earlier podcast kit",
+    "current": false,
+    "tool": "podcast-kit-v2.html?direction=cut",
+    "stage": "experiment",
+    "code": "P34"
+  },
+  {
+    "id": "podcast-v2-weave",
+    "title": "Woven shapes",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v2/weave-intro.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v2/weave-intro.png"
+      }
+    ],
+    "collection": "Earlier podcast kit",
+    "current": false,
+    "tool": "podcast-kit-v2.html?direction=weave",
+    "stage": "experiment",
+    "code": "P35"
+  },
+  {
+    "id": "podcast-v2-layer",
+    "title": "Open overlap",
+    "group": "podcast",
+    "preview": "assets/podcast-kit-v2/layer-intro.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/podcast-kit-v2/layer-intro.png"
+      }
+    ],
+    "collection": "Earlier podcast kit",
+    "current": false,
+    "tool": "podcast-kit-v2.html?direction=layer",
+    "stage": "experiment",
+    "code": "P36"
+  },
+  {
+    "id": "blue-sweep-podcast-white-logo",
+    "title": "White podcast logo \u00b7 padded",
+    "group": "logos",
+    "preview": "assets/podcast-kit-blue-sweep/recoup-podcast-white-transparent.png",
+    "files": [
+      {
+        "label": "Transparent PNG",
+        "path": "assets/podcast-kit-blue-sweep/recoup-podcast-white-transparent.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/podcast-kit-blue-sweep/recoup-podcast-white-transparent.svg"
+      }
+    ],
+    "collection": "Blue sweep / podcast kit",
+    "current": true,
+    "dark": true,
+    "tool": "podcast-kit-blue-sweep.html",
+    "stage": "final",
+    "code": "L10"
+  }
+]

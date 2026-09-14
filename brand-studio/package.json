@@ -1,0 +1,11 @@
+{
+  "name": "@recoupable/brand-studio",
+  "private": true,
+  "scripts": {
+    "start": "python3 scripts/serve.py",
+    "index": "python3 scripts/build-review-board.py"
+  },
+  "devDependencies": {
+    "sharp": "0.35.4"
+  }
+}

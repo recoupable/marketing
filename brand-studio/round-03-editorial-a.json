@@ -1,0 +1,182 @@
+[
+  {
+    "id": "editorial03-01",
+    "title": "Sculptural still life",
+    "style": "Object photography",
+    "family": "photography",
+    "sampleTitle": "Why your AI tools need to share context",
+    "description": "A pair of real audio connectors meeting illustrates why separate AI tools need a shared connection.",
+    "useFor": [
+      "Tool integration",
+      "Shared context",
+      "Connected workflows"
+    ],
+    "composition": "Joined connectors placed right of center, with open blue space to the left.",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#132B26"
+    ],
+    "prompt": "Generate one final editorial image, landscape 16:9, high resolution. This is a contemporary cultured image for a serious music-business publication covering AI, music catalogs, and the people who operate them. It must feel art-directed, immediate and memorable, with one clear focal idea and generous purposeful negative space. This is an image only: no article title, no lettering, no logo, no branding, no watermark, no frame, no browser or device mockup, no charts, no dashboards, no made-up metrics. Do not make a gradient-only background or futuristic technology scene. Create a sculptural studio photograph of exactly two real professional audio cable connectors joined together: a convincing three-pin XLR male-to-female connector connection with the bodies fully connected at the center. One lead is vivid lime #D6FF62 and the other is deep forest #132B26 or black. The cable lengths sweep in broad relaxed curves from opposite sides of the image, creating a simple physical metaphor of systems sharing context. The dark textured metal connectors meet right of center, about one third of canvas height in scale; show believable collars, latch and cable strain relief, no exposed random pins or impossible cable anatomy. Photograph the objects on a bright matte blue #007EBD to #168DDD seamless studio sweep, nearly uniform color, with subtle authentic soft contact shadows. Strong daylight-like softbox photography, tactile rubber and metal, a little material wear, no brand marks. Beautiful physical object arrangement like a cultural magazine still life, not glossy CGI, not cyberpunk, no neon glow. Keep generous clear space in the left upper area. The object arrangement and connection must be the image, not an abstract background.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-593a3ff8-6969-4c8f-8b0a-b3ca980715c6.png",
+    "category": "editorial-lab",
+    "kind": "Editorial direction",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/editorial-lab/editorial-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-01.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "editorial03-02",
+    "title": "Vinyl macro",
+    "style": "Macro photography",
+    "family": "photography",
+    "sampleTitle": "The catalog details that change an investment decision",
+    "description": "A close view of vinyl grooves and an indexing tab makes the small details of catalog research feel tangible.",
+    "useFor": [
+      "Catalog diligence",
+      "Investment research",
+      "Source detail"
+    ],
+    "composition": "Diagonal vinyl crop fills the lower right, balanced by an ivory corner and a small lime tab.",
+    "colors": [
+      "#101413",
+      "#F8FAF5",
+      "#D6FF62",
+      "#168DDD"
+    ],
+    "prompt": "Generate one final editorial image, landscape 16:9, high resolution. This is a contemporary cultured image for a serious music-business publication covering AI, music catalogs, and the people who operate them. It must feel art-directed, immediate and memorable, with one clear focal idea and generous purposeful negative space. This is an image only: no article title, no lettering, no logo, no branding, no watermark, no frame, no browser or device mockup, no charts, no dashboards, no made-up metrics. Do not make a gradient-only background or futuristic technology scene. Create an extreme macro photograph of an actual black vinyl record, composed as a strong angled crop: crisp curved concentric record grooves sweep diagonally across the lower-right two thirds, with the outer circular edge of the record revealing an ivory #F8FAF5 tabletop in the upper-left. The grooves are tactile and physically credible, with subtle tiny dust and actual photographic shallow depth of field, some grooves sharp and others gently falling out of focus. A small unprinted vivid lime #D6FF62 indexing tab sits at the outer edge of the record near the middle-right, marking one detail; it must have no characters or text. A very restrained thin sky-blue #168DDD reflection crosses a few of the grooves. Mostly rich black and warm ivory, never a full blue image. Show no label, no spindle, no complete turntable, no hand. Sophisticated analog music-culture photography, precise directional light with rich shadows and silvery groove highlights; realistic scale and materials. The composition should reward looking closely, suggesting that small catalog details matter.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-df97be0b-7e44-4561-9058-f1fa3cf09e20.png",
+    "category": "editorial-lab",
+    "kind": "Editorial direction",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/editorial-lab/editorial-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-02.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "editorial03-03",
+    "title": "Botanical portrait",
+    "style": "Botanical photography",
+    "family": "photography",
+    "sampleTitle": "Finding new opportunities in an existing catalog",
+    "description": "A single white wildflower brings a living, cultural image to stories about finding growth in an existing music catalog.",
+    "useFor": [
+      "Catalog opportunities",
+      "Creative growth",
+      "New uses for existing work"
+    ],
+    "composition": "One white bloom enters from the lower right; the left stays open in rich blue.",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#F8FAF5"
+    ],
+    "prompt": "Generate one final editorial image, landscape 16:9, high resolution. This is a contemporary cultured image for a serious music-business publication covering AI, music catalogs, and the people who operate them. It must feel art-directed, immediate and memorable, with one clear focal idea and generous purposeful negative space. This is an image only: no article title, no lettering, no logo, no branding, no watermark, no frame, no browser or device mockup, no charts, no dashboards, no made-up metrics. Do not make a gradient-only background or futuristic technology scene. Create a sophisticated studio botanical portrait of one real white wildflower with a slender fresh lime-green stem and one green leaf, against a rich matte blue #007EBD background. Photograph an expressive imperfect cosmos-like white bloom, slightly angled and leaning into the image from the lower-right corner, with a small naturally yellow-green center. This is one individual botanical subject, not a flower meadow or generic floral background. Give the flower real delicate papery white petals with slight asymmetry, a tactile slender green stem, and one elegant leaf, with tiny realistic imperfections. Subject occupies the right half and is cropped naturally at the bottom; large calm blue negative space on the left. Clear artistic daylight-like side lighting, nuanced petal detail, gentle shadows, photographic depth, moderately shallow focus with the main bloom crisp. Natural colors of a white wildflower with stem tending toward the brand lime #D6FF62, not an artificial fluorescent plastic flower. Contemporary music and culture magazine portrait, contemplative and confident, no sentimental wedding aesthetic, no decorative bouquets, no vase.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-32d1ae2d-e7e3-4994-b3c3-d66c1e7e2ef6.png",
+    "category": "editorial-lab",
+    "kind": "Editorial direction",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/editorial-lab/editorial-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-03.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "editorial03-04",
+    "title": "Human detail",
+    "style": "Documentary photography",
+    "family": "photography",
+    "sampleTitle": "Getting your team comfortable with AI",
+    "description": "Hands reviewing a notebook beside studio equipment show adoption as practical work done by people.",
+    "useFor": [
+      "Team training",
+      "Adoption",
+      "Working practices"
+    ],
+    "composition": "Close diagonal tabletop crop with hands and notebook central, studio equipment at the edge.",
+    "colors": [
+      "#F8FAF5",
+      "#132B26",
+      "#168DDD",
+      "#D6FF62"
+    ],
+    "prompt": "Generate one final editorial image, landscape 16:9, high resolution. This is a contemporary cultured image for a serious music-business publication covering AI, music catalogs, and the people who operate them. It must feel art-directed, immediate and memorable, with one clear focal idea and generous purposeful negative space. This is an image only: no article title, no lettering, no logo, no branding, no watermark, no frame, no browser or device mockup, no charts, no dashboards, no made-up metrics. Do not make a gradient-only background or futuristic technology scene. Create an intimate documentary photograph inside a working music studio, a close-up of an adult person's hands reviewing an open ivory notebook beside actual audio equipment. Focus on one person's two believable human hands, warm medium-brown natural skin with subtle texture: one hand gently holding the edge of the paper, the other holding an unbranded lime #D6FF62 pen above a small simple blank checklist. The notebook contains a few indistinct pencil lines and small nonverbal marks only, absolutely no legible words, no fabricated sentences, no numbers. A small portion of a real audio mixing surface or interface with a few knobs is cropped at the upper-right edge, naturally out of focus and entirely unbranded. The table is a warm worn studio work surface, with restrained sky-blue reflected light entering from one side, natural skin, warm ivory paper, dark forest-toned shadows. Documentary grain, authentic imperfect working moment, artful oblique crop, shallow but readable focus; quiet and human, no staged corporate gestures, no handshake, no futuristic AI imagery, no robot hands, no full computer screen. Keep a little natural uncluttered space around the notebook. The photograph should feel like someone learning and reviewing real work, not a sterile stock-photo setup.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-f1582caf-7006-489b-9290-96cc4e93c02e.png",
+    "category": "editorial-lab",
+    "kind": "Editorial direction",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/editorial-lab/editorial-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-04.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "editorial03-05",
+    "title": "Expressive line illustration",
+    "style": "Hand-drawn ink illustration",
+    "family": "illustration",
+    "sampleTitle": "Where human review belongs in an AI workflow",
+    "description": "A loosely drawn hand sorting information cards turns human review into a simple, readable editorial image.",
+    "useFor": [
+      "Human review",
+      "Decision-making",
+      "Responsible workflows"
+    ],
+    "composition": "One large hand and three cards form a simple silhouette, with open pale blue around them.",
+    "colors": [
+      "#132B26",
+      "#C2EDFF",
+      "#D6FF62",
+      "#F8FAF5"
+    ],
+    "prompt": "Generate one final editorial image, landscape 16:9, high resolution. This is a contemporary cultured image for a serious music-business publication covering AI, music catalogs, and the people who operate them. It must feel art-directed, immediate and memorable, with one clear focal idea and generous purposeful negative space. This is an image only: no article title, no lettering, no logo, no branding, no watermark, no frame, no browser or device mockup, no charts, no dashboards, no made-up metrics. Do not make a gradient-only background or futuristic technology scene. Create an original expressive hand-drawn editorial illustration in loose deep-forest #132B26 ink on a pale blue #C2EDFF field. The central visual is ONE big human hand, simply and confidently drawn, sorting exactly THREE ivory #F8FAF5 information cards. One card is lifted gently between thumb and fingers, two cards sit slightly overlapping below; the cards contain only a few bold irregular nonverbal lines and a small lime #D6FF62 dot, no writing or symbols that read as letters. Use a bold simple recognizable silhouette, imperfect dry-brush edges and flowing variable-width pen strokes, warm spontaneous gestural linework. The hand must read naturally without excessive anatomical detail or extra fingers. A small lime mark highlights the chosen card. Place the gesture just right of center and leave generous calm pale-blue space at left. Flat handmade editorial drawing with subtle paper tooth, limited colors, visually witty and human. Not a polished vector icon, not an app illustration, no gradients, no UI panels, no shadows giving the cards 3D depth, no glossy rendering, no decorative doodle clutter. Invent a fresh composition appropriate to a culture magazine, not copying any existing illustration.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-24827b47-d892-435c-ab5d-30deefff9ad8.png",
+    "category": "editorial-lab",
+    "kind": "Editorial direction",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/editorial-lab/editorial-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-lab/editorial-05.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  }
+]

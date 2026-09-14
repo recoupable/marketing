@@ -1,0 +1,202 @@
+[
+  {
+    "id": "exp02-forest-01",
+    "title": "Forest with a blue edge",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "forest",
+    "style": "Forest + blue + lime",
+    "description": "A spacious forest field with a vivid blue right edge and narrow diffused lime transition.",
+    "noiseLevel": "Fine",
+    "paletteId": "forest-blue-lime",
+    "colors": [
+      "#132B26",
+      "#1E493E",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "status": "proposed",
+    "prompt": "Use case: stylized-concept.\nAsset: ONE complete wide 16:9 text-free abstract brand background, ideally 1672 x 941 or higher with the same landscape ratio.\nPrimary request: deep forest green occupies roughly 70 percent of the composition, softly graded between #132B26 and #1E493E, with a diffused luminous sky-blue edge entering from the right and a very thin yellow-lime light transition along that blue edge. Keep the upper-left and broad center spacious and quiet for typography to be added separately. Forest must remain visibly green, not near-black. The blue is vivid and fresh and the lime is luminous: this must POP while staying sophisticated and soft.\nPalette: #132B26 deep forest, #1E493E lighter forest, #007EBD sky, #168DDD bright blue, #D6FF62 lime; tiny #C2EDFF ice highlights only.\nStyle/medium: flat matte color-field art with seamless, softly irregular optical diffusion; very fine uniform analog film noise, only perceptible up close. All major edges are diffuse. Light drifts asymmetrically in from the right perimeter, not a centered spotlight.\nConstraints: strictly nonrepresentational, flat picture plane. No text, letters, logos, symbols, objects, scenery, actual trees or forest, landscapes, horizons, cloud shapes, water, UI, frames, borders, mockups, contact sheet, collage, hard-edged shapes, sharp stripes, visible circles, 3D forms, glossy highlights, glass, droplets, ripples, embossing, or coarse material texture. No black-dominated composition, muddy olive, gray sludge, purple, neon cyberpunk, or generic technological glow. Finished background art only.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-45d5abf9-7ec3-435c-827a-9c1ae048915c.png",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/forest-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-01.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-forest-02",
+    "title": "Blue light in forest",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "forest",
+    "style": "Forest + blue + lime",
+    "description": "A bright blue wash opens into a calm forest field, with a small lime highlight and lightly textured pigment.",
+    "noiseLevel": "Light",
+    "paletteId": "forest-blue-lime",
+    "colors": [
+      "#132B26",
+      "#1E493E",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "status": "proposed",
+    "prompt": "Use case: stylized-concept.\nAsset: ONE complete wide 16:9 abstract brand background, ideally 1672 x 941 or higher, text-free.\nCreate a deep forest majority composition with one pronounced luminous BLUE color pool, not a literal pool, diffusing broadly through the lower-left quarter and left edge. A tiny lime contrast glow rests at the upper limit of that blue diffusion. The calm central and right portions remain rich visible forest green, with a touch of lighter green to prevent black domination. Color allocation about 60% forest, 35% bright blue, 5% luminous lime and ice highlights. The blue must feel bright, concentrated and saturated, not muted teal. Make the brightness feel exciting against the forest, while all contours remain softly blurred.\nNumeric palette only: deep forest #132B26, lighter forest #1E493E, sky blue #007EBD, luminous blue #168DDD, lime #D6FF62, tiny ice #C2EDFF.\nMedium: matte soft airbrush pigment with light, fine dry pigment grain. Large organic and irregular diffusion with no identifiable shape. Usable quiet space through the upper center and right, for typography to be placed independently later.\nStrict exclusions: no text, logo, letters, symbols, objects, scenery, trees, leaves, sky or cloud shapes, landscape, horizon, water, 3D blobs, circles, sharp geometry, interface, frame, border, contact sheet, collage, glossy highlight, glass, droplets, ripples, embossed relief, neon cyberpunk, purple, muddy olive, black-heavy grading. Completely abstract flat color only.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-b9d48d6e-c5f4-4cb6-b6b7-bb3c9fb248c6.png",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/forest-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-02.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-forest-03",
+    "title": "Forest and blue with lime",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "forest",
+    "style": "Forest + blue + lime",
+    "description": "Equal broad forest and bright-blue regions meet along a soft diagonal lime glow, with fine matte grain.",
+    "noiseLevel": "Fine",
+    "paletteId": "forest-blue-lime",
+    "colors": [
+      "#132B26",
+      "#1E493E",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "status": "proposed",
+    "prompt": "Use case: stylized-concept.\nMake ONE text-free wide 16:9 abstract brand background, 1672 x 941 or higher at the same ratio. A balanced meeting of rich forest green and bright sky blue, roughly equal visible areas, with a luminous narrow lime transition separating and blending their broad soft masses. Forest fills the lower-left side and blue fills the upper-right; the transition climbs diagonally in one softly irregular sweep, with no horizon or line. Give each color broad calm open space. Forest must remain visibly green and blue must remain vivid rather than merging into a muddy teal middle. The lime boundary provides a sharp COLOR contrast but NO sharp contour.\nNumeric palette only: #132B26 deep forest, #1E493E lighter forest, #007EBD sky blue, #168DDD vivid blue, #D6FF62 lime, optional trace #C2EDFF.\nMedium: optically diffused matte gradient, very fine soft analog grain, no physical surface relief. All color zones are large and softly graded. Rich, luminous, confident color, usable as an editorial background for typography later.\nNo text, typography, logos, objects, recognizable scenery, trees, leaves, forest scene, clouds, horizon, landscape, water, sharp geometry, hard-edged stripes, circular forms, 3D shapes, glass, frosted glass, droplets, ripples, embossing, black-dominated areas, muddy olive, purple, cyberpunk, UI, frame, border, collage, or contact sheet. Single full-bleed nonrepresentational color field only.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-028f96bc-eeef-4b03-a8d7-3369f59ae170.png",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/forest-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-03.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-forest-04",
+    "title": "Lime wash over forest",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "forest",
+    "style": "Forest + blue + lime",
+    "description": "A broad lime airbrush wash spreads from the upper edge into quiet forest, with a slight cool-blue accent and powder grain.",
+    "noiseLevel": "Medium",
+    "paletteId": "forest-blue-lime",
+    "colors": [
+      "#132B26",
+      "#1E493E",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "status": "proposed",
+    "prompt": "Use case: stylized-concept.\nAsset: ONE complete wide 16:9 text-free abstract brand background, 1672 x 941 or higher at same ratio.\nPaint a soft, broad LIME AIRBRUSH WASH across an open deep-forest background. The main lime pigment is luminous yellow-lime, #D6FF62, irregularly diffusing downward from the upper central edge and spreading loosely toward the left, fading broadly rather than forming a circular spotlight. Let a slight, small wash of ice blue appear at the rightmost overlap of lime and forest, cool and delicate. Deep #132B26 and lighter #1E493E forest remain the grounded base with generous calm space across the lower half. Lime takes approximately 35 percent of the overall image and reads luminous, fresh and unapologetic; forest roughly 60 percent; ice and a very slight sky-blue trace under 5 percent. Keep the forest green visible and warm enough to avoid black. Numeric colors: #132B26, #1E493E, #D6FF62, #C2EDFF, trace #007EBD.\nMedium: flat matte sprayed pigment on a smooth plane, gentle powder softness, medium-fine irregular analog grain. Diffuse asymmetric color with no visible hard shape, no paint ridge or physical relief. Usable quiet forest area for later typography. The colors should pop together.\nNo text, logos, letters, objects, recognizable scene, actual forest, trees, leaves, grass, landscape, horizon, clouds, sky scene, water, ribbons, circles, 3D forms, sharp geometry, glass, frosted glass, droplets, glossy reflections, embossed texture, muddy olive, black domination, purple, neon cyberpunk, frames, borders, interface, collage or contact sheet. Pure nonrepresentational full-bleed background only.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-5c5cbe45-4f2c-4cbd-9f8a-d429c00edf3a.png",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/forest-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-04.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-forest-05",
+    "title": "Blue and lime crossing light",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "forest",
+    "style": "Forest + blue + lime",
+    "description": "Broad blurred blue and lime light bands cross off-center on forest, leaving a quiet green region at the right.",
+    "noiseLevel": "Fine",
+    "paletteId": "forest-blue-lime",
+    "colors": [
+      "#132B26",
+      "#1E493E",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "status": "proposed",
+    "prompt": "Use case: stylized-concept.\nCreate ONE wide 16:9 abstract brand background, 1672 x 941 or higher at the same ratio. Text-free, pure color.\nA deep yet visibly green FOREST base supports two very broad and highly defocused swaths of color light crossing softly off-center: one luminous blue swath from the upper-left toward the lower-right, and one shorter lime swath from the lower-left toward the upper-middle. Their overlap dissolves into a little pale ice light. These are indistinct wide color diffusions, NOT literal beams, not straight geometric stripes, not laser lights. Leave the far-right third and upper-right generously calm forest. The crossing produces a varied asymmetrical composition distinct from a single linear gradient. Saturated fresh blue and citron should POP against the grounded forest, without making the frame look black.\nNumeric palette only: base #132B26 and #1E493E; blue #007EBD and #168DDD; lime #D6FF62; tiny ice #C2EDFF.\nMedium: seamless optical defocus, matte flat color plane, subtle super-fine film grain. No sharp or fully defined contours. No physical surface relief. Forest 50-60%, bright blue 25-35%, lime approximately 15%.\nNo text, logo, typography, symbols, objects, scenery, actual forest, trees, foliage, landscape, horizon, cloud shapes, sky scene, stars, water, glass, frosted glass, droplets, ripples, embossed texture, 3D forms, ribbons, sharp geometry, dark black domination, muddy olive, purple, neon cyberpunk, lens flares, UI, frame, border, contact sheet or collage. Background only, suitable for independent editorial typography later.",
+    "referenced_image_paths": [],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-ded37f36-b73d-4c17-96b4-a9040ebbc0d4.png",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/forest-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-05.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "exp02-forest-06",
+    "title": "Forest, blue and citron print",
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "forest",
+    "style": "Forest + blue + lime",
+    "description": "A forest center sits between bright blue at the upper right and citron at the lower left, with coarse powdery print grain.",
+    "noiseLevel": "Coarse",
+    "paletteId": "forest-blue-lime",
+    "colors": [
+      "#132B26",
+      "#1E493E",
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#C2EDFF"
+    ],
+    "status": "proposed",
+    "prompt": "Use case: stylized-concept.\nAsset: ONE complete wide 16:9 text-free abstract brand background, 1672 x 941 or higher at same ratio.\nInput image 1 is a reference for dry powdery printed texture and vivid blue/citron color contrast ONLY. Do not reproduce its composition or its blue majority. Create a new FOREST-led arrangement.\nComposition: broad deep-forest and lighter-forest color masses occupy about 55% of the image, especially a generous quiet center-left zone. An irregular sweep of bright blue enters from the upper-right edge, crossing toward the center but dissolving before it reaches the left edge. A substantial luminous citron-lime bloom rises softly from the lower-left perimeter and kisses the forest. Blue roughly 30%, lime roughly 15%. The large masses remain diffuse and abstract; a little powdery colored overlap makes the image feel printed. Deep green must remain green, blue must be bright and saturated, lime must POP.\nPalette: #132B26 deep forest, #1E493E lighter forest, #007EBD sky blue, #168DDD vivid almost-cobalt blue, #D6FF62 citron lime, optional very slight #C2EDFF ice.\nMedium: COARSE POWDERY PRINT texture, visibly granular and tactile, more pronounced than a smooth gradient. Fine-to-medium dry pigment speckling distributed within broad soft diffusion, irregular ink transfer and dry overspray at color boundaries. Flat matte print; no actual raised grain, no surface relief, no glossy effect, no simulated glass or water. Strong color, modern editorial restraint, enough quiet space for separate typography later.\nNo text, logos, letters, symbols, recognizable objects, trees, leaves, forest scene, landscapes, horizon, sky or cloud shapes, scenery, water, droplets, ripples, thick paint, sharp hard-edged blobs, circles, geometry, 3D forms, metallic material, black domination, muddy olive, purple, neon cyberpunk, UI, frames, borders, collage or contact sheet. Single full-bleed nonrepresentational background only.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-36a13348-01da-49fd-bed4-6731f2b0dccf.png",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/explorations-02/forest-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/forest-06.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  }
+]

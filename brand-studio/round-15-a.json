@@ -1,0 +1,119 @@
+[
+  {
+    "id": "editorial15-01",
+    "category": "editorial-15",
+    "family": "geometry",
+    "title": "Tonal repeat",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "Large split capsules repeat across the entire forest canvas. Alternating green halves build a continuous surface behind the lime headline, with one blue inflection.",
+    "patternRule": "Repeat a broad split capsule on staggered rows. Keep both halves in close forest tones; use the shape of their join and the row offset to create rhythm across the full image.",
+    "gradientRule": "Flat tonal colors. One capsule half shifts toward blue; the headline provides the main lime contrast.",
+    "coverageRule": "The repeat fills all four edges and continues behind the headline. Dominant forest color means a tonal surface, not empty space.",
+    "paletteName": "Forest / tonal green / blue / lime type",
+    "preview": "assets/editorial-15/option-01.png",
+    "artPreview": "assets/editorial-15/option-01-art.png",
+    "originalPreview": "assets/editorial-10/option-02.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-01.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-15/option-01.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-15/option-01-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-15/option-01-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "Exact round10 DM Sans 450",
+    "status": "proposed",
+    "generator": "native SVG"
+  },
+  {
+    "id": "editorial15-02",
+    "category": "editorial-15",
+    "family": "geometry",
+    "title": "Oversized planes",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "Monumental folded planes span the canvas. Dark blue surfaces support the headline while a broad cyan face and a low crossing plane make the artwork feel dimensional.",
+    "patternRule": "Use a few huge overlapping diagonal planes that extend beyond the frame. Vary their angle and width, and let a second direction interrupt the dominant fold. Keep dark blue behind white text.",
+    "gradientRule": "Light follows two defined faces. Other planes stay flat; a narrow lime edge marks one fold without creating a background glow.",
+    "coverageRule": "Defined planes occupy the full surface, including behind the headline. Pattern structure reaches every edge; no isolated corner object.",
+    "paletteName": "Deep blue / blue / cyan / small lime edge",
+    "preview": "assets/editorial-15/option-02.png",
+    "artPreview": "assets/editorial-15/option-02-art.png",
+    "originalPreview": "assets/editorial-10/option-01.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-02.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-15/option-02.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-15/option-02-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-15/option-02-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "Exact round10 DM Sans 450",
+    "status": "proposed",
+    "generator": "native SVG"
+  },
+  {
+    "id": "editorial15-03",
+    "category": "editorial-15",
+    "family": "geometry",
+    "title": "Woven field",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "Wide diagonal bands weave over and under across the full pale canvas. Two blue strands enter on the right while the softer weave continues behind the headline.",
+    "patternRule": "Build a large twill from two sets of broad intersecting bands, alternating which strand passes above. Continue the structure through all edges, with a few stronger strands away from the headline.",
+    "gradientRule": "Flat pale tones throughout the weave. Two blue strands supply the stronger color change; no corner gradient or lighting overlay.",
+    "coverageRule": "The woven structure occupies every edge and extends under the text. Pale tonal contrast keeps the headline readable while the pattern covers most of the frame.",
+    "paletteName": "Pale blue / tonal blue-white / cyan / blue",
+    "preview": "assets/editorial-15/option-03.png",
+    "artPreview": "assets/editorial-15/option-03-art.png",
+    "originalPreview": "assets/editorial-10/option-03.png",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-15/option-03.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-15/option-03.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-15/option-03-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-15/option-03-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "Exact round10 DM Sans 450",
+    "status": "proposed",
+    "generator": "native SVG"
+  }
+]

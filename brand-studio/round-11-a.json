@@ -1,0 +1,90 @@
+[
+  {
+    "id": "editorial11-01",
+    "category": "editorial-11",
+    "family": "geometry",
+    "title": "Offset blocks",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "The same offset blue composition, with consistent curved joins and a very fine texture confined to the lit block.",
+    "changes": [
+      "Matched the curved joins.",
+      "Added fine grain inside the lit cyan block.",
+      "Kept the blue field, lime inset, and headline crisp."
+    ],
+    "patternRule": "Build the offset fragments from generous circular joins, using a 128-pixel large radius and smaller related radii. Preserve the quiet field and asymmetric crop.",
+    "gradientRule": "The blue background remains flat. Directional cyan light and low-opacity fine grain belong only to one filled block; the front face uses a tonal-blue transition.",
+    "paletteName": "Blue / cyan / lime",
+    "preview": "assets/editorial-11/option-01.png",
+    "artPreview": "assets/editorial-11/option-01-art.png",
+    "originalPreview": "assets/editorial-10/option-01-feed.png",
+    "originalId": "editorial10-01",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-11/option-01.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-11/option-01.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-11/option-01-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-11/option-01-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "Actual DM Sans 450",
+    "status": "proposed",
+    "generator": "native SVG"
+  },
+  {
+    "id": "editorial11-02",
+    "category": "editorial-11",
+    "family": "geometry",
+    "title": "Cutout join",
+    "sampleTitle": "Connect your company\u2019s knowledge",
+    "headline": "Connect your\ncompany\u2019s knowledge.",
+    "description": "The same blue cutout and forest field, with a broad light transition replacing the visible diagonal stripe.",
+    "changes": [
+      "Removed the hard diagonal highlight layer.",
+      "Spread the light smoothly across the blue cutout.",
+      "Preserved the open forest field and lime headline."
+    ],
+    "patternRule": "Use one oversized asymmetric cutout with a broad step and a generous notch. Let the negative space carry the headline and retain the original crop.",
+    "gradientRule": "A broad horizontal blue-to-cyan transition stays inside the left cutout. The forest field remains completely flat; no grain or corner glow.",
+    "paletteName": "Forest / blue / lime",
+    "preview": "assets/editorial-11/option-02.png",
+    "artPreview": "assets/editorial-11/option-02-art.png",
+    "originalPreview": "assets/editorial-10/option-02-feed.png",
+    "originalId": "editorial10-02",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-11/option-02.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-11/option-02.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-11/option-02-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-11/option-02-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "Actual DM Sans 450",
+    "status": "proposed",
+    "generator": "native SVG"
+  }
+]

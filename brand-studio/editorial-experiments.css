@@ -1,0 +1,28 @@
+.experiments-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:20px 0 16px}
+.experiments-size{display:flex;gap:4px;padding:4px;border:1px solid var(--border);border-radius:28px}
+.experiments-size button{min-height:40px;padding:9px 17px;border:0;border-radius:23px;background:transparent;color:var(--muted);font:400 13px var(--sans);cursor:pointer}
+.experiments-size button[aria-pressed=true]{background:var(--green);color:white}
+.experiments-size button:focus-visible,.experiments-image:focus-visible{outline:2px solid var(--link);outline-offset:4px}
+.experiments-download,.experiments-creative-notes{font:400 12px/1.5 var(--sans);color:var(--link)}
+.experiments-creative-notes{display:inline-block;margin-top:16px}
+.experiments-reference{padding:0 0 18px;margin:0 0 22px;border-bottom:1px solid var(--border);max-width:900px}
+.experiments-reference summary{font:450 13px/1.5 var(--sans);cursor:pointer;color:var(--ink)}
+.experiments-reference p{font:400 13px/1.65 var(--sans);color:var(--muted);max-width:760px;margin:16px 0}
+.experiments-reference ul{display:grid;gap:8px;padding-left:18px;margin:0;max-width:800px;font:400 13px/1.65 var(--sans);color:var(--muted)}
+.experiments-reference strong{font-weight:500;color:var(--ink)}
+.asset-grid.editorial-experiments-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 26px}
+.asset-grid.editorial-experiments-options.experiments-thumbnails{grid-template-columns:repeat(3,minmax(0,360px));gap:32px 24px;justify-content:start}
+.experiments-card{min-width:0}
+.experiments-image{display:block;box-sizing:border-box;aspect-ratio:16/9;width:100%;margin:0;padding:0;border:0;border-radius:9px;overflow:hidden;background:var(--soft);cursor:pointer}
+.experiments-image img{display:block;width:100%;height:100%;object-fit:contain}
+.experiments-card-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;font:400 11px/1.5 var(--sans);color:var(--muted);margin:14px 0 10px}
+.experiments-card-meta .asset-status{font-size:10px;padding:5px 9px}
+.experiments-card-heading{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:10px}
+.experiments-card-heading h3{font:450 25px/1.2 var(--sans);letter-spacing:-.035em;margin:0;color:var(--ink)}
+.experiments-card-heading a{font:400 12px/1.4 var(--sans);color:var(--link);white-space:nowrap}
+.experiments-card-downloads{display:flex;gap:12px;flex:none}
+.experiments-description{font:400 13px/1.6 var(--sans);color:var(--muted);margin:0;max-width:650px}
+.experiments-thumbnails .experiments-card-heading h3{font-size:21px}
+.experiments-thumbnails .experiments-description{font-size:12px}
+@media(max-width:1200px){.asset-grid.editorial-experiments-options.experiments-thumbnails{grid-template-columns:repeat(2,minmax(0,360px))}}
+@media(max-width:750px){.asset-grid.editorial-experiments-options{grid-template-columns:minmax(0,1fr);gap:30px}.asset-grid.editorial-experiments-options.experiments-thumbnails{grid-template-columns:minmax(0,360px)}.experiments-toolbar{align-items:flex-start}.experiments-size button{font-size:12px;padding:9px 12px}.experiments-card-heading h3{font-size:23px}}

@@ -214,3 +214,15 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 ## Homepage announcement
 
 The hero announcement links to `/skills` and reads “Catalog Skills V2 is here.” Its copy lives in `components/home/sky-hero.tsx`; the New badge, hover, and link styling live in `components/home/sky.css`. See `DESIGN.md` for presentation guidance.
+
+## Brand Studio
+
+The native Next.js library lives at `/brand` (Finals) and `/brand/experiments`. `components/brand-studio/BrandStudio.tsx` owns the React UI; `brand-studio/` owns the asset catalogue, original media, and legacy authoring tools. Preserve its approved DM Sans / IBM Plex Mono Sky styling and exact artwork. SiteFrame omits marketing chrome only for /brand routes; shared analytics stay intact.
+
+- `pnpm brand-studio` runs the marketing app on port 3012. Open http://localhost:3012/brand.
+- `pnpm dev`, `pnpm build`, and `pnpm start` include the same pages. No separate site is required.
+- `/brand-studio` redirects to `/brand`; legacy kit HTML is served under /brand through the media route.
+- `pnpm brand-studio:index` rebuilds review-board-assets.json, retaining asset IDs. studio-finals.json sets defaults.
+- The review storage key stays recoup-brand-review:v1. Page assignment stays independent of Keep / Maybe / Pass. Export/import reviews across origins.
+- /brand is excluded from indexing and the marketing sitemap. It is not access-controlled.
+- Run `pnpm test lib/brand-studio/__tests__` and `pnpm build` after integration changes.

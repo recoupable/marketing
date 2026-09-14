@@ -1,0 +1,216 @@
+[
+  {
+    "category": "layered-editorial",
+    "kind": "Layered editorial study",
+    "generator": "image_gen (built-in)",
+    "status": "proposed",
+    "headline": null,
+    "family": "cables",
+    "treatment": "color",
+    "title": "Connected cables on warm apricot",
+    "style": "Audio connector portrait over alternate palette",
+    "sampleTitle": "Why your AI tools need to share context",
+    "description": "Dark forest connectors and a vivid lime lead contrast with a proposed warm apricot-to-ivory field, balanced by a small blue glow.",
+    "colors": [
+      "#FFB87A",
+      "#F8FAF5",
+      "#132B26",
+      "#D6FF62",
+      "#168DDD"
+    ],
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-lab/editorial-01.png"
+    ],
+    "fullprompt": "Use case: background-replacement.\nEdit the supplied joined audio cable photograph. Keep exactly the same paired connected XLR assembly, the intact metal-to-metal join, latch, cylindrical collars, rubber strain relief, material wear and convincing photographic scale. Keep the vivid lime cable vivid #D6FF62 and make the dark connector/cable surfaces deep forest #132B26 while retaining subtle real metallic reflections and rubber detail. No new plugs, pins or split connections. Position the assembly toward the lower-right; allow the leads to sweep naturally toward the lower-left edge and upper-right edge, with generous calm background at upper-left.\nChange the entire background to a proposed warm alternate palette: SATURATED WARM APRICOT #FFB87A dominates the left and upper area and diffuses smoothly into warm ivory #F8FAF5 toward the lower-right. Add just a small soft sky-blue #168DDD glow near one far edge as a restrained color echo, not a large blue field. Use fine flat grain and subtle authentic soft object shadows. This should be a visibly warm editorial still life, not the original blue image, without altering the preserved physical connection.\nText-free: no text, letters, numbers, caption or words anywhere.\nOutput one complete high-resolution wide 16:9 image, about 1672\u00d7941. Full bleed with no box, panel, card or rectangular photo area behind the object. No logo, brand mark, watermark, mockup frame, extra objects, scene collage, 3D interface, charts or dashboards. Maintain real photographic material and a fine-grain flat background; no cellular, frosted-glass, embossed or pebbled texture.",
+    "id": "layered04-cables-color",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-606e5f34-eb09-4e2a-895e-4e0f33093a42.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/layered-editorial/cables-color.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/cables-color.png"
+      }
+    ],
+    "prompt": "Use case: background-replacement.\nEdit the supplied joined audio cable photograph. Keep exactly the same paired connected XLR assembly, the intact metal-to-metal join, latch, cylindrical collars, rubber strain relief, material wear and convincing photographic scale. Keep the vivid lime cable vivid #D6FF62 and make the dark connector/cable surfaces deep forest #132B26 while retaining subtle real metallic reflections and rubber detail. No new plugs, pins or split connections. Position the assembly toward the lower-right; allow the leads to sweep naturally toward the lower-left edge and upper-right edge, with generous calm background at upper-left.\nChange the entire background to a proposed warm alternate palette: SATURATED WARM APRICOT #FFB87A dominates the left and upper area and diffuses smoothly into warm ivory #F8FAF5 toward the lower-right. Add just a small soft sky-blue #168DDD glow near one far edge as a restrained color echo, not a large blue field. Use fine flat grain and subtle authentic soft object shadows. This should be a visibly warm editorial still life, not the original blue image, without altering the preserved physical connection.\nText-free: no text, letters, numbers, caption or words anywhere.\nOutput one complete high-resolution wide 16:9 image, about 1672\u00d7941. Full bleed with no box, panel, card or rectangular photo area behind the object. No logo, brand mark, watermark, mockup frame, extra objects, scene collage, 3D interface, charts or dashboards. Maintain real photographic material and a fine-grain flat background; no cellular, frosted-glass, embossed or pebbled texture."
+  },
+  {
+    "category": "layered-editorial",
+    "kind": "Layered editorial study",
+    "generator": "image_gen (built-in)",
+    "status": "proposed",
+    "headline": null,
+    "family": "cables",
+    "treatment": "gradient",
+    "title": "Connected cables on blue and lime",
+    "style": "Audio connector portrait over grainy gradient",
+    "sampleTitle": "Why your AI tools need to share context",
+    "description": "The connected metal-and-rubber audio cables sit toward the lower-right on blue-to-lime color, preserving a broad clear area at the left for a headline.",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#132B26"
+    ],
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-lab/editorial-01.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/explorations-02/gradient-02.png"
+    ],
+    "fullprompt": "Use case: background-replacement.\nEdit Image 1, the supplied connected audio cable portrait. Image 1 is the edit target. Image 2 is ONLY a background color and fine-grain texture reference.\nPreserve the existing joined connector assembly and its physical details: exactly two connected XLR cable connectors, worn dark metal collars and latch, rubber strain relief, the vivid lime cable and the dark forest cable, the exact intact metal-to-metal joining relationship, believable cylindrical form and photography. Do not create more plugs, exposed pins, split connections or impossible joins. Move the joined assembly toward the LOWER-RIGHT and scale it modestly so that the central connection occupies the right half. Its lime lead can curve across the bottom edge, and the forest lead can exit at the right, leaving the upper-left and center-left generously clear for a future headline.\nReplace the current background with a full-bleed vivid diffused blue-to-lime gradient inspired by Image 2: blue #007EBD and brighter #168DDD dominate the upper-left, falling softly toward luminous lime #D6FF62 at the far lower-right with only a small icy transition. Keep blue behind most of the lime cable so that it has a readable silhouette. Preserve subtle soft photographic shadows and object material. Fine flat grain with smooth color falloff; no cellular or glass texture.\nText-free: no text, letters, numbers, caption or words anywhere.\nOutput one complete high-resolution wide 16:9 image, about 1672\u00d7941. Full bleed with no box, panel, card or rectangular photo area behind the object. No logo, brand mark, watermark, mockup frame, extra objects, scene collage, 3D interface, charts or dashboards. Maintain real photographic material and a fine-grain flat background; no cellular, frosted-glass, embossed or pebbled texture.",
+    "id": "layered04-cables-gradient",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-ecb5d976-25fc-4b87-83a8-202054da4ba9.png",
+    "width": 1672,
+    "height": 940,
+    "preview": "assets/layered-editorial/cables-gradient.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/cables-gradient.png"
+      }
+    ],
+    "prompt": "Use case: background-replacement.\nEdit Image 1, the supplied connected audio cable portrait. Image 1 is the edit target. Image 2 is ONLY a background color and fine-grain texture reference.\nPreserve the existing joined connector assembly and its physical details: exactly two connected XLR cable connectors, worn dark metal collars and latch, rubber strain relief, the vivid lime cable and the dark forest cable, the exact intact metal-to-metal joining relationship, believable cylindrical form and photography. Do not create more plugs, exposed pins, split connections or impossible joins. Move the joined assembly toward the LOWER-RIGHT and scale it modestly so that the central connection occupies the right half. Its lime lead can curve across the bottom edge, and the forest lead can exit at the right, leaving the upper-left and center-left generously clear for a future headline.\nReplace the current background with a full-bleed vivid diffused blue-to-lime gradient inspired by Image 2: blue #007EBD and brighter #168DDD dominate the upper-left, falling softly toward luminous lime #D6FF62 at the far lower-right with only a small icy transition. Keep blue behind most of the lime cable so that it has a readable silhouette. Preserve subtle soft photographic shadows and object material. Fine flat grain with smooth color falloff; no cellular or glass texture.\nText-free: no text, letters, numbers, caption or words anywhere.\nOutput one complete high-resolution wide 16:9 image, about 1672\u00d7941. Full bleed with no box, panel, card or rectangular photo area behind the object. No logo, brand mark, watermark, mockup frame, extra objects, scene collage, 3D interface, charts or dashboards. Maintain real photographic material and a fine-grain flat background; no cellular, frosted-glass, embossed or pebbled texture."
+  },
+  {
+    "category": "layered-editorial",
+    "kind": "Layered editorial study",
+    "generator": "image_gen (built-in)",
+    "status": "proposed",
+    "treatment": "headline",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#F8FAF5",
+      "#132B26"
+    ],
+    "family": "cables",
+    "title": "Cables with shared-context headline",
+    "style": "Audio connector portrait with editorial headline",
+    "sampleTitle": "Why your AI tools need to share context",
+    "description": "The saved connected-cable composition gains an ivory two-line headline in the clear upper-left, keeping the physical join and blue/lime background intact.",
+    "headline": "Connect your tools.\nShare the context.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/layered-editorial/cables-gradient.png"
+    ],
+    "fullprompt": "Use case: precise-object-edit.\nThe supplied image is the EDIT TARGET: joined audio connectors positioned lower-right on a vivid blue-to-lime fine-grain background. Make exactly one change: add the editorial headline in its clear upper-left region. Preserve the original image's joined connectors, metal/rubber detail, cable curves, scale, placement, colors, lighting and soft shadows. Preserve the gradient background and grain exactly as closely as possible; no object or color rearrangement.\nText, verbatim, on exactly TWO lines:\nConnect your tools.\nShare the context.\nSpelling and capitalization must be EXACT, including both periods. No quotation marks.\nTypography: large bold DM Sans-like grotesk sans-serif, warm ivory #F8FAF5, sharp flat letterforms, left aligned. Set the two lines at a considered readable size, not so large that they collide with the connector. Position them across the upper-left calm blue region with a generous outer margin, well above the lime cable and away from the bright gradient transition. The headline should be prominent with clear negative space and no busy edges behind the type.\nNo text shadow, stroke, outline, glow, black rectangle, separate card or panel. No logo, footer, caption, extra wording, underline or decorative graphic. The provided image must be the same composition with only this headline added.\nOutput one complete high-resolution wide 16:9 image, about 1672\u00d7941. Full bleed with no box, panel, card or rectangular photo area behind the object. No logo, brand mark, watermark, mockup frame, extra objects, scene collage, 3D interface, charts or dashboards. Maintain real photographic material and a fine-grain flat background; no cellular, frosted-glass, embossed or pebbled texture.",
+    "id": "layered04-cables-headline",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-0657215a-0ced-45fc-86e5-58a9a200ced1.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/layered-editorial/cables-headline.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/cables-headline.png"
+      }
+    ],
+    "prompt": "Use case: precise-object-edit.\nThe supplied image is the EDIT TARGET: joined audio connectors positioned lower-right on a vivid blue-to-lime fine-grain background. Make exactly one change: add the editorial headline in its clear upper-left region. Preserve the original image's joined connectors, metal/rubber detail, cable curves, scale, placement, colors, lighting and soft shadows. Preserve the gradient background and grain exactly as closely as possible; no object or color rearrangement.\nText, verbatim, on exactly TWO lines:\nConnect your tools.\nShare the context.\nSpelling and capitalization must be EXACT, including both periods. No quotation marks.\nTypography: large bold DM Sans-like grotesk sans-serif, warm ivory #F8FAF5, sharp flat letterforms, left aligned. Set the two lines at a considered readable size, not so large that they collide with the connector. Position them across the upper-left calm blue region with a generous outer margin, well above the lime cable and away from the bright gradient transition. The headline should be prominent with clear negative space and no busy edges behind the type.\nNo text shadow, stroke, outline, glow, black rectangle, separate card or panel. No logo, footer, caption, extra wording, underline or decorative graphic. The provided image must be the same composition with only this headline added.\nOutput one complete high-resolution wide 16:9 image, about 1672\u00d7941. Full bleed with no box, panel, card or rectangular photo area behind the object. No logo, brand mark, watermark, mockup frame, extra objects, scene collage, 3D interface, charts or dashboards. Maintain real photographic material and a fine-grain flat background; no cellular, frosted-glass, embossed or pebbled texture."
+  },
+  {
+    "category": "layered-editorial",
+    "kind": "Layered editorial study",
+    "generator": "image_gen (built-in)",
+    "status": "proposed",
+    "headline": null,
+    "family": "flower",
+    "treatment": "color",
+    "title": "White flower on lavender and blue",
+    "style": "Botanical portrait over alternate palette",
+    "sampleTitle": "Finding new opportunities in an existing catalog",
+    "description": "The original white bloom is paired with a proposed periwinkle-to-sky-blue field and a restrained lime edge glow, testing a lighter secondary palette.",
+    "colors": [
+      "#B9C8EF",
+      "#168DDD",
+      "#D6FF62",
+      "#F8FAF5"
+    ],
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-lab/editorial-03.png"
+    ],
+    "fullprompt": "Use case: background-replacement.\nEdit the supplied white wildflower image. Preserve the identity of its single real white flower, asymmetrical papery petals, delicate folds and translucency, yellow-green center, slender stem, one leaf and natural photographic light. Keep the bloom at the right with calm open space on the left and the stem cropped naturally at the lower edge. Do not create a different flower or additional blossoms.\nChange the backdrop to a proposed alternate editorial palette: mostly luminous PERIWINKLE / LAVENDER #B9C8EF softly blending into saturated sky blue #168DDD toward the lower-right, with only a restrained lime #D6FF62 edge glow at the far perimeter. The periwinkle/lavender presence must be clear and distinct from a standard blue background. Maintain sufficient blue/lavender tone behind the white petals for clear edges; avoid washing them out with white. Add very fine flat grain throughout the color, smooth optical diffusion, no physical glass or relief. The single flower is integrated directly over this full-bleed colored background; natural light and petal material stay intact.\nText-free: no text, letters, numbers, caption or words anywhere.\nOutput one complete high-resolution wide 16:9 image, about 1672\u00d7941. Full bleed with no box, panel, card or rectangular photo area behind the object. No logo, brand mark, watermark, mockup frame, extra objects, scene collage, 3D interface, charts or dashboards. Maintain real photographic material and a fine-grain flat background; no cellular, frosted-glass, embossed or pebbled texture.",
+    "id": "layered04-flower-color",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-a1ee65bc-549f-4f3a-b0eb-a3deebf39f5b.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/layered-editorial/flower-color.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/flower-color.png"
+      }
+    ],
+    "prompt": "Use case: background-replacement.\nEdit the supplied white wildflower image. Preserve the identity of its single real white flower, asymmetrical papery petals, delicate folds and translucency, yellow-green center, slender stem, one leaf and natural photographic light. Keep the bloom at the right with calm open space on the left and the stem cropped naturally at the lower edge. Do not create a different flower or additional blossoms.\nChange the backdrop to a proposed alternate editorial palette: mostly luminous PERIWINKLE / LAVENDER #B9C8EF softly blending into saturated sky blue #168DDD toward the lower-right, with only a restrained lime #D6FF62 edge glow at the far perimeter. The periwinkle/lavender presence must be clear and distinct from a standard blue background. Maintain sufficient blue/lavender tone behind the white petals for clear edges; avoid washing them out with white. Add very fine flat grain throughout the color, smooth optical diffusion, no physical glass or relief. The single flower is integrated directly over this full-bleed colored background; natural light and petal material stay intact.\nText-free: no text, letters, numbers, caption or words anywhere.\nOutput one complete high-resolution wide 16:9 image, about 1672\u00d7941. Full bleed with no box, panel, card or rectangular photo area behind the object. No logo, brand mark, watermark, mockup frame, extra objects, scene collage, 3D interface, charts or dashboards. Maintain real photographic material and a fine-grain flat background; no cellular, frosted-glass, embossed or pebbled texture."
+  },
+  {
+    "category": "layered-editorial",
+    "kind": "Layered editorial study",
+    "generator": "image_gen (built-in)",
+    "status": "proposed",
+    "headline": null,
+    "family": "flower",
+    "treatment": "gradient",
+    "title": "White flower on blue and lime",
+    "style": "Botanical portrait over grainy gradient",
+    "sampleTitle": "Finding new opportunities in an existing catalog",
+    "description": "The existing white wildflower is set at the right over a full-bleed blue-to-lime gradient, with fine flat grain and clean space for copy at left.",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#F8FAF5"
+    ],
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-lab/editorial-03.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/explorations-02/gradient-02.png"
+    ],
+    "fullprompt": "Use case: background-replacement.\nEdit Image 1, the supplied white wildflower portrait. Image 1 is the edit target. Image 2 is ONLY a background color and texture reference.\nPreserve the existing flower's identity: its real papery translucent white petals, precise asymmetrical bloom shape, yellow-green center, slender green stem, one leaf, fine material wrinkles and photographic side lighting. Do not replace it with a different flower, grow extra petals, create a bouquet or make it plastic. Reposition and slightly rescale the single existing flower into the RIGHT half, biased toward the lower-right; its bloom stays fully readable and its stem exits naturally at the lower edge. Leave approximately the left 45 percent calm and uninterrupted for a future headline.\nReplace the current blue backdrop with one vivid, softly diffused blue-to-lime gradient inspired by Image 2: rich blue #007EBD and brighter #168DDD across the left and upper area, transitioning through a little icy brightness into luminous lime #D6FF62 toward the lower-right edge. Avoid a white hotspot directly behind white petals so petal silhouettes stay visible. Fine flat photographic grain, smooth diffuse transitions, not relief. The object must integrate naturally over the full-bleed gradient with subtle appropriate photographic depth, never appear inside a separate blue panel.\nText-free: no text, letters, numbers, caption or words anywhere.\nOutput one complete high-resolution wide 16:9 image, about 1672\u00d7941. Full bleed with no box, panel, card or rectangular photo area behind the object. No logo, brand mark, watermark, mockup frame, extra objects, scene collage, 3D interface, charts or dashboards. Maintain real photographic material and a fine-grain flat background; no cellular, frosted-glass, embossed or pebbled texture.",
+    "id": "layered04-flower-gradient",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-dd2594c2-46d6-46dc-9133-a35af5ed3732.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/layered-editorial/flower-gradient.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/flower-gradient.png"
+      }
+    ],
+    "prompt": "Use case: background-replacement.\nEdit Image 1, the supplied white wildflower portrait. Image 1 is the edit target. Image 2 is ONLY a background color and texture reference.\nPreserve the existing flower's identity: its real papery translucent white petals, precise asymmetrical bloom shape, yellow-green center, slender green stem, one leaf, fine material wrinkles and photographic side lighting. Do not replace it with a different flower, grow extra petals, create a bouquet or make it plastic. Reposition and slightly rescale the single existing flower into the RIGHT half, biased toward the lower-right; its bloom stays fully readable and its stem exits naturally at the lower edge. Leave approximately the left 45 percent calm and uninterrupted for a future headline.\nReplace the current blue backdrop with one vivid, softly diffused blue-to-lime gradient inspired by Image 2: rich blue #007EBD and brighter #168DDD across the left and upper area, transitioning through a little icy brightness into luminous lime #D6FF62 toward the lower-right edge. Avoid a white hotspot directly behind white petals so petal silhouettes stay visible. Fine flat photographic grain, smooth diffuse transitions, not relief. The object must integrate naturally over the full-bleed gradient with subtle appropriate photographic depth, never appear inside a separate blue panel.\nText-free: no text, letters, numbers, caption or words anywhere.\nOutput one complete high-resolution wide 16:9 image, about 1672\u00d7941. Full bleed with no box, panel, card or rectangular photo area behind the object. No logo, brand mark, watermark, mockup frame, extra objects, scene collage, 3D interface, charts or dashboards. Maintain real photographic material and a fine-grain flat background; no cellular, frosted-glass, embossed or pebbled texture."
+  },
+  {
+    "category": "layered-editorial",
+    "kind": "Layered editorial study",
+    "generator": "image_gen (built-in)",
+    "status": "proposed",
+    "treatment": "headline",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#F8FAF5"
+    ],
+    "family": "flower",
+    "title": "Flower with catalog headline",
+    "style": "Botanical portrait with editorial headline",
+    "sampleTitle": "Finding new opportunities in an existing catalog",
+    "description": "The saved flower-and-gradient composition carries a large ivory headline at left, while its white petals and fine-grain blue/lime background remain the visual anchor.",
+    "headline": "Find more in\nyour catalog.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/layered-editorial/flower-gradient.png"
+    ],
+    "fullprompt": "Use case: precise-object-edit.\nThe supplied image is the EDIT TARGET: a white wildflower at right on a vivid blue-to-lime fine-grain background. Make exactly one change: add an editorial headline in the clean space on the left. Preserve the existing flower's position, size, bloom shape, petal details, lighting, stem and leaf. Preserve the entire existing gradient background, its color placement, grain and full-bleed layout. Do not move, replace or regenerate the subject.\nText, verbatim, on exactly TWO lines:\nFind more in\nyour catalog.\nSpelling and capitalization must be EXACT. There is a period only after catalog. No quotation marks.\nUse large bold DM Sans-like grotesk sans-serif type in warm ivory #F8FAF5, crisp edges, left aligned, with comfortable line spacing and a confident editorial hierarchy. Place the two-line headline within the left blue area, approximately vertically centered in that open space, with a generous left margin. Size the type to fit fully left of the flower without overlapping any petals or touching the bright transition edge. The headline and flower must balance; maintain ample space between them. Use direct flat type only: no text shadow, outline, glow, black box, panel or card. Do not add any other words, logo, footer, labels or decorations.\nOutput one complete high-resolution wide 16:9 image, about 1672\u00d7941. Full bleed with no box, panel, card or rectangular photo area behind the object. No logo, brand mark, watermark, mockup frame, extra objects, scene collage, 3D interface, charts or dashboards. Maintain real photographic material and a fine-grain flat background; no cellular, frosted-glass, embossed or pebbled texture.",
+    "id": "layered04-flower-headline",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-0b143613-431c-472b-a918-d2403dda8702.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/layered-editorial/flower-headline.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/flower-headline.png"
+      }
+    ],
+    "prompt": "Use case: precise-object-edit.\nThe supplied image is the EDIT TARGET: a white wildflower at right on a vivid blue-to-lime fine-grain background. Make exactly one change: add an editorial headline in the clean space on the left. Preserve the existing flower's position, size, bloom shape, petal details, lighting, stem and leaf. Preserve the entire existing gradient background, its color placement, grain and full-bleed layout. Do not move, replace or regenerate the subject.\nText, verbatim, on exactly TWO lines:\nFind more in\nyour catalog.\nSpelling and capitalization must be EXACT. There is a period only after catalog. No quotation marks.\nUse large bold DM Sans-like grotesk sans-serif type in warm ivory #F8FAF5, crisp edges, left aligned, with comfortable line spacing and a confident editorial hierarchy. Place the two-line headline within the left blue area, approximately vertically centered in that open space, with a generous left margin. Size the type to fit fully left of the flower without overlapping any petals or touching the bright transition edge. The headline and flower must balance; maintain ample space between them. Use direct flat type only: no text shadow, outline, glow, black box, panel or card. Do not add any other words, logo, footer, labels or decorations.\nOutput one complete high-resolution wide 16:9 image, about 1672\u00d7941. Full bleed with no box, panel, card or rectangular photo area behind the object. No logo, brand mark, watermark, mockup frame, extra objects, scene collage, 3D interface, charts or dashboards. Maintain real photographic material and a fine-grain flat background; no cellular, frosted-glass, embossed or pebbled texture."
+  }
+]

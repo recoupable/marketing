@@ -1,0 +1,23 @@
+.directions-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0 14px}
+.directions-modes{display:flex;gap:4px;padding:4px;border:1px solid var(--border);border-radius:28px;flex-wrap:wrap}
+.directions-modes button{min-height:40px;padding:9px 17px;border:0;border-radius:23px;background:transparent;color:var(--muted);font:400 13px var(--sans);cursor:pointer}
+.directions-modes button[aria-pressed=true]{background:var(--green);color:white}
+.directions-modes button:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+.directions-medium{font-size:12px;color:var(--muted)}
+.directions-purpose{max-width:780px;color:var(--muted);font-size:14px;line-height:1.65;margin:0 0 26px}
+.asset-grid.editorial-directions-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:44px 28px}
+.directions-card{min-width:0}
+.directions-card .asset-preview{aspect-ratio:16/9;padding:0;overflow:hidden;border-radius:12px;background:var(--soft)}
+.directions-card .asset-preview img{display:block;width:100%;height:100%;object-fit:contain}
+.directions-card .asset-card-top{margin:17px 0 12px;align-items:center}
+.directions-card h3{font:450 clamp(24px,2.1vw,29px)/1.16 var(--sans);letter-spacing:-.04em;margin:0 0 12px}
+.directions-card .directions-description{font:400 14px/1.65 var(--sans);color:var(--muted);margin:0 0 16px;max-width:620px}
+.directions-card .directions-example-title{font:500 15px/1.5 var(--sans);color:var(--ink);margin:0 0 11px}
+.directions-card .directions-light{border-top:1px solid var(--border);padding-top:13px;color:var(--muted);font:400 12px/1.7 var(--sans);margin:0 0 14px}
+.directions-light span{display:block;color:var(--ink);font-size:12px;font-weight:500;margin-bottom:4px}
+.directions-card-meta{display:flex;align-items:center;justify-content:space-between;gap:15px;color:var(--muted);font-size:12px}
+.directions-card-meta a{white-space:nowrap;color:var(--link)}
+.native-editorial-context p{font-size:14px;line-height:1.65}
+@media(max-width:750px){.asset-grid.editorial-directions-options{grid-template-columns:1fr;gap:36px}.directions-toolbar{align-items:flex-start}.directions-modes{border-radius:24px}.directions-modes button{padding:9px 12px;font-size:12px}.directions-card h3{font-size:25px}.directions-medium{font-size:11px}}
+
+.directions-downloads{display:flex;gap:22px;font-size:12px;flex-wrap:wrap}.directions-downloads a{color:var(--link)}
