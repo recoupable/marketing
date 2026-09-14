@@ -10,6 +10,7 @@ const get: PlaygroundOperation = {
     { name: "org_id", in: "query", required: false, type: "string", example: "" },
     { name: "empty", in: "query", required: false, type: "string", example: "" },
     { name: "x-trace", in: "header", required: false, type: "string", example: "" },
+    { name: "ids", in: "query", required: false, type: "array", example: "" },
   ],
   auth: { type: "apiKey", header: "x-api-key" },
 };
@@ -21,16 +22,37 @@ describe("buildPlaygroundRequest", () => {
       method: "GET",
       url: "https://test-recoup-api.vercel.app/api/artists/a%20b/profile?org_id=o%261",
       headers: { "x-api-key": "sk", "x-trace": "t1" },
+      secretHeader: "x-api-key",
     });
+  });
+  it("repeats an array query parameter once per comma separated value", () => {
+    const request = buildPlaygroundRequest(get, { params: { "path:id": "1", "query:ids": "a, b,c" }, body: "", apiKey: "" }, base);
+    expect(request.url).toBe("https://test-recoup-api.vercel.app/api/artists/1/profile?ids=a&ids=b&ids=c");
   });
   it("uses a bearer header for bearer auth and none for public operations", () => {
     const bearer = buildPlaygroundRequest({ ...get, auth: { type: "bearer" } }, { params: { "path:id": "1" }, body: "", apiKey: "tok" }, base);
     expect(bearer.headers).toEqual({ Authorization: "Bearer tok" });
+    expect(bearer.secretHeader).toBe("Authorization");
     const open = buildPlaygroundRequest({ ...get, auth: { type: "none" } }, { params: { "path:id": "1" }, body: "", apiKey: "tok" }, base);
     expect(open.headers).toEqual({});
+    expect(open.secretHeader).toBeUndefined();
+  });
+  it("names the scheme's own header as the secret so the curl can mask it", () => {
+    const hook = buildPlaygroundRequest({ ...get, auth: { type: "apiKey", header: "x-callback-secret" } }, { params: { "path:id": "1" }, body: "", apiKey: "s3" }, base);
+    expect(hook.headers).toEqual({ "x-callback-secret": "s3" });
+    expect(hook.secretHeader).toBe("x-callback-secret");
+  });
+  it("turns multipart fields into form parts with a file placeholder and no content type header", () => {
+    const upload: PlaygroundOperation = { ...get, method: "POST", path: "/api/upload", parameters: [], body: { contentType: "multipart/form-data", example: "", required: true, form: [
+      { name: "audio", required: true, binary: true, example: "" },
+      { name: "title", required: true, binary: false, example: "" },
+      { name: "notes", required: false, binary: false, example: "" },
+    ] } };
+    const request = buildPlaygroundRequest(upload, { params: { "form:title": "Demo" }, body: "", apiKey: "sk" }, base);
+    expect(request).toEqual({ method: "POST", url: "https://test-recoup-api.vercel.app/api/upload", headers: { "x-api-key": "sk" }, secretHeader: "x-api-key", form: [["audio", "@YOUR_FILE_PATH"], ["title", "Demo"]] });
   });
   it("adds the content type and body for operations with a request body", () => {
-    const post: PlaygroundOperation = { ...get, method: "POST", path: "/api/artists", parameters: [], body: { contentType: "application/json", example: "{}" } };
+    const post: PlaygroundOperation = { ...get, method: "POST", path: "/api/artists", parameters: [], body: { contentType: "application/json", example: "{}", required: true } };
     const request = buildPlaygroundRequest(post, { params: {}, body: '{"name":"Nena"}', apiKey: "sk" }, base);
     expect(request.url).toBe("https://test-recoup-api.vercel.app/api/artists");
     expect(request.headers).toEqual({ "x-api-key": "sk", "Content-Type": "application/json" });

@@ -25,6 +25,14 @@ const spec = {
     "/api/chat": { post: { security: [{ bearerAuth: [] }], requestBody: { content: { "application/json": { example: { prompt: "hi" } } } }, responses: { "200": { content: { "text/event-stream": {} } } } } },
     "/api/public": { get: { security: [], responses: { "200": {} } } },
     "/api/empty": { post: { requestBody: { content: { "application/json": {} } }, responses: { "200": {} } } },
+    "/api/null": { post: { requestBody: { required: true, content: { "application/json": { example: null, schema: { $ref: "#/components/schemas/Body" } } } }, responses: { "200": {} } } },
+    "/api/override/{id}": {
+      parameters: [{ name: "id", in: "path", required: true, schema: { type: "string" } }, { name: "limit", in: "query", schema: { type: "integer" } }],
+      get: { parameters: [{ name: "limit", in: "query", required: true, schema: { type: "integer" }, example: "5" }], responses: { "200": {} } },
+    },
+    "/api/hook": { post: { security: [{ callbackSecret: [] }], responses: { "200": {} } } },
+    "/api/audio": { post: { responses: { "200": { content: { "audio/mpeg": {} } } } } },
+    "/api/form": { post: { requestBody: { content: { "multipart/form-data": { schema: { type: "object", required: ["audio", "title"], properties: { audio: { type: "string", format: "binary" }, title: { type: "string", example: "Demo" }, notes: { type: "string" } } } } } }, responses: { "200": {} } } },
   },
 };
 const summarize = (method: string, path: string) => summarizeOperation({ method, path, spec });
@@ -45,7 +53,7 @@ describe("summarizeOperation", () => {
   });
   it("prefills a JSON body from the schema and defaults auth to x-api-key when the spec is silent", () => {
     const op = summarize("POST", "/api/artists");
-    expect(op.body).toEqual({ contentType: "application/json", example: JSON.stringify({ name: "Nena" }, null, 2) });
+    expect(op.body).toEqual({ contentType: "application/json", example: JSON.stringify({ name: "Nena" }, null, 2), required: false });
     expect(op.auth).toEqual({ type: "apiKey", header: "x-api-key" });
     expect(op.securitySchemes).toEqual([]);
   });
@@ -55,10 +63,30 @@ describe("summarizeOperation", () => {
     expect(op.auth).toEqual({ type: "bearer" });
     expect(op.runnable).toBe(false);
   });
-  it("marks multipart uploads as not runnable", () => {
+  it("marks multipart uploads as not runnable and lists their form fields", () => {
     const op = summarize("POST", "/api/upload");
     expect(op.body?.contentType).toBe("multipart/form-data");
     expect(op.runnable).toBe(false);
+    expect(summarize("POST", "/api/form").body?.form).toEqual([
+      { name: "audio", required: true, binary: true, example: "" },
+      { name: "title", required: true, binary: false, example: "Demo" },
+      { name: "notes", required: false, binary: false, example: "" },
+    ]);
+  });
+  it("keeps an explicit null example and reports a required body", () => {
+    expect(summarize("POST", "/api/null").body).toEqual({ contentType: "application/json", example: "null", required: true });
+  });
+  it("lets an operation parameter override the path-level one with the same location and name", () => {
+    expect(summarize("GET", "/api/override/{id}").parameters).toEqual([
+      { name: "id", in: "path", required: true, type: "string", example: "" },
+      { name: "limit", in: "query", required: true, type: "integer", example: "5" },
+    ]);
+  });
+  it("is not runnable when the credential cannot be supplied or the 200 body is binary", () => {
+    const hook = summarize("POST", "/api/hook");
+    expect(hook.auth).toEqual({ type: "unsupported", schemes: ["callbackSecret"] });
+    expect(hook.runnable).toBe(false);
+    expect(summarize("POST", "/api/audio").runnable).toBe(false);
   });
   it("reports no auth for an explicitly public operation", () => {
     expect(summarize("GET", "/api/public").auth).toEqual({ type: "none" });
