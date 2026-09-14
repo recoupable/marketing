@@ -1,4 +1,5 @@
 import { AppLink } from "@/components/analytics/AppLink";
+import { PageMark } from "@/components/sky/brand";
 import { SkyArrow } from "@/components/sky/arrow";
 import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -56,23 +57,30 @@ export default function PlatformPage() {
       <PlatformToolsDemo title={platformCopy.capabilitiesTitle} workflows={platformCopy.capabilities} />
 
       <section className="platform-hosted" id="hosted" aria-labelledby="platform-hosted-title">
-        <h2 id="platform-hosted-title">{platformCopy.hosted.title[0]}<br /><span>{platformCopy.hosted.title[1]}</span></h2>
-        <p>{platformCopy.hosted.description}</p>
-        <div className="platform-sky-links">
-          <a className="sp-text-link" href={siteConfig.platformSourceUrl}>{platformCopy.hosted.sourceAction}<SkyArrow /></a>
+        <div className="platform-hosted-copy">
+          <h2 id="platform-hosted-title">{platformCopy.hosted.title[0]}<br /><span>{platformCopy.hosted.title[1]}</span></h2>
+          <p>{platformCopy.hosted.description}</p>
           <Link className="sp-text-link" href="/developers">{platformCopy.hosted.toolsAction}<SkyArrow /></Link>
+        </div>
+        <div className="platform-source-scene">
+          <div className="platform-source-cloud" aria-hidden="true"><PageMark /><span>Recoup Cloud</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 18a5 5 0 0 1-1-9.9A7 7 0 0 1 18.5 8a5 5 0 0 1-.5 10H6Z" /></svg></div>
+          <a className="platform-source-repo" href={siteConfig.platformSourceUrl}>
+            <span className="platform-source-code" aria-hidden="true">&lt;/&gt;</span>
+            <span className="platform-source-name">recoupable / <strong>app</strong></span>
+            <span className="platform-source-action">{platformCopy.hosted.sourceAction}<SkyArrow /></span>
+          </a>
         </div>
       </section>
 
       <section className="platform-paths" id="your-agent" aria-label="More ways to use Recoup">
         <article className="platform-path-tools">
-          <span className="platform-path-symbol" aria-hidden="true">↗</span>
+          <span className="platform-path-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14" /></svg></span>
           <h2>{platformCopy.alternatives.title[0]}<br /><span>{platformCopy.alternatives.title[1]}</span></h2>
           <p>{platformCopy.alternatives.description}</p>
           <div className="platform-sky-links">{platformCopy.alternatives.links.map(link => <Link className="sp-text-link" href={link.href} key={link.href}>{link.label}<SkyArrow /></Link>)}</div>
         </article>
         <article className="platform-path-custom">
-          <span className="platform-path-symbol" aria-hidden="true">✳</span>
+          <span className="platform-path-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5m-18 5 9 5 9-5" /></svg></span>
           <h2>{platformCopy.closing.title}</h2>
           <p>{platformCopy.closing.description}</p>
           <Link className="sp-text-link" href="/start-project">{platformCopy.closing.action}<SkyArrow /></Link>

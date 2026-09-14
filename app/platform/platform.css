@@ -59,28 +59,9 @@
 .platform-tool-result-recurring .platform-tool-result-rows { gap: 0; }
 .platform-tool-result-recurring .platform-tool-result-rows > div { position: relative; padding: 17px 0 17px 30px; box-shadow: 0 -1px #1937301c; }
 .platform-tool-result-recurring .platform-tool-result-rows > div::before { content: "↻"; position: absolute; top: 16px; left: 0; font-size: 20px; color: #5a7b40; }
-.platform-hosted { padding: 115px 0 95px; text-align: center; }
-.platform-hosted h2 { margin: 0; font-size: clamp(43px, 6.7vw, 88px); }
-.platform-hosted h2 span { color: #087bab; }
-.platform-hosted p { max-width: 54ch; margin: 28px auto 0; font-size: 16px; line-height: 1.7; color: #586f78; }
 .platform-sky .platform-sky-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 20px; }
 .platform-sky .platform-sky-links a { min-height: 44px; }
 .platform-sky .platform-sky-links svg { flex: none; }
-.platform-hosted .platform-sky-links { justify-content: center; }
-.platform-paths { display: grid; grid-template-columns: 1.1fr 1fr; gap: 65px; align-items: stretch; padding-block: 20px; }
-.platform-paths article { padding: 35px 0; display: flex; flex-direction: column; align-items: flex-start; }
-.platform-paths .platform-path-custom { padding: 35px 38px; background: #e8f3d8; border-radius: 3px 38px 3px 3px; }
-.platform-path-symbol { font-size: 36px; line-height: 1; color: #087bab; margin-bottom: 28px; }
-.platform-path-custom .platform-path-symbol { color: #446b26; }
-.platform-paths h2 { margin: 0; font-size: clamp(28px, 3vw, 38px); }
-.platform-path-tools h2 span { color: #087bab; }
-.platform-paths p { margin: 22px 0 15px; color: #586f78; font-size: 15px; line-height: 1.65; max-width: 43ch; }
-.platform-path-custom p { color: #4c6546; }
-.platform-paths .platform-sky-links { margin-top: auto; padding-top: 8px; }
-.platform-path-custom > a { margin-top: auto; min-height: 44px; color: #284824; }
-.platform-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 75px; padding: 85px 0 90px; }
-.platform-faq h2 { margin: 16px 0 0; font-size: clamp(28px, 3vw, 38px); max-width: 15ch; }
-.platform-faq .faq-list { width: 100%; margin: 0; }
 @media (max-width: 1050px) {
   .platform-tools { gap: 30px; padding: 48px 35px; }
   .platform-tool-result { padding: 27px; }
@@ -89,7 +70,6 @@
   .platform-context-catalog { left: 31%; }
   .platform-context-record { right: 3%; width: 165px; height: 165px; }
   .platform-record-disc { width: 156px; height: 156px; }
-  .platform-paths { gap: 38px; }
 }
 @media (max-width: 800px) {
   .platform-sky .platform-context { padding: 70px 0 45px; }
@@ -105,11 +85,6 @@
   .platform-tools h2 { max-width: 22ch; }
   .platform-tool-stage { width: 100%; max-width: 430px; margin: 0 auto 12px; }
   .platform-tool-description { max-width: none; }
-  .platform-hosted { padding: 80px 0 60px; }
-  .platform-paths { gap: 28px; }
-  .platform-paths .platform-path-custom { padding: 28px; }
-  .platform-paths h2 { font-size: 28px; }
-  .platform-faq { gap: 35px; }
 }
 @media (max-width: 550px) {
   .platform-sky :is(.platform-context, .platform-hosted, .platform-paths, .platform-faq) { margin-inline: 10px; }
@@ -136,17 +111,6 @@
   .platform-tool-result h3 { font-size: 33px; }
   .platform-tool-result-content h3 { font-size: 55px; }
   .platform-tool-result-content .platform-tool-result-rows { inset: auto 24px 26px; }
-  .platform-hosted h2 { font-size: 47px; }
-  .platform-hosted p { font-size: 15px; }
-  .platform-hosted .platform-sky-links { gap: 2px 15px; }
-  .platform-paths, .platform-faq { grid-template-columns: 1fr; gap: 20px; }
-  .platform-paths article { padding: 20px 8px; }
-  .platform-paths .platform-path-custom { padding: 28px; }
-  .platform-paths h2 { font-size: 32px; }
-  .platform-paths p { margin-block: 18px 12px; }
-  .platform-path-symbol { margin-bottom: 22px; }
-  .platform-faq { padding: 55px 0 65px; }
-  .platform-faq h2 { max-width: 16ch; font-size: 32px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .platform-tool-choices button > svg { transition: none; }
@@ -171,4 +135,73 @@
   .platform-audience-reasons h3 { font-size: 22px; }
   .platform-audience-reasons article { padding-left: 18px; }
   .platform-audience-reasons p { font-size: 14px; }
+}
+
+.platform-hosted { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 85px; padding: 85px 30px 70px; }
+.platform-hosted h2 { margin: 0; font-size: clamp(40px, 4.9vw, 65px); }
+.platform-hosted h2 span { color: #087bab; }
+.platform-hosted-copy > p { max-width: 46ch; margin: 25px 0 20px; font-size: 16px; line-height: 1.7; color: #586f78; }
+.platform-hosted-copy > a { min-height: 44px; }
+.platform-source-scene { padding: 29px 34px 34px; border-radius: 23px; background-color: #e4f3fb; background-image: linear-gradient(#74a8c412 1px, transparent 1px), linear-gradient(90deg, #74a8c412 1px, transparent 1px); background-size: 22px 22px; }
+.platform-source-cloud { display: flex; align-items: center; gap: 10px; color: #20536e; font-size: 16px; font-weight: 500; padding: 0 5px 25px; }
+.platform-source-cloud > svg { width: 22px; height: 22px; }
+.platform-source-cloud > svg:last-child { margin-left: auto; width: 28px; height: 28px; color: #3284ab; }
+.platform-source-repo { display: flex; flex-direction: column; padding: 25px; background: #fff; color: #152e37; border-radius: 11px; box-shadow: 0 15px 25px #2155700e, 0 1px 3px #2155701c; text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease; }
+.platform-source-code { color: #087bab; font: 40px "IBM Plex Mono", monospace; letter-spacing: -.09em; }
+.platform-source-name { margin: 25px 0 29px; font: 14px "IBM Plex Mono", monospace; color: #586f78; }
+.platform-source-name strong { color: #152e37; font-weight: 500; }
+.platform-source-action { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding-top: 18px; box-shadow: 0 -1px #e0e9ec; color: #087bab; font-size: 14px; }
+.platform-source-action svg { flex-shrink: 0; }
+.platform-source-repo:hover { transform: translateY(-3px); box-shadow: 0 19px 30px #21557018, 0 1px 3px #2155701c; }
+.platform-source-repo:focus-visible { outline: 2px solid #087bab; outline-offset: 5px; }
+.platform-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 8px; background: #f0f3f3; border-radius: 25px; }
+.platform-paths article { display: flex; flex-direction: column; align-items: flex-start; padding: 35px; border-radius: 18px; background: #fff; }
+.platform-paths .platform-path-custom { background: #193730; color: #f5faf5; }
+.platform-path-symbol { display: grid; place-items: center; width: 42px; height: 42px; margin-bottom: 27px; border-radius: 12px; background: #eaf5fb; color: #087bab; }
+.platform-path-symbol svg { width: 23px; height: 23px; }
+.platform-path-custom .platform-path-symbol { background: #d6ff62; color: #193730; }
+.platform-paths h2 { margin: 0; font-size: clamp(28px, 2.8vw, 36px); }
+.platform-path-tools h2 span { color: #087bab; }
+.platform-paths p { margin: 20px 0 25px; max-width: 46ch; color: #586f78; font-size: 15px; line-height: 1.65; }
+.platform-path-custom p { color: #c7d8ce; }
+.platform-paths .platform-sky-links { margin-top: auto; padding-top: 0; gap: 8px 22px; }
+.platform-path-custom > a { margin-top: auto; min-height: 44px; color: #d6ff62; }
+.platform-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 65px; padding: 65px 30px 65px; }
+.platform-faq h2 { margin: 18px 0 0; font-size: clamp(28px, 3vw, 36px); max-width: 15ch; }
+.platform-faq .faq-list { width: 100%; margin: 0; }
+.platform-faq .faq-list summary { padding-block: 22px; font-size: 16px; }
+.platform-faq .faq-list details[open] { background: #f4f9fb; box-shadow: -14px 0 #f4f9fb, 14px 0 #f4f9fb; }
+.platform-faq .faq-list details > p { font-size: 14px; line-height: 1.7; }
+@media (max-width: 1000px) {
+  .platform-hosted { gap: 35px; padding-inline: 10px; }
+  .platform-source-scene { padding: 25px; }
+  .platform-paths article { padding: 28px; }
+  .platform-paths h2 { font-size: 30px; }
+  .platform-faq { gap: 35px; padding-inline: 10px; }
+}
+@media (max-width: 800px) {
+  .platform-hosted { grid-template-columns: 1fr; gap: 30px; padding-block: 60px 45px; }
+  .platform-hosted-copy { max-width: 560px; }
+  .platform-source-scene { max-width: 470px; width: 100%; }
+  .platform-faq { grid-template-columns: 1fr; gap: 25px; padding-block: 45px 55px; }
+  .platform-faq h2 { max-width: 20ch; }
+}
+@media (max-width: 550px) {
+  .platform-hosted { padding-inline: 0; }
+  .platform-hosted h2 { font-size: 43px; }
+  .platform-hosted-copy > p { font-size: 15px; }
+  .platform-source-scene { padding: 23px; border-radius: 18px; }
+  .platform-source-repo { padding: 22px; }
+  .platform-source-name { font-size: 12px; }
+  .platform-source-action { font-size: 12px; }
+  .platform-paths { grid-template-columns: 1fr; gap: 8px; padding: 7px; border-radius: 21px; }
+  .platform-paths article { padding: 25px; border-radius: 15px; }
+  .platform-paths h2 { font-size: 30px; }
+  .platform-paths p { font-size: 14px; }
+  .platform-path-symbol { margin-bottom: 23px; }
+  .platform-faq { padding-inline: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .platform-source-repo { transition: none; }
+  .platform-source-repo:hover { transform: none; }
 }
