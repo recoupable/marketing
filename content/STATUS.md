@@ -1,10 +1,10 @@
 # Platform hero and homepage ownership — September 14, 2026
 
-The Platform hero now uses a compact artist chat illustration: workspace navigation, artist context files, a release-planning question and response, and a decorative composer. The tall research/content/task report and tilted backplate are replaced. The “Explore the Platform plan” button is removed; the attributed Open Recoup action and shared plan price remain.
+The Platform page now leads with “AI that knows your music.” and covers artists, catalogs, and releases. The compact workspace preview shows a short release-planning request and a campaign-plan document; the extra context labels, history, visible illustrative caption, and two-row composer are removed. Capability cards use direct headings and single descriptions without repeated labels or tags. Getting-started steps, FAQs, metadata, and the machine-readable summary share `lib/copy/platform.ts`. The “Explore the Platform plan” button is removed; attributed Open Recoup actions and the shared plan price remain.
 
 The homepage “Built by Recoup. Owned by you.” section now has a blue surface, lime headline emphasis, and three unnumbered deliverable columns. It follows the pale numbered process section with a distinct composition. Ownership copy and terms remain shared and unchanged.
 
-Production build, focused lint, and 27 pricing, agent-content, and marketing-funnel tests pass. The chat is illustrative, with a fictional artist and no interactive mock controls. Changes are on `codex/platform-chat-hero` for review.
+Production build, focused lint, and 31 pricing, agent-content, agent-discovery, and marketing-funnel tests pass. Desktop and narrow-phone layouts were checked for overflow and readable text. The workspace preview has no interactive mock controls. Changes are on `codex/platform-chat-hero` in PR #109 for review.
 
 ---
 

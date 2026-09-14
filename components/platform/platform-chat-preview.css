@@ -1,54 +1,49 @@
-.platform-chat-preview { --pc-ink: #152e37; --pc-muted: #586f78; --pc-line: #e2e9eb; width: 100%; max-width: 560px; margin: 0 auto; color: var(--pc-ink); text-align: left; }
-.pc-window { display: grid; grid-template-columns: 124px minmax(0, 1fr); overflow: hidden; border-radius: 14px; background: #fff; box-shadow: 0 0 0 1px #ffffff80, 0 16px 36px #00385b26; }
-.pc-sidebar { display: flex; flex-direction: column; min-width: 0; padding: 19px 10px 14px; background: #f3f5f5; box-shadow: inset -1px 0 var(--pc-line); font-size: 11px; }
-.pc-brand { display: flex; align-items: center; gap: 6px; padding: 0 5px; font-size: 17px; font-weight: 600; letter-spacing: -.04em; }
+.platform-chat-preview { --pc-ink: #152e37; --pc-muted: #586f78; --pc-line: #e2e9eb; width: 100%; max-width: 540px; margin: 0 auto; color: var(--pc-ink); text-align: left; }
+.pc-window { display: grid; grid-template-columns: 112px minmax(0, 1fr); overflow: hidden; border-radius: 15px; background: #fff; box-shadow: 0 0 0 1px #ffffffb3, 0 12px 30px #00385b20; }
+.pc-sidebar { display: flex; flex-direction: column; min-width: 0; padding: 21px 10px 17px; background: #f5f7f6; box-shadow: inset -1px 0 var(--pc-line); font-size: 11px; }
+.pc-brand { display: flex; align-items: center; gap: 6px; padding: 0 4px; font-size: 16px; font-weight: 600; letter-spacing: -.04em; }
 .pc-brand svg { width: 12px; height: 15px; }
-.pc-new-chat { display: flex; align-items: center; gap: 7px; margin-top: 24px; padding: 8px; background: #fff; border-radius: 6px; box-shadow: 0 1px 3px #152e3710; }
+.pc-new-chat { display: flex; align-items: center; gap: 7px; margin-top: 25px; padding: 8px; background: #fff; border-radius: 6px; box-shadow: 0 1px 3px #152e3710; }
 .pc-new-chat > span { font-size: 16px; line-height: 1; }
-.pc-sidebar-label { margin: 22px 7px 7px; color: var(--pc-muted); font-size: 10px; }
-.pc-nav-item { display: flex; align-items: center; gap: 7px; padding: 7px; }
+.pc-navigation { margin-top: 18px; }
+.pc-nav-item { display: flex; align-items: center; gap: 8px; padding: 9px 7px; color: var(--pc-muted); }
 .pc-nav-item svg { width: 14px; height: 14px; }
-.pc-chat-active, .pc-chat-history { padding: 8px 7px; font-size: 10px; white-space: nowrap; }
-.pc-chat-active { background: #e3e9e8; border-radius: 5px; }
-.pc-chat-history { color: var(--pc-muted); }
-.pc-team { display: flex; gap: 6px; align-items: center; margin-top: auto; padding: 24px 2px 0; font-size: 10px; }
-.pc-team > span { display: grid; place-items: center; width: 25px; height: 25px; flex: none; background: #e1e9e7; border-radius: 50%; font-size: 9px; }
-.pc-team small { display: block; margin-top: 2px; color: var(--pc-muted); font-size: 9px; }
+.pc-team { display: flex; gap: 7px; align-items: center; margin-top: auto; padding-top: 32px; font-size: 10px; }
+.pc-team > span { display: grid; place-items: center; width: 23px; height: 23px; flex: none; background: #e4ebe7; border-radius: 50%; font-size: 8px; }
 .pc-conversation { min-width: 0; }
-.pc-artist-header { display: flex; gap: 9px; align-items: center; padding: 15px 19px 12px; }
-.pc-avatar { display: grid; place-items: center; width: 29px; height: 29px; flex: none; border-radius: 9px; background: #e7f2f8; color: #24566d; font-size: 10px; font-weight: 500; }
-.pc-artist-header strong { display: block; font-size: 12px; font-weight: 550; line-height: 1.3; }
-.pc-artist-header div > span { display: block; margin-top: 2px; color: var(--pc-muted); font-size: 10px; }
-.pc-artist-header > svg { width: 14px; height: 14px; margin-left: auto; color: var(--pc-muted); }
-.pc-context { display: flex; flex-wrap: wrap; gap: 5px; padding: 0 19px 12px; box-shadow: 0 1px var(--pc-line); }
-.pc-context > span { padding: 4px 7px; border-radius: 5px; background: #f3f6f5; color: var(--pc-muted); font-size: 10px; }
-.pc-messages { display: flex; flex-direction: column; gap: 20px; padding: 22px 19px 20px; font-size: 12px; line-height: 1.55; }
-.pc-user-message { align-self: flex-end; max-width: 95%; margin: 0; padding: 10px 12px; background: #edf2f2; border-radius: 11px 11px 3px 11px; }
-.pc-answer-author { display: flex; align-items: center; gap: 7px; margin-bottom: 10px; }
+.pc-release-header { display: flex; gap: 10px; align-items: center; padding: 16px 21px; box-shadow: 0 1px var(--pc-line); }
+.pc-cover { display: grid; place-items: center; width: 34px; height: 38px; flex: none; border-radius: 5px; background: linear-gradient(145deg,#b7dcec,#618bac); color: #fff; box-shadow: inset 0 0 0 1px #152e3710; }
+.pc-cover svg { width: 22px; height: 22px; }
+.pc-release-header strong { display: block; font-size: 13px; font-weight: 550; line-height: 1.3; }
+.pc-release-header div > span { display: block; margin-top: 3px; color: var(--pc-muted); font-size: 10px; }
+.pc-messages { display: flex; flex-direction: column; gap: 25px; padding: 24px 21px 27px; font-size: 13px; line-height: 1.6; }
+.pc-user-message { align-self: flex-end; max-width: 95%; margin: 0; padding: 9px 13px; background: #eef2f2; border-radius: 12px 12px 3px 12px; }
+.pc-answer-author { display: flex; align-items: center; gap: 7px; margin-bottom: 9px; }
 .pc-answer-author svg { width: 12px; height: 15px; }
 .pc-answer-author strong { font-size: 11px; font-weight: 600; }
 .pc-answer p { margin: 0; }
-.pc-answer ol { display: grid; gap: 6px; margin: 10px 0; padding-left: 18px; list-style: decimal; }
-.pc-answer li { padding-left: 2px; }
-.pc-answer li strong { font-weight: 550; }
-.pc-answer-source { color: var(--pc-muted); font-size: 10px; }
-.pc-composer { margin: 0 15px 15px; padding: 11px 12px 8px; border-radius: 10px; background: #fff; box-shadow: 0 0 0 1px var(--pc-line), 0 2px 5px #152e3708; }
-.pc-composer > span { color: var(--pc-muted); font-size: 11px; }
-.pc-composer > div { display: flex; align-items: center; justify-content: space-between; margin-top: 11px; }
+.pc-document { display: flex; align-items: center; gap: 11px; margin-top: 16px; padding: 12px 13px; background: #f5f9fb; border-radius: 8px; box-shadow: inset 0 0 0 1px #dfebef; }
+.pc-document > svg { width: 23px; height: 28px; flex: none; color: #32728a; }
+.pc-document strong { display: block; font-size: 12px; font-weight: 550; }
+.pc-document div > span { display: block; margin-top: 2px; color: var(--pc-muted); font-size: 10px; }
+.pc-composer { display: flex; align-items: center; gap: 11px; margin: 0 15px 15px; padding: 9px 10px; border-radius: 12px; box-shadow: 0 0 0 1px var(--pc-line), 0 2px 5px #152e3708; }
+.pc-placeholder { color: var(--pc-muted); font-size: 11px; }
 .pc-attach { color: var(--pc-muted); font-size: 20px; line-height: 1; }
-.pc-send { display: grid; place-items: center; width: 25px; height: 25px; border-radius: 50%; background: #152e37; color: #fff; }
+.pc-send { display: grid; place-items: center; width: 28px; height: 28px; margin-left: auto; flex: none; border-radius: 50%; background: var(--pc-ink); color: #fff; }
 .pc-send svg { width: 17px; height: 17px; }
-.platform-chat-preview figcaption { margin-top: 12px; text-align: center; color: #e1f3ff; font-size: 11px; line-height: 1.5; }
-@media (max-width: 1100px) and (min-width: 901px) {
-  .pc-window { grid-template-columns: 100px minmax(0, 1fr); }
+@media (min-width: 801px) and (max-width: 1100px) {
+  .pc-window { grid-template-columns: 92px minmax(0, 1fr); }
   .pc-sidebar { padding-inline: 6px; }
-  .pc-chat-active, .pc-chat-history { font-size: 9px; padding-inline: 4px; }
-  .pc-messages { padding-inline: 14px; }
+  .pc-brand { font-size: 14px; gap: 4px; }
+  .pc-team { font-size: 9px; gap: 4px; }
+  .pc-messages { padding-inline: 15px; }
 }
 @media (max-width: 600px) {
   .pc-window { grid-template-columns: minmax(0, 1fr); border-radius: 12px; }
   .pc-sidebar { display: none; }
-  .pc-messages { font-size: 13px; }
-  .pc-artist-header strong { font-size: 14px; }
-  .pc-artist-header div > span, .pc-context > span, .pc-answer-source, .pc-composer > span { font-size: 11px; }
+  .pc-release-header { padding: 15px 17px; }
+  .pc-release-header strong { font-size: 14px; }
+  .pc-release-header div > span, .pc-document div > span { font-size: 11px; }
+  .pc-messages { padding: 22px 17px; }
+  .pc-composer { margin: 0 12px 12px; }
 }

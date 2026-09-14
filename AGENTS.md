@@ -219,7 +219,7 @@ Dropdown presentation lives in `components/sky/navigation-panels.css`. Products 
 
 ## Platform and ownership previews
 
-The `/platform` hero uses `components/platform/PlatformChatPreview.tsx` and its scoped stylesheet. It is a static, illustrative artist chat workspace, not a working chat form; preserve its fictional-artist caption and avoid focusable mock controls. The real app action uses `AppLink` for attribution.
+The `/platform` hero uses `components/platform/PlatformChatPreview.tsx` and its scoped stylesheet. It is a static workspace preview with a short release-planning exchange and document output. Keep mock controls unfocusable; do not add a visible illustrative/fictional caption. The real app action uses `AppLink` for attribution. Platform copy lives in `lib/copy/platform.ts`, shared by the page, preview, metadata, and machine-readable summary. Frame the product around artists, catalogs, and releases. Capability cards use one heading and one description, without repeated category labels or tags.
 
 The homepage ownership section uses `components/home/sky-ownership.tsx` and `sky-narrative.css`: a blue panel with three unnumbered deliverables, visually distinct from the pale process section. Its copy and ownership terms remain in `lib/copy/home.ts`.
 

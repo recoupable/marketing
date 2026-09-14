@@ -6,19 +6,20 @@ import {
 } from "../pricing.ts";
 import { siteConfig } from "../config.ts";
 import type { PageSummary } from "./types.ts";
+import { platformCopy } from "../copy/platform.ts";
 
 // Summaries of the software and pricing pages; same representation rules as offerPages.
 export const productPages: PageSummary[] = [
   {
     path: "/platform",
-    title: "The Recoup AI platform for artists and music teams",
-    description:
-      "A hosted workspace for artist context, research, campaign drafts, and recurring prompts and reports.",
+    title: platformCopy.title,
+    description: platformCopy.description,
     keywords:
-      "platform app artist workspace hosted research content campaigns reports recurring tasks",
+      "platform app artists catalogs releases tracks workspace research content campaigns reports recurring tasks labels",
     paragraphs: [
-      "The platform brings artist profiles, notes, music, and reference files into a hosted workspace for artists, managers, and music teams.",
-      "Use the context for artist and opportunity research, campaign ideas, captions, graphics, video drafts, recurring prompts, and reports. Start with an artist profile, relevant material, and a clear task.",
+      platformCopy.description,
+      ...platformCopy.capabilities.map(item => `${item.title}: ${item.description}`),
+      platformCopy.faq.context.answer,
       `The self-serve Platform plan includes platform access and the music skill pack at ${planPrice("platform", "monthly").monthly}/month. Annual billing saves at least ${annualDiscountPercent}%. API and MCP usage is billed separately by usage. Company-specific workflows and integrations can be scoped with the consulting team.`,
     ],
     links: [
