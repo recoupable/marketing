@@ -428,10 +428,10 @@ export function BrandStudio({
         <div className="library-note">
           {finals ? (
             <>
-              <strong>Your selected direction.</strong>
+              <strong>Your approved library.</strong>
               <span>
-                Blue sweep banners, podcast templates, and the core identity.
-                Earlier versions live in{" "}
+                Carousel templates, Blue sweep banners, podcast templates, and
+                the core identity. Earlier versions live in{" "}
                 <Link href="/brand/experiments">Experiments ↗</Link>.
               </span>
             </>
