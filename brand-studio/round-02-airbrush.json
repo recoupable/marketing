@@ -1,0 +1,232 @@
+[
+  {
+    "id": "exp02-airbrush-01",
+    "title": "Lime crescent on blue",
+    "description": "A broad lime crescent sweeps through saturated blue with medium dry pigment stippling and a quiet central opening.",
+    "noiseLevel": "medium",
+    "colors": [
+      "#007EBD",
+      "#D6FF62",
+      "#168DDD",
+      "#C2EDFF"
+    ],
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png"
+    ],
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "airbrush",
+    "style": "Grainy airbrush",
+    "paletteId": "blue-lime",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "prompt": "Use case: stylized-concept. Make ONE complete high-resolution wide 16:9 landscape image: text-free grainy airbrush abstract print artwork, a full-bleed background for editorial design.\nMedium: soft analog spray paint and tactile dry pigment stippling. Soft large-scale color transitions with visible fine-to-medium sprayed pigment grains at the transitions; an authentic flat printed or airbrushed surface. High-contrast soft color, expressive composition, useful quiet space. Every mark is abstract, not a representation of scenery.\nPrimary color family: rich blue #007EBD, luminous yellow-lime #D6FF62; allowed extensions brighter blue #168DDD, deep blue #0565BB, ice blue #C2EDFF, and restrained forest depth #132B26. Keep the pigments vivid.\nNO text, lettering, logo, symbols, user interface, editorial card, frame, border, watermark, objects, people, horizon, sky, cloudscape, fields, leaves, water, landscape, 3D objects, glossy highlights, glass, pebbled or frosted textures, embossed texture, or photographed materials. No contact sheet, collage of multiple designs, tiled preview, or mockup. No sharp vector outlines, hard geometry, thick paint ridges, or large liquid splashes. This is the background only, no text at all.\n\nReference image: use the supplied approved-favorite grainy airbrush background for its vivid pigment, dry-grain softness, and color confidence, while creating a new composition. Extend that direction with one LARGE crescent-like lime sweep curling from the lower-left through the bottom and up the right edge, enclosing an open saturated-blue center. The crescent is broad and incomplete, has fully feathered sprayed edges and varied pigment density, and must not read as a moon, object, outlined circle, or logo. A small ice-blue overspray at the opposite upper edge balances it. Blue remains dominant. Medium dry stippling, richer and more organic than a clean digital gradient.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-1ae3fc3b-178d-4ddb-b9bf-6b93239ef937.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/explorations-02/airbrush-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-01.png"
+      }
+    ]
+  },
+  {
+    "id": "exp02-airbrush-02",
+    "title": "Overlapping lime and ice spray",
+    "description": "Large asymmetric lime and ice-blue pigment forms overlap a rich-blue opening, with flat matte color, diffuse overspray edges, and fine dry powder stippling.",
+    "noiseLevel": "fine",
+    "colors": [
+      "#007EBD",
+      "#D6FF62",
+      "#0565BB",
+      "#C2EDFF"
+    ],
+    "referenced_image_paths": [],
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "airbrush",
+    "style": "Grainy airbrush",
+    "paletteId": "blue-lime",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "prompt": "Use case: stylized-concept. Create ONE high-resolution wide 16:9 landscape abstract airbrush background, full bleed, no text or graphics.\n\nA bold two-dimensional analog airbrush print made of FLAT MATTE SPRAYED PIGMENT. Use only colored ink density and very fine dry powder stippling to make texture, on an optically flat smooth surface. The image must have NO relief, NO light catching texture, NO cellular or granular glass structure. Fine dry flat noise, continuous diffuse overspray boundaries, soft optical transitions. Think opaque matte color sprayed in layers, never a photograph of a textured material.\n\nComposition: rich saturated Recoup blue #007EBD and brighter blue #168DDD dominate the whole lower half and an asymmetric opening through the middle. A large irregular luminous lime #D6FF62 spray form extends inward from the upper-left and left edge, and a softer ice-blue #C2EDFF spray form enters from the top-right. They overlap subtly with uneven pigment density and soft falling-off boundaries. These are purely abstract colored pigment masses, not clouds in the sky. Let the blue cut a quiet broad passage between them at the lower-middle, no centered glow or symmetrical vignette. Keep color vivid and bold, never washed out grey. Lime and ice have distinct masses and unequal scale, not a repeat of a crescent or circular halo. Fine powder stippling becomes more visible only in transitional edges.\n\nThe full image is entirely NONREPRESENTATIONAL and FLAT: no text, letters, logos, symbols, interface, objects, figures, border, frame, watermark, scenery, horizon, sky, cloudscape, water, leaves, landscape, moon, orb, bubbles, glass, frost, embossed relief, cellular surface, pebbles, droplets, wet paint, shiny highlights, large paint splashes, woven paper, or mockup. No raised dots or material shadows. No split canvas or collage. One complete high-resolution background image.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-e2620ea8-f20a-44ed-aa8b-03045e753ff9.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/explorations-02/airbrush-02-v2.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-02-v2.png"
+      },
+      {
+        "label": "Original PNG",
+        "path": "assets/explorations-02/airbrush-02.png"
+      }
+    ],
+    "previousVersions": [
+      {
+        "id": "exp02-airbrush-02",
+        "title": "Overlapping lime and ice spray",
+        "description": "Asymmetric lime and ice-blue spray forms overlap over a rich blue field, with soft granular edges and calm blue space.",
+        "noiseLevel": "medium",
+        "colors": [
+          "#007EBD",
+          "#D6FF62",
+          "#0565BB",
+          "#C2EDFF"
+        ],
+        "referenced_image_paths": [
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/refinements/refine-cover-blue-lime.png"
+        ],
+        "category": "explorations-02",
+        "kind": "Background",
+        "family": "airbrush",
+        "style": "Grainy airbrush",
+        "paletteId": "blue-lime",
+        "status": "proposed",
+        "generator": "image_gen (built-in)",
+        "prompt": "Use case: stylized-concept. Make ONE complete high-resolution wide 16:9 landscape image: text-free grainy airbrush abstract print artwork, a full-bleed background for editorial design.\nMedium: soft analog spray paint and tactile dry pigment stippling. Soft large-scale color transitions with visible fine-to-medium sprayed pigment grains at the transitions; an authentic flat printed or airbrushed surface. High-contrast soft color, expressive composition, useful quiet space. Every mark is abstract, not a representation of scenery.\nPrimary color family: rich blue #007EBD, luminous yellow-lime #D6FF62; allowed extensions brighter blue #168DDD, deep blue #0565BB, ice blue #C2EDFF, and restrained forest depth #132B26. Keep the pigments vivid.\nNO text, lettering, logo, symbols, user interface, editorial card, frame, border, watermark, objects, people, horizon, sky, cloudscape, fields, leaves, water, landscape, 3D objects, glossy highlights, glass, pebbled or frosted textures, embossed texture, or photographed materials. No contact sheet, collage of multiple designs, tiled preview, or mockup. No sharp vector outlines, hard geometry, thick paint ridges, or large liquid splashes. This is the background only, no text at all.\n\nReference image: use ONLY the colored airbrush BACKGROUND and the vivid blue/lime/ice pigment relationships from the supplied editorial cover. Ignore and remove all typography and graphic content from your inspiration: do not reproduce any letters, logos, words, or layout blocks. New composition: two very large asymmetric overlapping clouds of SPRAYED COLOR, one luminous lime rising from the left edge and one ice-blue form descending from the upper-right, overlap softly across a rich-blue field. These are flat abstract spray forms, NOT sky clouds, with irregular diffuse pigment falloff and no cumulus outlines. The central-lower region remains saturated blue. Medium-fine pigment stippling and visibly uneven analog spray density. A new arrangement distinct from a crescent or a halo.",
+        "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-4fe1b75c-5f9c-4986-9dd3-d07ae22c3741.png",
+        "width": 1672,
+        "height": 941,
+        "preview": "assets/explorations-02/airbrush-02.png",
+        "files": [
+          {
+            "label": "PNG",
+            "path": "assets/explorations-02/airbrush-02.png"
+          }
+        ]
+      }
+    ],
+    "revisionNote": "Revised without image references to replace the pronounced cellular or embossed surface with flat matte sprayed pigment."
+  },
+  {
+    "id": "exp02-airbrush-03",
+    "title": "Diagonal blue and lime overspray",
+    "description": "Broad diagonal color ribbons cross the image with pronounced dry overspray and irregular granular margins.",
+    "noiseLevel": "coarse",
+    "colors": [
+      "#007EBD",
+      "#D6FF62",
+      "#168DDD",
+      "#0565BB",
+      "#C2EDFF"
+    ],
+    "referenced_image_paths": [],
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "airbrush",
+    "style": "Grainy airbrush",
+    "paletteId": "blue-lime",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "prompt": "Use case: stylized-concept. Make ONE complete high-resolution wide 16:9 landscape image: text-free grainy airbrush abstract print artwork, a full-bleed background for editorial design.\nMedium: soft analog spray paint and tactile dry pigment stippling. Soft large-scale color transitions with visible fine-to-medium sprayed pigment grains at the transitions; an authentic flat printed or airbrushed surface. High-contrast soft color, expressive composition, useful quiet space. Every mark is abstract, not a representation of scenery.\nPrimary color family: rich blue #007EBD, luminous yellow-lime #D6FF62; allowed extensions brighter blue #168DDD, deep blue #0565BB, ice blue #C2EDFF, and restrained forest depth #132B26. Keep the pigments vivid.\nNO text, lettering, logo, symbols, user interface, editorial card, frame, border, watermark, objects, people, horizon, sky, cloudscape, fields, leaves, water, landscape, 3D objects, glossy highlights, glass, pebbled or frosted textures, embossed texture, or photographed materials. No contact sheet, collage of multiple designs, tiled preview, or mockup. No sharp vector outlines, hard geometry, thick paint ridges, or large liquid splashes. This is the background only, no text at all.\n\nNo image references. Compose three BROAD DIAGONAL overspray ribbons rising from bottom-left to top-right, alternating rich blue, bright sky blue, and one luminous lime ribbon of unequal width. Each is an airbrushed pigment passage with a soft body and PRONOUNCED DRY GRAIN along its diffusing margins. Vary ribbon angle slightly and allow colors to overlap; they must not be neat parallel stripes or sharply outlined graphic ribbons. Fine and medium spray dots form an uneven grain density with a few coarser powder flecks, not liquid splashes or scraped paint. Keep a substantial quiet deep-blue triangular-feeling open area toward upper-left, with no hard triangle contour. Strong energetic diagonal composition, tactile matte ink.\n\nCRITICAL MATERIAL DIRECTION: absolutely FLAT MATTE SPRAYED PIGMENT, smooth underlying substrate with fine dry powder stippling and diffuse overspray boundaries. Grain is flat printed specks of color density, never cellular structure. No relief, embossing, cellular pattern, cobblestone, pebbled surface, frosted glass, droplets, bubbles, or reflective texture. No light-and-shadow on individual grains. Bold color and composition, a 2D analog airbrush print.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-edce00f2-9743-4285-b251-ded66a640984.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/explorations-02/airbrush-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-03.png"
+      }
+    ]
+  },
+  {
+    "id": "exp02-airbrush-04",
+    "title": "Lime field with blue spray edges",
+    "description": "Lime dominates an open central area, surrounded by deep blue dry-sprayed edges and a tiny ice-blue accent.",
+    "noiseLevel": "medium",
+    "colors": [
+      "#D6FF62",
+      "#007EBD",
+      "#0565BB",
+      "#C2EDFF"
+    ],
+    "referenced_image_paths": [],
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "airbrush",
+    "style": "Grainy airbrush",
+    "paletteId": "blue-lime",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "prompt": "Use case: stylized-concept. Make ONE complete high-resolution wide 16:9 landscape image: text-free grainy airbrush abstract print artwork, a full-bleed background for editorial design.\nMedium: soft analog spray paint and tactile dry pigment stippling. Soft large-scale color transitions with visible fine-to-medium sprayed pigment grains at the transitions; an authentic flat printed or airbrushed surface. High-contrast soft color, expressive composition, useful quiet space. Every mark is abstract, not a representation of scenery.\nPrimary color family: rich blue #007EBD, luminous yellow-lime #D6FF62; allowed extensions brighter blue #168DDD, deep blue #0565BB, ice blue #C2EDFF, and restrained forest depth #132B26. Keep the pigments vivid.\nNO text, lettering, logo, symbols, user interface, editorial card, frame, border, watermark, objects, people, horizon, sky, cloudscape, fields, leaves, water, landscape, 3D objects, glossy highlights, glass, pebbled or frosted textures, embossed texture, or photographed materials. No contact sheet, collage of multiple designs, tiled preview, or mockup. No sharp vector outlines, hard geometry, thick paint ridges, or large liquid splashes. This is the background only, no text at all.\n\nNo image references. This variation is LIME-DOMINANT: roughly two-thirds luminous yellow-lime pigment, maintaining real saturated color rather than pale yellow. A large open irregular lime field fills the center and upper area. Deep blue sprayed color intrudes from the lower-left and along part of the right edge, creating an asymmetric off-center contrast; its dry granular edge dissolves into greenish transitional pigment, not black. A tiny ice-blue overspray accent appears near the upper-right perimeter. Avoid a circular spotlight, centered halo, sweeping crescent, diagonal ribbon, or neat vignette. Medium grain, open lively lime with fine quiet stippling across its broad area.\n\nCRITICAL MATERIAL DIRECTION: absolutely FLAT MATTE SPRAYED PIGMENT, smooth underlying substrate with fine dry powder stippling and diffuse overspray boundaries. Grain is flat printed specks of color density, never cellular structure. No relief, embossing, cellular pattern, cobblestone, pebbled surface, frosted glass, droplets, bubbles, or reflective texture. No light-and-shadow on individual grains. Bold color and composition, a 2D analog airbrush print.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-6c7a37d8-d2f6-4235-bccf-08c179a1c90e.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/explorations-02/airbrush-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-04.png"
+      }
+    ]
+  },
+  {
+    "id": "exp02-airbrush-05",
+    "title": "Airy blue and citron pools",
+    "description": "Luminous ice-blue space with vivid blue and citron color pools and fine airbrush grain.",
+    "noiseLevel": "fine",
+    "colors": [
+      "#C2EDFF",
+      "#168DDD",
+      "#007EBD",
+      "#D6FF62"
+    ],
+    "referenced_image_paths": [],
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "airbrush",
+    "style": "Grainy airbrush",
+    "paletteId": "blue-lime",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "prompt": "Use case: stylized-concept. Make ONE complete high-resolution wide 16:9 landscape image: text-free grainy airbrush abstract print artwork, a full-bleed background for editorial design.\nMedium: soft analog spray paint and tactile dry pigment stippling. Soft large-scale color transitions with visible fine-to-medium sprayed pigment grains at the transitions; an authentic flat printed or airbrushed surface. High-contrast soft color, expressive composition, useful quiet space. Every mark is abstract, not a representation of scenery.\nPrimary color family: rich blue #007EBD, luminous yellow-lime #D6FF62; allowed extensions brighter blue #168DDD, deep blue #0565BB, ice blue #C2EDFF, and restrained forest depth #132B26. Keep the pigments vivid.\nNO text, lettering, logo, symbols, user interface, editorial card, frame, border, watermark, objects, people, horizon, sky, cloudscape, fields, leaves, water, landscape, 3D objects, glossy highlights, glass, pebbled or frosted textures, embossed texture, or photographed materials. No contact sheet, collage of multiple designs, tiled preview, or mockup. No sharp vector outlines, hard geometry, thick paint ridges, or large liquid splashes. This is the background only, no text at all.\n\nNo image references. A LIGHTER AIRY variation with luminous ice-blue negative space, two soft saturated sky-blue color pools, and a small punchy citron-lime bloom. Maintain vivid blues and lime: do not wash the image to grey or near-white. Use a loose irregular arrangement, with a large blue pool concentrated in the left-middle and a smaller blue pool touching the lower-right; let a diffuse citron-lime pigment area breathe near the upper-middle and right. Pools should overlap softly through ice-blue, never appear as 3D bubbles or defined circles. Very fine tactile dry airbrush grain, soft delicate feathering, generous open space. No horizon or landscape interpretation; completely nonrepresentational color.\n\nCRITICAL MATERIAL DIRECTION: absolutely FLAT MATTE SPRAYED PIGMENT, smooth underlying substrate with fine dry powder stippling and diffuse overspray boundaries. Grain is flat printed specks of color density, never cellular structure. No relief, embossing, cellular pattern, cobblestone, pebbled surface, frosted glass, droplets, bubbles, or reflective texture. No light-and-shadow on individual grains. Bold color and composition, a 2D analog airbrush print.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-9e508afc-18e6-4e75-9dac-7f81abef4f52.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/explorations-02/airbrush-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-05.png"
+      }
+    ]
+  },
+  {
+    "id": "exp02-airbrush-06",
+    "title": "Lime halo with blue and forest depth",
+    "description": "A punchy off-center lime halo dissolves into rich blue and a restrained forest edge, with subtle coarse spray grains.",
+    "noiseLevel": "coarse",
+    "colors": [
+      "#007EBD",
+      "#D6FF62",
+      "#0565BB",
+      "#132B26",
+      "#C2EDFF"
+    ],
+    "referenced_image_paths": [],
+    "category": "explorations-02",
+    "kind": "Background",
+    "family": "airbrush",
+    "style": "Grainy airbrush",
+    "paletteId": "blue-lime",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "prompt": "Use case: stylized-concept. Make ONE complete high-resolution wide 16:9 landscape image: text-free grainy airbrush abstract print artwork, a full-bleed background for editorial design.\nMedium: soft analog spray paint and tactile dry pigment stippling. Soft large-scale color transitions with visible fine-to-medium sprayed pigment grains at the transitions; an authentic flat printed or airbrushed surface. High-contrast soft color, expressive composition, useful quiet space. Every mark is abstract, not a representation of scenery.\nPrimary color family: rich blue #007EBD, luminous yellow-lime #D6FF62; allowed extensions brighter blue #168DDD, deep blue #0565BB, ice blue #C2EDFF, and restrained forest depth #132B26. Keep the pigments vivid.\nNO text, lettering, logo, symbols, user interface, editorial card, frame, border, watermark, objects, people, horizon, sky, cloudscape, fields, leaves, water, landscape, 3D objects, glossy highlights, glass, pebbled or frosted textures, embossed texture, or photographed materials. No contact sheet, collage of multiple designs, tiled preview, or mockup. No sharp vector outlines, hard geometry, thick paint ridges, or large liquid splashes. This is the background only, no text at all.\n\nNo image references. Invent a fresh composition with tactile dry pigment, vivid blue/lime contrast, and a soft printed feel. A punchy irregular LIME HALO sits off-center toward the upper-middle, a diffuse luminous ring-like concentration of airbrushed pigment with an incomplete soft gap, not a moon, disc, object, logo, or sharply outlined circle. Most of the image remains rich blue with restrained forest-green depth around one outer edge and a small ice-blue powder trace. The lime is concentrated and vibrant rather than large pale glare. Subtle COARSER SPRAY NOISE is scattered within otherwise fine grain, tactile flat pigment with quiet spacious blue at the lower-left. Do not use a large edge-to-edge crescent.\n\nCRITICAL MATERIAL DIRECTION: absolutely FLAT MATTE SPRAYED PIGMENT, smooth underlying substrate with fine dry powder stippling and diffuse overspray boundaries. Grain is flat printed specks of color density, never cellular structure. No relief, embossing, cellular pattern, cobblestone, pebbled surface, frosted glass, droplets, bubbles, or reflective texture. No light-and-shadow on individual grains. Bold color and composition, a 2D analog airbrush print.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-8769263b-1a29-4007-afdd-99f545a70c2b.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/explorations-02/airbrush-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/explorations-02/airbrush-06.png"
+      }
+    ]
+  }
+]

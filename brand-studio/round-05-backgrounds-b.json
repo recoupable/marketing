@@ -1,0 +1,78 @@
+[
+  {
+    "id": "style05-bg-airbrush-blue-major",
+    "kind": "background",
+    "family": "airbrush",
+    "colorway": "blue-major",
+    "colorLabel": "Blue majority",
+    "title": "Airbrush / Blue majority",
+    "description": "A predominantly blue airbrush field with a broad sprayed lime crescent along the lower-right edge and visible pigment stippling.",
+    "prompt": "Use case: stylized-concept.\nCreate ONE complete 16:9 landscape abstract AIRBRUSH POSTER BACKGROUND, around 1672 x 941 pixels or larger at the same ratio. No typography or objects.\nInput reference is for analog sprayed-pigment texture and blue/lime saturation, not its exact composition. Make a new controlled composition for a four-colorway comparison.\nComposition and color roles: a generous saturated BLUE field occupies approximately 70% of the canvas, all across the left, upper area, and center. Use #007EBD and #168DDD for subtle depth in the blue. A broad imperfect LIME sprayed crescent occupies approximately 30%, entering from the bottom edge and curving up the lower-right and right edge, #D6FF62. The lower-right crescent is open and partly outside the frame; it is just a broad curved COLOR BAND, not a moon, shape, object, ring or emblem. Keep center-left quiet and blue. No substantial forest or white area.\nStyle: visible dry pigment stippling, soft sculpted bands of sprayed color, uneven yet deliberate spray density and feathered boundaries. Rich analog airbrush poster texture, more tactile and more visibly stippled than a generic software gradient. Fine-to-medium matte colored particles describe the transition and subtly enliven the blue field. Broad soft forms, no hard edges. Completely flat printed color with NO simulated physical relief.\nNo text, letters, logos, watermark, borders, frames, collage, contact sheet, objects, 3D blobs, scenery, landscape, actual sky, clouds, water, glass, frosting, pebbled surfaces, droplets, embossed cells, specular highlights, or wet paint. No black areas, muddy green, purple, neon-tech beams or UI. A single full-bleed abstract airbrush print.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-3f255792-98f9-43d6-b8e9-0139045af0c9.png",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png"
+    ],
+    "preview": "assets/style-lab/backgrounds/airbrush-blue-major.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "style05-bg-airbrush-lime-major",
+    "kind": "background",
+    "family": "airbrush",
+    "colorway": "lime-major",
+    "colorLabel": "Lime majority",
+    "title": "Airbrush / Lime majority",
+    "description": "The base airbrush geometry with its roles swapped: a dominant lime field and a blue crescent at the lower-right perimeter.",
+    "prompt": "Edit the supplied exact 16:9 AIRBRUSH BACKGROUND to make a LIME-MAJORITY colorway. Change COLOR ROLES ONLY. Preserve its precise layout, crop, scale, broad crescent geometry, feathered boundaries, density of dry pigment stippling, blue-field quiet-space geometry, and matte analog airbrush appearance.\nReplace the original large BLUE field covering roughly 70 percent at left/top/center with vivid yellow-LIME #D6FF62. This broad lime field must unequivocally dominate, not pale yellow or white. Replace the original smaller LIME crescent at the lower-right/right perimeter, roughly 30 percent, with saturated BLUE #007EBD/#168DDD. Keep the crescent exactly where it is and keep its extent and shape. Recolor all local pigment grains coherently with these role swaps, preserving their visible printed texture, softness and detail. The original quiet center-left remains quiet but now LIME. Preserve brightness variation within each newly assigned hue. No new colors or changes to composition.\nDo not leave a blue-majority field or simply add extra lime at the edge. Do not add white regions, black, purple, objects, text, logos, shapes, frames, borders, scenes, glass, reflective texture, or new graphic details. Preserve 16:9. One complete abstract airbrush background, no contact sheet.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-253469ad-d211-4f18-9949-b161d953cd36.png",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/airbrush-blue-major.png"
+    ],
+    "preview": "assets/style-lab/backgrounds/airbrush-lime-major.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "style05-bg-airbrush-reverse",
+    "kind": "background",
+    "family": "airbrush",
+    "colorway": "reverse",
+    "colorLabel": "Reversed direction",
+    "title": "Airbrush / Reversed direction",
+    "description": "The blue-majority composition turned toward the opposite corner, with its lime crescent at the upper left and quiet blue lower right.",
+    "prompt": "Edit the supplied exact 16:9 abstract AIRBRUSH BACKGROUND into a REVERSED-DIRECTION composition. Keep the SAME COLOR PROPORTIONS: approximately 70% saturated blue #007EBD/#168DDD, approximately 30% luminous lime #D6FF62. Blue remains the dominant field.\nReverse the direction of the existing composition, equivalent to turning the entire abstract artwork 180 degrees: move its broad imperfect lime crescent from the lower-right perimeter to the UPPER-LEFT perimeter. The original large calm blue center-left region becomes calm blue center-right/bottom-right. The lime crescent sweeps in from the top edge and curves down the left edge. Preserve its same broad curve, extent, soft feathering and size. The blue field occupies the lower and right portions. Keep the existing scale and density of dry pigment stippling, soft sculpted airbrush bands, slight pigment variations and matte analog print character. This is a direction variation of the same artwork, not a new invented composition.\nDo NOT swap blue and lime roles: 70% blue, 30% lime. No smooth generic software gradient. No extra colors or bright white regions. No text, letters, objects, logos, frames, borders, contact sheet, scenery, glass, reflections, droplets, 3D surfaces or new motifs. Preserve 16:9. Return one complete text-free abstract airbrush background.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-3cb4bf39-36a8-468a-9fe7-346bf1702e39.png",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/airbrush-blue-major.png"
+    ],
+    "preview": "assets/style-lab/backgrounds/airbrush-reverse.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "style05-bg-airbrush-inverted",
+    "kind": "background",
+    "family": "airbrush",
+    "colorway": "inverted",
+    "colorLabel": "Inverted colors",
+    "title": "Airbrush / Orange and violet",
+    "description": "The same airbrush layout remapped to a dominant orange field and a violet lower-right crescent, using proposed inverted anchor colors.",
+    "prompt": "Edit this exact 16:9 abstract AIRBRUSH BACKGROUND by replacing ONLY its two main color anchors with the prescribed inverted-anchor colors. This is a color study, not a negative photograph or new composition.\nKeep the base's exact layout: its broad dominant field across the left/top/center, the imperfect smaller crescent at the lower-right/right perimeter, the quiet center-left, the same stippled pigment texture, printed details, soft sculpted airbrush bands, geometry, proportions and feathering.\nCOLOR MAPPING: replace the original dominant BLUE field (approximately 70%) with saturated warm ORANGE #FF8142. Replace the original LIME crescent (approximately 30%) with saturated deep VIOLET #29009D. The output must read unmistakably ORANGE MAJORITY with a VIOLET lower-right crescent. Preserve tonal variation within each reassigned hue and remap the stippled particles coherently, with the same density and fineness. Do not preserve any original blue, cyan or lime regions. Do not rotate or relocate the crescent. Preserve brightness enough to see every printed texture detail, without adding white or black areas. No rainbow, neon sign, generic software gradient or new lighting effect.\nNo text, logos, letters, objects, symbols, UI, border, frame, scenery, clouds, glass, reflections, droplets, 3D relief, or additional motifs. Same matte analog AIRBRUSH POSTER look, same 16:9 frame, one complete abstract background.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-388d54c1-b089-4d3e-8f86-8d647754fbe1.png",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/style-lab/backgrounds/airbrush-blue-major.png"
+    ],
+    "preview": "assets/style-lab/backgrounds/airbrush-inverted.png",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941
+  }
+]

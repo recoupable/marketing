@@ -1,0 +1,215 @@
+[
+  {
+    "id": "layered04-hand-color",
+    "family": "hand",
+    "treatment": "color",
+    "title": "Human review / Butter + lime",
+    "style": "Hand-drawn illustration on a warm pale gradient",
+    "sampleTitle": "Where human review belongs in an AI workflow",
+    "description": "A pale butter-to-lime gradient and restrained blue bloom give the same hand illustration a lighter, warmer mood.",
+    "headline": null,
+    "colors": [
+      "#F8FAF5",
+      "#F5EFC7",
+      "#D6FF62",
+      "#C2EDFF",
+      "#168DDD",
+      "#132B26"
+    ],
+    "prompt": "Use case: lighting-weather / compositing. Edit the supplied landscape illustration to make an alternative background-color study. Preserve the original hand and three ivory cards, their exact position on the right, the crisp deep-forest ink and rough handmade strokes, the small lime dots, and the spacious composition. Replace ONLY the blue-to-lime background with a full-bleed softly diffused gradient: warm pale butter/ivory #F8FAF5 and #F5EFC7 dominate the upper-left and center, moving to soft citron-lime #D6FF62 near the bottom and far right. Add one restrained pale sky-blue #C2EDFF bloom at the far-left lower edge, with just a trace of #168DDD, less than fifteen percent of the canvas. Use subtle fine analog grain over the background. The art remains crisp and sits directly on the new background without any rectangular pale panel or halo. Keep the ivory hand/card fill distinct using existing dark forest outlines. No text, logos, symbols, border or new objects. Flat cultural editorial illustration, wide 16:9 around 1672\u00d7941.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/layered-editorial/hand-gradient.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-3197f52f-3bc4-416c-aeac-7f67cad9c7a1.png",
+    "category": "layered-editorial",
+    "kind": "Layered editorial study",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/layered-editorial/hand-color.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/hand-color.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "layered04-hand-gradient",
+    "family": "hand",
+    "treatment": "gradient",
+    "title": "Human review / Blue + lime",
+    "style": "Hand-drawn illustration on a grainy gradient",
+    "sampleTitle": "Where human review belongs in an AI workflow",
+    "description": "The original forest-ink hand and ivory cards sit directly on a fine-grain blue-to-lime gradient, with space left for a headline.",
+    "headline": null,
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#132B26",
+      "#F8FAF5"
+    ],
+    "prompt": "Use case: compositing. Create one final landscape 16:9 editorial illustration, around 1672\u00d7941 or higher resolution. Image 1 is the edit target for the illustration; image 2 supplies the background color and texture. Carefully lift the illustration out of image 1's pale blue background and set it directly over a full-bleed bright blue-to-lime fine-grain gradient based on image 2. Use rich #007EBD/#168DDD blue at left/top transitioning through cyan to luminous #D6FF62 lime at lower right. The gradient should be soft, flat, finely noisy, and fully uninterrupted behind the art. No pale blue rectangular panel, bounding box or pasted screenshot behind the illustration. No text, no letters, no logos, no watermark, no border, no extra objects. Keep the original expressive handmade forest-ink linework and the exact concept of one human hand gently sorting three ivory information cards. Preserve the three ivory card shapes, the rough ink marks, the small lime dots, and the confident imperfect dry-brush character. The hand's interior should be warm ivory, while its forest outline and shading remain crisp. Arrange the hand and cards as a single coherent composition on the right 45 percent of the canvas, with a naturally cropped forearm entering at upper right and clear blue negative space across the left 50 percent. Do not let the hand or the cards cross into that left headline area. Do not add typography yet. Crisp sharp illustration above the softly diffused background; no glossy or dimensional rendering.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-lab/editorial-05.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/explorations-02/gradient-02.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-72938618-a878-4e49-b3a2-0c1d333f28b3.png",
+    "category": "layered-editorial",
+    "kind": "Layered editorial study",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/layered-editorial/hand-gradient.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/hand-gradient.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "layered04-hand-headline",
+    "family": "hand",
+    "treatment": "headline",
+    "title": "Human review / With headline",
+    "style": "Bold editorial headline with layered illustration",
+    "sampleTitle": "Where human review belongs in an AI workflow",
+    "description": "Bold ivory type leads on the left while the hand and cards remain crisp over the blue-to-lime gradient.",
+    "headline": "AI prepares.\nYour team reviews.",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#132B26",
+      "#F8FAF5"
+    ],
+    "prompt": "Use case: text-localization. Edit the supplied image by adding only the exact headline below to the open left side. Preserve the existing illustration, its placement, all cards and marks, its stroke character, and the fine-grain blue-to-lime background as closely as possible. Final remains landscape 16:9, around 1672\u00d7941. Set the words in a very bold contemporary grotesk sans serif similar to DM Sans Bold, crisp, confident editorial typography, warm ivory #F8FAF5 for clear contrast on the blue. Use a comfortably inset left margin, two lines with the specified line break, generous line spacing and no overlap with the illustration. Treat this as a finished cultural editorial cover. No text shadows, outlines, black boxes, panels, labels, logos or additional words. Do not add any graphic decoration. Exact headline, including punctuation and line break:\nAI prepares.\nYour team reviews.\nKeep both lines at the same bold type size, large but fitted fully within the available left area. Place the block around the upper-middle of the left side. The second line must remain on ONE line; slightly reduce the font size if needed so it stays clear of the cards. Change nothing else.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/layered-editorial/hand-gradient.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-cf802ffa-9213-4875-a4b3-968f13d7e28a.png",
+    "category": "layered-editorial",
+    "kind": "Layered editorial study",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/layered-editorial/hand-headline.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/hand-headline.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "layered04-review-color",
+    "family": "review",
+    "treatment": "color",
+    "title": "Source review / Forest + cobalt",
+    "style": "Ivory editorial diagram on a deep gradient",
+    "sampleTitle": "How an AI workflow moves from source to review",
+    "description": "The diagram switches to ivory connectors and cards with a lime checkpoint against deep forest and cobalt.",
+    "headline": null,
+    "colors": [
+      "#132B26",
+      "#0565BB",
+      "#007EBD",
+      "#D6FF62",
+      "#F8FAF5"
+    ],
+    "prompt": "Use case: compositing / color study. Edit the supplied landscape image as a distinctly darker alternative. Preserve the exact connected review diagram, its placement on the right and the open space on the left: three groups of source cards flow to one circular checkpoint, then to the reviewed stack. Replace the blue-to-lime background with a full-bleed deep forest #132B26 gradient at left and top, softly transitioning into deep cobalt #0565BB and #007EBD at lower right, with restrained finely noisy texture and rich dark contrast. Change the diagram's connecting arrows and outer outlines to crisp warm ivory #F8FAF5 so they stand out on the dark background. Keep cards filled warm ivory with fine dark forest outlines to distinguish overlaps. Make the central checkpoint a vivid lime #D6FF62 circle with a simple dark forest check mark. Preserve all geometry and simple handmade character; no new flow connections. No blue/pale rectangle behind the diagram: deep gradient visible between every element. No text, letters, labels, logos, border, fake dashboard, glow, 3D or extra decorative objects. High-quality flat editorial artwork, wide 16:9 around 1672\u00d7941.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/layered-editorial/review-gradient.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-5d6c8066-ded6-463a-ba07-a7b609ef8c60.png",
+    "category": "layered-editorial",
+    "kind": "Layered editorial study",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/layered-editorial/review-color.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/review-color.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "layered04-review-gradient",
+    "family": "review",
+    "treatment": "gradient",
+    "title": "Source review / Blue + lime",
+    "style": "Editorial diagram on a grainy gradient",
+    "sampleTitle": "How an AI workflow moves from source to review",
+    "description": "Ivory source cards flow through a lime review checkpoint directly over a bright blue-to-lime gradient.",
+    "headline": null,
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#132B26",
+      "#F8FAF5"
+    ],
+    "prompt": "Use case: compositing. Create one final landscape 16:9 editorial illustration, around 1672\u00d7941 or higher resolution. Image 1 is the edit target for the illustration; image 2 supplies the background color and texture. Carefully lift the illustration out of image 1's pale blue background and set it directly over a full-bleed bright blue-to-lime fine-grain gradient based on image 2. Use rich #007EBD/#168DDD blue at left/top transitioning through cyan to luminous #D6FF62 lime at lower right. The gradient should be soft, flat, finely noisy, and fully uninterrupted behind the art. No pale blue rectangular panel, bounding box or pasted screenshot behind the illustration. No text, no letters, no logos, no watermark, no border, no extra objects. Keep the diagram's simple visual logic and handmade dark-forest #132B26 line quality: three small groups of ivory blank source cards feed through curved forest arrows into one ivory circular review checkpoint with a lime check mark, and a single outgoing arrow leads to an ivory reviewed stack. No labels or card writing. Recompose this whole connected diagram compactly on the right 52 percent of the canvas, with three source groups vertically staggered near the center-right, checkpoint farther right, and output stack near the far right. Preserve the clear direction and do not tangle arrows. Keep the left 43 percent entirely open blue gradient for future typography. Use elegant crisp ivory shapes and forest outlines, a subtle handmade line, lime check mark. Absolutely no enclosing panel around the diagram; the colored gradient extends between and behind all cards and connectors.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/editorial-lab/editorial-08.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/explorations-02/gradient-02.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-b9eb2dda-c5e2-4c5c-9f9b-43e8afc9625a.png",
+    "category": "layered-editorial",
+    "kind": "Layered editorial study",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/layered-editorial/review-gradient.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/review-gradient.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "layered04-review-headline",
+    "family": "review",
+    "treatment": "headline",
+    "title": "Source review / With headline",
+    "style": "Bold editorial headline with layered diagram",
+    "sampleTitle": "How an AI workflow moves from source to review",
+    "description": "A two-line ivory headline occupies the left beside the connected source-to-review diagram.",
+    "headline": "From source\nto review.",
+    "colors": [
+      "#007EBD",
+      "#168DDD",
+      "#D6FF62",
+      "#132B26",
+      "#F8FAF5"
+    ],
+    "prompt": "Use case: text-localization. Edit the supplied image by adding only the exact headline below to the open left side. Preserve the existing illustration, its placement, all cards and marks, its stroke character, and the fine-grain blue-to-lime background as closely as possible. Final remains landscape 16:9, around 1672\u00d7941. Set the words in a very bold contemporary grotesk sans serif similar to DM Sans Bold, crisp, confident editorial typography, warm ivory #F8FAF5 for clear contrast on the blue. Use a comfortably inset left margin, two lines with the specified line break, generous line spacing and no overlap with the illustration. Treat this as a finished cultural editorial cover. No text shadows, outlines, black boxes, panels, labels, logos or additional words. Do not add any graphic decoration. Exact headline, including punctuation and line break:\nFrom source\nto review.\nKeep both lines at the same large bold type size. Place the block around the vertical center of the open left area. Preserve generous space between the text block and the source cards. Change nothing else.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/layered-editorial/review-gradient.png"
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-0a1b3103-6d48-446c-840c-b28a6a8e300e.png",
+    "category": "layered-editorial",
+    "kind": "Layered editorial study",
+    "status": "proposed",
+    "generator": "image_gen (built-in)",
+    "preview": "assets/layered-editorial/review-headline.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/layered-editorial/review-headline.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941
+  }
+]

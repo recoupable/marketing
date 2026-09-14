@@ -1,0 +1,109 @@
+[
+  {
+    "id": "blog06-09",
+    "category": "blog-thumbnails",
+    "kind": "Blog thumbnail",
+    "status": "proposed",
+    "title": "Less copying. More reviewing.",
+    "headline": "Less copying.\nMore reviewing.",
+    "typography": "Bold sentence-case sans-serif, right aligned composition",
+    "palette": "blue-lime",
+    "description": "Ivory paper sheets curve into a checked document on the lime left, balanced by large ivory type over a quiet blue right.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-9dfa9ef0-84a7-4429-af5d-22f3c03badac.png",
+    "prompt": "Edit the supplied finished 1672\u00d7941 blog thumbnail with ONE precise typography-spacing change. Keep the canvas size/aspect ratio and full-bleed background unchanged.\n\nPreserve the entire existing illustrated paper-sheet flow, every arrow, the checked document, its positions, outlines, fills, blue/lime background colors, gradient placement, fine grain texture, and overall visual style. Do not redraw or move any illustration element. Do not add anything.\n\nChange ONLY the two-line ivory headline on the right. Scale the ENTIRE two-line headline block down by approximately 12% in both width and height, retaining exactly the same bold sans-serif font appearance, same relative line spacing, same ivory color, same left alignment and same left x position (about x=850px). Keep the reduced block centered vertically around its current overall center. The final period on the second line must end at or before x=1565px, leaving at least 100 pixels clear to the right edge. Aim for roughly 125px right margin. Do NOT center the block horizontally or move it toward the right.\n\nThe exact headline, unchanged in wording, capitalization, punctuation and two-line break:\nLess copying.\nMore reviewing.\n\nNo extra words, no clipped text, no third line, no new objects or borders. This is a targeted headline-size refinement of the supplied image, not a new composition.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/blog-thumbnails/blog-09.png"
+    ],
+    "preview": "assets/blog-thumbnails/blog-09-v2.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-09-v2.png"
+      }
+    ],
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "blog06-10",
+    "category": "blog-thumbnails",
+    "kind": "Blog thumbnail",
+    "status": "proposed",
+    "title": "WHAT CHANGED IN YOUR CATALOG?",
+    "headline": "WHAT CHANGED\nIN YOUR CATALOG?",
+    "typography": "Large condensed uppercase headline",
+    "palette": "forest-blue",
+    "description": "Tall condensed ivory headline over forest and blue, with two simple catalog cards and one lime waveform change below.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-ffb42574-14da-4fea-ae18-572a7be2ec20.png",
+    "prompt": "Use case: ads-marketing. Create ONE finished full-bleed landscape 16:9 BLOG THUMBNAIL, around 1672 x 941 pixels or higher at the same ratio, including precisely the requested headline. Use the supplied reference images for the exact VISUAL WORLD: crisp, slightly handmade forest outlines, flat warm-ivory paper/diagram illustrations floating directly over a softly diffused fine-grain colored gradient. The image is a finished flat editorial composition, not a mockup. Use a NEW subject/layout; do not copy reference wording or its source-review diagram.\nMaintain 6% safe margins. All words must be large, spelled exactly, unclipped and readable at thumbnail size. Graphic and type occupy distinct clear areas; no overlaps. No logos, masthead, watermarks, incidental labels, extra words, numbers, dates, UI, enclosing background panels, borders, photorealism, 3D, glass, robots, scenery, heavy shadows, or glossy details. Ivory shapes may be individual diagram/document subjects, never a large card framing the composition. No text other than the exact headline below.\n\nHEADLINE: LARGE CONDENSED UPPERCASE, confident heavy narrow sans-serif, warm ivory, upper LEFT, in exactly two lines:\nWHAT CHANGED\nIN YOUR CATALOG?\nMake the typography tall, compact and emphatic, distinctly more condensed than the reference. Place both lines across the upper-left/upper-middle inside the safe margins, leaving the lower half for the illustration.\n\nILLUSTRATION: toward the BOTTOM and RIGHT, TWO separate warm-ivory record/catalog cards with crisp handmade forest outlines, each showing only a minimal abstract waveform or small record symbol. ONE clear change on the second card is highlighted in lime\u2014such as one lime waveform stroke. Connect the two cards with a single simple visible arrow. No actual data, no numerical figures, no axes, no text or labels. The two cards are the entire editorial drawing, not dashboard UI. Leave breathing room between headline and drawing.\n\nBACKGROUND: matte forest #132B26 on upper/left transitions softly into vivid blue #007EBD/#168DDD at lower/right, with fine even analog grain. Maintain visible green and blue, not black domination. Ivory headline sits on the quiet dark forest; lime is concentrated in the one changed detail.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/layered-editorial/review-headline.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/layered-editorial/review-color.png"
+    ],
+    "preview": "assets/blog-thumbnails/blog-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-10.png"
+      }
+    ],
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "blog06-11",
+    "category": "blog-thumbnails",
+    "kind": "Blog thumbnail",
+    "status": "proposed",
+    "title": "AI agents. Clear responsibilities.",
+    "headline": "AI agents.\nClear responsibilities.",
+    "typography": "Mixed-scale sans-serif: oversized bold title and regular subtitle",
+    "palette": "blue-lime",
+    "description": "Oversized ivory headline with a smaller regular subtitle, above three worker nodes and task cards converging on a human-review checkpoint.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-2ba1c114-4cea-4ecc-9985-7b903c0f9d23.png",
+    "prompt": "Use case: ads-marketing. Create ONE finished full-bleed landscape 16:9 BLOG THUMBNAIL, around 1672 x 941 pixels or higher at the same ratio, including precisely the requested headline. Use the supplied reference images for the exact VISUAL WORLD: crisp, slightly handmade forest outlines, flat warm-ivory paper/diagram illustrations floating directly over a softly diffused fine-grain colored gradient. The image is a finished flat editorial composition, not a mockup. Use a NEW subject/layout; do not copy reference wording or its source-review diagram.\nMaintain 6% safe margins. All words must be large, spelled exactly, unclipped and readable at thumbnail size. Graphic and type occupy distinct clear areas; no overlaps. No logos, masthead, watermarks, incidental labels, extra words, numbers, dates, UI, enclosing background panels, borders, photorealism, 3D, glass, robots, scenery, heavy shadows, or glossy details. Ivory shapes may be individual diagram/document subjects, never a large card framing the composition. No text other than the exact headline below.\n\nHEADLINE: MIXED-SCALE contemporary sans-serif in warm ivory, exactly two lines with the exact capitalization and punctuation:\nAI agents.\nClear responsibilities.\nSet \"AI agents.\" VERY LARGE and heavy in the upper-left, spanning roughly the upper 60% width. Set \"Clear responsibilities.\" directly below at about 45% of the first line's type size, regular weight, elegant and fully readable. Preserve exactly two headline lines, both inside generous 6% margins. Keep a clean open gap beneath the subtitle and above the illustration.\n\nILLUSTRATION: in the LOWER and RIGHT part, create a simple readable responsibility-flow drawing: THREE small separate warm-ivory circular worker nodes, with just one abstract forest head-and-shoulders mark per circle, feed thin slightly handmade forest arrows to three small ivory task cards. The task cards converge on ONE distinct human-review checkpoint: a slightly larger ivory document with a forest human profile symbol and a lime check. Use only a few deliberate arrows so the conceptual flow reads immediately. No robots, no faces with details, no labels, letters or numbers. Do not mimic the source-review reference's exact topology. Use crisp forest #132B26 outlines, flat ivory fill, and restrained lime ticks. Keep all drawing elements clear of the headline, below about 46% canvas height, and no decorative frames.\n\nBACKGROUND: richly colored blue #007EBD/#168DDD on the upper/left under the headline blends softly into luminous lime #D6FF62 at lower/right under the graph. Fine even analog grain with subtle optical diffusion, as in the reference. Blue must remain saturated enough that the ivory headline has strong readable contrast, with no bright bloom touching the words. Full-bleed 16:9 composition. Keep every letter and diagram node at least 6% inward from the outer edges.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/layered-editorial/review-headline.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/layered-editorial/review-color.png"
+    ],
+    "preview": "assets/blog-thumbnails/blog-11.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-11.png"
+      }
+    ],
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941
+  },
+  {
+    "id": "blog06-12",
+    "category": "blog-thumbnails",
+    "kind": "Blog thumbnail",
+    "status": "proposed",
+    "title": "Your tools. Working together.",
+    "headline": "Your tools.\nWorking together.",
+    "typography": "Large monospaced editorial headline with loose leading",
+    "palette": "forest-blue",
+    "description": "Ivory monospaced headline on forest, balanced by folder, calendar and record icons connected in one continuous loop with lime junctions over blue.",
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-7e79b68b-1912-45d4-86f2-9aace9b65d35.png",
+    "prompt": "Use case: ads-marketing. Create ONE finished full-bleed landscape 16:9 BLOG THUMBNAIL, around 1672 x 941 pixels or higher at the same ratio, including precisely the requested headline. Use the supplied reference images for the exact VISUAL WORLD: crisp, slightly handmade forest outlines, flat warm-ivory paper/diagram illustrations floating directly over a softly diffused fine-grain colored gradient. The image is a finished flat editorial composition, not a mockup. Use a NEW subject/layout; do not copy reference wording or its source-review diagram.\nMaintain 6% safe margins. All words must be large, spelled exactly, unclipped and readable at thumbnail size. Graphic and type occupy distinct clear areas; no overlaps. No logos, masthead, watermarks, incidental labels, extra words, numbers, dates, UI, enclosing background panels, borders, photorealism, 3D, glass, robots, scenery, heavy shadows, or glossy details. Ivory shapes may be individual diagram/document subjects, never a large card framing the composition. No text other than the exact headline below.\n\nHEADLINE: LARGE MONOSPACED editorial type in warm ivory on the LEFT, loose but controlled leading, exactly two lines:\nYour tools.\nWorking together.\nUse a confident medium-bold slab-free monospaced typeface such as IBM Plex Mono, visibly equal-width characters, sentence case exactly as shown. The longer second line must fit entirely in the left 54% of the canvas, within 6% side margins, with no overlap into the right illustration. Use a deliberate editorial scale and line spacing; keep both lines comfortably readable. No third line and no wrap after \"Working\". Keep all punctuation.\n\nILLUSTRATION: on the RIGHT, THREE small separate flat warm-ivory tool tiles, one bearing a simple forest-outline FOLDER icon, one a minimal CALENDAR grid with no dates or words, one a simple RECORD disc icon. Arrange them as a loose ascending triangular cluster rather than a row. Join the three tiles with ONE continuous slightly handmade forest line that bends between them and passes through small vivid lime circular junctions. The icons are drawn flat and crisp, not app logos, not buttons, not 3D. Keep the graphic fully right of the text, no overlap. Lines should remain visibly connected, not a tangle. No additional tiles or enclosing panel.\n\nBACKGROUND: quiet deep forest #132B26 on the LEFT under ivory monospaced type softly transitions into luminous saturated blue #007EBD/#168DDD at the RIGHT behind the tiles. Preserve both green and blue presence, with delicate even fine analog grain and softly diffused color transition. Lime #D6FF62 appears only as small connecting junction accents. Avoid black domination and avoid a lime background. Full-bleed 16:9 poster composition, no borders; reserve generous 6% safe margins for all content.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/layered-editorial/review-headline.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/layered-editorial/review-color.png"
+    ],
+    "preview": "assets/blog-thumbnails/blog-12.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/blog-thumbnails/blog-12.png"
+      }
+    ],
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941
+  }
+]

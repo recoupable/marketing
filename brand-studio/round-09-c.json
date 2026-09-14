@@ -1,0 +1,73 @@
+[
+  {
+    "title": "Answers linked to their sources",
+    "sampleTitle": "Keep the source attached to the answer",
+    "description": "A proposed article explainer connects documents, email and notes to corresponding citations in an answer. The numbered references make the relationship readable without relying on an abstract metaphor.",
+    "palette": "#F0F7FA",
+    "colors": [
+      "#F0F7FA",
+      "#132B26",
+      "#007EBD",
+      "#D6FF62"
+    ],
+    "id": "editorial09-a01",
+    "category": "editorial-09",
+    "family": "article",
+    "status": "proposed",
+    "typography": "Plain sans-serif labels within explanatory drawing",
+    "prompt": "Use case: infographic-diagram.\nCreate ONE original wide 16:9 editorial illustration to appear INSIDE a thoughtful business article, about keeping source references attached to AI answers. This is a finished illustration, not a webpage, UI screen, moodboard or grid.\nThe drawing must explain a recognizable relationship at first glance. Use thin, precise, slightly human pen lines and plain flat ivory/white paper fills. Refined book-illustration sensibility, spare but intelligible. No sketchy cartoon, thick outlines, cute icons, photorealism, shading, 3D, bevels, shadows or stock business art.\nComposition: a centered horizontal drawing occupying 65–70% of canvas width and about 55% height, with wide calm outer margins. On the left three recognizable paper objects arranged vertically: a small document sheet with two short content lines, a simple open email envelope containing a sheet, and a small spiral-bound notebook. To the right one larger answer sheet with three short separated content lines. THREE thin blue connectors lead separately from the three source objects to the corresponding numbered citation on the answer sheet. Keep these connections readable and do not merge them into a knot. No arrowheads are needed.\nPlace exact small dark-forest sans-serif labels next to the left objects: \"Documents\", \"Email\", \"Notes\". Place the exact label \"Answer + sources\" above the answer sheet. On each source add a small numbered marker 1, 2, or 3 respectively; the three answer content lines each end with the matching numbered citation 1, 2, or 3. These are citation references, not metrics. Use only those labels and numbers. No large headline and no invented words.\nPalette: extremely pale blue #F0F7FA background; 95% of background looks perfectly flat, with only a barely perceptible blue tint toward the lower-right edge (about 5% visual strength). Forest #132B26 pen outlines and labels. White paper fills. Recoup blue #007EBD for the three fine linking lines. One tiny lime #D6FF62 citation accent; keep all other shapes restrained.\nThe entire illustration should feel lucid, authored, elegant and quiet. Objects must look immediately like documents, email and a notebook, NOT ambiguous fragments, blobs or metaphors. Keep labels legible at article width. No logos, musician, musical equipment, robot, sparkles, giant checkmarks, magnifying glasses, decorative corner patterns, outer border or watermark.",
+    "referencePaths": [],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a0933b-6d94-7650-9e47-c5424dc8e7e9/exec-88f7ea1f-97b3-4148-9acf-46ca63515d4d.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/editorial-09/article-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/article-01.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-09/article-01.txt"
+      }
+    ],
+    "formatRationale": "Use a source relationship diagram when the article explains traceability."
+  },
+  {
+    "title": "A human review step",
+    "sampleTitle": "Give people a clear review step",
+    "description": "A proposed article explainer shows an AI draft, a person making edits, and an approved output. It tests a clear process illustration; metaphorical or anthropomorphic drawings remain available when they explain another article better.",
+    "palette": "#FFFFFF",
+    "colors": [
+      "#FFFFFF",
+      "#132B26",
+      "#007EBD",
+      "#D6FF62"
+    ],
+    "id": "editorial09-a02",
+    "category": "editorial-09",
+    "family": "article",
+    "status": "proposed",
+    "typography": "Plain sans-serif labels within explanatory drawing",
+    "prompt": "Use case: infographic-diagram.\nCreate ONE original wide 16:9 editorial illustration to appear INSIDE a thoughtful business article, explaining a human review step between an AI draft and approved output. This is finished editorial pen art, not a webpage, UI card, moodboard, grid or photograph.\nMake the process intelligible in one glance with THREE left-to-right stages centered across 65–70% of canvas width. Generous uninterrupted white outer margins. Left: a small stack of two or three slightly offset paper sheets, the top sheet carrying three understated content lines. Center: a larger sheet of paper with one gracefully and correctly proportioned human hand holding a simple pen, its tip poised over the paper; two small blue editorial corrections on the sheet visibly show that a person is reviewing it. Show the hand entering from above so it does not cover the stage label. Right: one neatly composed final paper sheet, with four spare dark ink content lines and one small lime tab. One thin unobtrusive blue connector runs left-to-right behind the scene, with short visible links between the three stages and two small discreet arrowheads. Keep the stage objects independent and readable, no complex flowchart.\nExact text: \"AI draft\" below the first group, \"Human review\" below the center group, \"Approved output\" below the right sheet. Use plain dark-forest sans-serif labels, all the same size and aligned along a common baseline. No giant headline, no other words, no numbers, no checkmark.\nDrawing voice: very thin confident editorial ink line with slight natural irregularity, carefully observed simplified paper shapes and a recognizable human hand, NOT photorealistic or anatomically elaborate. Flat white and faint ivory fill only. No thick black cartoon outlines, glove-shaped hand, clip art, painted rendering, hatching, 3D, shadows or gradients across objects.\nPalette: white #FFFFFF background almost completely flat, with only a faint cool-blue shift at the far lower-right edge, about 5% visual strength. Deep forest #132B26 linework and labels. Recoup blue #007EBD corrections and connector. One restrained lime #D6FF62 tab on the final page.\nThis must feel like a professional publication's clear explanatory illustration: calm, precise, human and useful. No robots, musical gear, musicians, mysterious symbolic objects, decoration, outer frame, UI controls, logos or watermark.",
+    "referencePaths": [],
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a0933b-6d94-7650-9e47-c5424dc8e7e9/exec-f5b80ed4-8dec-4ff1-bf20-582927781c82.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/editorial-09/article-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-09/article-02.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-09/article-02.txt"
+      }
+    ],
+    "formatRationale": "Use a process illustration when the article explains who reviews work and when."
+  }
+]
+

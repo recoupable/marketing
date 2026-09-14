@@ -1,0 +1,228 @@
+[
+  {
+    "id": "refine-noise-gradient",
+    "title": "Noisy blue and lime gradient",
+    "style": "Fine noise gradient",
+    "description": "Flat matte blue-to-lime light falloff with super-fine photographic grain, revised without image references.",
+    "category": "refinements",
+    "kind": "Background",
+    "status": "proposed",
+    "paletteId": "blue-lime",
+    "prompt": "Use case: stylized-concept. Asset: ONE complete high-resolution wide 16:9 landscape background for an independent magazine's editorial design. No image references. Numeric palette only: blue #007EBD and brighter blue #168DDD must dominate, with luminous yellow-lime #D6FF62. Use soft optical color transitions and broad quiet compositional space. All content must remain fully abstract and nonrepresentational. This is a finished background only, for typography or a separate editorial card to be added later.\nNO text, letters, logos, symbols, interface, mockup, frame, border, collage, contact sheet, recognizable objects, landscape, horizon, fields, sky, cloud shapes, water, leaves, or scenery. No sharp geometric contours, visible circles, hard-edged blobs, splatter, thick brush marks, metallic highlights, or neon-tech effects. In particular: NO glass, simulated frosting, pebbled surfaces, embossed texture, droplets, ripples, relief, cellular texture, or surface highlights. The picture plane must be FLAT and MATTE.\n\nSpecific medium: a sophisticated matte color-field magazine-cover background with a super-fine, flat photographic grain. Broad, asymmetrical light falloff moves from saturated blue across the upper-left and central two-thirds toward luminous lime at the lower-right outer edge, with very small cool-ivory traces in the blending region. The falloff is one soft continuous optical diffusion, gently irregular rather than a rigid straight gradient or circular spotlight. Keep a spacious calm blue center. The grain is extremely fine, even, delicate film noise: no large particles, no material pattern, no paint surface, no stippled edges, no visible paper fibers, and no texture with apparent height. No glass or frosted texture whatsoever. Completely matte, almost smooth at normal viewing size, with subtle analog life visible only up close.",
+    "referenced_image_paths": [],
+    "generationSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-2c26ddbe-a9c5-4f45-95dc-d4db5adf1885.png",
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/refinements/refine-noise-gradient-v2.png",
+    "files": [
+      {
+        "label": "PNG - v2",
+        "path": "assets/refinements/refine-noise-gradient-v2.png"
+      },
+      {
+        "label": "Previous PNG",
+        "path": "assets/refinements/refine-noise-gradient.png"
+      }
+    ],
+    "revisionNote": "Revised without image references to distinguish the material from frosted glass. Original PNG preserved.",
+    "previousVersions": [
+      {
+        "id": "refine-noise-gradient",
+        "title": "Noisy blue and lime gradient",
+        "style": "Fine noise gradient",
+        "description": "A broad asymmetric blue-to-lime light falloff with very fine analog noise and quiet space.",
+        "category": "refinements",
+        "kind": "Background",
+        "status": "proposed",
+        "paletteId": "blue-lime",
+        "prompt": "Use case: stylized-concept. Asset type: standalone abstract Recoup brand background, ONE complete high-resolution wide 16:9 landscape image.\nCreate a completely nonrepresentational color composition, intended to support a crisp editorial card or headline added separately later. Expressive soft color, tactile fine noise, and a generous quiet region. Saturated Recoup blue (#007EBD and brighter luminous blue variations) is the dominant color, approximately two-thirds of the image. Luminous yellow-lime (#D6FF62) supplies the main contrasting light and color; only small traces of ice blue and ivory. Maintain the fresh blue/lime relationship, not muddy olive, heavy dark green, or generic purple neon.\nThree input images are references for COLOR, DIFFUSION, and TACTILE FEEL ONLY: image 1 gives the vivid blue/lime color and diffused glass feeling; image 2 gives fine powdery color softness; image 3 gives optical defocus and natural, unforced color transitions. Do not depict or copy their subject matter, scenery, horizons, cloud shapes, or compositions.\nAbsolute exclusions: no literal field, landscape, sky, clouds, water, leaves, foliage, trees, objects, horizon, depicted pane or frame, hard geometric shapes, circles with defined edges, torn paper, splatter, coarse speckles, thick brush marks, stars, 3D blobs, metallic surfaces, rainbow lighting, text, letters, logo, interface, watermark, border, contact sheet, or collage. Every major edge is diffuse. Texture must be restrained fine-scale tactile noise, not distracting damage. Background artwork only.\n\nMedium and composition: a finely noisy color gradient that feels optically diffused, with broad asymmetric blue-to-lime light falloff. A deep saturated blue body occupies most of the image; a luminous lime glow rolls in softly from the lower-right perimeter and dissolves through a small cool-ivory transition. This is a single continuous softly irregular color falloff, with no visible band boundaries, no horizon, no recognizable cloud silhouette, and no circular spot. Very fine uniform analog grain, like a high-quality color print seen close up. Leave a large calm blue region across the upper-left and center. Minimal but alive, subtle irregularity in the light, emphatically abstract.",
+        "referenced_image_paths": [
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-05-01.png",
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png",
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-01-01.png"
+        ],
+        "generationSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-a193b570-66c1-4a30-84e5-2d54f63304c2.png",
+        "generator": "image_gen (built-in)",
+        "width": 1672,
+        "height": 941,
+        "preview": "assets/refinements/refine-noise-gradient.png",
+        "files": [
+          {
+            "label": "PNG",
+            "path": "assets/refinements/refine-noise-gradient.png"
+          }
+        ]
+      }
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-2c26ddbe-a9c5-4f45-95dc-d4db5adf1885.png"
+  },
+  {
+    "id": "refine-light-bands",
+    "title": "Diffused light bands",
+    "style": "Diffused light bands",
+    "description": "Broad optically blurred bands of blue and lime light with fine film grain.",
+    "category": "refinements",
+    "kind": "Background",
+    "status": "proposed",
+    "paletteId": "blue-lime",
+    "prompt": "Use case: stylized-concept. Asset type: standalone abstract Recoup brand background, ONE complete high-resolution wide 16:9 landscape image.\nCreate a completely nonrepresentational color composition, intended to support a crisp editorial card or headline added separately later. Expressive soft color, tactile fine noise, and a generous quiet region. Saturated Recoup blue (#007EBD and brighter luminous blue variations) is the dominant color, approximately two-thirds of the image. Luminous yellow-lime (#D6FF62) supplies the main contrasting light and color; only small traces of ice blue and ivory. Maintain the fresh blue/lime relationship, not muddy olive, heavy dark green, or generic purple neon.\nThree input images are references for COLOR, DIFFUSION, and TACTILE FEEL ONLY: image 1 gives the vivid blue/lime color and diffused glass feeling; image 2 gives fine powdery color softness; image 3 gives optical defocus and natural, unforced color transitions. Do not depict or copy their subject matter, scenery, horizons, cloud shapes, or compositions.\nAbsolute exclusions: no literal field, landscape, sky, clouds, water, leaves, foliage, trees, objects, horizon, depicted pane or frame, hard geometric shapes, circles with defined edges, torn paper, splatter, coarse speckles, thick brush marks, stars, 3D blobs, metallic surfaces, rainbow lighting, text, letters, logo, interface, watermark, border, contact sheet, or collage. Every major edge is diffuse. Texture must be restrained fine-scale tactile noise, not distracting damage. Background artwork only.\n\nMedium and composition: diffuse bands of colored light recorded far out of focus with very fine analog film grain. Several very broad, softly bending oblique blue light bands blend together; one smaller lime band dissolves through them near the upper third, and a faint ice-blue echo appears at an edge. Broad bands, varying in width and intensity, with all boundaries so optically blurred that they feel like light leaking through diffusion rather than drawn ribbons. No crisp edges, repeated stripe pattern, visible light fixture, or depicted scene. Keep the lower central area a saturated, quiet blue for future editorial composition.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-05-01.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-01-01.png"
+    ],
+    "generationSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-9cadd19b-9558-402b-b5c6-1c8313c1b1b0.png",
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/refinements/refine-light-bands.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/refinements/refine-light-bands.png"
+      }
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-9cadd19b-9558-402b-b5c6-1c8313c1b1b0.png"
+  },
+  {
+    "id": "refine-soft-mesh",
+    "title": "Soft blue and lime color pools",
+    "style": "Soft mesh color pools",
+    "description": "Broad flowing pigment veils and hazy blue/lime color pools with fine flat chalk grain, revised without image references.",
+    "category": "refinements",
+    "kind": "Background",
+    "status": "proposed",
+    "paletteId": "blue-lime",
+    "prompt": "Use case: stylized-concept. Asset: ONE complete high-resolution wide 16:9 landscape background for an independent magazine's editorial design. No image references. Numeric palette only: blue #007EBD and brighter blue #168DDD must dominate, with luminous yellow-lime #D6FF62. Use soft optical color transitions and broad quiet compositional space. All content must remain fully abstract and nonrepresentational. This is a finished background only, for typography or a separate editorial card to be added later.\nNO text, letters, logos, symbols, interface, mockup, frame, border, collage, contact sheet, recognizable objects, landscape, horizon, fields, sky, cloud shapes, water, leaves, or scenery. No sharp geometric contours, visible circles, hard-edged blobs, splatter, thick brush marks, metallic highlights, or neon-tech effects. In particular: NO glass, simulated frosting, pebbled surfaces, embossed texture, droplets, ripples, relief, cellular texture, or surface highlights. The picture plane must be FLAT and MATTE.\n\nSpecific medium: nonrepresentational gouache diffusion, loose flowing PIGMENT VEILS and hazy color pools on a flat picture plane. This should feel like softly diffused pigment movement, visibly different from a simple corner-to-corner gradient. A broad winding diagonal gestural sweep of luminous lime passes through a dominant rich blue field, opening irregular areas of blue between translucent overlapping veils; a little ivory diffuses along one turning area and very restrained forest green #132B26 deepens a small edge. Broad hazy organic bends, smoky pigment edges without depicting smoke, soft translucency and large-scale gestural movement. No outlined ribbons, sharp contours, literal clouds, or 3D depth. Fine FLAT chalk grain and soft gouache color mixing; no heavy paint ridges, no brush-bristle marks, no splatter, no paper grain, and absolutely no pebbled, frosted, embossed, or glass-like texture. Leave one quiet blue area where a headline could later sit.",
+    "referenced_image_paths": [],
+    "generationSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-db352b47-0a6e-4822-8897-6ca5f3d7cdeb.png",
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/refinements/refine-soft-mesh-v2.png",
+    "files": [
+      {
+        "label": "PNG - v2",
+        "path": "assets/refinements/refine-soft-mesh-v2.png"
+      },
+      {
+        "label": "Previous PNG",
+        "path": "assets/refinements/refine-soft-mesh.png"
+      }
+    ],
+    "revisionNote": "Revised without image references to distinguish the material from frosted glass. Original PNG preserved.",
+    "previousVersions": [
+      {
+        "id": "refine-soft-mesh",
+        "title": "Soft blue and lime color pools",
+        "style": "Soft mesh color pools",
+        "description": "Organic pools of blue and lime merge into a nonrepresentational mesh with restrained powder texture.",
+        "category": "refinements",
+        "kind": "Background",
+        "status": "proposed",
+        "paletteId": "blue-lime",
+        "prompt": "Use case: stylized-concept. Asset type: standalone abstract Recoup brand background, ONE complete high-resolution wide 16:9 landscape image.\nCreate a completely nonrepresentational color composition, intended to support a crisp editorial card or headline added separately later. Expressive soft color, tactile fine noise, and a generous quiet region. Saturated Recoup blue (#007EBD and brighter luminous blue variations) is the dominant color, approximately two-thirds of the image. Luminous yellow-lime (#D6FF62) supplies the main contrasting light and color; only small traces of ice blue and ivory. Maintain the fresh blue/lime relationship, not muddy olive, heavy dark green, or generic purple neon.\nThree input images are references for COLOR, DIFFUSION, and TACTILE FEEL ONLY: image 1 gives the vivid blue/lime color and diffused glass feeling; image 2 gives fine powdery color softness; image 3 gives optical defocus and natural, unforced color transitions. Do not depict or copy their subject matter, scenery, horizons, cloud shapes, or compositions.\nAbsolute exclusions: no literal field, landscape, sky, clouds, water, leaves, foliage, trees, objects, horizon, depicted pane or frame, hard geometric shapes, circles with defined edges, torn paper, splatter, coarse speckles, thick brush marks, stars, 3D blobs, metallic surfaces, rainbow lighting, text, letters, logo, interface, watermark, border, contact sheet, or collage. Every major edge is diffuse. Texture must be restrained fine-scale tactile noise, not distracting damage. Background artwork only.\n\nMedium and composition: a soft organic mesh of large color pools, nonrepresentational abstraction with restrained powder-fine texture. Deep blue and brighter blue merge into two or three very broad irregular interlocking zones; a small luminous lime pool blooms at the upper-left edge, while a second subtler lime bloom grazes the lower-right edge. The pools have no outlines or discernible hard perimeter, no 3D volume, no cloud-like scallops, and no glossy bubble appearance. Blend through soft teal and tiny cool-ivory passages, retaining blue dominance. Quiet spacious center. Subtle powder texture must remain much finer than the broad soft transitions.",
+        "referenced_image_paths": [
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-05-01.png",
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png",
+          "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-01-01.png"
+        ],
+        "generationSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-7019d3a7-7141-49b4-8805-5de85caea2d4.png",
+        "generator": "image_gen (built-in)",
+        "width": 1672,
+        "height": 941,
+        "preview": "assets/refinements/refine-soft-mesh.png",
+        "files": [
+          {
+            "label": "PNG",
+            "path": "assets/refinements/refine-soft-mesh.png"
+          }
+        ]
+      }
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-db352b47-0a6e-4822-8897-6ca5f3d7cdeb.png"
+  },
+  {
+    "id": "refine-frosted-pigment",
+    "title": "Frosted blue and lime pigment",
+    "style": "Frosted pigment",
+    "description": "Smooth blue and lime color bleeds beneath a translucent, finely granular surface.",
+    "category": "refinements",
+    "kind": "Background",
+    "status": "proposed",
+    "paletteId": "blue-lime",
+    "prompt": "Use case: stylized-concept. Asset type: standalone abstract Recoup brand background, ONE complete high-resolution wide 16:9 landscape image.\nCreate a completely nonrepresentational color composition, intended to support a crisp editorial card or headline added separately later. Expressive soft color, tactile fine noise, and a generous quiet region. Saturated Recoup blue (#007EBD and brighter luminous blue variations) is the dominant color, approximately two-thirds of the image. Luminous yellow-lime (#D6FF62) supplies the main contrasting light and color; only small traces of ice blue and ivory. Maintain the fresh blue/lime relationship, not muddy olive, heavy dark green, or generic purple neon.\nThree input images are references for COLOR, DIFFUSION, and TACTILE FEEL ONLY: image 1 gives the vivid blue/lime color and diffused glass feeling; image 2 gives fine powdery color softness; image 3 gives optical defocus and natural, unforced color transitions. Do not depict or copy their subject matter, scenery, horizons, cloud shapes, or compositions.\nAbsolute exclusions: no literal field, landscape, sky, clouds, water, leaves, foliage, trees, objects, horizon, depicted pane or frame, hard geometric shapes, circles with defined edges, torn paper, splatter, coarse speckles, thick brush marks, stars, 3D blobs, metallic surfaces, rainbow lighting, text, letters, logo, interface, watermark, border, contact sheet, or collage. Every major edge is diffuse. Texture must be restrained fine-scale tactile noise, not distracting damage. Background artwork only.\n\nMedium and composition: frosted pigment, with smooth vivid blue and luminous lime color bleeds beneath a translucent granular surface. Treat the entire picture as an abstract material plane, not a photograph of an object or window. A calm blue center is surrounded by soft blue variations; a lime bleed enters from the left edge in an irregular diffuse wash, with a tiny trace of ivory light near the top edge. The surface has an extremely fine satin-frosted microtexture, subtler than the ripples in reference image 1, with the pigment softly spreading beneath it. No droplets, ice crystals, recognizable veins, sharp brush strokes, cloud forms, water effects, or glass-pane edges. Rich but quiet color, fine tactile noise, all transitions soft.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-05-01.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-01-01.png"
+    ],
+    "generationSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-3f7e5200-dd11-41d3-9205-20fd53dd4660.png",
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/refinements/refine-frosted-pigment.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/refinements/refine-frosted-pigment.png"
+      }
+    ],
+    "source": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-3f7e5200-dd11-41d3-9205-20fd53dd4660.png"
+  },
+  {
+    "id": "refine-cover-blue-lime",
+    "title": "Editorial cover / Blue + lime",
+    "category": "refinements",
+    "kind": "Editorial cover",
+    "family": "editorial",
+    "style": "Blue + lime",
+    "status": "proposed",
+    "description": "Oversized ivory typography on soft blue atmosphere, with a restrained lime accent. Editorial exploration for review.",
+    "prompt": "Use case: ads-marketing. Create ONE portrait 4:5 editorial social cover for Recoup, not a mockup. A culturally confident independent music publication cover: huge crisp type sitting directly on an atmospheric background. The typography is the unmistakable foreground and stays extremely readable at phone size. No UI cards, frame, border, interface, additional logo, icon, body copy, footer, photograph, person, music clipart, or invented text. Do not reproduce any text from input references.\nCOMPOSITION, fixed across comparison: portrait 4:5, generous 8% left and right margins. Small tracked monospaced label at upper left, exactly 'RECOUP / INSIGHTS', positioned 8% from top. Headline starts around 25% from top, set flush left across exactly three lines, with tight expressive but legible tracking and compact leading. Set a bold DM Sans-like contemporary grotesk sans-serif, clean letterforms with confident weight, maximum size that fits the longest line inside the margins. Exact headline text and linebreaks:\nAI & the\nbusiness\nof music.\nNothing else is written anywhere. Keep all main letters entirely inside the canvas, not cropped. Text must be perfectly sharp against the softer background. Let broad empty atmosphere occupy the lower fifth so the composition can breathe. Entire image is final flat cover artwork, not shown on a wall or device.\nCOLOR AND ATMOSPHERE: blue and lime treatment. Use input images only as background color/texture references, particularly their rich sky blue #007EBD, pale ice-blue diffusion, fine analog spray grain, and lime #D6FF62 at the edges. Build a new quiet portrait composition, deep enough blue behind the complete headline for excellent ivory contrast. Background should have gently drifting blurred blue bands and a diffuse lime glow emerging only in the bottom-right corner, never a literal field, cloud, landscape, foliage or discernible object. Delicate irregular photographic noise, no heavy splatter or harsh halftone. Main headline warm ivory #F8FAF5, with only the ampersand on its first line in vivid lime. Top label also lime, small and subordinate. No drop shadows on type. This is editorial typography in sharp focus layered over soft abstract atmosphere.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-05-01.png"
+    ],
+    "paletteId": "blue-lime",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-829f7312-6a14-4de3-912a-66c3c5dd4862.png",
+    "preview": "assets/refinements/refine-cover-blue-lime.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/refinements/refine-cover-blue-lime.png"
+      }
+    ],
+    "width": 1122,
+    "height": 1402,
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-829f7312-6a14-4de3-912a-66c3c5dd4862.png"
+  },
+  {
+    "id": "refine-cover-forest-lime",
+    "title": "Editorial cover / Forest + lime",
+    "category": "refinements",
+    "kind": "Editorial cover",
+    "family": "editorial",
+    "style": "Forest + lime",
+    "status": "proposed",
+    "description": "The same oversized editorial hierarchy in deep forest and vivid lime. A secondary palette comparison.",
+    "prompt": "Use case: ads-marketing. Create ONE portrait 4:5 editorial social cover for Recoup, not a mockup. A culturally confident independent music publication cover: huge crisp type sitting directly on an atmospheric background. The typography is the unmistakable foreground and stays extremely readable at phone size. No UI cards, frame, border, interface, additional logo, icon, body copy, footer, photograph, person, music clipart, or invented text. Do not reproduce any text from input references.\nCOMPOSITION, fixed across comparison: portrait 4:5, generous 8% left and right margins. Small tracked monospaced label at upper left, exactly 'RECOUP / INSIGHTS', positioned 8% from top. Headline starts around 25% from top, set flush left across exactly three lines, with tight expressive but legible tracking and compact leading. Set a bold DM Sans-like contemporary grotesk sans-serif, clean letterforms with confident weight, maximum size that fits the longest line inside the margins. Exact headline text and linebreaks:\nAI & the\nbusiness\nof music.\nNothing else is written anywhere. Keep all main letters entirely inside the canvas, not cropped. Text must be perfectly sharp against the softer background. Let broad empty atmosphere occupy the lower fifth so the composition can breathe. Entire image is final flat cover artwork, not shown on a wall or device.\nCOLOR AND ATMOSPHERE: forest and lime treatment. Preserve only the soft atmospheric and finely noisy qualities of the input references, translating all blues into deep forest-green tones. Deep forest #132B26 is the dominant background, restrained subtle forest tonal gradient and very fine analog noise. Slight muted green light at the lower-right edge, never a literal field, cloud, landscape, foliage or discernible object. No saturated blue remains. Main headline vivid lime #D6FF62 throughout; top label pale ivory, small and subordinate. No heavy texture, heavy splatter, harsh halftone or drop shadows on type. This is editorial typography in sharp focus layered over soft abstract atmosphere.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-05-01.png"
+    ],
+    "paletteId": "forest-lime",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-9bd0c3a2-e572-47d3-8068-4e8e6312c51e.png",
+    "preview": "assets/refinements/refine-cover-forest-lime.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/refinements/refine-cover-forest-lime.png"
+      }
+    ],
+    "width": 1122,
+    "height": 1402,
+    "source": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-9bd0c3a2-e572-47d3-8068-4e8e6312c51e.png"
+  }
+]

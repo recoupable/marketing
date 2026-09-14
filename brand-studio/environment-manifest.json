@@ -1,0 +1,51 @@
+[
+  {
+    "id": "environment-open-sky",
+    "title": "Environment / Open sky",
+    "category": "environments",
+    "status": "proposed",
+    "description": "Existing Sky marketing source, collected here for reuse. New crops and applications still need review.",
+    "preview": "assets/environments/open-sky.webp",
+    "files": [
+      {
+        "label": "WebP source",
+        "path": "assets/environments/open-sky.webp"
+      }
+    ],
+    "width": 2200,
+    "height": 1244
+  },
+  {
+    "id": "environment-meadow",
+    "title": "Environment / Meadow",
+    "category": "environments",
+    "status": "proposed",
+    "description": "Existing contact-page landscape, collected here as a source for new compositions.",
+    "preview": "assets/environments/meadow.webp",
+    "files": [
+      {
+        "label": "WebP source",
+        "path": "assets/environments/meadow.webp"
+      }
+    ],
+    "width": 2200,
+    "height": 1244
+  },
+  {
+    "id": "environment-listening-room",
+    "title": "Environment / Sunlit listening room",
+    "category": "environments",
+    "status": "proposed",
+    "description": "New generated environment: pale plaster, natural light, open sky, and restrained music details. Ready for your review.",
+    "preview": "assets/environments/sunlit-studio-v1.png",
+    "files": [
+      {
+        "label": "PNG source",
+        "path": "assets/environments/sunlit-studio-v1.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "recipeId": "listening-room"
+  }
+]

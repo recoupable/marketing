@@ -1,0 +1,88 @@
+[
+  {
+    "title": "Live performance in motion",
+    "sampleTitle": "Where AI gives music teams their time back",
+    "description": "An anonymous guitarist framed from backstage keeps the focus on live music and the time teams need for it.",
+    "medium": "Editorial concert photography",
+    "typography": "None \u2014 text-free image",
+    "referencePaths": [],
+    "prompt": "Use case: photorealistic-natural.\nCreate one finished original editorial image, wide landscape 16:9, high resolution about 1672\u00d7941, full bleed. Premium restrained art direction with real physical space, material and light; generous visual breathing room. Brand color world is atmospheric blue #008BCB and #86C8E1, forest #163A2F, warm ivory #F6F6EC, and only a tiny restrained lime #D3FF5F accent when the subject calls for it. Avoid loud neon-gradient styling, thick outlines, cartoon arrows, document icons, checkmarks, clip art, robot or brain symbols, fake dashboards, stock corporate imagery, brand marks, watermarks, borders, interface, mockup frames and extra text.\nSubject and camera: an artful editorial concert photograph made from the SIDE/BACKSTAGE of an intimate real stage. One anonymous guitarist is anchored in the right third, seen mostly from behind or in side silhouette, face unreadable, an actual guitar and believable playing posture. The musician is a human presence in real space, not a cutout, symbol or famous performer.\nLighting and space: restrained atmospheric blue stage light grazes the shoulder, instrument edge and a little stage haze. Most of the frame, especially the left half, is rich forest-black backstage space with subtle dimensional detail. Let one narrow sophisticated long-exposure curve arise plausibly from the movement of a light or instrument edge near the performer, a delicate blue/ivory trace rather than a glowing digital ring or graphic effect. Keep the body anchored enough to remain legible while motion and light carry the image. Deep thoughtful color, filmic grain, natural photographic shadow, modest tonal variation, no screaming spotlight glare.\nComposition: spacious off-center frame with the performer at right and meaningful dark air at left. Selective controlled blur, cultured music-magazine photography, cinematic but grounded. No crowd-stock-picture setup, audience of raised hands, stage truss spectacle, confetti, lasers, brand signage, visible lettering or multiple musicians.\nText: NONE. Do not render the article title or any other words.",
+    "id": "editorial07-04",
+    "category": "editorial-07",
+    "status": "proposed",
+    "filetype": "PNG",
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-02cdec4a-662e-4037-b206-a986512a24df.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/editorial-07/editorial-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-04.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-07/editorial-04.txt"
+      }
+    ]
+  },
+  {
+    "title": "Rhythm in folded paper",
+    "sampleTitle": "Building repeatable royalty reporting",
+    "description": "A precisely folded paper relief gives repeated reporting a tactile rhythm without turning the image into a chart.",
+    "medium": "Sculptural paper still-life photography",
+    "typography": "None \u2014 text-free image",
+    "referencePaths": [],
+    "prompt": "Use case: photorealistic-natural.\nCreate one finished original editorial image, wide landscape 16:9, high resolution about 1672\u00d7941, full bleed. Premium restrained art direction with real physical space, material and light; generous visual breathing room. Brand color world is atmospheric blue #008BCB and #86C8E1, forest #163A2F, warm ivory #F6F6EC, and only a tiny restrained lime #D3FF5F accent when the subject calls for it. Avoid loud neon-gradient styling, thick outlines, cartoon arrows, document icons, checkmarks, clip art, robot or brain symbols, fake dashboards, stock corporate imagery, brand marks, watermarks, borders, interface, mockup frames and extra text.\nSubject: a precision art-directed warm-ivory folded PAPER RELIEF running rhythmically across a deep forest plane. The finely folded paper makes a continuous quiet sequence of pleats whose height rises and falls organically, suggesting rhythm or a waveform through physical sculpture alone. It must read as a real finely crafted paper object, not a chart, diagram, equalizer display, document icon, folded book or product packaging.\nComposition and material: oblique close viewpoint, long low relief passing diagonally across the lower-middle part of a spacious forest #163A2F ground. Leave generous uninterrupted forest space. The visible ivory #F6F6EC paper has fine fibers, precisely scored fold edges and restrained real thickness. Several folds catch raking light while others recede; avoid a repetitive row of identical high spikes. One single paper edge in just one fold is subtly lime #D3FF5F, tiny and deliberate. No repeated neon edges.\nLighting: low raking blue daylight from one side, cool atmospheric #86C8E1 reflected light and soft precise shadows that describe the creases. Beautiful tactile tonal restraint, a real material under careful light. Editorial sculptural photography, calm sophistication, no glossy 3D look or plastic.\nText: NONE. No labels, axes, numbers, writing, logo or article title.",
+    "id": "editorial07-05",
+    "category": "editorial-07",
+    "status": "proposed",
+    "filetype": "PNG",
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-ff7812d5-b6f9-424a-bb5e-7ac0585f5641.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/editorial-07/editorial-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-05.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-07/editorial-05.txt"
+      }
+    ]
+  },
+  {
+    "title": "A longer view",
+    "sampleTitle": "A longer view of music catalog value",
+    "description": "A meadow seen at two distances pairs continuity with close observation, creating a calm image for long-term catalog value.",
+    "medium": "Photographic landscape diptych",
+    "typography": "Small light sans-serif \u2014 A longer view.",
+    "referencePaths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/public/images/sky/contact-meadow.webp"
+    ],
+    "prompt": "Use case: photorealistic-natural.\nCreate one finished original editorial image, wide landscape 16:9, high resolution about 1672\u00d7941, full bleed. Premium restrained art direction with real physical space, material and light; generous visual breathing room. Brand color world is atmospheric blue #008BCB and #86C8E1, forest #163A2F, warm ivory #F6F6EC, and only a tiny restrained lime #D3FF5F accent when the subject calls for it. Avoid loud neon-gradient styling, thick outlines, cartoon arrows, document icons, checkmarks, clip art, robot or brain symbols, fake dashboards, stock corporate imagery, brand marks, watermarks, borders, interface, mockup frames and extra text.\nReference image role: the supplied contact-meadow photograph establishes a real physical world of blue sky, open green meadow and grass seed heads. Make new photographs in that same world with a novel crop, different light and a deliberate editorial diptych layout; do not simply repeat or overlay the source image.\nLayout: a precise UNCENTERED VERTICAL SPLIT, approximately 64 percent of the canvas on the left and 36 percent on the right. Two photographic views touch at a clean straight join, no gutter, frame, drawn dividing line, contact-sheet labels or borders.\nLeft photograph: a spacious softly focused atmospheric blue sky above a gently rolling lime-green meadow. Natural tonal color, actual photographic depth and soft lens response. Sky occupies the greater part of this left view; the meadow is low and stretches outward. Include naturally darker forest-toned grass/shadow toward the bottom-left to provide quiet contrast for small ivory type. Gentle warm afternoon light, restrained contrast and no exaggerated neon saturation.\nRight photograph: a close crop of real grass seed heads moving in the wind, with delicate natural stalks and shallow depth of field against softly blue-lit open air. Motion is subtle and photographic. The two views feel like one place and moment at different distances. No illustrated flowers, plastic botany or person.\nTypography: integrate the EXACT headline \"A longer view.\" once, in a small confident LIGHT sans-serif similar to DM Sans, warm ivory #F6F6EC, lower-left over the naturally dark forest-toned meadow area. One line, generous outer margins of about 8 percent. Letter height about 6 percent of image height and absolutely no more than 12 percent. The image remains dominant. The text must read exactly A longer view. with that capitalization and final period, no quotation marks. No separate text panel, box, text shadow, glow, outline, footer, logo or any other words. Do not let the type obscure grass seed heads or the split seam.",
+    "id": "editorial07-06",
+    "category": "editorial-07",
+    "status": "proposed",
+    "filetype": "PNG",
+    "generator": "image_gen (built-in)",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091e7-004f-7322-932a-429fcd92d069/exec-221bf094-5a01-4c5d-a58a-1f22c4a0b686.png",
+    "width": 1672,
+    "height": 941,
+    "preview": "assets/editorial-07/editorial-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-06.png"
+      },
+      {
+        "label": "Prompt TXT",
+        "path": "assets/editorial-07/editorial-06.txt"
+      }
+    ]
+  }
+]

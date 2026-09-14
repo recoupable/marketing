@@ -1,0 +1,62 @@
+[
+  {
+    "id": "linkedin-sky-cards",
+    "title": "09 \u00b7 Sky / music playbooks",
+    "description": "The website\u2019s blue sky and white, lime, and forest playbooks, composed for a wide banner.",
+    "group": "social",
+    "preview": "assets/linkedin-website/sky-cards.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-website/sky-cards.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-website/sky-cards.svg"
+      }
+    ],
+    "collection": "LinkedIn / website direction",
+    "current": true,
+    "tool": "linkedin-banners.html#sky-cards"
+  },
+  {
+    "id": "linkedin-skills-cards",
+    "title": "10 \u00b7 Paper / skills in focus",
+    "description": "The same layered playbook language as the website, with a concrete service headline.",
+    "group": "social",
+    "preview": "assets/linkedin-website/skills-cards.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-website/skills-cards.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-website/skills-cards.svg"
+      }
+    ],
+    "collection": "LinkedIn / website direction",
+    "current": true,
+    "tool": "linkedin-banners.html#skills-cards"
+  },
+  {
+    "id": "linkedin-connected-cards",
+    "title": "11 \u00b7 Forest / connected work",
+    "description": "Translucent data and catalog cards show the work behind the service.",
+    "group": "social",
+    "preview": "assets/linkedin-website/connected-cards.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/linkedin-website/connected-cards.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/linkedin-website/connected-cards.svg"
+      }
+    ],
+    "collection": "LinkedIn / website direction",
+    "current": true,
+    "tool": "linkedin-banners.html#connected-cards"
+  }
+]

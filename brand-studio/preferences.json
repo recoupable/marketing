@@ -1,0 +1,174 @@
+{
+  "date": "2026-09-12",
+  "shortlist": [
+    "editorial10-01",
+    "editorial10-02",
+    "editorial10-03",
+    "editorial10-04",
+    "editorial10-05",
+    "editorial10-06",
+    "editorial08-p01",
+    "editorial08-p02",
+    "editorial08-p03",
+    "editorial08-p04",
+    "editorial08-p05",
+    "layered04-review-gradient",
+    "layered04-review-headline",
+    "layered04-review-color",
+    "exp02-gradient-02",
+    "refine-cover-blue-lime",
+    "bg-05-01",
+    "bg-01-01",
+    "bg-06-01",
+    "lockup-lime"
+  ],
+  "primaryDirection": "Blue to lime / Fine grain is the favorite background: soft blue-to-lime diffusion with delicate, even analog grain. Editorial cover / Blue + lime remains the leading editorial application reference.",
+  "secondaryDirection": "Forest and lime remain a palette to explore, especially with blues and stronger contrast. The first forest-and-lime editorial cover did not pop enough and was not selected.",
+  "notSelected": "The other options reviewed were not liked. Do not carry them into new work. Later, unseen drafts remain unreviewed.",
+  "editorialFeedback": "The user loves Editorial cover / Blue + lime. Preserve the strong type against soft blue/lime atmosphere. The forest/lime cover is less compelling. Explore broader gradient color and noise variations, grainy airbrush, and forest with blue and lime.",
+  "approvalScope": "Preferred references only. New compositions require visual review.",
+  "notSelectedIds": [
+    "refine-cover-forest-lime",
+    "editorial07-01",
+    "editorial07-02",
+    "editorial07-03",
+    "editorial07-04",
+    "editorial07-05",
+    "editorial07-06",
+    "editorial07-07",
+    "editorial07-08",
+    "editorial07-09",
+    "editorial07-10"
+  ],
+  "latestRequest": {
+    "collection": "podcast-kit-v4",
+    "status": "proposed",
+    "scope": "Explore atmospheric abstractions with one line: exactRecoupicon + RecoupPodcast. RemoveThe andsubtitle."
+  },
+  "favoriteBackground": "exp02-gradient-02",
+  "backgroundFeedback": "The user selected Blue to lime / Fine grain as their favorite in round 02. Use this as the primary background reference for future variations.",
+  "layeredEditorialFeedback": "Explore graphics directly over textured gradients, versions with bold type, and other colored gradients. Preserve the favorite Blue to lime / Fine grain atmosphere as an anchor; new outputs remain proposed.",
+  "styleLabFeedback": "Round 04 remained too repetitive and combined choices too early. Test fine grain, diffused glass, and airbrush independently; include mostly lime with blue accents as well as mostly blue with lime accents. Separate literal color inversion from swapping dominance. Explore illustration and type styles with controlled comparisons.",
+  "favoriteEditorialReferences": [
+    "layered04-review-gradient",
+    "layered04-review-headline",
+    "layered04-review-color"
+  ],
+  "blogThumbnailFeedback": "The user selected all three source-review treatments as favorites: blue/lime illustration, blue/lime with headline, and forest/blue illustration. Requested twelve different blog thumbnails in this direction with different text styles.",
+  "editorialResetFeedback": {
+    "userFeedback": "The round 06 thumbnails are starting to feel cheap. Take a step back, screenshot the website, and create ten net-new variations that feel on brand, dynamic, and expensive/professional.",
+    "interpretation": "Reassess imagery, material, composition, color hierarchy, and typography instead of extending the same gradient-and-outlined-icon template. Earlier favorites are historical references, not approval of the latest application.",
+    "reviewedCollection": "blog-thumbnails",
+    "newCollection": "editorial-07",
+    "result": "User feedback after reviewing round 07: \"i dont think we've nailed any of the new editorial directions.\" No direction from this round is selected.",
+    "nextTest": "Clarify which graphic language should lead before generating another batch. Keep earlier blue/lime atmospheric preferences as references; do not infer that expensive means photorealistic or muted."
+  },
+  "editorialSystemFeedback": {
+    "source": "Explicit user feedback, September 11, 2026",
+    "requirements": [
+      "Avoid photoreal imagery; if photographic material is used later, blur it.",
+      "Prefer approximately 80% one dominant color so text stands out.",
+      "Avoid overly literal music imagery such as musicians.",
+      "Primary references are Anthropic and LangChain. Extract their systems and apply Recoup design."
+    ],
+    "system": "Small conceptual illustration or precise abstract pattern on a predominantly flat color field. Consistent open DM Sans typography.",
+    "supersedes": "Round07 photographic/material direction is not selected. Do not use it as the default for new covers.",
+    "approval": "The user likes the headline hierarchy and dominant-color palettes. Round08/09 pattern geometry is not approved: it feels copied from LangChain. Illustrations remain unresolved."
+  },
+  "favoriteThumbnailDirection": [
+    "editorial10-01",
+    "editorial10-02",
+    "editorial10-03",
+    "editorial10-04",
+    "editorial10-05",
+    "editorial10-06"
+  ],
+  "thumbnailRefinementFeedback": {
+    "source": "Explicit user feedback, September 11, 2026",
+    "selected": "Round08 type-and-pattern covers, all five palettes.",
+    "requestedChange": "Add only about5% gradient, a little edge. Preserve headline-first hierarchy and dominant color.",
+    "illustrations": "The family feels cohesive, but the illustrations are not yet clear enough. The fragments and arch are confusing. Further illustration work should support media inside articles.",
+    "articleVisuals": "Choose diagrams, charts, infographics, or occasional metaphorical or anthropomorphic illustration based on which best explains the idea. Metaphors are allowed; unclear symbolism is not the goal.",
+    "approvalScope": "Historical preference for type and palette only. Newest feedback rejects the pattern geometry and repetitive gradient placement."
+  },
+  "patternDirectionFeedback": {
+    "source": "Explicit user feedback, September 11, 2026, 9:33 PM screenshot",
+    "feedback": [
+      "The patterns feel like LangChain ripoffs. Find an original Recoup pattern language.",
+      "Applying the same gradient amount in the same location to every image feels repetitive, not art directed."
+    ],
+    "preserve": [
+      "Readable DM Sans headlines",
+      "Approximately80% one dominant color",
+      "Recoup blue, lime, forest, pale blue, and white"
+    ],
+    "nextStudy": "Six proposed directions based on Recoup offset blocks, curved joins, panels, bands, and soft imprint. Gradients follow each composition; a flat treatment is also included.",
+    "supersedes": "Do not treat the existing waves, converging terminal lines, or dot fields as approved patterns. Do not default to identical bottom-right glows.",
+    "result": "User reviewed round10 and said: i like them all. The six new native pattern directions are preferred references."
+  },
+  "favoriteThumbnailDirectionScope": "The user liked all six round10 native pattern directions. Preserve them as preferred references; round11 refinements need visual review.",
+  "patternPolishFeedback": {
+    "source": "User accepted the proposed refinement pass with do it.",
+    "preserve": "All six original round10 covers, their layout family, readable DM Sans, and palette.",
+    "test": [
+      "Consistent geometry within each pattern",
+      "Purposeful pattern choice per article",
+      "Selective surface texture and light",
+      "Cleaner lime layer and removal of the panel dash",
+      "Extra breathing room for longer type",
+      "Original/refined comparisons and a real-size blog grid"
+    ],
+    "approvalScope": "Originals are liked references. New refinements remain proposed.",
+    "result": "User said the differences were not visible. The round11 polish is too subtle to count as a meaningful thumbnail improvement."
+  },
+  "editorialExperimentFeedback": {
+    "source": "Explicit user request, September 11, 2026",
+    "instructions": [
+      "Extract principles from references without copying.",
+      "Do not stick to curved blocks. Experiment and have fun."
+    ],
+    "preserve": "Earlier favorites remain available. These experiments are not approved."
+  },
+  "favoriteTypography": {
+    "source": "Explicit user feedback with round10 screenshot, September 11, 2026",
+    "font": "DM Sans",
+    "weight": 450,
+    "sizeAt1920": 110,
+    "lineSpacing": 125,
+    "tracking": -4.95,
+    "instruction": "Preserve this typography for subsequent thumbnail pattern experiments."
+  },
+  "patternEnergyFeedback": {
+    "source": "User: i like these fonts and text sizes. but the patterns can be more fun and dynamic.",
+    "direction": "Keep typography exact; explore rotation, overlaps, irregular rhythms, and stronger crops. Do not limit the geometry to curved blocks.",
+    "approval": "Round14 is proposed for review. The preferred type does not imply approval of the new patterns."
+  },
+  "patternCoverageFeedback": {
+    "source": "User: i think your not exploring these types of options. where they take up more space",
+    "direction": "Use full-canvas repeats, oversized crops, and patterns continuing behind text. Dominant color does not mean empty space. Preserve the preferred font and sizing.",
+    "references": "Tonal repeated shapes covering a full surface; monumental nested forms occupying most of a cover. Extract coverage and scale principles without copying the reference motifs.",
+    "approval": "Round15 is proposed. Earlier favorites and review history remain unchanged."
+  },
+  "patternScaleBalance": {
+    "source": "User: meet in the middle ... as long as some are the smaller way and some are the bigger way. dynamic.",
+    "direction": "Use a varied mix of small accents, medium patterns, and full-canvas patterns within the overall brand. Do not force all assets into one coverage level.",
+    "scope": "The user accepts the mixed-scale direction and moved on to redesigning the podcast kit; individual new podcast options remain proposed."
+  },
+  "podcastIdentityFeedback": {
+    "source": "Explicit user feedback September 12, 2026 with selected centered intro screenshot.",
+    "preferredFormat": "Centered Recoup symbol above one-line The Recoup Podcast and a centered subtitle. Preserve the layout and size.",
+    "rejectedDirections": [
+      "Cut & shift",
+      "Open & overlap"
+    ],
+    "background": "Try color variations and different patterns. More pattern toward the corners, less in the middle. The old all-over forest background is not selected.",
+    "typography": "Recoup should use the website wordmark font and thickness. The and Podcast should be thinner.",
+    "scope": "The title format is preferred; Study03 palettes and corner patterns remain options for review."
+  },
+  "podcastSingleLineFeedback": {
+    "source": "User: they have1line ... makeours[icon]RecoupPodcast",
+    "identity": "Single horizontal centered icon, Recoupwordmark600, Podcast300. NoThe. Nosubtitle.",
+    "background": "Larger original abstract forms, varied scale/density, selectiveblur,finegrain andlightthroughpattern. Quietercentermeanslowercontrast, notblankmiddle.",
+    "approvalScope": "Identity arrangement explicitlyrequested; sixbackgroundsproposed."
+  }
+}

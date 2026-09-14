@@ -1,0 +1,594 @@
+[
+  {
+    "id": "bg-01-02",
+    "family": "photographic",
+    "style": "Soft-focus fields",
+    "title": "Soft-focus fields / Forest + ice",
+    "description": "Dark pine-green meadow at dawn under a luminous misty horizon.",
+    "paletteId": "forest-ice",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Soft-focus fields. A real field reduced to an atmospheric impression: low meadows, grasses, distant hills, broad bands of daylight. Explore how much of the literal landscape can disappear while its color and feeling remain.\nThis variation: dark pine-green meadow at dawn under a luminous misty horizon.\nColor direction: Deep forest atmosphere with luminous ice-blue light. Use this selected palette as a color family, allowing natural tonal transitions: #132B26, #245044, #BDE4F4, #F0F7FA.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-01-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-01-02.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-ad6f97b1-23dc-4e82-93cd-81db9e891943.png"
+  },
+  {
+    "id": "bg-01-03",
+    "family": "photographic",
+    "style": "Soft-focus fields",
+    "title": "Soft-focus fields / Pale daylight",
+    "description": "Almost-white haze over pale grass, barely visible low hills.",
+    "paletteId": "pale-day",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Soft-focus fields. A real field reduced to an atmospheric impression: low meadows, grasses, distant hills, broad bands of daylight. Explore how much of the literal landscape can disappear while its color and feeling remain.\nThis variation: almost-white haze over pale grass, barely visible low hills.\nColor direction: High-key pale daylight, gentle washed blue and pistachio; airy, not grey. Use this selected palette as a color family, allowing natural tonal transitions: #FFFFFF, #DFEFF1, #6BBDF2, #C4DC98.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-01-03.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-01-03.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-747a8fa4-e172-4699-bd5b-c6d9ecb86fbc.png"
+  },
+  {
+    "id": "bg-01-04",
+    "family": "photographic",
+    "style": "Soft-focus fields",
+    "title": "Soft-focus fields / Electric blue",
+    "description": "Intense clear sky and a dark blurred hillside sweeping up from one lower corner.",
+    "paletteId": "electric-depth",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Soft-focus fields. A real field reduced to an atmospheric impression: low meadows, grasses, distant hills, broad bands of daylight. Explore how much of the literal landscape can disappear while its color and feeling remain.\nThis variation: intense clear sky and a dark blurred hillside sweeping up from one lower corner.\nColor direction: Vivid blue light with substantial dark blue depth, small white highlights. Use this selected palette as a color family, allowing natural tonal transitions: #0789EE, #075885, #103442, #FFFFFF.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-01-04.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-01-04.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-755fced2-dd65-4da0-b126-8f10e21df37f.png"
+  },
+  {
+    "id": "bg-01-05",
+    "family": "photographic",
+    "style": "Soft-focus fields",
+    "title": "Soft-focus fields / Lime forward",
+    "description": "Close grass seen completely out of focus as large lime and green washes.",
+    "paletteId": "lime-field",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Soft-focus fields. A real field reduced to an atmospheric impression: low meadows, grasses, distant hills, broad bands of daylight. Explore how much of the literal landscape can disappear while its color and feeling remain.\nThis variation: close grass seen completely out of focus as large lime and green washes.\nColor direction: Fresh lime and green dominate; warm chalk is the quiet space. Use this selected palette as a color family, allowing natural tonal transitions: #D6FF62, #9EC26B, #4C6E4A, #F3F2E8.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-01-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-01-05.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-adbec881-b67b-4e0a-ab63-d801e643267a.png"
+  },
+  {
+    "id": "bg-01-06",
+    "family": "photographic",
+    "style": "Soft-focus fields",
+    "title": "Soft-focus fields / Chalk + forest",
+    "description": "A meadow remembered through fog, chalk sky and forest-green land.",
+    "paletteId": "chalk-forest",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Soft-focus fields. A real field reduced to an atmospheric impression: low meadows, grasses, distant hills, broad bands of daylight. Explore how much of the literal landscape can disappear while its color and feeling remain.\nThis variation: a meadow remembered through fog, chalk sky and forest-green land.\nColor direction: Restrained chalk and forest contrast, sage midtones; no bright blue. Use this selected palette as a color family, allowing natural tonal transitions: #F3F2E8, #132B26, #829D7A.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-01-06.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-01-06.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-70b2e9a7-40a8-4759-a9d1-1e0deee9d743.png"
+  },
+  {
+    "id": "bg-02-01",
+    "family": "photographic",
+    "style": "Water reflections",
+    "title": "Water reflections / Blue + lime",
+    "description": "Sky reflections on shallow ripples with small lime reeds beyond focus.",
+    "paletteId": "blue-lime",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Water reflections. Natural water photographed deliberately out of focus: reflections, shallow ripples, sunlight and atmosphere. The result should feel like photography on an independent record sleeve, not a stock beach postcard.\nThis variation: sky reflections on shallow ripples with small lime reeds beyond focus.\nColor direction: Blue is dominant, lime is the bright organic accent, forest adds depth. Use this selected palette as a color family, allowing natural tonal transitions: #007EBD, #D6FF62, #132B26, #F0F7FA.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/open-sky.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-02-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-02-01.png"
+      }
+    ],
+    "width": 1672,
+    "height": 940,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-e13b4aaa-5cf2-4994-97fa-387697d19cb3.png"
+  },
+  {
+    "id": "bg-02-02",
+    "family": "photographic",
+    "style": "Water reflections",
+    "title": "Water reflections / Forest + ice",
+    "description": "A shaded forest pond reflecting a pale open sky.",
+    "paletteId": "forest-ice",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Water reflections. Natural water photographed deliberately out of focus: reflections, shallow ripples, sunlight and atmosphere. The result should feel like photography on an independent record sleeve, not a stock beach postcard.\nThis variation: a shaded forest pond reflecting a pale open sky.\nColor direction: Deep forest atmosphere with luminous ice-blue light. Use this selected palette as a color family, allowing natural tonal transitions: #132B26, #245044, #BDE4F4, #F0F7FA.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/open-sky.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-02-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-02-02.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-e8e325f3-8936-4f49-8c32-f4db50359c1e.png"
+  },
+  {
+    "id": "bg-02-05",
+    "family": "photographic",
+    "style": "Water reflections",
+    "title": "Water reflections / Lime forward",
+    "description": "Green algae and reflected foliage become lime color pools on water.",
+    "paletteId": "lime-field",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Water reflections. Natural water photographed deliberately out of focus: reflections, shallow ripples, sunlight and atmosphere. The result should feel like photography on an independent record sleeve, not a stock beach postcard.\nThis variation: green algae and reflected foliage become lime color pools on water.\nColor direction: Fresh lime and green dominate; warm chalk is the quiet space. Use this selected palette as a color family, allowing natural tonal transitions: #D6FF62, #9EC26B, #4C6E4A, #F3F2E8.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/open-sky.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-02-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-02-05.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-78e62419-2284-4593-bb37-478e45142bee.png"
+  },
+  {
+    "id": "bg-02-09",
+    "family": "photographic",
+    "style": "Water reflections",
+    "title": "Water reflections / Reference tonality",
+    "description": "Sky reference translated into moving-water color and reflected cloud shapes.",
+    "paletteId": "reference-tonality",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Water reflections. Natural water photographed deliberately out of focus: reflections, shallow ripples, sunlight and atmosphere. The result should feel like photography on an independent record sleeve, not a stock beach postcard.\nThis variation: sky reference translated into moving-water color and reflected cloud shapes.\nColor direction: No numeric palette. Derive color balance and emotional temperature from the supplied reference, interpreting it freely instead of copying the composition.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/open-sky.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-02-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-02-09.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-8c560b1b-316e-4f51-8fa3-158deedf5e97.png"
+  },
+  {
+    "id": "bg-02-10",
+    "family": "photographic",
+    "style": "Water reflections",
+    "title": "Water reflections / Open exploration",
+    "description": "Near-abstract water reflections at a different hour, gentle natural unexpected tones.",
+    "paletteId": "open-exploration",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Water reflections. Natural water photographed deliberately out of focus: reflections, shallow ripples, sunlight and atmosphere. The result should feel like photography on an independent record sleeve, not a stock beach postcard.\nThis variation: near-abstract water reflections at a different hour, gentle natural unexpected tones.\nColor direction: No imposed palette. Explore a natural or artistic color relationship suggested by this medium and light. This is an intentional open-color control within the study; maintain the quiet composition and tactile atmosphere.\nThis is an intentionally open exploration with no reference image.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-02-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-02-10.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-d0b55266-4733-42dd-acba-68a89a23000c.png"
+  },
+  {
+    "id": "bg-03-01",
+    "family": "photographic",
+    "style": "Light through foliage",
+    "title": "Light through foliage / Blue + lime",
+    "description": "Lime leaves blurred against wide blue sky, foliage only near two edges.",
+    "paletteId": "blue-lime",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Light through foliage. Light filtered through leaves, photographed with intentionally missed focus. Organic leaf shadows, luminous gaps and bokeh create atmosphere; no sharply defined plant subject.\nThis variation: lime leaves blurred against wide blue sky, foliage only near two edges.\nColor direction: Blue is dominant, lime is the bright organic accent, forest adds depth. Use this selected palette as a color family, allowing natural tonal transitions: #007EBD, #D6FF62, #132B26, #F0F7FA.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-03-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-03-01.png"
+      }
+    ],
+    "width": 1668,
+    "height": 943,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-91afa959-9a04-438c-a60d-b936f287dd13.png"
+  },
+  {
+    "id": "bg-03-02",
+    "family": "photographic",
+    "style": "Light through foliage",
+    "title": "Light through foliage / Forest + ice",
+    "description": "Deep forest canopy with ice-blue sunlit gaps.",
+    "paletteId": "forest-ice",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Light through foliage. Light filtered through leaves, photographed with intentionally missed focus. Organic leaf shadows, luminous gaps and bokeh create atmosphere; no sharply defined plant subject.\nThis variation: deep forest canopy with ice-blue sunlit gaps.\nColor direction: Deep forest atmosphere with luminous ice-blue light. Use this selected palette as a color family, allowing natural tonal transitions: #132B26, #245044, #BDE4F4, #F0F7FA.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-03-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-03-02.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-12ce269f-4727-4492-a466-6763240d5d2f.png"
+  },
+  {
+    "id": "bg-03-05",
+    "family": "photographic",
+    "style": "Light through foliage",
+    "title": "Light through foliage / Lime forward",
+    "description": "Backlit leaves reduced to large lime translucent shapes.",
+    "paletteId": "lime-field",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Light through foliage. Light filtered through leaves, photographed with intentionally missed focus. Organic leaf shadows, luminous gaps and bokeh create atmosphere; no sharply defined plant subject.\nThis variation: backlit leaves reduced to large lime translucent shapes.\nColor direction: Fresh lime and green dominate; warm chalk is the quiet space. Use this selected palette as a color family, allowing natural tonal transitions: #D6FF62, #9EC26B, #4C6E4A, #F3F2E8.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-03-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-03-05.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-2eb1fa20-88d1-4e8c-8942-f81d59eb345a.png"
+  },
+  {
+    "id": "bg-03-09",
+    "family": "photographic",
+    "style": "Light through foliage",
+    "title": "Light through foliage / Reference tonality",
+    "description": "Color and daylight from the supplied meadow translated into canopy bokeh.",
+    "paletteId": "reference-tonality",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Light through foliage. Light filtered through leaves, photographed with intentionally missed focus. Organic leaf shadows, luminous gaps and bokeh create atmosphere; no sharply defined plant subject.\nThis variation: color and daylight from the supplied meadow translated into canopy bokeh.\nColor direction: No numeric palette. Derive color balance and emotional temperature from the supplied reference, interpreting it freely instead of copying the composition.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-03-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-03-09.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-8eb66ec2-ba0c-4b21-8dac-cfcce70ff206.png"
+  },
+  {
+    "id": "bg-03-10",
+    "family": "photographic",
+    "style": "Light through foliage",
+    "title": "Light through foliage / Open exploration",
+    "description": "Extreme defocus of organic shadows and daylight, inspired by analog music photography.",
+    "paletteId": "open-exploration",
+    "prompt": "Use case: photorealistic-natural. The visual can approach abstraction through real defocus, movement and diffusion. Optical softness throughout; no crisply resolved distracting foreground. Fine analog grain, believable light.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Light through foliage. Light filtered through leaves, photographed with intentionally missed focus. Organic leaf shadows, luminous gaps and bokeh create atmosphere; no sharply defined plant subject.\nThis variation: extreme defocus of organic shadows and daylight, inspired by analog music photography.\nColor direction: No imposed palette. Explore a natural or artistic color relationship suggested by this medium and light. This is an intentional open-color control within the study; maintain the quiet composition and tactile atmosphere.\nThis is an intentionally open exploration with no reference image.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-03-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-03-10.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-87b81ce4-ca09-4201-9741-b57a8d3a7037.png"
+  },
+  {
+    "id": "bg-07-01",
+    "family": "abstract",
+    "style": "Risograph and halftone",
+    "title": "Risograph and halftone / Blue + lime",
+    "description": "Oversized blue halftone disc cropped beyond frame with irregular lime overprint.",
+    "paletteId": "blue-lime",
+    "prompt": "Use case: stylized-concept. Contemporary independent music culture graphic art, tactile material character. Make the medium distinct and the composition considered.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Risograph and halftone. Scanned risograph/silkscreen graphic background: visible ink grain, imperfect registration, oversized abstract forms and dot fields, intentional independent music-poster culture. Sparse hierarchy, no typography.\nThis variation: oversized blue halftone disc cropped beyond frame with irregular lime overprint.\nColor direction: Blue is dominant, lime is the bright organic accent, forest adds depth. Use this selected palette as a color family, allowing natural tonal transitions: #007EBD, #D6FF62, #132B26, #F0F7FA.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-07-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-07-01.png"
+      }
+    ],
+    "width": 1667,
+    "height": 943,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-c514fa92-0828-4e1c-be71-1c12e46fa203.png"
+  },
+  {
+    "id": "bg-07-02",
+    "family": "abstract",
+    "style": "Risograph and halftone",
+    "title": "Risograph and halftone / Forest + ice",
+    "description": "Forest-green block printing over pale ice paper, sparse scattered ink.",
+    "paletteId": "forest-ice",
+    "prompt": "Use case: stylized-concept. Contemporary independent music culture graphic art, tactile material character. Make the medium distinct and the composition considered.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Risograph and halftone. Scanned risograph/silkscreen graphic background: visible ink grain, imperfect registration, oversized abstract forms and dot fields, intentional independent music-poster culture. Sparse hierarchy, no typography.\nThis variation: forest-green block printing over pale ice paper, sparse scattered ink.\nColor direction: Deep forest atmosphere with luminous ice-blue light. Use this selected palette as a color family, allowing natural tonal transitions: #132B26, #245044, #BDE4F4, #F0F7FA.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-07-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-07-02.png"
+      }
+    ],
+    "width": 1668,
+    "height": 943,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-2e961e19-513a-40b1-8769-feb100fd0180.png"
+  },
+  {
+    "id": "bg-07-05",
+    "family": "abstract",
+    "style": "Risograph and halftone",
+    "title": "Risograph and halftone / Lime forward",
+    "description": "Lime ink with moss-green irregular print shapes.",
+    "paletteId": "lime-field",
+    "prompt": "Use case: stylized-concept. Contemporary independent music culture graphic art, tactile material character. Make the medium distinct and the composition considered.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Risograph and halftone. Scanned risograph/silkscreen graphic background: visible ink grain, imperfect registration, oversized abstract forms and dot fields, intentional independent music-poster culture. Sparse hierarchy, no typography.\nThis variation: lime ink with moss-green irregular print shapes.\nColor direction: Fresh lime and green dominate; warm chalk is the quiet space. Use this selected palette as a color family, allowing natural tonal transitions: #D6FF62, #9EC26B, #4C6E4A, #F3F2E8.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-07-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-07-05.png"
+      }
+    ],
+    "width": 1668,
+    "height": 943,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-24aa587e-d92d-499b-989f-44009fc76694.png"
+  },
+  {
+    "id": "bg-07-09",
+    "family": "abstract",
+    "style": "Risograph and halftone",
+    "title": "Risograph and halftone / Reference tonality",
+    "description": "Meadow colors translated into abstract imperfect screenprinted bands.",
+    "paletteId": "reference-tonality",
+    "prompt": "Use case: stylized-concept. Contemporary independent music culture graphic art, tactile material character. Make the medium distinct and the composition considered.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Risograph and halftone. Scanned risograph/silkscreen graphic background: visible ink grain, imperfect registration, oversized abstract forms and dot fields, intentional independent music-poster culture. Sparse hierarchy, no typography.\nThis variation: meadow colors translated into abstract imperfect screenprinted bands.\nColor direction: No numeric palette. Derive color balance and emotional temperature from the supplied reference, interpreting it freely instead of copying the composition.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/meadow.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-07-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-07-09.png"
+      }
+    ],
+    "width": 1667,
+    "height": 943,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-7867d05b-b0a9-45e6-9459-cca93647d091.png"
+  },
+  {
+    "id": "bg-07-10",
+    "family": "abstract",
+    "style": "Risograph and halftone",
+    "title": "Risograph and halftone / Open exploration",
+    "description": "Open-color screenprint experiment inspired by independent record artwork, two contrasting inks.",
+    "paletteId": "open-exploration",
+    "prompt": "Use case: stylized-concept. Contemporary independent music culture graphic art, tactile material character. Make the medium distinct and the composition considered.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Risograph and halftone. Scanned risograph/silkscreen graphic background: visible ink grain, imperfect registration, oversized abstract forms and dot fields, intentional independent music-poster culture. Sparse hierarchy, no typography.\nThis variation: open-color screenprint experiment inspired by independent record artwork, two contrasting inks.\nColor direction: No imposed palette. Explore a natural or artistic color relationship suggested by this medium and light. This is an intentional open-color control within the study; maintain the quiet composition and tactile atmosphere.\nThis is an intentionally open exploration with no reference image.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-07-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-07-10.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-f460a0e9-6a08-4125-bfde-9c265b597ecd.png"
+  },
+  {
+    "id": "bg-08-01",
+    "family": "abstract",
+    "style": "Fluid pigment",
+    "title": "Fluid pigment / Blue + lime",
+    "description": "Blue ink gently meets one lime bloom with a wide quiet center.",
+    "paletteId": "blue-lime",
+    "prompt": "Use case: stylized-concept. Contemporary independent music culture graphic art, tactile material character. Make the medium distinct and the composition considered.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Fluid pigment. Tactile abstract pigment study: ink in liquid or paint spreading on wet paper. Organic flowing boundaries, cloudy blooms, capillary texture. Contemporary art direction, avoid generic rainbow marbling and busy psychedelic swirls.\nThis variation: blue ink gently meets one lime bloom with a wide quiet center.\nColor direction: Blue is dominant, lime is the bright organic accent, forest adds depth. Use this selected palette as a color family, allowing natural tonal transitions: #007EBD, #D6FF62, #132B26, #F0F7FA.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/open-sky.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-08-01.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-08-01.png"
+      }
+    ],
+    "width": 1668,
+    "height": 943,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-b19f0c8f-9be4-42ee-8b7c-ce6a1cb9575b.png"
+  },
+  {
+    "id": "bg-08-02",
+    "family": "abstract",
+    "style": "Fluid pigment",
+    "title": "Fluid pigment / Forest + ice",
+    "description": "Forest pigment dissolves into an icy pale wash.",
+    "paletteId": "forest-ice",
+    "prompt": "Use case: stylized-concept. Contemporary independent music culture graphic art, tactile material character. Make the medium distinct and the composition considered.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Fluid pigment. Tactile abstract pigment study: ink in liquid or paint spreading on wet paper. Organic flowing boundaries, cloudy blooms, capillary texture. Contemporary art direction, avoid generic rainbow marbling and busy psychedelic swirls.\nThis variation: forest pigment dissolves into an icy pale wash.\nColor direction: Deep forest atmosphere with luminous ice-blue light. Use this selected palette as a color family, allowing natural tonal transitions: #132B26, #245044, #BDE4F4, #F0F7FA.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/open-sky.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-08-02.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-08-02.png"
+      }
+    ],
+    "width": 1668,
+    "height": 943,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-a24a0a38-d9ce-4cd2-bbaa-6d9705b3a700.png"
+  },
+  {
+    "id": "bg-08-05",
+    "family": "abstract",
+    "style": "Fluid pigment",
+    "title": "Fluid pigment / Lime forward",
+    "description": "Lime pigment suspended in moss green with chalk pockets.",
+    "paletteId": "lime-field",
+    "prompt": "Use case: stylized-concept. Contemporary independent music culture graphic art, tactile material character. Make the medium distinct and the composition considered.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Fluid pigment. Tactile abstract pigment study: ink in liquid or paint spreading on wet paper. Organic flowing boundaries, cloudy blooms, capillary texture. Contemporary art direction, avoid generic rainbow marbling and busy psychedelic swirls.\nThis variation: lime pigment suspended in moss green with chalk pockets.\nColor direction: Fresh lime and green dominate; warm chalk is the quiet space. Use this selected palette as a color family, allowing natural tonal transitions: #D6FF62, #9EC26B, #4C6E4A, #F3F2E8.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/open-sky.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-08-05.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-08-05.png"
+      }
+    ],
+    "width": 1668,
+    "height": 943,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-97ff17ca-9cdf-439c-8e01-a9c6a68e3bb3.png"
+  },
+  {
+    "id": "bg-08-09",
+    "family": "abstract",
+    "style": "Fluid pigment",
+    "title": "Fluid pigment / Reference tonality",
+    "description": "Translate the reference cloud masses into fluid abstract pigment clouds.",
+    "paletteId": "reference-tonality",
+    "prompt": "Use case: stylized-concept. Contemporary independent music culture graphic art, tactile material character. Make the medium distinct and the composition considered.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Fluid pigment. Tactile abstract pigment study: ink in liquid or paint spreading on wet paper. Organic flowing boundaries, cloudy blooms, capillary texture. Contemporary art direction, avoid generic rainbow marbling and busy psychedelic swirls.\nThis variation: translate the reference cloud masses into fluid abstract pigment clouds.\nColor direction: No numeric palette. Derive color balance and emotional temperature from the supplied reference, interpreting it freely instead of copying the composition.\nInput image is a tonal and atmospheric reference only. Derive light, feeling and color relationships from it; create a new composition in the specified medium, do not duplicate the original scene.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/environments/open-sky.webp"
+    ],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-08-09.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-08-09.png"
+      }
+    ],
+    "width": 1668,
+    "height": 943,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-b30c2f4b-9c93-4f3b-8061-cd0e97acb3e9.png"
+  },
+  {
+    "id": "bg-08-10",
+    "family": "abstract",
+    "style": "Fluid pigment",
+    "title": "Fluid pigment / Open exploration",
+    "description": "One open-color pigment interaction, imperfect organic edges and calm areas.",
+    "paletteId": "open-exploration",
+    "prompt": "Use case: stylized-concept. Contemporary independent music culture graphic art, tactile material character. Make the medium distinct and the composition considered.\nAsset: ONE complete 16:9 landscape background, high-resolution. No contact sheet, collage of options, or border.\nStyle: Fluid pigment. Tactile abstract pigment study: ink in liquid or paint spreading on wet paper. Organic flowing boundaries, cloudy blooms, capillary texture. Contemporary art direction, avoid generic rainbow marbling and busy psychedelic swirls.\nThis variation: one open-color pigment interaction, imperfect organic edges and calm areas.\nColor direction: No imposed palette. Explore a natural or artistic color relationship suggested by this medium and light. This is an intentional open-color control within the study; maintain the quiet composition and tactile atmosphere.\nThis is an intentionally open exploration with no reference image.\nComposition: broad low-detail zones, interesting character at edges or along one large gesture, useful behind crisp graphic cards or a headline. No type, letters, numerals, logos, symbols, interface, product mockup, people, watermark, or frame. This is background artwork only. Avoid corporate presentation gradients, generic tech neon, robots, planets and literal music clipart.",
+    "referenced_image_paths": [],
+    "status": "proposed",
+    "category": "backgrounds",
+    "preview": "assets/backgrounds/bg-08-10.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/backgrounds/bg-08-10.png"
+      }
+    ],
+    "width": 1672,
+    "height": 941,
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-fa31722a-5102-4f6f-bf93-928b0cb7a561.png"
+  }
+]

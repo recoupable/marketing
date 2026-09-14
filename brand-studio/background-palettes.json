@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "status": "Exploration palette; existing core colors retained, derived colors proposed",
+  "core": [
+    [
+      "Sky",
+      "#007EBD"
+    ],
+    [
+      "Forest",
+      "#132B26"
+    ],
+    [
+      "Lime",
+      "#D6FF62"
+    ],
+    [
+      "White",
+      "#FFFFFF"
+    ],
+    [
+      "Ink",
+      "#152E37"
+    ],
+    [
+      "Ice",
+      "#F0F7FA"
+    ]
+  ],
+  "derived": [
+    [
+      "Electric sky",
+      "#0789EE"
+    ],
+    [
+      "Cornflower",
+      "#6BBDF2"
+    ],
+    [
+      "Glacier",
+      "#BDE4F4"
+    ],
+    [
+      "Mist",
+      "#DFEFF1"
+    ],
+    [
+      "Deep blue",
+      "#075885"
+    ],
+    [
+      "Midnight blue",
+      "#103442"
+    ],
+    [
+      "Pine",
+      "#245044"
+    ],
+    [
+      "Sage",
+      "#829D7A"
+    ],
+    [
+      "Meadow",
+      "#9EC26B"
+    ],
+    [
+      "Pistachio",
+      "#C4DC98"
+    ],
+    [
+      "Lime haze",
+      "#E9F5BD"
+    ],
+    [
+      "Chalk",
+      "#F3F2E8"
+    ],
+    [
+      "Cloud",
+      "#FAFCFC"
+    ],
+    [
+      "Silver blue",
+      "#ADC4CB"
+    ],
+    [
+      "Smoke",
+      "#617879"
+    ],
+    [
+      "Moss",
+      "#4C6E4A"
+    ]
+  ],
+  "combinations": [
+    {
+      "id": "blue-lime",
+      "name": "Blue + lime",
+      "colors": [
+        "#007EBD",
+        "#D6FF62",
+        "#132B26",
+        "#F0F7FA"
+      ],
+      "instruction": "Blue is dominant, lime is the bright organic accent, forest adds depth."
+    },
+    {
+      "id": "forest-ice",
+      "name": "Forest + ice",
+      "colors": [
+        "#132B26",
+        "#245044",
+        "#BDE4F4",
+        "#F0F7FA"
+      ],
+      "instruction": "Deep forest atmosphere with luminous ice-blue light."
+    },
+    {
+      "id": "pale-day",
+      "name": "Pale daylight",
+      "colors": [
+        "#FFFFFF",
+        "#DFEFF1",
+        "#6BBDF2",
+        "#C4DC98"
+      ],
+      "instruction": "High-key pale daylight, gentle washed blue and pistachio; airy, not grey."
+    },
+    {
+      "id": "electric-depth",
+      "name": "Electric blue",
+      "colors": [
+        "#0789EE",
+        "#075885",
+        "#103442",
+        "#FFFFFF"
+      ],
+      "instruction": "Vivid blue light with substantial dark blue depth, small white highlights."
+    },
+    {
+      "id": "lime-field",
+      "name": "Lime forward",
+      "colors": [
+        "#D6FF62",
+        "#9EC26B",
+        "#4C6E4A",
+        "#F3F2E8"
+      ],
+      "instruction": "Fresh lime and green dominate; warm chalk is the quiet space."
+    },
+    {
+      "id": "chalk-forest",
+      "name": "Chalk + forest",
+      "colors": [
+        "#F3F2E8",
+        "#132B26",
+        "#829D7A"
+      ],
+      "instruction": "Restrained chalk and forest contrast, sage midtones; no bright blue."
+    },
+    {
+      "id": "blue-hour",
+      "name": "Blue hour",
+      "colors": [
+        "#103442",
+        "#075885",
+        "#007EBD",
+        "#ADC4CB"
+      ],
+      "instruction": "Moody blue hour, quiet reflective light, cinematic but not futuristic."
+    },
+    {
+      "id": "washed-color",
+      "name": "Washed color",
+      "colors": [
+        "#BDE4F4",
+        "#C4DC98",
+        "#E9F5BD",
+        "#FAFCFC"
+      ],
+      "instruction": "Soft faded pigments, palest blue and lime haze, fine analog grain."
+    },
+    {
+      "id": "reference-tonality",
+      "name": "Reference tonality",
+      "colors": [],
+      "instruction": "No numeric palette. Derive color balance and emotional temperature from the supplied reference, interpreting it freely instead of copying the composition."
+    },
+    {
+      "id": "open-exploration",
+      "name": "Open exploration",
+      "colors": [],
+      "instruction": "No imposed palette. Explore a natural or artistic color relationship suggested by this medium and light. This is an intentional open-color control within the study; maintain the quiet composition and tactile atmosphere."
+    }
+  ]
+}

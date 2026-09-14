@@ -1,0 +1,130 @@
+[
+  {
+    "id": "editorial07-07",
+    "title": "Printed research edition",
+    "sampleTitle": "What catalog intelligence should actually tell you",
+    "description": "A tactile research journal gives catalog intelligence the weight of a considered publication. Light type, a debossed blue circle and a tiny lime folio keep the cover restrained.",
+    "medium": "Physical publication photography",
+    "typography": "Light Swiss sans-serif, printed at book-cover scale",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-cc53910a-eeb6-44b7-b86a-d5332eefb9f2.png",
+    "preview": "assets/editorial-07/editorial-07.png",
+    "category": "editorial-07",
+    "status": "proposed",
+    "filetype": "PNG",
+    "prompt": "Use case: product-mockup.\nAsset: one premium editorial blog cover, full-bleed 16:9 landscape PNG, about 1672\u00d7941.\nConcept: Printed research edition, for an article about what catalog intelligence should actually tell you.\nCreate high-end physical editorial photography of a beautifully made forest-green linen-paper research journal/book jacket resting on a pale warm ivory surface. Extreme off-center editorial crop: the book lies mostly in the right two-thirds, extends beyond the lower/right image edges, rotated subtly relative to the frame. Keep enough of the front cover visible to read its complete restrained title. The left has luminous clean surface and an elegant real shadow, not staged clutter.\nReal tactile materials: fine forest #163A2F linen/paper weave, crisp bound edge, a single blue #008BCB circle physically debossed into the cover with subtle depth and ink, and one tiny lime #D3FF5F folio-like registration rectangle. Photograph the object at real scale with exquisite daylight from upper left; shallow physical relief, no exaggerated CGI beveling or glossy plastic. Calm open-space art direction, collectible independent research publication.\nThe only readable text, printed in a light Swiss sans-serif on the cover in warm ivory, is EXACTLY:\nCatalog intelligence\nUse a small, refined editorial scale, clear but never heavy or oversized. Fit the whole title within the visible front cover. No other words, folio numbers, logos, fake publisher branding, captions, UI, clipart, flat document icons, thick outlines, cartoons or computer gradient background. Palette stays forest, warm ivory #F6F6EC, clear blue, with the tiny lime accent only. A believable photographed book, not a flat graphic of one.",
+    "referencePaths": [],
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941,
+    "dimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-07.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-07/editorial-07.txt"
+      }
+    ]
+  },
+  {
+    "id": "editorial07-08",
+    "title": "Studio instrument",
+    "sampleTitle": "Connecting the tools your team already uses",
+    "description": "A close study of a real fader connects the story to familiar music tools. Brushed metal, cool daylight and a single lime control create a focused material image.",
+    "medium": "Macro product editorial photography",
+    "typography": "No text",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-8f65d78d-8cb3-4292-9c02-d1989f9339bd.png",
+    "preview": "assets/editorial-07/editorial-08.png",
+    "category": "editorial-07",
+    "status": "proposed",
+    "filetype": "PNG",
+    "prompt": "Use case: photorealistic-natural.\nAsset: one premium music-technology editorial blog photograph, full-bleed 16:9 landscape PNG, about 1672\u00d7941.\nConcept: Studio instrument, for an article about connecting the tools your team already uses.\nAn intimate widescreen MACRO photograph of one real mixing-console fader mechanism: finely brushed aluminum, a forest-green #163A2F channel strip, a single precisely machined bright lime #D3FF5F fader knob with believable small mechanical details. Crop extremely close, so we see one slider channel and tactile edges, not a full generic desk. The elongated fader slot and brushed metal planes travel diagonally through an asymmetric composition; the focal lime knob sits toward the right, with quiet softly blurred pale metal extending left. Include no extraneous controls.\nCool natural blue daylight, tinted #008BCB and pale sky #86C8E1, grazes the brushed surface and makes the fine metal texture real. Shallow photographic depth of field with selective focus on the knob, gentle physical reflections, restrained highlights, subtle use patina, sophisticated industrial editorial photography. Forest and sky reflections ground the image; lime is a small purposeful focal accent, not a glowing neon object.\nNo words, numbers, logos, brand marks, labels or dates anywhere. No illustrated outlines, icons, cartoons, robots, plastic 3D rendering, chrome sci-fi, fake dashboards, heavy vignette, smoke, generic whole mixing desk or fake digital gradient background. Clean photorealistic material intelligence, open daylight and generous compositional breathing room.",
+    "referencePaths": [],
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941,
+    "dimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-08.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-07/editorial-08.txt"
+      }
+    ]
+  },
+  {
+    "id": "editorial07-09",
+    "title": "Sound as cyanotype",
+    "sampleTitle": "Making sense of fragmented music data",
+    "description": "An optical curve recorded like a cyanotype makes fragmented sound data tangible through exposure traces and chemical texture, without using a dashboard or literal chart.",
+    "medium": "Fine-art cyanotype photographic print",
+    "typography": "No text",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-fd4e411a-b94c-4c97-9961-94a013f9ef9d.png",
+    "preview": "assets/editorial-07/editorial-09.png",
+    "category": "editorial-07",
+    "status": "proposed",
+    "filetype": "PNG",
+    "prompt": "Use case: stylized-concept.\nAsset: one fine-art editorial blog cover, full-bleed 16:9 landscape PNG, about 1672\u00d7941.\nConcept: Sound as cyanotype, for an article about making sense of fragmented music data.\nCreate a fine-art photographic PRINT in the physical cyanotype tradition: a long, organic interference ripple or optically exposed sound curve moves through a rich Prussian-blue field, thinning and widening with graceful irregularity. It should feel like light and vibration were recorded directly onto sensitized paper, with translucent repeated exposure traces, subtle chemical blooming at the edges and layered blue tonal depth. This is a tactile photographic experiment, not a plotted waveform or a picture of water.\nComposition: one continuous sweeping organic curve travels from lower-left into the middle/right, balanced by generous milky ice-blue negative space toward the top and left. The structure remains restrained and airy, not a tangle of many curves. Nearly invisible fine paper grain: let the optical exposure and chemical edges carry the detail. Deep Prussian/cyanotype blues relate to Recoup blue #008BCB and pale sky #86C8E1; the brightest untouched paper is almost ivory #F6F6EC. Optionally ONE tiny off-center lime #D3FF5F registration dot near the lower edge, less than 0.2% of image area, if it fits quietly.\nNo text, numbers, logos, axes, graph lines, digital waveform icon, music note symbol, clipart, outlined illustration, 3D tube, glass object, neon glow, software gradient, generic water ripples, paper border or framed mockup. The entire image is the finished fine-art print, edge to edge, with physical chemistry rather than computer-generated smoothness.",
+    "referencePaths": [],
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941,
+    "dimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-09.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-07/editorial-09.txt"
+      }
+    ]
+  },
+  {
+    "id": "editorial07-10",
+    "title": "Typography-first editorial",
+    "sampleTitle": "How AI is changing music rights operations",
+    "description": "Open forest typography on ivory pairs with a real architectural view of blue sky. A tiny lime underline connects the clean editorial layout to the brand palette.",
+    "medium": "Swiss editorial typography and architectural photography",
+    "typography": "Medium-weight open sans-serif, two-line headline",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a091ca-6c7b-72e3-9923-fad8c14ea71f/exec-88a38cea-6f17-4d5b-af03-a5720c529e88.png",
+    "preview": "assets/editorial-07/editorial-10.png",
+    "category": "editorial-07",
+    "status": "proposed",
+    "filetype": "PNG",
+    "prompt": "Use case: ads-marketing.\nAsset: one typography-first premium editorial blog cover, full-bleed 16:9 landscape PNG, about 1672\u00d7941.\nConcept: a composed Swiss magazine cover for an article about how AI is changing music rights operations.\nCanvas: clean warm ivory #F6F6EC, calm generous negative space. Deliberate asymmetric editorial composition with open typography in the upper-left and a large architectural photo window occupying the lower-right. The magazine layout itself is the image, not a photographed magazine or device mockup.\n\nEXACT TEXT, only these two lines:\nMusic rights.\nNew possibilities.\nSet this in dark forest #163A2F, an open contemporary DM Sans-like humanist Swiss sans-serif, medium weight rather than heavy bold, with refined roomy line spacing. The headline occupies roughly the upper-left 45% width. Keep the longer second line fully inside the left area with 6% safe margin and plenty of breathing room; no third line, no text-photo overlap, no condensed type, no exaggerated tracking. Maintain every letter, period and the exact capitalization. Make the headline readable at thumbnail size while retaining the website's lighter editorial tone.\n\nAt the LOWER-RIGHT, a beautifully cropped rectangular architectural PHOTOGRAPH: a minimal pale-ivory wall/opening frames real luminous blue sky #008BCB/#86C8E1 and one very soft cloud. Architectural edges are crisp, natural daylight is gentle; the sky feels open and real. Photo occupies about the lower-right half and can run off the right/bottom edges of the full composition. Use one single thin electric-lime #D3FF5F underbar near the headline/photo transition, vastly less than 5% of the canvas. No other decorative graphics.\n\nNo extra words, logos, issue numbers, masthead, captions, UI, outline icons, cartoons, diagrams, stickers, thick rounded cards, gradients behind the type, shadows around photo-window, saturated heavy gradient headline background, or extra accent colors. Precise typography, beautiful photographic crop, quiet confidence.",
+    "referencePaths": [],
+    "generator": "image_gen (built-in)",
+    "width": 1672,
+    "height": 941,
+    "dimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-10.png"
+      },
+      {
+        "label": "Prompt",
+        "path": "assets/editorial-07/editorial-10.txt"
+      }
+    ]
+  }
+]

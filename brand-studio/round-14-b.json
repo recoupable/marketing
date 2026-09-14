@@ -1,0 +1,110 @@
+[
+  {
+    "id": "editorial14-04",
+    "category": "editorial-14",
+    "title": "Paper turn",
+    "description": "Four unequal folded shapes meet off-center, with a tight crop that makes the pattern feel mid-turn.",
+    "patternRule": "Use unequal angular blades around one off-center pivot. Keep the form large and cropped; leave the headline field untouched.",
+    "gradientRule": "Use two quiet face gradients to distinguish the folds. The lime field is flat.",
+    "paletteName": "Lime / blue / ice",
+    "preview": "assets/editorial-14/option-04.png",
+    "artPreview": "assets/editorial-14/option-04-art.png",
+    "originalPreview": "assets/editorial-10/option-05.png",
+    "typography": "Exact DM Sans 450 \u00b7 110 px \u00b7 125 px line spacing \u00b7 \u22124.95 px tracking",
+    "sampleTitle": "Choose your first AI project.",
+    "width": 1920,
+    "height": 1080,
+    "status": "proposed",
+    "generator": "native SVG",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-14/option-04.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-14/option-04.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-14/option-04-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-14/option-04-art.svg"
+      }
+    ]
+  },
+  {
+    "id": "editorial14-05",
+    "category": "editorial-14",
+    "title": "Crossed lenses",
+    "description": "Two elongated forms cross at different angles. A lime overlap creates one clear point of tension.",
+    "patternRule": "Overlap two broad eccentric ellipses with distinct angles and proportions. Crop them heavily at the left edge.",
+    "gradientRule": "Keep forest flat. Blue and cyan shift only inside the forms; the intersection is solid lime.",
+    "paletteName": "Forest / blue / ice / lime",
+    "preview": "assets/editorial-14/option-05.png",
+    "artPreview": "assets/editorial-14/option-05-art.png",
+    "originalPreview": "assets/editorial-10/option-02.png",
+    "typography": "Exact DM Sans 450 \u00b7 110 px \u00b7 125 px line spacing \u00b7 \u22124.95 px tracking",
+    "sampleTitle": "Choose your first AI project.",
+    "width": 1920,
+    "height": 1080,
+    "status": "proposed",
+    "generator": "native SVG",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-14/option-05.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-14/option-05.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-14/option-05-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-14/option-05-art.svg"
+      }
+    ]
+  },
+  {
+    "id": "editorial14-06",
+    "category": "editorial-14",
+    "title": "Switchback",
+    "description": "A broad strip folds back across itself, with sharp changes in direction and a small lime interruption.",
+    "patternRule": "Draw one asymmetric zigzag with unequal runs and generous width. Use filled faces rather than repeated contour lines.",
+    "gradientRule": "One pale-to-cyan transition follows the upper face. Flat dark and blue facets show where the strip turns.",
+    "paletteName": "Blue / ice / forest / lime",
+    "preview": "assets/editorial-14/option-06.png",
+    "artPreview": "assets/editorial-14/option-06-art.png",
+    "originalPreview": "assets/editorial-10/option-06.png",
+    "typography": "Exact DM Sans 450 \u00b7 110 px \u00b7 125 px line spacing \u00b7 \u22124.95 px tracking",
+    "sampleTitle": "Choose your first AI project.",
+    "width": 1920,
+    "height": 1080,
+    "status": "proposed",
+    "generator": "native SVG",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-14/option-06.png"
+      },
+      {
+        "label": "Thumbnail SVG",
+        "path": "assets/editorial-14/option-06.svg"
+      },
+      {
+        "label": "Pattern only PNG",
+        "path": "assets/editorial-14/option-06-art.png"
+      },
+      {
+        "label": "Pattern only SVG",
+        "path": "assets/editorial-14/option-06-art.svg"
+      }
+    ]
+  }
+]

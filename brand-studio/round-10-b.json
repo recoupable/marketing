@@ -1,0 +1,94 @@
+[
+  {
+    "id": "editorial10-04",
+    "category": "editorial-10",
+    "family": "geometry",
+    "title": "Interwoven bands",
+    "sampleTitle": "Keep people in the review.",
+    "controlledTitle": "Choose your first AI project.",
+    "description": "Three broad bands cross at the upper-right, with negative-space cuts and one lime interval. The headline sits in the open white field below.",
+    "patternRule": "Use two or three broad flat bands, roughly 100 px wide, with rounded bends and visible over-under gaps. Borrow the Recoup mark\u2019s connection geometry without repeating the full mark.",
+    "gradientRule": "No gradient. Pure flat colors and an uninterrupted white field.",
+    "paletteName": "White / forest / blue",
+    "preview": "assets/editorial-10/option-04.png",
+    "artPreview": "assets/editorial-10/option-04-art.png",
+    "feedPreview": "assets/editorial-10/option-04-feed.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-10/option-04.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-10/option-04.svg"
+      },
+      {
+        "label": "Art PNG",
+        "path": "assets/editorial-10/option-04-art.png"
+      },
+      {
+        "label": "Art SVG",
+        "path": "assets/editorial-10/option-04-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-04-feed.png"
+      },
+      {
+        "label": "Example article SVG",
+        "path": "assets/editorial-10/option-04-feed.svg"
+      }
+    ],
+    "typography": "Actual DM Sans450",
+    "status": "proposed",
+    "generator": "native SVG",
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "id": "editorial10-05",
+    "category": "editorial-10",
+    "family": "geometry",
+    "title": "Stepped ribbons",
+    "sampleTitle": "Turn repeated work into a system.",
+    "controlledTitle": "Choose your first AI project.",
+    "description": "Broad filled ribbons step across the lower edge of a dominant lime field. A faint horizontal wash sits below the artwork, leaving the headline area flat.",
+    "patternRule": "Build three filled offset ribbons from rectangular runs connected by soft convex and concave joins. Crop them across the bottom, varying their offset and palette rather than using thin repeated contours.",
+    "gradientRule": "A low-intensity, full-width tonal wash in the bottom 240 px only. No corner glow, radial bloom, or tint behind the headline.",
+    "paletteName": "Lime / forest / blue",
+    "preview": "assets/editorial-10/option-05.png",
+    "artPreview": "assets/editorial-10/option-05-art.png",
+    "feedPreview": "assets/editorial-10/option-05-feed.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-10/option-05.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-10/option-05.svg"
+      },
+      {
+        "label": "Art PNG",
+        "path": "assets/editorial-10/option-05-art.png"
+      },
+      {
+        "label": "Art SVG",
+        "path": "assets/editorial-10/option-05-art.svg"
+      },
+      {
+        "label": "Example article PNG",
+        "path": "assets/editorial-10/option-05-feed.png"
+      },
+      {
+        "label": "Example article SVG",
+        "path": "assets/editorial-10/option-05-feed.svg"
+      }
+    ],
+    "typography": "Actual DM Sans450",
+    "status": "proposed",
+    "generator": "native SVG",
+    "width": 1920,
+    "height": 1080
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "editorial07-01",
+    "title": "Archive architecture",
+    "sampleTitle": "What a music catalog needs before AI",
+    "description": "An ordered music archive presents catalog preparation as serious physical infrastructure, with depth, daylight, and precise material detail.",
+    "preview": "assets/editorial-07/editorial-01.png",
+    "category": "editorial-07",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "filetype": "PNG",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-01.png"
+      },
+      {
+        "label": "Image prompt",
+        "path": "assets/editorial-07/editorial-01-prompt.txt"
+      }
+    ],
+    "prompt": "Use case: photorealistic-natural.\nAsset type: premium editorial blog image for Recoup, serving music funds, catalog owners, and music executives.\nCreate one exceptionally composed architectural photograph of an immaculate contemporary MUSIC ARCHIVE, not a library of conventional books. Tall precise shelving holds plain square record sleeves and archival master-tape boxes in warm ivory, muted stone and deep forest green. A sophisticated oblique perspective leads from close dark forest shelving at the foreground into open blue daylight at the far end. Reserve calm architectural space in the composition. Include only one very small lime indexing tab as a quiet accent among the boxes.\nVisual character: a photograph for an excellent architecture and culture magazine, genuinely physical, sober but luminous, meticulous without becoming a sterile computer rendering. Crisp construction, believable paper and linen grain, natural shadow gradients, subtle optical depth. Carefully controlled asymmetry, no exaggerated wide-angle distortion, no people.\nPalette: atmospheric blue #008BCB and pale daylight #86C8E1, matte forest #163A2F, warm ivory #F6F6EC, one tiny lime #D3FF5F tab. Color comes from materials and daylight, not a graphic gradient layer.\nLandscape 16:9, high-resolution full-bleed PNG. Image only; the article title will sit below it on the website.\nNo typography, labels, numbers, logos, watermarks, fake charts, diagrams, checkmarks, musical-note icons, thick outlines, neon glow, illustration, clip art, sci-fi architecture, or mockup frame. Preserve an intelligent, quiet, premium photographic impression.",
+    "referencePaths": [],
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-606f5b92-5478-4217-972a-6895838c2706.png",
+    "medium": "Architectural editorial photography",
+    "typography": "Image-led; website title below",
+    "generator": "image_gen (built-in)"
+  },
+  {
+    "id": "editorial07-02",
+    "title": "The master recording",
+    "sampleTitle": "The value inside the master recording",
+    "description": "A precision tape reel and archival paper box make the physical recording feel valuable, durable, and worth careful stewardship.",
+    "preview": "assets/editorial-07/editorial-02.png",
+    "category": "editorial-07",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "filetype": "PNG",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-02.png"
+      },
+      {
+        "label": "Image prompt",
+        "path": "assets/editorial-07/editorial-02-prompt.txt"
+      }
+    ],
+    "prompt": "Use case: photorealistic-natural.\nAsset type: premium editorial blog image for Recoup, for music funds, catalog owners and music executives.\nCreate one exquisite close, sculptural photograph of a precision-machined aluminum master-tape reel partly emerging from a plain warm ivory archival box. The reel is a real professional open-reel audio tape object, with credible fine concentric machining marks, slim spokes or openings, and a dark wound magnetic tape edge. Crop boldly but keep the relationship of reel and box understandable. A portion of the aluminum circle fills the right and center of the frame, while the ivory box and clean cool-blue daylight occupy the quieter left side. No plastic futuristic reel and no floating object.\nThe object should feel like a carefully preserved cultural asset photographed for a serious art and music publication: tactile uncoated paper, a precise box edge, subtle metal patina, exquisite raking light, physical contact shadows, controlled reflections, shallow but useful photographic depth. Minimal composition, no other decorative objects. A tiny lime preservation tab may appear on the box, kept very small.\nPalette: cool atmospheric daylight blue #86C8E1 and #008BCB reflected delicately in aluminum, warm ivory #F6F6EC paper, neutral silver, deep forest #163A2F in the shadows, tiny lime #D3FF5F accent.\nLandscape 16:9, high-resolution full-bleed PNG. Image only. No words, numerals, labels, logos, watermarks, captions, invented documents, interface panels, diagrams, icons, thick outlines, neon, CGI tech aesthetic, mockup framing or garish gradient. Museum-grade physical still-life photography with real texture and confident restraint.",
+    "referencePaths": [],
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-6f6ce1e5-1300-458a-b40d-a99e4fb30aa8.png",
+    "medium": "Sculptural still-life photography",
+    "typography": "Image-led; website title below",
+    "generator": "image_gen (built-in)"
+  },
+  {
+    "id": "editorial07-03",
+    "title": "Optical sound",
+    "sampleTitle": "Finding useful signals in catalog data",
+    "description": "A precise optical object isolates one luminous signal, suggesting careful interpretation of catalog data through a restrained physical metaphor.",
+    "preview": "assets/editorial-07/editorial-03.png",
+    "category": "editorial-07",
+    "status": "proposed",
+    "width": 1672,
+    "height": 941,
+    "filetype": "PNG",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-07/editorial-03.png"
+      },
+      {
+        "label": "Image prompt",
+        "path": "assets/editorial-07/editorial-03-prompt.txt"
+      }
+    ],
+    "prompt": "Use case: photorealistic-natural.\nAsset type: premium conceptual editorial macro photograph for Recoup, a music-business AI company.\nCreate one museum-grade macro photograph of a single substantial optical glass prism or cast-glass lens refracting ONE slender lime light filament into a softly lit pale blue field. The translucent optical material must be physically credible: polished precise edges, a little believable internal refraction, soft caustic contact light, and subtle surface detail. The filament is a single fine controlled optical signal passing through the material, never a neon tube or electrical cable, and not a bundle of rainbow beams.\nComposition: asymmetrical, close and boldly cropped, with the glass entering from the lower right and a generous quiet field across the left and upper image. The shape is architectural and considered, without resembling a cartoon blob, gemstone, decorative sphere, or science-fiction machine. Focus on a luminous edge and the small transformation of light; let parts fall gently out of focus. A refined photographic interpretation of sound and intelligence, with no literal symbol.\nPalette: softly illuminated atmospheric blue #008BCB and pale blue #86C8E1, warm ivory #F6F6EC reflected highlights, subtle deep forest #163A2F shadow, one small filament of lime #D3FF5F. Most of the image is calm; do not saturate every region or add a graphic background gradient.\nLandscape 16:9, high-resolution full-bleed PNG. Text-free original image: no words, labels, numbers, logo, watermark, UI, chart, diagram, thick outlines, clip art, fake waveform, checkmark, music-note icon, 3D-tech-blob rendering, rainbow spectrum, excessive glow, metallic chrome scene, or mockup frame. The result should feel like expensive still-life photography made with real glass and controlled studio light.",
+    "referencePaths": [],
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-02a57dec-ed8b-42d5-a27e-94f74f01e01e.png",
+    "medium": "Optical macro photography",
+    "typography": "Image-led; website title below",
+    "generator": "image_gen (built-in)"
+  }
+]

@@ -1,0 +1,165 @@
+[
+  {
+    "id": "layered-editorial-system",
+    "title": "Layered editorial covers",
+    "family": "Editorial",
+    "purpose": "Combine a textured gradient, meaningful graphic, and optional headline. Compare matched treatments before adopting them.",
+    "prompt": "Create one layered editorial cover for Recoup.\n\nArticle: [TITLE]\nCore argument: [ONE-SENTENCE ARGUMENT]\nReader: music executives, music funds, and rightsholders.\nVisual idea: [SPECIFIC IDEA OR TENSION]\nMedium: [MEDIUM]\nSubject or action: [SUBJECT OR ACTION]\nConnection to the article: [CONNECTION TO THE ARTICLE]\n\nBACKGROUND: A full-bleed, softly diffused gradient using [PALETTE]. Broad color transitions and delicate, even analog grain. Use the approved Blue to lime / Fine grain image as a reference for texture and color energy, without copying its composition. The atmosphere fills the frame; no flat panel behind the subject.\n\nGRAPHIC: One distinctive, immediately recognizable subject. Place it in [SUBJECT AREA]. Preserve its material, important geometry, and crisp edges. For illustration, use expressive forest-ink linework and restrained ivory/lime shapes. For photography, preserve natural skin and material colors. Avoid decorative objects that do not explain the article.\n\nTYPE: [TYPE INSTRUCTION]\nPlan type and subject together. Reserve quiet space in [TYPE AREA], within a 7% safe margin. Check contrast behind every word, across its entire footprint. Use ivory over deep blue or forest over light areas. Reposition the gradient or subject if needed; do not rely on outlines, shadows, or a text box. Type must not cover fingers, a flower center, cable junctions, or diagram steps.\n\nOutput 16:9. Background supplies atmosphere, the subject carries the idea, and any headline states it plainly. No extra lettering, logos, signatures, or watermarks. A generated cover with type is a visual proposal; use editable DM Sans typography for final production.\n\nFor matched comparisons, generate the text-free composition first. Reference that exact output when adding a headline or changing its palette. Retain crop, scale, position, and lighting. Change only the requested layer.\n\nRecent six covers: [SUBJECT, MEDIUM, COMPOSITION, DOMINANT COLOR]\nAcross different articles, vary subject, medium, silhouette, placement, and dominant color. Change at least two meaningful dimensions, while retaining restrained grain and confident contrast. Choose the idea that fits the article, not a random object or gradient.\n\nUse supplied screenshots, source documents, and data when factual content matters. Never invent product states, numbers, quotations, or archival provenance. New palettes and compositions remain proposals until visually approved.",
+    "keep": [
+      "Soft diffusion and delicate grain",
+      "One recognizable subject with crisp edges",
+      "Readable type with clear space",
+      "Matched composition when comparing treatments"
+    ],
+    "vary": [
+      "Subject and medium to fit the article",
+      "Background palette and dominant color",
+      "Headline, placement, and crop across different articles"
+    ]
+  },
+  {
+    "id": "editorial-system",
+    "title": "Editorial images: one identity, different stories",
+    "family": "Editorial",
+    "purpose": "Choose a meaningful subject and medium for each article, with enough variety to work as a publication feed.",
+    "prompt": "Create one editorial artwork for Recoup.\n\nArticle: [TITLE]\nCore argument: [ONE-SENTENCE ARGUMENT]\nReader: music executives, music funds, and rightsholders.\nThe image should communicate: [SPECIFIC IDEA OR TENSION]\n\nUse [MEDIUM], showing [SUBJECT OR ACTION] through [COMPOSITION OR CROP]. Choose these because [CONNECTION TO THE ARTICLE]. Make one idea immediately visible at thumbnail size. If the image could accompany five unrelated articles unchanged, sharpen the concept.\n\nKeep Recoup\u2019s confident simplicity: purposeful space, controlled contrast, and restrained tactile detail. Color anchors: blue #007EBD / #168DDD, lime #D6FF62, forest #132B26, and ivory #F8FAF5. Choose a subset; not every image needs every color. Preserve believable skin, material, and documentary colors. Use the approved Blue to lime / Fine grain reference for color energy or delicate grain when appropriate, while inventing a fresh subject and composition. A gradient is optional.\n\nOutput a landscape 16:9 image. Keep essential details inside a 7% safe area. Default to text-free artwork with the article title placed below it. Add exact editable typography and approved logos separately; no generated marks, incidental lettering, or watermarks.\n\nRecent six covers: [SUBJECT, MEDIUM, COMPOSITION, DOMINANT COLOR]\nAvoid repeating their subject\u2013medium combinations or visual silhouette. Change at least two meaningful dimensions from the latest cover. Relevance comes before novelty; deliberate series continuity is allowed.\n\nWhen the article relies on evidence, use supplied screenshots, photographs, documents, and data. Preserve factual content. Never invent interface states, numbers, identities, quotations, or archival provenance. Choose only visually approved styles for production; these ten directions are still proposals.",
+    "keep": [
+      "Clear subject and thumbnail readability",
+      "Blue/lime color anchors, with natural material colors",
+      "Crisp editable typography and accurate source material"
+    ],
+    "vary": [
+      "Subject, action, and visual tension",
+      "Medium, crop, composition, and dominant color",
+      "Palette subset and texture when the article calls for it"
+    ]
+  },
+  {
+    "id": "listening-room",
+    "title": "Sunlit listening room",
+    "family": "Environment",
+    "purpose": "Podcast background or editorial source. The first generated example is in Environments.",
+    "prompt": "Use case: stylized-concept. Asset type: Recoup brand environment, 16:9 podcast background and editorial cover source. Create one exquisite restrained architectural photograph of an empty sunlit music listening room opening onto a brilliant clear blue sky. Recoup Sky palette: deep matte forest green #132B26 cabinetry at far right, chalk white smooth plaster and pale icy blue, a single small lime #D6FF62 object on a low ledge. No text, no logos, no people, no instruments as centerpieces. Very wide quiet composition with the central 65 percent of the frame almost entirely calm pale wall and open sky so video feeds and headings can overlay. Architectural interest at edges: a rounded rectangular opening at left with blue sky and a faint cloud, a clean thin shelf at far right with a small stack of blank record sleeves. Upper-left daylight, authentic fine plaster texture, soft natural shadows, serene contemporary music-business editorial art direction, physically believable. Avoid cyberpunk, robots, planets, neon gradients, ornamental rings, busy furniture, elaborate recording consoles. Broad breathing room and thoughtful proportions. High resolution 16:9. Save this as a proposed visual direction, not an approved asset.",
+    "keep": [
+      "Exact Recoup logo added in the final layout, never generated.",
+      "DM Sans headings; IBM Plex Mono only for short labels.",
+      "One clear subject, soft daylight, and space for the main headline."
+    ],
+    "vary": [
+      "The episode or article subject and literal supporting objects.",
+      "Crop and reserved area for the destination format."
+    ]
+  },
+  {
+    "id": "open-horizon",
+    "title": "Open sky and horizon",
+    "family": "Environment",
+    "purpose": "Extend the existing sky and meadow with believable daylight and open compositions.",
+    "prompt": "Create a restrained editorial landscape for Recoup. Clear blue sky, pale low clouds, quiet natural horizon. Use a wide composition with 65 percent calm sky for typography. Natural daylight, soft detail, fine texture, no people, no text, no logos, no fantasy planets. Keep the horizon low. Match the supplied Recoup open-sky reference. Deliver clean artwork; add titles and the exact logo later in the template.",
+    "keep": [
+      "Exact Recoup logo added in the final layout, never generated.",
+      "DM Sans headings; IBM Plex Mono only for short labels.",
+      "One clear subject, soft daylight, and space for the main headline."
+    ],
+    "vary": [
+      "The episode or article subject and literal supporting objects.",
+      "Crop and reserved area for the destination format."
+    ]
+  },
+  {
+    "id": "insight",
+    "title": "An insight, clearly stated",
+    "family": "Social / Editorial",
+    "purpose": "Present one useful idea from an article, without asking readers to decode an image.",
+    "prompt": "Create an editable Recoup insight composition using the supplied logo and fonts. Pale blue or white background, large ink headline naming the subject, a small Recoup / Insights label, and one simple secondary illustration tied to the topic. Set the key sentence in DM Sans. Use lime once for emphasis. No invented statistics or decorative slogan. Leave generous margins and check the headline at mobile size.",
+    "keep": [
+      "Exact Recoup logo added in the final layout, never generated.",
+      "DM Sans headings; IBM Plex Mono only for short labels.",
+      "One clear subject, soft daylight, and space for the main headline."
+    ],
+    "vary": [
+      "The episode or article subject and literal supporting objects.",
+      "Crop and reserved area for the destination format."
+    ]
+  },
+  {
+    "id": "quote",
+    "title": "A quote with a person behind it",
+    "family": "Social",
+    "purpose": "A named, attributed quote from an interview.",
+    "prompt": "Create an editable Recoup interview quote layout. Forest background, white DM Sans quote with no more than 30 words, subtle lime quotation mark, speaker name and role in smaller type, exact white Recoup logo. Include a real supplied portrait only if available. Preserve the quote exactly; do not invent an endorsement. The quote should lead, followed by the person and their role.",
+    "keep": [
+      "Exact Recoup logo added in the final layout, never generated.",
+      "DM Sans headings; IBM Plex Mono only for short labels.",
+      "One clear subject, soft daylight, and space for the main headline."
+    ],
+    "vary": [
+      "The episode or article subject and literal supporting objects.",
+      "Crop and reserved area for the destination format."
+    ]
+  },
+  {
+    "id": "announcement",
+    "title": "A clear announcement",
+    "family": "Social",
+    "purpose": "Give a launch a clear headline and one next action.",
+    "prompt": "Create an editable Recoup announcement in the Sky identity. Lead with the literal product, event, or launch title. Use a blue sky crop, a calm type area, white or ink DM Sans headline on a controlled contrasting surface, exact Recoup logo, and one lime action detail. Keep supporting copy short. Do not invent availability, dates, or performance claims.",
+    "keep": [
+      "Exact Recoup logo added in the final layout, never generated.",
+      "DM Sans headings; IBM Plex Mono only for short labels.",
+      "One clear subject, soft daylight, and space for the main headline."
+    ],
+    "vary": [
+      "The episode or article subject and literal supporting objects.",
+      "Crop and reserved area for the destination format."
+    ]
+  },
+  {
+    "id": "case-study",
+    "title": "A case study people can understand",
+    "family": "Editorial / Social",
+    "purpose": "Show the actual project before its illustration.",
+    "prompt": "Create an editable Recoup case study cover. Put CASE STUDY above the largest title, which plainly names the project, such as Royalty reporting. Place an understated document or information-flow illustration below. Its labels must be smaller than the project title and literal, such as Statements or Review. Use only supplied outcomes; do not manufacture percentages, client names, or testimonials. Pale blue, ink, forest, and a restrained lime highlight.",
+    "keep": [
+      "Exact Recoup logo added in the final layout, never generated.",
+      "DM Sans headings; IBM Plex Mono only for short labels.",
+      "One clear subject, soft daylight, and space for the main headline."
+    ],
+    "vary": [
+      "The episode or article subject and literal supporting objects.",
+      "Crop and reserved area for the destination format."
+    ]
+  },
+  {
+    "id": "carousel",
+    "title": "An explanation across slides",
+    "family": "Social",
+    "purpose": "Turn an article into a readable sequence.",
+    "prompt": "Create a five-slide Recoup carousel template in editable vector form. Slide 1 states the subject. Slides 2\u20134 each explain one step or idea using one short headline and one paragraph. Slide 5 gives one practical next action. Use consistent margins, small slide numbers in IBM Plex Mono, DM Sans text, quiet white or pale blue surfaces, and exact Recoup marks. Never put critical text at the crop edge.",
+    "keep": [
+      "Exact Recoup logo added in the final layout, never generated.",
+      "DM Sans headings; IBM Plex Mono only for short labels.",
+      "One clear subject, soft daylight, and space for the main headline."
+    ],
+    "vary": [
+      "The episode or article subject and literal supporting objects.",
+      "Crop and reserved area for the destination format."
+    ]
+  },
+  {
+    "id": "podcast-clip",
+    "title": "The Recoup Podcast",
+    "family": "Podcast / Social",
+    "purpose": "Make a consistent episode family while giving the topic and guests the attention.",
+    "prompt": "Create an episode kit for The Recoup Podcast. Use the exact supplied Recoup logo. The episode topic is the main headline; The Recoup Podcast is the stable show identity. Work with the supplied host, guest, and portrait only. Choose Sky, forest studio, or editorial white; keep that theme across the kit. Reserve clear speaker windows and subtitle space. Put logos and text on separate editable layers. Keep the music-business subject explicit and typography legible at thumbnail size.",
+    "keep": [
+      "Exact Recoup logo added in the final layout, never generated.",
+      "DM Sans headings; IBM Plex Mono only for short labels.",
+      "One clear subject, soft daylight, and space for the main headline."
+    ],
+    "vary": [
+      "The episode or article subject and literal supporting objects.",
+      "Crop and reserved area for the destination format."
+    ]
+  }
+]

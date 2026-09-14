@@ -1,0 +1,310 @@
+[
+  {
+    "id": "editorial11-01",
+    "category": "editorial-11",
+    "family": "geometry",
+    "title": "Offset blocks",
+    "sampleTitle": "Choose your first AI project",
+    "headline": "Choose your first\nAI project.",
+    "description": "The same offset blue composition, with consistent curved joins and a very fine texture confined to the lit block.",
+    "changes": [
+      "Matched the curved joins.",
+      "Added fine grain inside the lit cyan block.",
+      "Kept the blue field, lime inset, and headline crisp."
+    ],
+    "patternRule": "Build the offset fragments from generous circular joins, using a 128-pixel large radius and smaller related radii. Preserve the quiet field and asymmetric crop.",
+    "gradientRule": "The blue background remains flat. Directional cyan light and low-opacity fine grain belong only to one filled block; the front face uses a tonal-blue transition.",
+    "paletteName": "Blue / cyan / lime",
+    "preview": "assets/editorial-11/option-01.png",
+    "artPreview": "assets/editorial-11/option-01-art.png",
+    "originalPreview": "assets/editorial-10/option-01-feed.png",
+    "originalId": "editorial10-01",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-11/option-01.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-11/option-01.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-11/option-01-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-11/option-01-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG",
+    "tags": [
+      "Pattern refinements",
+      "Offset blocks",
+      "Choose your first AI project",
+      "Blue / cyan / lime"
+    ],
+    "recipe": "editorial-11-recipe.md",
+    "bundle": "assets/editorial-11/recoup-pattern-refinements.zip"
+  },
+  {
+    "id": "editorial11-02",
+    "category": "editorial-11",
+    "family": "geometry",
+    "title": "Cutout join",
+    "sampleTitle": "Connect your company\u2019s knowledge",
+    "headline": "Connect your\ncompany\u2019s knowledge.",
+    "description": "The same blue cutout and forest field, with a broad light transition replacing the visible diagonal stripe.",
+    "changes": [
+      "Removed the hard diagonal highlight layer.",
+      "Spread the light smoothly across the blue cutout.",
+      "Preserved the open forest field and lime headline."
+    ],
+    "patternRule": "Use one oversized asymmetric cutout with a broad step and a generous notch. Let the negative space carry the headline and retain the original crop.",
+    "gradientRule": "A broad horizontal blue-to-cyan transition stays inside the left cutout. The forest field remains completely flat; no grain or corner glow.",
+    "paletteName": "Forest / blue / lime",
+    "preview": "assets/editorial-11/option-02.png",
+    "artPreview": "assets/editorial-11/option-02-art.png",
+    "originalPreview": "assets/editorial-10/option-02-feed.png",
+    "originalId": "editorial10-02",
+    "files": [
+      {
+        "label": "Thumbnail PNG",
+        "path": "assets/editorial-11/option-02.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-11/option-02.svg"
+      },
+      {
+        "label": "Artwork PNG",
+        "path": "assets/editorial-11/option-02-art.png"
+      },
+      {
+        "label": "Artwork SVG",
+        "path": "assets/editorial-11/option-02-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG",
+    "tags": [
+      "Pattern refinements",
+      "Cutout join",
+      "Connect your company\u2019s knowledge",
+      "Forest / blue / lime"
+    ],
+    "recipe": "editorial-11-recipe.md",
+    "bundle": "assets/editorial-11/recoup-pattern-refinements.zip"
+  },
+  {
+    "id": "editorial11-03",
+    "category": "editorial-11",
+    "family": "geometry",
+    "title": "Layered panels",
+    "sampleTitle": "Build systems your team can trust",
+    "description": "The same overlapping panels, with a quieter surface and cleaner separation between the layers.",
+    "changes": [
+      "Removed the lime dash.",
+      "Matched the corner radii.",
+      "Cleaner blue layers with a faint edge highlight."
+    ],
+    "patternRule": "Three empty rounded surfaces with the same 90px corner radius and stepped overlaps. Keep the structure abstract, with no interface controls.",
+    "gradientRule": "A pale flat field surrounds translucent-looking blue layers. Each layer carries its own restrained directional light.",
+    "paletteName": "Pale blue / blue",
+    "preview": "assets/editorial-11/option-03.png",
+    "artPreview": "assets/editorial-11/option-03-art.png",
+    "originalPreview": "assets/editorial-10/option-03-feed.png",
+    "originalId": "editorial10-03",
+    "files": [
+      {
+        "label": "Refined cover PNG",
+        "path": "assets/editorial-11/option-03.png"
+      },
+      {
+        "label": "Refined cover SVG",
+        "path": "assets/editorial-11/option-03.svg"
+      },
+      {
+        "label": "Artwork without text PNG",
+        "path": "assets/editorial-11/option-03-art.png"
+      },
+      {
+        "label": "Artwork without text SVG",
+        "path": "assets/editorial-11/option-03-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG",
+    "tags": [
+      "Pattern refinements",
+      "Layered panels",
+      "Build systems your team can trust",
+      "Pale blue / blue"
+    ],
+    "recipe": "editorial-11-recipe.md",
+    "bundle": "assets/editorial-11/recoup-pattern-refinements.zip"
+  },
+  {
+    "id": "editorial11-04",
+    "category": "editorial-11",
+    "family": "geometry",
+    "title": "Interwoven bands",
+    "sampleTitle": "Keep people in the review",
+    "description": "The same white composition and interwoven bands, with more consistent round bends and a clean cropped edge. The original headline position and flat palette are retained.",
+    "changes": [
+      "Standardized the three bends to the same radius.",
+      "Preserved clean, even white gaps at crossings.",
+      "Removed the narrow forest sliver at the right edge."
+    ],
+    "patternRule": "Three broad flat bands use 100 px rounded bends and consistent 14 px negative-space gaps. Keep the over-under order clear and crop hidden ends cleanly.",
+    "gradientRule": "No gradient or grain. Pure flat colors and an uninterrupted white field.",
+    "paletteName": "White / forest / blue",
+    "preview": "assets/editorial-11/option-04.png",
+    "artPreview": "assets/editorial-11/option-04-art.png",
+    "originalPreview": "assets/editorial-10/option-04-feed.png",
+    "originalId": "editorial10-04",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-11/option-04.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-11/option-04.svg"
+      },
+      {
+        "label": "Art PNG",
+        "path": "assets/editorial-11/option-04-art.png"
+      },
+      {
+        "label": "Art SVG",
+        "path": "assets/editorial-11/option-04-art.svg"
+      }
+    ],
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG",
+    "width": 1920,
+    "height": 1080,
+    "tags": [
+      "Pattern refinements",
+      "Interwoven bands",
+      "Keep people in the review",
+      "White / forest / blue"
+    ],
+    "recipe": "editorial-11-recipe.md",
+    "bundle": "assets/editorial-11/recoup-pattern-refinements.zip"
+  },
+  {
+    "id": "editorial11-05",
+    "category": "editorial-11",
+    "family": "geometry",
+    "title": "Stepped ribbons",
+    "sampleTitle": "Turn repeated work into a system",
+    "description": "The same stepped ribbons on a dominant lime field, with a clean mint layer replacing olive. Rounded joins are consistent, and the horizontal bottom wash is quieter.",
+    "changes": [
+      "Replaced the olive layer with a cleaner cool mint.",
+      "Normalized rounded corners and concave joins.",
+      "Reduced the bottom wash intensity and height."
+    ],
+    "patternRule": "Three broad filled ribbons retain their original stepped offsets. Use matching 70 px convex/concave joins and 24 px outer corners, with no icons or repeated full logos.",
+    "gradientRule": "A very faint, full-width tonal wash is confined to the bottom 196 px. No corner glow, overall tint, or gradient behind the headline.",
+    "paletteName": "Lime / mint / blue / forest",
+    "preview": "assets/editorial-11/option-05.png",
+    "artPreview": "assets/editorial-11/option-05-art.png",
+    "originalPreview": "assets/editorial-10/option-05-feed.png",
+    "originalId": "editorial10-05",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/editorial-11/option-05.png"
+      },
+      {
+        "label": "Editable SVG",
+        "path": "assets/editorial-11/option-05.svg"
+      },
+      {
+        "label": "Art PNG",
+        "path": "assets/editorial-11/option-05-art.png"
+      },
+      {
+        "label": "Art SVG",
+        "path": "assets/editorial-11/option-05-art.svg"
+      }
+    ],
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG",
+    "width": 1920,
+    "height": 1080,
+    "tags": [
+      "Pattern refinements",
+      "Stepped ribbons",
+      "Turn repeated work into a system",
+      "Lime / mint / blue / forest"
+    ],
+    "recipe": "editorial-11-recipe.md",
+    "bundle": "assets/editorial-11/recoup-pattern-refinements.zip"
+  },
+  {
+    "id": "editorial11-06",
+    "category": "editorial-11",
+    "family": "geometry",
+    "title": "Soft imprint",
+    "sampleTitle": "Give your team a clear starting point",
+    "description": "The same soft symbol impression, with more controlled diffusion and extra room around the headline.",
+    "changes": [
+      "A clearer upper edge fades into softer light.",
+      "Moved the headline left and slightly upward.",
+      "Kept the blue field and typography unchanged."
+    ],
+    "patternRule": "Use the exact mark as one enlarged, softly cropped impression. Keep a minimum128px text inset and adjust the title block before reducing its size.",
+    "gradientRule": "The upper edge has more definition while the lower impression diffuses into blue. The title area remains flat.",
+    "paletteName": "Blue / diffused cyan",
+    "preview": "assets/editorial-11/option-06.png",
+    "artPreview": "assets/editorial-11/option-06-art.png",
+    "originalPreview": "assets/editorial-10/option-06-feed.png",
+    "originalId": "editorial10-06",
+    "files": [
+      {
+        "label": "Refined cover PNG",
+        "path": "assets/editorial-11/option-06.png"
+      },
+      {
+        "label": "Refined cover SVG",
+        "path": "assets/editorial-11/option-06.svg"
+      },
+      {
+        "label": "Artwork without text PNG",
+        "path": "assets/editorial-11/option-06-art.png"
+      },
+      {
+        "label": "Artwork without text SVG",
+        "path": "assets/editorial-11/option-06-art.svg"
+      }
+    ],
+    "width": 1920,
+    "height": 1080,
+    "typography": "DM Sans \u00b7 450 \u00b7 110px",
+    "status": "proposed",
+    "generator": "native SVG",
+    "tags": [
+      "Pattern refinements",
+      "Soft imprint",
+      "Give your team a clear starting point",
+      "Blue / diffused cyan"
+    ],
+    "recipe": "editorial-11-recipe.md",
+    "bundle": "assets/editorial-11/recoup-pattern-refinements.zip"
+  }
+]

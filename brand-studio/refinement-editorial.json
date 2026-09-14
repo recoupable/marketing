@@ -1,0 +1,54 @@
+[
+  {
+    "id": "refine-cover-blue-lime",
+    "title": "Editorial cover / Blue + lime",
+    "category": "refinements",
+    "kind": "Editorial cover",
+    "family": "editorial",
+    "style": "Blue + lime",
+    "status": "proposed",
+    "description": "Oversized ivory typography on soft blue atmosphere, with a restrained lime accent. Editorial exploration for review.",
+    "prompt": "Use case: ads-marketing. Create ONE portrait 4:5 editorial social cover for Recoup, not a mockup. A culturally confident independent music publication cover: huge crisp type sitting directly on an atmospheric background. The typography is the unmistakable foreground and stays extremely readable at phone size. No UI cards, frame, border, interface, additional logo, icon, body copy, footer, photograph, person, music clipart, or invented text. Do not reproduce any text from input references.\nCOMPOSITION, fixed across comparison: portrait 4:5, generous 8% left and right margins. Small tracked monospaced label at upper left, exactly 'RECOUP / INSIGHTS', positioned 8% from top. Headline starts around 25% from top, set flush left across exactly three lines, with tight expressive but legible tracking and compact leading. Set a bold DM Sans-like contemporary grotesk sans-serif, clean letterforms with confident weight, maximum size that fits the longest line inside the margins. Exact headline text and linebreaks:\nAI & the\nbusiness\nof music.\nNothing else is written anywhere. Keep all main letters entirely inside the canvas, not cropped. Text must be perfectly sharp against the softer background. Let broad empty atmosphere occupy the lower fifth so the composition can breathe. Entire image is final flat cover artwork, not shown on a wall or device.\nCOLOR AND ATMOSPHERE: blue and lime treatment. Use input images only as background color/texture references, particularly their rich sky blue #007EBD, pale ice-blue diffusion, fine analog spray grain, and lime #D6FF62 at the edges. Build a new quiet portrait composition, deep enough blue behind the complete headline for excellent ivory contrast. Background should have gently drifting blurred blue bands and a diffuse lime glow emerging only in the bottom-right corner, never a literal field, cloud, landscape, foliage or discernible object. Delicate irregular photographic noise, no heavy splatter or harsh halftone. Main headline warm ivory #F8FAF5, with only the ampersand on its first line in vivid lime. Top label also lime, small and subordinate. No drop shadows on type. This is editorial typography in sharp focus layered over soft abstract atmosphere.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-05-01.png"
+    ],
+    "paletteId": "blue-lime",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-829f7312-6a14-4de3-912a-66c3c5dd4862.png",
+    "preview": "assets/refinements/refine-cover-blue-lime.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/refinements/refine-cover-blue-lime.png"
+      }
+    ],
+    "width": 1122,
+    "height": 1402
+  },
+  {
+    "id": "refine-cover-forest-lime",
+    "title": "Editorial cover / Forest + lime",
+    "category": "refinements",
+    "kind": "Editorial cover",
+    "family": "editorial",
+    "style": "Forest + lime",
+    "status": "proposed",
+    "description": "The same oversized editorial hierarchy in deep forest and vivid lime. A secondary palette comparison.",
+    "prompt": "Use case: ads-marketing. Create ONE portrait 4:5 editorial social cover for Recoup, not a mockup. A culturally confident independent music publication cover: huge crisp type sitting directly on an atmospheric background. The typography is the unmistakable foreground and stays extremely readable at phone size. No UI cards, frame, border, interface, additional logo, icon, body copy, footer, photograph, person, music clipart, or invented text. Do not reproduce any text from input references.\nCOMPOSITION, fixed across comparison: portrait 4:5, generous 8% left and right margins. Small tracked monospaced label at upper left, exactly 'RECOUP / INSIGHTS', positioned 8% from top. Headline starts around 25% from top, set flush left across exactly three lines, with tight expressive but legible tracking and compact leading. Set a bold DM Sans-like contemporary grotesk sans-serif, clean letterforms with confident weight, maximum size that fits the longest line inside the margins. Exact headline text and linebreaks:\nAI & the\nbusiness\nof music.\nNothing else is written anywhere. Keep all main letters entirely inside the canvas, not cropped. Text must be perfectly sharp against the softer background. Let broad empty atmosphere occupy the lower fifth so the composition can breathe. Entire image is final flat cover artwork, not shown on a wall or device.\nCOLOR AND ATMOSPHERE: forest and lime treatment. Preserve only the soft atmospheric and finely noisy qualities of the input references, translating all blues into deep forest-green tones. Deep forest #132B26 is the dominant background, restrained subtle forest tonal gradient and very fine analog noise. Slight muted green light at the lower-right edge, never a literal field, cloud, landscape, foliage or discernible object. No saturated blue remains. Main headline vivid lime #D6FF62 throughout; top label pale ivory, small and subordinate. No heavy texture, heavy splatter, harsh halftone or drop shadows on type. This is editorial typography in sharp focus layered over soft abstract atmosphere.",
+    "referenced_image_paths": [
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-06-01.png",
+      "/Users/sidneyswift/Documents/Projects/Recoup/labs/brand-studio/assets/backgrounds/bg-05-01.png"
+    ],
+    "paletteId": "forest-lime",
+    "generatedSource": "/Users/sidneyswift/.codex/generated_images/01a09200-05ac-7033-8382-dd01b1221b78/exec-9bd0c3a2-e572-47d3-8068-4e8e6312c51e.png",
+    "preview": "assets/refinements/refine-cover-forest-lime.png",
+    "files": [
+      {
+        "label": "PNG",
+        "path": "assets/refinements/refine-cover-forest-lime.png"
+      }
+    ],
+    "width": 1122,
+    "height": 1402
+  }
+]

@@ -1,0 +1,4 @@
+Pillow
+fonttools
+numpy
+brotli
