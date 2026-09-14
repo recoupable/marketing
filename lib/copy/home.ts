@@ -50,8 +50,9 @@ export const homeCopy = {
     },
   ],
   contact: {
-    description: "We’ll review one workflow and identify a practical first step.",
+    title: "Recoup your team’s time.",
+    description: "Bring us a workflow that slows you down. We’ll show you where AI can help.",
     action: "Get a free audit",
-    note: "The audit is free. Any build is scoped and priced separately.",
+    note: "Implementation scoped and priced separately.",
   },
 };

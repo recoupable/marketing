@@ -17,12 +17,8 @@ export function SkyLandscapeContact() {
         sizes="(max-width: 760px) 100vw, 85vw"
       />
       <div className="sky-landscape-copy" data-reveal="">
-        <h2 id="sky-contact-title">
-          Find your first
-          <br />
-          useful AI build.
-        </h2>
-        <p>{homeCopy.contact.description}</p>
+        <h2 id="sky-contact-title">{homeCopy.contact.title}</h2>
+        <p className="sky-landscape-description">{homeCopy.contact.description}</p>
         <Link className="sky-landscape-cta" href="/start-project">
           {homeCopy.contact.action}{" "}
           <span aria-hidden="true">
