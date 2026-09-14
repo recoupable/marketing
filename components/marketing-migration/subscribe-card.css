@@ -25,3 +25,14 @@
 @media(max-width:1050px) { .mm-subscribe { gap:28px; margin-inline:0; padding:34px; }.mm-subscribe h2 { font-size:32px; } }
 @media(max-width:760px) { .mm-subscribe { grid-template-columns:1fr; padding:29px; margin-top:55px; gap:28px; }.mm-subscribe-fields { grid-template-columns:1fr 1fr; } }
 @media(max-width:500px) { .mm-subscribe { padding:25px 20px; border-radius:18px; }.mm-subscribe h2 { font-size:30px; }.mm-subscribe-fields { grid-template-columns:1fr; }.mm-subscribe-guard > button { font-size:10px; gap:10px; }.mm-subscribe-confirmation { padding:23px; } }
+
+.mm-subscribe.mm-subscribe-compact { padding:32px 0; gap:32px; background:transparent; border:0; border-radius:0; box-shadow:0 1px 0 #dce5e7; }
+.mm-subscribe-compact h2 { font-size:28px; margin:0 0 10px; }
+.mm-subscribe-compact .mm-subscribe-guard { display:flex; align-items:start; gap:10px; }
+.mm-subscribe-compact .mm-subscribe-fields { display:block; flex:1; min-width:0; }
+.mm-subscribe-compact .mm-subscribe-guard > button { display:inline-flex; align-items:center; justify-content:center; margin:0; min-height:52px; padding:0 22px; flex-shrink:0; gap:0; border-radius:9px; font-family:inherit; font-size:14px; font-weight:500; line-height:1.2; letter-spacing:0; text-transform:none; }
+.mm-subscribe-compact .mm-subscribe-fields input { min-height:52px; }
+.mm-subscribe-compact .mm-subscribe-guard > button > span { display:none; }
+.mm-subscribe-compact .mm-subscribe-consent { font-size:12px; margin-top:10px; max-width:none; }
+.mm-subscribe-visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+@media(max-width:760px) { .mm-subscribe.mm-subscribe-compact { gap:22px; padding:28px 0; } }

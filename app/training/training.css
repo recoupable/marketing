@@ -1,0 +1,28 @@
+.training-scene { width: 100%; max-width: 490px; padding: 15px 10px 40px; position: relative; }
+.training-session { padding: 30px; border-radius: 15px; background: #fff; color: #152e37; box-shadow: 0 20px 45px #06314b24; }
+.training-session > span { font: 10px "IBM Plex Mono", monospace; letter-spacing: .08em; color: #586f78; }
+.training-session > strong { display: block; font-size: 29px; line-height: 1.15; font-weight: 500; letter-spacing: -.045em; margin: 22px 0; }
+.training-context { display: flex; gap: 7px; }
+.training-context span { padding: 7px 10px; background: #eef5f8; border-radius: 6px; font-size: 11px; color: #586f78; }
+.training-session ol { padding-left: 20px; margin-block: 24px; font-size: 14px; line-height: 2.2; }
+.training-people { display: flex; align-items: center; padding-top: 17px; box-shadow: 0 -1px #e5eced; }
+.training-people > span { display: grid; place-items: center; width: 29px; height: 29px; border-radius: 50%; background: #e0eacb; margin-right: -5px; box-shadow: 0 0 0 2px #fff; font-size: 9px; }
+.training-people > span:nth-child(2) { background: #cfe2ef; }
+.training-people > span:nth-child(3) { background: #f0dec9; }
+.training-people p { margin: 0 0 0 16px; font-size: 11px; color: #586f78; }
+.training-playbook { position: relative; margin: -2px -5px -25px 25px; padding: 18px; display: flex; gap: 14px; align-items: center; background: #d6ff62; color: #193730; border-radius: 10px; transform: rotate(-3deg); box-shadow: 0 12px 25px #06314b18; }
+.training-playbook > span { font-size: 25px; }
+.training-playbook strong { font-size: 15px; font-weight: 500; }
+.training-playbook p { margin: 5px 0 0; font-size: 11px; }
+.training-outcome-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
+.training-outcome-grid article > span { color: #087bab; font: 12px "IBM Plex Mono", monospace; }
+.training-outcome-grid h3 { font-size: 29px; line-height: 1.15; font-weight: 450; letter-spacing: -.04em; margin: 22px 0 16px; }
+.training-outcome-grid p, .training-format-inner p { font-size: 16px; color: #586f78; line-height: 1.7; }
+.training-format-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 75px; padding: 48px; border-radius: 24px; background: #193730; color: #f3faf5; }
+.training-format-inner h2 { font-size: clamp(30px,3.5vw,46px); font-weight: 450; line-height: 1.12; letter-spacing: -.05em; margin: 0; }
+.training-format-inner p { color: #c5d7ce; margin-top: 20px; }
+.training-format-inner ol { margin: 0; padding: 0; list-style: none; display: grid; align-content: center; }
+.training-format-inner li { display: flex; gap: 18px; padding: 23px 0; line-height: 1.5; box-shadow: 0 1px #ffffff25; }
+.training-format-inner li > span { color: #d6ff62; font: 11px "IBM Plex Mono", monospace; padding-top: 4px; }
+@media(max-width:800px) { .training-outcome-grid,.training-format-inner { grid-template-columns: 1fr; gap: 30px; } .training-format-inner { padding: 30px; } .training-outcome-grid article { max-width: 55ch; } }
+@media(max-width:550px) { .training-session { padding: 23px; } .training-session > strong { font-size: 25px; } .training-playbook { margin-left: 12px; padding: 15px; } .training-playbook strong { font-size: 13px; } .training-outcome-grid h3 { font-size: 27px; } }

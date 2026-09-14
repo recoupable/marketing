@@ -1,3 +1,23 @@
+# Services navigation and pages — September 14, 2026
+
+Services now opens an illustrated three-option menu: Advisory, Build, and Training. The existing Advisory and Build pages have clearer service headlines; Training is a dedicated page covering practical work, output review, reusable methods, engagement format, and FAQs. Training links into the existing inquiry flow and is included in public routes, sitemap, footer, and machine summaries.
+
+# Recoup Platform positioning and homepage ownership — September 14, 2026
+
+The hosted product uses the restored name Recoup Platform across the product menu, homepage software links, footer, and pricing. The `/platform` URL and pricing identifiers remain stable. A new audience section follows the artist/catalog/release composition: no development team required, music-specific AI, and branded artist/client portals.
+
+The Platform page leads with “A ready-to-use AI workspace for music teams.” Its title-only narrative distinguishes the hosted app from using Recoup tools in an existing agent or commissioning a custom system. The page explains chat over artists, catalogs, and releases; built-in research/content/recurring tools; cloud hosting and open source; Skills/API/MCP alternatives; and bespoke services. The public app source links to `recoupable/app` through `siteConfig.platformSourceUrl`.
+
+Platform sections now have more vertical separation and use the shared scroll fade-in treatment on headings, artwork, and content groups. Reduced-motion preferences and anchor navigation use the existing shared behavior.
+
+The Platform page now replaces repeated pale panels with a floating artist/catalog/release composition, a dark interactive tool showcase, a hosting statement paired with a linked public-source illustration, aligned white/dark alternative-path cards, and a compact split FAQ. Research, content, and recurring-work buttons switch local examples. The redundant onboarding checklist, feature-card tray, and separate closing banner are removed. The compact hero preview retains one release-planning exchange and a campaign-plan document. No visible illustrative caption, redundant labels, or tag lists. The attributed Open Recoup actions and shared plan price remain. Page copy, metadata, and the machine-readable summary share `lib/copy/platform.ts`.
+
+The homepage “Built by Recoup. Owned by you.” section now has a blue surface, lime headline emphasis, and three unnumbered deliverable columns. It follows the pale numbered process section with a distinct composition. Ownership copy and terms remain shared and unchanged.
+
+Production build, focused lint, and 31 pricing, agent-content, agent-discovery, and marketing-funnel tests pass. Desktop and narrow-phone layouts were checked for overflow and readable text. The hero preview has no interactive mock controls. The tool showcase uses native pressed-state buttons with an accessible live output region; its examples do not run real tasks. Changes are on `codex/platform-chat-hero` in PR #109 for review.
+
+---
+
 # Navigation consolidation — September 14, 2026
 
 The desktop menus now open on mouse hover and expand the full header surface. Products retains its three illustrated cards. Resources uses compact Docs, Blog, Lab, and About icon links plus one illustrated Work card; the redundant All resources footer is removed. A short mouse-leave delay keeps the menu reachable. Phones retain tap disclosures, with keyboard and Escape support preserved. Continued on `codex/consolidate-navigation`, PR #105.

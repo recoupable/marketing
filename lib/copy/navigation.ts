@@ -1,9 +1,16 @@
 export const headerNavigation = [
-  { label: "Services", href: "/services" },
+  {
+    label: "Services",
+    links: [
+      { label: "Advisory", href: "/advisory", description: "Know where AI fits and what to prioritize.", visual: "advisory" },
+      { label: "Build", href: "/build", description: "Custom AI systems for your team.", visual: "build" },
+      { label: "Training", href: "/training", description: "Put AI to work with your team.", visual: "training" },
+    ],
+  },
   {
     label: "Products",
     links: [
-      { label: "Platform", href: "/platform", description: "Your artists and catalog in one place.", visual: "platform" },
+      { label: "Platform", href: "/platform", description: "Music AI, ready to use. No custom build.", visual: "platform" },
       { label: "Skills", href: "/skills", description: "Music playbooks for your AI.", visual: "skills" },
       { label: "Developers", href: "/developers", description: "Build with our API, MCP, and CLI.", visual: "developers" },
     ],

@@ -1,89 +1,101 @@
 import { AppLink } from "@/components/analytics/AppLink";
+import { PageMark } from "@/components/sky/brand";
 import { SkyArrow } from "@/components/sky/arrow";
 import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { FAQ } from "@/components/ui";
-import { ProductPreview } from "@/components/interactive/ProductPreview";
-import { PageHero, PageSection, PageCTA, PageButton } from "@/components/sky/page-ui";
+import { PlatformContextArt } from "@/components/platform/PlatformContextArt";
+import { PlatformToolsDemo } from "@/components/platform/PlatformToolsDemo";
+import { PlatformChatPreview } from "@/components/platform/PlatformChatPreview";
+import Link from "next/link";
+import { PageHero } from "@/components/sky/page-ui";
 import { annualDiscountPercent, planPrice, pricingPlans } from "@/lib/pricing";
+import { platformCopy } from "@/lib/copy/platform";
+import { siteConfig } from "@/lib/config";
 import "./platform.css";
 
 export const metadata: Metadata = withPageMetadata({
-  title: "The AI platform for artists & music teams",
-  description:
-    "Research artists, create campaign content, and keep recurring work moving with Recoup. An AI workspace built around your artists and your music business.",
+  title: platformCopy.title,
+  description: platformCopy.description,
   alternates: { canonical: "/platform" },
 });
-
-const capabilities = [
-  { number: "01", label: "ARTIST CONTEXT", title: "Know the artist.", description: "Bring artist notes, music, and reference files into one workspace.", items: ["Artist profiles", "Reference files", "Your notes"] },
-  { number: "02", label: "RESEARCH", title: "Find the next move.", description: "Research artists and opportunities. Turn the findings into a useful brief.", items: ["Artist briefs", "Opportunity research"] },
-  { number: "03", label: "CONTENT", title: "Make more from the music.", description: "Draft campaign ideas, captions, graphics, and video for your team to refine.", items: ["Campaign direction", "Creative drafts"] },
-  { number: "04", label: "RECURRING WORK", title: "Keep the work moving.", description: "Set recurring prompts and reports, with your artist’s context in place.", items: ["Recurring prompts", "Reports & check-ins"] },
-];
-
-function CapabilityIcon({ number }: { number: string }) {
-  const paths: Record<string, React.ReactNode> = {
-    "01": <><path d="M4 6h6l2 3h8v11H4V6Z" /><path d="M8 13h8m-8 3h5" /></>,
-    "02": <><circle cx="10" cy="10" r="6" /><path d="m15 15 5 5M8 10h4m-2-2v4" /></>,
-    "03": <><path d="m15 4 5 5L8 21H3v-5L15 4Z" /><path d="m12 7 5 5M3 3v5m-2-3h5" /></>,
-    "04": <><path d="M4 10a8 8 0 0 1 14-4l2 2M20 3v5h-5M20 14A8 8 0 0 1 6 18l-2-2M4 21v-5h5" /></>,
-  };
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[number]}</svg>;
-}
 
 export default function PlatformPage() {
   const plan = pricingPlans.find((item) => item.id === "platform")!;
   return (
     <div className="sky-subpage platform-sky">
       <PageHero
-        eyebrow="RECOUP PLATFORM"
-        title={<>Your artists.<br /><span>In context.</span></>}
-        description="Research the artist. Shape the campaign. Create the content. An AI workspace for the work around your music."
-        visual={<div className="platform-sky-preview"><div className="platform-sky-preview-backplate" aria-hidden="true" /><ProductPreview /></div>}
+        eyebrow={platformCopy.hero.eyebrow}
+        title={<>{platformCopy.hero.title[0]}<br /><span>{platformCopy.hero.title[1]}</span></>}
+        description={platformCopy.hero.description}
+        visual={<PlatformChatPreview />}
       >
-        <AppLink placement="platform-hero" className="sp-button">Open Recoup<span><SkyArrow /></span></AppLink>
-        <PageButton href="/pricing#platform" secondary>Explore the {plan.name} plan</PageButton>
-        <p className="platform-sky-hero-note">{planPrice(plan.id, "monthly").monthly}/month for the platform and music skill pack.</p>
+        <AppLink placement="platform-hero" className="sp-button">{platformCopy.hero.action}<span><SkyArrow /></span></AppLink>
+        <p className="platform-sky-hero-note">{planPrice(plan.id, "monthly").monthly}/month for Recoup Platform and the music skill pack.</p>
       </PageHero>
 
-      <PageSection eyebrow="THE WORK AROUND THE MUSIC" title={<>One workspace.<br />A lot more possible.</>} description="Keep the artist’s context close, from the first question to the next release.">
-        <div className="platform-sky-capabilities">
-          {capabilities.map((capability) => (
-            <article className={`platform-sky-capability platform-sky-capability-${capability.number}`} key={capability.number}>
-              <div className="platform-sky-capability-top"><span className="platform-sky-capability-icon"><CapabilityIcon number={capability.number} /></span><span className="sp-kicker">{capability.label}</span><span className="platform-sky-capability-number">{capability.number}</span></div>
-              <h3>{capability.title}</h3>
-              <p>{capability.description}</p>
-              <div className="platform-sky-tags">{capability.items.map(item => <span key={item}>{item}</span>)}</div>
+      <section className="platform-context" id="workspace" aria-labelledby="platform-context-title">
+        <h2 id="platform-context-title" data-reveal="">{platformCopy.start.title}</h2>
+        <div data-reveal=""><PlatformContextArt /></div>
+      </section>
+
+      <section className="platform-audience" id="who-its-for" aria-labelledby="platform-audience-title">
+        <header data-reveal="">
+          <p className="platform-audience-eyebrow">{platformCopy.audience.eyebrow}</p>
+          <h2 id="platform-audience-title">{platformCopy.audience.title[0]} <span>{platformCopy.audience.title[1]}</span></h2>
+        </header>
+        <div className="platform-audience-reasons" data-reveal-group="">
+          {platformCopy.audience.reasons.map(reason => (
+            <article key={reason.title}>
+              <h3>{reason.title}</h3>
+              <p>{reason.description}</p>
             </article>
           ))}
         </div>
-      </PageSection>
+      </section>
 
-      <PageSection className="platform-sky-start-section" eyebrow="MADE FOR YOUR NEXT RELEASE" title="Put a real artist in it." description="Bring something you need to get done today. Start there.">
-        <div className="platform-sky-start">
-          <div className="platform-sky-start-copy">
-            <span className="platform-sky-start-label">YOUR FIRST SESSION</span>
-            <h3>A little context.<br /><span>A useful place to start.</span></h3>
-            <AppLink placement="platform-start" className="sp-button">Get started with Recoup<span><SkyArrow /></span></AppLink>
-          </div>
-          <ol className="platform-sky-first-session">
-            <li><span>01</span><div><h4>Add the artist.</h4><p>Create a profile and bring in the information that matters.</p></div></li>
-            <li><span>02</span><div><h4>Bring the context.</h4><p>Add artist notes, music, or useful reference files.</p></div></li>
-            <li><span>03</span><div><h4>Give it a job.</h4><p>Start with a research question, a campaign idea, or a creative task.</p></div></li>
-          </ol>
+      <PlatformToolsDemo title={platformCopy.capabilitiesTitle} workflows={platformCopy.capabilities} />
+
+      <section className="platform-hosted" id="hosted" aria-labelledby="platform-hosted-title">
+        <div className="platform-hosted-copy" data-reveal="">
+          <h2 id="platform-hosted-title">{platformCopy.hosted.title[0]}<br /><span>{platformCopy.hosted.title[1]}</span></h2>
+          <p>{platformCopy.hosted.description}</p>
+          <Link className="sp-text-link" href="/developers">{platformCopy.hosted.toolsAction}<SkyArrow /></Link>
         </div>
-      </PageSection>
+        <div className="platform-source-scene" data-reveal="">
+          <div className="platform-source-cloud" aria-hidden="true"><PageMark /><span>Recoup Platform</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 18a5 5 0 0 1-1-9.9A7 7 0 0 1 18.5 8a5 5 0 0 1-.5 10H6Z" /></svg></div>
+          <a className="platform-source-repo" href={siteConfig.platformSourceUrl}>
+            <span className="platform-source-code" aria-hidden="true">&lt;/&gt;</span>
+            <span className="platform-source-name">recoupable / <strong>app</strong></span>
+            <span className="platform-source-action">{platformCopy.hosted.sourceAction}<SkyArrow /></span>
+          </a>
+        </div>
+      </section>
 
-      <PageSection eyebrow="A FEW DETAILS" title="Make yourself at home.">
-        <FAQ items={[
-          { question: "Who is the platform for?", answer: "Artists, managers, and music teams who want help with research, content, and recurring work. For company-specific workflows, large catalog operations, or custom integrations, our consulting team can help define the right setup." },
-          { question: "What should I bring to my first session?", answer: "An artist profile, a clear task, and any useful reference material. The more relevant context you provide, the better the starting point for research and creative work." },
+      <section className="platform-paths" data-reveal-group="" id="your-agent" aria-label="More ways to use Recoup">
+        <article className="platform-path-tools">
+          <span className="platform-path-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14" /></svg></span>
+          <h2>{platformCopy.alternatives.title[0]}<br /><span>{platformCopy.alternatives.title[1]}</span></h2>
+          <p>{platformCopy.alternatives.description}</p>
+          <div className="platform-sky-links">{platformCopy.alternatives.links.map(link => <Link className="sp-text-link" href={link.href} key={link.href}>{link.label}<SkyArrow /></Link>)}</div>
+        </article>
+        <article className="platform-path-custom">
+          <span className="platform-path-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5m-18 5 9 5 9-5" /></svg></span>
+          <h2>{platformCopy.closing.title}</h2>
+          <p>{platformCopy.closing.description}</p>
+          <Link className="sp-text-link" href="/start-project">{platformCopy.closing.action}<SkyArrow /></Link>
+        </article>
+      </section>
+
+      <section className="platform-faq" aria-labelledby="platform-faq-title">
+        <h2 id="platform-faq-title" data-reveal="">{platformCopy.faq.title}</h2>
+        <div data-reveal=""><FAQ items={[
+          platformCopy.faq.audience,
+          platformCopy.faq.context,
           { question: "How do plans and usage work?", answer: `The ${plan.name} plan includes the hosted workspace and music skill pack for ${planPrice(plan.id, "monthly").monthly}/month. Annual billing saves at least ${annualDiscountPercent}%. API and MCP usage is billed separately. Review the pricing page for plans and the credits documentation for usage details.` },
-          { question: "Can Recoup build around our team?", answer: "Yes. We can connect your tools and data, create workflows around your company’s methods, and help your team use and maintain the system." },
-        ]} />
-      </PageSection>
-      <PageCTA title="A whole company to connect?" description="Let’s build around your roster, your tools, and the way your team works." />
+          platformCopy.faq.custom,
+        ]} /></div>
+      </section>
     </div>
   );
 }

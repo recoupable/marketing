@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { headerNavigation } from "@/lib/copy/navigation";
 import { SkyArrow } from "./arrow";
+import { NavServiceArt } from "./nav-service-art";
 import { NavProductArt } from "./nav-product-art";
 import { BookOpen, Newspaper, FlaskConical, UsersRound } from "lucide-react";
 import { NavWorkArt } from "./nav-work-art";
@@ -44,7 +45,7 @@ export function HeaderNavItems({ pathname, mobile = false }: { pathname: string;
           </div>
          : <div className="ss-nav-product-grid">
           {item.links.map(link => <Link className="ss-nav-product-link" key={link.href} href={link.href} aria-current={isCurrent(link.href) ? "page" : undefined}>
-            <NavProductArt kind={link.visual} />
+            {link.visual === "advisory" || link.visual === "build" || link.visual === "training" ? <NavServiceArt kind={link.visual} /> : <NavProductArt kind={link.visual} />}
             <div className="ss-nav-link-title"><strong>{link.label}</strong><SkyArrow /></div>
             <span>{link.description}</span>
           </Link>)}

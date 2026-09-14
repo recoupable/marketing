@@ -6,32 +6,41 @@ import {
 } from "../pricing.ts";
 import { siteConfig } from "../config.ts";
 import type { PageSummary } from "./types.ts";
+import { platformCopy } from "../copy/platform.ts";
 
 // Summaries of the software and pricing pages; same representation rules as offerPages.
 export const productPages: PageSummary[] = [
   {
     path: "/platform",
-    title: "The Recoup AI platform for artists and music teams",
-    description:
-      "A hosted workspace for artist context, research, campaign drafts, and recurring prompts and reports.",
+    title: platformCopy.title,
+    description: platformCopy.description,
     keywords:
-      "platform app artist workspace hosted research content campaigns reports recurring tasks",
+      "platform app hosted cloud open source agent workspace music business artists catalogs releases research content campaigns recurring tasks labels API MCP",
     paragraphs: [
-      "The platform brings artist profiles, notes, music, and reference files into a hosted workspace for artists, managers, and music teams.",
-      "Use the context for artist and opportunity research, campaign ideas, captions, graphics, video drafts, recurring prompts, and reports. Start with an artist profile, relevant material, and a clear task.",
-      `The self-serve Platform plan includes platform access and the music skill pack at ${planPrice("platform", "monthly").monthly}/month. Annual billing saves at least ${annualDiscountPercent}%. API and MCP usage is billed separately by usage. Company-specific workflows and integrations can be scoped with the consulting team.`,
+      platformCopy.hero.description,
+      platformCopy.start.title,
+      platformCopy.audience.title.join(" "),
+      ...platformCopy.audience.reasons.map(item => `${item.title} ${item.description}`),
+      ...platformCopy.capabilities.map(item => `${item.title}: ${item.description}`),
+      `${platformCopy.hosted.title.join(" ")} ${platformCopy.hosted.description}`,
+      `${platformCopy.alternatives.title.join(" ")} ${platformCopy.alternatives.description}`,
+      `${platformCopy.closing.title} ${platformCopy.closing.description}`,
+      platformCopy.faq.context.answer,
+      `The self-serve Recoup Platform plan includes workspace access and the music skill pack at ${planPrice("platform", "monthly").monthly}/month. Annual billing saves at least ${annualDiscountPercent}%. API and MCP usage is billed separately by usage. Company-specific workflows and integrations can be scoped with the consulting team.`,
     ],
     links: [
-      ["Open Recoup", siteConfig.appUrl],
-      ["Platform plan", "/pricing#platform"],
+      [platformCopy.hero.action, siteConfig.appUrl],
+      ["Recoup Platform plan", "/pricing#platform"],
+      [platformCopy.hosted.sourceAction, siteConfig.platformSourceUrl],
+      ...platformCopy.alternatives.links.map(link => [link.label, link.href] as [string, string]),
       ["Custom systems", "/build"],
     ],
   },
   {
     path: "/pricing",
-    title: "Recoup pricing: platform, advisory, and custom builds",
+    title: "Recoup pricing: Platform, advisory, and custom builds",
     description:
-      "Compare self-serve Platform, Advisory, Build + Partner, and custom Enterprise engagements. API and MCP are billed by usage.",
+      "Compare self-serve Recoup Platform, Advisory, Build + Partner, and custom Enterprise engagements. API and MCP are billed by usage.",
     keywords:
       "pricing price cost platform advisory consulting build partner enterprise monthly annual subscription API MCP usage",
     paragraphs: [
@@ -39,11 +48,11 @@ export const productPages: PageSummary[] = [
       `Annual billing applies a ${annualDiscountPercent}% discount, then rounds the monthly equivalent down to a whole dollar. The annual charge is twelve times that rounded amount. The page shows both amounts.`,
       "Enterprise has a custom scope and price; contact Recoup to discuss the engagement. For advisory and builds, scope, deliverables, and delivery schedule are agreed together.",
       "API and MCP are billed separately by usage. Consult the credits documentation for billable operations and usage accounting. The annual subscription discount does not discount usage charges.",
-      "Recoup Skills remains open source. The Platform plan bundles a hosted workspace and the music skill pack; an AI client or third-party services may have their own costs.",
+      "Recoup Skills remains open source. The Recoup Platform plan bundles a hosted workspace and the music skill pack; an AI client or third-party services may have their own costs.",
     ],
     links: [
       ["Compare plans", "/pricing#plans"],
-      ["Open the platform", siteConfig.appUrl],
+      ["Open Recoup Platform", siteConfig.appUrl],
       ["Discuss advisory", pricingInquiryHref("advisory")],
       ["Discuss a build", pricingInquiryHref("partner")],
       ["Discuss Enterprise", pricingInquiryHref("enterprise")],
