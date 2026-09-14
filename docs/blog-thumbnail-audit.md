@@ -43,6 +43,6 @@ Scope: 26 published posts: one featured guide and 25 archive entries. Read again
 
 ## Implementation
 
-`app/blog/article-art.tsx` owns the slug-specific native SVG scenes. `BlogArt` retains the approved original Skills cover and the featured guide. Article body copy and full-size historical cover images are unchanged. All 25 archive entries use one continuous thumbnail grid, including filtered results; there is no text-only archive break.
+`app/blog/article-art.tsx` owns the slug-specific native SVG scenes. `BlogArt` retains the approved original Skills cover and the featured guide. Article body copy and full-size historical cover images are unchanged. All 25 archive entries use one continuous thumbnail grid, without search/filter controls or a text-only archive break.
 
 New scenes illustrate processes, not measured results: no fabricated performance metrics, revenue gains, or hit predictions. Labels and major subjects stay inside the 800 × 500 viewBox; the thumbnail preserves that ratio on phones.

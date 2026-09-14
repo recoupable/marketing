@@ -202,27 +202,10 @@
 
 .blog-archive .blog-section-heading { margin-bottom: 24px; }
 .blog-archive-feed { flex-shrink: 0; color: #087bab; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
-.blog-archive-filters { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 20px; padding: 22px; border-radius: 16px; background: #f0f7fa; }
-.blog-archive-filters label { display: block; margin-bottom: 9px; color: #152e37; font-size: 14px; font-weight: 500; }
-.blog-archive-search, .blog-archive-category { min-width: 0; }
-.blog-archive-search > div { position: relative; }
-.blog-archive-search svg { position: absolute; top: 50%; left: 16px; width: 20px; height: 20px; color: #586f78; transform: translateY(-50%); pointer-events: none; }
-.blog-archive-filters input, .blog-archive-filters select { width: 100%; min-height: 48px; border: 1px solid #8fa7b1; border-radius: 9px; background: #fff; color: #152e37; font: inherit; font-size: 16px; line-height: 1.5; }
-.blog-archive-filters input { padding: 10px 13px 10px 44px; }
-.blog-archive-filters input::placeholder { color: #586f78; }
-.blog-archive-filters select { padding: 10px 34px 10px 13px; }
-.blog-archive-status { display: flex; align-items: center; justify-content: space-between; gap: 15px; min-height: 58px; margin-bottom: 10px; }
-.blog-archive-status p { margin: 0; color: #586f78; font-size: 13px; }
-.blog-archive-status button { min-height: 44px; padding: 8px 0 8px 12px; border: 0; background: transparent; color: #087bab; font: inherit; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
-.blog-archive-empty { padding: 44px 28px; border: 1px solid #dfe8eb; border-radius: 16px; background: #f8fbfc; text-align: center; }
-.blog-archive-empty h3 { margin: 0 0 12px; color: #152e37; font-size: 25px; font-weight: 500; letter-spacing: -.035em; }
-.blog-archive-empty p { margin: 0; color: #586f78; font-size: 15px; line-height: 1.6; }
 .blog-archive :is(input, select, button, a):focus-visible { outline: 3px solid #077abb; outline-offset: 4px; }
 @media (max-width: 600px) {
-  .blog-archive-filters { grid-template-columns: 1fr; gap: 16px; padding: 18px; }
   .blog-archive .blog-section-heading { align-items: baseline; }
   .blog-archive .blog-section-heading h2 { font-size: 25px; }
-  .blog-archive-empty { padding: 34px 20px; }
 }
 
 /* Preserve the complete editorial composition at every card width. */

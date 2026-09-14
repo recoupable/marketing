@@ -7,7 +7,7 @@ import type { SubscribeSource } from "@/lib/marketing-subscribe";
 import { useSubscribeForm } from "@/hooks/useSubscribeForm";
 import "./subscribe-card.css";
 
-export function SubscribeCard({ source }: { source: SubscribeSource }) {
+export function SubscribeCard({ source, compact = false }: { source: SubscribeSource; compact?: boolean }) {
   const id = useId();
   const form = useSubscribeForm(source);
   const confirmation = useRef<HTMLHeadingElement>(null);
@@ -16,16 +16,14 @@ export function SubscribeCard({ source }: { source: SubscribeSource }) {
   }, [form.status]);
 
   return (
-    <section className="mm-subscribe" aria-labelledby={`${id}-title`}>
+    <section className={`mm-subscribe${compact ? " mm-subscribe-compact" : ""}`} aria-labelledby={`${id}-title`}>
       <div className="mm-subscribe-copy">
-        <p className="sp-kicker">RECOUP / FIELD NOTES</p>
+        {!compact && <p className="sp-kicker">RECOUP / FIELD NOTES</p>}
         <h2 id={`${id}-title`}>
-          Get occasional AI notes
-          <br />
-          from Recoup.
+          {compact ? "Get new guides in your inbox." : <>Get occasional AI notes<br />from Recoup.</>}
         </h2>
         <p>
-          Ideas, workflows, and practical notes on AI in the business of music.
+          {compact ? "Practical AI ideas for music teams." : "Ideas, workflows, and practical notes on AI in the business of music."}
         </p>
         {source === "/playbook" && (
           <p className="mm-subscribe-access">
@@ -61,7 +59,7 @@ export function SubscribeCard({ source }: { source: SubscribeSource }) {
           </noscript>
           <fieldset className="mm-subscribe-guard" disabled={form.busy}>
             <div className="mm-subscribe-fields">
-              <div>
+              {!compact && <div>
                 <label htmlFor={`${id}-name`}>
                   Name <span>(optional)</span>
                 </label>
@@ -76,9 +74,9 @@ export function SubscribeCard({ source }: { source: SubscribeSource }) {
                   disabled={form.status === "loading"}
                   placeholder="Your name"
                 />
-              </div>
+              </div>}
               <div>
-                <label htmlFor={`${id}-email`}>Email address</label>
+                <label className={compact ? "mm-subscribe-visually-hidden" : undefined} htmlFor={`${id}-email`}>Email address</label>
                 <input
                   id={`${id}-email`}
                   type="email"
@@ -96,14 +94,14 @@ export function SubscribeCard({ source }: { source: SubscribeSource }) {
             <button className="sp-button" type="submit" disabled={form.busy}>
               {form.status === "loading"
                 ? "Saving your signup…"
-                : "Subscribe to the notes"}
+                : compact ? "Subscribe" : "Subscribe to the notes"}
               <span>
                 <SkyArrow />
               </span>
             </button>
           </fieldset>
           <p className="mm-subscribe-consent" id={`${id}-consent`}>
-            By subscribing, you agree to receive occasional emails from Recoup.{" "}
+            {compact ? "Occasional emails from Recoup. " : "By subscribing, you agree to receive occasional emails from Recoup. "}
             <Link href="/privacy">Privacy policy</Link>.
           </p>
           {form.status === "error" && (
