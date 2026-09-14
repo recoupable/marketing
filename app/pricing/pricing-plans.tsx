@@ -23,7 +23,7 @@ function Check() {
 }
 
 export function PricingPlans() {
-  const [billing, setBilling] = useState<BillingCycle>("monthly");
+  const [billing, setBilling] = useState<BillingCycle>("annual");
   return <>
     <section id="plans" className="rp-comparison" aria-label="Compare Recoup plans">
       <div className="rp-billing-bar">
