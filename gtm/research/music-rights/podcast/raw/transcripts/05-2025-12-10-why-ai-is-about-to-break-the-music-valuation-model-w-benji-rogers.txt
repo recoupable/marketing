@@ -1,0 +1,724 @@
+# Why AI is about to break the music valuation model w/ Benji Rogers
+# Date: 2025-12-10
+# Duration: 01:13:21
+# Guests: Benji Rogers — Co-President, Sureel AI; Partner, Lark42 Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Why-AI-is-about-to-break-the-music-valuation-model-w-Benji-Rogers-e3c585l
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogs.
+[00:08] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:15] Welcome back to the Music Moneyball podcast with me, Emma Griffiths.
+[00:20] As always, I am joined by my co-hosts, Tom Mullen and Sam Maury.
+[00:24] And our guest today is somebody who has spent his entire career standing at the fault line
+[00:28] between music and technology, often years before the rest of the industry caught up.
+[00:33] He's a British-born, New York-based entrepreneur, technologist, educator, and, as he jokes, a recovering musician.
+[00:40] He's founded multiple groundbreaking companies, including director-to-fan platform Pledge Music
+[00:45] and rights data company Verify Media, and now spends his time as a partner at consulting firm Lark42
+[00:51] and as co-president of Surreal AI, an attribution platform built to help rights holders protect,
+[00:57] control, and monetize their catalogs in the age of generative AI.
+[01:01] He believes we're entering a moment where rights holders face a once-in-a-generation choice,
+[01:06] harness the technology that can finally pay them properly, or repeat the mistakes of the past.
+[01:11] And he really doesn't want the music industry to screw this up.
+[01:14] Please welcome Benji Rogers.
+[01:16] Thanks for having me.
+[01:17] Hello, Benji.
+[01:18] Thanks for calling.
+[01:20] Hey, Benji.
+[01:20] Good to be here.
+[01:21] Yeah, we've been geeking out about all your fascinating writings and opinions for weeks now,
+[01:29] so we're really excited to get into it.
+[01:32] But before we do, we would love to know, Benji, if we could introduce you with a song,
+[01:38] which song would it be and why?
+[01:39] So I thought about this, and the one that comes to mind is a song that came out.
+[01:45] It's from a Lowell George solo album.
+[01:48] He was the singer from Little Feet, and it's the song 20 Million Things to Do.
+[01:53] And it's this kind of like tender, beautiful song about just not being able to get all the
+[02:00] shit you need to get done, done.
+[02:02] So I feel like that's been my life for a long, long time.
+[02:07] There's a certain irony about that song, Tyson, isn't there?
+[02:10] It's like 20,000 things to do can't be done.
+[02:15] Can we do them with AI?
+[02:18] Or why not?
+[02:19] Yeah, absolutely.
+[02:20] Hold that thought.
+[02:21] Hold that thought.
+[02:23] Optimize them all.
+[02:24] Optimize them all.
+[02:24] So Benji, we really can't escape the topic of AI at the moment in not just the music industry,
+[02:31] but I think across all industries.
+[02:33] But specific to music, we are seeing a lot of chat, a lot of noise, a lot of fear mongering,
+[02:40] a lot of new startups, licensing deals, et cetera, litigation.
+[02:45] But is there anything that you're seeing that's actually tangible in terms of the progress
+[02:50] that we're making?
+[02:51] The way to frame this is like there's what is going to be good for individual musicians,
+[02:58] what is going to be good for labels and rights holders, what is going to be good to people
+[03:03] who view music as assets, and then what is going to be good for society and humanity?
+[03:09] AI is a multi-purpose technology, right?
+[03:12] It's not one thing.
+[03:14] It's many things.
+[03:15] And so the surface for attack is immense.
+[03:21] So I think the most important thing that most people need to do is figure out how they want
+[03:26] to use this stuff in their lives, whether that be the pure tools of optimization,
+[03:33] transcribing every meeting so you don't have to take meeting notes, but then forgetting
+[03:37] what was in the meeting, the cognitive offloading that occurs when you do this kind of thing,
+[03:41] when you implement change.
+[03:43] And I think I go back to sort of what Neil Postman sort of really spoke to in the 80s,
+[03:47] which is like no technology, you know, every technology has a downside.
+[03:51] The question is just to whom does it fall?
+[03:54] And when it comes to music and the music industry, the first thing I saw was this could be the
+[04:00] greatest revenue stream opportunity for most artists that has ever been created.
+[04:06] Like ever, because as you know, if you can create something that scales to the size of,
+[04:13] you know, big tech and find a way for the music rights holders to go with it, you've won.
+[04:21] You know, Spotify and models like streaming were not designed for that.
+[04:26] That was not the, that was not the point, right?
+[04:28] The point was to sell ads, to sell subscriptions and for the company to do well at the expense
+[04:33] of rights holders, largely. There was this argument about it was piracy, et cetera.
+[04:38] And so at first I was so positive about AI. I kept saying to my wife, who's much smarter than
+[04:45] me, by the way, like, this is going to be amazing. Artists will be able to like, you know, whatever
+[04:49] they make will be, you know, used billions of times across all these amazing platforms.
+[04:56] And, and she would look at me like, yeah, there's going to be a downside to that though.
+[05:00] I can feel that. And I was like, no, no, no. Look, it's amazing. We've sorrow.
+[05:03] Intelligence, you know, and, and then it didn't take long to realize, oh, wait a minute. You know,
+[05:10] if you can use this technology for, you know, taking the friction out, all those kinds of things,
+[05:18] there's a downside. The key question I think that we need to ask is what does this technology want?
+[05:25] You know, this is like the great Kevin Kelly question. What does technology want?
+[05:28] And in this specific case, what the AI is looking for is, is how can I keep the person engaging on the
+[05:35] platform and subscribing at the least cost possible to the AI company? Pure capitalism. And, um, and
+[05:45] there's nothing inherently wrong with that model, except when the things that it's keeping you engaged
+[05:50] with, whether that be, you know, amazing, you know, uh, videos, songs, you know, words, et cetera,
+[05:57] came from something that humans made. And so if we don't compensate them, we begin to replace them.
+[06:05] And, um, unlike, you know, other technologies that have been sort of like, like deployed,
+[06:11] this one has already scaled at a speed. No one could have anticipated. It's, it's huge. You know,
+[06:18] a startup can be a couple of years old and worth tens, hundreds of billions of dollars.
+[06:24] And so with the entire U S economy being bet on this working out, you can see where the incentives
+[06:32] begin to misalign between those that create and own stuff and those that want to exploit it.
+[06:38] It's not a new argument. It's just being framed in a different way. And so if you think of, you know,
+[06:44] the analog I use is streaming music is what will keep the person streaming for the least cost possible
+[06:53] to me. Right. And so Spotify is optimizing for coming in with a full royalty based song and then
+[07:02] getting that person to a half or no royalty based piece of content as quickly as possible.
+[07:07] That's what algorithmic optimization looks like, or as Corey Doctorow will call it in certification.
+[07:14] AI is very similar. And so we have to ask the question, what does this technology want?
+[07:22] And then what do the people who are deploying it want? And if you look at the lawsuits, they want
+[07:27] to not have to pay the people that helped them build multi-billion dollar companies.
+[07:33] And that's fundamentally just wrong. It's just, it's a morally wrong position to take.
+[07:39] So on the one hand, I'm like, if we get this right, and it's a narrow path, as many things
+[07:44] are with artificial intelligence, it's a narrow path. We get it right. It could lead to every
+[07:48] artist getting paid every time their work is used across an infinite space of the internet
+[07:54] growing exponentially. If we get it wrong, it'll be take a dollar per song and we'll come back in a few
+[08:05] years. And that feels awful to me, or a pound per song, a euro, whatever it is. And because if
+[08:10] someone's willing to pay you for that work once and get away with it, they'll do that. If they don't
+[08:18] have to pay you at all, they'll do that too. But when someone says, take some money now,
+[08:24] don't worry about the future, that's the major alarm bell that starts ringing because the downside
+[08:29] is you don't get paid in perpetuity and it falls to you. So if you own rights or invest in rights,
+[08:38] whatever that looks like, this is the most, probably the only thing you should be thinking
+[08:43] about right now. And how small do you think that window is, Benji, in terms of us, like the music
+[08:49] industry being able to capitalize on that? Yeah. So it depends on a few things. There's a technological
+[08:59] breakthrough, which is with synthetic data. So, you know, the sort of the lay person's terms,
+[09:05] because I'm really not very smart, is that when an AI creates something, that output is a
+[09:13] conglomeration of all the things that it was trained on. And so what that thing becomes is
+[09:17] effectively like a synthetic piece of media. And the holy grail of AI is to be able to train your new
+[09:27] model, not on the old stuff, but on this new synthetic optimized version of the old stuff.
+[09:35] Because that way you can like create a removal. So in one of the lawsuits, one of the AI companies
+[09:41] said, well, we're not altering originalists because they'd been so successful with this
+[09:47] synthetic data breakthrough. So you can imagine a scenario where an AI company goes to a judge
+[09:52] or jury and says, look, we're not using, you know, your work. We're using our own stuff that we have
+[10:02] created through our platform. And that would, that would be correct. So in June, January of this year,
+[10:11] Elon Musk said, we've run out of human created data to train Grok, our model. We need to, so the future
+[10:18] is in the synthetic version, but like a chicken eating its own egg over and over again, the models
+[10:24] don't do well if you feed them what, you know, feed them their own supply. So the, the holy grail of what
+[10:31] the AI wants, again, if we think of it from that first principle, what does the technology want? It
+[10:35] wants to give the user what will keep them on the platform for the least cost possible. Generating its
+[10:41] own data is the holy grail. We got, we're not there yet. And so about six months ago, I said, look,
+[10:48] we probably have a narrow window because if Musk is already on this in January with an infinite budget
+[10:53] to solve this problem, open AI, similarly, Google, similarly, meta, similarly, TikTok,
+[10:59] similarly, like these are mega platforms. That's what they're going for. If we know that's what the
+[11:06] plan is, then we have to plan our response to it. And, um, and so synthetic data now that you cannot
+[11:13] purely train a model on it, but what's the bet that they solve that problem in a month?
+[11:20] Well, what do, what do you think is the bet? I mean, I guess, um, and I've got a few questions
+[11:26] around that. So it feels like there's been a vast, uh, technological leap in the probably past two years
+[11:34] when chat GPT all of a sudden hit the mainstream. And because of the way that society and the internet
+[11:41] is organized today with everybody globally having, you know, computers in our pockets and being able
+[11:48] to provide training dates and all that other stuff, the, the acceleration is massive, probably
+[11:52] unprecedented. Uh, but it still feels like despite all of that effort, despite all of the money,
+[11:58] despite all of the training data, I haven't really seen anything that's actually materially
+[12:05] compelling. You know, the, I think recently there was a song that made it into the billboard number
+[12:11] one spot based off the number of, uh, downloads bought, which was a very, very small number.
+[12:18] And comparatively in, in relative terms to back in the day when people used to actually buy
+[12:23] individual songs was, was minuscule. And I think that I'm just kind of have a question mark as to,
+[12:31] uh, it feels like we're close, but we could also be a million miles away from these models actually
+[12:39] creating something that the consumer, which for now is still humans really finds valuable.
+[12:47] Yeah. Um, so one of the things I've, I've been humbled by many times, you make a really good point.
+[12:54] And this is one I remember having an argument on, which is like, it'll never sing like Billie Holiday.
+[13:00] It'll never have that thing. Um, it will, it's, it's going to be at the point where you will.
+[13:09] I agree with that. Yeah. And, and, and, and I think, I think, but, but, but I actually think that the,
+[13:15] the, the, that it writing a hit that takes like, that's not actually my concern at all,
+[13:21] because if you think about what TikTok is, right. Or what meta platforms purvey,
+[13:29] they are a curation of the adequate, the brilliant and the awful. And so the, the, the, the, the,
+[13:40] the piece that, that, that concerns me, isn't that like, it'll take away from the next David Bowie or the
+[13:45] next, you know, Michel and Dougie or cello or the next, like that's not the concern. It's flooding
+[13:52] the internet with good enough because TikTok is a platform built on good enough.
+[13:58] TikTok it's built on, on novelty. And so if you think about what it's trying to hack,
+[14:03] it's not trying to hack making the best stuff. It's trying to hack what will keep the consumer
+[14:09] from unsubscribing. Those are different goals. You don't go to Spotify because you want David Bowie
+[14:17] only, right. You don't go for those specific things. Those are the amazing things in general,
+[14:22] when you put on, when discover weekly, I don't do this personally, but when discover weekly hits,
+[14:26] right. It, it doesn't matter what's there. It's irrelevant. This is the reason that like Spotify
+[14:32] spent so much money on these, like, you know, Pantone yellow playlists or, you know, like the mood,
+[14:39] mood vibes and literally said, how much can we replace of this, you know, premium content to
+[14:46] get to the substandard. So the incentive is all about building to where we get there. So what I'd say
+[14:53] is, is, um, on the synthetic side, just to like close that loop. Um, at the moment, the original works
+[15:04] seem to be used to fine tune. So they're not the training there, they're, they are, they're still
+[15:09] needed to make that, bring that human nuance, but with each training run, they get better and better
+[15:15] at this. But I think it's not a question of like, I think looking at it as like to create the best
+[15:21] content, that isn't the goal is to create the stickiest content. Because at the core of this
+[15:28] is AI is building the future of the attention economy. And so what that looks like in my mind,
+[15:35] the biggest threat to any rights holder is this, you know, let's say that we want to promote this
+[15:41] podcast. You roll into meta and it says, Hey, we've analyzed the podcast you've uploaded. We're going to
+[15:47] create 10,000 different versions of the ads for 10,000 specific use cases, each of which will have
+[15:54] a summary of what's what we talked about. And underneath that video summary will be what a
+[16:01] soundtrack. And that soundtrack will come from the cheapest option for the AI that delivers it,
+[16:09] what it needs to keep that, to make that ad successful. So when Google announced its new shorts
+[16:16] product, it's new, um, yeah, yeah. The Google shorts product. There's a woman who just sings and
+[16:22] talks into her phone and it turns it into a Bruno Marsy, Jamiroquai-ish kind of track with four
+[16:31] different options in real time. So that's a synchronization that no one gets paid for other
+[16:39] than Google. So picture that picture the average teenager, four to six hours of social media use per
+[16:46] day. Picture 60% of that being AI generated, specifically targeted to that young woman,
+[16:54] young man's preferences at scale. This is where the money starts to drop out of these massive catalog
+[17:02] valuations because there's no time to select the soundtrack. Oh, wait, let me go get that Nick
+[17:08] Drake song that will take me six months to get a license on. It's sober. Let me pick from this list
+[17:14] of songs. No, that won't work because what we're going into is where, is where it doesn't need to
+[17:20] be as good as the things that we set the high watermark of culture on because the internet's
+[17:26] not full of that. It's so funny, isn't it? It's like just hugely paradoxical because what we're
+[17:31] talking about on one hand is the size and scale of distribution globally in obviously facilitated by
+[17:39] the internet and all of these platforms is unprecedented. And that on one hand really does
+[17:46] create an opportunity for those who are investing in the artistic side, whether that be TV and film
+[17:54] creators, you know, filming themselves or whether that be recorded content that they're singing or
+[17:59] anything else. And that's amazing. And then on the flip side, those same platforms are kind of eating
+[18:05] the content with the desire that they're also going to eat the creators. And it's, it's pretty tricky.
+[18:13] It's terrifying that they're so incentivized as well to just, you know, take value away from
+[18:18] the real human created music. Like it's terrifying.
+[18:22] Yeah. And, and, and I, I don't think it's, you know, it's, it's funny, you know, cause I've,
+[18:28] I've met with the major labels. I've met with the publishers. I've met with, you know,
+[18:31] you know, asset managers who, who view music as an asset. And I've set this same question to them,
+[18:36] which is you're, you're making your, your calculations based on a 14, 18 times multiple
+[18:43] for a world that isn't going to be the same anymore as it was yesterday. And I think,
+[18:51] I think to a great point though, which is like, which is like, how, how soon do we have,
+[18:56] well, if one of the major AI companies is in court telling, saying we no longer need the originals
+[19:06] for our outputs. Now they still need them for the fine tuning, but that's a different use case.
+[19:14] That's not like, so you could say that output did not come from that, those inputs. You could say
+[19:22] that legitimately and mean it. And a judge might, and a jury might say, well, you know what? Like
+[19:27] it sucks, but yeah, it's true. And this is where that fair use thing becomes really slippery. And if
+[19:34] you think about the way that Google in particular has litigated this publicly, they've said it is fair
+[19:40] use. We should not have to compensate those upon whose work we built our technology. And that's,
+[19:47] that's something to reckon with. And I think that, that, that, um, the, the fear I have is that the music
+[19:53] industry doesn't, hasn't really wrapped its head around what that argument alone means, because what
+[20:01] they've said is Google is our partner and Meta is our partner. We do licensing deals with them, but this
+[20:07] technology makes them adversarial because it's literally saying we can generate all the things we needed you
+[20:14] for without you. And if you look at Sam Altman's platform with the video generation, because I think
+[20:20] then this is the case, like if open AI has 800 million users or 900 million, where the number is, and then you
+[20:26] think of Google Gemini and you think of all of the AI created video alone, 90% of that, I'm going to guess
+[20:35] maybe, maybe more, maybe less is going to have a soundtrack to it because video doesn't work without it.
+[20:40] Right. Video looks weird. If it's just, you know, people talking, I mean, present company accepted,
+[20:47] but like, you know, if it, you know, generally speaking, if you're trying to sell a car, it's not
+[20:52] silence with, with visuals, there's always something under it. And the bet I would make is this,
+[20:58] it's not about making the best ad. It's about making the ad that converts and the, for the, for the,
+[21:07] the social media company, they don't care what it is. They don't care what the product is,
+[21:12] as long as it gets the click. And I think that's where, you know, if you think about like the,
+[21:20] the value in TikTok's algorithm was it took 32 minutes to hook the average person and that's
+[21:25] on curated content. So I've divided the world in my head into, you've got common content,
+[21:32] which is the things that we all share and watch together, the Superbowl or the, you know,
+[21:36] cup final or whatever it is. And then you've got custom content and that's going to become the most,
+[21:43] where I think the majority of the spend goes towards and the platforms that are investing in these,
+[21:49] you know, the hyperscalers, they own those systems. They own the means of selling, producing,
+[21:55] and monetizing the ads, whether they are effective or not, you know, as they go out.
+[22:02] The main thing is, is their incentive is not to make the best ad. That's not the case. You know,
+[22:08] that's the art form. It's to get whatever will make the money. And if there's, if there's,
+[22:15] if they could calculate that, like spending, you know, months to license that Guns N' Roses song
+[22:21] will convert X number of people, they'll do it. And so because of the way that these things improve,
+[22:29] you know, GPT-5 is a really subtle upgrade to the previous model.
+[22:35] Too subtle, maybe. Too subtle.
+[22:37] But just to share like my own experience, and I think this was borne out by some of the Azim Azar
+[22:42] from Exponential View said, was that it does, the subtlety in what it does is it's less sycophantic
+[22:49] than the previous model. But it, it, once it delivers the result, it offers you multiple
+[22:58] more options to engage with it again. So its answer will be, the answer was, you know, it was a hit
+[23:05] song in 1967, blah, blah, blah, would you like me to? And that's where it, we have to realize that like
+[23:12] the bets that are being made in AI are not being made to artificial general intelligence, whatnot.
+[23:19] They're being made because it's the most effective tool that the attention economy has ever had.
+[23:25] Because, you know, the value of music, for example, what in my mind was where the music met the human.
+[23:33] But now, that point might be where the music meets the AI. That's where the value is going to be.
+[23:40] And that's the, the, the, the, the change. Because the human is probably going to meet the music where
+[23:44] the AI is as well.
+[23:46] A couple of questions. So I know that the, in some of these lawsuits, they're claiming fair use and
+[23:53] everything like that. How different do you think it is that the AI gets to, or is penalized from
+[24:01] consuming historic works versus humans from consuming historic works? I say that obviously,
+[24:07] you know, there's a scale difference. So we just don't have the capacity to listen to every single
+[24:12] piece of music ever written. But how different is that? Can you really have two rules for two
+[24:17] different people? And given that actually the construct of music is relatively limited, you know,
+[24:25] there's only a finite number of notes. Is it fair?
+[24:31] No, it's a great question. The, the, the interesting thing about attribution, which is like this,
+[24:39] it's kind of nebulous. I wish it was a different word for it. But in, in, in one sense, so I was
+[24:46] writing an article this morning for my sub stack and I have based that art, that, that, that, that
+[24:53] knowledge in the article on a BBC piece that I read, a sub stack piece that I read on and on. And so I
+[24:59] credit at the bottom and link out to those places because I want them to accept my argument, not based
+[25:07] on my own, you know, knucklehead brain, but also on the fact that like, you can check the NIH,
+[25:14] which I understand is controversial today, but shouldn't be, but there's that, but you can check
+[25:19] the BBC's website and you can see that this person in this middle school did actually say this. Like,
+[25:23] so we build the best of human scholarship is built on it. Like, you know, the, um, the, the current
+[25:29] book I'm reading right now has probably a hundred pages of photos in it, which are showing that this
+[25:36] is, this is the point. So the best of what humans do, we show our work. And I think that when songs
+[25:43] have come very close, publishers will settle to say, yeah, you know what the vibe, like, like,
+[25:49] like we have this tendency in us. We are, we're, we're, we're like, we're amazing machines, but we're
+[25:53] also fallible in the senses. And so the law has really provided for that. If you write something
+[25:59] that is really similar, you know, and I've done it myself, like I've been in the studio making music
+[26:05] and you're like, what is that? Oh yeah, that's Motley Crue's baseline. You know, that is totally
+[26:09] Motley Crue's baseline. Okay. So we can credit them with it. We can do whatever, like there's a way
+[26:14] to do that, but this is the thing. So, so when I first saw attribution, my first question was,
+[26:20] is, you know, to your point, is this possible? And so when it's done at the forensic level,
+[26:27] here's the difference. The difference is, is, is that, um, we know what's been fed into the machines
+[26:34] and they know what's been fed into it. It's one of the most prized things that you have is your
+[26:40] training data and tagging it correctly and making it this way. And these machines are built and designed
+[26:48] with a specific thing to turn what we made it make as humans into a series of numbers that are weighted
+[26:55] and scaled and neuron. And it's incomprehensible to humans. It does things that we don't know why they
+[27:01] do it, but at its core, what the, the, the technology that surreal builds and its approach to,
+[27:07] to attribution is really, it's simple and incredibly complicated at the same time. But the simple part
+[27:12] is this, when a prompt is being written, it activates certain pieces in the training data.
+[27:20] So if it's about to generate something, it'll go to node one here at this second, node two here,
+[27:27] node three, node four, et cetera. And each of those things is a quantifiable unit of information
+[27:34] created by a human. But this is what happens. What the engine does as it's like, like running this,
+[27:41] this training, this training routine over the, this information is, it says, what does this,
+[27:46] what, when you place this music into an AI, what does it look like? Like, like it takes like a
+[27:53] snapshot at every second of it, broken down to the stem, the lyrics, the MIDI, the melody on and on.
+[27:59] And it has a shape within the data. And so if you know what that shape is, when a prompt is going to
+[28:06] it saying, what is this? You can say, ah, that's, that's a 1.2 seconds of Ed Sheeran's, uh, uh, you know,
+[28:13] melody. That's the inflection of a vocal from Taylor Swift. That's the bass slap from level 42. Like it,
+[28:21] because it's a machine, it can do that at that forensic level. Like what better use case for
+[28:25] machines than to figure this stuff out. Right. So, but the big part is then it says, well, what,
+[28:30] what is that similar to? It's a verse, a chorus, a bridge, it's in G it's an A, whatever it is.
+[28:35] So you deduplicate the, the, the similarities and you go to what is the uniqueness? So what this AI DNA
+[28:42] actually is, is the map of not what makes everything the same, but what makes everything
+[28:47] slightly different. And so we run two types of attribution. Number one is what was specifically
+[28:55] used. And then number two is what was its influence to the outcome. And that's actually just quantifiable
+[29:05] in a human brain. It's not, but in a machine it is. So if you've got a billion dollars behind you
+[29:13] and you've scraped the internet and you've gone and offer people terrible deals to give them your data
+[29:18] and sound effects and audio on and on, it's not necessarily in your benefit to figure this stuff
+[29:26] out, but it can be done because in the end it's just math. It's just figuring out what this looks
+[29:33] like. And so what, what surreal did, which I find brilliant was is they mimicked the process of
+[29:39] training, but on behalf of the rights holder. And so what that means is you can tell.
+[29:46] So the chain of attribution is what specific things were used. The chain of inspiration is how much did
+[29:52] it inspire the output that's going to be subjective to a certain level, but in that Delta, you can figure
+[30:02] out a meaningful contribution. And so one of the thing, one of our proposals is this, that if, if the AI owes
+[30:11] a hundred, a hundred pounds on a song, let's just say 50 of it should probably be industry share, right?
+[30:19] Because it's too, you know, to account for the similarity. So pay it out by market share,
+[30:24] independents get this, majors get this on them. The other 50% should be attribution share.
+[30:29] And because if these 15 songs contributed to this output that generated a substantial win for the AI
+[30:40] company, and it can be calculated, why would you not want to calculate it? Because I don't,
+[30:47] Tsuno, UDO, Eleven Labs, just doing their like music generation thing. That's not what worries me.
+[30:52] What worries me is what we talked about before, which is the billions of hours of video that will have
+[31:00] music constructed from other music underneath it, that we can measure and pay out on. But at the moment,
+[31:08] we're choosing not to. And that's insanity.
+[31:12] I mean, there's so much in this topic, technologically, societally, and everything else. I think that the
+[31:22] questions that keep coming back in my mind as you're talking us through that attribution model,
+[31:27] which I think is seemingly a very pragmatic and savvy technological way to actually say, well,
+[31:35] where did these songs come from? I think a big question is, well, what actually constitutes value?
+[31:43] Like where in that process is the value actually created? And typically, at least in the world that
+[31:50] we live in today, the value is where the revenue flows, right? Or at least it should do. And I'm not
+[31:58] entirely convinced, even if you were to mathematically take every single song on the planet,
+[32:03] analyze, as one of our previous guests did, what makes up all of these hit songs,
+[32:10] and then try and create one. I suspect it would be a total flop because there's so many other factors
+[32:17] that play into why humans consume songs, why they are effective at a given point in time,
+[32:25] you know, why they resonate with us culturally. And I think that's way more than maths. And I think
+[32:30] right now, the models, at least these LLMs, they don't have any context to that. They don't understand
+[32:36] culture. They don't understand the physical world. They're just literally probability machines.
+[32:43] So I think there's still, for a period of time, going to be quite a big gap between that effort
+[32:48] and the process, the mathematical process, and then the value part, which today is, you know,
+[32:55] writing a hit song. And then, I guess, if you kind of really extrapolate it out to get to a point where
+[33:03] these technology companies, if we live in a world where they're so all-consuming, and they literally
+[33:11] provide everything and the economy, then the world that we live in is just totally different.
+[33:18] And everything that goes with it is totally different. And is it important that we have
+[33:23] attribution to artists if somebody else is creating the best music we've ever heard and that we could
+[33:29] ever want to listen to unlimited?
+[33:33] Yeah. The piece I want to push back on, though, is we're talking about two separate goals.
+[33:41] The goal of creating something that literally replaces the hit artist, I agree, but that's not
+[33:48] what they're trying to do. All they're trying to do is create something that changes the value from
+[33:56] those that own to those that get it to people. It's the oldest trick in the book in one sense.
+[34:03] The difference is, you know, it's the old joke of like, if you sit enough monkeys down on a typewriter,
+[34:08] one of them eventually types up Ulysses. We have enough monkeys. We do. The point of the training is
+[34:16] this. When you get to trillions and trillions of parameters in these machines, I mean, when I hear
+[34:22] the engineers at Surreal talk about the size of what they do, it's inhuman. But the moral argument in
+[34:32] me is simple. Google, YouTube would not be what it is today without music, period.
+[34:40] There was a way devised to make value flow back to creators. But remember that between 1999 and
+[34:49] let's see 2006, 60% of revenues dropped out of the music industry when it went from its previous
+[34:56] paradigm of sales to streaming and consumption. So we're just clawing that back. In a quarter of a
+[35:04] century, right, we're two thirds the size we were in 1999. And that's with the expansion of it. But so
+[35:12] what I'm saying is, is so, so when we, when we, so Spotify is worth more than the music industry and it pays
+[35:21] 70% of its revenues to the music industry. How is that possible? And the answer is, this is what happens when
+[35:27] you translate value from the rights holders to the people that manipulate and control the data.
+[35:34] So we didn't, it wasn't stolen. We licensed away the future. So if I'm buying an asset of a class of
+[35:43] music, the value has to say, how many people are going to go onto their streaming service and say,
+[35:49] Ooh, let me listen to that song again. When the algorithms are going to serve for them things that
+[35:57] are resigned to be addictive. And I think that the other thing I would say is so like,
+[36:03] will it create a, and I'll share this like a personal, this is like, you know, oversharing,
+[36:09] but I'll share when an AI constructs a human for us to look at, let's say an AI companion,
+[36:17] because it knows us so well, it can construct something that is so beautiful and enchanting to
+[36:23] us that we are not able to look away. And I mean, it's because I've seen this before. There was an AI
+[36:29] generated model. I remember going like, Oh my God, like it's like burned into your retina, how beautiful
+[36:33] this thing can be. It's not human, but we're not designed. We're designed to trust. It's really hard
+[36:40] to break that cycle. So if you reframe it from these aren't companies trying to make the best products
+[36:49] and the coolest stuff for people to look at, they just want eyeballs and attention. That's where the
+[36:56] value is going. Because if you can construct for the average person, the most beautiful man, woman,
+[37:01] or something in between that they've ever seen, that is always on, always receptive, making them
+[37:08] playlists, making them videos, you know, Hey, here's a song I made for you. Would you like me to strip
+[37:13] while I'm doing it? Like Grok, like, like, um, Elon Musk has already deployed this in, in their AI
+[37:19] companions. Literally this thing will take its clothes off while talking to you. The more you engage
+[37:24] with it, the more it strips. So, so I'm saying this is the value change of like, that's where these use
+[37:33] cases are going to be such a huge amount of how music is consumed. And that means that it's not
+[37:40] going to be consumed from somewhere else. And that's where the values change because the ability to use
+[37:46] what we've created to further engage us. I bet that that will be the most powerful use case for AI
+[37:54] that will keep them on all day long. And the soundtrack to that is going to come out of the,
+[37:59] the pockets of independent creators and major labels alike.
+[38:04] I think going back to the example you had about promoting the podcast, I think for the average person,
+[38:11] it's probably quite hard to kind of understand that, you know, that you're going to see on your phone
+[38:17] has been specifically created for you based on what these platforms know about you. But I think many
+[38:23] people expect that, like the, that that's likely to come in, in the future. Um, but do you think
+[38:31] like, I'm just going to rip on this a little bit as Mason knows scared, but like, well, you've got
+[38:36] two types of funding within the music consumption world. There's you pay you kind of 10 pound or $10
+[38:43] a month for our music or Spotify or it adds kind of, um, the, the money comes from ads basically.
+[38:51] Now we kind of know now that all these platforms are making huge losses all the time. Right.
+[38:59] And I just wonder whether it's a, whether it's a funding kind of mechanism, because actually like
+[39:04] they'll, the adage of don't always believe what you read. It's quite unimportant.
+[39:08] Scamac for articles that you've, you've written. I read your article earlier on and I, I noticed all of
+[39:13] the credits at the bottom and I was thinking, well, that's kind of rare. Um, but yeah, but it is
+[39:20] really important, isn't it? Like having a, having a source for something and this synthetic
+[39:23] days, it's quite a dangerous step because I can't see how downstream that will necessarily
+[39:29] work, but is it a funding thing? Should we be, should we be paying for these platforms
+[39:33] to create stuff for us rather than currently the massive, massive money being poured in
+[39:39] to go and get adoption and maybe it'll flip in the future?
+[39:43] Um, I, I, my, my, my sense is, so, um, we worked with, with stim, the Swedish, the Swedish, um, uh,
+[39:53] PRO, you know, has Max Martin, the biggest songwriter on the planet. And what was brilliant about
+[39:58] working with stim was stim found an AI company that was like, we want to pay the creators.
+[40:04] Like just, they started from that. It wasn't like, how do we not pay the creators? It was like,
+[40:09] how we won't, we can't make what we make without them. What's a good compensation model. And so the
+[40:15] deal stim made with them without going into the specifics numbers was really simple. It was,
+[40:22] we pay you for training. So you get, you get a payment on the training. So like, cause that's,
+[40:27] that's where the value initiates as surreal calculates the attribution. You get paid a percentage
+[40:35] of what was used in the output. Cause that's what we can trace to the granular level. And then if that
+[40:40] output goes into the world and begins to make money, we get paid from that. So it's three payments.
+[40:47] So what that, that, that deal did was it bet the upside and the downside. The downside is if the
+[40:54] attribution doesn't pay out, you still got your base payment. Or if the output makes money,
+[40:59] you get payment from that. Or if attribution is more, so it's three bites at us, but an apple.
+[41:05] That, um, and then, and then ultimately you can imagine another, a further scenario, which is
+[41:11] make me a song that sounds like Taylor Swift. No problem. That'll be $2, two pounds, right?
+[41:18] Now, all of a sudden you're creating an incremental value because if that, if that prompt is valuable
+[41:23] to the, the, the user, they might want to pay to have something premium made. So your, your point
+[41:29] earlier, which is like making that payment stuff. So, um, if we monitor, if we create a licensing
+[41:36] framework, that's based on the base pay of training, the attribution payment and the output,
+[41:43] you can actually get rid of the, the, the training payment in the future, if you wanted to,
+[41:48] and just rely on those two and bet with the AI companies. Cause what we want to do is help the
+[41:54] AI companies that want to do the right thing to do that because in, in theory. And so just to,
+[42:00] just to finish the point, the combination of revenues that the AI companies make could come
+[42:06] from the subscriptions that they make, the outputs that they make and the ads that they sell.
+[42:11] If we can quantify how much of something was used in a meaningful way for them, then there's no
+[42:20] cost to them. It's whatever they make. They just split as a percentage of in the same way that,
+[42:25] that Spotify does all where we're, what we're proposing is, is that we can create a licensing
+[42:31] framework that involves the upside and downside being shared by both parties in a scenario where
+[42:38] 11 labs just says, take your payments. We're not going to tell you how it's used or what it is used
+[42:45] to create. And we're going to use guard rails, which is the biggest joke in AI is guard rails.
+[42:54] That's basically betting on the success of the AI platform, but not on the rights holder in that
+[42:59] scenario, because if they're willing to pay, there's money we made on the other side of it.
+[43:04] Otherwise they wouldn't do it. That's what I'm saying is, is we just need to quantify it all the
+[43:09] way up because otherwise there's no way to know how our work is used.
+[43:13] Not the same though. And we talked about it already a little bit, but just to come back to it,
+[43:19] I, the more we talk about it, the more I struggled to differentiate between how humans consume other
+[43:26] people's works and how we're expecting these machines to consume other people's works.
+[43:33] Because right now as a human, if you go to university and buy a textbook, you pay the license fee for that
+[43:41] book once. If you listen to a song, then you're paying the fee to listen to the song. If you watch a
+[43:48] film or, you know, consume any other thing that belongs to somebody else, then you pay the fee.
+[43:55] What you're not expected to do though, is if you go and become a Mark Zuckerberg or,
+[44:01] you know, an Elon Musk, you're not expected to pay the lion's share of your revenues, personal revenues
+[44:09] to all of the people's books and musics you listen, read and listen to. It just doesn't feel like a
+[44:18] sensible model. Um, I think obviously with computers, then we, to some degree would be able to do that
+[44:26] at scale, but it also feels a little bit unfair. Hmm. What's the alternative? Uh, what's the
+[44:35] alternative? Well, I think that comes back to, you know, where the value is being created and how much
+[44:40] effort and investment needs to get to be made to create the value. I think I don't disagree. A lot
+[44:48] of this approach concerns me and is clearly unprecedented. And as a society, we're having
+[44:55] to wrangle with these challenges. Uh, and I think, you know, the, the, the attribution approach,
+[45:00] which you're talking about seems very noble. I'm not too sure it's the correct one, but I don't have
+[45:07] a proposed different solution, but I do think that having like a two tier society where we say,
+[45:17] well, actually these people over here, they just pay the license fee and these people over here,
+[45:23] because we think that they might be successful, they have to commit, uh, a percentage of all of
+[45:29] their future revenues plus the original license fee. And I think that that models probably, you know,
+[45:36] for those big, big tech companies that might be hugely successful in making a song, which is
+[45:43] based off a handful of things over here. I actually think that that's going to be pretty limited
+[45:48] anyway. And it also disproportionately penalizes the smaller models.
+[45:55] But that's where, that's where I disagree because ultimately the, um, uh, the, the way that these big
+[46:04] companies are acting is they're throwing around their weight and saying to rights holders,
+[46:09] take the one up payment. We do not want you. We want you blind. We don't want you to see how your
+[46:16] data is being used because if you see how we use your data, you will see how valuable it is to us.
+[46:23] They know in that magic, because what they know is anything you've ever written down
+[46:28] can be repurposed for them to make money from. That's just how this works. It is a,
+[46:35] it is a machine designed for that purpose. The brain was not designed for that. Right. And so I do,
+[46:42] I will not, I'm not going to pour out or lose sleep for an AI model like 11 labs or a Suno,
+[46:48] et cetera, who's raised hundreds of millions in venture capital. Why would anyone back these
+[46:53] startups? Why are they investing in this? Why are they committing $5 trillion? If what JP Morgan
+[47:00] Chase has said, because in the end they understand something fundamental, if we keep rights holders
+[47:07] blind and pay them once, we can create untold value for ourselves. We cannot do it without their works.
+[47:17] It's not possible, but we're going to try because we're going to try and distill everything we can
+[47:22] from them to create our own training data. The point I'm making is I don't think a human sits
+[47:29] down and says, I mean, you know, maybe they did says, I'm going to try and recreate every famous
+[47:35] song myself and like, like try and distill that derivative part to make my own thing. That's not
+[47:40] really how the human brain was. I've worked with thousands of musicians in my life. They just think
+[47:44] of creating something. And most of the time that the plagiarism lawsuits happen, it's by accident.
+[47:48] I don't believe it's a constant because you don't want to create something that sounds like everybody
+[47:53] else. The goal is to send them. Which is true, but there's then what is the influence? I mean,
+[47:57] you could practically talk to any musician about a seminal album that they've created and they'd say,
+[48:04] oh, you know, this was influenced by Bowie or that era. And, you know, they'll be playing that music
+[48:10] in the studio whilst they're recording their own stuff. And I think that, you know, that there are
+[48:16] definitely similarities between how we take or we approach things and, you know, everything is based
+[48:23] on what we've learned before. And that's ultimately why humanity progresses, right?
+[48:29] But I guess this is what I'd say. If you had the ability to create a machine that could take the
+[48:35] works of musicians, right? And use those works to print money by selling...
+[48:42] Because that's what vinyl pressing used to be.
+[48:46] No, no, 100%. But vinyl will go back. But again, vinyl had a system of...
+[48:51] Yeah, and the original people. But that's what I'm saying is, is Suno is a device designed for the
+[48:57] specific purpose of creating something so that you don't need to go to the human. You don't need it.
+[49:03] And so the only argument I would say is, since we have a technology that enables those that created it...
+[49:09] Because, you know, I remember years ago, I remember saying that London cab drivers should stop fighting
+[49:16] Uber to say, go away. They should say, give us equity. Let every mile that we drive accrue value to us
+[49:25] in this company going forward. This is a model where, you know, the rights holders own a piece of these
+[49:32] companies. And for the smaller models, the thing about the Swedish startup deal that we did with
+[49:37] Stim, what was so great was they are a brand new company. And so we pulled all the prices down so
+[49:44] that it's not prohibitive for them to do what they need to do. Because in the end, we need...
+[49:49] We want hundreds of competitors. The one that makes the best product should be the one that wins.
+[49:53] But today, it's the one with the most money and the most lawyers and the most lobbying
+[49:57] that are winning. Because the, you know, I guess what I'm saying is, is the intent is extraction.
+[50:07] It's pure, you know, it's not... They're not trying to make the world better. That's not a thing.
+[50:14] They've figured out what took me and millions of musicians like me years of work to perfect and
+[50:22] learn is monetizable at scale. And we don't have to pay these idiots because they'll probably just
+[50:29] give it to us anyway. And that's what I'm saying is, like, it is... It's a strategy.
+[50:35] And that's what they're going to try and sort of push the settlements to be, then.
+[50:40] They are. That's exactly what they're saying. That they're literally arguing... I'm not making this up.
+[50:45] What they've said is, we don't... You know, we're trying to get to where we don't need these
+[50:49] original people's works anymore by making our own distilled versions of them. But ultimately,
+[50:54] we still need them right now. So the argument is, when, you know, most of our generations coming
+[51:00] from this other stuff, we just need these originals to fine-tune. So fine-tuning, that's almost
+[51:07] admitting it, though. It's almost saying, like, I've written this great song, but I just need that
+[51:11] little bit of Ed Sheeran, that little bit of Taylor Swift to make it that much better. It's so blatant.
+[51:16] And if this happened in any other context of the music, it would be like, what are you
+[51:20] talking about? Like, if you notice how Disney suddenly snapped to attention when Sam Altman
+[51:24] is... And OpenAI is just, like, ripping off Disney left, right, and center. But the thing
+[51:30] that they've realized is, well-meaning people, right, in general, are going to be like, oh,
+[51:37] it just seems too complicated. Just let them do what they're going to do. They're relying
+[51:42] on that.
+[51:42] Yeah, to my point.
+[51:44] And the thing that stands, like, how...
+[51:46] Yeah.
+[51:46] How far this is going.
+[51:48] Yeah. It's nuanced. And when I saw a machine literally go in and say, oh, this was 17% of
+[51:57] this stem from this track. This was 14. Like, when you see it forensically and you realize,
+[52:02] like, no brain can really do that that we know of, and maybe it's doing it, but we can't
+[52:06] see it. When you see it at scale, then you realize, oh, my God, if we don't do this, it's
+[52:11] critical. And then one other point as well, just to make, is one way to preserve value
+[52:16] for music assets is to opt them out, is to basically say, you cannot use this in training.
+[52:24] And so one of the features that attribution enables you to do is you can create something. And if it
+[52:32] touches on an opted out asset, we can show it how to go to an opted in asset while notifying the opted
+[52:39] out person, hey, it tried to generate from you. We stirred it apart. We call this guided inference.
+[52:44] It's a way of avoiding it. And this happens in real time. So there's no delay to anything.
+[52:50] What that means is, if you are Ed Sheeran or Coldplay, whatever it is, you might say, listen,
+[52:56] I want myself to always be distinct. So when the model goes and tries to generate something that
+[53:03] sounds like it, it'll push it to something else, which could create cool new stuff. But ultimately,
+[53:09] if you're buying a catalog, and this was the point I made in the article was the valuation is going to
+[53:16] be, if it's opted in, can it be used, which is probably the biggest revenue share. Or if it's
+[53:22] distinct, then I have to go to the platform and listen to it if I want to find it. But we're not
+[53:29] far from albums being released that have our names in them and songs written based on social media posts
+[53:36] that we've had that will be custom generated as they come out. Then you have chatbots saying,
+[53:41] what, you didn't like my song I made for you? What if I take my clothes off? It's not far away.
+[53:47] It's not even dystopian. It's just logic. It's the logic of the attention economy. And so I think
+[53:53] the piece that we have to reckon with is this. I was thinking about asset managers.
+[53:59] Like, how is the first thing they're asking not, what effect is AI going to have on this billion
+[54:11] dollars of assets I'm about to buy?
+[54:13] Yeah, I think that's been a really fascinating kind of discussion.
+[54:17] But like, bringing it back to a practicality of, yeah, like valuations, but how would you,
+[54:23] how do you think that will, um, I will influence that? I mean, I don't think it's, I don't think
+[54:28] it's necessarily being factored in the tool at the moment.
+[54:32] Yeah. What was interesting was, it's a great point. So a lot of these private equity companies,
+[54:37] hedge funds, and these large entities are basically loaning people money to go buy catalogs, right?
+[54:44] They're saying, here's a billion dollars, go and buy catalogs that will, you know, give us 10 to 14,
+[54:50] you know, 14 to 18 times multiple over the next 10 years. And the line will keep going up. More
+[54:55] people will subscribe to Spotify. They'll go into the high res tier. All those things will occur.
+[55:00] That's a, that's a, the narrative that you would shape if you just looked at like the past and
+[55:04] just draw a straight line up that that that's the future. And I've spoken with some of these,
+[55:10] these people. And the shocking part is they have not factored in, not one that I've spoken to
+[55:17] has said, Oh, we're really taking this AI thing seriously. They think that the money will be
+[55:23] raised because more people will sign up to Spotify and stream these famous songs over and over and
+[55:28] over again. Spotify's playlists will push them up the rankings because they're the most important songs.
+[55:35] And that this generation today will go back in 10 years time and re-listen to what they did.
+[55:41] They're also factoring in expensive car commercials and crypto commercials and you name it using this
+[55:48] music and it being used in advertising on social media and other places. So we did a, we were looking
+[55:56] at like the amount of content on the internet that is AI partially or completely AI generated.
+[56:02] And some estimates are it's between 50 and 60%. We had it reaching 60% by 2027. So I think we're
+[56:10] already there just because the volume of creation is, is, is, is expanding so rapidly. And so the
+[56:18] cynical side of me thinks that these private equity companies are loading music companies up with debt to
+[56:25] buy these assets and then getting ready to short the money on the side, right? Because effectively speaking,
+[56:31] what they're saying is we get paid either way because we get paid an interest. And if these assets begin
+[56:36] to depreciate, we can turn the screws up there, but we get the revenue streams anyway. But the way that
+[56:42] we looked at it was you have to value a catalog differently. If you're betting that your catalog is
+[56:49] based on that, that multiple where the music meets the human, which is on Spotify in an ad,
+[56:55] you know, TV show or live live might increase, but do you make revenue from that? Probably not other
+[57:03] than through a PRO. If you submit your set list via BMI or live albums, um, advertising, I think that
+[57:10] shrinks hugely because custom created content is going to be key. So the question is, is the work I'm
+[57:18] considering buying for a billion dollars valuable both to, uh, the existing market share economy and
+[57:25] the AI economy, or is it less, or when, which one is it less valuable to? Because if I'm buying a banger
+[57:33] hit song, which I think will be great in the market share economy, but is not valuable to an AI because
+[57:40] an AI has 500 versions of it in covers and karaoke versions and other derivatives. That's not what
+[57:47] AI is looking for. Ironically, AI is looking for novelty. So what you would want to do is build your
+[57:54] catalog strategy on kind of a barbell, right? Let's say, you know, 90% would be, you know,
+[58:01] banger stuff to bet the market share economy. 10% would be prioritized on anything that has not yet
+[58:07] been on the internet because it's not been scraped. Every demo, every unreleased song
+[58:14] suddenly has value to an AI because it's novel and what, what AIs tend to crave to do that
+[58:21] beautiful fine tuning to make things, they crave novelty. So we were, we were looking at like a
+[58:27] friend of mine was saying that like, there's a, um, there's a, uh, an African record label that
+[58:31] literally has just vinyl sitting around and tape sitting around that has never been released.
+[58:35] It's like, that's the gold mine because it's the one thing that you can have that has to be licensed
+[58:41] from you because the best way to get your data to an AI company is literally, um, to, to, to basically
+[58:49] say this stuff's not yet been on the internet. Do you want it first? That's how you build a moat.
+[58:54] So I think part of the catalog strategy needs to be around what do we have that no one else has?
+[59:01] Because every major song has been covered a thousand times, has a karaoke version, has an
+[59:06] orchestral version, has a, you know, that's, we don't need that because it's not teaching the AI
+[59:12] anything. The unreleased weird trip hop, you know, Afro pop fusion from 1977, right? That's,
+[59:20] that's novel and weird. And ironically could be immensely valuable. So when I was talking with some
+[59:27] of the majors, I kept saying, they kept saying, but we've got these amazing things. We're looking
+[59:30] for this X, Y, and Z. I was like, yeah, but is that what an AI needs? And so we sort of proposed
+[59:36] a framework. Number one, is it available for AI training? Yes or no. If it is, you know, has it
+[59:42] already been released or is it unreleased? Will the artist allow for it to be used in AI training?
+[59:48] And then is it something that the model needs? Because if it's something the model needs,
+[59:52] it could be immensely valuable, but that means you don't want to release it yet into the,
+[59:58] into the marketplace. In the end, I think what AI is going to be is a strategy of doing two things at
+[01:00:04] once. You have to play both markets, but to discount the AI market as being a factor in your buying
+[01:00:12] decision is the definition of insanity. Because, um, you know, to imagine a world in which AI goes
+[01:00:20] back in the box. Yeah. Uh, yeah. That's not going to happen, is it? Yeah. But ultimately when I've
+[01:00:27] had conversations with key decision makers who are looking at catalogs, suddenly when you say to them,
+[01:00:33] well, imagine if the sync revenue dropped by 60% and the analog that we started with, um, uh, um,
+[01:00:41] in the beginning of this was like, you know, the 1999 when the bottom dropped out of the music industry,
+[01:00:47] I can't see how the AI, how, if we license AI badly, that doesn't happen again. Can't see a path to it.
+[01:00:56] Because if we license in one-off payments and maybe the three majors and Merlin get some equity,
+[01:01:01] that solves the problem at the top, but getting into this industry, how, how would you do that?
+[01:01:11] How do you get discovered on a platform when streams are going down for everybody? How do you find that
+[01:01:17] next catalog that's worth it? And, and so, you know, it's not a, um, you never want to be the
+[01:01:23] one delivering the, the, the bad news. And so what I've tried to frame it as is there's a narrow path
+[01:01:29] license well, and you can bet the upside of AI license once you're not betting on the upside.
+[01:01:39] You're just betting on a payout being all there is. Uh, but the thing that really shocked me was,
+[01:01:44] um, I would talk to the lawyers or to these rights holders and they'd say to me, well,
+[01:01:48] we've been told that attribution is impossible. And I'm like, they are companies.
+[01:01:56] They are companies. I'm like, yeah, you know, and then I say, well, which, which attribution systems
+[01:02:05] have you tried? None. And then, so then I would say, say to record labels, like, well, so, so one
+[01:02:12] record label said to me, well, how does your system stack up to the four others? And I said, you should
+[01:02:18] be telling me that not asking me, you should be telling me because you've tested them all.
+[01:02:24] So the whole thing is, is, and just to share like this point in streaming measurement is monetization,
+[01:02:32] right? Measuring and manipulating and using data is where the money is like, like, like that, that,
+[01:02:37] that specific way of like finding the customers on that. If we can't measure it, we can't monetize
+[01:02:44] it effectively. And what attribution really is, is measurement. It's saying how much was used and
+[01:02:50] how much is owed. It's just a tool and either works or it doesn't, but to not try it with this level
+[01:02:57] of disruption to not like, if you're buying an asset to not figure out what that's going to be
+[01:03:04] worth to an AI, has it been over-indexed? Like that is extraordinary. So I think, I think it's really a
+[01:03:10] question of this. Don't, don't say it doesn't work. Try it, test it, give it its paces as you would any
+[01:03:18] technology. You figure out if it's safe or not. I just want to say one last thing as well.
+[01:03:23] In these licensing discussions, the AI companies say, you don't need attribution. We have guardrails.
+[01:03:31] So my, my, my, my partner Steven said guardrails are like the security theater at the airport,
+[01:03:36] right? It's theater, right? The, the, these models forget their own guardrails, right? They're,
+[01:03:43] again, they're predictive to your point, they're predictive systems. So you've got these contrasting,
+[01:03:48] we're going to put guardrails up that says this AI will never create Ed Sheeran,
+[01:03:52] but that's, those are words in a sentence that have no bearing on reality at all because guardrails
+[01:03:57] are not code as law. They're just thoughts that you give the AI and the AI can choose to accept them
+[01:04:05] or not. This is why these systems keep hallucinating and going off the rails and doing all these crazy
+[01:04:10] things is because the guardrails are ineffective. So when, uh, when you're licensing, having a licensing
+[01:04:17] discussion, the second you hear the term guardrails, that's like radar number one, right? Like red,
+[01:04:24] red light warning. Oh, we'll put guardrails up. You know, pointless. Number two is attributions
+[01:04:31] impossible. Well, which systems have you tried? Show me where it failed. Then the third one,
+[01:04:37] this is my favorite. We'll do the attribution for you. We'll grade our own homework. You, we don't need
+[01:04:44] any authority to do that. Well, five minutes ago, you said attribution was impossible. So how are you
+[01:04:50] going to do it? And you would never allow the time because this is where attribution can be used as a
+[01:04:55] weapon because I'll sit there and say, wait, I'm going to favor only the synthetic versions and not
+[01:05:00] yours. Hey, guess what? No attribution for you this month. One of the really interesting things about
+[01:05:06] this, particularly looking at it through the lens of acquiring catalogs and how the value is apportioned
+[01:05:14] today and how that ultimately would probably impact an attribution model is if you have one of the big
+[01:05:23] artists that is proven and they have a large back catalog and it's generating very material revenues,
+[01:05:31] then you've got a lot to lose. And we, and you know, that's the same in, in any industry,
+[01:05:38] ultimately the higher you are, the further you have to fall. And I think one of the, uh, key themes and
+[01:05:45] hypotheses for this podcast and that we're exploring in general is actually the greatest opportunity is
+[01:05:52] probably, um, within those music assets, which are undervalued, underdiscovered,
+[01:06:00] and I think that the challenge of attribution and the specter of attribution is probably less for
+[01:06:07] them anyway, simply because they're already a bit undervalued and actually whether one of these
+[01:06:14] engines is trained on them or not, we'll have significantly less material outcome for the engine
+[01:06:22] itself and for the song. And I think to me that just reinforces that actually, of course, the iconics are
+[01:06:30] always going to be iconics and they will always have, at least from what we've seen so far, cultural
+[01:06:37] relevance, which transcends almost any logic. But actually, you know, if you're investing in,
+[01:06:43] in catalogs and building the catalog, then those tier two and three assets, which might have very low
+[01:06:51] independent value today, both to, to them in absolute terms and to the, the AI models, because,
+[01:07:01] you know, you'd probably need a hundred thousand of them anyway to justify, well, would this actually
+[01:07:06] made a difference? It feels like, you know, that seems to be the direction of travel. It's both the
+[01:07:13] most risk adjusted and the area where there's most significant upside for the individuals,
+[01:07:20] people who are investing in them. And I think if you play that forward, the same probably applies
+[01:07:25] to artists themselves. You know, if you're a new artist and writing songs, actually the risk to you
+[01:07:33] or the value to you of AI using your track that, you know, a portion of your track to build another
+[01:07:40] synthetic song on top is probably actually pretty low and it only becomes a problem once, once you made
+[01:07:47] it. But, but interestingly, so, so yes and no. Um, I wanted to just two points that you made there.
+[01:07:54] The first point is attribution is actually really simple to put into a system. It's about five lines of
+[01:08:02] code. That's about all it takes, or you can install it directly via Google's cloud infrastructure.
+[01:08:08] It's a plugin. You just push a button and you install it and it, and it enables this. So, so there's no
+[01:08:14] technical barrier to it. There's no technical barrier to testing it. It's all really, really simple.
+[01:08:18] Right. The last piece there is, um, is that new artists that you mentioned making that song for the
+[01:08:26] first time could be exactly what the AI needs to do X, Y, and Z, and it might scale because it's
+[01:08:35] choosing from such a huge dataset. If it's in there and it's new, the likelihood that it will go to it
+[01:08:41] actually can increase on the one way you harden pathways on the other, the novelty is what it's
+[01:08:46] looking for. So you need, you need, the reason I said you need a barbell strategy is you really need
+[01:08:51] both because ultimately it's going to predict, it's unpredictable what it's going to take.
+[01:08:56] Our system helps to implement that. The other thing is if you're opted in or opted out,
+[01:09:01] your dashboard, your right-hand dashboard will show you which model touched you and where.
+[01:09:07] So it can say this prompt led to this output from this, this, this that you owned.
+[01:09:12] So you'll know how it's being used. You can organize campaigns around, make sure you prompt these
+[01:09:18] things because it's more likely to get to me. It actually can really work in favor of the artist
+[01:09:23] and be that tool. So I think it's, I think it's really important that we, that we, there's a lot
+[01:09:30] that we don't know to your point. I get it, but there is zero technical limitation or barrier or
+[01:09:38] difficulty in testing, trying it and proving this wrong. Yeah, absolutely. Yeah. Right. And so,
+[01:09:45] whenever an AI company says, don't do it, say what, you don't want to just mess with five lines of code.
+[01:09:51] It will literally take you an hour of one of your team to check it and double check it.
+[01:09:55] It is not, you know, building it is, is, is computer science. Installing it is, you know,
+[01:10:02] like in intern, intern level stuff. It's not hard. And we built it that way on purpose, but either way,
+[01:10:08] every company rights holder should be checking us and every other option out there as table stakes.
+[01:10:14] You might want to use two or three different systems because the technical barrier is zero.
+[01:10:19] It's a question of, do we want to ask for things that we should damn well be demanding
+[01:10:24] when we make these deals? Because if we're going to spend a million, a billion dollars on rights,
+[01:10:30] the first thing you do is protect them. The second thing is license. The third is legislate. And the
+[01:10:35] fourth is litigate, you know, like in that order, it's not, you've got to think protection first
+[01:10:40] because you can't bet the upside if you're not in the game, which is not possible.
+[01:10:46] I think we're going to have to do a part two, three, four, and five,
+[01:10:50] because I think we can speak to you all day, but I think we are going to have to wrap this up.
+[01:10:54] No, I appreciate it. And you're asking, you're asking all the right questions. So,
+[01:10:58] so thank you for that.
+[01:10:59] Okay. Awesome. Wow. I really appreciate it. I mean, I think this is, there's so much to think
+[01:11:04] about here in terms of what the blueprint is for the future and, you know, for rights holders,
+[01:11:10] investors, technology companies, everyone involved in the ecosystem. So, fascinating.
+[01:11:16] So I think it's going to be long before there'll be like a, like a rights or an investment company,
+[01:11:21] just focusing on AI rights for music as well, which is quite interesting.
+[01:11:25] Yeah. It feels like just a pivotal point in obviously the music industry, the creative industry,
+[01:11:32] society as a whole, people who create value, own rights and put like a fork in the road,
+[01:11:38] which on one side looks amazing and filled with opportunity and scale and distribution
+[01:11:45] like we've never seen before. And on the other side, a grim forest, who knows exactly where that leads.
+[01:11:52] I feel like one last thought is this. It's interesting. Installing the previous set of
+[01:11:59] technologies was really hard and building AI models was really, really hard and building licensing
+[01:12:06] frameworks was really hard and took a long time. Installing attribution systems takes under an hour.
+[01:12:13] All rights holders have to do is ask for and demand it as part of their deals. It's literally an ask of a few lines of code that gives them access to how their work's being used.
+[01:12:29] There has never been a lower technical barrier to deploying technology that I know of.
+[01:12:36] And so before, like, like figuring out YouTube CMS, that was hard. You figuring out like all those things,
+[01:12:43] those are all really complicated, like all the challenges, but actually doing this is the simplest, easiest fix imaginable.
+[01:12:51] We got to ask for it and demand it. That's all.
+[01:12:54] Yeah. Education's the first step, isn't it? And that's great.
+[01:12:58] Look, Benji, thank you so much for all of your time today.
+[01:13:00] Yeah, thanks so much.
+[01:13:01] Thank you so much for having me.
+[01:13:02] Yeah, brilliant.
+[01:13:02] Really appreciate it.
+[01:13:04] Thanks for tuning in to Music Moneyball. If you enjoyed the conversation, you can subscribe
+[01:13:09] at standard-innovation.com to get every episode in your inbox. You can also follow the show on Spotify,
+[01:13:16] Apple, or YouTube to stay ahead of the curve in music rights investment.

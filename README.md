@@ -13,6 +13,7 @@ Recoup's public marketing website — Next.js 16, React 19, Tailwind CSS v4.
 - `transcripts/` — Call transcripts for voice-of-customer context
 - `swipe/` — Reference copy, designs, competitor notes, trends
 - `workflows/` — Shared non-UI automation for funnels, sync, reporting
+- [`gtm/`](gtm/README.md) — Shared GTM context, company research, Music Moneyball corpus, playbooks, and engine tools; agents start at [`gtm/AGENTS.md`](gtm/AGENTS.md)
 
 ## Commands
 

@@ -1,0 +1,386 @@
+# Why discipline beats hype in music rights investing w/ Golnar Khosrowshahi
+# Date: 2026-01-06
+# Duration: 00:38:12
+# Guests: [see title]
+# Hosts: Standard Innovation
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Why-discipline-beats-hype-in-music-rights-investing-w-Golnar-Khosrowshahi-e3d7hda
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogues.
+[00:08] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:15] Welcome back to the Music Moneyball podcast with me, Emma Griffiths, and my co-hosts, Tom Mullen and Sam Maury.
+[00:23] Today, we're joined by one of the most influential leaders in global music rights.
+[00:27] Born in Iran and now based in New York, she started out as a classically trained pianist before working in advertising and telecoms.
+[00:34] In 2007, she launched Reservoir, which has gone on to become the first female-founded, female-led independent music company to go public in the US.
+[00:43] Under her leadership, Reservoir has built a catalogue of over 140,000 copyrights and 36,000 master recordings,
+[00:51] spanning contemporary hitmakers and legends like Joni Mitchell, De La Soul and Miles Davis.
+[00:55] She leads Reservoir with a music-first mindset, focusing less on chasing hot deals and more on compounding long-term value through disciplined acquisitions, global reach and real operational uplift.
+[01:08] Please welcome Golnar Kozmashahi.
+[01:11] Thank you. Great to be here.
+[01:13] Thank you so much for coming on today, Golnar.
+[01:15] We are very excited to speak to you.
+[01:18] And before we get into it, we would love to know one thing, which is, if we could introduce you with a song, what would it be and why?
+[01:27] That is not an easy question.
+[01:31] That's why we put it at the start.
+[01:33] Anytime somebody asks me, you know, choose the song, choose amongst clients, it's a difficult question.
+[01:41] I would answer that the original version of Ready or Not by the Delphonics.
+[01:48] Oh, nice.
+[01:49] That's a good one.
+[01:50] And you guys represent the Fugees, don't you?
+[01:52] We represent the Delphonics.
+[01:54] Oh, and the Delphonics.
+[01:55] Yes, yes.
+[01:57] So we own that original publishing, Ready or Not, from the Delphonics.
+[02:03] What an iconic song, definitely, from when I was growing up.
+[02:06] I talk about it all the time because it's just a case study in the value of music that continues to resonate, particularly with Ready or Not.
+[02:19] The lyrics continue to resonate.
+[02:21] Right.
+[02:22] And we've seen so many different iterations of it, and it's just still alive and well today.
+[02:27] Yeah, amazing.
+[02:29] So, Gorno, we thought we would kick off with a look at just, you know, your investment approach and how you're looking at the market today.
+[02:36] And obviously, you've been on a bit of a journey since 2007.
+[02:41] The market looked pretty different at that point.
+[02:43] And since then, you've really built up the company through acquisitions and signings and, you know, also moved into the recorded music sphere as well, which is super interesting.
+[02:54] But what principles would you say are guiding your investment approach today?
+[03:00] I would say that our investment thesis and our investment approach hasn't really changed much.
+[03:05] And that could be a bad thing.
+[03:07] But it really hasn't changed that much since 2007.
+[03:12] And I say that because we continue to focus on acquiring hit songs, high-quality music with great track record and potential for a long runway ahead of it at the best price that we possibly can.
+[03:34] And so that's always been our focus, and that continues to be the focus today.
+[03:39] We have, as you said, branched out into the recorded side of the business, but we don't really have a plan where we have capped or have a certain allocation as far as our capital deployment goes to recorded assets versus publishing assets.
+[03:54] We want to buy the best music we can and do the best deals that we can.
+[03:58] And we're fortunate in that deal flow is stacked with enough opportunities that we can actually be selective and do those deals.
+[04:10] But I'm a big fan of keeping things basic and not overcomplicating these things.
+[04:19] The models are the models.
+[04:22] The returns are the returns.
+[04:23] The assumptions are the assumptions.
+[04:25] Let's stick to our knitting and do what we're good at.
+[04:29] And in your introduction, you had said, you know, music first.
+[04:33] Very much music first.
+[04:35] Focus on the music and how we're building the catalog and what the catalog as a whole looks like and how the assets that we're looking at can be accretive to that catalog.
+[04:44] And you talk about one of your, I think it was the first major acquisition that you made, which was the TBT catalog back in, I think it was 2010.
+[04:54] Can you tell us a little bit about how that's shaped what you do now?
+[04:58] Because I know it was a sort of real game changing moment for the Reservoir.
+[05:01] It was because we didn't really have anything of that.
+[05:09] We didn't have songs that big in the catalog.
+[05:13] And the TBT catalog today continues to be one of our best performers, given the music that was in that catalog.
+[05:21] But what it really did reinforce was exactly how at that moment the consumer was shifting to a song-driven listening pattern from what was an album-driven listening pattern.
+[05:42] And the TBT catalog was just replete with hit songs.
+[05:47] And that is why it has really withstood the test of time.
+[05:53] Because the songs as standalone songs are just really fantastic music and music that has stayed with people for such a long time, decades now.
+[06:05] And it was, in a way, going through live, actually, watching or going through the investment thesis develop.
+[06:23] In that we want to buy catalogs that look and smell and feel like the TBT catalog.
+[06:29] And so that really confirmed what our suspicion was and how we bring that investment thesis to life.
+[06:38] Did you know that at the time?
+[06:39] You know, because the industry was changing so dramatically at that point in time in terms of, obviously, the distribution, consumption and everything else.
+[06:50] Did you know that it was already trending towards per song rather than per album?
+[06:57] Or did you just discover that kind of afterwards?
+[07:02] We knew that at the time, but I don't think it was just us that knew that.
+[07:07] It was very obvious that the technology and these MP3 players and how people were creating playlists were songs-driven.
+[07:18] And so we very much, I mean, we were watching it happen live, but it wasn't something that we became aware of after fact.
+[07:29] I think it was topical.
+[07:31] I think a lot of people were talking about that.
+[07:33] Yeah, interesting.
+[07:34] And, Golnar, Reservoir went public in 2021.
+[07:38] And has that had much influence on, you know, your operations and just how you look at things and look at deals, you know, now that you're kind of subject to that much higher level of scrutiny, if you like?
+[07:49] No.
+[07:49] The investment thesis remains the same.
+[07:51] How we manage deal flow remains the same.
+[07:54] How we finance transactions remains the same.
+[07:56] And impact on operations is obviously just the cost of being a public company, which has additional reporting, as you said, the scrutiny and what goes hand in hand with that.
+[08:06] So that obviously has an impact on our operations.
+[08:11] But as far as running the business goes and the decisions that we make around the business, that has all very much stayed the same.
+[08:22] And I think part of that has to do with the fact that we aren't managing for an exit.
+[08:29] So we're not managing the way a private equity investor would manage or the way a fund structure would be managed in that it has a known exit at a certain time.
+[08:46] And I think that's when we would be making very different business decisions because the window in which we sort of care about how these assets are going to perform leading up to that exit is what's material.
+[08:57] And then obviously the actual exit itself.
+[09:03] We're managing for a long-term shareholder, again, doing the best deals that we can on a long-term basis.
+[09:12] And we believe that if we run the business well, enhance value, and put a catalog together that is more valuable in its sum than of its parts, that any exit that we want would come about as a result of that.
+[09:30] On the TVT deal, I was reading an article whilst we were researching, and you said that it was in itself a pretty big turning point.
+[09:41] But you also said there was at least 10 other significant turning points since then.
+[09:47] And that really piqued my interest.
+[09:49] Can you give us a bit of insight into what some of them were?
+[09:52] Certainly, TBT was a little bit, not just the financial commitment, but a commitment that, you know, we're going to grow this business now.
+[10:03] You're in. Committed.
+[10:04] Yeah.
+[10:04] Like, now we're in, we're committed, and so we're going to grow this business.
+[10:09] I think the turning points are not necessarily represented by transaction size necessarily.
+[10:22] So, TBT was important because it was a moment, if you looked at the size of TBT as a transaction, immaterial.
+[10:31] And that's because we were paying multiples that we were paying back then, and we should have purchased everything that we could have.
+[10:39] Tommy Boy is another turning point.
+[10:41] Now, Tommy Boy was a $100 million deal.
+[10:44] It was a major recorded music play for us, and so that was a big turning point.
+[10:54] Hans Zimmer transaction was a significant turning point for us because we went into a business that we just weren't in before.
+[11:01] And developed a relationship with a partner who has become, you know, one of our most important clients and one of the most important business relationships we have.
+[11:13] I think FS Media was another turning point, and that followed TBT because we acquired catalog that we had absolutely no representation in genre-wise.
+[11:27] And that came with Creed, a relationship formed with Scott Stapp subsequently, Evanescence, Sheryl Crow.
+[11:37] And so, you know, John Denver's catalog was in there.
+[11:40] And now we had a whole bunch of music that we didn't have from TBT, given the concentration of the genres and time period of the TBT catalog.
+[11:52] So that was significant.
+[11:53] It was also an auction process.
+[11:56] It was complicated.
+[11:58] We had to actually bought BMG Ireland with that transaction, and then we had to buy assets from a fund based in Ireland.
+[12:08] I mean, it was just, it was very, very complicated.
+[12:11] So I think that was a turning point.
+[12:13] Chrysalis was really the recorded music turning point moment.
+[12:16] And to be in this position to buy one of the most important labels out there and get into business with Jeremy LaSalle's, I think, was a real moment for us.
+[12:30] And then we have, you know, administrative relationships that we've entered with Joni Mitchell and Snoop and Katie Lang.
+[12:37] And these were all turning points as well.
+[12:39] So this is what I'm saying is that some of them were huge transactions.
+[12:45] Some of them weren't.
+[12:46] But they were equally important for us insofar as how we were developing the business.
+[12:52] You know, you made very clear that you're resolute in your investment thesis and your approach.
+[12:58] Were there any of those key things, milestones that you just talked about where you questioned that approach?
+[13:05] Or were they all reaffirming?
+[13:08] Oh, I question all of it all the time.
+[13:12] I'm still questioning it.
+[13:17] You know, you're in these transactions and just gobsmacking subs of money.
+[13:23] And we have capitalized this business ourselves up until 2019.
+[13:30] That was the first time we took outside investors.
+[13:32] So skin in the game is really extreme insofar as how we financed this business up until now.
+[13:41] And that has huge implications and creates a lot of pressure.
+[13:44] So, yes, I'm questioning the investment thesis all the time.
+[13:47] I'm questioning our underwriting all the time.
+[13:49] And really going in eyes wide open because you have to.
+[13:56] I mean, you're deploying capital and you need to achieve a return.
+[13:59] And you want to perform for your clients and build the catalog.
+[14:05] So there's a lot of pressure coming from a lot of different sides of the business.
+[14:09] And how do you kind of contrast that with the fact that, you know, I think the music industry is really notorious for its lack of transparency in certain areas.
+[14:23] And I would say structural challenges around data and visibility with making these large investments.
+[14:32] Obviously, you know, there's the emotional side and you can know what a hit is and to some degree it's proven.
+[14:40] But how did you get comfortable with that?
+[14:43] You know, coming from other markets, other experience where it was probably a little more obvious.
+[14:50] I think when you get into diligence and underwriting, that lack of transparency does go away.
+[14:59] So you actually get the data that you need.
+[15:02] And I think that at that point, the problems that come up is that the data in and of itself and the nature of the business and how we collect, that's complicated.
+[15:14] We're collecting from over 500 different sources every single day of the year.
+[15:20] So we need to be able to manage that data.
+[15:22] And that doesn't that means we need to be able to manage that data, not just for data that's coming in for catalogs that we own, but also when we're doing this underwriting.
+[15:31] And so it's I agree with you.
+[15:37] The lack of transparency is there when it's outward facing and in the media, et cetera.
+[15:43] At least you have the transparency during underwriting, but you need to be able to understand the data as well.
+[15:51] Yeah.
+[15:52] And one of the things that we've read about, Gona, is that you guys have this pretty amazing ability to forecast the performance of an asset to a really pretty precise degree.
+[16:04] We'd love to dig into that.
+[16:05] And, you know, that seems like a huge competitive advantage to have when you're evaluating a deal in this market.
+[16:12] So early on, I realized that these are, in fact, and early on meaning 2007, these are, in fact, cash flows that are decaying.
+[16:24] And unless you're looking at something that is really mature and has reached that plateau, you are looking at decay rates from a moment of release to some time period after that.
+[16:41] Now, at the time, you could argue that decay rates were steeper and they leveled off and then really digital growth and that turning that moment, that inflection point where the decay rates were being outpaced by digital growth sort of changed it and that decay rate became more became positive.
+[17:05] We have, we developed a model back then to help us understand how these assets decay.
+[17:19] And over time, we have populated that model with more and more and more royalty data.
+[17:27] So we are able to look at how a pop asset would perform versus a jazz asset versus a classical asset versus something that was released 10 years ago to two years ago versus something from the 80s or 70s or 60s, etc.
+[17:47] And that has helped us, given the amount of data that has helped us over time, that has helped us over time create this accuracy with which we can forecast.
+[17:58] We also, we forecast on a song by song basis versus on an income type basis.
+[18:05] Oh, you do. Interesting.
+[18:07] We're going to ask about that because a lot of people will take, you know, a catalog and aggregate it together and invariably it will, you know, coalesce around it.
+[18:18] It goes back to the original topic we were talking about, which was songs versus albums.
+[18:25] And if you are forecasting on an income type basis on a, you know, and you're not really pulling out those outlier songs, I'm not sure you're getting an accurate forecast.
+[18:43] Especially because you could argue that those album cuts are going to decay at a very, very different rate, given how people listen to music today than those hit songs.
+[18:53] And so that was one of the reasons.
+[18:58] The other reason is that you look at catalogs that say there's a thousand songs and you have 90% of the income coming in from tech.
+[19:07] So you can't really take income type and apply it across a thousand songs.
+[19:13] You really need to isolate those dead songs.
+[19:15] You know, one of the things that we always question is that there's obviously, as you described, that typical distribution, a small number of songs drives a large portion of the revenue.
+[19:28] But do you spend a great deal of time looking at the long tail and do you see any opportunities to improve that?
+[19:35] I mean, it's how accurate can you be, right?
+[19:39] With every year that goes on, if you're looking at a model, it's less and less accurate as you get further and further out.
+[19:51] And nobody really cares what does the return look like in 35 years?
+[19:57] I mean, nobody really cares about that.
+[20:00] So we generally run our models and make our investment decisions based on 10 or 15 year models.
+[20:07] Okay, interesting.
+[20:09] So we have exits that we, or terminal value that we build into that model in that 10 year or 15 year window.
+[20:19] And that terminal value is not prescriptive in that we'll just apply the same thing across the board.
+[20:27] You have termination issues, you have all kinds of things that could affect terminal value.
+[20:34] And how many of these decay curves do you guys have?
+[20:37] I mean, it's a master decay model that we can twist in various forms.
+[20:42] Is the thing that you would look at, categorize against, is that just genre or is it genre, territory?
+[20:51] It's genre, territory, age.
+[20:53] It would have to do with comping similar level artists.
+[21:01] So, you know, that plays into it for sure.
+[21:06] And do you spend a lot of time modeling out the outliers in terms of songs that get a rejuvenation from either a social moment or for those that have a significant impact because of something that artists did or some other event?
+[21:23] If we're looking at a transaction that we're assessing that is coming with some form of significant spike, which, as you said, is from a biopic, it's from a viral moment, it could be from a massive sink placement, etc.
+[21:36] And then the first question really is, is this sustainable?
+[21:45] If it's a one-time sink, it's not sustainable.
+[21:48] We'll just sort of flatten that out.
+[21:50] Or is it sustainable?
+[21:51] Or is there some trickling value here?
+[21:55] Or maybe the entire thing isn't sustainable, but maybe there's some part of it that is.
+[22:02] And we'll assess it on a case-by-case basis.
+[22:06] Because I think that's where you get into a lot of trouble.
+[22:09] In that if you...
+[22:12] Say you were looking at the Johnny Cash catalog after the film came out.
+[22:15] I mean, you would just be looking at numbers that are really soaring compared to what the historical data was.
+[22:25] I haven't looked at the numbers, so I don't know, but I imagine that's what happened.
+[22:29] When those things happen, have you seen a trend that would be akin to moving the song back to its original release date?
+[22:41] So effectively extending out its life?
+[22:46] Extending out its life, yes.
+[22:48] Growing listenership, yes.
+[22:49] But I don't think anything goes back to that moment of release date.
+[22:54] So maybe it's a kind of 5%, 10%?
+[22:58] Yeah.
+[22:59] You have these spikes, and especially when you have sync spikes as a result of advertising or in a film.
+[23:09] You know, we had Take Me Home, Country Roads, and The Kingsman in, say, four or five different iterations in the film.
+[23:17] Then you have to also assume that following something like that, there's going to be a lull, maybe, for that song.
+[23:25] And so there is that cyclicality as well.
+[23:30] And can we just talk a little bit about your eye for picking up some perhaps lesser-loved catalogues?
+[23:39] I think you've got a few good examples.
+[23:41] Tell me.
+[23:42] The Tommy Boy one very much sounded like it probably wasn't looked after quite as well as it could be.
+[23:50] I see.
+[23:50] Yes.
+[23:51] Okay.
+[23:51] Can you just talk us through, you know, your approach to that, what you saw as an opportunity, what the risk was in taking that on, and then how you went and operated it to get it back to where it needs to be?
+[24:02] So it was a busy time for us.
+[24:05] Keep in mind, we were doing, we were underwriting that deal, $100 million deal, largest we've ever done by a significant amount, and going public at the same time.
+[24:16] We closed Tommy Boy in June of 21.
+[24:18] We finished our listing in July of 21.
+[24:21] And so it was, it was all happening together.
+[24:25] And, you know, we were just coming off or somewhat emerging from the pandemic as well.
+[24:32] Good slice of PTSD.
+[24:34] The opportunity was that, you know, it was significantly larger, but the opportunity was that this was an extraordinarily high quality catalog of music on the recorded side of the business that would help us grow that part of the business.
+[24:51] And actually, we would be able to ingest that catalog within our existing infrastructure.
+[24:56] We were coming into this with a staff of 12, 13 people on the sink side compared to a very skeleton crew as far as how it was being administered before.
+[25:11] And that's not a criticism.
+[25:13] That was just the comparison.
+[25:15] So we knew we were going to make improvements on sink.
+[25:18] We knew we were going to be able to bring this into our recorded music infrastructure and actually clean up where it needed to be cleaned up.
+[25:29] Obviously, one of the most important pieces of Tommy Boy was De La Soul and the fact that it wasn't, the music wasn't available across any digital platform.
+[25:38] And, you know, we can't go into a deal like that and assume that the things that we want to happen or that we would dream to happen are going to happen.
+[25:47] So we can't really underwrite.
+[25:49] We have to underwrite to a base case scenario that it's kind of status quo other than a few things that we know would be guaranteed.
+[25:57] That was our first phone call when we closed.
+[26:01] And then we spent about 18 months clearing samples until January of 23 when we released the first single and then got everything out on the streaming platforms on March 3rd of that year.
+[26:18] So those were the opportunities in that catalog.
+[26:25] And then, you know, to be a caretaker of Tommy Boy, to be a caretaker of the artists that are represented in there, well, that's a huge honor and we're happy to be in that position.
+[26:39] And all of that, I mean, obviously, as you said, you factor it in in the valuation, but all of the effort going into clearing those samples, was there significant unknowns there?
+[26:54] Or were you pretty confident as a team that actually, hey, we can work this out, we can go through each one of these and we can do the right deals and we can get it sorted?
+[27:03] I mean, we had confidence in that we could do it.
+[27:07] We just didn't know how anybody was going to react.
+[27:13] Right.
+[27:14] And so that was where the uncertainty lay.
+[27:17] I mean, it took 18 months.
+[27:19] That tells you that it wasn't...
+[27:21] No, definitely not straightforward.
+[27:23] Not straightforward.
+[27:24] And that was weekly effort.
+[27:27] So it wasn't like, oh, you know, we sort of worked on it for a few months and I came back to it.
+[27:33] No, it was weekly for 18 months.
+[27:35] Did you have any help from the Queen of Clearance sample, sample clearance, Deborah Manis-Gardner?
+[27:43] We did.
+[27:44] And she was extraordinarily helpful.
+[27:46] And we continued that relationship for a good chunk of time.
+[27:52] And we had everything running off of an expel spreadsheet here.
+[27:56] I wonder if that task came before us today, how different the 18 months would have looked if we had AI help with it.
+[28:09] Yeah, that was super interesting.
+[28:10] Gohna, you're pretty bullish on the emerging markets.
+[28:13] And you're quite, I would say, ahead of the curve in regards to doing deals and doing partnerships in the Middle East, North Africa, India, China, and now Jamaica.
+[28:24] What's your emerging market playbook?
+[28:27] We're invested through Pop Arabia and Pop India in the Middle East and India and have been for five years now.
+[28:36] And we firmly believe that, and as a lot of the research reports now show, that much of the growth that will come in the music industry will come from these territories, will come from increased listenership, increased connectivity,
+[28:52] price increases for DSPs that are completely unrelatable prices today for us in developed markets.
+[29:09] We believe that while there's still growth in the developed markets, that is subsiding.
+[29:16] And that's important to acknowledge.
+[29:18] You're not just going to have that growth forever.
+[29:20] And so there's some pretty significant opportunity there.
+[29:26] We like the Middle East because of the size of the market in addition to the size of the diaspora.
+[29:34] And people's listening habits are certainly leaning towards local because of how they can access music and how people are connecting culturally with what is local.
+[29:48] So I think that bodes well.
+[29:50] And then I, you know, as I told you, I was in the Middle East for three weeks.
+[29:54] I got back on Saturday.
+[29:56] It's, I foresee the win from that business and our interest in that business coming about in the next global hit.
+[30:09] That's, I think, that's when we're really going to see the value being created there from our investment in the market.
+[30:20] And we're building catalog there very similar to how we do it here.
+[30:24] We're paying very different prices than what we do here.
+[30:27] And perhaps when I sit here and I say we should have bought everything we could have in 2007 in the U.S., does, I wonder if that applies looking at the emerging markets today.
+[30:40] Yeah.
+[30:40] So I'm not sitting here saying the same thing in a few years.
+[30:43] Yeah, yeah, yeah.
+[30:44] I'm just saying, yeah.
+[30:45] Hindsight is 20-10G, right?
+[30:47] You seem to have a very, like, pragmatic way of going about it, like creating local partnerships, like working with people locally.
+[30:54] Has that made a big difference, do you think, for you in terms of making progress in those regions?
+[30:58] I think one of the biggest mistakes you can make in any emerging market is to feel that you can do business by proxy.
+[31:07] I think it's culturally insulting and think that it really doesn't show that you have a vested interest in building catalog and working with positions.
+[31:22] We have known Speck, who is the founder and CEO of PopArabia, for many years.
+[31:28] He was with us on our creative team here in New York for four years before we moved him back to Dubai.
+[31:34] And so having boots on the ground and having real music people and musicians on our team, Speck himself was a Juno award-winning artist, that changes the conversation as it would in any geography.
+[31:52] Music people are talking to music people, and that's important.
+[31:56] So I am not really a big fan of choppering in to an emerging market without the right people, without the right personnel, doing deals, and then collecting rent on a bunch of IP.
+[32:12] So that's not how I think we're going to build a high-value catalog.
+[32:15] And so now we have an extraordinary team there.
+[32:19] And I think that's giving us a competitive advantage, especially the history that they have in the market.
+[32:25] Time will tell, but I'm committed to it.
+[32:30] Yeah, that's amazing.
+[32:31] It gives Reservoirs, obviously, a publicly listed company opportunity.
+[32:35] If you take it up a layer, huge diversification for your overall catalog.
+[32:42] It would be great to understand a bit more about that and how your investors feel about that as well.
+[32:45] The investors are excited about the emerging markets because the investors understand where the growth is coming up from.
+[32:55] And keep in mind, they don't necessarily, you know, people are looking at the data as a whole and looking at where are streaming numbers growing, etc.
+[33:05] So that's the focus there.
+[33:09] And generally, is there a market that is – if there's a market that's overlooked and we can execute on transactions with returns that are greater than what we can do, say, in the UK or in the US, well, that's certainly attractive to investors.
+[33:27] Just on that, we talked a bit about your decay curve and your models and everything else.
+[33:32] How applicable are they to these markets or do they matter less because the values that you're buying the catalogs at are lower in the first place?
+[33:42] We have more specific modeling assumptions that we would apply to the catalogs that we're looking at there.
+[33:53] So we wouldn't necessarily – we would not be applying what we know to be facts here to assets that we're looking at over there.
+[34:02] We're also not looking at – other than a few, we're not really looking at a John Denver equivalent in that geography.
+[34:12] So we certainly have had to modify some assumptions, which is fine as long as, you know, we're aware of what we're looking at and the geography that we're looking at it, etc.
+[34:24] And so it's all about how well you're making those assumptions.
+[34:31] Right. And obviously, you just don't have as much time on the road out there as you do in your home markets, right?
+[34:37] So the level of data, level of experience, level of visibility is just not going to be comparable.
+[34:43] Yeah.
+[34:45] Go on, I think it is time for your quickfire round now.
+[34:48] So we will kick off with what is the song or album that you've had on repeat at the moment?
+[34:56] Nitin Sani, Immigrants.
+[34:58] It's not new, but I'm a huge Nitin Sani fan.
+[35:03] And when I first met him, it was one of the first moments I was starstruck when Nitin came to the office.
+[35:12] So Immigrants, it is.
+[35:15] It's amazing.
+[35:16] And I'm sure you've had quite a few moments where you've been starstruck within your career.
+[35:20] But is there a particular time or memory that comes to mind that's just such a pinch me moment for you?
+[35:27] There are many career defining moments.
+[35:30] I think going public and actually ringing the bell at the NASDAQ was a little bit of a pinch me moment.
+[35:37] It was, as I said, in July of 21.
+[35:41] And we went with Offset to ring the bell.
+[35:47] And the whole team was there.
+[35:49] And I certainly couldn't believe it.
+[35:53] Well, particularly given the backdrop of the pandemic, you know, and all of that crazy haze that we've just gone through.
+[36:00] I mean, it was nice to just be allowed out, let alone go to, you know, have a public company.
+[36:07] Honestly, going to the NASDAQ was probably one of the strictest places to go to in New York City.
+[36:12] You had to be tested the day before.
+[36:14] Wow.
+[36:14] It was quite an ordeal, but it was great.
+[36:19] So, Golnar, when you look at the market today, is there a particular opportunity that you think is the most underrated in music rights investment?
+[36:30] Well, I think it was just, you know, it was what we were talking about.
+[36:35] I think the emerging markets are underrated.
+[36:37] And if I look at when we were in this business between 2007 and 2012, that was also underrated.
+[36:48] So, the emerging markets is really, I think, where the focus should be for some outlier returns.
+[37:00] And if you could own one song, what would it be and why?
+[37:04] Happy birthday.
+[37:07] It's self-explanatory as to why.
+[37:11] It's a good one.
+[37:12] It actually hasn't been taken yet on this podcast.
+[37:14] So, you are the first.
+[37:16] Congratulations.
+[37:17] Golnar, thank you so much.
+[37:18] Thank you.
+[37:19] I have to say, we have the privilege of spending time to research our guests.
+[37:25] And I think your story is so heartwarming.
+[37:28] As a family, as an individual and everything else, I was reading it and I just thought, wow, good on you.
+[37:34] That is very kind of you.
+[37:37] I appreciate that.
+[37:38] Thank you.
+[37:39] Yeah, good on you.
+[37:40] Keep going.
+[37:42] Thank you.
+[37:43] I plan on it.
+[37:45] Yeah.
+[37:45] It's been a delight.
+[37:46] Thank you for joining us.
+[37:48] Thank you.
+[37:49] And have a wonderful holiday.
+[37:50] Wonderful start to 26.
+[37:52] And thank you again.
+[37:55] Thanks for tuning in to Music Moneyball.
+[37:57] If you enjoyed the conversation, you can subscribe at standard-innovation.com to get every episode in your inbox.
+[38:05] You can also follow the show on Spotify, Apple or YouTube to stay ahead of the curve in music rights investment.
+[38:11] Thank you.

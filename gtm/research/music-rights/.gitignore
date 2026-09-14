@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+podcast/raw/audio/
+podcast/raw/*.log
+podcast/raw/.cache/

@@ -1,0 +1,434 @@
+# Building an operational edge in overlooked rights w/ Tom Tyler
+# Date: 2025-12-02
+# Duration: 00:39:00
+# Guests: Tom Tyler — CEO & Co-founder, Rezonate Music Rights Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Building-an-operational-edge-in-overlooked-rights-w-Tom-Tyler-e3bp4i6
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogs.
+[00:09] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:15] Welcome back to the Music Moneyball podcast with me, Emma Griffiths.
+[00:20] As usual, I am joined by my excellent co-hosts, Tom Mullen and Sam Maury.
+[00:24] And today we have a really exciting guest who is changing how the unsung heroes behind every hit get paid.
+[00:32] He's the co-founder and CEO of Resonate Music Rights, a company focused on an underserved niche within the music rights investment landscape, producer royalties.
+[00:42] Backed by a $150 million strategic partnership with Bridgepoint Credit, Resonate is already assembling a significant producer royalty portfolio and has a bold mission to deploy up to $1 billion over the next five years.
+[00:54] With more than two decades in senior roles at HSBC and the London Stock Exchange, and as a successful music creator himself, he brings practical insight to Resonate's vision to help producers unlock the value of their life's work while delivering exceptional returns for investors.
+[01:12] Please welcome Tom Tyler.
+[01:13] Welcome. Good to meet you all.
+[01:16] Yeah, thanks, Tom. That's such a brilliant introduction.
+[01:20] Yeah, that was great. Was that me?
+[01:21] Now, you've been a very efficient and organised guest, Tom, and you've actually sent us your introduction song ahead of time.
+[01:30] So would you like to tell our audience your selection and why you've chosen it?
+[01:34] So my selection would be I Don't Live Here Anymore by The War on Drugs.
+[01:39] It's a song, I mean, A, it's an amazing song.
+[01:42] It's got one of the best opening guitarists of any song you'll ever listen to.
+[01:45] But it's also, it's forward-looking. It's about, you know, it's nostalgic, but it's also forward-looking.
+[01:53] It's about wherever you come from, where are you going to.
+[01:55] You've got to keep moving forward. You can't just stick in the past.
+[01:58] And that's very much where I sort of think about not only what we're doing at Resonate, but I have always thought about my career as well.
+[02:03] You know, you can achieve things, but then you can't just sit and stay on those things.
+[02:07] You've got to keep on moving. So it always feels like that to me when I'm listening to that track.
+[02:12] So, yeah, it's up in my top 10.
+[02:15] Tom, the money-built analogy is about exploiting market inefficiencies.
+[02:19] As you legitimise the producer-aughty market, you'll inevitably attract more competition.
+[02:24] How does your strategy for finding undervalued assets have to evolve in a world where everyone starts looking for them?
+[02:30] I mean, the way I think about the music rights space is that it's gone through its first phase.
+[02:38] You know, these things sell sort of seven-year cycles, right?
+[02:41] And we're in a, I think we're in the next sort of phase of that.
+[02:44] We're in the next seven-year cycle.
+[02:46] My experience from capital markets was that any asset class as it evolves will get more,
+[02:54] they'll go down and deeper and deeper into different layers.
+[02:57] So you had mortgage, then you mortgage about securities, et cetera, et cetera.
+[02:59] And the music industry is going to be very, very similar in the sense that there's going to be more people,
+[03:05] as you quite rightly pointed out, chasing the more fragmented or the not-so-high-profile rights.
+[03:12] I think that it's twofold the answer to that question, which is that you have to build a sort of best-in-class operating business
+[03:21] such that you are able to, you know, ingest value, assess the opportunities quicker, faster than your peers and more accurately.
+[03:33] And then, but combined with that, it's not good enough just to be sort of an efficient financial business.
+[03:39] You know, we have to be partners to the sellers.
+[03:43] We have to understand and know the journey that they've gone on to build that, you know, that portfolio and that catalog.
+[03:51] And that's where we're very fortunate because my co-founder, Cam, is a music producer.
+[03:55] He's a very successful music producer.
+[03:57] I'm currently sitting in one of his studios right now.
+[03:59] And that gives us not only a level of access, but also a level of understanding of the community that we're engaged with,
+[04:07] such that we really do not only understand the mechanics of what it is they own,
+[04:11] but we also understand their sort of personal and emotional journey that they've gone on.
+[04:16] And I think those two things combined give us a specific edge in the market when we are approaching,
+[04:23] we're talking to and engaging with sellers.
+[04:25] And when we continue to invest in both of those areas of the business, that's how we will, I think that's how we win.
+[04:33] Sure.
+[04:34] So totally get your creator first mission, but obviously you've got investors.
+[04:40] So, you know, in that, that creates a level of tension.
+[04:44] How do you navigate that?
+[04:47] Yeah, it's a good question.
+[04:49] I mean, I think that one of the challenges with music royalties and music catalogs in general
+[04:54] is that it's a, it's a, it's, it's, it's an illiquid asset and be the understanding of the,
+[05:00] sometimes of the seller of what it is that they own is not always,
+[05:05] not always particularly, not always particularly well understood.
+[05:10] And equally so on the other side,
+[05:12] you have got kind of a very empirical approach into what is, you know, sort of, you know,
+[05:19] credit, credit investing, you know, asset backed investing.
+[05:22] And so, you know, we really do bridge the gap between the two and the, the, the,
+[05:28] the uniqueness of our, of our business is that it's co-founded by a creative and a,
+[05:34] and some of them myself from capital markets background and with also a creative experience as well.
+[05:39] And so we, we really feel like we can bridge that gap between the two.
+[05:43] So we do a very good job of explaining and being very transparent to the sellers about what it is that they own,
+[05:50] what their catalogs are worth, why their catalogs are worth, what, what's happening to those income streams.
+[05:56] That in itself is a service that we are very happy to engage with sellers on.
+[06:00] And we do all the time.
+[06:02] We, we sit down and we talk them through that, those, the, the, the, the, the rationales behind it.
+[06:06] And equally so we then have to translate that and, and, and make sure that that's well understood by our investors as well.
+[06:14] And look, it's, there's no, there's no sort of, there's no magic fix to that.
+[06:20] It is a, it's a dynamic conversation, but you have to be cognizant of both sides of it to be able to bridge that gap.
+[06:28] If you, if you just stay in one of those lanes, you're, you're not going to, you're not going to be, you're not going to be successful.
+[06:34] So it's, it's a, it's a, it can be a tricky path, but we think we're doing a pretty good job.
+[06:39] It's like that kind of very typical art meets science approach, isn't it?
+[06:44] And it's the subjective, the objective and trying to marry those two together.
+[06:49] Like how fractious do you find that relationship?
+[06:52] Does it get, I mean, do the sides often become very polarized about their expectations and value and how do you bring them back together?
+[07:00] No, I don't think so.
+[07:01] And I think, I think that that was part of the decision about the partnership that we decided to go with the bridge point is that they're very thoughtful investors.
+[07:08] And the way that we structured our partnership was such that it meant that they gave both sides some breathing space as well.
+[07:16] They know and understand because through the process of engaging with them, you know, working with, with Cam and myself, what this universe of artists and creators and producers has gone through.
+[07:30] And so I think there's, there's a, there's a learning journey on both sides.
+[07:35] There's no doubt about that.
+[07:36] And I think to a certain extent that will always exist.
+[07:39] But what I firmly believe is, is at that point of friction is actually where good things tend to happen.
+[07:46] Where there is no question, where there's no friction, there's no, that point, that doesn't exist.
+[07:51] Then each, each party will just stick in its own lane and will only be in its own echo chamber.
+[07:56] And having worked in both finance and music, I can see the errors of, of, of both of those.
+[08:02] Um, and so one, this is hard to bridge it, but they can both learn from each other.
+[08:07] And it's, and that, that's how we have to, we have to navigate that, that.
+[08:10] And I think, um, but you know, but therein lies the magic, right?
+[08:14] Um, and that's, that's what I'm not sure Cam and I fully understood that when we started the business, but what we found is that, that it really is a bit of a secret source.
+[08:23] Actually, um, you know, we, we bring a level of understanding about the creative, um, to the financiers and we're also bringing the level of understanding about the finance and the realities of that to the creatives as well.
+[08:37] Um, and it's a journey, but you know, we, we love to be able to bridge that gap.
+[08:41] We love to be able to help both sides, understand each other better.
+[08:45] Um, and you know, and clearly there are outcomes for both parties here, you know, sellers are looking for liquidity in a very blunt sense, but they want to be treated.
+[08:53] And with respect and they want to be treated and understood as creators of genuine value.
+[08:59] And equally so investors want to know that there is a, you know, sustainable, um, return that can be achieved from the investment that they're making.
+[09:08] Um, you know, so it's, it's a lot of listening, um, uh, and it's, it's thoughtful, um, explanation.
+[09:16] Um, but I've spent 20 years doing something like that.
+[09:19] So I, I feel relatively comfortable doing it.
+[09:21] I think there's always that kind of piece where a lot of the discussion is, is the storytelling, right?
+[09:28] You're trying to translate something from someone who's has no experience from, from the music industry into finance and vice versa.
+[09:35] So trying to like tell a story, but with, with some evidence that allows you to underpin that.
+[09:42] Yeah.
+[09:42] Yeah.
+[09:42] And I think, look, I, I, I, I've been spent sort of best part of 20 years in, in, in different roles within finance.
+[09:48] You know, what finance is very good at is looking at problems and pigeonholing them and looking at asset classes and saying, it's like this, you know, you can look at music and say it's like real estate.
+[09:57] Um, and it is in many ways, it's got a very similar sort of investment profile, but it isn't because actually a lot of the payments are very laggy, you know, and you're that there's an inexact science to when you might get that payment through.
+[10:11] And so, um, there are, you know, understanding those idiosyncrasies, um, of, of the mechanics of the industry are just something that institutional investors, I think are, are really getting to grips with and have continued to get to grips with over time.
+[10:25] And as more of more, more and more of them come into the, come into the market, then, um, you know, I think more, there'll be better understanding of, of, of those mechanics.
+[10:34] Um, I mean, one of, one of my other sort of points around this is, is that I actually think that there is a, there's a real benefit to the discipline that, that comes from, you know, institution investors, just generally that the music industry is going to benefit from.
+[10:53] Like it's a, it's a, it's a, it's a, there has been, you know, a monopoly, duopoly, triopoly, whatever you want to call it, you know, for, for, for many, many years.
+[11:02] And that hasn't really been challenged, but if you are working with institution investors, it doesn't matter what, you know, who they might be.
+[11:09] They demand a level of transparency and, um, and that's what capital does at the institutional level.
+[11:16] Uh, and that I think is starting to impact the way that, um, the way that platforms like ours operate.
+[11:24] We very much come from that position anyway, as a starting point.
+[11:27] Um, but I do think that, uh, that is the agent of change within the industry around sort of performance and reporting and all those elements.
+[11:36] And for the, for the good, right.
+[11:38] I think, you know, the more transparency, the better, uh, the more liquidity, the better.
+[11:42] And I'd like to talk a bit about the impact of liquidity, particularly for the artists in a minute, but just whilst we're on the topic of bridging the gap between art and science, have you also found that just with, uh, experience working with the same.
+[12:00] Uh, creditor, so Bridgepoint in this case, that you gain a certain level of trust that allows you to make maybe more bold decisions that can be backed by empirical data, but has potentially slightly more subjective or heart in the decision.
+[12:17] Or do you really stick to your guns and just say, look, this is how we look at it.
+[12:21] Uh, no, I look, I think again, that they've been fantastic, um, partners for us and it's been a, it's been a long, um, uh, uh, uh, process of, of engagement with, with Bridgepoint in terms of, of knowing and understanding that we, as you can imagine, due diligence process is, is quite extensive.
+[12:37] Um, um, um, they, yeah, look, we, we, we, we have a, we have a, uh, a, a broad discussion and I think we're, we are very much able to bring, um, those creative narratives into, into what the, the, the sort of the value that, that resides within some of these catalogs.
+[12:56] And so, uh, absolutely, uh, we, we, we, um, we, um, we can go kind of up and down the scale.
+[13:01] Um, and, and I think what's interesting is particularly with producers is that, you know, if you thought about the names of the guys that we work with, um, you know, they're not household names often, right.
+[13:14] But the artists that they work with are household names.
+[13:16] So, you know, it's understanding the role that they played within this piece of music and therefore the value that that is their residual within that, just because it's not Taylor Swift, it doesn't matter.
+[13:28] So it matters that they've played this role and also, you know, the variety of, of work that they've done.
+[13:33] So, um, so yeah, no, it's, it's, it is, yeah, it's, it's definitely a, a very open and, um, creative discussion.
+[13:41] Just on that, can we talk a little bit then about the value that you see introducing liquidity into the asset class?
+[13:49] I think, uh, seeing your backstory and hearing about what you've done is hugely impressive.
+[13:57] And actually one of the net benefits feels like there's just greater optionality for the producers and other people who have contributed to great success, great revenue and everything else.
+[14:10] What are you seeing at a grassroots level of the impact of that liquidity?
+[14:15] I think, I think the knowledge and understanding that at a sort of, I don't want to call it lower down, but, but the only way to think about it, like lower down the right pie, as it were, that there is a viable and credible, um, asset that could be, that could, that can achieve liquidity.
+[14:39] And I think that's, you know, as you went through the kind of the hypnosis phase, let's call it that.
+[14:43] And everyone's chasing Bob Dylan or Justin Bieber or whatever.
+[14:47] Um, I mean, this was very much the genesis of the business in a way.
+[14:50] So, so Cam and I met 15 years ago when he made my album, when I decided to leave the city and become a full-time musician.
+[14:57] And then we stayed great friends.
+[14:59] But then a few years ago, he came to me and said, look, this whole thing's going on over here.
+[15:02] And why, why are they not coming to have a chat with us?
+[15:05] We own rights to these, to these songs.
+[15:07] I mean, he's a very, very successful musician.
+[15:09] So what, you know, what's, what's the story?
+[15:11] And so as we delved into that and did the kind of the, the background work on what was become Resonate, we realized that there was a massive pool of very, very credible rights, um, that could be acquired.
+[15:23] That just been underserviced and undervalued and, and certainly, certainly, certainly underserviced.
+[15:30] And therefore I think the impact is that what's brilliant for us is to be able to have a conversation with someone who's got a relatively sort of small portfolio and say, Hey, here is a, here's a liquidity opportunity to you, for you, which is very transparent and fair.
+[15:45] And if this is something that you need and something that you, you want to part ways with, then we'd be very happy to, to, to work with you on that.
+[15:52] So I, I think it's, you know, it's a, it's a deepening market.
+[15:57] That's the way to think about it.
+[15:58] Yeah.
+[15:58] And that's, that, that, that serves both, again, that the need for there to be a, you know, a good return, but also the ability for us to work with this community of rights holders that have not so far been, been serviced particularly well.
+[16:15] Well, predominantly because it's the maturity of the asset class, I would say, you know, I'm not, I'm not saying there's, there's, there's bad intent on hypnosis or primary wave or anybody's part.
+[16:24] It's just that, you know, we are, we, we exist because no one's done this before.
+[16:28] And naturally some, somebody was going to come and do this, right.
+[16:31] It just happened to be us.
+[16:33] Yeah.
+[16:33] And if you subscribe to, you know, the benefits of free market economics, then ultimately it's going to be a good thing.
+[16:39] More capital, more competition, more opportunity tends to, tends to feed, feed down value.
+[16:44] I think so as well.
+[16:46] I think there's kind of almost like a, there's a strategic point that I see when I go to conferences now, I think there's genuine shift or, or growth in institutional capital in looking to invest in the broader sort of cultural, you know, arena, sports, media, entertainment, music.
+[17:04] Um, and yes, in what we're acquiring it, it, you know, it's, it's sort of credit, like it's digital, we're set, whatever you want to call it.
+[17:12] But then there's, there's, there's another piece to that, which is this cultural investment as well.
+[17:16] And that's super important.
+[17:17] Um, and we feel like we're very much part of that journey as well.
+[17:21] Um, if you know, providing liquidity to a producer who's halfway through their career that enables them to then go and build and invest in a studio and then go create more music, that psychological safety that comes with that is really important.
+[17:35] Right.
+[17:36] And you think about that, like that's not something that would necessarily be front of mind for an, for a financial investor, but it's absolutely front of mind for us because those are the conversations we have on every day.
+[17:45] So Tom, you mentioned that one of the main things that you focus on is bridging that gap between, uh, the, the financiers and the artists.
+[17:55] Do you think that the industry, the music industry will trend towards finance or do you think that the financiers will trend more culturally towards the music industry?
+[18:07] Um, well, I think, I think they'll trend towards each other, but I, but I do think that I think ultimately the, the culture side of this will win because, um, the finance industry has a tendency to, to continually narrow its focus and look solely focused on numbers and return.
+[18:24] And it needs to be dragged into new sectors, which is what's kind of happened here.
+[18:28] Now, what it's very good at is seeing where there's a potential opportunity for a return.
+[18:33] Um, but it's for one of their way of thinking about it, finance industry sort of lacks imagination.
+[18:37] The creative and cultural industries are built on imagination and, and, and creativity.
+[18:42] And, um, you know, the best financiers are really creative, but unfortunately most aren't.
+[18:47] And therefore I think this environment that we are, uh, that we're, that we're, that we're seeing here, I think there is enormous value in, you know, the, the cultural.
+[18:59] Sort of investment, but it's quite difficult to empirically box it up at the moment.
+[19:05] So music is a really tangible asset that people can get their head around sports media, football clubs.
+[19:11] Okay.
+[19:11] I get, you know, you can kind of put numbers around that.
+[19:13] I think this slightly more amorphous cultural piece is still, um, kind of to TBD, but I think.
+[19:21] You know, my, my sense is there's incredible value there.
+[19:24] And my hope is, is that more partners like we found with Bridgepoint will come into the space in a thoughtful way and be like, look, we know you guys get this.
+[19:34] We know you guys know how to navigate this space.
+[19:36] We are here to support and accelerate your vision.
+[19:40] Um, and you know, I think that's why, you know, that that's why business like us will, will, you know, will continue to be very successful because we've, we worked really hard on that piece to get that right.
+[19:50] Um, I think if you're just bulldozing in, in finance way, I think, I think it kind of blows up like everything else.
+[19:57] And it becomes perpetuating after a while, doesn't it?
+[19:59] If people are saying that they are getting good returns with this asset class, then they can get a bit more comfortable with it.
+[20:05] And when they get a bit more comfortable, then they get a bit, you know, it does kind of coalesce in one direction.
+[20:10] Yeah.
+[20:11] I mean, crikey, you get me on a bit of a soapbox now, but it's like, you can't, like, if you want valuable creative assets,
+[20:18] you have to create the environments for creatives to be able to, to, to create them.
+[20:24] Right.
+[20:24] And so back to that point about sort of, you know, like crane psychological safety and, you know, just liquidity events for, for producers and artists to it as perhaps at a smaller, smaller level than itself does that.
+[20:36] But what does that do?
+[20:37] Then it creates more value.
+[20:38] It creates another asset, right?
+[20:40] It creates another investment opportunity, but you can't, you have to create, you have to give that space for that to happen.
+[20:46] Um, and, uh, so, so, so that again, it's where that sort of friction lies.
+[20:51] Like, how does, I don't know exactly how it plays out, but I think both parties have got to be conscious of you feel that.
+[20:55] But I would argue that finance entry, you can't just, you can't just kind of plug and repeat in this.
+[21:01] It's got to be, it's got to be thoughtful because you're not dealing with a sort of necessarily like a rinse and repeat exercise here.
+[21:09] You know, who knew that a ginger kid from Suffolk was going to become one of the largest stars in the world.
+[21:16] Like nobody would have picked that out.
+[21:18] Yeah.
+[21:18] Or four lads from council houses in Liverpool, you know.
+[21:21] Exactly.
+[21:22] Exactly.
+[21:22] It's like, you know, that, that, that, you know, and, and, and I always think about, we've got to, you know, we, you know, we, we, we own some very, very grateful to own some of Lewis Capaldi's catalog.
+[21:30] And, you know, again, like he needs a guy from just outside Glasgow who doesn't necessarily look like a pop star, but he's amazing.
+[21:37] Right.
+[21:37] So, yeah, I mean, you know, I, I, they've been given the opportunity within the structures that they've found, but we think that there are, that continues, that needs to continue to be the case.
+[21:50] And actually the problem with the labels at the moment is they're so focused on acquiring catalogs that they're not investing in new artists.
+[21:57] Right.
+[21:58] And, you know, and weirdly, perhaps what we're doing is creating in a small way, some more opportunity for that, that creative, that sort of more, more creative space to happen, more value to be created.
+[22:09] If you see what I mean?
+[22:11] Which is amazing.
+[22:11] You know, and the, you know, the more that you can distribute that value evenly, the more liquidity, the more open the market is.
+[22:18] I think one of the big challenges and question marks that I always have about, but the technology side and the capital side is, are we actually serving the lower end of the market?
+[22:30] Are we actually investing in the grassroots?
+[22:32] Because if you don't, it becomes very top heavy.
+[22:35] And then, you know, you don't have any flow.
+[22:37] You don't have any new music and you don't have new deal flow.
+[22:41] And then the whole ecosystem just collapses.
+[22:43] So it's super important.
+[22:45] And this is, this is the thing that I think people sometimes misunderstand about music as well.
+[22:49] It's a consumer, like it's a consumer durable.
+[22:53] It's, it's, it's, it's a necessity.
+[22:54] Like imagine your life without music.
+[22:56] It is inconceivable.
+[22:57] It's in every moment, every part of our lives.
+[23:00] And therefore the, we have to sort of treat it as a very, very valuable asset.
+[23:06] And we have to make sure that the environments that exist for there to be great music to be made.
+[23:10] Um, we can all dive into the AI argument if we want to, but, um, that consciousness around that piece has to be present for anybody who's involved in this kind of business.
+[23:20] So Tom, you, you, you stated, um, a goal of deploying a billion dollars of, um, investment in five years.
+[23:29] Acquiring fragmented small catalogs is operationally intensive.
+[23:32] Um, what are the primary bottlenecks, um, like deal sourcing, due diligence, rights management to scaling that at speed?
+[23:41] Um, I think we've, we've kind of read that, you know, you have, you have to negotiate across a number of different labels.
+[23:48] So just give us a bit of a view of how that works and then how you use technology to, to kind of assist you with that.
+[23:55] Yeah, no, it's a great question.
+[23:57] And you're absolutely right.
+[23:58] Um, we, we faced a challenge on day one, which was how do you, how do you deploy, uh, you know, a decent sum of money, uh, into the sector when your deal size is significantly smaller?
+[24:11] Um, you know, it's fine if you're dealing in 30, 40, $50 million catalogs, but, um, you know, most of our catalogs are some sub $10 million in size, uh, that we're acquiring.
+[24:21] Um, and we'll go right, you know, we'll, we'll, we'll, we'll go down to a few hundred thousand dollars and, and, and, and, you know, as well.
+[24:27] So, um, it is challenge.
+[24:29] Um, I think where we decided to invest early was in, uh, our data evaluation platform.
+[24:34] So, um, we have a dedicated team and we have built proprietary, um, solutions internally to, to enable us to, um, capture and, uh, structure unstructured data as it is.
+[24:48] And that's one of the challenges with producers obviously is because they haven't had a single income stream.
+[24:52] They've tended to have an income stream that's across 10 or 15 or 20 different projects on, you know, 20 years or something like that potentially.
+[24:59] And so you've got this very, very diversified income stream that's that you're getting data from lots of different, um, lots of different, um, uh, services, um, providers.
+[25:08] And so you, you need to be able to aggregate all that information.
+[25:11] Um, that in itself has taken some time, but we, we're now able to ingest, um, incredible.
+[25:18] We can just millions of lines of code in sort of 15 minutes or so.
+[25:22] Um, and that, that we, we, we've been able to, been able to sort of solve for that problem.
+[25:26] That's a, that's a big issue.
+[25:27] Um, then in, in addition to that, you know, how do you value this, this stuff?
+[25:31] Because we need to, we need to both ingest and value at scale.
+[25:35] And, um, we have a third co-founder in the business, um, Nick, uh, who has a 30 year, uh, background as a buy side analyst, uh, from the city.
+[25:46] Um, and he spent sort of seven or eight years prior to joining us as a specialist in music catalog valuation space.
+[25:51] So, um, you know, uh, it has an extremely good understanding of how to value catalogs.
+[25:58] And so we ingest all that information in, we value it very quickly.
+[26:02] Um, and we can turn these valuations around, you know, within a day, sometimes, sometimes quicker than that.
+[26:08] So that, that was a key challenge for us.
+[26:10] Like, how do you, how do you move volume through this process?
+[26:13] Um, and we couldn't see anything necessarily that was on the market that solved for that problem.
+[26:19] So we built it ourselves.
+[26:21] And how much of a differentiator do you think that technology is for you guys?
+[26:24] And how much, uh, do you see other people making similar investments into the future?
+[26:31] It's a really good question.
+[26:32] I, I'm, I'm not sure that there are other platforms that have invested as heavily as we have into this.
+[26:38] Um, I think probably because, um, they didn't need to, um, if you're only doing three or four deals a year, a year, then you could probably outsource your valuations to one of the third party providers.
+[26:49] Um, if we did that, it would be completely an economical exercise.
+[26:53] Um, so we have to, um, we have to do this all in, in house.
+[26:58] Um, so, uh, I think honestly, I'm not, I'm not a hundred percent sure, but I don't know that there are many other providers that have, that have, that have, that are on many other platforms that have built what we've built.
+[27:08] Um, but again, probably out of necessity rather than, you know, design.
+[27:13] Um, and I think that gives us a competitive edge because, um, when I think about my time in, you know, sort of in finance, you think about, and I worked at Bloomberg for a short period, for a, for a period of time.
+[27:24] You know, that is a aggregation of data platform, which massively accelerated anyone's, any analyst ability to move through, assess, analyze, um, you know, get to, you know, get to evaluation on, on, on, um, on companies and mostly publicly listed companies.
+[27:41] So in a similar way, it, it, it is a really, really unique, um, solution that we've built because, um, that enables us to, to, you know, we can, I said, we can value, you know, sometimes we can value three or four catalogs in day if we get the right data.
+[27:55] Um, that's not something I think anybody else is really able to do.
+[27:58] I think it sounds like you're really investing in the process, which through our experience has always been the most important thing.
+[28:06] If you, if you do want to go and achieve those big things, then you have to invest in and believe in a process that's going to get you up.
+[28:13] Absolutely.
+[28:14] And, you know, you need to find the right, you know, you've got to find the right partners where you don't have those skills.
+[28:20] Um, you know, we've got a very close relationship with a fantastic law firm here in the UK.
+[28:24] Um, there are silken who, um, who we built a very, very close relationship with.
+[28:28] And that part of our process is, is very integrated.
+[28:31] Um, because again, you're moving through what is a legal exercise.
+[28:35] Um, and so, um, but you know, we've operationalized that.
+[28:39] So every, every part of it, we had to look at and say, how do we operationalize this?
+[28:42] How do we operationalize this?
+[28:44] Um, and so the lot of work that's gone into thinking through how, how you can do that.
+[28:49] Um, and yeah, so, so that, but, but that was, it was an absolute necessity if you're going to execute what we're executing.
+[28:56] And how early do you get involved with producers?
+[28:59] Because I think that education piece is so important, not just so people can understand what they should be doing, but also how much of it and how much time they should be investing.
+[29:11] You know, there's always the edge cases where somebody will explode and be hugely successful and all the monetary side kind of takes care of itself.
+[29:20] But actually for the vast majority that they need to do it to pay a mortgage or, you know, buy, pay for the holiday or whatever it is.
+[29:28] Um, so what stage do you guys get involved through that advice?
+[29:33] And then is it a fair assumption to say, actually, when they're better advised at the time it comes to transacting that they've got more realistic expectations of what the value should be?
+[29:45] I think, I think that's, I think that's absolutely right.
+[29:47] I mean, what we understand is what that pathway looks like.
+[29:51] Um, and that's very much again, informed by Cam's own journey himself.
+[29:55] Um, you know, he came from a very humble background to become a very successful producer.
+[29:59] And it's really at the kind of the heart of our business as well.
+[30:02] So, um, setting that pathway out, helping those, helping those individuals understand what that can look like expectation setting.
+[30:12] I think you're absolutely spot on because unfortunately within the music industry, there's always been this sort of, you know, sort of X factor moments.
+[30:20] I'm going to do this, I'm going to do this and then suddenly I'm going to get a massive record deal and it's all going to be okay.
+[30:26] But, you know, uh, great artists take probably five, six, more like seven years to really get to a stage where they're maturing.
+[30:35] You got some like Olivia Dean, who feels like she has just exploded, but that's been five, six, seven years in the making.
+[30:41] Right.
+[30:41] That's, uh, that's how it, that's how it works.
+[30:44] So, um, in, we, we're in contact with and sort of working with, uh, uh, very early stage, um, you know, artists and producers and also slightly more mature, um, helping, helping them understand what that landscape is going to look like.
+[31:00] And, and by the way, it's changing all the time, right?
+[31:03] Because the music industry is changing.
+[31:05] You know, majors are not investing in early stage artists anymore.
+[31:08] And so we don't profess to have all the answers, but we are doing is being a resource to those, to those, to those early stage and emerging artists to help them try and understand what that could look like.
+[31:19] It sounds like you have also got a podcast coming out.
+[31:22] Yeah.
+[31:22] Yeah.
+[31:23] So, um, as part of our, of our initiative to work with and support early stage and emerging, um, producers and artists, um, we've launched a, um, uh, podcast or a series, um, to call this, does this resonate?
+[31:38] Uh, and it's with my co-founder cam, uh, Owen cuts, who's a very experienced producer as well.
+[31:44] And, um, we're inviting experts into talk about the real challenges and problems that, that, that, that musicians and creatives and producers are facing on a daily basis working within the music industry.
+[31:57] I think Emma, you spoke earlier about the challenges of, of, of artists trying to navigate this landscape.
+[32:02] It's, it's completely, there is no, there's no roadmap for it.
+[32:05] And so given the level of experience that we've got and knowledge that we've got and the position that we have in the industry,
+[32:11] we feel that it's important that we, you know, give back and we, we, we, you know, we, we make sure that we help as much as we can create those pathways, solve for those problems in what is an ever changing and very dynamic, um, music industry and music environment.
+[32:26] So yeah, look out for that.
+[32:28] It's called, does this resonate?
+[32:29] It will be both educational and entertaining.
+[32:32] So Tom, time for your quick fire round now.
+[32:35] This is where we, uh, we really get into the, to the meat of the conversation.
+[32:39] Uh, what is the, the song or album that you have on repeat at the moment?
+[32:46] Uh, so I'm a little bit of a chameleon when it comes to me to the different music I'm listening to.
+[32:52] I'll, I'll just kind of move all over the place, but at the moment I'm really enjoying Marcus King.
+[32:56] He's a, um, he's like a country blues guitarist, uh, very soulful, very bluesy, technically brilliant.
+[33:02] Um, so, um, yeah, if you're into that.
+[33:06] His new album is amazing.
+[33:07] I've been listening to it a lot myself.
+[33:08] It's, it's fantastic.
+[33:10] I've even got my kids singing it.
+[33:11] So that's, that's, um, you know, if I can get them off demon hunters and onto that, then it must be something decent.
+[33:16] Tom, you've, you've tapped into a theme that is incredibly consistent on this podcast, which is kids and demon hunters.
+[33:21] So yeah, it's nice that you're influencing them for a change instead of the other way around.
+[33:27] Do you know what the funny thing is?
+[33:28] The first time you listen to demon hunters, you're like, oh my God, what is this?
+[33:31] And then, and then the second or third time you're like, this is pretty good.
+[33:38] Love that.
+[33:38] And Tom, I'm sure you've been to a fair few gigs in your time, but is there one or two that really stand out as just being like the best?
+[33:47] Um, yeah, I think one always stands out to me, which was, uh, I saw the killers in 2004 on their first UK tour at the Astoria, which no longer exists actually.
+[33:58] So as a, as a venue, it was, it was torn down, but, um, you could tell when they came onto stage, they were slightly taken aback about the level of excitement and anticipation that was in the audience waiting for them.
+[34:10] And funnily enough, I was reading something recently and it was Brandon Flowers talking about his top five gigs.
+[34:16] And that was one of them, um, which is super cool.
+[34:19] And Tom, when you kind of look back on your career so far in music, what, what are your biggest, like, is there one particular pinch me moment that really just stands out?
+[34:28] It's like, my God, I can't believe that happened.
+[34:30] Uh, well, I guess my personal music career would have been a pinch me moment getting played on radio too.
+[34:35] Um, but, um, that was a long time ago.
+[34:38] Um, um, but, um, then I guess the, you know, when we closed our funding, um, with, with Bridgepoint, that said, that was a very much a pinch me moment.
+[34:48] Um, it felt, I felt sort of a mixture of, you know, excitement and yeah, pride, I guess, about what we built.
+[34:57] And, uh, you know, it's super fun.
+[34:59] And also doing it with, with, you know, with one of my best friends as well, which is super fun.
+[35:03] And I'm sure that there's going to be a link to what you guys are doing and resonate here, but is there, is there one particular underrated opportunity at the moment in music rights investment?
+[35:14] Well, I think, I think you probably know what my answer is.
+[35:16] Um, I I'd say, yeah, we think it, we think it is producers, but, but I would, I would, I would clarify that and say, when we say producers, it's actually a catch all for, um, for, for producers, mix engineers, vocal producers, um, uh, producer writers.
+[35:31] You know, it's, it's, it's essentially sort of perhaps non frontline artists, essentially that there is a huge opportunity with this, with this universe of, of, of, of, of rights holders.
+[35:42] Um, and, um, yeah, we believe that, that that's, that's a massive opportunity for us and for others.
+[35:49] Yeah.
+[35:49] Amazing.
+[35:50] And last but not least, uh, what would be the one song that you would like to own and why?
+[35:55] So I think he's already sold this.
+[35:59] Um, but it's, and this is really going to show my age now, but, um, it would be probably, is this love by wise snake?
+[36:06] Um, so an absolute classic of the eighties, which is where I was, uh, rocking out, uh, as a drummer, uh, in a band with my brothers.
+[36:14] And, um, uh, yeah, that, that would be, I would love to have loved to have acquired.
+[36:18] It's just a, it's a classic song that or drop dead legs by Van Halen, similar sort of era.
+[36:23] Um, I used to play that with my brothers and I, he, my brother thought he was Eddie Van Halen and I thought I was Alex Van Halen.
+[36:30] So, um, you know, it's really nice though.
+[36:33] Like whenever we ask that question, there's everything, every answer is pretty much like a sentimental one.
+[36:38] Yeah.
+[36:39] I thought, I thought it would be really driven by royalties and greed and it's all really like lovely sentimental answers.
+[36:47] I think that's where you create like some kind of neural link with it, with the song, right?
+[36:51] You know, you experience something with people like you, that you care about and, um, and that, you know, just drives emotion.
+[36:58] So, yeah.
+[36:59] Yeah, I think so.
+[37:00] And again, the actual correct answer to that from a, from a sort of financial perspective is probably Mr. Brightside by the Killers.
+[37:05] Because it is, it is, it is phenomenal.
+[37:08] Ah, but it, but it, we, and, and we did some analysis on that and it's a phenomenal, phenomenal track.
+[37:13] But, um, yeah.
+[37:14] Oh, that's interesting.
+[37:15] We always default to one of the Christmas songs as there's like big commercial owners played every year, just rake it in for a little effort.
+[37:24] I think so.
+[37:25] But I think we've got to remember at Christmas songs, of course, they, they're only played for, you know, two, two months of the year.
+[37:30] Whereas somebody will play something like Mr. Brightside at any point.
+[37:34] They could play it at Christmas.
+[37:35] They could play it in summer.
+[37:36] They could play it, you know, it doesn't, it doesn't really matter.
+[37:38] And actually they are better performers, um, from a sort of a, a rights holder's perspective probably than, than the, than the Christmas sort of up and down.
+[37:48] Yeah.
+[37:50] Excellent.
+[37:50] Do you want to wrap up then?
+[37:51] Yeah.
+[37:52] Thanks so much, Tom.
+[37:53] I mean, really just so interesting.
+[37:55] And, you know, it's great to, to speak to somebody who's helping, you know, as I said in the intro, you know, I really feel like these are some of the unsung heroes of our industry.
+[38:04] And, you know, you, you find some producers and you're like, my God, like you go down rabbit holes, right?
+[38:09] Cause it's so interesting.
+[38:10] Yeah.
+[38:10] Like all the different artists.
+[38:12] So yeah, it's just really nice that it's finally kind of the recognition that, that, you know, it really deserves and great to hear what you're doing.
+[38:19] So thanks so much for spending the time.
+[38:23] Oh, not at all.
+[38:23] Thank you very much, guys.
+[38:24] Thanks for shining a light on, on our work.
+[38:27] And yeah, very excited to carry on the conversation.
+[38:31] If anybody wants to get in touch with us, they can find us on our, our websites, resonatemusicrights.com.
+[38:38] So they can find us there.
+[38:40] Amazing.
+[38:40] Excellent.
+[38:41] Thank you so much, Tom.
+[38:42] Thanks for tuning in to Music Moneyball.
+[38:45] If you enjoyed the conversation, you can subscribe at standard-innovation.com to get every episode in your inbox.
+[38:52] You can also follow the show on Spotify, Apple, or YouTube to stay ahead of the curve in music rights investment.

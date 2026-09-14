@@ -1,0 +1,714 @@
+# What institutional capital looks for in music rights w/ Brian Richards
+# Date: 2026-01-27
+# Duration: 00:49:22
+# Guests: Brian Richards — Founder and Managing Partner, Artisan Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/What-institutional-capital-looks-for-in-music-rights-w-Brian-Richards-e3e8e1s
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] There's a lot of things that will determine how a catalog gets priced,
+[00:05] and that determines how it flows through the decay curve,
+[00:07] and that determines what the multiple is.
+[00:10] So I have to say this as my disclaimer that's going on my tombstone,
+[00:14] is to say multiples really don't mean anything.
+[00:17] They're the output, not the input.
+[00:22] This is Music Moneyball,
+[00:24] the podcast that explores how to unlock the hidden value in music catalogs.
+[00:28] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:35] Welcome back to the Music Moneyball podcast with me, Emma Griffiths,
+[00:40] and as always, I am joined by my co-hosts, Tom Mullen and Sam Morey.
+[00:44] Today, we're joined by someone who sits right at the center of the catalog market,
+[00:48] where deals get structured, capital gets deployed, and value gets set.
+[00:52] He is the founder and managing partner of Artisan,
+[00:55] an investment bank specializing in music and entertainment.
+[00:58] Please welcome Brian Richards.
+[01:00] Thank you, guys. I'm really happy to be here and appreciate you having me.
+[01:04] Yeah. Hey, Brian. Great to have you on.
+[01:06] Brian, we first of all wanted to touch on the topic of raising your next fund.
+[01:12] Because, you know, we're seeing catalog investors are in a continuous cycle of raising capital,
+[01:17] deploying capital, operating, and then go back to raising capital.
+[01:21] So as the market matures, what would be, you know, the advice that you would give to funds
+[01:26] who are back in that fundraising stage at the moment?
+[01:30] As you mentioned in your introduction of my firm,
+[01:35] we do a lot of capital raising for music platforms,
+[01:40] for companies that are acquiring intellectual property based in music,
+[01:44] whether they're the funds that you've mentioned, record labels, publishers,
+[01:51] individuals, whatever it might be.
+[01:52] So and just the level set.
+[01:54] So we do that across raising debt capital, equity capital,
+[01:59] mezzanine financing, structure finance,
+[02:01] opco, asset codes, as we call them,
+[02:03] really the whole thing.
+[02:04] I think we're as experienced as it gets in this market in particular.
+[02:10] And the good news is that there is a lot of capital coming into the market
+[02:14] that wants to come into the market.
+[02:16] And it can come in in various forms that we'll get to as we get deeper into this conversation.
+[02:21] But for platforms that are going back to market
+[02:23] or that are thinking about going back to market,
+[02:25] the things that often come up,
+[02:28] the most obvious is you've deployed X hundred million dollars to date.
+[02:33] So did you do a good job?
+[02:35] Did you do a good job?
+[02:36] Yeah.
+[02:37] Yeah.
+[02:38] Were you able to put out money at a good pace?
+[02:42] Were you able to buy well?
+[02:44] Meaning, did you overpay?
+[02:47] Or did you pay appropriately?
+[02:49] Is there still headroom in the pricing that you paid for you to have?
+[02:54] If you exited today, what would that look like?
+[02:57] Well, what does it look like relative to your third party valuation
+[03:00] that all these funds have to get?
+[03:02] And obviously, what does it look like relative to what the market might value them?
+[03:05] So that's, of course, the first and most important thing.
+[03:10] What you'll see related to that thought,
+[03:12] what we're seeing a lot more of is funds that got through V1 of their spend
+[03:18] coming to us and others to sell either all their assets or a portion of their assets
+[03:24] in order to prove that they bought well and were able to generate a return for their investors.
+[03:30] So we've done that now numerous times on the sell side.
+[03:33] I think we're in the middle of our seventh or eighth of these,
+[03:37] where we've represented funds that have aggregated a couple hundred million dollars of assets,
+[03:42] sell them, prove that they've gotten a good return,
+[03:44] and then they go back and do V2 of it based on that success.
+[03:48] So that's the most important piece of it.
+[03:50] And it's just obvious, did you do a good job?
+[03:53] After that, you get into things like, is the strategy still differentiated?
+[04:00] Right.
+[04:00] So to take a step back, if you look at the market more broadly,
+[04:04] there's probably something like 50 or 60 platforms in the market that acquire music rights.
+[04:10] Maybe more, but let's just say 50 for fun.
+[04:14] And so one of the questions that comes up now, maybe six years into this market,
+[04:20] seven years into this market, is that strategy still differentiated?
+[04:23] Can you still get your hands on proprietary or semi-proprietary deals?
+[04:27] Has the pricing inched up on you so much that the strategy is not viable anymore,
+[04:31] like it might have been a couple of years ago?
+[04:33] So those, when you're going for V2, how much do you need to retool your strategy
+[04:39] to reflect how the market may have changed over time?
+[04:42] And then there's other things like, have you managed the assets well, et cetera, et cetera.
+[04:47] And on those, you know, you mentioned a couple of things, obviously,
+[04:51] buying at the right price, but also deploying the capital quick enough.
+[04:58] Obviously, the earlier that you deploy the capital in the fund's lifecycle,
+[05:01] the better it is for the people whose capital it is,
+[05:04] assuming that you bought well, obviously.
+[05:06] Is that one of the main things for consideration on the second fund?
+[05:12] The market is increasingly competitive.
+[05:15] How fast are you actually going to deploy the capital
+[05:17] based on the assumption that most people are raising more money they did last time?
+[05:22] Yeah, most funds, when we raise capital,
+[05:24] most of the backers would like to see the capital deployed within,
+[05:27] let's say, two to three years of the commitment.
+[05:29] There is a need to deploy capital, which requires that you have a pipeline,
+[05:35] a pretty robust pipeline that, you know, some deals will happen, some deals won't happen.
+[05:39] And so, yeah, that cycle is an important element for most investors.
+[05:45] If you think about most investors that sort of need to be out of the investment within six years,
+[05:49] let's say, so they would like to deploy within three.
+[05:52] And are you seeing that just in general becoming more competitive given that,
+[05:58] yes, there's an increase in music being published every day,
+[06:03] but actually the music that's open to being purchased or invested in,
+[06:08] is that an expanding pool at the same rate or what are you seeing there?
+[06:12] That's a great question.
+[06:14] I would not say that the pool is shrinking.
+[06:19] There's still a tremendous amount of deal flow.
+[06:21] I mean, a lot of the major catalogs have traded,
+[06:24] but there's still dozens if not hundreds that haven't.
+[06:28] And one thing about music that's fascinating
+[06:30] and has really driven this market and will continue to, in my view,
+[06:35] is that it's extremely fractionalized.
+[06:38] You can have multiple, many songwriters on an individual hit song.
+[06:43] You could have five, six songwriters on any individual hit song.
+[06:47] Obviously, they're within a band.
+[06:48] There are band members.
+[06:49] There's, there's, it's, it's just a very, and within certain rates,
+[06:53] there's, you know, the master ownership versus artist royalties,
+[06:57] the, you know, perform PRO income versus publishing income.
+[07:01] There's just so many bits and bobs that can be packaged and sold
+[07:05] that while a lot of, there have been a lot of transactions,
+[07:08] there's still what feels like a very heavy continuation flow of,
+[07:15] of deals in the market.
+[07:17] You've raised this different point, which is a really interesting one,
+[07:20] which is the market does rejuvenate itself because there's so much new music
+[07:24] being created all the time.
+[07:26] Historically, most people just wouldn't be comfortable purchasing rights
+[07:29] that were a year or two or three years old.
+[07:31] That is, that is definitely changing and you'll see funds that do focus on that.
+[07:37] So there's a solution for that as well.
+[07:39] Is that, is that because they're more comfortable with how the asset performs
+[07:43] based off historical analysis or historical ownership and performance or other,
+[07:49] other factors at play?
+[07:50] I think it's two things.
+[07:52] I think there is a school of thought that says it's more predictable than maybe it was
+[07:59] because of the data tools and whatnot that are available so that you could reasonably make
+[08:06] a bet based on less historical data.
+[08:10] That's part of it.
+[08:11] I think the other part of it, just to be a little bit more, not cynical,
+[08:15] but just like think about the way capital is formed is all these buyers have names.
+[08:22] They have strategies that they focus on, that they've pitched investors on.
+[08:26] And there's just a strategy of I'm going to take more risk buying younger stuff at lower multiples.
+[08:32] That's the strategy.
+[08:34] And I'm going to look for higher returns because I'm taking more risk.
+[08:36] And you can get an investor interested in that strategy.
+[08:39] It's different than buying, you know, Led Zeppelin for 20 plus times.
+[08:43] Sometimes that's a strategy too, right?
+[08:45] And there are just two very different strategies.
+[08:48] So in some ways, it's more about how the capital gets formed than about
+[08:51] some underlying dynamic, let's say.
+[08:55] You mentioned about kind of validating the strategy.
+[08:58] There still seems to be quite a lot of space in different types of rights.
+[09:02] You mentioned how it's quite fractional.
+[09:05] Yeah.
+[09:06] But how do you validate the strategy?
+[09:08] That's a great question.
+[09:09] And we have a good nose at this point for strategies that I think that we think will work.
+[09:15] And investors, I think, are getting better as well at differentiating.
+[09:20] Strategies that we think will work would be ones where there's, it's not straight down the
+[09:25] fairway in terms of what you're buying.
+[09:28] So you're not competing with all 50 of the firms I mentioned.
+[09:30] You're competing with a subset of them because you're focused on younger assets or a genre or
+[09:37] whatever, a geography.
+[09:39] I'm focused on Europe.
+[09:41] I'm focused on hip hop.
+[09:42] I'm focused on younger rights versus I'm focused on, my always example is I'm focused on buying
+[09:46] like REO Speedwagon, like classic rock, like straight down the fairway.
+[09:50] Right.
+[09:51] Everybody can buy that.
+[09:53] Everybody can understand that because they know where on the curve that is.
+[09:56] So everybody can understand it and bid on it.
+[09:58] So when we think about good strategies, we think about those that have a limited competition,
+[10:05] can purchase at prices where there's, if they aggregate, they should be able to get some
+[10:11] multiple arbitrage on the way out where the rights are financeable.
+[10:15] Some rights are just not financeable.
+[10:19] No AI risk, et cetera, et cetera.
+[10:21] There's a laundry list of things that would go through my head if I'm looking at a strategy.
+[10:25] And is that just opened up by improved tooling then?
+[10:31] So obviously the more obscure you go, the less well-trodden the path, the less visibility
+[10:37] comfort you're going to get.
+[10:40] How do you square that?
+[10:43] Yeah, that's exactly correct.
+[10:46] So if someone came to us and said, I want to roll up, I don't know, Klezmer music or something
+[10:51] like really obscure, the first thing that would probably go through our heads is, huh, interesting.
+[10:55] Are you an expert in Klezmer?
+[10:58] Do you have relationships with Klezmer artists, writers, or managers, lawyers?
+[11:04] And then most importantly, is the market big enough to build a strategy around?
+[11:09] And what's the lowest size, you know, given that a lot of, we're seeing a lot of smaller
+[11:15] transactions happening, aggregating with some more obscure strategies or more creative strategies.
+[11:23] What's the lowest?
+[11:25] You know, is it $100,000?
+[11:28] Is it $500,000?
+[11:29] Is it a million?
+[11:30] At what level is the lowest?
+[11:32] So deal size, you'll see pretty much across the board.
+[11:37] Like a Duetti, for instance, that was really who I was thinking about for younger deals.
+[11:41] Them and a number of other platforms will do smaller deals.
+[11:45] Like a couple, like $100,000 or up, something like that.
+[11:49] You can do that, but you have to be able to do it in a mechanized way because the legal expenses
+[11:57] will...
+[11:57] The overhead's very high.
+[11:58] The overhead and the processing and the whole thing will make the deal very expensive relative
+[12:04] to the actual purchase price.
+[12:06] Whereas, obviously, it becomes a much smaller piece of the puzzle as you're doing larger
+[12:10] deals.
+[12:11] So you'll see there are buyers for any size deal out there.
+[12:14] And that's not the issue.
+[12:16] When you're raising capital, for most of the parties that are in the music market, they tend
+[12:24] to be larger scale funds.
+[12:25] They want to deploy more capital than not.
+[12:29] So you'll typically see these funds make a minimum of $50 million of equity.
+[12:33] I would say 5-0.
+[12:35] And you'll see a few that are smaller, but they tend to be funded by high net worth individuals,
+[12:40] family offices, etc.
+[12:42] They tend to be a testing ground for more as opposed to the plan.
+[12:47] Okay.
+[12:48] So largely, you're seeing actually big institutional investors and then people who are being a bit
+[12:55] more creative, high net worth, family offices, things like that.
+[13:00] Yeah, exactly.
+[13:01] Because one thing that people tend to overlook is, let's say you buy, say you spend $25 million
+[13:08] on an acquisition.
+[13:11] So you have a small vehicle and you've paid 10 times.
+[13:13] So you have $2.5 million of income, let's say, right?
+[13:17] You need overheads, need people managing all that stuff.
+[13:21] And you've got the expense of doing the deals themselves.
+[13:25] So all of that eats into that income stream quite a bit.
+[13:30] So what started as a 10% unlevered return gets whittled down pretty fast.
+[13:37] So that's why these strategies at scale tend to work at scale.
+[13:44] You can do it at a small scale.
+[13:47] If you could buy at very low multiples, then it's a little bit easier to make it work.
+[13:52] Or if you don't care, if you're just like happy to run a small platform and get cash flow
+[13:56] every year, that's great.
+[13:58] That can completely work.
+[13:59] But when you think about the incentives to the teams, you really need to be at a bigger
+[14:03] scale to be shooting for like bigger payoffs.
+[14:08] And what's on the mind of those institutional LPs at the minute?
+[14:13] As you said, there's a lot of new capital coming into the market.
+[14:16] What are they really thinking about?
+[14:18] And what proof points do they want to see when they're looking to invest in a given fund?
+[14:25] Yeah, great question.
+[14:25] So the answer is everything.
+[14:29] So what I mean by that is it's an interesting market in the sense that it looks like the private
+[14:37] credit markets in other industries.
+[14:39] So you read the news, enormous burst of private credit appetite in the universe.
+[14:46] And within that, you know, there's just different risk tolerances amongst all of them in terms of how they want to invest from a risk reward standpoint that we can get into when we start talking about capital structures and things like that.
+[15:00] So what they're typically looking for highly depends on how they want to play the market.
+[15:07] But in general, it's a lot of things we talked about.
+[15:10] Differentiation, a team they can actually be in business with and trust, a path to putting out capital in a relatively short time frame.
+[15:20] You know, those underwriting skills, things like that, that, you know, at the end of the day.
+[15:25] Like, one thing that people sometimes overlook is it's the music business, but underneath these music platforms are just every big fund you can imagine.
+[15:35] Right.
+[15:36] It's BlackRock, Blackstone, Apollo, Ares.
+[15:39] You know, you can keep going down the list.
+[15:41] It's it's really like these platforms are front ends for these big funds.
+[15:46] And so the people that they partner with need to be able to think like the funds that they're partnering with.
+[15:53] Yeah, of course.
+[15:55] I think we were talking before about, you know, being at the center of music, understanding the industry.
+[16:02] And it has a lot of idiosyncrasies as well as finance, institutional investing, which also has a lot of idiosyncrasies.
+[16:12] Yes.
+[16:12] Do you tend to see that the same people rotate amongst the institutional investors?
+[16:20] Or is it common to see an entirely new player come in?
+[16:23] And how do they go about getting themselves up to speed with what we think is a pretty complex industry?
+[16:30] Yeah, that's a great question.
+[16:32] So five, six years ago, I used to say that the industry was like in high school.
+[16:36] Right.
+[16:37] And now I would say it's like a PhD student.
+[16:39] Like it's it's way smarter in its sophistication and understanding of the music market.
+[16:46] Most of the big funds have either invested in music.
+[16:49] Or if not, have been pitched on music a dozen times.
+[16:55] Right.
+[16:55] And so most funds are.
+[16:59] Way more knowledgeable than they were five or six years ago about the dynamics of music business and whitewarks as an asset class.
+[17:05] The other thing that's been lovely is you've had some pretty large scale successes without any major disasters that that have really made followers feel more comfortable coming to the market and saying, OK, this has worked for others.
+[17:21] I think this can work for me.
+[17:22] Let me get up to speed.
+[17:23] So in our business, we do a lot of repeat business with, you know, the people that have had success in the business and understand it.
+[17:31] That's easy for us.
+[17:32] But we're also often getting calls from funds that want to find a way into the space, looking for a platform to back or a strategy.
+[17:39] That happens quite often.
+[17:42] Do you find yourself doing quite a lot of education and for people who are exploring the market?
+[17:46] We used to do nonstop education.
+[17:50] It really used to be a big part of what we did day to day.
+[17:53] I would say it's much less at this point because there's been so much activity in the market.
+[17:59] There have been successes.
+[18:00] So it's not as much education anymore, which is great.
+[18:07] Let's talk a little bit about raising capital.
+[18:09] There's lots of different types of capital.
+[18:14] And there's lots of different types of capital being deployed in the music industry.
+[18:18] Yeah.
+[18:18] Can you just talk us through what people should be considering when they're looking to go out and raise capital?
+[18:24] What you would consider the best in class approach?
+[18:29] And then what are the options and the trade-offs?
+[18:33] Let's talk about it through the lens of a capital structure.
+[18:36] And then we could talk about other elements of it.
+[18:38] So from a capital structure perspective, it used to be that the rule of thumb was the way you would finance your platform was 50% equity, 50% debt.
+[18:49] So you'd raise your equity and then you'd go to the commercial banks like Truist, Pinnacle, Fifth Third, et cetera, et cetera, and get 50% debt financing.
+[19:00] That was sort of the rule of thumb until a couple of years ago.
+[19:02] And then that started to kind of break open when the private credit folks came in.
+[19:09] And now what you'll see is there is a solution for everybody anywhere between using 50% debt to as high as, let's say, 95% debt.
+[19:21] So you'll see that there are people that will take any of those approaches.
+[19:29] And of course, that's a risk-reward trade-off if you're the equity, if you're the platform.
+[19:34] But if you use a lower leverage model, then you have low cost of capital and you have low risk that there's only going to be a problem.
+[19:42] But your equity returns are going to be depressed because of that.
+[19:48] Whereas if you take a higher leveraged approach, you're going to have a much more risk that you got a much more cost of capital, higher cost of capital, probably more risk of something going wrong that could lead to foreclosure or something along those lines.
+[20:08] But the equity returns will be juiced.
+[20:12] And you'll see now, this was alluding to before, within the private credit markets, you'll see firms that feel comfortable at 70%, 75% LTV, and then others that are happy to go to 95% if you, as the manager, put up 5% of your money or something like that.
+[20:28] So you'll see different structures.
+[20:30] I mean, that's such a huge swing.
+[20:32] How are people getting comfortable with each end of that spectrum?
+[20:35] Yeah, that's a really good question as well.
+[20:38] So I think what it is, this is just a hypothesis, but most of the money that comes into the music market, some of it comes from pension funds and insurance companies and the like, but a lot of it comes from these private credit funds within these large asset managers.
+[20:58] They're not really equity funds per se.
+[21:01] They're really what we would call special situations funds or private credit funds that are coming into the market.
+[21:07] So when they look at music, we've all heard music looks debt-like.
+[21:12] It's got recurring cash flows and it retains its value.
+[21:16] So debt investors can get their head around it.
+[21:18] Then the only question is, how much do they want to look like equity?
+[21:24] And they're doing equity as opposed to debt is really the way I would say it.
+[21:28] It's like the equity investment in music is relatively safe.
+[21:31] The values don't change dramatically.
+[21:33] The yields are there, the whole thing.
+[21:35] So if you're a lender, you can kind of find your way off that LTV scale.
+[21:40] Feel like you're still doing debt, but getting equity-like returns.
+[21:43] Right.
+[21:44] And do you see that as common?
+[21:46] So it sounds like, first of all, people are taking their own experience in other industries,
+[21:51] looking for the similarities of the asset, how it behaves, the cash flows, and then applying the same strategy to music.
+[21:59] Do they then, you know, does it feel like they get on a bit of a travelator and start to move away from their original thesis?
+[22:07] Or is that just a question of discipline?
+[22:10] That's also a great question.
+[22:12] I'd say that, you know, most of these funds are huge and they do everything.
+[22:19] They do everything from, you know, real estate, litigation, finance, oil and gas, et cetera, pharmaceuticals.
+[22:24] And they do, I think, by default sort of borrow financing technology from these other industries that are a little bit more mature,
+[22:32] like real estate in particular, I would say, or pharma.
+[22:34] I don't think it really changes the dynamic that much other than to say the opportunities for us, like when we're raising,
+[22:46] we're in the seat where we're getting pitched or approached by a lot of funds that want to raise money.
+[22:50] Most don't want to raise like 75% LTV debt because it kind of leaves them in no man's land.
+[22:58] They still need to go raise the equity to sit behind it.
+[23:01] So you see less of that opportunity.
+[23:04] And what that means is we might be approaching a fund and saying like, hey, we need you to go as high.
+[23:08] We need you to look like equity.
+[23:10] We need you to act like equity.
+[23:11] But we can make it, we could put in some bells and whistles so that it looks like debt to your LPs, to the fund's LPs.
+[23:19] So we're kind of coming up with you like tweener strategies quite a bit that solve, check the box for the asset managers and check the box for the platforms that want to raise capital.
+[23:30] Just a solid bit of financial engineering.
+[23:34] Yes, a solid bit of financial engineering.
+[23:36] That's a lot of what we do day to day is figure out how to make it work for everybody.
+[23:41] If you were to draw a comparison with another industry, which is perhaps more established, and I talk about it being established in terms of institutional capital coming in, do you have one that immediately comes to mind?
+[23:55] Yeah, real estate is probably a good example.
+[23:57] It's highly leverageable.
+[23:59] So you see a lot of leverage in the real estate market.
+[24:02] You see a lot of different types of deals.
+[24:03] And I use real estate also in the financing context, yes, but also in the way people play the market.
+[24:13] So, for instance, you might analogize, you know, Led Zeppelin's catalog to buying skyscrapers in a major city as opposed to buying single family homes in a rural town somewhere.
+[24:27] It might be more like what a smaller platform does.
+[24:30] And you've got all these strategies in between that kind of look like real estate.
+[24:37] If you're buying a skyscraper, you're going to pay a higher price.
+[24:39] You're going to expect a lower return, but you're sort of in a safer spot in the sense of, you know, someone else will want to buy that skyscraper.
+[24:46] Yeah, you're in Manhattan.
+[24:48] It's pretty scarce.
+[24:49] It looks big and fancy.
+[24:51] Somebody else is going to be interested in, even if it's 60, 70, 80 years old.
+[24:55] Exactly.
+[24:56] And I suppose there's lots of parallels to be drawn between, you know, the cost of legal fees and doing any transaction, the overhead of doing a transaction.
+[25:07] You can buy 100 houses or you can buy a single skyscraper.
+[25:10] And you have to do the local surveys and all of those things.
+[25:14] I don't know property too much in the U.S., but I think everybody in the U.K. who owns a home is familiar with the challenges.
+[25:22] Right.
+[25:22] Right.
+[25:22] That's exactly right.
+[25:24] And I also like to think of it that way because there's millions and millions of homes.
+[25:28] There's millions and millions of copyright bits and pieces.
+[25:31] And there is a price for every house.
+[25:34] There is a price at which every, unless it's like haunted by ghosts or something like that.
+[25:38] There is a price at which every house will trade.
+[25:41] Right.
+[25:41] And that's, I think, the same thing with catalogs.
+[25:44] There's a price at which every catalog could trade.
+[25:47] And I suppose as well, you know, you don't have to own the whole house.
+[25:50] You could own a piece of the apartment.
+[25:53] Or in the U.K. we have management companies which manage the freehold, which would be akin to certain rights.
+[25:59] That is quite fascinating, yeah.
+[26:01] Yeah.
+[26:01] That's the way I think of it.
+[26:02] And that's why I think the market is, and then just to beat the analogy to, or the metaphor, whatever it is, analogy metaphor, to death.
+[26:10] You know, homes are built.
+[26:13] Somebody builds a home.
+[26:15] They're the original owner.
+[26:16] They sell that home.
+[26:17] And then once they've sold that home, it's going to trade forever, essentially, until someone either knocks it down or does whatever.
+[26:23] Music, at this point, is in a similar place in the sense that it used to be, you know, people built these homes.
+[26:32] They wrote these songs.
+[26:33] They recorded these songs, whatever.
+[26:34] It used to be very hard to get anybody to sell anything 10 years ago, 15 years ago.
+[26:38] Now it's a much more fluid market.
+[26:41] Once the copyright is sold to an aggregator, that aggregator is going to sell.
+[26:44] And probably that aggregator is going to sell.
+[26:46] And on and on until, you know, it rests in a permanent vehicle somewhere.
+[26:51] One of the analogies that we have is kind of two skyscrapers.
+[26:59] Let's say all block of apartments.
+[27:02] Right.
+[27:02] One's been renovated.
+[27:03] The other hasn't.
+[27:04] You know, the one that's been renovated can command a higher multiple.
+[27:07] Right.
+[27:07] So if you can, if you look at that and I suppose the viewpoint of catalogs where one has a lot of transparency, a lot of visibility in terms of like how that's performed versus the other that's a little bit.
+[27:21] And that's mature.
+[27:22] We think that the catalog that's more transparent and it's more mature should command a higher multiple.
+[27:31] But I think there's a lot of, there's a lot of sort of variances in the market, Brian.
+[27:37] Be good to understand sort of where you're seeing catalogs, you know, transacting out.
+[27:43] And sort of what are the variables that you see influencing like best in class catalogs in my crude analogy?
+[27:50] That's, that, that, that's great.
+[27:52] So I have to say this as my, as my disclaimer, it's going on my tombstone is to say, you know, multiples are really don't mean anything.
+[28:00] They're the output, not the, not the input.
+[28:02] And they, they can vary dramatically based on the age of the catalog, whether there are reversions in the catalog.
+[28:15] Is it owned versus licensed?
+[28:17] Is it controlled versus not controlled?
+[28:18] There's a lot of things that will determine what, how a catalog gets priced and that determines how it flows through the decay curve.
+[28:26] And that determines what the multiple is, as opposed to people saying, well, that's a 20 and that's a 19 and things like that.
+[28:32] So that's my disclaimer.
+[28:34] Lots of different like aspects to it.
+[28:36] Yeah.
+[28:36] Yeah, exactly.
+[28:38] So if you were comparing like, you know, Taylor, something huge, like Taylor Swift's current album to, you know, Led Zeppelin's Stairway to Heaven or something like that, like you, you'd be, you could use multiples, but they're so different in terms of where they are in their life cycle.
+[28:55] It's, it's a little bit of a fallacy.
+[28:56] That said, taking a step back, if you look at things just like against each other, multiples have remained really strong.
+[29:05] Prices have remained really strong throughout the last like five, six years.
+[29:09] There was, there was a moment when, when interest rates rose and cost of debt rose, cost of debt rose, cost of debt rose, that prices did get hit maybe 10, 15%, I would say on average.
+[29:20] And maybe they're still there.
+[29:22] Maybe they're not.
+[29:22] Who knows?
+[29:23] But I would say the market is still incredibly robust.
+[29:27] The things that tend to differentiate between something trading in the high teens multiples versus lower tend to just be, for lack of a better way of putting it, like quality, like A plus or A level catalogs.
+[29:44] They tend to be very competitive sell processes that drives a price.
+[29:49] But I would say more importantly, people just get it.
+[29:52] They understand what it is.
+[29:54] It's part of their life.
+[29:56] They have a view of what they can do with it.
+[29:59] If they've acquired the rights, what they can do in terms of sync or licensing, they feel comfortable with the longevity of those rights, like we were talking about at the beginning.
+[30:07] And so that enables more aggressive modeling of the cash flows, which leads to higher prices.
+[30:15] In the alternative, if you look at something that's more like lesser known copyrights, lesser known bans, the comfort level with the longevity, the comfort level with what you can do from a sync and licensing perspective is not as strong.
+[30:28] Right.
+[30:29] And the competitive dynamic is not as strong.
+[30:31] So you tend to see those deals trade at like a level down, let's say, in terms of multiples.
+[30:38] And it kind of goes from there.
+[30:40] That's really, in some ways, I know there was a lot of talk like a year or two ago about like control versus non-control rights.
+[30:47] Can you move admin?
+[30:49] Can you move distribution?
+[30:50] That plays a relatively meaningful part in it, not because of the thing itself, but because without those control rights, you can't do what I just said.
+[30:59] You can't think about sync.
+[31:01] You can't think about licensing.
+[31:02] It's hard to change the economics of what you're purchasing.
+[31:06] And when a fund aggregates a number of catalogs together, and obviously you talked about all the different sort of aspects and civilized reversion of rights and so on.
+[31:16] And how visible are those things when people come around to the kind of second phase of financing?
+[31:24] They're very visible if you know what to look for.
+[31:28] I mean, it's not hidden.
+[31:30] You just need to look at the underlying contracts and understand what you're purchasing.
+[31:37] You can see how it can get quite complicated quite quickly with the number of accounts.
+[31:41] Yeah, exactly.
+[31:42] It can get complicated quickly and there could be an information mismatch between buyer and seller.
+[31:51] Oftentimes, the buyer might have like an informational advantage just understanding how a termination or reversion or whatever would flow through a financing model six years from now.
+[32:01] As opposed to, it's not in their income today, but it will be in their income six years from now.
+[32:07] And that may or not be taken into account when the sell side representative is doing their view of pricing.
+[32:16] So it's a different paper, but look at the deal very differently to each other based on those types of things.
+[32:22] At risk of sounding self-serving, as an investment banker, we work on larger scale transactions in the music space in the sell side.
+[32:33] But typically, $50 million or $100 million and above.
+[32:37] That's sort of our zone.
+[32:39] So we only work on like, I don't know, half a percent of the actual deals that get done in a given year.
+[32:45] There's dozens and maybe hundreds of deals every year.
+[32:47] Most of those deals are being transacted by managers, lawyers, the songwriter's best friend.
+[32:54] You know, there are brokers in the market, obviously.
+[32:57] So it's not as investment bankery a world as like other sectors are where everything gets kind of.
+[33:06] There's so much deal flow, it can't be handled by bankers like us.
+[33:10] So there tends to be a little bit more like, it's just a lot more activity.
+[33:15] So it doesn't tend to be as mathematically driven.
+[33:19] For all those reasons we talked about, yeah.
+[33:20] It's like, cost of the deal and stuff, it's going to impact everything else, right?
+[33:25] It does.
+[33:26] And it's just a different approach.
+[33:28] I mean, it's not a complaint.
+[33:30] I mean, dozens and dozens and hundreds of deals get done every year.
+[33:33] It warps out for everybody.
+[33:34] It's just a different approach.
+[33:36] If you look at the other end of the spectrum, so the kind of your sweet spot, Brian,
+[33:40] what's the kind of tip in the edge in terms of driving best practice or what's best in class?
+[33:49] Have you seen that mature over time for the types of deals that you've kind of worked on over the past,
+[33:56] I think you mentioned 20 years or so?
+[33:57] Yeah.
+[33:58] Yeah.
+[33:58] I mean, the best deals from a buyer's perspective or a seller's perspective tend to be pristine rights with an artist or a writer where there's no story overhang, let's just say.
+[34:14] It's clean.
+[34:15] If the artist is alive, if they're willing to participate and help the buyer grow, you know, the assets, however that might be.
+[34:27] Typically, the best deals will be where the buyer can obtain, like I was saying before, control rights over administration or distribution.
+[34:34] That's a pretty key piece of the puzzle.
+[34:36] And then, of course, you want to just price it in a way where you're not maxed out so much that your odds of success are limited.
+[34:46] And that's a big way I tend to think about this, which is when you price something, what are the odds that you're going to be successful?
+[34:55] What are the odds that you're going to be able to sell it at a price higher than the price that you're getting?
+[34:59] Yeah.
+[34:59] Yeah.
+[35:00] And that's, I think that, you know, when I was looking at some of the questions that you guys were thinking through, that's one of the main things to think about.
+[35:08] Like, you could take any of these strategies.
+[35:11] They have different ways that they can work, and they're just different risk, rewards, and odds of success based on the different strategies.
+[35:19] You'll see some folks that are buying catalogs for like five to eight times.
+[35:24] That's like a duetti strategy.
+[35:25] You'll see a number of platforms that will buy catalogs between 10 and 13 times.
+[35:30] That's a handful of folks.
+[35:33] You'll see other firms that are way up market, like the Primary Wave or an Iconic, and they're paying much higher multiples for Iconic, like A-plus artists, sometimes with their name, image, and likeness rights attached to them.
+[35:46] And they're like building businesses around their artists.
+[35:48] So you've got this like spectrum of strategies, all of which can work, all of which have their own risk rewards, like we were talking about in the real estate market.
+[35:58] Like, no doubt somebody's going to want to buy Houston's rights when they go back up for sale or if they ever go back up for sale.
+[36:05] At the duetti strategy, you get great prices.
+[36:07] It's not clear at the end of the day if, you know, how that plays out in a sale, right?
+[36:13] So you've got, but they've got tons of headroom in the way they bought stuff, like tons.
+[36:19] So they're not at like a pricing risk.
+[36:22] They're at more of like a what does the sale process risk look like.
+[36:25] Is it a fair assumption that most people want to move up that ladder from bottom left to top right?
+[36:31] No, it's actually not.
+[36:34] It's not a, no, that's not a true statement.
+[36:38] Most people are happy in their lanes.
+[36:40] What's important, what's important is that in your lane, what's your arbitrage play?
+[36:47] So if you're in the 10 to 13 times zone, your arbitrage plays, I'm buying stuff for 10 to 13 times.
+[36:54] And I'm thinking that as an aggregator play to sell to somebody upstream, it's going to sell for a higher multiple.
+[37:02] Right.
+[37:02] And that would be the same thing down.
+[37:05] Right.
+[37:05] So they want to stick in the lane, but buy the bottom, sell at the top.
+[37:09] Correct.
+[37:10] Or into the next lane, ideally.
+[37:13] Into the next lane.
+[37:15] That's exactly right.
+[37:16] It's like a conveyor belt as opposed to like moving between lanes.
+[37:21] And so that's more like what it is.
+[37:25] And at the top end of the spectrum, you're just buying such fantastic rates that there's so much you can do with them.
+[37:32] It's not necessarily about necessarily multiple arbitrage as it is just about like just growth of the copyrights.
+[37:39] It feels a bit more like running an enterprise business at the top end of the scale.
+[37:44] It's about holding on to the asset for a very long time, incrementally increasing revenue.
+[37:50] Whereas at the bottom, it feels more like a PE style acquisition, build, sell.
+[37:58] Exactly.
+[37:59] And then in the middle, it's like a tweener.
+[38:01] There's like you're buying copyrights that you can help improve and grow through sync and licensing and otherwise.
+[38:08] But you tend not to see large operating platforms in that zone.
+[38:14] You see like sort of mid-side 10 to 20 people, let's say, as opposed to, you know, 20 to 50 people at the high end.
+[38:21] Because you're really trying to drive these businesses around these iconic artists.
+[38:25] And are you seeing anybody really nail that buying at the bottom of their lane, either aggregating a lot, really operating, introducing data and rigor, and then selling on to the next lane?
+[38:42] Or is it a bit hit and miss?
+[38:44] No, we've done it several times on behalf of clients.
+[38:49] So it's worked.
+[38:51] I think this is also why a lot of capital is comfortable getting increasingly comfortable with the market is that these strategies have worked to date.
+[39:00] And they've worked at the higher end, too.
+[39:01] These are Cobalt Cell and other, Roundhill and some others, larger platform cells.
+[39:09] It can work up and down the size spectrum.
+[39:11] This is far from a criticism of anything.
+[39:15] It's really just understanding that the different strategies will lead to different exit strategies.
+[39:22] But they all work.
+[39:23] We'll ask you for the secret sauce off-camera.
+[39:26] I won't bend your arm for it right now.
+[39:28] You got it.
+[39:29] No problem.
+[39:30] I only do off-camera secret sauce.
+[39:32] Good.
+[39:34] Brian, obviously, there's been a lot of capsules flowing in the past five years.
+[39:38] So are they reaching the kind of end of a cycle?
+[39:40] Do you anticipate a lot more secondary sales over the next few years?
+[39:46] Yeah, that's also a great question.
+[39:49] Yeah, a lot of funds were set up in 2019, 20, and 21.
+[39:54] And so in the last couple of years, we have, like I mentioned, we've done a number of these portfolio sales.
+[40:02] And we're in the middle of a handful of them now.
+[40:04] So I do think that that trend will continue because of the cycle, where we are in the cycle.
+[40:10] The other thing that we've been involved in, for instance, we were involved in selling that Yankee's catalog last year, for instance.
+[40:18] And that was more of like a resale of an individual catalog out of a portfolio as opposed to the portfolio itself.
+[40:26] And we're also involved in another one recently that was like that.
+[40:28] So I'm not sure that'll be like an overwhelming trend.
+[40:34] But you might see that as some of these portfolios look at what they bought.
+[40:38] And they bought 20, 30, 40 catalogs.
+[40:40] And they might say, you know what?
+[40:41] We've been great at that, but we're not good at that genre.
+[40:45] Let's see if we can sell that or trade it or whatever.
+[40:49] Find a partner for it.
+[40:50] Find someone to buy half of it.
+[40:52] So I think we'll see more of that in the coming years.
+[40:56] So someone will buy a catalog.
+[40:58] And then typically it's kind of Pareto.
+[41:00] So you've got most of the revenue out of 20% of the sold.
+[41:04] There's a long tail of the catalog that kind of makes up a small amount.
+[41:11] So you can see how that can aggregate to quite a lot of the kind of catalog is kind of well-ended in some respects.
+[41:21] So it's interesting to see whether that all kind of evolves.
+[41:26] Yeah, you don't see like you could see in theory someone saying, I'm going to keep my 80%.
+[41:32] Yeah, that's kind of what I'm getting at.
+[41:34] My 10 copywats, I make 80%.
+[41:35] I'm going to sell you the rest of it.
+[41:37] That would be interesting.
+[41:39] I've not seen anybody do that, but that's an interesting idea.
+[41:43] It's interesting what you were saying, Brian, about people finding their sweet spot and thinking about, you know, what they keep, what they sell, ultimately based on that.
+[41:50] Because they might not have had the expertise for a specific type of asset or type of catalog that really was required in the first place.
+[41:57] I mean, I guess there's a whole spread bet scenario, right?
+[42:00] Where you've got a lot of a big portfolio of iconic songs.
+[42:05] And that would be considered kind of like, you know, if you did split that 20% or 80% off, revenue or 20% of songs, then that would be quite a high tier of caliber, right?
+[42:16] Yeah, I mean, part of what would be, it would be an interesting idea.
+[42:21] It would be a little challenging just because the way the catalogs tend to be valued tends to be with a bit of a broad brush.
+[42:29] So your long tail of copyrights tend to be valued in a similar way to the bigger copyrights.
+[42:38] So it would be a little bit challenging in that sense, but it could be, it could be a thing.
+[42:44] But I would, I expect there'll be more trading amongst the funds that are out there over time, simply because it, it honestly makes sense to optimize the portfolios that they have.
+[42:57] In some cases, mark a win, but in a lot of cases, it's just simply that if you've bought dozens of catalogs, you may not be able to focus on all of them a hundred percent.
+[43:09] And so you have to, you know, you have to pick your spots.
+[43:11] Yeah.
+[43:11] Particularly with the complexity and the right structures, you know, you could be acquiring catalogs and knowingly the things in there that you're not very good at managing.
+[43:19] And it's just a matter of time until you find the right person to take it over by to take it on.
+[43:26] Yeah.
+[43:27] I mean, I'm saying this like it makes like industrial perfect sense, but you've only seen it a handful of times.
+[43:33] I'm not sure it's going to be like a wave, but I, I could see it happening.
+[43:37] I could see it happening more often going forward.
+[43:40] So Brian, this is the quick fire round for you now.
+[43:44] Is there a particular song or album that has just been stuck on repeat in your head at the moment on your Spotify, whatever it is?
+[43:54] Yeah, it's, it's a, it's a band called Lawrence.
+[43:56] I don't know if you guys have heard of this band, but yeah, there's an album they have called acoustic ish or something like that.
+[44:02] And it's, it is, uh, it is very much stuck in my head.
+[44:06] Yeah.
+[44:06] That sounds like a, an album that's trying to gain the algorithms acoustic ish.
+[44:11] And they did a bunch of YouTube videos where they recorded their songs and like an acoustic ish, uh, manner.
+[44:18] And it's, it's great.
+[44:19] In fact, like one of them was just nominated for Grammy.
+[44:21] So I'm not the only one.
+[44:22] Oh, wow.
+[44:23] So that's cool.
+[44:24] That's the good news.
+[44:24] Check them out.
+[44:26] Yeah.
+[44:26] Yeah.
+[44:27] And what would you say is the most underrated opportunity in music rights investment at the moment?
+[44:33] Yeah.
+[44:34] I'm not sure it's underrated, but the one I love the most is I love labels, um, record labels, because I think that they are often synonymous with a genre and the entrepreneur, the entrepreneurs and the label themselves, the, their brands that are integrated into these lifestyles.
+[44:55] That are oftentimes more than the music itself.
+[44:58] So we're big fans of that approach of investing with labels that define the genres that they're in.
+[45:07] What's your favorite label on that?
+[45:10] We work with quite a few labels.
+[45:13] I mean, we work with like, for instance, we will work with the guys at Armada, which is a big EDM label, um, out of Europe.
+[45:19] And we love them.
+[45:20] I'm not actually a particularly big EDM person, but just love the way they've built their business.
+[45:25] It's just fascinating.
+[45:27] But we work with a lot of labels and it's really the same across, across genres.
+[45:31] Like these, these companies are more than just companies.
+[45:35] They really define the markets that they are in.
+[45:39] And I, I just love that.
+[45:41] I love thinking about music as more than music.
+[45:44] And I think that's a place to do it.
+[45:46] We spoke to some people from Armada and their branding and everything comes through in all of their public appearance, but also when you speak to the people who work there.
+[45:56] And I think that's always the sign of a great company when the people who are in it really exude everything that they believe in and say that they do publicly.
+[46:07] Exactly.
+[46:07] And it's the same thing.
+[46:09] And, and they're a great example because I've got like a, you know, the dance, um, club in their office that can hold, I don't know, hundreds, not a thousand people, which is just amazing.
+[46:19] Um, but it's the same thing.
+[46:21] You know, we're looking, we look at opportunities in, in, um, Christian and punk and jam bands.
+[46:27] And like, you can go across the, this classical, you know, you can go across the spectrum.
+[46:32] It's, it's always the same.
+[46:33] And it's something that gets a little lost, I think, in talking about music as like an asset class.
+[46:39] It's just a, it's a piece of it that I think gets a little lost in the mix of where the stuff actually comes from.
+[46:44] Yeah.
+[46:45] I feel like everybody in music has that one record label that they wish they worked for or had worked for in the past.
+[46:51] For sure.
+[46:51] A hundred percent.
+[46:52] You know, I'm, you know, when, when I do my, what would I do in an alternative universe?
+[46:57] That's often what it would be because again, it's just like an expression.
+[47:01] What people, what's great about music is that almost all of it is built out of a labor of love.
+[47:09] But, you know, somebody started X label because I love the genre that they're in or they love music in general.
+[47:16] And that's just what keeps it rejuvenating, you know, minute after minute.
+[47:20] It's just a nice place to be.
+[47:22] And last but not least, Brian, if you could own one song, what would it be and why?
+[47:28] Also a great question, guys.
+[47:29] I mean, this one I had to really think about and I'm older than everybody.
+[47:33] So I'm just going to go with this.
+[47:34] I think the song won by U2 is the song I would want to own.
+[47:39] I was surprised to see it's not as enormous as I thought it would be on Spotify.
+[47:44] It's like coming up like 800 million streams, but I had to think about it.
+[47:49] The reason I like it is global.
+[47:52] It's a global hit by a global band.
+[47:54] It's easy to cover.
+[47:55] So I think it'll be covered forever.
+[47:57] It's a sort of a simple song in terms of like chords and whatnot.
+[48:01] And it's got a great universal message.
+[48:03] So my theory on owning a copyright is it's got to sustain for the long term.
+[48:07] It's got to be coverable a billion times over.
+[48:11] I'm going to go with that one.
+[48:13] That's a good investment thesis.
+[48:14] We like that.
+[48:15] Good balance answer as well.
+[48:17] It's a great song and, you know, great from an investment perspective.
+[48:20] I think sometimes we get a bit of a sentimental or the purely kind of commercial reasoning.
+[48:25] So it's a good balance in the middle.
+[48:27] It's both.
+[48:28] The way I like to think in the old days, there's not a genre of music radio station that it couldn't be played on.
+[48:34] That's the way I like to think of it.
+[48:36] Right.
+[48:36] It could be pop, rock.
+[48:39] Now it would be classic rock, whatever.
+[48:41] It's just world.
+[48:43] It's sort of like that whole thing.
+[48:45] So that's my song.
+[48:46] I'm going to go with it.
+[48:47] Well, thank you, Brian.
+[48:48] That's been super informative.
+[48:49] I think you've provided so much value for our audience and we really appreciate you taking the time to speak to us today.
+[48:56] Yeah.
+[48:56] Thank you so much for having me.
+[48:57] I really enjoyed this.
+[48:58] And thanks again, Brian.
+[49:02] Good.
+[49:03] Thank you, guys.
+[49:04] Thanks for tuning in to Music Moneyball.
+[49:07] If you enjoyed the conversation, you can subscribe at standard-innovation.com to get every episode in your inbox.
+[49:14] You can also follow the show on Spotify, Apple or YouTube to stay ahead of the curve in music rights investment.

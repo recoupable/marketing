@@ -1,0 +1,411 @@
+# Music Moneyball Live: Breaking down the decay curve w/ Alex Bowler & Sachin Saggar
+# Date: 2026-05-26
+# Duration: 00:40:30
+# Guests: Alex Bowler (Y Royalties) & Sachin Saggar (RedBrick Advisors) Host: Tom Mullen (Standard Innovation) Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Tom Mullen (Standard Innovation) Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/Music-Moneyball-Live-Breaking-down-the-decay-curve-w-Alex-Bowler--Sachin-Saggar-e3jrcgf
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] You've got to be cognizant that decay is inherently uncertain and you can have all the data in the world and you can try and use as sophisticated or calibrate your approach as much as you can, making a historical or live data or comparing to, you know, peer artists.
+[00:17] But they tend to break regularly because every song, like we said, is different and they all have their own kind of ecosystem around it.
+[00:24] So, you know, I think it's designed to inherently break, frankly, and, you know, you try and do the best you can with the information that you have.
+[00:47] So welcome to this episode of Music Moneyball.
+[00:51] Today, not only am I joined by two amazing panelists, Sachin Sagar from Redbrick Capital and Alex Bowler from Y Royalties, but we also have a live audience with us today.
+[01:04] So we've really turned things up a notch.
+[01:06] We are today going to be talking about the juicy topic of decay curves.
+[01:12] So, Sachin, if you wouldn't mind, could you just explain to us what a decay curve is and where you're using it in your day to day?
+[01:20] Yeah, sure. So very simply, if you think about the earnings lifecycle of a new song, a song is released on day one.
+[01:29] That tends to get a lot of radio play or performance play and kind of enters the ecosystem.
+[01:34] And so you start to see sort of over a period of, say, 18 to 24 months, sort of the consumption and the cash flow attached to it to increase over that period of time.
+[01:43] And then as it sort of comes out of sort of maybe sort of radio play and actual play in the environment, the earnings and consumption tend to fall over a period of time and then down to kind of a steady state before it sort of inflects and starts to go through streaming growth.
+[02:00] And industry standard typically talks about sort of seven years around sort of going from peak earnings down to trough.
+[02:06] But there is a lot of variation around that.
+[02:09] So I think some songs tend to decay a little bit quicker.
+[02:12] Some songs tend to take a lot longer to decay.
+[02:15] And these things tend to vary by genre, by artists, and even within artists, different songs decay at different rates.
+[02:22] And when you're applying those to a catalogue, how do you usually approach that, given that invariably catalogue has lots of different songs, maybe lots of different rights types?
+[02:33] How granular do you get?
+[02:34] So industry standard now is very much by song, by vintage.
+[02:41] Typically, you know, what's been the case over maybe the past five, four or five years is that catalogues that you do come across tend to have a component of decay and it's not necessarily the driving force.
+[02:52] So say if you had a catalogue with 10,000 songs, maybe there's a proportion that is sort of within that sort of seven year release timeframe where you'd see some component of decay.
+[03:03] But that's not necessarily the factor that drives the underlying valuation, which is the thing that we do.
+[03:09] What you have seen maybe more recently is that there has been a sort of a shift down the spectrum and you are seeing a lot more newer catalogues coming to market.
+[03:19] And in the case, maybe I guess for us where we see it more regularly is in the terms of maybe a record label.
+[03:25] So instead of valuing, say, a static catalogue, if you come across an operating company like a record label and they've got an active roster and they've been releasing songs for five or six years, you kind of end up having sort of like a stacked effect.
+[03:37] So every year they release songs and over a period of time, you still have songs that are still in the decay period.
+[03:44] But then they also have sort of an active future pipeline of songs that are coming out and that'll have associated decay.
+[03:50] And so when you think about sort of thinking about decay, that becomes a more important component of how you think about value.
+[03:57] Okay. So, I mean, we're talking about really getting down to the per song model for revenue.
+[04:05] So not just looking at the catalogue as a whole, but really right down to the unit.
+[04:09] Yes.
+[04:10] And as you said, because we have different vintages, then the implications for the decay vary quite dramatically in any given catalogue.
+[04:19] Yes. So, you know, sort of like you said, it's sort of maybe over 18 months, you kind of tend to hit sort of what you would say peak cash flow, peak consumption in some way.
+[04:28] And then over the next following two or three years, you'd have sort of a fairly sharp decline in decay.
+[04:35] And then it sort of seems it will moderate and kind of then turn to steady state and grow.
+[04:40] But then, you know, it's not an exact science.
+[04:43] And even with the best data in the world, there is a lot of things can break you out of that mould.
+[04:48] So you could get a TikTok experience which causes things to kind of break in a way out of sort of industry average.
+[04:55] If you go back five or six years, a lot of the decay factors would get masked by just the fact that streaming was growing at such a rapid rate.
+[05:03] And you were seeing people entering the streaming world through DSPs like Spotify and Apple.
+[05:08] And that was offsetting some of the impacts of decay.
+[05:10] So there's sort of it's very a new phenomenon in some ways.
+[05:13] And so sort of the data around and how you think about it and how far back you can actually go to kind of think about the future impacts is a lot more difficult.
+[05:20] Yeah. And so when you're looking at songs or assets on a per song basis, how do you then kind of re-aggregate back up to the catalogue as a whole?
+[05:30] So the way we look at it is like by song.
+[05:35] So typically with an evaluation, what you're trying to do is sort of break down the catalogue or portfolio, say sort of about 80% of your net retained share by song, where you can do that.
+[05:47] And then each effectively, it's a line by line analysis.
+[05:50] So you'd go through and you'd look at whether that song is kind of considered to be in their decay period or songs that are kind of within the sort of growth period where you think they're going to be growing in and around sort of industry average or whatever the specific attributes might be related to that song.
+[06:05] So it is very much a line by line analysis.
+[06:07] Okay. And obviously the decay curves, you need an amount of historical data to be able to actually apply them to understand where kind of 0.0 is.
+[06:20] But what do you do when you just don't have that? What do you do when there's gaps or there's unknowns?
+[06:24] I guess first thing is sort of you want as much data as possible.
+[06:31] And, you know, over time, especially, I guess, in the role of a valuation agent, you do end up having a large database to kind of use to inform things where you might not have specific data attached to a catalogue that you have.
+[06:43] So one thing we do is, you know, through the relationship that we have with Shot Tower Capital, we've kind of got, you know, 20 years of a lot of data, a lot of those around iconic artists, which we kind of use as our bank.
+[06:54] And you'd split that down initially by genre.
+[06:57] And so you kind of get different types of decay curves with different genres and sort of things like, you know, country tends to decay a bit quicker because it gets a lot more radio play.
+[07:06] Hip hop is a little bit more similar to that.
+[07:08] And other genres would decay at slightly different rates.
+[07:12] And that kind of forms kind of like your baseline forecasting for these types of catalogues.
+[07:20] But then, you know, you do come across songs where you don't have data and you try and calibrate in a different way.
+[07:28] So you could go back in time and say, how is that?
+[07:33] How is the consumption of that song been versus what you're expecting?
+[07:37] You can kind of get sort of more up to date data through third party analytic firms.
+[07:42] So you think about what we use as our source point is royalty statements.
+[07:46] Those royalty statements tend to be lagged by at least six to nine months.
+[07:50] You can kind of get at least a little bit more of an indicator through using up to date consumption data to kind of calibrate or inform your view, at least in the short term to kind of make sure that you're in the right mix.
+[08:00] But ultimately, you kind of think that as much as you want as much data as possible, there is inherent uncertainty attached to this.
+[08:08] And if someone is selling a catalog where decay is a driving component of the valuation, then they need to kind of understand where who is going to bear the uncertainty risk premium.
+[08:22] And so if you're selling something like that, then typically the buyer would, you know, as a blunt tool, just apply a higher discount rate.
+[08:29] And as a seller, you know, one thing you would say is like if you've got something that's got, you know, only been released in the last couple of years, you know, the fact is that if you allow for seasoning for a year or two, the roll down effect and the reduction of that risk uncertainty could actually could be quite a material benefit from a valuation perspective.
+[08:48] And so what is your driving reason for actually wanting to sell it?
+[08:51] Because you could be giving up a lot of economic benefit to the buyer versus for what you would want yourself.
+[08:57] Yeah. And Alex, I think you guys have a huge trove of data.
+[09:03] Can you just talk us through a little bit what goes into building these maturity curves?
+[09:08] Sorry, decay curves.
+[09:09] Yeah. So I guess as valuers, we're quite lucky that we are sitting on a lot of data, but it's kind of pointless if you can't use it.
+[09:18] And harness it in some way.
+[09:19] So at Y Royalties, we have a data team that sits at the center of kind of everything we do.
+[09:26] And I use them on a daily basis.
+[09:29] I have my dedicated resource.
+[09:31] And this is the kind of analysis that they'd support on.
+[09:34] So we have a platform that allows us to kind of look at everything across the whole portfolio at once.
+[09:39] So I'll try to be quite specific on a few things.
+[09:45] So it's hopefully more useful.
+[09:49] There are a few bits of metadata that you need to bring in if you're doing decay analysis.
+[09:54] So, of course, release date is important because otherwise you don't know when you're decaying from.
+[09:58] So finding a way to ideally automate the scraping or maybe there are APIs that we can harness to pull in that kind of data to supplement the royalty data.
+[10:10] Then genre is one Sashin's touched on.
+[10:16] That tends to be a bit of like a splitting by genre.
+[10:21] Because, I mean, you know, the different profiles that we see are quite tailored to genres.
+[10:28] We'll come back to that in a second.
+[10:30] And then having some sort of metric for popularity or some sort of index of the quality of the song tends to be quite revealing.
+[10:42] Because we find that the decay profile you see for a big hit will be quite different to the decay profile you see for some of the noise on an album that wasn't released as a single.
+[10:55] And when you talk about that quality, is that purely objective based on, you know, some market factors or is this a subjectivity to it as well?
+[11:04] There should be subjectivity.
+[11:07] This is music after all.
+[11:10] So people are very sentimental about it.
+[11:12] But you can use quite objective measures.
+[11:15] Total number of streams on Spotify, for example, gives you an idea of popularity.
+[11:20] Similar metrics to that.
+[11:22] So, I guess, I would say, trying to be specific about how much data you would need to build a curve, we tend to see the noise kind of start to disappear when you're looking at about a thousand songs in one piece of analysis.
+[11:39] Which, depending on who you are, is potentially a lot of data or potentially not a lot of data.
+[11:45] For us, that's not a lot of data.
+[11:47] But if you don't have access...
+[11:49] So, just to clarify, that's looking at a thousand songs to build the curve?
+[11:53] To build the curve, yeah.
+[11:54] Okay.
+[11:55] Yeah.
+[11:56] But what I would say is you can feed as much data as you want into decay analysis and it will become more generic.
+[12:05] So, in the world of valuation outside of music, if I was doing like a market approach analysis, looking at similar comparable companies, so the company that I'm valuing, what I want are really good quality comps.
+[12:19] So, I want to build up a comp set that's stuff that's really relevant to what I'm trying to value.
+[12:24] So, I would be looking across my portfolio at other artists who fall into a similar genre, who are kind of released in a similar sort of period, catch a similar fan base, similar popularity levels, that kind of thing.
+[12:41] And then you could be building a decay curve from 10 songs.
+[12:45] If they're really relevant, then there becomes less need for massive amounts of data.
+[12:52] But I would say that it's a good starting point to be able to harness your data.
+[12:56] And is there a sweet spot?
+[12:58] You know, if you've got sufficient data, is there a sweet spot after which you start to just get some kind of normalization?
+[13:04] I guess the sweet spot for me is somewhere above a thousand songs for one data curve, for one decay curve.
+[13:17] I think much beyond that.
+[13:19] And you just start to, yeah, as you say, you start to kind of end up with a normalized, very generic curve that doesn't mean as much anymore.
+[13:28] Yeah.
+[13:28] And I think, I mean, you touched on it then.
+[13:31] Actually, there's lots of other factors which really need to take into consideration when you're applying these.
+[13:37] I mean, data is fantastic, but we don't live in a vacuum.
+[13:41] Everything has some context around it.
+[13:43] What are the other things that you would look at to help you guide, okay, well, this is the decay curve, the model that we're going to use, but we need to adjust it here or here because of X, Y, and Z.
+[13:54] What are those other factors?
+[13:55] Yeah, so for me, the context is really critical.
+[14:01] You can build decay curves, pour hours into analyzing data, but every catalog is different.
+[14:08] Different fan base, different artist activity.
+[14:11] Are we talking about an artist who is going to go touring for the next 10 years as they do new release cycles?
+[14:19] Or are they inactive?
+[14:22] They'll have completely different profiles over the next 10 years and beyond.
+[14:28] So we tend to bring in additional overlays to the analysis using some like third party data sources for things like historical tour activity.
+[14:40] So if we know that an artist is going to finish touring, like they got to the end of a 10 year anniversary tour, and they're going to be a bit quiet for the next year, couple of years or beyond.
+[14:54] Maybe they've done a kind of end of career tour.
+[14:56] Or you might have loads of touring activity in your historical royalties that is just going to drop off a cliff in your projections.
+[15:05] So being able to bring in that context of like what's happened and what do we think is going to happen is really what should drive those projections, perhaps even more so than just a generic decay curve.
+[15:16] And then the last thing I would say is like, because often the decay curves that we're applying are to a degree generic.
+[15:24] Yes, we can like chop and change by genre and choose like a high performing catalogue decay curve, low performing catalogue decay curve.
+[15:35] You need to do some back testing on the actual royalty numbers that you can see for the specific catalogue.
+[15:42] So if you're applying a decay curve to a catalogue thinking this fits all the tick boxes.
+[15:47] But actually, when you look over the last five years of earnings, which you hopefully have, usually we get about three years.
+[15:55] If the decay model doesn't fit the data that you do have, then you should be asking why.
+[16:01] And what should I need to, what do I need to kind of reconsider in the approach for the projections?
+[16:07] Yeah, that makes good sense.
+[16:08] So effectively looking at the data you've got, taking yourself back five years, applying the decay curve and seeing if it matched what you actually see.
+[16:15] Exactly.
+[16:15] And how closely correlated are those other events?
+[16:19] You know, if they are touring and things like that, how easily can you say, okay, well, that's happened.
+[16:26] We can apply that to this curve and it's, you know, with a high level of confidence.
+[16:30] Or is it, again, very, very specific depending on the artist and a whole bunch of other context?
+[16:34] So I would say as a valuer, if you start trying to build in significant layers of future upside into projections, particularly if the valuation was for lending purposes, then the valuation doesn't tend to like it being too sort of optimistic.
+[16:55] You know, it's got to be based on, to the furthest extent possible, what we think is likely to happen and what's sort of reasonable.
+[17:06] It is definitely possible to analyze the sort of interplay between touring and streaming, for example.
+[17:17] And we spend a lot of time doing that to see if an artist goes on tour, they tend to have, maybe it's quite localized, but they tend to have quite a spike in streaming.
+[17:27] It might be short-lived, but across a few months of touring, that can be quite material.
+[17:34] And you can come up with some reasonable base assumptions.
+[17:39] Again, it would be different by artist, different by genre.
+[17:44] But for an internal valuation, I would probably be doing that.
+[17:48] And I guess something Sashin touched upon that people are often quite interested in is these viral moments that have become a really important part of the value proposition.
+[18:04] And do you just factor them, given that they are so difficult to predict, do you just factor them in as upside?
+[18:13] I like to model sensitivities rather than build, bake it into the base case.
+[18:21] If you start bringing in layers of like future uplift, then you're probably going to need to adjust your discount rate as well, because we have less certainty that those events are going to occur in the future.
+[18:34] Yeah.
+[18:34] Sashin, do you have any kind of direct experience or anything to add to that?
+[18:38] I think maybe one thing we haven't touched on just thinking about it is, you know, decay curves vary by the income type source that you are looking at.
+[18:48] So I think a lot of what we've talked about is kind of more on the streaming side, but you've got physical sync downloads and they all behave slightly differently.
+[18:57] So, you know, if you think about a new release in terms of sync, that takes time for people to kind of become aware of it and enter the sort of the world of kind of sync and being able to access advertising.
+[19:10] And so you have slightly different profile, physical sales are very much front loaded.
+[19:14] So you'd have, you know, you allow maybe your peak earnings within a couple of years, but the drop off will be a lot more steeper than what you'd see in the streaming, which is kind of more reoccurring.
+[19:23] And same as something like download.
+[19:25] So there are sort of variations by kind of income type source.
+[19:28] Yeah, that makes good sense.
+[19:29] And when these either viral events happen or, you know, somebody goes on tour, in your experience, does that have the effect of kind of taking the song, the catalog back up the maturity curve?
+[19:42] Or do you find that it decays significant?
+[19:44] Sorry, decay curve.
+[19:45] Or do you find that it decays significantly quicker after that event?
+[19:50] So let's say you have a viral moment.
+[19:53] Is that like taking it back in time?
+[19:55] Or is it actually that it's just going to drop off very quickly and you get back to a kind of normalized rate?
+[20:03] I mean, it's a difficult question in a way.
+[20:06] When you look at viral moments, what you're, you know, they tend to have an impact on obviously the song that's in the viral moment and on the back catalog that might be attached to that artist.
+[20:17] And so it hasn't rising boat lifts all sort of tides.
+[20:20] But also from an evaluation perspective, you're looking for income that's going to be a reoccurring.
+[20:25] What you tend to normally find is that these, you know, what you see in today's life has got shorter.
+[20:30] Everything's kind of becoming more near term.
+[20:32] And these things tend to drop off just as quickly as they come.
+[20:34] So it ends up sort of being more closely mimicking like a one time cash flow impact for a year or 18 months or whatever it might be,
+[20:42] rather than something that has a long term perpetual rising impact on their cash flow.
+[20:46] So, I mean, there's always variation around that.
+[20:49] But that you probably bear more to kind of it being a short term-ish type of impact.
+[20:54] A one-off thing.
+[20:55] Can I jump in?
+[20:56] Yeah, absolutely.
+[20:57] Two cents on that.
+[20:58] So we've done quite a lot of analysis on these kind of TikTok moments and the impact on streaming more broadly.
+[21:06] Generally, 100% degree, like viral moments are sort of fleeting.
+[21:11] Capture audience as a TikTok craze.
+[21:13] And then everyone moves on to the next thing.
+[21:15] But we have observed like some edge cases where particularly probably for like what we'd call a vintage catalog that's been around for a while,
+[21:25] experiencing some sort of TikTok viral moment, that kind of profile of hitting the peak and then coming back down to where we were pre-moment can be quite prolonged.
+[21:38] So even we've seen like up to three years to kind of get over this hump and then back down to where we were.
+[21:44] And at the next level, we've seen, I would describe it as like new audience captured by that viral moment where it was people suddenly got interested in this song who weren't listening to that artist before, before the moment.
+[22:01] And you see an increase, like through the spike, but then never goes back down to that baseline of where we were before.
+[22:08] And there are some different sort of buckets that you can put the type of moment that occurred and the genre and the vintage and things into to try to model what we might expect a viral moment to do on a specific catalog.
+[22:23] Right.
+[22:23] So it's like a vintage catalog that's now acting a bit like frontline, difficult to model because obviously the markets can be significantly smaller proportionally,
+[22:34] but actually you are seeing in some cases that it's like turning back the clock and they're really getting long-term value from it.
+[22:41] Yeah.
+[22:42] Amazing interest.
+[22:43] So, Sachin, where, when you use these things, what are the big challenges that you see?
+[22:51] Where do they go wrong or where are the pitfalls that you have to be aware of when you're applying?
+[22:57] I think you've got to be cognizant that decay is inherently uncertain and you can have all the data in the world and you can try and be used as sophisticated
+[23:08] or calibrate your approach as much as you can, you know, historical or live data or comparing to, you know, peer artists.
+[23:16] But, you know, they tend to break regularly because every song, like we said, is different and they all have their own kind of ecosystem around it.
+[23:25] So, you know, I think it's designed to inherently break, frankly, and, you know, you try and do the best you can with the information that you have.
+[23:32] And from a valuation perspective, what are we trying to do is kind of underwrite or provide a valuation that uses, that a buyer would underwrite that song to when acquiring it.
+[23:43] And that's basically like using as information, the most accessible and readily available information that you can to price for that.
+[23:51] And then, you know, going forward, things will change.
+[23:53] Yeah.
+[23:54] And that's kind of how you think about it.
+[23:55] And how about, you know, like other things just to be aware of?
+[23:59] So how do you consider market growth as a whole and apply that?
+[24:03] And then also, you know, invariably, there's a lot of lag in royalty data.
+[24:08] So if you're looking at things that are already kind of three, six, nine months behind the data that you're looking at.
+[24:15] So how do you factor that?
+[24:17] I think sort of growth becomes a little bit of a noise, really, because if you think about decay and especially in the sort of early part of that decay,
+[24:26] the decay is just overwhelms growth.
+[24:28] And if you think about industry growth in general, let's just say sort of mid to high single digits,
+[24:31] and you're talking about decay rates, that could be 20, 30, 40 percent in the year.
+[24:35] Sort of the offsetting factor doesn't sort of impact so much.
+[24:38] But lag data is something that becomes where you can.
+[24:42] I think there is an element of being able to calibrate to some extent to kind of make sure you're doing it using as up-to-date information as you can.
+[24:49] So if you've got royalties, you know, if you're doing evaluation today, you might have royalty statements for June or September or December or whatever it might be.
+[24:57] And just having that extra two, three months of understanding what consumption patterns are like is useful.
+[25:02] But then also you need to be cognizant that consumption doesn't always convert to cash flow in the same way that you'd think.
+[25:08] And historically, there can be lots of reasons why there could be noisier than that as well.
+[25:11] And invariably, that is really only applicable for certain types of cash log.
+[25:16] You know, if you've got 50 years worth of royalty data, then the next three months are probably going to make pretty much little difference.
+[25:26] Well, what you're doing in evaluation is sort of trying to understand what your normalized base cash flow is to forecast off.
+[25:33] And so if you're baking in something that is going to cause that cash flow to be higher or lower than you'd want, then that has an ongoing perpetual impact on your forecast and can impact the valuation quite significantly.
+[25:44] So those things, I think, are quite actually quite important and you do want to think about and calibrate too.
+[25:49] Okay. Amazing. Alex, do you have anything to add on that?
+[25:53] Lots.
+[25:55] So to add to the growth is a really important point.
+[26:00] And this is a little nugget of a tip, I guess.
+[26:08] I've seen people build decay curves without thinking about the combination of that decay profile and market growth.
+[26:17] So typically when people come up with projections at a song level, it's a combination of decay based on the age of the song and then an overlay of growth on top of that.
+[26:27] So if you're building decay curves using unadjusted historical royalty data, the market was growing over those five years that you're using to build your decay curve from.
+[26:39] And then if you apply that decay curve to a song as of today.
+[26:46] And then on top of that, you add future market growth in your double counting.
+[26:51] So in your historical decay analysis, you've got to be able to somehow back out that historical decay.
+[26:57] So then you can apply today's market growth assumptions on top of that.
+[27:01] That was one point.
+[27:31] You can apply that to a lot of activity in the basis period that's not typical.
+[27:33] Or you might have had like a massive sink that led to a viral moment that led to a load of streaming that's going to fall off.
+[27:40] So your last 12 months cash flow isn't necessarily the starting point without some normalization.
+[27:48] And again, you can spend a lot of time playing with data and building nice decay curves.
+[27:52] But if you apply it to the wrong thing, then it's broken from the start.
+[27:56] Yeah.
+[27:57] And I think we talked about it before, but I think it's worth going a bit deeper into the value and the importance of context.
+[28:05] You know, the decay curves invariably are one tool, but you can end up with multiple people, for example, bidding on the same catalog or the same set of rights at very, very different valuations.
+[28:16] Can you just talk us through what are the things that are going to feed into that session?
+[28:23] Yeah.
+[28:24] You know, everyone has a cost of capital sort of at least maybe five, six years ago, I guess.
+[28:30] Where we are today is sort of generally the cost of capital is cheaper the more seasoned the catalog you have because people perceive the risk as being a lot less.
+[28:37] And as you kind of move into songs or catalogs that have more of a decay attached to them and the cost of capital increases, the uncertainty increases.
+[28:50] Generally, also sort of the other thing way to think about is, you know, competition.
+[28:54] Today is definitely a lot more focused on the season catalogs, such as capital has been raised in the story and narrative has been a lot more, I guess, well publicized and reported.
+[29:04] But you are seeing people sort of move down that risk spectrum or up the risk spectrum and looking at things that are decayed or people, you know, we've come across people who are looking to sell unreleased works.
+[29:16] And there's a lot of more sort of fluidity around that.
+[29:20] But you kind of like kind of mentioned before, as you kind of be cognizant of, you know, why are you selling something that is still going through the decay period?
+[29:28] I mean, as an artist or a songwriter, I guess there's a potential perception of being able to attach a multiple to peak earnings cash flow, which kind of makes them feel like they could sell something at a lot higher valuation than actually would be the case if it was based on a steady state number.
+[29:45] But I think as you kind of become closer to release date, then the buyer tends to probably have a little more leverage just because there's a lot less competition of people looking to buy those types of assets, even though it has kind of probably increased in the near term.
+[30:03] So you'll be giving up as a seller.
+[30:05] I think you'll probably be giving up some economic benefit to the buyer who's going to just put a higher risk premium on those.
+[30:12] Yeah, I think that makes sense.
+[30:13] I think also, you know, invariably people have different strategies, don't they?
+[30:16] So somebody might be buying a capsule to aggregate some of the rights types that they already own.
+[30:21] And that might come with a premium because, you know, it's net beneficial.
+[30:24] They get more control and things like that.
+[30:26] So I think, Alex, are there any other factors that you would see that people really consider when they're looking at the valuations over and above just the decay, whether that be strategy, obviously cost of capital, things like that?
+[30:40] Sentimental value.
+[30:41] Sentimental value.
+[30:42] So at the end of the day, it's music and people are attached to it.
+[30:46] So I have seen people push and push and push to try to win a deal because it's something that is meaningful.
+[30:52] But I guess on from that, if you're a buyer and you're buying catalogs that you care about, you're more likely to want to do something meaningful with them afterwards.
+[31:03] Well, control is a big thing, isn't it?
+[31:04] You know, some of the rights types elicit more control than others.
+[31:07] And that invariably would command a bit more of a premium, right?
+[31:11] Yeah.
+[31:11] And that's down to, yeah, the kind of investment thesis of each buyer.
+[31:17] It's what's the purpose of the acquisition?
+[31:20] What are they going to do with it?
+[31:22] And someone who wants to just acquire rights and sit on them passively versus someone who's going to try and do a load of uplift.
+[31:32] Maybe once you have your rights back, you're going to do like direct licensing deals and slim all the margins down.
+[31:38] You can be quite active.
+[31:40] There's a cost of doing that, but then you might see more upside.
+[31:43] So this is where the value starts to diverge.
+[31:47] Yeah.
+[31:48] And so we talked quite a lot about what they are, how we apply them.
+[31:53] And I think it's fair to say, you know, they're obviously not the only tool in the box, but they are used quite regularly.
+[32:00] You know, I think we have to ask the question, is there a better way, given that they have some flaws?
+[32:05] What else do you think on the topic?
+[32:09] I think we should just go back to pricing everything on 10x multiples like we did a few years ago.
+[32:15] That's much easier.
+[32:16] Makes sense.
+[32:17] But really, I think the methodology is sound, really.
+[32:24] We have to be aware that the landscape of the market is shifting.
+[32:30] It has done in the past, where it's going next.
+[32:33] I mean, we have some ideas, but it's how fast will things start to move.
+[32:38] So if we're applying decay curves, we have to stay on top of refreshing them, making sure they're current.
+[32:46] But inherently, we're usually using historical data for that.
+[32:50] So it becomes quite difficult.
+[32:51] But as long as it's sort of iterative, live, we're using as up-to-date information as possible from royalty data,
+[32:59] but also from other sources of information and sense checking it.
+[33:04] Then I think the decay curve, in principle, it holds.
+[33:09] It's used across different industries in different contexts.
+[33:12] It's a valid tool.
+[33:14] So Ashley, what's your point of view?
+[33:16] Yeah, I mean, I don't think you can argue with that.
+[33:18] I think you're using the best process that you currently have right now.
+[33:24] Kind of always open to kind of reinterpreting or rethinking about it.
+[33:27] But it's kind of hard to see something sort of something coming down the pipe that's going to materially impact the kind of the general process or thought process around that right now.
+[33:37] Yeah.
+[33:37] And in the end of the day, we are trying to predict the future.
+[33:40] And if we could do that more effectively, then we probably wouldn't be sitting here today.
+[33:45] So yeah.
+[33:46] But I think just to put in context for everybody in the audience, both of you have a lot of experience in other asset classes, which are significantly more mature and to some degree have larger data sets.
+[33:58] Can you just explain some of the approaches and some of the places where you use decay curves in those asset classes and what potentially we could learn from that?
+[34:08] Yeah.
+[34:09] Yeah.
+[34:09] So I started my valuation career in tangible asset valuations.
+[34:16] So that's putting a value on the stuff that businesses own, the physical assets.
+[34:23] So very sort of infrastructure heavy, manufacturing heavy, that kind of thing.
+[34:28] So if I took the example of a power station, like a coal fired power station, it's full of assets.
+[34:36] I would take an example of like a steam turbine, right?
+[34:41] Rivoting stuff.
+[34:42] Yeah.
+[34:42] It's actually quite cool when you're there and you see how big they are.
+[34:45] But anyway, so we would use what we'd call depreciation profiles, right?
+[34:53] It sounds quite similar to a decay curve, similar concept and also similar in that they're not straight line.
+[35:02] They're generally driven by empirical data, which means it's like you're not trying to fit something to a model.
+[35:09] Like the data tells you what the profile is.
+[35:15] And so you have your basic depreciation profile.
+[35:19] But then on top of that, you then bring in some overlays of things like every three years, you might have like a major overhaul where they strip the thing down, clean it up, replace turbine blades, that kind of thing.
+[35:33] Every year you might do like a low level maintenance cycle and you kind of come in and clean things, check electronics, that kind of thing.
+[35:42] So you start to build in these little peaks.
+[35:46] And okay, it can be a bit more predictable when those peaks are going to happen and exactly what they're going to do.
+[35:52] But it's a similar concept to a decay curve.
+[35:54] Like you have your base decay curve, touring cycles, album releases, syncs, viral moments.
+[36:02] Like this is all hoo-filet.
+[36:03] And we would call that like a sawtooth decay profile because it kind of does this.
+[36:11] And I see a lot of similarities between tangible asset valuations and music IP.
+[36:21] And across valuation, there's all these sort of mirrorings of approaches.
+[36:25] So it's, again, kind of points to the decay curve being a valid method.
+[36:31] A valid methodology.
+[36:33] And Sachin, I think you've worked a lot in renewables.
+[36:37] Yeah.
+[36:37] I guess a lot of my experience has kind of been in a lot of variety of alternative asset classes.
+[36:43] And kind of thinking about this, I think Alex mentioned, I think infrastructure kind of lends itself to a similar thought process.
+[36:50] So what you're looking at is, is there an asset class where I have long-term reincurring cash flow, but there's some inherent uncertainty attached to it that makes forecasting difficult?
+[37:00] And the one that kind of comes to mind, which I spend a lot of time on, was renewables and specifically wind turbines.
+[37:05] So if you think about how those cash flows are modeled, it's sort of you have, say, weather patterns that are kind of averaged over, say, 20 years or so.
+[37:19] And what you have is something called like a P50 curve.
+[37:21] So it's kind of your baseline cash flow that you expect based on the average weather that you see in a year.
+[37:26] But obviously, the weather is not the same year on year.
+[37:29] And as we can see in London this year, we kind of had like 50 days of rain consistently.
+[37:33] And so that creates uncertainty.
+[37:37] And what you've seen is that the near term, and definitely in the UK and I think more in Europe, is that the wind resource has been less than people have expected over the past few years.
+[37:46] And what you've seen is kind of those P50 baseline curves that people model off and value off of have come down, which kind of has meant that actually the valuation has come down because your weather pattern is being adjusted because, you know, there's climate change and other bits and things going on.
+[38:02] And so, you know, if you're thinking about music and how this kind of flows through to renewables as well, it's sort of like, you know, maybe you lent against a 50% LTV, but the weather has changed.
+[38:13] And now you're kind of seeing it's 55 or 60 because things are inherently uncertain.
+[38:18] So just continually kind of re-evaluating the current state, looking at changes in technology, changes in distribution, obviously, you know, a big topic on everybody's lips and lips is AI.
+[38:28] It also sort of just attaching more to it.
+[38:32] It's like, where is your wind turbine?
+[38:34] Is it somewhere where it's windy?
+[38:35] Is it high up?
+[38:36] Which direction is it pointing in?
+[38:37] Each wind turbine or wind farm might be slightly different to another wind turbine.
+[38:41] And that kind of lends itself to music because you're kind of looking at genre, artists.
+[38:45] And it's a similar concept where you can't apply one set of parameters to the asset class as a whole.
+[38:52] You kind of need to start to tailor and adjust.
+[38:55] Yeah, I think that, I mean, I think that makes sense.
+[38:57] And I think drawing those parallels between what other industries are doing and what's being used in music is really fascinating.
+[39:04] And I think invariably there's lots to be learned just because they've got a lot more experience actually deploying the things.
+[39:11] But in the end of the day, it definitely kind of comes down to context, right?
+[39:17] How much data we have historically and also just being aware that we are trying to predict the future.
+[39:24] We have to be cautious about any approach that we take.
+[39:28] Is that fair?
+[39:30] Yeah.
+[39:30] Yeah.
+[39:30] I think ultimately what you're trying to do is provide a story and a narrative to a buyer that makes sense.
+[39:37] And if you're kind of using the most relevant and up-to-date tools that you have, then that's a story and narrative that can be absorbed by a potential buyer or seller or whoever your client may be in a sensible way.
+[39:50] And that's kind of what the essence I think you're trying to achieve.
+[39:55] Amazing.
+[39:55] Thank you so much for your time today, your experience and sharing that with everybody here.
+[40:02] For those of you who are watching after the fact, thank you for tuning in and we shall see you next time on Music Moneyball.
+[40:09] Thanks for tuning in to Music Moneyball.
+[40:15] If you enjoyed the conversation, you can subscribe at standard-innovation.com to get every episode in your inbox.
+[40:23] You can also follow the show on Spotify, Apple or YouTube to stay ahead of the curve in music rights investment.

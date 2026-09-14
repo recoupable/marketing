@@ -1,0 +1,640 @@
+# The untapped upside in music catalog operations w/ Henry Marsden
+# Date: 2025-11-11
+# Duration: 00:53:50
+# Guests: Henry Marsden — Founder, Fix Music Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/The-untapped-upside-in-music-catalog-operations-w-Henry-Marsden-e3aqt3j
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogs.
+[00:08] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:15] Welcome back to the Music Moneyball podcast with me, Emma Griffiths, and my co-hosts, Tom Mullen and Sam Maury.
+[00:23] Today, we are joined by a guest who is a musician turned data-driven entrepreneur,
+[00:28] who's helping reshape how the music industry understands its own value.
+[00:33] He started out as a session musician, which included touring with the one and only Elton John,
+[00:38] before transitioning into the business side of music in 2014.
+[00:42] His first publishing venture, Bespoke, grew into a renowned indie publisher with cuts from the likes of Avril Lavigne,
+[00:49] Machine Gun Kelly, and The Vamps before being acquired in 2023.
+[00:52] Since then, he's worked with some of the most iconic catalogs in music as a partner at ATM Catalogue Management,
+[00:59] before striking out on his own to launch Fix Music in 2025,
+[01:04] where he and his team use AI-powered technology to fix rights data and help catalog owners unlock new revenue potential at scale.
+[01:12] Please welcome Henry Marsden.
+[01:13] Thank you.
+[01:15] Thank you so much.
+[01:17] My first question before we get into any of this other interesting stuff is,
+[01:21] can you help us get Elton on the podcast?
+[01:27] That's priority number one for 2026.
+[01:30] That's the only reason I'm here, isn't it?
+[01:32] I'm just, you're in.
+[01:33] You could just get him on speed dial now for us, Henry.
+[01:35] Yeah, let me just call him up.
+[01:38] So Henry, we like to kick things off by, you know, helping to paint a picture of our guests.
+[01:44] And I think there's no better way really than to say, if we could introduce you with a song, what would that song be?
+[01:51] Such a good question.
+[01:52] I was thinking about this.
+[01:54] Obviously, it had to be one from my own catalogue.
+[01:58] I had this phenomenal keyboard player friend.
+[02:01] So as you mentioned, I was a musician, session bass player.
+[02:03] And I toured around all these different bands and, you know, sort of playing for different artists.
+[02:09] And I had this one friend, keyboard player, that we did a few different bits and bobs with.
+[02:12] And during sound checks, he would just sort of noodle around the piano.
+[02:16] And over this like two, three, four, five months period, his noodles became more structured.
+[02:21] And he's an incredible singer as well.
+[02:23] He basically was just sort of slowly composing his own work.
+[02:27] And he was one of the reasons that I got into music publishing,
+[02:29] because he basically wrote all these songs that were incredible, that no one ever sort of he had no outlet for them or no idea of what to do with them.
+[02:38] I was like, mate, I'll just help you put these out.
+[02:40] Like there's there must be some way we can sort of that.
+[02:43] Obviously, you obviously have a natural gifting, but you don't necessarily have these ins.
+[02:46] You don't necessarily understand how the industry side of stuff works or music publishing works.
+[02:51] So I'll help you put these songs out.
+[02:53] So only one of these songs is called Carnegie Hall.
+[02:56] Yeah, his artist, he's called Sam Cox and his artist name is called Outlines.
+[03:00] You can find it on Spotify.
+[03:01] And he never did anything crazy.
+[03:03] But the song is all about sort of you've got to live your dreams.
+[03:07] You've got to go for it.
+[03:08] And in this song, he tells a story of this guy who sort of dreams of playing one day in Carnegie Hall and wondering what that'll feel like.
+[03:14] And then the bridge is this refrain of long live the daydreamers.
+[03:17] God save us all.
+[03:18] And just every time I hear that, even saying, and I'm like, oh, my goodness.
+[03:20] So it gets me of like, that's how I want to live my life, my career.
+[03:25] One, supporting friends, helping them get paid where I can't write a song for Toffee, but I could help them, you know, maximize their own creativity.
+[03:33] And then two, like, what happens if we daydream?
+[03:36] What happens if you really go for your dreams and live a life and live a career?
+[03:43] Build a business in a way that's like, what's possible?
+[03:45] Where could this go?
+[03:46] How big could this go?
+[03:47] So I've gone so deep, so immediately.
+[03:50] That's amazing.
+[03:52] Like, that's exactly what we want.
+[03:53] You know, there's some emotion there.
+[03:55] There's a bit of depth to it.
+[03:56] So, Henry, you have had quite the journey from working with songwriters and artists to now helping funds and catalogue owners untangle the mess that is music data.
+[04:06] But before we get into the weeds, how did you get into this part of the industry?
+[04:11] As you say, it's been a long journey and a fun one at that.
+[04:18] And always sort of driven by learning and just sort of evolving what I was doing to best serve effectively people who are my friends, like creators.
+[04:26] So, like I started, as I mentioned, as a session musician and then started what I thought would be a record label originally.
+[04:32] It was like, I was quite cool to say you have a record label.
+[04:34] And it housed some of the production work I was doing as a musician.
+[04:37] But then all my creative friends said, oh, we don't need a record label.
+[04:40] It was like the record label no one ever wanted to sign to.
+[04:43] But they all asked, do you do publishing?
+[04:45] Do you understand publishing?
+[04:46] Do you know publishing?
+[04:47] Can you help me with publishing?
+[04:48] I feel like I'm being screwed in my deal or I don't understand where my revenue is coming from.
+[04:53] So I sort of realized it would be better to pivot this label into a music publishing company.
+[04:58] Signed the songs of my friends, like Sam.
+[05:01] Friends of friends, friends of friends.
+[05:03] And the whole catalogue just sort of slowly grew.
+[05:04] And as it grew, managing that repertoire became tricky with the tools like Excel, Google Sheets, like sort of basic tools.
+[05:16] At that stage, Henry, how many songs are we talking about?
+[05:19] Like where was the kind of tipping point where you got to a stage where I can do it in Excel?
+[05:26] This is becoming tricky.
+[05:27] Now impossible.
+[05:29] I think it wasn't even that many.
+[05:32] By the time you get to like a thousand songs, because you've got copyright data, publishing data, recordings data on one hand, and all of those are interlinked.
+[05:42] So you already have like three, four, five different data sets that need to be talking to one another, which if you're very, very well organized and have a good spreadsheet, you can manage.
+[05:50] But then you've got the royalty side as well.
+[05:52] And as the number of lines, particularly in a digital age, like noting my publishing company started in whatever, 2014, and went through to a decade of sort of digital innovation, the number of lines per sort of usage, per royalty statement, just grew exponentially.
+[06:12] So then being able to manage those on the other side just became an impossible task because it sort of went into the hundreds of thousands.
+[06:19] Yeah, fair enough.
+[06:20] Even like a very, very, very small catalog.
+[06:22] Every single microtransaction the world over just became impossible to manage.
+[06:27] And was that across all of the different geographies that you were publishing as well?
+[06:31] Or was that just in kind of a couple of major ones?
+[06:33] No, just across everything.
+[06:34] Because music consumption is so global now.
+[06:38] I was in a conference the other day and heard the panelists say, no one uploads a track and just like, you know, geolocks it to certain territories.
+[06:46] Basically, every song gets released globally from any territory.
+[06:50] So all your usage as well, via whatever source it comes back, you know, whatever pipeline it works its way back to you, the usage is global.
+[07:00] And so you're trying to collate from however you're collecting revenue, particularly on the publishing side, which is my sort of most experienced area.
+[07:09] Just so many disparate lines worth of data.
+[07:12] I'm sure we'll get into data and how this how it affects revenue flows and rights holders now.
+[07:17] But this is sort of my journey into the industry is just learning this firsthand that I'm trying to look after these songs for my friends.
+[07:25] And then I get a call saying, hey, I've got a million streams on Spotify.
+[07:29] How much are going to be paid?
+[07:30] When are I going to be paid?
+[07:32] Or I had someone send me a video of their song playing at halftime Old Trafford.
+[07:38] And they'd be like, this is amazing.
+[07:39] Isn't this incredible?
+[07:40] How much money am I going to see for this?
+[07:41] When am I going to see it?
+[07:42] Or another, that's why it always happens on videos.
+[07:45] Someone sent me a video of their song playing in a gap in Hong Kong.
+[07:49] They're like, isn't this incredible?
+[07:51] Like this store is like got my song on their playlist.
+[07:53] Just where's my whatever million dollar check.
+[07:56] But I couldn't answer their questions as their publisher.
+[08:00] Like this is my responsibility to look after their rights and to get them paid efficiently.
+[08:04] And I couldn't tell them.
+[08:05] There's like an anecdote that we've heard from a number of people.
+[08:09] And in general, a lot of people in the industry, it's like that question of, oh, I heard my song played on the radio.
+[08:15] When and how much am I going to get paid?
+[08:18] And everybody's answer is sometime in the future.
+[08:21] Not really sure.
+[08:22] Yeah, exactly.
+[08:23] And for creators, and this has sort of been the entire story of my career, they don't naturally understand the mechanisms by which they're paid.
+[08:33] Or how, you know, one usage somewhere particularly abroad, like if you're going through sort of international channels, how that generates revenue and how that revenue gets back to them and through which parties and how much of a cut they're taking.
+[08:46] Like there's just no line of sight.
+[08:48] It's complicated for people who work in publishing, let alone the people who are fed by publishing, the creators themselves.
+[08:56] So it's like this impossible task of them trying to figure out or trying to run a business effectively, like a small scale business with revenue and costs.
+[09:10] But they have no line of sight to how their revenue is generated, where it's generated, why it's generated or who takes pieces along the way.
+[09:18] And as I say, that is where I've sort of built my career is helping creators understand the industry side of things and then trying to help the industry see how creators operate and like bridge that gap.
+[09:30] And that came about from doing like the administration of my own publishing catalogue and seeing like I couldn't answer these questions that I was getting called about on a Saturday night as the person who was responsible for their copyrights, for their repertoire.
+[09:47] So I dug deeper and I did sort of two things.
+[09:50] I dug deeper and deeper into the macro industry, like how these payment pipelines work.
+[09:58] Like when I started, I did PRS and the UK directly because while I'm here, like I'll figure out how to do it by doing it in, you know, myself.
+[10:08] And then I'll have an administrator who does the rest of the world, every other territory for me.
+[10:12] And I naively thought at the time that they just then went and got direct money from Spotify and, you know, all the different sources.
+[10:20] And only over time did I start to realize, oh, hang on, they're relying on other third parties beyond them.
+[10:25] And sometimes those third parties are relying on another third party, fourth party beyond them.
+[10:31] But there's so many intermediaries.
+[10:33] And sometimes I had this one funny story.
+[10:36] I toured in South Africa and the artist I was touring with, I was like, oh, I'm going for a meeting with my publisher in Africa.
+[10:45] I was like, oh, that's interesting.
+[10:46] He's like, oh, you're into publishing, aren't you?
+[10:47] Like, why don't you come along and just be nice to say hey.
+[10:49] So I went to this meeting, this person.
+[10:52] And they were like, oh, you're from Bespoke.
+[10:55] I was like, oh, yeah, that's funny.
+[10:56] Like, how the heck have you heard of my like tiny record label from England, a publisher from England?
+[11:00] Oh, we look after your catalogue.
+[11:02] Like, do you?
+[11:03] I've never heard of you.
+[11:04] Oh, yeah, we rep the catalogue of your administrator.
+[11:09] It's like, oh, that's mad.
+[11:11] Gosh, so I've given my rights to this other third party who's then given my rights to you.
+[11:16] Oh, well, can you send me a spreadsheet of all the data you've got for my catalogue?
+[11:20] And I'll just help check it and make sure you've got everything you need.
+[11:22] Sure.
+[11:23] At the time, I had 750, 800 songs.
+[11:26] They sent me a spreadsheet with 12 songs in.
+[11:29] Here's your catalogue.
+[11:30] You're like, you are kidding me.
+[11:33] And this sort of exemplifies one of the many problems with publishing that the data shared and the pipelines it has to go through.
+[11:41] There's just this constant sort of erosion of quality or even quantity of data that passes through.
+[11:48] And my direct administrator was pretty peed off at the time because I sent them a grumpy email being like, excuse me, there's not even like a fraction of my catalogue you have registered in Africa.
+[11:58] Sure, we don't generate tons of revenue in Africa.
+[12:01] But if it's not right in Africa, is it right in America or other markets that are much bigger?
+[12:05] But it sort of speaks to this.
+[12:06] So I did these two things.
+[12:07] One was learning how the industry really, really works and then immediately trying to evolve my model licensing administration collection framework to improve that efficiency.
+[12:18] And then building my own data tools to make that more scalable as well.
+[12:23] So I ended up building my own royalty accounting software.
+[12:25] I built my own sort of data manipulation, like basically catalogue management system that then could deliver CWRs, common works registration formats, which is like a nerdy way that publishers exchange catalogue information at scale.
+[12:39] But I did all these all these things myself to learn how it would work and then got very interested in those two sides, macro elements and the sort of tech side of copyright management in a publishing sense.
+[12:50] And then that sort of fell me down a hole of data of which I'm still I was going to say I was going to say I'm still trying to climb out of to go with the analogy.
+[12:59] Yeah, I think I'm actually just still digging deeper.
+[13:02] I'm still digging for gold.
+[13:04] I think that's kept the case for everyone, isn't it?
+[13:06] In that there's so much data and if you use your example there, Henry is a typical example across the industry, relatively small publisher, but there's quite a few like small publishers globally or quite a lot of small publishers globally.
+[13:21] And then there's obviously like different tiers and then the data problems just multiply, right?
+[13:25] So you just end up with this kind of like spaghetti in the middle.
+[13:28] It's kind of one of the things we want to draw out a little bit today because I think a lot of funds look at music as a passive investment.
+[13:36] You know, for a long time now streaming revenues grow and valuations based on, you know, revenue that's pulling through.
+[13:46] So it's quite a stable asset class on that basis.
+[13:48] And there's been organic growth coming through.
+[13:50] So like, do you think with all this kind of data challenges, that challenge in the middle, like are they missing a trick on ways to further improve their valuations?
+[14:02] Yeah, absolutely.
+[14:03] And this is something that I've seen over the years that I've done it for, you know, my friends directly.
+[14:09] And then also for my own small indie publishing catalogue and then for larger friends, independent catalogues and all the way through to working on some of the most iconic large scale catalogues, you know, in terms of both individual artists, but also aggregated with publishers.
+[14:28] And the problems are all the same, like literally it's the same sort of thing, same data exchange, same making sure registrations exist everywhere.
+[14:35] And it's massively exacerbated by the fragmentation of rights, which, you know, acquisitions as well, in a sense have, let's just say made worse, but they've just made more extreme.
+[14:46] But it means that the management of copyright, like you don't buy, it's not an asset that you buy that will just sit there passively and then just bring in this new, you know, this revenue and you don't have to do anything about it.
+[14:59] It needs proactive management, proactive cleaning to, at a bare minimum, receive the same amount of yield, let alone try and increase that yield.
+[15:09] And I think there's significant gains to be made by those that hold publishing rights, either new publishers or those that are acquiring them to focus on data and how data flows around the industry and building those pipelines efficiently and being able to have transparency to those pipelines.
+[15:29] For them then to be able to maximize the assets that they've bought.
+[15:33] Like in a digital age where your single asset can be fragmented so many times, you need to be able to track where it goes, where it is, and is it accurate everywhere.
+[15:45] Like in a simplified case, one song can be written by one person, can be signed or acquired by one entity.
+[15:54] And then that's got to be accurate and registered in 350, 400 different places globally for then one DSP, like a Spotify, to be able to have it available and correctly licensed internationally.
+[16:08] So there's 350 different places you've got to ensure that data is accurate, let alone if someone else comes and records that song.
+[16:15] Or if you've got a song that is incredibly popular, it's going to generate a lot of covers.
+[16:19] And those covers will also be generating their own revenue, but via microtransactions.
+[16:23] You've got these trillions of lines worth of data that you need to be able to sift through at scale and really critically, economically.
+[16:31] Like there's no point worth, there's no, it's not worth spending a dollar going and chasing 10 cents.
+[16:38] But in aggregate, the long tail of value that's left on the table is so vast, it is worth getting.
+[16:46] But only if you can do that economically.
+[16:48] And that means tech, that means scalable tools.
+[16:51] That means that one human can sort of go and get all the value at once.
+[16:55] Not going to work on a spreadsheet, is it?
+[16:57] No, no, no.
+[16:58] I think, I suppose, we're relatively new to the music industry and it's very easy to completely be unaware of actually some of the challenges.
+[17:09] And so I would say it's probably fair for a number of people that maybe even just already involved in the music industry,
+[17:17] maybe completely unaware of some of the challenges that exist.
+[17:20] So why don't we try and unpack some of those things?
+[17:22] Give us some real world examples of challenges you've seen in people with managing large catalogs.
+[17:32] What does it involve?
+[17:34] Things like metadata.
+[17:36] What's a black box?
+[17:38] How does all that kind of stuff work?
+[17:41] There's so many things we could discuss here.
+[17:43] I mean, to pick up on one, like Tom just mentioned, you can't manage it in a spreadsheet.
+[17:46] But every royalty statement that a fund would receive having made an acquisition will be some sort of spreadsheet, some sort of CSV, Excel or God forbid PDF.
+[17:59] And they've got to manipulate this data from disparate sources, which all effectively says the same thing.
+[18:06] Like it's got the asset, probably an identifier.
+[18:09] And even that is not necessarily a guarantee.
+[18:12] Something about where the money came from, how much, when it was earned, and possibly some sort of usage type.
+[18:20] Was it performance revenue?
+[18:21] Was it mechanical revenue, sync revenue, whatever?
+[18:24] But the way that that data comes across in those spreadsheets is so, so different source to source to source.
+[18:30] But if you're a multi-billion dollar fund, you've got to know and be on top of all of that information.
+[18:35] You've got to be able to aggregate it into one centralized place so that A, you can model deals that you're going to buy into.
+[18:43] And then B, you can track the performance of those or know the impact of certain macro trends in the industry.
+[18:48] Like BMI just announced within the last couple of weeks new rates for radio.
+[18:52] But if you own songs that, you know, over index on radio, you're going to want to know, okay, if BMI's rate goes up by whatever, 5%, how much is my fund going to go up by 5%?
+[19:04] Or CRB, the US court set rates for mechanicals in the US.
+[19:12] Again, your catalog is going to be impacted or the revenue that you get is going to be impacted by those sort of cultural or political moves that are outside your control.
+[19:24] But unless your data is at the granular level where you can identify which rows are affected by that, then you can't model it.
+[19:31] So that's just one element, let alone the whole copyright side.
+[19:36] And this is all just to keep like at a stable level, right?
+[19:41] You know, if you don't do those things, then actually your revenue is going to be degrading over time.
+[19:45] And I know one of the interesting things about the asset class is it looks to be not inflation proof, but is correlated with inflation in a way that it's favorable.
+[19:59] But if you, you know, actually you can't overlook all of those other changes, which can bring in huge administrative efforts or oversights that if you miss actually is going to start to degrade that revenue over time.
+[20:14] I think that's hugely important too.
+[20:16] And, you know, we're not even talking about increasing the revenue or identifying other opportunities for investment.
+[20:24] We're just talking about kind of staying static.
+[20:26] Yeah, I think this is one of the biggest things with particularly people with a finance background coming into the music industry is helping them understand that, again, particularly on the publishing side, to even achieve the yield that it has been, you know, you've based your transaction upon.
+[20:44] But, you know, your purchase price is built on historic revenue to even get that same revenue.
+[20:50] It needs proactive management and sort of tracking.
+[20:56] Like a silly example is that in publishing, I would never move a catalog more than once in like an 18 month period.
+[21:03] And most people that have worked in publishing just sort of know that because they understand how long it takes societies to update registrations, to deduplicate registrations.
+[21:10] When, just for the audience's sake, when you mean move a catalog, what exactly are you referring to?
+[21:17] Like if the rights holder changes, if someone has acquired a piece of the catalog or you need to update the registration status at, you know, collection societies to say, hey, look, now I'm the new owner or this is the new publisher or this person is now looked after by Cobalt instead of Universal or whoever, or Hypnosis seller for a huge chunk to Sony ATV or whatever.
+[21:38] The catalog needs to be updated in societies.
+[21:42] But getting it updated is not a quick process.
+[21:46] And then ensuring it is correctly updated is also not a quick process.
+[21:51] And then there's a sort of 18 month to two year lag of making sure the things that you, making sure your catalog is registered, how you would expect it to be registered.
+[22:01] Again, this is just but one example of the ways that people who hold rights need to be on top of those rights, managing them and understanding not only what their view of the rights and the data is, and this all comes down to metadata really.
+[22:17] But what is that view at other places like I think, and I again, I see this all the time with catalogs.
+[22:24] In fact, I saw this exact thing for a catalog.
+[22:26] I did an analysis on.
+[22:29] Within the last two months, I had 150,000 songs just for a publisher.
+[22:33] And they said, this is they sent me the catalog data.
+[22:37] This is how we we see our catalog.
+[22:40] We are in this percentage in these sets of songs that are registered that should be connected to these recordings.
+[22:46] And we immediately found in some key societies like where huge tranches of their revenue is coming from, that some of those songs and big songs as well were registered to their competitor.
+[22:56] It just had never moved across, like for whatever, whatever reason, just like we think we own 100% of this song.
+[23:02] And you look at the registration, the people who are paying them and they're saying, no, no, no, it's 100% your competitor.
+[23:08] And maybe there's some, you know, some like conflicts to resolve there.
+[23:12] And then there's a process for conflict.
+[23:13] But if you aren't aware of that, you're literally watching money go to someone else.
+[23:17] These guys were literally watching money go to their competitor rather than them.
+[23:20] What about like metadata?
+[23:22] Metadata, that's an area that, you know, again, if you weren't, if you haven't come from the music industry, you wouldn't necessarily know what that can fuel in terms of revenue opportunities.
+[23:32] Tell us a bit more about that.
+[23:35] Yeah.
+[23:35] I mean, metadata is like the other side of the coin to revenue.
+[23:39] Like you have to tell people, I own this song on behalf of this person.
+[23:45] And here is information that describes it so you can identify out in the world.
+[23:49] And you give that information to people who are then using the music.
+[23:54] So then they can say, OK, great.
+[23:55] We definitely know we use this piece of this music and this percentage of the revenue that generated should go back to this party.
+[24:02] So there's always this constant flow of revenue is basically always needs to be in exchange for data, for metadata.
+[24:09] And is a direct correlation between the accuracy of the metadata and the comprehensiveness of that metadata with then how much you get paid.
+[24:21] So, you know, you'll see if it's a generic title.
+[24:24] Like, I love you.
+[24:26] Like, think how many songs are called I love you and how many recordings there are called I love you.
+[24:31] And are all those recordings associated to the right song?
+[24:33] They're only associated when the metadata aligns enough for people to make a confident decision that they are associated.
+[24:41] So you can have a direct impact on your revenue by telling those people, i.e. societies, people who are doing this matching work.
+[24:48] Hey, this song is written by these people.
+[24:51] Hey, this recording is a recording of this song, which then has these composers in.
+[24:56] And it has this exact title and this alternative title and this title in this language.
+[25:00] And the ISRC code, which identifies that recording, should be linked to the ISWC, which identifies this composition.
+[25:07] All of those points are metadata.
+[25:09] And when you start to manage catalogs of 50,000, 100,000, half a million, million plus works, that is not a easy task.
+[25:17] It is challenging, particularly when writes pictures change.
+[25:21] So, you know, the four of us write a song.
+[25:24] We each assign it to each of our publishers.
+[25:27] That's now four publishers who then perhaps have sub publishers.
+[25:31] But then Emma decides, hey, I'm actually going to move my publisher.
+[25:33] And suddenly there's new registrations out in the world that have three of the right publishers, but one wrong publisher.
+[25:40] And that publisher needs to go and, you know, correct them.
+[25:42] But then immediately, and this is only like four people, four publishers, like the number of songwriters on an average hit song has gone up and up and up over the years.
+[25:50] And that fragmentation, as well as new parties buying in to the music industry and also buying specific slices or co-investing as well in specific slices, means that the number of places that data is and the number of parties who have a view on that data is just exponentially greater than it ever has been.
+[26:10] So making sure that all aligned is really challenging.
+[26:14] And there's people only get paid if that data is aligned.
+[26:19] Like if three of us wrote a song, this is another classic example.
+[26:22] Three of us write a song and we say, we'll write it.
+[26:24] We'll split the revenue on it.
+[26:27] Third, third, third.
+[26:29] But all databases go to two decimal places.
+[26:31] So someone is going to pick up 0.01% because we all register at 33.33.
+[26:36] But if we all register at 33.34, it's over claimed.
+[26:40] And in some places, it then won't get paid.
+[26:42] So who gets that extra piece?
+[26:44] But it's all very little granular bits of metadata that affect revenue.
+[26:51] And there are times, like if I look back on my entire career and every catalogue I've ever touched, every asset, every publishing song,
+[26:58] there are pieces of large, like large tranche of revenue you can find in a certain source if the data is not assigned.
+[27:04] Like one time we did a catalogue analysis, found 30 grand for one track.
+[27:08] Just wasn't associated in one database, one song, one recording.
+[27:12] Easy as pie.
+[27:13] There you go.
+[27:13] 30 grand as a one-off.
+[27:15] But by and large, most catalogues, it's a small percentage across the entire lot, all the way down from the top, all the way down to the long tail.
+[27:24] Which, again, goes back to scalable tools.
+[27:28] If every bit of revenue needs to be economically recovered.
+[27:31] So interesting.
+[27:33] You know, we've spent a good deal of time speaking around all of these vast challenges that the industry presents.
+[27:40] And really, I think for most of them, we're talking about kind of fixing the basics.
+[27:45] The only one thing that we've touched upon which gets anywhere near strategy and taking the data and making sensible decisions based on it is not to move your catalogue in a certain period of time.
+[27:59] But, you know, I think that just speaks to the complexity of getting the basics right.
+[28:05] But after that, you know, once you have the mechanisms, once you have the tools in place, then it feels like it's kind of an open field for those people who have made those investments that do have the right infrastructure.
+[28:16] Because the decision making that they'll be able to take around either their existing catalogue or raising funds for a new one is just going to be so much more clear.
+[28:28] And I think that's what's going to set people apart as the industry gets more competitive, right?
+[28:32] Oh, definitely.
+[28:33] Yeah, I think it's a competitive advantage across so many verticals.
+[28:37] It's like managing catalogue, increasing yields better than anyone else can, and identifying undervalued assets.
+[28:43] Like I can look today at a catalogue and can say there is this much revenue sat in these pots for that catalogue that is not currently being extricated, is not going to the right holder.
+[28:57] And if you come along and buy that, then that's just that pure alpha, that's pure upside that you can take because others haven't been able to identify it.
+[29:05] And again, that all comes down to data.
+[29:08] And there's just so many ways, again, particularly on the publishing side, because it's so fragmented, that that revenue can get misattributed.
+[29:15] Like poor registrations, duplicate registrations, missing identifiers, and particularly recordings being mismatched to compositions are just some examples.
+[29:25] And again, this is where I think funds that really appreciate and bake in data as an infrastructure, like a core infrastructure, a core part of their value delivery will accelerate beyond others.
+[29:38] And that will only increase as time goes on because the world is only becoming more digitized and more, a higher slice of the revenue pie is coming from digital sources.
+[29:49] There's less and less that comes from these sort of other offline places.
+[29:54] Or if they are, they're becoming more accurately identified, which again, relies on data and metadata.
+[30:00] So I think data is the key competitive advantage.
+[30:03] And I think all of this, like, it's kind of like, well, how big is the problem?
+[30:06] And we've spoken to some people in the industry, and they've kind of explained how leakage, I suppose, is more maybe that's a financial sort of way of describing it.
+[30:17] It's baked into the P&Ls.
+[30:19] They just assume, you know, they've got 200 million, 300 million in the catalog.
+[30:23] It's assumed like a small percentage of that.
+[30:25] We'll just never make it through and bake it in.
+[30:27] But in reality, like, from your experience, Henry, like, how accurate is that?
+[30:32] Like, to just make that assumption?
+[30:34] Because one thing seems to sort of have a knock-on effect.
+[30:37] If you sort the basics, actually, you end up opening new opportunities, right?
+[30:40] So you'll never get every single penny that is correctly due for usage of your music back to you, let alone in an economical, you know, a worthwhile ROI.
+[30:52] Yeah, manner.
+[30:55] But there is this baseline of if you do these things right, if you do these key, like, data management tasks or empower your team with scalable tools to be able to look at and collect revenue, you can increase that threshold and bring it down.
+[31:13] You have global usage, more and more so, of, or licensed via localized copyright law and licensing bodies.
+[31:24] And those two things are forever at odds with one another.
+[31:28] So that system will, in all likelihood, never really go away, although it has evolved over the last few years with sort of different copyright hubs and things.
+[31:37] Yeah, yeah.
+[31:38] But I think generally, like, assuming it's 2%, 3%, it's never going to come through.
+[31:43] They could be undercalling it, right?
+[31:45] It could be more than that.
+[31:47] Oh, yeah.
+[31:47] Yeah, like, vastly so.
+[31:49] But again, the more rights you aggregate, like, again, from my experience, there is probably 5% to 10% uplift that could be done with just sheer accuracy of data.
+[32:03] But every now and again, and this is what everyone wants.
+[32:06] Like, you know, that is incredible, given that the valuations are ultimately based on a multiple of historic cash flow.
+[32:16] And even a 10 times multiple, that's, you know.
+[32:18] Yeah, if you're timesing anything by 10, that's a big number.
+[32:21] And if that's a 10% increase, just because you've made the right investments in data, you've put the right systems in place, you've got visibility.
+[32:32] I think just on the very basics, that's giving you a significant return, let alone looking at all of the other possibilities and making better decisions and having a clearer strategy for the future as the industry becomes more competitive.
+[32:47] I mean, that just seems incredibly compelling to me.
+[32:50] Yeah, no, totally.
+[32:50] And the thing is, everyone always looks for the, like, gold.
+[32:54] You dig around, and you'll be able to, you will be able to find this, whatever, 5% to 10%.
+[32:59] But also, every now and again, you find a much, much bigger lump that is, like, a huge material piece of, you know.
+[33:08] We worked on a catalogue, and we found a huge, like, multi, whatever you'd say, like, six-figure sum.
+[33:16] And the catalogue was only turning over a few million.
+[33:18] So this is, like, a really material piece, and they're looking to sell.
+[33:22] So it's like, you've literally just found millions and millions of dollars for the seller.
+[33:29] Like, like, and again, everyone is looking for those pots of gold.
+[33:33] And not every catalogue has these, or landmines, depends which way you want to phrase them.
+[33:38] Like, not everyone has these sort of buried, this buried treasure.
+[33:41] Not every catalogue has it.
+[33:42] But on average, probably the number is more like 20% to 25% if you're aggregating rights in bulk.
+[33:48] So when you start to get to 100,000, 500,000, a million copyrights, you're more likely, there is a higher frequency that those pots of gold exist.
+[33:57] So then your average rate becomes more like 20% to 25%.
+[33:59] But having the rigor of managing it, you know, in the right way, having all the kind of foundations in place are kind of necessary to find those in the first place, but also sets you up for everything else, right?
+[34:14] With AI coming, I'm sure we'll come to AI at some point, but, you know, that's going to be critical for getting revenue from AI in future, right?
+[34:22] Or AI-generated music.
+[34:23] It all comes down to, like, knowing where to look and having the tools to look at that scale.
+[34:30] And if you just do that in a very methodical way, you find money.
+[34:33] It's not necessarily rocket science.
+[34:35] Yeah, I think as well, at least from our experience, when people are making investments into companies or, you know, whether it be public trade stocks, obviously the control over theirs is less.
+[34:46] But in general, investors are interested in visibility and no surprises.
+[34:54] And yes, there could be downsides.
+[34:56] Yes, there could be upsides.
+[34:58] But most people, as long as you can factor them in, then you have a plan and that gives you a clear idea of where you're going to go.
+[35:06] And that allows you to make investment decisions and have a bit more confidence.
+[35:10] And I think, you know, a lot about what we're saying is really understanding the data properly gives you clarity.
+[35:18] That clarity gives you confidence.
+[35:20] And with that confidence, then you can make better decisions.
+[35:23] And yeah, in the odd catalogue, you might find a bit of a landmine here.
+[35:26] But invariably, that might offset itself with some of the missing revenues that you find somewhere else.
+[35:32] Or at least it's going to give you a really good understanding of this is where we're at.
+[35:37] These are the opportunities that we now have to go and improve that.
+[35:41] And just kind of coming off the back of that, given the complexity of the underlying data sources,
+[35:48] what do you think are the challenges and what do you think the learning curve looks like for new financial investors coming into the industry,
+[35:59] looking at music as an asset class?
+[36:03] I think it should definitely not be.
+[36:07] And perhaps every industry has its own nuance.
+[36:09] But there is a lot of nuance in music that I think people coming into it for the first time are overwhelmed by or don't appreciate.
+[36:18] To think acknowledging that off the bat is key.
+[36:24] I also think then the technology side is critical.
+[36:28] Like you have all this.
+[36:30] Like if you look at like a data room, for example, that a seller will provide to a broker or a fund that's acquiring.
+[36:36] Like here's all you need to have a look at our assets.
+[36:41] Go and analyze and give us a number.
+[36:43] Like the quality of the data in that data room will also directly dictate or your ability to analyze and filter and apply your model to that
+[36:52] will directly affect what value you can offer and knowing what value you can then create once you've made that transaction.
+[37:03] So I think the technology side, the data side and having a toolkit and expertise, the two things in tandem to go after the right things.
+[37:16] And I think as well, that is also an element of experience that you start to know.
+[37:21] Oh, like, yes, we'll probably find some revenue here, but it won't be as high as we think it is because of our past experience.
+[37:28] Or we'll know.
+[37:29] You know, I mentioned before the sort of checklist of places you know where to check and you have tooling that allows you to check them.
+[37:35] That will be ever growing.
+[37:37] Like, oh, we know a catalog of this type, of this size, of this vintage in this genre.
+[37:42] However, we'll need to look in these places more than we will these other places, perhaps, for a different catalog.
+[37:50] You know, it feels like it's that kind of typical curve.
+[37:52] And I can't remember who invented or puts the name to it.
+[37:57] But, you know, the more and more you understand, the more and more you understand, the less you know.
+[38:02] Right.
+[38:04] We can add the name in the edit, I'm sure, but just overlay on the screen.
+[38:09] But I think that, you know, it seems so tickable here as we've spent the last probably four to six months really getting deep into all of the data challenges that the music industry introduces.
+[38:22] And we're scratching the surface.
+[38:24] And I think even, you know, with your level of experience on both sides, as you said before, you're kind of still digging, still digging.
+[38:32] And I think it feels like it's a problem that's never going to be solved.
+[38:37] But it's something that has to be continually worked on.
+[38:40] And given the lifespan, you know, the estimated lifespan of these catalogs for the copyright period, the copyright expiration, people are investing in these assets for maybe 100 years.
+[38:54] And the data ecosystem is going to change so rapidly, even in the next five to 10 years.
+[39:02] I think we don't even know what 100 years looks like.
+[39:05] And in other industries, similarly, we've seen where people start to put the foundations in, start to make those investments, start to build out the capabilities and competences.
+[39:16] They, in five years' time, find themselves way ahead of the competition in a way that it makes it extremely difficult for the competition to catch up just because there's such a gulf between them.
+[39:29] And I get the sense that it's only going to be the same in this industry too.
+[39:33] Yeah, yeah, yeah.
+[39:35] Like the big funds are realising this and waking up to it.
+[39:40] But they, like societies, have this sort of legacy business and operations and infrastructure to navigate and evolve and transition.
+[39:50] Whereas the new entrants are also clocking this, but with a clean slate.
+[39:54] And they can begin from the off to bake that in now.
+[39:58] And that'll be a continually evolving process.
+[40:00] And again, with AI, like Sam mentioned, that is a watershed game changer in so many ways.
+[40:09] Tech development, data analysis, generative content.
+[40:13] There are so many verticals in which that touches and affects.
+[40:16] And if you're not set up for data now, that's going to be critical for, as you say, the next five, 10 years, let alone then into the future.
+[40:23] Yeah. And Henry, on that note, I think we'll definitely get more onto AI in a second.
+[40:30] But, you know, let's say that you've, in an ideal world, you've got that tooling in place.
+[40:34] You've established those basics.
+[40:36] You've fixed as many leaks as you can possibly fix.
+[40:40] You know, what kind of, what does that bring you in terms of potential future upside?
+[40:44] And what foundation does that give you to then, you know, build upon?
+[40:50] And how do you continue to kind of feed and water the catalogue on those foundations?
+[40:54] Yeah, like I think there is a direct line, like a mathematical line between catalogue cleanup, clean metadata, clean publishing registrations and ownership picture that's disseminated everywhere.
+[41:08] And then the revenue that you see from that, like it is marked because that money does get created.
+[41:15] It just doesn't pass through.
+[41:16] So understanding of the pipes, clarity of where that money is, making sure it comes through to you directly then increases the return you can make.
+[41:24] And then once you've got that, once you sort of, especially when you first made an acquisition, there's all this effort in making sure everyone pays you rather than someone else.
+[41:34] Then you've got this solid foundation then to build on top of.
+[41:37] Like, you know, that any proactive marketing effort you do or sync or whatever, or like, you know, getting the song recut by someone will then have that percentage baked in because, you know, oh, it's accurate.
+[41:52] And I know that when that broadcast gets syndicated onto another channel or whatever, it'll correctly make the revenue for that generated by that will make its way back through to me.
+[42:01] I think it also sort of maximizes all the efforts across other more overtly proactive realms.
+[42:08] Like people don't think of administration as an, as a proactive or a profit making like activity, but arguably it is as much so as something like a sink or a marketing department.
+[42:20] And those are only supercharged by having administration incredibly watertight.
+[42:25] So our thought process is that if we, if you can get those foundations in place, it's not just about, you know, fixing the basics, so to speak, but it's getting the infrastructure in place that allows you to take advantage of those opportunities in the future ultimately.
+[42:40] And Henry, how do you think AI is going to have a material impact on all of this?
+[42:47] And what should funds be thinking about when they're preparing for, you know, this onslaught of whatever is coming our way with AI generated music, but also, you know, efficiencies and how to just deal with some of this stuff at scale?
+[43:01] Funnily enough, I think when the first sort of like tendrils of AI started coming through, everywhere I went, it was like, oh my gosh.
+[43:10] This is going to be a disaster. Creativity at large, human creativity is going to be, you know, scuppered by an absolute tidal wave of AI generated slop.
+[43:22] That's good enough for people to consume over human generated creativity.
+[43:29] And that's not an unfair analysis.
+[43:33] There are elements to worry about in there.
+[43:35] But I think what's more exciting is the opportunity AI provides for the administrative tasks, which have like played the publishing industry for years and have there are roadblocks in how data is exchanged or analyzed.
+[43:49] All rights are like amalgamated or, you know, check brought together at society level, particularly and at scale, particularly where AI can actually make a drastic difference and supercharge how a human copyright expert can look at and pick apart these sort of like tangled meshes.
+[44:11] Like even one example is sync licensing.
+[44:16] A supervisor comes along who has a relatively shallow level of understanding of copyright ownership and wants to license a track.
+[44:24] They need to find who owns this track, who do I need to go to to get this license from?
+[44:28] Even that simple task is so tricky, complicated, often impossible for them to locate.
+[44:34] You think the people who own it would want to make it like blaringly obvious, advertise.
+[44:39] We own this song.
+[44:40] If you want to use it, pay us.
+[44:42] But that's just not the case.
+[44:43] And so they go to this horrendous.
+[44:45] There's no one centralized place.
+[44:47] It goes to this horrible job of like, OK, we've got like, you know, two thirds signed off.
+[44:50] Now we've got 85 percent.
+[44:51] Now 87.
+[44:52] Now 93 percent signed off.
+[44:53] There's one person whose mother has the rights, but she's passed on to someone else.
+[44:56] We just can't track them down.
+[44:57] We can't use a song or just use some something else.
+[44:59] But bringing like all those rights together is a task that AI can look at at scale and model.
+[45:08] And I think applying AI models to realms like that will bring a drastic impact in not very long.
+[45:15] And the thing I'm constantly talking about with people that blows my mind about AI is that not only is it this like one watershed moment,
+[45:23] it's been like one watershed moment and then another watershed moment.
+[45:26] And then even quicker than that, another one.
+[45:29] And then the frequency at which game changing technology or tools is becoming available is decreasing.
+[45:35] So the rate at which people are able to evolve is dramatically changing as well, particularly, again, in terms of like tech, software development, AI analysis tools like that.
+[45:47] Like even even within the last year or so, it's just been insane.
+[45:52] One of the things that we have seen, though, particularly in the business arena, I think consumer adoption of AI and new technologies has always been a bit faster.
+[46:06] And, you know, the devices, the handhelds and everything else, I think really changed that.
+[46:10] But actually what we're seeing in businesses is that the adoption is lagging behind and the rate of new technology is outpacing them so dramatically.
+[46:24] And people just don't know where to start, you know, that the change is so vast and the opportunity is so great.
+[46:31] And there's so much noise out there.
+[46:33] There's so much marketing hype that is really very difficult for a business to understand, whether that be a financial institution, whether that be an opco.
+[46:41] Like actually, where are we going to start?
+[46:43] How are we going to use this?
+[46:45] How are we going to find some signal in that noise?
+[46:48] And how are we going to start to close that gap?
+[46:51] I think maybe 10 or 15 years ago, there was a question as to is the technology actually suitable for what we need to do?
+[46:59] I think that unequivocally has been answered.
+[47:03] And now the question is how what's our strategy for using it?
+[47:07] How are we going to invest to get there?
+[47:09] And I think one of the things that people underestimate is the amount of foundations that they need to put in first before jumping to sticking the roof on your house.
+[47:21] You know, you've got to really have your data in place.
+[47:22] You've got to have some more menial things that are going on that actually allow you to use those things at a higher level.
+[47:32] Yeah, I think that's a really great place to end on.
+[47:36] But Henry, more importantly, what is the song or album that you've just got on repeat, can't get out of your head at the moment?
+[47:48] Well, I've got kids.
+[47:50] So forced upon me and like always in my head and on repeat is like K-pop Demon Hunters or Taylor Swift.
+[47:58] There's a theme already on this podcast.
+[47:59] Why is this the same for every guest?
+[48:02] I'm really, I've gone down a country hole quite recently.
+[48:05] So like the last Chris Stapleton record is phenomenal, like phenomenal album.
+[48:12] Beautiful, beautiful songs, incredibly well produced, great musicianship.
+[48:16] That's a great record.
+[48:17] Or Morgan Wallen's got a new, another Wicked Country one I've been into.
+[48:21] So country vibes.
+[48:22] Nice.
+[48:23] Love that.
+[48:23] And Henry, I think we've probably got a little bit of a clue from something that I said earlier here.
+[48:28] But what was your most memorable gig?
+[48:31] I think probably like supporting Elton was just incredible.
+[48:38] And you don't realize until you go to an Elton gig, just the quantity of high, like the number of hits he has is three hours of back to back hits.
+[48:51] Like so few artists can claim to have like a career that spans that many decades with just that level of high output the whole time.
+[48:59] And I remember like this, the first gig, we sort of like finished packing all our stuff down.
+[49:04] We're still sort of backstage.
+[49:05] And then just sort of saw the band like very casually, very cool.
+[49:08] Like they've done it for years.
+[49:10] Stroll up onto stage and then just kick into the first song.
+[49:14] And from then onwards it's like, oh my gosh.
+[49:16] And we just like basically sat down where we were and just watched from backstage.
+[49:19] And that was probably, and then we literally did like 14, 15 dates with him.
+[49:22] And just like, we basically watched the entire set every night.
+[49:25] Like it didn't get dull.
+[49:26] So those are probably some of my most special ones.
+[49:29] Love that.
+[49:29] And that's probably, I imagine, connected to my next question, which is what is your biggest pinch me moment?
+[49:34] Probably just sat there watching Elton is.
+[49:37] I was thinking it's like, I've got loads of pinch me moments from being a musician.
+[49:42] Actually, I think in the world I'm in now, like I've always been driven by getting creators paid.
+[49:48] Like I can't write a song for Toffee, but the people who do write songs should be paid fairly.
+[49:54] And if they don't get paid fairly, we'll just end up with homogenous or AI generated slots.
+[49:59] Like I like enjoying human creativity, connecting with it, like drawing out emotion from me.
+[50:05] So I want to help people get paid who do that so they can do it more sustainably.
+[50:11] So actually some of the pinch me moments have been when I've helped someone do that and you give them meaningful revenue.
+[50:16] Even if it's like a couple of hundred pounds or a couple of thousand pounds for some people in one tier, or if it's hundreds of thousands of pounds for others in other tiers.
+[50:24] If that helps them keep going and you can see what it means to them as well.
+[50:28] Because these things that they've built, like are their legacy, are their children, are the outpouring of their heart and emotions.
+[50:34] Like they've lived this life that has helped them birth this creativity.
+[50:38] And then to see it misused, not paid for accurately is like a pain to them.
+[50:43] You can see the value you bring in their eyes when you say like, hey, look, we sorted this thing for you.
+[50:47] Now it's okay.
+[50:49] Yeah, there's money and that's cool and that's a nice plus.
+[50:51] But actually I think it's more than that.
+[50:53] And I think some of the biggest pinching moments of when I've worked on like incredible, world famous, culturally iconic catalogs.
+[51:00] And then directly with the artists themselves and being able to be like, hey, look, we've got this bit sorted.
+[51:05] You don't need to worry about it.
+[51:06] It's peace of mind now.
+[51:07] That's been really special.
+[51:09] That's probably a pinch me thing.
+[51:11] So I would like to think that the whole episode so far has sort of been leading up to this question.
+[51:16] No pressure, Henry.
+[51:17] But what would you say is the most underrated opportunity in music rights investment?
+[51:21] I mean, we've talked about it a lot, but definitely data.
+[51:25] Like appreciation of data, what you can do with data, having clean data,
+[51:29] how data can lead you to increase yield, like beyond what your wildest dreams could cope with.
+[51:36] Like it is, as I said earlier, directly correlated.
+[51:39] Like it is underappreciated and it's just starting to become appreciated, the impact that data can have.
+[51:45] And I think those that get that the fastest and are willing to apply tools and even get rid of old tools they had
+[51:54] and replace tools they've just built with new tools, like that ability to let go and continually evolve
+[52:00] will dramatically make an impact on competitive advantage.
+[52:05] And I think that's just only just being appreciated now.
+[52:09] Final question, Henry.
+[52:10] If you could own one song, what would it be and why?
+[52:14] Oh my goodness.
+[52:14] My head says something like, happy birthday or that's like incredibly well used.
+[52:22] My heart would say something.
+[52:24] Actually, maybe a good blend is something like, hallelujah, Leonard Cohen.
+[52:29] Oh yeah, beauty.
+[52:31] What a song.
+[52:32] Best song ever written, in my opinion.
+[52:35] Yeah, like phenomenal.
+[52:37] And you know a great song when it can be recorded by different people in different styles and still speak volumes.
+[52:41] So I think from a heart perspective, that would be a good balance of heart and head and bank balance.
+[52:49] Yes.
+[52:49] Very diplomatic.
+[52:51] Well, Henry, it's been such a pleasure.
+[52:53] So interesting.
+[52:53] I feel like, you know, it's given us so much insight into where value can be unlocked across the industry and for investors.
+[53:00] So thank you so much.
+[53:02] And if our audience wants to get in touch or find you, where should they look?
+[53:06] Go to fixmusic.ai.
+[53:11] That's sort of where I'm at.
+[53:12] And you can just reach me on henry at fixmusic.ai.
+[53:16] If you've got anything with data, publishing, rights, copyright, funds, valuations, money, AI, anything in that realm, data, then come and see us.
+[53:27] Amazing.
+[53:28] Fantastic.
+[53:28] Henry, thank you so much.
+[53:29] Thanks.
+[53:29] It was great fun.
+[53:31] Thank you.
+[53:32] Thanks for tuning in to Music Moneyball.
+[53:35] If you enjoyed the conversation, you can subscribe at standard-innovation.com to get every episode in your inbox.
+[53:43] You can also follow the show on Spotify, Apple or YouTube to stay ahead of the curve in music rights investment.

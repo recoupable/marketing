@@ -1,0 +1,469 @@
+# How the smartest buyers are valuing music catalogs in 2025 w/ Sachin Saggar
+# Date: 2025-10-29
+# Duration: 00:40:37
+# Guests: Sachin Saggar — Co-Founder, RedBrick Advisors Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Hosts: Emma Griffiths, Tom Mullen, Sam Morey Theme: “Meet Me” — Outlines (Written by Sam Cox) — Courtesy of Bespoke Records
+# Source: https://podcasters.spotify.com/pod/show/music-moneyball/episodes/How-the-smartest-buyers-are-valuing-music-catalogs-in-2025-w-Sachin-Saggar-e3aqt5c
+# Model: mlx-community/whisper-large-v3-turbo
+
+[00:00] This is Music Moneyball, the podcast that explores how to unlock the hidden value in music catalogues.
+[00:09] Brought to you by Standard Innovation, the data consultancy for investment funds.
+[00:14] Hello and welcome to the first ever episode of the Music Moneyball podcast. I'm Emma Griffiths
+[00:21] and I'm joined by my co-host Tom Mullen and Sam Maury. And today we have a really exciting guest
+[00:28] joining us. He is somebody who knows a thing or two about investing in entertainment IP,
+[00:34] having spent over 15 years as a research analyst, most recently as Director of Investment and
+[00:39] Alternative Funds at Stiefel. And earlier this year, he teamed up with Shot Tower Capital
+[00:44] to launch Redbrick Advisors, a new specialist valuation firm that's helping to shape how
+[00:50] music assets are understood in today's market. So welcome to the podcast, Ashi.
+[00:54] Thanks very much, Emma. Brilliant. So very exciting to have you. And before we kick into everything,
+[01:01] money and finance and valuations and all that fun stuff, we are dying to know if we could bring you
+[01:08] on with a song and if we had an actual budget for music licensing for our podcast and could play the
+[01:15] song as you arrive, what song would that be? You know what? This was such a tough question. I was
+[01:20] scratching my head all day yesterday trying to think, okay, what song could be reflective? And
+[01:24] all I kept coming back to was it had to be something, I listened to lots of different types of genres,
+[01:30] but I guess the main two would be like, I like my Anglo-Saxon music, but I also like my Hindi and
+[01:35] Punjabi music. So I was trying to figure out what song would kind of be the right mix. And the best one
+[01:39] I could hit upon was Sapphire by Ed Sheeran. And it's collaborated with Ari Jeet Singh, who a lot of songs
+[01:47] I listened to as well. So I felt like that would be the best reflection. Hopefully that's a good pick.
+[01:53] Love that. Amazing. Well, when we do get the budget, we'll insert that.
+[02:01] Yeah, we'll contact Ed. Yeah.
+[02:03] Yeah, yeah, yeah. Exactly.
+[02:04] So I thought to start with, it'd be just really good to understand what you do at Redbrick. Obviously,
+[02:10] you've relatively sort of recently started the business, you know, give us an overview about what
+[02:15] you do. So Redbrick is a music and entertainment valuation firm. We launched that in February in
+[02:23] partnership with Shot Tower Capital, which is one of the preeminent music and entertainment investment
+[02:28] banks based in Baltimore in the US. They've done a lot of high profile transactions, but they've been
+[02:33] involved with the estate of Michael Jackson for a long time. And more recently, and maybe some of
+[02:40] the UK investors would be aware of is that they were the strategic advisor to the board of hypnosis
+[02:46] and ultimately ended up selling that public company or the catalog to Blackstone last year.
+[02:53] But in terms of what we're doing at Redbrick, I guess, you know, it is a valuation focused firm.
+[02:59] So if I was kind of draw a vent diagram, I'd say music valuations kind of sit in the center. And so
+[03:05] that would be sort of back catalog of songs from artists or songwriters. And then you could have
+[03:13] operating companies around that. So valuations of publishing companies or record labels, music
+[03:19] festivals, and then kind of moving outwards, you'd have sort of film and TV. And we've also looked at
+[03:25] some things in the video gaming sector, which is kind of interesting. So it's very much starting
+[03:29] point is music, but hopefully being able to come into adjacent markets where similar skill sets can
+[03:33] be used. Thank you. And obviously, like over the past five years, there's been a lot of capital
+[03:37] coming into the sector. So what's changed in that period of time? I think you've had a kind of front
+[03:41] row seat to all of that. So how have you seen the market evolve?
+[03:44] I guess kind of this goes back to kind of more global macro and you kind of had the period between
+[03:51] sort of 2016, 17 to 2021, where you just had low interest rates. And that kind of caused a lot of
+[04:00] capital to kind of start looking for other areas to invest in. And alternatives kind of became a big
+[04:05] buzzword over that period of time. And the kind of music kind of benefited from that just because
+[04:10] people saw the kind of income yields that you're kind of generating off that and relative to what
+[04:15] you could get in a bank or in treasuries or whatever it might be, they started to look quite
+[04:19] attractive. And that kind of combined with kind of streaming area, streaming area in music kind of
+[04:25] picking up and people kind of attaching or kind of becoming a lot more confident in that thesis and
+[04:29] the kind of longevity attached to it. And so a lot of capital came in and like most things, probably too
+[04:34] much capital came in too quickly and you kind of saw the market get quite frothy. And, you know, that was
+[04:39] probably heightened by the story around hypnosis that kind of raised a lot of capital in the UK
+[04:44] over that timeframe and acquired a lot of catalogs very quickly. And you saw a sort of bit of a pullback
+[04:51] when interest rates started to come back, rise again, post COVID. And I guess you kind of say
+[04:58] some of the froth came, has come out the market, but, you know, at least looking backwards, I kind of felt
+[05:04] at the time that interest rates would probably have quite a big impact on the asset class. And in hindsight,
+[05:08] it hasn't had as much impact as you would have thought, because frankly, a lot of, you know, the way
+[05:17] catalogs are acquired and finance kind of has shifted quite a bit. And you've had a lot of influx of
+[05:23] people happy to provide financing against these types of catalogs. And that's kind of buffeted them
+[05:28] from sort of an impact from rising rates. And actually the asset class in hindsight held up pretty
+[05:32] well. And frankly, there's still a lot of capital in the market and there's still a lot of appetite for
+[05:37] people to kind of find ways to kind of invest in here.
+[05:40] And outside of that kind of COVID blip, the peak that we saw, which was probably pretty common in
+[05:46] lots of industries, whether it be retail or technology and all of the SPACs that were going
+[05:51] around. Do you think the like normalized now, what kind of we're four or five years on, are you seeing the
+[06:00] trend increasing? So are you seeing like a material increase in inflow of capital now for the past two,
+[06:09] three years versus the previous pre-COVID years?
+[06:13] I mean, it feels from the conversations that we have, it feels very stable. There's definitely
+[06:18] deals being done. You saw the partnership between Bain and Warner earlier this year, and this still
+[06:25] feels like there's capital coming into the market. And I think there's just a lot of confidence around
+[06:30] the longevity of the cash flows and the income streams. And frankly, that music is something
+[06:37] that touches on everyone. So I think this kind of, it creates this own interest around it because
+[06:41] everyone can look at it and understand to some extent or have some connection to it in some way,
+[06:46] which kind of creates its own ecosystem around it. So I would say it definitely feels like maybe,
+[06:51] you know, not to the extent necessarily that you had in the sort of low interest rate period,
+[06:56] but it definitely feels like there's capital coming in. And I think that's kind of been
+[06:59] supported by a lot more lenders willing to finance acquisitions or catalogs or provide
+[07:06] against existing financing against existing catalogs, which is kind of helping people extend
+[07:11] the amount of cash that they have to invest in the sector.
+[07:14] And do you think that's like those people who are willing to finance those investments? Do you think
+[07:19] that's becoming a bit more mainstream or is it still very niche?
+[07:24] It definitely feels like it's kind of veering into more mainstream now. I'd say you had a,
+[07:29] you know, handful of lenders that were quite happy to do this maybe five, six,
+[07:33] seven years ago, and that number's increased. And it's definitely a lot more people looking at the
+[07:38] sector and happy to kind of start nibbling into it. So I think there's a lot more competition on that
+[07:42] side for sure.
+[07:43] Sasha, what was the, what was the most interesting catalog you've worked on from a valuation perspective
+[07:51] based on what you can disclose?
+[07:53] Probably hard to disclose the recent stuff. But I guess given my previous role at Stifel as a public
+[08:01] analyst, I guess you can't really kind of walk away from the hypnosis story, which is always
+[08:05] interesting and kind of providing you new things to look at, new ways to kind of new information to
+[08:10] digest. So I think trying to understand that from the outside in was definitely a highlight and an
+[08:18] interesting period given all the sort of nuances and things that were happening around that.
+[08:23] What was, I mean, there was obviously lots talked about in the press. What was the most interesting
+[08:29] thing? And I think, you know, rather than drawing opinion about good or bad, just there's got to be
+[08:36] some really interesting things that you uncovered or saw through the process that were good learnings
+[08:42] for you that kind of you can apply to future catalogs.
+[08:46] There's a key difference between what I'm doing now and what I did then. What I was doing then was
+[08:50] using information they provided us publicly to kind of understand what was happening within the
+[08:56] portfolio and within the company. And obviously you're limited by the information they give you and,
+[09:01] you know, they give you bits, but not everything. And so it was always a question of,
+[09:05] okay, I've got this piece, these pieces of information. How do I connect the docs and
+[09:10] dots? And how, how does that sort of connect to publicly, publicly available information and
+[09:18] conversations that I ended up having with people in the industry to kind of triangulate? Okay, I think
+[09:23] this is where this is at, and this is why this is happening. And this doesn't make sense.
+[09:26] And in the role that I have now, I think in some ways it's a little bit easier because actually you
+[09:32] get access to all the data. So, you know, I didn't have all the data for all the underlying
+[09:37] song royalties that hypnosis is receiving. Now I get all the royalty state. If we do evaluation
+[09:42] engagement, then I get all the royalty statements for the last three to five years. And yes, it's a lot
+[09:48] of work of cleaning, aggregating, and understanding what's happening there. But actually I've got the
+[09:52] information to play with and that's kind of easier in some ways. So on the hypnosis side,
+[09:57] I think it was the most interesting bit was kind of, you're always a little bit anxious around,
+[10:03] okay, I've connected these dots, but am I actually right? And it's quite easy for someone to come and
+[10:07] poke a hole in that because you're working with limited data. So I think that was probably the
+[10:13] most interesting bit that actually in hindsight, it kind of felt like even I was surprised that
+[10:18] probably 90, 95% of the things I said very early on actually was pretty much bang on the mark. And,
+[10:24] you know, some of that I can put down to skill and some of that's just plain luck, frankly.
+[10:30] Yeah. And I suppose as well, you know, you're kind of putting your head above the power of it as well
+[10:35] with incomplete information and you're having to paint a picture in the public domain and that's
+[10:39] tricky, isn't it?
+[10:41] Yes, it is. And the one thing that you learn very quickly is, like I said, was music just touches
+[10:47] on everyone in a different way. And, you know, I came, I'm from a finance background and frankly,
+[10:53] I, you know, rightly or wrongly, I was looking at this as very much as an investable asset class
+[10:56] rather than sort of the emotional creative side of things. And the people that you meet are very
+[11:03] diverse. So you met people that were very much emotionally connected to the music. And then you
+[11:08] met people that were very much financially looking at the sector and you put those two together and
+[11:13] suddenly you've kind of got very diverse and extreme opinions coming out and you kind of need
+[11:19] to kind of make sense of that, especially I think early on with the hypnosis story, there was a lot
+[11:24] of pushback from the sort of things that I was saying from investors that were very unhappy with
+[11:27] what I was communicating and what I was writing about. And, you know, you, you, you know, you kind
+[11:32] of got, you know, you're looking at it thinking, this is what I think with the information I have,
+[11:36] but I could be wrong because I don't have all the information. So that was always kind of a
+[11:40] difficult period in some ways, but in hindsight, it felt like I got the right call broadly.
+[11:47] Do you think that kind of emotion still plays in a lot to catalog valuations now, you know,
+[11:56] obviously you've got the maths side, like these are the facts and figures based off the information
+[12:01] that we have, but then, well, you know, there's a whole load of emotion around this.
+[12:05] I don't think you can ever probably come away from it. I mean, I think there's always an element
+[12:11] of emotion in these things and whichever institution firm that you're looking at, if you come across
+[12:16] something that you've got some sort of emotive connection or a piece of music that you've got
+[12:20] some sort of history with, then, you know, you are going to be slightly biased in some ways.
+[12:25] I mean, it feels like people are a lot more sophisticated and looking at things in the right way
+[12:29] versus what, you know, kind of was a bit of a land grab in that sort of 2017 to 21 period.
+[12:36] Probably a lot of that, it is and is extreme, but I think it's natural that if you see something
+[12:42] that you have a connection to that it might colour you a little bit.
+[12:46] And in terms of timing session, do you, like, how regularly are you seeing catalogue owners
+[12:53] actually wanting to do valuations? I appreciate it's probably kind of case by case basis, but,
+[12:59] you know, how regularly are you seeing it? And are there any particular times that are kind of optimal
+[13:03] for doing it?
+[13:05] I guess, you know, caveating the fact that we launched February, we're kind of going through
+[13:09] that process now. But I guess there can be lots of reasons to require valuations.
+[13:15] And, you know, with all the institutional capital coming in, normally that capital requires some form
+[13:23] of regular valuation attached to it just because of the nature of the industry that they operate in,
+[13:29] which is kind of more the financial side. If you're getting financing or you're advancing
+[13:33] capital to an artist against their catalogue, then you might require a valuation.
+[13:40] And then there's sort of the other aspects where, you know, it's sort of, if you're an artist and
+[13:46] you see everyone else selling their catalogues or considering it, then, and you're an artist,
+[13:52] you might just want to know how much you think it's worth and what you might get for it.
+[13:54] And sort of there's a curiosity angle attached to it. And, you know, music has a lot of interesting
+[14:00] characters around it, which is kind of what makes it fun. But then people go through different life
+[14:05] periods, right? So it's not uncommon for artists to, you know, generate a lot of royalties,
+[14:12] but then also spend on the other side. And that creates liquidity squeezes on their side where
+[14:17] they might want to access cash or they're required to monetize their assets. There's clearly things,
+[14:24] you know, you kind of see the other end of the spectrum as well, where, you know, you're seeing
+[14:28] a generation of artists that are getting older. And unfortunately, a lot of, you know, some are
+[14:31] passing away now. And that creates another set of situations where evaluation might be required for
+[14:37] inheritance tax or estate tax purposes, or people are looking to think about how they might manage
+[14:42] their estate towards the latter part of their career that might require something. Or, you know,
+[14:49] you have music assets sitting in partnerships and JVs, and maybe the partnership breaks down,
+[14:56] or there's a requirement for a dissolution of that partnership in some way that would require
+[14:59] evaluation or a partnership's coming together and you're putting things together and that might
+[15:03] require evaluation. So I think there's always kind of, there's quite a lot of different ways that
+[15:08] evaluation might be required, which kind of makes it interesting. So you're not kind of attached to
+[15:13] sort of one particular method or process.
+[15:18] You've seen that, Sachin, there's been a lot of, it's obviously big profile acquisitions of rights,
+[15:26] right? So whilst there might be an underlying valuation that you provide, do you see any of
+[15:32] the investors going sort of over and above that to get the asset?
+[15:37] I think you've got to think very carefully about what a valuation is and what you're providing.
+[15:41] So if you start with kind of the most simplistic way to think about it is evaluation normally is what you
+[15:49] think an asset would transact at in a normal operating environment between a willing buyer and willing
+[15:55] seller. And what does that mean? So that kind of means that you look at a catalog or some songs and you
+[16:03] include in your valuation a set of underwriting assumption that assumptions that are going to apply to the
+[16:09] majority of the market. So what you think most people who would look at this catalog, how they would think
+[16:14] about it, what assumptions they would use to put into it. And then you actually come to reality, which
+[16:20] can be quite different. So, you know, if you have a major that is looking at a catalog, then their
+[16:28] particular set of underwriting assumptions might be different to what the baseline assumption is, because
+[16:32] majors tend to have costs of capital that are a lot lower than many other groups. And there might be other
+[16:39] synergies and other reasons and factors that they might want to input into that valuation. That would
+[16:44] mean that they are happy to pay more for it. And that doesn't mean it's a bad investment, but it's
+[16:47] kind of, you end up having kind of extremes. It kind of, that's your baseline valuation for an asset
+[16:53] that's illiquid. But then you can have that deviate from one extreme to the other, depending on who
+[16:59] actually ends up transacting and what, you know, how attractive is that asset and how much competition
+[17:04] there is. Would that be kind of similar to other industries where you've got like trade buyers and
+[17:11] institutional buyers? So, you know, all of the metrics for a PE firm going to buy a business will
+[17:18] look very, very different to if it's a trade buyer in the same space, because they can take out a bunch
+[17:24] of management and they don't necessarily have the same cost of capital and other considerations to put in place.
+[17:33] I think you hit the nail on the head. Like a lot of the high level stuff around valuations applies
+[17:38] to every single factor. Any asset that's illiquid, I think it's a very similar set of
+[17:42] approaches and how you would think about it. And then you come down to things that are
+[17:45] industry specific in terms of how you should think about it. And you can kind of carve out
+[17:49] one between the other. And that's kind of the interesting bit, I guess.
+[17:54] Final question on this section, Sachin. Do you think there's any room for valuation like methodologies
+[18:03] to change in the future based on how technology is evolving or, you know, different sort of data
+[18:10] points that you're now getting access to that may perhaps are, you know, new to the industry?
+[18:15] I think at the moment, you know, the dominant method is a discounted cash flow valuation. And
+[18:22] given, you know, in kind of the seat that I say, I guess, privileged kind of our access to a lot of
+[18:30] information from Shots Hour, who have a long history of kind of data on where catalogs have
+[18:35] actually transacted. So those two are probably the dominant methods in terms of how you'd think about
+[18:39] it. But every catalog that you look at, there's elements of it that have to be very specific to
+[18:45] that catalog, incorporating elements of what are important to it. And then there's things that are
+[18:49] generic. So are you likely to deviate away from using a discounted cash flow? It's your main method.
+[18:54] Probably not. I think that would be very much the dominant method, but kind of how you go about it and
+[18:59] what elements you look at and how much significance you put to certain factors for a particular catalog could
+[19:07] change over time. And, you know, the industry is always involving, you know, you're seeing,
+[19:12] you know, Spotify and others now probably likely to increase pricing more regularly. How do you think
+[19:18] about that? You've had issues around in the US around the bundling issue with Spotify and the
+[19:23] mechanical licensing society. So all those things kind of have an impact, but probably a little bit
+[19:31] more in the context of the approach. It stays broadly the same. It's just how you incorporate
+[19:35] specific industry updates.
+[19:39] And it's really, I suppose, the buyer may have a different sort of perspective in terms of how
+[19:45] they're going to utilize that asset, which they wouldn't, you know, necessarily have to disclose
+[19:48] at the point of purchase, right?
+[19:50] Yeah, I mean, it's different considerations. One is, you know, like we've been saying, a lot of
+[19:55] capital has come into the sector and, you know, frankly, there's a pressure to deploy to some extent
+[20:00] as well. And so if you have capital and you have dry pad up very much like private equity, people talk
+[20:06] about that today, sort of like, you know, you can't sit on cash forever. So if an asset comes up and you
+[20:11] like it, and you think it's, it's interesting, but it you might have to pay a little bit over where you'd like
+[20:18] to, then you might do it to kind of start creating momentum and showing that you're in the marketplace. And I think
+[20:23] there's, there's a valuation and there's kind of the reality of how competitive an asset, a particular
+[20:29] catalogue could be, which I think is kind of applies to every market, not necessarily just music.
+[20:36] And do you think that the views on valuable catalogues, not, I'm not talking about the absolute values,
+[20:45] but, you know, the, the drivers, the levers that get people interested in certain catalogues,
+[20:52] do you think they're still really quite narrow in the industry? Or do you think it's maturing that
+[20:58] people will consider like more obscure things to be valuable rather than just, oh, it's an iconic
+[21:04] artist. Of course, like that's the one everybody wants. I think it's probably fair to say it's expanded
+[21:10] and people are looking at different types of rights. So, you know, in music, I guess the one
+[21:16] thing that's interesting, there are a variety of different copyrights or music rights that you can
+[21:22] actually acquire. And people are now looking at things maybe that they wouldn't have looked at as,
+[21:28] as much previously. So things like producer royalties, name, image, and likeness rights are
+[21:34] definitely coming into play a lot more. And there's a lot more focus on that because you're seeing people
+[21:38] that, you know, artists or institutions that are coming in looking to do things around that sector,
+[21:43] like maybe release a film, a book, a docu-series or whatever. And you're seeing that kind of come
+[21:49] through. And, you know, when you look at your Netflix's and Amazon Prime's, there's definitely a
+[21:53] lot more of that than there is in the past. And it's just a different method to kind of monetize your
+[21:58] revenue streams. And just to kind of zoom out, Sashin, and look at the market, you know,
+[22:03] what are you seeing in terms of like the evolution and the maturity, say, compared to like other
+[22:10] alternative assets?
+[22:12] I guess if I go back to the reason why Redbrick was eventually launched, and why that made sense was,
+[22:21] it felt like a lot of capital that come into the sector, but a lot of the services and infrastructure
+[22:28] around the sector maybe had not necessarily kept up pace. And I think that's kind of probably still
+[22:35] true. So I always go back to, you know, another area that I used to look at quite a bit was kind
+[22:42] of renewables and energy storage. And that's very similar in a way to music in the sense that it's
+[22:47] sort of a lot, you know, a 10 year story. In the last 10 years, it's really sort of picked up and,
+[22:52] you know, you've seen wind farms, solar farms, and that whole narrative increasing a lot more.
+[22:56] But the infrastructure around that sector seems far more mature than I would say in music,
+[23:06] it felt to me. And so I guess it still lags in some way, but it definitely feels like it's picking
+[23:11] up and a lot more people are interested in it. And it's probably just natural over time,
+[23:14] you'll continue to see it mature.
+[23:15] That's such an interesting comparison. I mean, two totally different sectors. You couldn't get more
+[23:23] different goody really. You know, it's hard when you think about it, it's sort of like,
+[23:28] there's not many things that have come up in the last 10 or 15 years, which you'd have a lot of
+[23:33] similarities. And, you know, I looked at renewables for a long time, it's kind of like, look, it's a
+[23:38] cash flowing industry that's based on long term cash flows, where the valuation method is driven by a
+[23:43] DCF, which is kind of music, frankly, and it's the same thing, but a different sector, different
+[23:48] levers, different factors to think about. But actually, that's kind of the interesting bit
+[23:52] where you can kind of draw experiences from one and to how you might look at music, which has kind of
+[23:58] always been a fun part.
+[23:59] So a little bit of a little bit of role play now for you, Sashin. I think, you know, one of the
+[24:06] things having worked closely with investors on boards and things like that, what a big challenge in any
+[24:13] board meeting is looking at the downside protection and understanding, okay, what are the risks that
+[24:19] are coming up? So let's imagine that you've just invested a significant sum of money, a billion
+[24:26] dollars into a music catalogue or a fund, a collection of catalogues. What would be the things that you
+[24:32] would be worried about every night?
+[24:33] I mean, I guess part of the beauty of being in music is that there should be a level of stability
+[24:38] attached to the income stream. So hopefully you should never really go to sleep being sort of
+[24:44] sweating and thinking too much around what's going to happen tomorrow. It's not meant to be,
+[24:48] you know, a public stock, which goes up and down by 10, 15%. But I think, you know, I think front and
+[24:53] center will be things like AI would definitely be on your mind in terms of how that kind of evolves and
+[24:58] what happens there.
+[24:59] Are you seeing any like current impact on that? I mean, I know for sure, and I think Mr. Beast came out
+[25:06] in the news a couple of days ago, explaining his concern for AI. And if you are a creator in the
+[25:15] creative space, at least around video and the types of things that he does, he certainly sees
+[25:19] that a bit of a concern. Have you seen any real impact today? Or is it just a boogeyman on the horizon?
+[25:26] I mean, it's still quite early on in terms of how it's going to be embraced and you're seeing signs of
+[25:31] it. But in terms of actually, are you seeing real tangible elements in data? Probably very limited,
+[25:38] I would say. But it is something, you know, it is going to have an impact and you're seeing it. So,
+[25:45] you know, explosion of content, right? So there's definitely potential for a lot more music. And you
+[25:53] hear about it already being uploaded onto all the DSPs. And then there's also the positive side of it,
+[25:58] where, you know, how you create music and how that process can be more efficient and more creative
+[26:05] with sort of using it as a tool to help existing artists, which can be very positive. And then
+[26:11] the output could also be is like, you can have an artist that releases songs in multiple languages
+[26:17] with their voice, which could be a very interesting additional revenue stream. And I think I was at a
+[26:24] conference yesterday where someone was talking about, you know, you could actually lend your voice
+[26:28] to a sync opportunity. And frankly, you don't even need to be there because you can just sign it and
+[26:35] just say, AI kind of mimic my voice. And I can come in an ad or a commercial or a voiceover for whatever
+[26:42] it might be, but it doesn't actually utilize my time because I don't have to do it. It kind of could be
+[26:47] quite interesting as well. Yeah, I suppose as well, there's that whole kind of broad side to both for
+[26:55] the positive and the negative, you know, being able to detect fraud at scale, but then being able to
+[27:02] create fraudulent assets at scale. And I guess similarly, there's the opportunity around remixes,
+[27:08] the cost of production must go down. Are there any other things that you would think, oh, crikey,
+[27:13] when you're doing your valuations, right, that that's something that if that moved, then that's
+[27:18] going to have a significant impact or? I mean, I think the other sort of key conversation is
+[27:24] probably around growth rates and where it's going. So you've had a period where growth has been
+[27:30] relatively robust within music. And a lot of that's been driven by kind of penetration of mobiles
+[27:35] within the developed world, like the US and Europe. And you're starting to see signs definitely in the US,
+[27:40] where it's sort of you're kind of reaching kind of peak penetration and sort of streaming.
+[27:46] Growth numbers have definitely moderated in the first half of this year. And that's definitely
+[27:51] something to kind of keep an eye on in terms of how that kind of evolves. And, you know,
+[27:56] you've had a rising tide, this all boats kind of approach for the last few years. And I think you're
+[28:01] probably at a point where if you are, if you're, if you're investing in the asset class, or you own
+[28:06] catalogues, then you're going to probably have to work them in a different way, rather than kind
+[28:10] of rely on tailwinds from, from sort of music macro to kind of carry, carry you forward. And so I do
+[28:17] think it's kind of a focus on how you optimize your revenue streams or grow your revenue streams in a
+[28:24] sensible way.
+[28:24] I suppose a bit more of a focus on the emerging growing markets, which aren't necessarily in the
+[28:30] same language back to your point on AI. And I suppose, similarly, I would imagine some of the
+[28:37] maturity that you saw in the renewable energy sector is investment in infrastructure, improved
+[28:43] analysis reporting, understanding more closely where the industry is going, gives you a bit better
+[28:49] insight and a bit better comfort.
+[28:51] You definitely seeing that, I think definitely sort of, there's a big tech component within music
+[28:55] and kind of analytics around that and how you do things. I think in the past, it feels like it's
+[29:01] been quite old school and definitely from the conversations that we've had, there's, there's a
+[29:06] lot more investment and time going into that in terms of how you think about it.
+[29:12] Cool. Thank you. And when you're doing your valuations, what's the biggest thing that you're
+[29:20] kind of concerned about from the valuation point of view? Like what's the biggest trip hazard?
+[29:26] So not necessarily the external levers, but are there a few pieces of information where you're like,
+[29:31] look, without this, it's going to be massively skewed or?
+[29:38] I think it's hard because what I realize is every catalog is, or every valuation is its own
+[29:46] beast in its own way. And there's different trip hazards and in each catalog and kind of at least
+[29:53] one thing that I found is that, you know, you have to very carefully read all the underlying
+[29:58] publishing agreements, admin agreements and recording agreements or licensing agreements that you have
+[30:03] because they're all individuals and they've all been tailored to a particular artist with different
+[30:07] factors involved. So, and that then needs to be incorporated. So, you know, you might have an artist
+[30:14] that gets an increase in the share of their royalties once streaming hits a certain number,
+[30:20] or the contract expires, or there's a statutory reversion or contractual reversions, and all of
+[30:27] those things kind of play a part. And so I think not necessarily one trip hazard, but you're kind of
+[30:33] wary of that it's individualistic and you need to kind of step back and kind of make sure that the key
+[30:39] things that are going to drive this particular catalog are kind of embedded into how you think about the
+[30:44] valuation and that's sort of sensibly input into the process.
+[30:51] So you've got a framework that you use to do the valuation, but ultimately you've got to really
+[30:55] understand the very specific cases, environments, geography, legalities and everything that go along with it.
+[31:02] You've got to read everything and go through it in detail and make sure you haven't missed something.
+[31:06] And so I think that's kind of probably one of the most important parts. And, you know,
+[31:15] if you think about certain artists or songwriters, if they've had a long history of producing music,
+[31:20] then they may have been affiliated with multiple publishers, multiple labels, and suddenly you're
+[31:26] looking at it and you've got, you know, it's not just, hey, there's one agreement or two agreements,
+[31:30] you might have 10, 20, 30 or whatever the right numbers might be. And that takes time to kind of
+[31:35] go through in a sensible way and make sure you're not missing something.
+[31:38] I was just going to say, one of the things that's quite commonly come up is,
+[31:44] my voice is clearly getting much worse now.
+[31:48] It's the data formatting or the format of the data from different sources could tend to be completely
+[31:55] different. Is that a challenge for you?
+[31:57] Yeah, it's a challenge for everyone, I guess. It's like,
+[31:59] you know, if you're receiving statements from different payers, then all those different payers
+[32:05] will have their own formats. And even they themselves will change their format over time
+[32:09] as they tweak things. And so, you know, the starting point to doing a kind of actually
+[32:15] doing the valuation is kind of consolidating, aggregating and cleaning all that information.
+[32:19] So you kind of need to take each statement and kind of roll it up into something that kind of can be
+[32:26] consolidated with others. And that kind of becomes your starting point. And that, you know, if you're
+[32:31] going back three or five years and you're getting statements either quarterly or six monthly,
+[32:36] and then you think that each statement that you get, if you've got, say,
+[32:39] a relatively well known or well streamed artist, then, you know, each statement has a line item for
+[32:46] every time it's been played or streamed or whatever it might be. And so these things can turn to 10,
+[32:51] 20, 30, 30,000 pages of data that needs to then be looked at. And you kind of want to understand
+[32:57] different elements about it. And there's different pieces of information that can be teased out. So
+[33:01] it is a cumbersome part of the process. But I think there is, like I said, I think people are
+[33:07] becoming a lot more focused on it. And there's definitely a sort of a tech focus coming in where,
+[33:12] you know, you can get help or support to kind of at least take away some of the more mundane aspects
+[33:18] of that.
+[33:20] Yeah, and I think that that was similar to the question I was going to ask, but mine was going
+[33:23] to be from a slightly sillier perspective, which was just, first of all, what are your,
+[33:28] what are like the best things about doing valuations that you love? And then what are the things,
+[33:34] probably some of the stuff you've just said, right, about just like the sheer admin and everything?
+[33:38] Like, what are the bits that are just really annoying to have to deal with?
+[33:41] The fun bits, it's kind of like, you know, kind of about everything is like you,
+[33:47] you're looking at different musicians or artists or songwriters, and you're learning something about
+[33:51] them and their history. And a lot of them have quite colourful pasts in terms of how they've got there,
+[33:56] and you're understanding them. And, you know, I've spoken to lots of people and, you know,
+[33:59] there's different views. And a lot of people say that you shouldn't be listening to the music of
+[34:03] the person or artists that you're valuing, but kind of, I kind of feel like that's kind of the fun
+[34:07] bit. So as you're doing that, doing the work, you start listening to different types of music,
+[34:11] and it kind of expands your own repertoire of things that you like to listen to. So that's kind of
+[34:16] the fun bit. And I kind of like learning about different people and their history and stuff. And
+[34:20] that's always a component of when you're doing the valuation.
+[34:24] I was also going to ask what, what you're actually listening to when you do the valuation. So it
+[34:30] sounds like sometimes you get influenced by who you're actually valuing.
+[34:35] It's fun. It's interesting. So I think we were looking at a rock band, and I tried to put that on
+[34:41] while I was working, and that didn't work very successfully, because I don't think it was,
+[34:45] I was capable to kind of work and listen to that at the same time. So that, so generally,
+[34:50] if I'm working, I like mellow and calm music or something that can kind of go on in the background.
+[34:54] But I feel like my, probably have to plug my daughter here where she's kind of polluted my
+[34:58] Spotify playlist with K-pop in every single way that they possibly can. So all I see is K-pop,
+[35:05] Demon Hunters, BTS, or Blackpink at the moment. So that ends up being stuff that I end up listening to
+[35:12] just because it keeps coming back. It's the algorithm now.
+[35:17] It's catchy. It's so catchy. We were talking to a bunch of parents, friends recently, and they were
+[35:24] all saying how K-pop and Demon Hunters has infiltrated their lives on the TV, on Spotify, Apple
+[35:31] Music. It's just everywhere. Yeah. And I think the problem with the algorithm is that you don't know
+[35:35] how to press exclude. So I feel like I'm just literally covered by all this stuff now. It's like,
+[35:39] how do I kind of reduce the volume of this a little bit? It's not really possible.
+[35:43] It's actually, there's a lot of news in the press at the moment about the majors making deals with
+[35:52] AI platforms. How do you think that's going to evolve over time and how that will affect royalties?
+[35:59] I mean, I guess you kind of feel like they need to do it a little bit. I mean, it's better to have
+[36:08] some sort of an arrangement than not have anything and find that you're kind of trying to enforce
+[36:14] things that are quite difficult. So I kind of feel like the licensing route is probably the most sensible
+[36:18] route. But it's kind of evolving quite quickly. So it's also, it doesn't necessarily impact anything I
+[36:27] see at the moment directly, given it's still kind of being figured out in terms of how that all works
+[36:32] out. But it is something that needs to be monitored, I guess.
+[36:36] I don't know if it's time for our quickfire round.
+[36:39] Is it just K-pop the answers for every single one of these questions?
+[36:42] Yeah, I probably should just make it easy.
+[36:46] I can recite the lyrics off the top of my head without actually...
+[36:49] Oh, well, that's next.
+[36:52] Oh, there's karaoke.
+[36:53] So, Sachin, first of all, what is the song or album you have on repeat at the moment?
+[37:00] All right, I am going to stick to K-pop on that because that is probably the one that's permeating.
+[37:03] So I'll use it once, but I won't use it again.
+[37:07] Yeah. And any, is it just demon hunters generally?
+[37:12] It was definitely K-pop demon hunters for a while. I feel like that's kind of come off a bit.
+[37:15] And, but my daughter's still very much Blackpink and BTS. Blackpink seems to be,
+[37:20] their new single jump seems to be everywhere at the moment. So that's definitely on repeat quite a bit.
+[37:26] Nice.
+[37:27] I like it. And I don't know how much of a good goer you are, Sachin, but what is your most memorable?
+[37:33] So I guess I would say I used to go to the V Festival when it was around back in the day,
+[37:38] and that was always good fun. And I just remember lots of times where it just
+[37:42] chucked it down with rain because you're in the UK. So it always rains and it's muddy.
+[37:45] And then just saw a lot of artists and it was fun. So I'd say that.
+[37:49] And in your career so far, Sachin, what's been your biggest kind of pinch me moment in terms of,
+[37:55] you know, your exposure to music and what you've been doing?
+[37:59] I guess in the last couple of years, I guess it would just be the genesis of Red Brick.
+[38:04] I think kind of have to give a shout out to Shot Tower and David Dunn and Rob Law,
+[38:10] in terms of just how seamless it was. I think it kind of was so seamless that I didn't realise
+[38:14] it was happening at times. And I was kind of wondering, is this really actually happening?
+[38:17] Because it feels like it's just too straightforward. But I definitely give them a shout out for that,
+[38:21] just to kind of helping kind of get to this point.
+[38:24] Nice.
+[38:25] And what would you say is the most underrated opportunity in music rights at the moment?
+[38:32] I guess you've got to first of all, know what you own and understand what levers you have to pull.
+[38:38] But I think maybe not necessarily that everyone kind of knows the different factors and things that you
+[38:43] can do. But probably the one that I kind of like is probably just people that focus on their artists
+[38:48] and repertoire. So if you've got a, you know, a roster of artists just focusing on their development
+[38:53] and trying to kind of push them out there more is kind of, you know, the one that I'd look at the most.
+[38:58] But there's lots of areas and it kind of depends what you bought and what you can do with it.
+[39:05] Yeah, absolutely. And last but not least, if you could own one song, what would it be?
+[39:09] And why? And I'm assuming you're going to get the royalties for this song.
+[39:13] So yeah, I'm not sure there's going to be a lot of how much royalties you get for this.
+[39:16] So I'm going to be soppy and pick my wedding song, which was an Indian song called Kudejana.
+[39:23] So that I'll have to stick to, which probably most people won't know, but it was the one that was
+[39:27] we played when we came in in our wedding. So I'll stick to that.
+[39:32] Nice.
+[39:34] Oh, that would kind of that would tie in nicely as well, really, because if you could own that,
+[39:39] then we would hope that you might license it to us and we could have played it at the start.
+[39:43] Very good. And I liked that you've impressed both your wife and your daughter during this episode.
+[39:50] So well done you. Brilliant, brilliant work. Well, it's been such a pleasure having you on really,
+[39:57] you know, just so many insights and hopefully useful for our audience. And yeah, thank you so much again.
+[40:03] And if anyone wants to get in touch with you, where would they find you?
+[40:06] You can look on our website, redbrick-advisor.com or feel free to drop me an email and happy to always chat.
+[40:16] Brilliant. Amazing.
+[40:16] All right.
+[40:17] Sachin, thank you so much.
+[40:18] Thanks very much, Sachin.
+[40:19] Thanks for tuning in to Music Moneyball. If you enjoyed the conversation,
+[40:24] you can subscribe at standard-innovation.com to get every episode in your inbox. You can also follow
+[40:31] the show on Spotify, Apple, or YouTube to stay ahead of the curve in music rights investment.
