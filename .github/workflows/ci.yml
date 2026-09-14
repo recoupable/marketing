@@ -19,3 +19,12 @@ jobs:
       - run: pnpm exec vitest run
       - run: pnpm exec tsc --noEmit
       - run: pnpm exec eslint .
+      - name: Install independent GTM tools
+        working-directory: gtm/engine
+        run: pnpm --ignore-workspace install --frozen-lockfile
+      - name: Typecheck GTM tools
+        working-directory: gtm/engine
+        run: pnpm build
+      - name: Test GTM tools without live services
+        working-directory: gtm/engine
+        run: pnpm test
