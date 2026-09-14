@@ -6,11 +6,21 @@ export function NavServiceArt({ kind }: { kind: "advisory" | "build" | "training
       <path d="m59 90 27-19 24 5 29-22" stroke="#087bab" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
       {[ [59,90], [86,71], [110,76], [139,54] ].map(([x,y]) => <circle key={x} cx={x} cy={y} r="5" fill="#d6ff62" stroke="#365e57" />)}
     </> : kind === "build" ? <>
-      <rect x="27" y="18" width="146" height="70" rx="8" fill="#193730" />
-      <path d="m60 40-12 13 12 13m31-26 12 13-12 13m-10-32-9 36" stroke="#d6ff62" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M117 43h37m-37 10h25m-25 10h32" stroke="#8caaa0" strokeWidth="3" strokeLinecap="round" />
-      <path d="M100 88v13H58m42 0h42" stroke="#80a596" />
-      {[45,87,129].map(x => <rect key={x} x={x} y="98" width="26" height="14" rx="4" fill="white" stroke="#80a596" />)}
+      <rect x="29" y="29" width="127" height="80" rx="8" fill="#c0d3c9" />
+      <rect x="39" y="19" width="127" height="80" rx="8" fill="white" stroke="#91b3a2" />
+      <path d="M39 38h127" stroke="#dce7e1" />
+      <circle cx="49" cy="29" r="2" fill="#88a899" /><circle cx="56" cy="29" r="2" fill="#c4d8ce" />
+      <rect x="50" y="48" width="31" height="39" rx="4" fill="#193730" />
+      <path d="M59 59h13m-13 7h9m-9 7h11" stroke="#9dbcae" strokeWidth="2" strokeLinecap="round" />
+      <rect x="89" y="48" width="65" height="13" rx="4" fill="#e7f0ea" />
+      <rect x="89" y="68" width="28" height="19" rx="4" stroke="#9ebcaa" strokeDasharray="3 3" />
+      <rect x="124" y="68" width="30" height="19" rx="4" fill="#c6dece" />
+      <path d="M24 58h-7v30h7M175 40h8v-9" stroke="#86aa98" strokeLinecap="round" />
+      <g transform="rotate(-9 112 85)">
+        <rect x="94" y="70" width="36" height="30" rx="5" fill="#d6ff62" stroke="#afce53" />
+        <path d="M105 85h14m-7-7v14" stroke="#426526" strokeWidth="2" strokeLinecap="round" />
+      </g>
+      <path d="m130 87 4 24 6-8 10-1-20-15Z" fill="#193730" stroke="white" strokeWidth="2" strokeLinejoin="round" />
     </> : <>
       <rect x="37" y="12" width="126" height="73" rx="7" fill="white" stroke="#cbd8bb" />
       <rect x="49" y="24" width="38" height="46" rx="5" fill="#d6ff62" />
