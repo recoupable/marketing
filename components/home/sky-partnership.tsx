@@ -44,7 +44,6 @@ export function SkyServices() {
         </article>)}
       </div>
     </div>
-    <div className="sky-offer-outputs" data-reveal=""><p className="sky-section-label">{homeOffersCopy.services.examplesLabel}</p><nav aria-label={homeOffersCopy.services.examplesNavLabel}>{homeOffersCopy.services.examples.map(example => <Link key={example.href} href={example.href}>{example.label}<SkyArrow /></Link>)}</nav></div>
   </section>;
 }
 

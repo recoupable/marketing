@@ -14,23 +14,16 @@
 .sky-offer-transformation :is(.sky-offer-symbol, .sky-offer-description, a) { color: #29462b; }
 .sky-offer-transformation > a { border-color: #a9cb55; }
 .sky-offer-transformation h3 { color: #172e27; }
-.sky-offer-outputs { margin-top: 42px; padding-top: 28px; border-top: 1px solid #dce6e9; display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(36px,5vw,76px); }
-.sky-offer-outputs > .sky-section-label { margin: 0; align-self: center; }
-.sky-offer-outputs nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; }
-.sky-offer-outputs a { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px; font-size: 13px; color: #087bab; text-decoration: underline; text-underline-offset: 4px; }
-.sky-offer-outputs svg { flex: none; width: 16px; height: 16px; }
 @media (max-width:900px) {
  .sky-offer-layout { grid-template-columns: 1fr; gap: 32px; }
  .sky-offer-layout .sky-services-heading { position: static; }
  .sky-content .sky-offer-layout h2 { max-width: 19ch; }
- .sky-offer-outputs { grid-template-columns: 1fr; gap: 20px; }
 }
 @media (max-width:600px) {
  .sky-offer { padding: 25px 21px; border-radius: 18px; }
  .sky-offer-top { gap: 13px; }
  .sky-offer-symbol { flex-basis: 48px; width: 48px; height: 48px; }
  .sky-content .sky-offer h3 { font-size: clamp(26px,7vw,29px); }
- .sky-offer-outputs nav { grid-template-columns: 1fr; }
 }
 @media (max-width:380px) { .sky-offer-symbol { display: none; } }
 @media (max-height:650px) { .sky-offer-layout .sky-services-heading { position: static; } }

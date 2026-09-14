@@ -26,14 +26,7 @@ export const homeOffersCopy = {
         link: "Explore custom builds",
       },
     ],
-    examplesLabel: "WHAT WE CAN BUILD",
-    examplesNavLabel: "Examples of custom systems",
-    examples: [
-      { label: "Workflow automation", href: "/operations" },
-      { label: "Royalty reporting", href: "/operations#royalty-example" },
-      { label: "Catalog intelligence", href: "/case-studies/catalog-intelligence" },
-      { label: "Investment review", href: "/acquisitions" },
-    ],
+
   },
   process: {
     eyebrow: "HOW IT WORKS",
