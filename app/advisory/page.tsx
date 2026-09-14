@@ -13,7 +13,7 @@ export default function AdvisoryPage() {
  const plan = pricingPlans.find((item) => item.id === "advisory")!;
  return <MarketingPage><div className="engagement-page advisory-engagement">
   <ServiceStructuredData path="/advisory" name="AI advisory for music companies" description="Find where AI fits in your music business. Practical strategy, workflow assessment, and implementation guidance from Recoup." serviceType={["AI strategy", "Workflow assessment", "AI implementation planning"]} />
-      <PageHero eyebrow="AI ADVISORY" title={<>Know what to change.<br /><span>And where to start.</span></>} description="Your catalog is growing. Your team’s time isn’t. We help music funds and rightsholders choose useful AI projects and make a plan to put them to work." visual={<AdvisoryRoadmap />}>
+      <PageHero eyebrow="AI ADVISORY" title={<>Know where AI fits.<br /><span>Decide what comes next.</span></>} description="Your catalog is growing. Your team’s time isn’t. We help music funds and rightsholders choose useful AI projects and make a plan to put them to work." visual={<AdvisoryRoadmap />}>
    <PageButton href="/contact?workflow=AI%20strategy">Discuss your priorities</PageButton><PageButton href="#approach" secondary>How we help</PageButton>
   </PageHero>
   <PageSection id="approach" eyebrow="FROM QUESTIONS TO A PLAN" title="Make the next decision a clear one." description="We work through your actual workflows, so the roadmap reflects the company you run.">

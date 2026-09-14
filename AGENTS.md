@@ -244,3 +244,5 @@ Recoup Platform is the public name of the hosted product; retain `/platform` and
 The Platform page ending pairs the hosting headline with a blue source illustration linking directly to the public app repository. Alternative-agent and custom-build options use aligned white/dark-green cards in one shared frame. Keep the FAQ compact, source links keyboard accessible, and all three areas stacked on phones.
 
 Platform section spacing uses roughly 100–140px on desktop and 70–100px on phones. Apply the shared `data-reveal`/`data-reveal-group` hooks to headings, artwork, audience reasons, tool choices, and ending content. Keep the hero immediate and avoid nested reveals; the shared controller handles reduced motion, anchor navigation, and focused controls.
+
+Services uses the same three-option illustrated dropdown as Products, with Advisory (`/advisory`), Build (`/build`), and Training (`/training`). Service artwork lives in `nav-service-art.tsx`. Desktop and mobile use shared navigation data and native disclosures. Training copy is shared with machine summaries through `lib/copy/training.ts`; its inquiry action uses the existing Team training workflow.

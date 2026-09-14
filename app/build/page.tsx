@@ -26,7 +26,7 @@ export default function BuildPage() {
  const plan = pricingPlans.find((item) => item.id === "partner")!;
  return <MarketingPage><div className="engagement-page build-engagement">
   <ServiceStructuredData path="/build" name="Custom AI systems for music businesses" description="Custom agents, integrations, dashboards, and applications for music funds and rightsholders. Built around your tools, data, and team." serviceType={["Custom agents", "Software integrations", "AI applications"]} />
-      <PageHero eyebrow="CUSTOM BUILDS" title={<>Your business.<br /><span>Your system.</span></>} description="We build agents, integrations, dashboards, and full applications around the way your music company works. Working software, documented and ready for your team." tone="light" visual={<BuildReview />}>
+      <PageHero eyebrow="BUILD" title={<>Custom AI systems.<br /><span>Built for your team.</span></>} description="We build agents, integrations, dashboards, and full applications around the way your music company works. Working software, documented and ready for your team." tone="light" visual={<BuildReview />}>
    <PageButton href="/start-project?workflow=Custom%20systems">Discuss your build</PageButton><PageButton href="#builds" secondary>What we build</PageButton>
   </PageHero>
   <PageSection id="builds" eyebrow="BUILT AROUND THE WORK" title="One agent. Or the whole application.">

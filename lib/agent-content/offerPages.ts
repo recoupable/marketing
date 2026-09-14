@@ -1,9 +1,18 @@
+import { trainingCopy } from "../copy/training.ts";
 import { freeAuditAnswer, homeCopy } from "../copy/home.ts";
 import { pricingInquiryHref } from "../pricing.ts";
 import type { PageSummary } from "./types.ts";
 
 // Summaries of the offer pages; deliberate summaries, not a second copy of the page. Keep the representation label and source link when consuming them.
 export const offerPages: PageSummary[] = [
+  {
+    path: "/training",
+    title: trainingCopy.title,
+    description: trainingCopy.description,
+    keywords: "training workshops team AI adoption music artists catalogs releases workflows practice",
+    paragraphs: [trainingCopy.hero.description, ...trainingCopy.outcomes.map(item => `${item.title} ${item.description}`), trainingCopy.format.description, ...trainingCopy.faq.map(item => `${item.question} ${item.answer}`)],
+    links: [[trainingCopy.action, trainingCopy.href], ["Advisory", "/advisory"], ["Build", "/build"]],
+  },
   {
     path: "/",
     title: "Recoup: AI transformation for music funds and rightsholders",
@@ -43,6 +52,7 @@ export const offerPages: PageSummary[] = [
     links: [
       ["AI advisory", "/advisory"],
       ["Custom builds", "/build"],
+      ["Team training", "/training"],
       ["Compare plans", "/pricing#plans"],
       ["Discuss a project", "/contact"],
     ],

@@ -1,3 +1,7 @@
+# Services navigation and pages — September 14, 2026
+
+Services now opens an illustrated three-option menu: Advisory, Build, and Training. The existing Advisory and Build pages have clearer service headlines; Training is a dedicated page covering practical work, output review, reusable methods, engagement format, and FAQs. Training links into the existing inquiry flow and is included in public routes, sitemap, footer, and machine summaries.
+
 # Recoup Platform positioning and homepage ownership — September 14, 2026
 
 The hosted product uses the restored name Recoup Platform across the product menu, homepage software links, footer, and pricing. The `/platform` URL and pricing identifiers remain stable. A new audience section follows the artist/catalog/release composition: no development team required, music-specific AI, and branded artist/client portals.

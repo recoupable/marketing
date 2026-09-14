@@ -59,3 +59,7 @@
   .ss-header .ss-mobile-menu .ss-nav-work-card { padding: 14px; margin-top: 6px; }
   .ss-header .ss-mobile-menu .ss-tool-menu[open] > summary { color: #087bab; }
 }
+
+.ss-header .ss-nav-art-advisory { background: #e9f2f8; }
+.ss-header .ss-nav-art-build { background: #e1ebe6; }
+.ss-header .ss-nav-art-training { background: #edf2e5; }

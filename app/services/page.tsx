@@ -70,6 +70,8 @@ export default function ServicesPage() {
         </div>
       </PageSection>
 
+      <p className="sp-section"><Link className="sp-text-link" href="/training">Explore hands-on training for your team <SkyArrow /></Link></p>
+
       <PageSection eyebrow="WORKING TOGETHER" title="You don’t need to transform everything at once." description="Choose one task worth fixing. We agree on the outcome, scope, and price before we begin.">
         <div className="sp-split services-start-grid" data-reveal-group="">
           <article className="services-start services-start-project">
