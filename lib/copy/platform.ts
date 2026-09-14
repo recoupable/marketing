@@ -1,11 +1,11 @@
 export const platformCopy = {
-  title: "Recoup Cloud: a ready-to-use AI workspace for music teams",
+  title: "Recoup Platform: a ready-to-use AI workspace for music teams",
   description: "Music-specific AI for teams without a custom build. Work across artists, catalogs, and releases, and give clients a branded portal for your agents.",
   hero: {
-    eyebrow: "RECOUP CLOUD",
+    eyebrow: "RECOUP PLATFORM",
     title: ["A ready-to-use AI workspace", "for music teams."],
     description: "A chat-based agent workspace built for music business operations. Recoup hosts the app and connects the tools, so your team can start working without building its own setup.",
-    action: "Open Recoup Cloud",
+    action: "Open Recoup Platform",
   },
   capabilitiesTitle: "Built-in tools for research, content, and recurring work.",
   capabilities: [
@@ -39,7 +39,7 @@ export const platformCopy = {
     title: "Work across your artists, catalogs, and releases through chat.",
   },
   audience: {
-    eyebrow: "WHO IS RECOUP CLOUD FOR?",
+    eyebrow: "WHO IS RECOUP PLATFORM FOR?",
     title: ["For music teams that want AI", "without a custom build."],
     reasons: [
       { title: "No development team required.", description: "Start with a hosted workspace. Skip the cost of building and maintaining your own AI system." },
@@ -63,7 +63,7 @@ export const platformCopy = {
   },
   faq: {
     title: "Before you open the workspace.",
-    audience: { question: "Who is Recoup Cloud for?", answer: "Artists, managers, labels, and catalog teams who want music-specific AI without building their own system, including teams that want a branded portal for their artists or clients. Recoup hosts the app and tools. If you already prefer another agent, you can use Recoup Skills, API, and MCP with that setup instead." },
+    audience: { question: "Who is Recoup Platform for?", answer: "Artists, managers, labels, and catalog teams who want music-specific AI without building their own system, including teams that want a branded portal for their artists or clients. Recoup hosts the app and tools. If you already prefer another agent, you can use Recoup Skills, API, and MCP with that setup instead." },
     context: { question: "What should I bring to my first session?", answer: "An artist, catalog, or release you’re working on, plus any useful files and notes. Give Recoup a clear task, such as researching an audience or drafting a release campaign." },
     custom: { question: "Can Recoup build around our team?", answer: "Yes. We can connect your tools and data, create workflows around your company’s methods, and help your team use and maintain the system." },
   },

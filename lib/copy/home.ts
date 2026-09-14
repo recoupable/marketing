@@ -23,7 +23,7 @@ export const homeCopy = {
     compare: "Compare all plans",
   },
   tools: {
-    platformLabel: "Recoup Cloud",
+    platformLabel: "Platform",
     skillsLabel: "Open-source skills",
     developersLabel: "Developer tools",
     skillsAction: "Explore Skills",

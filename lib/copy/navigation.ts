@@ -3,7 +3,7 @@ export const headerNavigation = [
   {
     label: "Products",
     links: [
-      { label: "Recoup Cloud", href: "/platform", description: "Music AI, ready to use. No custom build.", visual: "platform" },
+      { label: "Platform", href: "/platform", description: "Music AI, ready to use. No custom build.", visual: "platform" },
       { label: "Skills", href: "/skills", description: "Music playbooks for your AI.", visual: "skills" },
       { label: "Developers", href: "/developers", description: "Build with our API, MCP, and CLI.", visual: "developers" },
     ],

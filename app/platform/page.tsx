@@ -31,7 +31,7 @@ export default function PlatformPage() {
         visual={<PlatformChatPreview />}
       >
         <AppLink placement="platform-hero" className="sp-button">{platformCopy.hero.action}<span><SkyArrow /></span></AppLink>
-        <p className="platform-sky-hero-note">{planPrice(plan.id, "monthly").monthly}/month for Recoup Cloud and the music skill pack.</p>
+        <p className="platform-sky-hero-note">{planPrice(plan.id, "monthly").monthly}/month for Recoup Platform and the music skill pack.</p>
       </PageHero>
 
       <section className="platform-context" id="workspace" aria-labelledby="platform-context-title">
@@ -63,7 +63,7 @@ export default function PlatformPage() {
           <Link className="sp-text-link" href="/developers">{platformCopy.hosted.toolsAction}<SkyArrow /></Link>
         </div>
         <div className="platform-source-scene">
-          <div className="platform-source-cloud" aria-hidden="true"><PageMark /><span>Recoup Cloud</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 18a5 5 0 0 1-1-9.9A7 7 0 0 1 18.5 8a5 5 0 0 1-.5 10H6Z" /></svg></div>
+          <div className="platform-source-cloud" aria-hidden="true"><PageMark /><span>Recoup Platform</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 18a5 5 0 0 1-1-9.9A7 7 0 0 1 18.5 8a5 5 0 0 1-.5 10H6Z" /></svg></div>
           <a className="platform-source-repo" href={siteConfig.platformSourceUrl}>
             <span className="platform-source-code" aria-hidden="true">&lt;/&gt;</span>
             <span className="platform-source-name">recoupable / <strong>app</strong></span>
