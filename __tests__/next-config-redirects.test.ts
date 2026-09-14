@@ -22,7 +22,9 @@ describe("next.config redirects", () => {
 
   it("never chains one redirect into another", async () => {
     const rules = await nextConfig.redirects!();
-    const sources = new Set(rules.map((rule) => rule.source));
-    for (const rule of rules) expect(sources.has(rule.destination.split("?")[0]), rule.source).toBe(false);
+    // Host-scoped rules (docs.recoupable.dev) redirect off-site and never chain with path rules.
+    const pathRules = rules.filter((rule) => !("has" in rule));
+    const sources = new Set(pathRules.map((rule) => rule.source));
+    for (const rule of pathRules) expect(sources.has(rule.destination.split("?")[0]), rule.source).toBe(false);
   });
 });

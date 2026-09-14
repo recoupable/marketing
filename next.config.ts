@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { docsHostRedirects } from "./lib/docs/docsHostRedirects";
 import { docsVaryHeader } from "./lib/docs/docsVaryHeader";
 
 const nextConfig: NextConfig = {
@@ -13,6 +14,7 @@ const nextConfig: NextConfig = {
   // Legacy URLs resolve to their final page in one 308; keep every destination a real route.
   async redirects() {
     return [
+      ...docsHostRedirects,
       { source: "/designs/sky", destination: "/", permanent: true },
       { source: "/company/about", destination: "/about", permanent: true },
       { source: "/company/recoup-records", destination: "/records", permanent: true },
