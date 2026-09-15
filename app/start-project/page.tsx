@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { InquiryForm } from "@/components/inquiry/InquiryForm";
 import { SelectedPlanAside } from "@/components/inquiry/SelectedPlanAside";
 import { generalInterests } from "@/lib/inquiry-topics";
+import { startProjectCopy } from "@/lib/inquiry/startProjectCopy";
 import {
   getImmersiveProjectBrief,
   getImmersiveWorkflow,
@@ -46,24 +47,17 @@ export default async function StartProjectPage({
   const initialInterest =
     requestedInterest ?? planInterest ?? (selectedProject ? "Custom systems" : "Not sure yet");
   const initialBrief = getImmersiveProjectBrief(project);
+  const copy = startProjectCopy({ interest: initialInterest, freeAudit });
 
   return (
     <section className="lead-page" aria-labelledby="lead-page-title">
       <div className="lead-page-copy">
-        <p className="sp-kicker">{freeAudit ? "Free AI audit" : "Start a project"}</p>
-        <h1 id="lead-page-title">{freeAudit ? "Get your free AI audit." : "Let’s build something useful."}</h1>
-        <p className="lead-page-intro">
-          {freeAudit
-            ? "Bring one workflow your team wants to improve. We’ll review how it works today, where AI could help, and a practical first step."
-            : "Tell us about your team, the work you want to improve, and what a useful result would look like. A few sentences are enough."}
-        </p>
+        <p className="sp-kicker">{copy.kicker}</p>
+        <h1 id="lead-page-title">{copy.title}</h1>
+        <p className="lead-page-intro">{copy.intro}</p>
         <div className="lead-page-next">
-          <h2>What happens next</h2>
-          <p>
-            {freeAudit
-              ? "Share a few details below and we’ll follow up to arrange your audit. The audit is free. Any implementation is scoped and priced separately."
-              : "We’ll discuss the project together. If we decide to work together, we’ll agree on scope and pricing before starting."}
-          </p>
+          <h2>{copy.nextTitle}</h2>
+          <p>{copy.next}</p>
         </div>
       </div>
       <div className="lead-page-form">
@@ -72,8 +66,9 @@ export default async function StartProjectPage({
           source="/start-project"
           plan={pricingSelection?.plan}
           key={`${initialInterest}:${selectedProject?.id ?? "general"}:${pricingSelection?.plan ?? "none"}:${pricingSelection?.billing ?? "monthly"}`}
-          qualified
-          freeAudit={freeAudit}
+          qualified={copy.qualified}
+          freeAudit={freeAudit && copy.qualified}
+          guest={initialInterest === "Podcast guest"}
           connected={true}
           initialInterest={initialInterest}
           initialBrief={initialBrief}

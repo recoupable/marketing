@@ -34,12 +34,14 @@ export type InquiryFormProps = {
   qualified?: boolean;
   freeAudit?: boolean;
   readinessHandoff?: boolean;
+  /** A podcast guest request; relabels the form as an invitation. */
+  guest?: boolean;
 };
 
-export function InquiryForm({ source, connected, variant, initialInterest, initialBrief, pricingContext, plan, qualified = false, freeAudit = false, readinessHandoff = false }: InquiryFormProps) {
+export function InquiryForm({ source, connected, variant, initialInterest, initialBrief, pricingContext, plan, qualified = false, freeAudit = false, readinessHandoff = false, guest = false }: InquiryFormProps) {
   const interestOptions = variant ? catalogDirections[variant].interestOptions : generalInterests;
   const selectedInterest = interestOptions.some((interest) => interest === initialInterest) ? initialInterest ?? "" : "";
-  const labels = inquiryLabels({ variant, qualified, freeAudit, connected });
+  const labels = inquiryLabels({ variant, qualified, freeAudit, connected, guest });
   const hydrated = useSyncExternalStore(subscribeToHydration, clientReady, serverReady);
   const nameInput = useRef<HTMLInputElement>(null);
   const validationMessage = useRef<HTMLParagraphElement>(null);
