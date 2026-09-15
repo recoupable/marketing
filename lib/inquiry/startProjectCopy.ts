@@ -1,8 +1,10 @@
+import { podcastGuestInterest } from "../inquiry-topics.ts";
+
 export type StartProjectCopy = { kicker: string; title: string; intro: string; nextTitle: string; next: string; qualified: boolean };
 
 /** The /start-project page copy for a given preselected interest; a podcast guest is an invitation, not a project brief. */
 export function startProjectCopy({ interest, freeAudit }: { interest: string; freeAudit: boolean }): StartProjectCopy {
-  if (interest === "Podcast guest") {
+  if (interest === podcastGuestInterest) {
     return {
       kicker: "Be a guest",
       title: "Come tell your story on the show.",

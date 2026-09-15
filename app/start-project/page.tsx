@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { InquiryForm } from "@/components/inquiry/InquiryForm";
 import { SelectedPlanAside } from "@/components/inquiry/SelectedPlanAside";
-import { generalInterests } from "@/lib/inquiry-topics";
+import { generalInterests, podcastGuestInterest } from "@/lib/inquiry-topics";
 import { startProjectCopy } from "@/lib/inquiry/startProjectCopy";
 import {
   getImmersiveProjectBrief,
@@ -12,24 +12,36 @@ import { parsePricingSelection, pricingSelectionLabel } from "@/lib/pricing";
 import "../transformation.css";
 import "./lead-page.css";
 
-export const metadata: Metadata = withPageMetadata({
+type StartProjectSearchParams = Promise<{
+  workflow?: string | string[];
+  project?: string | string[];
+  plan?: string | string[];
+  billing?: string | string[];
+}>;
+
+const auditMetadata = {
   title: "Get a free AI audit for your music business",
   description:
     "Find where AI could help your music business. Request a free review of one workflow and a practical first step, or discuss your selected Recoup plan.",
-  alternates: { canonical: "/start-project" },
-});
+};
+const guestMetadata = {
+  title: "Be a guest on the Recoup Podcast",
+  description: "Run a label, a fund, a publisher or a management company? Tell us who you are and what you would talk about, and we reply with recording times.",
+};
+
+/** The guest URL is the destination of every invite email, so it carries its own title and description. */
+export async function generateMetadata({ searchParams }: { searchParams: StartProjectSearchParams }): Promise<Metadata> {
+  const { workflow } = await searchParams;
+  const guest = workflow === podcastGuestInterest;
+  return withPageMetadata({ ...(guest ? guestMetadata : auditMetadata), alternates: { canonical: "/start-project" } });
+}
 
 export const dynamic = "force-dynamic";
 
 export default async function StartProjectPage({
   searchParams,
 }: {
-  searchParams: Promise<{
-    workflow?: string | string[];
-    project?: string | string[];
-    plan?: string | string[];
-    billing?: string | string[];
-  }>;
+  searchParams: StartProjectSearchParams;
 }) {
   const { workflow, project, plan, billing } = await searchParams;
   const pricingSelection = parsePricingSelection(plan, billing);
@@ -68,7 +80,6 @@ export default async function StartProjectPage({
           key={`${initialInterest}:${selectedProject?.id ?? "general"}:${pricingSelection?.plan ?? "none"}:${pricingSelection?.billing ?? "monthly"}`}
           qualified={copy.qualified}
           freeAudit={freeAudit && copy.qualified}
-          guest={initialInterest === "Podcast guest"}
           connected={true}
           initialInterest={initialInterest}
           initialBrief={initialBrief}

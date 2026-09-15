@@ -18,3 +18,9 @@ test("every other interest keeps the free-audit or project copy", () => {
   expect(startProjectCopy({ interest: "Custom systems", freeAudit: false }).kicker).toBe("Start a project");
   expect(startProjectCopy({ interest: "Custom systems", freeAudit: false }).qualified).toBe(true);
 });
+
+test("the guest interest is one shared constant", async () => {
+  const { podcastGuestInterest } = await import("../../inquiry-topics.ts");
+  expect(podcastGuestInterest).toBe("Podcast guest");
+  expect(startProjectCopy({ interest: podcastGuestInterest, freeAudit: true }).qualified).toBe(false);
+});
