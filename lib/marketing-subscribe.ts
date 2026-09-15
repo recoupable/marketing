@@ -2,7 +2,7 @@ import { effectiveAcquisitionTags } from "./attribution/effectiveAcquisitionTags
 import type { ReferralAttribution } from "./attribution/ReferralAttribution.ts";
 import { postLead } from "./leads/postLead.ts";
 
-export type SubscribeSource = "/resources" | "/playbook" | "/blog" | "/footer" | "/podcast";
+export type SubscribeSource = "/resources" | "/playbook" | "/blog" | "/footer";
 export type SubscribeInput = { email: string; name?: string; source: SubscribeSource; attribution?: ReferralAttribution };
 export type SubscribeResult = { ok: true } | { ok: false; error: string };
 
@@ -25,7 +25,7 @@ export async function subscribeToRecoup(input: SubscribeInput, fetcher: typeof f
     ...(acquisition || {
       utm_source: "website",
       utm_medium: "newsletter",
-      utm_campaign: input.source === "/playbook" ? "ai-playbook" : input.source === "/podcast" ? "podcast" : "ai-music-notes",
+      utm_campaign: input.source === "/playbook" ? "ai-playbook" : "ai-music-notes",
     }),
   }, fetcher);
   return result.ok ? { ok: true } : { ok: false, error: failureMessage };
