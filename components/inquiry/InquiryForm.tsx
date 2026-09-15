@@ -33,9 +33,10 @@ export type InquiryFormProps = {
   plan?: string;
   qualified?: boolean;
   freeAudit?: boolean;
+  readinessHandoff?: boolean;
 };
 
-export function InquiryForm({ source, connected, variant, initialInterest, initialBrief, pricingContext, plan, qualified = false, freeAudit = false }: InquiryFormProps) {
+export function InquiryForm({ source, connected, variant, initialInterest, initialBrief, pricingContext, plan, qualified = false, freeAudit = false, readinessHandoff = false }: InquiryFormProps) {
   const interestOptions = variant ? catalogDirections[variant].interestOptions : generalInterests;
   const selectedInterest = interestOptions.some((interest) => interest === initialInterest) ? initialInterest ?? "" : "";
   const labels = inquiryLabels({ variant, qualified, freeAudit, connected });
@@ -45,6 +46,7 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
   const focusAfterReset = useRef(false);
   const [interestValue, setInterestValue] = useState(selectedInterest);
   const [briefValue, setBriefValue] = useState(initialBrief ?? "");
+  const [draftApplied, setDraftApplied] = useState(false);
   const inquiry = useInquirySubmit({ source, plan, connected, qualified, websitePath: labels.websitePath, pricingContext });
   const { status, qualificationError } = inquiry;
   useEffect(() => { if (qualificationError) validationMessage.current?.focus(); }, [qualificationError]);
@@ -58,12 +60,14 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
     inquiry.clearFeedback();
     setInterestValue(draft.interest);
     setBriefValue(draft.message);
+    setDraftApplied(true);
   }
   if (status === "sent") return <InquirySuccessPanel qualified={qualified} onReset={() => {
     focusAfterReset.current = true;
     inquiry.reset();
     setInterestValue(selectedInterest);
     setBriefValue(initialBrief ?? "");
+    setDraftApplied(false);
   }} />;
   const busy = !hydrated || status === "sending";
   return (
@@ -73,7 +77,10 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
       {qualified && <p className="lead-field-help">Fields marked * are required. A rough starting point is enough.</p>}
       <noscript><p className="inquiry-no-script">To send an inquiry, email <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>. The form needs JavaScript to prepare or send your message.</p></noscript>
       <fieldset className="inquiry-fields" disabled={busy}>
-        {!variant && <AgentDraftImport onApply={applyDraft} />}
+        {!variant && (draftApplied ? <div className="agent-draft-import" role="status">
+          <strong>{readinessHandoff ? "Your readiness answers are included below." : "Your brief is included below."}</strong>
+          <p>Add your name, work email, and company. You can edit the summary before clicking “Send your inquiry.” Nothing has been sent yet.</p>
+        </div> : hydrated && <AgentDraftImport onApply={applyDraft} autoApply={readinessHandoff} />)}
         {!connected && <p className="form-note form-handoff" id="inquiry-handoff">This form prepares an email draft for you to review and send.</p>}
         <div className="form-grid">
           {qualified && <div className="lead-group-title wide"><h3><span>01</span> You & your company</h3></div>}
