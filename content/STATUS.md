@@ -4,6 +4,12 @@ Rewrote the investment-memo article around Recoup and the client's one-session c
 
 ---
 
+# Podcast page — September 14, 2026
+
+`/podcast` is live on the branch for recoupable/app#2082: the Recoup Podcast show sidebar (title card, platform links to the Spotify show, Apple Podcasts and the YouTube playlist, subscribe, guest invitation) beside a two-column grid of six seeded episodes with covers and Watch now actions; episodes first on phones. Podcast replaces About in the Resources dropdown. Copy in `lib/copy/podcast.ts`, episodes in `content/podcast/episodes.json`, events `podcast_platform_clicked` and `podcast_episode_clicked`.
+
+---
+
 # Five executive articles — September 14, 2026
 
 Added five approved articles covering workflow ownership, royalty exports, investment memo examples, cross-team adoption and board reporting. All use the clarified titles, reviewed Recoup thumbnails and white-background inline illustrations (19 WebP images). Editorial revisions distinguish estimates from measurements, proposed rollouts from observed outcomes, and saved instructions from tested workflows. Public copies omit private source metadata.
