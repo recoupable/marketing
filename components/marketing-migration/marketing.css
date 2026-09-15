@@ -103,6 +103,7 @@
 .mm-handoff pre { white-space:pre-wrap; overflow-wrap:anywhere; max-height:300px; overflow:auto; padding:17px; margin-top:12px; border:1px solid #95acb5; border-radius:10px; color:#152e37; background:#fff; font:14px/1.7 var(--font-sans),sans-serif; }
 .mm-handoff > p { font-size:13px; line-height:1.6; margin:13px 0 0; }
 .mm-handoff a { color:inherit; text-decoration:underline; text-underline-offset:3px; }
+.mm-handoff > p:first-child { margin:0 0 18px; font-size:16px; }
 .mm-handoff .sp-button { text-align:left; white-space:normal; max-width:100%; cursor:pointer; line-height:1.6; }
 .mm-handoff .sp-button > span { flex-shrink:0; }
 .mm-tool-result .mm-handoff > p { color:#c2d8cc; }
