@@ -13,29 +13,16 @@
     }
   },
   {
-    "slug": "sidney-swift",
-    "title": "From Grammy-winning producer to building software for the music business",
-    "guest": "Sidney Swift",
-    "role": "Cofounder, Recoup",
-    "date": "2022-07-18",
-    "durationSeconds": 3619,
-    "cover": "/podcast/sidney-swift-wide.jpg",
+    "slug": "panel-equitable-industry",
+    "title": "Building a more equitable music industry with decentralized networks",
+    "guest": "Steph Guerrero and panel",
+    "role": "Steph Guerrero, Watcher.eth, Dragaan, PaperHandPapi",
+    "date": "2023-02-13",
+    "durationSeconds": 3266,
+    "cover": "/podcast/panel-equitable-industry-wide.jpg",
     "links": {
-      "spotify": "https://open.spotify.com/episode/4KCglIfrD8i5JdN2c1gZlF",
-      "youtube": "https://www.youtube.com/watch?v=z_3qo3YVPWQ"
-    }
-  },
-  {
-    "slug": "kantor",
-    "title": "How the traditional music industry moves into new technology",
-    "guest": "Kantor",
-    "role": "Artist",
-    "date": "2022-05-16",
-    "durationSeconds": 3567,
-    "cover": "/podcast/kantor-wide.jpg",
-    "links": {
-      "spotify": "https://open.spotify.com/episode/23ficFzRzJMYbnWV7hB3o3",
-      "youtube": "https://www.youtube.com/watch?v=y0qslS8vMMs"
+      "spotify": "https://open.spotify.com/episode/5eskBoMuAQYIB5cheRftXc",
+      "youtube": "https://www.youtube.com/watch?v=-uKg5ekk8pw"
     }
   },
   {
@@ -52,6 +39,19 @@
     }
   },
   {
+    "slug": "sidney-swift",
+    "title": "From Grammy-winning producer to building software for the music business",
+    "guest": "Sidney Swift",
+    "role": "Cofounder, Recoup",
+    "date": "2022-07-18",
+    "durationSeconds": 3619,
+    "cover": "/podcast/sidney-swift-wide.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/episode/4KCglIfrD8i5JdN2c1gZlF",
+      "youtube": "https://www.youtube.com/watch?v=z_3qo3YVPWQ"
+    }
+  },
+  {
     "slug": "j-mack-ent",
     "title": "Connecting the diaspora through music and new income models",
     "guest": "J Mack Ent.",
@@ -65,16 +65,16 @@
     }
   },
   {
-    "slug": "panel-equitable-industry",
-    "title": "Building a more equitable music industry with decentralized networks",
-    "guest": "Steph Guerrero and panel",
-    "role": "Steph Guerrero, Watcher.eth, Dragaan, PaperHandPapi",
-    "date": "2023-02-13",
-    "durationSeconds": 3266,
-    "cover": "/podcast/panel-equitable-industry-wide.jpg",
+    "slug": "kantor",
+    "title": "How the traditional music industry moves into new technology",
+    "guest": "Kantor",
+    "role": "Artist",
+    "date": "2022-05-16",
+    "durationSeconds": 3567,
+    "cover": "/podcast/kantor-wide.jpg",
     "links": {
-      "spotify": "https://open.spotify.com/episode/5eskBoMuAQYIB5cheRftXc",
-      "youtube": "https://www.youtube.com/watch?v=-uKg5ekk8pw"
+      "spotify": "https://open.spotify.com/episode/23ficFzRzJMYbnWV7hB3o3",
+      "youtube": "https://www.youtube.com/watch?v=y0qslS8vMMs"
     }
   }
 ]
