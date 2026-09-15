@@ -1,0 +1,46 @@
+/* /podcast: show sidebar beside the episode grid on desktop; episodes first on phones. */
+.podcast-page { display:grid; grid-template-columns:384px minmax(0,1fr); gap:50px; align-items:start; max-width:1248px; margin:44px auto 0; padding:0 36px; }
+.podcast-sidebar { display:flex; flex-direction:column; align-items:flex-start; padding-top:44px; }
+.podcast-title-card { width:100%; height:auto; border-radius:12px; margin-bottom:26px; }
+.podcast-sidebar .sp-kicker { color:#53707d; }
+.podcast-sidebar h1 { margin-top:18px; font-size:44px; font-weight:450; line-height:1.06; letter-spacing:-.055em; }
+.podcast-intro { margin-top:22px; font-size:16px; line-height:1.65; }
+.podcast-intro:first-of-type { margin-top:26px; }
+.podcast-platforms { display:flex; flex-wrap:wrap; align-items:center; gap:12px 22px; margin-top:30px; }
+.podcast-platform { display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:500; letter-spacing:-.01em; }
+.podcast-platform svg { width:20px; height:20px; }
+.podcast-platform:hover { color:#087bab; }
+.podcast-subscribe { margin-top:26px; width:100%; }
+.podcast-subscribe fieldset { margin:0; padding:0; border:0; min-width:0; display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+.podcast-subscribe input { width:100%; min-height:48px; background:#fff; color:#152e37; border:1px solid #78939e; border-radius:9px; font-family:inherit; font-size:16px; padding:13px 14px; }
+.podcast-subscribe input::placeholder { color:#607680; opacity:1; }
+.podcast-subscribe .button { gap:22px; }
+.podcast-subscribe fieldset:disabled { opacity:.6; }
+.podcast-subscribe-consent { margin-top:16px; color:#526e7a; font-size:11px; line-height:1.6; max-width:320px; }
+.podcast-subscribe-error { margin-top:12px; color:#9e302a; font-size:13px; line-height:1.6; }
+.podcast-subscribe-success { margin-top:26px; padding:18px 20px; border-radius:12px; background:#f5fbe9; color:#234c2c; font-size:15px; line-height:1.6; }
+.podcast-guest { margin-top:34px; padding-top:26px; border-top:1px solid #deeaee; width:100%; }
+.podcast-guest .sp-kicker { color:#5b7886; font-size:10px; }
+.podcast-guest > p:not(.sp-kicker) { margin-top:10px; font-size:15px; line-height:1.6; color:#314b56; }
+.podcast-guest .sp-text-link { margin-top:14px; }
+.podcast-episodes h2 { font-size:clamp(44px,4.5vw,64px); font-weight:450; line-height:1.05; letter-spacing:-.055em; color:#087bab; }
+.podcast-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:34px; margin-top:30px; }
+.podcast-card { display:flex; flex-direction:column; min-width:0; padding:16px; border:1px solid #e2e9eb; border-radius:16px; background:#fff; box-shadow:0 3px 7px #17334206; }
+.podcast-card-cover { width:100%; height:auto; border-radius:10px; }
+.podcast-card-duration { margin-top:8px; font-size:11px; font-weight:500; color:#586f78; }
+.podcast-card h3 { margin-top:42px; font-size:25px; font-weight:500; line-height:1.18; letter-spacing:-.04em; }
+.podcast-card h3 span { color:#586f78; font-weight:450; }
+.podcast-watch { display:inline-flex; align-items:center; gap:12px; align-self:flex-start; margin-top:auto; padding:10px 19px; min-height:44px; border-radius:32px; background:#d6ff62; color:#173527; font-size:13px; font-weight:550; transition:background .16s; }
+.podcast-card .podcast-watch { margin-top:32px; }
+.podcast-watch:hover { background:#c6f443; color:#173527; }
+.sky-site .podcast-watch .sky-arrow-icon { width:17px; height:17px; }
+@media (max-width:1050px) { .podcast-page { grid-template-columns:320px minmax(0,1fr); gap:32px; padding:0 20px; } .podcast-card h3 { font-size:22px; } }
+@media (max-width:760px) {
+  .podcast-page { display:flex; flex-direction:column; gap:0; margin-top:24px; padding:0; }
+  .podcast-episodes { order:1; padding-top:16px; }
+  .podcast-sidebar { order:2; margin-top:48px; padding-top:40px; border-top:1px solid #deeaee; }
+  .podcast-sidebar h1 { font-size:40px; }
+  .podcast-grid { grid-template-columns:1fr; gap:24px; margin-top:24px; }
+  .podcast-card h3 { margin-top:28px; }
+  .podcast-subscribe-consent { max-width:none; }
+}

@@ -50,6 +50,13 @@ export const siteConfig = {
   /** Company address — used in legal pages */
   address: "720 Capitol Square Pl. SW, Washington, DC 20024",
 
+  /** Where the Recoup Podcast is published; the YouTube link is the show playlist, not the channel. */
+  podcast: {
+    spotify: "https://open.spotify.com/show/4IssY4XjHXdpTNOzpaeyxh",
+    apple: "https://podcasts.apple.com/us/podcast/recoup-podcast/id1316209308",
+    youtube: "https://www.youtube.com/playlist?list=PLGjXo1TfTj0w",
+  },
+
   /** Social links */
   social: {
     twitter: "https://x.com/recaboreal",

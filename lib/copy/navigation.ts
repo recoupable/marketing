@@ -22,7 +22,7 @@ export const headerNavigation = [
       { label: "Docs", href: "/docs", description: "Get started and build with Recoup.", icon: "docs" },
       { label: "Blog", href: "/blog", description: "Ideas for AI in music.", icon: "blog" },
       { label: "Lab", href: "/lab", description: "Explore what’s next.", icon: "lab" },
-      { label: "About", href: "/about", description: "Meet the people behind Recoup.", icon: "about" },
+      { label: "Podcast", href: "/podcast", description: "Music operators on how they use AI.", icon: "podcast" },
       { label: "Work", href: "/case-studies", description: "See the systems we’ve built.", icon: "work" },
     ],
   },
