@@ -6,12 +6,12 @@ Prepared 2026-09-14. The Recoup Podcast is the top of the services funnel, not a
 
 | Step | What happens | Attio (Agency Leads) |
 |---|---|---|
-| 1. Invite | Ten invites a day to qualified leads: people who own or run a music business and have said something public about AI or automation in it within the last 12 months. The invite sells the episode, not Recoup. | `New`, `lead_source = Podcast`, `project_type = Build` |
+| 1. Invite | Ten invites a day to qualified leads: people who own or run a music business and have said something public about AI or automation in it within the last 12 months. The invite sells the episode, not Recoup. | `New`, `lead_source = Podcast`; `project_type` stays unset until discovery confirms a build |
 | 2. Reply | Any reply. Flag after 3 days here with no time on the calendar, ahead of anything further down the board. | `In Conversation` |
-| 3. Record | A time exists. Record 30 to 60 minutes remotely: their history in the industry, where AI does real work in the business today, the numbers behind it. Notes from the meeting recorder go to the private guest folder. | `Call Booked` |
-| 4. Publish | Within 48 hours: YouTube (the show playlist), Spotify, Apple Podcasts, socials; the episode is added to `content/podcast/episodes.json` in the same PR; the guest gets the full episode and clips. | unchanged |
-| 5. Day 7 | One short email with three concrete things we could build for them, drawn from the call notes. One sentence each, no price. | `Scoping` |
-| 6. Reply | A proposal, $1k to $5k for a 2 to 4 week build, deposit plus delivery split, written in the order [discovery and proposals](discovery-and-proposals.md) sets. | `Proposal Sent` |
+| 3. Record | A time exists. The booking confirmation carries the written consent: recording, publication on the named platforms, use of clips and of the guest's name, photo and company name, and the right to withdraw before publication. No consent on file, no recording. Then 30 to 60 minutes remotely: their history in the industry, where AI does real work in the business today, the numbers behind it. Notes from the meeting recorder go to the private guest folder. | `Call Booked` |
+| 4. Publish | Within 48 hours, once the consent is on file and the guest has approved their cover photo: YouTube (the show playlist), Spotify, Apple Podcasts, socials; the episode is added to `content/podcast/episodes.json` in the same PR; the guest gets the full episode and clips. | unchanged |
+| 5. Day 7 | One short email with three concrete things we could build for them, drawn from the call notes. One sentence each, no price. | `Scoping`, `project_type = Build` |
+| 6. Reply | A proposal for a 2 to 4 week build, priced from the current private rate card with a deposit plus delivery split, written in the order [discovery and proposals](discovery-and-proposals.md) sets. Terms are proposals until accepted. | `Proposal Sent` |
 | 7. Deposit paid | The build runs. | `Won` |
 | 8. Delivered | Testimonial request and a post-mortem in the private guest folder. After three paid, completed, reviewed builds, review the rate. | unchanged |
 | No reply after 3 touches, or a decline | Close it honestly. | `Lost`, `lost_reason` set |
@@ -20,7 +20,7 @@ No new stages and no new list; a guest is an agency lead with a different first 
 
 ## The invite
 
-Three sentences, one question, two links, no second offer, no em dashes. The only personalised line is the first; the rest is identical every day so ten a day is a copy job.
+Three sentences, one question, two links, no second offer, no em dashes. The hook is the only line that takes research; the name, topic and company slots are fills from the lead file, and everything else is identical every day, so ten a day is a copy job.
 
 ```
 Subject: Recoup Podcast invite: {{first_name}} on {{topic_short}}
@@ -47,7 +47,7 @@ Guests and prospects read the episode page before anything else we send, so ever
 
 - Title: `<the specific claim> w/ <Guest Name>`. Panels end in `(panel)`.
 - Description: one specific claim in the first sentence, hard nouns over adjectives, no hype, no emoji, guest links kept, then the fixed closing line: "Recoup designs and builds the systems behind conversations like this one: catalog data, royalty operations, and AI agents for labels, publishers, funds and management companies. recoupable.dev"
-- Cover: the show's blue sweep, white lockup top-left, title, guest line, and a background-removed cutout of the guest's own published photo on the right. Same layout on the 16:9 card and the square Spotify art.
+- Cover: the show's blue sweep, white lockup top-left, title, guest line, and a background-removed cutout of a photo the guest supplied or approved. Same layout on the 16:9 card and the square Spotify art.
 - Cold open: a 6 to 14 second clip of the guest's strongest line sits between the intro sting and the episode, on every platform.
 
 ## Measure
