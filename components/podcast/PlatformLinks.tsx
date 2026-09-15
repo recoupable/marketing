@@ -12,10 +12,10 @@ const platforms = [
 /** Where to follow the show; each click reports the platform only. */
 export function PlatformLinks() {
   return (
-    <div className="podcast-platforms">
+    <div className="flex flex-wrap items-center gap-x-[22px] gap-y-3 mt-[30px] max-[760px]:mt-[26px]">
       {platforms.map((platform) => (
-        <a key={platform.key} className="podcast-platform" href={platform.href} target="_blank" rel="noopener" onClick={() => trackEvent("podcast_platform_clicked", { platform: platform.key })}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{platform.path}</svg>
+        <a key={platform.key} className="inline-flex items-center gap-2 text-sm font-medium tracking-[-0.01em] hover:text-[#087bab]" href={platform.href} target="_blank" rel="noopener" onClick={() => trackEvent("podcast_platform_clicked", { platform: platform.key })}>
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{platform.path}</svg>
           {platform.label}
         </a>
       ))}
