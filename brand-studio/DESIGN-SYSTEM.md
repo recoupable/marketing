@@ -105,3 +105,11 @@ Do not add a Recoup wordmark footer to every illustration or every frame in a se
 collection where useful, such as its enclosing page, cover or closing frame. Supporting figures
 can stand without a mark. If a mark is used, preserve the exact supplied artwork. Generated
 illustrations should contain no logo; apply any needed mark as a separate editable layer.
+
+## Article covers earn attention
+
+Treat the first article image as a thumbnail with its own composition. Use a bold, saturated Recoup
+color field, a single high-contrast focal element and, when useful, a short oversized hook of 3–6
+words. Make it recognizable and readable at about 160px wide. Supporting illustrations can remain
+simple on white with short labels and optional headlines. Do not style the cover as another inline
+figure. Color and scale should earn attention without misleading claims or extra body copy.
