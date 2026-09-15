@@ -5,7 +5,7 @@ import { SkyArrow } from "@/components/sky/arrow";
 import { AgentDraftImport } from "@/components/agents/draft-import";
 import type { AgentDraft } from "@/lib/agent-browser";
 import { catalogDirections } from "@/lib/catalog-directions";
-import { generalInterests } from "@/lib/inquiry-topics";
+import { generalInterests, podcastGuestInterest } from "@/lib/inquiry-topics";
 import type { InquirySource } from "@/lib/inquiry/inquirySourceSchema";
 import { siteConfig } from "@/lib/config";
 import { InquiryBudgetFields } from "./InquiryBudgetFields";
@@ -39,12 +39,13 @@ export type InquiryFormProps = {
 export function InquiryForm({ source, connected, variant, initialInterest, initialBrief, pricingContext, plan, qualified = false, freeAudit = false, readinessHandoff = false }: InquiryFormProps) {
   const interestOptions = variant ? catalogDirections[variant].interestOptions : generalInterests;
   const selectedInterest = interestOptions.some((interest) => interest === initialInterest) ? initialInterest ?? "" : "";
-  const labels = inquiryLabels({ variant, qualified, freeAudit, connected });
   const hydrated = useSyncExternalStore(subscribeToHydration, clientReady, serverReady);
   const nameInput = useRef<HTMLInputElement>(null);
   const validationMessage = useRef<HTMLParagraphElement>(null);
   const focusAfterReset = useRef(false);
   const [interestValue, setInterestValue] = useState(selectedInterest);
+  // Guest mode follows the interest the visitor currently has selected, not only the one the URL preselected.
+  const labels = inquiryLabels({ variant, qualified, freeAudit, connected, guest: interestValue === podcastGuestInterest });
   const [briefValue, setBriefValue] = useState(initialBrief ?? "");
   const [draftApplied, setDraftApplied] = useState(false);
   const inquiry = useInquirySubmit({ source, plan, connected, qualified, websitePath: labels.websitePath, pricingContext });
