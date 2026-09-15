@@ -1,3 +1,9 @@
+# Deal Ingestion Skill article revision — September 14, 2026
+
+Rewrote the investment-memo article around Recoup and the client's one-session customization of the existing free Deal Ingestion Skill. Clarified the firm's ownership of its customized version, added the public skill and Build links, and replaced the cover/archive/social image with a Higgsfield illustration and editable ‘Your own AI deal skill’ headline. The article URL and white-background inline artwork remain unchanged.
+
+---
+
 # Podcast page — September 14, 2026
 
 `/podcast` is live on the branch for recoupable/app#2082: the Recoup Podcast show sidebar (title card, platform links to the Spotify show, Apple Podcasts and the YouTube playlist, subscribe, guest invitation) beside a two-column grid of six seeded episodes with covers and Watch now actions; episodes first on phones. Podcast replaces About in the Resources dropdown. Copy in `lib/copy/podcast.ts`, episodes in `content/podcast/episodes.json`, events `podcast_platform_clicked` and `podcast_episode_clicked`.
