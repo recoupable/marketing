@@ -186,6 +186,7 @@
 .blog-cover { display: block; width: 100%; height: auto; border-radius: 24px; margin-bottom: 42px; }
 .blog-section-heading a { text-underline-offset: 3px; }
 .blog-art-editorial { overflow: hidden; }
+.blog-card > .blog-art-editorial { aspect-ratio: 16 / 9; }
 .blog-art-editorial img { display: block; width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
 .blog-prose .blog-callout-icon { margin: 26px 0 8px; }
 .blog-prose .blog-callout-icon svg { display: block; width: 24px; height: 24px; color: #087bab; }
