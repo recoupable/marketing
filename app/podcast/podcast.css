@@ -29,10 +29,9 @@
 .podcast-card { display:flex; flex-direction:column; min-width:0; padding:16px; border:1px solid #e2e9eb; border-radius:16px; background:#fff; box-shadow:0 3px 7px #17334206; }
 .podcast-card-cover { width:100%; height:auto; border-radius:10px; }
 .podcast-card-duration { margin-top:8px; font-size:11px; font-weight:500; color:#586f78; }
-.podcast-card h3 { margin-top:42px; font-size:25px; font-weight:500; line-height:1.18; letter-spacing:-.04em; }
+.podcast-card h3 { margin:42px 0 32px; font-size:25px; font-weight:500; line-height:1.18; letter-spacing:-.04em; }
 .podcast-card h3 span { color:#586f78; font-weight:450; }
 .podcast-watch { display:inline-flex; align-items:center; gap:12px; align-self:flex-start; margin-top:auto; padding:10px 19px; min-height:44px; border-radius:32px; background:#d6ff62; color:#173527; font-size:13px; font-weight:550; transition:background .16s; }
-.podcast-card .podcast-watch { margin-top:32px; }
 .podcast-watch:hover { background:#c6f443; color:#173527; }
 .sky-site .podcast-watch .sky-arrow-icon { width:17px; height:17px; }
 @media (max-width:1050px) { .podcast-page { grid-template-columns:320px minmax(0,1fr); gap:32px; padding:0 20px; } .podcast-card h3 { font-size:22px; } }
@@ -42,6 +41,6 @@
   .podcast-sidebar { margin-top:48px; padding-top:40px; border-top:1px solid #deeaee; }
   .podcast-sidebar h1 { font-size:40px; }
   .podcast-grid { grid-template-columns:1fr; gap:24px; margin-top:24px; }
-  .podcast-card h3 { margin-top:28px; }
+  .podcast-card h3 { margin-top:28px; margin-bottom:26px; }
   .podcast-subscribe-consent { max-width:none; }
 }
