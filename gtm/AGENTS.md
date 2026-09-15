@@ -10,6 +10,7 @@ The active enterprise audience is executives at music rightsholders and music fu
 
 - Public company evidence: [music-rights research](research/music-rights/README.md). Read its date, review status, source quote, and company relationships. A research match is not a qualified lead or a unique buying organization.
 - Podcast identity: the RSS-derived episode index. Spoken claims: transcript timestamp, with audio verification for important quotations. Transcripts are machine generated.
+- Podcast as a funnel: [the guest pipeline playbook](playbooks/podcast-guest-pipeline.md) is the method for invites, the day-7 build offer, and the CRM stages a guest moves through.
 - Current website offers, URLs, prices, and lead intake: the marketing code and copy identified in [business and buyers](context/business-and-buyers.md). Older email templates and brand notes do not override them.
 - Business hypotheses: [conversation decisions](context/conversation-decisions.md). Experiments are not shipped features or proven customer outcomes.
 - Live people, consent/contact preferences, customer exclusions, deal stage, and agreed commercial terms: the team's configured CRM and private records. Never invent them from research.

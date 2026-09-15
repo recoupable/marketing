@@ -24,7 +24,7 @@ The existing tools are a starting point. This directory does **not yet contain a
 | Folder | Purpose |
 |---|---|
 | `context/` | Business decisions, scope, and inventory |
-| `playbooks/` | Methods for research, content, discovery, and follow-up |
+| `playbooks/` | Methods for research, content, discovery, follow-up, and the [podcast guest pipeline](playbooks/podcast-guest-pipeline.md) |
 | `research/` | Public evidence and dated research snapshots |
 | `engine/` | Executable tools, tests, and future workflow implementation |
 
