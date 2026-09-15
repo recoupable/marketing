@@ -56,7 +56,8 @@ lib/              — Site logic: config.ts (siteConfig), seo.ts, one-export dir
 lib/docs/         — Documentation helpers (llms.txt sections, llms-full corpus, markdown negotiation)
 proxy.ts          — Request proxy (Next 16 successor to middleware): serves /docs/* as markdown on Accept: text/markdown or a .md suffix
 public/           — Static assets (brand/, icons/, images/)
-content/posts/    — MDX blog posts (one file = one post)
+content/blog/posts.json — Published blog source for pages, feed, metadata and machine discovery
+content/posts/    — Legacy MDX sources and historical post index
 content/brand/    — Brand context files (read before creating content)
 content/seo/      — SEO strategy + keyword targets
 content/STATUS.md — Current state snapshot (read FIRST every session)
@@ -116,9 +117,9 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 1. Read `content/STATUS.md` + `content/posts/INDEX.md` (check gaps)
 2. Read `content/brand/voice.md` + relevant context files
-3. Create `content/posts/[slug].mdx` with ALL frontmatter fields
-4. Set `status: "draft"` — run `pnpm build` to validate schema
-5. Update `content/posts/INDEX.md`
+3. Prepare drafts outside `content/blog/posts.json`; every entry in that file is public when deployed. After publishing approval, add a post matching `BlogPost` in `lib/blog.ts`.
+4. Use `coverImage` for the article hero/social image and `thumbnailImage` for approved archive artwork. Store local delivery assets in `public/images/blog/<slug>/`; body image URLs must start with `/images/`. Omit duplicate H1/hero images, private frontmatter and source paths from the public body. Preserve the existing featured entry unless asked to replace it.
+5. Run `pnpm build` and the blog/metadata checks. Update `content/posts/INDEX.md` and `content/STATUS.md`.
 
 ## Content Types
 

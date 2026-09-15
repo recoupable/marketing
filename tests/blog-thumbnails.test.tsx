@@ -8,7 +8,7 @@ const render = (post: (typeof blogPosts)[number], feature = false) =>
   renderToStaticMarkup(
     createElement(BlogArt, {
       slug: post.slug,
-      image: post.coverImage,
+      image: post.thumbnailImage,
       feature,
     }),
   );
@@ -44,10 +44,9 @@ describe("editorial blog thumbnails", () => {
     }
   });
 
-  it("retains the relevant Skills cover and replaces the other archival covers", () => {
-    const kept = new Set(["install-marketplace-claude-desktop"]);
+  it("uses approved thumbnails while preserving other archival artwork", () => {
     for (const post of blogPosts.filter((post) => post.coverImage)) {
-      expect(render(post).includes("<img")).toBe(kept.has(post.slug));
+      expect(render(post).includes("<img")).toBe(Boolean(post.thumbnailImage));
     }
   });
 });
