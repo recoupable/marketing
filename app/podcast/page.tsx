@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { EpisodeCard } from "@/components/podcast/EpisodeCard";
 import { PodcastSidebar } from "@/components/podcast/PodcastSidebar";
 import { podcastCopy } from "@/lib/copy/podcast";
+import { podcastMetadata } from "@/lib/podcast/podcastMetadata";
 import { readEpisodes } from "@/lib/podcast/readEpisodes";
-import { withPageMetadata } from "@/lib/seo";
 import "./podcast.css";
 
-export const metadata: Metadata = withPageMetadata({ title: podcastCopy.title, description: podcastCopy.description, alternates: { canonical: "/podcast" } });
+export const metadata: Metadata = podcastMetadata();
 
 export default function PodcastPage() {
   const episodes = readEpisodes();
