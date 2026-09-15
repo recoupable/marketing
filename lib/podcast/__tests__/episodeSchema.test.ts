@@ -21,8 +21,9 @@ describe("episodeSchema", () => {
     expect(result.success).toBe(false);
     if (!result.success) expect(result.error.issues[0]?.path.join(".")).toBe("links.spotify");
   });
-  test("rejects a non-ISO date and a non-positive duration", () => {
+  test("rejects a non-ISO date, an impossible calendar date, and a non-positive duration", () => {
     expect(episodeSchema.safeParse({ ...valid, date: "Dec 8 2024" }).success).toBe(false);
+    expect(episodeSchema.safeParse({ ...valid, date: "2024-02-30" }).success).toBe(false);
     expect(episodeSchema.safeParse({ ...valid, durationSeconds: 0 }).success).toBe(false);
   });
 });

@@ -1,5 +1,6 @@
 import { podcastCopy } from "../copy/podcast.ts";
 import { siteConfig } from "../config.ts";
+import { formatDuration } from "../podcast/formatDuration.ts";
 import { readEpisodes } from "../podcast/readEpisodes.ts";
 import type { PageSummary } from "./types.ts";
 
@@ -12,7 +13,7 @@ export const podcastPages: PageSummary[] = [
     keywords: "podcast episodes interviews music business AI founders publishers catalog owners fund managers guest",
     paragraphs: [
       ...podcastCopy.paragraphs,
-      ...readEpisodes().map((episode) => `${episode.title} w/ ${episode.guest}, ${episode.role} (${episode.date}). YouTube: ${episode.links.youtube ?? "none"}. Spotify: ${episode.links.spotify}.`),
+      ...readEpisodes().map((episode) => `${episode.title} w/ ${episode.guest}, ${episode.role} (${episode.date}, ${formatDuration(episode.durationSeconds)}). YouTube: ${episode.links.youtube ?? "none"}. Spotify: ${episode.links.spotify}.`),
       podcastCopy.guest.description,
     ],
     links: [

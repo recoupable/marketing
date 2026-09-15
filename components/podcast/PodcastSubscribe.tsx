@@ -15,10 +15,11 @@ export function PodcastSubscribe() {
   }, [form.status]);
 
   if (form.status === "success") {
-    return <p className="podcast-subscribe-success" ref={confirmation} tabIndex={-1} role="status">You are on the list. New episodes and the notes will land in your inbox.</p>;
+    return <p className="podcast-subscribe-success" ref={confirmation} tabIndex={-1} role="status">{podcastCopy.subscribe.success}</p>;
   }
   return (
     <form className="podcast-subscribe" method="post" onSubmit={form.submit} aria-busy={form.status === "loading"} aria-describedby={`${id}-consent`}>
+      <noscript><p className="podcast-subscribe-consent">{podcastCopy.subscribe.noScript}</p></noscript>
       <label className="sr-only" htmlFor={`${id}-email`}>{podcastCopy.subscribe.label}</label>
       <fieldset disabled={form.busy}>
         <input id={`${id}-email`} name="email" type="email" autoComplete="email" required maxLength={254} placeholder={podcastCopy.subscribe.placeholder} value={form.email} onChange={(event) => form.setEmail(event.target.value)} />

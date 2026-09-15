@@ -1,6 +1,7 @@
-/* /podcast: show sidebar beside the episode grid on desktop; episodes first on phones. */
+/* /podcast: episodes first in the DOM (reading order); the grid places the sidebar on the left on desktop. */
 .podcast-page { display:grid; grid-template-columns:384px minmax(0,1fr); gap:50px; align-items:start; max-width:1248px; margin:44px auto 0; padding:0 36px; }
-.podcast-sidebar { display:flex; flex-direction:column; align-items:flex-start; padding-top:44px; }
+.podcast-sidebar { grid-column:1; grid-row:1; display:flex; flex-direction:column; align-items:flex-start; padding-top:44px; }
+.podcast-episodes { grid-column:2; grid-row:1; }
 .podcast-title-card { width:100%; height:auto; border-radius:12px; margin-bottom:26px; }
 .podcast-sidebar .sp-kicker { color:#53707d; }
 .podcast-sidebar h1 { margin-top:18px; font-size:44px; font-weight:450; line-height:1.06; letter-spacing:-.055em; }
@@ -37,8 +38,8 @@
 @media (max-width:1050px) { .podcast-page { grid-template-columns:320px minmax(0,1fr); gap:32px; padding:0 20px; } .podcast-card h3 { font-size:22px; } }
 @media (max-width:760px) {
   .podcast-page { display:flex; flex-direction:column; gap:0; margin-top:24px; padding:0; }
-  .podcast-episodes { order:1; padding-top:16px; }
-  .podcast-sidebar { order:2; margin-top:48px; padding-top:40px; border-top:1px solid #deeaee; }
+  .podcast-episodes { padding-top:16px; }
+  .podcast-sidebar { margin-top:48px; padding-top:40px; border-top:1px solid #deeaee; }
   .podcast-sidebar h1 { font-size:40px; }
   .podcast-grid { grid-template-columns:1fr; gap:24px; margin-top:24px; }
   .podcast-card h3 { margin-top:28px; }

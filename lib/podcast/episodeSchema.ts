@@ -6,7 +6,7 @@ export const episodeSchema = z.object({
   title: z.string().min(1),
   guest: z.string().min(1),
   role: z.string().min(1),
-  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  date: z.string().date(),
   durationSeconds: z.number().int().positive(),
   cover: z.string().startsWith("/podcast/"),
   links: z.object({
