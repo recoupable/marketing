@@ -48,7 +48,7 @@ export function PricingPlans() {
               <p>{plan.description}</p>
             </div>
             <div className="rp-price-block">
-              <p className="rp-price-starts">Starts at</p>
+              <p className="rp-price-starts">Starting at</p>
               <div className="rp-price"><strong>{price.monthly}</strong><span>/ month</span></div>
               <p className="rp-price-terms">{price.terms}</p>
               <p className="rp-saving">{billing === "annual" ? `Save ${price.annualSavings} per year` : ""}</p>
