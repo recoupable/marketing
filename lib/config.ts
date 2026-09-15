@@ -52,7 +52,7 @@ export const siteConfig = {
 
   /** Where the Recoup Podcast is published; the YouTube link is the show playlist, not the channel. */
   podcast: {
-    spotify: "https://open.spotify.com/show/4IssY4XjHXdpTNOzpaeyxh",
+    spotify: "https://open.spotify.com/show/2qOKySbQkldohO7vbSGIYz",
     apple: "https://podcasts.apple.com/us/podcast/recoup-podcast/id1316209308",
     youtube: "https://www.youtube.com/playlist?list=PLGjXo1TfTj0w",
   },
