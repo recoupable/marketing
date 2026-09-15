@@ -88,6 +88,10 @@ Keep the recipe, chosen reference, generated source, final composition, and revi
 
 ## Titles tell the story
 
+Headlines are optional: do not add one to every illustration or frame. Let a supporting figure
+work through its visual and necessary short labels when the surrounding content provides context.
+The narrative rule governs titles used together; it does not require a headline on every asset.
+
 Across the Recoup brand, titles that work together must tell the full story when read alone in
 sequence. This applies to article figures, carousels, slide decks, reports, web sections and video
 title sequences. Draft the title sequence before designing individual frames. Each title advances
