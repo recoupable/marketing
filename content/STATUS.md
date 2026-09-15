@@ -1,3 +1,9 @@
+# Deal Ingestion Skill article revision — September 14, 2026
+
+Rewrote the investment-memo article around Recoup and the client's one-session customization of the existing free Deal Ingestion Skill. Clarified the firm's ownership of its customized version, added the public skill and Build links, and replaced the cover/archive/social image with a Higgsfield illustration and editable ‘Your own AI deal skill’ headline. The article URL and white-background inline artwork remain unchanged.
+
+---
+
 # Five executive articles — September 14, 2026
 
 Added five approved articles covering workflow ownership, royalty exports, investment memo examples, cross-team adoption and board reporting. All use the clarified titles, reviewed Recoup thumbnails and white-background inline illustrations (19 WebP images). Editorial revisions distinguish estimates from measurements, proposed rollouts from observed outcomes, and saved instructions from tested workflows. Public copies omit private source metadata.

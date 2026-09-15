@@ -4,6 +4,8 @@
 
 The live article source is `content/blog/posts.json`.
 
+The investment-memo article was revised September 14 to explain the one-session customization of Recoup’s existing free Deal Ingestion Skill, with direct skill/Build links and a clearer thumbnail.
+
 | Slug | Title | Type | Status |
 | --- | --- | --- | --- |
 | your-ai-lives-in-one-persons-head | Your AI lives in one person's head | article | published |
