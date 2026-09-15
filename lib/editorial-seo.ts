@@ -99,6 +99,12 @@ export function blogIndexJsonLd(posts: readonly BlogPost[], siteUrl: string) {
 }
 
 const articleTopics: Record<string, string[]> = {
+  "your-ai-lives-in-one-persons-head": ["strategy", "agents", "operations"],
+  "automate-royalty-reporting-with-existing-files": ["operations", "catalog", "costs"],
+  "teach-ai-with-past-investment-memos": ["catalog", "research", "strategy"],
+  "roll-out-ai-beyond-first-team": ["strategy", "operations", "agents"],
+  "show-your-board-ai-roi": ["costs", "strategy", "operations"],
+
   "music-executive-guide-ai-agents": ["strategy", "agents"],
   "why-artists-need-ai-agents": ["agents", "artists"],
   "ai-content-creation-musicians": ["content", "artists", "marketing"],

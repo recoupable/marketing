@@ -1,3 +1,11 @@
+# Five executive articles — September 14, 2026
+
+Added five approved articles covering workflow ownership, royalty exports, investment memo examples, cross-team adoption and board reporting. All use the clarified titles, reviewed Recoup thumbnails and white-background inline illustrations (19 WebP images). Editorial revisions distinguish estimates from measurements, proposed rollouts from observed outcomes, and saved instructions from tested workflows. Public copies omit private source metadata.
+
+`content/blog/posts.json` now contains 31 posts. The original executive guide remains featured; the five new articles lead the dated archive. `thumbnailImage` explicitly selects approved archive artwork, preserving older posts' custom illustrations. The same published list supplies article pages, RSS, sitemap and machine discovery.
+
+---
+
 # Services navigation and pages — September 14, 2026
 
 Services now opens an illustrated three-option menu: Advisory, Build, and Training. The existing Advisory and Build pages have clearer service headlines; Training is a dedicated page covering practical work, output review, reusable methods, engagement format, and FAQs. Training links into the existing inquiry flow and is included in public routes, sitemap, footer, and machine summaries.
