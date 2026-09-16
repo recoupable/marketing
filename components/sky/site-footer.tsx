@@ -2,6 +2,39 @@ import { footerCopy } from "@/lib/copy/footer";
 import Link from "next/link";
 import { FooterBrand } from "./brand";
 import { FooterSignup } from "./footer-signup";
+import { SkyArrow } from "./arrow";
+
 export function SkySiteFooter() {
- return <footer className="ss-footer"><div className="ss-footer-top"><div className="ss-footer-brand"><FooterBrand /><p>{footerCopy.description}</p><FooterSignup /></div><nav aria-label="Explore Recoup"><span>RECOUP</span><Link href="/about">About</Link><Link href="/services">Services</Link><Link href="/advisory">Advisory</Link><Link href="/build">Build</Link><Link href="/training">Training</Link><Link href="/pricing">Pricing</Link><Link href="/#work">Our work</Link><Link href="/blog">Blog</Link><Link href="/contact">Contact</Link><Link href="/start-project">Start a project</Link></nav><nav aria-label="Recoup software"><span>OUR TOOLS</span><Link href="/platform">Platform</Link><Link href="/skills">Skills</Link><Link href="/music-videos">Music videos</Link><Link href="/developers">Developers</Link><Link href="/lab">Lab</Link></nav><nav aria-label="Recoup resources"><span>RESOURCES</span><Link href="/docs">Documentation</Link><Link href="/agents">For agents</Link><Link href="/resources">All resources</Link><Link href="/playbook">AI playbook</Link><Link href="/audit">AI readiness</Link><Link href="/roi">Workflow calculator</Link><Link href="/feed.xml">RSS feed</Link></nav></div><div className="ss-footer-bottom"><span>© {new Date().getFullYear()} Recoup</span><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div></footer>;
+  return (
+    <footer className="ss-footer">
+      <div className="ss-footer-top">
+        <div className="ss-footer-brand">
+          <FooterBrand />
+          <p>{footerCopy.description}</p>
+          <Link className="ss-footer-project" href="/start-project">
+            {footerCopy.projectLabel}<SkyArrow />
+          </Link>
+        </div>
+        <FooterSignup />
+      </div>
+      <div className="ss-footer-navigation">
+        {footerCopy.groups.map((group) => (
+          <nav key={group.title} aria-label={`Recoup ${group.title.toLowerCase()}`}>
+            <h2>{group.title}</h2>
+            <ul>
+              {group.links.map((link) => (
+                <li key={link.href}><Link href={link.href}>{link.label}</Link></li>
+              ))}
+            </ul>
+          </nav>
+        ))}
+      </div>
+      <div className="ss-footer-bottom">
+        <span>© {new Date().getFullYear()} Recoup</span>
+        <Link href="/feed.xml">RSS feed</Link>
+        <Link href="/privacy">Privacy</Link>
+        <Link href="/terms">Terms</Link>
+      </div>
+    </footer>
+  );
 }
