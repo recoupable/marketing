@@ -9,7 +9,6 @@ export const footerCopy = {
       { label: "Developers", href: "/developers" },
       { label: "Music videos", href: "/music-videos" },
       { label: "Lab", href: "/lab" },
-      { label: "Pricing", href: "/pricing" },
     ] },
     { title: "Services", links: [
       { label: "Advisory", href: "/advisory" },
@@ -28,6 +27,7 @@ export const footerCopy = {
     ] },
     { title: "Company", links: [
       { label: "About", href: "/about" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Our work", href: "/#work" },
       { label: "Contact", href: "/contact" },
     ] },
