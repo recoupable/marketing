@@ -7,6 +7,7 @@ import { caseStudyPages } from "./caseStudyPages.ts";
 import { companyPages } from "./companyPages.ts";
 import { legalPages } from "./legalPages.ts";
 import { offerPages } from "./offerPages.ts";
+import { podcastPages } from "./podcastPages.ts";
 import { productPages } from "./productPages.ts";
 import { toolPages } from "./toolPages.ts";
 import { workflowPages } from "./workflowPages.ts";
@@ -17,6 +18,7 @@ export const pageEntries: AgentContentEntry[] = [
     ...offerPages,
     ...productPages,
     ...companyPages,
+    ...podcastPages,
     ...toolPages,
     ...workflowPages,
     ...legalPages,

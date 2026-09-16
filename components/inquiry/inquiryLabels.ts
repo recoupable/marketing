@@ -3,10 +3,13 @@ export type InquiryMode = {
   qualified: boolean;
   freeAudit: boolean;
   connected: boolean;
+  /** A podcast guest request: an invitation, not a project brief. */
+  guest?: boolean;
 };
 
 /** Every piece of copy that changes with the inquiry surface, in one place. */
-export function inquiryLabels({ variant, qualified, freeAudit, connected }: InquiryMode) {
+export function inquiryLabels({ variant, qualified, freeAudit, connected, guest = false }: InquiryMode) {
+  if (guest) return guestLabels(connected);
   return {
     websitePath: freeAudit ? "Free AI audit /start-project" : qualified ? "Project brief /start-project"
       : variant === "acquisitions" ? "Acquisition readiness" : variant === "operations" ? "Catalog operations" : "AI transformation",
@@ -24,5 +27,19 @@ export function inquiryLabels({ variant, qualified, freeAudit, connected }: Inqu
     submit: connected
       ? freeAudit ? "Request my free audit" : qualified ? "Send your project brief" : "Send your inquiry"
       : freeAudit ? "Prepare audit request" : "Prepare email brief",
+  };
+}
+
+function guestLabels(connected: boolean) {
+  return {
+    websitePath: "Podcast guest /start-project",
+    formLabel: "Podcast guest request",
+    heading: "Tell us about you and your work",
+    interestLabel: "What can we help with? *",
+    interestPlaceholder: "Select a starting point",
+    messageLabel: "What would you want to talk about? *",
+    messagePlaceholder: "A workflow AI changed for you, a deal, a decision, the thing you wish someone had told you earlier.",
+    budgetNote: "",
+    submit: connected ? "Request an invite" : "Prepare invite request",
   };
 }

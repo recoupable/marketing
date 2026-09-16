@@ -56,7 +56,8 @@ lib/              — Site logic: config.ts (siteConfig), seo.ts, one-export dir
 lib/docs/         — Documentation helpers (llms.txt sections, llms-full corpus, markdown negotiation)
 proxy.ts          — Request proxy (Next 16 successor to middleware): serves /docs/* as markdown on Accept: text/markdown or a .md suffix
 public/           — Static assets (brand/, icons/, images/)
-content/posts/    — MDX blog posts (one file = one post)
+content/blog/posts.json — Published blog source for pages, feed, metadata and machine discovery
+content/posts/    — Legacy MDX sources and historical post index
 content/brand/    — Brand context files (read before creating content)
 content/seo/      — SEO strategy + keyword targets
 content/STATUS.md — Current state snapshot (read FIRST every session)
@@ -116,9 +117,9 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 1. Read `content/STATUS.md` + `content/posts/INDEX.md` (check gaps)
 2. Read `content/brand/voice.md` + relevant context files
-3. Create `content/posts/[slug].mdx` with ALL frontmatter fields
-4. Set `status: "draft"` — run `pnpm build` to validate schema
-5. Update `content/posts/INDEX.md`
+3. Prepare drafts outside `content/blog/posts.json`; every entry in that file is public when deployed. After publishing approval, add a post matching `BlogPost` in `lib/blog.ts`.
+4. Use `coverImage` for the article hero/social image and `thumbnailImage` for approved archive artwork. Store local delivery assets in `public/images/blog/<slug>/`; body image URLs must start with `/images/`. Omit duplicate H1/hero images, private frontmatter and source paths from the public body. Preserve the existing featured entry unless asked to replace it.
+5. Run `pnpm build` and the blog/metadata checks. Update `content/posts/INDEX.md` and `content/STATUS.md`.
 
 ## Content Types
 
@@ -155,7 +156,7 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 - **Lead capture:** one browser client, `lib/leads/postLead.ts`, posts to `POST /api/leads` on the Recoup api, which owns Attio storage, the triage note, and the Telegram page (chat#1800). Subscribe surfaces call it through `lib/marketing-subscribe.ts`; the music-video quote form calls it directly. Inquiry forms post to the same-origin `/api/inquiries` proxy (`lib/inquiries/`), which validates `source` against `lib/inquiry/inquirySourceSchema.ts`, de-duplicates, forwards `kind: booking`, and returns `{ ok: true, submission_id }`. Marketing holds no Attio client and no `ATTIO_API_KEY`. The api base is `siteConfig.apiUrl` (`lib/config.
 - **Attribution:** one store, `lib/attribution/` (`recoup:acquisition:v1` in sessionStorage, first + latest tagged visit). Forms read it with `currentReferralAttribution()`; CRM notes render it via `describeAcquisitionTags()` as `source=x; medium=y; campaign=z` (no underscores, Attio notes are markdown). App links go through `lib/appLink.ts` / `<AppLink>` and carry `utm_source=marketing&utm_medium=<placement>&utm_campaign=sky`, the visitor's own tags winning.
-- **Analytics:** Vercel Web Analytics (`<Analytics />` in `app/layout.tsx`); custom events go through `lib/analytics/trackEvent.ts` only, and props never carry visitor details. Funnel events: `cta_clicked {cta, placement, plan?}` (`<TrackedLink>`), `pricing_billing_toggled {billing}`, `inquiry_started {source, plan?}`, `inquiry_submitted {source, plan?, budget?, timeline?, company_type?, submission_id}`, `inquiry_failed {source, reason: validation|network|rejected|timeout}`, `subscribe_submitted {source}`, `audit_completed {score}`, `roi_calculated {recommended_plan}`.
+- **Analytics:** Vercel Web Analytics (`<Analytics />` in `app/layout.tsx`); custom events go through `lib/analytics/trackEvent.ts` only, and props never carry visitor details. Funnel events: `cta_clicked {cta, placement, plan?}` (`<TrackedLink>`), `pricing_billing_toggled {billing}`, `inquiry_started {source, plan?}`, `inquiry_submitted {source, plan?, budget?, timeline?, company_type?, submission_id}`, `inquiry_failed {source, reason: validation|network|rejected|timeout}`, `subscribe_submitted {source}`, `audit_completed {score}`, `roi_calculated {recommended_plan}`, `podcast_platform_clicked {platform}`, `podcast_episode_clicked {slug, platform}`, `podcast_guest_requested {placement}`.
 
 ## Code Principles
 
@@ -247,6 +248,10 @@ Platform section spacing uses roughly 100–140px on desktop and 70–100px on p
 
 Services uses the same three-option illustrated dropdown as Products, with Advisory (`/advisory`), Build (`/build`), and Training (`/training`). Service artwork lives in `nav-service-art.tsx`. Desktop and mobile use shared navigation data and native disclosures. Training copy is shared with machine summaries through `lib/copy/training.ts`; its inquiry action uses the existing Team training workflow.
 
+## Podcast
+
+`/podcast` lists the Recoup Podcast episodes from `content/podcast/episodes.json` (validated by `lib/podcast/episodeSchema.ts`; `readEpisodes.ts` keeps the file order, which is the page order). Each card shows the wide cover from `public/podcast/`, the duration, the title with the guest, and one action: Watch now when a YouTube link exists, otherwise Listen now (`episodeAction.ts`). The page and its components are styled with Tailwind utilities (no page stylesheet); heading and paragraph type utilities carry `!` because `app/globals.css` sets unlayered `h1`/`h2`/`h3`/`p` rules that outrank the utilities layer. The show sidebar (`components/podcast/`) carries the title card, platform links from `siteConfig.podcast`, the shared subscribe form under the `/podcast` source, and the guest invitation to `/start-project?workflow=Podcast%20guest` (`GuestInviteLink`, reports `podcast_guest_requested`), which preselects the `Podcast guest` interest and swaps the page and form copy to an invitation without the qualification block (`lib/inquiry/startProjectCopy.ts`, `inquiryLabels` guest mode). Episodes come first in the DOM; the desktop grid places the sidebar on the left. Copy lives in `lib/copy/podcast.ts`, shared with the agent summary in `lib/agent-content/podcastPages.ts`. Podcast replaces About in the Resources dropdown; About stays in the footer. Add an episode by inserting it where it should appear in the JSON and dropping its cover in `public/podcast/`.
+
 ## Blog thumbnails
 
 `app/blog/article-art.tsx` assigns a distinct editorial SVG composition to each illustrated article slug. `BlogArt` retains the featured decision guide and the original Skills cover. Never assign art by list position or rotate generic themes. When adding a post, review its thumbnail against the article and extend the mapping; `tests/blog-thumbnails.test.tsx` checks complete coverage and unique compositions. See `docs/blog-thumbnail-audit.md` for the September 2026 audit.
@@ -258,3 +263,7 @@ The blog uses the compact, email-only SubscribeCard beside the blog intro on des
 ## Footer navigation
 
 `lib/copy/footer.ts` owns footer link groups: Products, Services, Resources, and Company. Keep the project action and email signup above navigation, with RSS and legal links in the bottom row. The shared footer uses four columns on desktop and two on phones.
+
+## Readiness inquiry handoff
+
+The readiness result action takes visitors to `/contact?brief=readiness`. Only that explicit handoff automatically applies the reviewed browser draft to the inquiry form. It confirms that the answers are included and requires contact details and a separate Send action. Generic agent and calculator drafts retain the manual import step. Missing or expired readiness drafts show a recovery message. Do not submit an inquiry during preview testing.

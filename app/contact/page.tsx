@@ -25,9 +25,11 @@ export default async function ContactPage({
   searchParams: Promise<{
     workflow?: string | string[];
     project?: string | string[];
+    brief?: string | string[];
   }>;
 }) {
-  const { workflow, project } = await searchParams;
+  const { workflow, project, brief } = await searchParams;
+  const readinessHandoff = brief === "readiness";
   const selectedProject = getImmersiveWorkflow(project);
   const requestedInterest =
     typeof workflow === "string" &&
@@ -65,7 +67,8 @@ export default async function ContactPage({
       </div>
       <InquiryForm
         source="/contact"
-        key={`${initialInterest}:${selectedProject?.id ?? "general"}`}
+        key={`${initialInterest}:${selectedProject?.id ?? "general"}:${readinessHandoff}`}
+        readinessHandoff={readinessHandoff}
         connected={true}
         initialInterest={initialInterest}
         initialBrief={initialBrief}

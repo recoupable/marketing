@@ -18,6 +18,7 @@ export const footerCopy = {
     ] },
     { title: "Resources", links: [
       { label: "Blog", href: "/blog" },
+      { label: "Podcast", href: "/podcast" },
       { label: "Documentation", href: "/docs" },
       { label: "For agents", href: "/agents" },
       { label: "AI playbook", href: "/playbook" },

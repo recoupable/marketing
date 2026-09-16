@@ -41,6 +41,7 @@
 .rp-plan-heading h2 { margin: 0 0 13px; font-size: clamp(26px, 2.2vw, 30px); font-weight: 500; line-height: 1.15; letter-spacing: -.035em; }
 .rp-plan-heading > p { color: #586f78; font-size: 15px; line-height: 1.6; }
 .rp-price-block { padding-bottom: 24px; }
+.rp-price-starts { margin: 0 0 8px; color: #586f78; font-size: 13px; line-height: 1.5; }
 .rp-price { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .rp-price strong { max-width: 100%; font-size: clamp(42px, 3.6vw, 50px); font-weight: 450; line-height: 1.05; letter-spacing: -.055em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .rp-price > span { color: #586f78; font-size: 13px; line-height: 1.5; }

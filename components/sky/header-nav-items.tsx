@@ -3,10 +3,10 @@ import { headerNavigation } from "@/lib/copy/navigation";
 import { SkyArrow } from "./arrow";
 import { NavServiceArt } from "./nav-service-art";
 import { NavProductArt } from "./nav-product-art";
-import { BookOpen, Newspaper, FlaskConical, UsersRound } from "lucide-react";
+import { BookOpen, Newspaper, FlaskConical, Podcast } from "lucide-react";
 import { NavWorkArt } from "./nav-work-art";
 
-const resourceIcons = { docs: BookOpen, blog: Newspaper, lab: FlaskConical, about: UsersRound };
+const resourceIcons = { docs: BookOpen, blog: Newspaper, lab: FlaskConical, podcast: Podcast };
 
 export function HeaderNavItems({ pathname, mobile = false }: { pathname: string; mobile?: boolean }) {
   const isCurrent = (href: string) => pathname === href || pathname.startsWith(`${href}/`);

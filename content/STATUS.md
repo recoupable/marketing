@@ -1,3 +1,29 @@
+# Four article corrections — September 14, 2026
+
+Corrected attribution and clarified the work in the ownership, quarterly-report, cross-team rollout and board-reporting articles. Removed the drafting-agent anecdote previously written as the author’s experience. The board article now has an evidence-labeled comparison table. The quarterly-report title names the demonstrated task. Existing article URLs remain stable.
+
+---
+
+# Deal Ingestion Skill article revision — September 14, 2026
+
+Rewrote the investment-memo article around Recoup and the client's one-session customization of the existing free Deal Ingestion Skill. Clarified the firm's ownership of its customized version, added the public skill and Build links, and replaced the cover/archive/social image with a Higgsfield illustration and editable ‘Your own AI deal skill’ headline. The article URL and white-background inline artwork remain unchanged.
+
+---
+
+# Podcast page — September 14, 2026
+
+`/podcast` is live on the branch for recoupable/app#2082: the Recoup Podcast show sidebar (title card, platform links to the Spotify show, Apple Podcasts and the YouTube playlist, subscribe, guest invitation) beside a two-column grid of six seeded episodes with covers and Watch now actions; episodes first on phones. Podcast replaces About in the Resources dropdown. Copy in `lib/copy/podcast.ts`, episodes in `content/podcast/episodes.json`, events `podcast_platform_clicked`, `podcast_episode_clicked`, and `podcast_guest_requested`. Styled with Tailwind utilities; og:image is the title card.
+
+---
+
+# Five executive articles — September 14, 2026
+
+Added five approved articles covering workflow ownership, royalty exports, investment memo examples, cross-team adoption and board reporting. All use the clarified titles, reviewed Recoup thumbnails and white-background inline illustrations (19 WebP images). Editorial revisions distinguish estimates from measurements, proposed rollouts from observed outcomes, and saved instructions from tested workflows. Public copies omit private source metadata.
+
+`content/blog/posts.json` now contains 31 posts. The original executive guide remains featured; the five new articles lead the dated archive. `thumbnailImage` explicitly selects approved archive artwork, preserving older posts' custom illustrations. Image cards use the approved 16:9 proportions to keep thumbnail text and illustrations uncropped. The same published list supplies article pages, RSS, sitemap and machine discovery.
+
+---
+
 # Services navigation and pages — September 14, 2026
 
 Services now opens an illustrated three-option menu: Advisory, Build, and Training. The existing Advisory and Build pages have clearer service headlines; Training is a dedicated page covering practical work, output review, reusable methods, engagement format, and FAQs. Training links into the existing inquiry flow and is included in public routes, sitemap, footer, and machine summaries.

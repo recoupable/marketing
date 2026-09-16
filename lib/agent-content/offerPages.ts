@@ -79,7 +79,7 @@ export const offerPages: PageSummary[] = [
     path: "/build",
     title: "Custom AI systems for music businesses",
     description:
-      "Agents, integrations, reporting dashboards, and full applications built around a music company's tools, data, and team.",
+      "Agents, reporting dashboards, and applications that connect CRM systems, catalog data, and existing tools for music businesses.",
     keywords:
       "custom build integration CRM connect automation application software dashboard API MCP handoff ownership maintenance",
     paragraphs: [

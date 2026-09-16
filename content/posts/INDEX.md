@@ -1,5 +1,22 @@
 # Published Posts
 
+## September 14, 2026 additions
+
+The live article source is `content/blog/posts.json`.
+
+September 14 corrections: workflow ownership, quarterly reporting, cross-team adoption and board reporting now use clearer task descriptions and checked attribution. The board article includes a comparison table; the quarterly-report article has a more precise title.
+
+The investment-memo article was revised September 14 to explain the one-session customization of Recoup’s existing free Deal Ingestion Skill, with direct skill/Build links and a clearer thumbnail.
+
+| Slug | Title | Type | Status |
+| --- | --- | --- | --- |
+| your-ai-lives-in-one-persons-head | Your AI lives in one person's head | article | published |
+| automate-royalty-reporting-with-existing-files | Use AI to bring catalog data into your quarterly report | article | published |
+| teach-ai-with-past-investment-memos | Use past investment memos to teach AI how your firm evaluates deals | article | published |
+| roll-out-ai-beyond-first-team | How to roll out AI beyond your first successful team | article | published |
+| show-your-board-ai-roi | How to show your board whether AI is paying off | article | published |
+
+
 | Slug | Title | Type | Pillar | Status |
 |---|---|---|---|---|
 | ai-music-marketing | How AI is Changing Music Marketing | pillar | ai-marketing | published |
