@@ -260,6 +260,10 @@ The blog archive renders every result in the same thumbnail grid, without search
 
 The blog uses the compact, email-only SubscribeCard beside the blog intro on desktop and below the intro on mobile, always before the featured article. Other subscribe surfaces retain their existing fields. All variants share useSubscribeForm for submission, attribution, error state, and confirmation focus. Blog browsing goes straight from the section heading to the full thumbnail grid without filters or a result count.
 
+## Footer navigation
+
+`lib/copy/footer.ts` owns footer link groups: Products, Services, Resources, and Company. Keep the project action and email signup above navigation, with RSS and legal links in the bottom row. The shared footer uses four columns on desktop and two on phones.
+
 ## Readiness inquiry handoff
 
 The readiness result action takes visitors to `/contact?brief=readiness`. Only that explicit handoff automatically applies the reviewed browser draft to the inquiry form. It confirms that the answers are included and requires contact details and a separate Send action. Generic agent and calculator drafts retain the manual import step. Missing or expired readiness drafts show a recovery message. Do not submit an inquiry during preview testing.
