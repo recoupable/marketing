@@ -23,7 +23,6 @@ export const footerCopy = {
       { label: "AI playbook", href: "/playbook" },
       { label: "AI readiness", href: "/audit" },
       { label: "Workflow calculator", href: "/roi" },
-      { label: "All resources", href: "/resources" },
     ] },
     { title: "Company", links: [
       { label: "About", href: "/about" },
