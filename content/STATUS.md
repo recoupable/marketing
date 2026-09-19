@@ -1,3 +1,9 @@
+# Sites brand-world generation — September 19, 2026
+
+Documented the two-stage artwork interpretation and implementation path, optional private brandWorld snapshot metadata, revision preservation, asset capability limits and the distinction between prompt self-review and rendered verification. Release with API PR #913; no claim of production deployment.
+
+---
+
 # Sites API and MCP documentation — September 19, 2026
 
 Added `/docs/api-reference/sites/overview` to the marketing-owned docs source and navigation, with authentication, draft generation, explicit publishing, uploads, public snapshots, fan signups, revision handling, and all eight MCP tools. The MCP tool guide links to Sites. Regenerated documentation indexes supply human pages and machine-readable discovery from the same source. Release this documentation with API PR #913 and app PR #2091; those changes are not yet verified in production.

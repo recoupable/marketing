@@ -54,6 +54,21 @@ Send that body to `PATCH /api/sites/{id}`. MCP's `generate_site` accepts `id`, `
 
 Generation failures leave the saved draft unchanged. A `409` means another edit changed the revision; read the site again before retrying.
 
+## Artwork and brand-world guidance
+
+Generation has two stages using the configured Sites model (GPT-6 Astra by default):
+
+1. Analyze supplied artwork and compile a structured visual world: visible evidence versus interpretation, composition, typography, material/shape vocabulary, motion, asset strategy and connected UI states.
+2. Generate the working experience from that specification and the original assets. Revisions receive the previous specification and current design so a small request can preserve the rest of the world.
+
+This is shared by the UI, HTTP and MCP; no extra form or endpoint is required. Supply artwork/references through the existing assets field and describe overrides in the brief or revision instruction. With no artwork, the specification explicitly records a brief-only direction.
+
+Authenticated snapshots may include optional `brandWorld` metadata containing `version`, `model`, `sourceAssets` and `specification`. Existing snapshots without it remain valid. The public snapshot endpoint excludes this internal guidance. A failed analysis or generation does not replace the saved draft.
+
+Asset plans distinguish supplied assets, feasible procedural graphics, and deferred art with an available fallback. This does not generate new illustration files or invent image URLs. The shared player currently supports background, foreground, accent and serif/sans theme choices; richer player customization is not implied.
+
+The generator receives quality guidance including a “hide the cover” review: the remaining site should still express the release's visual identity. This is model self-review, not automated screenshot inspection or proof of visual quality. Review the rendered draft before publishing. The additional analysis stage adds model usage and latency; the same hosting limits still apply.
+
 ## Publish
 
 After reviewing the draft, send `{"action":"publish","revision":CURRENT_REVISION}` to the same PATCH endpoint, or call `publish_site` with `id` and `revision`.
