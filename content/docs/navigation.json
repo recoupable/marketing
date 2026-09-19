@@ -412,5 +412,16 @@
         ]
       }
     ]
+  },
+  {
+    "tab": "Sites",
+    "groups": [
+      {
+        "group": "Sites",
+        "pages": [
+          "api-reference/sites/overview"
+        ]
+      }
+    ]
   }
 ]
