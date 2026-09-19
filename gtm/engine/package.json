@@ -12,7 +12,8 @@
     "sync-attio": "tsx scripts/syncAttio.ts",
     "dashboard": "tsx scripts/buildDashboard.ts",
     "build": "tsc --noEmit",
-    "test": "node --experimental-strip-types --test tests/*.test.ts"
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "recover-enrichment": "node --experimental-strip-types scripts/recoverEnrichment.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.7"
