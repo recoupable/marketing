@@ -68,3 +68,17 @@ Other inherited gaps include direct CSV joining without escaping, no validated A
 Imported from the tracked runtime in `mono/gtm` at commit `57b45f03e92c27079af366b6bd76f7693d5946d3`. Original files: `lib/`, `scripts/`, `sequences/`, `package.json`, `pnpm-lock.yaml`, `tsconfig.json`, and the placeholder `.env.example`. Credentials, exports, installed dependencies, and untracked research were not imported.
 
 This consolidation adds help before data access, strict flag parsing, preview by default, an explicit apply flag, aggregate logging, failed-sync exit status, directory-relative environment/output locations, and offline tests. `pnpm build` now typechecks instead of returning a no-op message. Legacy draft text and API assumptions are preserved and labeled. No live service calls were made during migration.
+
+## Recover enrichment after a timeout
+
+`pnpm recover-enrichment --checkpoint exports/enrichment-recovery.json` previews an existing job manifest without reading credentials or using the network. Add `--apply` to retrieve pending jobs, using `PARALLEL_API_KEY` from the operator environment. This deliberately uses the provider result API because Recoup currently returns a provider run ID on a research timeout without exposing its own recovery route. It is an operator workaround, not a public API fix.
+
+Use a private checkpoint in this engine's ignored `exports/` or `runs/` directory:
+
+```json
+{"version":1,"records":[{"id":"local-contact-reference","run_id":"trun_existing_run","status":"pending"}]}
+```
+
+Import run IDs from saved Recoup timeout responses; do not guess IDs or resubmit an uncertain request. A network failure without a run ID requires investigation, not automatic retry. This command only uses GET on existing runs, never starts research or writes Attio. Completed and failed records are skipped. Each retrieved result is atomically saved with restricted file permissions; the checkpoint lock prevents simultaneous operators overwriting each other. A crash may leave a lock that requires confirming the prior process has ended before removal.
+
+Output includes professional research plus the provider's original field evidence and confidence. Completed research is not a verified identity or a qualified lead. Review conflicts and shared mailboxes before any separate CRM write. Logs contain aggregate progress only. HTTP/network errors remain pending for a later retrieval attempt; consult `last_error` in the private checkpoint. Do not put live checkpoints in fixtures or Git, and do not run this with browser-exposed credentials.

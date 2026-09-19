@@ -80,3 +80,9 @@ The team can choose the storage implementation. Keep workflow logic, credentials
 ## First-run handoff
 
 Deliver the account-to-draft command, fictional fixtures, a sample review bundle, setup instructions, and checks for held accounts, unsupported claims, repeatability, and no external writes. Document remaining gaps. Then decide which live connection would answer the next business question.
+
+## Verified operator capability — enrichment recovery (2026-09-18)
+
+The engine now has a preview-first `recover-enrichment` command for existing Recoup timeout run IDs. It retrieves provider results, checkpoints each row, preserves field-level evidence, locks against concurrent writers and skips completed/failed rows. Offline tests and a live retrieval-only check passed; a completed checkpoint was rerun under a network-denial guard with no requests. No CRM write or new research is part of this command.
+
+This is an operator workaround using a server-side Parallel credential. The public Recoup enrichment endpoint still needs authenticated asynchronous result retrieval, durable account ownership and idempotent billing before an unattended rollout. Do not treat this CLI as a deployed API fix or automatic identity verification.
