@@ -45,3 +45,8 @@ test('terminal failure is not mistaken for a completed match', async () => {
  const result=await recoverEnrichment({id:'one',run_id:'trun_abc',status:'pending'},'secret',async()=>Response.json({run:{run_id:'trun_abc',status:'failed'}}));
  assert.equal(result.status,'failed');
 });
+
+test('provider JSON parse failure records a safe error category', async()=>{
+ const result=await recoverEnrichment({id:'one',run_id:'trun_abc',status:'pending'},'secret',async()=>new Response('invalid json'));
+ assert.match(result.last_error || '',/SyntaxError/);
+});

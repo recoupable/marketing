@@ -1,6 +1,9 @@
+import { randomUUID } from 'node:crypto';
+import { parseRecoveryCheckpoint } from '../lib/parseRecoveryCheckpoint.ts';
+import { isObject } from '../lib/isObject.ts';
 import { readFile, open, rename, unlink, realpath } from 'node:fs/promises';
 import { resolve, dirname, join } from 'node:path';
-import { recoverEnrichment, type RecoveryRecord } from '../lib/recoverEnrichment.ts';
+import { recoverEnrichment } from '../lib/recoverEnrichment.ts';
 
 const help = `Recover existing Recoup enrichment jobs after a timeout.
 Usage: node --experimental-strip-types scripts/recoverEnrichment.ts --checkpoint PATH [--apply]
@@ -29,17 +32,11 @@ async function main() {
   }));
   if (!allowed.some(root => root && path.startsWith(root + '/'))) throw new Error('Checkpoint must be inside this engine’s ignored exports/ or runs/ directory.');
   const lockPath = path + '.lock'; let lock: Awaited<ReturnType<typeof open>> | undefined;
-  const temporary = join(dirname(path), `.${process.pid}-enrichment-checkpoint.tmp`);
+  const temporary = join(dirname(path), `.${randomUUID()}-enrichment-checkpoint.tmp`);
   try {
     if (apply) lock = await open(lockPath, 'wx', 0o600);
-    const body = JSON.parse(await readFile(path, 'utf8'));
-    if (body.version !== 1 || !Array.isArray(body.records)) throw new Error('Invalid checkpoint schema');
-    const ids = new Set<string>(); const runs = new Set<string>();
-    for (const r of body.records) {
-      if (!r || typeof r.id !== 'string' || !r.id || typeof r.run_id !== 'string' || !/^trun_[A-Za-z0-9_-]+$/.test(r.run_id) || !['pending','completed','failed'].includes(r.status) || ids.has(r.id) || runs.has(r.run_id)) throw new Error('Invalid or duplicate checkpoint record');
-      ids.add(r.id); runs.add(r.run_id);
-    }
-    const records: RecoveryRecord[] = body.records;
+    const body: unknown = JSON.parse(await readFile(path, 'utf8'));
+    const records = parseRecoveryCheckpoint(body);
     if (apply) {
       const key = process.env.PARALLEL_API_KEY || '';
       if (records.some(r => r.status === 'pending') && !key) throw new Error('PARALLEL_API_KEY is required');
@@ -57,4 +54,13 @@ async function main() {
     if (lock) { await unlink(temporary).catch(()=>{}); await lock.close(); await unlink(lockPath); }
   }
 }
-main().catch(() => { console.error('Recovery stopped: check arguments, checkpoint, lock and required environment. No new research was submitted.'); process.exitCode=1; });
+main().catch((error: unknown) => {
+  const safeMessages = new Set(['Invalid arguments. Use --help.','--checkpoint is required. Use --help.','Checkpoint must be inside this engine’s ignored exports/ or runs/ directory.','Invalid checkpoint schema','Invalid or duplicate checkpoint record','PARALLEL_API_KEY is required']);
+  let reason = 'Unexpected recovery failure';
+  if (error instanceof Error && safeMessages.has(error.message)) reason = error.message;
+  else if (error instanceof SyntaxError) reason = 'Checkpoint is not valid JSON';
+  else if (isObject(error) && error.code === 'EEXIST') reason = 'Recovery lock or temporary file already exists; confirm no process is active before cleanup';
+  else if (isObject(error) && error.code === 'ENOENT') reason = 'Checkpoint or runtime directory does not exist';
+  else if (isObject(error) && (error.code === 'EACCES' || error.code === 'EPERM')) reason = 'Filesystem access denied';
+  console.error(`Recovery stopped: ${reason}. No new research was submitted.`); process.exitCode=1;
+});

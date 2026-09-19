@@ -1,3 +1,4 @@
+import { isObject } from './isObject.ts';
 export interface RecoveryRecord {
   id: string;
   run_id: string;
@@ -24,17 +25,23 @@ export async function recoverEnrichment(
       { method: 'GET', headers: { 'x-api-key': apiKey }, signal: AbortSignal.timeout(20000), redirect: 'error' },
     );
     if (!response.ok) return { ...checked, last_error: `Provider HTTP ${response.status}` };
-    const body = await response.json();
-    if (body?.run?.run_id !== row.run_id) return { ...checked, last_error: 'Invalid provider response' };
+    const body: unknown = await response.json();
+    if (!isObject(body) || !isObject(body.run) || body.run.run_id !== row.run_id) return { ...checked, last_error: 'Invalid provider response' };
     if (body.run.status === 'failed' || body.run.status === 'cancelled') {
       return { ...checked, status: 'failed', last_error: 'Provider reports terminal failure' };
     }
     if (body.run.status !== 'completed') return { ...checked, last_error: 'Provider job is not complete' };
-    if (!body.output || !Object.hasOwn(body.output, 'content') || !Array.isArray(body.output.basis)) {
+    if (!isObject(body.output) || !Object.hasOwn(body.output, 'content') || !Array.isArray(body.output.basis)) {
       return { ...checked, last_error: 'Invalid provider response' };
     }
-    return { ...checked, status: 'completed', output: body.output.content, basis: body.output.basis, last_error: undefined };
-  } catch {
-    return { ...checked, last_error: 'Provider request failed; retry retrieval of this same run ID' };
+    const basis: NonNullable<RecoveryRecord['basis']> = [];
+    for (const item of body.output.basis as unknown[]) {
+      if (!isObject(item) || (item.field !== undefined && typeof item.field !== 'string')) return { ...checked, last_error: 'Invalid provider response' };
+      basis.push({ ...item, field: item.field });
+    }
+    return { ...checked, status: 'completed', output: body.output.content, basis, last_error: undefined };
+  } catch (error: unknown) {
+    const category = error instanceof Error && ['SyntaxError','TimeoutError','AbortError','TypeError'].includes(error.name) ? error.name : 'RequestError';
+    return { ...checked, last_error: `Provider ${category}; retry retrieval of this same run ID` };
   }
 }
