@@ -8,10 +8,10 @@ const config=JSON.parse(readFileSync(new URL('../content/docs/source/docs.json',
 const specs=Object.fromEntries(inventory.specifications.map((name:string)=>[name,JSON.parse(readFileSync(new URL(`../content/docs/source/api-reference/openapi/${name}`,import.meta.url),'utf8'))]));
 
 test('documentation migration covers every navigation page and every supplied API operation',()=>{
- expect(pages.length).toBe(185);
+ expect(pages.length).toBe(186);
  expect(new Set(pages.map((page:{slug:string})=>page.slug)).size).toBe(pages.length);
  const navPages=config.navigation.tabs.flatMap((tab:{groups:{pages:string[]}[]})=>tab.groups.flatMap(group=>group.pages));
- expect(navPages.length).toBe(179);
+ expect(navPages.length).toBe(180);
  for(const slug of navPages)expect(pages.some((page:{slug:string})=>page.slug===(slug==='index'?'':slug)), `Missing nav page ${slug}`).toBeTruthy();
  for(const [name,spec] of Object.entries(specs))for(const [endpoint,path] of Object.entries(spec.paths))for(const method of Object.keys(path as object)) {
   if(!['get','post','put','patch','delete','head','options'].includes(method))continue;

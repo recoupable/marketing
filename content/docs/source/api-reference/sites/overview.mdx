@@ -1,0 +1,79 @@
+---
+title: "Sites"
+description: "Create, generate, and publish fan experiences through the API or MCP."
+---
+
+Sites uses the same backend operations from the web app, HTTP API, and MCP. A new site is a **private draft**. Generation never publishes it automatically.
+
+## Authentication
+
+Private HTTP endpoints accept exactly one of `x-api-key: YOUR_API_KEY` or `Authorization: Bearer YOUR_PRIVY_ACCESS_TOKEN`.
+MCP uses the existing authenticated `https://api.recoupable.dev/mcp` connection.
+
+The caller is derived from authentication. Do not send an `account_id`. An optional `organizationId` selects a workspace the caller can access. Omit it for the authenticated account's workspace.
+
+## Endpoints and tools
+
+| HTTP | MCP tool | Result |
+| --- | --- | --- |
+| `GET /api/sites` | `list_sites` | `{ sites: [...] }` |
+| `POST /api/sites` | `create_site` | `{ site: ... }`, HTTP 201 |
+| `GET /api/sites/{id}` | `get_site` | `{ site: ... }` |
+| `PATCH /api/sites/{id}` action `generate` | `generate_site` | Updated private draft |
+| `PATCH /api/sites/{id}` action `publish` | `publish_site` | Saved draft becomes public |
+| `PATCH /api/sites/{id}` action `unpublish` | `unpublish_site` | Public snapshot removed, draft retained |
+| `GET /api/sites/{id}/signups` | `get_site_signups` | `{ signups: [{ email, created_at }] }`, up to 10,000 |
+| `POST /api/sites/assets` | `upload_site_asset` | `{ asset: { url, name, type } }` |
+
+Listing accepts optional `organizationId` and `artistId` query parameters. All private reads and writes verify workspace access. Signup emails are never part of the public response.
+
+## Create and generate
+
+Create a draft with a Spotify track, album, or playlist URL. Recoup retrieves its title and artwork. The brief is optional; without it, Recoup chooses a playable concept. Alternatively, supply both a name and a brief without a release URL.
+
+```bash
+curl https://api.recoupable.dev/api/sites \
+  -H "x-api-key: $RECOUP_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"releaseUrl":"https://open.spotify.com/track/TRACK_ID","brief":"Build a maze game"}'
+```
+
+Optional creation fields: `name` (120 characters), `brief` (6,000), `organizationId`, `artistId`, and `assets` (up to eight workspace-owned assets returned by the upload endpoint). An artist must be accessible to the caller and belong to the selected organization when one is used.
+
+Read the returned `site.id` and `site.revision`, then generate:
+
+```json
+{
+  "action": "generate",
+  "revision": 0,
+  "instruction": "Build a maze game with touch and keyboard controls."
+}
+```
+
+Send that body to `PATCH /api/sites/{id}`. MCP's `generate_site` accepts `id`, `revision`, and `instruction` without an `action` field. Generation uses GPT-6 Astra by default and may take several minutes; use a client timeout that permits up to 300 seconds.
+
+Generation failures leave the saved draft unchanged. A `409` means another edit changed the revision; read the site again before retrying.
+
+## Publish
+
+After reviewing the draft, send `{"action":"publish","revision":CURRENT_REVISION}` to the same PATCH endpoint, or call `publish_site` with `id` and `revision`.
+The public page is `https://chat.recoupable.dev/s/{id}`.
+
+Unpublish with `action: "unpublish"`, or `unpublish_site`. Agents should publish only when explicitly instructed.
+
+## Uploads
+
+HTTP uploads are multipart forms with a `file` field and optional `organizationId` query parameter. Supported formats: JPEG, PNG, WebP, MP3, and WAV, up to 4 MB per file. Images are re-encoded to WebP. Audio is checked for its file signature.
+
+MCP's `upload_site_asset` accepts `name`, `contentType`, `base64` file bytes, and optional `organizationId`. It uses the same validation and storage path as HTTP.
+
+## Public endpoints
+
+- `GET /api/sites/public/{id}` returns `{ snapshot: ... }` for a published site only. Drafts, account identifiers, and signup data are excluded.
+- `POST /api/sites/public/{id}/signup` accepts `{"email":"fan@example.com","consent":"yes"}`. An optional `website` honeypot must be empty. Duplicate submissions succeed without disclosing list membership. Unpublished sites reject signups.
+
+Public pages render in the chat app. The API owns snapshots, generation, uploads, and signup persistence. Spotify OAuth and the browser music player remain in the web app.
+
+## Errors
+
+`400` invalid input; `401` missing/invalid authentication; `403` workspace or artist access denied; `404` missing/unpublished site; `409` stale revision; `422` Spotify metadata unavailable; `503` temporary operation failure.

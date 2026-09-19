@@ -1,3 +1,9 @@
+# Sites API and MCP documentation — September 19, 2026
+
+Added `/docs/api-reference/sites/overview` to the marketing-owned docs source and navigation, with authentication, draft generation, explicit publishing, uploads, public snapshots, fan signups, revision handling, and all eight MCP tools. The MCP tool guide links to Sites. Regenerated documentation indexes supply human pages and machine-readable discovery from the same source. Release this documentation with API PR #913 and app PR #2091; those changes are not yet verified in production.
+
+---
+
 # Four article corrections — September 14, 2026
 
 Corrected attribution and clarified the work in the ownership, quarterly-report, cross-team rollout and board-reporting articles. Removed the drafting-agent anecdote previously written as the author’s experience. The board article now has an evidence-labeled comparison table. The quarterly-report title names the demonstrated task. Existing article URLs remain stable.
