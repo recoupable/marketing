@@ -1,3 +1,19 @@
+## Sites creative production update — 2026-09-19
+
+Documented URL-only production, asynchronous generation/polling, sourced context, generated assets, rendered review and bounded revision. Ship with API #913 and app #2091; not a production-availability claim.
+
+# Sites brand-world generation — September 19, 2026
+
+Documented the two-stage artwork interpretation and implementation path, optional private brandWorld snapshot metadata, revision preservation, asset capability limits and the distinction between prompt self-review and rendered verification. Release with API PR #913; no claim of production deployment.
+
+---
+
+# Sites API and MCP documentation — September 19, 2026
+
+Added `/docs/api-reference/sites/overview` to the marketing-owned docs source and navigation, with authentication, draft generation, explicit publishing, uploads, public snapshots, fan signups, revision handling, and all eight MCP tools. The MCP tool guide links to Sites. Regenerated documentation indexes supply human pages and machine-readable discovery from the same source. Release this documentation with API PR #913 and app PR #2091; those changes are not yet verified in production.
+
+---
+
 # Four article corrections — September 14, 2026
 
 Corrected attribution and clarified the work in the ownership, quarterly-report, cross-team rollout and board-reporting articles. Removed the drafting-agent anecdote previously written as the author’s experience. The board article now has an evidence-labeled comparison table. The quarterly-report title names the demonstrated task. Existing article URLs remain stable.

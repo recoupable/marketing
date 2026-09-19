@@ -17,6 +17,24 @@ You can get a key from the [API Keys page](https://chat.recoupable.dev/keys).
 
 ## Tools
 
+### Sites
+
+Create, generate, and publish fan experiences using the same backend as the Recoup app. See the [Sites API guide](/api-reference/sites/overview) for inputs, uploads, workspace access, and revision handling.
+
+| Tool | Purpose |
+| --- | --- |
+| `list_sites` | List sites in an accessible workspace. |
+| `get_site` | Read a site and its current revision. |
+| `create_site` | Create a private draft from a Spotify link or a name and brief. |
+| `generate_site` | Start background creative production; returns a generation token. |
+| `get_site_generation` | Check that token until production completes and returns the saved draft. |
+| `publish_site` | Publish the reviewed draft at the specified revision. |
+| `unpublish_site` | Remove the public version while retaining the draft. |
+| `get_site_signups` | Retrieve consented fan email signups. |
+| `upload_site_asset` | Upload artwork or audio for the authenticated workspace. |
+
+The caller comes from authentication; do not send an `account_id`. New drafts remain private. Publish only when the user explicitly asks, and use the latest revision for generation, publishing, or unpublishing.
+
 ### prompt_sandbox
 
 Send a prompt to OpenClaw running in a persistent per-account sandbox. The sandbox is reused across calls — if one is already running it picks up where you left off, otherwise a new one is created from the account's latest snapshot.
