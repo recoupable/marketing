@@ -1,3 +1,7 @@
+## Sites creative production update — 2026-09-19
+
+Documented URL-only production, asynchronous generation/polling, sourced context, generated assets, rendered review and bounded revision. Ship with API #913 and app #2091; not a production-availability claim.
+
 # Sites brand-world generation — September 19, 2026
 
 Documented the two-stage artwork interpretation and implementation path, optional private brandWorld snapshot metadata, revision preservation, asset capability limits and the distinction between prompt self-review and rendered verification. Release with API PR #913; no claim of production deployment.

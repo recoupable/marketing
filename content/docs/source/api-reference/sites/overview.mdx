@@ -19,7 +19,8 @@ The caller is derived from authentication. Do not send an `account_id`. An optio
 | `GET /api/sites` | `list_sites` | `{ sites: [...] }` |
 | `POST /api/sites` | `create_site` | `{ site: ... }`, HTTP 201 |
 | `GET /api/sites/{id}` | `get_site` | `{ site: ... }` |
-| `PATCH /api/sites/{id}` action `generate` | `generate_site` | Updated private draft |
+| `PATCH /api/sites/{id}` action `generate` | `generate_site` | `{ generation: { token, status: "running" } }` |
+| `PATCH /api/sites/{id}` action `generation` | `get_site_generation` | Job status and completed site |
 | `PATCH /api/sites/{id}` action `publish` | `publish_site` | Saved draft becomes public |
 | `PATCH /api/sites/{id}` action `unpublish` | `unpublish_site` | Public snapshot removed, draft retained |
 | `GET /api/sites/{id}/signups` | `get_site_signups` | `{ signups: [{ email, created_at }] }`, up to 10,000 |
@@ -29,7 +30,7 @@ Listing accepts optional `organizationId` and `artistId` query parameters. All p
 
 ## Create and generate
 
-Create a draft with a Spotify track, album, or playlist URL. Recoup retrieves its title and artwork. The brief is optional; without it, Recoup chooses a playable concept. Alternatively, supply both a name and a brief without a release URL.
+Create a draft with a Spotify track, album, or playlist URL. Recoup retrieves its title and artwork. The brief is optional; without it, Recoup chooses the experience concept and format. A game is one possible format. Alternatively, supply both a name and a brief without a release URL.
 
 ```bash
 curl https://api.recoupable.dev/api/sites \
@@ -50,24 +51,30 @@ Read the returned `site.id` and `site.revision`, then generate:
 }
 ```
 
-Send that body to `PATCH /api/sites/{id}`. MCP's `generate_site` accepts `id`, `revision`, and `instruction` without an `action` field. Generation uses GPT-6 Astra by default and may take several minutes; use a client timeout that permits up to 300 seconds.
+Send that body to `PATCH /api/sites/{id}`. MCP's `generate_site` accepts `id`, `revision`, and optional `instruction` without an `action` field. Generation uses GPT-6 Astra by default and starts a durable background workflow. Save the returned generation token and poll every few seconds with `{"action":"generation","token":"RETURNED_TOKEN"}`. MCP callers use `get_site_generation` with `id` and `token`. Polling requires the same authenticated account and current workspace access. The token expires after seven days.
+
+A completed response contains `generation.status: "completed"` and `site`. A failed job returns `generation.status: "failed"` and an error. A browser disconnect does not stop the job. Starting production advances the revision to reject duplicate starts using the same revision. Read the latest site before a new mutation. An explicit `background: false` retains synchronous execution for compatible clients, subject to the hosting request limit.
 
 Generation failures leave the saved draft unchanged. A `409` means another edit changed the revision; read the site again before retrying.
 
-## Artwork and brand-world guidance
+## Creative production
 
-Generation has two stages using the configured Sites model (GPT-6 Astra by default):
+A release URL is the only required creative input. The shared API/MCP pipeline runs:
 
-1. Analyze supplied artwork and compile a structured visual world: visible evidence versus interpretation, composition, typography, material/shape vocabulary, motion, asset strategy and connected UI states.
-2. Generate the working experience from that specification and the original assets. Revisions receive the previous specification and current design so a small request can preserve the rest of the world.
+1. **Release context:** Spotify title/artwork, plus track artist/date/ISRC and preview when available.
+2. **Music analysis:** Music Flamingo analyzes supplied audio or an accessible Spotify preview. Coverage is labeled; no available audio means no invented sound or lyrics. This does not download full Spotify recordings or search YouTube for substitute recordings.
+3. **Artist research:** web search preserves source links and snippets. Unavailable research is explicitly recorded.
+4. **Creative direction:** considers two or three concepts and selects one with a fan payoff, journey, visual direction, asset plan and acceptance criteria.
+5. **Asset production:** generates up to two images with the existing image service and stores optimized WebP assets in the workspace. Unchanged assets can be reused on revisions.
+6. **Build:** compiles the brand-world specification and implements the experience using actual produced assets.
+7. **Rendered review:** runs the generated experience in an isolated Vercel sandbox, captures mobile/desktop views before and after first-button activation, and reviews the screenshots. Checks include runtime errors and horizontal overflow.
+8. **Bounded revision:** one correction pass can revisit direction, assets or implementation, followed by another review.
 
-This is shared by the UI, HTTP and MCP; no extra form or endpoint is required. Supply artwork/references through the existing assets field and describe overrides in the brief or revision instruction. With no artwork, the specification explicitly records a brief-only direction.
+Authenticated snapshots include optional `brandWorld` and `production` metadata. `production` contains release/music/research context, direction, reviews and a status of `reviewed` or `needs-review`. The public endpoint excludes both internal fields. Existing snapshots remain compatible. Unresolved review findings are retained; a completed generation is not a guarantee of artistic quality or exhaustive game testing.
 
-Authenticated snapshots may include optional `brandWorld` metadata containing `version`, `model`, `sourceAssets` and `specification`. Existing snapshots without it remain valid. The public snapshot endpoint excludes this internal guidance. A failed analysis or generation does not replace the saved draft.
+Model calls use the same credit accounting path as chat. Research, image generation and music analysis use their existing credit paths. The renderer incurs infrastructure usage; separate sandbox usage metering and a strict aggregate dollar reservation are not implemented here. Up to four images can be produced if the correction pass replaces both assets. Provider work is not automatically retried on stage failure. Completed workflow stages are persisted by the workflow engine.
 
-Asset plans distinguish supplied assets, feasible procedural graphics, and deferred art with an available fallback. This does not generate new illustration files or invent image URLs. The shared player currently supports background, foreground, accent and serif/sans theme choices; richer player customization is not implied.
-
-The generator receives quality guidance including a “hide the cover” review: the remaining site should still express the release's visual identity. This is model self-review, not automated screenshot inspection or proof of visual quality. Review the rendered draft before publishing. The additional analysis stage adds model usage and latency; the same hosting limits still apply.
+The shared connection/player theme still supports background, foreground, accent and serif/sans. Rendered review currently tests the generated experience, not Spotify authentication or the surrounding player. Review the complete draft before publishing.
 
 ## Publish
 
@@ -91,4 +98,4 @@ Public pages render in the chat app. The API owns snapshots, generation, uploads
 
 ## Errors
 
-`400` invalid input; `401` missing/invalid authentication; `403` workspace or artist access denied; `404` missing/unpublished site; `409` stale revision; `422` Spotify metadata unavailable; `503` temporary operation failure.
+`400` invalid input; `401` missing/invalid authentication; `403` workspace or artist access denied; `404` missing/unpublished site; `402` insufficient credits; `409` stale revision; `422` Spotify metadata unavailable; `503` temporary operation failure.
