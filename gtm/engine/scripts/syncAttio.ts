@@ -66,6 +66,9 @@ async function main() {
   const { syncContacts } = await import("../lib/syncContacts.js");
   const apiKey = apply ? requireEnv("attioApiKey") : null;
 
+  const { readCrmImportExclusions } = await import("../lib/readCrmImportExclusions.ts");
+  const excludedEmails = await readCrmImportExclusions(process.env.CRM_IMPORT_EXCLUSIONS_FILE || new URL("../exports/crm-import-exclusions.json", import.meta.url));
+
   console.log("Fetching all Privy users...");
   const { logins } = await fetchAllPrivyUsers();
 
@@ -79,6 +82,7 @@ async function main() {
 
   const { failed } = await syncContacts({
     contacts,
+    excludedEmails,
     apply,
     upsert: (contact) => upsertAttioContact(apiKey!, contact),
   });
