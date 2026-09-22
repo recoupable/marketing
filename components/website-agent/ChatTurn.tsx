@@ -14,6 +14,9 @@ import { getActivitySteps } from "@/lib/website-agent/getActivitySteps";
 import { getVisibleReplyParts } from "@/lib/website-agent/getVisibleReplyParts";
 import type { ConversationTurn } from "@/lib/website-agent/getConversationTurns";
 import { questionSchema } from "@/lib/website-agent/question";
+import { insightSchema } from "@/lib/website-agent/insight";
+import { briefReviewSchema } from "@/lib/website-agent/briefReview";
+import { BriefReview } from "./BriefReview";
 import { planSchema } from "@/lib/workflow-plan/schema";
 import { ResearchActivity } from "./ResearchActivity";
 import { CompanyInsight } from "./CompanyInsight";
@@ -21,6 +24,7 @@ import { ReportArtifact } from "./ReportArtifact";
 
 export function ChatTurn({
   turn,
+  hideUserMessage = false,
   active,
   latest,
   stopped,
@@ -28,6 +32,7 @@ export function ChatTurn({
   onSend,
 }: {
   turn: ConversationTurn;
+  hideUserMessage?: boolean;
   active: boolean;
   latest: boolean;
   stopped: boolean;
@@ -48,7 +53,9 @@ export function ChatTurn({
         (part.type === "text" && part.text.trim()) ||
         (part.type === "dynamic-tool" &&
           part.state === "output-available" &&
-          questionSchema.safeParse(part.output).data?.insight),
+          (questionSchema.safeParse(part.output).data?.insight ||
+            (part.toolName === "publish_finding" &&
+              insightSchema.safeParse(part.output).success))),
     );
   const copy = replyParts
     .flatMap((part) => {
@@ -56,8 +63,13 @@ export function ChatTurn({
       if (part.type !== "dynamic-tool" || part.state !== "output-available")
         return [];
       const question = questionSchema.safeParse(part.output);
-      if (!question.success) return [];
-      const { insight, question: text } = question.data;
+      const finding =
+        part.toolName === "publish_finding"
+          ? insightSchema.safeParse(part.output).data
+          : undefined;
+      if (!question.success && !finding) return [];
+      const insight = finding ?? question.data?.insight;
+      const text = question.data?.question ?? "";
       return insight
         ? [
             insight.title,
@@ -80,7 +92,7 @@ export function ChatTurn({
 
   return (
     <div className="wa-turn" data-turn-id={turn.id}>
-      {turn.user && (
+      {turn.user && !hideUserMessage && (
         <Message
           from="user"
           className="wa-message wa-user"
@@ -137,6 +149,18 @@ export function ChatTurn({
                 const result = planSchema.safeParse(part.output);
                 return result.success ? (
                   <ReportArtifact key={part.toolCallId} plan={result.data} />
+                ) : null;
+              }
+              if (part.toolName === "publish_finding") {
+                const result = insightSchema.safeParse(part.output);
+                return result.success ? (
+                  <CompanyInsight key={part.toolCallId} insight={result.data} />
+                ) : null;
+              }
+              if (part.toolName === "review_brief") {
+                const result = briefReviewSchema.safeParse(part.output);
+                return result.success ? (
+                  <BriefReview key={part.toolCallId} review={result.data} />
                 ) : null;
               }
               return null;

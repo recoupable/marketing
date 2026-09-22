@@ -1,3 +1,9 @@
+## Context before reports, broader research — September 22, 2026
+
+Replaced the bare website message with a compact company header and Change action. Added native Eve/Parallel web search and independently sourced findings while the setup question remains open. Reports now require visitor-confirmed business context (team, priority, current process, problem, workload, success), actual AI/tools/data, prior attempts, a test owner and constraints. The agent presents the stored brief for review; the publishing tool blocks incomplete or unconfirmed briefs regardless of question count.
+
+Live local checks reproduced the old cumulative-token cutoff after three short replies; raised the input allowance while retaining the $3 model-token cap. The corrected flow asked a fourth context question, then accepted a detailed synthetic scenario, showed its recap and published only after Build my report. A separate unanswered-question run opened two external articles and displayed a cited finding. Company Change/prefill and a 390 CSS-pixel layout also passed. App and Eve runtime builds, TypeScript, scoped ESLint and the automated suite pass. This is local verification, not a deployed-service claim. See `docs/website-agent.md` for readiness and search-spending boundaries.
+
 ## Question composer follows chat reference — September 22, 2026
 
 Replaced the horizontal answer tiles with simple vertical choices, circular number markers, a quiet Question header and a shared custom-answer row with Skip/Send. Clicking an answer now selects it for review before sending; custom typing clears that choice, and the next question cannot inherit it. Local browser review covered desktop, 390px phone width, selection, custom input, collapsing and context disclosure. The conversation and research remain intact.

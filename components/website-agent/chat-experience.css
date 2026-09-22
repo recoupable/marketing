@@ -30,6 +30,63 @@
   min-width: 0;
   min-height: 0;
 }
+.wa-company-header {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 11px;
+  padding: 4px 8px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 0 #e3eaed;
+}
+.wa-company-avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: white;
+  box-shadow: 0 0 0 1px #e5ecef;
+}
+.wa-company-avatar > span {
+  width: 24px;
+  height: 24px;
+  background: center / contain no-repeat;
+  border-radius: 5px;
+}
+.wa-company-identity {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+.wa-company-identity strong {
+  font-size: 14px;
+  font-weight: 550;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wa-company-identity a {
+  color: #6b8189;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.wa-company-identity a:hover {
+  text-decoration: underline;
+}
+.wa-change-company {
+  margin-left: auto;
+  min-height: 36px;
+  padding: 8px;
+  color: #6b8189;
+  font-size: 12px;
+  flex: none;
+}
+.wa-change-company:hover {
+  color: #163039;
+  background: #eaf1f3;
+}
 .wa-scroller {
   min-height: 0;
   flex: 1;
@@ -253,6 +310,22 @@
 .wa-first-test p {
   margin: 5px 0 0;
   font-size: 14px;
+}
+.wa-brief-review dl {
+  display: grid;
+  gap: 15px;
+  margin: 18px 0;
+}
+.wa-brief-review dt {
+  font-size: 12px;
+  font-weight: 600;
+  color: #61777f;
+  margin-bottom: 3px;
+}
+.wa-brief-review dd {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
 }
 .wa-sources {
   margin: 12px 0 20px;

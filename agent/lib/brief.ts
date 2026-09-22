@@ -4,6 +4,14 @@ export const brief = defineState("recoup.website.brief", () => ({
   tools: [] as string[],
   constraints: [] as string[],
   unknowns: [] as string[],
+  discovery: {
+    scope: null as string | null,
+    priority: null as string | null,
+    currentProcess: null as string | null,
+    problem: null as string | null,
+    workload: null as string | null,
+    successMeasure: null as string | null,
+  },
   setup: {
     aiUsage: null as string | null,
     aiTools: null as string[] | null,

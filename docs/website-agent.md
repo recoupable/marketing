@@ -4,7 +4,7 @@
 
 The browser streams through `/api/website-agent`. Signed HttpOnly cookies bind access to one active session per browser. Only validated text messages, a planner/FAQ entry hint, cancellation, owned-session streaming and `turnPolicy: "steer"` on an owned session are forwarded. Approval responses, tool permissions, model overrides and arbitrary context are not accepted. Eve's channel separately requires a short-lived signed server grant. Default framework tools are disabled.
 
-Approved tools: public-content search/read, session brief update and structured plan publication. There is no private Recoup account access, general browser, shell, email delivery or meeting booking. Plan downloads are text files. Contact links use the existing contact page. The old questionnaire components and endpoints remain for compatibility but do not render at `/workflow-plan`.
+Approved tools: public-content search/read, focused web search, session brief update, context questions, sourced findings, brief review and structured plan publication. `web_search` uses Eve's built-in Parallel provider through the existing AI Gateway; no additional search credential is required. Default framework tools remain disabled. There is no private Recoup account access, general browser, shell, email delivery or meeting booking. Plan downloads are text files. Contact links use the existing contact page. The old questionnaire components and endpoints remain for compatibility but do not render at `/workflow-plan`.
 
 ## Local development
 
@@ -22,9 +22,25 @@ Use default `pnpm build` (Turbopack). Eve 0.63.0 uses explicit resource-manageme
 - Set the storage retention/deletion policy for visitor transcripts and align the privacy policy. The UI says messages are processed by AI and stored. Closing the tab does not delete server transcripts. Cookies expire after 24 hours; this is not a data-retention policy.
 - Enable provider/infrastructure spending controls and evaluate response quality with representative executives. Per-session model limits are configured; public visitors cannot approve quota increases.
 
-One active cookie-bound session is supported per browser. Starting a new conversation leaves prior server records intact but replaces browser access when the new session starts. Sessions are not shared across devices. Budget pauses show a contact/download fallback.
+One active cookie-bound session is supported per browser. Starting a new conversation leaves prior server records intact but replaces browser access when the new session starts. Sessions are not shared across devices. Budget pauses retain the transcript and offer a new conversation or contact. The cumulative session limits are 2,000,000 input tokens, 20,000 output tokens and $3 in model token cost. The former 200,000-input limit was exhausted during a live test after three short answers because cached research counts on every model call. These limits do not include web-search or infrastructure charges; configure provider spending controls before production traffic.
+
+## Research and report readiness
+
+A bare first website message becomes a compact company header with a favicon, verified homepage name, domain and Change action. Until the homepage is read, the header shows the submitted domain. Article publishers cannot replace the company identity. Ordinary messages stay in the transcript.
+
+The opening research follows relevant website links and searches for announcements, interviews and credible coverage outside the company's own site. Instructions bound the opening to two searches, five results per search, short excerpts and eight page reads; these are model instructions, not hard spend limits. Retrieved pages retain declared publication dates separately from retrieval dates. Search snippets are leads, not verified source evidence.
+
+`publish_finding` can display an early insight while `ask_user_question` remains unanswered. Its source URLs and quoted excerpts must match successfully read pages held in the session research state. Failed reads and search results alone cannot substantiate a finding. The active question is recovered across the whole latest turn so further research does not dismiss it.
+
+There is no fixed question count. `update_brief` stores visitor-confirmed discovery (role/team, priority, current process, problem, workload, success measure) and setup (AI usage and actual tools, data sources, prior attempts, test owner, access/time/approval constraints). Null and skipped answers stay unknown; an empty AI-tools list means explicitly confirmed none. The readiness function reports missing fields. Public facts and the agent's recommendations must not be used to fill private operating context.
+
+`review_brief` refuses incomplete context and otherwise displays a recap of the stored answers. `publish_plan` independently requires that context plus a matching recap confirmed by the visitor's **Build my report** response. The `report-confirmation` message hook records confirmation; a model tool cannot confirm its own recap. Corrections or changed brief contents require another review. This validates completeness and user confirmation, not the semantic truth of every stored statement. A visitor who skips discovery can still receive a clearly conditional outline in normal chat, without a finished-report artifact.
 
 ## Validation
+
+### Discovery and report gate, September 22, 2026
+
+Live local tests verified the compact header, Change/prefill, research and an independent finding while the initial question was unanswered, and answers submitted during active research. Three short answers led to another process question rather than a report. A complete synthetic release-team scenario then produced its actual stored recap, waited for confirmation and published a report tailored to those tools and constraints only after **Build my report**. The phone layout measured 390 CSS pixels with no horizontal overflow. The production app and separate Eve runtime builds pass, as do TypeScript, scoped ESLint and 376 tests across 97 files. Regression coverage includes sparse briefs, unknown versus confirmed-no-AI, source/quote validation, pending questions, company identity, corrections and self-confirmation attempts. No production deployment is implied.
 
 ### Conversation interface, September 21, 2026
 
@@ -32,7 +48,7 @@ One active cookie-bound session is supported per browser. Starting a new convers
 
 Official AI Elements power messages, streaming Markdown, the prompt input, chain-of-thought presentation, sources, suggestions and report artifacts. The activity trail shows observed tool actions, not private model reasoning or simulated progress. It starts with a Thinking shimmer, reveals real work as it arrives, and preserves the user's open/closed choice through subsequent replies. Failed source reads are never counted as checked sources. JSON Render continues to render the validated report schema.
 
-Context questions do not block public research. The opening turn asks about current AI use alongside the homepage read, then follows 2–4 relevant observed links while that question remains unanswered (six pages maximum). Keep the same question available until answered or skipped; incoming answers refine the remaining research without restarting completed reads. Verified locally with WMG: five sources were checked with no answer submitted, and the original question remained in the composer.
+Context questions do not block public research. The opening turn asks about current AI use alongside the homepage read, then follows relevant observed links and web-search results while that question remains unanswered. Keep the same question available until answered or skipped; incoming answers refine the remaining research without restarting completed reads. Verified locally with Seeker: five sources including two external articles were checked, and a sourced finding appeared with no answer submitted. The original AI-use question remained in the composer. An earlier WMG test also checked five sources without an answer.
 
 Source failures apply to individual pages. The reader preserves known HTTP statuses and safe failure reasons; a missing page does not discard successful research or instruct the agent to abandon it. Activity names the specific path, with a page-not-found label for new 404/410 results. Older saved results retain the generic failure reason but now show the full page path. September 22 investigation confirmed that Seeker's linked `/hiphop50` page returned HTTP 404 after four other pages had been read. The focused suite covers HTTP failures, retained evidence and safe error details (51 tests).
 

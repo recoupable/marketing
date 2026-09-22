@@ -13,6 +13,20 @@ export function extractCompanyPage(html: string, pageUrl: string) {
       .replace(/&#(?:39|x27);/g, "'")
       .replace(/\s+/g, " ")
       .trim();
+  const metadata = new Map<string, string>();
+  for (const [tag] of clean.matchAll(/<meta\b[^>]*>/gi)) {
+    const key = tag.match(/\b(?:property|name)\s*=\s*["']([^"']+)["']/i)?.[1];
+    const value = tag.match(/\bcontent\s*=\s*["']([^"']*)["']/i)?.[1];
+    if (key && value) metadata.set(key.toLowerCase(), textOf(value));
+  }
+  const declaredDate =
+    metadata.get("article:published_time") ?? metadata.get("datepublished");
+  const publishedAt =
+    declaredDate &&
+    /^\d{4}-\d{2}-\d{2}(?:T.*)?$/.test(declaredDate) &&
+    Number.isFinite(Date.parse(declaredDate))
+      ? declaredDate
+      : undefined;
   const links = new Map<string, { url: string; label: string }>();
   for (const match of clean.matchAll(
     /<a\b[^>]*\bhref\s*=\s*["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
@@ -40,6 +54,8 @@ export function extractCompanyPage(html: string, pageUrl: string) {
   return {
     url: pageUrl,
     title: textOf(clean.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || ""),
+    siteName: metadata.get("og:site_name")?.slice(0, 100),
+    publishedAt,
     text: text.slice(0, 20000),
     truncated: text.length > 20000,
     links: [...links.values()].slice(0, 60),

@@ -17,10 +17,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { PageMark } from "@/components/sky/brand";
 import { getConversationTurns } from "@/lib/website-agent/getConversationTurns";
+import { getCompanyIdentity } from "@/lib/website-agent/getCompanyIdentity";
+import { getActiveQuestion } from "@/lib/website-agent/getActiveQuestion";
+import { CompanyHeader } from "./CompanyHeader";
 import { ChatTurn } from "./ChatTurn";
 import { ChatComposer } from "./ChatComposer";
 import { Shimmer } from "@/components/ai-elements/shimmer";
-import { questionSchema } from "@/lib/website-agent/question";
 import {
   normalizeCompanyWebsite,
   type CompanySuggestion,
@@ -173,21 +175,8 @@ function Conversation({
       ? normalizeCompanyWebsite(input)
       : undefined;
   const turns = getConversationTurns(agent.data.messages);
-  const activeQuestion = turns
-    .at(-1)
-    ?.assistants.at(-1)
-    ?.parts.flatMap((part) => {
-      if (
-        part.type !== "dynamic-tool" ||
-        !["ask_user_question", "present_choices"].includes(part.toolName) ||
-        part.state !== "output-available" ||
-        part.partial
-      )
-        return [];
-      const result = questionSchema.safeParse(part.output);
-      return result.success ? [{ ...result.data, id: part.toolCallId }] : [];
-    })
-    .at(-1);
+  const activeQuestion = getActiveQuestion(turns.at(-1));
+  const company = getCompanyIdentity(agent.data.messages);
   const composerForm = (
     <form
       className="wa-composer"
@@ -499,6 +488,17 @@ function Conversation({
       ) : (
         <div className="wa-workspace">
           <div className="wa-conversation">
+            {company && (
+              <CompanyHeader
+                company={company}
+                onChange={async () => {
+                  await reset();
+                  setDescribeCompany(false);
+                  setInput(company.domain);
+                  requestAnimationFrame(() => inputElement.current?.focus());
+                }}
+              />
+            )}
             <MessageScrollerProvider
               defaultScrollPosition={initialSession ? "last-anchor" : "start"}
               scrollPreviousItemPeek={0}
@@ -533,6 +533,9 @@ function Conversation({
                         >
                           <ChatTurn
                             turn={turn}
+                            hideUserMessage={
+                              turn.user?.id === company?.messageId
+                            }
                             active={latest && busy}
                             latest={latest}
                             stopped={stopped}
@@ -556,7 +559,8 @@ function Conversation({
       )}
       {paused && (
         <div className="wa-error" role="status">
-          This conversation has reached its limit. You can download your plan or{" "}
+          This conversation has reached its limit. Your research remains above.{" "}
+          You can <button onClick={reset}>start a new conversation</button> or{" "}
           <Link href="/contact">talk to Recoup</Link>.
         </div>
       )}

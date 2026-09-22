@@ -13,6 +13,7 @@ const labels: Record<string, string> = {
   read_company_website: "Reading the company website",
   read_recoup: "Reading about Recoup",
   search_recoup: "Searching Recoup’s information",
+  web_search: "Searching the web",
   update_brief: "Saving your answers",
   publish_plan: "Preparing your report",
 };
@@ -54,6 +55,14 @@ export function getActivitySteps(
             ? "active"
             : "stopped",
     };
+    if (part.toolName === "web_search") {
+      const query = Array.isArray(input?.search_queries)
+        ? input.search_queries[0]
+        : input?.query;
+      if (typeof query === "string" && query.trim())
+        step.label = `Searching: ${query.trim().slice(0, 160)}`;
+      else if (complete) step.label = "Searched the web";
+    }
     const sourceUrl = typeof output?.url === "string" ? output.url : input?.url;
     if (
       ["read_company_website", "read_recoup"].includes(part.toolName) &&
