@@ -6,6 +6,7 @@ import { BrowserAgentTools } from "@/components/agents/browser-agent-tools";
 import { SkySiteHeader } from "@/components/sky/site-header";
 import { SkySiteFooter } from "@/components/sky/site-footer";
 import { ScrollMotion } from "@/components/motion/scroll-motion";
+import { AudienceMode } from "@/components/agents/audience-mode";
 import "./sky/site.css";
 import "./sky/navigation.css";
 import "./sky/navigation-mobile.css";
@@ -20,16 +21,25 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
   if (pathname === "/brand" || pathname.startsWith("/brand/"))
     return <>{children}</>;
   const isWorkflowPlan = pathname === "/workflow-plan" || pathname === "/ask";
+  const page = (
+    <div className="sky-site">
+      {!isWorkflowPlan && <SkySiteHeader />}
+      <main id="main">{children}</main>
+      {!isWorkflowPlan && <SkySiteFooter />}
+    </div>
+  );
   return (
     <>
       <Suspense fallback={null}>
         <ReferralCapture />
       </Suspense>
-      <div className="sky-site">
-        {!isWorkflowPlan && <SkySiteHeader />}
-        <main id="main">{children}</main>
-        {!isWorkflowPlan && <SkySiteFooter />}
-      </div>
+      {isWorkflowPlan ? (
+        page
+      ) : (
+        <AudienceMode key={pathname} pathname={pathname}>
+          {page}
+        </AudienceMode>
+      )}
       <ScrollMotion />
       <BrowserAgentTools />
     </>

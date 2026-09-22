@@ -1,0 +1,204 @@
+.audience-mode {
+  --agent-paper: #111413;
+  --agent-ink: #c3cbc7;
+  --agent-bright: #f3f5f4;
+  --agent-muted: #8b9791;
+  --agent-line: #ffffff24;
+  --agent-control: #252c29;
+  --agent-focus: #d6ff62;
+}
+.audience-human {
+  transition:
+    opacity 240ms ease,
+    filter 320ms ease;
+}
+.audience-mode[data-agent="true"] > .audience-human {
+  opacity: 0;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+.audience-toggle {
+  position: fixed;
+  z-index: 100;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 3px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--agent-paper);
+  color: var(--agent-ink);
+  box-shadow:
+    0 0 0 1px var(--agent-line),
+    0 8px 28px #0003;
+  font:
+    12px/1 "IBM Plex Mono",
+    monospace;
+}
+.audience-toggle button {
+  background: transparent;
+  color: inherit;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background 180ms,
+    color 180ms;
+}
+.audience-toggle button[aria-pressed="true"] {
+  background: var(--agent-control);
+  color: var(--agent-bright);
+}
+.audience-toggle button[aria-pressed="false"] > span {
+  opacity: 0.4;
+}
+.audience-toggle button:hover {
+  color: var(--agent-bright);
+}
+.audience-mode
+  :is(
+    .audience-toggle button,
+    .agent-document button,
+    .agent-document a
+  ):focus-visible {
+  outline: 2px solid var(--agent-focus);
+  outline-offset: 3px;
+}
+.agent-document {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: var(--agent-paper);
+  color: var(--agent-ink);
+  animation: agent-materialize 380ms ease both;
+}
+.agent-document-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 42px 48px 130px;
+}
+.agent-document-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 48px;
+  color: var(--agent-muted);
+  font:
+    12px/1.6 "IBM Plex Mono",
+    monospace;
+}
+.agent-document-toolbar > span {
+  overflow-wrap: anywhere;
+}
+.agent-document button {
+  background: transparent;
+  color: inherit;
+  border: 0;
+  min-height: 44px;
+  cursor: pointer;
+}
+.agent-document-toolbar button {
+  flex-shrink: 0;
+}
+.agent-document button:disabled {
+  opacity: 0.45;
+  cursor: wait;
+}
+.agent-document-text {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    14px/1.85 "IBM Plex Mono",
+    monospace;
+  tab-size: 2;
+}
+.agent-document-text > span {
+  animation: agent-line-resolve 280ms ease both;
+}
+.agent-document-heading {
+  color: var(--agent-bright);
+}
+.agent-document-error,
+.agent-document-loading {
+  font:
+    14px/1.8 "IBM Plex Mono",
+    monospace;
+}
+.agent-document-error a {
+  text-decoration: underline;
+}
+@keyframes agent-materialize {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes agent-line-resolve {
+  0% {
+    opacity: 0;
+    filter: blur(3px);
+  }
+  45% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+@media (max-width: 600px) {
+  .agent-document-inner {
+    padding: 24px 22px 120px;
+  }
+  .agent-document-toolbar {
+    margin-bottom: 30px;
+  }
+  .agent-document-text {
+    font-size: 12px;
+    line-height: 1.9;
+  }
+  .audience-toggle {
+    bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .audience-human,
+  .audience-toggle button {
+    transition: none;
+  }
+  .agent-document,
+  .agent-document-text > span {
+    animation: none;
+  }
+}
+@media print {
+  .audience-toggle,
+  .agent-document-toolbar {
+    display: none;
+  }
+  .audience-mode[data-agent="true"] .audience-human {
+    display: none;
+  }
+  .agent-document {
+    position: static;
+    overflow: visible;
+    color: #111;
+    background: white;
+  }
+  .agent-document-heading {
+    color: inherit;
+  }
+}

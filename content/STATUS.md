@@ -1,3 +1,9 @@
+## Human / Agent viewing mode — September 22, 2026
+
+Added a fixed bottom Human / Agent toggle to the shared marketing shell, excluding Brand Studio and the focused /ask and /workflow-plan flows. Agent mode dissolves into a dark, selectable Markdown document using the existing public content API and its summary/full labels. Reads all continuation chunks, supports copy/retry/Escape and reduced motion, and preserves the mounted human page and scroll position. Mode resets on route changes.
+
+Production build, TypeScript and scoped lint pass. Live desktop and narrow-layout checks verified content, copy feedback, Escape, no horizontal document overflow and identical scroll position after returning. An initial sandbox-related Turbopack failure cleared after preserving its cache and rebuilding. Not deployed.
+
 ## Context before reports, broader research — September 22, 2026
 
 Replaced the bare website message with a compact company header and Change action. Added native Eve/Parallel web search and independently sourced findings while the setup question remains open. Reports now require visitor-confirmed business context (team, priority, current process, problem, workload, success), actual AI/tools/data, prior attempts, a test owner and constraints. The agent presents the stored brief for review; the publishing tool blocks incomplete or unconfirmed briefs regardless of question count.
