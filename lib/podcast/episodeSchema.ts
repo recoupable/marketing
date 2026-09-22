@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod/v3";
 
 /** One published episode of the Recoup Podcast, as stored in content/podcast/episodes.json. */
 export const episodeSchema = z.object({

@@ -1,7 +1,37 @@
+import { workflowPlanCopy } from "../copy/workflow-plan.ts";
 import type { PageSummary } from "./types.ts";
 
 // Summaries of the free tools and the agent entry page; same representation rules as offerPages.
 export const toolPages: PageSummary[] = [
+  {
+    path: "/workflow-plan",
+    title: workflowPlanCopy.title,
+    description: workflowPlanCopy.description,
+    keywords:
+      "music catalog AI workflow plan reporting royalties pitching acquisition",
+    paragraphs: [
+      "Chat with Recoup's AI assistant about the work slowing your team down. It creates a proposed workflow plan with a concrete deliverable, required inputs, a small first test, human review and a success measure. Refine the plan in conversation and download it without providing contact details.",
+      "The assistant can also answer questions using public Recoup sources. Messages are processed by AI and stored to support the conversation. Do not share confidential records. It does not access private catalogs, send email, or implement the proposed workflow.",
+    ],
+    links: [
+      ["Start my plan", "/workflow-plan"],
+      ["Custom systems", "/build"],
+    ],
+  },
+  {
+    path: "/ask",
+    title: "Ask Recoup",
+    description:
+      "Ask Recoup's website assistant about our tools, services and approach.",
+    keywords: "FAQ questions Recoup assistant services tools",
+    paragraphs: [
+      "Ask questions in a conversation grounded in Recoup's public website content. The same assistant can help develop a workflow plan without requiring a separate conversation. It has no access to private customer records or authenticated platform tools.",
+    ],
+    links: [
+      ["Ask Recoup", "/ask"],
+      ["Contact us", "/contact"],
+    ],
+  },
   {
     path: "/audit",
     title: "AI readiness check for music companies",

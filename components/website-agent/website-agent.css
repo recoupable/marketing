@@ -1,0 +1,529 @@
+.sky-site:has(.wa-shell),
+.sky-site:has(.wa-loading) {
+  padding: 8px;
+  display: flow-root;
+}
+.wa-shell {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100svh - 16px);
+  border-radius: 24px;
+  overflow: hidden;
+  color: #163039;
+  background: #f7fafb;
+}
+.wa-shell.wa-active {
+  height: calc(100svh - 16px);
+  min-height: 0;
+}
+.wa-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+}
+.wa-header svg {
+  width: 28px;
+  height: 32px;
+}
+.wa-header button {
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.wa-landing {
+  background: #087bbb;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.wa-sky {
+  object-fit: cover;
+  object-position: bottom;
+  z-index: -2;
+}
+.wa-landing::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(#003c6c55, #00599a30 60%, #005b9470);
+  z-index: -1;
+}
+.wa-invitation {
+  width: min(100%, 940px);
+  box-sizing: border-box;
+  padding: 24px 24px 48px;
+  margin: clamp(12px, 6svh, 64px) auto auto;
+  text-align: center;
+}
+.wa-invitation h1 {
+  text-wrap: balance;
+  margin: 0;
+  font-size: clamp(38px, 6.5vw, 82px);
+  font-weight: 450;
+  line-height: 1.06;
+  letter-spacing: -0.06em;
+}
+.wa-invitation h1 span {
+  color: #ccecff;
+}
+.wa-free-pill {
+  display: inline-block;
+  width: 2.05em;
+  height: 1em;
+  vertical-align: -0.13em;
+}
+.wa-free-pill svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.wa-free-pill text {
+  font-family: inherit;
+}
+.wa-invitation > p {
+  max-width: min(90%, 480px);
+  text-wrap: balance;
+  margin: 25px auto 32px;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.5;
+}
+.wa-composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  background: #fff;
+  padding: 14px;
+  border-radius: 20px;
+  box-shadow:
+    0 8px 28px #00385814,
+    0 0 0 1px #dbe5e9;
+}
+.wa-invitation .wa-composer {
+  max-width: 590px;
+  margin: auto;
+}
+.wa-composer:focus-within {
+  box-shadow:
+    0 0 0 2px #b5dd66,
+    0 12px 30px #00385820;
+}
+.wa-composer textarea {
+  flex: 1;
+  min-width: 0;
+  resize: none;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 180px;
+  min-height: 60px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #163039;
+  font: 16px/1.5 var(--body);
+  padding: 8px;
+}
+.wa-composer textarea::placeholder {
+  color: #6b8088;
+}
+.wa-composer button {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  color: #163039;
+  background: #d6ff62;
+  font-size: 24px;
+  cursor: pointer;
+}
+.wa-composer button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.wa-entry-card {
+  position: relative;
+  isolation: isolate;
+  max-width: 590px;
+  margin: 0 auto 18px;
+  background: transparent;
+  color: #163039;
+  border-radius: 22px;
+  padding: 10px;
+  text-align: left;
+}
+.wa-choices {
+  display: grid;
+  gap: 4px;
+}
+.wa-choices button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 10px 14px;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  border-radius: 12px;
+  text-align: left;
+  font: 500 16px/1.35 var(--body);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.wa-choices button:hover,
+.wa-choices button:focus-visible {
+  background: #f0f9d9;
+}
+.wa-choices button:focus-visible {
+  outline: 2px solid #163039;
+  outline-offset: -2px;
+}
+.wa-choice-number {
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+  height: 28px;
+  background: #eff4f5;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #61777f;
+}
+.wa-choice-arrow {
+  flex-shrink: 0;
+  margin-left: auto;
+  color: #71858b;
+  font-size: 18px;
+}
+.wa-entry-card .wa-composer {
+  margin: 8px 4px 0;
+  padding: 10px 4px 2px;
+  border-radius: 0;
+  box-shadow: 0 -1px 0 #e4ebee;
+  align-items: center;
+}
+.wa-entry-card .wa-composer textarea {
+  min-height: 40px;
+  padding: 8px;
+}
+.wa-entry-card .wa-composer button {
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+}
+.wa-entry-card .wa-composer:focus-within {
+  box-shadow: 0 -1px 0 #8fae54;
+}
+.wa-invitation small {
+  font-size: 11px;
+  color: #e1f2fb;
+}
+.wa-notice {
+  margin-top: auto;
+  line-height: 1.6;
+  text-align: center;
+  font-size: 10px;
+  padding: 16px 24px;
+  opacity: 0.8;
+}
+.wa-notice a {
+  text-decoration: underline;
+}
+.wa-error {
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 16px;
+  background: #fff2df;
+  color: #57350a;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.wa-error button {
+  border: 0;
+  padding: 0;
+  background: none;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+.wa-loading {
+  padding: 80px 24px;
+  text-align: center;
+}
+@keyframes wa-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes wa-shimmer {
+  to {
+    background-position: -250% 0;
+  }
+}
+@media (max-width: 700px) {
+  .wa-header {
+    padding: 20px;
+  }
+  .wa-invitation {
+    padding: 40px 20px;
+  }
+  .wa-shell {
+    border-radius: 20px;
+  }
+}
+
+/* Grow the real card downward; the heading and card top stay in place. */
+.wa-entry-card {
+  background: #fff;
+  transform-origin: top center;
+  animation: wa-card-arrive 900ms cubic-bezier(0.22, 1, 0.36, 1) 420ms both;
+  box-shadow: 0 8px 24px #00385814;
+  transition: box-shadow 800ms ease;
+}
+.wa-revealed {
+  box-shadow: 0 18px 44px #00385824;
+}
+.wa-choices-reveal {
+  overflow: hidden;
+}
+@keyframes wa-card-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.975);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.wa-choices button {
+  opacity: 0;
+  transform: translateY(10px) scale(0.99);
+  transition:
+    opacity 500ms ease,
+    transform 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    background 150ms ease;
+}
+.wa-revealed .wa-choices button {
+  opacity: 1;
+  transform: translateY(0);
+}
+.wa-choices button:nth-child(1) {
+  transition-delay: 170ms, 170ms, 0ms;
+}
+.wa-choices button:nth-child(2) {
+  transition-delay: 220ms, 220ms, 0ms;
+}
+.wa-choices button:nth-child(3) {
+  transition-delay: 270ms, 270ms, 0ms;
+}
+.wa-choices button:nth-child(4) {
+  transition-delay: 320ms, 320ms, 0ms;
+}
+.wa-revealed .wa-choices button:active {
+  transform: scale(0.985);
+  transition:
+    transform 100ms ease,
+    background 100ms ease;
+}
+.wa-entry-card .wa-composer {
+  background: transparent;
+  transition: box-shadow 500ms ease 250ms;
+}
+.wa-collapsed .wa-composer {
+  box-shadow: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-entry-card {
+    animation: none;
+  }
+  .wa-choices button,
+  .wa-entry-card .wa-composer {
+    transition: none;
+    transform: none;
+  }
+  .wa-revealed .wa-choices button:active {
+    transform: none;
+  }
+}
+
+/* Guide attention from the question to the invitation, then the interaction. */
+.wa-invitation > h1 {
+  animation: wa-enter 1300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.wa-invitation > p {
+  animation: wa-enter 1250ms cubic-bezier(0.22, 1, 0.36, 1) 240ms both;
+}
+.wa-invitation > small,
+.wa-landing .wa-notice {
+  animation: wa-enter 900ms ease-out 1800ms both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-invitation > h1,
+  .wa-invitation > p,
+  .wa-invitation > small,
+  .wa-landing .wa-notice,
+  .wa-entry-card {
+    animation: none;
+  }
+}
+
+.wa-describe-toggle {
+  background: transparent;
+  border: 0;
+  color: rgb(255 255 255 / 75%);
+  font: 400 12px/1.5 var(--body);
+  padding: 4px 8px;
+  min-height: 32px;
+  cursor: pointer;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+.wa-describe-toggle:hover {
+  color: white;
+  text-decoration: underline;
+}
+.wa-describe-toggle:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
+.wa-entry-card.wa-website-entry {
+  max-width: 520px;
+  padding: 8px;
+  border-radius: 28px;
+}
+.wa-company-search {
+  margin: 0;
+  padding: 0;
+  color: #163039;
+}
+.wa-company-searching {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin: 8px 16px 0;
+  color: #e6f5fb;
+  font-size: 12px;
+}
+.wa-company-search ul {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 6px 0 0;
+  border-top: 1px solid #e4ebee;
+}
+.wa-company-search li + li {
+  border-top: 1px solid #e4ebee;
+}
+.wa-company-search li button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 52px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 13px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+.wa-company-search li button:hover,
+.wa-company-search li button:focus-visible {
+  background: #eff8dc;
+  outline: none;
+}
+.wa-company-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: white;
+  box-shadow: 0 0 0 1px #dce5e8;
+}
+.wa-favicon-image {
+  display: block;
+  width: 22px;
+  height: 22px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.wa-company-search strong,
+.wa-company-search small {
+  display: block;
+}
+.wa-company-search strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+.wa-company-search small {
+  margin-top: 2px;
+  color: #61777f;
+  font-size: 12px;
+}
+.wa-company-fill {
+  margin-left: auto;
+  color: #61777f;
+  font-size: 11px;
+}
+@media (max-width: 600px) {
+  .wa-company-fill {
+    display: none;
+  }
+}
+.wa-website-entry .wa-composer,
+.wa-website-entry .wa-composer:focus-within {
+  margin: 0;
+  padding: 0 4px 0 10px;
+  box-shadow: none;
+}
+.wa-selected-company-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 0 0 1px #dce5e8;
+}
+.wa-selected-company-icon .wa-favicon-image {
+  width: 24px;
+  height: 24px;
+}
+.wa-website-entry .wa-composer button {
+  width: 44px;
+  height: 44px;
+}
+.wa-website-entry:focus-within {
+  outline: none;
+  box-shadow:
+    0 0 0 2px #d6ff62,
+    0 18px 44px #00385824;
+}
+.wa-website-entry .wa-composer textarea:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+.wa-website-entry .wa-composer button:focus-visible {
+  outline: 2px solid #163039;
+  outline-offset: 2px;
+}

@@ -1,0 +1,674 @@
+.wa-shell.wa-active {
+  height: calc(100dvh - 16px);
+  min-height: 0;
+}
+.wa-active .wa-header {
+  flex: none;
+  padding: 20px 28px;
+}
+.wa-active .wa-header button {
+  min-height: 36px;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+.wa-active .wa-header button:hover {
+  background: #eaf1f3;
+}
+.wa-workspace {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: 820px;
+  margin-inline: auto;
+  padding: 12px 24px 0;
+}
+.wa-conversation {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+}
+.wa-scroller {
+  min-height: 0;
+  flex: 1;
+}
+.wa-messages {
+  padding: 8px 8px 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #d5dfe2 transparent;
+  scroll-behavior: auto;
+}
+.wa-message-list {
+  justify-content: flex-start;
+  gap: 28px;
+  padding-bottom: 24px;
+}
+.wa-message-list [data-slot="message-scroller-item"] {
+  content-visibility: visible;
+  contain-intrinsic-size: none;
+}
+.wa-turn {
+  width: 100%;
+}
+.wa-message {
+  color: inherit;
+  margin: 0;
+}
+.wa-user {
+  margin-bottom: 26px;
+}
+.wa-message-content {
+  overflow-wrap: anywhere;
+  font-size: 15px;
+  line-height: 1.65;
+  color: inherit;
+}
+.wa-user .wa-message-content {
+  max-width: 88%;
+  padding: 10px 16px;
+  border-radius: 18px;
+  background: #eaf1f3;
+}
+.wa-message p {
+  font-size: inherit;
+  line-height: inherit;
+  margin: 8px 0;
+}
+.wa-message .wa-user-text {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.wa-assistant,
+.wa-assistant .wa-message-content {
+  width: 100%;
+  max-width: 100%;
+}
+.wa-message-content:empty,
+.wa-turn-question:empty {
+  display: none;
+}
+.wa-message :is(ol, ul) {
+  padding-left: 1.5em;
+  margin: 16px 0;
+}
+.wa-message ol {
+  list-style-type: decimal;
+}
+.wa-message ul {
+  list-style-type: disc;
+}
+.wa-message li + li {
+  margin-top: 8px;
+}
+.wa-message a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.wa-message :is(h2, h3, h4) {
+  font-family: inherit;
+  font-weight: 550;
+  letter-spacing: -0.025em;
+  line-height: 1.35;
+}
+.wa-message h2 {
+  font-size: 22px;
+  margin: 20px 0 12px;
+}
+.wa-message h3 {
+  font-size: 17px;
+  margin: 20px 0 8px;
+}
+.wa-message h4 {
+  font-size: 15px;
+}
+.wa-message pre {
+  max-width: 100%;
+  overflow: auto;
+  font-size: 13px;
+}
+.wa-message-actions {
+  margin-top: 12px;
+  color: #687d84;
+}
+.wa-message-actions button {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+.wa-message-actions button:hover {
+  background: #eaf1f3;
+}
+.wa-message-actions span {
+  font-size: 12px;
+}
+.wa-thinking {
+  min-height: 30px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+.wa-turn-activity {
+  margin: 0 0 18px;
+  max-width: 100%;
+}
+.wa-activity-heading {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  width: auto;
+  max-width: 100%;
+  min-height: 30px;
+  gap: 8px;
+  color: #61777f;
+  font-size: 13px;
+  font-weight: 450;
+  text-align: left;
+  cursor: pointer;
+}
+.wa-activity-heading > svg:first-child {
+  display: none;
+}
+.wa-activity-heading > svg:last-child {
+  width: 13px;
+  height: 13px;
+  flex: none;
+}
+.wa-activity-heading:hover {
+  color: #163039;
+}
+.wa-activity-trail {
+  margin-top: 10px;
+  padding: 0 0 0 2px;
+}
+.wa-trail-step {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #61777f;
+  margin-top: 10px;
+  gap: 10px;
+}
+.wa-trail-step:first-child {
+  margin-top: 0;
+}
+.wa-trail-step > div:first-child > svg {
+  width: 14px;
+  height: 14px;
+}
+.wa-trail-step.is-active > div:first-child > svg {
+  animation: wa-spin 1.5s linear infinite;
+}
+.wa-trail-step.is-failed {
+  color: #8c6036;
+}
+.wa-trail-source {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  text-decoration: none;
+}
+.wa-trail-source:hover {
+  color: #163039;
+  text-decoration: underline;
+}
+.wa-trail-source > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wa-trail-favicon {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: none;
+}
+.wa-asked-question {
+  color: #163039;
+  font-weight: 500;
+}
+.wa-finding {
+  margin-top: 6px;
+}
+.wa-finding > h2 {
+  margin-top: 0;
+  max-width: 38ch;
+}
+.wa-finding > p {
+  margin: 12px 0;
+}
+.wa-first-test {
+  padding: 14px 16px;
+  margin: 18px 0 12px;
+  background: #eef4e6;
+  border-radius: 12px;
+}
+.wa-first-test strong {
+  font-size: 12px;
+  font-weight: 600;
+}
+.wa-first-test p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+.wa-sources {
+  margin: 12px 0 20px;
+}
+.wa-sources > button {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  color: #61777f;
+  padding-block: 6px;
+  cursor: pointer;
+}
+.wa-sources > button svg {
+  transition: transform 180ms;
+}
+.wa-sources > button[data-state="open"] svg {
+  transform: rotate(180deg);
+}
+.wa-evidence {
+  padding: 10px 0;
+}
+.wa-evidence a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.wa-evidence blockquote {
+  padding: 0 0 0 12px;
+  box-shadow: -2px 0 #dce6e8;
+  margin: 8px 0 0 1px;
+  color: #61777f;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.wa-chat-dock {
+  position: relative;
+  flex: none;
+  width: 100%;
+  padding-top: 12px;
+}
+.wa-prompt {
+  width: 100%;
+}
+.wa-prompt > [data-slot="input-group"] {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  height: auto;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 20px;
+  background: #fff;
+  color: #163039;
+  box-shadow:
+    0 0 0 1px #dbe5e9,
+    0 6px 22px #16333c08;
+  transition: box-shadow 150ms;
+}
+.wa-prompt > [data-slot="input-group"]:focus-within {
+  box-shadow:
+    0 0 0 1.5px #a8c57a,
+    0 6px 22px #16333c0b;
+}
+.wa-prompt-question {
+  order: -1;
+  display: block;
+  width: 100%;
+  padding: 14px 16px 8px;
+  border: 0;
+  box-shadow: inset 0 -1px #eaf0f2;
+}
+.wa-question-disclosure {
+  width: 100%;
+}
+.wa-question-toggle {
+  background: transparent;
+  border: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.5;
+  color: #163039;
+  cursor: pointer;
+  text-align: left;
+}
+.wa-question-toggle > svg {
+  flex: none;
+  margin-top: 3px;
+  color: #789098;
+  transition: transform 180ms;
+}
+.wa-question-toggle[data-state="open"] > svg {
+  transform: rotate(180deg);
+}
+.wa-question-disclosure > [data-state="open"]:not(button) {
+  max-height: min(25dvh, 180px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.wa-question-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 7px;
+  padding: 10px 0 4px;
+}
+.wa-question-suggestions button {
+  height: auto;
+  min-height: 36px;
+  max-width: 100%;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: #f1f5f6;
+  color: #28414a;
+  box-shadow: inset 0 0 0 1px #e5edef;
+  font: 450 13px/1.4 var(--body);
+  text-align: left;
+  white-space: normal;
+  cursor: pointer;
+  transition: background 150ms;
+}
+.wa-question-suggestions button:hover:not(:disabled) {
+  background: #e8f5cc;
+}
+.wa-question-why {
+  font-size: 11px;
+  color: #61777f;
+}
+.wa-question-why summary {
+  padding: 5px 0;
+  cursor: pointer;
+}
+.wa-question-why p {
+  margin: 4px 0 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: normal;
+}
+.wa-prompt-row {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  padding: 9px 10px 9px 14px;
+  gap: 8px;
+}
+.wa-prompt-row textarea {
+  display: block;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  max-height: 140px;
+  padding: 9px 2px;
+  margin: 0;
+  resize: none;
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #163039;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.4;
+  field-sizing: content;
+}
+.wa-prompt-row textarea:focus,
+.wa-prompt-row textarea:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+.wa-prompt-row textarea::placeholder {
+  color: #789098;
+}
+.wa-prompt-actions {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 4px;
+}
+.wa-prompt-submit,
+.wa-stop-secondary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.wa-prompt-submit {
+  background: #d6ff62;
+  color: #163039;
+}
+.wa-prompt-submit:hover:not(:disabled) {
+  background: #c9f54e;
+}
+.wa-prompt-submit:disabled {
+  background: #f0f5e9;
+  color: #a2b09b;
+  opacity: 1;
+}
+.wa-stop-secondary {
+  background: #f1f5f6;
+  color: #61777f;
+}
+.wa-input-note {
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 10px 4px 0;
+  color: #61777f;
+}
+.wa-active :is(button, summary, a):focus-visible {
+  outline: 2px solid #668849;
+  outline-offset: 3px;
+}
+.wa-active .wa-notice {
+  flex: none;
+  margin: 0;
+  padding: 12px 16px 14px;
+  font-size: 10px;
+  color: #61777f;
+  opacity: 1;
+}
+.wa-turn-notice,
+.wa-turn-error {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0;
+  font-size: 13px;
+  color: #61777f;
+}
+.wa-turn-error {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #fff5e9;
+  color: #79572e;
+}
+.wa-turn-notice button,
+.wa-turn-error button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: auto;
+  min-height: 32px;
+  padding: 5px 10px;
+  background: #fff;
+  border: 0;
+  box-shadow: 0 0 0 1px #dbe5e9;
+  font-size: 12px;
+  cursor: pointer;
+}
+.wa-report-artifact {
+  width: 100%;
+  margin: 18px 0;
+  background: #fff;
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 0 0 1px #dbe5e9;
+  overflow: hidden;
+}
+.wa-report-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 0;
+  box-shadow: 0 1px #e8eef0;
+}
+.wa-report-header > div:nth-child(2) {
+  flex: 1;
+}
+.wa-report-header > div:nth-child(2) > p:first-child {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 550;
+}
+.wa-report-header > div:nth-child(2) > p:last-child {
+  margin: 3px 0 0;
+  font-size: 11px;
+  color: #61777f;
+}
+.wa-report-download {
+  gap: 6px;
+  height: 36px;
+  padding: 8px 10px;
+  background: #f0f5e9;
+  font-size: 12px;
+  border-radius: 9px;
+}
+.wa-report-content {
+  padding: 20px;
+}
+.wa-report-content h2 {
+  margin-top: 0;
+}
+.wa-report-content h3 {
+  font-size: 14px;
+  margin: 22px 0 8px;
+}
+.wa-report-content p,
+.wa-report-content li {
+  font-size: 14px;
+  line-height: 1.65;
+}
+.wa-report-content .wa-first {
+  padding: 14px 16px;
+  margin: 18px 0;
+  border-radius: 12px;
+  background: #f0f5e9;
+}
+.wa-report-content .wa-first h3 {
+  margin-top: 0;
+}
+.wa-report-content summary {
+  padding-block: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.ai-shimmer {
+  color: transparent;
+  background: linear-gradient(
+    100deg,
+    #667d85 20%,
+    #163039 43%,
+    #91a3a9 58%,
+    #667d85 78%
+  );
+  background-size: 250% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: wa-shimmer 2.2s linear infinite;
+}
+@keyframes wa-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 600px) {
+  .wa-active .wa-header {
+    padding: 16px 18px;
+  }
+  .wa-active .wa-header svg {
+    width: 23px;
+    height: 27px;
+  }
+  .wa-workspace {
+    padding: 6px 12px 0;
+  }
+  .wa-messages {
+    padding-inline: 4px;
+  }
+  .wa-user .wa-message-content {
+    max-width: 94%;
+    padding: 9px 14px;
+  }
+  .wa-message h2 {
+    font-size: 20px;
+  }
+  .wa-prompt-question {
+    padding: 12px 13px 7px;
+  }
+  .wa-question-suggestions {
+    gap: 6px;
+  }
+  .wa-question-suggestions button {
+    min-height: 40px;
+    padding: 8px 10px;
+  }
+  .wa-prompt-submit,
+  .wa-stop-secondary {
+    width: 44px;
+    height: 44px;
+  }
+  .wa-prompt-row {
+    padding: 7px 8px 7px 12px;
+  }
+  .wa-prompt-row textarea {
+    padding-block: 11px;
+  }
+  .wa-active .wa-notice {
+    font-size: 9px;
+    padding: 10px 20px 12px;
+  }
+  .wa-report-content {
+    padding: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-active *,
+  .wa-active *::before,
+  .wa-active *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .ai-shimmer {
+    background: none;
+    color: #61777f;
+  }
+}

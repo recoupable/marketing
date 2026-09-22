@@ -1,0 +1,85 @@
+import type { EveMessagePart } from "eve/client";
+
+export type ActivityStep = {
+  id: string;
+  label: string;
+  state: "active" | "complete" | "failed" | "stopped";
+  url?: string;
+  title?: string;
+  domain?: string;
+};
+
+const labels: Record<string, string> = {
+  read_company_website: "Reading the company website",
+  read_recoup: "Reading about Recoup",
+  search_recoup: "Searching Recoup’s information",
+  update_brief: "Saving your answers",
+  publish_plan: "Preparing your report",
+};
+
+/** Only observable tool work belongs in the activity trail. */
+export function getActivitySteps(
+  parts: readonly EveMessagePart[],
+  active: boolean,
+) {
+  const steps: ActivityStep[] = [];
+  for (const part of parts) {
+    if (part.type !== "dynamic-tool" || !labels[part.toolName]) continue;
+    // Partial arguments are not an executed action.
+    if (part.state === "input-streaming") continue;
+    const output =
+      part.state === "output-available" &&
+      part.output &&
+      typeof part.output === "object"
+        ? (part.output as Record<string, unknown>)
+        : undefined;
+    const input =
+      part.input && typeof part.input === "object"
+        ? (part.input as Record<string, unknown>)
+        : undefined;
+    const failed =
+      part.state === "output-error" ||
+      part.state === "output-denied" ||
+      !!output?.error;
+    const complete =
+      part.state === "output-available" && !part.partial && !failed;
+    const step: ActivityStep = {
+      id: part.toolCallId,
+      label: labels[part.toolName],
+      state: failed
+        ? "failed"
+        : complete
+          ? "complete"
+          : active
+            ? "active"
+            : "stopped",
+    };
+    const sourceUrl = typeof output?.url === "string" ? output.url : input?.url;
+    if (
+      ["read_company_website", "read_recoup"].includes(part.toolName) &&
+      typeof sourceUrl === "string"
+    ) {
+      try {
+        const url = new URL(sourceUrl);
+        if (url.protocol === "https:") {
+          step.domain = url.hostname.replace(/^www\./, "");
+          step.url = url.href;
+          step.title =
+            typeof output?.title === "string" && output.title.trim()
+              ? output.title.trim()
+              : `${step.domain}${url.pathname === "/" ? "" : url.pathname}`;
+          step.label = failed
+            ? `Couldn’t read ${step.domain}`
+            : complete
+              ? `Read ${step.domain}`
+              : `Reading ${step.domain}`;
+        }
+      } catch {
+        /* Malformed sources remain plain activity, never clickable links. */
+      }
+    }
+    if (failed && !step.domain) step.label = `${step.label} — unavailable`;
+    steps.push(step);
+  }
+  return steps;
+}

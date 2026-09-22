@@ -17,16 +17,18 @@ import "./sky/materials.css";
 export function SiteFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   // The Brand Studio has its own navigation and main landmark.
-  if (pathname === "/brand" || pathname.startsWith("/brand/")) return <>{children}</>;
+  if (pathname === "/brand" || pathname.startsWith("/brand/"))
+    return <>{children}</>;
+  const isWorkflowPlan = pathname === "/workflow-plan" || pathname === "/ask";
   return (
     <>
       <Suspense fallback={null}>
         <ReferralCapture />
       </Suspense>
       <div className="sky-site">
-        <SkySiteHeader />
+        {!isWorkflowPlan && <SkySiteHeader />}
         <main id="main">{children}</main>
-        <SkySiteFooter />
+        {!isWorkflowPlan && <SkySiteFooter />}
       </div>
       <ScrollMotion />
       <BrowserAgentTools />

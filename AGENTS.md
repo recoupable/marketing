@@ -267,3 +267,7 @@ The blog uses the compact, email-only SubscribeCard beside the blog intro on des
 ## Readiness inquiry handoff
 
 The readiness result action takes visitors to `/contact?brief=readiness`. Only that explicit handoff automatically applies the reviewed browser draft to the inquiry form. It confirms that the answers are included and requires contact details and a separate Send action. Generic agent and calculator drafts retain the manual import step. Missing or expired readiness drafts show a recovery message. Do not submit an inquiry during preview testing.
+
+## Workflow-plan lead magnet
+
+`/workflow-plan` and `/ask` now use the public Eve agent in `agent/`, streamed through `/api/website-agent`. The UI is in `components/website-agent/`: AI Elements for conversation, input, activity, sources, suggestions and report artifacts; shadcn Message Scroller for user-turn anchoring; JSON Render for validated reports. Keep research inside its transcript turn and compact questions inside the input, with the input fixed by the flex layout rather than an overlay. Preserve stopping, steering, source disclosure and download behavior. See `docs/website-agent.md` for configuration, access boundaries and validation. The old `components/workflow-plan/`, `lib/workflow-plan/` and `/api/workflow-plan` interview remain for compatibility. Do not claim email delivery or deployed behavior from local verification.

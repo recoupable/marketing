@@ -1,3 +1,57 @@
+## Workflow result clarity — September 21, 2026
+
+Kept the simple sky intro and single “Get my free AI plan” button; removed the interactive landing preview. All three questions remain inside the questionnaire. Starter plans now describe tangible deliverables (report columns, review queues, shortlists and source-linked checklists), separately from implementation steps. The result page leads with the deliverable and first action before setup details. Eleven focused tests pass. Git remains blocked by the unaccepted Xcode license; changes are local.
+
+## Preview before contact capture — September 20, 2026
+
+The contact screen now reveals the generated task title and output description before asking for name/email. The full brief adds inputs, steps and a first test. Starter mode remains labeled.
+
+## Tangible automation brief — September 20, 2026
+
+Intro now offers a one-page brief: Know what to automate first. Final multi-select asks which concrete deliverables the team would use. Generation adds a required output description with example structure and a 350-word instruction; result and download include it. Legacy outcome labels migrate on restore. Also corrected the answer summary to show each question's own selections. Eleven focused tests pass.
+
+## Animated workflow intro — September 20, 2026
+
+Added a minimal sky intro using the homepage artwork and original mark: Less busywork. More music. One Start action opens the compact questionnaire. Staggered entrance and question transitions respect reduced motion. Existing saved interviews resume; Start again returns to the intro. Mobile 390×844 and start navigation verified.
+
+## Minimal mobile workflow funnel — September 20, 2026
+
+Removed visible introductory heading/subtitle, workflow label, progress bar and shared site header/footer from /workflow-plan. Small Recoup home link, question count, compact choices and full-width mobile primary action remain. First question and all five choices fit at 390×844 without scrolling.
+
+## Generation before contact capture — September 20, 2026
+
+Three answers trigger real plan generation with a dedicated loading screen, then a ready/contact screen. Lead capture unlocks the result. Signed, expiring generated-plan tokens support optional Resend delivery with idempotency and rate limiting; requires RESEND_API_KEY and WORKFLOW_PLAN_EMAIL_FROM. When unconfigured, copy promises on-page viewing only. Eleven offline tests pass; no live email sent.
+
+## Workflow contact capture — September 20, 2026
+
+After three selection questions, visitors enter name and email before generation. Uses the existing lead endpoint with /workflow-plan source and structured answers; capture failures preserve input and block generation. Contact details stay out of AI requests and analytics. Nine offline tests cover workflow validation and lead receipts. No live test lead submitted.
+
+## Multiple desired outcomes — September 20, 2026
+
+The final question now allows multiple selections, including Help me decide alongside specific outcomes. All selections are validated, sent to generation and included in downloaded plans. Prior single-choice drafts migrate without losing the selection.
+
+## No-typing workflow interview — September 20, 2026
+
+Replaced the final free-text answer with six single-choice priorities, including Help me decide. All three interview steps now use selections. Removed the process-writing instruction from the data-use note.
+
+## Shorter workflow interview — September 20, 2026
+
+Removed the current-process question and API requirement. Three questions remain: workflows, information sources, desired result. Existing drafts migrate to the corresponding step. Seven focused tests, lint and production build passed locally.
+
+## Workflow multi-select — September 20, 2026
+
+Question one now supports multiple checked workflows and an explicit Continue button. All choices reach generation and the downloaded brief; saved single-choice drafts migrate on restore. Multi-workflow starter plans compare candidates rather than silently choosing the first. Production build, seven focused tests, TypeScript and browser selection/navigation passed locally.
+
+## Lead-magnet simplification — September 20, 2026
+
+Removed the welcome screen and explanatory sidebar. The page opens directly on question one; selecting a workflow advances immediately. Single centered column, with the data-use note retained before generation. Production build and browser navigation verified locally.
+
+# Workflow-plan lead magnet — September 20, 2026
+
+Local implementation at `/workflow-plan`: four questions, AI SDK structured plan generation, optional plan follow-ups, a clearly labeled starter fallback, download and existing inquiry handoff. Resources, sitemap and machine summaries updated. Production build and focused tests pass; browser flow and brief handoff verified without submitting a lead. Not deployed; Git/PR blocked by the machine’s unaccepted Xcode license. See `docs/plans/workflow-plan-lead-magnet.md` for configuration and release requirements.
+
+---
+
 # Four article corrections — September 14, 2026
 
 Corrected attribution and clarified the work in the ownership, quarterly-report, cross-team rollout and board-reporting articles. Removed the drafting-agent anecdote previously written as the author’s experience. The board article now has an evidence-labeled comparison table. The quarterly-report title names the demonstrated task. Existing article URLs remain stable.
@@ -108,3 +162,6 @@ Content: publish more blog posts targeting SEO pillars. Wire up the nav menu (li
 - 2026-03-16: Initial scaffold (Next.js 16, Tailwind, content system, SEO pillars)
 
 ## Don't Touch
+## Stable agent conversation — September 21, 2026
+
+Rebuilt `/workflow-plan` and `/ask` around stable user turns. Thinking and observed research remain beneath the corresponding message; the compact question and reply input stay at the bottom. Official AI Elements now provide prompt input, activity, sources, suggestions, message actions and report artifacts, with shadcn scrolling and the existing JSON report renderer. Corrected duplicate prose after structured results and response ordering for follow-ups sent during research. Seeker/WMG live browser checks, mobile layout, stopping and actual report download verified. TypeScript, scoped lint, all 353 tests and the production build pass locally. See `docs/website-agent.md`; production has not been deployed or verified.

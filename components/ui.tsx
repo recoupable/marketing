@@ -68,6 +68,7 @@ export function FAQ({
           <p>{item.answer}</p>
         </details>
       ))}
+      <Link href="/ask">Have another question? Ask Recoup →</Link>
     </div>
   );
 }

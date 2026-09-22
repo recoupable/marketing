@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod/v3";
 
 export const videoRequestSchema = z.object({
   name: z.string().trim().min(1, "Add your name.").max(120, "Keep your name to 120 characters."),

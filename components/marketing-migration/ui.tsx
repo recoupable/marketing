@@ -19,5 +19,5 @@ export function BriefVisual({ label, title, items, footnote }: { label: string; 
 }
 
 export function MarketingFAQ({ items }: { items: readonly { question: string; answer: string }[] }) {
-  return <div className="faq-list mm-faq">{items.map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div>;
+  return <div className="faq-list mm-faq">{items.map(item => <details key={item.question}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}<Link className="sp-text-link" href="/ask">Have another question? Ask Recoup <SkyArrow /></Link></div>;
 }

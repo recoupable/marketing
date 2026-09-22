@@ -12,6 +12,7 @@ import type { AgentReadInput, AgentSearchInput } from "../lib/agent-content/type
 import { documentationAgentMarkdown, operationSpecification, readableAgentMarkdown } from "../lib/agent-markdown.ts";
 import { getDocSpec, type ApiObject } from "../lib/docs-server.ts";
 import type { DocPage } from "../lib/docs.ts";
+import { pageEntries } from "../lib/agent-content/pageEntries.ts";
 import { siteConfig } from "../lib/config.ts";
 
 const index = getAgentContentIndex();
@@ -38,8 +39,8 @@ test("the fixed public registry covers published content with canonical URLs and
   expect(index.filter(item => item.type === "docs").length).toBe(docs.length);
   expect(index.filter(item => item.type === "blog").length).toBe(posts.length);
   expect(index.filter(item => item.type === "playbook").length).toBe(chapters.length);
-  expect(index.filter(item => item.type === "page").length).toBe(25);
-  for (const path of ["/training", "/podcast", "/case-studies", "/case-studies/royalty-reporting", "/case-studies/investment-review", "/case-studies/catalog-intelligence"]) {
+  expect(index.filter(item => item.type === "page").length).toBe(pageEntries.length);
+  for (const path of ["/workflow-plan", "/ask", "/training", "/podcast", "/case-studies", "/case-studies/royalty-reporting", "/case-studies/investment-review", "/case-studies/catalog-intelligence"]) {
     expect(index.some(item => item.id === `page:${path}`), `${path} is discoverable`).toBeTruthy();
   }
   expect(new Set(index.map(item => item.id)).size).toBe(index.length);
