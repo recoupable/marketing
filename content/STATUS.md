@@ -1,3 +1,7 @@
+## Integrated question composer — September 22, 2026
+
+Refined the question and reply field into one compact surface: evenly sized numbered answers on desktop, full-width answer rows on phones, an inline information control, Skip, and collapsible choices. Removed the separate explanation row and full-width divider, reduced the frame's visual weight, and made the disabled send control neutral. Live browser review covered desktop and a true 390 CSS-pixel phone viewport, no horizontal overflow, explanation/keyboard dismissal, collapsing choices, and Skip advancing to the next researched question.
+
 ## Research continues during context questions — September 21, 2026
 
 Removed the website agent's instructions to stop after asking its opening question. It now follows relevant homepage links while the question waits, preserving one unanswered question and treating missing setup details as unknown. Live local WMG test checked five sources without any answer submitted; the original AI-use question remained available in the composer. See `docs/website-agent.md`.

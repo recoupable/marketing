@@ -36,6 +36,8 @@ Context questions do not block public research. The opening turn asks about curr
 
 Structured question/report tools own their presentation. The client suppresses the model's subsequent prose restatement, while retaining ordinary conversational replies and errors. The visitor can answer during research, stop, continue, copy a response, collapse question choices, inspect source quotes and download the report as a text file. File/voice attachments are not exposed because the gateway accepts text only.
 
+The question composer uses equal-width numbered answers on desktop and compact full-width rows on phones. Its information button reveals the question's context without occupying a separate row; Skip explicitly submits that the visitor wants to leave the answer unknown. Question choices remain collapsible and free-text replies share the same input surface. September 22 browser checks covered these controls and a 390 CSS-pixel viewport without horizontal overflow.
+
 Verified in the live local browser: Seeker and WMG first-message placement; Thinking-to-research transition; compact mobile questions; multi-turn findings; expandable evidence; stop; a follow-up submitted during a running response; report generation and an actual downloaded text file. Tested responsive widths through the browser viewport override; the user's browser zoom makes 390 device pixels approximately 433 CSS pixels. No horizontal overflow was observed. Full suite: 353 tests across 94 files. TypeScript, scoped ESLint and `pnpm build` pass. The sandboxed build stalled; the identical build passed with normal local process access. No production deployment is implied.
 
 ### Earlier runtime validation

@@ -309,107 +309,177 @@
   padding: 0;
   overflow: hidden;
   border: 0;
-  border-radius: 20px;
+  border-radius: 18px;
   background: #fff;
   color: #163039;
   box-shadow:
-    0 0 0 1px #dbe5e9,
-    0 6px 22px #16333c08;
+    0 0 0 1px #dfe6e8,
+    0 3px 5px #16333c03,
+    0 12px 36px #16333c07;
   transition: box-shadow 150ms;
 }
 .wa-prompt > [data-slot="input-group"]:focus-within {
   box-shadow:
-    0 0 0 1.5px #a8c57a,
+    0 0 0 1.5px #9bacb2,
     0 6px 22px #16333c0b;
 }
 .wa-prompt-question {
   order: -1;
   display: block;
   width: 100%;
-  padding: 14px 16px 8px;
+  padding: 10px 14px 12px;
   border: 0;
-  box-shadow: inset 0 -1px #eaf0f2;
+  box-shadow: none;
 }
 .wa-question-disclosure {
   width: 100%;
 }
-.wa-question-toggle {
-  background: transparent;
-  border: 0;
+.wa-question-heading {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  width: 100%;
-  padding: 0;
+  gap: 10px;
+  min-height: 32px;
+}
+.wa-question-heading > p {
+  min-width: 0;
+  margin: 0;
   font-family: inherit;
   font-size: 14px;
   font-weight: 550;
-  line-height: 1.5;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
   color: #163039;
+}
+.wa-question-controls {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 2px;
+}
+.wa-question-controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 32px;
+  padding: 0 6px;
+  border: 0;
+  border-radius: 7px;
+  box-shadow: none;
+  background: transparent;
+  color: #667c84;
   cursor: pointer;
-  text-align: left;
+}
+.wa-question-controls button:hover {
+  color: #163039;
+  background: #f0f4f5;
+}
+.wa-question-controls .wa-question-skip {
+  padding-inline: 8px;
+  font: 450 12px/1.4 var(--body);
 }
 .wa-question-toggle > svg {
-  flex: none;
-  margin-top: 3px;
-  color: #789098;
   transition: transform 180ms;
 }
 .wa-question-toggle[data-state="open"] > svg {
   transform: rotate(180deg);
 }
-.wa-question-disclosure > [data-state="open"]:not(button) {
-  max-height: min(25dvh, 180px);
+.wa-question-disclosure > [data-state="open"] {
+  max-height: min(30dvh, 200px);
   overflow-y: auto;
   scrollbar-width: thin;
 }
 .wa-question-suggestions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   align-items: stretch;
-  gap: 7px;
-  padding: 10px 0 4px;
+  gap: 8px;
+  padding: 8px 0 0;
 }
 .wa-question-suggestions button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
   height: auto;
-  min-height: 36px;
+  min-height: 44px;
+  min-width: 0;
   max-width: 100%;
-  padding: 8px 12px;
+  padding: 9px 11px;
   border: 0;
   border-radius: 10px;
-  background: #f1f5f6;
-  color: #28414a;
-  box-shadow: inset 0 0 0 1px #e5edef;
+  background: #f5f7f7;
+  color: #284049;
+  box-shadow: none;
   font: 450 13px/1.4 var(--body);
   text-align: left;
   white-space: normal;
   cursor: pointer;
-  transition: background 150ms;
+  transition:
+    background 150ms,
+    box-shadow 150ms;
 }
 .wa-question-suggestions button:hover:not(:disabled) {
-  background: #e8f5cc;
+  background: #f0f5e9;
+  box-shadow: inset 0 0 0 1px #d3dfa9;
 }
-.wa-question-why {
-  font-size: 11px;
+.wa-option-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 23px;
+  height: 23px;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px #dde5e7;
+  background: #fff;
   color: #61777f;
+  font: 450 11px/1 var(--body);
+  font-variant-numeric: tabular-nums;
+  transition:
+    background 150ms,
+    color 150ms,
+    box-shadow 150ms;
 }
-.wa-question-why summary {
-  padding: 5px 0;
-  cursor: pointer;
+.wa-question-suggestions button:hover:not(:disabled) .wa-option-number {
+  background: #d6ff62;
+  color: #163039;
+  box-shadow: 0 0 0 1px #c0e44e;
 }
-.wa-question-why p {
-  margin: 4px 0 8px;
-  font-size: 12px;
-  line-height: 1.5;
-  white-space: normal;
+.wa-option-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.wa-question-help-popover {
+  max-width: 280px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #163039;
+  color: #fff;
+  font: 400 13px/1.55 var(--body);
+  box-shadow: 0 6px 20px #16303920;
+}
+.wa-question-help-popover svg {
+  fill: #163039;
+  background: #163039;
 }
 .wa-prompt-row {
+  position: relative;
   display: flex;
   align-items: flex-end;
   width: 100%;
-  padding: 9px 10px 9px 14px;
+  padding: 9px 10px 9px 16px;
   gap: 8px;
+}
+.wa-prompt-has-question .wa-prompt-row::before {
+  position: absolute;
+  top: 0;
+  left: 14px;
+  right: 14px;
+  height: 1px;
+  background: #edf1f2;
+  content: "";
 }
 .wa-prompt-row textarea {
   display: block;
@@ -466,8 +536,8 @@
   background: #c9f54e;
 }
 .wa-prompt-submit:disabled {
-  background: #f0f5e9;
-  color: #a2b09b;
+  background: #f1f4f4;
+  color: #95a5aa;
   opacity: 1;
 }
 .wa-stop-secondary {
@@ -631,14 +701,42 @@
     font-size: 20px;
   }
   .wa-prompt-question {
-    padding: 12px 13px 7px;
+    padding: 9px 12px 8px;
   }
-  .wa-question-suggestions {
+  .wa-question-heading {
+    align-items: flex-start;
     gap: 6px;
   }
+  .wa-question-heading > p {
+    padding-block: 8px;
+    font-size: 14px;
+  }
+  .wa-question-controls {
+    gap: 0;
+  }
+  .wa-question-controls button {
+    min-width: 32px;
+    height: 40px;
+  }
+  .wa-question-controls .wa-question-skip {
+    min-width: 40px;
+    padding-inline: 6px;
+  }
+  .wa-question-suggestions {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+    padding-top: 3px;
+  }
   .wa-question-suggestions button {
-    min-height: 40px;
-    padding: 8px 10px;
+    min-height: 44px;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 8px;
+    background: transparent;
+  }
+  .wa-option-number {
+    background: #f5f7f7;
+    box-shadow: none;
   }
   .wa-prompt-submit,
   .wa-stop-secondary {
@@ -646,7 +744,7 @@
     height: 44px;
   }
   .wa-prompt-row {
-    padding: 7px 8px 7px 12px;
+    padding: 7px 8px 7px 14px;
   }
   .wa-prompt-row textarea {
     padding-block: 11px;
