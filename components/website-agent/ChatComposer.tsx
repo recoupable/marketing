@@ -19,6 +19,7 @@ import {
   PromptInputSubmit,
 } from "@/components/ai-elements/prompt-input";
 import { Suggestion } from "@/components/ai-elements/suggestion";
+import { MessageResponse } from "@/components/ai-elements/message";
 import {
   Collapsible,
   CollapsibleContent,
@@ -48,7 +49,7 @@ export function ChatComposer({
   onStop: () => void;
   busy: boolean;
   disabled: boolean;
-  question?: z.infer<typeof questionSchema> & { id: string };
+  question?: z.infer<typeof questionSchema> & { id: string; pending?: boolean };
 }) {
   const id = useId();
   const textarea = useRef<HTMLTextAreaElement>(null);
@@ -78,7 +79,7 @@ export function ChatComposer({
         onError={() => setFileError(true)}
         onSubmit={({ text }) => {
           const reply = text.trim() || selected;
-          if (!disabled && reply) {
+          if (!disabled && !question?.pending && reply) {
             onSend(reply);
             setSelection(undefined);
             setFileError(false);
@@ -155,9 +156,15 @@ export function ChatComposer({
                 <p className="wa-question-collapsed">{question.question}</p>
               )}
               <CollapsibleContent className="wa-question-content">
-                <p className="wa-question-title" id={`${id}-question`}>
-                  {question.question}
-                </p>
+                <div
+                  className="wa-question-title"
+                  id={`${id}-question`}
+                  aria-busy={question.pending}
+                >
+                  <MessageResponse isAnimating={!!question.pending}>
+                    {question.question}
+                  </MessageResponse>
+                </div>
                 <div
                   className="wa-question-suggestions"
                   role="group"
@@ -167,7 +174,7 @@ export function ChatComposer({
                     <Suggestion
                       key={option.label}
                       suggestion={option.label}
-                      disabled={disabled}
+                      disabled={disabled || question.pending}
                       onClick={(label) => {
                         setSelection(
                           selected === label
@@ -236,7 +243,7 @@ export function ChatComposer({
                 type="button"
                 variant="ghost"
                 className="wa-question-skip"
-                disabled={disabled}
+                disabled={disabled || question.pending}
                 onClick={() => {
                   setSelection(undefined);
                   onSend("Skip this question for now.");
@@ -249,7 +256,9 @@ export function ChatComposer({
               className={`wa-prompt-submit${question ? " wa-answer-send" : ""}`}
               status={stopOnSubmit ? "streaming" : "ready"}
               onStop={onStop}
-              disabled={disabled || (!stopOnSubmit && !answer)}
+              disabled={
+                disabled || !!question?.pending || (!stopOnSubmit && !answer)
+              }
               aria-label={
                 stopOnSubmit
                   ? "Stop response"

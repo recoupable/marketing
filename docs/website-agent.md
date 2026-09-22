@@ -36,7 +36,25 @@ There is no fixed question count. `update_brief` stores visitor-confirmed discov
 
 `review_brief` refuses incomplete context and otherwise displays a recap of the stored answers. `publish_plan` independently requires that context plus a matching recap confirmed by the visitor's **Build my report** response. The `report-confirmation` message hook records confirmation; a model tool cannot confirm its own recap. Corrections or changed brief contents require another review. This validates completeness and user confirmation, not the semantic truth of every stored statement. A visitor who skips discovery can still receive a clearly conditional outline in normal chat, without a finished-report artifact.
 
+## Response streaming and AI setup choices
+
+The first question distinguishes no AI use, a ChatGPT / Claude Team plan, agents that accurately answer catalog and business questions, and agents that complete full workflows autonomously. The canonical initial choices live in `lib/website-agent/aiSetupQuestion.ts`; free text remains available. A selection does not establish tool names, data coverage, accuracy checks or the actual degree of autonomy. The agent follows up on those details. Follow-up questions normally use two or three options; the schema allows four and labels up to 80 characters.
+
+`useStreamingMessages` decodes Eve's real `action.input.appended` JSON chunks with AI SDK's partial JSON parser. The question composer, company findings and JSON Render report display arriving fields instead of waiting for `output-available`. Choices cannot be submitted until the question completes. Ordinary chat continues to use AI Elements MessageResponse. No artificial typing delay or replay of a completed answer is used.
+
+Finding drafts appear only when their quoted sources match completed public-page reads; sources come first in the tool schema. Unfinished URLs are invalid evidence, never an exception. The final server tool still verifies the evidence before citations appear. Report previews require the completed brief recap and an actual visitor confirmation; changes to the saved brief revoke that display permission. The server publication checks remain authoritative. Downloads are absent until a valid final report arrives. Arriving implementation sections open during report generation and retain the visitor's open/closed choice at completion.
+
+For an isolated local preview, set `WEBSITE_AGENT_ORIGIN=http://localhost:3018` and run `pnpm dev --port 3018`. The configured origin controls both the local gateway target and its POST allowlist. Use a different hostname from the user's active chat to keep cookie-bound sessions separate.
+
 ## Validation
+
+### Specific AI choices and live structured streaming, September 22, 2026
+
+Live local Seeker and WMG runs displayed all four concrete setup options while research continued unanswered. A 390 CSS-pixel viewport had no horizontal overflow; the long options wrapped, selection worked, and Send remained visible. An ordinary sourced Recoup answer also completed in the same conversation.
+
+A complete fictional release-team scenario showed its recap and waited for **Build my report**. Browser observations then captured 22 distinct growing report states before completion, all with `aria-busy="true"` and no Download control. The completed artifact retained its open implementation section and exposed Download only after validation. A partial source URL found during live testing is covered by a regression that checks every character boundary. These are local runtime checks, not a production deployment claim.
+
+All 385 tests across 98 files, scoped ESLint, the production app build (including TypeScript) and the separate Eve runtime build pass. The Eve build retains the existing non-fatal MDX directive warnings.
 
 ### Discovery and report gate, September 22, 2026
 

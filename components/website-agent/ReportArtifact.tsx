@@ -10,26 +10,36 @@ import {
   ArtifactActions,
 } from "@/components/ai-elements/artifact";
 import { Button } from "@/components/ui/button";
-import type { WorkflowPlan } from "@/lib/workflow-plan/schema";
+import { planSchema, type WorkflowPlan } from "@/lib/workflow-plan/schema";
+import { Shimmer } from "@/components/ai-elements/shimmer";
 import { PlanReport } from "./PlanReport";
 
-export function ReportArtifact({ plan }: { plan: WorkflowPlan }) {
+export function ReportArtifact({
+  plan,
+  streaming = false,
+}: {
+  plan: Partial<WorkflowPlan>;
+  streaming?: boolean;
+}) {
+  const complete = !streaming && planSchema.safeParse(plan).success;
   function download() {
+    if (!complete) return;
+    const final = planSchema.parse(plan);
     const text = [
-      plan.title,
-      plan.summary,
+      final.title,
+      final.summary,
       "WHAT YOUR TEAM GETS",
-      plan.output,
+      final.output,
       "YOUR FIRST STEP",
-      plan.firstStep,
+      final.firstStep,
       "WHAT YOU NEED",
-      ...plan.inputs,
+      ...final.inputs,
       "HOW TO START",
-      ...plan.steps.map((step, i) => `${i + 1}. ${step}`),
+      ...final.steps.map((step, i) => `${i + 1}. ${step}`),
       "HUMAN REVIEW",
-      plan.review,
+      final.review,
       "CHECK IT WORKED",
-      plan.success,
+      final.success,
     ].join("\n\n");
     const url = URL.createObjectURL(
       new Blob([text], { type: "text/plain;charset=utf-8" }),
@@ -43,30 +53,39 @@ export function ReportArtifact({ plan }: { plan: WorkflowPlan }) {
   return (
     <Artifact
       className="wa-report-artifact"
-      aria-label="Your downloadable report"
+      aria-label={
+        streaming ? "Your report is being written" : "Your downloadable report"
+      }
+      aria-busy={streaming}
     >
       <ArtifactHeader className="wa-report-header">
         <FileText size={21} aria-hidden="true" />
         <div>
           <ArtifactTitle>Your AI opportunity report</ArtifactTitle>
           <ArtifactDescription>
-            Ready to download · Text document
+            {streaming ? (
+              <Shimmer>Writing your report…</Shimmer>
+            ) : (
+              "Ready to download · Text document"
+            )}
           </ArtifactDescription>
         </div>
-        <ArtifactActions>
-          <Button
-            variant="ghost"
-            onClick={download}
-            aria-label="Download your report"
-            className="wa-report-download"
-          >
-            <Download size={16} />
-            <span>Download</span>
-          </Button>
-        </ArtifactActions>
+        {complete && (
+          <ArtifactActions>
+            <Button
+              variant="ghost"
+              onClick={download}
+              aria-label="Download your report"
+              className="wa-report-download"
+            >
+              <Download size={16} />
+              <span>Download</span>
+            </Button>
+          </ArtifactActions>
+        )}
       </ArtifactHeader>
       <ArtifactContent className="wa-report-content">
-        <PlanReport plan={plan} />
+        <PlanReport plan={plan} streaming={streaming} />
       </ArtifactContent>
     </Artifact>
   );

@@ -1,3 +1,11 @@
+## Specific AI setup choices and streamed responses — September 22, 2026
+
+The opening question now distinguishes no AI use, ChatGPT / Claude Team plans, agents answering difficult catalog/business questions accurately, and agents completing full workflows autonomously. Follow-ups verify actual tools and capabilities instead of assuming them from a selection.
+
+Questions, sourced findings and reports now render real incoming Eve tool arguments through AI Elements and JSON Render. Source verification, context review and visitor confirmation remain required; report downloads appear only after the completed result validates. Live Seeker/WMG checks covered continued research, the four choices, 390 CSS-pixel reflow, a sourced Recoup answer, and a report visibly growing before completion. See `docs/website-agent.md` for the validation receipt. The isolated preview uses port 3018; the existing 3017 checkout remains untouched.
+
+All 385 tests, scoped lint, TypeScript, the app production build and separate Eve runtime build pass locally. Not deployed.
+
 ## Context before reports, broader research — September 22, 2026
 
 Replaced the bare website message with a compact company header and Change action. Added native Eve/Parallel web search and independently sourced findings while the setup question remains open. Reports now require visitor-confirmed business context (team, priority, current process, problem, workload, success), actual AI/tools/data, prior attempts, a test owner and constraints. The agent presents the stored brief for review; the publishing tool blocks incomplete or unconfirmed briefs regardless of question count.

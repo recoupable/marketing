@@ -9,11 +9,11 @@ export const questionSchema = z
     options: z
       .array(
         z.object({
-          label: z.string().min(1).max(48),
+          label: z.string().min(1).max(80),
           description: z.string().max(100),
         }),
       )
       .min(2)
-      .max(3),
+      .max(4),
   })
   .strict();
