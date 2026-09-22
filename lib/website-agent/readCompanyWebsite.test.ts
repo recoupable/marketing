@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { EventEmitter } from "node:events";
 const { lookup, request } = vi.hoisted(() => ({
   lookup: vi.fn(),
   request: vi.fn(),
@@ -6,6 +7,29 @@ const { lookup, request } = vi.hoisted(() => ({
 vi.mock("node:dns/promises", () => ({ lookup }));
 vi.mock("node:https", () => ({ request }));
 import { readCompanyWebsite } from "./readCompanyWebsite";
+
+function respond(statusCode: number, contentType = "text/html") {
+  lookup.mockResolvedValue([{ address: "8.8.8.8", family: 4 }]);
+  request.mockImplementation((_url, _options, callback) => {
+    const req = Object.assign(new EventEmitter(), {
+      end: () => {
+        const res = Object.assign(new EventEmitter(), {
+          statusCode,
+          headers: { "content-type": contentType },
+          resume: () => req.emit("close"),
+        });
+        callback(res);
+        res.emit(
+          "data",
+          Buffer.from("<p>Public company information. ".repeat(10)),
+        );
+        res.emit("end");
+        req.emit("close");
+      },
+    });
+    return req;
+  });
+}
 
 describe("company website access", () => {
   beforeEach(() => vi.clearAllMocks());
@@ -38,5 +62,33 @@ describe("company website access", () => {
     ]);
     await expect(readCompanyWebsite("example.com")).rejects.toThrow();
     expect(request).not.toHaveBeenCalled();
+  });
+  it.each([404, 403, 503])(
+    "preserves HTTP %s instead of losing the failure reason",
+    async (statusCode) => {
+      respond(statusCode);
+      await expect(
+        readCompanyWebsite("https://example.com/missing-page"),
+      ).rejects.toMatchObject({
+        reason: "http",
+        statusCode,
+        message: `This page returned HTTP ${statusCode}.`,
+      });
+    },
+  );
+  it("distinguishes an unsupported format from a missing page", async () => {
+    respond(200, "application/pdf");
+    await expect(
+      readCompanyWebsite("https://example.com/report"),
+    ).rejects.toMatchObject({
+      reason: "unsupported",
+      statusCode: undefined,
+    });
+  });
+  it("still returns readable pages and their source URL", async () => {
+    respond(200);
+    const page = await readCompanyWebsite("https://example.com/about");
+    expect(page.url).toBe("https://example.com/about");
+    expect(page.text).toContain("Public company information.");
   });
 });

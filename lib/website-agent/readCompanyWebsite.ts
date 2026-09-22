@@ -1,4 +1,5 @@
 import { extractCompanyPage } from "./extractCompanyPage";
+import { WebsiteReadError } from "./WebsiteReadError";
 import { lookup } from "node:dns/promises";
 import { request } from "node:https";
 
@@ -64,16 +65,14 @@ export async function readCompanyWebsite(
             resolve({ location: res.headers.location, body: "" });
             return;
           }
-          if (
-            res.statusCode !== 200 ||
-            !/text\/(html|plain)/i.test(res.headers["content-type"] || "")
-          ) {
+          if (res.statusCode !== 200) {
             res.resume();
-            reject(
-              new Error(
-                "This website could not be read. Ask for a short company description.",
-              ),
-            );
+            reject(new WebsiteReadError("http", res.statusCode));
+            return;
+          }
+          if (!/text\/(html|plain)/i.test(res.headers["content-type"] || "")) {
+            res.resume();
+            reject(new WebsiteReadError("unsupported"));
             return;
           }
           const chunks: Buffer[] = [];
@@ -81,7 +80,7 @@ export async function readCompanyWebsite(
           res.on("data", (chunk: Buffer) => {
             size += chunk.length;
             if (size > 1_000_000)
-              req.destroy(new Error("Website page is too large."));
+              req.destroy(new WebsiteReadError("too_large"));
             else chunks.push(chunk);
           });
           res.on("error", reject);
@@ -91,7 +90,7 @@ export async function readCompanyWebsite(
         },
       );
       const timer = setTimeout(
-        () => req.destroy(new Error("Website request timed out.")),
+        () => req.destroy(new WebsiteReadError("timeout")),
         10000,
       );
       req.on("close", () => clearTimeout(timer));
@@ -100,16 +99,13 @@ export async function readCompanyWebsite(
     },
   );
   if (result.location) {
-    if (redirects >= 3) throw new Error("Too many website redirects.");
+    if (redirects >= 3) throw new WebsiteReadError("redirects");
     return readCompanyWebsite(
       new URL(result.location, url).href,
       redirects + 1,
     );
   }
   const page = extractCompanyPage(result.body, url.href);
-  if (page.text.length < 80)
-    throw new Error(
-      "Not enough readable content. Ask for a short company description.",
-    );
+  if (page.text.length < 80) throw new WebsiteReadError("empty");
   return page;
 }

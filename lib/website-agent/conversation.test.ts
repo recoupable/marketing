@@ -107,6 +107,50 @@ describe("stable conversation turns", () => {
 });
 
 describe("honest activity states", () => {
+  it("identifies the missing page without declaring the whole website unreadable", () => {
+    const steps = getActivitySteps(
+      [
+        tool(),
+        tool({
+          toolCallId: "missing-page",
+          input: { url: "https://seekermusic.com/hiphop50" },
+          output: { error: "This page returned HTTP 404.", statusCode: 404 },
+        }),
+      ],
+      false,
+    );
+    expect(steps[0].state).toBe("complete");
+    expect(steps[1]).toMatchObject({
+      state: "failed",
+      url: "https://seekermusic.com/hiphop50",
+      label: "Page not found: seekermusic.com/hiphop50",
+    });
+  });
+  it("keeps the specific page visible for older failures without a reason", () => {
+    const [step] = getActivitySteps(
+      [
+        tool({
+          input: { url: "https://example.com/news" },
+          output: { error: "Unavailable" },
+        }),
+      ],
+      false,
+    );
+    expect(step.label).toBe("Couldn’t read example.com/news");
+  });
+  it("does not expose credentials as a source link", () => {
+    const [step] = getActivitySteps(
+      [
+        tool({
+          input: { url: "https://visitor:secret@example.com/news" },
+          output: { error: "Unavailable" },
+        }),
+      ],
+      false,
+    );
+    expect(step.url).toBeUndefined();
+    expect(step.label).not.toContain("secret");
+  });
   it("does not mark a caught website error as a checked source", () => {
     expect(
       getActivitySteps([tool({ output: { error: "Unavailable" } })], false)[0]

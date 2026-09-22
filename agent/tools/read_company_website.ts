@@ -1,6 +1,7 @@
 import { defineTool } from "eve/tools";
 import { z } from "zod/v3";
 import { readCompanyWebsite } from "../../lib/website-agent/readCompanyWebsite";
+import { WebsiteReadError } from "../../lib/website-agent/WebsiteReadError";
 
 import { research } from "../lib/research";
 
@@ -20,10 +21,17 @@ export default defineTool({
         ),
       );
       return page;
-    } catch {
+    } catch (error) {
+      const failure =
+        error instanceof WebsiteReadError
+          ? error
+          : new WebsiteReadError("unavailable");
       return {
-        error:
-          "Could not read this public website. Ask the visitor for a brief description; do not claim to have researched it.",
+        error: failure.message,
+        reason: failure.reason,
+        ...(failure.statusCode ? { statusCode: failure.statusCode } : {}),
+        guidance:
+          "Only this page failed. Keep the successfully read sources and continue with other relevant observed links. Do not retry missing pages or claim to have read them. Ask for a company description only if no useful sources could be read.",
       };
     }
   },

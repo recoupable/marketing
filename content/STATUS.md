@@ -1,3 +1,7 @@
+## Individual research page failures — September 22, 2026
+
+Seeker's `/hiphop50` link returned HTTP 404 after four successful reads. The activity trail previously labeled that as a failure of the whole domain and the tool discarded the HTTP status. Source failures now retain safe diagnostic details and identify the specific page; recovery guidance preserves successful sources and continues relevant research. Regression coverage includes missing pages, unsupported formats, retained research and safe errors.
+
 ## Integrated question composer — September 22, 2026
 
 Refined the question and reply field into one compact surface: evenly sized numbered answers on desktop, full-width answer rows on phones, an inline information control, Skip, and collapsible choices. Removed the separate explanation row and full-width divider, reduced the frame's visual weight, and made the disabled send control neutral. Live browser review covered desktop and a true 390 CSS-pixel phone viewport, no horizontal overflow, explanation/keyboard dismissal, collapsing choices, and Skip advancing to the next researched question.

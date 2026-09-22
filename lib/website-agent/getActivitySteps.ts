@@ -61,15 +61,20 @@ export function getActivitySteps(
     ) {
       try {
         const url = new URL(sourceUrl);
-        if (url.protocol === "https:") {
+        if (url.protocol === "https:" && !url.username && !url.password) {
           step.domain = url.hostname.replace(/^www\./, "");
           step.url = url.href;
+          const page = `${step.domain}${url.pathname === "/" ? "" : url.pathname}`;
           step.title =
             typeof output?.title === "string" && output.title.trim()
               ? output.title.trim()
-              : `${step.domain}${url.pathname === "/" ? "" : url.pathname}`;
+              : page;
           step.label = failed
-            ? `Couldn’t read ${step.domain}`
+            ? output?.statusCode === 404 || output?.statusCode === 410
+              ? `Page not found: ${page}`
+              : output?.reason === "timeout"
+                ? `Timed out reading ${page}`
+                : `Couldn’t read ${page}`
             : complete
               ? `Read ${step.domain}`
               : `Reading ${step.domain}`;
