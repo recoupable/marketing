@@ -19,6 +19,9 @@ import { PageMark } from "@/components/sky/brand";
 import { getConversationTurns } from "@/lib/website-agent/getConversationTurns";
 import { getCompanyIdentity } from "@/lib/website-agent/getCompanyIdentity";
 import { getActiveQuestion } from "@/lib/website-agent/getActiveQuestion";
+import { getResearchPages } from "@/lib/website-agent/getResearchPages";
+import { canPreviewReport } from "@/lib/website-agent/canPreviewReport";
+import { useStreamingMessages } from "@/hooks/useStreamingMessages";
 import { CompanyHeader } from "./CompanyHeader";
 import { ChatTurn } from "./ChatTurn";
 import { ChatComposer } from "./ChatComposer";
@@ -59,6 +62,7 @@ function Conversation({
     },
   });
   const reduceMotion = useReducedMotion();
+  const messages = useStreamingMessages(agent.data.messages);
   const freeMaskId = useId();
   const companyListId = useId();
   const [describeCompany, setDescribeCompany] = useState(false);
@@ -174,7 +178,9 @@ function Conversation({
     !started && mode === "planner" && !describeCompany
       ? normalizeCompanyWebsite(input)
       : undefined;
-  const turns = getConversationTurns(agent.data.messages);
+  const turns = getConversationTurns(messages);
+  const researchPages = getResearchPages(messages);
+  const reportPreviewAllowed = canPreviewReport(messages);
   const activeQuestion = getActiveQuestion(turns.at(-1));
   const company = getCompanyIdentity(agent.data.messages);
   const composerForm = (
@@ -532,6 +538,8 @@ function Conversation({
                           scrollAnchor
                         >
                           <ChatTurn
+                            researchPages={researchPages}
+                            reportPreviewAllowed={reportPreviewAllowed}
                             turn={turn}
                             hideUserMessage={
                               turn.user?.id === company?.messageId

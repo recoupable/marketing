@@ -37,7 +37,13 @@ async function handle(
             ? [process.env.WEBSITE_AGENT_ORIGIN]
             : []),
         ]
-      : ["http://127.0.0.1:3017", "http://localhost:3017"];
+      : [
+          "http://127.0.0.1:3017",
+          "http://localhost:3017",
+          ...(process.env.WEBSITE_AGENT_ORIGIN
+            ? [process.env.WEBSITE_AGENT_ORIGIN]
+            : []),
+        ];
   if (
     request.method === "POST" &&
     !origins.includes(request.headers.get("origin") ?? "")
