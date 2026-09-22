@@ -1,3 +1,7 @@
+## Research continues during context questions — September 21, 2026
+
+Removed the website agent's instructions to stop after asking its opening question. It now follows relevant homepage links while the question waits, preserving one unanswered question and treating missing setup details as unknown. Live local WMG test checked five sources without any answer submitted; the original AI-use question remained available in the composer. See `docs/website-agent.md`.
+
 ## Workflow result clarity — September 21, 2026
 
 Kept the simple sky intro and single “Get my free AI plan” button; removed the interactive landing preview. All three questions remain inside the questionnaire. Starter plans now describe tangible deliverables (report columns, review queues, shortlists and source-linked checklists), separately from implementation steps. The result page leads with the deliverable and first action before setup details. Eleven focused tests pass. Git remains blocked by the unaccepted Xcode license; changes are local.
