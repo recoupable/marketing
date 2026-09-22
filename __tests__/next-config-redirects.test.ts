@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import nextConfig from "../next.config";
+import { nextConfig } from "../next.config";
 
 // Every legacy URL resolves in a single permanent hop; no rule may point at another rule's source.
 const finalTargets: Record<string, string> = {

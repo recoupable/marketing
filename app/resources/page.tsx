@@ -10,6 +10,7 @@ export const metadata: Metadata = withPageMetadata({ title:"Recoup resources: Gu
 type Resource = { type: string; title: string; description: string; href: string };
 
 const tools: Resource[] = [
+  { type: "FREE WORKFLOW PLAN", title: "Find your first useful AI workflow", description: "Four questions. A practical plan for your music team. No signup.", href: "/workflow-plan" },
   { type: "READINESS CHECK", title: "Find your starting point", description: "A few questions about the work, your information, and your team.", href: "/audit" },
   { type: "PLANNING TOOL", title: "Work out the value", description: "Model the potential time and cost impact, with assumptions you control.", href: "/roi" },
   { type: "CATALOG TOOL", title: "Explore catalog valuation", description: "Open the app to measure a catalog from Spotify streaming activity.", href: "/valuation" },

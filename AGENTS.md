@@ -53,6 +53,9 @@ components/       — React components: sky/ (SiteFrame shell, SkySiteHeader, Sk
 hooks/            — Shared React hooks (useInquirySubmit.ts, useVideoRequestSubmit.ts, useSubscribeForm.ts)
 contexts/         — React context providers (Privy auth)
 lib/              — Site logic: config.ts (siteConfig), seo.ts, one-export directories (agent-content/, agent-discovery/, agent-tools/, catalog-demo/, attribution/, leads/, inquiries/), copy/
+agent/            — Public website assistant: Eve instructions, tools, session state and report-confirmation hook
+components/website-agent/ — Company header, chat turns, source findings, question composer and report artifacts
+lib/website-agent/ — Public website reading, source validation, conversation helpers and report-readiness schemas
 lib/docs/         — Documentation helpers (llms.txt sections, llms-full corpus, markdown negotiation)
 proxy.ts          — Request proxy (Next 16 successor to middleware): serves /docs/* as markdown on Accept: text/markdown or a .md suffix
 public/           — Static assets (brand/, icons/, images/)
@@ -70,6 +73,7 @@ docs/plans/       — Architecture and implementation plans
 ## Deployment
 
 - Vercel project: repo `recoupable/marketing`, root directory `.`
+- Public website agent runtime, local checks, discovery requirements and spending boundaries: `docs/website-agent.md`. Research may continue while a question waits. Keep `publish_plan`'s completeness and visitor-confirmed recap checks when changing the audit flow; a fixed number of answers is not report readiness.
 
 ## Transcripts folder
 
@@ -267,3 +271,7 @@ The blog uses the compact, email-only SubscribeCard beside the blog intro on des
 ## Readiness inquiry handoff
 
 The readiness result action takes visitors to `/contact?brief=readiness`. Only that explicit handoff automatically applies the reviewed browser draft to the inquiry form. It confirms that the answers are included and requires contact details and a separate Send action. Generic agent and calculator drafts retain the manual import step. Missing or expired readiness drafts show a recovery message. Do not submit an inquiry during preview testing.
+
+## Workflow-plan lead magnet
+
+`/workflow-plan` and `/ask` now use the public Eve agent in `agent/`, streamed through `/api/website-agent`. The UI is in `components/website-agent/`: AI Elements for conversation, input, activity, sources, suggestions and report artifacts; shadcn Message Scroller for user-turn anchoring; JSON Render for validated reports. Keep research inside its transcript turn and compact questions inside the input, with the input fixed by the flex layout rather than an overlay. Preserve stopping, steering, source disclosure and download behavior. See `docs/website-agent.md` for configuration, access boundaries and validation. The old `components/workflow-plan/`, `lib/workflow-plan/` and `/api/workflow-plan` interview remain for compatibility. Do not claim email delivery or deployed behavior from local verification.

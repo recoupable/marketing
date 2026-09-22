@@ -5,7 +5,7 @@ export const publicRoutes = [
   "", "/services", "/advisory", "/build", "/training", "/platform", "/pricing", "/skills", "/music-videos",
   "/developers", "/lab", "/about", "/company", "/company/vision", "/records",
   "/solutions", "/acquisitions", "/operations", "/resources", "/learn/demos",
-  "/playbook", "/playbook/download", "/roi", "/audit", "/valuation", "/compare",
+  "/playbook", "/playbook/download", "/roi", "/workflow-plan", "/audit", "/valuation", "/compare",
   "/case-studies", "/blog", "/podcast", "/contact", "/start-project", "/privacy", "/terms", "/agents",
   ...caseStudies.map(({ slug }) => `/case-studies/${slug}`),
 ];

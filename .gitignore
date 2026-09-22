@@ -48,3 +48,7 @@ brand-studio/.venv/
 !/brand-studio/assets/**/*.js
 !/brand-studio/assets/**/*.mjs
 /brand-studio/blob-assets.json.tmp
+
+# Eve generated runtime and build artifacts
+.eve/
+.output/

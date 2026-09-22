@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { docsVaryHeader } from "@/lib/docs/docsVaryHeader";
-import nextConfig from "@/next.config";
+import { nextConfig } from "@/next.config";
 
 describe("docsVaryHeader", () => {
   it("declares Vary: Accept for every /docs path", () => {

@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod/v3";
 
 export const REVIEW_KEY = "recoup-brand-review:v1";
 export const choices = {
