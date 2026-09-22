@@ -9,7 +9,7 @@ import { PageMark } from "./brand";
 import { HeaderNavItems } from "./header-nav-items";
 import { NavigationIcon } from "./navigation-icon";
 
-export function SkySiteHeader() {
+export function SkySiteHeader({ audienceToggle }: { audienceToggle?: React.ReactNode }) {
   const pathname = usePathname();
   const header = useRef<HTMLElement>(null);
 
@@ -86,7 +86,7 @@ export function SkySiteHeader() {
   }, []);
 
   return (
-    <header ref={header} className="ss-header" onClick={closeOnLink}>
+    <header ref={header} className={`ss-header${audienceToggle ? " ss-header-with-audience" : ""}`} onClick={closeOnLink}>
       <details className="ss-mobile-menu">
         <summary aria-label="Navigation"><NavigationIcon /></summary>
         <nav aria-label="Mobile navigation">
@@ -98,6 +98,7 @@ export function SkySiteHeader() {
       <nav className="ss-desktop-nav" aria-label="Main navigation">
         <HeaderNavItems pathname={pathname} />
       </nav>
+      {audienceToggle}
       <TrackedLink href="/start-project" cta="free_audit" placement="header" className="ss-contact">
         <span className="nav-cta-desktop">Get a free audit</span><span className="nav-cta-mobile">Free audit</span><SkyArrow />
       </TrackedLink>

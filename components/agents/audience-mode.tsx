@@ -8,23 +8,39 @@ export function AudienceMode({
   children,
 }: {
   pathname: string;
-  children: React.ReactNode;
+  children: (toggle: React.ReactNode) => React.ReactNode;
 }) {
   const [agent, setAgent] = useState(false);
   const [markdown, setMarkdown] = useState("");
   const [error, setError] = useState("");
   const [attempt, setAttempt] = useState(0);
   const [copyStatus, setCopyStatus] = useState("Copy Markdown");
-  const humanButton = useRef<HTMLButtonElement>(null);
+  const humanRoot = useRef<HTMLDivElement>(null);
+  const agentRoot = useRef<HTMLElement>(null);
+
+  const hasOpened = useRef(false);
+
+  function returnToHuman() {
+    setAgent(false);
+  }
 
   useEffect(() => {
-    if (!agent) return;
+    if (!agent) {
+      if (hasOpened.current)
+        humanRoot.current
+          ?.querySelector<HTMLButtonElement>(".audience-toggle button")
+          ?.focus({ preventScroll: true });
+      return;
+    }
+    hasOpened.current = true;
+    agentRoot.current
+      ?.querySelector<HTMLButtonElement>('[aria-pressed="true"]')
+      ?.focus({ preventScroll: true });
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const escape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setAgent(false);
-        humanButton.current?.focus();
+        returnToHuman();
       }
     };
     document.addEventListener("keydown", escape);
@@ -93,17 +109,34 @@ export function AudienceMode({
     }
   }
 
+  const toggle = (
+    <div
+      className="audience-toggle"
+      role="group"
+      aria-label="Website viewing mode"
+    >
+      <button type="button" aria-pressed={!agent} onClick={returnToHuman}>
+        Human
+      </button>
+      <button type="button" aria-pressed={agent} onClick={() => setAgent(true)}>
+        Agent
+      </button>
+    </div>
+  );
+
   return (
     <div className="audience-mode" data-agent={agent}>
       <div
         className="audience-human"
+        ref={humanRoot}
         inert={agent}
         aria-hidden={agent || undefined}
       >
-        {children}
+        {children(toggle)}
       </div>
       {agent && (
         <section
+          ref={agentRoot}
           className="agent-document"
           role="region"
           aria-label="Agent Markdown view"
@@ -111,7 +144,10 @@ export function AudienceMode({
         >
           <div className="agent-document-inner">
             <header className="agent-document-toolbar">
-              <span>{pathname === "/" ? "recoup" : pathname.slice(1)}.md</span>
+              <span className="agent-document-filename">
+                {pathname === "/" ? "recoup" : pathname.slice(1)}.md
+              </span>
+              {toggle}
               <button
                 type="button"
                 onClick={copy}
@@ -157,27 +193,6 @@ export function AudienceMode({
           </div>
         </section>
       )}
-      <div
-        className="audience-toggle"
-        role="group"
-        aria-label="Website viewing mode"
-      >
-        <button
-          ref={humanButton}
-          type="button"
-          aria-pressed={!agent}
-          onClick={() => setAgent(false)}
-        >
-          <span aria-hidden="true">◉</span> Human
-        </button>
-        <button
-          type="button"
-          aria-pressed={agent}
-          onClick={() => setAgent(true)}
-        >
-          <span aria-hidden="true">⌘</span> Agent
-        </button>
-      </div>
     </div>
   );
 }

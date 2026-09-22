@@ -21,9 +21,9 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
   if (pathname === "/brand" || pathname.startsWith("/brand/"))
     return <>{children}</>;
   const isWorkflowPlan = pathname === "/workflow-plan" || pathname === "/ask";
-  const page = (
+  const page = (toggle?: React.ReactNode) => (
     <div className="sky-site">
-      {!isWorkflowPlan && <SkySiteHeader />}
+      {!isWorkflowPlan && <SkySiteHeader audienceToggle={toggle} />}
       <main id="main">{children}</main>
       {!isWorkflowPlan && <SkySiteFooter />}
     </div>
@@ -34,7 +34,7 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
         <ReferralCapture />
       </Suspense>
       {isWorkflowPlan ? (
-        page
+        page()
       ) : (
         <AudienceMode key={pathname} pathname={pathname}>
           {page}

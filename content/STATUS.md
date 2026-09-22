@@ -1,3 +1,7 @@
+## Recoup-branded viewing control — September 22, 2026
+
+Moved Human / Agent from the floating bottom overlay into the site header so it cannot cover hero content or customer logos. The responsive header reserves a second row on smaller screens. The same control appears in the Agent document toolbar. Uses Recoup Sky rounded pills, DM Sans controls, forest green and lime accents; document text stays IBM Plex Mono. Focus follows the active mode and returns to the Human control without scrolling.
+
 ## Human / Agent viewing mode — September 22, 2026
 
 Added a fixed bottom Human / Agent toggle to the shared marketing shell, excluding Brand Studio and the focused /ask and /workflow-plan flows. Agent mode dissolves into a dark, selectable Markdown document using the existing public content API and its summary/full labels. Reads all continuation chunks, supports copy/retry/Escape and reduced motion, and preserves the mounted human page and scroll position. Mode resets on route changes.

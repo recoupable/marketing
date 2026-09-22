@@ -1,10 +1,10 @@
 .audience-mode {
-  --agent-paper: #111413;
-  --agent-ink: #c3cbc7;
-  --agent-bright: #f3f5f4;
-  --agent-muted: #8b9791;
+  --agent-paper: #132b26;
+  --agent-ink: #d3dfd9;
+  --agent-bright: #ffffff;
+  --agent-muted: #a7bdb3;
   --agent-line: #ffffff24;
-  --agent-control: #252c29;
+  --agent-control: #d6ff62;
   --agent-focus: #d6ff62;
 }
 .audience-human {
@@ -18,23 +18,18 @@
   pointer-events: none;
 }
 .audience-toggle {
-  position: fixed;
-  z-index: 100;
-  bottom: calc(20px + env(safe-area-inset-bottom));
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
   padding: 4px;
-  border-radius: 12px;
-  background: var(--agent-paper);
-  color: var(--agent-ink);
-  box-shadow:
-    0 0 0 1px var(--agent-line),
-    0 8px 28px #0003;
+  border-radius: 999px;
+  background: #f1f3f3;
+  color: #586f78;
+  box-shadow: 0 0 0 1px #152e3710;
   font:
-    12px/1 "IBM Plex Mono",
-    monospace;
+    500 12px/1 "DM Sans Variable",
+    sans-serif;
+  white-space: nowrap;
 }
 .audience-toggle button {
   background: transparent;
@@ -46,21 +41,21 @@
   gap: 9px;
   min-height: 44px;
   padding: 0 16px;
-  border-radius: 8px;
+  border-radius: 999px;
   cursor: pointer;
   transition:
     background 180ms,
     color 180ms;
 }
 .audience-toggle button[aria-pressed="true"] {
-  background: var(--agent-control);
+  background: var(--agent-paper);
   color: var(--agent-bright);
 }
 .audience-toggle button[aria-pressed="false"] > span {
   opacity: 0.4;
 }
 .audience-toggle button:hover {
-  color: var(--agent-bright);
+  color: var(--agent-paper);
 }
 .audience-mode
   :is(
@@ -84,7 +79,7 @@
 .agent-document-inner {
   max-width: 960px;
   margin: 0 auto;
-  padding: 42px 48px 130px;
+  padding: 36px 48px 80px;
 }
 .agent-document-toolbar {
   display: flex;
@@ -161,7 +156,7 @@
 }
 @media (max-width: 600px) {
   .agent-document-inner {
-    padding: 24px 22px 120px;
+    padding: 24px 22px 64px;
   }
   .agent-document-toolbar {
     margin-bottom: 30px;
@@ -170,8 +165,12 @@
     font-size: 12px;
     line-height: 1.9;
   }
-  .audience-toggle {
-    bottom: calc(12px + env(safe-area-inset-bottom));
+  .agent-document-toolbar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .agent-document-filename {
+    flex-basis: 100%;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -200,5 +199,65 @@
   }
   .agent-document-heading {
     color: inherit;
+  }
+}
+
+/* The control occupies header space instead of covering page content. */
+.sky-site .ss-header.ss-header-with-audience {
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  gap: 20px;
+}
+.ss-header-with-audience > .audience-toggle {
+  justify-self: end;
+}
+.agent-document-toolbar > .audience-toggle {
+  margin-left: auto;
+  flex-shrink: 0;
+  background: #ffffff12;
+  color: var(--agent-ink);
+  box-shadow: 0 0 0 1px var(--agent-line);
+}
+.agent-document .audience-toggle button {
+  padding: 0 16px;
+}
+.agent-document .audience-toggle button[aria-pressed="true"] {
+  background: var(--agent-control);
+  color: var(--agent-paper);
+}
+.agent-document .audience-toggle button:hover {
+  color: var(--agent-bright);
+}
+.agent-document .audience-toggle button[aria-pressed="true"]:hover {
+  color: var(--agent-paper);
+}
+.audience-toggle button[aria-pressed="true"]:hover {
+  color: var(--agent-bright);
+}
+.agent-document-heading {
+  color: var(--agent-control);
+}
+@media (max-width: 1000px) {
+  .sky-site .ss-header.ss-header-with-audience {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 8px 20px;
+    padding-block: 16px 12px;
+  }
+  .ss-header-with-audience > .audience-toggle {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: end;
+  }
+  .ss-header-with-audience > .ss-contact {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}
+@media (max-width: 900px) {
+  .sky-site .ss-header.ss-header-with-audience {
+    grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr);
+    gap: 8px;
+  }
+  .ss-header-with-audience > .audience-toggle {
+    justify-self: center;
   }
 }
