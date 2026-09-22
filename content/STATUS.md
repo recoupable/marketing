@@ -1,3 +1,7 @@
+## Question composer follows chat reference — September 22, 2026
+
+Replaced the horizontal answer tiles with simple vertical choices, circular number markers, a quiet Question header and a shared custom-answer row with Skip/Send. Clicking an answer now selects it for review before sending; custom typing clears that choice, and the next question cannot inherit it. Local browser review covered desktop, 390px phone width, selection, custom input, collapsing and context disclosure. The conversation and research remain intact.
+
 ## Individual research page failures — September 22, 2026
 
 Seeker's `/hiphop50` link returned HTTP 404 after four successful reads. The activity trail previously labeled that as a failure of the whole domain and the tool discarded the HTTP status. Source failures now retain safe diagnostic details and identify the specific page; recovery guidance preserves successful sources and continues relevant research. Regression coverage includes missing pages, unsupported formats, retained research and safe errors.

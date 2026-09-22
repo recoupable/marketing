@@ -1,7 +1,16 @@
 "use client";
 
 import { useId, useLayoutEffect, useRef, useState } from "react";
-import { ArrowUp, ChevronDown, Info, Square } from "lucide-react";
+import {
+  ArrowUp,
+  Check,
+  ChevronDown,
+  Info,
+  MessageCircleQuestion,
+  Pencil,
+  Square,
+  X,
+} from "lucide-react";
 import type { z } from "zod/v3";
 import {
   PromptInput,
@@ -45,8 +54,16 @@ export function ChatComposer({
   const textarea = useRef<HTMLTextAreaElement>(null);
   const [collapsedQuestion, setCollapsedQuestion] = useState<string>();
   const [helpQuestion, setHelpQuestion] = useState<string>();
+  const [selection, setSelection] = useState<{
+    questionId: string;
+    label: string;
+  }>();
   const [fileError, setFileError] = useState(false);
   const open = !!question && collapsedQuestion !== question.id;
+  const selected =
+    selection?.questionId === question?.id ? selection?.label : undefined;
+  const answer = input.trim() || selected || "";
+  const stopOnSubmit = busy && !answer && !question;
   useLayoutEffect(() => {
     if (!textarea.current) return;
     textarea.current.style.height = "auto";
@@ -60,8 +77,10 @@ export function ChatComposer({
         maxFiles={0}
         onError={() => setFileError(true)}
         onSubmit={({ text }) => {
-          if (!disabled && text.trim()) {
-            onSend(text);
+          const reply = text.trim() || selected;
+          if (!disabled && reply) {
+            onSend(reply);
+            setSelection(undefined);
             setFileError(false);
           }
         }}
@@ -75,8 +94,11 @@ export function ChatComposer({
               }
               className="wa-question-disclosure"
             >
-              <div className="wa-question-heading">
-                <p id={`${id}-question`}>{question.question}</p>
+              <div className="wa-question-meta">
+                <span className="wa-question-caption">
+                  <MessageCircleQuestion size={16} aria-hidden="true" />
+                  Question
+                </span>
                 <div className="wa-question-controls">
                   {question.context && (
                     <TooltipProvider delayDuration={250}>
@@ -113,28 +135,29 @@ export function ChatComposer({
                       </Tooltip>
                     </TooltipProvider>
                   )}
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    className="wa-question-skip"
-                    disabled={disabled}
-                    onClick={() => onSend("Skip this question for now.")}
-                  >
-                    Skip
-                  </Button>
                   <CollapsibleTrigger asChild>
                     <Button
                       type="button"
                       variant="ghost"
                       className="wa-question-toggle"
-                      aria-label={open ? "Collapse choices" : "Show choices"}
+                      aria-label={open ? "Collapse question" : "Show question"}
                     >
-                      <ChevronDown size={15} aria-hidden="true" />
+                      {open ? (
+                        <X size={16} aria-hidden="true" />
+                      ) : (
+                        <ChevronDown size={16} aria-hidden="true" />
+                      )}
                     </Button>
                   </CollapsibleTrigger>
                 </div>
               </div>
-              <CollapsibleContent>
+              {!open && (
+                <p className="wa-question-collapsed">{question.question}</p>
+              )}
+              <CollapsibleContent className="wa-question-content">
+                <p className="wa-question-title" id={`${id}-question`}>
+                  {question.question}
+                </p>
                 <div
                   className="wa-question-suggestions"
                   role="group"
@@ -145,12 +168,24 @@ export function ChatComposer({
                       key={option.label}
                       suggestion={option.label}
                       disabled={disabled}
-                      onClick={onSend}
+                      onClick={(label) => {
+                        setSelection(
+                          selected === label
+                            ? undefined
+                            : { questionId: question.id, label },
+                        );
+                        onInput("");
+                      }}
+                      aria-pressed={selected === option.label}
                       title={option.description}
                       aria-description={option.description}
                     >
                       <span className="wa-option-number" aria-hidden="true">
-                        {index + 1}
+                        {selected === option.label ? (
+                          <Check size={14} />
+                        ) : (
+                          index + 1
+                        )}
                       </span>
                       <span className="wa-option-label">{option.label}</span>
                     </Suggestion>
@@ -161,6 +196,11 @@ export function ChatComposer({
           </PromptInputHeader>
         )}
         <div className="wa-prompt-row">
+          {question && (
+            <span className="wa-answer-pencil" aria-hidden="true">
+              <Pencil size={14} />
+            </span>
+          )}
           <label htmlFor={id} className="sr-only">
             Your message
           </label>
@@ -171,11 +211,16 @@ export function ChatComposer({
             maxLength={6000}
             value={input}
             disabled={disabled}
-            placeholder={question ? "Or type your answer…" : "Message Recoup…"}
-            onChange={(event) => onInput(event.target.value)}
+            placeholder={
+              question ? "Or write your own answer…" : "Message Recoup…"
+            }
+            onChange={(event) => {
+              setSelection(undefined);
+              onInput(event.target.value);
+            }}
           />
           <div className="wa-prompt-actions">
-            {busy && input.trim() && (
+            {busy && (question || answer) && (
               <Button
                 type="button"
                 variant="ghost"
@@ -186,16 +231,36 @@ export function ChatComposer({
                 <Square size={14} fill="currentColor" />
               </Button>
             )}
+            {question && (
+              <Button
+                type="button"
+                variant="ghost"
+                className="wa-question-skip"
+                disabled={disabled}
+                onClick={() => {
+                  setSelection(undefined);
+                  onSend("Skip this question for now.");
+                }}
+              >
+                Skip
+              </Button>
+            )}
             <PromptInputSubmit
-              className="wa-prompt-submit"
-              status={busy && !input.trim() ? "streaming" : "ready"}
+              className={`wa-prompt-submit${question ? " wa-answer-send" : ""}`}
+              status={stopOnSubmit ? "streaming" : "ready"}
               onStop={onStop}
-              disabled={disabled || (!busy && !input.trim())}
+              disabled={disabled || (!stopOnSubmit && !answer)}
               aria-label={
-                busy && !input.trim() ? "Stop response" : "Send message"
+                stopOnSubmit
+                  ? "Stop response"
+                  : question
+                    ? "Send answer"
+                    : "Send message"
               }
             >
-              {busy && !input.trim() ? (
+              {question ? (
+                "Send"
+              ) : stopOnSubmit ? (
                 <Square size={13} fill="currentColor" />
               ) : (
                 <ArrowUp size={19} />
