@@ -4,17 +4,22 @@ type Result = { success: boolean; error?: string };
 
 export async function syncContacts({
   contacts,
+  excludedEmails,
   apply = false,
   upsert,
   log = console.log,
   error = console.error,
 }: {
   contacts: SegmentedContact[];
+  excludedEmails: Set<string>;
   apply?: boolean;
   upsert: (contact: SegmentedContact) => Promise<Result>;
   log?: (message: string) => void;
   error?: (message: string) => void;
 }) {
+  const eligible = contacts.filter(contact => !contact.email || !excludedEmails.has(contact.email.trim().toLowerCase()));
+  log(`Excluded ${contacts.length - eligible.length} contacts by the private exact-email registry.`);
+  contacts = eligible;
   if (!apply) {
     log(`\n[PREVIEW] ${contacts.length} contacts would be submitted to Attio.`);
     for (const segment of ["new", "active", "dormant", "churned"] as const) {
