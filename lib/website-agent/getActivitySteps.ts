@@ -15,6 +15,8 @@ const labels: Record<string, string> = {
   search_recoup: "Searching Recoup’s information",
   web_search: "Searching the web",
   update_brief: "Saving your answers",
+  record_assessment: "Updating your assessment",
+  publish_scorecard: "Preparing your AI Scorecard",
   publish_plan: "Preparing your report",
 };
 

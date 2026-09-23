@@ -57,9 +57,17 @@ export function ResearchActivity({
                 step.state === "complete",
             )
           ? "Report ready"
-          : steps.some((step) => step.label === "Saving your answers")
-            ? "Saved your answers"
-            : "Research complete";
+          : steps.some(
+                (step) =>
+                  step.label === "Preparing your AI Scorecard" &&
+                  step.state === "complete",
+              )
+            ? "Scorecard ready"
+            : steps.some((step) => step.label === "Updating your assessment")
+              ? "Assessment updated"
+              : steps.some((step) => step.label === "Saving your answers")
+                ? "Saved your answers"
+                : "Research complete";
 
   return (
     <ChainOfThought

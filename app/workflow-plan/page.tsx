@@ -1,10 +1,10 @@
 import { withPageMetadata } from "@/lib/seo";
 import { WebsiteAgent } from "@/components/website-agent/WebsiteAgent";
-import { workflowPlanCopy } from "@/lib/copy/workflow-plan";
+import { aiScorecardCopy } from "@/lib/copy/ai-scorecard";
 
 export const metadata = withPageMetadata({
-  title: "Your music team’s one-page automation brief",
-  description: workflowPlanCopy.description,
+  title: aiScorecardCopy.title,
+  description: aiScorecardCopy.description,
   alternates: { canonical: "/workflow-plan" },
 });
 export default function WorkflowPlanPage() {

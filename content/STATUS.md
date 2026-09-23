@@ -201,3 +201,7 @@ Content: publish more blog posts targeting SEO pillars. Wire up the nav menu (li
 ## Stable agent conversation — September 21, 2026
 
 Rebuilt `/workflow-plan` and `/ask` around stable user turns. Thinking and observed research remain beneath the corresponding message; the compact question and reply input stay at the bottom. Official AI Elements now provide prompt input, activity, sources, suggestions, message actions and report artifacts, with shadcn scrolling and the existing JSON report renderer. Corrected duplicate prose after structured results and response ordering for follow-ups sent during research. Seeker/WMG live browser checks, mobile layout, stopping and actual report download verified. TypeScript, scoped lint, all 353 tests and the production build pass locally. See `docs/website-agent.md`; production has not been deployed or verified.
+
+## 2026-09-23 — AI Scorecard offer
+
+The local `/workflow-plan` experience now assesses five areas of actual AI use before offering an implementation plan. Shared landing/resource/machine copy, criterion-based ratings, visitor-quoted evidence, explicit review, partial assessments, sourced peer examples and a downloadable JSON-rendered scorecard replace the plan-first offer. Unknowns remain unscored; no industry percentile is claimed. Detailed plan gates and Recoup FAQ behavior remain. Validation is recorded in `docs/website-agent.md`; no production deployment is implied.

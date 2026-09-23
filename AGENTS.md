@@ -53,9 +53,9 @@ components/       — React components: sky/ (SiteFrame shell, SkySiteHeader, Sk
 hooks/            — Shared React hooks (useInquirySubmit.ts, useVideoRequestSubmit.ts, useSubscribeForm.ts)
 contexts/         — React context providers (Privy auth)
 lib/              — Site logic: config.ts (siteConfig), seo.ts, one-export directories (agent-content/, agent-discovery/, agent-tools/, catalog-demo/, attribution/, leads/, inquiries/), copy/
-agent/            — Public website assistant: Eve instructions, tools, session state and report-confirmation hook
+agent/            — Public website assistant: Eve instructions, tools, session state and visitor evidence/confirmation hooks
 components/website-agent/ — Company header, chat turns, source findings, question composer and streaming report artifacts
-lib/website-agent/ — Public website reading, source validation, conversation helpers and report-readiness schemas
+lib/website-agent/ — Public website reading, source validation, conversation helpers, fixed scorecard rubric and report-readiness schemas
 lib/docs/         — Documentation helpers (llms.txt sections, llms-full corpus, markdown negotiation)
 proxy.ts          — Request proxy (Next 16 successor to middleware): serves /docs/* as markdown on Accept: text/markdown or a .md suffix
 public/           — Static assets (brand/, icons/, images/)
@@ -277,3 +277,7 @@ The readiness result action takes visitors to `/contact?brief=readiness`. Only t
 ## Workflow-plan lead magnet
 
 `/workflow-plan` and `/ask` now use the public Eve agent in `agent/`, streamed through `/api/website-agent`. The UI is in `components/website-agent/`: AI Elements for conversation, input, activity, sources, suggestions and report artifacts; shadcn Message Scroller for user-turn anchoring; JSON Render for validated reports. Keep research inside its transcript turn and compact questions inside the input, with the input fixed by the flex layout rather than an overlay. Preserve stopping, steering, source disclosure and download behavior. See `docs/website-agent.md` for configuration, access boundaries and validation. The old `components/workflow-plan/`, `lib/workflow-plan/` and `/api/workflow-plan` interview remain for compatibility. Do not claim email delivery or deployed behavior from local verification.
+
+## AI Scorecard
+
+`/workflow-plan` leads with a five-area AI Scorecard; shared offer copy is in `lib/copy/ai-scorecard.ts`. `record_assessment` stores quoted visitor evidence, `review_scorecard` displays the actual profile, and `publish_scorecard` requires a visitor-confirmed unchanged snapshot. Ratings use `scorecardRubric.ts` and `getAssessmentProfile.ts`: missing context is unscored, never a zero. Public peer examples require read-source quotes and must never become invented percentiles or industry averages. Keep the fixed JSON Render catalog, real streaming, final-only downloads, and the separate implementation-plan gates. See `docs/website-agent.md`.

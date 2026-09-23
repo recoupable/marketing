@@ -22,6 +22,13 @@ import { planSchema } from "@/lib/workflow-plan/schema";
 import { ResearchActivity } from "./ResearchActivity";
 import { CompanyInsight } from "./CompanyInsight";
 import { ReportArtifact } from "./ReportArtifact";
+import { ScorecardArtifact } from "./ScorecardArtifact";
+import { ScorecardReview } from "./ScorecardReview";
+import {
+  assessmentSchema,
+  scorecardSchema,
+  type Assessment,
+} from "@/lib/website-agent/scorecard";
 import { getStreamingPresentation } from "@/lib/website-agent/getStreamingPresentation";
 
 export function ChatTurn({
@@ -34,6 +41,7 @@ export function ChatTurn({
   onSend,
   researchPages,
   reportPreviewAllowed,
+  scorecardPreview,
 }: {
   turn: ConversationTurn;
   hideUserMessage?: boolean;
@@ -44,6 +52,7 @@ export function ChatTurn({
   onSend: (text: string) => void;
   researchPages: Record<string, string>;
   reportPreviewAllowed: boolean;
+  scorecardPreview?: Assessment;
 }) {
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
@@ -157,9 +166,19 @@ export function ChatTurn({
                     part,
                     researchPages,
                     reportPreviewAllowed,
+                    scorecardPreview,
                   )
                 : undefined;
               if (preview && part.type === "dynamic-tool") {
+                if (preview.kind === "scorecard")
+                  return (
+                    <ScorecardArtifact
+                      key={part.toolCallId}
+                      scorecard={preview.value}
+                      streaming
+                      onSend={onSend}
+                    />
+                  );
                 return preview.kind === "finding" ? (
                   <CompanyInsight
                     key={part.toolCallId}
@@ -197,6 +216,31 @@ export function ChatTurn({
                     )}
                   </div>
                 );
+              }
+              if (part.toolName === "publish_scorecard") {
+                const result = scorecardSchema.safeParse(part.output);
+                return result.success ? (
+                  <ScorecardArtifact
+                    key={part.toolCallId}
+                    scorecard={result.data}
+                    onSend={onSend}
+                  />
+                ) : null;
+              }
+              if (
+                part.toolName === "review_scorecard" &&
+                part.output &&
+                typeof part.output === "object"
+              ) {
+                const result = assessmentSchema.safeParse(
+                  (part.output as Record<string, unknown>).assessment,
+                );
+                return result.success ? (
+                  <ScorecardReview
+                    key={part.toolCallId}
+                    assessment={result.data}
+                  />
+                ) : null;
               }
               if (part.toolName === "publish_plan") {
                 const result = planSchema.safeParse(part.output);

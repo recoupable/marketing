@@ -32,6 +32,9 @@ import {
 } from "@/lib/website-agent/companyWebsite";
 import "./website-agent.css";
 import "./chat-experience.css";
+import "./scorecard.css";
+import { aiScorecardCopy } from "@/lib/copy/ai-scorecard";
+import { getScorecardContext } from "@/lib/website-agent/getScorecardContext";
 
 const plannerQuestions = [
   "How can we simplify reporting?",
@@ -63,7 +66,6 @@ function Conversation({
   });
   const reduceMotion = useReducedMotion();
   const messages = useStreamingMessages(agent.data.messages);
-  const freeMaskId = useId();
   const companyListId = useId();
   const [describeCompany, setDescribeCompany] = useState(false);
   const [choicesVisible, setChoicesVisible] = useState(false);
@@ -181,6 +183,7 @@ function Conversation({
   const turns = getConversationTurns(messages, agent.events);
   const researchPages = getResearchPages(messages);
   const reportPreviewAllowed = canPreviewReport(messages);
+  const scorecardContext = getScorecardContext(messages);
   const activeQuestion = getActiveQuestion(turns.at(-1));
   const company = getCompanyIdentity(agent.data.messages);
   const composerForm = (
@@ -323,6 +326,11 @@ function Conversation({
       </header>
       {!started ? (
         <div className="wa-invitation">
+          {mode === "planner" && (
+            <div className="wa-scorecard-invitation-label">
+              {aiScorecardCopy.eyebrow}
+            </div>
+          )}
           <h1>
             {mode === "faq" ? (
               <>
@@ -331,58 +339,26 @@ function Conversation({
                 <span>Recoup.</span>
               </>
             ) : (
-              <>
-                Get a{" "}
-                <span className="wa-free-pill">
-                  <span className="sr-only">free</span>
-                  <svg
-                    viewBox="0 0 180 88"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <defs>
-                      <mask
-                        id={freeMaskId}
-                        x="0"
-                        y="0"
-                        width="180"
-                        height="88"
-                        maskUnits="userSpaceOnUse"
-                        style={{ maskType: "luminance" }}
-                      >
-                        <rect width="180" height="88" fill="white" />
-                        <text
-                          x="90"
-                          y="46"
-                          textAnchor="middle"
-                          dominantBaseline="central"
-                          fill="black"
-                          fontSize="70"
-                          fontWeight="450"
-                          letterSpacing="-4"
-                        >
-                          free
-                        </text>
-                      </mask>
-                    </defs>
-                    <rect
-                      width="180"
-                      height="88"
-                      rx="44"
-                      fill="#d6ff62"
-                      mask={`url(#${freeMaskId})`}
-                    />
-                  </svg>
-                </span>{" "}
-                AI opportunity audit, customized for your music business.
-              </>
+              aiScorecardCopy.headline
             )}
           </h1>
           <p>
             {mode === "faq"
               ? "Get answers about our tools, services, and how we work."
-              : "Recoup’s agent researches your business and builds your personalized report."}
+              : aiScorecardCopy.introduction}
           </p>
+          {mode === "planner" && (
+            <div
+              className="wa-scorecard-preview"
+              aria-label="Five areas in your scorecard"
+            >
+              <span>Knowledge</span>
+              <span>Workflows</span>
+              <span>Adoption</span>
+              <span>Reliability</span>
+              <span>Results</span>
+            </div>
+          )}
           <div
             className={`wa-entry-card ${mode === "planner" ? "wa-website-entry" : ""} ${choicesVisible ? "wa-revealed" : "wa-collapsed"}`}
           >
@@ -475,6 +451,11 @@ function Conversation({
             )}
           </div>
           {mode === "planner" && (
+            <p className="wa-scorecard-entry-note">
+              {aiScorecardCopy.entryNote}
+            </p>
+          )}
+          {mode === "planner" && (
             <button
               className="wa-describe-toggle"
               onClick={() => {
@@ -540,6 +521,7 @@ function Conversation({
                           <ChatTurn
                             researchPages={researchPages}
                             reportPreviewAllowed={reportPreviewAllowed}
+                            scorecardPreview={scorecardContext.preview}
                             turn={turn}
                             hideUserMessage={
                               turn.user?.id === company?.messageId
