@@ -18,12 +18,15 @@ export function CompanyHeader({
         />
       </span>
       <div className="wa-company-identity">
-        <strong>{company.name || company.domain}</strong>
+        <strong title={company.name || company.domain}>
+          {company.name || company.domain}
+        </strong>
         {company.name && (
           <a
             href={`https://${company.domain}`}
             target="_blank"
             rel="noopener noreferrer"
+            title={company.domain}
           >
             {company.domain}
           </a>

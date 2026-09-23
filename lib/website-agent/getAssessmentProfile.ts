@@ -51,14 +51,16 @@ export function getAssessmentProfile(assessment: Assessment) {
       ...(!assessment.scope
         ? ["the role and team this assessment covers"]
         : []),
-      ...(!assessment.priority
-        ? ["the business result the visitor cares about"]
-        : []),
       ...areas.flatMap((area) =>
         area.criteria
           .filter((item) => item.status === "unknown")
           .map((item) => `${area.title}: ${item.label}`),
       ),
+      ...(!assessment.priority
+        ? [
+            "the improvement the visitor wants next, after today's setup is understood",
+          ]
+        : []),
     ],
   };
 }

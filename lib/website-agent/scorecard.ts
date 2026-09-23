@@ -59,8 +59,18 @@ export const scorecardReviewSchema = briefReviewSchema.extend({
 });
 export const assessmentUpdateSchema = z
   .object({
-    scope: evidenceFactSchema.nullable().optional(),
-    priority: evidenceFactSchema.nullable().optional(),
+    scope: evidenceFactSchema
+      .nullable()
+      .optional()
+      .describe(
+        "A new or corrected scope. Null or omitted keeps the saved scope.",
+      ),
+    priority: evidenceFactSchema
+      .nullable()
+      .optional()
+      .describe(
+        "A new or corrected future priority. Null or omitted keeps the saved priority.",
+      ),
     criteria: assessmentSchema.shape.criteria,
   })
   .strict();

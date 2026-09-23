@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowUp, ChevronRight, Search } from "lucide-react";
+import { ArrowUp, ChevronRight, Search, SquarePen } from "lucide-react";
 import { useEveAgent } from "eve/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -315,12 +315,30 @@ function Conversation({
         />
       )}
       <header className="wa-header">
-        <Link href="/" aria-label="Recoup home">
+        <Link href="/" aria-label="Recoup home" className="wa-home">
           <PageMark />
         </Link>
+        {started && company && (
+          <CompanyHeader
+            company={company}
+            onChange={async () => {
+              await reset();
+              setDescribeCompany(false);
+              setInput(company.domain);
+              requestAnimationFrame(() => inputElement.current?.focus());
+            }}
+          />
+        )}
         {started && (
-          <Button variant="ghost" onClick={() => void reset()}>
-            New conversation
+          <Button
+            variant="ghost"
+            className="wa-new-conversation"
+            aria-label="New conversation"
+            title="New conversation"
+            onClick={() => void reset()}
+          >
+            <SquarePen size={16} aria-hidden="true" />
+            <span>New conversation</span>
           </Button>
         )}
       </header>
@@ -475,17 +493,6 @@ function Conversation({
       ) : (
         <div className="wa-workspace">
           <div className="wa-conversation">
-            {company && (
-              <CompanyHeader
-                company={company}
-                onChange={async () => {
-                  await reset();
-                  setDescribeCompany(false);
-                  setInput(company.domain);
-                  requestAnimationFrame(() => inputElement.current?.focus());
-                }}
-              />
-            )}
             <MessageScrollerProvider
               defaultScrollPosition={initialSession ? "last-anchor" : "start"}
               scrollPreviousItemPeek={0}

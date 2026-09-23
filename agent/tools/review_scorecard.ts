@@ -7,6 +7,7 @@ import {
 } from "../lib/assessment";
 import { getAssessmentProfile } from "../../lib/website-agent/getAssessmentProfile";
 import { briefReviewSchema } from "../../lib/website-agent/briefReview";
+import { getAssessmentFocus } from "../../lib/website-agent/getAssessmentFocus";
 
 export default defineTool({
   description:
@@ -26,6 +27,7 @@ export default defineTool({
       return {
         error: "More context is needed for a scorecard.",
         missing: profile.missing,
+        nextQuestion: getAssessmentFocus(current),
         guidance:
           "Ask about the next missing area. If the visitor wants to stop, they can request a partial scorecard; unknowns will stay unscored.",
       };

@@ -3,6 +3,7 @@ import { getAssessmentProfile } from "./getAssessmentProfile";
 import { scorecardRubric } from "./scorecardRubric";
 import { assessmentSchema, type Assessment } from "./scorecard";
 import { scorecardText } from "./scorecardText";
+import { getAssessmentFocus } from "./getAssessmentFocus";
 
 const stores = vi.hoisted(() => ({
   assessment: { get: vi.fn(), update: vi.fn() },
@@ -24,6 +25,7 @@ const record = (
     execute: (input: Partial<Assessment>) => {
       error?: string;
       complete?: boolean;
+      nextQuestion?: ReturnType<typeof getAssessmentFocus>;
     };
   }
 ).execute;
@@ -197,6 +199,54 @@ describe("assessment evidence and publishing", () => {
   it("accepts a rich answer without requiring an arbitrary question count", () => {
     expect(recordKnown().complete).toBe(true);
     expect(current).toEqual(known);
+  });
+  it("returns the current capability focus after scope even when priority is missing", () => {
+    receive({ data: { message: known.scope!.quote } });
+    expect(
+      record({ scope: known.scope, criteria: [] }).nextQuestion,
+    ).toMatchObject({
+      phase: "current_setup",
+      topic: "knowledge",
+    });
+    expect(record({ criteria: [] }).nextQuestion?.topic).toBe("knowledge");
+    receive({
+      data: { message: known.criteria.map((item) => item.quote).join("\n") },
+    });
+    expect(record({ criteria: known.criteria }).nextQuestion?.topic).toBe(
+      "priority",
+    );
+  });
+  it("preserves scope and priority when later answers send null for unchanged fields", () => {
+    receive({
+      data: { message: `${known.scope!.quote}\n${known.priority!.quote}` },
+    });
+    record({ scope: known.scope, priority: known.priority, criteria: [] });
+    receive({
+      data: {
+        message: known.criteria
+          .slice(0, 3)
+          .map((item) => item.quote)
+          .join("\n"),
+      },
+    });
+    const result = record({
+      scope: null,
+      priority: null,
+      criteria: known.criteria.slice(0, 3),
+    });
+    expect(result.error).toBeUndefined();
+    expect(result.nextQuestion?.topic).toBe("workflows");
+    expect(current.scope).toEqual(known.scope);
+    expect(current.priority).toEqual(known.priority);
+
+    const correction = {
+      summary: "Only the three-person catalog team is being assessed.",
+      quote: "Actually, assess just our three-person catalog team.",
+    };
+    receive({ data: { message: correction.quote } });
+    record({ scope: correction, priority: null, criteria: [] });
+    expect(current.scope).toEqual(correction);
+    expect(current.priority).toEqual(known.priority);
   });
   it("cannot publish from broad setup choices or self-confirm the recap", () => {
     receive({ data: { message: "ChatGPT / Claude Team plan" } });

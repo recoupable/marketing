@@ -281,3 +281,5 @@ The readiness result action takes visitors to `/contact?brief=readiness`. Only t
 ## AI Scorecard
 
 `/workflow-plan` leads with a five-area AI Scorecard; shared offer copy is in `lib/copy/ai-scorecard.ts`. `record_assessment` stores quoted visitor evidence, `review_scorecard` displays the actual profile, and `publish_scorecard` requires a visitor-confirmed unchanged snapshot. Ratings use `scorecardRubric.ts` and `getAssessmentProfile.ts`: missing context is unscored, never a zero. Public peer examples require read-source quotes and must never become invented percentiles or industry averages. Keep the fixed JSON Render catalog, real streaming, final-only downloads, and the separate implementation-plan gates. See `docs/website-agent.md`.
+
+Follow `getAssessmentFocus` / `record_assessment.nextQuestion` through the current setup before asking desired improvements. Save evidence before choosing the next question; keep goals separate from existing measured results, preserve volunteered priorities, and skip topics already answered. Company identity shares the compact top navigation row; do not reintroduce a separate fixed company card above the conversation.

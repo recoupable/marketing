@@ -3,9 +3,10 @@ import { assessmentUpdateSchema } from "../../lib/website-agent/scorecard";
 import { getAssessmentProfile } from "../../lib/website-agent/getAssessmentProfile";
 import { assessment, assessmentAnswers } from "../lib/assessment";
 import { scorecardRubric } from "../../lib/website-agent/scorecardRubric";
+import { getAssessmentFocus } from "../../lib/website-agent/getAssessmentFocus";
 
 export default defineTool({
-  description: `Record only what the visitor has said about their current AI use. Patch confirmed facts, preserve previous answers, and replace corrections. Each yes/no needs an exact quote from a visitor message, never a website or your own inference. For a short answer such as Yes, include the actual question it answered in question; the server checks that pairing. Use unknown with a null quote for skipped or unclear answers. A broad initial choice does not establish accuracy, adoption, workflow controls or results. Scope describes their actual role/team, not automatically the entire company. Criteria are cumulative in this fixed rubric: ${JSON.stringify(scorecardRubric)}. Returns missing evidence. Keep asking one useful question at a time; do not fill gaps to get a score.`,
+  description: `Record only what the visitor has said about their current AI use. Patch confirmed facts, preserve previous answers, and replace corrections. Each yes/no needs an exact quote from a visitor message, never a website or your own inference. For a short answer such as Yes, include the actual question it answered in question; the server checks that pairing. Use unknown with a null quote only for explicitly skipped or unclear answers, not questions you have yet to ask. A broad initial choice does not establish accuracy, adoption, workflow controls or results. Scope describes their actual role/team, not automatically the entire company. Priority is a desired improvement; it does not establish results_goal or any present capability. Criteria are cumulative in this fixed rubric: ${JSON.stringify(scorecardRubric)}. Follow the returned nextQuestion focus: current setup first, future priorities afterward. An empty criteria patch can retrieve the current focus without changing evidence. Keep asking one useful question at a time; do not fill gaps to get a score.`,
   inputSchema: assessmentUpdateSchema,
   execute(input) {
     const patch = assessmentUpdateSchema.parse(input);
@@ -43,7 +44,11 @@ export default defineTool({
     const previous = assessment.get();
     const criteria = new Map(previous.criteria.map((item) => [item.id, item]));
     for (const item of patch.criteria) criteria.set(item.id, item);
-    const next = { ...previous, ...patch, criteria: [...criteria.values()] };
+    const next = {
+      scope: patch.scope ?? previous.scope,
+      priority: patch.priority ?? previous.priority,
+      criteria: [...criteria.values()],
+    };
     const profile = getAssessmentProfile(next);
     if (
       profile.areas.some((area) => area.answered === 3 && area.level === null)
@@ -57,6 +62,7 @@ export default defineTool({
       assessment: next,
       missing: profile.missing,
       complete: profile.complete,
+      nextQuestion: getAssessmentFocus(next),
     };
   },
 });

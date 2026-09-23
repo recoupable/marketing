@@ -76,7 +76,7 @@ export const scorecardRubric = [
     criteria: [
       {
         id: "results_goal",
-        label: "A specific business result has been chosen",
+        label: "Current AI use has a specific business result to track",
       },
       {
         id: "results_measure",

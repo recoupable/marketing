@@ -1,3 +1,9 @@
+## AI Scorecard question order and compact header — September 23, 2026
+
+The AI Scorecard now keeps questions about current capabilities together: team scope, company knowledge, recurring work, adoption, reliability and existing results. Desired improvements follow one explicit transition. Volunteered goals are retained, rich answers skip covered topics, and unknown answers remain unscored. Fixed null fields in later updates erasing a saved scope or priority and causing repeated questions.
+
+Company identity now shares a single compact navigation row with the logo and New conversation, reclaiming the separate company card's space. Desktop and phone browser checks passed. An isolated live test confirmed current setup before future priorities and preservation of earlier answers. All 415 tests, scoped lint, TypeScript, the app production build and the Eve runtime build pass locally. Preview remains on port 3018; not deployed. See `docs/website-agent.md` for the assessment and validation boundaries.
+
 ## Conversational research and stable replies — September 22, 2026
 
 The agent now introduces its research in a streamed chat message and invites the visitor to answer while it works. Follow-ups acknowledge the actual answer and connect it to the next question. The question stays in the composer, and public research continues independently. Early findings are framed as possibilities to explore, not a selected project.

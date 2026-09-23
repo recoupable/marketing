@@ -26,7 +26,7 @@ One active cookie-bound session is supported per browser. Starting a new convers
 
 ## Research and report readiness
 
-A bare first website message becomes a compact company header with a favicon, verified homepage name, domain and Change action. Until the homepage is read, the header shows the submitted domain. Article publishers cannot replace the company identity. Ordinary messages stay in the transcript.
+A bare first website message becomes a compact company identity in the navigation row, alongside the Recoup home link and New conversation action. The header is 60 CSS pixels on desktop and 56 on phones; the conversation no longer reserves a second company row. A favicon, verified homepage name, desktop domain link and Change action remain available. Until the homepage is read, the header shows the submitted domain. Article publishers cannot replace the company identity. Ordinary messages stay in the transcript.
 
 The opening research follows relevant website links and searches for announcements, interviews and credible coverage outside the company's own site. Instructions bound the opening to two searches, five results per search, short excerpts and eight page reads; these are model instructions, not hard spend limits. Retrieved pages retain declared publication dates separately from retrieval dates. Search snippets are leads, not verified source evidence.
 
@@ -49,6 +49,12 @@ Finding drafts appear only when their quoted sources match completed public-page
 For an isolated local preview, set `WEBSITE_AGENT_ORIGIN=http://localhost:3018` and run `pnpm dev --port 3018`. The configured origin controls both the local gateway target and its POST allowlist. Use a different hostname from the user's active chat to keep cookie-bound sessions separate.
 
 ## Validation
+
+### Ordered questions and compact header, September 23, 2026
+
+An isolated local API conversation reproduced a null scope update clearing an earlier answer and causing a repeated scope question. After the fix, updates with null scope/priority preserved the saved context and advanced from company knowledge to an existing recurring workflow. A rich fictional answer covered the remaining current-setup areas; the live agent explicitly transitioned to future improvements only afterward. This checks generated behavior in one representative conversation, not a guarantee about every model response.
+
+Browser review confirmed the single-row header at desktop and 433 CSS-pixel phone width, with a 56-pixel mobile header, 44-pixel touch targets and no horizontal overflow. The normal viewport was restored and the user's conversation preserved. All 415 tests across 103 files, scoped ESLint, TypeScript, the production app build and the separate Eve runtime build pass locally. No production deployment is implied.
 
 ### AI Scorecard, September 23, 2026
 
@@ -102,7 +108,11 @@ Verified locally: live plan generation and browser plan card, public-source Reco
 
 The assessment covers company knowledge, getting work done, team adoption, reliability and business results. `scorecardRubric.ts` defines three cumulative requirements per area. `getAssessmentProfile` computes Not yet / Started / Repeatable / Established from those requirements. An area with any unknown answer remains unscored; there is no averaged company score, percentile or industry benchmark. Scope must identify the actual team rather than treating one department's answers as company-wide.
 
-`record_assessment` patches session state. Every known answer and scope/priority statement requires a quote from an actual visitor message captured by `assessment-evidence`. Framework-authored messages cannot supply evidence or confirmation. Unknowns use a null quote; patches preserve previous facts and support corrections. Short replies retain the actual question captured by the question tool and message hook; the record tool rejects invented question/answer pairings. This enforces attribution, structure and consistency, not the semantic truth of the visitor's statement or the model's interpretation.
+`record_assessment` patches session state. Every known answer and scope/priority statement requires a quote from an actual visitor message captured by `assessment-evidence`. Framework-authored messages cannot supply evidence or confirmation. Unknowns use a null quote; patches preserve previous facts and support corrections. Null or omitted scope/priority fields mean no change, so a capability update cannot erase a previously answered team or goal. Short replies retain the actual question captured by the question tool and message hook; the record tool rejects invented question/answer pairings. This enforces attribution, structure and consistency, not the semantic truth of the visitor's statement or the model's interpretation.
+
+`getAssessmentFocus` returns an ordered `nextQuestion` after each assessment update: scope, current company knowledge, recurring work, adoption, reliability, existing results, then desired improvements. The agent must save the answer and wait for that focus before composing its next question. This guides the model's adaptive wording; it does not hard-validate the meaning of generated questions. Rich answers skip topics already covered. Explicitly skipped or unclear criteria stay unknown and move discovery forward; after remaining topics, the agent offers clarification or an explicitly requested partial scorecard. Unasked criteria must remain absent rather than being marked skipped.
+
+The conversation makes one clear transition from what AI does today to what the visitor wants next. Early volunteered goals are saved without changing topics or being asked again. A future priority is not evidence for an existing capability or `results_goal`: that criterion asks whether current AI use already has a specific result to track. Existing conversations keep priorities collected earlier; direct Recoup questions and explicit plan requests can still change the conversation's direction.
 
 `review_scorecard` requires the actual role/team, priority and all five areas before reviewing a full scorecard. A visitor can explicitly request a partial scorecard after at least one area is understood and scope is known; remaining areas stay unscored. The review displays the recorded ratings and expandable evidence. `publish_scorecard` requires the visitor's **Show my scorecard** response and an unchanged reviewed snapshot. The model cannot approve its own assessment. A changed assessment needs another review.
 
