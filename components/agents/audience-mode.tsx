@@ -26,10 +26,19 @@ export function AudienceMode({
 
   useEffect(() => {
     if (!agent) {
-      if (hasOpened.current)
-        humanRoot.current
-          ?.querySelector<HTMLButtonElement>(".audience-toggle button")
-          ?.focus({ preventScroll: true });
+      if (hasOpened.current) {
+        const visibleToggle = Array.from(
+          humanRoot.current?.querySelectorAll<HTMLButtonElement>(
+            ".audience-toggle button",
+          ) ?? [],
+        ).find((button) => button.checkVisibility());
+        (
+          visibleToggle ??
+          humanRoot.current?.querySelector<HTMLElement>(
+            ".ss-mobile-menu > summary",
+          )
+        )?.focus({ preventScroll: true });
+      }
       return;
     }
     hasOpened.current = true;

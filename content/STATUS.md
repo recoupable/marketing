@@ -1,3 +1,7 @@
+## Mobile viewing mode in navigation — September 23, 2026
+
+Moved the Human / Agent switch inside the hamburger menu at the existing 900px mobile breakpoint and removed its standalone mobile header row. Desktop placement remains unchanged. Returning from Agent mode focuses a visible toggle or the hamburger when the menu is closed. Verified the mobile menu and mode round trip locally; production build and scoped lint pass.
+
 ## Recoup-branded viewing control — September 22, 2026
 
 Moved Human / Agent from the floating bottom overlay into the site header so it cannot cover hero content or customer logos. The responsive header reserves a second row on smaller screens. The same control appears in the Agent document toolbar. Uses Recoup Sky rounded pills, DM Sans controls, forest green and lime accents; document text stays IBM Plex Mono. Focus follows the active mode and returns to the Human control without scrolling.

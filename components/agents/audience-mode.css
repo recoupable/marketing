@@ -203,6 +203,9 @@
 }
 
 /* The control occupies header space instead of covering page content. */
+.ss-mobile-audience {
+  display: none;
+}
 .sky-site .ss-header.ss-header-with-audience {
   grid-template-columns: auto minmax(0, 1fr) auto auto;
   gap: 20px;
@@ -256,8 +259,13 @@
   .sky-site .ss-header.ss-header-with-audience {
     grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr);
     gap: 8px;
+    padding-block: 0;
   }
   .ss-header-with-audience > .audience-toggle {
-    justify-self: center;
+    display: none;
+  }
+  .ss-mobile-audience {
+    display: flex;
+    padding: 12px 13px;
   }
 }
