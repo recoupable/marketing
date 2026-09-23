@@ -178,7 +178,7 @@ function Conversation({
     !started && mode === "planner" && !describeCompany
       ? normalizeCompanyWebsite(input)
       : undefined;
-  const turns = getConversationTurns(messages);
+  const turns = getConversationTurns(messages, agent.events);
   const researchPages = getResearchPages(messages);
   const reportPreviewAllowed = canPreviewReport(messages);
   const activeQuestion = getActiveQuestion(turns.at(-1));
@@ -544,7 +544,13 @@ function Conversation({
                             hideUserMessage={
                               turn.user?.id === company?.messageId
                             }
-                            active={latest && busy}
+                            active={
+                              busy &&
+                              (latest ||
+                                (!!turnId &&
+                                  turnId ===
+                                    turns.at(-1)?.user?.metadata?.turnId))
+                            }
                             latest={latest}
                             stopped={stopped}
                             error={latest && !!(agent.error || sendError)}

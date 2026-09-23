@@ -75,6 +75,7 @@ docs/plans/       — Architecture and implementation plans
 - Vercel project: repo `recoupable/marketing`, root directory `.`
 - Public website agent runtime, local checks, discovery requirements and spending boundaries: `docs/website-agent.md`. Research may continue while a question waits. Keep `publish_plan`'s completeness and visitor-confirmed recap checks when changing the audit flow; a fixed number of answers is not report readiness.
 - Website-agent structured responses stream through `hooks/useStreamingMessages.ts`. Keep source verification, brief confirmation, and final-result-only downloads when modifying partial response views. Initial AI setup choices live in `lib/website-agent/aiSetupQuestion.ts`.
+- Question tools include a short `message` that streams in the conversation before the question appears in the composer. `getConversationTurns` uses Eve's received-message and step events to keep earlier conversation in place when the visitor answers during research; preserve this event-based ordering and reload behavior.
 
 ## Transcripts folder
 

@@ -38,6 +38,8 @@ There is no fixed question count. `update_brief` stores visitor-confirmed discov
 
 ## Response streaming and AI setup choices
 
+The question tool's optional `message` is the conversational lead-in. Its first sentences explain the website and coverage research and invite the visitor to answer while it runs. Later messages acknowledge the actual answer and connect it to the next question. `getQuestionMessage` streams this field through AI Elements MessageResponse before the full question or choices arrive; the question itself stays in the composer. Older saved questions remain valid without a message. Do not loosen the general duplicate-prose filter to show these messages: that can introduce a second question competing with the composer.
+
 The first question distinguishes no AI use, a ChatGPT / Claude Team plan, agents that accurately answer catalog and business questions, and agents that complete full workflows autonomously. The canonical initial choices live in `lib/website-agent/aiSetupQuestion.ts`; free text remains available. A selection does not establish tool names, data coverage, accuracy checks or the actual degree of autonomy. The agent follows up on those details. Follow-up questions normally use two or three options; the schema allows four and labels up to 80 characters.
 
 `useStreamingMessages` decodes Eve's real `action.input.appended` JSON chunks with AI SDK's partial JSON parser. The question composer, company findings and JSON Render report display arriving fields instead of waiting for `output-available`. Choices cannot be submitted until the question completes. Ordinary chat continues to use AI Elements MessageResponse. No artificial typing delay or replay of a completed answer is used.
@@ -47,6 +49,14 @@ Finding drafts appear only when their quoted sources match completed public-page
 For an isolated local preview, set `WEBSITE_AGENT_ORIGIN=http://localhost:3018` and run `pnpm dev --port 3018`. The configured origin controls both the local gateway target and its POST allowlist. Use a different hostname from the user's active chat to keep cookie-bound sessions separate.
 
 ## Validation
+
+### Conversational research, September 22, 2026
+
+Live local Seeker and WMG runs opened with a short research explanation above activity and the setup question in the composer. WMG continued reading its news, leadership and royalty pages while the question was unanswered. Answering during research retained the opening before the answer, removed the answered question, and placed the new acknowledgement and question afterward. The agents-answer-questions selection led to a question about the work after an answer; a synthetic Friday-reporting problem led to choices about copying into documents, combining data and writing commentary, without generating a report.
+
+An ordinary question about how Recoup differs from ChatGPT received a sourced answer without forcing another discovery question. Reload restored the opening, user answers and follow-ups in the same order without reopening answered questions.
+
+At 390 CSS pixels the conversation and controls fit without horizontal overflow. Some public reads timed out during these checks; those failures remained explicit, and successful reads were retained. All 390 tests across 99 files, TypeScript, scoped lint, the production app build and the Eve runtime build pass. These are local checks, not a production deployment claim.
 
 ### Specific AI choices and live structured streaming, September 22, 2026
 
@@ -62,7 +72,7 @@ Live local tests verified the compact header, Change/prefill, research and an in
 
 ### Conversation interface, September 21, 2026
 
-`WebsiteAgent` owns session and entry state. `getConversationTurns` groups messages under user anchors, including Eve's in-place updates when a running turn receives a follow-up. `ChatTurn` retains activity, findings and reports in the transcript; `ChatComposer` holds only the compact question and reply controls. Do not move activity into the input dock. The shadcn Message Scroller anchors each user turn, rather than separate tool or assistant fragments.
+`WebsiteAgent` owns session and entry state. Eve can update one assistant message in place when a running turn receives a follow-up. `getConversationTurns` uses the durable `message.received` and `step.started` events to group each assistant step under the user message it responds to. Earlier introductions, answered questions and research stay in place; late tool results remain with the step that started them. New acknowledgements and questions appear after the new answer. Replaying those events restores the same order after reload. `ChatTurn` retains activity, findings and reports in the transcript; `ChatComposer` holds only the compact question and reply controls. Do not move activity into the input dock. The shadcn Message Scroller anchors each user turn, rather than separate tool or assistant fragments.
 
 Official AI Elements power messages, streaming Markdown, the prompt input, chain-of-thought presentation, sources, suggestions and report artifacts. The activity trail shows observed tool actions, not private model reasoning or simulated progress. It starts with a Thinking shimmer, reveals real work as it arrives, and preserves the user's open/closed choice through subsequent replies. Failed source reads are never counted as checked sources. JSON Render continues to render the validated report schema.
 

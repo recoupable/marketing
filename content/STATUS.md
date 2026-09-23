@@ -1,3 +1,9 @@
+## Conversational research and stable replies — September 22, 2026
+
+The agent now introduces its research in a streamed chat message and invites the visitor to answer while it works. Follow-ups acknowledge the actual answer and connect it to the next question. The question stays in the composer, and public research continues independently. Early findings are framed as possibilities to explore, not a selected project.
+
+Fixed answering during active research moving the opening below the answer and reopening the answered question. Assistant steps now retain their place using Eve's durable event order. Local Seeker and WMG checks covered the opening, answers during research, contextual follow-ups, reload, direct Recoup questions and a 390 CSS-pixel layout. The Friday-report scenario led to a process question rather than a premature report. All 390 tests, scoped lint, TypeScript, the production app build and the Eve runtime build pass locally. See `docs/website-agent.md` for runtime verification. Preview: port 3018; not deployed.
+
 ## Specific AI setup choices and streamed responses — September 22, 2026
 
 The opening question now distinguishes no AI use, ChatGPT / Claude Team plans, agents answering difficult catalog/business questions accurately, and agents completing full workflows autonomously. Follow-ups verify actual tools and capabilities instead of assuming them from a selection.

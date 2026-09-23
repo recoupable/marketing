@@ -12,6 +12,7 @@ import {
 import { Suggestion } from "@/components/ai-elements/suggestion";
 import { getActivitySteps } from "@/lib/website-agent/getActivitySteps";
 import { getVisibleReplyParts } from "@/lib/website-agent/getVisibleReplyParts";
+import { getQuestionMessage } from "@/lib/website-agent/getQuestionMessage";
 import type { ConversationTurn } from "@/lib/website-agent/getConversationTurns";
 import { questionSchema } from "@/lib/website-agent/question";
 import { insightSchema } from "@/lib/website-agent/insight";
@@ -51,8 +52,13 @@ export function ChatTurn({
     getVisibleReplyParts(message.parts),
   );
   const steps = getActivitySteps(parts, active);
+  const questionMessages = replyParts.flatMap((part) => {
+    const message = getQuestionMessage(part);
+    return message ? [message] : [];
+  });
   const hasVisibleAnswer =
     !latest ||
+    questionMessages.length > 0 ||
     replyParts.some(
       (part) =>
         (part.type === "text" && part.text.trim()) ||
@@ -84,9 +90,10 @@ export function ChatTurn({
             ...insight.sources.map(
               (source) => `${source.title}: ${source.url}`,
             ),
+            question.data?.message ?? "",
             text,
           ]
-        : [text];
+        : [question.data?.message ?? "", text];
     })
     .join("\n\n");
   const userText =
@@ -109,7 +116,26 @@ export function ChatTurn({
         </Message>
       )}
       <div className="wa-assistant-turn">
-        <ResearchActivity steps={steps} active={active} />
+        {questionMessages.map((message) => (
+          <Message
+            key={message.id}
+            from="assistant"
+            className="wa-message wa-assistant wa-conversation-message"
+            aria-label="Recoup message"
+          >
+            <MessageContent className="wa-message-content">
+              <MessageResponse isAnimating={active && message.streaming}>
+                {message.text}
+              </MessageResponse>
+            </MessageContent>
+          </Message>
+        ))}
+        <ResearchActivity
+          steps={steps}
+          active={
+            active && (latest || steps.some((step) => step.state === "active"))
+          }
+        />
         <Message
           from="assistant"
           className="wa-message wa-assistant"

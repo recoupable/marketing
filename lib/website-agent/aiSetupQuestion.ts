@@ -2,6 +2,8 @@ import type { z } from "zod/v3";
 import type { questionSchema } from "./question";
 
 export const aiSetupQuestion: z.infer<typeof questionSchema> = {
+  message:
+    "I’ll look through your website and recent coverage for opportunities worth your team’s time. While I research, tell me how you’re using AI today so I can build on what’s already working.",
   context:
     "Choose the closest match. We’ll ask which tools and workflows you use next.",
   question: "How is your team using AI today?",
