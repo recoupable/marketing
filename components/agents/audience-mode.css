@@ -238,12 +238,20 @@
   .ss-header-with-audience > .audience-toggle {
     display: none;
   }
+  .sky-site .ss-header-with-audience .ss-mobile-menu > nav {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+  .sky-site .ss-header-with-audience .ss-mobile-menu > nav > details,
+  .sky-site .ss-header-with-audience .ss-mobile-menu > nav > a:last-child {
+    grid-column: 1 / -1;
+  }
   .ss-mobile-audience {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding: 14px 0 4px;
+    padding: 8px 0;
     color: #586f78;
     font:
       400 13px/1.4 "DM Sans Variable",

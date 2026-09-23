@@ -1,3 +1,7 @@
+## Compact mobile mode placement — September 23, 2026
+
+Removed the View as label and placed the Human / Agent toggle beside Pricing in the mobile menu. Expandable sections and the audit CTA remain full width. Desktop and mode behavior are unchanged.
+
 ## Lighter navigation and viewing toggle — September 23, 2026
 
 Kept Human / Agent as a compact neutral segmented toggle with a white selected tab so the lime audit CTA remains prominent. Mobile keeps it in a View as row inside the hamburger menu. Removed the hamburger/close icon background while preserving its 44px target. Simplified mobile navigation with thin section dividers, unboxed nested links, smaller descriptions and lighter panel shadow. Verified the expanded mobile menu and desktop mode switching locally; production build and TypeScript pass. Not deployed.
