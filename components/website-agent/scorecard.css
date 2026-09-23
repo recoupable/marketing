@@ -1,0 +1,469 @@
+.wa-shell {
+  --scorecard-ink: #152e37;
+  --scorecard-muted: #586f78;
+  --scorecard-line: #e2e9eb;
+  --scorecard-paper: #fff;
+  --scorecard-soft: #f1f5f6;
+  --scorecard-accent: #d6ff62;
+}
+.wa-scorecard-invitation-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  margin-bottom: 23px;
+  color: #e2f5ff;
+}
+.wa-scorecard-preview {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 0 auto 32px;
+  font-size: 12px;
+  color: #e6f6ff;
+}
+.wa-scorecard-preview span::before {
+  display: inline-block;
+  content: "";
+  width: 4px;
+  height: 4px;
+  margin: 0 8px 2px 0;
+  background: #d6ff62;
+  border-radius: 50%;
+}
+.wa-invitation > p.wa-scorecard-entry-note {
+  margin: 18px auto 0;
+  font-size: 12px;
+  line-height: 1.5;
+  max-width: 450px;
+  color: #e2f5ff;
+}
+.wa-scorecard-artifact {
+  border: 0;
+  border-radius: 20px;
+  background: var(--scorecard-paper);
+  color: var(--scorecard-ink);
+  box-shadow:
+    0 0 0 1px var(--scorecard-line),
+    0 12px 40px #152e3705;
+  overflow: hidden;
+}
+.wa-scorecard-header {
+  padding: 17px 24px;
+  border: 0;
+  box-shadow: 0 1px 0 var(--scorecard-line);
+  gap: 12px;
+}
+.wa-scorecard-header > div:first-of-type {
+  flex: 1;
+}
+.wa-scorecard-header .wa-scorecard-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+.wa-scorecard-header .wa-scorecard-description {
+  font-size: 11px;
+  color: var(--scorecard-muted);
+}
+.wa-scorecard-header button {
+  font-size: 12px;
+  border-radius: 9px;
+  gap: 7px;
+  min-height: 36px;
+}
+.wa-scorecard-content {
+  padding: 0;
+}
+.wa-scorecard-report {
+  padding: 30px 26px 24px;
+}
+.wa-scorecard-eyebrow {
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.12em;
+  font-size: 10px;
+  color: var(--scorecard-muted);
+  display: block;
+  margin-bottom: 10px;
+}
+.wa-scorecard-intro h2,
+.wa-assessment-review h2 {
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.16;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  margin: 0 0 14px;
+}
+.wa-scorecard-intro > div {
+  font-size: 14px;
+  line-height: 1.65;
+}
+.wa-scorecard-intro .wa-scorecard-scope {
+  font-size: 12px;
+  color: var(--scorecard-muted);
+  margin-bottom: 16px;
+}
+.wa-scorecard-profile {
+  margin-top: 30px;
+}
+.wa-scorecard-ruler {
+  display: grid;
+  grid-template-columns: 155px repeat(4, 1fr);
+  padding: 0 22px 11px 0;
+  font-size: 10px;
+  color: var(--scorecard-muted);
+  text-align: center;
+}
+.wa-scorecard-area {
+  box-shadow: 0 -1px 0 var(--scorecard-line);
+}
+.wa-scorecard-area > summary {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 17px 0;
+  cursor: pointer;
+  list-style: none;
+}
+.wa-scorecard-area > summary::-webkit-details-marker,
+.wa-assessment-review summary::-webkit-details-marker {
+  display: none;
+}
+.wa-scorecard-area-title {
+  width: 155px;
+  flex: none;
+  font-size: 13px;
+  font-weight: 550;
+}
+.wa-scorecard-area-title small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--scorecard-muted);
+  margin-top: 1px;
+}
+.wa-scorecard-track {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  height: 24px;
+}
+.wa-scorecard-track > span {
+  display: grid;
+  place-items: center;
+  position: relative;
+  height: 2px;
+  background: var(--scorecard-line);
+}
+.wa-scorecard-track > span::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--scorecard-line);
+  border-radius: 50%;
+}
+.wa-scorecard-track > span:first-child {
+  margin-left: 50%;
+}
+.wa-scorecard-track > span:last-child {
+  margin-right: 50%;
+}
+.wa-scorecard-track > span:first-child::after {
+  position: absolute;
+  left: -2px;
+}
+.wa-scorecard-track > span:last-child::after {
+  position: absolute;
+  right: -2px;
+}
+.wa-scorecard-position > span {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--scorecard-ink);
+  border: 5px solid var(--scorecard-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--scorecard-paper);
+  z-index: 1;
+}
+.wa-scorecard-position:first-child > span {
+  left: -9px;
+}
+.wa-scorecard-position:last-child > span {
+  right: -9px;
+}
+.wa-scorecard-track[data-unknown="true"] {
+  opacity: 0.45;
+}
+.wa-scorecard-expand {
+  width: 14px;
+  margin-left: 8px;
+  color: var(--scorecard-muted);
+}
+.wa-scorecard-area[open] .wa-scorecard-expand {
+  transform: rotate(180deg);
+}
+.wa-scorecard-evidence {
+  padding: 0 0 20px;
+  font-size: 13px;
+}
+.wa-scorecard-evidence > p {
+  color: var(--scorecard-muted);
+}
+.wa-scorecard-evidence ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+.wa-scorecard-evidence li {
+  display: flex;
+  gap: 10px;
+  margin: 14px 0;
+}
+.wa-scorecard-evidence li > svg {
+  flex: none;
+  margin-top: 4px;
+}
+.wa-scorecard-evidence strong {
+  font-size: 12px;
+  font-weight: 550;
+}
+.wa-scorecard-evidence small {
+  display: block;
+  color: var(--scorecard-muted);
+  font-size: 11px;
+}
+.wa-scorecard-report blockquote,
+.wa-assessment-review blockquote {
+  margin: 8px 0;
+  padding-left: 12px;
+  box-shadow: -2px 0 0 var(--scorecard-line);
+  color: var(--scorecard-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.wa-scorecard-report .wa-scorecard-note,
+.wa-assessment-review .wa-scorecard-note {
+  font-size: 11px;
+  color: var(--scorecard-muted);
+  line-height: 1.6;
+  margin: 15px 0 6px;
+}
+.wa-scorecard-method summary,
+.wa-scorecard-move summary,
+.wa-scorecard-peers summary {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--scorecard-muted);
+  min-height: 32px;
+}
+.wa-scorecard-method > p {
+  font-size: 12px;
+  color: var(--scorecard-muted);
+}
+.wa-scorecard-moves,
+.wa-scorecard-peers {
+  margin-top: 28px;
+  padding-top: 26px;
+  box-shadow: 0 -1px 0 var(--scorecard-line);
+}
+.wa-scorecard-report h3 {
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  margin: 0 0 20px;
+}
+.wa-scorecard-move {
+  display: flex;
+  gap: 13px;
+  margin: 23px 0 0;
+}
+.wa-scorecard-move-number {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: 8px;
+  background: var(--scorecard-soft);
+  font-size: 11px;
+  color: var(--scorecard-muted);
+  font-family: var(--font-mono, monospace);
+}
+.wa-scorecard-move > div {
+  min-width: 0;
+}
+.wa-scorecard-report h4 {
+  font-size: 14px;
+  font-weight: 550;
+  margin: 2px 0 6px;
+  line-height: 1.5;
+}
+.wa-scorecard-move p,
+.wa-scorecard-peers p {
+  font-size: 13px;
+  line-height: 1.65;
+}
+.wa-scorecard-move details p > strong {
+  display: block;
+  font-weight: 550;
+  margin-bottom: 4px;
+}
+.wa-scorecard-peers article {
+  margin-top: 20px;
+}
+.wa-peer-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.wa-peer-heading > span {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--scorecard-muted);
+}
+.wa-scorecard-peers a {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.wa-scorecard-followup {
+  padding: 18px 26px 24px;
+  box-shadow: 0 -1px 0 var(--scorecard-line);
+  background: var(--scorecard-soft);
+}
+.wa-scorecard-followup > p {
+  font-size: 13px;
+  margin: 0 0 12px;
+}
+.wa-scorecard-followup > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.wa-scorecard-followup button {
+  border: 0;
+  box-shadow: 0 0 0 1px var(--scorecard-line);
+  border-radius: 9px;
+  font-size: 12px;
+  min-height: 36px;
+}
+.wa-scorecard-followup button:first-child {
+  background: var(--scorecard-ink);
+  color: white;
+  box-shadow: none;
+}
+.wa-assessment-review {
+  padding: 12px 0 8px;
+}
+.wa-assessment-review h2 {
+  font-size: 23px;
+}
+.wa-assessment-review > p {
+  font-size: 13px;
+  color: var(--scorecard-muted);
+}
+.wa-assessment-review-areas {
+  margin-top: 22px;
+}
+.wa-assessment-review details {
+  box-shadow: 0 -1px 0 var(--scorecard-line);
+}
+.wa-assessment-review summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  padding: 13px 0;
+  cursor: pointer;
+  font-size: 13px;
+}
+.wa-assessment-review summary span:nth-child(2) {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--scorecard-muted);
+}
+.wa-assessment-review ul {
+  list-style: none;
+  padding: 0 0 14px;
+  margin: 0;
+}
+.wa-assessment-review li {
+  font-size: 12px;
+  margin: 12px 0;
+}
+.wa-assessment-review li > strong {
+  display: block;
+  font-weight: 500;
+}
+.wa-assessment-review li > span {
+  font-size: 11px;
+  color: var(--scorecard-muted);
+}
+@media (max-width: 540px) {
+  .wa-scorecard-preview {
+    gap: 6px 12px;
+    font-size: 10px;
+    margin-bottom: 25px;
+  }
+  .wa-scorecard-header {
+    padding: 14px 16px;
+    gap: 8px;
+  }
+  .wa-scorecard-header button {
+    padding-inline: 8px;
+  }
+  .wa-scorecard-header button span {
+    display: none;
+  }
+  .wa-scorecard-report {
+    padding: 24px 16px 18px;
+  }
+  .wa-scorecard-ruler {
+    grid-template-columns: repeat(4, 1fr);
+    padding-right: 22px;
+    padding-left: 0;
+  }
+  .wa-scorecard-ruler > span:first-child {
+    display: none;
+  }
+  .wa-scorecard-area > summary {
+    flex-wrap: wrap;
+    row-gap: 14px;
+    padding: 15px 0;
+  }
+  .wa-scorecard-area-title {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+  .wa-scorecard-area-title small {
+    margin-left: auto;
+  }
+  .wa-scorecard-track {
+    flex-basis: calc(100% - 22px);
+  }
+  .wa-scorecard-followup {
+    padding: 18px 16px;
+  }
+}
+
+.wa-scorecard-header .wa-scorecard-title,
+.wa-scorecard-header .wa-scorecard-description {
+  margin: 0;
+  line-height: 1.5;
+}
+.wa-scorecard-interpretation {
+  padding-top: 20px;
+  font-size: 13px;
+  line-height: 1.65;
+}

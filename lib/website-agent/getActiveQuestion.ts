@@ -2,6 +2,7 @@ import type { ConversationTurn } from "./getConversationTurns";
 import { z } from "zod/v3";
 import { questionSchema } from "./question";
 import { briefReviewSchema } from "./briefReview";
+import { scorecardReviewSchema } from "./scorecard";
 
 const draftSchema = z.object({
   context: z.string().max(180).optional(),
@@ -24,13 +25,16 @@ export function getActiveQuestion(turn?: ConversationTurn) {
     .flatMap((part) => {
       if (
         part.type !== "dynamic-tool" ||
-        !["ask_user_question", "present_choices", "review_brief"].includes(
-          part.toolName,
-        )
+        ![
+          "ask_user_question",
+          "present_choices",
+          "review_brief",
+          "review_scorecard",
+        ].includes(part.toolName)
       )
         return [];
       if (
-        part.toolName !== "review_brief" &&
+        !["review_brief", "review_scorecard"].includes(part.toolName) &&
         (part.state === "input-streaming" || part.state === "input-available")
       ) {
         const draft = draftSchema.safeParse(part.input);
@@ -56,7 +60,11 @@ export function getActiveQuestion(turn?: ConversationTurn) {
       }
       if (part.state !== "output-available" || part.partial) return [];
       const result = (
-        part.toolName === "review_brief" ? briefReviewSchema : questionSchema
+        part.toolName === "review_scorecard"
+          ? scorecardReviewSchema
+          : part.toolName === "review_brief"
+            ? briefReviewSchema
+            : questionSchema
       ).safeParse(part.output);
       return result.success
         ? [{ ...result.data, id: part.toolCallId, pending: false }]

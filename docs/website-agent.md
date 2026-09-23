@@ -1,10 +1,10 @@
 # Public website agent
 
-`/workflow-plan` and `/ask` use one Eve agent (`agent/`) with different entry hints. The former starts with the visitor's work; the latter starts with Recoup questions. Both can produce a downloadable structured plan. Existing FAQ sections link to `/ask`.
+`/workflow-plan` and `/ask` use one Eve agent (`agent/`) with different entry hints. The former starts with an AI Scorecard of the visitor's team; the latter starts with Recoup questions. A detailed implementation plan can follow the assessment. Existing FAQ sections link to `/ask`.
 
 The browser streams through `/api/website-agent`. Signed HttpOnly cookies bind access to one active session per browser. Only validated text messages, a planner/FAQ entry hint, cancellation, owned-session streaming and `turnPolicy: "steer"` on an owned session are forwarded. Approval responses, tool permissions, model overrides and arbitrary context are not accepted. Eve's channel separately requires a short-lived signed server grant. Default framework tools are disabled.
 
-Approved tools: public-content search/read, focused web search, session brief update, context questions, sourced findings, brief review and structured plan publication. `web_search` uses Eve's built-in Parallel provider through the existing AI Gateway; no additional search credential is required. Default framework tools remain disabled. There is no private Recoup account access, general browser, shell, email delivery or meeting booking. Plan downloads are text files. Contact links use the existing contact page. The old questionnaire components and endpoints remain for compatibility but do not render at `/workflow-plan`.
+Approved tools: public-content search/read, focused web search, session assessment/brief updates, context questions, sourced findings, scorecard/brief reviews and structured scorecard/plan publication. `web_search` uses Eve's built-in Parallel provider through the existing AI Gateway; no additional search credential is required. Default framework tools remain disabled. There is no private Recoup account access, general browser, shell, email delivery or meeting booking. Plan downloads are text files. Contact links use the existing contact page. The old questionnaire components and endpoints remain for compatibility but do not render at `/workflow-plan`.
 
 ## Local development
 
@@ -38,6 +38,8 @@ There is no fixed question count. `update_brief` stores visitor-confirmed discov
 
 ## Response streaming and AI setup choices
 
+The question tool's optional `message` is the conversational lead-in. Its first sentences explain the website and coverage research and invite the visitor to answer while it runs. Later messages acknowledge the actual answer and connect it to the next question. `getQuestionMessage` streams this field through AI Elements MessageResponse before the full question or choices arrive; the question itself stays in the composer. Older saved questions remain valid without a message. Do not loosen the general duplicate-prose filter to show these messages: that can introduce a second question competing with the composer.
+
 The first question distinguishes no AI use, a ChatGPT / Claude Team plan, agents that accurately answer catalog and business questions, and agents that complete full workflows autonomously. The canonical initial choices live in `lib/website-agent/aiSetupQuestion.ts`; free text remains available. A selection does not establish tool names, data coverage, accuracy checks or the actual degree of autonomy. The agent follows up on those details. Follow-up questions normally use two or three options; the schema allows four and labels up to 80 characters.
 
 `useStreamingMessages` decodes Eve's real `action.input.appended` JSON chunks with AI SDK's partial JSON parser. The question composer, company findings and JSON Render report display arriving fields instead of waiting for `output-available`. Choices cannot be submitted until the question completes. Ordinary chat continues to use AI Elements MessageResponse. No artificial typing delay or replay of a completed answer is used.
@@ -47,6 +49,20 @@ Finding drafts appear only when their quoted sources match completed public-page
 For an isolated local preview, set `WEBSITE_AGENT_ORIGIN=http://localhost:3018` and run `pnpm dev --port 3018`. The configured origin controls both the local gateway target and its POST allowlist. Use a different hostname from the user's active chat to keep cookie-bound sessions separate.
 
 ## Validation
+
+### AI Scorecard, September 23, 2026
+
+A live local WMG entry opened with the scorecard introduction and a setup question while public research continued unanswered. One broad setup choice led to a scope question, not a report. A clearly fictional six-person label scenario then produced the expected five-area profile, showed its evidence recap and waited for **Show my scorecard** before publishing. Expanding evidence, downloading the actual text file and continuing with **Build my action plan** worked; the plan follow-up reused the known context and asked who would run the test.
+
+The phone viewport fit without horizontal overflow (433 CSS pixels with the browser's existing zoom). The downloaded file includes scope, ratings, quoted evidence, next steps and methodology. Partial assessments, corrections, short replies tied to their actual question, invented evidence, self-confirmation and unverified peer sources have automated regression coverage; those paths were not all exercised live. Public reads included individual page failures, which remained visible without discarding successful research. The final suite passes 407 tests across 102 files, TypeScript, scoped ESLint, the production app build and the separate Eve runtime build. The Eve build retains its existing non-fatal MDX directive warnings. These are local checks, not a production deployment claim.
+
+### Conversational research, September 22, 2026
+
+Live local Seeker and WMG runs opened with a short research explanation above activity and the setup question in the composer. WMG continued reading its news, leadership and royalty pages while the question was unanswered. Answering during research retained the opening before the answer, removed the answered question, and placed the new acknowledgement and question afterward. The agents-answer-questions selection led to a question about the work after an answer; a synthetic Friday-reporting problem led to choices about copying into documents, combining data and writing commentary, without generating a report.
+
+An ordinary question about how Recoup differs from ChatGPT received a sourced answer without forcing another discovery question. Reload restored the opening, user answers and follow-ups in the same order without reopening answered questions.
+
+At 390 CSS pixels the conversation and controls fit without horizontal overflow. Some public reads timed out during these checks; those failures remained explicit, and successful reads were retained. All 390 tests across 99 files, TypeScript, scoped lint, the production app build and the Eve runtime build pass. These are local checks, not a production deployment claim.
 
 ### Specific AI choices and live structured streaming, September 22, 2026
 
@@ -62,7 +78,7 @@ Live local tests verified the compact header, Change/prefill, research and an in
 
 ### Conversation interface, September 21, 2026
 
-`WebsiteAgent` owns session and entry state. `getConversationTurns` groups messages under user anchors, including Eve's in-place updates when a running turn receives a follow-up. `ChatTurn` retains activity, findings and reports in the transcript; `ChatComposer` holds only the compact question and reply controls. Do not move activity into the input dock. The shadcn Message Scroller anchors each user turn, rather than separate tool or assistant fragments.
+`WebsiteAgent` owns session and entry state. Eve can update one assistant message in place when a running turn receives a follow-up. `getConversationTurns` uses the durable `message.received` and `step.started` events to group each assistant step under the user message it responds to. Earlier introductions, answered questions and research stay in place; late tool results remain with the step that started them. New acknowledgements and questions appear after the new answer. Replaying those events restores the same order after reload. `ChatTurn` retains activity, findings and reports in the transcript; `ChatComposer` holds only the compact question and reply controls. Do not move activity into the input dock. The shadcn Message Scroller anchors each user turn, rather than separate tool or assistant fragments.
 
 Official AI Elements power messages, streaming Markdown, the prompt input, chain-of-thought presentation, sources, suggestions and report artifacts. The activity trail shows observed tool actions, not private model reasoning or simulated progress. It starts with a Thinking shimmer, reveals real work as it arrives, and preserves the user's open/closed choice through subsequent replies. Failed source reads are never counted as checked sources. JSON Render continues to render the validated report schema.
 
@@ -79,3 +95,19 @@ Verified in the live local browser: Seeker and WMG first-message placement; Thin
 ### Earlier runtime validation
 
 Verified locally: live plan generation and browser plan card, public-source Recoup answer in the same conversation, mobile 390px layout, FAQ entry, quarterly correction preserving the spreadsheet-only constraint, token/session ownership tests. Live unauthenticated Eve access returned 401; unowned session streaming returned 403. All 315 tests across 86 files passed; changed agent/UI code passed ESLint. App production and separate Eve runtime builds pass. Eve's MDX bundler emits non-fatal directive warnings. No production deployment or email delivery was performed.
+
+## AI Scorecard (September 23, 2026)
+
+`/workflow-plan` now opens the AI Scorecard offer. Shared landing, metadata, resource entry and machine-readable copy live in `lib/copy/ai-scorecard.ts`. The existing route and legacy workflow API remain compatible. `/ask` still prioritizes direct Recoup questions.
+
+The assessment covers company knowledge, getting work done, team adoption, reliability and business results. `scorecardRubric.ts` defines three cumulative requirements per area. `getAssessmentProfile` computes Not yet / Started / Repeatable / Established from those requirements. An area with any unknown answer remains unscored; there is no averaged company score, percentile or industry benchmark. Scope must identify the actual team rather than treating one department's answers as company-wide.
+
+`record_assessment` patches session state. Every known answer and scope/priority statement requires a quote from an actual visitor message captured by `assessment-evidence`. Framework-authored messages cannot supply evidence or confirmation. Unknowns use a null quote; patches preserve previous facts and support corrections. Short replies retain the actual question captured by the question tool and message hook; the record tool rejects invented question/answer pairings. This enforces attribution, structure and consistency, not the semantic truth of the visitor's statement or the model's interpretation.
+
+`review_scorecard` requires the actual role/team, priority and all five areas before reviewing a full scorecard. A visitor can explicitly request a partial scorecard after at least one area is understood and scope is known; remaining areas stay unscored. The review displays the recorded ratings and expandable evidence. `publish_scorecard` requires the visitor's **Show my scorecard** response and an unchanged reviewed snapshot. The model cannot approve its own assessment. A changed assessment needs another review.
+
+`publish_scorecard` binds its interpretation and 1–3 next moves to that snapshot. Optional peer examples need quotes matching pages actually read in this session. They are examples of published practice, not claims about typical performance or peer rankings. Unknown publication dates stay unknown. No benchmark data, paid research service or extra data integration was added.
+
+`ScorecardArtifact` uses AI Elements, shadcn actions and a fixed JSON Render catalog (`ScorecardReport`). Ratings and their supporting answers are expandable; the method and detailed next steps are progressively disclosed. `getScorecardContext` authorizes the client preview only after review and confirmation. The summary streams from real tool argument chunks; peer claims wait for server verification, and downloads remain unavailable until the completed result validates. The text download includes the scope, ratings, quoted evidence, unknowns, next moves, peer sources and rubric version.
+
+The detailed implementation plan remains a separate follow-up. Its existing `update_brief` → `review_brief` → **Build my report** → `publish_plan` gates still apply. Reuse context already learned, ask only for missing implementation details, and retain the direct-plan path for visitors who explicitly ask for one.

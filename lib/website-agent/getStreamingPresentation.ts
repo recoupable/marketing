@@ -1,5 +1,6 @@
 import type { EveMessagePart } from "eve/client";
 import { z } from "zod/v3";
+import { scorecardInputSchema, type Assessment } from "./scorecard";
 import { insightSchema } from "./insight";
 import { validateInsightSources } from "./validateInsightSources";
 
@@ -26,12 +27,30 @@ export function getStreamingPresentation(
   part: EveMessagePart,
   pages: Record<string, string>,
   reportAllowed: boolean,
+  assessment?: Assessment,
 ) {
   if (
     part.type !== "dynamic-tool" ||
     !["input-streaming", "input-available"].includes(part.state)
   )
     return;
+  if (part.toolName === "publish_scorecard" && assessment) {
+    const summary = z
+      .object({ summary: z.string().max(480).optional() })
+      .safeParse(part.input);
+    const moves = scorecardInputSchema
+      .pick({ nextMoves: true })
+      .safeParse(part.input);
+    if (summary.success && summary.data.summary)
+      return {
+        kind: "scorecard" as const,
+        value: {
+          assessment,
+          summary: summary.data.summary,
+          ...(moves.success ? { nextMoves: moves.data.nextMoves } : {}),
+        },
+      };
+  }
   if (part.toolName === "publish_finding") {
     const evidence = insightSchema
       .pick({ sources: true })

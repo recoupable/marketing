@@ -5,12 +5,13 @@ import Link from "next/link";
 import { SkyArrow } from "@/components/sky/arrow";
 import { MarketingPage, PageHero, PageCTA } from "@/components/marketing-migration/ui";
 import "./resources.css";
+import { aiScorecardCopy } from "@/lib/copy/ai-scorecard";
 
 export const metadata: Metadata = withPageMetadata({ title:"Recoup resources: Guides, demos, tools & documentation", description:"Explore Recoup’s music AI playbook, interactive demos, readiness check, ROI planner, blog, and API documentation.", alternates:{canonical:"/resources"} });
 type Resource = { type: string; title: string; description: string; href: string };
 
 const tools: Resource[] = [
-  { type: "FREE WORKFLOW PLAN", title: "Find your first useful AI workflow", description: "Four questions. A practical plan for your music team. No signup.", href: "/workflow-plan" },
+  { type: aiScorecardCopy.eyebrow, title: aiScorecardCopy.headline, description: aiScorecardCopy.introduction, href: "/workflow-plan" },
   { type: "READINESS CHECK", title: "Find your starting point", description: "A few questions about the work, your information, and your team.", href: "/audit" },
   { type: "PLANNING TOOL", title: "Work out the value", description: "Model the potential time and cost impact, with assumptions you control.", href: "/roi" },
   { type: "CATALOG TOOL", title: "Explore catalog valuation", description: "Open the app to measure a catalog from Spotify streaming activity.", href: "/valuation" },

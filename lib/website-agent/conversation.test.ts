@@ -1,8 +1,14 @@
 import { describe, expect, it } from "vitest";
-import type { EveMessage, EveMessagePart } from "eve/client";
+import type {
+  EveMessage,
+  EveMessagePart,
+  MessageStreamEvent,
+} from "eve/client";
 import { getConversationTurns } from "./getConversationTurns";
 import { getActivitySteps } from "./getActivitySteps";
 import { getVisibleReplyParts } from "./getVisibleReplyParts";
+import { getActiveQuestion } from "./getActiveQuestion";
+import { aiSetupQuestion } from "./aiSetupQuestion";
 
 const user: EveMessage = {
   id: "user-1",
@@ -21,6 +27,81 @@ const tool = (overrides: Record<string, unknown> = {}): EveMessagePart =>
   }) as EveMessagePart;
 
 describe("stable conversation turns", () => {
+  it("keeps the opening and late research results before an answer during research", () => {
+    const first = {
+      ...user,
+      id: "received-1:user",
+      metadata: { turnId: "run-1" },
+    };
+    const followup = { ...first, id: "received-2:user" };
+    const opening = tool({
+      toolName: "ask_user_question",
+      toolCallId: "question-1",
+      stepIndex: 0,
+      output: aiSetupQuestion,
+    });
+    const read = tool({ stepIndex: 1 });
+    const assistant: EveMessage = {
+      id: "assistant-1",
+      role: "assistant",
+      metadata: { turnId: "run-1" },
+      parts: [opening, read],
+    };
+    const received = (id: string, sequence: number): MessageStreamEvent => ({
+      type: "message.received",
+      meta: { id, at: "2026-09-22T12:00:00Z" },
+      data: { message: "test", turnId: "run-1", sequence },
+    });
+    const step = (stepIndex: number, sequence: number): MessageStreamEvent => ({
+      type: "step.started",
+      meta: { id: `step-${stepIndex}`, at: "2026-09-22T12:00:00Z" },
+      data: { modelId: "test", turnId: "run-1", stepIndex, sequence },
+    });
+    const events = [
+      received("received-1", 0),
+      step(0, 1),
+      step(1, 2),
+      received("received-2", 3),
+    ];
+    const beforeReply = getConversationTurns(
+      [first, assistant, followup],
+      events,
+    );
+    expect(beforeReply[0].assistants[0].parts).toEqual([opening, read]);
+    expect(beforeReply[1].assistants).toEqual([]);
+    expect(getActiveQuestion(beforeReply[1])).toBeUndefined();
+
+    const nextQuestion = tool({
+      toolName: "ask_user_question",
+      toolCallId: "question-2",
+      stepIndex: 2,
+      output: {
+        ...aiSetupQuestion,
+        message: "Your agents already answer questions.",
+        question: "What happens after an answer?",
+      },
+    });
+    const afterReply = getConversationTurns(
+      [first, { ...assistant, parts: [opening, read, nextQuestion] }, followup],
+      [...events, step(2, 4)],
+    );
+    expect(afterReply[0].assistants[0].parts).toEqual([opening, read]);
+    expect(afterReply[1].assistants[0].parts).toEqual([nextQuestion]);
+    expect(getActiveQuestion(afterReply[1])?.question).toBe(
+      "What happens after an answer?",
+    );
+    // The same durable events restore the same order after reconnect/reload.
+    expect(
+      getConversationTurns(
+        [
+          first,
+          { ...assistant, parts: [opening, read, nextQuestion] },
+          followup,
+        ],
+        [...events, step(2, 4)],
+      ),
+    ).toEqual(afterReply);
+  });
   it("places a steered response after the follow-up, even when Eve updates it in place", () => {
     const first = { ...user, metadata: { turnId: "run-1" } };
     const assistant: EveMessage = {

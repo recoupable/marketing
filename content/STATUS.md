@@ -1,3 +1,9 @@
+## Conversational research and stable replies — September 22, 2026
+
+The agent now introduces its research in a streamed chat message and invites the visitor to answer while it works. Follow-ups acknowledge the actual answer and connect it to the next question. The question stays in the composer, and public research continues independently. Early findings are framed as possibilities to explore, not a selected project.
+
+Fixed answering during active research moving the opening below the answer and reopening the answered question. Assistant steps now retain their place using Eve's durable event order. Local Seeker and WMG checks covered the opening, answers during research, contextual follow-ups, reload, direct Recoup questions and a 390 CSS-pixel layout. The Friday-report scenario led to a process question rather than a premature report. All 390 tests, scoped lint, TypeScript, the production app build and the Eve runtime build pass locally. See `docs/website-agent.md` for runtime verification. Preview: port 3018; not deployed.
+
 ## Specific AI setup choices and streamed responses — September 22, 2026
 
 The opening question now distinguishes no AI use, ChatGPT / Claude Team plans, agents answering difficult catalog/business questions accurately, and agents completing full workflows autonomously. Follow-ups verify actual tools and capabilities instead of assuming them from a selection.
@@ -195,3 +201,7 @@ Content: publish more blog posts targeting SEO pillars. Wire up the nav menu (li
 ## Stable agent conversation — September 21, 2026
 
 Rebuilt `/workflow-plan` and `/ask` around stable user turns. Thinking and observed research remain beneath the corresponding message; the compact question and reply input stay at the bottom. Official AI Elements now provide prompt input, activity, sources, suggestions, message actions and report artifacts, with shadcn scrolling and the existing JSON report renderer. Corrected duplicate prose after structured results and response ordering for follow-ups sent during research. Seeker/WMG live browser checks, mobile layout, stopping and actual report download verified. TypeScript, scoped lint, all 353 tests and the production build pass locally. See `docs/website-agent.md`; production has not been deployed or verified.
+
+## 2026-09-23 — AI Scorecard offer
+
+The local `/workflow-plan` experience now assesses five areas of actual AI use before offering an implementation plan. Shared landing/resource/machine copy, criterion-based ratings, visitor-quoted evidence, explicit review, partial assessments, sourced peer examples and a downloadable JSON-rendered scorecard replace the plan-first offer. Unknowns remain unscored; no industry percentile is claimed. Detailed plan gates and Recoup FAQ behavior remain. Validation is recorded in `docs/website-agent.md`; no production deployment is implied.

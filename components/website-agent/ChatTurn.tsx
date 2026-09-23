@@ -12,6 +12,7 @@ import {
 import { Suggestion } from "@/components/ai-elements/suggestion";
 import { getActivitySteps } from "@/lib/website-agent/getActivitySteps";
 import { getVisibleReplyParts } from "@/lib/website-agent/getVisibleReplyParts";
+import { getQuestionMessage } from "@/lib/website-agent/getQuestionMessage";
 import type { ConversationTurn } from "@/lib/website-agent/getConversationTurns";
 import { questionSchema } from "@/lib/website-agent/question";
 import { insightSchema } from "@/lib/website-agent/insight";
@@ -21,6 +22,13 @@ import { planSchema } from "@/lib/workflow-plan/schema";
 import { ResearchActivity } from "./ResearchActivity";
 import { CompanyInsight } from "./CompanyInsight";
 import { ReportArtifact } from "./ReportArtifact";
+import { ScorecardArtifact } from "./ScorecardArtifact";
+import { ScorecardReview } from "./ScorecardReview";
+import {
+  assessmentSchema,
+  scorecardSchema,
+  type Assessment,
+} from "@/lib/website-agent/scorecard";
 import { getStreamingPresentation } from "@/lib/website-agent/getStreamingPresentation";
 
 export function ChatTurn({
@@ -33,6 +41,7 @@ export function ChatTurn({
   onSend,
   researchPages,
   reportPreviewAllowed,
+  scorecardPreview,
 }: {
   turn: ConversationTurn;
   hideUserMessage?: boolean;
@@ -43,6 +52,7 @@ export function ChatTurn({
   onSend: (text: string) => void;
   researchPages: Record<string, string>;
   reportPreviewAllowed: boolean;
+  scorecardPreview?: Assessment;
 }) {
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
@@ -51,8 +61,13 @@ export function ChatTurn({
     getVisibleReplyParts(message.parts),
   );
   const steps = getActivitySteps(parts, active);
+  const questionMessages = replyParts.flatMap((part) => {
+    const message = getQuestionMessage(part);
+    return message ? [message] : [];
+  });
   const hasVisibleAnswer =
     !latest ||
+    questionMessages.length > 0 ||
     replyParts.some(
       (part) =>
         (part.type === "text" && part.text.trim()) ||
@@ -84,9 +99,10 @@ export function ChatTurn({
             ...insight.sources.map(
               (source) => `${source.title}: ${source.url}`,
             ),
+            question.data?.message ?? "",
             text,
           ]
-        : [text];
+        : [question.data?.message ?? "", text];
     })
     .join("\n\n");
   const userText =
@@ -109,7 +125,26 @@ export function ChatTurn({
         </Message>
       )}
       <div className="wa-assistant-turn">
-        <ResearchActivity steps={steps} active={active} />
+        {questionMessages.map((message) => (
+          <Message
+            key={message.id}
+            from="assistant"
+            className="wa-message wa-assistant wa-conversation-message"
+            aria-label="Recoup message"
+          >
+            <MessageContent className="wa-message-content">
+              <MessageResponse isAnimating={active && message.streaming}>
+                {message.text}
+              </MessageResponse>
+            </MessageContent>
+          </Message>
+        ))}
+        <ResearchActivity
+          steps={steps}
+          active={
+            active && (latest || steps.some((step) => step.state === "active"))
+          }
+        />
         <Message
           from="assistant"
           className="wa-message wa-assistant"
@@ -131,9 +166,19 @@ export function ChatTurn({
                     part,
                     researchPages,
                     reportPreviewAllowed,
+                    scorecardPreview,
                   )
                 : undefined;
               if (preview && part.type === "dynamic-tool") {
+                if (preview.kind === "scorecard")
+                  return (
+                    <ScorecardArtifact
+                      key={part.toolCallId}
+                      scorecard={preview.value}
+                      streaming
+                      onSend={onSend}
+                    />
+                  );
                 return preview.kind === "finding" ? (
                   <CompanyInsight
                     key={part.toolCallId}
@@ -171,6 +216,31 @@ export function ChatTurn({
                     )}
                   </div>
                 );
+              }
+              if (part.toolName === "publish_scorecard") {
+                const result = scorecardSchema.safeParse(part.output);
+                return result.success ? (
+                  <ScorecardArtifact
+                    key={part.toolCallId}
+                    scorecard={result.data}
+                    onSend={onSend}
+                  />
+                ) : null;
+              }
+              if (
+                part.toolName === "review_scorecard" &&
+                part.output &&
+                typeof part.output === "object"
+              ) {
+                const result = assessmentSchema.safeParse(
+                  (part.output as Record<string, unknown>).assessment,
+                );
+                return result.success ? (
+                  <ScorecardReview
+                    key={part.toolCallId}
+                    assessment={result.data}
+                  />
+                ) : null;
               }
               if (part.toolName === "publish_plan") {
                 const result = planSchema.safeParse(part.output);

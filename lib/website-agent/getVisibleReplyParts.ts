@@ -2,6 +2,7 @@ import type { EveMessagePart } from "eve/client";
 import { questionSchema } from "./question";
 import { insightSchema } from "./insight";
 import { briefReviewSchema } from "./briefReview";
+import { scorecardSchema, scorecardReviewSchema } from "./scorecard";
 import { planSchema } from "../workflow-plan/schema";
 
 /** Structured answers already contain the finding, question, or complete report. */
@@ -21,6 +22,10 @@ export function getVisibleReplyParts(parts: readonly EveMessagePart[]) {
           planSchema.safeParse(part.output).success) ||
         (part.toolName === "publish_finding" &&
           insightSchema.safeParse(part.output).success) ||
+        (part.toolName === "publish_scorecard" &&
+          scorecardSchema.safeParse(part.output).success) ||
+        (part.toolName === "review_scorecard" &&
+          scorecardReviewSchema.safeParse(part.output).success) ||
         (part.toolName === "review_brief" &&
           briefReviewSchema.safeParse(part.output).success);
     }
