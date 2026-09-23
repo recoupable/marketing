@@ -91,7 +91,7 @@ export function SkySiteHeader({ audienceToggle }: { audienceToggle?: React.React
         <summary aria-label="Navigation"><NavigationIcon /></summary>
         <nav aria-label="Mobile navigation">
           <HeaderNavItems pathname={pathname} mobile />
-          {audienceToggle && <div className="ss-mobile-audience">{audienceToggle}</div>}
+          {audienceToggle && <div className="ss-mobile-audience"><span>View as</span>{audienceToggle}</div>}
           <TrackedLink href="/start-project" cta="free_audit" placement="mobile_nav">Get a free audit <SkyArrow /></TrackedLink>
         </nav>
       </details>

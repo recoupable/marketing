@@ -43,7 +43,9 @@ export function AudienceMode({
     }
     hasOpened.current = true;
     agentRoot.current
-      ?.querySelector<HTMLButtonElement>('[aria-pressed="true"]')
+      ?.querySelector<HTMLButtonElement>(
+        '.audience-toggle button[aria-pressed="true"]',
+      )
       ?.focus({ preventScroll: true });
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";

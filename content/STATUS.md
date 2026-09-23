@@ -1,3 +1,7 @@
+## Lighter navigation and viewing toggle — September 23, 2026
+
+Kept Human / Agent as a compact neutral segmented toggle with a white selected tab so the lime audit CTA remains prominent. Mobile keeps it in a View as row inside the hamburger menu. Removed the hamburger/close icon background while preserving its 44px target. Simplified mobile navigation with thin section dividers, unboxed nested links, smaller descriptions and lighter panel shadow. Verified the expanded mobile menu and desktop mode switching locally; production build and TypeScript pass. Not deployed.
+
 ## Mobile viewing mode in navigation — September 23, 2026
 
 Moved the Human / Agent switch inside the hamburger menu at the existing 900px mobile breakpoint and removed its standalone mobile header row. Desktop placement remains unchanged. Returning from Agent mode focuses a visible toggle or the hamburger when the menu is closed. Verified the mobile menu and mode round trip locally; production build and scoped lint pass.
