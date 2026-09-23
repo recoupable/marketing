@@ -12,8 +12,8 @@
     padding: 9px;
     list-style: none;
     cursor: pointer;
-    background: #f0f6f8;
-    border-radius: 50%;
+    background: transparent;
+    border-radius: 8px;
   }
   .ss-header .ss-mobile-menu > summary::-webkit-details-marker {
     display: none;
@@ -25,12 +25,12 @@
     right: 0;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 4px;
-    padding: 15px;
-    border: 1px solid #e2eaed;
+    gap: 0;
+    padding: 12px 20px 20px;
+    border: 0;
     border-radius: 18px;
     background: white;
-    box-shadow: 0 16px 40px #14394620;
+    box-shadow: 0 1px 0 #152e370d, 0 18px 48px #14394614;
     max-height: 70svh;
     overflow-y: auto;
   }
@@ -38,7 +38,7 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 13px;
+    padding: 16px 0;
     border-radius: 9px;
     font: 500 14px/1.4 var(--body);
     letter-spacing: -0.01em;
@@ -52,11 +52,21 @@
   .ss-header .ss-mobile-menu > nav > a:last-child {
     background: #d6ff62;
     font-weight: 550;
+    padding: 14px 16px;
+    margin-top: 12px;
+    justify-content: space-between;
   }
   .ss-header .ss-mobile-menu .ss-tool-menu > summary {
     width: 100%;
-    min-height: 44px;
-    padding: 13px;
+    min-height: 52px;
+    padding: 16px 0;
+  }
+  .ss-header .ss-mobile-menu > nav > .ss-tool-menu {
+    box-shadow: 0 1px 0 #152e3710;
+  }
+  .ss-header .ss-mobile-menu > summary:focus-visible {
+    outline: 2px solid #152e37;
+    outline-offset: 2px;
   }
   .ss-header .ss-mobile-menu .ss-tool-chevron {
     margin-left: auto;
@@ -64,9 +74,9 @@
   .ss-header .ss-mobile-menu .ss-tool-menu > div {
     position: static;
     width: auto;
-    padding: 5px;
-    margin: 0 0 6px 13px;
-    background: #f4f8fa;
+    padding: 0;
+    margin: 0 0 12px;
+    background: transparent;
     border: 0;
     border-radius: 12px;
     box-shadow: none;

@@ -1,3 +1,24 @@
+## Compact mobile mode placement — September 23, 2026
+
+Removed the View as label and placed the Human / Agent toggle beside Pricing in the mobile menu. Expandable sections and the audit CTA remain full width. Desktop and mode behavior are unchanged.
+
+## Lighter navigation and viewing toggle — September 23, 2026
+
+Kept Human / Agent as a compact neutral segmented toggle with a white selected tab so the lime audit CTA remains prominent. Mobile keeps it in a View as row inside the hamburger menu. Removed the hamburger/close icon background while preserving its 44px target. Simplified mobile navigation with thin section dividers, unboxed nested links, smaller descriptions and lighter panel shadow. Verified the expanded mobile menu and desktop mode switching locally; production build and TypeScript pass. Not deployed.
+
+## Mobile viewing mode in navigation — September 23, 2026
+
+Moved the Human / Agent switch inside the hamburger menu at the existing 900px mobile breakpoint and removed its standalone mobile header row. Desktop placement remains unchanged. Returning from Agent mode focuses a visible toggle or the hamburger when the menu is closed. Verified the mobile menu and mode round trip locally; production build and scoped lint pass.
+
+## Recoup-branded viewing control — September 22, 2026
+
+Moved Human / Agent from the floating bottom overlay into the site header so it cannot cover hero content or customer logos. The responsive header reserves a second row on smaller screens. The same control appears in the Agent document toolbar. Uses Recoup Sky rounded pills, DM Sans controls, forest green and lime accents; document text stays IBM Plex Mono. Focus follows the active mode and returns to the Human control without scrolling.
+
+## Human / Agent viewing mode — September 22, 2026
+
+Added a fixed bottom Human / Agent toggle to the shared marketing shell, excluding Brand Studio and the focused /ask and /workflow-plan flows. Agent mode dissolves into a dark, selectable Markdown document using the existing public content API and its summary/full labels. Reads all continuation chunks, supports copy/retry/Escape and reduced motion, and preserves the mounted human page and scroll position. Mode resets on route changes.
+
+Production build, TypeScript and scoped lint pass. Live desktop and narrow-layout checks verified content, copy feedback, Escape, no horizontal document overflow and identical scroll position after returning. An initial sandbox-related Turbopack failure cleared after preserving its cache and rebuilding. Not deployed.
 ## Specific AI setup choices and streamed responses — September 22, 2026
 
 The opening question now distinguishes no AI use, ChatGPT / Claude Team plans, agents answering difficult catalog/business questions accurately, and agents completing full workflows autonomously. Follow-ups verify actual tools and capabilities instead of assuming them from a selection.
