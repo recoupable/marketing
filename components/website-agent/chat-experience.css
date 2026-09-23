@@ -297,6 +297,16 @@
 .wa-finding > p {
   margin: 12px 0;
 }
+.wa-finding > [data-streamdown],
+.wa-finding > div:not(.wa-first-test):not(.wa-sources) {
+  margin-block: 12px;
+}
+.wa-streaming-label {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
 .wa-first-test {
   padding: 14px 16px;
   margin: 18px 0 12px;

@@ -54,7 +54,7 @@ hooks/            — Shared React hooks (useInquirySubmit.ts, useVideoRequestSu
 contexts/         — React context providers (Privy auth)
 lib/              — Site logic: config.ts (siteConfig), seo.ts, one-export directories (agent-content/, agent-discovery/, agent-tools/, catalog-demo/, attribution/, leads/, inquiries/), copy/
 agent/            — Public website assistant: Eve instructions, tools, session state and report-confirmation hook
-components/website-agent/ — Company header, chat turns, source findings, question composer and report artifacts
+components/website-agent/ — Company header, chat turns, source findings, question composer and streaming report artifacts
 lib/website-agent/ — Public website reading, source validation, conversation helpers and report-readiness schemas
 lib/docs/         — Documentation helpers (llms.txt sections, llms-full corpus, markdown negotiation)
 proxy.ts          — Request proxy (Next 16 successor to middleware): serves /docs/* as markdown on Accept: text/markdown or a .md suffix
@@ -74,6 +74,7 @@ docs/plans/       — Architecture and implementation plans
 
 - Vercel project: repo `recoupable/marketing`, root directory `.`
 - Public website agent runtime, local checks, discovery requirements and spending boundaries: `docs/website-agent.md`. Research may continue while a question waits. Keep `publish_plan`'s completeness and visitor-confirmed recap checks when changing the audit flow; a fixed number of answers is not report readiness.
+- Website-agent structured responses stream through `hooks/useStreamingMessages.ts`. Keep source verification, brief confirmation, and final-result-only downloads when modifying partial response views. Initial AI setup choices live in `lib/website-agent/aiSetupQuestion.ts`.
 
 ## Transcripts folder
 

@@ -21,6 +21,7 @@ import { planSchema } from "@/lib/workflow-plan/schema";
 import { ResearchActivity } from "./ResearchActivity";
 import { CompanyInsight } from "./CompanyInsight";
 import { ReportArtifact } from "./ReportArtifact";
+import { getStreamingPresentation } from "@/lib/website-agent/getStreamingPresentation";
 
 export function ChatTurn({
   turn,
@@ -30,6 +31,8 @@ export function ChatTurn({
   stopped,
   error,
   onSend,
+  researchPages,
+  reportPreviewAllowed,
 }: {
   turn: ConversationTurn;
   hideUserMessage?: boolean;
@@ -38,6 +41,8 @@ export function ChatTurn({
   stopped: boolean;
   error: boolean;
   onSend: (text: string) => void;
+  researchPages: Record<string, string>;
+  reportPreviewAllowed: boolean;
 }) {
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
@@ -121,6 +126,28 @@ export function ChatTurn({
                     {part.text}
                   </MessageResponse>
                 );
+              const preview = active
+                ? getStreamingPresentation(
+                    part,
+                    researchPages,
+                    reportPreviewAllowed,
+                  )
+                : undefined;
+              if (preview && part.type === "dynamic-tool") {
+                return preview.kind === "finding" ? (
+                  <CompanyInsight
+                    key={part.toolCallId}
+                    insight={preview.value}
+                    streaming
+                  />
+                ) : (
+                  <ReportArtifact
+                    key={part.toolCallId}
+                    plan={preview.value}
+                    streaming
+                  />
+                );
+              }
               if (
                 part.type !== "dynamic-tool" ||
                 part.state !== "output-available" ||

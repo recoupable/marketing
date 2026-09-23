@@ -19,6 +19,13 @@ Moved Human / Agent from the floating bottom overlay into the site header so it 
 Added a fixed bottom Human / Agent toggle to the shared marketing shell, excluding Brand Studio and the focused /ask and /workflow-plan flows. Agent mode dissolves into a dark, selectable Markdown document using the existing public content API and its summary/full labels. Reads all continuation chunks, supports copy/retry/Escape and reduced motion, and preserves the mounted human page and scroll position. Mode resets on route changes.
 
 Production build, TypeScript and scoped lint pass. Live desktop and narrow-layout checks verified content, copy feedback, Escape, no horizontal document overflow and identical scroll position after returning. An initial sandbox-related Turbopack failure cleared after preserving its cache and rebuilding. Not deployed.
+## Specific AI setup choices and streamed responses — September 22, 2026
+
+The opening question now distinguishes no AI use, ChatGPT / Claude Team plans, agents answering difficult catalog/business questions accurately, and agents completing full workflows autonomously. Follow-ups verify actual tools and capabilities instead of assuming them from a selection.
+
+Questions, sourced findings and reports now render real incoming Eve tool arguments through AI Elements and JSON Render. Source verification, context review and visitor confirmation remain required; report downloads appear only after the completed result validates. Live Seeker/WMG checks covered continued research, the four choices, 390 CSS-pixel reflow, a sourced Recoup answer, and a report visibly growing before completion. See `docs/website-agent.md` for the validation receipt. The isolated preview uses port 3018; the existing 3017 checkout remains untouched.
+
+All 385 tests, scoped lint, TypeScript, the app production build and separate Eve runtime build pass locally. Not deployed.
 
 ## Context before reports, broader research — September 22, 2026
 
