@@ -494,7 +494,7 @@ Services uses the same three-option illustrated dropdown as Products, with Advis
 
 ### AI audit invitation — September 25, 2026
 
-`/workflow-plan` shows a concise invitation beside an example scorecard on desktop, stacking them on phones. Lead with “Find the gaps in your AI.” and explain the output in one sentence. The example uses the report's actual category and rating labels, plus one illustrative next move; it is visibly labeled Example and is never presented as the visitor's assessment. Use the existing Sky setting, white report surface and lime finding. The website form has a visible label and **Start my audit** action, with a short note that the visitor answers questions during research. Do not promise an instant scan, unsupported completion time or peer ranking. Preserve company lookup and the quieter no-website path.
+`/workflow-plan` shows a concise invitation beside an example scorecard on desktop, stacking them on phones. Lead with “Is your music business getting value from AI?” and name labels, publishers and music funds as the audience. Explain the output through catalog research, royalty reporting and daily work. The example maps concrete capability labels to the report's actual areas and rating levels, with a monthly royalty-report test as the illustrative next step; it is visibly labeled Example and is never presented as the visitor's assessment. Use the existing Sky setting, white report surface and lime finding. The website form has a visible label and **Start my audit** action, with a short note that the visitor answers questions during research. Do not promise an instant scan, unsupported completion time or peer ranking. Preserve company lookup and the quieter no-website path.
 
 ## Titles tell the story
 

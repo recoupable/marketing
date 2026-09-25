@@ -24,7 +24,7 @@ export function ScorecardPreview() {
           const level = exampleLevels[index];
           return (
             <div key={area.id}>
-              <dt>{area.title}</dt>
+              <dt>{copy.areas[area.id]}</dt>
               <dd>
                 <span className="wa-audit-example-meter" aria-hidden="true">
                   {scorecardLevels.map((label, step) => (

@@ -375,7 +375,7 @@ function Conversation({
           <div className="wa-invitation">
             {mode === "planner" && (
               <div className="wa-scorecard-invitation-label">
-                {aiScorecardCopy.eyebrow}
+                {aiScorecardCopy.audience}
               </div>
             )}
             <h1>

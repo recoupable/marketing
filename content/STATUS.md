@@ -1,3 +1,9 @@
+## AI audit speaks to music executives — September 25, 2026
+
+The invitation now addresses labels, publishers and music funds with “Is your music business getting value from AI?” It names the deliverable and relevant work: an AI scorecard with specific steps for catalog research, royalty reporting and daily work. The example translates the five assessment areas into concrete capabilities and shows a monthly royalty-report test. The real assessment criteria and conversation flow remain unchanged.
+
+Browser review of the revised copy passed at 320, 826 and 1422 CSS-pixel widths without horizontal overflow or overlapping ratings. TypeScript, scoped lint and the production build pass. Shared metadata and machine-readable copy use the same enterprise positioning. Available locally on port 3018; not deployed.
+
 ## Clearer AI audit invitation — September 25, 2026
 
 The `/workflow-plan` invitation now shows what visitors receive: an example of the five-area scorecard and one practical next move. Shorter copy leads into a labeled website field and **Start my audit**, with a clear note that questions are part of the audit. Example ratings reuse the real rubric's labels but do not depend on visitor data. Company autocomplete, domain entry and the no-website option remain available.
