@@ -2,7 +2,13 @@
 
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowUp, ChevronRight, Search, SquarePen } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUp,
+  ChevronRight,
+  Search,
+  SquarePen,
+} from "lucide-react";
 import { useEveAgent } from "eve/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,6 +31,7 @@ import { useStreamingMessages } from "@/hooks/useStreamingMessages";
 import { CompanyHeader } from "./CompanyHeader";
 import { ChatTurn } from "./ChatTurn";
 import { ChatComposer } from "./ChatComposer";
+import { ScorecardPreview } from "./ScorecardPreview";
 import { Shimmer } from "@/components/ai-elements/shimmer";
 import {
   normalizeCompanyWebsite,
@@ -33,6 +40,7 @@ import {
 import "./website-agent.css";
 import "./chat-experience.css";
 import "./scorecard.css";
+import "./scorecard-landing.css";
 import { aiScorecardCopy } from "@/lib/copy/ai-scorecard";
 import { getScorecardContext } from "@/lib/website-agent/getScorecardContext";
 
@@ -194,9 +202,11 @@ function Conversation({
         void send();
       }}
     >
-      <label className="sr-only" htmlFor="wa-message">
-        Your message
-      </label>
+      {(started || mode === "faq") && (
+        <label className="sr-only" htmlFor="wa-message">
+          Your message
+        </label>
+      )}
       {selectedWebsite && (
         <span className="wa-selected-company-icon" aria-hidden="true">
           <span
@@ -244,7 +254,7 @@ function Conversation({
             : mode === "planner"
               ? describeCompany
                 ? "Tell us a little about your company…"
-                : "yourwebsite.com or company name"
+                : aiScorecardCopy.entryPlaceholder
               : "Ask us about Recoup…"
         }
         onKeyDown={(e) => {
@@ -279,13 +289,27 @@ function Conversation({
           ■
         </button>
       ) : (
-        <button
+        <Button
           type="submit"
           disabled={!input.trim() || paused}
-          aria-label="Send message"
+          className={
+            !started && mode === "planner" ? "wa-audit-submit" : undefined
+          }
+          aria-label={
+            !started && mode === "planner"
+              ? aiScorecardCopy.entryAction
+              : "Send message"
+          }
         >
-          <ArrowUp size={20} strokeWidth={2} aria-hidden="true" />
-        </button>
+          {!started && mode === "planner" ? (
+            <>
+              {aiScorecardCopy.entryAction}
+              <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+            </>
+          ) : (
+            <ArrowUp size={20} strokeWidth={2} aria-hidden="true" />
+          )}
+        </Button>
       )}
     </form>
   );
@@ -343,152 +367,158 @@ function Conversation({
         )}
       </header>
       {!started ? (
-        <div className="wa-invitation">
-          {mode === "planner" && (
-            <div className="wa-scorecard-invitation-label">
-              {aiScorecardCopy.eyebrow}
-            </div>
-          )}
-          <h1>
-            {mode === "faq" ? (
-              <>
-                Ask us about
-                <br />
-                <span>Recoup.</span>
-              </>
-            ) : (
-              aiScorecardCopy.headline
-            )}
-          </h1>
-          <p>
-            {mode === "faq"
-              ? "Get answers about our tools, services, and how we work."
-              : aiScorecardCopy.introduction}
-          </p>
-          {mode === "planner" && (
-            <div
-              className="wa-scorecard-preview"
-              aria-label="Five areas in your scorecard"
-            >
-              <span>Knowledge</span>
-              <span>Workflows</span>
-              <span>Adoption</span>
-              <span>Reliability</span>
-              <span>Results</span>
-            </div>
-          )}
-          <div
-            className={`wa-entry-card ${mode === "planner" ? "wa-website-entry" : ""} ${choicesVisible ? "wa-revealed" : "wa-collapsed"}`}
-          >
-            {mode === "faq" && (
-              <motion.div
-                className="wa-choices-reveal"
-                inert={!choicesVisible}
-                initial={{ height: 0 }}
-                animate={{ height: choicesVisible ? "auto" : 0 }}
-                transition={
-                  reduceMotion
-                    ? { duration: 0 }
-                    : { type: "spring", stiffness: 125, damping: 23, mass: 1 }
-                }
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: reduceMotion ? 0 : 3 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: reduceMotion ? 0 : 0.22 }}
-                  className="wa-choices"
-                  aria-label="Suggested starting points"
-                >
-                  {(mode === "faq"
-                    ? ["What does Recoup do?", "Can you build for my team?"]
-                    : plannerQuestions
-                  ).map((text, index) => (
-                    <button
-                      type="button"
-                      key={text}
-                      onClick={() => void send(text)}
-                    >
-                      <span className="wa-choice-number" aria-hidden="true">
-                        {index + 1}
-                      </span>
-                      <span>{text}</span>
-                      <ChevronRight
-                        className="wa-choice-arrow"
-                        size={18}
-                        strokeWidth={1.8}
-                        aria-hidden="true"
-                      />
-                    </button>
-                  ))}
-                </motion.div>
-              </motion.div>
-            )}
-            {composer}
-            {!started && mode === "planner" && !describeCompany && (
-              <div className="wa-company-search" aria-live="polite">
-                {searchingCompanies && (
-                  <div className="wa-company-searching">
-                    <Search size={14} aria-hidden="true" />
-                    Finding the official website…
-                  </div>
-                )}
-                {suggestionsOpen && companySuggestions.length > 0 && (
-                  <ul
-                    id={companyListId}
-                    aria-label="Company website suggestions"
-                  >
-                    {companySuggestions.map((company) => (
-                      <li key={company.domain}>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setInput(company.domain);
-                            setSuggestionsOpen(false);
-                            inputElement.current?.focus();
-                          }}
-                        >
-                          <span className="wa-company-icon" aria-hidden="true">
-                            <span
-                              className="wa-favicon-image"
-                              style={{
-                                backgroundImage: `url("/api/company-favicon?domain=${encodeURIComponent(company.domain)}")`,
-                              }}
-                            />
-                          </span>
-                          <span>
-                            <strong>{company.name}</strong>
-                            <small>{company.domain}</small>
-                          </span>
-                          <span className="wa-company-fill">Use website</span>
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+        <div
+          className={
+            mode === "planner" ? "wa-scorecard-landing" : "wa-faq-landing"
+          }
+        >
+          <div className="wa-invitation">
+            {mode === "planner" && (
+              <div className="wa-scorecard-invitation-label">
+                {aiScorecardCopy.eyebrow}
               </div>
             )}
-          </div>
-          {mode === "planner" && (
-            <p className="wa-scorecard-entry-note">
-              {aiScorecardCopy.entryNote}
+            <h1>
+              {mode === "faq" ? (
+                <>
+                  Ask us about
+                  <br />
+                  <span>Recoup.</span>
+                </>
+              ) : (
+                aiScorecardCopy.headline
+              )}
+            </h1>
+            <p>
+              {mode === "faq"
+                ? "Get answers about our tools, services, and how we work."
+                : aiScorecardCopy.introduction}
             </p>
-          )}
-          {mode === "planner" && (
-            <button
-              className="wa-describe-toggle"
-              onClick={() => {
-                setDescribeCompany(!describeCompany);
-                setCompanySuggestions([]);
-                setSuggestionsOpen(false);
-                setSearchingCompanies(false);
-                inputElement.current?.focus();
-              }}
+            {mode === "planner" && (
+              <label className="wa-audit-entry-label" htmlFor="wa-message">
+                {describeCompany
+                  ? aiScorecardCopy.entryDescriptionLabel
+                  : aiScorecardCopy.entryLabel}
+              </label>
+            )}
+            <div
+              className={`wa-entry-card ${mode === "planner" ? "wa-website-entry" : ""} ${choicesVisible ? "wa-revealed" : "wa-collapsed"}`}
             >
-              {describeCompany
-                ? "Use your website instead"
-                : "Or tell us about your company"}
-            </button>
-          )}
+              {mode === "faq" && (
+                <motion.div
+                  className="wa-choices-reveal"
+                  inert={!choicesVisible}
+                  initial={{ height: 0 }}
+                  animate={{ height: choicesVisible ? "auto" : 0 }}
+                  transition={
+                    reduceMotion
+                      ? { duration: 0 }
+                      : { type: "spring", stiffness: 125, damping: 23, mass: 1 }
+                  }
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: reduceMotion ? 0 : 3 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: reduceMotion ? 0 : 0.22 }}
+                    className="wa-choices"
+                    aria-label="Suggested starting points"
+                  >
+                    {(mode === "faq"
+                      ? ["What does Recoup do?", "Can you build for my team?"]
+                      : plannerQuestions
+                    ).map((text, index) => (
+                      <button
+                        type="button"
+                        key={text}
+                        onClick={() => void send(text)}
+                      >
+                        <span className="wa-choice-number" aria-hidden="true">
+                          {index + 1}
+                        </span>
+                        <span>{text}</span>
+                        <ChevronRight
+                          className="wa-choice-arrow"
+                          size={18}
+                          strokeWidth={1.8}
+                          aria-hidden="true"
+                        />
+                      </button>
+                    ))}
+                  </motion.div>
+                </motion.div>
+              )}
+              {composer}
+              {!started && mode === "planner" && !describeCompany && (
+                <div className="wa-company-search" aria-live="polite">
+                  {searchingCompanies && (
+                    <div className="wa-company-searching">
+                      <Search size={14} aria-hidden="true" />
+                      Finding the official website…
+                    </div>
+                  )}
+                  {suggestionsOpen && companySuggestions.length > 0 && (
+                    <ul
+                      id={companyListId}
+                      aria-label="Company website suggestions"
+                    >
+                      {companySuggestions.map((company) => (
+                        <li key={company.domain}>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setInput(company.domain);
+                              setSuggestionsOpen(false);
+                              inputElement.current?.focus();
+                            }}
+                          >
+                            <span
+                              className="wa-company-icon"
+                              aria-hidden="true"
+                            >
+                              <span
+                                className="wa-favicon-image"
+                                style={{
+                                  backgroundImage: `url("/api/company-favicon?domain=${encodeURIComponent(company.domain)}")`,
+                                }}
+                              />
+                            </span>
+                            <span>
+                              <strong>{company.name}</strong>
+                              <small>{company.domain}</small>
+                            </span>
+                            <span className="wa-company-fill">Use website</span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
+            </div>
+            {mode === "planner" && (
+              <div className="wa-audit-entry-help">
+                <p>{aiScorecardCopy.entryNote}</p>
+                <span>{aiScorecardCopy.entryAssurance}</span>
+              </div>
+            )}
+            {mode === "planner" && (
+              <button
+                className="wa-describe-toggle"
+                onClick={() => {
+                  setDescribeCompany(!describeCompany);
+                  setCompanySuggestions([]);
+                  setSuggestionsOpen(false);
+                  setSearchingCompanies(false);
+                  inputElement.current?.focus();
+                }}
+              >
+                {describeCompany
+                  ? aiScorecardCopy.websiteAction
+                  : aiScorecardCopy.describeAction}
+              </button>
+            )}
+          </div>
+          {mode === "planner" && <ScorecardPreview />}
         </div>
       ) : (
         <div className="wa-workspace">

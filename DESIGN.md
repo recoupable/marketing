@@ -492,6 +492,10 @@ Platform section spacing uses roughly 100–140px on desktop and 70–100px on p
 
 Services uses the same three-option illustrated dropdown as Products, with Advisory (`/advisory`), Build (`/build`), and Training (`/training`). Service artwork lives in `nav-service-art.tsx`. Desktop and mobile use shared navigation data and native disclosures. Training copy is shared with machine summaries through `lib/copy/training.ts`; its inquiry action uses the existing Team training workflow.
 
+### AI audit invitation — September 25, 2026
+
+`/workflow-plan` shows a concise invitation beside an example scorecard on desktop, stacking them on phones. Lead with “Find the gaps in your AI.” and explain the output in one sentence. The example uses the report's actual category and rating labels, plus one illustrative next move; it is visibly labeled Example and is never presented as the visitor's assessment. Use the existing Sky setting, white report surface and lime finding. The website form has a visible label and **Start my audit** action, with a short note that the visitor answers questions during research. Do not promise an instant scan, unsupported completion time or peer ranking. Preserve company lookup and the quieter no-website path.
+
 ## Titles tell the story
 
 Headlines are optional: do not add one to every illustration or frame. Let a supporting figure

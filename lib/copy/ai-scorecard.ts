@@ -1,13 +1,24 @@
 export const aiScorecardCopy = {
   title: "AI Scorecard for music companies",
-  eyebrow: "FREE AI SCORECARD",
-  headline: "Where does your music company stand on AI?",
+  eyebrow: "FREE AI AUDIT",
+  headline: "Find the gaps in your AI.",
   description:
     "Assess how your music company uses AI, explore real examples from other businesses, and get a practical plan for what to improve next.",
-  introduction:
-    "See where AI is working, what’s holding you back, and what to do next.",
-  entryNote:
-    "Your website starts the research. Your answers shape the scorecard.",
+  introduction: "Get your company’s AI scorecard and a clear next move.",
+  entryNote: "Answer questions while we research.",
+  entryLabel: "Company website or name",
+  entryDescriptionLabel: "About your company",
+  entryPlaceholder: "yourcompany.com",
+  entryAction: "Start my audit",
+  entryAssurance: "No email required.",
+  describeAction: "No website?",
+  websiteAction: "Use a website",
+  example: {
+    label: "Example",
+    title: "Your AI scorecard",
+    nextLabel: "Your next move",
+    nextAction: "Measure time saved on one recurring report.",
+  },
   promise: "Five areas. Clear evidence. A plan for your team.",
   methodology:
     "Rated against Recoup’s criteria using your answers. This is a self-assessment, not an inspection of your systems or an industry ranking.",

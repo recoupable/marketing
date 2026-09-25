@@ -6,38 +6,6 @@
   --scorecard-soft: #f1f5f6;
   --scorecard-accent: #d6ff62;
 }
-.wa-scorecard-invitation-label {
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  margin-bottom: 23px;
-  color: #e2f5ff;
-}
-.wa-scorecard-preview {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px 22px;
-  margin: 0 auto 32px;
-  font-size: 12px;
-  color: #e6f6ff;
-}
-.wa-scorecard-preview span::before {
-  display: inline-block;
-  content: "";
-  width: 4px;
-  height: 4px;
-  margin: 0 8px 2px 0;
-  background: #d6ff62;
-  border-radius: 50%;
-}
-.wa-invitation > p.wa-scorecard-entry-note {
-  margin: 18px auto 0;
-  font-size: 12px;
-  line-height: 1.5;
-  max-width: 450px;
-  color: #e2f5ff;
-}
 .wa-scorecard-artifact {
   border: 0;
   border-radius: 20px;

@@ -1,3 +1,9 @@
+## Clearer AI audit invitation — September 25, 2026
+
+The `/workflow-plan` invitation now shows what visitors receive: an example of the five-area scorecard and one practical next move. Shorter copy leads into a labeled website field and **Start my audit**, with a clear note that questions are part of the audit. Example ratings reuse the real rubric's labels but do not depend on visitor data. Company autocomplete, domain entry and the no-website option remain available.
+
+Local checks cover the current desktop window, a wider desktop and phone widths down to 320 CSS pixels, plus company lookup/selection and the no-website path. All 415 existing tests, TypeScript, scoped lint and the production build pass. Preview remains on port 3018; not deployed.
+
 ## AI Scorecard question order and compact header — September 23, 2026
 
 The AI Scorecard now keeps questions about current capabilities together: team scope, company knowledge, recurring work, adoption, reliability and existing results. Desired improvements follow one explicit transition. Volunteered goals are retained, rich answers skip covered topics, and unknown answers remain unscored. Fixed null fields in later updates erasing a saved scope or priority and causing repeated questions.
