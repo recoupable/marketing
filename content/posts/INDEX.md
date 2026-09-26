@@ -1,5 +1,10 @@
 # Published Posts
 
+## September 27, 2026
+
+- `/blog/ai-agents-for-music-catalog-reporting` — Is your music catalog earning what you expected? Approved Recoup consulting POV, three explanatory figures, and a recoupable.com CTA. Source: `content/blog/posts.json`.
+
+
 ## September 14, 2026 additions
 
 The live article source is `content/blog/posts.json`.
