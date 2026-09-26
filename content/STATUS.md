@@ -1,3 +1,7 @@
+## Catalog reporting article — September 27, 2026
+
+Prepared the approved article on agent-assisted catalog reporting for publication, with a Recoup CTA, existing cover and three reviewed inline diagrams. Kept the featured blog entry unchanged. Public body excludes private source metadata. Deployment verification is recorded with the publication receipt in Business.
+
 ## Compact mobile mode placement — September 23, 2026
 
 Removed the View as label and placed the Human / Agent toggle beside Pricing in the mobile menu. Expandable sections and the audit CTA remain full width. Desktop and mode behavior are unchanged.
