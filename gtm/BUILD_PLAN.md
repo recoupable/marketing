@@ -15,7 +15,7 @@ Start with the path from **account → evidence → draft → review** using pub
 | Business context and working methods | Included |
 | Company evidence, audience CSVs, interviews, principles | Included as dated research |
 | App-user export and local report | Imported tools; see engine limitations |
-| CRM person sync | Imported with default preview; live compatibility unverified |
+| CRM person sync | Preview default; email assertion contract and company-field isolation fixture-tested; live compatibility unverified |
 | App-user email templates | Imported legacy drafts; no sender |
 | Account-to-draft workflow and review queue | To build |
 | Team-owned publishing, engagement collection, prospect enrichment | To build/configure after the offline workflow |

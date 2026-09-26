@@ -35,7 +35,7 @@ To run an account-data command, copy `.env.example` to `.env` in this directory 
 | `pnpm dashboard` | Reads live account data and writes an HTML report under ignored `exports/`. Charts load Chart.js from a public CDN. |
 | `pnpm sync-attio` | Reads live account data and previews aggregate counts. Does not write to Attio and does not need its key. |
 | `pnpm sync-attio -- --dry-run` | Explicit form of the same preview. It still reads live Recoup accounts. |
-| `pnpm sync-attio -- --apply` | Explicitly requests live Attio writes. Requires both credentials. The legacy Attio request needs verification before use. |
+| `pnpm sync-attio -- --apply` | Explicitly requests live Attio writes. Requires both credentials. The request contract has offline coverage; live integration still needs a controlled verification. |
 
 All commands accept `--help`. Unknown or conflicting flags fail before accessing accounts. CRM preview and normal error logs omit contact addresses. Applying a sync returns a failing process status if any contact fails. The export files do contain account information; keep them out of the public repository. Repeating an export for the same date and segment replaces that file.
 
@@ -49,11 +49,13 @@ Those are inherited grouping rules. Verification time is not evidence of a produ
 
 The files in `sequences/` are **historical drafts, not approved current campaigns**. They do not send or schedule anything. Their old app links, feature claims, performance claims, testimonials, and cadence assumptions must be checked or rewritten before use. The package cannot evaluate the artist/chat conditions or fill all the placeholders those drafts describe. There is no unsubscribe, suppression, or delivery tracking implementation.
 
-The old CRM command submits only an email address. It does not transfer attribution, company details, qualification, signup dates, or segments. Its request puts `matching_attribute` in the JSON body. The existing Recoup API helper, `api/lib/attio/assertPersonByEmail.ts` in the mono checkout, instead puts it in the URL query. This migration preserves that legacy request for review; **live compatibility has not been verified**. Do not treat `--apply` as proof that the integration is ready.
+The CRM command submits only a normalized email address. It does not transfer attribution, company details, qualification, signup dates, or segments. `lib/upsertAttioContact.ts` sends `matching_attribute=email_addresses` in the query string, matching the maintained central API helper (`api/lib/attio/assertPersonByEmail.ts` in Mono), with offline request fixtures. It requires a returned record ID, bounds requests to 30 seconds, and reports uncertain writes without automatic retries. **Live compatibility has not been verified**.
+
+This maintained writer cannot replay merged company IDs: it builds an explicit email-only payload and ignores additional source fields. It neither creates companies nor consumes reconciliation receipts. Do not restore historical name-only company import scripts or pass cached company IDs into this writer. Any future company writer must resolve the private merge map, verify the destination still exists and fail for review on missing or ambiguous identities; it must not create a replacement from a name alone. Attio email sync, workspace workflows, the central API and external integrations require separate review.
 
 The marketing website already sends captured form submissions through `lib/leads/postLead.ts` to the central Recoup API. That API owns CRM storage and sales notifications. The imported script is a separate operator tool; it should not become another browser-side Attio client, and the form endpoint should not be used as a silent bulk import.
 
-Other inherited gaps include direct CSV joining without escaping, no validated API response shape, no client timeout/retry, and no checkpoint for interrupted syncs. These are explicit follow-up tasks, not capabilities delivered by the consolidation.
+Other inherited gaps include direct CSV joining without escaping, no automatic retry and no checkpoint for interrupted syncs. These are explicit follow-up tasks, not capabilities delivered by the consolidation.
 
 ## Where to build next
 

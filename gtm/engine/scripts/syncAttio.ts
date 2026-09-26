@@ -1,6 +1,6 @@
 /**
- * Legacy Privy-to-Attio email-record sync. Preview is the default.
- * The old request shape and custom-field assumptions need verification.
+ * Privy-to-Attio email-record sync. Preview is the default.
+ * Only email is submitted; no company links or other CRM fields are sent.
  *
  * Usage:
  *   pnpm sync-attio                   # aggregate preview; no Attio writes
@@ -10,52 +10,8 @@
  * Reads require RECOUP_ADMIN_TOKEN; --apply also requires ATTIO_API_KEY.
  */
 
-import type { SegmentedContact } from "../lib/segmentation.js";
 import { parseArguments, printHelp } from "../lib/cli.ts";
-
-const ATTIO_BASE_URL = "https://api.attio.com/v2";
-
-interface AttioResult {
-  success: boolean;
-  error?: string;
-}
-
-async function upsertAttioContact(
-  apiKey: string,
-  contact: SegmentedContact,
-): Promise<AttioResult> {
-  if (!contact.email) {
-    return { success: false, error: "No email" };
-  }
-
-  try {
-    const response = await fetch(`${ATTIO_BASE_URL}/objects/people/records`, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        data: {
-          values: {
-            email_addresses: [{ email_address: contact.email }],
-            // Attio custom fields — create these in your Attio workspace
-            // to capture signup date, segment, and login method
-          },
-        },
-        matching_attribute: "email_addresses",
-      }),
-    });
-
-    if (!response.ok) {
-      return { success: false, error: `HTTP ${response.status}` };
-    }
-
-    return { success: true };
-  } catch {
-    return { success: false, error: "Request failed" };
-  }
-}
+import { upsertAttioContact } from "../lib/upsertAttioContact.ts";
 
 async function main() {
   const { help, segment: segmentFilter, apply } = parseArguments("sync-attio", process.argv.slice(2));
