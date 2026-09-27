@@ -1,3 +1,7 @@
+## Established methods in present tense — September 27, 2026
+
+Updated catalog-reporting copy and excerpt to describe Recoup’s working method in present tense. Preserved the illustrative numbers/output and review conditions. Reframed rollout advice as a recommendation, without claiming planned department work has happened.
+
 ## Catalog reporting article — September 27, 2026
 
 Prepared the approved article on agent-assisted catalog reporting for publication, with a Recoup CTA, existing cover and three reviewed inline diagrams. Kept the featured blog entry unchanged. Public body excludes private source metadata. Deployment verification is recorded with the publication receipt in Business.
