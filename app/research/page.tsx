@@ -10,7 +10,7 @@ export const metadata = withPageMetadata({
 });
 
 export default function ResearchPage() {
-  return <main className="research-page">
+  return <main id="main" className="research-page">
     <header>
       <p className="research-kicker">RECOUP RESEARCH</p>
       <h1>A clearer view of AI.<br />For the business of music.</h1>
@@ -33,7 +33,7 @@ export default function ResearchPage() {
       </ol>
       <p>You can judge this assignment: did it find the changes, show the evidence, and leave you with a useful decision list?</p>
       <p>Once the report is dependable, you can decide whether to give the agent more responsibility.</p>
-      <Link className="sp-button" href="/start-project?utm_source=research&utm_medium=website&utm_campaign=first-agent">Discuss a task you want handled</Link>
+      <Link className="sp-button" href="/start-project?utm_source=research&utm_medium=website&utm_campaign=first-agent&utm_id=rr-2026-09-28-01">Discuss a task you want handled</Link>
     </article>
   </main>;
 }
