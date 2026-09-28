@@ -1,6 +1,6 @@
 ## AI workflow handoff article — September 28, 2026
 
-Published the reviewed “Your AI lives in one person's head” revision at its existing URL, with active Recoup service framing, a catalog-report handoff example, and an inquiry CTA. Retained the reviewed cover and three inline illustrations. Original publication date preserved; modification date updated.
+Published the reviewed “Your AI lives in one person's head” revision at its existing URL, with active Recoup service framing, a catalog-report handoff example, and an inquiry CTA. Retained the reviewed cover and three inline illustrations. Publication date is September 28, 2026, as confirmed by Sidney. Removed the separate modification date.
 
 ## Established methods in present tense — September 27, 2026
 
