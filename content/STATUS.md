@@ -1,3 +1,7 @@
+## AI workflow handoff article — September 28, 2026
+
+Published the reviewed “Your AI lives in one person's head” revision at its existing URL, with active Recoup service framing, a catalog-report handoff example, and an inquiry CTA. Retained the reviewed cover and three inline illustrations. Original publication date preserved; modification date updated.
+
 ## Established methods in present tense — September 27, 2026
 
 Updated catalog-reporting copy and excerpt to describe Recoup’s working method in present tense. Preserved the illustrative numbers/output and review conditions. Reframed rollout advice as a recommendation, without claiming planned department work has happened.
