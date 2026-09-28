@@ -22,7 +22,10 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
     return <>{children}</>;
   if (pathname === "/research") return <>
     <Suspense fallback={null}><ReferralCapture /></Suspense>
-    {children}
+    <div className="sky-site research-shell">
+      <SkySiteHeader />
+      {children}
+    </div>
   </>;
   const isWorkflowPlan = pathname === "/workflow-plan" || pathname === "/ask";
   const page = (toggle?: React.ReactNode) => (
