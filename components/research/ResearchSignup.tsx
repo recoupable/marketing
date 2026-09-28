@@ -33,14 +33,14 @@ export function ResearchSignup() {
     } catch { setStatus("error"); }
     finally { pending.current = false; }
   }
-  if (status === "success") return <p role="status">You’re subscribed to Recoup Research. Read your first example below.</p>;
+  if (status === "success") return <p role="status">You’re on the list. Welcome to Recoup Research.</p>;
   return <form onSubmit={submit} aria-label="Subscribe to Recoup Research">
     <label htmlFor="research-email">Your email</label>
     <div className="research-fields">
-      <input id="research-email" name="email" type="email" autoComplete="email" required maxLength={254} value={email} onChange={event => setEmail(event.target.value)} placeholder="you@company.com" disabled={!hydrated || status === "busy"} />
+      <input id="research-email" name="email" type="email" autoComplete="email" required maxLength={254} value={email} onChange={event => setEmail(event.target.value)} placeholder="Your email address" disabled={!hydrated || status === "busy"} />
       <button className="sp-button" disabled={!hydrated || status === "busy"} type="submit">{status === "busy" ? "Joining…" : "Subscribe ↗"}</button>
     </div>
     <p className="research-note">Recoup Research, by email. Unsubscribe anytime. <Link href="/privacy">Privacy</Link>.</p>
-    {status === "error" && <p role="alert">We couldn’t confirm your subscription. Please try again later. You can still read the example below.</p>}
+    {status === "error" && <p role="alert">We couldn’t confirm your subscription. Please try again later.</p>}
   </form>;
 }

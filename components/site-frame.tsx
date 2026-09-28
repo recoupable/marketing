@@ -20,6 +20,10 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
   // The Brand Studio has its own navigation and main landmark.
   if (pathname === "/brand" || pathname.startsWith("/brand/"))
     return <>{children}</>;
+  if (pathname === "/research") return <>
+    <Suspense fallback={null}><ReferralCapture /></Suspense>
+    {children}
+  </>;
   const isWorkflowPlan = pathname === "/workflow-plan" || pathname === "/ask";
   const page = (toggle?: React.ReactNode) => (
     <div className="sky-site">
