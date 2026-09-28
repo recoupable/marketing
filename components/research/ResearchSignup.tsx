@@ -38,9 +38,9 @@ export function ResearchSignup() {
     <label htmlFor="research-email">Your email</label>
     <div className="research-fields">
       <input id="research-email" name="email" type="email" autoComplete="email" required maxLength={254} value={email} onChange={event => setEmail(event.target.value)} placeholder="you@company.com" disabled={!hydrated || status === "busy"} />
-      <button className="sp-button" disabled={!hydrated || status === "busy"} type="submit">{status === "busy" ? "Joining…" : "Send me Recoup Research"}</button>
+      <button className="sp-button" disabled={!hydrated || status === "busy"} type="submit">{status === "busy" ? "Joining…" : "Subscribe ↗"}</button>
     </div>
-    <p className="research-note">By subscribing, you agree to receive Recoup Research by email. Unsubscribe anytime. <Link href="/privacy">Privacy</Link>.</p>
+    <p className="research-note">Recoup Research, by email. Unsubscribe anytime. <Link href="/privacy">Privacy</Link>.</p>
     {status === "error" && <p role="alert">We couldn’t confirm your subscription. Please try again later. You can still read the example below.</p>}
   </form>;
 }
