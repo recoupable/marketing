@@ -1,6 +1,6 @@
-.sky-site { --paper:#fff; --ink:#152e37; --muted:#586f78; --line:#e2e9eb; --orange:#087fb9; --display:"DM Sans Variable",sans-serif; --body:"DM Sans Variable",sans-serif; color:var(--ink); background:#fff; font-family:var(--body); min-height:100vh; padding:0 clamp(18px,3.6vw,60px) 24px; }
+.sky-site { --display:"DM Sans Variable",sans-serif; --body:"DM Sans Variable",sans-serif; color:var(--ink); background:#fff; font-family:var(--body); min-height:100vh; padding:0 clamp(18px,3.6vw,60px) 24px; }
 .sky-site ::selection { background:#d6ff62; color:#183527; }
-.sky-site :is(a,button,input,select,textarea,summary):focus-visible { outline:3px solid #087fb9; outline-offset:5px; }
+.sky-site :is(a,button,input,select,textarea,summary):focus-visible { outline:3px solid #087bab; outline-offset:5px; }
 .sky-site :is(h1,h2,h3,h4) { font-family:var(--body); }
 .sky-site .sky-arrow-icon { width:20px; height:20px; flex:0 0 auto; }
 .ss-header { position:relative; z-index:30; display:flex; align-items:center; gap:32px; max-width:1320px; min-height:100px; margin:auto; }

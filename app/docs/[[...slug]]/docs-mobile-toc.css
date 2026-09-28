@@ -42,7 +42,7 @@
     overflow-wrap:anywhere;
   }
   .docs-mobile-toc :is(summary,a):focus-visible {
-    outline:2px solid #087fb9;
+    outline:2px solid #087bab;
     outline-offset:2px;
     border-radius:4px;
   }

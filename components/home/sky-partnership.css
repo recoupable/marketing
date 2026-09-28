@@ -197,7 +197,7 @@
 
 .sky-content .sky-section.sky-tools { padding-top: 38px; padding-bottom: clamp(62px, 6.5vw, 92px); }
 .sky-tools-tray { display: grid; grid-template-columns: .93fr 1.3fr; gap: 11px; padding: 10px; margin-top: 44px; background: #f2f3f3; border-radius: 23px; }
-.sky-tool { position: relative; min-width: 0; padding: 28px; border-radius: 15px; border: 1px solid #e7ecea; background: #fff; color: #173039; box-shadow: 0 2px 2px #18322c0a; transition: box-shadow 200ms; }
+.sky-tool { position: relative; min-width: 0; padding: 28px; border-radius: 15px; border: 1px solid #e7ecea; background: #fff; color: #152e37; box-shadow: 0 2px 2px #18322c0a; transition: box-shadow 200ms; }
 .sky-tool:hover { box-shadow: 0 3px 6px #18322c0c, 0 12px 25px #18322c0e; }
 .sky-tool-label { display: flex; align-items: center; justify-content: space-between; gap: 15px; width: 100%; font-family: "IBM Plex Mono", monospace; font-size: 10px; line-height: 1.5; letter-spacing: .06em; }
 .sky-tool-label > .sky-arrow-icon { width: 17px; height: 17px; }
