@@ -1,5 +1,9 @@
 # Published Posts
 
+## September 28, 2026
+
+- `/blog/your-ai-lives-in-one-persons-head` — Your AI lives in one person's head. Publication date confirmed by Sidney; September 14 replaced with September 28. Source: `content/blog/posts.json`.
+
 ## September 27, 2026
 
 - `/blog/ai-agents-for-music-catalog-reporting` — Is your music catalog earning what you expected? Approved Recoup consulting POV, three explanatory figures, and a recoupable.com CTA. Source: `content/blog/posts.json`.
@@ -15,7 +19,6 @@ The investment-memo article was revised September 14 to explain the one-session 
 
 | Slug | Title | Type | Status |
 | --- | --- | --- | --- |
-| your-ai-lives-in-one-persons-head | Your AI lives in one person's head | article | published |
 | automate-royalty-reporting-with-existing-files | Use AI to bring catalog data into your quarterly report | article | published |
 | teach-ai-with-past-investment-memos | Use past investment memos to teach AI how your firm evaluates deals | article | published |
 | roll-out-ai-beyond-first-team | How to roll out AI beyond your first successful team | article | published |
