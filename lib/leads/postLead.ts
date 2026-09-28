@@ -20,7 +20,10 @@ export async function postLead(payload: Record<string, unknown>, fetcher: typeof
     });
     const body: unknown = await response.json().catch(() => null);
     const record = body && typeof body === "object" ? (body as Record<string, unknown>) : null;
-    if (response.status === 200 && record?.status === "success") return { ok: true };
+    if (response.status === 200 && record?.status === "success") {
+      if (payload.newsletter_consent && record.newsletter_enrolled !== true) return { ok: false, error: failure };
+      return { ok: true };
+    }
     const error = typeof record?.error === "string" && record.error ? record.error : failure;
     return { ok: false, error };
   } catch (err) {
