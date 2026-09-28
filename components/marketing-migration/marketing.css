@@ -39,7 +39,7 @@
 .mm-resource-card > span { font-family:"IBM Plex Mono",monospace; font-size:10px; color:#5c7c8a; }
 .mm-resource-card h3 { font-size:27px; font-weight:450; letter-spacing:-.04em; line-height:1.18; margin:26px 0 12px; }
 .mm-resource-card p { font-size:14px; color:#5a7580; line-height:1.65; margin-bottom:23px; }
-.mm-resource-card > svg { margin-top:auto; color:#087fb9; }
+.mm-resource-card > svg { margin-top:auto; color:#087bab; }
 .mm-resource-card:first-child { background:#e8f6ff; }
 .mm-resource-card:nth-child(2) { background:#edf7dc; }
 .mm-price-card { display:flex; flex-direction:column; }

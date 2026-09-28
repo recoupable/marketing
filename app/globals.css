@@ -2,12 +2,12 @@
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
 :root {
-  --paper: #f2f0e9;
-  --paper-dark: #e7e5dc;
-  --ink: #20201d;
-  --muted: #66665e;
-  --line: #d3d1c7;
-  --orange: #f44d2b;
+  --paper: #fff;
+  --paper-dark: #f1f3f3;
+  --ink: #152e37;
+  --muted: #586f78;
+  --line: #e2e9eb;
+  --orange: #087bab;
   --display: "DM Sans Variable", sans-serif;
   --body: "DM Sans Variable", sans-serif;
   --font-sans: "DM Sans Variable";
@@ -617,7 +617,7 @@ h2 em {
   }
 }
 
-.valuation-tool { --foreground: #173039; --background: #fff; --border: #dbe7eb; --muted: #eef5f7; --muted-foreground: #55707b; color: #173039; padding: 24px 0 56px; }
+.valuation-tool { --foreground: #152e37; --background: #fff; --border: #e2e9eb; --muted: #f0f7fa; --muted-foreground: #586f78; color: #152e37; padding: 24px 0 56px; }
 .valuation-tool button { cursor: pointer; }
 
 @layer base {

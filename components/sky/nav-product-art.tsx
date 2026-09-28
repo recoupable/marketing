@@ -6,7 +6,7 @@ export function NavProductArt({ kind }: { kind: "platform" | "skills" | "develop
       <circle cx="36" cy="27" r="2" fill="#9ab5c1" /><circle cx="43" cy="27" r="2" fill="#cedee5" />
       <path d="M35 50h15M35 61h11M35 72h14" stroke="#c4d9e2" strokeWidth="3" strokeLinecap="round" />
       {[49, 70, 91].map((y, i) => <g key={y}>
-        <rect x="72" y={y - 5} width="14" height="14" rx="4" fill={["#087fb9", "#d6e6c4", "#efce97"][i]} />
+        <rect x="72" y={y - 5} width="14" height="14" rx="4" fill={["#087bab", "#d6e6c4", "#efce97"][i]} />
         <path d={`M95 ${y}h${45 - i * 7}M95 ${y + 7}h30`} stroke="#b8cdd5" strokeWidth="3" strokeLinecap="round" />
         <circle cx="157" cy={y + 2} r="3" fill="#dbe9ee" />
       </g>)}

@@ -12,14 +12,14 @@
 .docs-playground-field > :is(input, textarea) { width: 100%; min-width: 0; padding: 11px 13px; border: 1px solid #95acb5; border-radius: 9px; background: #fff; color: #152e37; font: inherit; font-size: 16px; line-height: 1.5; }
 .docs-playground-field > textarea { min-height: 170px; font-family: "IBM Plex Mono", monospace; font-size: 13px; line-height: 1.7; resize: vertical; tab-size: 2; }
 .docs-playground-field > :is(input, textarea)::placeholder { color: #7c919b; opacity: 1; }
-.docs-playground-field > :is(input, textarea):focus-visible { outline: 2px solid #087fb9; outline-offset: 2px; }
+.docs-playground-field > :is(input, textarea):focus-visible { outline: 2px solid #087bab; outline-offset: 2px; }
 .docs-playground-hint { margin: 0; font-size: 12px; line-height: 1.5; color: #586f78; }
 .docs-playground .docs-code { margin: 18px 0 14px; }
 .docs-playground-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
 .docs-playground-send { min-height: 48px; padding: 12px 24px; border: 0; border-radius: 32px; background: #d6ff62; color: #173527; font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .02em; cursor: pointer; transition: background .18s, translate .18s; }
 .docs-playground-send:hover { background: #c5f044; translate: 0 -2px; }
 .docs-playground-send:disabled { opacity: .6; cursor: wait; translate: none; }
-.docs-playground-send:focus-visible { outline: 2px solid #087fb9; outline-offset: 3px; }
+.docs-playground-send:focus-visible { outline: 2px solid #087bab; outline-offset: 3px; }
 .docs-playground-note { margin: 0; font-size: 14px; line-height: 1.6; color: #586f78; }
 .docs-playground-response { margin-top: 16px; min-width: 0; }
 .docs-playground-status { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 14px; color: #385b6b; }

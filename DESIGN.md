@@ -205,7 +205,7 @@ Homepage modules retain nearby values: `.sky-page` uses ink `#142E3A`; `.sky-con
 
 Calculated solid-color pairs: ink on white **14.21:1**, muted on white **5.30:1**, CTA ink on lime **12.56:1**, and text-link blue on white **4.74:1**. These are pair checks, not a site accessibility certification.
 
-Two existing values need care: white on `#007EBD` is **4.45:1**, and `#087FB9` on white is **4.42:1**. Neither meets the 4.5:1 normal-text threshold. Do not use them as approved small-text pairs. Prefer the existing darker text-link color for new inline links; check image and gradient text at its actual position. Lime on white is only **1.15:1**: it is a fill or decorative accent, not readable text or a standalone focus indicator there.
+White on `#007EBD` is **4.45:1**, below the 4.5:1 normal-text threshold: do not use it as a small-text pair. The old `#087FB9` link and focus blue was retired for `#087BAB` everywhere (2026-09-28); check image and gradient text at its actual position. Lime on white is only **1.15:1**: it is a fill or decorative accent, not readable text or a standalone focus indicator there.
 
 Use text as well as color for state: **Needs review**, **Matches**, **Draft**, **Saved**, or a specific error. Lime may draw attention to an exception; it must not imply that every highlighted number is a success. Preserve real customer-logo colors and proportions.
 
