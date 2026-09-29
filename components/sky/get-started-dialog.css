@@ -60,18 +60,19 @@ html:has(.ss-start-dialog[open]) { overflow: hidden; }
 .ss-start-arrow {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   margin-top: auto;
+  margin-inline-start: auto;
   background: var(--start-lime);
   color: var(--start-forest);
   border-radius: 50%;
-  transition: transform .18s;
 }
+.ss-start-arrow .sky-arrow-icon { transition: transform .18s; }
 .ss-start-card:focus-visible { box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--start-forest); }
 @media (hover: hover) and (pointer: fine) {
   .ss-start-card:hover { transform: translateY(-4px); box-shadow: inset 0 1px 0 #ffffff26, 0 12px 24px #132b2633; }
-  .ss-start-card:hover .ss-start-arrow { transform: rotate(45deg); }
+  .ss-start-card:hover .ss-start-arrow .sky-arrow-icon { transform: translateX(3px); }
 }
 @media (max-width: 900px) {
   .ss-header .ss-get-started { gap: 7px; padding-inline: 11px; }
@@ -85,9 +86,9 @@ html:has(.ss-start-dialog[open]) { overflow: hidden; }
   .ss-header .ss-start-card > .ss-nav-art { display: none; }
   .ss-start-card h3 { font-size: 21px; }
   .ss-start-card p { margin-bottom: 0; font-size: 14px; }
-  .ss-start-arrow { position: absolute; right: 16px; top: 20px; width: 32px; height: 32px; }
+  .ss-start-arrow { position: absolute; right: 16px; top: 50%; width: 40px; height: 40px; transform: translateY(-50%); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ss-start-card, .ss-start-arrow { transition: none; }
-  .ss-start-card:hover, .ss-start-card:hover .ss-start-arrow { transform: none; }
+  .ss-start-card, .ss-start-arrow .sky-arrow-icon { transition: none; }
+  .ss-start-card:hover, .ss-start-card:hover .ss-start-arrow .sky-arrow-icon { transform: none; }
 }
