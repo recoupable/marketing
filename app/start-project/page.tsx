@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ConsultationOutcomes } from "@/components/inquiry/ConsultationOutcomes";
+import { InquiryReportPreview } from "@/components/inquiry/InquiryReportPreview";
 import { InquiryForm } from "@/components/inquiry/InquiryForm";
 import { SelectedPlanAside } from "@/components/inquiry/SelectedPlanAside";
 import { generalInterests, podcastGuestInterest } from "@/lib/inquiry-topics";
@@ -71,6 +72,7 @@ export default async function StartProjectPage({
           <h2>{copy.nextTitle}</h2>
           <p>{copy.next}</p>
         </div>}
+        {copy.outcomes && <InquiryReportPreview />}
       </div>
       <div className="lead-page-form">
         {pricingSelection && <SelectedPlanAside selection={pricingSelection} />}

@@ -1,6 +1,6 @@
 import { podcastGuestInterest } from "../inquiry-topics.ts";
 
-export type StartProjectCopy = { kicker: string; title: string; intro: string; nextTitle: string; next: string; qualified: boolean; outcomes?: readonly string[] };
+export type StartProjectCopy = { kicker: string; title: string; intro: string; nextTitle: string; next: string; qualified: boolean; outcomes?: readonly { title: string; description: string }[] };
 
 /** The /start-project page copy for a given preselected interest; a podcast guest is an invitation, not a project brief. */
 export function startProjectCopy({ interest }: { interest: string }): StartProjectCopy {
@@ -17,13 +17,13 @@ export function startProjectCopy({ interest }: { interest: string }): StartProje
   if (interest === "Custom systems") return {
     kicker: "Custom AI systems",
     title: "Your business. Your AI.",
-    intro: "Give your team an AI system built for the way your business works. We connect your knowledge, tools, and workflows so your team can get answers, automate the busywork, and move from idea to action.",
+    intro: "We design and build a custom AI system for your business. Your team gets one place to work with your company’s knowledge, run processes, and get things done across the tools you already use.",
     nextTitle: "Built around your business",
     next: "We’ll email you to arrange a time.",
     outcomes: [
-      "Find answers across your company’s documents and data",
-      "Connect the tools your team already uses",
-      "Turn research, reporting, and recurring tasks into AI workflows",
+      { title: "Answers grounded in your business.", description: "Ask questions across your documents, data, and systems." },
+      { title: "Work your AI can take on.", description: "Research, prepare reports, and carry out repeatable processes." },
+      { title: "Built around your team.", description: "Your tools, your processes, your way of working." },
     ],
     qualified: true,
   };

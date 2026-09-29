@@ -1,3 +1,7 @@
+## 2026-09-29 — Concrete AI capabilities and product output
+
+Sharpened custom AI intake copy with titled capabilities and a clearer discussion of scope and starting point. Added a compact preview linking to the existing real weekly report from the Recoup platform (originally published in #82 using public streaming data). It is labeled as platform output, not a custom client case study. Form fields and submission behavior are unchanged. This revision is local until PR #139 is merged and deployed.
+
 ## 2026-09-29 — Custom AI system positioning
 
 Replaced the software/consultation-led pitch with “Your business. Your AI.” and a concrete offer to build a custom AI system around company knowledge, tools and workflows. Removed the case-study block. The form says “Let’s build your AI system” and “Start my AI project,” while retaining the email conversation as the next step.

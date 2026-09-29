@@ -17,7 +17,7 @@ export function inquiryLabels({ variant, qualified, freeAudit, connected, guest 
     formLabel: "Project inquiry",
     heading: buildConsultation ? "Let’s build your AI system" : "Request a consultation",
     formIntro: buildConsultation
-      ? "Share a few details. We’ll email you to arrange a conversation about your AI system and how to bring it to life."
+      ? "We’ll explore what it could do for your team, what it would take to build, and where to start. We’ll email you to arrange a time."
       : "Share a few details. We’ll email you to arrange a time.",
     interestLabel: "What can we help with? *",
     interestPlaceholder: "Choose a starting point",

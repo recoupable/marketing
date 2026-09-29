@@ -9,7 +9,7 @@
   color: #152e37;
 }
 
-.lead-page-copy { position: sticky; top: 32px; min-width: 0; padding-top: 16px; }
+.lead-page-copy { position: relative; min-width: 0; padding-top: 16px; }
 .lead-page-copy > .sp-kicker { margin-bottom: 24px; color: #586f78; }
 .lead-page h1 { max-width: 440px; font-size: clamp(43px, 4.35vw, 60px); font-weight: 450; line-height: 1.07; letter-spacing: -.055em; text-wrap: balance; }
 .lead-page-intro { max-width: 430px; margin-top: 25px; font-size: 17px; line-height: 1.7; color: #586f78; }
@@ -125,3 +125,15 @@
 .lead-page .lead-consultation-intro { margin: 0 0 20px; color: #586f78; font-size: 14px; line-height: 1.6; }
 .lead-page .compact-interest-summary { min-height: 36px; gap: 10px; padding-bottom: 8px; color: #586f78; font-size: 14px; font-weight: 400; }
 .lead-page .compact-interest-summary button { font-size: 13px; }
+
+.lead-consultation-outcomes li strong { display: block; font-weight: 550; }
+.lead-capability-description { display: block; margin-top: 3px; color: #586f78; font-size: 14px; }
+.lead-report-preview { margin: 28px 0 0; border-radius: 14px; background: #fff; box-shadow: 0 0 0 1px #d5e3e9, 0 8px 24px #113c4708; }
+.lead-report-preview a { display: block; border-radius: inherit; color: inherit; text-decoration: none; }
+.lead-report-preview a:focus-visible { outline: 3px solid #087bab; outline-offset: 4px; }
+.lead-report-image { height: 156px; overflow: hidden; border-radius: 14px 14px 0 0; background: #f5f9fa; }
+.lead-report-image img { display: block; width: 100%; height: auto; }
+.lead-report-preview figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; box-shadow: 0 -1px 0 #d5e3e9; }
+.lead-report-preview figcaption strong { display: block; font-size: 14px; font-weight: 550; }
+.lead-report-preview figcaption span span { display: block; margin-top: 3px; color: #586f78; font-size: 12px; }
+.lead-report-link { flex-shrink: 0; color: #087bab; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
