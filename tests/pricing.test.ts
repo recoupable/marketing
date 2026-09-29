@@ -11,6 +11,7 @@ import { validateInquiry } from "../lib/inquiries/validateInquiry.ts";
 
 const now = 1_800_000_000_000;
 const inquiry = {
+  qualification: { budget: "Not decided yet", timeline: "Just exploring", companyType: "", role: "", companyWebsite: "", phone: "", tools: "" } as const,
   name: "Taylor Example", email: "taylor@example.com", company: "Example Music",
   interest: "Custom systems", website: "", startedAt: now - 5000, source: "/start-project",
 };

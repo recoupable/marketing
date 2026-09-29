@@ -12,12 +12,12 @@ import { siteConfig } from "@/lib/config";
 
 export type InquiryStatus = "idle" | "sending" | "sent" | "error" | "email";
 export type PreparedEmail = ReturnType<typeof prepareInquiryEmail>;
-type Options = { source: InquirySource; plan?: string; connected: boolean; qualified: boolean; websitePath: string; pricingContext?: string };
+type Options = { source: InquirySource; plan?: string; connected: boolean; qualified: boolean; compact?: boolean; websitePath: string; pricingContext?: string };
 
 const qualificationKeys = ["companyType", "role", "companyWebsite", "phone", "budget", "timeline", "tools"] as const;
 
 /** Owns the submission lifecycle and the funnel events tied to it; no visitor details reach analytics. */
-export function useInquirySubmit({ source, plan, connected, qualified, websitePath, pricingContext }: Options) {
+export function useInquirySubmit({ source, plan, connected, qualified, compact = false, websitePath, pricingContext }: Options) {
   const startedAt = useRef(0);
   const [status, setStatus] = useState<InquiryStatus>("idle");
   const [preparedEmail, setPreparedEmail] = useState<PreparedEmail | null>(null);
@@ -49,7 +49,7 @@ export function useInquirySubmit({ source, plan, connected, qualified, websitePa
     let qualification: LeadQualification | undefined;
     if (qualified) {
       try {
-        qualification = validateLeadQualification(Object.fromEntries(qualificationKeys.map((key) => [key, text(key)])));
+        qualification = validateLeadQualification(Object.fromEntries(qualificationKeys.map((key) => [key, text(key)])), { requireCompanyType: !compact });
       } catch (error) {
         setQualificationError(error instanceof Error ? error.message : "Please check the company and project details.");
         trackEvent("inquiry_failed", { source, reason: "validation" });

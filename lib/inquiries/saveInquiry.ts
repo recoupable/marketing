@@ -1,4 +1,5 @@
 import { leadQualificationEntries } from "../lead-qualification.ts";
+import { inquiryCompanyContext } from "../inquiry/inquiryCompanyContext.ts";
 import { InquiryError } from "./InquiryError.ts";
 import type { Inquiry } from "./validateInquiry.ts";
 
@@ -10,6 +11,7 @@ function isObject(value: unknown): value is Record<string, unknown> {
 export async function saveInquiry(inquiry: Inquiry, fingerprint: string, apiUrl: string, transport: typeof fetch): Promise<void> {
   const message = [
     inquiry.message,
+    ...(!inquiry.company ? [inquiryCompanyContext(inquiry.email)] : []),
     ...(inquiry.qualification ? leadQualificationEntries(inquiry.qualification).map(([label, value]) => `${label}: ${value}`) : []),
     `Submission ID: ${fingerprint}`,
   ].join("\n\n");
@@ -18,7 +20,7 @@ export async function saveInquiry(inquiry: Inquiry, fingerprint: string, apiUrl:
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       kind: "booking", source: inquiry.source,
-      name: inquiry.name, email: inquiry.email, company: inquiry.company,
+      name: inquiry.name, email: inquiry.email, ...(inquiry.company ? { company: inquiry.company } : {}),
       package: inquiry.interest, message,
     }),
     cache: "no-store", redirect: "error", signal: AbortSignal.timeout(20_000),

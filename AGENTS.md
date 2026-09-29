@@ -278,3 +278,7 @@ The readiness result action takes visitors to `/contact?brief=readiness`. Only t
 ## Workflow-plan lead magnet
 
 `/workflow-plan` and `/ask` now use the public Eve agent in `agent/`, streamed through `/api/website-agent`. The UI is in `components/website-agent/`: AI Elements for conversation, input, activity, sources, suggestions and report artifacts; shadcn Message Scroller for user-turn anchoring; JSON Render for validated reports. Keep research inside its transcript turn and compact questions inside the input, with the input fixed by the flex layout rather than an overlay. Preserve stopping, steering, source disclosure and download behavior. See `docs/website-agent.md` for configuration, access boundaries and validation. The old `components/workflow-plan/`, `lib/workflow-plan/` and `/api/workflow-plan` interview remain for compatibility. Do not claim email delivery or deployed behavior from local verification.
+
+### Compact project intake
+
+`/start-project` uses `InquiryForm` in compact mode: name, email, interest, optional tools, required budget and timing. Company and a short note sit in an optional disclosure. Imported briefs and pricing context survive submission and email fallback. Company is never guessed from email: its domain is recorded as an unverified research hint. The server relaxes company/brief requirements only for non-podcast project inquiries; other sources retain existing validation.

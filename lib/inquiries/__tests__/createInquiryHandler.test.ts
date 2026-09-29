@@ -54,3 +54,51 @@ describe("createInquiryHandler", () => {
     expect(calls).toHaveLength(0);
   });
 });
+
+
+describe("compact project intake", () => {
+  const project = { ...valid, source: "/start-project", company: "", message: "",
+    qualification: { budget: "$10,000–$25,000", timeline: "Within 1–3 months", tools: "Excel, DISCO" } };
+
+  it("saves an inquiry without a company or essay and preserves qualification", async () => {
+    const { handle, calls } = handler();
+    expect((await handle(request(project))).status).toBe(200);
+    expect(calls[0].body).not.toHaveProperty("company");
+    expect(calls[0].body.message).toContain("Email domain (company unverified): example.com");
+    expect(calls[0].body.message).toContain("$10,000–$25,000");
+    expect(calls[0].body.message).toContain("Within 1–3 months");
+    expect(calls[0].body.message).toContain("Excel, DISCO");
+  });
+
+  it("accepts omitted optional fields and never assigns a personal email provider as a company", async () => {
+    const { handle, calls } = handler();
+    expect((await handle(request({ ...project, company: undefined, message: undefined, email: "taylor@gmail.com" }))).status).toBe(200);
+    expect(calls[0].body).not.toHaveProperty("company");
+    expect(calls[0].body.message).toContain("Company: Not provided");
+  });
+
+  it("preserves an optional company, short note, and selected-plan context", async () => {
+    const { handle, calls } = handler();
+    const message = "Hi!\n\nSelected plan: Partner (annual)";
+    expect((await handle(request({ ...project, company: "Example Music", message }))).status).toBe(200);
+    expect(calls[0].body.company).toBe("Example Music");
+    expect(calls[0].body.message).toContain(message);
+  });
+
+  it("requires valid budget and timing before forwarding", async () => {
+    const { handle, calls } = handler();
+    for (const qualification of [undefined, {}, { ...project.qualification, budget: "" }, { ...project.qualification, timeline: "tomorrow" }]) {
+      expect((await handle(request({ ...project, qualification }))).status).toBe(400);
+    }
+    expect(calls).toHaveLength(0);
+  });
+
+  it("keeps other forms and podcast inquiries strict", async () => {
+    const { handle, calls } = handler();
+    expect((await handle(request({ ...valid, company: "" }))).status).toBe(400);
+    expect((await handle(request({ ...valid, message: "" }))).status).toBe(400);
+    expect((await handle(request({ ...project, interest: "Podcast guest", qualification: undefined }))).status).toBe(400);
+    expect((await handle(request({ ...valid, source: "/start-project", interest: "Podcast guest" }))).status).toBe(200);
+    expect(calls).toHaveLength(1);
+  });
+});

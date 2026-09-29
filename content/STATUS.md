@@ -1,3 +1,7 @@
+## 2026-09-29 — Shorter project intake
+
+Removed audit language from project intake, metadata and agent-readable content. The form now shows six fields, with optional company and note in a disclosure. Budget and timing require an explicit choice; current tools remain optional. Submission and email recovery retain all answers and selected plan context, recording an email domain only as an unverified research hint. Podcast and other inquiry validation remain separate.
+
 ## Get Started navigation dialog — September 29, 2026
 
 Replaced the header and mobile-menu audit CTA with Get Started and the existing arrow. Both open a native modal with Try Our Platform (attributed app link) and Build Your Platform (`/start-project?workflow=Custom%20systems`, with Custom systems preselected) cards. Cards sit side by side on desktop and stack on phones. Platform uses Sky blue and Build uses forest green, with white text, trailing lime forward-arrow discs and shadow/arrow hover feedback that respects reduced motion while keeping the cards level. The shorter “Get started with Recoup.” heading, concrete descriptions and 20% smaller illustrations make the dialog more compact. Desktop arrows align at the bottom right; mobile arrows center on the trailing edge. Each card remains one link. Escape, close button, backdrop dismissal, background inertness, and focus return are preserved. Production build (Node 24 with the existing public Privy app ID), TypeScript, scoped lint, and desktop/390px browser checks passed locally. Not deployed.

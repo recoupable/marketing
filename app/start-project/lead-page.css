@@ -85,3 +85,10 @@
   .lead-page h1 { font-size: 37px; }
   .sky-site .lead-page .lead-inquiry { padding-inline: 16px; }
 }
+
+/* Optional context stays available without expanding the initial questionnaire. */
+.lead-page .compact-inquiry-extra > summary { min-height: 44px; display: list-item; align-content: center; cursor: pointer; color: #254552; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
+.lead-page .compact-inquiry-extra > .form-field { margin-top: 16px; }
+.lead-page .compact-inquiry .form-field > textarea { min-height: 84px; }
+
+.lead-page .compact-inquiry .inquiry-fields > .button { font-family: "DM Sans Variable", sans-serif; font-size: 16px; font-weight: 550; letter-spacing: 0; }
