@@ -8,6 +8,7 @@ import { catalogDirections } from "@/lib/catalog-directions";
 import { generalInterests, podcastGuestInterest } from "@/lib/inquiry-topics";
 import type { InquirySource } from "@/lib/inquiry/inquirySourceSchema";
 import { siteConfig } from "@/lib/config";
+import { CompactInquiryInterest } from "./CompactInquiryInterest";
 import { CompactInquiryFields } from "./CompactInquiryFields";
 import { InquiryBudgetFields } from "./InquiryBudgetFields";
 import { InquiryCompanyFields } from "./InquiryCompanyFields";
@@ -35,10 +36,11 @@ export type InquiryFormProps = {
   qualified?: boolean;
   freeAudit?: boolean;
   compact?: boolean;
+  preselectedProject?: boolean;
   readinessHandoff?: boolean;
 };
 
-export function InquiryForm({ source, connected, variant, initialInterest, initialBrief, pricingContext, plan, qualified = false, freeAudit = false, compact = false, readinessHandoff = false }: InquiryFormProps) {
+export function InquiryForm({ source, connected, variant, initialInterest, initialBrief, pricingContext, plan, qualified = false, freeAudit = false, compact = false, preselectedProject = false, readinessHandoff = false }: InquiryFormProps) {
   const interestOptions = variant ? catalogDirections[variant].interestOptions : generalInterests;
   const selectedInterest = interestOptions.some((interest) => interest === initialInterest) ? initialInterest ?? "" : "";
   const hydrated = useSyncExternalStore(subscribeToHydration, clientReady, serverReady);
@@ -78,8 +80,8 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
   return (
     <form className={`inquiry-form${qualified || compact ? " lead-inquiry" : ""}${compactProject ? " compact-inquiry" : ""}`} method="post" action={source} onSubmit={inquiry.submit} onChange={inquiry.clearFeedback} onFocus={inquiry.markStarted}
       aria-label={labels.formLabel} aria-busy={status === "sending"} aria-describedby={connected ? undefined : "inquiry-handoff"}>
-      <h2>{labels.heading}</h2>
-      {(qualified || compact) && <p className="lead-field-help">{compactProject ? "No detailed brief needed. Fields marked * are required." : "Fields marked * are required. A rough starting point is enough."}</p>}
+      {!compactProject && <h2>{labels.heading}</h2>}
+      {!compactProject && (qualified || compact) && <p className="lead-field-help">Fields marked * are required. A rough starting point is enough.</p>}
       <noscript><p className="inquiry-no-script">To send an inquiry, email <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>. The form needs JavaScript to prepare or send your message.</p></noscript>
       <fieldset className="inquiry-fields" disabled={busy}>
         {!variant && (draftApplied ? <div className="agent-draft-import" role="status">
@@ -89,8 +91,9 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
         {!connected && <p className="form-note form-handoff" id="inquiry-handoff">This form prepares an email draft for you to review and send.</p>}
         <div className="form-grid">
           {needsQualification && !compactProject && <div className="lead-group-title wide"><h3><span>01</span> You & your company</h3></div>}
+          {compactProject && <CompactInquiryInterest preselected={preselectedProject} interestOptions={interestOptions} interestValue={interestValue} onInterestChange={setInterestValue} />}
           <InquiryIdentityFields nameInput={nameInput} compact={compactProject} />
-          {compactProject ? <CompactInquiryFields interestOptions={interestOptions} interestValue={interestValue} onInterestChange={setInterestValue} briefValue={briefValue} onBriefChange={setBriefValue} /> : <>
+          {compactProject ? <CompactInquiryFields briefValue={briefValue} onBriefChange={setBriefValue} /> : <>
             {needsQualification && <InquiryCompanyFields />}
             <InquiryWorkFields labels={labels} interestOptions={interestOptions} interestValue={interestValue} onInterestChange={setInterestValue} briefValue={briefValue} onBriefChange={setBriefValue} qualified={needsQualification} />
             {needsQualification && <InquiryBudgetFields note={labels.budgetNote} />}
@@ -101,7 +104,7 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
           <label htmlFor="website">Leave this field empty</label>
           <input id="website" name="website" tabIndex={-1} autoComplete="off" />
         </div>
-        <button className="button" type="submit" disabled={busy}>{status === "sending" ? "Sending your inquiry…" : labels.submit}<SkyArrow /></button>
+        <button className="button" type="submit" disabled={busy}>{status === "sending" ? "Sending your inquiry…" : labels.submit}<SkyArrow direction={compactProject ? "right" : "up-right"} /></button>
       </fieldset>
       {!compactProject && <p className="form-note">{connected && "We’ll use these details to respond to your inquiry. No mailing list. "}<a href="/privacy">Privacy policy</a></p>}
       {(status === "error" || status === "email") && inquiry.preparedEmail && <InquiryRecoveryPanel status={status} preparedEmail={inquiry.preparedEmail} qualified={qualified} />}

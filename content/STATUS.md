@@ -1,3 +1,7 @@
+## 2026-09-29 — Tighter project intake
+
+Custom systems intake now leads with “Build your platform.” and a short email follow-up explanation. Removed the repeated form heading and required-field explainer, tightened spacing, shortened budget/timing labels, and changed the action to “Send inquiry” with a forward arrow. Explicit Custom systems links show the submitted project type with a keyboard-accessible Change button; general intake keeps the dropdown.
+
 ## 2026-09-29 — Intake polish
 
 Removed the note beneath the compact project intake submit button. Native dropdowns now use an inset chevron and dedicated right padding so arrows and selected values stay clear of the edge; forced-color mode retains the system arrow.

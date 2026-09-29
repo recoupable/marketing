@@ -16,10 +16,10 @@ export function startProjectCopy({ interest }: { interest: string }): StartProje
   }
   return {
     kicker: "Start a project",
-    title: "Let’s build something useful.",
-    intro: "Share your tools, budget, and timing. We’ll help you figure out the next step.",
+    title: interest === "Custom systems" ? "Build your platform." : "Start your project.",
+    intro: "A few details to help us prepare for a conversation.",
     nextTitle: "What happens next",
-    next: "We’ll follow up by email to discuss your project. Scope and pricing are agreed together before work begins.",
+    next: "We’ll follow up by email.",
     qualified: true,
   };
 }

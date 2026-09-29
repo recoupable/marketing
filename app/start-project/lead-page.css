@@ -105,3 +105,14 @@
 @media (forced-colors: active) {
   .lead-page .lead-inquiry .form-field > select { appearance: auto; background-image: none; }
 }
+
+.lead-page-followup { margin-top: 16px; color: #586f78; font-size: 14px; line-height: 1.6; }
+.sky-site .lead-page .compact-inquiry { padding: 28px; }
+.lead-page .compact-inquiry .form-grid { gap: 18px; }
+.lead-page .compact-inquiry .inquiry-fields > .button { margin-top: 20px; }
+.compact-interest-summary { display: flex; align-items: center; gap: 12px; min-height: 44px; padding-bottom: 12px; box-shadow: 0 1px 0 #dce7ec; font-size: 16px; font-weight: 550; }
+.compact-interest-summary button { min-height: 44px; padding: 6px 4px; background: transparent; color: #087bab; font-family: inherit; font-size: 14px; font-weight: 400; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+@media (max-width: 600px) {
+  .sky-site .lead-page .compact-inquiry { padding: 22px 19px; }
+  .lead-page .compact-inquiry .form-grid { gap: 16px; }
+}

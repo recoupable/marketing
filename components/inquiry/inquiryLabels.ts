@@ -20,7 +20,7 @@ export function inquiryLabels({ variant, qualified, freeAudit, connected, guest 
     messageLabel: "Anything else? (optional)",
     messagePlaceholder: "A short note or question, if you have one.",
     budgetNote: "",
-    submit: connected ? "Let’s talk" : "Prepare email inquiry",
+    submit: connected ? "Send inquiry" : "Prepare email inquiry",
   };
   return {
     websitePath: freeAudit ? "Free AI audit /start-project" : qualified ? "Project brief /start-project"

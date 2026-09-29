@@ -66,10 +66,10 @@ export default async function StartProjectPage({
         <p className="sp-kicker">{copy.kicker}</p>
         <h1 id="lead-page-title">{copy.title}</h1>
         <p className="lead-page-intro">{copy.intro}</p>
-        <div className="lead-page-next">
+        {copy.qualified ? <p className="lead-page-followup">{copy.next}</p> : <div className="lead-page-next">
           <h2>{copy.nextTitle}</h2>
           <p>{copy.next}</p>
-        </div>
+        </div>}
       </div>
       <div className="lead-page-form">
         {pricingSelection && <SelectedPlanAside selection={pricingSelection} />}
@@ -79,6 +79,7 @@ export default async function StartProjectPage({
           key={`${initialInterest}:${selectedProject?.id ?? "general"}:${pricingSelection?.plan ?? "none"}:${pricingSelection?.billing ?? "monthly"}`}
           qualified={copy.qualified}
           compact
+          preselectedProject={requestedInterest === "Custom systems"}
           connected={true}
           initialInterest={initialInterest}
           initialBrief={initialBrief}
