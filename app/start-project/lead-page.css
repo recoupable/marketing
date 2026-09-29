@@ -92,3 +92,16 @@
 .lead-page .compact-inquiry .form-field > textarea { min-height: 84px; }
 
 .lead-page .compact-inquiry .inquiry-fields > .button { font-family: "DM Sans Variable", sans-serif; font-size: 16px; font-weight: 550; letter-spacing: 0; }
+
+/* Keep the native select interaction with an inset, unclipped chevron. */
+.lead-page .lead-inquiry .form-field > select {
+  appearance: none;
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23254552' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px 16px;
+}
+@media (forced-colors: active) {
+  .lead-page .lead-inquiry .form-field > select { appearance: auto; background-image: none; }
+}

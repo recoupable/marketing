@@ -1,3 +1,7 @@
+## 2026-09-29 — Intake polish
+
+Removed the note beneath the compact project intake submit button. Native dropdowns now use an inset chevron and dedicated right padding so arrows and selected values stay clear of the edge; forced-color mode retains the system arrow.
+
 ## 2026-09-29 — Shorter project intake
 
 Removed audit language from project intake, metadata and agent-readable content. The form now shows six fields, with optional company and note in a disclosure. Budget and timing require an explicit choice; current tools remain optional. Submission and email recovery retain all answers and selected plan context, recording an email domain only as an unverified research hint. Podcast and other inquiry validation remain separate.

@@ -103,7 +103,7 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
         </div>
         <button className="button" type="submit" disabled={busy}>{status === "sending" ? "Sending your inquiry…" : labels.submit}<SkyArrow /></button>
       </fieldset>
-      <p className="form-note">{connected && "We’ll use these details to respond to your inquiry. No mailing list. "}<a href="/privacy">Privacy policy</a></p>
+      {!compactProject && <p className="form-note">{connected && "We’ll use these details to respond to your inquiry. No mailing list. "}<a href="/privacy">Privacy policy</a></p>}
       {(status === "error" || status === "email") && inquiry.preparedEmail && <InquiryRecoveryPanel status={status} preparedEmail={inquiry.preparedEmail} qualified={qualified} />}
     </form>
   );
