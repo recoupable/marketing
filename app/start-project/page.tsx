@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ConsultationOutcomes } from "@/components/inquiry/ConsultationOutcomes";
 import { InquiryForm } from "@/components/inquiry/InquiryForm";
 import { SelectedPlanAside } from "@/components/inquiry/SelectedPlanAside";
 import { generalInterests, podcastGuestInterest } from "@/lib/inquiry-topics";
@@ -20,9 +21,9 @@ type StartProjectSearchParams = Promise<{
 }>;
 
 const projectMetadata = {
-  title: "Start your project with Recoup",
+  title: "Plan your next AI project with Recoup",
   description:
-    "Build AI software for your music business with Recoup. Share your current tools, budget and timing, and we’ll discuss the next step together.",
+    "Request a consultation to identify the right first AI project for your music business, how it fits your tools, and a practical scope, budget and timeline.",
 };
 const guestMetadata = {
   title: "Be a guest on the Recoup Podcast",
@@ -66,7 +67,7 @@ export default async function StartProjectPage({
         <p className="sp-kicker">{copy.kicker}</p>
         <h1 id="lead-page-title">{copy.title}</h1>
         <p className="lead-page-intro">{copy.intro}</p>
-        {copy.qualified ? <p className="lead-page-followup">{copy.next}</p> : <div className="lead-page-next">
+        {copy.outcomes ? <ConsultationOutcomes title={copy.nextTitle} outcomes={copy.outcomes} /> : copy.qualified ? <p className="lead-page-followup">{copy.next}</p> : <div className="lead-page-next">
           <h2>{copy.nextTitle}</h2>
           <p>{copy.next}</p>
         </div>}

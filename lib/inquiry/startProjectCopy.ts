@@ -1,6 +1,6 @@
 import { podcastGuestInterest } from "../inquiry-topics.ts";
 
-export type StartProjectCopy = { kicker: string; title: string; intro: string; nextTitle: string; next: string; qualified: boolean };
+export type StartProjectCopy = { kicker: string; title: string; intro: string; nextTitle: string; next: string; qualified: boolean; outcomes?: readonly string[] };
 
 /** The /start-project page copy for a given preselected interest; a podcast guest is an invitation, not a project brief. */
 export function startProjectCopy({ interest }: { interest: string }): StartProjectCopy {
@@ -14,9 +14,22 @@ export function startProjectCopy({ interest }: { interest: string }): StartProje
       qualified: false,
     };
   }
+  if (interest === "Custom systems") return {
+    kicker: "Your custom AI platform",
+    title: "Know what to build first.",
+    intro: "Turn your team’s manual work into software built around your business. Start with a consultation to identify the right first project.",
+    nextTitle: "What we’ll work through",
+    next: "We’ll email you to arrange a time.",
+    outcomes: [
+      "Where custom software could save your team time",
+      "How it would connect to your existing tools",
+      "A practical starting scope, budget, and timeline",
+    ],
+    qualified: true,
+  };
   return {
     kicker: "Start a project",
-    title: interest === "Custom systems" ? "Build your platform." : "Start your project.",
+    title: "Start your project.",
     intro: "A few details to help us prepare for a conversation.",
     nextTitle: "What happens next",
     next: "We’ll follow up by email.",

@@ -51,7 +51,7 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
   // Guest mode follows the interest the visitor currently has selected, not only the one the URL preselected.
   const compactProject = compact && interestValue !== podcastGuestInterest;
   const needsQualification = compact ? compactProject : qualified;
-  const labels = inquiryLabels({ variant, qualified: needsQualification, freeAudit, connected, compact: compactProject, guest: interestValue === podcastGuestInterest });
+  const labels = inquiryLabels({ variant, qualified: needsQualification, freeAudit, connected, compact: compactProject, buildConsultation: interestValue === "Custom systems", guest: interestValue === podcastGuestInterest });
   const [briefValue, setBriefValue] = useState(initialBrief ?? "");
   const [draftApplied, setDraftApplied] = useState(false);
   const inquiry = useInquirySubmit({ source, plan, connected, qualified: needsQualification, compact: compactProject, websitePath: labels.websitePath, pricingContext });
@@ -69,7 +69,7 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
     setBriefValue(draft.message);
     setDraftApplied(true);
   }
-  if (status === "sent") return <InquirySuccessPanel qualified={qualified} onReset={() => {
+  if (status === "sent") return <InquirySuccessPanel consultation={compactProject} qualified={qualified} onReset={() => {
     focusAfterReset.current = true;
     inquiry.reset();
     setInterestValue(selectedInterest);
@@ -80,7 +80,8 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
   return (
     <form className={`inquiry-form${qualified || compact ? " lead-inquiry" : ""}${compactProject ? " compact-inquiry" : ""}`} method="post" action={source} onSubmit={inquiry.submit} onChange={inquiry.clearFeedback} onFocus={inquiry.markStarted}
       aria-label={labels.formLabel} aria-busy={status === "sending"} aria-describedby={connected ? undefined : "inquiry-handoff"}>
-      {!compactProject && <h2>{labels.heading}</h2>}
+      <h2>{labels.heading}</h2>
+      {compactProject && <p className="lead-consultation-intro">{labels.formIntro}</p>}
       {!compactProject && (qualified || compact) && <p className="lead-field-help">Fields marked * are required. A rough starting point is enough.</p>}
       <noscript><p className="inquiry-no-script">To send an inquiry, email <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>. The form needs JavaScript to prepare or send your message.</p></noscript>
       <fieldset className="inquiry-fields" disabled={busy}>

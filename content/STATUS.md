@@ -1,3 +1,7 @@
+## 2026-09-29 — Consultation offer
+
+Reframed custom platform intake around choosing the right first build. Added three consultation topics and the existing published royalty-reporting example, with a clear consultation request heading, email scheduling explanation and matching success copy. The compact fields, validation, plan context and delivery paths stay intact.
+
 ## 2026-09-29 — Tighter project intake
 
 Custom systems intake now leads with “Build your platform.” and a short email follow-up explanation. Removed the repeated form heading and required-field explainer, tightened spacing, shortened budget/timing labels, and changed the action to “Send inquiry” with a forward arrow. Explicit Custom systems links show the submitted project type with a keyboard-accessible Change button; general intake keeps the dropdown.
