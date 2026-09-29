@@ -4,7 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, type MouseEvent } from "react";
 import { SkyArrow } from "@/components/sky/arrow";
-import { TrackedLink } from "@/components/analytics/TrackedLink";
+import { trackEvent } from "@/lib/analytics/trackEvent";
+import { getStartedCopy } from "@/lib/copy/get-started";
+import { GetStartedDialog } from "./get-started-dialog";
 import { PageMark } from "./brand";
 import { HeaderNavItems } from "./header-nav-items";
 import { NavigationIcon } from "./navigation-icon";
@@ -12,6 +14,16 @@ import { NavigationIcon } from "./navigation-icon";
 export function SkySiteHeader({ audienceToggle }: { audienceToggle?: React.ReactNode }) {
   const pathname = usePathname();
   const header = useRef<HTMLElement>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const startButton = useRef<HTMLButtonElement>(null);
+
+  function openGetStarted(placement: string) {
+    header.current?.querySelectorAll<HTMLDetailsElement>("details[open]").forEach(menu => { menu.open = false; });
+    // Return focus to the always-visible CTA, even when opened from the mobile menu.
+    startButton.current?.focus();
+    dialog.current?.showModal();
+    trackEvent("cta_clicked", { cta: "get_started", placement });
+  }
 
   function closeOnLink(event: MouseEvent<HTMLElement>) {
     if (!(event.target instanceof Element) || !event.target.closest("a")) return;
@@ -92,7 +104,7 @@ export function SkySiteHeader({ audienceToggle }: { audienceToggle?: React.React
         <nav aria-label="Mobile navigation">
           <HeaderNavItems pathname={pathname} mobile />
           {audienceToggle && <div className="ss-mobile-audience">{audienceToggle}</div>}
-          <TrackedLink href="/start-project" cta="free_audit" placement="mobile_nav">Get a free audit <SkyArrow /></TrackedLink>
+          <button type="button" className="ss-mobile-start" aria-haspopup="dialog" onClick={() => openGetStarted("mobile_nav")}>{getStartedCopy.trigger} <SkyArrow /></button>
         </nav>
       </details>
       <Link href="/" className="ss-wordmark" aria-label="Recoup home"><PageMark /><span>Recoup</span></Link>
@@ -100,9 +112,10 @@ export function SkySiteHeader({ audienceToggle }: { audienceToggle?: React.React
         <HeaderNavItems pathname={pathname} />
       </nav>
       {audienceToggle}
-      <TrackedLink href="/start-project" cta="free_audit" placement="header" className="ss-contact">
-        <span className="nav-cta-desktop">Get a free audit</span><span className="nav-cta-mobile">Free audit</span><SkyArrow />
-      </TrackedLink>
+      <button ref={startButton} type="button" aria-haspopup="dialog" onClick={() => openGetStarted("header")} className="ss-contact ss-get-started">
+        {getStartedCopy.trigger}<SkyArrow />
+      </button>
+      <GetStartedDialog ref={dialog} />
     </header>
   );
 }

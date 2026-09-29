@@ -33,26 +33,26 @@ export const companyPages: PageSummary[] = [
     ],
     links: [
       ["Project inquiry form", "/contact"],
-      ["Share a fuller project brief", "/start-project"],
+      ["Start a project", "/start-project"],
       ["Email Recoup", `mailto:${siteConfig.contactEmail}`],
     ],
   },
   {
     path: "/start-project",
-    title: "Get a free AI audit or discuss a Recoup project",
+    title: "Start your project with Recoup",
     description:
-      "Request a free review of one music-business workflow, where AI could help, and a practical first step. Selected paid plans retain their project inquiry and pricing.",
+      "Share your tools, budget, and timing to discuss a project with Recoup. No detailed brief needed.",
     keywords:
       "lead project brief inquiry company fund budget cost price timeline start custom systems consultation qualification",
     paragraphs: [
-      "Without a selected plan, this page requests a free AI audit of one workflow. Recoup follows up to arrange the review. Any implementation is scoped and priced separately. An allowlisted plan selection keeps the paid project inquiry and its billing context.",
-      "The project inquiry asks for a name, work email, company, company type, area of interest, the work to improve, an initial project budget in USD, and a preferred starting timeframe. Role, phone, company website, and current tools or providers are optional.",
+      "Recoup follows up by email to discuss the project. Scope and pricing are agreed before work begins. An allowlisted plan selection retains its billing context.",
+      "The project inquiry requires a name, email, area of interest, initial project budget in USD, and preferred starting timeframe. Current tools are optional. An expandable section offers an optional company name and note. The email domain is saved as an unverified company research hint.",
       "Budget ranges are planning context, not a rate card. Not decided yet and Just exploring are valid starting points. Recoup agrees scope and price before work begins.",
       "The visitor reviews and submits the brief. When direct submission is unavailable, the page prepares an unsent email brief with selectable and copyable text. Reading the page or preparing a brief through an agent does not save a lead or contact Recoup.",
     ],
     links: [
-      ["Request a free AI audit", "/start-project"],
-      ["Shorter contact form", "/contact"],
+      ["Start a project", "/start-project"],
+      ["Contact form", "/contact"],
       ["Custom builds", "/build"],
     ],
   },

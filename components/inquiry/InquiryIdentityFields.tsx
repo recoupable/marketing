@@ -1,6 +1,6 @@
 import type { RefObject } from "react";
 
-export function InquiryIdentityFields({ nameInput }: { nameInput: RefObject<HTMLInputElement | null> }) {
+export function InquiryIdentityFields({ nameInput, compact = false }: { nameInput: RefObject<HTMLInputElement | null>; compact?: boolean }) {
   return <>
     <div className="form-field">
       <label htmlFor="name">Your name *</label>
@@ -10,9 +10,9 @@ export function InquiryIdentityFields({ nameInput }: { nameInput: RefObject<HTML
       <label htmlFor="email">Work email *</label>
       <input id="email" name="email" type="email" autoComplete="email" required maxLength={254} placeholder="you@company.com" />
     </div>
-    <div className="form-field wide">
+    {!compact && <div className="form-field wide">
       <label htmlFor="company">Company *</label>
       <input id="company" name="company" autoComplete="organization" required minLength={2} maxLength={160} placeholder="Your company or fund" />
-    </div>
+    </div>}
   </>;
 }

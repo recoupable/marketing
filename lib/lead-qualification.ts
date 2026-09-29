@@ -24,7 +24,7 @@ export const projectTimelines = [
 ] as const;
 
 export type LeadQualification = {
-  companyType: (typeof companyTypes)[number];
+  companyType: (typeof companyTypes)[number] | "";
   budget: (typeof projectBudgets)[number];
   timeline: (typeof projectTimelines)[number];
   role: string;
@@ -71,12 +71,12 @@ function website(value: unknown): string {
   return url.href;
 }
 
-export function validateLeadQualification(input: unknown): LeadQualification {
+export function validateLeadQualification(input: unknown, { requireCompanyType = true }: { requireCompanyType?: boolean } = {}): LeadQualification {
   if (typeof input !== "object" || input === null || Array.isArray(input)) throw new Error("Please check your project details.");
   const values = input as Record<string, unknown>;
   if (Object.keys(values).some(key => !fields.has(key))) throw new Error("Please check your project details.");
   return {
-    companyType: option(values.companyType, companyTypes, "a company type"),
+    companyType: !requireCompanyType && (values.companyType === undefined || values.companyType === "") ? "" : option(values.companyType, companyTypes, "a company type"),
     budget: option(values.budget, projectBudgets, "an initial project budget"),
     timeline: option(values.timeline, projectTimelines, "a project timeline"),
     role: optionalText(values.role, 120, "Role"),

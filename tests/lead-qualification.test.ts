@@ -96,7 +96,7 @@ test("CRM note and copied/email inquiry contain the same normalized qualificatio
   expect(calls.every(call => call.url.startsWith("https://api.recoup.test/api/"))).toBeTruthy();
 });
 
-test("invalid supplied qualification returns 400 without calling the CRM, while legacy requests still work", async () => {
+test("invalid or missing project qualification returns 400 without calling the CRM", async () => {
   const { handle, calls } = offlineHandler();
   for (const qualification of [null, "invalid", [], {}, { ...full, budget: "invalid" }, { ...full, role: "x".repeat(121) }, { ...full, companyWebsite: "javascript:alert(1)" }]) {
     const response = await handle(request(qualification));
@@ -104,8 +104,9 @@ test("invalid supplied qualification returns 400 without calling the CRM, while 
     expect((await response.json()).ok).toBe(false);
   }
   expect(calls.length).toBe(0);
-  expect(!Object.hasOwn(validateInquiry(inquiry, now), "qualification")).toBeTruthy();
-  expect(await readInquiryReceipt(await handle(request()))).not.toBe(null);
+  expect(() => validateInquiry(inquiry, now)).toThrow();
+  expect((await handle(request())).status).toBe(400);
+  expect(calls).toHaveLength(0);
 });
 
 test("qualification is preserved in the API message and participates in the inquiry fingerprint", async () => {
@@ -120,4 +121,14 @@ test("qualification is preserved in the API message and participates in the inqu
   const markers = notes.map(note => note.match(/Submission ID: ([a-f\d]{64})/)?.[1]);
   expect(markers[0]).toBeTruthy();
   expect(markers[0]).not.toBe(markers[1]);
+});
+
+
+test("compact email fallback retains tools and qualification without inventing a company", () => {
+  const qualification = validateLeadQualification({ budget: "Not decided yet", timeline: "Just exploring", tools: "Excel" }, { requireCompanyType: false });
+  const prepared = prepareInquiryEmail("hi@recoupable.dev", { ...inquiry, company: "", message: "", qualification });
+  expect(prepared.text).toContain("Email domain (company unverified): example.com");
+  expect(prepared.text).toContain("Current tools and systems: Excel");
+  expect(prepared.text).toContain("Initial budget (USD): Not decided yet");
+  expect(new URL(prepared.href).searchParams.get("body")).toContain("Timeline: Just exploring");
 });

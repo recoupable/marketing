@@ -8,6 +8,7 @@ import { catalogDirections } from "@/lib/catalog-directions";
 import { generalInterests, podcastGuestInterest } from "@/lib/inquiry-topics";
 import type { InquirySource } from "@/lib/inquiry/inquirySourceSchema";
 import { siteConfig } from "@/lib/config";
+import { CompactInquiryFields } from "./CompactInquiryFields";
 import { InquiryBudgetFields } from "./InquiryBudgetFields";
 import { InquiryCompanyFields } from "./InquiryCompanyFields";
 import { InquiryIdentityFields } from "./InquiryIdentityFields";
@@ -33,10 +34,11 @@ export type InquiryFormProps = {
   plan?: string;
   qualified?: boolean;
   freeAudit?: boolean;
+  compact?: boolean;
   readinessHandoff?: boolean;
 };
 
-export function InquiryForm({ source, connected, variant, initialInterest, initialBrief, pricingContext, plan, qualified = false, freeAudit = false, readinessHandoff = false }: InquiryFormProps) {
+export function InquiryForm({ source, connected, variant, initialInterest, initialBrief, pricingContext, plan, qualified = false, freeAudit = false, compact = false, readinessHandoff = false }: InquiryFormProps) {
   const interestOptions = variant ? catalogDirections[variant].interestOptions : generalInterests;
   const selectedInterest = interestOptions.some((interest) => interest === initialInterest) ? initialInterest ?? "" : "";
   const hydrated = useSyncExternalStore(subscribeToHydration, clientReady, serverReady);
@@ -45,10 +47,12 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
   const focusAfterReset = useRef(false);
   const [interestValue, setInterestValue] = useState(selectedInterest);
   // Guest mode follows the interest the visitor currently has selected, not only the one the URL preselected.
-  const labels = inquiryLabels({ variant, qualified, freeAudit, connected, guest: interestValue === podcastGuestInterest });
+  const compactProject = compact && interestValue !== podcastGuestInterest;
+  const needsQualification = compact ? compactProject : qualified;
+  const labels = inquiryLabels({ variant, qualified: needsQualification, freeAudit, connected, compact: compactProject, guest: interestValue === podcastGuestInterest });
   const [briefValue, setBriefValue] = useState(initialBrief ?? "");
   const [draftApplied, setDraftApplied] = useState(false);
-  const inquiry = useInquirySubmit({ source, plan, connected, qualified, websitePath: labels.websitePath, pricingContext });
+  const inquiry = useInquirySubmit({ source, plan, connected, qualified: needsQualification, compact: compactProject, websitePath: labels.websitePath, pricingContext });
   const { status, qualificationError } = inquiry;
   useEffect(() => { if (qualificationError) validationMessage.current?.focus(); }, [qualificationError]);
   useEffect(() => {
@@ -72,23 +76,25 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
   }} />;
   const busy = !hydrated || status === "sending";
   return (
-    <form className={`inquiry-form${qualified ? " lead-inquiry" : ""}`} method="post" action={source} onSubmit={inquiry.submit} onChange={inquiry.clearFeedback} onFocus={inquiry.markStarted}
+    <form className={`inquiry-form${qualified || compact ? " lead-inquiry" : ""}${compactProject ? " compact-inquiry" : ""}`} method="post" action={source} onSubmit={inquiry.submit} onChange={inquiry.clearFeedback} onFocus={inquiry.markStarted}
       aria-label={labels.formLabel} aria-busy={status === "sending"} aria-describedby={connected ? undefined : "inquiry-handoff"}>
       <h2>{labels.heading}</h2>
-      {qualified && <p className="lead-field-help">Fields marked * are required. A rough starting point is enough.</p>}
+      {(qualified || compact) && <p className="lead-field-help">{compactProject ? "No detailed brief needed. Fields marked * are required." : "Fields marked * are required. A rough starting point is enough."}</p>}
       <noscript><p className="inquiry-no-script">To send an inquiry, email <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>. The form needs JavaScript to prepare or send your message.</p></noscript>
       <fieldset className="inquiry-fields" disabled={busy}>
         {!variant && (draftApplied ? <div className="agent-draft-import" role="status">
           <strong>{readinessHandoff ? "Your readiness answers are included below." : "Your brief is included below."}</strong>
-          <p>Add your name, work email, and company. You can edit the summary before clicking “Send your inquiry.” Nothing has been sent yet.</p>
+          <p>Add your contact details. You can edit the included note before sending. Nothing has been sent yet.</p>
         </div> : hydrated && <AgentDraftImport onApply={applyDraft} autoApply={readinessHandoff} />)}
         {!connected && <p className="form-note form-handoff" id="inquiry-handoff">This form prepares an email draft for you to review and send.</p>}
         <div className="form-grid">
-          {qualified && <div className="lead-group-title wide"><h3><span>01</span> You & your company</h3></div>}
-          <InquiryIdentityFields nameInput={nameInput} />
-          {qualified && <InquiryCompanyFields />}
-          <InquiryWorkFields labels={labels} interestOptions={interestOptions} interestValue={interestValue} onInterestChange={setInterestValue} briefValue={briefValue} onBriefChange={setBriefValue} qualified={qualified} />
-          {qualified && <InquiryBudgetFields note={labels.budgetNote} />}
+          {needsQualification && !compactProject && <div className="lead-group-title wide"><h3><span>01</span> You & your company</h3></div>}
+          <InquiryIdentityFields nameInput={nameInput} compact={compactProject} />
+          {compactProject ? <CompactInquiryFields interestOptions={interestOptions} interestValue={interestValue} onInterestChange={setInterestValue} briefValue={briefValue} onBriefChange={setBriefValue} /> : <>
+            {needsQualification && <InquiryCompanyFields />}
+            <InquiryWorkFields labels={labels} interestOptions={interestOptions} interestValue={interestValue} onInterestChange={setInterestValue} briefValue={briefValue} onBriefChange={setBriefValue} qualified={needsQualification} />
+            {needsQualification && <InquiryBudgetFields note={labels.budgetNote} />}
+          </>}
         </div>
         {qualificationError && <p ref={validationMessage} tabIndex={-1} role="alert" className="form-feedback">{qualificationError}</p>}
         <div className="honeypot" aria-hidden="true">

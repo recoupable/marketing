@@ -19,10 +19,10 @@ type StartProjectSearchParams = Promise<{
   billing?: string | string[];
 }>;
 
-const auditMetadata = {
-  title: "Get a free AI audit for your music business",
+const projectMetadata = {
+  title: "Start your project with Recoup",
   description:
-    "Find where AI could help your music business. Request a free review of one workflow and a practical first step, or discuss your selected Recoup plan.",
+    "Build AI software for your music business with Recoup. Share your current tools, budget and timing, and we’ll discuss the next step together.",
 };
 const guestMetadata = {
   title: "Be a guest on the Recoup Podcast",
@@ -33,7 +33,7 @@ const guestMetadata = {
 export async function generateMetadata({ searchParams }: { searchParams: StartProjectSearchParams }): Promise<Metadata> {
   const { workflow } = await searchParams;
   const guest = workflow === podcastGuestInterest;
-  return withPageMetadata({ ...(guest ? guestMetadata : auditMetadata), alternates: { canonical: "/start-project" } });
+  return withPageMetadata({ ...(guest ? guestMetadata : projectMetadata), alternates: { canonical: "/start-project" } });
 }
 
 export const dynamic = "force-dynamic";
@@ -45,7 +45,6 @@ export default async function StartProjectPage({
 }) {
   const { workflow, project, plan, billing } = await searchParams;
   const pricingSelection = parsePricingSelection(plan, billing);
-  const freeAudit = !pricingSelection;
   const pricingContext = pricingSelection ? pricingSelectionLabel(pricingSelection) : undefined;
   const planInterest = pricingSelection?.plan === "advisory" ? "AI strategy"
     : pricingSelection?.plan === "partner" ? "Custom systems"
@@ -59,7 +58,7 @@ export default async function StartProjectPage({
   const initialInterest =
     requestedInterest ?? planInterest ?? (selectedProject ? "Custom systems" : "Not sure yet");
   const initialBrief = getImmersiveProjectBrief(project);
-  const copy = startProjectCopy({ interest: initialInterest, freeAudit });
+  const copy = startProjectCopy({ interest: initialInterest });
 
   return (
     <section className="lead-page" aria-labelledby="lead-page-title">
@@ -79,7 +78,7 @@ export default async function StartProjectPage({
           plan={pricingSelection?.plan}
           key={`${initialInterest}:${selectedProject?.id ?? "general"}:${pricingSelection?.plan ?? "none"}:${pricingSelection?.billing ?? "monthly"}`}
           qualified={copy.qualified}
-          freeAudit={freeAudit && copy.qualified}
+          compact
           connected={true}
           initialInterest={initialInterest}
           initialBrief={initialBrief}

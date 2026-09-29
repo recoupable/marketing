@@ -219,6 +219,8 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 
 ## Shared navigation
 
+The header’s Get Started button opens `components/sky/get-started-dialog.tsx`, styled by `get-started-dialog.css`. Shared labels live in `lib/copy/get-started.ts`. Try Our Platform uses the attributed `AppLink`; Build Your Platform links to `/start-project?workflow=Custom%20systems`, preselecting the Custom systems intake interest. Keep the same dialog available from the mobile menu and retain native modal keyboard behavior.
+
 The header has four primary items: Services, Products, Resources, and Pricing. Menu destinations live in `lib/copy/navigation.ts`; `components/sky/header-nav-items.tsx` renders them for both desktop and mobile. Keep changes in this shared configuration so the two navigation layouts stay aligned.
 
 Dropdown presentation lives in `components/sky/navigation-panels.css`. Products uses three decorative SVG illustrations from `nav-product-art.tsx`; Resources pairs compact icon links with one illustrated Work card from `nav-work-art.tsx`. Desktop panels extend the full header width without a gap. `site-header.tsx` opens them on fine-pointer mouse hover and delays closing by 180ms when leaving the header. Mobile keeps tap disclosures and hides the artwork. Preserve keyboard, Escape focus return, and outside dismissal.
@@ -276,3 +278,7 @@ The readiness result action takes visitors to `/contact?brief=readiness`. Only t
 ## Workflow-plan lead magnet
 
 `/workflow-plan` and `/ask` now use the public Eve agent in `agent/`, streamed through `/api/website-agent`. The UI is in `components/website-agent/`: AI Elements for conversation, input, activity, sources, suggestions and report artifacts; shadcn Message Scroller for user-turn anchoring; JSON Render for validated reports. Keep research inside its transcript turn and compact questions inside the input, with the input fixed by the flex layout rather than an overlay. Preserve stopping, steering, source disclosure and download behavior. See `docs/website-agent.md` for configuration, access boundaries and validation. The old `components/workflow-plan/`, `lib/workflow-plan/` and `/api/workflow-plan` interview remain for compatibility. Do not claim email delivery or deployed behavior from local verification.
+
+### Compact project intake
+
+`/start-project` uses `InquiryForm` in compact mode: name, email, interest, optional tools, required budget and timing. Company and a short note sit in an optional disclosure. Imported briefs and pricing context survive submission and email fallback. Company is never guessed from email: its domain is recorded as an unverified research hint. The server relaxes company/brief requirements only for non-podcast project inquiries; other sources retain existing validation.

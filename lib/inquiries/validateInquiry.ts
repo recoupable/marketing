@@ -1,5 +1,6 @@
 import { validateLeadQualification, type LeadQualification } from "../lead-qualification.ts";
 import { inquirySourceSchema, type InquirySource } from "../inquiry/inquirySourceSchema.ts";
+import { podcastGuestInterest } from "../inquiry-topics.ts";
 import { InquiryError } from "./InquiryError.ts";
 import { inquiryTextField } from "./inquiryTextField.ts";
 import { validateInquiryEmail } from "./validateInquiryEmail.ts";
@@ -26,14 +27,16 @@ export function validateInquiry(input: unknown, now = Date.now()): Inquiry {
   if (input.website !== "") throw new InquiryError(400);
   const source = inquirySourceSchema.safeParse(input.source);
   if (!source.success) throw new InquiryError(400);
+  const compactProject = source.data === "/start-project" && input.interest !== podcastGuestInterest;
   let qualification: LeadQualification | undefined;
   if (Object.hasOwn(input, "qualification")) {
     try {
-      qualification = validateLeadQualification(input.qualification);
+      qualification = validateLeadQualification(input.qualification, { requireCompanyType: !compactProject });
     } catch {
       throw new InquiryError(400);
     }
   }
+  if (compactProject && !qualification) throw new InquiryError(400);
   const startedAt = input.startedAt;
   if (
     typeof startedAt !== "number" ||
@@ -46,9 +49,9 @@ export function validateInquiry(input: unknown, now = Date.now()): Inquiry {
   return {
     name: inquiryTextField(input, "name", 1, 120),
     email: validateInquiryEmail(input),
-    company: inquiryTextField(input, "company", 1, 160),
+    company: inquiryTextField({ ...input, company: input.company ?? "" }, "company", compactProject ? 0 : 1, 160),
     interest: inquiryTextField(input, "interest", 1, 120),
-    message: inquiryTextField(input, "message", 10, 6000, true),
+    message: inquiryTextField({ ...input, message: input.message ?? "" }, "message", compactProject ? 0 : 10, 6000, true),
     source: source.data,
     startedAt,
     ...(qualification ? { qualification } : {}),
