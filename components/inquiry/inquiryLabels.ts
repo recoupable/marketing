@@ -15,14 +15,16 @@ export function inquiryLabels({ variant, qualified, freeAudit, connected, guest 
   if (compact) return {
     websitePath: "Project inquiry /start-project",
     formLabel: "Project inquiry",
-    heading: buildConsultation ? "Request a build consultation" : "Request a consultation",
-    formIntro: "Share a few details. We’ll email you to arrange a time.",
+    heading: buildConsultation ? "Let’s build your AI system" : "Request a consultation",
+    formIntro: buildConsultation
+      ? "Share a few details. We’ll email you to arrange a conversation about your AI system and how to bring it to life."
+      : "Share a few details. We’ll email you to arrange a time.",
     interestLabel: "What can we help with? *",
     interestPlaceholder: "Choose a starting point",
     messageLabel: "Anything else? (optional)",
     messagePlaceholder: "A short note or question, if you have one.",
     budgetNote: "",
-    submit: connected ? "Request a consultation" : "Prepare consultation request",
+    submit: connected ? buildConsultation ? "Start my AI project" : "Request a consultation" : "Prepare consultation request",
   };
   return {
     formIntro: "",

@@ -1,10 +1,4 @@
-import Link from "next/link";
-import { SkyArrow } from "@/components/sky/arrow";
-import { homeCaseStudiesCopy } from "@/lib/copy/home-case-studies";
-
-/** Use the published case-study summary rather than inventing a proof claim. */
 export function ConsultationOutcomes({ title, outcomes }: { title: string; outcomes: readonly string[] }) {
-  const example = homeCaseStudiesCopy.projects.find(project => project.id === "royalty-example");
   return <div className="lead-consultation-outcomes">
     <h2>{title}</h2>
     <ul>
@@ -13,11 +7,5 @@ export function ConsultationOutcomes({ title, outcomes }: { title: string; outco
         <span>{outcome}</span>
       </li>)}
     </ul>
-    {example && <aside className="lead-consultation-proof" aria-label="Example of our work">
-      <p className="lead-proof-label">From our work · Anonymized case study</p>
-      <h3>{example.title}</h3>
-      <p>{example.story}</p>
-      <Link href={example.href}>See what we built <SkyArrow direction="right" /></Link>
-    </aside>}
   </div>;
 }

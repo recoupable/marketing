@@ -16,7 +16,7 @@ export function CompactInquiryInterest({ preselected, interestOptions, interestV
   return <div id="project-interest" className={showSummary ? "compact-interest-summary wide" : "form-field wide"}>
     {showSummary ? <>
       <input type="hidden" name="interest" value={interestValue} />
-      <span>Custom platform</span>
+      <span>Custom AI system</span>
       <button type="button" aria-label="Change project type" onClick={() => setEditing(true)}>Change</button>
     </> : <>
       <label htmlFor="interest">What can we help with? *</label>

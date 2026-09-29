@@ -21,9 +21,9 @@ type StartProjectSearchParams = Promise<{
 }>;
 
 const projectMetadata = {
-  title: "Plan your next AI project with Recoup",
+  title: "Your business. Your AI.",
   description:
-    "Request a consultation to identify the right first AI project for your music business, how it fits your tools, and a practical scope, budget and timeline.",
+    "Build a custom AI system around your business. Connect your company’s knowledge, tools and workflows so your team can get answers and automate recurring work.",
 };
 const guestMetadata = {
   title: "Be a guest on the Recoup Podcast",

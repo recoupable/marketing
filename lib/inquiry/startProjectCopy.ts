@@ -15,15 +15,15 @@ export function startProjectCopy({ interest }: { interest: string }): StartProje
     };
   }
   if (interest === "Custom systems") return {
-    kicker: "Your custom AI platform",
-    title: "Know what to build first.",
-    intro: "Turn your team’s manual work into software built around your business. Start with a consultation to identify the right first project.",
-    nextTitle: "What we’ll work through",
+    kicker: "Custom AI systems",
+    title: "Your business. Your AI.",
+    intro: "Give your team an AI system built for the way your business works. We connect your knowledge, tools, and workflows so your team can get answers, automate the busywork, and move from idea to action.",
+    nextTitle: "Built around your business",
     next: "We’ll email you to arrange a time.",
     outcomes: [
-      "Where custom software could save your team time",
-      "How it would connect to your existing tools",
-      "A practical starting scope, budget, and timeline",
+      "Find answers across your company’s documents and data",
+      "Connect the tools your team already uses",
+      "Turn research, reporting, and recurring tasks into AI workflows",
     ],
     qualified: true,
   };

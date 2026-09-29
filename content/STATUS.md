@@ -1,3 +1,7 @@
+## 2026-09-29 — Custom AI system positioning
+
+Replaced the software/consultation-led pitch with “Your business. Your AI.” and a concrete offer to build a custom AI system around company knowledge, tools and workflows. Removed the case-study block. The form says “Let’s build your AI system” and “Start my AI project,” while retaining the email conversation as the next step.
+
 ## 2026-09-29 — Consultation offer
 
 Reframed custom platform intake around choosing the right first build. Added three consultation topics and the existing published royalty-reporting example, with a clear consultation request heading, email scheduling explanation and matching success copy. The compact fields, validation, plan context and delivery paths stay intact.
