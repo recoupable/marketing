@@ -219,7 +219,7 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 
 ## Shared navigation
 
-The header’s Get Started button opens `components/sky/get-started-dialog.tsx`, styled by `get-started-dialog.css`. Shared labels live in `lib/copy/get-started.ts`. Try Our Platform uses the attributed `AppLink`; Build Your Platform links to `/build`. Keep the same dialog available from the mobile menu and retain native modal keyboard behavior.
+The header’s Get Started button opens `components/sky/get-started-dialog.tsx`, styled by `get-started-dialog.css`. Shared labels live in `lib/copy/get-started.ts`. Try Our Platform uses the attributed `AppLink`; Build Your Platform links to `/start-project?workflow=Custom%20systems`, preselecting the Custom systems intake interest. Keep the same dialog available from the mobile menu and retain native modal keyboard behavior.
 
 The header has four primary items: Services, Products, Resources, and Pricing. Menu destinations live in `lib/copy/navigation.ts`; `components/sky/header-nav-items.tsx` renders them for both desktop and mobile. Keep changes in this shared configuration so the two navigation layouts stay aligned.
 

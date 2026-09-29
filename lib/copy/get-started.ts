@@ -8,6 +8,6 @@ export const getStartedCopy = {
   build: {
     title: "Build Your Platform",
     description: "Our team builds custom AI software for your business.",
-    href: "/build",
+    href: "/start-project?workflow=Custom%20systems",
   },
 } as const;

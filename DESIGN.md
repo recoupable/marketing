@@ -155,7 +155,7 @@ The impression should be **capable people building useful software for the busin
 
 The hero places the “Catalog Skills V2 is here” announcement above the title, with a lime New badge and a link to `/skills`. Use DM Sans, a subtle inset shadow outline, and wrapping text for narrow screens. The headline reads “AI transformation for music rightsholders”; its supporting line is “We build AI systems you own and train your team to use them.”
 
-The hero description leads directly into the artwork, with no CTA button row between them. The navigation uses **Get Started** with the arrow icon, opening a two-card dialog: **Try Our Platform** opens the Recoup app; **Build Your Platform** opens `/build`. Cards sit side by side on desktop and stack on phones. Use a Sky-blue Platform card and forest-green Build card with white text, translucent illustration trays and lime arrow discs. Place forward-arrow discs at the bottom right on desktop and centered at the trailing edge on phones. The full card is one link; the disc is a decorative navigation cue. The dialog heading is “Get started with Recoup.” Compact 106px illustration trays keep attention on the two choices. Fine-pointer hover strengthens the shadow and nudges the arrow right while the cards stay level; reduced motion removes these animations.
+The hero description leads directly into the artwork, with no CTA button row between them. The navigation uses **Get Started** with the arrow icon, opening a two-card dialog: **Try Our Platform** opens the Recoup app; **Build Your Platform** opens `/start-project?workflow=Custom%20systems` with Custom systems preselected. Cards sit side by side on desktop and stack on phones. Use a Sky-blue Platform card and forest-green Build card with white text, translucent illustration trays and lime arrow discs. Place forward-arrow discs at the bottom right on desktop and centered at the trailing edge on phones. The full card is one link; the disc is a decorative navigation cue. The dialog heading is “Get started with Recoup.” Compact 106px illustration trays keep attention on the two choices. Fine-pointer hover strengthens the shadow and nudges the arrow right while the cards stay level; reduced motion removes these animations.
 
 Below the hero artwork, “Used by teams at” introduces the six customer logos directly on the blue hero, with no white container. Use the `-transparent.webp` exports with real alpha transparency and normal compositing; do not apply multiply blending, which darkens the artwork. Use a three-column grid on phones. This replaces the rating caption and stars; there is no separate logo section below the hero.
 
@@ -374,7 +374,7 @@ Shared page buttons, text links, and documentation use 17px arrows; the homepage
 
 ### Actions and navigation
 
-At ≤900px, both headers use a left hamburger, a centered Recoup symbol without the wordmark, and a right **Free Audit** CTA. Keep the symbol centered with equal flexible outer columns and a 44px center column. The logo and menu have 44px touch targets; the audit CTA has a 44px minimum height. Mobile menus open below the header, scroll within the viewport, and close on selection, outside tap, or Escape. Desktop keeps the full wordmark and **Get a Free Audit** label. Shared rules live in `components/sky/navigation.css`.
+At ≤900px, both headers use a left hamburger, a centered Recoup symbol without the wordmark, and a right **Get Started** CTA with the arrow icon. Keep the symbol centered with equal flexible outer columns and a 44px center column. The logo and menu have 44px touch targets; the Get Started CTA has a 44px minimum height. Mobile menus open below the header, scroll within the viewport, and close on selection, outside tap, or Escape. Desktop keeps the full wordmark and **Get Started** label. Shared rules live in `components/sky/navigation.css`.
 
 The shared primary `PageButton` is a lime pill with dark text, minimum height 48px, padding `7px 7px 7px 21px`, and a 34px dark icon disc. At ≤600px its minimum height becomes 46px and left padding becomes 16px. The secondary variant is translucent/outlined with an unfilled arrow area. Use a dark text-link for quieter actions on white. Follow existing header styles rather than turning every nav link into a CTA.
 
@@ -472,7 +472,7 @@ Center customer marks in six equal desktop columns, ordered Duetti, Seeker, Warn
 
 ### Navigation typography — September 13, 2026
 
-The shared header uses DM Sans for navigation and its audit button. Desktop links are 14px / 500; the audit action is 14px / 550 with a 1.4 line height and `-.01em` tracking. Use sentence case: “Get a free audit.” On phones, “Free audit” is 13px / 550 with a minimum 44px touch target. Mobile menu links use 14px / 500. Preserve the centered navigation, wordmark geometry, lime CTA, and existing focus and menu behaviors.
+The shared header uses DM Sans for navigation and its Get Started button. Desktop links are 14px / 500; the Get Started action is 14px / 550 with a 1.4 line height and `-.01em` tracking. Use “Get Started” on desktop and phones. On phones, the CTA is 13px / 550 with a minimum 44px touch target. Mobile menu links use 14px / 500. Preserve the centered navigation, wordmark geometry, lime CTA, and existing focus and menu behaviors.
 
 ### Homepage copy reduction — September 14, 2026
 

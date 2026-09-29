@@ -69,7 +69,6 @@ html:has(.ss-start-dialog[open]) { overflow: hidden; }
   border-radius: 50%;
 }
 .ss-start-arrow .sky-arrow-icon { transition: transform .18s; }
-.ss-start-card:focus-visible { box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--start-forest); }
 @media (hover: hover) and (pointer: fine) {
   .ss-start-card:hover { box-shadow: inset 0 1px 0 #ffffff26, 0 12px 24px #132b2633; }
   .ss-start-card:hover .ss-start-arrow .sky-arrow-icon { transform: translateX(3px); }
