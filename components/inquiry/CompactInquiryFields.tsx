@@ -2,28 +2,18 @@ import { useEffect, useRef } from "react";
 import { InquiryBudgetFields } from "./InquiryBudgetFields";
 
 type Props = {
-  interestOptions: readonly string[];
-  interestValue: string;
-  onInterestChange: (value: string) => void;
   briefValue: string;
   onBriefChange: (value: string) => void;
 };
 
 /** Collect enough to start a conversation; a detailed brief can follow by email. */
-export function CompactInquiryFields({ interestOptions, interestValue, onInterestChange, briefValue, onBriefChange }: Props) {
+export function CompactInquiryFields({ briefValue, onBriefChange }: Props) {
   const extraFields = useRef<HTMLDetailsElement>(null);
   const hasBrief = Boolean(briefValue);
   useEffect(() => {
     if (hasBrief && extraFields.current) extraFields.current.open = true;
   }, [hasBrief]);
   return <>
-    <div className="form-field wide">
-      <label htmlFor="interest">What can we help with? *</label>
-      <select id="interest" name="interest" required value={interestValue} onChange={event => onInterestChange(event.target.value)}>
-        <option value="" disabled>Choose a starting point</option>
-        {interestOptions.map(interest => <option key={interest}>{interest}</option>)}
-      </select>
-    </div>
     <div className="form-field wide">
       <label htmlFor="tools">Current tools (optional)</label>
       <input id="tools" name="tools" maxLength={1200} placeholder="e.g. Excel, Google Drive, DISCO — or none yet" />
