@@ -41,11 +41,11 @@ export const companyPages: PageSummary[] = [
     path: "/start-project",
     title: "Start your project with Recoup",
     description:
-      "Share your tools, budget, and timing to discuss a project with Recoup. No detailed brief needed.",
+      "Build a custom AI system around your company’s knowledge, tools and workflows. Start with a conversation about your system and how to bring it to life.",
     keywords:
       "lead project brief inquiry company fund budget cost price timeline start custom systems consultation qualification",
     paragraphs: [
-      "Recoup follows up by email to discuss the project. Scope and pricing are agreed before work begins. An allowlisted plan selection retains its billing context.",
+      "Recoup emails you to arrange a consultation. Custom AI systems connect company knowledge and tools to help teams find answers and turn research, reporting and recurring tasks into AI workflows. The conversation establishes the system’s scope and next steps. Submitting the form does not book a meeting or produce a quote. Scope and pricing are agreed before work begins. An allowlisted plan selection retains its billing context.",
       "The project inquiry requires a name, email, area of interest, initial project budget in USD, and preferred starting timeframe. Current tools are optional. An expandable section offers an optional company name and note. The email domain is saved as an unverified company research hint.",
       "Budget ranges are planning context, not a rate card. Not decided yet and Just exploring are valid starting points. Recoup agrees scope and price before work begins.",
       "The visitor reviews and submits the brief. When direct submission is unavailable, the page prepares an unsent email brief with selectable and copyable text. Reading the page or preparing a brief through an agent does not save a lead or contact Recoup.",

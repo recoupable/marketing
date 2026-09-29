@@ -15,7 +15,7 @@ test("a podcast guest lands on guest copy and skips the project qualification bl
 
 test("project interests use project copy without audit language", () => {
   expect(startProjectCopy({ interest: "AI strategy" }).kicker).toBe("Start a project");
-  expect(startProjectCopy({ interest: "Custom systems" }).kicker).toBe("Start a project");
+  expect(startProjectCopy({ interest: "Custom systems" }).kicker).toBe("Custom AI systems");
   expect(startProjectCopy({ interest: "Custom systems" }).qualified).toBe(true);
 });
 
