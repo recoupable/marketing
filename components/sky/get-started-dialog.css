@@ -43,13 +43,13 @@ html:has(.ss-start-dialog[open]) { overflow: hidden; }
   border-radius: 16px;
   color: var(--start-on-color);
   box-shadow: inset 0 1px 0 #ffffff26, 0 6px 16px #132b2614;
-  transition: transform .18s, box-shadow .18s;
+  transition: box-shadow .18s;
 }
 .ss-start-card-platform { background: var(--start-blue); }
 .ss-start-card-build { background: var(--start-forest); }
 .ss-header .ss-start-card > .ss-nav-art {
   width: 100%;
-  height: 132px;
+  height: 106px;
   margin-bottom: 24px;
   flex: none;
   border-radius: 10px;
@@ -71,7 +71,7 @@ html:has(.ss-start-dialog[open]) { overflow: hidden; }
 .ss-start-arrow .sky-arrow-icon { transition: transform .18s; }
 .ss-start-card:focus-visible { box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--start-forest); }
 @media (hover: hover) and (pointer: fine) {
-  .ss-start-card:hover { transform: translateY(-4px); box-shadow: inset 0 1px 0 #ffffff26, 0 12px 24px #132b2633; }
+  .ss-start-card:hover { box-shadow: inset 0 1px 0 #ffffff26, 0 12px 24px #132b2633; }
   .ss-start-card:hover .ss-start-arrow .sky-arrow-icon { transform: translateX(3px); }
 }
 @media (max-width: 900px) {
@@ -90,5 +90,5 @@ html:has(.ss-start-dialog[open]) { overflow: hidden; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ss-start-card, .ss-start-arrow .sky-arrow-icon { transition: none; }
-  .ss-start-card:hover, .ss-start-card:hover .ss-start-arrow .sky-arrow-icon { transform: none; }
+  .ss-start-card:hover .ss-start-arrow .sky-arrow-icon { transform: none; }
 }

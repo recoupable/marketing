@@ -1,13 +1,13 @@
 export const getStartedCopy = {
   trigger: "Get Started",
-  title: "How would you like to get started?",
+  title: "Get started with Recoup.",
   platform: {
     title: "Try Our Platform",
-    description: "Start using Recoup’s ready-to-use AI workspace for music teams.",
+    description: "Use Recoup’s AI tools for your artists, releases, and catalog.",
   },
   build: {
     title: "Build Your Platform",
-    description: "Work with us to build a custom AI system for your business.",
+    description: "Our team builds custom AI software for your business.",
     href: "/build",
   },
 } as const;
