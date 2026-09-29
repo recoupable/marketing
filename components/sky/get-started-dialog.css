@@ -1,0 +1,54 @@
+.ss-header .ss-get-started { white-space: nowrap; }
+.ss-header .ss-get-started > .sky-arrow-icon { display: block; }
+.ss-header .ss-mobile-menu > nav > .ss-mobile-start {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 14px 16px;
+  margin-top: 12px;
+  border-radius: 9px;
+  background: #d6ff62;
+  font: 550 14px/1.4 var(--body);
+}
+html:has(.ss-start-dialog[open]) { overflow: hidden; }
+.ss-start-dialog {
+  width: min(740px, calc(100% - 32px));
+  max-height: calc(100svh - 32px);
+  margin: auto;
+  padding: 40px;
+  border: 0;
+  border-radius: 24px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 24px 80px #132b2633, 0 0 0 1px var(--line);
+  overflow-y: auto;
+}
+.ss-start-dialog::backdrop { background: #132b2680; backdrop-filter: blur(6px); }
+.ss-start-close-form { position: absolute; top: 12px; right: 12px; }
+.ss-start-close { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: transparent; }
+.ss-start-close:hover { background: var(--paper-dark); }
+.ss-start-dialog h2 { max-width: 510px; margin: 0 24px 28px 0; font-size: clamp(26px, 4vw, 36px); line-height: 1.12; font-weight: 500; letter-spacing: -.045em; }
+.ss-start-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.ss-start-card { display: flex; flex-direction: column; align-items: flex-start; padding: 24px; border-radius: 16px; box-shadow: 0 0 0 1px var(--line); transition: background .18s, box-shadow .18s; }
+.ss-start-card:hover { background: var(--paper-dark); box-shadow: 0 0 0 1px var(--muted); }
+.ss-start-card > .ss-nav-art { width: 160px; height: 96px; margin-bottom: 20px; flex: none; }
+.ss-start-card h3 { margin: 0; font-size: 23px; line-height: 1.2; font-weight: 500; letter-spacing: -.04em; }
+.ss-start-card p { margin: 12px 0 24px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.ss-start-arrow { display: grid; place-items: center; width: 40px; height: 40px; margin-top: auto; background: #d6ff62; border-radius: 50%; }
+@media (max-width: 900px) {
+  .ss-header .ss-get-started { gap: 7px; padding-inline: 11px; }
+  .ss-header .ss-get-started > .sky-arrow-icon { width: 16px; height: 16px; }
+}
+@media (max-width: 560px) {
+  .ss-start-dialog { padding: 28px 20px 20px; }
+  .ss-start-dialog h2 { margin-right: 28px; }
+  .ss-start-options { grid-template-columns: 1fr; gap: 12px; }
+  .ss-start-card { position: relative; padding: 20px 64px 20px 20px; }
+  .ss-start-card > .ss-nav-art { display: none; }
+  .ss-start-card h3 { font-size: 21px; }
+  .ss-start-card p { margin-bottom: 0; font-size: 14px; }
+  .ss-start-arrow { position: absolute; right: 16px; top: 20px; width: 32px; height: 32px; }
+}
+@media (prefers-reduced-motion: reduce) { .ss-start-card { transition: none; } }

@@ -219,6 +219,8 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 
 ## Shared navigation
 
+The header’s Get Started button opens `components/sky/get-started-dialog.tsx`, styled by `get-started-dialog.css`. Shared labels live in `lib/copy/get-started.ts`. Try Our Platform uses the attributed `AppLink`; Build Your Platform links to `/build`. Keep the same dialog available from the mobile menu and retain native modal keyboard behavior.
+
 The header has four primary items: Services, Products, Resources, and Pricing. Menu destinations live in `lib/copy/navigation.ts`; `components/sky/header-nav-items.tsx` renders them for both desktop and mobile. Keep changes in this shared configuration so the two navigation layouts stay aligned.
 
 Dropdown presentation lives in `components/sky/navigation-panels.css`. Products uses three decorative SVG illustrations from `nav-product-art.tsx`; Resources pairs compact icon links with one illustrated Work card from `nav-work-art.tsx`. Desktop panels extend the full header width without a gap. `site-header.tsx` opens them on fine-pointer mouse hover and delays closing by 180ms when leaving the header. Mobile keeps tap disclosures and hides the artwork. Preserve keyboard, Escape focus return, and outside dismissal.

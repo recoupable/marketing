@@ -1,3 +1,7 @@
+## Get Started navigation dialog — September 29, 2026
+
+Replaced the header and mobile-menu audit CTA with Get Started and the existing arrow. Both open a native modal with Try Our Platform (attributed app link) and Build Your Platform (`/build`) cards. Cards sit side by side on desktop and stack on phones. Escape, close button, backdrop dismissal, background inertness, and focus return are preserved. Production build (Node 24 with the existing public Privy app ID), TypeScript, scoped lint, and desktop/390px browser checks passed locally. Not deployed.
+
 ## AI workflow handoff article — September 28, 2026
 
 Published the reviewed “Your AI lives in one person's head” revision at its existing URL, with active Recoup service framing, a catalog-report handoff example, and an inquiry CTA. Retained the reviewed cover and three inline illustrations. Publication date is September 28, 2026, as confirmed by Sidney. Removed the separate modification date.
