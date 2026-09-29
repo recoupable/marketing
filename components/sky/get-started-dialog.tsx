@@ -34,13 +34,13 @@ export function GetStartedDialog({ ref }: { ref: Ref<HTMLDialogElement> }) {
       </form>
       <h2 id={titleId}>{getStartedCopy.title}</h2>
       <div className="ss-start-options">
-        <AppLink placement="get_started_dialog" className="ss-start-card">
+        <AppLink placement="get_started_dialog" className="ss-start-card ss-start-card-platform">
           <NavProductArt kind="platform" />
           <h3>{getStartedCopy.platform.title}</h3>
           <p>{getStartedCopy.platform.description}</p>
           <span className="ss-start-arrow"><SkyArrow /></span>
         </AppLink>
-        <TrackedLink href={getStartedCopy.build.href} cta="build_platform" placement="get_started_dialog" className="ss-start-card">
+        <TrackedLink href={getStartedCopy.build.href} cta="build_platform" placement="get_started_dialog" className="ss-start-card ss-start-card-build">
           <NavProductArt kind="developers" />
           <h3>{getStartedCopy.build.title}</h3>
           <p>{getStartedCopy.build.description}</p>
