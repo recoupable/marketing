@@ -1,5 +1,18 @@
 [
   {
+    "slug": "vickie-nauman",
+    "title": "AI music licenses will switch from market share to usage",
+    "guest": "Vickie Nauman",
+    "role": "Founder & CEO, CrossBorderWorks",
+    "date": "2026-10-04",
+    "durationSeconds": 1940,
+    "cover": "/podcast/vickie-nauman-wide.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/episode/04QoyBh6NxS5occCDq77WG",
+      "youtube": "https://www.youtube.com/watch?v=dhmwk6aK0HA"
+    }
+  },
+  {
     "slug": "xcelencia",
     "title": "The $100K playbook of an independent artist",
     "guest": "Xcelencia",
@@ -10,19 +23,6 @@
     "links": {
       "spotify": "https://open.spotify.com/episode/4gIQjPCwCOpNdzoi8HQDjL",
       "youtube": "https://www.youtube.com/watch?v=ZXLjcYggrwc"
-    }
-  },
-  {
-    "slug": "panel-equitable-industry",
-    "title": "Building a more equitable music industry with decentralized networks",
-    "guest": "Steph Guerrero and panel",
-    "role": "Steph Guerrero, Watcher.eth, Dragaan, PaperHandPapi",
-    "date": "2023-02-13",
-    "durationSeconds": 3266,
-    "cover": "/podcast/panel-equitable-industry-wide.jpg",
-    "links": {
-      "spotify": "https://open.spotify.com/episode/5eskBoMuAQYIB5cheRftXc",
-      "youtube": "https://www.youtube.com/watch?v=-uKg5ekk8pw"
     }
   },
   {
