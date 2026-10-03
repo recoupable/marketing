@@ -4,7 +4,7 @@ import { readEpisodes } from "../readEpisodes.ts";
 
 test("the seeded episodes parse and keep the curated file order", () => {
   const parsed = readEpisodes();
-  expect(parsed.length).toBe(7);
+  expect(parsed.length).toBe(6);
   expect(parsed.map((episode) => episode.slug)).toStrictEqual(episodes.map((episode) => episode.slug));
   expect(parsed[0]?.slug).toBe("vickie-nauman");
 });

@@ -26,19 +26,6 @@
     }
   },
   {
-    "slug": "panel-equitable-industry",
-    "title": "Building a more equitable music industry with decentralized networks",
-    "guest": "Steph Guerrero and panel",
-    "role": "Steph Guerrero, Watcher.eth, Dragaan, PaperHandPapi",
-    "date": "2023-02-13",
-    "durationSeconds": 3266,
-    "cover": "/podcast/panel-equitable-industry-wide.jpg",
-    "links": {
-      "spotify": "https://open.spotify.com/episode/5eskBoMuAQYIB5cheRftXc",
-      "youtube": "https://www.youtube.com/watch?v=-uKg5ekk8pw"
-    }
-  },
-  {
     "slug": "nick-merich",
     "title": "Growing a music platform: what worked at Mint Songs",
     "guest": "Nick Merich",
