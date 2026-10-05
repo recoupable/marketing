@@ -30,6 +30,13 @@ describe("postLead", () => {
   });
 
 
+  it("requires explicit enrollment acknowledgement for a newsletter request", async () => {
+    const postLead = await load();
+    const newsletter = { ...payload, newsletter_consent: "recoup-research-v1" };
+    expect((await postLead(newsletter, vi.fn().mockResolvedValue(Response.json({ status: "success" })))).ok).toBe(false);
+    expect((await postLead(newsletter, vi.fn().mockResolvedValue(Response.json({ status: "success", newsletter_enrolled: true })))).ok).toBe(true);
+  });
+
   it("talks to the production api only in production", async () => {
     vi.stubEnv("NEXT_PUBLIC_VERCEL_ENV", "production");
     const fetcher = vi.fn().mockResolvedValue(Response.json({ status: "success" }));
