@@ -2,6 +2,7 @@
 
 import { useRef, useState, type FormEvent } from "react";
 import { trackEvent } from "@/lib/analytics/trackEvent";
+import { trackInquiryConversion } from "@/lib/analytics/trackInquiryConversion";
 import { currentReferralAttribution } from "@/lib/attribution/currentReferralAttribution";
 import { inquiryMessageWithContext } from "@/lib/attribution/inquiryMessageWithContext";
 import { prepareInquiryEmail } from "@/lib/inquiry/prepareInquiryEmail";
@@ -81,6 +82,7 @@ export function useInquirySubmit({ source, plan, connected, qualified, compact =
         setStatus("error");
         return;
       }
+      trackInquiryConversion(receipt.submissionId);
       trackEvent("inquiry_submitted", {
         source, ...planProps, submission_id: receipt.submissionId,
         ...(qualification ? { budget: qualification.budget, timeline: qualification.timeline, company_type: qualification.companyType } : {}),
