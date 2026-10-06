@@ -9,6 +9,6 @@ export function describeAcquisitionTags(tags?: AcquisitionTags): string {
   if (!tags) return "";
   return acquisitionTagKeys
     .filter((key) => tags[key])
-    .map((key) => `${key.replace("utm_", "")}=${tags[key]}`)
+    .map((key) => `${key.replace("utm_", "").replaceAll("_", " ")}=${tags[key]}`)
     .join("; ");
 }
