@@ -26,3 +26,11 @@ describe("inquiryMessageWithContext", () => {
     expect(message.length).toBeLessThan(6000);
   });
 });
+
+it("preserves creative identifiers and bounds both fully populated visits", () => {
+  const tags = { utm_source: "x".repeat(100), utm_medium: "x".repeat(100), utm_campaign: "x".repeat(100), utm_content: "x".repeat(100), campaign_id: "a".repeat(32), ad_group_id: "b".repeat(32), ad_id: "c".repeat(32) };
+  const message = inquiryMessageWithContext("x".repeat(5000), "Royalty reporting /royalty-reporting", { first: tags, current: { ...tags, ad_id: "d".repeat(32) } });
+  expect(message.length).toBeLessThanOrEqual(6000);
+  expect(message).toContain(`ad id=${"c".repeat(32)}`);
+  expect(message).toContain(`ad id=${"d".repeat(32)}`);
+});

@@ -2,9 +2,16 @@ import { describeAcquisitionTags } from "./describeAcquisitionTags.ts";
 import type { ReferralAttribution } from "./ReferralAttribution.ts";
 import { sanitizeAcquisitionTags } from "./sanitizeAcquisitionTags.ts";
 
+// Keep CRM labels bounded with seven tags on each of two visits. Full values
+// remain in session attribution; the brief is never truncated.
+function boundedTags(value: unknown) {
+  const tags = sanitizeAcquisitionTags(value);
+  return tags && Object.fromEntries(Object.entries(tags).map(([key, value]) => [key, value.length > 40 ? `${value.slice(0, 39)}…` : value]));
+}
+
 export function inquiryMessageWithContext(brief: string, websitePath: string, attribution?: ReferralAttribution): string {
-  const first = describeAcquisitionTags(sanitizeAcquisitionTags(attribution?.first));
-  const current = describeAcquisitionTags(sanitizeAcquisitionTags(attribution?.current));
+  const first = describeAcquisitionTags(boundedTags(attribution?.first));
+  const current = describeAcquisitionTags(boundedTags(attribution?.current));
   const context: string[] = [];
   if (first) context.push(`First visit source: ${first}`);
   if (current && current !== first) context.push(`Latest visit source: ${current}`);

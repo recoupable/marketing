@@ -51,7 +51,7 @@ export function InquiryForm({ source, connected, variant, initialInterest, initi
   // Guest mode follows the interest the visitor currently has selected, not only the one the URL preselected.
   const compactProject = compact && interestValue !== podcastGuestInterest;
   const needsQualification = compact ? compactProject : qualified;
-  const labels = inquiryLabels({ variant, qualified: needsQualification, freeAudit, connected, compact: compactProject, buildConsultation: interestValue === "Custom systems", guest: interestValue === podcastGuestInterest });
+  const labels = inquiryLabels({ variant, qualified: needsQualification, freeAudit, connected, compact: compactProject, buildConsultation: interestValue === "Custom systems", reporting: source === "/royalty-reporting", guest: interestValue === podcastGuestInterest });
   const [briefValue, setBriefValue] = useState(initialBrief ?? "");
   const [draftApplied, setDraftApplied] = useState(false);
   const inquiry = useInquirySubmit({ source, plan, connected, qualified: needsQualification, compact: compactProject, websitePath: labels.websitePath, pricingContext });

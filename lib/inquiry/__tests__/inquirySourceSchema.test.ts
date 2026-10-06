@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { inquirySourceSchema } from "../inquirySourceSchema";
 
 describe("inquirySourceSchema", () => {
-  it("accepts exactly the four inquiry pages", () => {
-    for (const source of ["/contact", "/start-project", "/acquisitions/contact", "/operations/contact"]) {
+  it("accepts the supported inquiry pages", () => {
+    for (const source of ["/contact", "/start-project", "/acquisitions/contact", "/operations/contact", "/royalty-reporting"]) {
       expect(inquirySourceSchema.parse(source)).toBe(source);
     }
   });

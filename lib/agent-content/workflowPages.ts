@@ -1,7 +1,16 @@
+import { royaltyReportingCopy as reporting } from "../copy/royalty-reporting.ts";
 import type { PageSummary } from "./types.ts";
 
 // Summaries of the workflow example pages; same representation rules as offerPages.
 export const workflowPages: PageSummary[] = [
+  {
+    path: "/royalty-reporting",
+    title: reporting.title,
+    description: reporting.intro,
+    keywords: "royalty reporting reconciliation statements receipts custom workflow labels publishers catalog",
+    paragraphs: [reporting.audience, ...reporting.steps.map(step => `${step.title} ${step.text}`), reporting.proof, reporting.proofScope, reporting.fit, reporting.next, reporting.note],
+    links: [["Discuss my reporting workflow", "/royalty-reporting#inquiry"], ["Royalty-reporting case study", "/case-studies/royalty-reporting"]],
+  },
   {
     path: "/acquisitions",
     title: "AI for music catalog acquisitions",

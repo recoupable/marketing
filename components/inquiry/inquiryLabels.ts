@@ -7,16 +7,17 @@ export type InquiryMode = {
   guest?: boolean;
   compact?: boolean;
   buildConsultation?: boolean;
+  reporting?: boolean;
 };
 
 /** Every piece of copy that changes with the inquiry surface, in one place. */
-export function inquiryLabels({ variant, qualified, freeAudit, connected, guest = false, compact = false, buildConsultation = false }: InquiryMode) {
+export function inquiryLabels({ variant, qualified, freeAudit, connected, guest = false, compact = false, buildConsultation = false, reporting = false }: InquiryMode) {
   if (guest) return guestLabels(connected);
   if (compact) return {
-    websitePath: "Project inquiry /start-project",
+    websitePath: reporting ? "Royalty reporting /royalty-reporting" : "Project inquiry /start-project",
     formLabel: "Project inquiry",
-    heading: buildConsultation ? "Let’s build your AI system" : "Request a consultation",
-    formIntro: buildConsultation
+    heading: reporting ? "Discuss your reporting workflow" : buildConsultation ? "Let’s build your AI system" : "Request a consultation",
+    formIntro: reporting ? "Tell us which reporting process you want to improve. We’ll email you to arrange a conversation." : buildConsultation
       ? "We’ll explore what it could do for your team, what it would take to build, and where to start. We’ll email you to arrange a time."
       : "Share a few details. We’ll email you to arrange a time.",
     interestLabel: "What can we help with? *",
@@ -24,7 +25,7 @@ export function inquiryLabels({ variant, qualified, freeAudit, connected, guest 
     messageLabel: "Anything else? (optional)",
     messagePlaceholder: "A short note or question, if you have one.",
     budgetNote: "",
-    submit: connected ? buildConsultation ? "Start my AI project" : "Request a consultation" : "Prepare consultation request",
+    submit: connected ? reporting ? "Discuss my reporting workflow" : buildConsultation ? "Start my AI project" : "Request a consultation" : "Prepare consultation request",
   };
   return {
     formIntro: "",
