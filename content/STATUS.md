@@ -1,6 +1,6 @@
 ## 2026-10-06 — ChatGPT Ads inquiry conversion tracking
 
-Added the supplied OpenAI pixel to the root layout and `lead_created` after validated inquiry receipts. Live marketing domains only; preview hosts, Global Privacy Control and Do Not Track skip loading. Receipt-based event IDs deduplicate retries; form fields and newsletter events are not forwarded. Ads Manager has a Project inquiry submitted conversion using Lead created. See `docs/chatgpt-ads-conversions.md` for verification and SDK matching/consent behavior. Implementation and automated checks are separate from deployment and live event receipt.
+Added the supplied OpenAI pixel to the root layout and `lead_created` after validated inquiry receipts. Live marketing domains only; preview hosts, Global Privacy Control and Do Not Track skip loading. Random event IDs deduplicate repeated receipts within the page session; the content-derived receipt stays local. Form fields are not explicitly included in the event payload, and newsletter events are not sent. Ads Manager has a Project inquiry submitted conversion using Lead created. See `docs/chatgpt-ads-conversions.md` for verification and SDK matching/consent behavior. Implementation and automated checks are separate from deployment and live event receipt.
 
 ## 2026-09-29 — Concrete AI capabilities and product output
 

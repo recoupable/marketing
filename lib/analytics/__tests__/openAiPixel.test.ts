@@ -5,9 +5,9 @@ import { trackInquiryConversion } from "../trackInquiryConversion";
 
 afterEach(() => vi.unstubAllGlobals());
 
-function boot(hostname = "recoupable.dev", navigator = {}) {
+function boot(hostname = "recoupable.dev", navigator = {}, doNotTrack?: string) {
   const insertBefore = vi.fn();
-  const window = { location: { hostname }, navigator } as { location: { hostname: string }; navigator: object; oaiq?: { q: Array<IArguments> } };
+  const window = { location: { hostname }, navigator, doNotTrack } as { location: { hostname: string }; navigator: object; oaiq?: { q: Array<IArguments> } };
   const document = {
     createElement: () => ({}),
     getElementsByTagName: () => [{ parentNode: { insertBefore } }],
@@ -28,7 +28,7 @@ describe("OpenAI pixel", () => {
     expect(Array.from(window.oaiq!.q[0])).toEqual(["init", { pixelId: "TqnT6JtP1DyuB7C7H96pYP" }]);
     expect(Array.from(window.oaiq!.q[1])).toEqual([
       "measure", "lead_created", { type: "customer_action" },
-      { event_id: `inquiry_${"a".repeat(64)}`, opt_out: true },
+      { event_id: expect.stringMatching(/^[a-f\d-]{36}$/), opt_out: true },
     ]);
   });
 
@@ -36,8 +36,12 @@ describe("OpenAI pixel", () => {
     expect(boot(hostname).insertBefore).not.toHaveBeenCalled();
   });
 
-  it.each([{ globalPrivacyControl: true }, { doNotTrack: "1" }])("honors browser privacy preference %j", (navigator) => {
+  it.each([{ globalPrivacyControl: true }, { doNotTrack: "1" }, { doNotTrack: "yes" }, { msDoNotTrack: "1" }])("honors browser privacy preference %j", (navigator) => {
     expect(boot("recoupable.dev", navigator).insertBefore).not.toHaveBeenCalled();
+  });
+
+  it("honors the legacy window Do Not Track signal", () => {
+    expect(boot("recoupable.dev", {}, "1").insertBefore).not.toHaveBeenCalled();
   });
 
   it("reuses the event ID for retries and omits inquiry details", () => {
@@ -47,6 +51,9 @@ describe("OpenAI pixel", () => {
     trackInquiryConversion("b".repeat(64));
     expect(oaiq.mock.calls[0]).toEqual(oaiq.mock.calls[1]);
     expect(oaiq.mock.calls[0][2]).toEqual({ type: "customer_action" });
+    expect(JSON.stringify(oaiq.mock.calls)).not.toContain("b".repeat(64));
+    trackInquiryConversion("d".repeat(64));
+    expect(oaiq.mock.calls[2][3].event_id).not.toBe(oaiq.mock.calls[0][3].event_id);
   });
 
   it("ignores invalid receipts and survives missing or blocked SDKs", () => {

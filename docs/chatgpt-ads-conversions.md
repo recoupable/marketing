@@ -12,8 +12,9 @@ shared inquiry forms on contact, start-project, acquisitions/contact and
 operations/contact. Clicks, failed submissions, email fallbacks and newsletter
 subscriptions do not fire this event.
 
-The event ID is `inquiry_<submissionId>` so repeated receipts share a deduplication
-key. No revenue is invented. No form values are explicitly passed to OpenAI, and
+Each receipt maps to a random UUID kept in memory, so repeated receipts within
+the page session share a deduplication key. The content-derived receipt itself
+is never sent to OpenAI. Reloading the page clears this local mapping. No revenue is invented. No form values are explicitly passed to OpenAI, and
 `opt_out: true` opts these events out of future user-level personalization. The
 SDK can independently use automatic advanced matching when enabled in the pixel
 configuration; omitting an explicit user object does not disable that feature.
