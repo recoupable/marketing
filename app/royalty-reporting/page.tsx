@@ -15,14 +15,6 @@ export const metadata: Metadata = withPageMetadata({
 export default function RoyaltyReportingPage() {
   return (
     <div className="rr-page">
-      <header className="rr-header">
-        <Link href="/" aria-label="Recoup home">
-          Recoup<span>®</span>
-        </Link>
-        <a href="#inquiry">
-          Let’s talk <span aria-hidden="true">↗</span>
-        </a>
-      </header>
       <section className="rr-hero" aria-labelledby="reporting-title">
         <div className="rr-intro">
           <p className="rr-kicker">{copy.kicker}</p>
@@ -120,11 +112,6 @@ export default function RoyaltyReportingPage() {
           </p>
         </div>
       </section>
-      <footer className="rr-footer">
-        <Link href="/">Recoup</Link>
-        <span>Custom systems for the music business.</span>
-        <a href="/privacy">Privacy</a>
-      </footer>
     </div>
   );
 }

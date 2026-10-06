@@ -1,3 +1,7 @@
+## Reporting page shared navigation — October 6, 2026
+
+Restored the main website header, footer and Human/Agent toggle on `/royalty-reporting`. Removed the duplicate landing-only header/footer and their styles. The inquiry CTA remains in the hero.
+
 ## Inquiry layout repair — October 6, 2026
 
 Moved compact inquiry styles into the shared component so direct landing-page visits receive full-width summary and optional rows, readable buttons, and select controls. Simplified reporting inquiry copy and stacked the layout before controls become cramped. Verified local desktop, 990px and 390px layouts and the shared start-project form; production verification follows deployment.
