@@ -1,3 +1,7 @@
+## 2026-10-06 — ChatGPT Ads inquiry conversion tracking
+
+Added the supplied OpenAI pixel to the root layout and `lead_created` after validated inquiry receipts. Live marketing domains only; preview hosts, Global Privacy Control and Do Not Track skip loading. Receipt-based event IDs deduplicate retries; form fields and newsletter events are not forwarded. Ads Manager has a Project inquiry submitted conversion using Lead created. See `docs/chatgpt-ads-conversions.md` for verification and SDK matching/consent behavior. Implementation and automated checks are separate from deployment and live event receipt.
+
 ## 2026-09-29 — Concrete AI capabilities and product output
 
 Sharpened custom AI intake copy with titled capabilities and a clearer discussion of scope and starting point. Added a compact preview linking to the existing real weekly report from the Recoup platform (originally published in #82 using public streaming data). It is labeled as platform output, not a custom client case study. Form fields and submission behavior are unchanged. This revision is local until PR #139 is merged and deployed.

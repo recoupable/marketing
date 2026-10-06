@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
+import { openAiPixelScript } from "@/lib/analytics/openAiPixelScript";
 import "@fontsource-variable/dm-sans";
 import "@fontsource/ibm-plex-mono/400.css";
 import "./globals.css";
@@ -38,6 +40,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <head>
+        <Script id="openai-ads-pixel" strategy="beforeInteractive">
+          {openAiPixelScript}
+        </Script>
         <link rel="ard" href="/.well-known/ard.json" />
         <link rel="api-catalog" href="/.well-known/api-catalog" />
         <link rel="service-desc" type="application/json" href="/openapi.json" />
