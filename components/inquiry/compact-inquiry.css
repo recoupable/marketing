@@ -1,0 +1,83 @@
+/* Compact forms own their layout, independently of their hosting page. */
+.inquiry-form.compact-inquiry .form-grid > .wide {
+  grid-column: 1 / -1;
+}
+.inquiry-form.compact-inquiry .form-grid {
+  gap: 20px;
+}
+.inquiry-form.compact-inquiry > .lead-consultation-intro {
+  margin: 0 0 24px;
+  color: #586f78;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.inquiry-form.compact-inquiry .compact-interest-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 48px;
+  padding-bottom: 12px;
+  margin-bottom: 2px;
+  box-shadow: 0 1px 0 #dce7ec;
+  font-size: 15px;
+  font-weight: 550;
+}
+.inquiry-form.compact-inquiry .compact-interest-summary button {
+  min-height: 44px;
+  padding: 6px 4px;
+  border: 0;
+  background: transparent;
+  color: #087bab;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.inquiry-form.compact-inquiry .compact-inquiry-extra > summary {
+  min-height: 44px;
+  align-content: center;
+  cursor: pointer;
+  color: #254552;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.inquiry-form.compact-inquiry .compact-inquiry-extra > .form-field {
+  margin-top: 18px;
+}
+.inquiry-form.compact-inquiry .form-field > textarea {
+  min-height: 96px;
+}
+.inquiry-form.compact-inquiry .inquiry-fields > .button {
+  margin-top: 24px;
+  min-height: 52px;
+  font-family: var(--body);
+  font-size: 16px;
+  font-weight: 550;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.inquiry-form.compact-inquiry .form-field > select {
+  appearance: none;
+  padding-right: 42px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23254552' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+}
+@media (forced-colors: active) {
+  .inquiry-form.compact-inquiry .form-field > select {
+    appearance: auto;
+    background-image: none;
+  }
+}
+@media (max-width: 600px) {
+  .inquiry-form.compact-inquiry .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .inquiry-form.compact-inquiry .form-field > :is(input, select, textarea) {
+    font-size: 16px;
+  }
+}

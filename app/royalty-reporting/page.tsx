@@ -103,7 +103,7 @@ export default function RoyaltyReportingPage() {
           <p className="rr-kicker">LET’S LOOK AT YOUR PROCESS</p>
           <h2 id="rr-fit">{copy.fitTitle}</h2>
           <p>{copy.fit}</p>
-          <p>{copy.next}</p>
+
           <p className="rr-small">{copy.note}</p>
         </div>
         <div className="rr-form">

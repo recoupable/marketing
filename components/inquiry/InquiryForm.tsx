@@ -19,6 +19,7 @@ import { InquiryWorkFields } from "./InquiryWorkFields";
 import { inquiryLabels } from "./inquiryLabels";
 import { useInquirySubmit } from "@/hooks/useInquirySubmit";
 import "./inquiry-form.css";
+import "./compact-inquiry.css";
 
 const subscribeToHydration = () => () => {};
 const clientReady = () => true;
