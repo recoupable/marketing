@@ -24,8 +24,8 @@ export const royaltyReportingCopy = {
     "Our royalty-reporting case study follows a working reconciliation workbook: overall totals, payment-source comparisons, flagged differences, and timing items. When an export changed, the team reran the review with the corrected input.",
   proofScope:
     "An anonymized implementation. Time savings and recovered royalties have not been independently measured.",
-  fitTitle: "Start with one reporting workflow.",
-  fit: "A good fit is a recurring review involving multiple files, repeatable rules, and a person responsible for approval. We scope the inputs, output, access, and handover together before agreeing on a build.",
+  fitTitle: "Let’s look at your reporting process.",
+  fit: "Tell us how statements and receipts move through your team today. We’ll discuss the inputs, the report you need, and where human review belongs.",
   next: "Share your process in a few lines. We’ll follow up by email to arrange a conversation and work out whether a custom system makes sense.",
-  note: "No confidential files needed here. This is a project inquiry, not an instant report or a royalty-recovery service.",
+  note: "No files needed for this first conversation. We’ll agree on scope and price before work begins.",
 } as const;

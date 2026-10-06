@@ -35,7 +35,7 @@
 .lead-page .lead-inquiry .form-field { min-width: 0; }
 .lead-page .lead-inquiry .wide { grid-column: 1 / -1; }
 .lead-page .lead-inquiry .form-field label { font-size: 14px; line-height: 1.45; color: #254552; }
-.lead-page .lead-inquiry .form-field > :is(input, select, textarea) { width: 100%; min-width: 0; min-height: 48px; padding: 13px 14px; border: 1px solid #78939e; border-radius: 9px; background: #fff; color: #152e37; font-family: "DM Sans Variable", sans-serif; font-size: 16px; line-height: 1.45; }
+.lead-page .lead-inquiry .form-field > :is(input, select, textarea) { width: 100%; min-width: 0; min-height: 48px; padding: 13px 14px; border: 1px solid #78939e; border-radius: 9px; background-color: #fff; color: #152e37; font-family: "DM Sans Variable", sans-serif; font-size: 16px; line-height: 1.45; }
 .lead-page .lead-inquiry .form-field > textarea { min-height: 144px; resize: vertical; }
 .lead-page .lead-inquiry .form-field > textarea[name="tools"] { min-height: 110px; }
 .lead-page .lead-inquiry .form-field > :is(input, textarea)::placeholder { color: #607680; font-size: 16px; opacity: 1; }
@@ -86,32 +86,10 @@
   .sky-site .lead-page .lead-inquiry { padding-inline: 16px; }
 }
 
-/* Optional context stays available without expanding the initial questionnaire. */
-.lead-page .compact-inquiry-extra > summary { min-height: 44px; display: list-item; align-content: center; cursor: pointer; color: #254552; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
-.lead-page .compact-inquiry-extra > .form-field { margin-top: 16px; }
-.lead-page .compact-inquiry .form-field > textarea { min-height: 84px; }
-
-.lead-page .compact-inquiry .inquiry-fields > .button { font-family: "DM Sans Variable", sans-serif; font-size: 16px; font-weight: 550; letter-spacing: 0; }
-
-/* Keep the native select interaction with an inset, unclipped chevron. */
-.lead-page .lead-inquiry .form-field > select {
-  appearance: none;
-  padding-right: 44px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23254552' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  background-size: 16px 16px;
-}
-@media (forced-colors: active) {
-  .lead-page .lead-inquiry .form-field > select { appearance: auto; background-image: none; }
-}
-
 .lead-page-followup { margin-top: 16px; color: #586f78; font-size: 14px; line-height: 1.6; }
 .sky-site .lead-page .compact-inquiry { padding: 28px; }
 .lead-page .compact-inquiry .form-grid { gap: 18px; }
 .lead-page .compact-inquiry .inquiry-fields > .button { margin-top: 20px; }
-.compact-interest-summary { display: flex; align-items: center; gap: 12px; min-height: 44px; padding-bottom: 12px; box-shadow: 0 1px 0 #dce7ec; font-size: 16px; font-weight: 550; }
-.compact-interest-summary button { min-height: 44px; padding: 6px 4px; background: transparent; color: #087bab; font-family: inherit; font-size: 14px; font-weight: 400; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 @media (max-width: 600px) {
   .sky-site .lead-page .compact-inquiry { padding: 22px 19px; }
   .lead-page .compact-inquiry .form-grid { gap: 16px; }
@@ -122,7 +100,6 @@
 .lead-consultation-outcomes ul { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
 .lead-consultation-outcomes li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 1.55; }
 .lead-consultation-outcomes li svg { flex-shrink: 0; margin-top: 2px; color: #087bab; }
-.lead-page .lead-consultation-intro { margin: 0 0 20px; color: #586f78; font-size: 14px; line-height: 1.6; }
 .lead-page .compact-interest-summary { min-height: 36px; gap: 10px; padding-bottom: 8px; color: #586f78; font-size: 14px; font-weight: 400; }
 .lead-page .compact-interest-summary button { font-size: 13px; }
 

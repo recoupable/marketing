@@ -1,3 +1,7 @@
+## Inquiry layout repair — October 6, 2026
+
+Moved compact inquiry styles into the shared component so direct landing-page visits receive full-width summary and optional rows, readable buttons, and select controls. Simplified reporting inquiry copy and stacked the layout before controls become cramped. Verified local desktop, 990px and 390px layouts and the shared start-project form; production verification follows deployment.
+
 ## Focused royalty-reporting inquiry page — October 6, 2026
 
 Added `/royalty-reporting` with a synthetic report example, public case-study proof, and the shared inquiry form. Added creative and stable ad identifiers to bounded acquisition attribution. Two illustrative square creative assets accompany the page. See `docs/royalty-reporting-funnel.md`. Local checks are separate from production deployment and ad serving.
