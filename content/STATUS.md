@@ -1,3 +1,7 @@
+## Starter plugin subscription — October 8, 2026
+
+Changed the label-kit offer to $19/month, including Recoup Starter access, $20 monthly usage credits, and ongoing skill updates. Updated hero CTA, receipt, preview dialog, onboarding copy, metadata, and FAQs. Legacy one-time checkout configuration cannot activate this offer. Checkout remains preview-only pending verified subscription fulfillment and plugin delivery; no Stripe objects changed.
+
 ## Compact role examples — October 8, 2026
 
 Replaced the oversized audience document mockups with a compact role selector, one example request, and three concrete deliverables per role. Removed redundant headings, outcome chips, and illustrative sheets. Verified artist, manager and label switching and 320px layout; production build and scoped lint pass.

@@ -285,6 +285,6 @@ The readiness result action takes visitors to `/contact?brief=readiness`. Only t
 
 ## Label kit offer
 
-`/label-in-a-box` is the unlisted, noindex packaged Skills + MCP offer. Keep `/skills` as the public open-source collection. Checkout stays in preview until `LABEL_KIT_PRICE_LABEL` and an HTTPS `buy.stripe.com` URL in `LABEL_KIT_CHECKOUT_URL` are set at build time. See `docs/plans/label-in-a-box.md` for ZIP curation, payment activation, and future update entitlements. Never put the paid ZIP in `public/` or imply that a browser flag verifies payment.
+`/label-in-a-box` is the unlisted, noindex packaged Skills + MCP offer. Keep `/skills` as the public open-source collection. Checkout stays in preview until a fulfillment-ready Starter subscription link is configured as `LABEL_KIT_STARTER_CHECKOUT_URL` (HTTPS `buy.stripe.com`) at build time. The offer is $19/month with Recoup Starter access and ongoing skill updates; old one-time checkout configuration is ignored. See `docs/plans/label-in-a-box.md` for ZIP curation, payment activation, and future update entitlements. Never put the paid ZIP in `public/` or imply that a browser flag verifies payment.
 
 The label kit narrative leads with outcomes for artists, managers, and labels. `audience-preview.tsx` owns the role-specific request/output examples. Keep original campaign art in `public/images/label-kit/` attributed as illustrative until verified through the shipped kit; no invented customer proof.

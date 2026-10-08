@@ -48,26 +48,26 @@ export function PurchaseButton({
             ×
           </button>
         </form>
-        <p className="kit-eyebrow">RECOUP / DIGITAL DOWNLOAD</p>
+        <p className="kit-eyebrow">RECOUP / STARTER</p>
         <h2 id={`${id}-title`}>Your Recoup plugin.</h2>
         <p id={`${id}-description`}>
-          Skills, MCP setup, and music-business workflows in one ZIP.
+          The plugin, Recoup access, and ongoing skill updates.
         </p>
         <div className="kit-order">
-          <span>One-time purchase</span>
+          <span>Monthly subscription</span>
           <strong>{price}</strong>
         </div>
         <ul className="kit-checks">
-          <li>Curated Recoup Skills</li>
-          <li>MCP connection guide</li>
-          <li>Artist and release starter templates</li>
+          <li>Plugin download + setup guide</li>
+          <li>$20 in monthly Recoup usage credits</li>
+          <li>Ongoing skill updates while subscribed</li>
         </ul>
         <button className="kit-button kit-disabled" disabled>
           Checkout coming soon
         </button>
         <p className="kit-fine">
-          This is placeholder pricing for the preview. No payment is collected
-          and the download is not available yet.
+          Billed monthly in USD until canceled. Checkout and the download are
+          not available in this preview. No payment is collected.
         </p>
       </dialog>
     </>

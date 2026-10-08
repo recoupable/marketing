@@ -11,7 +11,7 @@ import "./label-kit.css";
 export const metadata = withPageMetadata({
   title: "Let Claude and ChatGPT manage your music business.",
   description:
-    "A record label in a box for artists, managers, and labels using AI. Equip your agent to research artists, plan releases, and build campaigns with the Recoup Label Kit.",
+    "The Recoup plugin for artists, managers, and labels. $19/month includes music-business skills, Recoup Starter access, and ongoing skill updates.",
   alternates: { canonical: "/label-in-a-box" },
   robots: { index: false, follow: true },
 });
@@ -19,7 +19,7 @@ export const metadata = withPageMetadata({
 const questions = [
   [
     "What exactly do I get?",
-    "A downloadable ZIP with curated Recoup Skills, setup instructions for connected Recoup tools, artist and release starter files, and a quick-start guide. The final contents will be listed before checkout opens.",
+    "The Recoup plugin download, setup guide, Recoup Starter access, and ongoing skill updates while subscribed. The final download contents and tested setup paths will be confirmed before checkout opens.",
   ],
   [
     "Do I need to know how to code?",
@@ -31,21 +31,21 @@ const questions = [
   ],
   [
     "Are AI and Recoup usage included?",
-    "Your AI subscription, Recoup API and MCP usage, and any third-party generation services are separate. This purchase is for the downloadable toolkit, not unlimited hosted usage.",
+    "Recoup Starter access includes $20 in monthly usage credits for connected Recoup tools. Usage is limited by those credits. Your Claude or ChatGPT subscription and third-party services are separate.",
   ],
   [
     "Why buy this when the skills are public?",
-    "The public Recoup Skills collection remains available to install yourself. The paid offer is the curated package: selected music workflows, starter files, setup guidance, and a defined release in one download.",
+    "The public skills remain free to install yourself. This subscription includes Recoup access for connected tools, the packaged plugin, setup guidance, and ongoing skill updates.",
   ],
   [
     "Is this a subscription?",
-    "This first offer is a one-time purchase of the packaged release. A separate subscription for ongoing updates is planned for later. It is not included in this purchase.",
+    "Yes. Recoup Starter is $19 USD per month, billed monthly until canceled. The plugin and ongoing skill updates are included while subscribed. There is no separate plugin purchase.",
   ],
 ];
 
 export default function LabelKitPage() {
   const offer = getOffer();
-  const price = offer?.price ?? "$99"; // Design preview only; does not enable checkout.
+  const price = offer?.price ?? "$19/month"; // Starter pricing; checkout readiness is separate.
   return (
     <div className="label-kit sky-subpage">
       <section className="kit-hero">
@@ -87,11 +87,7 @@ export default function LabelKitPage() {
               price={price}
               showPrice
             />
-            <p>
-              {offer
-                ? "One-time purchase"
-                : "One-time purchase · Preview pricing"}
-            </p>
+            <p>Includes Recoup access + ongoing skill updates.</p>
           </div>
         </div>
         <ChatDemo />
@@ -100,8 +96,8 @@ export default function LabelKitPage() {
       <section id="inside" className="kit-section kit-inside">
         <div className="kit-section-intro">
           <p className="kit-eyebrow">WHAT YOU’RE BUYING</p>
-          <h2>What’s in the download?</h2>
-          <p>Skills, connected tools, and starter files for your AI agent.</p>
+          <h2>What’s included?</h2>
+          <p>The plugin, Recoup access, and skills that keep getting better.</p>
         </div>
         <div className="kit-contents">
           <article>
@@ -147,8 +143,8 @@ export default function LabelKitPage() {
             <span className="kit-content-number">02 / THE TOOLS</span>
             <h3>Connect it to Recoup.</h3>
             <p>
-              MCP setup guidance connects compatible agents to Recoup’s tools
-              and the data you authorize.
+              Starter access and $20 in monthly usage credits connect your agent
+              to Recoup’s tools and the data you authorize.
             </p>
             <Link href="/developers">
               See the connected tools <SkyArrow />
@@ -191,8 +187,8 @@ export default function LabelKitPage() {
           </article>
         </div>
         <p className="kit-contents-note">
-          The public skills are available separately. This offer brings a
-          curated selection, setup guidance, and starter files into one package.
+          New and improved skills are included while you subscribe. The public
+          skills remain available separately.
         </p>
       </section>
       <section id="how-it-works" className="kit-section kit-start">
@@ -203,8 +199,8 @@ export default function LabelKitPage() {
         <ol>
           {[
             [
-              "Get the kit.",
-              "Download the ZIP and follow the setup guide for your compatible AI agent.",
+              "Get the plugin.",
+              "Subscribe to Starter, download the plugin, and follow the setup guide.",
             ],
             [
               "Make it yours.",
@@ -223,48 +219,48 @@ export default function LabelKitPage() {
           ))}
         </ol>
         <p className="kit-setup-note">
-          Requires a compatible AI agent. AI subscriptions and Recoup tool usage
-          are billed separately.
+          Requires a compatible AI agent. Recoup Starter usage is included; your
+          AI subscription is separate.
         </p>
       </section>
       <section id="get-the-kit" className="kit-section kit-purchase">
         <div>
-          <p className="kit-eyebrow">RECOUP LABEL KIT</p>
+          <p className="kit-eyebrow">RECOUP PLUGIN</p>
           <h2>
             Put AI to work
             <br />
             <em>for your music.</em>
           </h2>
-          <p>One toolkit. Yours to keep.</p>
+          <p>Your plugin. Connected. Kept up to date.</p>
           <div className="kit-purchase-file">
             <span aria-hidden="true">↓</span>
             <div>
               <strong>recoup-label-kit.zip</strong>
-              <small>Skills. Tool setup. Starter files.</small>
+              <small>Skills. Connected tools. Ongoing updates.</small>
             </div>
           </div>
         </div>
         <div className="kit-receipt">
           <div className="kit-receipt-header">
-            <span>THE COMPLETE KIT</span>
-            <span>ONE-TIME PURCHASE</span>
+            <span>RECOUP STARTER</span>
+            <span>MONTHLY SUBSCRIPTION</span>
           </div>
           <h3>{price}</h3>
-          <p>The packaged release is yours to keep.</p>
+          <p>Plugin included. No separate purchase.</p>
           <ul className="kit-checks">
-            <li>Curated music-business skills</li>
-            <li>Recoup MCP setup guide</li>
-            <li>Artist and release starter files</li>
-            <li>Quick-start workflow guide</li>
+            <li>Plugin download + setup guide</li>
+            <li>Recoup Starter access</li>
+            <li>$20 in monthly usage credits</li>
+            <li>Ongoing skill updates</li>
           </ul>
           <PurchaseButton checkoutUrl={offer?.checkoutUrl} price={price} />
           <p className="kit-fine">
             {offer
-              ? "Secure one-time checkout via Stripe."
+              ? "Secure monthly billing via Stripe."
               : "Preview only. Checkout opens when the kit is ready."}
           </p>
           <p className="kit-fine">
-            No recurring charge. AI and API usage are separate.
+            Billed monthly in USD until canceled. AI subscription separate.
           </p>
         </div>
       </section>

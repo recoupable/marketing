@@ -2,12 +2,12 @@ import { describe, expect, it } from "vitest";
 import { getOffer } from "./getOffer";
 
 describe("label kit checkout availability", () => {
-  it("keeps checkout closed until price and hosted checkout are configured", () => {
+  it("ignores legacy one-time checkout configuration", () => {
     expect(getOffer({})).toBeNull();
-    expect(getOffer({ LABEL_KIT_PRICE_LABEL: "$TBD" })).toBeNull();
     expect(
       getOffer({
-        LABEL_KIT_CHECKOUT_URL: "https://buy.stripe.com/test_example",
+        LABEL_KIT_PRICE_LABEL: "$99",
+        LABEL_KIT_CHECKOUT_URL: "https://buy.stripe.com/old_one_time",
       }),
     ).toBeNull();
   });
@@ -24,7 +24,7 @@ describe("label kit checkout availability", () => {
       expect(
         getOffer({
           LABEL_KIT_PRICE_LABEL: "Example price",
-          LABEL_KIT_CHECKOUT_URL: url,
+          LABEL_KIT_STARTER_CHECKOUT_URL: url,
         }),
       ).toBeNull();
     }
@@ -33,10 +33,10 @@ describe("label kit checkout availability", () => {
     expect(
       getOffer({
         LABEL_KIT_PRICE_LABEL: " Example price ",
-        LABEL_KIT_CHECKOUT_URL: "https://buy.stripe.com/test_example",
+        LABEL_KIT_STARTER_CHECKOUT_URL: "https://buy.stripe.com/test_example",
       }),
     ).toEqual({
-      price: "Example price",
+      price: "$19/month",
       checkoutUrl: "https://buy.stripe.com/test_example",
     });
   });
