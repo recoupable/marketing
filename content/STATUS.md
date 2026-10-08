@@ -1,3 +1,7 @@
+## Clearer toolkit offer — October 8, 2026
+
+Simplified the hero to “AI tools for your music business.” with download/install instructions and three literal output labels: artist research, release plans, and marketing content. Removed fictional campaign titles and redundant sections. One-time Stripe checkout remains in preview pending offer configuration and fulfillment.
+
 ## Buyer-focused label kit revision — October 8, 2026
 
 Rebuilt `/label-in-a-box` around the artist, manager, and label buyer: outcome-led hero, original campaign artwork, role-specific requests and output previews, a simpler setup story, and one-time purchase details. Applied design-visual-experiences and copywriting guidance. Assets and documents are labeled illustrations, not verified kit output. Checkout remains in preview. Production build and scoped lint pass; all three roles, image loading, purchase dialog, and desktop/390px/320px layouts were checked in the browser.

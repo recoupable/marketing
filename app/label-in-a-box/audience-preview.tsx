@@ -7,9 +7,8 @@ const audiences = [
   {
     id: "artist",
     label: "I’m an artist",
-    title: "Give the release everything you’ve got.",
-    description:
-      "The song is ready. Now give your agent the work around it: the rollout, the creative direction, and the content that brings people in.",
+    title: "Promote your music.",
+    description: "Turn your song into a release plan and campaign ideas.",
     prompt: "Here’s my new single. Help me build the release campaign.",
     outputs: [
       "Release plan",
@@ -22,9 +21,9 @@ const audiences = [
   {
     id: "manager",
     label: "I’m a manager",
-    title: "Move the whole roster forward.",
+    title: "Manage your roster.",
     description:
-      "Walk into the next artist call with a plan. Have your agent pull together the research, upcoming priorities, and outreach drafts.",
+      "Prepare artist briefs, weekly priorities, and outreach drafts.",
     prompt:
       "Build a weekly brief for my roster and flag the opportunities worth a look.",
     outputs: [
@@ -38,9 +37,9 @@ const audiences = [
   {
     id: "label",
     label: "I run a label",
-    title: "Put more of your ideas into action.",
+    title: "Research your next signing.",
     description:
-      "Give your team a repeatable way to research talent, review a catalog, and prepare a release. Keep the source material close to the recommendation.",
+      "Get artist and catalog research ready for your team to review.",
     prompt:
       "Research this artist and prepare a brief for our next A&R meeting.",
     outputs: [
@@ -60,11 +59,7 @@ export function AudiencePreview() {
     <section id="for-you" className="kit-section kit-audience">
       <div className="kit-section-intro">
         <p className="kit-eyebrow">YOUR MUSIC. YOUR NEXT MOVE.</p>
-        <h2>
-          What would you do
-          <br />
-          with more help?
-        </h2>
+        <h2>What do you need done?</h2>
         <p>Start with the job you need done.</p>
       </div>
       <div className="kit-role-tabs" aria-label="Choose your role">
@@ -110,9 +105,9 @@ export function AudiencePreview() {
                   sizes="(max-width: 760px) 65vw, 320px"
                 />
                 <span>
-                  BLUE
+                  Cover
                   <br />
-                  HOUR
+                  art
                 </span>
                 <small>ARTWORK DIRECTION / 01</small>
               </div>
@@ -121,9 +116,9 @@ export function AudiencePreview() {
                   RELEASE PLAN <span>↗</span>
                 </div>
                 <strong>
-                  Make the
+                  Release
                   <br />
-                  moment count.
+                  calendar.
                 </strong>
                 <ol>
                   <li>

@@ -8,7 +8,7 @@ import { AudiencePreview } from "./audience-preview";
 import "./label-kit.css";
 
 export const metadata = withPageMetadata({
-  title: "Your AI agent. Your label team.",
+  title: "AI tools for your music business.",
   description:
     "A record label in a box for artists, managers, and labels using AI. Equip your agent to research artists, plan releases, and build campaigns with the Recoup Label Kit.",
   alternates: { canonical: "/label-in-a-box" },
@@ -49,25 +49,26 @@ export default function LabelKitPage() {
       <section className="kit-hero">
         <div className="kit-hero-copy">
           <p className="kit-eyebrow">
-            <span /> A RECORD LABEL IN A BOX
+            <span /> FOR ARTISTS, MANAGERS & LABELS
           </p>
           <h1>
-            Your AI agent.
+            AI tools for
             <br />
-            <em>Your label team.</em>
+            <em>
+              your music
+              <br />
+              business.
+            </em>
           </h1>
           <p className="kit-lead">
-            Plan the release. Find the opportunities.
-            <br className="kit-desktop-break" /> Create the campaign.
-          </p>
-          <p className="kit-hero-description">
-            Give the AI you already use music-business skills and connected
-            tools. A downloadable kit for artists, managers, and record labels.
+            Download the toolkit. Add it to your AI agent.
+            <br />
+            Get help with research, releases, and marketing.
           </p>
           <div className="kit-hero-actions">
             <PurchaseButton checkoutUrl={offer?.checkoutUrl} />
-            <a href="#for-you" className="kit-text-link">
-              See what you could do <SkyArrow direction="down" />
+            <a href="#inside" className="kit-text-link">
+              See what’s included <SkyArrow direction="down" />
             </a>
           </div>
           <p className="kit-fine">
@@ -75,131 +76,66 @@ export default function LabelKitPage() {
           </p>
         </div>
         <div
-          className="kit-campaign"
-          aria-label="Illustrative release campaign: cover artwork, artist image, and release plan"
+          className="kit-output-preview"
+          aria-label="Example outputs: artist research, release plans, and marketing content"
         >
-          <div className="kit-campaign-photo">
-            <Image
-              src="/images/label-kit/blue-hour-artist.png"
-              alt="Fictional artist campaign concept: a performer beneath a blue light installation"
-              width={750}
-              height={1000}
-              priority
-              sizes="(max-width: 760px) 55vw, 350px"
-            />
-            <div>
-              <span>
-                A NEW WORLD
-                <br />
-                AFTER DARK.
-              </span>
-              <small>BLUE HOUR / CAMPAIGN CONCEPT</small>
-            </div>
-          </div>
-          <div className="kit-campaign-cover">
-            <Image
-              src="/images/label-kit/blue-hour-cover.png"
-              alt="Silver sculptural flower album cover concept"
-              width={720}
-              height={720}
-              priority
-              sizes="(max-width: 760px) 55vw, 350px"
-            />
-            <div>
-              <strong>
-                BLUE
-                <br />
-                HOUR
-              </strong>
-              <span>THE NEW SINGLE</span>
-            </div>
-          </div>
-          <div className="kit-campaign-plan">
-            <div>
-              <span className="kit-status-dot" /> RELEASE PLAN{" "}
-              <span>01—04</span>
-            </div>
-            <strong>
-              A song worth
-              <br />
-              showing up for.
-            </strong>
+          <article className="kit-output-research">
+            <span className="kit-output-index">01</span>
+            <h2>Artist research</h2>
             <ul>
-              <li>
-                Artist story & direction <span>01</span>
-              </li>
-              <li>
-                Campaign assets <span>02</span>
-              </li>
-              <li>
-                Release calendar <span>03</span>
-              </li>
+              <li>Sound & story</li>
+              <li>Audience</li>
+              <li>Opportunities</li>
             </ul>
-          </div>
-          <div className="kit-campaign-prompt">
-            <svg
-              className="kit-audio-symbol"
-              viewBox="0 0 42 32"
-              aria-hidden="true"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-            >
-              <path d="M3 13v6M9 8v16M15 12v8M21 3v26M27 8v16M33 11v10M39 14v4" />
-            </svg>
+          </article>
+          <article className="kit-output-plan">
+            <span className="kit-output-index">02</span>
+            <h2>Release plans</h2>
+            <ol>
+              <li>
+                <span>01</span> Before release
+              </li>
+              <li>
+                <span>02</span> Launch day
+              </li>
+              <li>
+                <span>03</span> Keep promoting
+              </li>
+            </ol>
+          </article>
+          <article className="kit-output-content">
             <div>
-              <small>YOUR SONG. YOUR DIRECTION.</small>
-              <p>“Help me build the release.”</p>
+              <span className="kit-output-index">03</span>
+              <h2>Marketing content</h2>
             </div>
-            <span className="kit-prompt-arrow">
-              <SkyArrow />
-            </span>
-          </div>
-          <p className="kit-art-caption">
-            ILLUSTRATIVE CAMPAIGN · ORIGINAL CONCEPT ART
-          </p>
+            <div className="kit-output-art">
+              <Image
+                src="/images/label-kit/blue-hour-cover.png"
+                alt="Example cover-art concept: silver and blue sculpture"
+                width={720}
+                height={720}
+                priority
+                sizes="(max-width: 760px) 40vw, 260px"
+              />
+              <Image
+                src="/images/label-kit/blue-hour-artist.png"
+                alt="Example promotional image: a performer under a blue light installation"
+                width={750}
+                height={1000}
+                priority
+                sizes="(max-width: 760px) 40vw, 260px"
+              />
+            </div>
+          </article>
+          <p className="kit-output-caption">EXAMPLE OUTPUTS · ILLUSTRATIVE</p>
         </div>
       </section>
-      <div className="kit-value-strip">
-        <p>
-          For the people
-          <br />
-          <strong>behind the music.</strong>
-        </p>
-        <span>Independent artists</span>
-        <span>Artist managers</span>
-        <span>Record label teams</span>
-        <a href="#inside">
-          Meet your toolkit <SkyArrow direction="down" />
-        </a>
-      </div>
       <AudiencePreview />
-      <section className="kit-belief kit-section">
-        <p className="kit-eyebrow">YOU’VE GOT THE VISION.</p>
-        <h2>
-          Give it a team’s
-          <br />
-          worth of follow-through.
-        </h2>
-        <p>
-          There’s the music. Then there’s everything it takes to get it out into
-          the world. Give your agent a method for the research, planning, and
-          creative work that keeps landing back on your plate.
-        </p>
-      </section>
       <section id="inside" className="kit-section kit-inside">
         <div className="kit-section-intro">
           <p className="kit-eyebrow">WHAT YOU’RE BUYING</p>
-          <h2>
-            Music expertise.
-            <br />
-            Ready for your agent.
-          </h2>
-          <p>
-            One download brings the playbooks, tool setup, and starting files
-            together.
-          </p>
+          <h2>What’s in the download?</h2>
+          <p>Skills, connected tools, and starter files for your AI agent.</p>
         </div>
         <div className="kit-contents">
           <article>
@@ -296,11 +232,7 @@ export default function LabelKitPage() {
       <section id="how-it-works" className="kit-section kit-start">
         <div className="kit-section-intro">
           <p className="kit-eyebrow">BRING YOUR AGENT. BRING YOUR MUSIC.</p>
-          <h2>
-            From “where do I start?”
-            <br />
-            to your first request.
-          </h2>
+          <h2>Download. Install. Ask.</h2>
         </div>
         <ol>
           {[
@@ -333,13 +265,11 @@ export default function LabelKitPage() {
         <div>
           <p className="kit-eyebrow">RECOUP LABEL KIT</p>
           <h2>
-            Your next release
+            Put AI to work
             <br />
-            deserves more
-            <br />
-            <em>than good intentions.</em>
+            <em>for your music.</em>
           </h2>
-          <p>Give your agent the tools to help you follow through.</p>
+          <p>One toolkit. Yours to keep.</p>
           <div className="kit-purchase-file">
             <span aria-hidden="true">↓</span>
             <div>
@@ -375,11 +305,7 @@ export default function LabelKitPage() {
       <section className="kit-section kit-faq">
         <div>
           <p className="kit-eyebrow">THE PRACTICAL DETAILS</p>
-          <h2>
-            Before you
-            <br />
-            make it yours.
-          </h2>
+          <h2>Questions?</h2>
         </div>
         <div>
           {questions.map(([question, answer]) => (
