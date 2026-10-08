@@ -1378,25 +1378,16 @@
   background: var(--kit-white);
   box-shadow: 0 18px 50px #0000001a;
 }
-.kit-pay-label {
-  font:
-    8px "IBM Plex Mono",
-    monospace;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  margin: 0 0 14px;
-}
-.kit-pay-heading h2 {
-  font-size: 30px;
-  line-height: 1.1;
-  margin: 0 0 10px;
-}
-.kit-pay-heading > p:last-child {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--muted);
+.kit-pay-title {
+  font-size: 24px;
+  line-height: 1.2;
   margin: 0;
-  max-width: 280px;
+}
+.kit-pay-summary {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 14px 0 24px;
 }
 .kit-pay-price {
   display: flex;
@@ -1405,7 +1396,7 @@
   margin-top: 24px;
 }
 .kit-pay-price strong {
-  font-size: 56px;
+  font-size: 48px;
   font-weight: 500;
   letter-spacing: -0.06em;
   line-height: 1;
@@ -1413,25 +1404,6 @@
 .kit-pay-price span {
   font-size: 11px;
   color: var(--muted);
-}
-.kit-pay-includes {
-  list-style: none;
-  padding: 22px 0;
-  margin: 22px 0 0;
-  box-shadow: 0 -1px 0 var(--line);
-  display: grid;
-  gap: 13px;
-}
-.kit-pay-includes li {
-  display: flex;
-  gap: 10px;
-  font-size: 12px;
-  line-height: 1.4;
-}
-.kit-pay-includes li::before {
-  content: "✓";
-  color: var(--kit-dark);
-  font-weight: 600;
 }
 .kit-pay-card > .kit-button {
   width: 100%;
@@ -1469,8 +1441,8 @@
   .kit-pay-card {
     padding: 20px;
   }
-  .kit-pay-heading h2 {
-    font-size: 27px;
+  .kit-pay-title {
+    font-size: 22px;
   }
   .kit-pay-price strong {
     font-size: 48px;

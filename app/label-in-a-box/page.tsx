@@ -82,28 +82,15 @@ export default function LabelKitPage() {
           </p>
         </div>
         <aside className="kit-pay-card" aria-label="Buy the Recoup plugin">
-          <div className="kit-pay-heading">
-            <p className="kit-pay-label">YOUR MUSIC BUSINESS, EQUIPPED.</p>
-            <h2>Recoup Plugin</h2>
-            <p>
-              Music-business skills. Connected tools. Ready-to-use templates.
-            </p>
-          </div>
+          <h2 className="kit-pay-title">Recoup Plugin</h2>
           <div className="kit-pay-price">
             <strong>{price}</strong>
-            <span>One-time purchase</span>
+            <span>one-time</span>
           </div>
-          <ul className="kit-pay-includes">
-            <li>Curated music-business skills</li>
-            <li>Recoup MCP connection guide</li>
-            <li>Artist & release templates</li>
-            <li>Quick-start setup guide</li>
-          </ul>
+          <p className="kit-pay-summary">Skills, templates & setup guide.</p>
           <PurchaseButton checkoutUrl={offer?.checkoutUrl} price={price} />
           <p className="kit-pay-note">
-            {offer
-              ? "Secure checkout via Stripe"
-              : "Preview pricing · Checkout not yet available"}
+            {offer ? "Secure checkout via Stripe" : "Preview pricing"}
           </p>
         </aside>
       </section>
