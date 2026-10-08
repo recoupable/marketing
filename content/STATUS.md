@@ -1,3 +1,7 @@
+## Named-agent toolkit headline — October 8, 2026
+
+Updated the label-kit hero to the approved “Let Claude and ChatGPT manage your music business.” headline, with their marks alongside the names and concise research/release/campaign supporting copy. Checkout and client setup verification remain pending before launch.
+
 ## Clearer toolkit offer — October 8, 2026
 
 Simplified the hero to “AI tools for your music business.” with download/install instructions and three literal output labels: artist research, release plans, and marketing content. Removed fictional campaign titles and redundant sections. One-time Stripe checkout remains in preview pending offer configuration and fulfillment.

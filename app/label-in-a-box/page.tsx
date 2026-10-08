@@ -8,7 +8,7 @@ import { AudiencePreview } from "./audience-preview";
 import "./label-kit.css";
 
 export const metadata = withPageMetadata({
-  title: "AI tools for your music business.",
+  title: "Let Claude and ChatGPT manage your music business.",
   description:
     "A record label in a box for artists, managers, and labels using AI. Equip your agent to research artists, plan releases, and build campaigns with the Recoup Label Kit.",
   alternates: { canonical: "/label-in-a-box" },
@@ -52,18 +52,30 @@ export default function LabelKitPage() {
             <span /> FOR ARTISTS, MANAGERS & LABELS
           </p>
           <h1>
-            AI tools for
-            <br />
-            <em>
-              your music
-              <br />
-              business.
-            </em>
+            Let{" "}
+            <span className="kit-agent-name">
+              <Image
+                src="/images/label-kit/brands/claude.svg"
+                alt=""
+                width={48}
+                height={48}
+              />
+              Claude
+            </span>{" "}
+            and{" "}
+            <span className="kit-agent-name">
+              <Image
+                src="/images/label-kit/brands/chatgpt.svg"
+                alt=""
+                width={48}
+                height={48}
+              />
+              ChatGPT
+            </span>{" "}
+            <em>manage your music business.</em>
           </h1>
           <p className="kit-lead">
-            Download the toolkit. Add it to your AI agent.
-            <br />
-            Get help with research, releases, and marketing.
+            Research artists. Plan releases. Create campaigns.
           </p>
           <div className="kit-hero-actions">
             <PurchaseButton checkoutUrl={offer?.checkoutUrl} />

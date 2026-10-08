@@ -1329,3 +1329,32 @@
     font-size: 9px;
   }
 }
+
+/* Keep each platform mark attached to its readable name. */
+.kit-agent-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
+  white-space: nowrap;
+}
+.kit-agent-name img {
+  width: 0.65em;
+  height: 0.65em;
+  flex: none;
+}
+.kit-agent-name:first-child img {
+  filter: invert(59%) sepia(31%) saturate(1100%) hue-rotate(328deg)
+    brightness(90%);
+}
+.kit-agent-name:nth-child(2) img {
+  filter: invert(1);
+}
+.kit-hero h1 {
+  font-size: clamp(42px, 4.4vw, 64px);
+  line-height: 1.08;
+}
+@media (max-width: 760px) {
+  .kit-hero h1 {
+    font-size: clamp(36px, 8.5vw, 60px);
+  }
+}
