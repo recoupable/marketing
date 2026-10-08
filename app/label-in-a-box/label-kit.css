@@ -1360,47 +1360,52 @@
 }
 
 .kit-hero-offer {
-  margin-top: 30px;
-  padding-top: 25px;
-  box-shadow: 0 -1px 0 rgb(255 255 255 / 16%);
-  max-width: 420px;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 28px;
 }
 .kit-hero-price {
   display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 18px;
+  flex-direction: column;
+  gap: 5px;
 }
 .kit-hero-price strong {
-  font-size: 56px;
-  font-weight: 550;
+  font-size: 42px;
+  font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.05em;
 }
 .kit-hero-price > span {
-  max-width: 135px;
-  font-size: 14px;
-  line-height: 1.4;
+  font-size: 12px;
   color: var(--kit-silver);
 }
-.kit-hero-offer .kit-button {
-  width: 100%;
-  justify-content: space-between;
-}
-.kit-offer-terms {
-  font-size: 13px;
-  margin: 13px 0 0;
-  color: var(--kit-white);
+.kit-hero-offer > .kit-button {
+  flex: none;
+  width: auto;
+  gap: 24px;
 }
 .kit-offer-note {
-  font-size: 11px;
-  margin: 6px 0 0;
+  flex-basis: 100%;
+  font-size: 10px;
+  margin: 0;
   color: var(--kit-silver);
 }
-@media (max-width: 360px) {
-  .kit-hero-offer .kit-button {
+@media (max-width: 420px) {
+  .kit-hero-offer {
+    gap: 14px 18px;
+  }
+  .kit-hero-price strong {
+    font-size: 34px;
+  }
+  .kit-hero-offer > .kit-button {
     font-size: 13px;
     gap: 12px;
-    padding-left: 18px;
+    padding: 8px 8px 8px 16px;
+  }
+  .kit-hero-offer > .kit-button > span {
+    width: 30px;
+    height: 30px;
   }
 }

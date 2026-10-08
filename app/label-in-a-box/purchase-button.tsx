@@ -15,7 +15,7 @@ export function PurchaseButton({
   if (checkoutUrl)
     return (
       <a className="kit-button" href={checkoutUrl}>
-        Get the plugin — {price}{" "}
+        Get the plugin{" "}
         <span>
           <SkyArrow />
         </span>
@@ -27,7 +27,7 @@ export function PurchaseButton({
         className="kit-button"
         onClick={() => dialog.current?.showModal()}
       >
-        Get the plugin — {price}{" "}
+        Get the plugin{" "}
         <span>
           <SkyArrow />
         </span>

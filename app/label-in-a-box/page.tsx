@@ -83,14 +83,11 @@ export default function LabelKitPage() {
           <div className="kit-hero-offer">
             <div className="kit-hero-price">
               <strong>{price}</strong>
-              <span>The complete Recoup plugin</span>
+              <span>one-time</span>
             </div>
             <PurchaseButton checkoutUrl={offer?.checkoutUrl} price={price} />
-            <p className="kit-offer-terms">One payment. No subscription.</p>
             <p className="kit-offer-note">
-              {offer
-                ? "Secure checkout via Stripe"
-                : "Preview price · Checkout not yet available"}
+              {offer ? "Secure checkout via Stripe" : "Preview pricing"}
             </p>
           </div>
         </div>
