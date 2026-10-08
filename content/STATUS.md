@@ -1,3 +1,7 @@
+## Plugin fulfillment implementation — October 8, 2026
+
+Added `/label-in-a-box/setup`, email sign-in, server-verified private downloads, and on-demand Starter checkout through the existing Recoup API. Added a deterministic allowlisted ZIP builder from a pinned public Skills commit with individual Claude skill archives, manifest hashes, and license. No Stripe objects or live subscriptions changed. Payment activation stays off: private artifact hosting and live client/payment verification remain outstanding. ChatGPT authentication is explicitly unsupported pending verification; setup does not claim a successful payment from URL parameters.
+
 ## Starter plugin subscription — October 8, 2026
 
 Changed the label-kit offer to $19/month, including Recoup Starter access, $20 monthly usage credits, and ongoing skill updates. Updated hero CTA, receipt, preview dialog, onboarding copy, metadata, and FAQs. Legacy one-time checkout configuration cannot activate this offer. Checkout remains preview-only pending verified subscription fulfillment and plugin delivery; no Stripe objects changed.

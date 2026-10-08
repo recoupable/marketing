@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef } from "react";
+import { useId, useRef, useState } from "react";
 import { SkyArrow } from "@/components/sky/arrow";
 
 export function PurchaseButton({
@@ -14,14 +14,35 @@ export function PurchaseButton({
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const id = useId();
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  async function checkout() {
+    if (!checkoutUrl || busy) return;
+    setBusy(true);
+    setError("");
+    try {
+      const response = await fetch(checkoutUrl, { method: "POST" });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "Checkout unavailable.");
+      window.location.assign(data.url);
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Please try again.");
+      setBusy(false);
+    }
+  }
   if (checkoutUrl)
     return (
-      <a className="kit-button" href={checkoutUrl}>
-        Get the plugin{showPrice ? ` — ${price}` : ""}{" "}
-        <span>
-          <SkyArrow />
-        </span>
-      </a>
+      <div>
+        <button className="kit-button" disabled={busy} onClick={checkout}>
+          {busy
+            ? "Opening checkout…"
+            : `Get the plugin${showPrice ? ` — ${price}` : ""}`}
+          <span>
+            <SkyArrow />
+          </span>
+        </button>
+        {error && <p role="alert">{error}</p>}
+      </div>
     );
   return (
     <>

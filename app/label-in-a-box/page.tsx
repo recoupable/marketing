@@ -27,7 +27,7 @@ const questions = [
   ],
   [
     "Does it work with the agent I already use?",
-    "The toolkit is built around skills and MCP, which compatible agents can load. The exact tested client list will be confirmed before sale. If your agent can’t install skills or connect to MCP tools, this kit may not fit your setup.",
+    "The download includes a Claude Code plugin and individual skill ZIPs for Claude web. Connected workflows require Recoup authentication and client permissions. ChatGPT uses a separate MCP app; its connection is not ready for this release. Checkout stays closed until the advertised setup paths are verified.",
   ],
   [
     "Are AI and Recoup usage included?",
@@ -88,6 +88,9 @@ export default function LabelKitPage() {
               showPrice
             />
             <p>Includes Recoup access + ongoing skill updates.</p>
+            <Link href="/label-in-a-box/setup">
+              Already subscribed? Get your download →
+            </Link>
           </div>
         </div>
         <ChatDemo />

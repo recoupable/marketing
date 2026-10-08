@@ -1,24 +1,35 @@
 # Recoup plugin — Starter subscription
 
-## Offer
+## Offer and implementation
 
-The unlisted `/label-in-a-box` page sells Recoup Starter at **$19 USD/month**, with the plugin download, setup guide, Recoup access, and ongoing skill updates while subscribed. There is no separate plugin purchase. Starter currently allocates $20 in monthly usage credits in API code; AI-client subscriptions and third-party services are separate. Public skills remain free.
+$19 USD/month includes Recoup Starter access ($20 monthly usage credits), plugin download and ongoing skill updates while subscribed. AI subscriptions and third-party services are separate. The public skills remain AGPL-3.0-only. Existing live Starter price: `price_1U9oWu00JObOnOb51BToZiq1` (verified October 8, 2026). No new Stripe product is needed.
 
-The existing live Stripe Starter price is `price_1U9oWu00JObOnOb51BToZiq1`. Reuse that plan rather than creating another product. Live price existence was verified on October 8, 2026; deployed checkout and fulfillment have not been verified.
+- `/label-in-a-box`: offer and preview dialog until activated.
+- `POST /api/label-kit/checkout`: same-origin request, fixed Starter plan and server-derived return URLs; calls the API-owned subscription session endpoint. No user-supplied price, plan or redirect. Only Stripe checkout URLs are returned.
+- `/label-in-a-box/setup`: Privy email sign-in using the checkout email, download, client setup, first prompt, and billing/support links. No payment success claim based on query parameters.
+- `GET /api/label-kit/download`: resolves the bearer token's account through `/accounts/id`, checks `/accounts/{id}/subscription`, then streams the configured private Blob. Only active Starter/Pro access qualifies; no free/trial/past-due/canceled access. Rechecks every download with no cache. No account ID or Blob path accepted from the browser.
+- Anonymous checkout relies on the existing API webhook's billing-email account linking. We do not call the subscription claim endpoint or transfer ownership based on a session ID. Returning buyers must sign in with the same email. A pending webhook displays retry guidance.
 
-## Current implementation
+## Build the preview package
 
-The hero, receipt, FAQ, and native purchase dialog show the monthly offer. Checkout remains a preview: no charge or download is simulated. The approved hero and motion graphic are unchanged.
+From the marketing checkout:
 
-Only a fulfillment-ready Starter subscription Payment Link in `LABEL_KIT_STARTER_CHECKOUT_URL` can enable the existing hosted-link handoff. It must use HTTPS on `buy.stripe.com`; old `LABEL_KIT_CHECKOUT_URL` and `LABEL_KIT_PRICE_LABEL` settings are ignored to prevent routing monthly buyers to the former one-time offer. This URL check does not verify the Stripe price or fulfillment. Verify those before configuring it and rebuild afterward.
+```sh
+python3 scripts/label-kit/build.py /path/to/recoupable/skills /private/output/recoup-plugin.zip
+```
 
-## Remaining checkout and delivery work
+`content/label-kit/release.json` pins the source commit and explicit list of public skills. The builder reads Git objects (never dirty files), rejects symlinks and internal skills, includes license, setup README, file hashes, individual Claude-web skill archives, and the release-review agent. It refuses marketing `public/` output. The generated ZIP is not committed. The subscription does not remove source license rights; redistribution remains subject to AGPL.
 
-1. Curate public music skills from a pinned Skills commit. Never zip the repository wholesale: it includes unrelated and internal-audience skills. Include version, manifest, setup guide, templates, changelog, and licenses.
-2. Verify advertised Claude and ChatGPT setup paths and a real workflow with Starter permissions and credits.
-3. Reuse the API-owned Starter subscription checkout, webhook account linking, and authenticated subscription claim flow. Decide the final post-payment download route before activating payment. A dynamic API checkout must be integrated explicitly rather than storing an expiring Checkout Session URL in configuration.
-4. Store the ZIP privately. Authorize initial and updated downloads using the existing account subscription status and a short-lived signed URL. Verify subscription/payment server-side; never trust success query parameters or browser flags.
-5. Confirm cancellation and access behavior, usage limits, billing management, and how subscribers receive updated skills. Downloaded files cannot be revoked; connected Recoup usage and future updates depend on the subscription terms.
-6. Test successful checkout, existing accounts, failed payment, webhook retries, unauthorized downloads, renewal, cancellation, and recovery in Stripe test mode. Then verify the deployed purchase-to-download flow before opening checkout and removing noindex.
+## Activation (not completed)
 
-No new Stripe product, price, payment link, webhook, or delivery service was created in this marketing change. Account creation and delivery remain implementation work, not verified customer behavior.
+1. Review the packaged skills and exercise the advertised workflows with Starter credits. Check Claude Code and Claude web authentication, network/tool permissions and prerequisites. ChatGPT custom MCP app authentication is not ready: the current Recoup MCP source only establishes bearer authentication, not a verified customer OAuth flow. Keep checkout disabled while the headline advertises unsupported setup paths.
+2. The existing marketing Blob token was tested and belongs to a public store; private upload was rejected and no ZIP was published. Create/use a **private** Vercel Blob store and upload the reviewed immutable ZIP under `label-kit/<version>.zip`. Do not publish a public Blob or static download URL. Use a token for that private store. The helper `node scripts/label-kit/upload.mjs /private/plugin.zip VERSION` uploads privately and refuses to overwrite an existing version.
+3. Set `LABEL_KIT_BLOB_PATH` and `LABEL_KIT_BLOB_READ_WRITE_TOKEN` server-side. Configure `NEXT_PUBLIC_PRIVY_APP_ID` for the same identity environment as `siteConfig.apiUrl`. The existing marketing config selects test API for local/preview and production API for production. Never test real payments through preview unintentionally.
+4. In Stripe test mode, verify anonymous Starter checkout → webhook account linking → matching email sign-in → download. Verify existing subscribers, failed/duplicate events, renewal, cancellation and support recovery. Confirm the deployed API's Starter price/env, status contract and monthly credits. No completed test payment has been performed in this change.
+5. Confirm billing management/cancellation and install compatibility. Only then set `LABEL_KIT_CHECKOUT_ENABLED=true`, rebuild and verify deployed behavior. Legacy `LABEL_KIT_CHECKOUT_URL`, `LABEL_KIT_PRICE_LABEL` and `LABEL_KIT_STARTER_CHECKOUT_URL` do not activate the new flow.
+
+Updates: publish another reviewed immutable ZIP and change the configured path. Active subscribers return to setup to download and reinstall; automatic client updates and update-notification email are not implemented. Previously downloaded files cannot be revoked. Connected services and future downloads depend on the active subscription.
+
+## Verification
+
+`pnpm test lib/label-kit`, scoped ESLint, and `pnpm build`. Route tests cover account-derived access, rejected subscription states, private streaming, upstream/auth failures, cross-origin checkout, activation gates, fixed Starter selection and redirect validation. These checks are not a live purchase or installed-client verification.

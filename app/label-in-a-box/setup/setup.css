@@ -1,0 +1,154 @@
+.plugin-setup {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 28px 80px;
+  color: var(--ink, #15313b);
+}
+.plugin-setup h1 {
+  font-size: clamp(36px, 5vw, 60px);
+  letter-spacing: -0.05em;
+  margin: 16px 0;
+  line-height: 1.06;
+}
+.plugin-setup h2 {
+  font-size: 28px;
+  letter-spacing: -0.035em;
+  margin: 14px 0;
+}
+.setup-back {
+  display: inline-block;
+  margin-bottom: 48px;
+  font-size: 14px;
+}
+.setup-label {
+  font:
+    11px "IBM Plex Mono",
+    monospace;
+  letter-spacing: 0.1em;
+}
+.setup-intro {
+  font-size: 20px;
+  margin-bottom: 38px;
+  color: #5c747e;
+}
+.setup-download {
+  background: #071d22;
+  color: #fff;
+  padding: 32px;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+.setup-download p {
+  font-size: 14px;
+  color: #b6c9cd;
+  line-height: 1.6;
+}
+.setup-action button {
+  background: #d3ff5a;
+  color: #122e24;
+  padding: 17px 23px;
+  border: 0;
+  border-radius: 99px;
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+}
+.setup-action button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.setup-action .setup-text-button {
+  background: transparent;
+  color: #fff;
+  padding: 5px;
+  text-decoration: underline;
+  font-size: 13px;
+}
+.setup-download .setup-error {
+  grid-column: 1/-1;
+  color: #fff;
+}
+.setup-connect {
+  padding: 40px 0;
+  box-shadow: 0 1px 0 #dce4e7;
+}
+.setup-clients {
+  display: flex;
+  gap: 8px;
+  margin: 24px 0;
+  flex-wrap: wrap;
+}
+.setup-clients button {
+  background: transparent;
+  border: 0;
+  border-radius: 99px;
+  box-shadow: 0 0 0 1px #dce4e7;
+  padding: 12px 22px;
+  min-height: 44px;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.setup-clients button[aria-pressed="true"] {
+  background: #15313b;
+  color: #fff;
+  box-shadow: none;
+}
+.setup-connect li {
+  padding: 8px 0;
+  line-height: 1.65;
+}
+.setup-connect li code {
+  display: block;
+  overflow-wrap: anywhere;
+  padding: 14px;
+  background: #eff5f7;
+  border-radius: 10px;
+  margin: 12px 0;
+  font-size: 14px;
+}
+.setup-connect p {
+  line-height: 1.7;
+}
+.setup-connect a {
+  text-decoration: underline;
+}
+.setup-note {
+  color: #5c747e;
+  font-size: 14px;
+}
+.setup-prompt {
+  padding: 40px 0;
+}
+.setup-prompt blockquote {
+  margin: 20px 0;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.45;
+  max-width: 690px;
+}
+.plugin-setup footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 14px;
+}
+.plugin-setup footer p {
+  width: 100%;
+  color: #5c747e;
+  line-height: 1.6;
+}
+@media (max-width: 640px) {
+  .plugin-setup {
+    padding: 30px 20px 60px;
+  }
+  .setup-download {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+  .setup-back {
+    margin-bottom: 32px;
+  }
+}

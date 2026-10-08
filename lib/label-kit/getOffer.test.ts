@@ -1,43 +1,34 @@
 import { describe, expect, it } from "vitest";
 import { getOffer } from "./getOffer";
-
-describe("label kit checkout availability", () => {
-  it("ignores legacy one-time checkout configuration", () => {
-    expect(getOffer({})).toBeNull();
+const ready = {
+  LABEL_KIT_CHECKOUT_ENABLED: "true",
+  LABEL_KIT_BLOB_PATH: "label-kit/v1.zip",
+  LABEL_KIT_BLOB_READ_WRITE_TOKEN: "test-token",
+  NEXT_PUBLIC_PRIVY_APP_ID: "test-app",
+};
+describe("plugin checkout activation", () => {
+  it("does not activate from the legacy one-time payment link", () => {
     expect(
       getOffer({
         LABEL_KIT_PRICE_LABEL: "$99",
-        LABEL_KIT_CHECKOUT_URL: "https://buy.stripe.com/old_one_time",
+        LABEL_KIT_CHECKOUT_URL: "https://buy.stripe.com/old",
       }),
     ).toBeNull();
   });
-  it("rejects malformed, insecure and unrelated destinations", () => {
-    for (const url of [
-      "bad",
-      "javascript:alert(1)",
-      "http://buy.stripe.com/test",
-      "https://example.com/test",
-      "https://buy.stripe.com.evil.com/test",
-      "https://user:pass@buy.stripe.com/test",
-      "https://buy.stripe.com/",
-    ]) {
-      expect(
-        getOffer({
-          LABEL_KIT_PRICE_LABEL: "Example price",
-          LABEL_KIT_STARTER_CHECKOUT_URL: url,
-        }),
-      ).toBeNull();
-    }
-  });
-  it("enables only a configured Stripe purchase link", () => {
+  it("requires explicit activation, private file configuration, and authentication", () => {
+    for (const key of Object.keys(ready))
+      expect(getOffer({ ...ready, [key]: undefined })).toBeNull();
     expect(
       getOffer({
-        LABEL_KIT_PRICE_LABEL: " Example price ",
-        LABEL_KIT_STARTER_CHECKOUT_URL: "https://buy.stripe.com/test_example",
+        ...ready,
+        LABEL_KIT_BLOB_PATH: "https://example.com/file.zip",
       }),
-    ).toEqual({
+    ).toBeNull();
+  });
+  it("uses Starter pricing and creates checkout on demand", () => {
+    expect(getOffer(ready)).toEqual({
       price: "$19/month",
-      checkoutUrl: "https://buy.stripe.com/test_example",
+      checkoutUrl: "/api/label-kit/checkout",
     });
   });
 });
