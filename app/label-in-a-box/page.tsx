@@ -75,7 +75,9 @@ export default function LabelKitPage() {
             <em>manage your music business.</em>
           </h1>
           <p className="kit-lead">
-            Research artists. Plan releases. Create campaigns.
+            Recoup’s plugin connects to Claude and ChatGPT, adding
+            music-business expertise to research artists, plan releases, create
+            campaigns, and grow your catalog revenue.
           </p>
           <div className="kit-hero-actions">
             <PurchaseButton checkoutUrl={offer?.checkoutUrl} />
