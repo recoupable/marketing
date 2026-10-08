@@ -1,3 +1,7 @@
+## Compact role examples — October 8, 2026
+
+Replaced the oversized audience document mockups with a compact role selector, one example request, and three concrete deliverables per role. Removed redundant headings, outcome chips, and illustrative sheets. Verified artist, manager and label switching and 320px layout; production build and scoped lint pass.
+
 ## Audio-to-business motion graphic — October 8, 2026
 
 Replaced the sequential chat list with an illustrative audio-file drag/drop, typed prompt, send, and four-panel business reveal. The send shifts the canvas from cream to dark green with a single light burst, radial accents, and staggered expanding cards. Keeps explicit playback controls and static reduced-motion output; no actual file upload or AI work is performed.
