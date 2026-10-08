@@ -80,71 +80,32 @@ export default function LabelKitPage() {
             artists, plan releases, create campaigns, and grow your catalog
             revenue.
           </p>
-          <div className="kit-hero-offer">
-            <div className="kit-hero-price">
-              <strong>{price}</strong>
-              <span>one-time</span>
-            </div>
-            <PurchaseButton checkoutUrl={offer?.checkoutUrl} price={price} />
-            <p className="kit-offer-note">
-              {offer ? "Secure checkout via Stripe" : "Preview pricing"}
+        </div>
+        <aside className="kit-pay-card" aria-label="Buy the Recoup plugin">
+          <div className="kit-pay-heading">
+            <p className="kit-pay-label">YOUR MUSIC BUSINESS, EQUIPPED.</p>
+            <h2>Recoup Plugin</h2>
+            <p>
+              Music-business skills. Connected tools. Ready-to-use templates.
             </p>
           </div>
-        </div>
-        <div
-          className="kit-output-preview"
-          aria-label="Example outputs: artist research, release plans, and marketing content"
-        >
-          <article className="kit-output-research">
-            <span className="kit-output-index">01</span>
-            <h2>Artist research</h2>
-            <ul>
-              <li>Sound & story</li>
-              <li>Audience</li>
-              <li>Opportunities</li>
-            </ul>
-          </article>
-          <article className="kit-output-plan">
-            <span className="kit-output-index">02</span>
-            <h2>Release plans</h2>
-            <ol>
-              <li>
-                <span>01</span> Before release
-              </li>
-              <li>
-                <span>02</span> Launch day
-              </li>
-              <li>
-                <span>03</span> Keep promoting
-              </li>
-            </ol>
-          </article>
-          <article className="kit-output-content">
-            <div>
-              <span className="kit-output-index">03</span>
-              <h2>Marketing content</h2>
-            </div>
-            <div className="kit-output-art">
-              <Image
-                src="/images/label-kit/blue-hour-cover.png"
-                alt="Example cover-art concept: silver and blue sculpture"
-                width={720}
-                height={720}
-                priority
-                sizes="(max-width: 760px) 40vw, 260px"
-              />
-              <Image
-                src="/images/label-kit/blue-hour-artist.png"
-                alt="Example promotional image: a performer under a blue light installation"
-                width={750}
-                height={1000}
-                priority
-                sizes="(max-width: 760px) 40vw, 260px"
-              />
-            </div>
-          </article>
-          <p className="kit-output-caption">EXAMPLE OUTPUTS · ILLUSTRATIVE</p>
-        </div>
+          <div className="kit-pay-price">
+            <strong>{price}</strong>
+            <span>One-time purchase</span>
+          </div>
+          <ul className="kit-pay-includes">
+            <li>Curated music-business skills</li>
+            <li>Recoup MCP connection guide</li>
+            <li>Artist & release templates</li>
+            <li>Quick-start setup guide</li>
+          </ul>
+          <PurchaseButton checkoutUrl={offer?.checkoutUrl} price={price} />
+          <p className="kit-pay-note">
+            {offer
+              ? "Secure checkout via Stripe"
+              : "Preview pricing · Checkout not yet available"}
+          </p>
+        </aside>
       </section>
       <AudiencePreview />
       <section id="inside" className="kit-section kit-inside">

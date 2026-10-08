@@ -1,3 +1,7 @@
+## Single hero purchase card — October 8, 2026
+
+Replaced the label-kit hero’s illustrative output cards and standalone price/button row with one purchase card showing the plugin, $99 preview price, included files and guides, and CTA. Approved headline and subtitle remain unchanged; examples remain below the hero. Checkout stays in preview.
+
 ## Purchase-focused plugin hero — October 8, 2026
 
 Added a user-approved $99 placeholder price, price-bearing CTA, and one-payment terms to the hero. The receipt and preview dialog share the same display price. This fallback never enables Stripe checkout; the existing configured-offer gate remains intact.
