@@ -1574,3 +1574,96 @@
     font-size: 13px;
   }
 }
+
+/* A single readable sequence; replay is explicit, and the final plan stays put. */
+.kit-chat-motion .kit-chat-question,
+.kit-chat-motion .kit-chat-answer > img,
+.kit-chat-motion .kit-chat-answer > div > p,
+.kit-chat-motion .kit-chat-plan > div,
+.kit-chat-motion .kit-chat-file {
+  animation: kit-chat-reveal 0.65s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-play-state: paused;
+}
+.kit-chat-motion[data-running="true"] .kit-chat-question,
+.kit-chat-motion[data-running="true"] .kit-chat-answer > img,
+.kit-chat-motion[data-running="true"] .kit-chat-answer > div > p,
+.kit-chat-motion[data-running="true"] .kit-chat-plan > div,
+.kit-chat-motion[data-running="true"] .kit-chat-file {
+  animation-play-state: running;
+}
+.kit-chat-motion .kit-chat-question {
+  animation-delay: 0.3s;
+}
+.kit-chat-motion .kit-chat-answer > img {
+  animation-delay: 1.6s;
+}
+.kit-chat-motion .kit-chat-answer > div > p {
+  animation-delay: 2s;
+}
+.kit-chat-motion .kit-chat-plan > div:nth-child(1) {
+  animation-delay: 3.1s;
+}
+.kit-chat-motion .kit-chat-plan > div:nth-child(2) {
+  animation-delay: 4.3s;
+}
+.kit-chat-motion .kit-chat-plan > div:nth-child(3) {
+  animation-delay: 5.5s;
+}
+.kit-chat-motion .kit-chat-plan > div:nth-child(4) {
+  animation-delay: 6.7s;
+}
+.kit-chat-motion .kit-chat-file {
+  animation-delay: 8s;
+}
+@keyframes kit-chat-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.kit-chat-playback {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 22px 12px;
+  padding-top: 12px;
+  box-shadow: 0 -1px 0 #30302b14;
+  color: var(--demo-muted);
+  font-size: 9px;
+}
+.kit-chat-playback > div {
+  display: flex;
+  gap: 10px;
+}
+.kit-chat-playback button {
+  background: transparent;
+  border: 0;
+  padding: 5px 0;
+  color: var(--demo-ink);
+  font-size: 10px;
+  cursor: pointer;
+}
+.kit-chat-playback button:hover {
+  text-decoration: underline;
+}
+.kit-chat-playback button:focus-visible {
+  outline: 2px solid var(--kit-blue);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kit-chat-motion .kit-chat-question,
+  .kit-chat-motion .kit-chat-answer > img,
+  .kit-chat-motion .kit-chat-answer > div > p,
+  .kit-chat-motion .kit-chat-plan > div,
+  .kit-chat-motion .kit-chat-file {
+    animation: none;
+  }
+  .kit-chat-playback {
+    display: none;
+  }
+}

@@ -4,6 +4,7 @@ import { withPageMetadata } from "@/lib/seo";
 import { getOffer } from "@/lib/label-kit/getOffer";
 import { SkyArrow } from "@/components/sky/arrow";
 import { PurchaseButton } from "./purchase-button";
+import { ChatDemo } from "./chat-demo";
 import { AudiencePreview } from "./audience-preview";
 import "./label-kit.css";
 
@@ -93,88 +94,7 @@ export default function LabelKitPage() {
             </p>
           </div>
         </div>
-        <figure
-          className="kit-chat-demo"
-          aria-label="Illustrative Claude conversation with the Recoup plugin"
-        >
-          <div className="kit-chat-top">
-            <span className="kit-chat-brand">
-              <Image
-                src="/images/label-kit/brands/claude.svg"
-                alt=""
-                width={22}
-                height={22}
-              />
-              Claude
-            </span>
-            <span className="kit-chat-plugin">+ Recoup</span>
-          </div>
-          <div className="kit-chat-project">
-            <span aria-hidden="true">↳</span> Your record label{" "}
-            <span> / Release planning</span>
-          </div>
-          <div className="kit-chat-body">
-            <p className="kit-chat-question">
-              My single drops in 4 weeks. Build my release plan.
-            </p>
-            <div className="kit-chat-answer">
-              <Image
-                src="/images/label-kit/brands/claude.svg"
-                alt="Claude response"
-                width={24}
-                height={24}
-              />
-              <div>
-                <p>Here’s your rollout. Let’s give every week a job.</p>
-                <div className="kit-chat-plan">
-                  <div>
-                    <span>01</span>
-                    <p>
-                      <strong>Get ready</strong>
-                      <small>
-                        Finalize artwork. Prepare your artist pitch.
-                      </small>
-                    </p>
-                  </div>
-                  <div>
-                    <span>02</span>
-                    <p>
-                      <strong>Build anticipation</strong>
-                      <small>
-                        Announce the single. Share the first teaser.
-                      </small>
-                    </p>
-                  </div>
-                  <div>
-                    <span>03</span>
-                    <p>
-                      <strong>Bring people in</strong>
-                      <small>Share the story. Remind fans to pre-save.</small>
-                    </p>
-                  </div>
-                  <div>
-                    <span>04</span>
-                    <p>
-                      <strong>Release week</strong>
-                      <small>
-                        Share the track. Follow up with your audience.
-                      </small>
-                    </p>
-                  </div>
-                </div>
-                <div className="kit-chat-file">
-                  <span aria-hidden="true">▤</span>
-                  <div>
-                    <strong>Your release plan</strong>
-                    <small>4 weeks · Tasks & content ideas</small>
-                  </div>
-                  <span aria-hidden="true">↗</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <figcaption>Example conversation · Illustrative output</figcaption>
-        </figure>
+        <ChatDemo />
       </section>
       <AudiencePreview />
       <section id="inside" className="kit-section kit-inside">

@@ -1,3 +1,7 @@
+## Animated plugin conversation — October 8, 2026
+
+Extracted the hero chat into a client component with a viewport-triggered, one-pass CSS sequence: request, response, four weekly steps, then release document. Added Pause/Play and Replay controls, a stable layout, and a reduced-motion static view. This remains an illustrative demo, not a live Claude connection.
+
 ## Chat-led plugin hero — October 8, 2026
 
 Replaced the large purchase card with an illustrative Claude + Recoup release-planning conversation. Reduced headline and body sizes, restored a compact single price-bearing CTA, and kept the $99 price in preview only. The conversation is a static example, not verified plugin output or an interactive chat.
