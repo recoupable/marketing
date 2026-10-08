@@ -1,3 +1,7 @@
+## Label kit landing-page preview — October 8, 2026
+
+Added an unlisted, noindex `/label-in-a-box` offer for packaged Recoup Skills, MCP setup, and starter files. One-time purchase UI opens a preview dialog until a price label and Stripe Payment Link are configured. Pricing, ZIP assembly, webhook fulfillment, and private download delivery remain pending; see `docs/plans/label-in-a-box.md`. Production build, scoped ESLint, three checkout configuration tests, desktop and 390 CSS-pixel browser checks passed locally. No payment product created and no production release.
+
 ## Reporting page shared navigation — October 6, 2026
 
 Restored the main website header, footer and Human/Agent toggle on `/royalty-reporting`. Removed the duplicate landing-only header/footer and their styles. The inquiry CTA remains in the hero.

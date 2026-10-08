@@ -282,3 +282,7 @@ The readiness result action takes visitors to `/contact?brief=readiness`. Only t
 ### Compact project intake
 
 `/start-project` uses `InquiryForm` in compact mode: name, email, interest, optional tools, required budget and timing. Company and a short note sit in an optional disclosure. Imported briefs and pricing context survive submission and email fallback. Company is never guessed from email: its domain is recorded as an unverified research hint. The server relaxes company/brief requirements only for non-podcast project inquiries; other sources retain existing validation.
+
+## Label kit offer
+
+`/label-in-a-box` is the unlisted, noindex packaged Skills + MCP offer. Keep `/skills` as the public open-source collection. Checkout stays in preview until `LABEL_KIT_PRICE_LABEL` and an HTTPS `buy.stripe.com` URL in `LABEL_KIT_CHECKOUT_URL` are set at build time. See `docs/plans/label-in-a-box.md` for ZIP curation, payment activation, and future update entitlements. Never put the paid ZIP in `public/` or imply that a browser flag verifies payment.
