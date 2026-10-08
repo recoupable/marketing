@@ -1,3 +1,7 @@
+## Audio-to-business motion graphic — October 8, 2026
+
+Replaced the sequential chat list with an illustrative audio-file drag/drop, typed prompt, send, and four-panel business reveal. The send shifts the canvas from cream to dark green with a single light burst, radial accents, and staggered expanding cards. Keeps explicit playback controls and static reduced-motion output; no actual file upload or AI work is performed.
+
 ## Animated plugin conversation — October 8, 2026
 
 Extracted the hero chat into a client component with a viewport-triggered, one-pass CSS sequence: request, response, four weekly steps, then release document. Added Pause/Play and Replay controls, a stable layout, and a reduced-motion static view. This remains an illustrative demo, not a live Claude connection.
