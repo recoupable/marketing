@@ -2385,3 +2385,94 @@
     gap: 8px;
   }
 }
+
+/* Reserve space for the current scene, not the largest frame of the sequence. */
+.kit-business-motion .kit-business-stage {
+  height: 245px;
+  transition: height 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.kit-business-motion[data-expanded="true"] .kit-business-stage {
+  height: 370px;
+}
+.kit-business-motion .kit-demo-composer {
+  top: 74px;
+  min-height: 135px;
+}
+@keyframes kit-file-drop {
+  0%,
+  15% {
+    opacity: 0;
+    transform: translate(-85%, -12px) rotate(-8deg);
+  }
+  25%,
+  40% {
+    opacity: 1;
+    transform: translate(-85%, 0) rotate(-6deg);
+  }
+  78%,
+  90% {
+    opacity: 1;
+    transform: translate(-50%, 72px) rotate(0) scale(0.85);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 78px) scale(0.7);
+  }
+}
+@media (max-width: 760px) {
+  .kit-hero {
+    gap: 20px;
+  }
+  .kit-business-motion[data-expanded="true"] .kit-business-stage {
+    height: 310px;
+  }
+  .kit-business-motion .kit-business-results {
+    top: 66px;
+    gap: 8px;
+  }
+  .kit-business-motion .kit-result {
+    height: 102px;
+    padding: 10px;
+  }
+  .kit-business-motion .kit-result-label {
+    margin-bottom: 7px;
+  }
+  .kit-business-motion .kit-brief-lines {
+    gap: 4px;
+    margin: 8px 0 5px;
+  }
+  .kit-business-motion .kit-mini-calendar {
+    margin: 7px 0 4px;
+  }
+  .kit-business-motion .kit-campaign-preview img {
+    height: 52px;
+  }
+  .kit-business-motion .kit-result-revenue ul {
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+  .kit-business-motion .kit-business-ready {
+    top: 286px;
+  }
+  .kit-business-motion .kit-business-connectors {
+    top: 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kit-business-motion .kit-business-stage {
+    height: 370px;
+    transition: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 760px) {
+  .kit-business-motion .kit-business-stage {
+    height: 310px;
+  }
+}
+.kit-campaign-preview small {
+  display: block;
+  line-height: 1.45;
+}
+.kit-campaign-preview > div {
+  line-height: 1.2;
+}

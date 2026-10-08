@@ -8,6 +8,7 @@ export function ChatDemo() {
   const [started, setStarted] = useState(false);
   const [paused, setPaused] = useState(false);
   const [complete, setComplete] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const [replay, setReplay] = useState(0);
 
   useEffect(() => {
@@ -31,6 +32,7 @@ export function ChatDemo() {
       key={replay}
       data-running={started && !paused}
       data-complete={complete}
+      data-expanded={expanded}
       aria-label="Animated example: drag an audio file into Claude, ask Recoup to build your music business, and reveal research, release, campaign and catalog plans"
     >
       <div className="kit-business-stage">
@@ -65,9 +67,6 @@ export function ChatDemo() {
             />
           </svg>
         </div>
-        <div className="kit-drop-hint" aria-hidden="true">
-          Start with your music.
-        </div>
         <div className="kit-demo-composer" aria-hidden="true">
           <div className="kit-attached-audio">
             <span>♫</span> your-single.wav <small>✓</small>
@@ -94,7 +93,12 @@ export function ChatDemo() {
           <i />
         </div>
         <div className="kit-business-results">
-          <article className="kit-result kit-result-research">
+          <article
+            className="kit-result kit-result-research"
+            onAnimationStart={(event) => {
+              if (event.target === event.currentTarget) setExpanded(true);
+            }}
+          >
             <span className="kit-result-label">ARTIST RESEARCH</span>
             <strong>Your artist brief</strong>
             <div className="kit-brief-lines">
@@ -171,6 +175,7 @@ export function ChatDemo() {
               setStarted(true);
               setPaused(false);
               setComplete(false);
+              setExpanded(false);
             }}
             aria-label="Replay demo"
           >
