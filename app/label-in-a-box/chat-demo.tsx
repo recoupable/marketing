@@ -33,18 +33,6 @@ export function ChatDemo() {
       data-complete={complete}
       aria-label="Animated example: drag an audio file into Claude, ask Recoup to build your music business, and reveal research, release, campaign and catalog plans"
     >
-      <div className="kit-chat-top">
-        <span className="kit-chat-brand">
-          <Image
-            src="/images/label-kit/brands/claude.svg"
-            alt=""
-            width={22}
-            height={22}
-          />
-          Claude
-        </span>
-        <span className="kit-chat-plugin">+ Recoup</span>
-      </div>
       <div className="kit-business-stage">
         <div className="kit-launch-flash" aria-hidden="true" />
         <div className="kit-launch-ring" aria-hidden="true" />
@@ -165,13 +153,7 @@ export function ChatDemo() {
         <div className="kit-business-ready">Your label. In motion.</div>
       </div>
       <div className="kit-chat-playback">
-        <span>
-          {complete
-            ? "From one song to your next moves"
-            : started
-              ? "Your music → your music business"
-              : "Watch your music get to work"}
-        </span>
+        <span>Illustrative demo</span>
         <div>
           {!complete && (
             <button
@@ -196,7 +178,6 @@ export function ChatDemo() {
           </button>
         </div>
       </div>
-      <figcaption>Animated example · Illustrative output</figcaption>
     </figure>
   );
 }
