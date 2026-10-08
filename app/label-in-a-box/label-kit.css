@@ -1358,3 +1358,49 @@
     font-size: clamp(36px, 8.5vw, 60px);
   }
 }
+
+.kit-hero-offer {
+  margin-top: 30px;
+  padding-top: 25px;
+  box-shadow: 0 -1px 0 rgb(255 255 255 / 16%);
+  max-width: 420px;
+}
+.kit-hero-price {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.kit-hero-price strong {
+  font-size: 56px;
+  font-weight: 550;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+.kit-hero-price > span {
+  max-width: 135px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--kit-silver);
+}
+.kit-hero-offer .kit-button {
+  width: 100%;
+  justify-content: space-between;
+}
+.kit-offer-terms {
+  font-size: 13px;
+  margin: 13px 0 0;
+  color: var(--kit-white);
+}
+.kit-offer-note {
+  font-size: 11px;
+  margin: 6px 0 0;
+  color: var(--kit-silver);
+}
+@media (max-width: 360px) {
+  .kit-hero-offer .kit-button {
+    font-size: 13px;
+    gap: 12px;
+    padding-left: 18px;
+  }
+}

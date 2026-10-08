@@ -3,13 +3,19 @@
 import { useId, useRef } from "react";
 import { SkyArrow } from "@/components/sky/arrow";
 
-export function PurchaseButton({ checkoutUrl }: { checkoutUrl?: string }) {
+export function PurchaseButton({
+  checkoutUrl,
+  price,
+}: {
+  checkoutUrl?: string;
+  price: string;
+}) {
   const dialog = useRef<HTMLDialogElement>(null);
   const id = useId();
   if (checkoutUrl)
     return (
       <a className="kit-button" href={checkoutUrl}>
-        Get the plugin{" "}
+        Get the plugin — {price}{" "}
         <span>
           <SkyArrow />
         </span>
@@ -21,7 +27,7 @@ export function PurchaseButton({ checkoutUrl }: { checkoutUrl?: string }) {
         className="kit-button"
         onClick={() => dialog.current?.showModal()}
       >
-        Get the plugin{" "}
+        Get the plugin — {price}{" "}
         <span>
           <SkyArrow />
         </span>
@@ -41,13 +47,13 @@ export function PurchaseButton({ checkoutUrl }: { checkoutUrl?: string }) {
           </button>
         </form>
         <p className="kit-eyebrow">RECOUP / DIGITAL DOWNLOAD</p>
-        <h2 id={`${id}-title`}>Your label kit.</h2>
+        <h2 id={`${id}-title`}>Your Recoup plugin.</h2>
         <p id={`${id}-description`}>
           Skills, MCP setup, and music-business workflows in one ZIP.
         </p>
         <div className="kit-order">
           <span>One-time purchase</span>
-          <strong>Price coming soon</strong>
+          <strong>{price}</strong>
         </div>
         <ul className="kit-checks">
           <li>Curated Recoup Skills</li>
@@ -58,8 +64,8 @@ export function PurchaseButton({ checkoutUrl }: { checkoutUrl?: string }) {
           Checkout coming soon
         </button>
         <p className="kit-fine">
-          This is a preview. No payment is collected and the download is not
-          available yet.
+          This is placeholder pricing for the preview. No payment is collected
+          and the download is not available yet.
         </p>
       </dialog>
     </>

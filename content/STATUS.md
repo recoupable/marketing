@@ -1,3 +1,7 @@
+## Purchase-focused plugin hero — October 8, 2026
+
+Added a user-approved $99 placeholder price, price-bearing CTA, and one-payment terms to the hero. The receipt and preview dialog share the same display price. This fallback never enables Stripe checkout; the existing configured-offer gate remains intact.
+
 ## Named-agent toolkit headline — October 8, 2026
 
 Updated the label-kit hero to the approved “Let Claude and ChatGPT manage your music business.” headline, with their marks alongside the names and concise research/release/campaign supporting copy. Checkout and client setup verification remain pending before launch.

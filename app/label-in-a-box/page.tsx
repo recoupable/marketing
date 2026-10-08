@@ -44,6 +44,7 @@ const questions = [
 
 export default function LabelKitPage() {
   const offer = getOffer();
+  const price = offer?.price ?? "$99"; // Design preview only; does not enable checkout.
   return (
     <div className="label-kit sky-subpage">
       <section className="kit-hero">
@@ -79,8 +80,18 @@ export default function LabelKitPage() {
             artists, plan releases, create campaigns, and grow your catalog
             revenue.
           </p>
-          <div className="kit-hero-actions">
-            <PurchaseButton checkoutUrl={offer?.checkoutUrl} />
+          <div className="kit-hero-offer">
+            <div className="kit-hero-price">
+              <strong>{price}</strong>
+              <span>The complete Recoup plugin</span>
+            </div>
+            <PurchaseButton checkoutUrl={offer?.checkoutUrl} price={price} />
+            <p className="kit-offer-terms">One payment. No subscription.</p>
+            <p className="kit-offer-note">
+              {offer
+                ? "Secure checkout via Stripe"
+                : "Preview price · Checkout not yet available"}
+            </p>
           </div>
         </div>
         <div
@@ -291,7 +302,7 @@ export default function LabelKitPage() {
             <span>THE COMPLETE KIT</span>
             <span>ONE-TIME PURCHASE</span>
           </div>
-          <h3>{offer?.price ?? "Price coming soon"}</h3>
+          <h3>{price}</h3>
           <p>The packaged release is yours to keep.</p>
           <ul className="kit-checks">
             <li>Curated music-business skills</li>
@@ -299,7 +310,7 @@ export default function LabelKitPage() {
             <li>Artist and release starter files</li>
             <li>Quick-start workflow guide</li>
           </ul>
-          <PurchaseButton checkoutUrl={offer?.checkoutUrl} />
+          <PurchaseButton checkoutUrl={offer?.checkoutUrl} price={price} />
           <p className="kit-fine">
             {offer
               ? "Secure one-time checkout via Stripe."
