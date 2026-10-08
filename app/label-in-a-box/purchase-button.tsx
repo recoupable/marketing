@@ -9,7 +9,7 @@ export function PurchaseButton({ checkoutUrl }: { checkoutUrl?: string }) {
   if (checkoutUrl)
     return (
       <a className="kit-button" href={checkoutUrl}>
-        Get the toolkit{" "}
+        Get the plugin{" "}
         <span>
           <SkyArrow />
         </span>
@@ -21,7 +21,7 @@ export function PurchaseButton({ checkoutUrl }: { checkoutUrl?: string }) {
         className="kit-button"
         onClick={() => dialog.current?.showModal()}
       >
-        Get the toolkit{" "}
+        Get the plugin{" "}
         <span>
           <SkyArrow />
         </span>
