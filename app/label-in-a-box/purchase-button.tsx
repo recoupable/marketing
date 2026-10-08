@@ -6,16 +6,18 @@ import { SkyArrow } from "@/components/sky/arrow";
 export function PurchaseButton({
   checkoutUrl,
   price,
+  showPrice = false,
 }: {
   checkoutUrl?: string;
   price: string;
+  showPrice?: boolean;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const id = useId();
   if (checkoutUrl)
     return (
       <a className="kit-button" href={checkoutUrl}>
-        Get the plugin{" "}
+        Get the plugin{showPrice ? ` — ${price}` : ""}{" "}
         <span>
           <SkyArrow />
         </span>
@@ -27,7 +29,7 @@ export function PurchaseButton({
         className="kit-button"
         onClick={() => dialog.current?.showModal()}
       >
-        Get the plugin{" "}
+        Get the plugin{showPrice ? ` — ${price}` : ""}{" "}
         <span>
           <SkyArrow />
         </span>

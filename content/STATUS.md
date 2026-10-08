@@ -1,3 +1,7 @@
+## Chat-led plugin hero — October 8, 2026
+
+Replaced the large purchase card with an illustrative Claude + Recoup release-planning conversation. Reduced headline and body sizes, restored a compact single price-bearing CTA, and kept the $99 price in preview only. The conversation is a static example, not verified plugin output or an interactive chat.
+
 ## Single hero purchase card — October 8, 2026
 
 Replaced the label-kit hero’s illustrative output cards and standalone price/button row with one purchase card showing the plugin, $99 preview price, included files and guides, and CTA. Approved headline and subtitle remain unchanged; examples remain below the hero. Checkout stays in preview.
