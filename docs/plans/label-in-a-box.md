@@ -30,3 +30,15 @@ A ZIP can be access-controlled before download; it cannot prevent copying afterw
 
 - https://docs.stripe.com/payment-links — hosted checkout links.
 - https://docs.stripe.com/checkout/fulfillment — verified, idempotent webhook fulfillment and delayed payment handling.
+
+## Visual and narrative direction
+
+The buyer should understand who it is for, what work they could accomplish, what the download contains, what setup requires, and why the curated package is useful. Lead with outcomes before Skills/MCP terminology. Target artists, managers, and label teams already interested in using AI for music work.
+
+- Idea: give the people behind music a usable starting point for research, releases, and campaign work.
+- Visual rule: Recoup white canvas and dark green anchors, lime purchase actions, oversized direct typography, and original cobalt/silver music campaign artwork. Artwork carries the emotion; document previews explain the work.
+- Behavior: role buttons select the matching request, outputs, and document illustration. No autoplay or spectacle is needed.
+- Delivery: responsive Next.js page with a one-time Stripe purchase preview.
+- Proof: inspect all three roles, phone composition, keyboard selection, purchase dialog, image loading, and return to default role.
+
+The old decorative record sleeve was removed. The skill mechanism is translated into a static assembled campaign and selectable work previews: related pieces preserve one fictional release identity. The generated Blue Hour artwork demonstrates the intended visual quality, not a tested end-to-end outcome of the sellable bundle. Before launch, add verified kit-produced examples and exact compatibility/setup guidance. Do not invent testimonials or guarantees.

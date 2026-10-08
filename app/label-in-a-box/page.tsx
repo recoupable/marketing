@@ -1,75 +1,44 @@
+import Image from "next/image";
 import Link from "next/link";
 import { withPageMetadata } from "@/lib/seo";
 import { getOffer } from "@/lib/label-kit/getOffer";
+import { SkyArrow } from "@/components/sky/arrow";
 import { PurchaseButton } from "./purchase-button";
+import { AudiencePreview } from "./audience-preview";
 import "./label-kit.css";
 
 export const metadata = withPageMetadata({
-  title: "A record label in a box, for your AI agent",
+  title: "Your AI agent. Your label team.",
   description:
-    "Recoup Skills, MCP setup, and music-business workflows in one downloadable kit. Research artists, plan releases, and create campaign material with your agent.",
+    "A record label in a box for artists, managers, and labels using AI. Equip your agent to research artists, plan releases, and build campaigns with the Recoup Label Kit.",
   alternates: { canonical: "/label-in-a-box" },
   robots: { index: false, follow: true },
 });
 
-const workflows = [
-  {
-    number: "01",
-    name: "Know the artist.",
-    tag: "A&R + RESEARCH",
-    prompt: "Research this artist and find their next opportunity.",
-    output:
-      "Artist brief, audience context, and a shortlist of opportunities to review.",
-  },
-  {
-    number: "02",
-    name: "Build the rollout.",
-    tag: "RELEASE PLANNING",
-    prompt: "Help me plan the next six weeks around this single.",
-    output:
-      "Release timeline, campaign angles, and a checklist of deliverables.",
-  },
-  {
-    number: "03",
-    name: "Make the campaign.",
-    tag: "CONTENT + CREATIVE",
-    prompt: "Turn this song into a week of content in the artist’s voice.",
-    output:
-      "Caption drafts, creative directions, and briefs for campaign assets.",
-  },
-  {
-    number: "04",
-    name: "Work the catalog.",
-    tag: "CATALOG + OPPORTUNITIES",
-    prompt: "Review this catalog and show me where to focus.",
-    output:
-      "Organized findings, missing information, and priorities for your review.",
-  },
-];
 const questions = [
   [
-    "What am I buying?",
-    "A downloadable package of curated Recoup Skills, MCP setup instructions, starter templates, and a quick-start guide. The final file list will be confirmed before checkout opens.",
+    "What exactly do I get?",
+    "A downloadable ZIP with curated Recoup Skills, setup instructions for connected Recoup tools, artist and release starter files, and a quick-start guide. The final contents will be listed before checkout opens.",
   ],
   [
-    "What is the difference between skills and MCP?",
-    "Skills give your agent a method: the steps, context, and checks for a job. MCP connects it to Recoup tools so it can work with authorized data and services. The kit brings the instructions and setup together.",
+    "Do I need to know how to code?",
+    "The day-to-day work starts with a request in plain language. Initial setup depends on your agent. You’ll need a client that supports skills or local instructions, and MCP for connected tools. The kit’s launch guide will include the tested setup paths.",
   ],
   [
-    "Which agent can I use?",
-    "You’ll need an agent that supports local skills or instructions. Connected tools also require an MCP-compatible client and a Recoup account. Agent-specific installation instructions and the tested compatibility list will be included at launch.",
+    "Does it work with the agent I already use?",
+    "The toolkit is built around skills and MCP, which compatible agents can load. The exact tested client list will be confirmed before sale. If your agent can’t install skills or connect to MCP tools, this kit may not fit your setup.",
   ],
   [
-    "Does this include AI or API usage?",
-    "No. Your AI agent subscription, Recoup API and MCP usage, and any third-party services are billed separately. Buying the kit does not provide unlimited hosted tool usage.",
+    "Are AI and Recoup usage included?",
+    "Your AI subscription, Recoup API and MCP usage, and any third-party generation services are separate. This purchase is for the downloadable toolkit, not unlimited hosted usage.",
   ],
   [
-    "Aren’t Recoup Skills already open source?",
-    "Yes. The public collection remains available for you to install yourself. This offer packages selected skills with setup guidance and starter files for music work in one convenient download.",
+    "Why buy this when the skills are public?",
+    "The public Recoup Skills collection remains available to install yourself. The paid offer is the curated package: selected music workflows, starter files, setup guidance, and a defined release in one download.",
   ],
   [
     "Is this a subscription?",
-    "This first offer is a one-time purchase of the packaged release. An optional subscription for ongoing updates is planned for later and is not included in this purchase.",
+    "This first offer is a one-time purchase of the packaged release. A separate subscription for ongoing updates is planned for later. It is not included in this purchase.",
   ],
 ];
 
@@ -80,229 +49,317 @@ export default function LabelKitPage() {
       <section className="kit-hero">
         <div className="kit-hero-copy">
           <p className="kit-eyebrow">
-            <span className="kit-dot" /> RECOUP SKILLS + MCP
+            <span /> A RECORD LABEL IN A BOX
           </p>
           <h1>
-            A record label
+            Your AI agent.
             <br />
-            in a box.
-            <br />
-            <em>For your agent.</em>
+            <em>Your label team.</em>
           </h1>
           <p className="kit-lead">
-            Give your agent the music-business playbooks and tools to research
-            artists, plan releases, and build campaigns.
+            Plan the release. Find the opportunities.
+            <br className="kit-desktop-break" /> Create the campaign.
+          </p>
+          <p className="kit-hero-description">
+            Give the AI you already use music-business skills and connected
+            tools. A downloadable kit for artists, managers, and record labels.
           </p>
           <div className="kit-hero-actions">
             <PurchaseButton checkoutUrl={offer?.checkoutUrl} />
-            <a className="kit-text-link" href="#inside">
-              See what’s inside <span aria-hidden="true">↓</span>
+            <a href="#for-you" className="kit-text-link">
+              See what you could do <SkyArrow direction="down" />
             </a>
           </div>
           <p className="kit-fine">
-            One-time purchase · Downloadable ZIP{!offer && " · Coming soon"}
+            One-time purchase · ZIP download{!offer && " · Coming soon"}
           </p>
         </div>
         <div
-          className="kit-art"
-          aria-label="Illustration of the Recoup record label kit"
+          className="kit-campaign"
+          aria-label="Illustrative release campaign: cover artwork, artist image, and release plan"
         >
-          <div className="kit-vinyl">
-            <div className="kit-vinyl-label">
-              RECOUP
-              <br />
-              <span>SIDE A / YOUR NEXT RELEASE</span>
-              <i />
-            </div>
-          </div>
-          <div className="kit-sleeve">
-            <div className="kit-sleeve-top">
-              <span>recoup</span>
-              <span>
-                LABEL KIT
-                <br />
-                VOL. 001
-              </span>
-            </div>
-            <div className="kit-sleeve-title">
-              Good music.
-              <br />
-              Meet good
-              <br />
-              systems.
-            </div>
-            <div className="kit-sleeve-mark" aria-hidden="true">
-              ✳
-            </div>
-            <div className="kit-sleeve-bottom">
-              <span>SKILLS + MCP + WORKFLOWS</span>
-              <span>↓ ZIP</span>
-            </div>
-          </div>
-          <div className="kit-file">
-            <span aria-hidden="true">↳</span>
+          <div className="kit-campaign-photo">
+            <Image
+              src="/images/label-kit/blue-hour-artist.png"
+              alt="Fictional artist campaign concept: a performer beneath a blue light installation"
+              width={750}
+              height={1000}
+              priority
+              sizes="(max-width: 760px) 55vw, 350px"
+            />
             <div>
-              <strong>recoup-label-kit.zip</strong>
-              <span>Your agent’s music department.</span>
+              <span>
+                A NEW WORLD
+                <br />
+                AFTER DARK.
+              </span>
+              <small>BLUE HOUR / CAMPAIGN CONCEPT</small>
             </div>
-            <span className="kit-file-lock">PAID DOWNLOAD</span>
           </div>
+          <div className="kit-campaign-cover">
+            <Image
+              src="/images/label-kit/blue-hour-cover.png"
+              alt="Silver sculptural flower album cover concept"
+              width={720}
+              height={720}
+              priority
+              sizes="(max-width: 760px) 55vw, 350px"
+            />
+            <div>
+              <strong>
+                BLUE
+                <br />
+                HOUR
+              </strong>
+              <span>THE NEW SINGLE</span>
+            </div>
+          </div>
+          <div className="kit-campaign-plan">
+            <div>
+              <span className="kit-status-dot" /> RELEASE PLAN{" "}
+              <span>01—04</span>
+            </div>
+            <strong>
+              A song worth
+              <br />
+              showing up for.
+            </strong>
+            <ul>
+              <li>
+                Artist story & direction <span>01</span>
+              </li>
+              <li>
+                Campaign assets <span>02</span>
+              </li>
+              <li>
+                Release calendar <span>03</span>
+              </li>
+            </ul>
+          </div>
+          <div className="kit-campaign-prompt">
+            <svg
+              className="kit-audio-symbol"
+              viewBox="0 0 42 32"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            >
+              <path d="M3 13v6M9 8v16M15 12v8M21 3v26M27 8v16M33 11v10M39 14v4" />
+            </svg>
+            <div>
+              <small>YOUR SONG. YOUR DIRECTION.</small>
+              <p>“Help me build the release.”</p>
+            </div>
+            <span className="kit-prompt-arrow">
+              <SkyArrow />
+            </span>
+          </div>
+          <p className="kit-art-caption">
+            ILLUSTRATIVE CAMPAIGN · ORIGINAL CONCEPT ART
+          </p>
         </div>
       </section>
-      <div className="kit-strip">
-        <span>BRING YOUR AGENT.</span>
+      <div className="kit-value-strip">
         <p>
-          Music-specific skills. Connected tools. Files you can make your own.
+          For the people
+          <br />
+          <strong>behind the music.</strong>
         </p>
-        <a href="#how-it-works">How it works ↗</a>
+        <span>Independent artists</span>
+        <span>Artist managers</span>
+        <span>Record label teams</span>
+        <a href="#inside">
+          Meet your toolkit <SkyArrow direction="down" />
+        </a>
       </div>
-      <section id="inside" className="kit-section">
-        <div className="kit-section-heading">
-          <p className="kit-eyebrow">WHAT’S IN THE BOX</p>
+      <AudiencePreview />
+      <section className="kit-belief kit-section">
+        <p className="kit-eyebrow">YOU’VE GOT THE VISION.</p>
+        <h2>
+          Give it a team’s
+          <br />
+          worth of follow-through.
+        </h2>
+        <p>
+          There’s the music. Then there’s everything it takes to get it out into
+          the world. Give your agent a method for the research, planning, and
+          creative work that keeps landing back on your plate.
+        </p>
+      </section>
+      <section id="inside" className="kit-section kit-inside">
+        <div className="kit-section-intro">
+          <p className="kit-eyebrow">WHAT YOU’RE BUYING</p>
           <h2>
-            The know-how.
+            Music expertise.
             <br />
-            And the tools to use it.
+            Ready for your agent.
           </h2>
           <p>
-            A starting point for the work around the music. Bring your artist,
-            your goals, and your judgment.
+            One download brings the playbooks, tool setup, and starting files
+            together.
           </p>
         </div>
         <div className="kit-contents">
           <article>
-            <span className="kit-content-number">01 / THE METHODS</span>
-            <h3>Recoup Skills</h3>
+            <div
+              className="kit-mini-visual kit-method-visual"
+              aria-hidden="true"
+            >
+              <span>RESEARCH THE ARTIST</span>
+              <div>
+                <i>01</i> Read the context
+              </div>
+              <div>
+                <i>02</i> Gather the sources
+              </div>
+              <div>
+                <i>03</i> Build the brief
+              </div>
+            </div>
+            <span className="kit-content-number">01 / THE KNOW-HOW</span>
+            <h3>Skills that know music.</h3>
             <p>
-              Music-specific instructions that help your agent approach
-              research, releases, content, and catalog work.
+              Give your agent a repeatable approach to artist research, release
+              planning, content, and catalog work.
             </p>
-            <Link href="/skills">Explore the public skills ↗</Link>
+            <Link href="/skills">
+              Explore the public skills <SkyArrow />
+            </Link>
           </article>
           <article>
-            <span className="kit-content-number">02 / THE CONNECTION</span>
-            <h3>Recoup MCP</h3>
+            <div
+              className="kit-mini-visual kit-connect-visual"
+              aria-hidden="true"
+            >
+              <span>YOUR AGENT</span>
+              <div>
+                <i />
+                <i />
+                <i />
+              </div>
+              <strong>Recoup</strong>
+              <small>ARTISTS · RESEARCH · CONTENT</small>
+            </div>
+            <span className="kit-content-number">02 / THE TOOLS</span>
+            <h3>Connect it to Recoup.</h3>
             <p>
-              Setup guidance to connect your agent to Recoup’s tools and work
-              with the accounts and data you authorize.
+              MCP setup guidance connects compatible agents to Recoup’s tools
+              and the data you authorize.
             </p>
-            <Link href="/developers">Explore the tools ↗</Link>
+            <Link href="/developers">
+              See the connected tools <SkyArrow />
+            </Link>
           </article>
           <article>
-            <span className="kit-content-number">03 / THE STARTING POINT</span>
-            <h3>Your label workspace</h3>
+            <div
+              className="kit-mini-visual kit-files-visual"
+              aria-hidden="true"
+            >
+              <div>
+                <span>ARTIST</span>
+                <strong>
+                  The story.
+                  <br />
+                  The sound.
+                  <br />
+                  The ambition.
+                </strong>
+              </div>
+              <div>
+                <span>RELEASE</span>
+                <strong>
+                  Give the next
+                  <br />
+                  chapter
+                  <br />a plan.
+                </strong>
+              </div>
+            </div>
+            <span className="kit-content-number">03 / YOUR STARTING POINT</span>
+            <h3>Skip the blank page.</h3>
             <p>
-              Starter files for artist context, release goals, and campaign
-              briefs, plus a guide to your first workflow.
+              Artist context files, release templates, and a quick-start guide
+              give your first request somewhere to begin.
             </p>
             <span className="kit-content-note">
-              Packaged together in one ZIP
+              Packaged in one downloadable ZIP
             </span>
           </article>
         </div>
-      </section>
-      <section id="workflows" className="kit-section">
-        <div className="kit-section-heading">
-          <p className="kit-eyebrow">PUT IT TO WORK</p>
-          <h2>
-            Start with the music.
-            <br />
-            Give your agent a job.
-          </h2>
-          <p>
-            Example requests and the kind of working documents you can build
-            together.
-          </p>
-        </div>
-        <div className="kit-workflows">
-          {workflows.map((workflow) => (
-            <article key={workflow.number}>
-              <div className="kit-workflow-top">
-                <span>{workflow.number}</span>
-                <span>{workflow.tag}</span>
-              </div>
-              <h3>{workflow.name}</h3>
-              <blockquote>“{workflow.prompt}”</blockquote>
-              <p>
-                <span>WORK TOWARD</span>
-                {workflow.output}
-              </p>
-            </article>
-          ))}
-        </div>
+        <p className="kit-contents-note">
+          The public skills are available separately. This offer brings a
+          curated selection, setup guidance, and starter files into one package.
+        </p>
       </section>
       <section id="how-it-works" className="kit-section kit-start">
-        <div>
-          <p className="kit-eyebrow">FROM DOWNLOAD TO FIRST DRAFT</p>
+        <div className="kit-section-intro">
+          <p className="kit-eyebrow">BRING YOUR AGENT. BRING YOUR MUSIC.</p>
           <h2>
-            Your setup.
+            From “where do I start?”
             <br />
-            With a head start.
+            to your first request.
           </h2>
-          <p>
-            You bring the creative direction. Your agent helps turn it into work
-            you can review.
-          </p>
         </div>
         <ol>
           {[
             [
-              "Download your kit",
-              "After purchase, get the packaged release as a ZIP.",
+              "Get the kit.",
+              "Download the ZIP and follow the setup guide for your compatible AI agent.",
             ],
             [
-              "Set up your agent",
-              "Follow the installation guide, load the skills, and connect Recoup MCP for jobs that need tools.",
+              "Make it yours.",
+              "Add the artist’s music, story, goals, and the context your agent needs.",
             ],
             [
-              "Add your artist’s context",
-              "Give your agent the music, audience, goals, and constraints it needs.",
-            ],
-            [
-              "Make something useful",
-              "Start a workflow. Review the research, refine the draft, and decide what goes out.",
+              "Give it a real job.",
+              "Ask for a release plan, research brief, or content direction. Review it together.",
             ],
           ].map(([title, body], index) => (
             <li key={title}>
               <span>0{index + 1}</span>
-              <div>
-                <h3>{title}</h3>
-                <p>{body}</p>
-              </div>
+              <h3>{title}</h3>
+              <p>{body}</p>
             </li>
           ))}
         </ol>
+        <p className="kit-setup-note">
+          Requires a compatible AI agent. AI subscriptions and Recoup tool usage
+          are billed separately.
+        </p>
       </section>
       <section id="get-the-kit" className="kit-section kit-purchase">
         <div>
-          <p className="kit-eyebrow">ONE DOWNLOAD. YOUR NEXT STARTING POINT.</p>
+          <p className="kit-eyebrow">RECOUP LABEL KIT</p>
           <h2>
-            Put your agent
+            Your next release
             <br />
-            to work in music.
+            deserves more
+            <br />
+            <em>than good intentions.</em>
           </h2>
-          <p>
-            For artists building their own operation, managers running a roster,
-            and labels ready to work with agents.
-          </p>
-          <p className="kit-purchase-aside">
-            You stay in charge of the artist, the decisions, and what gets
-            published.
-          </p>
+          <p>Give your agent the tools to help you follow through.</p>
+          <div className="kit-purchase-file">
+            <span aria-hidden="true">↓</span>
+            <div>
+              <strong>recoup-label-kit.zip</strong>
+              <small>Skills. Tool setup. Starter files.</small>
+            </div>
+          </div>
         </div>
         <div className="kit-receipt">
           <div className="kit-receipt-header">
-            <span>RECOUP LABEL KIT</span>
-            <span>ZIP DOWNLOAD</span>
+            <span>THE COMPLETE KIT</span>
+            <span>ONE-TIME PURCHASE</span>
           </div>
           <h3>{offer?.price ?? "Price coming soon"}</h3>
-          <p>One-time purchase. No recurring charge.</p>
+          <p>The packaged release is yours to keep.</p>
           <ul className="kit-checks">
             <li>Curated music-business skills</li>
             <li>Recoup MCP setup guide</li>
             <li>Artist and release starter files</li>
             <li>Quick-start workflow guide</li>
-            <li>The packaged release to keep</li>
           </ul>
           <PurchaseButton checkoutUrl={offer?.checkoutUrl} />
           <p className="kit-fine">
@@ -311,17 +368,17 @@ export default function LabelKitPage() {
               : "Preview only. Checkout opens when the kit is ready."}
           </p>
           <p className="kit-fine">
-            AI subscriptions and API usage are separate.
+            No recurring charge. AI and API usage are separate.
           </p>
         </div>
       </section>
       <section className="kit-section kit-faq">
         <div>
-          <p className="kit-eyebrow">BEFORE YOU DOWNLOAD</p>
+          <p className="kit-eyebrow">THE PRACTICAL DETAILS</p>
           <h2>
-            A few good
+            Before you
             <br />
-            questions.
+            make it yours.
           </h2>
         </div>
         <div>

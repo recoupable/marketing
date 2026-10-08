@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef } from "react";
+import { SkyArrow } from "@/components/sky/arrow";
 
 export function PurchaseButton({ checkoutUrl }: { checkoutUrl?: string }) {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -8,7 +9,10 @@ export function PurchaseButton({ checkoutUrl }: { checkoutUrl?: string }) {
   if (checkoutUrl)
     return (
       <a className="kit-button" href={checkoutUrl}>
-        Get the label kit <span aria-hidden="true">↗</span>
+        Get the label kit{" "}
+        <span>
+          <SkyArrow />
+        </span>
       </a>
     );
   return (
@@ -17,7 +21,10 @@ export function PurchaseButton({ checkoutUrl }: { checkoutUrl?: string }) {
         className="kit-button"
         onClick={() => dialog.current?.showModal()}
       >
-        Get the label kit <span aria-hidden="true">↗</span>
+        Get the label kit{" "}
+        <span>
+          <SkyArrow />
+        </span>
       </button>
       <dialog
         ref={dialog}

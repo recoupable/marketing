@@ -1,3 +1,7 @@
+## Buyer-focused label kit revision — October 8, 2026
+
+Rebuilt `/label-in-a-box` around the artist, manager, and label buyer: outcome-led hero, original campaign artwork, role-specific requests and output previews, a simpler setup story, and one-time purchase details. Applied design-visual-experiences and copywriting guidance. Assets and documents are labeled illustrations, not verified kit output. Checkout remains in preview. Production build and scoped lint pass; all three roles, image loading, purchase dialog, and desktop/390px/320px layouts were checked in the browser.
+
 ## Label kit landing-page preview — October 8, 2026
 
 Added an unlisted, noindex `/label-in-a-box` offer for packaged Recoup Skills, MCP setup, and starter files. One-time purchase UI opens a preview dialog until a price label and Stripe Payment Link are configured. Pricing, ZIP assembly, webhook fulfillment, and private download delivery remain pending; see `docs/plans/label-in-a-box.md`. Production build, scoped ESLint, three checkout configuration tests, desktop and 390 CSS-pixel browser checks passed locally. No payment product created and no production release.
