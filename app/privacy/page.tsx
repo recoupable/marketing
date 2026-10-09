@@ -2,6 +2,7 @@ import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { LegalDocument } from "@/app/privacy/legal-document";
 import { legalSite as siteConfig } from "@/app/privacy/legal-site";
+import { siteConfig as platformConfig } from "@/lib/config";
 
 export const metadata: Metadata = withPageMetadata({
   title: "Privacy Policy",
@@ -184,8 +185,10 @@ export default function PrivacyPage() {
         Revocation prevents future use of that connection. It does not erase
         saved workspace content or results already returned to the connected
         application. Contact{" "}
-        <a href="mailto:agent@recoupable.dev">agent@recoupable.dev</a> for help
-        accessing, correcting, exporting, or deleting information.
+        <a href={`mailto:${platformConfig.contactEmail}`}>
+          {platformConfig.contactEmail}
+        </a>{" "}
+        for help accessing, correcting, exporting, or deleting information.
       </p>
 
       <h2 id="data-retention">Data Retention and Deletion</h2>
@@ -223,13 +226,15 @@ export default function PrivacyPage() {
       </ul>
       <p>
         To request deletion, email{" "}
-        <a href="mailto:agent@recoupable.dev">agent@recoupable.dev</a> with the
-        account and content concerned. We may verify account ownership before
-        acting. We aim to respond within 30 days and explain any information
-        that must remain for applicable legal, accounting, or security purposes,
-        or cannot be removed from permanent public storage. This response target
-        is not a guarantee that every downstream copy or backup will be erased
-        within 30 days.
+        <a href={`mailto:${platformConfig.contactEmail}`}>
+          {platformConfig.contactEmail}
+        </a>{" "}
+        with the account and content concerned. We may verify account ownership
+        before acting. We aim to respond within 30 days and explain any
+        information that must remain for applicable legal, accounting, or
+        security purposes, or cannot be removed from permanent public storage.
+        This response target is not a guarantee that every downstream copy or
+        backup will be erased within 30 days.
       </p>
 
       <h2 id="data-security">Data Security</h2>
