@@ -42,25 +42,22 @@ export function Setup() {
         ← Recoup plugin
       </Link>
       <div className="setup-download-card">
-        <div className="setup-icon" aria-hidden="true">
-          <Image
-            src="/brand/icon-lightmode.svg"
-            alt=""
-            width={30}
-            height={30}
-          />
-        </div>
-        <h1>Your Recoup plugin.</h1>
-        <p className="setup-intro">
-          One download. Everything you need to get started.
-        </p>
-        <div className="setup-file">
-          <span aria-hidden="true">↓</span>
-          <div>
-            <strong>recoup-plugin.zip</strong>
-            <p>Skills, connected tools & setup instructions</p>
+        <div className="setup-package" aria-hidden="true">
+          <div className="setup-package-back" />
+          <div className="setup-package-front">
+            <Image
+              src="/brand/icon-darkmode.svg"
+              alt=""
+              width={42}
+              height={42}
+            />
+            <span>
+              RECOUP<span>↓ ZIP</span>
+            </span>
           </div>
         </div>
+        <h1>Recoup plugin</h1>
+        <p className="setup-intro">Skills, tools & setup guide.</p>
         <button
           className="setup-download-button"
           disabled={!ready || busy}
@@ -72,9 +69,7 @@ export function Setup() {
               ? "Download plugin ↓"
               : "Sign in to download →"}
         </button>
-        <p className="setup-note">
-          Use the email you paid with. We’ll check your subscription.
-        </p>
+        <p className="setup-note">Use your checkout email.</p>
         {authenticated && (
           <button
             className="setup-text-button"
@@ -97,17 +92,13 @@ export function Setup() {
             Download started. Unzip it and open START HERE.html.
           </p>
         )}
-        <div className="setup-next">
-          <span>WHAT’S NEXT</span>
-          <p>
-            Unzip. Open <strong>START HERE.html</strong>.<br />
-            Install the plugin and connect your Recoup account.
-          </p>
-        </div>
+        <p className="setup-next">
+          Unzip, then open <strong>START HERE.html</strong>.
+        </p>
       </div>
       <div className="setup-support">
-        <a href="mailto:agent@recoupable.dev">Need a hand? ↗</a>
-        <a href="https://app.recoupable.dev/plan">Manage subscription ↗</a>
+        <a href="mailto:agent@recoupable.dev">Help ↗</a>
+        <a href="https://app.recoupable.dev/plan">Manage subscription</a>
       </div>
     </div>
   );

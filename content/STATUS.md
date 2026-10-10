@@ -1,3 +1,7 @@
+## Download card polish — October 10, 2026
+
+Shortened the post-payment download copy, replaced the repeated file row with a compact layered plugin graphic, and reduced setup instructions to one line. Desktop/mobile reviewed; download and authentication behavior unchanged.
+
 ## One-download plugin delivery — October 10, 2026
 
 Removed the AI picker and install steps from the website. Setup is now a single authenticated download; one ZIP contains the customer plugin, official Codex/Claude/Cursor manifests and START HERE.html. Checkout tags plugin purchases for the companion API webhook email. No payment or email delivery has been tested live; checkout remains disabled.

@@ -1,87 +1,103 @@
 .plugin-setup {
   --setup-dark: #132b26;
   --setup-lime: #d6ff62;
-  max-width: 560px;
-  padding: 36px 24px 72px;
+  --setup-soft: #f0f7fa;
+  max-width: 488px;
+  padding: 36px 24px 64px;
   margin: auto;
   color: var(--ink);
 }
 .setup-back {
   display: inline-block;
   color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 28px;
+  font-size: 12px;
+  margin-bottom: 22px;
 }
 .setup-download-card {
-  padding: 36px;
-  border-radius: 22px;
+  text-align: center;
+  padding: 36px 36px 24px;
+  border-radius: 24px;
   background: var(--paper);
   box-shadow:
     0 0 0 1px var(--line),
-    0 20px 60px -40px var(--muted);
+    0 20px 50px -32px color-mix(in srgb, var(--ink) 30%, transparent);
 }
-.setup-icon {
-  display: grid;
-  place-items: center;
-  width: 56px;
-  height: 56px;
+.setup-package {
+  position: relative;
+  width: 118px;
+  height: 128px;
+  margin: 4px auto 26px;
+}
+.setup-package-back,
+.setup-package-front {
+  position: absolute;
+  width: 112px;
+  height: 118px;
+  border-radius: 18px;
+}
+.setup-package-back {
   background: var(--setup-lime);
-  border-radius: 14px;
-  margin-bottom: 24px;
+  transform: rotate(9deg) translate(5px, 0);
+}
+.setup-package-front {
+  top: 8px;
+  left: -3px;
+  background: var(--setup-dark);
+  color: var(--paper);
+  transform: rotate(-6deg);
+  padding: 22px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 18px -10px var(--setup-dark);
+}
+.setup-package-front > span {
+  display: flex;
+  justify-content: space-between;
+  font:
+    8px var(--font-mono),
+    monospace;
+  letter-spacing: 0.03em;
+}
+.setup-package-front > span > span {
+  color: var(--setup-lime);
 }
 .setup-download-card h1 {
-  font-size: clamp(28px, 4vw, 36px);
+  font-size: 30px;
   font-weight: 500;
   letter-spacing: -0.045em;
+  line-height: 1.15;
 }
 .setup-intro {
   color: var(--muted);
-  font-size: 15px;
-  line-height: 1.6;
-  margin-top: 10px;
-}
-.setup-file {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 0;
-  margin: 24px 0;
-  box-shadow:
-    0 1px 0 var(--line),
-    0 -1px 0 var(--line);
-}
-.setup-file > span {
-  font-size: 26px;
-}
-.setup-file strong {
   font-size: 14px;
-  font-weight: 500;
-}
-.setup-file p {
-  color: var(--muted);
-  font-size: 12px;
-  margin-top: 4px;
+  line-height: 1.6;
+  margin: 8px 0 26px;
 }
 .setup-download-button {
   width: 100%;
   min-height: 48px;
-  background: var(--setup-dark);
-  color: var(--paper);
-  border-radius: 10px;
+  background: var(--setup-lime);
+  color: var(--setup-dark);
+  border-radius: 12px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+.setup-download-button:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--setup-lime) 94%, var(--setup-dark));
 }
 .setup-download-button:disabled {
   opacity: 0.6;
 }
 .setup-note {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--muted);
   line-height: 1.6;
-  margin-top: 12px;
+  margin-top: 10px;
 }
 .setup-text-button {
-  padding: 12px 0;
+  padding: 10px 0;
   background: transparent;
   font-size: 12px;
   text-decoration: underline;
@@ -93,36 +109,34 @@
   margin-top: 12px;
 }
 .setup-next {
-  margin-top: 28px;
-}
-.setup-next > span {
-  font:
-    10px var(--font-mono),
-    monospace;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-}
-.setup-next p {
-  font-size: 13px;
+  margin: 24px -36px -24px;
+  padding: 16px 20px;
+  background: var(--setup-soft);
+  border-radius: 0 0 24px 24px;
+  font-size: 11px;
   line-height: 1.7;
-  margin-top: 8px;
+  color: var(--muted);
 }
 .setup-next strong {
   font-weight: 500;
+  color: var(--ink);
 }
 .setup-support {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  margin-top: 22px;
-  font-size: 12px;
+  margin-top: 20px;
+  font-size: 11px;
   color: var(--muted);
 }
 @media (max-width: 480px) {
   .plugin-setup {
-    padding: 24px 20px 48px;
+    padding: 24px 24px 48px;
   }
   .setup-download-card {
-    padding: 26px;
+    padding: 30px 26px 22px;
+  }
+  .setup-next {
+    margin: 24px -26px -22px;
   }
 }
