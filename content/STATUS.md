@@ -1,3 +1,7 @@
+## One-download plugin delivery — October 10, 2026
+
+Removed the AI picker and install steps from the website. Setup is now a single authenticated download; one ZIP contains the customer plugin, official Codex/Claude/Cursor manifests and START HERE.html. Checkout tags plugin purchases for the companion API webhook email. No payment or email delivery has been tested live; checkout remains disabled.
+
 ## Compact plugin setup — October 10, 2026
 
 Redesigned setup as one split installation panel with a compact product summary, app selector, numbered steps and copyable commands. Inline commands stay inline; compatibility details are collapsed. Preserved subscription checks and download authentication.

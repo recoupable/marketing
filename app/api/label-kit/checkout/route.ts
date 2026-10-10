@@ -20,6 +20,7 @@ export async function POST(request: Request) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           plan: "starter",
+          fulfillment: "recoup-plugin",
           successUrl: `${origin}/label-in-a-box/setup?checkout=returned`,
           cancelUrl: `${origin}/label-in-a-box?checkout=canceled`,
         }),

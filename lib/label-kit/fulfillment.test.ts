@@ -103,6 +103,7 @@ describe("Starter checkout", () => {
     expect((await checkout(req())).status).toBe(200);
     expect(JSON.parse(fetch.mock.calls[0][1].body)).toEqual({
       plan: "starter",
+      fulfillment: "recoup-plugin",
       successUrl:
         "https://recoupable.dev/label-in-a-box/setup?checkout=returned",
       cancelUrl: "https://recoupable.dev/label-in-a-box?checkout=canceled",

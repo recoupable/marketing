@@ -1,346 +1,128 @@
 .plugin-setup {
   --setup-dark: #132b26;
   --setup-lime: #d6ff62;
-  --setup-on-dark: #fff;
-  --setup-muted-dark: #b7c9c2;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 32px 32px 64px;
+  max-width: 560px;
+  padding: 36px 24px 72px;
+  margin: auto;
   color: var(--ink);
 }
 .setup-back {
   display: inline-block;
-  font-size: 13px;
   color: var(--muted);
+  font-size: 13px;
   margin-bottom: 28px;
 }
-.setup-heading {
-  margin-bottom: 30px;
-}
-.setup-heading h1 {
-  font-size: clamp(28px, 3.2vw, 42px);
-  font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -0.045em;
-}
-.setup-heading > p {
-  font-size: 16px;
-  color: var(--muted);
-  margin-top: 10px;
-}
-.setup-workspace {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+.setup-download-card {
+  padding: 36px;
+  border-radius: 22px;
+  background: var(--paper);
   box-shadow:
     0 0 0 1px var(--line),
-    0 16px 48px -32px var(--muted);
-  border-radius: 22px;
-  overflow: hidden;
-}
-.setup-product {
-  background: var(--setup-dark);
-  color: var(--setup-on-dark);
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-}
-.setup-product-top {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 36px;
+    0 20px 60px -40px var(--muted);
 }
 .setup-icon {
-  width: 48px;
-  height: 48px;
   display: grid;
   place-items: center;
+  width: 56px;
+  height: 56px;
   background: var(--setup-lime);
-  border-radius: 12px;
+  border-radius: 14px;
+  margin-bottom: 24px;
 }
-.setup-icon img {
-  width: 26px;
-  height: 26px;
+.setup-download-card h1 {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
 }
-.setup-label {
-  font:
-    10px var(--font-mono),
-    monospace;
-  letter-spacing: 0.1em;
+.setup-intro {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 10px;
 }
-.setup-product h2 {
-  font-size: 30px;
-  font-weight: 450;
-  line-height: 1.13;
-  letter-spacing: -0.04em;
+.setup-file {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  margin: 24px 0;
+  box-shadow:
+    0 1px 0 var(--line),
+    0 -1px 0 var(--line);
 }
-.setup-product > p {
-  color: var(--setup-muted-dark);
+.setup-file > span {
+  font-size: 26px;
+}
+.setup-file strong {
   font-size: 14px;
-  line-height: 1.65;
-  margin-top: 14px;
-  max-width: 240px;
+  font-weight: 500;
 }
-.setup-includes {
-  padding: 0;
-  margin: 28px 0 36px;
-  list-style: none;
-}
-.setup-includes li {
-  padding: 11px 0;
-  font-size: 14px;
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--setup-on-dark) 12%, transparent);
-}
-.setup-includes span {
-  color: var(--setup-muted-dark);
-  font:
-    10px var(--font-mono),
-    monospace;
-  margin-right: 16px;
-}
-.setup-action {
-  margin-top: auto;
+.setup-file p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 4px;
 }
 .setup-download-button {
   width: 100%;
-  min-height: 46px;
-  padding: 12px 16px;
+  min-height: 48px;
+  background: var(--setup-dark);
+  color: var(--paper);
   border-radius: 10px;
-  background: var(--setup-lime);
-  color: var(--setup-dark);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   font-size: 14px;
-  font-weight: 600;
-  gap: 10px;
+  font-weight: 500;
 }
 .setup-download-button:disabled {
   opacity: 0.6;
 }
-.setup-download-button:hover:not(:disabled) {
-  filter: brightness(0.95);
-}
-.setup-action p {
-  font-size: 11px;
+.setup-note {
+  font-size: 12px;
+  color: var(--muted);
   line-height: 1.6;
-  color: var(--setup-muted-dark);
-  margin-top: 8px;
-}
-.setup-action p + p {
-  margin-top: 2px;
+  margin-top: 12px;
 }
 .setup-text-button {
-  background: transparent;
-  color: inherit;
-  font-size: 12px;
   padding: 12px 0;
+  background: transparent;
+  font-size: 12px;
   text-decoration: underline;
 }
-.setup-action .setup-error {
-  color: var(--setup-on-dark);
-}
-.setup-install {
-  background: var(--paper);
-  padding: 30px 32px 22px;
-  min-width: 0;
-}
-.setup-install-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--muted);
-}
-.setup-install-heading a {
-  font-size: 12px;
-}
-.setup-install h2 {
-  font-size: 23px;
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  margin: 18px 0;
-}
-.setup-clients {
-  display: flex;
-  gap: 4px;
-  padding: 4px;
-  background: var(--paper-dark);
-  border-radius: 10px;
-}
-.setup-clients button {
-  flex: 1;
-  min-width: 0;
-  min-height: 40px;
-  font-size: 13px;
-  border-radius: 7px;
-  background: transparent;
-  padding: 8px;
-}
-.setup-clients button[aria-pressed="true"] {
-  background: var(--paper);
-  box-shadow: 0 1px 4px color-mix(in srgb, var(--ink) 12%, transparent);
-  font-weight: 600;
-}
-.setup-steps {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0;
-  display: grid;
-  gap: 22px;
-}
-.setup-steps > li {
-  display: grid;
-  grid-template-columns: 24px minmax(0, 1fr);
-  gap: 12px;
-}
-.setup-step-number {
-  width: 22px;
-  height: 22px;
-  display: grid;
-  place-items: center;
-  font-size: 11px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px var(--line);
-  color: var(--muted);
-}
-.setup-steps h3 {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 22px;
-  margin-bottom: 5px;
-}
-.setup-steps p {
-  color: var(--muted);
+.setup-error,
+.setup-status {
   font-size: 13px;
   line-height: 1.6;
+  margin-top: 12px;
 }
-.setup-steps p a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.setup-next {
+  margin-top: 28px;
 }
-.setup-steps p code {
-  font-size: 12px;
-  background: var(--paper-dark);
-  padding: 2px 5px;
-  border-radius: 4px;
-}
-.setup-command {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  background: var(--paper-dark);
-  border-radius: 7px;
-}
-.setup-command code {
-  min-width: 0;
-  flex: 1;
-  overflow-wrap: anywhere;
-  font-size: 11px;
-  line-height: 1.65;
-}
-.setup-command button {
-  flex-shrink: 0;
-  font-size: 11px;
-  min-height: 32px;
-  padding: 5px 8px;
-  background: var(--paper);
-  border-radius: 5px;
-  box-shadow: 0 0 0 1px var(--line);
-}
-.setup-copy-status {
-  font-size: 11px;
+.setup-next > span {
+  font:
+    10px var(--font-mono),
+    monospace;
+  letter-spacing: 0.08em;
   color: var(--muted);
 }
-.setup-copy-status:empty {
-  display: none;
+.setup-next p {
+  font-size: 13px;
+  line-height: 1.7;
+  margin-top: 8px;
 }
-.setup-first-job {
-  padding: 16px 18px;
-  border-radius: 10px;
-  box-shadow: 0 0 0 1px var(--line);
-}
-.setup-first-job .setup-label {
-  color: var(--muted);
-}
-.setup-first-job p {
-  font-size: 18px;
-  letter-spacing: -0.03em;
-  margin: 5px 0;
-}
-.setup-first-job > span:last-child {
-  font-size: 12px;
-  color: var(--muted);
-}
-.setup-details {
-  margin-top: 18px;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.65;
-}
-.setup-details summary {
-  cursor: pointer;
-  padding: 5px 0;
-}
-.setup-details p {
-  margin-top: 6px;
+.setup-next strong {
+  font-weight: 500;
 }
 .setup-support {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  flex-wrap: wrap;
-  color: var(--muted);
-  font-size: 12px;
   margin-top: 22px;
+  font-size: 12px;
+  color: var(--muted);
 }
-.setup-support span a {
-  color: var(--ink);
-  margin-left: 4px;
-}
-@media (max-width: 700px) {
+@media (max-width: 480px) {
   .plugin-setup {
-    padding: 24px 20px 44px;
+    padding: 24px 20px 48px;
   }
-  .setup-workspace {
-    grid-template-columns: 1fr;
-  }
-  .setup-product {
-    padding: 24px;
-  }
-  .setup-product-top {
-    margin-bottom: 20px;
-  }
-  .setup-product h2 {
-    font-size: 26px;
-  }
-  .setup-product > p {
-    max-width: none;
-  }
-  .setup-includes {
-    display: none;
-  }
-  .setup-action {
-    margin-top: 24px;
-  }
-  .setup-install {
-    padding: 24px;
-  }
-  .setup-heading {
-    margin-bottom: 24px;
-  }
-}
-@media (max-width: 380px) {
-  .plugin-setup {
-    padding-inline: 14px;
-  }
-  .setup-install,
-  .setup-product {
-    padding: 20px;
-  }
-  .setup-clients button {
-    font-size: 12px;
-    padding-inline: 4px;
+  .setup-download-card {
+    padding: 26px;
   }
 }

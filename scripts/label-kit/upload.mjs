@@ -19,10 +19,10 @@ const release = JSON.parse(
 );
 const bytes = await readFile(file);
 if (
-  version !== release.version ||
-  createHash("sha256").update(bytes).digest("hex") !== release.sha256
+  version !== release.bundleVersion ||
+  createHash("sha256").update(bytes).digest("hex") !== release.bundleSha256
 )
-  throw new Error("Expected the pinned official customer plugin and version");
+  throw new Error("Expected the pinned customer bundle and version");
 const result = await put(`label-kit/${version}.zip`, bytes, {
   access: "private",
   token: process.env.LABEL_KIT_BLOB_READ_WRITE_TOKEN,
