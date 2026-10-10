@@ -1,5 +1,4 @@
 import { withPageMetadata } from "@/lib/seo";
-import { PrivyAuthProvider } from "@/contexts/PrivyAuthProvider";
 import { Setup } from "./setup";
 import "./setup.css";
 export const metadata = withPageMetadata({
@@ -7,9 +6,5 @@ export const metadata = withPageMetadata({
   robots: { index: false, follow: false },
 });
 export default function SetupPage() {
-  return (
-    <PrivyAuthProvider>
-      <Setup />
-    </PrivyAuthProvider>
-  );
+  return <Setup />;
 }

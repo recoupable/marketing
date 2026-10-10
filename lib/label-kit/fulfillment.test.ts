@@ -3,24 +3,18 @@ import { GET as download } from "@/app/api/label-kit/download/route";
 import { POST as checkout } from "@/app/api/label-kit/checkout/route";
 const blobGet = vi.hoisted(() => vi.fn());
 vi.mock("@vercel/blob", () => ({ get: blobGet }));
-const accountId = "00000000-0000-4000-8000-000000000001";
+const sessionId = "cs_test_123456789012345678901234";
 const request = () =>
   new Request("https://recoupable.dev/api/label-kit/download", {
-    headers: { Authorization: "Bearer test" },
+    headers: { "X-Plugin-Purchase": sessionId },
   });
-function mockSubscription(status: string, plan: string | null) {
-  return vi
-    .fn()
-    .mockResolvedValueOnce(Response.json({ accountId }))
-    .mockResolvedValueOnce(Response.json({ status, plan }));
-}
 afterEach(() => {
   vi.unstubAllGlobals();
   vi.unstubAllEnvs();
   vi.clearAllMocks();
 });
 describe("protected plugin delivery", () => {
-  it("does not trust a checkout success parameter", async () => {
+  it("does not trust a checkout success parameter or missing purchase proof", async () => {
     const response = await download(
       new Request(
         "https://recoupable.dev/api/label-kit/download?checkout=returned",
@@ -29,19 +23,32 @@ describe("protected plugin delivery", () => {
     expect(response.status).toBe(401);
     expect(blobGet).not.toHaveBeenCalled();
   });
-  it.each([
-    ["canceled", "starter"],
-    ["past_due", "pro"],
-    ["trialing", "pro"],
-    ["none", null],
-    ["active", "free"],
-  ])("denies %s / %s", async (status, plan) => {
-    vi.stubGlobal("fetch", mockSubscription(status!, plan));
+  it("rejects malformed purchase proof before verification", async () => {
+    const fetch = vi.fn();
+    vi.stubGlobal("fetch", fetch);
+    expect(
+      (
+        await download(
+          new Request("https://recoupable.dev/api/label-kit/download", {
+            headers: { "X-Plugin-Purchase": "bad" },
+          }),
+        )
+      ).status,
+    ).toBe(401);
+    expect(fetch).not.toHaveBeenCalled();
+  });
+  it("denies purchases rejected by Stripe verification", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi
+        .fn()
+        .mockResolvedValue(Response.json({ allowed: false }, { status: 403 })),
+    );
     expect((await download(request())).status).toBe(403);
     expect(blobGet).not.toHaveBeenCalled();
   });
-  it("fetches identity from the API and streams private files only for active subscribers", async () => {
-    const fetch = mockSubscription("active", "starter");
+  it("verifies the private purchase link and streams private files without account login", async () => {
+    const fetch = vi.fn().mockResolvedValue(Response.json({ allowed: true }));
     vi.stubGlobal("fetch", fetch);
     vi.stubEnv("LABEL_KIT_BLOB_PATH", "label-kit/v1.zip");
     vi.stubEnv("LABEL_KIT_BLOB_READ_WRITE_TOKEN", "private-test-token");
@@ -53,26 +60,29 @@ describe("protected plugin delivery", () => {
     expect(response.status).toBe(200);
     expect(await response.text()).toBe("zip");
     expect(response.headers.get("cache-control")).toBe("private, no-store");
-    expect(fetch.mock.calls[1][0]).toContain(
-      `/accounts/${accountId}/subscription`,
-    );
+    expect(fetch.mock.calls[0][0]).toContain("/plugin/download-access");
+    expect(JSON.parse(fetch.mock.calls[0][1].body)).toEqual({ sessionId });
     expect(blobGet).toHaveBeenCalledWith("label-kit/v1.zip", {
       access: "private",
       token: "private-test-token",
       useCache: false,
     });
   });
-  it("fails closed on expired auth, upstream failures, and missing files", async () => {
+  it("fails closed on upstream failures and missing configuration", async () => {
     vi.stubGlobal(
       "fetch",
-      vi.fn().mockResolvedValue(new Response(null, { status: 401 })),
+      vi.fn().mockResolvedValue(Response.json({ allowed: false })),
     );
-    expect((await download(request())).status).toBe(401);
+    expect((await download(request())).status).toBe(503);
     vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new Error("network")));
     expect((await download(request())).status).toBe(503);
-    vi.stubGlobal("fetch", mockSubscription("active", "starter"));
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue(Response.json({ allowed: true })),
+    );
     vi.stubEnv("LABEL_KIT_BLOB_PATH", "");
     expect((await download(request())).status).toBe(503);
+    expect(blobGet).not.toHaveBeenCalled();
   });
 });
 describe("Starter checkout", () => {
@@ -85,7 +95,6 @@ describe("Starter checkout", () => {
     vi.stubEnv("LABEL_KIT_CHECKOUT_ENABLED", "true");
     vi.stubEnv("LABEL_KIT_BLOB_PATH", "label-kit/v1.zip");
     vi.stubEnv("LABEL_KIT_BLOB_READ_WRITE_TOKEN", "test");
-    vi.stubEnv("NEXT_PUBLIC_PRIVY_APP_ID", "test");
   }
   it("rejects cross-origin and disabled checkout", async () => {
     expect((await checkout(req("https://evil.example"))).status).toBe(403);
@@ -105,7 +114,7 @@ describe("Starter checkout", () => {
       plan: "starter",
       fulfillment: "recoup-plugin",
       successUrl:
-        "https://recoupable.dev/label-in-a-box/setup?checkout=returned",
+        "https://recoupable.dev/label-in-a-box/setup#purchase={CHECKOUT_SESSION_ID}",
       cancelUrl: "https://recoupable.dev/label-in-a-box?checkout=canceled",
     });
   });

@@ -1,11 +1,23 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
-import { usePrivy } from "@privy-io/react-auth";
+import { useEffect, useState } from "react";
 
 export function Setup() {
-  const { ready, authenticated, login, logout, getAccessToken } = usePrivy();
+  const [purchase, setPurchase] = useState("");
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const readPurchase = () => {
+      setPurchase(
+        new URLSearchParams(window.location.hash.slice(1)).get("purchase") ??
+          "",
+      );
+      setReady(true);
+    };
+    readPurchase();
+    window.addEventListener("hashchange", readPurchase);
+    return () => window.removeEventListener("hashchange", readPurchase);
+  }, []);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [downloaded, setDownloaded] = useState(false);
@@ -13,10 +25,12 @@ export function Setup() {
     setBusy(true);
     setError("");
     try {
-      const token = await getAccessToken();
-      if (!token) throw new Error("Sign in again to download your plugin.");
+      if (!purchase)
+        throw new Error(
+          "Open the private download link in your purchase email.",
+        );
       const response = await fetch("/api/label-kit/download", {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { "X-Plugin-Purchase": purchase },
         cache: "no-store",
       });
       if (!response.ok) {
@@ -60,27 +74,15 @@ export function Setup() {
         <p className="setup-intro">Skills, tools & setup guide.</p>
         <button
           className="setup-download-button"
-          disabled={!ready || busy}
-          onClick={() => (authenticated ? void download() : login())}
+          disabled={!ready || busy || !purchase}
+          onClick={() => void download()}
         >
-          {busy
-            ? "Checking access…"
-            : authenticated
-              ? "Download plugin ↓"
-              : "Sign in to download →"}
+          {busy ? "Preparing download…" : "Download plugin ↓"}
         </button>
-        <p className="setup-note">Use your checkout email.</p>
-        {authenticated && (
-          <button
-            className="setup-text-button"
-            onClick={() => {
-              setDownloaded(false);
-              setError("");
-              void logout();
-            }}
-          >
-            Use another email
-          </button>
+        {ready && !purchase && (
+          <p className="setup-note">
+            Open the download link in your purchase email.
+          </p>
         )}
         {error && (
           <p className="setup-error" role="alert">

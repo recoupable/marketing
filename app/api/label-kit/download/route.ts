@@ -1,9 +1,9 @@
 import { get } from "@vercel/blob";
-import { requireSubscription } from "@/lib/label-kit/requireSubscription";
+import { requirePluginPurchase } from "@/lib/label-kit/requirePluginPurchase";
 export const dynamic = "force-dynamic";
 export async function GET(request: Request) {
   try {
-    await requireSubscription(request);
+    await requirePluginPurchase(request);
     const path = process.env.LABEL_KIT_BLOB_PATH;
     if (
       !path?.startsWith("label-kit/") ||

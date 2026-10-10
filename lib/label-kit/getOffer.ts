@@ -5,8 +5,7 @@ export function getOffer(
   if (
     environment.LABEL_KIT_CHECKOUT_ENABLED !== "true" ||
     !environment.LABEL_KIT_BLOB_PATH?.startsWith("label-kit/") ||
-    !environment.LABEL_KIT_BLOB_READ_WRITE_TOKEN ||
-    !environment.NEXT_PUBLIC_PRIVY_APP_ID
+    !environment.LABEL_KIT_BLOB_READ_WRITE_TOKEN
   )
     return null;
   return { price: "$19/month", checkoutUrl: "/api/label-kit/checkout" };

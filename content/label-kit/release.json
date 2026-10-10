@@ -7,11 +7,11 @@
   "skillCount": 34,
   "url": "https://github.com/recoupable/skills/releases/download/plugin-v2026.1008.2/recoup-customer-2026.1008.2.zip",
   "openaiStatus": "upload_and_review_required",
-  "bundleVersion": "2026.1008.2-bundle.1",
+  "bundleVersion": "2026.1008.2-bundle.2",
   "manifests": {
     ".claude-plugin/plugin.json": "2235fcde08e3576759bd93e6d4dc8af72759f18b0c5b9a789fb9eb920e057779",
     ".cursor-plugin/plugin.json": "a48350d3035e0e8bcbc5748c1df4389e34673f7784cf080792ef586b9f8db4a0",
     "mcp.json": "a2a9421c4289129c459a2a4af92239ee65ae2fb78ca066d18f72b8444cd5d71e"
   },
-  "bundleSha256": "121a92f1f605e71420988c583043802c88867e131d134e052aa0c8e964e923f7"
+  "bundleSha256": "78f4cfa5950d0f93dd42869ee0305239600167b36a79327f720c5d65458df884"
 }

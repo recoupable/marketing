@@ -4,7 +4,6 @@ const ready = {
   LABEL_KIT_CHECKOUT_ENABLED: "true",
   LABEL_KIT_BLOB_PATH: "label-kit/v1.zip",
   LABEL_KIT_BLOB_READ_WRITE_TOKEN: "test-token",
-  NEXT_PUBLIC_PRIVY_APP_ID: "test-app",
 };
 describe("plugin checkout activation", () => {
   it("does not activate from the legacy one-time payment link", () => {
@@ -15,7 +14,7 @@ describe("plugin checkout activation", () => {
       }),
     ).toBeNull();
   });
-  it("requires explicit activation, private file configuration, and authentication", () => {
+  it("requires explicit activation, private file configuration", () => {
     for (const key of Object.keys(ready))
       expect(getOffer({ ...ready, [key]: undefined })).toBeNull();
     expect(

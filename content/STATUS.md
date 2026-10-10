@@ -1,3 +1,7 @@
+## Private purchase-link downloads — October 10, 2026
+
+Checkout returns directly to the plugin download with a private purchase link. The same link is emailed after verified payment. Downloads verify the paid Stripe session and active subscription server-side; no second sign-in or app redirect. Rebuilt customer bundle.2 with updated instructions. Checkout remains disabled pending private storage and an end-to-end test purchase.
+
 ## Download card polish — October 10, 2026
 
 Shortened the post-payment download copy, replaced the repeated file row with a compact layered plugin graphic, and reduced setup instructions to one line. Desktop/mobile reviewed; download and authentication behavior unchanged.
