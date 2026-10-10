@@ -4,10 +4,10 @@ This directory is the source of truth for the `/docs` area. Documentation is aut
 
 ## Coverage
 
-- All 179 pages in the supplied navigation: 12 guides and 167 API reference pages.
-- Six additional music operations discovered in OpenAPI and surfaced under Additional endpoints.
-- 185 content routes, plus the API overview, ten downloadable specifications, and Markdown views.
-- Ten OpenAPI documents, with all local schema references intact.
+- All 187 pages in the supplied navigation: 13 guides and 174 API reference pages.
+- Ten additional operations discovered in OpenAPI and surfaced under Additional endpoints, including six music operations and four player runtime operations.
+- 197 content routes, plus the API overview, eleven downloadable specifications, and Markdown views.
+- Eleven OpenAPI documents, with all local schema references intact.
 - The one unused source snippet is preserved in the snapshot but is not a public standalone page.
 
 The migration imports existing documentation, not a fresh validation of API behavior. Source statements about beta status, permissions, or evolving contracts remain intact. No API requests are executed by the docs site or import scripts.

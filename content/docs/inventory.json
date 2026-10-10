@@ -1,11 +1,12 @@
 {
-  "navigationPages": 179,
-  "guidePages": 12,
-  "apiPages": 173,
+  "navigationPages": 187,
+  "guidePages": 13,
+  "apiPages": 184,
   "specifications": [
     "accounts.json",
     "ai.json",
     "content.json",
+    "players.json",
     "projects.json",
     "releases.json",
     "research.json",
@@ -20,7 +21,11 @@
     "api-reference/complete/content/post-music-stream",
     "api-reference/complete/content/post-music-plan",
     "api-reference/complete/content/post-music-video-to-music",
-    "api-reference/complete/content/post-music-stem-separation"
+    "api-reference/complete/content/post-music-stem-separation",
+    "api-reference/complete/players/get-players-public-id",
+    "api-reference/complete/players/post-players-events",
+    "api-reference/complete/players/post-players-spotify-session",
+    "api-reference/complete/players/post-players-public-id-session"
   ],
   "gaps": []
 }

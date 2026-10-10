@@ -1,3 +1,7 @@
+## Release-player documentation — October 10, 2026
+
+Added the shipped release-player guide and seven API operations to the marketing site’s documentation source. Covers sharing/embedding, publication and revisions, Spotify playlist browsing, Free-account playback policy, anonymous Apple sessions, organization-owned fan relationships and player activity limits. Generated website and agent indexes include these pages. The shared component library and dedicated building skill remain proposed. The production build, docs checks and agent-index parity tests pass; local served guide, Markdown, OpenAPI and LLM indexes are verified. Marketing publication is pending PR merge and production verification.
+
 ## Private purchase-link downloads — October 10, 2026
 
 Checkout returns directly to the plugin download with a private purchase link. The same link is emailed after verified payment. Downloads verify the paid Stripe session and active subscription server-side; no second sign-in or app redirect. Rebuilt customer bundle.2 with updated instructions. Checkout remains disabled pending private storage and an end-to-end test purchase.

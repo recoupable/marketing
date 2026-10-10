@@ -412,5 +412,23 @@
         ]
       }
     ]
+  },
+  {
+    "tab": "Players",
+    "groups": [
+      {
+        "group": "Release players",
+        "pages": [
+          "essentials/release-player",
+          "api-reference/players/create",
+          "api-reference/players/list",
+          "api-reference/players/get",
+          "api-reference/players/update",
+          "api-reference/players/activity",
+          "api-reference/players/fans",
+          "api-reference/players/workspace-fans"
+        ]
+      }
+    ]
   }
 ]
