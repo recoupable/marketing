@@ -1,3 +1,7 @@
+## Shipped plugin delivery — October 9, 2026
+
+Replaced the homegrown 31-skill preview package with the official customer release `plugin-v2026.1008.2` (34 skills + MCP), verified against its published SHA-256 and staged unchanged. Setup now presents Codex, Claude Code and Cursor installation followed by the bundled Recoup connection. Removed individual skill-upload and manual API-key setup instructions. ChatGPT distribution remains submission/review pending per the release manifest; private storage and payment verification still gate checkout.
+
 ## Plugin fulfillment implementation — October 8, 2026
 
 Added `/label-in-a-box/setup`, email sign-in, server-verified private downloads, and on-demand Starter checkout through the existing Recoup API. Added a deterministic allowlisted ZIP builder from a pinned public Skills commit with individual Claude skill archives, manifest hashes, and license. No Stripe objects or live subscriptions changed. Payment activation stays off: private artifact hosting and live client/payment verification remain outstanding. ChatGPT authentication is explicitly unsupported pending verification; setup does not claim a successful payment from URL parameters.

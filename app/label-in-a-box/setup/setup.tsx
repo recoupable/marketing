@@ -8,7 +8,7 @@ export function Setup() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [downloaded, setDownloaded] = useState(false);
-  const [client, setClient] = useState("Claude Code");
+  const [client, setClient] = useState("Codex");
   async function download() {
     setBusy(true);
     setError("");
@@ -50,10 +50,7 @@ export function Setup() {
         <div>
           <span className="setup-label">01 / YOUR DOWNLOAD</span>
           <h2>Recoup plugin</h2>
-          <p>
-            Music-business skills and setup guides. Return here for the latest
-            updates.
-          </p>
+          <p>Music-business skills + the Recoup MCP connection. One plugin.</p>
         </div>
         <div className="setup-action">
           <button
@@ -87,7 +84,7 @@ export function Setup() {
         )}
         {downloaded && (
           <p role="status">
-            Download started. Unzip it, then follow the setup below.
+            Download started. Follow the install steps for your AI below.
           </p>
         )}
       </section>
@@ -99,7 +96,7 @@ export function Setup() {
           role="group"
           aria-label="Choose your AI client"
         >
-          {["Claude Code", "Claude web", "ChatGPT"].map((name) => (
+          {["Codex", "Claude Code", "Cursor"].map((name) => (
             <button
               key={name}
               aria-pressed={client === name}
@@ -110,62 +107,53 @@ export function Setup() {
           ))}
         </div>
         {client === "Claude Code" ? (
-          <div>
-            <ol>
-              <li>
-                Unzip your download and open that folder in your terminal.
-              </li>
-              <li>
-                Start Claude with the bundled plugin:
-                <code>claude --plugin-dir ./recoup-plugin</code>
-              </li>
-              <li>
-                Ask: “Connect my Recoup account.” Use your subscription email.
-              </li>
-            </ol>
-            <p className="setup-note">
-              Some skills require local scripts, network access, or additional
-              services. Follow the included README before running them.
-            </p>
-          </div>
-        ) : client === "Claude web" ? (
-          <div>
-            <p>
-              Open Customize → Skills and upload individual ZIPs from the{" "}
-              <code>claude-skills</code> folder.
-            </p>
-            <p>
-              Uploading skills does not connect Recoup tools. Connected
-              workflows still need client-specific authentication and network
-              access.
-            </p>
-            <a
-              href="https://support.claude.com/en/articles/12512180-use-skills-in-claude"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Claude’s skills guide ↗
-            </a>
-          </div>
+          <ol>
+            <li>
+              In Claude Code, add Recoup’s marketplace:
+              <code>/plugin marketplace add recoupable/skills</code>
+            </li>
+            <li>
+              Install the plugin:
+              <code>/plugin install recoup-skills@recoup</code>
+            </li>
+            <li>
+              Open <code>/mcp</code>, select Recoup, and sign in with your
+              subscription email.
+            </li>
+          </ol>
         ) : (
-          <div>
-            <p>
-              <strong>ChatGPT connection is not ready for this release.</strong>
-            </p>
-            <p>
-              ChatGPT uses a custom MCP app, not a Claude plugin ZIP. We’re
-              verifying Recoup authentication and supported plans before
-              enabling this setup.
-            </p>
-            <a
-              href="https://help.openai.com/en/articles/12584461-developer-mode-and-full-mcp-connectors-in-chatgpt"
-              target="_blank"
-              rel="noreferrer"
-            >
-              ChatGPT’s custom app guide ↗
-            </a>
-          </div>
+          <ol>
+            <li>
+              {client === "Codex"
+                ? "Unzip the customer plugin download."
+                : "Get the Recoup plugin from its source repository."}
+            </li>
+            <li>
+              Use {client}’s local-plugin install flow to select the plugin
+              folder.
+            </li>
+            <li>
+              Open the plugin’s Recoup connection and sign in with your
+              subscription email.
+            </li>
+          </ol>
         )}
+        <p className="setup-note">
+          Review the requested permissions, then ask your AI to list your
+          artists to confirm the connection. Some REST-only workflows still
+          require separate credentials.
+        </p>
+        <a
+          href="https://github.com/recoupable/skills#install"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Official install guide ↗
+        </a>
+        <p className="setup-note">
+          ChatGPT distribution still requires submission and review. It is not
+          an available install option here yet.
+        </p>
       </section>
       <section className="setup-prompt">
         <span className="setup-label">03 / YOUR FIRST REQUEST</span>

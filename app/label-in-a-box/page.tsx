@@ -19,7 +19,7 @@ export const metadata = withPageMetadata({
 const questions = [
   [
     "What exactly do I get?",
-    "The Recoup plugin download, setup guide, Recoup Starter access, and ongoing skill updates while subscribed. The final download contents and tested setup paths will be confirmed before checkout opens.",
+    "The complete Recoup plugin: music-business skills and the connected MCP tools, plus Recoup Starter access and ongoing updates while subscribed.",
   ],
   [
     "Do I need to know how to code?",
@@ -27,7 +27,7 @@ const questions = [
   ],
   [
     "Does it work with the agent I already use?",
-    "The download includes a Claude Code plugin and individual skill ZIPs for Claude web. Connected workflows require Recoup authentication and client permissions. ChatGPT uses a separate MCP app; its connection is not ready for this release. Checkout stays closed until the advertised setup paths are verified.",
+    "The shipped plugin includes music-business skills and the Recoup MCP connection. Install it in Codex, Claude Code, or Cursor and sign in to Recoup. The customer ZIP is packaged for Codex; other clients use the official install guide. ChatGPT distribution still requires submission and review.",
   ],
   [
     "Are AI and Recoup usage included?",
@@ -185,7 +185,7 @@ export default function LabelKitPage() {
               give your first request somewhere to begin.
             </p>
             <span className="kit-content-note">
-              Packaged in one downloadable ZIP
+              Included in the complete plugin
             </span>
           </article>
         </div>
@@ -197,17 +197,17 @@ export default function LabelKitPage() {
       <section id="how-it-works" className="kit-section kit-start">
         <div className="kit-section-intro">
           <p className="kit-eyebrow">BRING YOUR AGENT. BRING YOUR MUSIC.</p>
-          <h2>Download. Install. Ask.</h2>
+          <h2>Install. Connect. Ask.</h2>
         </div>
         <ol>
           {[
             [
               "Get the plugin.",
-              "Subscribe to Starter, download the plugin, and follow the setup guide.",
+              "Subscribe to Starter and install the Recoup plugin for your AI.",
             ],
             [
-              "Make it yours.",
-              "Add the artist’s music, story, goals, and the context your agent needs.",
+              "Connect Recoup.",
+              "Sign in through the plugin with your subscription email. The MCP connection is included.",
             ],
             [
               "Give it a real job.",
