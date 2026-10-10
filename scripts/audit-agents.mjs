@@ -1,3 +1,4 @@
+import inventory from "../content/docs/inventory.json" with { type: "json" };
 import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 
@@ -37,7 +38,7 @@ checks.push('Documented public tools and a unique content registry');
 const { data: apiCatalog, response: apiResponse } = await json('/.well-known/api-catalog');
 assert.match(apiResponse.headers.get('content-type'), /profile="https:\/\/www.rfc-editor.org\/info\/rfc9727"/);
 const specLinks = apiCatalog.linkset[0].item;
-assert.equal(specLinks.length, 11);
+assert.equal(specLinks.length, inventory.specifications.length + 1);
 for (const item of specLinks) {
   const { response, data } = await json(new URL(item.href).pathname);
   assert.equal(response.status, 200);

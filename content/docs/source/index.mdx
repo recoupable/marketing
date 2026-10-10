@@ -89,9 +89,16 @@ Keep your API key secure. Do not share it publicly or commit it to version contr
 
 ## API Sections
 
-The API is organized into six main sections. Use these links to jump to the right area.
+The API is organized by workflow. Use these links to jump to the right area.
 
 <CardGroup cols={2}>
+  <Card
+    title="Release Players"
+    icon="play"
+    href="/essentials/release-player"
+  >
+    Share or embed Spotify and Apple playback, configure Spotify Free handoffs, and read organization-owned fan contacts and player activity.
+  </Card>
   <Card
     title="Research"
     icon="magnifying-glass-chart"
@@ -159,6 +166,7 @@ The API is organized into six main sections. Use these links to jump to the righ
 
 If you are an LLM navigating these docs, here is a summary of the endpoint structure:
 
+- **`/api/players` and `/api/players/*`** — Register, publish and update release players; read artist fans, deduplicated workspace contacts and player activity. See the [release-player guide](/essentials/release-player).
 - **`/api/artists/*`** — Artist management (list, create, socials, socials-scrape, profile)
 - **`/api/research/*`** — Artist research (search, lookup, profile, metrics, audience, cities, similar, urls, instagram-posts, playlists, albums, track, tracks, career, insights, genres, festivals, web, deep, people, extract, enrich, milestones, venues, rank, charts, radio, discover, curator, playlist)
 - **`/api/content/*`** — Content creation (create, generate-image, generate-video, generate-caption, transcribe-audio, edit, upscale, analyze-video, templates, validate, estimate)
