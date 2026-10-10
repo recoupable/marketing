@@ -1,3 +1,7 @@
+## Compact plugin setup — October 10, 2026
+
+Redesigned setup as one split installation panel with a compact product summary, app selector, numbered steps and copyable commands. Inline commands stay inline; compatibility details are collapsed. Preserved subscription checks and download authentication.
+
 ## Shipped plugin delivery — October 9, 2026
 
 Replaced the homegrown 31-skill preview package with the official customer release `plugin-v2026.1008.2` (34 skills + MCP), verified against its published SHA-256 and staged unchanged. Setup now presents Codex, Claude Code and Cursor installation followed by the bundled Recoup connection. Removed individual skill-upload and manual API-key setup instructions. ChatGPT distribution remains submission/review pending per the release manifest; private storage and payment verification still gate checkout.
