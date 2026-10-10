@@ -22,7 +22,7 @@ python3 scripts/label-kit/build.py /private/recoup-customer-2026.1008.2.zip /pri
 
 The builder verifies the original archive, retains its customer files under recoup-plugin/, adds pinned official Claude and Cursor manifests from the same source commit, and includes START HERE.html. The resulting deterministic bundle has its own version and SHA-256. It rejects checksum mismatches, internal skill paths, unsafe paths and missing MCP configuration. There is no local skills allowlist, generated plugin manifest, per-skill ZIP, or example MCP config. License and source contents remain upstream-owned.
 
-Setup follows the shipped README: Claude Code marketplace install + `/mcp` OAuth sign-in; Codex uses the customer ZIP/local-plugin flow; Cursor uses the source repository's plugin manifest. The release's `openai_status` is `upload_and_review_required`; do not advertise an available ChatGPT listing. REST-only workflows can still require separate credentials.
+Setup follows the shipped README: Claude Code marketplace install + `/mcp` OAuth sign-in; Codex uses the customer ZIP/local-plugin flow; Cursor uses the source repository's plugin manifest. The release's `openaiStatus` is `upload_and_review_required`; do not advertise an available ChatGPT listing. REST-only workflows can still require separate credentials.
 
 ## Purchase email
 

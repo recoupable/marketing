@@ -68,6 +68,16 @@ describe("protected plugin delivery", () => {
       useCache: false,
     });
   });
+  it("returns unavailable when the private file is missing", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue(Response.json({ allowed: true })),
+    );
+    vi.stubEnv("LABEL_KIT_BLOB_PATH", "label-kit/v1.zip");
+    vi.stubEnv("LABEL_KIT_BLOB_READ_WRITE_TOKEN", "private-test-token");
+    blobGet.mockResolvedValue(null);
+    expect((await download(request())).status).toBe(503);
+  });
   it("fails closed on upstream failures and missing configuration", async () => {
     vi.stubGlobal(
       "fetch",

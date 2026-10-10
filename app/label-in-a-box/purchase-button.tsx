@@ -48,6 +48,8 @@ export function PurchaseButton({
     <>
       <button
         className="kit-button"
+        type="button"
+        aria-haspopup="dialog"
         onClick={() => dialog.current?.showModal()}
       >
         Get the plugin{showPrice ? ` — ${price}` : ""}{" "}

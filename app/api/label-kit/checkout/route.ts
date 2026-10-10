@@ -29,7 +29,14 @@ export async function POST(request: Request) {
       },
     );
     if (!response.ok) throw new Error("Checkout unavailable");
-    const data = await response.json();
+    const data: unknown = await response.json();
+    if (
+      !data ||
+      typeof data !== "object" ||
+      !("url" in data) ||
+      typeof data.url !== "string"
+    )
+      throw new Error("Invalid checkout response");
     const url = new URL(data.url);
     if (
       url.protocol !== "https:" ||

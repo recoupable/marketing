@@ -159,7 +159,7 @@ export function ChatDemo() {
       <div className="kit-chat-playback">
         <span>Illustrative demo</span>
         <div>
-          {!complete && (
+          {started && !complete && (
             <button
               type="button"
               onClick={() => setPaused(!paused)}

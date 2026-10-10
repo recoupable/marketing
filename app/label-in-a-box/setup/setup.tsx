@@ -23,6 +23,7 @@ export function Setup() {
   const [downloaded, setDownloaded] = useState(false);
   async function download() {
     setBusy(true);
+    setDownloaded(false);
     setError("");
     try {
       if (!purchase)
