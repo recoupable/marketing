@@ -7,7 +7,7 @@ This feature requires the release-player API, browser app and database migration
 
 ## Register and publish
 
-Use the existing authenticated Recoup API or MCP. Select an artist from your authorized roster, then call `create_release_player` with its `artistId`, a release `name`, at least one of `spotifyUrl` or `appleUrl`, and the website's `allowedOrigins`. Select `organizationId` for an authorized organization workspace; ownership comes from authentication.
+Use the existing authenticated Recoup API or MCP. Select an artist from your authorized roster, then call `create_release_player` with its `artistId`, a release `name`, and at least one of `spotifyUrl` or `appleUrl`. Add the website's `allowedOrigins` when embedding; hosted listening pages do not require this field. Select `organizationId` for an authorized organization workspace; ownership comes from authentication.
 
 ```json
 {
@@ -44,6 +44,8 @@ For a listening-only player, a verified Spotify Premium account stays in the bro
 
 The release owner can instead select `freePlayback: "audio"` and supply `audioUrl`. Upload an MP3 or WAV through the authenticated `POST /api/sites/assets` endpoint in the same workspace (currently up to 4 MB), then pass its returned `asset.url` to `create_release_player` or `update_release_player`. Recoup verifies workspace ownership, object existence and audio metadata. Audio mode also requires a Spotify destination for fallback. Fans do not select this policy, and embed query parameters cannot override it.
 
+MCP arguments for `update_release_player`:
+
 ```json
 {
   "id": "PLAYER_UUID",
@@ -52,6 +54,8 @@ The release owner can instead select `freePlayback: "audio"` and supply `audioUr
   "audioUrl": "WORKSPACE_UPLOADED_ASSET_URL"
 }
 ```
+
+For REST, send `PATCH /api/players/PLAYER_UUID` with the same body except `id`; the player ID belongs in the URL.
 
 After a verified Free-account sign-in, audio mode opens the uploaded-file controls in Recoup. Premium keeps Spotify streaming. If the file is absent, Free accounts open Spotify; if the file fails to load, the player offers the existing Open in Spotify link. This version plays one uploaded file per release player, not an uploaded playlist. Uploaded-file playback does not generate Spotify streams and is excluded from the DSP playback reports; fan connection reporting still applies. Switch back using `freePlayback: "spotify"`; optionally clear `audioUrl` to null in the same update.
 
