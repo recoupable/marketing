@@ -1,3 +1,71 @@
+## Private purchase-link downloads — October 10, 2026
+
+Checkout returns directly to the plugin download with a private purchase link. The same link is emailed after verified payment. Downloads verify the paid Stripe session and active subscription server-side; no second sign-in or app redirect. Rebuilt customer bundle.2 with updated instructions. Checkout remains disabled pending private storage and an end-to-end test purchase.
+
+## Download card polish — October 10, 2026
+
+Shortened the post-payment download copy, replaced the repeated file row with a compact layered plugin graphic, and reduced setup instructions to one line. Desktop/mobile reviewed; download and authentication behavior unchanged.
+
+## One-download plugin delivery — October 10, 2026
+
+Removed the AI picker and install steps from the website. Setup is now a single authenticated download; one ZIP contains the customer plugin, official Codex/Claude/Cursor manifests and START HERE.html. Checkout tags plugin purchases for the companion API webhook email. No payment or email delivery has been tested live; checkout remains disabled.
+
+## Compact plugin setup — October 10, 2026
+
+Redesigned setup as one split installation panel with a compact product summary, app selector, numbered steps and copyable commands. Inline commands stay inline; compatibility details are collapsed. Preserved subscription checks and download authentication.
+
+## Shipped plugin delivery — October 9, 2026
+
+Replaced the homegrown 31-skill preview package with the official customer release `plugin-v2026.1008.2` (34 skills + MCP), verified against its published SHA-256 and staged unchanged. Setup now presents Codex, Claude Code and Cursor installation followed by the bundled Recoup connection. Removed individual skill-upload and manual API-key setup instructions. ChatGPT distribution remains submission/review pending per the release manifest; private storage and payment verification still gate checkout.
+
+## Plugin fulfillment implementation — October 8, 2026
+
+Added `/label-in-a-box/setup`, email sign-in, server-verified private downloads, and on-demand Starter checkout through the existing Recoup API. Added a deterministic allowlisted ZIP builder from a pinned public Skills commit with individual Claude skill archives, manifest hashes, and license. No Stripe objects or live subscriptions changed. Payment activation stays off: private artifact hosting and live client/payment verification remain outstanding. ChatGPT authentication is explicitly unsupported pending verification; setup does not claim a successful payment from URL parameters.
+
+## Starter plugin subscription — October 8, 2026
+
+Changed the label-kit offer to $19/month, including Recoup Starter access, $20 monthly usage credits, and ongoing skill updates. Updated hero CTA, receipt, preview dialog, onboarding copy, metadata, and FAQs. Legacy one-time checkout configuration cannot activate this offer. Checkout remains preview-only pending verified subscription fulfillment and plugin delivery; no Stripe objects changed.
+
+## Compact role examples — October 8, 2026
+
+Replaced the oversized audience document mockups with a compact role selector, one example request, and three concrete deliverables per role. Removed redundant headings, outcome chips, and illustrative sheets. Verified artist, manager and label switching and 320px layout; production build and scoped lint pass.
+
+## Audio-to-business motion graphic — October 8, 2026
+
+Replaced the sequential chat list with an illustrative audio-file drag/drop, typed prompt, send, and four-panel business reveal. The send shifts the canvas from cream to dark green with a single light burst, radial accents, and staggered expanding cards. Keeps explicit playback controls and static reduced-motion output; no actual file upload or AI work is performed.
+
+## Animated plugin conversation — October 8, 2026
+
+Extracted the hero chat into a client component with a viewport-triggered, one-pass CSS sequence: request, response, four weekly steps, then release document. Added Pause/Play and Replay controls, a stable layout, and a reduced-motion static view. This remains an illustrative demo, not a live Claude connection.
+
+## Chat-led plugin hero — October 8, 2026
+
+Replaced the large purchase card with an illustrative Claude + Recoup release-planning conversation. Reduced headline and body sizes, restored a compact single price-bearing CTA, and kept the $99 price in preview only. The conversation is a static example, not verified plugin output or an interactive chat.
+
+## Single hero purchase card — October 8, 2026
+
+Replaced the label-kit hero’s illustrative output cards and standalone price/button row with one purchase card showing the plugin, $99 preview price, included files and guides, and CTA. Approved headline and subtitle remain unchanged; examples remain below the hero. Checkout stays in preview.
+
+## Purchase-focused plugin hero — October 8, 2026
+
+Added a user-approved $99 placeholder price, price-bearing CTA, and one-payment terms to the hero. The receipt and preview dialog share the same display price. This fallback never enables Stripe checkout; the existing configured-offer gate remains intact.
+
+## Named-agent toolkit headline — October 8, 2026
+
+Updated the label-kit hero to the approved “Let Claude and ChatGPT manage your music business.” headline, with their marks alongside the names and concise research/release/campaign supporting copy. Checkout and client setup verification remain pending before launch.
+
+## Clearer toolkit offer — October 8, 2026
+
+Simplified the hero to “AI tools for your music business.” with download/install instructions and three literal output labels: artist research, release plans, and marketing content. Removed fictional campaign titles and redundant sections. One-time Stripe checkout remains in preview pending offer configuration and fulfillment.
+
+## Buyer-focused label kit revision — October 8, 2026
+
+Rebuilt `/label-in-a-box` around the artist, manager, and label buyer: outcome-led hero, original campaign artwork, role-specific requests and output previews, a simpler setup story, and one-time purchase details. Applied design-visual-experiences and copywriting guidance. Assets and documents are labeled illustrations, not verified kit output. Checkout remains in preview. Production build and scoped lint pass; all three roles, image loading, purchase dialog, and desktop/390px/320px layouts were checked in the browser.
+
+## Label kit landing-page preview — October 8, 2026
+
+Added an unlisted, noindex `/label-in-a-box` offer for packaged Recoup Skills, MCP setup, and starter files. One-time purchase UI opens a preview dialog until a price label and Stripe Payment Link are configured. Pricing, ZIP assembly, webhook fulfillment, and private download delivery remain pending; see `docs/plans/label-in-a-box.md`. Production build, scoped ESLint, three checkout configuration tests, desktop and 390 CSS-pixel browser checks passed locally. No payment product created and no production release.
+
 ## Reporting page shared navigation — October 6, 2026
 
 Restored the main website header, footer and Human/Agent toggle on `/royalty-reporting`. Removed the duplicate landing-only header/footer and their styles. The inquiry CTA remains in the hero.

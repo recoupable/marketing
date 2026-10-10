@@ -1,0 +1,1 @@
+Platform marks from Simple Icons: Claude (develop/icons/claude.svg), OpenAI knot (13.21.0/icons/openai.svg), retrieved 2026-10-08 from github.com/simple-icons/simple-icons. Brand marks belong to their respective owners. Used to identify the named products in the landing-page headline.

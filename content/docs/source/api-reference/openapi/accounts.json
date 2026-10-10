@@ -4834,6 +4834,11 @@
           "successUrl"
         ],
         "properties": {
+          "fulfillment": {
+            "type": "string",
+            "enum": ["recoup-plugin"],
+            "description": "Optional plugin delivery email after verified payment and account linking. Requires the plugin fulfillment API deployment; omit for ordinary subscriptions."
+          },
           "plan": {
             "type": "string",
             "enum": [
