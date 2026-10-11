@@ -1003,9 +1003,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "enum": [
-                "slack"
-              ]
+              "enum": ["slack"]
             }
           }
         ],
@@ -1053,10 +1051,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "threadId",
-                  "status"
-                ],
+                "required": ["threadId", "status"],
                 "properties": {
                   "threadId": {
                     "type": "string",
@@ -1064,11 +1059,7 @@
                   },
                   "status": {
                     "type": "string",
-                    "enum": [
-                      "completed",
-                      "failed",
-                      "timeout"
-                    ],
+                    "enum": ["completed", "failed", "timeout"],
                     "description": "Overall status of the content generation batch"
                   },
                   "results": {
@@ -1076,10 +1067,7 @@
                     "description": "Per-run results",
                     "items": {
                       "type": "object",
-                      "required": [
-                        "runId",
-                        "status"
-                      ],
+                      "required": ["runId", "status"],
                       "properties": {
                         "runId": {
                           "type": "string",
@@ -1087,11 +1075,7 @@
                         },
                         "status": {
                           "type": "string",
-                          "enum": [
-                            "completed",
-                            "failed",
-                            "timeout"
-                          ]
+                          "enum": ["completed", "failed", "timeout"]
                         },
                         "videoUrl": {
                           "type": "string",
@@ -1685,12 +1669,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "pending",
-                "processing",
-                "completed",
-                "failed"
-              ]
+              "enum": ["pending", "processing", "completed", "failed"]
             },
             "description": "Optional. Return only generations in this state."
           },
@@ -2205,9 +2184,7 @@
                     "description": "Audio output format (e.g. mp3_44100_192)"
                   }
                 },
-                "required": [
-                  "files"
-                ]
+                "required": ["files"]
               }
             }
           }
@@ -2291,10 +2268,7 @@
                   },
                   "stem_variation_id": {
                     "type": "string",
-                    "enum": [
-                      "two_stems_v1",
-                      "six_stems_v1"
-                    ],
+                    "enum": ["two_stems_v1", "six_stems_v1"],
                     "default": "six_stems_v1",
                     "description": "Stem separation mode. `two_stems_v1` produces vocals + instrumental. `six_stems_v1` produces vocals, drums, bass, guitar, piano, and other."
                   },
@@ -2308,9 +2282,7 @@
                     "description": "Audio output format (e.g. mp3_44100_192)"
                   }
                 },
-                "required": [
-                  "file"
-                ]
+                "required": ["file"]
               }
             }
           }
@@ -2365,9 +2337,7 @@
         "summary": "Generate audio-driven video (release pending)",
         "description": "Available after the coordinated API and Tasks release for mono#348. Not verified on the deployed baseline. Fixed fal-ai/ltx-2-19b/audio-to-video; estimated rounded output megapixels at $0.0018 per unit, actual provider units used when supplied. The worker verifies an audio stream before final composition; presence of audio is not proof of perceptual lip alignment.",
         "operationId": "createContentLipsync",
-        "tags": [
-          "Content"
-        ],
+        "tags": ["Content"],
         "security": [
           {
             "apiKeyAuth": []
@@ -2466,10 +2436,7 @@
     "schemas": {
       "MusicGenerationRequest": {
         "type": "object",
-        "required": [
-          "prompt",
-          "lyrics"
-        ],
+        "required": ["prompt", "lyrics"],
         "properties": {
           "prompt": {
             "type": "string",
@@ -2524,12 +2491,7 @@
           },
           "status": {
             "type": "string",
-            "enum": [
-              "pending",
-              "processing",
-              "completed",
-              "failed"
-            ],
+            "enum": ["pending", "processing", "completed", "failed"],
             "description": "Lifecycle phase. `pending` until the workflow picks it up, `processing` while fal is rendering, then `completed` or `failed`."
           },
           "prompt": {
@@ -2546,24 +2508,15 @@
             "example": "minimax/music-3"
           },
           "duration_seconds": {
-            "type": [
-              "number",
-              "null"
-            ],
+            "type": ["number", "null"],
             "description": "Actual length of the generated audio. Null until completed; may be shorter than requested."
           },
           "audio_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": ["string", "null"],
             "description": "Playable audio URL. Null until the generation completes."
           },
           "error_message": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": ["string", "null"],
             "description": "Why the generation failed. Null unless `status` is `failed`."
           },
           "created_at": {
@@ -2603,10 +2556,7 @@
             "type": "object",
             "properties": {
               "seed": {
-                "type": [
-                  "integer",
-                  "null"
-                ],
+                "type": ["integer", "null"],
                 "description": "The seed the model actually used, read live from the provider rather than stored. Null until the generation completes, and null if the provider cannot be reached. Pass it back as `seed` to reproduce a generation. It is the only generation parameter recoverable after the fact: `num_inference_steps` and `guidance_scale` are consumed when the request is submitted and are never reported back."
               },
               "logs": {
@@ -2626,9 +2576,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the request"
           },
           "generation": {
@@ -2641,9 +2589,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the request"
           },
           "generations": {
@@ -2660,9 +2606,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the request"
           },
           "generation": {
@@ -2672,16 +2616,11 @@
       },
       "MusicGenerationErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "error"
-        ],
+        "required": ["status", "error"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "description": "Always `error`"
           },
           "missing_fields": {
@@ -2755,10 +2694,7 @@
       },
       "ContentCreateAnalyzeRequest": {
         "type": "object",
-        "required": [
-          "video_url",
-          "prompt"
-        ],
+        "required": ["video_url", "prompt"],
         "properties": {
           "video_url": {
             "type": "string",
@@ -2787,9 +2723,7 @@
       },
       "ContentCreateAnalyzeResponse": {
         "type": "object",
-        "required": [
-          "text"
-        ],
+        "required": ["text"],
         "properties": {
           "text": {
             "type": "string",
@@ -2797,10 +2731,7 @@
           },
           "finish_reason": {
             "type": "string",
-            "enum": [
-              "stop",
-              "length"
-            ],
+            "enum": ["stop", "length"],
             "nullable": true,
             "description": "`stop` if the generation completed normally. `length` if truncated at the token limit."
           },
@@ -2818,9 +2749,7 @@
       },
       "ContentCreateAudioRequest": {
         "type": "object",
-        "required": [
-          "audio_urls"
-        ],
+        "required": ["audio_urls"],
         "properties": {
           "audio_urls": {
             "type": "array",
@@ -2838,11 +2767,7 @@
           },
           "chunk_level": {
             "type": "string",
-            "enum": [
-              "none",
-              "segment",
-              "word"
-            ],
+            "enum": ["none", "segment", "word"],
             "default": "word",
             "description": "Granularity of timestamp chunks. Defaults to word-level."
           },
@@ -2859,12 +2784,7 @@
       },
       "ContentCreateAudioResponse": {
         "type": "object",
-        "required": [
-          "audioUrl",
-          "fullLyrics",
-          "segments",
-          "segmentCount"
-        ],
+        "required": ["audioUrl", "fullLyrics", "segments", "segmentCount"],
         "properties": {
           "audioUrl": {
             "type": "string",
@@ -2889,11 +2809,7 @@
       },
       "ContentCreateAudioSegment": {
         "type": "object",
-        "required": [
-          "start",
-          "end",
-          "text"
-        ],
+        "required": ["start", "end", "text"],
         "properties": {
           "start": {
             "type": "number",
@@ -2911,9 +2827,7 @@
       },
       "ContentCreateEditRequest": {
         "type": "object",
-        "required": [
-          "video_url"
-        ],
+        "required": ["video_url"],
         "description": "Requires a video URL. Operations are applied sequentially via ffmpeg.",
         "properties": {
           "video_url": {
@@ -2930,18 +2844,11 @@
             "description": "Array of edit operations to apply in order. Required if template is not provided.",
             "items": {
               "type": "object",
-              "required": [
-                "type"
-              ],
+              "required": ["type"],
               "properties": {
                 "type": {
                   "type": "string",
-                  "enum": [
-                    "trim",
-                    "crop",
-                    "resize",
-                    "overlay_text"
-                  ],
+                  "enum": ["trim", "crop", "resize", "overlay_text"],
                   "description": "Operation type"
                 },
                 "start": {
@@ -2986,11 +2893,7 @@
                 },
                 "position": {
                   "type": "string",
-                  "enum": [
-                    "top",
-                    "center",
-                    "bottom"
-                  ],
+                  "enum": ["top", "center", "bottom"],
                   "description": "Text position (overlay_text)"
                 }
               }
@@ -2998,11 +2901,7 @@
           },
           "output_format": {
             "type": "string",
-            "enum": [
-              "mp4",
-              "webm",
-              "mov"
-            ],
+            "enum": ["mp4", "webm", "mov"],
             "default": "mp4",
             "description": "Output format"
           }
@@ -3010,10 +2909,7 @@
       },
       "ContentCreateEditResponse": {
         "type": "object",
-        "required": [
-          "runId",
-          "status"
-        ],
+        "required": ["runId", "status"],
         "properties": {
           "runId": {
             "type": "string",
@@ -3021,18 +2917,14 @@
           },
           "status": {
             "type": "string",
-            "enum": [
-              "triggered"
-            ],
+            "enum": ["triggered"],
             "description": "Status of the edit task"
           }
         }
       },
       "ContentCreateErrorResponse": {
         "type": "object",
-        "required": [
-          "error"
-        ],
+        "required": ["error"],
         "description": "Returned when the artist is missing required files or the template is not found. Includes actionable instructions for resolving each issue.",
         "properties": {
           "error": {
@@ -3107,11 +2999,7 @@
           },
           "output_format": {
             "type": "string",
-            "enum": [
-              "jpeg",
-              "png",
-              "webp"
-            ],
+            "enum": ["jpeg", "png", "webp"],
             "default": "webp",
             "description": "Format of the generated image"
           },
@@ -3139,19 +3027,14 @@
         "additionalProperties": false,
         "example": {
           "prompt": "Edit the lighting while preserving this artist.",
-          "image_urls": [
-            "https://example.com/artist.png"
-          ],
+          "image_urls": ["https://example.com/artist.png"],
           "num_images": 1
         },
         "description": "Generate images from a prompt, or edit the supplied image_urls. num_images controls the number of returned images. Unsupported request fields return 400 before paid generation."
       },
       "ContentCreateImageResponse": {
         "type": "object",
-        "required": [
-          "imageUrl",
-          "images"
-        ],
+        "required": ["imageUrl", "images"],
         "properties": {
           "imageUrl": {
             "type": "string",
@@ -3190,12 +3073,7 @@
           },
           "caption_length": {
             "type": "string",
-            "enum": [
-              "none",
-              "short",
-              "medium",
-              "long"
-            ],
+            "enum": ["none", "short", "medium", "long"],
             "description": "Controls the length of the generated caption text. `none` skips caption generation. `short` produces 1-2 lines (punchy, minimal). `medium` produces 1-2 sentences. `long` produces a paragraph (stream of consciousness style). Defaults to `none`.",
             "default": "none",
             "example": "none"
@@ -3220,10 +3098,7 @@
               "type": "string"
             },
             "description": "Optional list of song slugs or public URLs to use for the audio track. Song slugs match filenames without extension from the artist's `songs/` directory (e.g. `\"hiccups\"` for `hiccups.mp3`). Public URLs (e.g. `\"https://example.com/my-song.mp3\"`) are downloaded, transcribed, and clipped directly \u2014 bypassing the Git repo. When omitted, all songs in the artist's repo are eligible.",
-            "example": [
-              "hiccups",
-              "https://example.com/unreleased-track.mp3"
-            ]
+            "example": ["hiccups", "https://example.com/unreleased-track.mp3"]
           },
           "images": {
             "type": "array",
@@ -3232,22 +3107,14 @@
               "format": "uri"
             },
             "description": "Optional list of public image URLs to use as face guides instead of the artist's default `face-guide.png` from their GitHub repo. The first image is used as the primary face guide. Useful when the caller wants to override the default face reference.",
-            "example": [
-              "https://example.com/face.png"
-            ]
+            "example": ["https://example.com/face.png"]
           }
         },
-        "required": [
-          "artist_account_id"
-        ]
+        "required": ["artist_account_id"]
       },
       "ContentCreateResponse": {
         "type": "object",
-        "required": [
-          "runIds",
-          "status",
-          "artist_account_id"
-        ],
+        "required": ["runIds", "status", "artist_account_id"],
         "description": "Confirmation that the content creation pipeline has been triggered. Always returns `runIds` as an array \u2014 even for a single run, it contains one element.",
         "properties": {
           "runIds": {
@@ -3256,15 +3123,11 @@
               "type": "string"
             },
             "description": "Array of run IDs. Poll each via [GET /api/tasks/runs](/api-reference/tasks/runs). For single runs this contains one element.",
-            "example": [
-              "run_abc123def456"
-            ]
+            "example": ["run_abc123def456"]
           },
           "status": {
             "type": "string",
-            "enum": [
-              "triggered"
-            ],
+            "enum": ["triggered"],
             "description": "Indicates the pipeline has been triggered"
           },
           "artist_account_id": {
@@ -3274,10 +3137,7 @@
             "example": "1873859c-dd37-4e9a-9bac-80d3558527a9"
           },
           "template": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": ["string", "null"],
             "description": "Template ID when a preset pipeline is used; null in malleable mode.",
             "example": null
           },
@@ -3295,9 +3155,7 @@
       },
       "ContentCreateTextRequest": {
         "type": "object",
-        "required": [
-          "topic"
-        ],
+        "required": ["topic"],
         "properties": {
           "template": {
             "type": "string",
@@ -3309,11 +3167,7 @@
           },
           "length": {
             "type": "string",
-            "enum": [
-              "short",
-              "medium",
-              "long"
-            ],
+            "enum": ["short", "medium", "long"],
             "default": "short",
             "description": "Desired text length"
           }
@@ -3321,22 +3175,14 @@
       },
       "ContentCreateTextResponse": {
         "type": "object",
-        "required": [
-          "content",
-          "color",
-          "borderColor",
-          "maxFontSize"
-        ],
+        "required": ["content", "color", "borderColor", "maxFontSize"],
         "properties": {
           "content": {
             "type": "string",
             "description": "Generated on-screen text content"
           },
           "font": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": ["string", "null"],
             "description": "Font name for the text, or null for default"
           },
           "color": {
@@ -3358,10 +3204,7 @@
       },
       "ContentCreateUpscaleRequest": {
         "type": "object",
-        "required": [
-          "url",
-          "type"
-        ],
+        "required": ["url", "type"],
         "properties": {
           "url": {
             "type": "string",
@@ -3370,10 +3213,7 @@
           },
           "type": {
             "type": "string",
-            "enum": [
-              "image",
-              "video"
-            ],
+            "enum": ["image", "video"],
             "description": "Whether the input is an image or video"
           },
           "upscale_factor": {
@@ -3385,21 +3225,14 @@
           },
           "target_resolution": {
             "type": "string",
-            "enum": [
-              "720p",
-              "1080p",
-              "1440p",
-              "2160p"
-            ],
+            "enum": ["720p", "1080p", "1440p", "2160p"],
             "description": "Target output resolution. When provided, overrides upscale_factor with a resolution-based upscale."
           }
         }
       },
       "ContentCreateUpscaleResponse": {
         "type": "object",
-        "required": [
-          "url"
-        ],
+        "required": ["url"],
         "properties": {
           "url": {
             "type": "string",
@@ -3410,9 +3243,7 @@
       },
       "ContentCreateVideoRequest": {
         "type": "object",
-        "required": [
-          "prompt"
-        ],
+        "required": ["prompt"],
         "properties": {
           "prompt": {
             "type": "string",
@@ -3423,10 +3254,7 @@
           "prompt_expansion_mode": {
             "type": "string",
             "default": "balanced",
-            "enum": [
-              "balanced",
-              "quality"
-            ],
+            "enum": ["balanced", "quality"],
             "description": "How much effort to spend rewriting the prompt before generation. `balanced` returns in about a second. `quality` spends up to ~30s on a richer prompt."
           },
           "image_url": {
@@ -3448,10 +3276,7 @@
           },
           "resolution": {
             "type": "string",
-            "enum": [
-              "480P",
-              "768P"
-            ],
+            "enum": ["480P", "768P"],
             "default": "768P",
             "description": "The native generation resolution of the video"
           },
@@ -3481,9 +3306,7 @@
       },
       "ContentCreateVideoResponse": {
         "type": "object",
-        "required": [
-          "videoUrl"
-        ],
+        "required": ["videoUrl"],
         "properties": {
           "videoUrl": {
             "type": "string",
@@ -3494,9 +3317,7 @@
       },
       "ContentErrorResponse": {
         "type": "object",
-        "required": [
-          "error"
-        ],
+        "required": ["error"],
         "properties": {
           "error": {
             "type": "string",
@@ -3547,9 +3368,7 @@
       },
       "ContentEstimateResponse": {
         "type": "object",
-        "required": [
-          "workflows"
-        ],
+        "required": ["workflows"],
         "description": "Cost estimates based on current pricing. When `compare` is `false`, the `workflows` array contains a single entry. When `true`, it contains all available profiles.",
         "properties": {
           "workflows": {
@@ -3590,12 +3409,7 @@
       },
       "ContentMissingFile": {
         "type": "object",
-        "required": [
-          "file",
-          "severity",
-          "description",
-          "fix"
-        ],
+        "required": ["file", "severity", "description", "fix"],
         "description": "A missing file that prevents or degrades content creation.",
         "properties": {
           "file": {
@@ -3605,10 +3419,7 @@
           },
           "severity": {
             "type": "string",
-            "enum": [
-              "required",
-              "recommended"
-            ],
+            "enum": ["required", "recommended"],
             "description": "`required` means the pipeline will fail without this file. `recommended` means the pipeline will run but output quality is degraded.",
             "example": "required"
           },
@@ -3626,12 +3437,7 @@
       },
       "ContentStepEstimate": {
         "type": "object",
-        "required": [
-          "name",
-          "model",
-          "cost",
-          "note"
-        ],
+        "required": ["name", "model", "cost", "note"],
         "description": "Cost details for a single pipeline step.",
         "properties": {
           "name": {
@@ -3670,10 +3476,7 @@
       },
       "ContentTemplate": {
         "type": "object",
-        "required": [
-          "id",
-          "description"
-        ],
+        "required": ["id", "description"],
         "description": "A content creation template \u2014 a complete creative recipe defining visual style, composition, caption rules, and edit operations. Templates are optional; all primitives work without one.",
         "properties": {
           "id": {
@@ -3690,10 +3493,7 @@
       },
       "ContentTemplateDetail": {
         "type": "object",
-        "required": [
-          "id",
-          "description"
-        ],
+        "required": ["id", "description"],
         "description": "Full configuration for a content creation template including image prompts, video motion config, caption style rules, and edit operations.",
         "properties": {
           "id": {
@@ -3794,9 +3594,7 @@
                 "description": "Default edit operations applied during post-processing",
                 "items": {
                   "type": "object",
-                  "required": [
-                    "type"
-                  ],
+                  "required": ["type"],
                   "properties": {
                     "type": {
                       "type": "string",
@@ -3851,11 +3649,7 @@
                     },
                     "position": {
                       "type": "string",
-                      "enum": [
-                        "top",
-                        "center",
-                        "bottom"
-                      ],
+                      "enum": ["top", "center", "bottom"],
                       "description": "Text position (overlay_text)"
                     },
                     "audio_url": {
@@ -3876,9 +3670,7 @@
       },
       "ContentTemplatesResponse": {
         "type": "object",
-        "required": [
-          "templates"
-        ],
+        "required": ["templates"],
         "description": "List of available content creation templates.",
         "properties": {
           "templates": {
@@ -3891,10 +3683,7 @@
       },
       "ContentValidateResponse": {
         "type": "object",
-        "required": [
-          "ready",
-          "artist_account_id"
-        ],
+        "required": ["ready", "artist_account_id"],
         "description": "Validation report for an artist's content creation readiness.",
         "properties": {
           "ready": {
@@ -3968,18 +3757,12 @@
       },
       "ContentValidationCheck": {
         "type": "object",
-        "required": [
-          "status"
-        ],
+        "required": ["status"],
         "description": "Status of a single validation check.",
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "ok",
-              "missing",
-              "warning"
-            ],
+            "enum": ["ok", "missing", "warning"],
             "description": "Whether the file was found",
             "example": "ok"
           }
@@ -3987,11 +3770,7 @@
       },
       "ContentWorkflowEstimate": {
         "type": "object",
-        "required": [
-          "name",
-          "perVideo",
-          "steps"
-        ],
+        "required": ["name", "perVideo", "steps"],
         "description": "Cost breakdown for a single workflow profile.",
         "properties": {
           "name": {
@@ -4046,10 +3825,7 @@
               "type": "string"
             },
             "description": "Optional arguments to pass to the command.",
-            "example": [
-              "-la",
-              "/home"
-            ]
+            "example": ["-la", "/home"]
           },
           "cwd": {
             "type": "string",
@@ -4081,16 +3857,11 @@
       },
       "DeleteSandboxResponse": {
         "type": "object",
-        "required": [
-          "status"
-        ],
+        "required": ["status"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success",
-              "error"
-            ],
+            "enum": ["success", "error"],
             "description": "Status of the delete operation"
           },
           "deleted_snapshot": {
@@ -4106,11 +3877,7 @@
       },
       "FileTreeEntry": {
         "type": "object",
-        "required": [
-          "path",
-          "type",
-          "sha"
-        ],
+        "required": ["path", "type", "sha"],
         "description": "A single entry in a GitHub repository file tree",
         "properties": {
           "path": {
@@ -4120,10 +3887,7 @@
           },
           "type": {
             "type": "string",
-            "enum": [
-              "blob",
-              "tree"
-            ],
+            "enum": ["blob", "tree"],
             "description": "The type of entry: blob for files, tree for directories"
           },
           "sha": {
@@ -4340,9 +4104,7 @@
       },
       "MusicCreatePlanRequest": {
         "type": "object",
-        "required": [
-          "prompt"
-        ],
+        "required": ["prompt"],
         "description": "Parameters for creating a composition plan from a text prompt.",
         "properties": {
           "prompt": {
@@ -4389,9 +4151,7 @@
       },
       "MusicErrorResponse": {
         "type": "object",
-        "required": [
-          "error"
-        ],
+        "required": ["error"],
         "description": "Error response from a music endpoint.",
         "properties": {
           "error": {
@@ -4431,12 +4191,7 @@
       },
       "Sandbox": {
         "type": "object",
-        "required": [
-          "sandboxId",
-          "sandboxStatus",
-          "timeout",
-          "createdAt"
-        ],
+        "required": ["sandboxId", "sandboxStatus", "timeout", "createdAt"],
         "description": "A sandbox environment instance",
         "properties": {
           "sandboxId": {
@@ -4446,13 +4201,7 @@
           },
           "sandboxStatus": {
             "type": "string",
-            "enum": [
-              "pending",
-              "running",
-              "stopping",
-              "stopped",
-              "failed"
-            ],
+            "enum": ["pending", "running", "stopping", "stopped", "failed"],
             "description": "Current lifecycle state of the sandbox",
             "example": "running"
           },
@@ -4476,9 +4225,7 @@
       },
       "SandboxErrorResponse": {
         "type": "object",
-        "required": [
-          "error"
-        ],
+        "required": ["error"],
         "properties": {
           "error": {
             "type": "string",
@@ -4489,16 +4236,11 @@
       },
       "SandboxFileResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "content"
-        ],
+        "required": ["status", "content"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the operation"
           },
           "content": {
@@ -4509,18 +4251,12 @@
       },
       "SandboxesResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "sandboxes"
-        ],
+        "required": ["status", "sandboxes"],
         "description": "Response containing sandbox information",
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success",
-              "error"
-            ],
+            "enum": ["success", "error"],
             "description": "Status of the request"
           },
           "sandboxes": {
@@ -4568,16 +4304,11 @@
       },
       "SetupSandboxResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "runId"
-        ],
+        "required": ["status", "runId"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the setup operation"
           },
           "runId": {
@@ -4589,9 +4320,7 @@
       },
       "TranscribeAudioErrorResponse": {
         "type": "object",
-        "required": [
-          "error"
-        ],
+        "required": ["error"],
         "properties": {
           "error": {
             "type": "string",
@@ -4601,10 +4330,7 @@
       },
       "TranscribeAudioRequest": {
         "type": "object",
-        "required": [
-          "audio_url",
-          "artist_account_id"
-        ],
+        "required": ["audio_url", "artist_account_id"],
         "properties": {
           "audio_url": {
             "type": "string",
@@ -4638,12 +4364,7 @@
       },
       "TranscribeAudioResponse": {
         "type": "object",
-        "required": [
-          "success",
-          "audioFile",
-          "transcriptFile",
-          "text"
-        ],
+        "required": ["success", "audioFile", "transcriptFile", "text"],
         "properties": {
           "success": {
             "type": "boolean",
@@ -4751,9 +4472,7 @@
       },
       "UploadSandboxFilesRequest": {
         "type": "object",
-        "required": [
-          "files"
-        ],
+        "required": ["files"],
         "properties": {
           "path": {
             "type": "string",
@@ -4764,10 +4483,7 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": [
-                "url",
-                "name"
-              ],
+              "required": ["url", "name"],
               "properties": {
                 "url": {
                   "type": "string",
@@ -4793,16 +4509,11 @@
       },
       "UploadSandboxFilesResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "uploaded"
-        ],
+        "required": ["status", "uploaded"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the operation"
           },
           "uploaded": {
@@ -4826,12 +4537,7 @@
       },
       "ContentCreateLipsyncRequest": {
         "type": "object",
-        "required": [
-          "prompt",
-          "image_url",
-          "audio_url",
-          "duration"
-        ],
+        "required": ["prompt", "image_url", "audio_url", "duration"],
         "additionalProperties": false,
         "properties": {
           "prompt": {
