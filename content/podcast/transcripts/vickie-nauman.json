@@ -1,0 +1,212 @@
+[
+ {
+  "speaker": "Vickie Nauman",
+  "start": 0.2,
+  "paragraphs": [
+   "it was four years of waste, complete wasted efforts because you cannot stop technology. You can help shape it. But in order to help shape it, you have to engage."
+  ]
+ },
+ {
+  "speaker": "Patrick Sweetman",
+  "start": 19.3,
+  "paragraphs": [
+   "Today I'm chatting with Vickie Nauman, the founder and CEO of CrossBorderWorks. They offer advisory and consulting services to help navigate the complex digital music landscape. Welcome, Vickie."
+  ]
+ },
+ {
+  "speaker": "Vickie Nauman",
+  "start": 29.1,
+  "paragraphs": [
+   "Thank you so much."
+  ]
+ },
+ {
+  "speaker": "Patrick Sweetman",
+  "start": 31.8,
+  "paragraphs": [
+   "Kicking it off, I wanna talk about something you were sharing on the last Music Tectonics podcast, where you were talking about human machine or a million shades of gray. In July, you were saying that in music, there's a million shades of gray in between human and machine. Spotify announced in August, and they just started rolling out in September, that if a s-- um, an AI persona badge. So they're gonna start labeling artist profiles with an AI badge to say this artist is AI. Now, you mentioned kind of it's not a polar AI or not AI, and so I'm curious from your perspective, if a songwriter uses AI for twenty percent of a track, which side of the badge would they fall on, and who's gonna get paid?"
+  ]
+ },
+ {
+  "speaker": "Vickie Nauman",
+  "start": 72.1,
+  "paragraphs": [
+   "Yeah. It, it, it's, it's a, it's a really great debate, and I think with, with Spotify it's really interesting because they're focusing on the artist level, and that is very binary. There's either a real artist or there's a virtual artist. And so there's clarity there. Um, but I think where things become really gray are when you are a producer, you're a, a recording artist, you are a songwriter, engineer, mixing and mastering, all of these all of these tools are being used right now where it could be something as simple as a, you know, you needed a saxophone, and instead of calling a saxophone player to come to, you know, fly them into town, send them in the studio, do all the takes, you can go some-- you can go and generate that.",
+   "And, um, and that may be a small part in a song, but this is for a you know, real human artist, but this is still an AI element. And are we going to go down the path of trying to label all of that when there are elements of AI being integrated? Because I see no end to AI-based samples, loops, uh, individual instrumentation, mixing, mastering, songwriting tools, all of that is going to be, you know, and is already being used by artists of all sizes. Um, and are we going to require labeling of all that? And does it matter?"
+  ]
+ },
+ {
+  "speaker": "Patrick Sweetman",
+  "start": 174.0,
+  "paragraphs": [
+   "That's, that's where I land. Like, I scroll on LinkedIn, and I see people saying, \"We have this new algorithm that says whether or not a track is AI, is made with AI.\" And from my own personal experience, like I've been doing this podcast for five or six years, and when I started, I had to manually go into, mm, Audacity and clip it and do everything by hand and upload it to Spotify by hand. And now I do a recording like this, and then I'll upload it into a software like Opus, and Opus is an AI clipper. It analyzes all the lyrics. It chops it. It puts up the open captions.",
+   "It'll do clipping across. It'll throw in the B-roll. So does that mean that that should get labeled as AI? Like it's, it's the editor that's AI. The video is us. We're humans. We're skin and bone. But Great.",
+   "the editor's an AI, and now I'm getting into using Opus for more motion graphics. And I was using ElevenLabs to do an AI voice, and then I had someone tell me, \"Ah, that's too uncanny valley.\" And so now I'm recording my own voice over AI motion graphics. And so like on my side as an artist, I'm balancing between, \"Ah, people think that's too uncanny valley. Let me do that myself,\" or, \"People are okay with this. They actually like it. It amplifies the quality of what I would used to have to spend five or six hours on.\" And so when people come out with these badges, and they try to make it a binary conversation, it makes me really wonder, like is-- what, what's the goal?",
+   "I mean, from, from your perspective, do you, do you see these AI technologies the same as like an Auto-Tune or a digital DAW or like a technology that starts off, and it freaks out all the artists, and then over time, we realize this is a part of the process? Or do you see AI technology being fundamentally different"
+  ]
+ },
+ {
+  "speaker": "Vickie Nauman",
+  "start": 271.1,
+  "paragraphs": [
+   "I think where it is right now, it is way more disruptive than other kinds of technologies because we have litigation happening, and we have real lack of clarity around training data and fair use. Um, you know, if we were in another period of time, I think our government would probably be all over this trying to create constraints around AI. But we are in 2026, um, and every country is tackling this and really looking at it differently. So we have ambiguity, and we do have, um, very disruptive technology out there where people can create any music they want and upload it and get it into streaming services, and then that competes with human-made music.",
+   "But I believe that part of it, the litigation, the constraints, the inevitable migration to a palatable business model that the music industry, labels, publishers, artists are going to support, that's going to change. And how it changes, I don't know. Um, but I think, I think where the real value is, is going-- the real sustainable long-term value will be in tool creation. And I think of this not that differently than, as you say, Auto-Tune, um, drum machine, um, samples and loops. You know, it was not that long ago when a lot of musicians and more traditional thinkers did not consider DJs to be actual musicians because they're using other people's works, and they were mixing and remixing, and they're doing turntablism.",
+   "I believe they are artists, and I've always believed that they're artists. And so I think that I always follow these trends and really, you know, how are artists adapting these? And they're-- Artists are usually pretty friendly, but what they don't want is people out creating songs that imitate them and that could potentially be using their own music to create a competitive product to the artists themselves. And I think that that is the piece of it that is, is pretty messy right now, but I think we'll get beyond it."
+  ]
+ },
+ {
+  "speaker": "Patrick Sweetman",
+  "start": 409.4,
+  "paragraphs": [
+   "The piracy piece is something you were talking about in the last recording as well. You, you were mentioning before in the last generation there was-- people would take ripped music and then they'd upload it onto these peer-to-peer sites and-- but you always knew this is a song by Drake, this is a song by The Rolling Stones. But you were mentioning in this generation, it's much more like a blender. Like, you chuck all these songs in into a training model, and then you train it, and after that you, you go over to Suno and you generate a song and was this referencing The Rolling Stones' work?",
+   "We don't really know. And so we've got like 25 years of new tech meeting old rights. And Yeah.",
+   "so once again, the majors are gonna get the lion's share while independents wait. And you watched this happen with downloads, streaming, and games. Is AI repeating the same pattern? And did anyone ever catch up who kind of waited for everything to play out?"
+  ]
+ },
+ {
+  "speaker": "Vickie Nauman",
+  "start": 465.6,
+  "paragraphs": [
+   "Yeah. I know. It's, it's, it's really fascinating, and it is, it is kind of surprising when I hear the words come out of my mouth that I've been doing this for 26 years, um, because that seems like that seems like so long. But in my perspective, it feels like it has not been 26 years. Um, but, you know, in those early days, we were able to follow where there was piracy. We were able to find music, find recordings that were being used in an unlicensed way, and we don't really have the ability to do that now. Um, there's a lot of companies that are starting, you know, to have different levels of detection.",
+   "I think the industry wants a version of a fingerprinting service that can go out and identify truly generated songs that have music of theirs in them as an infringing song. It's very hard to do. Um, but I also think that if, if I, if I fast-forward and I think about what, what do we need in the landscape for this to really work? And for me, those things are there's some end user, mass consumer, mainstream use that fans and people who love music are going to want to do in a sustainable way. And it has to be acceptable to labels, publishers, artists, songwriters, and there has to be some sort of value exchange.",
+   "And so we need all three of those legs in order to make AI and generative music work in the marketplace, and we aren't there yet. We, we, we don't yet have, um, have clear and visible business models, um, and we also don't have-- I don't think that we we, we have that use case for mainstream consumers. Um, I know there are a lot of people that are creating music that are just noodling around, and they're not maybe-- maybe they're not musicians at all, but they're just playing around with it. They want to release that into DSPs. There are constraints happening on that right now, um, to try to, to try to, you know, further differentiate and have some sort of filter so that there's not just an open pipe into DSPs of hundreds of millions of AI-generated songs.",
+   "But I think that-- I think we have to have the market develop, and I believe that one of the pieces of this, of this future state of a market that is going to be required to get everyone paid is an attribution system for all output that has been created. And I advise one company called Musical AI, and they've built a consent management and an attribution system, and we're, you know, we're deep in technical development, deep in partnership development. We're showing this off to a lot of rights holders, and I think that we do have a... You know, you talk about patterns.",
+   "I'm always about pattern recognition, and there is a very typical way that when new technology comes onto the scene, how it's licensed, and it's usually the initial deals are maybe two, one to two year long deals with major rights holders. And those platforms, they are almost always done on market share because you don't have data about how, you know, how people are using your service or what music is being surfaced. But at the end of the two-year period, there is-- it shifts from market share to more known data on each of these platforms, and that is when I think that we have to have everything in place for the pipes and music going into the DSPs, and then a system when the music is used and monetized that we know who to pay when it's generative music, and it has to have some level of attribution and payment back to the original rights holders."
+  ]
+ },
+ {
+  "speaker": "Patrick Sweetman",
+  "start": 713.7,
+  "paragraphs": [
+   "That leads me right into the next two questions I wanted to ask. The first, the majors obviously get everything first, and then the, the question is more about like what do mid-size catalogs do? And then the second one, you were mentioning deals are on like a one to two-year cycle, and so the-- how, how do catalog owners who are in a deal right now, how can they better position their catalog so that when it comes time to renew, they can actually, uh, take advantage of what you're saying of Right now they're kind of being scoped for size and not necessarily for what's being used and how could they position that catalog.",
+   "So starting with the first one, the majors get signed first and then everybody else follows. So what do what does everybody else do? So can a mid-size catalog get its own AI deal or is it only priced off of market share and if you're not Sony, Warner, the big guys, you, you, you kind of don't have a seat at the table?"
+  ]
+ },
+ {
+  "speaker": "Vickie Nauman",
+  "start": 762.9,
+  "paragraphs": [
+   "Well, that's where Merlin comes in. And Merlin is a licensing consortium of, uh, I think it's over 1,000 independent labels right now, and they are the body that, that represents all of those midsize independent label catalogs, midsize catalogs, as well as some of the, you know, inde- independent artist platforms. And so, you know, so you've got basically Sony, Warner, Universal, and then we also have this BMG, um, Concord merger that's happening, and Merlin. And so these are all, you know, these are all in the mix of mark- uh, they will all do market share based deals.",
+   "Now, for Merlin, because they're a licensing entity and then they have all the different labels underneath it, I think that, um, I think that if I were representing, um, Merlin, any individual labels, or even any of the major labels, I would want as much transparency of what is happening right now in these platforms. What, you know, what, what is happening in training? I know that this is a very, very tightly held secret, everyone's algorithm, everyone's training data, everyone's systems. Um, but we have to get to the point where we understand, you know, are There's different ways of looking at this.",
+   "Is all training data considered equal? So if you have a hit from Drake and you have a singer-songwriter from Kansas City, uh, doing a nice quiet release with just his guitar, are those two things the same value in, in a training set? And then are they also the same value when output is created, or does a popular song or a very well-produced, multi-layered produced song, does that get picked up and used in output more frequently than a singer-songwriter from Kansas City that no one's ever heard of? And so there's all these kinds of questions, and a lot of this You know, I, I sit in the middle of gaming companies, tech companies, and mus- and the music industry.",
+   "And so And one of the most important things about deals is you're thinking about the value exchange. You know, who's bringing, who's bringing what to the table, and how much should they get? And I think there's a lot of murkiness around this right now when you get beyond market share and you start really looking at systems of AI training, training data, what's getting surfaced. Um, are we going to, for instance, find that the similarities across genres of music, rock music, hip hop, um, pop music, you know, are all of those going to end up concentrating around a handful of artists who are the biggest artists in those genres, or is it truly going to be all songs created equal?",
+   "And I don't know the answer to that."
+  ]
+ },
+ {
+  "speaker": "Patrick Sweetman",
+  "start": 955.9,
+  "paragraphs": [
+   "Back in of this year, German performance rights organization GEMA has secured a court victory in its legal dispute with US AI music platform Suno. according to the verdict, Suno will have to pay damages that have yet to be determined. But what do people do when the AI deals come due? We-we're seeing now litigation is starting to happen. We're starting to see, um, legal action being taken on these bigger platforms like Suno and Udio and the others. You were mentioning these deals are typically on a one to two year timeframe, and a lot of them were probably made with market share at first.",
+   "If you could talk to a catalog owner about how they should position themselves or what they should include when it's time to renew these deals, what do you recommend catalog owners take into account so that they're better prepared to position their catalogs,"
+  ]
+ },
+ {
+  "speaker": "Vickie Nauman",
+  "start": 1005.7,
+  "paragraphs": [
+   "Right. Well, I think, I think one really important element here is most licensors, you know, labels or publishers that are entering into these deals are giving artists the right to consent and the right to opt in, and this is a big controversy around the world of whether these should be opt-in or opt-out systems. And I think the, you know, from the tech company standpoint, I think, you know, they will always want opt-out, but, uh, rights holders want to opt in, and that is being honored, that is being, being honored right now, and I feel like that's a really important part of the, the bond and the contract between the label and the publisher and the artist of giving them, um, giving them some, some sense of control.",
+   "And I think that they do need to decide whether they want, uh, you know, whether they want their biggest hits in, in these systems or not, and so that's really, that's really important. I don't know how many artists are opting in. I think that artists like using AI as a tool, but I think that there is, there's still- A real issue around opting into these, into, into training and further output if they don't have some sort of visibility of what that looks like for them financially. Um, so, you know, that's, that is I think a, a critical piece to where we are now.",
+   "And then I think all of the, all of the catalog, all of the rights holders who have catalogs of music, they need to-- they really do, you know, have to strike some sort of a balance. That is, I, I, I do not believe that anybody thinks that AI can be stopped. So I think that there is a 'the train has left the station' moment here. And in the beginning of digital, back in like 1999 to 2003, 2004 window, there were literally three, four years of conversations of how can we stop technology. The music industry wanted to put toothpaste back in the tube of digital and disruption and distribution, and it, it was, it was four years of waste, complete wasted efforts because you cannot stop technology.",
+   "You can help shape it. But in order to help shape it, you have to engage. And so this is very different this time around. There, you know, there's nobody who's standing behind a catalog saying, you know, \"We're going to sue these guys into oblivion, and this will disappear from the market.\" The lawsuits, the deal-making, everything really is all parties are at the table, and they're trying to shape what this is, and they're trying to find a balance between protecting their artists and protecting their intellectual property and enabling, and enabling something, um, something very new that is, has, has been unprecedented, um, to move forward."
+  ]
+ },
+ {
+  "speaker": "Patrick Sweetman",
+  "start": 1202.1,
+  "paragraphs": [
+   "I'm sure you probably saw on all the major news, Anthropic had an engineer leave a couple weeks ago and he said there's a high chance that AI is going to kill us all in the next 10 years. And then Sam Altman came out and said we need to pace the frontier. Dario said we need to pace the frontier. Elon said we need to pace the frontier. And then the Chinese companies all responded and said, we think this is Cold War tactics to try to get us to slow down. We're not stopping anything. We're going to keep releasing our models. And then they're all like, oh, well, I guess we got to keep building and kind of going back to your getting the toothpaste back in the bottle.",
+   "You can try to fight the river as much as you want. The Chinese are not going to stop. If one company stops, you're just opening up a door for your competitor that's going to take the ground you're leaving and they're going to fill it in. proving a song as a human is an interesting point. Like we were talking earlier, people are trying to do it. Spotify has said in that article that they were just announcing about the badges on artist profiles. They say you can opt in. We hope an artist will say if they're using AI music and they enable it themselves.",
+   "They're also doing monitoring on their own side. At WIPO, you had a point that said, should generative AI music be issued an ISRC code for each song as traditional recordings do? Or how else would licensees track? And Right.",
+   "so what should a catalog add? You mentioned this a little bit earlier, but just getting a little bit more detailed on it. What should a catalog add to its metadata now so that a buyer or an AI licensee can tell what's human?"
+  ]
+ },
+ {
+  "speaker": "Vickie Nauman",
+  "start": 1291.4,
+  "paragraphs": [
+   "Well, I think DDEX is-- I don't know how deep you are in the weeds, but you know, DDEX is a protocol, an open standard and protocol that all the music distributors use to get music from the labels into the DSPs and social media platforms. And this has, um-- you know, this industry is terrible about adhering to standards, and so we have, we always have this herding of the cats exercise. And DDEX has been around for really since the very early days, and they've evolved their platform over time to really ensure that it can accommodate, you know, streaming versus downloads, high-fidelity music, low-fidelity music, you know, very low bit rate for optimization in, in, um, certain environments, and then all of the metadata standards that go along with, with the release of a recording.",
+   "There's pressure right now on the DSPs to stop letting every single thing into their platform. So they're starting to put some additional rules in place, especially for the distributors that are representing indiv-individual artists. Um, you know, and so there's pressure there. And then I know that DDEX is also working on an entire AI generative music flow. And at the outset, you know, when I first did these WIPO, uh, podcasts and I joined the committee there, I'm going over there in Geneva in November. I'm really excited to kind of find out what diplomatically people are, are talking about and thinking about around the world.",
+   "But, um, but at the outset of this, I wasn't sure, you know, should generative music have its own ecosystem, its own delivery mechanism, um, or should it be co-mingled with all of our music? And, um, and just in the six or so months since that happened, I've now really landed that I think it has to be integrated with everything else. Um, we already are seeing music that's That's generative, that's being uploaded, and it's flowing into DSPs. We also saw this lawsuit that happened between Universal and DistroKid on, um, you know, trying to-- Universal trying to also put pressure on these individual artist distribution, self-releasing artist distribution platforms to create more filters around that.",
+   "And, and I think all of this is, all of this is going to probably end up in a conversation around fraud because there is a lot of fraud that's happening in DSPs with generative music, but with stream farms, you know, boo- you know, stream boosting, all of this. And so I think we're, I think we're, you know, AI is, is almost pushing us into some sort of massive cleanup and readjustment around how music gets put into DSPs, how do we, how do we make sure that people are getting paid, that consumers know what they're listening to, and then all of these little bits around the edges that are causing problems are starting to get tidied up."
+  ]
+ },
+ {
+  "speaker": "Patrick Sweetman",
+  "start": 1501.4,
+  "paragraphs": [
+   "A lot of shock in the industry can actually be changed into something that's a forcing function for evolution of the music industry. We haven't touched Exactly.",
+   "yet on games, and I know that games is a big part of where you spend your time. So maybe we can talk about games as catalog income. In the past, you've said that bands could break in games and it's mostly music rights that's blocking it. From your sync work with Brain Jar Games, how does a catalog get in and how are those deals paid?"
+  ]
+ },
+ {
+  "speaker": "Vickie Nauman",
+  "start": 1532.5,
+  "paragraphs": [
+   "Yeah. Yeah, yeah. With all, with all games, most-- almost everything is sync licensed. So, you know, when you think about the deals that are being done for training data in AI systems, you know, those are catalog-wide deals. So all of Warner Music's catalog, or all of Universal's catalog, or all of UMPG's catalog, you know, these things all get put into a huge pot. In most games, they really don't want or need very much music. They just want a handful of really, really well-chosen songs, and those songs can either be originals, custom compositions where they hire a composer and they create a song that can be adapted to different levels of gameplay.",
+   "It's perfect for the, for the sound and for the mood and the game mechanics. But a lot of games now want to-- they want to bring artists into their games, and they want to licen- they want to bring that licensed music. So there's a cultural connection between the game community and the artist community, and that's a big part of my work is how do we enable that? And, um, and gaming companies, unlike music tech startups, you know, gaming companies are, you know, they're not willing to take risks around rights, and, you know, they, they really want to try to create some sort of model where they can experiment with music.",
+   "They don't have liability or, you know, fears of asking for forgiveness later. And so all of this revolves then around this white glove approach of what is the right song, um, what is the right sound? Do we want to use original recordings? Do we want to license compositions and make brand-new versions that will work perfectly in the game? Um, but there's, there's an incredible, meticulous creative process in gaming, and w-what I-- where I think the real potential is for musicians is that, you know, a lot of DSP and a lot of the, you know, streaming services have really taken music into the background of our lives so that we're listening to music while we're cooking or gardening or driving.",
+   "Um, but the-- gaming really brings music to the forefront, and so I, I love that about it, that music is front and center. You hear it, you hear it over and over again because gamers play the same game, um, repeatedly. So you get a different level of exposure to games, to gamers, and there are three point five billion people playing games around the world. So it's a, it's a, it's an enormous market. And a number of years ago, Deloitte did a, Deloitte did a study that found 49% of gamers really want more music. They want to discover more music. So there are not that many verticals where you can have over, over a billion and a half people who are actively looking for music."
+  ]
+ },
+ {
+  "speaker": "Patrick Sweetman",
+  "start": 1732.7,
+  "paragraphs": [
+   "I mean, I played a lot more video games when I was younger, but I sometimes when I'm scrolling on Instagram, I'll see a video that's doing a highlight on a game that I used to play like Sonic Adventures 2. In the opening scene where you're running away from a semi truck going down the hill has this song. And the second I heard the audio, it threw me back and I was like, oh my Exactly.",
+   "goodness, I didn't realize how core in my memory that song was. And like that Exactly.",
+   "song and the scene are very connected. And the same is true of Pokemon. Like the audio that was connected with that game really had an impact on the memories that formed and how that game lives inside of my identity. As we start to wrap up, I want to do some quick fire questions. We'll try to keep each of them under a minute. First one, what do you think is the AI product that will actually pay catalog owners? If it already exists, the name or if it doesn't exist, what does someone need to build in order to have an AI product that will actually pay a catalog owner?"
+  ]
+ },
+ {
+  "speaker": "Vickie Nauman",
+  "start": 1788.6,
+  "paragraphs": [
+   "I love the idea of artist-approved and fan engagement, that, that the uh, letting fans in some sort of licensed manner play around with an artist's music. You know, remix it, use AI, maybe do some mashups, and ring-fence it so that it really does become something between that artist and their fans. And that's, I'd like-- There's a few of these that I know about that are bubbling up around the world, trying to, trying to navigate rights. But I'd love to see something like that, because that, that benefits the artist and it benefits the fans and brings the two closer together."
+  ]
+ },
+ {
+  "speaker": "Patrick Sweetman",
+  "start": 1829.4,
+  "paragraphs": [
+   "What's one clause every AI license needs?"
+  ]
+ },
+ {
+  "speaker": "Vickie Nauman",
+  "start": 1836.8,
+  "paragraphs": [
+   "Well, that's a really good question. Um, I think the-- I think that every AI license should have some, some criteria around transparency, because we, you know, we cannot-- Once things are in the blender, we cannot make sense of it. But I think there has to be some way that the AI companies and the licensors are, are sharing more information of what's happening in their platforms.",
+   "What is one game that should license more catalog?",
+   "Hmm. Well, I, I would say a little bit-- I would say it a little bit differently, but I would say a lot of the games that have always used original compositions, I would like them to start experimenting with, with artist music. And, um, and I'd like to try to start to see does that-- If you bring an artist into a game, does it change the behavior versus the music that's custom created for it? Does it-- Do people play more? Do they take that music and discover it and go into streaming services? But I'd like to see more experimentation around that."
+  ]
+ },
+ {
+  "speaker": "Patrick Sweetman",
+  "start": 1916.5,
+  "paragraphs": [
+   "And last question, where can people find you?"
+  ]
+ },
+ {
+  "speaker": "Vickie Nauman",
+  "start": 1919.9,
+  "paragraphs": [
+   "I'm not hard to find. Um, you know, website, crossborderworks.com and LinkedIn, and I am always traveling around the world, speaking at events and preaching the gospel about innovation and entrepreneurship."
+  ]
+ },
+ {
+  "speaker": "Patrick Sweetman",
+  "start": 1936.8,
+  "paragraphs": [
+   "Thank you for chatting with us today, Vicky."
+  ]
+ },
+ {
+  "speaker": "Vickie Nauman",
+  "start": 1939.1,
+  "paragraphs": [
+   "Thank you."
+  ]
+ }
+]

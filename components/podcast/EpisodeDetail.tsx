@@ -7,12 +7,15 @@ import { formatDuration } from "@/lib/podcast/formatDuration";
 import { formatEpisodeDate } from "@/lib/podcast/formatEpisodeDate";
 import { youtubeEmbedUrl } from "@/lib/podcast/youtubeEmbedUrl";
 import { EpisodeListenLinks } from "./EpisodeListenLinks";
+import { EpisodeTranscript } from "./EpisodeTranscript";
+import type { Transcript } from "@/lib/podcast/transcriptSchema";
 
 /**
  * One episode, laid out like the show's reference (Standard Innovation's episode pages): date, title,
- * where to listen, the summary, the guest's links, a short About block with one call to action, and credits.
+ * where to listen, the summary, the guest's links, the full transcript (closed by default), a short About block
+ * with one call to action, and credits.
  */
-export function EpisodeDetail({ episode }: { episode: Episode }) {
+export function EpisodeDetail({ episode, transcript }: { episode: Episode; transcript?: Transcript }) {
   const copy = podcastCopy.episode;
   const embed = youtubeEmbedUrl(episode.links.youtube);
   return (
@@ -37,6 +40,7 @@ export function EpisodeDetail({ episode }: { episode: Episode }) {
           </ul>
         </div>
       )}
+      {transcript && <EpisodeTranscript slug={episode.slug} transcript={transcript} youtube={episode.links.youtube} />}
       <div className="mt-11 p-7 rounded-2xl bg-[#f0f7fa] max-w-[680px]">
         <p className="sp-kicker text-[#5b7886] !text-[10px]">{copy.about.kicker}</p>
         <p className="!mt-3 text-base !leading-[1.65] text-[#22343c]">{copy.about.description}</p>

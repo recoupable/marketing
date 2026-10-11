@@ -50,3 +50,24 @@ test("YouTube links become embed URLs; anything else does not", async () => {
   expect(youtubeEmbedUrl("https://open.spotify.com/episode/abc")).toBeUndefined();
   expect(youtubeEmbedUrl(undefined)).toBeUndefined();
 });
+
+test("every transcript file parses, belongs to an episode, and starts at the top of the video", async () => {
+  const { readdirSync } = await import("node:fs");
+  const { readTranscript } = await import("../readTranscript.ts");
+  const slugs = readEpisodes().map((episode) => episode.slug);
+  const files = readdirSync("content/podcast/transcripts").filter((file) => file.endsWith(".json"));
+  expect(files.length).toBeGreaterThan(0);
+  for (const file of files) {
+    const slug = file.replace(/\.json$/, "");
+    expect(slugs).toContain(slug);
+    const transcript = readTranscript(slug)!;
+    expect(transcript[0]!.start).toBeLessThan(5);
+    expect(transcript.map((turn) => turn.start)).toStrictEqual([...transcript.map((turn) => turn.start)].sort((a, b) => a - b));
+  }
+});
+
+test("timestamps format as m:ss and h:mm:ss", async () => {
+  const { formatTimestamp } = await import("../formatTimestamp.ts");
+  expect(formatTimestamp(245.7)).toBe("4:05");
+  expect(formatTimestamp(3729)).toBe("1:02:09");
+});

@@ -21,5 +21,6 @@ export const podcastCopy = {
       href: "/audit",
     },
     credits: { guest: "Guest", host: "Host", hostName: "Patrick Sweetman, Cofounder, Recoup" },
+    transcript: { heading: "Full transcript", show: "Show", hide: "Hide", note: "Machine transcribed from the published episode.", copy: "Copy transcript", copied: "Copied" },
   },
 };
