@@ -124,7 +124,9 @@ the artist's profile.
 printf '%s' "$SPOTIFY" | jq '.artists.items[]? | {id, name, external_urls, images}'
 ```
 
-After verifying the candidate, export its fields:
+If the verified artist is absent from the first ten results, repeat the search
+with a more specific name or known catalog context and inspect the new results.
+Do not substitute another artist. After verifying the candidate, export its fields:
 
 ```bash
 : "${SELECTED_SPOTIFY_ARTIST_ID:?Set the verified Spotify artist ID first}"
@@ -167,34 +169,44 @@ available profile fields, activity and playlist placements. Coverage varies by
 artist and platform: an empty successful response is a data gap, not a request to
 warm a cache. Use a web search for biography, press and collaborations.
 
-Check HTTP status before extracting IDs or making dependent calls. This helper
+The four structured reads below cost $0.05 each when successful, or $0.20 total
+(200,000 micro-dollar credits). Web research is billed separately; check the
+current credit reference before running it. Check HTTP status before extracting
+IDs or making dependent calls. This helper
 allows at most three attempts for network failures or `5xx`, each with a
-90-second timeout. A `402` surfaces `billingUrl`; a `429` defers reads until a
-later attempt that respects `Retry-After`. Leave the step unchecked on errors.
+90-second timeout. A `402` surfaces `billingUrl`; a `429` stops the step and prints
+`Retry-After` for a later manual retry; it does not wait or retry automatically. Leave the step unchecked on errors.
 
 ```bash
 BASE="https://api.recoupable.dev/api"
 research_request() {
-  local path=$1 response body status attempt
+  local path=$1 response body status attempt headers retry_after
   shift
+  headers=$(mktemp) || return 1
   for attempt in 1 2 3; do
-    if response=$(curl -sSL --max-time 90 -w $'\n%{http_code}' \
+    if response=$(curl -sS --max-time 90 -D "$headers" -w $'\n%{http_code}' \
       "${AUTH[@]}" "$BASE/research/$path" "$@"); then
       status=${response##*$'\n'}
       body=${response%$'\n'*}
       case "$status" in
-        200) printf '%s' "$body"; return 0 ;;
+        200) rm -f "$headers"; printf '%s' "$body"; return 0 ;;
         402)
+          rm -f "$headers"
           printf 'Research needs credits: %s\n' \
             "$(printf '%s' "$body" | jq -r '.billingUrl // .error // "Check billing"')" >&2
           return 1 ;;
-        429) echo 'Research rate limited; defer reads and respect Retry-After.' >&2; return 1 ;;
+        429)
+          retry_after=$(awk 'tolower($1)=="retry-after:" {sub(/^[^:]*:[[:space:]]*/, ""); sub(/\r$/, ""); print}' "$headers")
+          rm -f "$headers"
+          printf 'Research step stopped. Retry-After: %s. Resume manually when allowed.\n' "${retry_after:-not provided}" >&2
+          return 1 ;;
         5??) ;;
-        *) printf 'Research HTTP %s; resolve before resuming.\n' "$status" >&2; return 1 ;;
+        *) rm -f "$headers"; printf 'Research HTTP %s; resolve before resuming.\n' "$status" >&2; return 1 ;;
       esac
     fi
     if [ "$attempt" -lt 3 ]; then sleep "$((attempt * 2))"; fi
   done
+  rm -f "$headers"
   echo 'Research unavailable after three attempts.' >&2
   return 1
 }
@@ -207,12 +219,12 @@ LOOKUP=$(research_request lookup --get \
   --data-urlencode "spotifyId=$SPOTIFY_ARTIST_ID") || exit 1
 
 RESEARCH_ARTIST_ID=$(printf '%s' "$LOOKUP" | jq -r \
-  '.id | select(type == "string") | select(test("\\S"))')
+  '[.id, .artist_info.id] | map(select(type == "string") | select(test("\\S"))) | first // empty')
 ```
 
 Save this value as `researchArtistId`. It is separate from the Recoup artist
-account UUID and Spotify ID. Do not coerce it to a number or copy an old
-`cmArtistId` into it; re-resolve and verify older workspaces. If a successful
+account UUID and Spotify ID. Do not coerce it to a number or copy an older
+saved research ID into it; re-resolve and verify older workspaces. If a successful
 lookup has no usable `id`, record that gap and skip 4b–4d, then run 4e.
 
 See [Artist Lookup](/api-reference/research/lookup) for the response contract.

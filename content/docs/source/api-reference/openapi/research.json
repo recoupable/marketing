@@ -1534,9 +1534,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "daily"
-              ],
+              "enum": ["daily"],
               "default": "daily"
             },
             "description": "Series granularity. `daily` returns the per-day cumulative series."
@@ -1546,9 +1544,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": [
-                "run_rate"
-              ]
+              "enum": ["run_rate"]
             },
             "description": "Return a derived aggregate instead of the raw series. `run_rate` returns the trailing-window annualized run-rate (a projection of the series)."
           },
@@ -1763,26 +1759,17 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "status",
-                    "error",
-                    "checkoutUrl"
-                  ],
+                  "required": ["status", "error", "checkoutUrl"],
                   "properties": {
                     "status": {
                       "type": "string",
-                      "enum": [
-                        "error"
-                      ]
+                      "enum": ["error"]
                     },
                     "error": {
                       "type": "string"
                     },
                     "checkoutUrl": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
+                      "type": ["string", "null"],
                       "description": "Card-setup checkout URL returned by Stripe. Distinct from the static billingUrl used by ordinary research credit errors."
                     }
                   }
@@ -2027,10 +2014,7 @@
             "description": "When `true` (default), returns only albums where the artist is a main artist. Set to `false` to include feature appearances, DJ compilations, and soundtracks.",
             "schema": {
               "type": "string",
-              "enum": [
-                "true",
-                "false"
-              ],
+              "enum": ["true", "false"],
               "default": "true"
             }
           },
@@ -3010,13 +2994,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "spotify",
-                "applemusic",
-                "deezer",
-                "amazon",
-                "youtube"
-              ],
+              "enum": ["spotify", "applemusic", "deezer", "amazon", "youtube"],
               "default": "spotify"
             }
           },
@@ -3026,10 +3004,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "current",
-                "past"
-              ],
+              "enum": ["current", "past"],
               "default": "current"
             },
             "description": "current uses current placements; past uses all-time scope total, which may include current placements."
@@ -3314,11 +3289,7 @@
             "description": "Audience overlap weight.",
             "schema": {
               "type": "string",
-              "enum": [
-                "high",
-                "medium",
-                "low"
-              ],
+              "enum": ["high", "medium", "low"],
               "default": "medium"
             }
           },
@@ -3329,11 +3300,7 @@
             "description": "Genre similarity weight.",
             "schema": {
               "type": "string",
-              "enum": [
-                "high",
-                "medium",
-                "low"
-              ],
+              "enum": ["high", "medium", "low"],
               "default": "medium"
             }
           },
@@ -3344,11 +3311,7 @@
             "description": "Mood similarity weight.",
             "schema": {
               "type": "string",
-              "enum": [
-                "high",
-                "medium",
-                "low"
-              ],
+              "enum": ["high", "medium", "low"],
               "default": "medium"
             }
           },
@@ -3359,11 +3322,7 @@
             "description": "Musicality similarity weight.",
             "schema": {
               "type": "string",
-              "enum": [
-                "high",
-                "medium",
-                "low"
-              ],
+              "enum": ["high", "medium", "low"],
               "default": "medium"
             }
           },
@@ -3918,12 +3877,7 @@
             "description": "Streaming platform to return playlists for. Defaults to `spotify`.",
             "schema": {
               "type": "string",
-              "enum": [
-                "spotify",
-                "applemusic",
-                "deezer",
-                "amazon"
-              ],
+              "enum": ["spotify", "applemusic", "deezer", "amazon"],
               "default": "spotify"
             }
           },
@@ -3933,10 +3887,7 @@
             "description": "Return current or past playlist placements. Defaults to `current`.",
             "schema": {
               "type": "string",
-              "enum": [
-                "current",
-                "past"
-              ],
+              "enum": ["current", "past"],
               "default": "current"
             }
           },
@@ -4068,16 +4019,11 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "status",
-                    "placements"
-                  ],
+                  "required": ["status", "placements"],
                   "properties": {
                     "status": {
                       "type": "string",
-                      "enum": [
-                        "success"
-                      ],
+                      "enum": ["success"],
                       "example": "success"
                     },
                     "placements": {
@@ -4205,10 +4151,7 @@
     "schemas": {
       "StopChatResponse": {
         "type": "object",
-        "required": [
-          "success",
-          "stopped"
-        ],
+        "required": ["success", "stopped"],
         "properties": {
           "success": {
             "type": "boolean",
@@ -4224,16 +4167,11 @@
       },
       "StopChatErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "error"
-        ],
+        "required": ["status", "error"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "description": "Status of the request"
           },
           "error": {
@@ -4244,16 +4182,11 @@
       },
       "ChatGenerateErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "message"
-        ],
+        "required": ["status", "message"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "description": "Status of the request"
           },
           "message": {
@@ -4319,12 +4252,7 @@
       },
       "ChatMessage": {
         "type": "object",
-        "required": [
-          "id",
-          "room_id",
-          "content",
-          "updated_at"
-        ],
+        "required": ["id", "room_id", "content", "updated_at"],
         "properties": {
           "id": {
             "type": "string",
@@ -4349,13 +4277,7 @@
       },
       "ChatRoom": {
         "type": "object",
-        "required": [
-          "id",
-          "title",
-          "accountId",
-          "sessionId",
-          "updatedAt"
-        ],
+        "required": ["id", "title", "accountId", "sessionId", "updatedAt"],
         "properties": {
           "id": {
             "type": "string",
@@ -4391,16 +4313,11 @@
       },
       "ChatStreamErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "error"
-        ],
+        "required": ["status", "error"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "description": "Status of the request"
           },
           "error": {
@@ -4419,11 +4336,7 @@
       "ChatWorkflowRequest": {
         "type": "object",
         "description": "Request body for the sandbox-driven, Workflow-backed chat endpoint. Requires an existing session, chat, and provisioned sandbox. The Bearer key from the `Authorization` header is forwarded into the sandbox for skill-based callbacks to the Recoup API \u2014 no separate access-token field needed.",
-        "required": [
-          "messages",
-          "chatId",
-          "sessionId"
-        ],
+        "required": ["messages", "chatId", "sessionId"],
         "properties": {
           "messages": {
             "type": "array",
@@ -4456,9 +4369,7 @@
       },
       "CompactChatsRequest": {
         "type": "object",
-        "required": [
-          "chatId"
-        ],
+        "required": ["chatId"],
         "properties": {
           "chatId": {
             "type": "array",
@@ -4477,9 +4388,7 @@
       },
       "CompactChatsResponse": {
         "type": "object",
-        "required": [
-          "chats"
-        ],
+        "required": ["chats"],
         "properties": {
           "chats": {
             "type": "array",
@@ -4492,10 +4401,7 @@
       },
       "CompactedChat": {
         "type": "object",
-        "required": [
-          "chatId",
-          "compacted"
-        ],
+        "required": ["chatId", "compacted"],
         "properties": {
           "chatId": {
             "type": "string",
@@ -4510,16 +4416,11 @@
       },
       "CopyChatMessagesErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "error"
-        ],
+        "required": ["status", "error"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "description": "Status of the request"
           },
           "error": {
@@ -4530,9 +4431,7 @@
       },
       "CopyChatMessagesRequest": {
         "type": "object",
-        "required": [
-          "targetChatId"
-        ],
+        "required": ["targetChatId"],
         "properties": {
           "targetChatId": {
             "type": "string",
@@ -4558,9 +4457,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the request",
             "example": "success"
           },
@@ -4586,16 +4483,11 @@
       },
       "CreateChatErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "message"
-        ],
+        "required": ["status", "message"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "description": "Status of the request"
           },
           "message": {
@@ -4630,16 +4522,11 @@
       },
       "CreateChatResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "chat"
-        ],
+        "required": ["status", "chat"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the request",
             "example": "success"
           },
@@ -4651,16 +4538,11 @@
       },
       "DeleteChatErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "error"
-        ],
+        "required": ["status", "error"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "description": "Status of the request"
           },
           "error": {
@@ -4671,9 +4553,7 @@
       },
       "DeleteChatRequest": {
         "type": "object",
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "properties": {
           "id": {
             "type": "string",
@@ -4684,17 +4564,11 @@
       },
       "DeleteChatResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "id",
-          "message"
-        ],
+        "required": ["status", "id", "message"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the request",
             "example": "success"
           },
@@ -4711,16 +4585,11 @@
       },
       "DeleteTrailingChatMessagesErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "error"
-        ],
+        "required": ["status", "error"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "description": "Status of the request"
           },
           "error": {
@@ -4738,17 +4607,11 @@
       },
       "DeleteTrailingChatMessagesResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "chat_id",
-          "from_message_id"
-        ],
+        "required": ["status", "chat_id", "from_message_id"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the request",
             "example": "success"
           },
@@ -4765,10 +4628,7 @@
         }
       },
       "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
+        "required": ["error", "message"],
         "type": "object",
         "properties": {
           "error": {
@@ -4782,16 +4642,11 @@
       },
       "GetChatArtistErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "error"
-        ],
+        "required": ["status", "error"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "description": "Status of the request"
           },
           "error": {
@@ -4802,18 +4657,11 @@
       },
       "GetChatArtistResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "room_id",
-          "artist_id",
-          "artist_exists"
-        ],
+        "required": ["status", "room_id", "artist_id", "artist_exists"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the request",
             "example": "success"
           },
@@ -4836,16 +4684,11 @@
       },
       "GetChatMessagesErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "error"
-        ],
+        "required": ["status", "error"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "description": "Status of the request"
           },
           "error": {
@@ -4856,9 +4699,7 @@
       },
       "GetChatMessagesResponse": {
         "type": "object",
-        "required": [
-          "data"
-        ],
+        "required": ["data"],
         "properties": {
           "data": {
             "type": "array",
@@ -4871,16 +4712,11 @@
       },
       "GetChatsErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "error"
-        ],
+        "required": ["status", "error"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "description": "Status of the request"
           },
           "error": {
@@ -4891,16 +4727,11 @@
       },
       "GetChatsResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "chats"
-        ],
+        "required": ["status", "chats"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the request",
             "example": "success"
           },
@@ -4915,9 +4746,7 @@
       },
       "ResearchDeepRequest": {
         "type": "object",
-        "required": [
-          "query"
-        ],
+        "required": ["query"],
         "description": "Request body for deep research. Performs comprehensive multi-source analysis.",
         "properties": {
           "query": {
@@ -4932,10 +4761,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success",
-              "error"
-            ],
+            "enum": ["success", "error"],
             "example": "success"
           },
           "content": {
@@ -4954,10 +4780,7 @@
       },
       "ResearchEnrichRequest": {
         "type": "object",
-        "required": [
-          "input",
-          "schema"
-        ],
+        "required": ["input", "schema"],
         "properties": {
           "input": {
             "type": "string",
@@ -4970,9 +4793,7 @@
             "properties": {
               "type": {
                 "type": "string",
-                "enum": [
-                  "object"
-                ],
+                "enum": ["object"],
                 "description": "Must be \"object\""
               },
               "properties": {
@@ -4981,18 +4802,11 @@
                 "additionalProperties": true
               }
             },
-            "required": [
-              "type",
-              "properties"
-            ]
+            "required": ["type", "properties"]
           },
           "processor": {
             "type": "string",
-            "enum": [
-              "base",
-              "core",
-              "ultra"
-            ],
+            "enum": ["base", "core", "ultra"],
             "default": "base",
             "description": "Research depth: base (fast), core (balanced), ultra (comprehensive)."
           }
@@ -5034,9 +4848,7 @@
       },
       "ResearchExtractRequest": {
         "type": "object",
-        "required": [
-          "urls"
-        ],
+        "required": ["urls"],
         "properties": {
           "urls": {
             "type": "array",
@@ -5061,17 +4873,11 @@
       },
       "ResearchExtractResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "results"
-        ],
+        "required": ["status", "results"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success",
-              "error"
-            ],
+            "enum": ["success", "error"],
             "example": "success"
           },
           "results": {
@@ -5122,9 +4928,7 @@
       },
       "ResearchPeopleRequest": {
         "type": "object",
-        "required": [
-          "query"
-        ],
+        "required": ["query"],
         "properties": {
           "query": {
             "type": "string",
@@ -5144,10 +4948,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success",
-              "error"
-            ],
+            "enum": ["success", "error"],
             "example": "success"
           },
           "results": {
@@ -5201,9 +5002,7 @@
       },
       "ResearchWebRequest": {
         "type": "object",
-        "required": [
-          "query"
-        ],
+        "required": ["query"],
         "description": "Request body for web research.",
         "properties": {
           "query": {
@@ -5270,11 +5069,7 @@
       },
       "UIMessage": {
         "type": "object",
-        "required": [
-          "id",
-          "role",
-          "parts"
-        ],
+        "required": ["id", "role", "parts"],
         "description": "AI SDK UIMessage. Parts are structurally validated before provisioning for headless runs. Legacy content-only messages are rejected.",
         "properties": {
           "id": {
@@ -5282,11 +5077,7 @@
           },
           "role": {
             "type": "string",
-            "enum": [
-              "user",
-              "assistant",
-              "system"
-            ]
+            "enum": ["user", "assistant", "system"]
           },
           "metadata": {},
           "parts": {
@@ -5294,9 +5085,7 @@
             "minItems": 1,
             "items": {
               "type": "object",
-              "required": [
-                "type"
-              ],
+              "required": ["type"],
               "properties": {
                 "type": {
                   "type": "string"
@@ -5316,16 +5105,11 @@
       },
       "UpdateChatErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "message"
-        ],
+        "required": ["status", "message"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "description": "Status of the request"
           },
           "message": {
@@ -5336,10 +5120,7 @@
       },
       "UpdateChatRequest": {
         "type": "object",
-        "required": [
-          "chatId",
-          "topic"
-        ],
+        "required": ["chatId", "topic"],
         "properties": {
           "chatId": {
             "type": "string",
@@ -5356,16 +5137,11 @@
       },
       "UpdateChatResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "chat"
-        ],
+        "required": ["status", "chat"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success"
-            ],
+            "enum": ["success"],
             "description": "Status of the request",
             "example": "success"
           },
@@ -5377,9 +5153,7 @@
       },
       "ResearchEventsRequest": {
         "type": "object",
-        "required": [
-          "artist_id"
-        ],
+        "required": ["artist_id"],
         "description": "Request body for artist event lookup.",
         "properties": {
           "artist_id": {
@@ -5390,11 +5164,7 @@
           },
           "date": {
             "type": "string",
-            "enum": [
-              "upcoming",
-              "past",
-              "all"
-            ],
+            "enum": ["upcoming", "past", "all"],
             "default": "upcoming",
             "description": "Which events to return."
           }
@@ -5402,10 +5172,7 @@
       },
       "ResearchEventsResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "events"
-        ],
+        "required": ["status", "events"],
         "description": "Live events for one artist.",
         "properties": {
           "status": {
@@ -5466,17 +5233,12 @@
       },
       "ResearchErrorResponse": {
         "type": "object",
-        "required": [
-          "status",
-          "error"
-        ],
+        "required": ["status", "error"],
         "description": "Error response returned by all research endpoints for validation failures (400) and authentication errors (401).",
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ],
+            "enum": ["error"],
             "example": "error"
           },
           "error": {
@@ -5540,9 +5302,7 @@
         "properties": {
           "error": {
             "type": "string",
-            "enum": [
-              "insufficient_credits"
-            ]
+            "enum": ["insufficient_credits"]
           },
           "remaining_credits": {
             "type": "integer",
@@ -5717,48 +5477,32 @@
       },
       "ResearchMeasurementJobRequest": {
         "type": "object",
-        "required": [
-          "scope",
-          "source"
-        ],
+        "required": ["scope", "source"],
         "properties": {
           "scope": {
             "$ref": "#/components/schemas/ResearchMeasurementJobScope"
           },
           "source": {
             "type": "string",
-            "enum": [
-              "current",
-              "historical"
-            ],
+            "enum": ["current", "historical"],
             "description": "current captures present counts through the snapshot pipeline; historical enqueues the configured research data connection backfill. Historical requires a saved payment method and does not promise complete history."
           },
           "platforms": {
             "type": "array",
             "items": {
               "type": "string",
-              "enum": [
-                "spotify"
-              ]
+              "enum": ["spotify"]
             },
-            "default": [
-              "spotify"
-            ],
-            "example": [
-              "spotify"
-            ]
+            "default": ["spotify"],
+            "example": ["spotify"]
           }
         },
         "example": {
           "scope": {
-            "isrcs": [
-              "USQY51771120"
-            ]
+            "isrcs": ["USQY51771120"]
           },
           "source": "historical",
-          "platforms": [
-            "spotify"
-          ]
+          "platforms": ["spotify"]
         }
       },
       "ResearchMeasurementJobResponse": {
@@ -5776,15 +5520,11 @@
             "properties": {
               "status": {
                 "type": "string",
-                "enum": [
-                  "success"
-                ]
+                "enum": ["success"]
               },
               "source": {
                 "type": "string",
-                "enum": [
-                  "current"
-                ]
+                "enum": ["current"]
               },
               "id": {
                 "type": "string",
@@ -5809,25 +5549,15 @@
           },
           {
             "type": "object",
-            "required": [
-              "status",
-              "source",
-              "id",
-              "enqueued",
-              "skipped"
-            ],
+            "required": ["status", "source", "id", "enqueued", "skipped"],
             "properties": {
               "status": {
                 "type": "string",
-                "enum": [
-                  "success"
-                ]
+                "enum": ["success"]
               },
               "source": {
                 "type": "string",
-                "enum": [
-                  "historical"
-                ]
+                "enum": ["historical"]
               },
               "id": {
                 "type": "null",
@@ -5848,11 +5578,7 @@
       },
       "ChatGenerateAcceptedResponse": {
         "type": "object",
-        "required": [
-          "runId",
-          "chatId",
-          "sessionId"
-        ],
+        "required": ["runId", "chatId", "sessionId"],
         "description": "Confirmation that an asynchronous chat-generation run has been started on the durable agent workflow.",
         "properties": {
           "runId": {
@@ -5876,10 +5602,7 @@
       },
       "ChatRunStatusResponse": {
         "type": "object",
-        "required": [
-          "runId",
-          "status"
-        ],
+        "required": ["runId", "status"],
         "description": "Point-in-time status of an asynchronous chat-generation run.",
         "properties": {
           "runId": {
@@ -5889,13 +5612,7 @@
           },
           "status": {
             "type": "string",
-            "enum": [
-              "queued",
-              "running",
-              "completed",
-              "failed",
-              "cancelled"
-            ],
+            "enum": ["queued", "running", "completed", "failed", "cancelled"],
             "description": "Lifecycle state of the run. Read the produced content via the chat (`chatId` from the start response)."
           },
           "createdAt": {
@@ -5929,16 +5646,11 @@
       },
       "ChatRunNotFoundError": {
         "type": "object",
-        "required": [
-          "status",
-          "error"
-        ],
+        "required": ["status", "error"],
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "error"
-            ]
+            "enum": ["error"]
           },
           "error": {
             "type": "string",
@@ -5951,10 +5663,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success",
-              "error"
-            ],
+            "enum": ["success", "error"],
             "example": "success"
           },
           "urls": {
@@ -6296,10 +6005,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success",
-              "error"
-            ],
+            "enum": ["success", "error"],
             "example": "success"
           },
           "placements": {
@@ -6491,6 +6197,10 @@
           },
           "artist_info": {
             "$ref": "#/components/schemas/ResearchArtistInfo"
+          },
+          "id": {
+            "type": "string",
+            "description": "Opaque Recoup research artist ID when resolved. Reuse it in artist research requests; it is separate from the Recoup artist account UUID and Spotify ID."
           }
         },
         "additionalProperties": true
@@ -6583,10 +6293,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "success",
-              "error"
-            ],
+            "enum": ["success", "error"],
             "example": "success"
           },
           "results": {
