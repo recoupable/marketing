@@ -1,0 +1,2622 @@
+{
+  "checkedAt": "2026-10-11T03:00:13.617Z",
+  "apiSourceCommit": "c72887a212c506143ef9974143433ac7e7cba81b",
+  "liveApiKeyCatalog": {
+    "checkedAt": "2026-10-11T03:00:13.617Z",
+    "credential": "existing REST API key; not OAuth host verification",
+    "toolCount": 64,
+    "tools": [
+      {
+        "name": "upload_site_asset",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "organizationId": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "contentType": {
+              "type": "string",
+              "enum": [
+                "image/jpeg",
+                "image/png",
+                "image/webp",
+                "audio/mpeg",
+                "audio/wav"
+              ]
+            },
+            "base64": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 5592408,
+              "pattern": "^[A-Za-z0-9+/]+={0,2}$"
+            }
+          },
+          "required": [
+            "name",
+            "contentType",
+            "base64"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "list_sites",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "organizationId": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "artistId": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            }
+          },
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "get_site",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "create_site",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "organizationId": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "artistId": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "name": {
+              "default": "",
+              "type": "string",
+              "maxLength": 120
+            },
+            "brief": {
+              "default": "",
+              "type": "string",
+              "maxLength": 6000
+            },
+            "releaseUrl": {
+              "default": "",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "string",
+                  "const": ""
+                }
+              ]
+            },
+            "assets": {
+              "default": [],
+              "maxItems": 8,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "name": {
+                    "type": "string",
+                    "maxLength": 200
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "image",
+                      "audio",
+                      "video"
+                    ]
+                  },
+                  "generation": {
+                    "type": "object",
+                    "properties": {
+                      "provider": {
+                        "type": "string",
+                        "enum": [
+                          "higgsfield",
+                          "fal",
+                          "gateway"
+                        ]
+                      },
+                      "model": {
+                        "type": "string"
+                      },
+                      "requestId": {
+                        "type": "string"
+                      },
+                      "rationale": {
+                        "type": "string"
+                      },
+                      "durationMs": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "provider",
+                      "model",
+                      "requestId"
+                    ]
+                  }
+                },
+                "required": [
+                  "url",
+                  "name",
+                  "type"
+                ]
+              }
+            }
+          },
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "propose_site_concepts",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "instruction": {
+              "default": "",
+              "type": "string",
+              "maxLength": 6000
+            },
+            "contextBriefId": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "generate_site",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "instruction": {
+              "default": "",
+              "type": "string",
+              "maxLength": 6000
+            },
+            "approvedConcept": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "activity": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 400
+                },
+                "fanMotivation": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 400
+                },
+                "songOrArtistConnection": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 400
+                },
+                "friendHook": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 400
+                }
+              },
+              "required": [
+                "name",
+                "activity",
+                "fanMotivation",
+                "songOrArtistConnection",
+                "friendHook"
+              ],
+              "additionalProperties": false
+            },
+            "background": {
+              "default": true,
+              "type": "boolean"
+            },
+            "contextBriefId": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "get_site_generation",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "token": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 3000
+            }
+          },
+          "required": [
+            "id",
+            "token"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "publish_site",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "generationToken": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 3000
+            },
+            "returnUrl": {
+              "type": "string",
+              "maxLength": 2048,
+              "format": "uri"
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "delete_site",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "generationToken": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 3000
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "unpublish_site",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "get_site_signups",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "create_release_player",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "organizationId": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "artistId": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "spotifyUrl": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^https:\\/\\/open\\.spotify\\.com\\/(?:intl-[a-z]+\\/)?(track|album|playlist)\\/[A-Za-z0-9]+\\/?(?:\\?[^<>\"']*)?$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "appleUrl": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "allowedOrigins": {
+              "default": [],
+              "maxItems": 10,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "enabled": {
+              "default": false,
+              "type": "boolean"
+            },
+            "freePlayback": {
+              "default": "spotify",
+              "type": "string",
+              "enum": [
+                "spotify",
+                "audio"
+              ]
+            },
+            "audioUrl": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "artwork": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "artistId",
+            "name"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "list_release_player",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "organizationId": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "offset": {
+              "default": 0,
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "limit": {
+              "default": 50,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "get_release_player",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "organizationId": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "update_release_player",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "organizationId": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "revision": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "freePlayback": {
+              "type": "string",
+              "enum": [
+                "spotify",
+                "audio"
+              ]
+            },
+            "audioUrl": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "spotifyUrl": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^https:\\/\\/open\\.spotify\\.com\\/(?:intl-[a-z]+\\/)?(track|album|playlist)\\/[A-Za-z0-9]+\\/?(?:\\?[^<>\"']*)?$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "appleUrl": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "allowedOrigins": {
+              "maxItems": 10,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "artwork": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "get_release_player_activity",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "organizationId": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "offset": {
+              "default": 0,
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "get_release_player_fans",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "organizationId": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "offset": {
+              "default": 0,
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "limit": {
+              "default": 50,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "get_workspace_player_fans",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "organizationId": {
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "offset": {
+              "default": 0,
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "limit": {
+              "default": 50,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "context",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "create_new_artist",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "The name of the artist to be created",
+              "type": "string"
+            },
+            "account_id": {
+              "description": "The account ID to create the artist for. Only required for organization API keys creating artists on behalf of other accounts. If not provided, the account ID will be resolved from the authenticated API key.",
+              "type": "string"
+            },
+            "active_conversation_id": {
+              "description": "The ID of the room/conversation to copy for this artist's first conversation. If not provided, use the active_conversation_id from the system prompt.",
+              "type": "string"
+            },
+            "organization_id": {
+              "description": "The organization ID to link the new artist to. Use the organization_id from the system prompt context. Pass null or omit for personal artists.",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "list_professional_roster",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "organization_id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "after": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            }
+          },
+          "required": [
+            "organization_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "confirm_professional_roster",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "organization_id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "idempotency_key": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "new",
+                "existing"
+              ]
+            },
+            "name": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 200,
+              "pattern": "^[^\\x00-\\x1f\\x7f]+$"
+            },
+            "professional_id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "roles": {
+              "minItems": 1,
+              "maxItems": 2,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "songwriter",
+                  "producer"
+                ]
+              }
+            },
+            "roster_intent": {
+              "type": "string",
+              "const": "add"
+            },
+            "confirmed": {
+              "type": "boolean",
+              "const": true
+            }
+          },
+          "required": [
+            "organization_id",
+            "idempotency_key",
+            "mode",
+            "roles",
+            "roster_intent",
+            "confirmed"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "get_artist_socials",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "artist_account_id": {
+              "description": "The artist account ID",
+              "type": "string",
+              "minLength": 1
+            },
+            "page": {
+              "description": "Page number (default: 1)",
+              "default": 1,
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "limit": {
+              "description": "Per page (default: 20, max: 100)",
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "history": {
+              "description": "Days of follower snapshots to attach per social (max: 90); omitted \u2192 none",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 90
+            }
+          },
+          "required": [
+            "artist_account_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "update_artist_socials",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "artistId": {
+              "description": "The artist's account ID to update socials for.",
+              "type": "string",
+              "minLength": 1
+            },
+            "urls": {
+              "description": "An array of social profile URLs to associate with the artist. The platform will be inferred automatically.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "artistId",
+            "urls"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "select_catalogs",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "account_id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            }
+          },
+          "required": [
+            "account_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "select_catalog_songs",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "catalog_id": {
+              "description": "The unique identifier of the catalog to query songs for. Get this from the select_catalogs tool.",
+              "type": "string",
+              "minLength": 1
+            },
+            "criteria": {
+              "description": "The search criteria or theme to filter songs by (e.g., 'Halloween party songs', 'workout music', 'romantic ballads')",
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "catalog_id",
+            "criteria"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "insert_catalog_songs",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "songs": {
+              "description": "Array of songs to add to catalog(s)",
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "catalog_id": {
+                    "description": "Catalog ID to which the song will be added. Get this from the select_catalogs tool.",
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "isrc": {
+                    "description": "Song ISRC to associate to the catalog",
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "catalog_id",
+                  "isrc"
+                ]
+              }
+            }
+          },
+          "required": [
+            "songs"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_catalog_playcount_history",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "catalog_id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "since": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "days": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 31
+            },
+            "page": {
+              "default": 1,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            },
+            "limit": {
+              "default": 25,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 25
+            }
+          },
+          "required": [
+            "catalog_id",
+            "since",
+            "days"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "get_catalog_streams",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "catalog_id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "since": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "days": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 366
+            },
+            "page": {
+              "default": 1,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            },
+            "limit": {
+              "default": 25,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 25
+            }
+          },
+          "required": [
+            "catalog_id",
+            "since",
+            "days"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "manage_catalog_stream_tracking",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "catalog_id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "action": {
+              "type": "string",
+              "enum": [
+                "status",
+                "enable",
+                "disable",
+                "refresh"
+              ]
+            }
+          },
+          "required": [
+            "catalog_id",
+            "action"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "get_chats",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "account_id": {
+              "description": "The account ID to filter chats for.",
+              "type": "string"
+            },
+            "artist_account_id": {
+              "description": "Filter chats to those whose owning session is in the specified artist context (matches `sessions.artist_id`). Composes with `account_id`.",
+              "type": "string"
+            }
+          },
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "compact_chats",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "chat_id": {
+              "description": "Array of chat IDs to compact into summaries.",
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "prompt": {
+              "description": "Optional custom prompt to guide which details are retained in the summary.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "chat_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "create_knowledge_base",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "artistId": {
+              "description": "The artist_account_id to add the knowledge base to. If not provided, check system prompt for the active artist_account_id.",
+              "type": "string",
+              "minLength": 1
+            },
+            "knowledgeBaseText": {
+              "description": "Text to add to the knowledge base",
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "artistId",
+            "knowledgeBaseText"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "generate_txt_file",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "contents": {
+              "description": "The contents of the TXT file",
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "contents"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "analyze_music",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "preset": {
+              "type": "string",
+              "enum": [
+                "catalog_metadata",
+                "mood_tags",
+                "lyric_transcription",
+                "mix_feedback",
+                "song_description",
+                "music_theory",
+                "similar_artists",
+                "sample_detection",
+                "sync_brief_match",
+                "audience_profile",
+                "content_advisory",
+                "playlist_pitch",
+                "artist_development_notes",
+                "full_report"
+              ]
+            },
+            "prompt": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 24000
+            },
+            "audio_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "max_new_tokens": {
+              "default": 512,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2048
+            },
+            "temperature": {
+              "default": 1,
+              "type": "number",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "top_p": {
+              "default": 1,
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "do_sample": {
+              "default": false,
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "audio_url"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "generate_image",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "prompt": {
+              "description": "Text prompt describing the image to generate",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "account_id": {
+              "description": "The UUID of the account to generate the image for.",
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "prompt",
+            "account_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "edit_image",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "prompt": {
+              "description": "Text prompt describing the image to generate",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "account_id": {
+              "description": "The UUID of the account to generate the image for.",
+              "type": "string",
+              "minLength": 1
+            },
+            "imageUrl": {
+              "description": "URL of the image to edit",
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "prompt",
+            "account_id",
+            "imageUrl"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_pulses",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "description": "Filter by active status (true/false).",
+              "type": "boolean"
+            }
+          },
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "update_pulse",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "description": "Whether pulse is active for this account",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "active"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "search_web",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "description": "The search query",
+              "type": "string",
+              "minLength": 1
+            },
+            "max_results": {
+              "description": "Maximum number of results (1-20, default: 10)",
+              "type": "number",
+              "minimum": 1,
+              "maximum": 20
+            },
+            "country": {
+              "description": "ISO country code for regional results (e.g., 'US', 'GB')",
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "search_google_images",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "description": "The search query (e.g., 'Mac Miller concert', 'Wiz Khalifa album cover'). Be specific for best results.",
+              "type": "string",
+              "minLength": 1
+            },
+            "limit": {
+              "description": "Number of images to return (1-100, default: 8).",
+              "type": "number",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "imageSize": {
+              "description": "Image size: 'l' (large, recommended), 'm' (medium), 'i' (icon/small). Leave unset if unsure.",
+              "type": "string",
+              "enum": [
+                "l",
+                "m",
+                "i"
+              ]
+            },
+            "imageType": {
+              "description": "Type of image: 'photo' (default, recommended), 'clipart', 'lineart', 'animated'. Leave unset if unsure.",
+              "type": "string",
+              "enum": [
+                "photo",
+                "clipart",
+                "lineart",
+                "animated"
+              ]
+            },
+            "aspectRatio": {
+              "description": "Aspect ratio filter. Only use if specifically requested. Leave unset for general searches.",
+              "type": "string",
+              "enum": [
+                "square",
+                "wide",
+                "tall",
+                "panoramic"
+              ]
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "generate_sora_2_video",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "prompt": {
+              "description": "Text description of the video to generate",
+              "type": "string",
+              "minLength": 1
+            },
+            "seconds": {
+              "description": "Duration of the video in seconds (default: 4, max: 20)",
+              "type": "number",
+              "minimum": 4
+            },
+            "size": {
+              "description": "Size of the video: 720x1280 (default portrait), 1280x720 (landscape)",
+              "type": "string",
+              "enum": [
+                "720x1280",
+                "1280x720"
+              ]
+            }
+          },
+          "required": [
+            "prompt"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "retrieve_sora_2_video",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "video_id": {
+              "description": "The video ID returned from generate_sora_2_video tool (e.g., 'video_123')",
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "video_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "retrieve_sora_2_video_content",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "video_id": {
+              "description": "The video ID returned from generate_sora_2_video tool (e.g., 'video_123')",
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "video_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_spotify_search",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "type": {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "album",
+                  "artist",
+                  "playlist",
+                  "track",
+                  "show",
+                  "episode",
+                  "audiobook"
+                ]
+              }
+            },
+            "limit": {
+              "default": 5,
+              "type": "number",
+              "minimum": 1,
+              "maximum": 50
+            }
+          },
+          "required": [
+            "name",
+            "type"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_spotify_artist_top_tracks",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "market": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_spotify_artist_albums",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "include_groups": {
+              "description": "Comma separated values of album types: album, single, appears_on, compilation",
+              "type": "string"
+            },
+            "market": {
+              "description": "ISO 3166-1 alpha-2 country code",
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2
+            },
+            "limit": {
+              "default": 20,
+              "type": "number",
+              "minimum": 1,
+              "maximum": 50
+            },
+            "offset": {
+              "default": 0,
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_spotify_album",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "market": {
+              "description": "ISO 3166-1 alpha-2 country code",
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "spotify_deep_research",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "artist_account_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "artist_account_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "create_task",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "description": "The title of the task",
+              "type": "string",
+              "minLength": 1
+            },
+            "prompt": {
+              "description": "The instruction or prompt to be executed. Should not include schedule related instructions for this task.",
+              "type": "string",
+              "minLength": 1
+            },
+            "schedule": {
+              "description": "Cron expression for when the task should run",
+              "type": "string",
+              "minLength": 1
+            },
+            "artist_account_id": {
+              "description": "UUID of the associated artist account",
+              "type": "string",
+              "minLength": 1
+            },
+            "model": {
+              "description": "Optional AI model id for this task. If omitted, the default model is used.",
+              "type": "string"
+            },
+            "timezone": {
+              "description": "Optional IANA time zone (e.g. America/New_York) the cron schedule is interpreted in, DST-aware. Defaults to UTC. Stored on the Trigger.dev schedule (the source of truth), not persisted on scheduled_actions.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "prompt",
+            "schedule",
+            "artist_account_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "get_tasks",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "account_id": {
+              "description": "Optional: Filter tasks by the account ID which created them.",
+              "type": "string"
+            },
+            "artist_account_id": {
+              "description": "Optional: Filter tasks by the artist account ID.",
+              "type": "string"
+            },
+            "enabled": {
+              "description": "Optional: Filter tasks by their enabled status",
+              "type": "boolean"
+            },
+            "id": {
+              "description": "Optional: Filter tasks by task ID",
+              "type": "string"
+            }
+          },
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "update_task",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "prompt": {
+              "type": "string",
+              "minLength": 1
+            },
+            "schedule": {
+              "type": "string",
+              "minLength": 1
+            },
+            "artist_account_id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "enabled": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "model": {
+              "type": "string",
+              "minLength": 1
+            },
+            "timezone": {
+              "description": "Optional IANA time zone the cron is interpreted in (DST-aware). Applied to the Trigger.dev schedule; a timezone-only change re-syncs the schedule.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "delete_task",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "UUID of the task to delete",
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_task_run_status",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "runId": {
+              "description": "The unique identifier of the task run to check.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "runId"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "transcribe_audio",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "audio_url": {
+              "description": "URL to the audio file (mp3, wav, m4a, webm)",
+              "type": "string",
+              "format": "uri"
+            },
+            "account_id": {
+              "description": "Owner account ID",
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "artist_account_id": {
+              "description": "Artist account ID for file storage",
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "title": {
+              "description": "Title for the transcription (used in filename)",
+              "type": "string"
+            },
+            "include_timestamps": {
+              "description": "Include timestamps in the transcript",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "audio_url",
+            "account_id",
+            "artist_account_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "contact_team",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "description": "The message to send to the team",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "active_account_email": {
+              "description": "The email of the active account",
+              "type": "string"
+            },
+            "active_conversation_id": {
+              "description": "The ID of the active conversation",
+              "type": "string"
+            },
+            "active_conversation_name": {
+              "description": "The name of the active conversation",
+              "type": "string"
+            }
+          },
+          "required": [
+            "message"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_api_key",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_local_time",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "timezone": {
+              "description": "Optional IANA timezone like 'America/New_York'. If omitted, server local timezone is used.",
+              "type": "string"
+            }
+          },
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "web_deep_research",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "messages": {
+              "description": "Array of messages for the research query",
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "description": "The role of the message sender (user, assistant, system)",
+                    "type": "string"
+                  },
+                  "content": {
+                    "description": "The content of the message",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "role",
+                  "content"
+                ]
+              }
+            }
+          },
+          "required": [
+            "messages"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "artist_deep_research",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "artist_account_id": {
+              "description": "Artist account ID to research",
+              "type": "string"
+            }
+          },
+          "required": [
+            "artist_account_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "send_email",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "to": {
+              "description": "Recipient email address or array of addresses",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "email",
+                "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+              }
+            },
+            "cc": {
+              "default": [],
+              "description": "Optional array of CC email addresses. active_account_email should always be included unless already in 'to'.",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "email",
+                "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+              }
+            },
+            "subject": {
+              "description": "Email subject line",
+              "type": "string"
+            },
+            "text": {
+              "description": "Plain text body of the email. Use context to make this creative and engaging.",
+              "type": "string"
+            },
+            "html": {
+              "default": "",
+              "description": "HTML body of the email. Use context to make this creative and engaging.",
+              "type": "string"
+            },
+            "headers": {
+              "default": {},
+              "description": "Optional custom headers for the email",
+              "type": "object",
+              "propertyNames": {
+                "type": "string"
+              },
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "room_id": {
+              "description": "Room ID to include in the email footer link. Use the active_conversation_id from context.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "to",
+            "subject",
+            "room_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "update_account_info",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "artistId": {
+              "description": "The artist_account_id to update. If not provided, check system prompt for the active artist_account_id.",
+              "type": "string",
+              "minLength": 1
+            },
+            "image": {
+              "description": "(Optional) The new profile image URL for the artist.",
+              "type": "string"
+            },
+            "name": {
+              "description": "(Optional) The display name for the artist.",
+              "type": "string"
+            },
+            "instruction": {
+              "description": "(Optional) Custom instructions for the artist's account.",
+              "type": "string"
+            },
+            "label": {
+              "description": "(Optional) The label or role for the artist.",
+              "type": "string"
+            },
+            "knowledges": {
+              "description": "(Optional) Array of knowledge objects ({ url, name, type }) to be stored as the knowledge base or notes for the artist. The 'type' field must be a valid MIME type (e.g., 'text/plain' for TXT files).",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "description": "MIME type of the file, e.g., \"text/plain\" for TXT files, \"application/pdf\" for PDFs",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "url",
+                  "name",
+                  "type"
+                ]
+              }
+            }
+          },
+          "required": [
+            "artistId"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_youtube_revenue",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "artist_account_id": {
+              "description": "Artist account ID from the system prompt of the active artist.",
+              "type": "string",
+              "minLength": 1
+            },
+            "startDate": {
+              "description": "Start date for revenue data in YYYY-MM-DD format. Example: '2024-01-01'. If not provided, defaults to 30 days ago.",
+              "type": "string"
+            },
+            "endDate": {
+              "description": "End date for revenue data in YYYY-MM-DD format. Example: '2024-01-31'. Should be after startDate. If not provided, defaults to yesterday.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "artist_account_id"
+          ],
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "open_recoup_workflows",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      }
+    ],
+    "status": "passed"
+  },
+  "sourceCatalog": {
+    "standard": [
+      {
+        "name": "create_release_player",
+        "file": "players/registerCreateReleasePlayerTool.ts",
+        "line": 5
+      },
+      {
+        "name": "list_release_player",
+        "file": "players/registerListReleasePlayerTool.ts",
+        "line": 5
+      },
+      {
+        "name": "get_release_player",
+        "file": "players/registerGetReleasePlayerTool.ts",
+        "line": 5
+      },
+      {
+        "name": "update_release_player",
+        "file": "players/registerUpdateReleasePlayerTool.ts",
+        "line": 5
+      },
+      {
+        "name": "get_release_player_activity",
+        "file": "players/registerGetReleasePlayerActivityTool.ts",
+        "line": 5
+      },
+      {
+        "name": "get_release_player_fans",
+        "file": "players/registerGetReleasePlayerFansTool.ts",
+        "line": 5
+      },
+      {
+        "name": "get_workspace_player_fans",
+        "file": "players/registerGetWorkspacePlayerFansTool.ts",
+        "line": 5
+      },
+      {
+        "name": "upload_site_asset",
+        "file": "sites/registerUploadSiteAssetTool.ts",
+        "line": 11
+      },
+      {
+        "name": "context",
+        "file": "context/registerContextTool.ts",
+        "line": 16
+      },
+      {
+        "name": "get_api_key",
+        "file": "registerGetApiKeyTool.ts",
+        "line": 21
+      },
+      {
+        "name": "get_local_time",
+        "file": "registerGetLocalTimeTool.ts",
+        "line": 13
+      },
+      {
+        "name": "create_task",
+        "file": "tasks/registerCreateTaskTool.ts",
+        "line": 21
+      },
+      {
+        "name": "get_tasks",
+        "file": "tasks/registerGetTasksTool.ts",
+        "line": 13
+      },
+      {
+        "name": "update_task",
+        "file": "tasks/registerUpdateTaskTool.ts",
+        "line": 23
+      },
+      {
+        "name": "delete_task",
+        "file": "tasks/registerDeleteTaskTool.ts",
+        "line": 21
+      },
+      {
+        "name": "get_task_run_status",
+        "file": "tasks/registerGetTaskRunStatusTool.ts",
+        "line": 22
+      },
+      {
+        "name": "generate_image",
+        "file": "images/registerGenerateImageTool.ts",
+        "line": 19
+      },
+      {
+        "name": "edit_image",
+        "file": "images/registerEditImageTool.ts",
+        "line": 17
+      },
+      {
+        "name": "select_catalogs",
+        "file": "catalogs/registerGetCatalogsTool.ts",
+        "line": 16
+      },
+      {
+        "name": "select_catalog_songs",
+        "file": "catalogs/registerGetCatalogSongsTool.ts",
+        "line": 16
+      },
+      {
+        "name": "insert_catalog_songs",
+        "file": "catalogs/registerInsertCatalogSongsTool.ts",
+        "line": 16
+      },
+      {
+        "name": "get_catalog_playcount_history",
+        "file": "catalogs/registerGetCatalogPlaycountHistoryTool.ts",
+        "line": 11
+      },
+      {
+        "name": "get_catalog_streams",
+        "file": "catalogs/registerCatalogStreamsTools.ts",
+        "line": 13
+      },
+      {
+        "name": "manage_catalog_stream_tracking",
+        "file": "catalogs/registerCatalogStreamsTools.ts",
+        "line": 41
+      },
+      {
+        "name": "generate_sora_2_video",
+        "file": "sora2/registerGenerateVideoTool.ts",
+        "line": 16
+      },
+      {
+        "name": "retrieve_sora_2_video",
+        "file": "sora2/registerRetrieveVideoTool.ts",
+        "line": 16
+      },
+      {
+        "name": "retrieve_sora_2_video_content",
+        "file": "sora2/registerRetrieveVideoContentTool.ts",
+        "line": 16
+      },
+      {
+        "name": "get_spotify_search",
+        "file": "spotify/registerGetSpotifySearchTool.ts",
+        "line": 36
+      },
+      {
+        "name": "get_spotify_artist_top_tracks",
+        "file": "spotify/registerGetSpotifyArtistTopTracksTool.ts",
+        "line": 24
+      },
+      {
+        "name": "get_spotify_artist_albums",
+        "file": "spotify/registerGetSpotifyArtistAlbumsTool.ts",
+        "line": 30
+      },
+      {
+        "name": "get_spotify_album",
+        "file": "spotify/registerGetSpotifyAlbumTool.ts",
+        "line": 24
+      },
+      {
+        "name": "spotify_deep_research",
+        "file": "spotify/registerGetSpotifyDeepResearchTool.ts",
+        "line": 36
+      },
+      {
+        "name": "contact_team",
+        "file": "registerContactTeamTool.ts",
+        "line": 16
+      },
+      {
+        "name": "update_account_info",
+        "file": "registerUpdateAccountInfoTool.ts",
+        "line": 48
+      },
+      {
+        "name": "get_artist_socials",
+        "file": "artistSocials/registerGetArtistSocialsTool.ts",
+        "line": 7
+      },
+      {
+        "name": "update_artist_socials",
+        "file": "artistSocials/registerUpdateArtistSocialsTool.ts",
+        "line": 29
+      },
+      {
+        "name": "search_web",
+        "file": "search/registerSearchWebTool.ts",
+        "line": 32
+      },
+      {
+        "name": "search_google_images",
+        "file": "search/registerSearchGoogleImagesTool.ts",
+        "line": 50
+      },
+      {
+        "name": "web_deep_research",
+        "file": "registerWebDeepResearchTool.ts",
+        "line": 28
+      },
+      {
+        "name": "artist_deep_research",
+        "file": "registerArtistDeepResearchTool.ts",
+        "line": 35
+      },
+      {
+        "name": "create_knowledge_base",
+        "file": "files/registerCreateKnowledgeBaseTool.ts",
+        "line": 29
+      },
+      {
+        "name": "generate_txt_file",
+        "file": "files/registerGenerateTxtFileTool.ts",
+        "line": 21
+      },
+      {
+        "name": "analyze_music",
+        "file": "flamingo/registerAnalyzeMusicTool.ts",
+        "line": 24
+      },
+      {
+        "name": "get_youtube_revenue",
+        "file": "youtube/registerGetYouTubeRevenueTool.ts",
+        "line": 42
+      },
+      {
+        "name": "transcribe_audio",
+        "file": "transcribe/registerTranscribeAudioTool.ts",
+        "line": 19
+      },
+      {
+        "name": "send_email",
+        "file": "registerSendEmailTool.ts",
+        "line": 15
+      },
+      {
+        "name": "list_professional_roster",
+        "file": "artists/registerProfessionalRosterTools.ts",
+        "line": 8
+      },
+      {
+        "name": "confirm_professional_roster",
+        "file": "artists/registerProfessionalRosterTools.ts",
+        "line": 19
+      },
+      {
+        "name": "create_new_artist",
+        "file": "artists/registerCreateNewArtistTool.ts",
+        "line": 57
+      },
+      {
+        "name": "get_chats",
+        "file": "chats/registerGetChatsTool.ts",
+        "line": 42
+      },
+      {
+        "name": "compact_chats",
+        "file": "chats/registerCompactChatsTool.ts",
+        "line": 33
+      },
+      {
+        "name": "get_pulses",
+        "file": "pulse/registerGetPulsesTool.ts",
+        "line": 29
+      },
+      {
+        "name": "update_pulse",
+        "file": "pulse/registerUpdatePulseTool.ts",
+        "line": 24
+      },
+      {
+        "name": "list_sites",
+        "file": "sites/index.ts",
+        "line": 12
+      },
+      {
+        "name": "get_site",
+        "file": "sites/index.ts",
+        "line": 13
+      },
+      {
+        "name": "create_site",
+        "file": "sites/index.ts",
+        "line": 14
+      },
+      {
+        "name": "propose_site_concepts",
+        "file": "sites/index.ts",
+        "line": 18
+      },
+      {
+        "name": "generate_site",
+        "file": "sites/index.ts",
+        "line": 22
+      },
+      {
+        "name": "get_site_generation",
+        "file": "sites/index.ts",
+        "line": 26
+      },
+      {
+        "name": "publish_site",
+        "file": "sites/index.ts",
+        "line": 30
+      },
+      {
+        "name": "delete_site",
+        "file": "sites/index.ts",
+        "line": 34
+      },
+      {
+        "name": "unpublish_site",
+        "file": "sites/index.ts",
+        "line": 38
+      },
+      {
+        "name": "get_site_signups",
+        "file": "sites/index.ts",
+        "line": 42
+      }
+    ],
+    "full_oauth_static": [
+      "create_release_player",
+      "list_release_player",
+      "get_release_player",
+      "update_release_player",
+      "get_release_player_activity",
+      "get_release_player_fans",
+      "get_workspace_player_fans",
+      "upload_site_asset",
+      "get_local_time",
+      "create_task",
+      "get_tasks",
+      "update_task",
+      "delete_task",
+      "get_task_run_status",
+      "generate_image",
+      "edit_image",
+      "select_catalogs",
+      "select_catalog_songs",
+      "insert_catalog_songs",
+      "generate_sora_2_video",
+      "retrieve_sora_2_video",
+      "retrieve_sora_2_video_content",
+      "get_spotify_search",
+      "get_spotify_artist_top_tracks",
+      "get_spotify_artist_albums",
+      "get_spotify_album",
+      "spotify_deep_research",
+      "contact_team",
+      "update_account_info",
+      "get_artist_socials",
+      "update_artist_socials",
+      "search_web",
+      "search_google_images",
+      "web_deep_research",
+      "artist_deep_research",
+      "create_knowledge_base",
+      "generate_txt_file",
+      "analyze_music",
+      "get_youtube_revenue",
+      "transcribe_audio",
+      "send_email",
+      "create_new_artist",
+      "get_chats",
+      "compact_chats",
+      "get_daily_email_status",
+      "set_daily_email_status",
+      "list_sites",
+      "get_site",
+      "create_site",
+      "propose_site_concepts",
+      "generate_site",
+      "get_site_generation",
+      "publish_site",
+      "delete_site",
+      "unpublish_site",
+      "get_site_signups",
+      "list_music_release_cases",
+      "read_music_release_case",
+      "read_music_release_case_review",
+      "record_music_release_case_review",
+      "save_music_context_brief",
+      "read_music_context_brief",
+      "plan_music_context_research",
+      "list_music_context_executions",
+      "list_music_context_catalog_members",
+      "list_music_context_release_tracks",
+      "read_music_release_track_observations",
+      "review_music_release_track_identities",
+      "verify_music_release_tracks",
+      "expand_music_context_catalog",
+      "plan_music_catalog_research",
+      "read_music_context_execution",
+      "import_catalog_context",
+      "import_artist_context",
+      "import_songwriter_context",
+      "import_music_company_context",
+      "import_music_campaign_brief",
+      "import_music_supporting_text",
+      "import_music_release_context",
+      "verify_music_release",
+      "import_song_context",
+      "read_music_context",
+      "compile_music_context_brief",
+      "list_artists"
+    ],
+    "context_operations": [
+      "list_music_release_cases",
+      "read_music_release_case",
+      "read_music_release_case_review",
+      "record_music_release_case_review",
+      "save_music_context_brief",
+      "read_music_context_brief",
+      "plan_music_context_research",
+      "list_music_context_executions",
+      "list_music_context_catalog_members",
+      "list_music_context_release_tracks",
+      "read_music_release_track_observations",
+      "review_music_release_track_identities",
+      "verify_music_release_tracks",
+      "expand_music_context_catalog",
+      "plan_music_catalog_research",
+      "read_music_context_execution",
+      "import_catalog_context",
+      "import_artist_context",
+      "import_songwriter_context",
+      "import_music_company_context",
+      "import_music_campaign_brief",
+      "import_music_supporting_text",
+      "import_music_release_context",
+      "verify_music_release",
+      "import_song_context",
+      "read_music_context",
+      "compile_music_context_brief"
+    ],
+    "note": "Static import traversal of registerAllTools plus10 sites loop registrations and explicit OAuth transform; no server or host runtime scan."
+  },
+  "oauthVerification": "84-tool delegated catalog passes the real SDK in-memory API regression; no fresh OAuth host connection verified in this execution."
+}

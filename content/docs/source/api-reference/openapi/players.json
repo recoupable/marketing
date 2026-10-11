@@ -1726,6 +1726,7 @@
           "provider",
           "first_connected_at",
           "last_connected_at",
+          "contact_id",
           "contact_id"
         ]
       },

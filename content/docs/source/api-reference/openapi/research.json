@@ -648,7 +648,7 @@
     },
     "/api/chat/runs": {
       "post": {
-        "description": "Start an asynchronous, headless chat-generation run on the durable agent workflow — the same engine as interactive [`POST /api/chat`](/api-reference/chat/workflow).\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) — use that for **interactive, streaming** turns on an existing chat; use this for **headless/programmatic** runs (no browser or pre-provisioned session needed).\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — poll to learn **whether** the run finished (and if it succeeded).\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — **watch the output live** by passing the returned `chatId`.",
+        "description": "Start an asynchronous, headless chat-generation run on the durable agent workflow \u2014 the same engine as interactive [`POST /api/chat`](/api-reference/chat/workflow).\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) \u2014 use that for **interactive, streaming** turns on an existing chat; use this for **headless/programmatic** runs (no browser or pre-provisioned session needed).\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) \u2014 poll to learn **whether** the run finished (and if it succeeded).\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) \u2014 **watch the output live** by passing the returned `chatId`.",
         "security": [
           {
             "apiKeyAuth": []
@@ -667,7 +667,7 @@
         },
         "responses": {
           "202": {
-            "description": "Run accepted. A durable workflow run was started; `runId` identifies it. `chatId` / `sessionId` identify the persisted output — read the result via [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) (resume the stream) or the chat's persisted messages. Poll [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) for status.",
+            "description": "Run accepted. A durable workflow run was started; `runId` identifies it. `chatId` / `sessionId` identify the persisted output \u2014 read the result via [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) (resume the stream) or the chat's persisted messages. Poll [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) for status.",
             "content": {
               "application/json": {
                 "schema": {
@@ -701,7 +701,7 @@
     },
     "/api/chat/{chatId}/stop": {
       "post": {
-        "description": "Stop the response currently being generated for a chat, freeing it to accept a new message. Idempotent — returns `stopped: false` when nothing is in progress. The chat must belong to the authenticated account.",
+        "description": "Stop the response currently being generated for a chat, freeing it to accept a new message. Idempotent \u2014 returns `stopped: false` when nothing is in progress. The chat must belong to the authenticated account.",
         "security": [
           {
             "apiKeyAuth": []
@@ -766,7 +766,7 @@
     "/api/chat/{chatId}/stream": {
       "get": {
         "summary": "Resume a chat response stream",
-        "description": "Reconnects to an in-progress chat response — the resume counterpart to [`POST /api/chat`](/api-reference/chat/workflow), which never resumes. Returns the live Server-Sent Events stream when a response is still being generated, or `204 No Content` when there is nothing to resume. The chat must belong to the authenticated account.\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) — the interactive turn whose stream this resumes.\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — start a **headless** run, then pass the returned `chatId` here to **watch its output live**.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** that run finished (status, not content).",
+        "description": "Reconnects to an in-progress chat response \u2014 the resume counterpart to [`POST /api/chat`](/api-reference/chat/workflow), which never resumes. Returns the live Server-Sent Events stream when a response is still being generated, or `204 No Content` when there is nothing to resume. The chat must belong to the authenticated account.\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) \u2014 the interactive turn whose stream this resumes.\n- [`POST /api/chat/runs`](/api-reference/chat/runs) \u2014 start a **headless** run, then pass the returned `chatId` here to **watch its output live**.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) \u2014 check **whether** that run finished (status, not content).",
         "security": [
           {
             "apiKeyAuth": []
@@ -790,7 +790,7 @@
             "name": "account_id",
             "in": "query",
             "required": false,
-            "description": "Act on a chat belonging to another account. Only honoured for a key that is authorised for that account — an organization key may pass a member account's id; a personal key passing anyone else's is rejected with `403 Access denied to specified account_id`. Omit it to act as the authenticated account.",
+            "description": "Act on a chat belonging to another account. Only honoured for a key that is authorised for that account \u2014 an organization key may pass a member account's id; a personal key passing anyone else's is rejected with `403 Access denied to specified account_id`. Omit it to act as the authenticated account.",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -800,7 +800,7 @@
             "name": "startIndex",
             "in": "query",
             "required": false,
-            "description": "Zero-based index of the first stream chunk to return, so a client that was already receiving this response resumes where it left off instead of replaying the whole turn.\n\nPass the number of chunks already received. Omit it to receive the response from the beginning — the right choice for a fresh reader such as a page load, or a client watching a headless [`POST /api/chat/runs`](/api-reference/chat/runs) run for the first time.\n\nA long turn's stream can end before the run does; reconnecting with `startIndex` is how a client keeps rendering without duplicating or skipping chunks.",
+            "description": "Zero-based index of the first stream chunk to return, so a client that was already receiving this response resumes where it left off instead of replaying the whole turn.\n\nPass the number of chunks already received. Omit it to receive the response from the beginning \u2014 the right choice for a fresh reader such as a page load, or a client watching a headless [`POST /api/chat/runs`](/api-reference/chat/runs) run for the first time.\n\nA long turn's stream can end before the run does; reconnecting with `startIndex` is how a client keeps rendering without duplicating or skipping chunks.",
             "schema": {
               "type": "integer",
               "minimum": 0
@@ -809,7 +809,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Server-Sent Events stream of UI message parts for the in-progress response, compatible with the Vercel AI SDK. The `x-workflow-run-id` response header carries the run ID for this response, and `x-workflow-stream-tail-index` carries the index of the last chunk known when this read was opened — a base for computing absolute positions, not a record of where the response ended.",
+            "description": "Server-Sent Events stream of UI message parts for the in-progress response, compatible with the Vercel AI SDK. The `x-workflow-run-id` response header carries the run ID for this response, and `x-workflow-stream-tail-index` carries the index of the last chunk known when this read was opened \u2014 a base for computing absolute positions, not a record of where the response ended.",
             "headers": {
               "x-workflow-run-id": {
                 "description": "Durable workflow run ID of the resumed run.",
@@ -818,7 +818,7 @@
                 }
               },
               "x-workflow-stream-tail-index": {
-                "description": "Zero-based index of the last chunk known to the stream **at the moment this read was opened**. Because headers are sent before the body, a read that stays open past that point will deliver chunks beyond it — so this is a base for computing absolute positions, not a record of where the response ended. A client resuming precisely should count the chunks it receives on top of this value. Omitted if the runtime cannot report it.",
+                "description": "Zero-based index of the last chunk known to the stream **at the moment this read was opened**. Because headers are sent before the body, a read that stays open past that point will deliver chunks beyond it \u2014 so this is a base for computing absolute positions, not a record of where the response ended. A client resuming precisely should count the chunks it receives on top of this value. Omitted if the runtime cannot report it.",
                 "schema": {
                   "type": "integer"
                 }
@@ -882,7 +882,7 @@
     "/api/chat": {
       "post": {
         "summary": "Stream sandbox-driven chat (Vercel Workflow)",
-        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) — no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** a headless run finished (status, not content).",
+        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) \u2014 no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) \u2014 the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) \u2014 reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) \u2014 check **whether** a headless run finished (status, not content).",
         "security": [
           {
             "apiKeyAuth": []
@@ -920,7 +920,7 @@
             }
           },
           "400": {
-            "description": "Bad request — missing required fields, invalid body, or sandbox not initialized for the session.",
+            "description": "Bad request \u2014 missing required fields, invalid body, or sandbox not initialized for the session.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1007,7 +1007,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed — invalid or missing API key",
+            "description": "Authentication failed \u2014 invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1024,7 +1024,7 @@
     },
     "/api/research/enrich": {
       "post": {
-        "description": "Enrich an entity with structured data from web research. Provide a description of who or what to research and a JSON schema defining the fields to extract. Returns typed data with citations. **Important:** The `schema` object must include `\"type\": \"object\"` at the top level — requests without an explicit type will be rejected.",
+        "description": "Enrich an entity with structured data from web research. Provide a description of who or what to research and a JSON schema defining the fields to extract. Returns typed data with citations. **Important:** The `schema` object must include `\"type\": \"object\"` at the top level \u2014 requests without an explicit type will be rejected.",
         "requestBody": {
           "required": true,
           "content": {
@@ -1057,7 +1057,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed — invalid or missing API key",
+            "description": "Authentication failed \u2014 invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1107,7 +1107,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed — invalid or missing API key",
+            "description": "Authentication failed \u2014 invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1124,7 +1124,7 @@
     },
     "/api/research/people": {
       "post": {
-        "description": "Search for people in the music industry — artists, managers, A&R reps, producers. Returns multi-source profiles including LinkedIn data.",
+        "description": "Search for people in the music industry \u2014 artists, managers, A&R reps, producers. Returns multi-source profiles including LinkedIn data.",
         "requestBody": {
           "required": true,
           "content": {
@@ -1157,7 +1157,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed — invalid or missing API key",
+            "description": "Authentication failed \u2014 invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1207,7 +1207,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed — invalid or missing API key",
+            "description": "Authentication failed \u2014 invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1257,7 +1257,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed — invalid or missing API key",
+            "description": "Authentication failed \u2014 invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1267,7 +1267,7 @@
             }
           },
           "402": {
-            "description": "Insufficient research credits — the body includes a static `billingUrl`. No Stripe object is created.",
+            "description": "Insufficient research credits \u2014 the body includes a static `billingUrl`. No Stripe object is created.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1295,35 +1295,131 @@
     },
     "/api/research/track/stats": {
       "get": {
-        "description": "Get the current Spotify play count for one recording by ISRC, served from the Apify-backed measurement store. A fresh capture is returned as-is; a stale or missing one triggers a refresh of the recording's album through the Spotify play-count actor before responding.",
+        "description": "Current per-track statistics. Exactly one of isrc, songstats_track_id, spotify_track_id or apple_music_track_id and a source are required. Spotify with an ISRC uses the measurement store when available; other sources and missing store data use Songstats. Inspect each stats entry data_source when supplied; provider shape drift can return unlabeled data. Provider coverage, entitlement and quota affect availability.",
         "parameters": [
           {
             "name": "isrc",
             "in": "query",
-            "required": true,
-            "description": "Track ISRC. The recording must have a Spotify album mapping in the measurement store (created by a `current` measurement job or a catalog snapshot).",
+            "required": false,
             "schema": {
-              "type": "string",
-              "example": "USQY51771120"
-            }
+              "type": "string"
+            },
+            "description": "Supply exactly one track identifier.",
+            "example": "USQY51771120"
+          },
+          {
+            "name": "songstats_track_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Supply exactly one track identifier."
+          },
+          {
+            "name": "spotify_track_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Supply exactly one track identifier."
+          },
+          {
+            "name": "apple_music_track_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Supply exactly one track identifier."
           },
           {
             "name": "source",
             "in": "query",
-            "required": false,
-            "description": "Only `spotify` is supported; defaults to `spotify`.",
+            "required": true,
             "schema": {
-              "type": "string",
-              "enum": [
-                "spotify"
-              ],
-              "default": "spotify"
-            }
+              "type": "string"
+            },
+            "description": "Required provider source or comma-separated sources; not limited to Spotify.",
+            "example": "spotify"
+          },
+          {
+            "name": "with_playlists",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional passthrough to Songstats, availability depends on provider."
+          },
+          {
+            "name": "with_charts",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional passthrough to Songstats, availability depends on provider."
+          },
+          {
+            "name": "with_stations",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional passthrough to Songstats, availability depends on provider."
+          },
+          {
+            "name": "with_videos",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional passthrough to Songstats, availability depends on provider."
+          },
+          {
+            "name": "with_links",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional passthrough to Songstats, availability depends on provider."
+          },
+          {
+            "name": "only_current",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional passthrough to Songstats, availability depends on provider."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional passthrough to Songstats, availability depends on provider."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional passthrough to Songstats, availability depends on provider."
           }
         ],
         "responses": {
           "200": {
-            "description": "The recording's current Spotify play count from the measurement store.",
+            "description": "Current per-source track statistics from the measurement store or Songstats, with data_source on recognized stats entries.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1333,7 +1429,7 @@
             }
           },
           "400": {
-            "description": "Validation error — `isrc` missing, or `source` is not `spotify`.",
+            "description": "Missing source, or zero/multiple track identifiers. Supply exactly one of the four supported identifiers.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1343,7 +1439,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed — invalid or missing API key.",
+            "description": "Authentication failed \u2014 invalid or missing API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1353,7 +1449,7 @@
             }
           },
           "404": {
-            "description": "Nothing stored for this ISRC and no Spotify album mapping to refresh from — create a `current` measurement job for it first.",
+            "description": "Requested track or source data was not found by the provider.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1363,7 +1459,7 @@
             }
           },
           "402": {
-            "description": "Insufficient research credits — the body includes a static `billingUrl`. No Stripe object is created.",
+            "description": "Insufficient research credits \u2014 the body includes a static `billingUrl`. No Stripe object is created.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1371,6 +1467,15 @@
                 }
               }
             }
+          },
+          "429": {
+            "description": "Provider rate/quota limit; do not retry in an unbounded loop."
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error."
+          },
+          "504": {
+            "description": "Songstats request timed out."
           }
         }
       }
@@ -1387,7 +1492,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Provider-neutral track id — ISRC or Spotify track id."
+            "description": "Provider-neutral track id \u2014 ISRC or Spotify track id."
           },
           {
             "name": "platform",
@@ -1470,7 +1575,7 @@
             }
           },
           "400": {
-            "description": "Validation error — bad identifier or query param.",
+            "description": "Validation error \u2014 bad identifier or query param.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1480,7 +1585,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed — invalid or missing API key.",
+            "description": "Authentication failed \u2014 invalid or missing API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1500,7 +1605,7 @@
             }
           },
           "404": {
-            "description": "No measurements for this track yet — create a `current` measurement job to capture it.",
+            "description": "No measurements for this track yet \u2014 create a `current` measurement job to capture it.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1566,7 +1671,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed — invalid or missing API key.",
+            "description": "Authentication failed \u2014 invalid or missing API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1586,7 +1691,7 @@
             }
           },
           "404": {
-            "description": "No capture exists for this album yet — create a `current` measurement-job.",
+            "description": "No capture exists for this album yet \u2014 create a `current` measurement-job.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1624,7 +1729,7 @@
             }
           },
           "400": {
-            "description": "Validation error — provide a `source` and exactly one of `scope.catalog_id`, `scope.album_ids`, `scope.isrcs`.",
+            "description": "Validation error \u2014 provide a `source` and exactly one of `scope.catalog_id`, `scope.album_ids`, `scope.isrcs`.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1634,7 +1739,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed — invalid or missing API key.",
+            "description": "Authentication failed \u2014 invalid or missing API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1658,7 +1763,7 @@
     },
     "/api/chat/runs/{runId}": {
       "get": {
-        "description": "Status of an asynchronous run started via [`POST /api/chat/runs`](/api-reference/chat/runs). Returns a point-in-time snapshot (**is it done?**) — not the generated content.\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — starts the run this reports on.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — read the **content**: poll *this* to know **whether** a run finished; use the stream to **watch the output** as it's produced.\n- [`POST /api/chat`](/api-reference/chat/workflow) — the interactive, streaming counterpart to a headless run.",
+        "description": "Status of an asynchronous run started via [`POST /api/chat/runs`](/api-reference/chat/runs). Returns a point-in-time snapshot (**is it done?**) \u2014 not the generated content.\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) \u2014 starts the run this reports on.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) \u2014 read the **content**: poll *this* to know **whether** a run finished; use the stream to **watch the output** as it's produced.\n- [`POST /api/chat`](/api-reference/chat/workflow) \u2014 the interactive, streaming counterpart to a headless run.",
         "security": [
           {
             "apiKeyAuth": []
@@ -1688,11 +1793,11 @@
             }
           },
           "404": {
-            "description": "No run found for the given runId",
+            "description": "Run not found",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChatGenerateErrorResponse"
+                  "$ref": "#/components/schemas/ChatRunNotFoundError"
                 }
               }
             }
@@ -1771,6 +1876,13 @@
           "message": {
             "type": "string",
             "description": "Error message describing what went wrong"
+          },
+          "missing_fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional validation detail."
           }
         }
       },
@@ -1780,14 +1892,16 @@
         "properties": {
           "prompt": {
             "type": "string",
-            "description": "Single text prompt for the assistant. Required if 'messages' is not provided."
+            "description": "Single text prompt for the assistant. Required if 'messages' is not provided.",
+            "minLength": 1
           },
           "messages": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UIMessage"
             },
-            "description": "Array of UIMessage objects for context. Required if 'prompt' is not provided."
+            "description": "Array of UIMessage objects for context. Required if 'prompt' is not provided.",
+            "minItems": 1
           },
           "artistId": {
             "type": "string",
@@ -1804,6 +1918,20 @@
             "description": "Optional. When the run is kicked off by a Trigger.dev scheduled task, the Trigger run id (`run_...`). The started workflow's `{ sessionId, chatId, workflowRunId }` are written to that Trigger run's metadata so the scheduled run can be traced to the chat that did the work.",
             "example": "run_06g3i0e3logru439uh9e1m8801"
           }
+        },
+        "example": {
+          "messages": [
+            {
+              "id": "user-1",
+              "role": "user",
+              "parts": [
+                {
+                  "type": "text",
+                  "text": "Summarize my next release."
+                }
+              ]
+            }
+          ]
         }
       },
       "ChatMessage": {
@@ -1907,7 +2035,7 @@
       },
       "ChatWorkflowRequest": {
         "type": "object",
-        "description": "Request body for the sandbox-driven, Workflow-backed chat endpoint. Requires an existing session, chat, and provisioned sandbox. The Bearer key from the `Authorization` header is forwarded into the sandbox for skill-based callbacks to the Recoup API — no separate access-token field needed.",
+        "description": "Request body for the sandbox-driven, Workflow-backed chat endpoint. Requires an existing session, chat, and provisioned sandbox. The Bearer key from the `Authorization` header is forwarded into the sandbox for skill-based callbacks to the Recoup API \u2014 no separate access-token field needed.",
         "required": [
           "messages",
           "chatId",
@@ -1919,7 +2047,7 @@
             "items": {
               "$ref": "#/components/schemas/UIMessage"
             },
-            "description": "Conversation history as an array of `UIMessage` objects, matching the [Vercel AI SDK](https://sdk.vercel.ai/) `UIMessage` shape. The last entry is typically the new user turn — the agent loop reads the entire array and persists the latest user message before the workflow starts."
+            "description": "Conversation history as an array of `UIMessage` objects, matching the [Vercel AI SDK](https://sdk.vercel.ai/) `UIMessage` shape. The last entry is typically the new user turn \u2014 the agent loop reads the entire array and persists the latest user message before the workflow starts."
           },
           "chatId": {
             "type": "string",
@@ -1929,7 +2057,7 @@
           "sessionId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the session that owns both the chat and the sandbox. The session must have a non-null `sandbox_state` — call [POST /api/sandbox](/api-reference/sandbox/create) first if not."
+            "description": "UUID of the session that owns both the chat and the sandbox. The session must have a non-null `sandbox_state` \u2014 call [POST /api/sandbox](/api-reference/sandbox/create) first if not."
           },
           "context": {
             "type": "object",
@@ -2411,7 +2539,7 @@
         "properties": {
           "query": {
             "type": "string",
-            "description": "The research question — be specific and detailed for best results."
+            "description": "The research question \u2014 be specific and detailed for best results."
           }
         }
       },
@@ -2697,7 +2825,7 @@
         "properties": {
           "query": {
             "type": "string",
-            "description": "The search query — what you want to find on the web."
+            "description": "The search query \u2014 what you want to find on the web."
           },
           "max_results": {
             "type": "integer",
@@ -2759,11 +2887,15 @@
       },
       "UIMessage": {
         "type": "object",
-        "description": "A message in the chat conversation. See https://ai-sdk.dev/docs/reference/ai-sdk-core/ui-message for details.",
+        "required": [
+          "id",
+          "role",
+          "parts"
+        ],
+        "description": "AI SDK UIMessage. Parts are structurally validated before provisioning for headless runs. Legacy content-only messages are rejected.",
         "properties": {
           "id": {
-            "type": "string",
-            "description": "Unique identifier for the message"
+            "type": "string"
           },
           "role": {
             "type": "string",
@@ -2771,12 +2903,31 @@
               "user",
               "assistant",
               "system"
-            ],
-            "description": "The role of the message sender"
+            ]
           },
-          "content": {
-            "type": "string",
-            "description": "The text content of the message"
+          "metadata": {},
+          "parts": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            },
+            "description": "SDK discriminated parts: text (text), file (mediaType and url), reasoning, supported tool and data-* parts. Each must satisfy the installed AI SDK schema; a type field alone is insufficient.",
+            "example": [
+              {
+                "type": "text",
+                "text": "Summarize my next release."
+              }
+            ]
           }
         }
       },
@@ -2978,7 +3129,7 @@
         "properties": {
           "source": {
             "type": "string",
-            "description": "Platform the stats belong to — `spotify`."
+            "description": "Platform the stats belong to \u2014 `spotify`."
           },
           "data": {
             "type": "object",
@@ -3017,7 +3168,7 @@
           },
           "required_credits": {
             "type": "integer",
-            "example": 5
+            "example": 50000
           },
           "billingUrl": {
             "type": "string",
@@ -3053,7 +3204,7 @@
       },
       "ResearchMeasurementsResponse": {
         "type": "object",
-        "description": "A track's measured series, or — when `aggregate` is set — the derived projection.",
+        "description": "A track's measured series, or \u2014 when `aggregate` is set \u2014 the derived projection.",
         "properties": {
           "status": {
             "type": "string",
@@ -3305,7 +3456,8 @@
             "type": "string",
             "format": "date-time",
             "description": "When the workflow run was created.",
-            "example": "2026-08-25T19:33:56.000Z"
+            "example": "2026-08-25T19:33:56.000Z",
+            "nullable": true
           },
           "startedAt": {
             "type": "string",
@@ -3326,6 +3478,25 @@
             "nullable": true,
             "description": "`completedAt - startedAt` in milliseconds; null until the run is terminal.",
             "example": 2498614
+          }
+        }
+      },
+      "ChatRunNotFoundError": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ]
+          },
+          "error": {
+            "type": "string",
+            "example": "Run not found"
           }
         }
       }

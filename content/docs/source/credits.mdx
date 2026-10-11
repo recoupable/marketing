@@ -12,13 +12,13 @@ Some Recoup endpoints are billed in **credits** — primarily endpoints that hit
 | Family | Billed? | Notes |
 |--------|---------|-------|
 | **Research** ([`/api/research/*`](/api-reference/research/web)) | Yes | Each successful call deducts credits. Costs vary by endpoint and parameters (e.g. [`enrich`](/api-reference/research/enrich) charges by processor tier; [`extract`](/api-reference/research/extract) charges by URL count). |
-| **Content generation** ([`/api/image/generate`](/api-reference/image/generation)) | Yes | Image generation is priced per call. |
+| **Content generation** ([`/api/content/image`](/api-reference/content/generate-image), [`video`](/api-reference/content/generate-video), upscale, transcribe and analyze) | Yes | Model-specific generation and inference charges apply. Hosted pipelines charge their component operations; estimates are advisory. |
 | **AI Chat — streaming** ([`POST /api/chat`](/api-reference/chat/workflow)) | Yes | Variable cost based on model token usage, with a per-request minimum. |
 | **Music analysis** ([`POST /api/songs/analyze`](/api-reference/songs/analyze)) | Yes | \$0.05 per model call plus \$0.001166 per second of inference time; `full_report` is the sum of its 13 calls. |
 | **Social scrape** ([`/api/socials/{id}/scrape`](/api-reference/social/scrape), [`/api/artist/socials/scrape`](/api-reference/artist/socials-scrape)) | Yes | \$0.05, plus \$0.01 per post requested via `posts` — per social profile scraped. |
-| **Everything else** | Free at the API layer | [Artist CRUD](/api-reference/artists/list), [sandboxes](/api-reference/sandboxes/list), [sessions](/api-reference/sessions/get), [scheduled tasks](/api-reference/tasks/get), [account/org management](/api-reference/accounts/id), [agent signup](/api-reference/agents/signup), [Spotify proxies](/api-reference/spotify/search), etc. Subscription gating may still apply. |
+| **Other operations** | Consult the endpoint contract | [Artist CRUD](/api-reference/artists/list), [sandboxes](/api-reference/sandboxes/list), [sessions](/api-reference/sessions/get), [scheduled tasks](/api-reference/tasks/get), [account/org management](/api-reference/accounts/id), [agent signup](/api-reference/agents/signup), [Spotify proxies](/api-reference/spotify/search), etc. Subscription gating may still apply. |
 
-Failed calls (4xx / 5xx) do **not** deduct credits. Deduction happens only after the upstream call succeeds.
+Upstream generation or inference may incur cost even if a later composition or delivery step fails. Do not infer zero spend from the final pipeline status; inspect usage events. Credit gates reject before provider work when the balance is insufficient.
 
 ---
 
@@ -213,3 +213,11 @@ Current as of this revision of the page. The authoritative source is the per-end
 | [`POST /api/research/deep`](/api-reference/research/deep) | \$0.25 per call |
 | [`POST /api/image/generate`](/api-reference/image/generation) | Per-call price; see endpoint reference |
 | [`POST /api/songs/analyze`](/api-reference/songs/analyze) | `$0.05 + $0.001166 × elapsed_seconds` per model call; `full_report` = 13 calls |
+
+## Billing recovery and units
+
+`insufficient_credits` returns `billingUrl`, a static app link, not a Stripe Checkout session. Stop and surface it; do not silently retry or initiate a charge. Other subscription/plan gates may legitimately return `checkoutUrl`; inspect the error type.
+
+Top-ups require `successUrl` on every request and a positive whole-cent multiple of 10,000 micro-dollar credits. For example, 2,500,000 credits buys $2.50 before fees; `totalCents` is 289 for that example. It is not a credit count. `isPro` means effective Pro only, and is false for paid Starter; use `plan` for paid-plan decisions.
+
+A single-task GET can return a plan-limit 402 before execution after a downgrade, while listing tasks does not run that gate. Free/Starter/Pro are technical entitlement values. Platform/Advisory/Build/Enterprise marketing offers describe commercial services; they are not interchangeable names.

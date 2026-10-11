@@ -52,3 +52,6 @@ brand-studio/.venv/
 # Eve generated runtime and build artifacts
 .eve/
 .output/
+
+# Pinned API checkout used by the documentation contract CI job
+/.contract-api/

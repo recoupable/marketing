@@ -14,6 +14,371 @@
     }
   ],
   "paths": {
+    "/api/organizations/professionals": {
+      "get": {
+        "summary": "List professional roster",
+        "description": "List organization-private songwriter/producer records. Names are discovery candidates, never identity proof. Follow next_cursor until null to inspect the complete roster. Membership is rechecked on every page; responses are private and not cached. Legacy MCP equivalent (API key or Privy token): list_professional_roster. Not exposed through delegated OAuth MCP.",
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "organization_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "next_cursor returned by the previous page."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Up to 100 professionals",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "professionals",
+                    "next_cursor"
+                  ],
+                  "properties": {
+                    "professionals": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/OrganizationProfessional"
+                      }
+                    },
+                    "next_cursor": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "uuid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid organization ID or cursor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access denied, revoked, or record outside this organization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Unavailable storage or invalid response; retry the same page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Confirm professional roster addition",
+        "description": "Requires explicit operator identity confirmation and organization roster intent. Use new only after confirming a distinct professional, including resolving same-name candidates; never infer identity from a name. Use existing with a professional_id from this organization to add roles without renaming. Both songwriter and producer can belong to one record. This operation creates no login account, shared canonical identity, catalog rights, enrichment job, or cross-workspace context. Research/name intake alone never calls this operation. Membership is rechecked before idempotency replay. Legacy MCP equivalent (API key or Privy token): confirm_professional_roster. Not exposed through delegated OAuth MCP. Returns the original saved response on retry, including its created flag and original status (201 for a new record, 200 for an existing record).",
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "organization_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "idempotency_key": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Generate once per deliberate operation. Persist and reuse after a timeout or lost response. Scoped to the organization and actor. Different input with the same key is rejected."
+                  },
+                  "mode": {
+                    "type": "string",
+                    "enum": [
+                      "new",
+                      "existing"
+                    ]
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 200
+                  },
+                  "professional_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "roles": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 2,
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "songwriter",
+                        "producer"
+                      ]
+                    }
+                  },
+                  "confirmed": {
+                    "type": "boolean",
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "roster_intent": {
+                    "type": "string",
+                    "enum": [
+                      "add"
+                    ]
+                  }
+                },
+                "required": [
+                  "organization_id",
+                  "idempotency_key",
+                  "mode",
+                  "roles",
+                  "confirmed",
+                  "roster_intent"
+                ],
+                "oneOf": [
+                  {
+                    "properties": {
+                      "mode": {
+                        "enum": [
+                          "new"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "not": {
+                      "required": [
+                        "professional_id"
+                      ]
+                    }
+                  },
+                  {
+                    "properties": {
+                      "mode": {
+                        "enum": [
+                          "existing"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "professional_id"
+                    ],
+                    "not": {
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Existing professional roles saved, or replayed existing-record operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "professional",
+                    "created"
+                  ],
+                  "properties": {
+                    "professional": {
+                      "$ref": "#/components/schemas/OrganizationProfessional"
+                    },
+                    "created": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "New professional saved, or replayed new-record operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "professional",
+                    "created"
+                  ],
+                  "properties": {
+                    "professional": {
+                      "$ref": "#/components/schemas/OrganizationProfessional"
+                    },
+                    "created": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or unconfirmed request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Organization access denied, revoked, or record outside this organization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request key already used for different input or actor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Unavailable storage or unconfirmed response; retry with the same key and input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/accounts/{id}": {
       "get": {
         "description": "Retrieve detailed account information by ID. Returns the account with associated profile info, emails, and wallet addresses.",
@@ -978,7 +1343,10 @@
             "description": "Order of the line items, both descending: `created_at` (newest first, the default) or `cost` (largest `credits_deducted` first, ties by newest).",
             "schema": {
               "type": "string",
-              "enum": ["created_at", "cost"],
+              "enum": [
+                "created_at",
+                "cost"
+              ],
               "default": "created_at"
             }
           },
@@ -1072,7 +1440,7 @@
     },
     "/api/accounts/{id}/payment-method": {
       "get": {
-        "description": "Retrieve the default payment method on file for an account. Returns `card: null` when no payment method has been saved yet \u2014 the top-up dialog uses this to decide whether to show a pre-charge confirmation (card present) or route to a checkout session to collect one (`card: null`). Cards are returned even when expired; callers should compare `exp_month` / `exp_year` against the current date and warn the customer, since an off-session charge against an expired card will decline.",
+        "description": "Retrieve the default payment method on file for an account. An account may be tagged on more than one Stripe customer (for example an organization whose card was saved on one customer and whose invoiced plan lives on another); the card is read from the tagged customer that holds a default payment method. Returns `card: null` when no tagged customer has a payment method saved yet — the top-up dialog uses this to decide whether to show a pre-charge confirmation (card present) or route to a checkout session to collect one (`card: null`). Cards are returned even when expired; callers should compare `exp_month` / `exp_year` against the current date and warn the customer, since an off-session charge against an expired card will decline.",
         "parameters": [
           {
             "name": "id",
@@ -1130,7 +1498,7 @@
         }
       },
       "post": {
-        "description": "Create a $0 card-on-file checkout session for an account. Stripe `setup` mode saves a payment method without charging anything or starting a subscription; the saved card becomes the account's default and is what credit purchases and auto top-up charge. The account's Stripe customer is created (and tagged with the account id) if it does not exist yet. Returns a hosted checkout URL that the client should redirect to. `id` may be the authenticated account or an organization the caller belongs to.",
+        "description": "Create a $0 card-on-file checkout session for an account. Stripe `setup` mode saves a payment method without charging anything or starting a subscription; the saved card becomes the account's default and is what credit purchases and auto top-up charge. The card is saved on the account's Stripe customer that already holds a default card, or the newest tagged customer; a customer is created (and tagged with the account id) if none exists yet. Returns a hosted checkout URL that the client should redirect to. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
             "name": "id",
@@ -1225,7 +1593,7 @@
         }
       },
       "delete": {
-        "description": "Detach the default card on file from an account. After this call `GET /api/accounts/{id}/payment-method` returns `card: null`, credit purchases route through checkout again, and auto top-up (if enabled) is turned off because it has nothing to charge. Subscriptions collected by invoice are unaffected. `id` may be the authenticated account or an organization the caller belongs to.",
+        "description": "Detach the default card on file from an account, whichever tagged Stripe customer holds it. After this call `GET /api/accounts/{id}/payment-method` returns `card: null`, credit purchases route through checkout again, and auto top-up (if enabled) is turned off because it has nothing to charge. Subscriptions collected by invoice are unaffected. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
             "name": "id",
@@ -1278,7 +1646,7 @@
     },
     "/api/accounts/{id}/portal": {
       "post": {
-        "description": "Create a Stripe Customer Portal session for an account. Returns a hosted URL where the customer can update the card on file, view invoices, or cancel a Starter or Pro subscription; the client should redirect the user to that URL. `id` may be the authenticated account or an organization the caller belongs to. Enterprise (invoiced) plans are managed with your Recoup contact and the app does not offer this portal for them, but the endpoint works for any account with a Stripe customer.",
+        "description": "Create a Stripe Customer Portal session for an account. Returns a hosted URL where the customer can update the card on file, view invoices, or cancel a Starter or Pro subscription; the client should redirect the user to that URL. The portal opens on the Stripe customer that owns the account's active subscription, so accounts without an active subscription get a 400 even when a tagged customer with a card exists. `id` may be the authenticated account or an organization the caller belongs to. Enterprise (invoiced) plans are managed with your Recoup contact and the app does not offer this portal for them, but the endpoint works for any account with an active subscription.",
         "parameters": [
           {
             "name": "id",
@@ -1322,7 +1690,7 @@
             }
           },
           "400": {
-            "description": "Bad request - invalid parameters, or the account has no Stripe customer yet",
+            "description": "Bad request - invalid parameters, or the account has no active subscription",
             "content": {
               "application/json": {
                 "schema": {
@@ -1362,7 +1730,7 @@
     },
     "/api/accounts/{id}/payments": {
       "get": {
-        "description": "List the invoices paid or owed by an account, newest first: subscription renewals, credit purchases, and invoiced enterprise plans alike. Non-draft rows carry the hosted invoice URL for the receipt; `url` is null for drafts. Returns an empty list (not 404) when the account has no Stripe customer or no invoices yet. `id` may be the authenticated account or an organization the caller belongs to.",
+        "description": "List the invoices paid or owed by an account, newest first: subscription renewals, credit purchases, and invoiced enterprise plans alike. Invoices are merged across every Stripe customer tagged with the account id, so a card saved on one customer and an invoiced plan on another appear in one list. Non-draft rows carry the hosted invoice URL for the receipt; `url` is null for drafts. Returns an empty list (not 404) when the account has no tagged Stripe customer or no invoices yet. `startingAfter` is an invoice id from a previous page; the next page holds invoices created before it. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
             "name": "id",
@@ -1609,7 +1977,7 @@
     },
     "/api/credits/sessions": {
       "post": {
-        "description": "Top up credits on the authenticated account.\n\n**Credits are integer micro-dollars (1,000,000 = \\$1.00, the same 6-decimal unit as USDC).** The customer is charged the USD value of `credits` plus a Stripe processing fee (US card pricing: 2.9% + \\$0.30) \u2014 e.g. `credits: 100000000` charges \\$103.30 total (\\$100.00 credits + \\$3.30 fee).\n\n**Two outcomes, distinguished by response shape:**\n\n- **Auto-charged** \u2014 if the account has a card on file (from a prior subscription or top-up), the card is charged immediately and the response is `{ paymentIntentId, creditsPurchased, totalCents }`. Credits land in the account's balance asynchronously via Stripe webhook (typically within seconds). No human interaction required.\n\n- **Checkout required** \u2014 if no card is on file, or the saved card requires 3-D Secure authentication, the response is `{ id, url }` with a hosted Stripe Checkout URL. Redirect to that URL; credits land on successful payment.\n\nClients should discriminate on the presence of `url` (Checkout) vs `paymentIntentId` (auto-charged). Cards entered through the Checkout fallback are saved for future top-ups, so a customer's second top-up typically auto-charges.",
+        "description": "Top up credits on the authenticated account.\n\n**Credits are integer micro-dollars (1,000,000 = \\$1.00, the same 6-decimal unit as USDC).** The customer is charged the USD value of `credits` plus a Stripe processing fee (US card pricing: 2.9% + \\$0.30) — e.g. `credits: 100000000` charges \\$103.30 total (\\$100.00 credits + \\$3.30 fee).\n\n**Two outcomes, distinguished by response shape:**\n\n- **Auto-charged** — if the account has a card on file (from a prior subscription or top-up), the card is charged immediately and the response is `{ paymentIntentId, creditsPurchased, totalCents }`. Credits land in the account's balance asynchronously via Stripe webhook (typically within seconds). No human interaction required.\n\n- **Checkout required** — if no card is on file, or the saved card requires 3-D Secure authentication, the response is `{ id, url }` with a hosted Stripe Checkout URL. Redirect to that URL; credits land on successful payment.\n\nClients should discriminate on the presence of `url` (Checkout) vs `paymentIntentId` (auto-charged). Cards entered through the Checkout fallback are saved for future top-ups, so a customer's second top-up typically auto-charges.",
         "security": [
           {
             "apiKeyAuth": []
@@ -1631,7 +1999,7 @@
         },
         "responses": {
           "200": {
-            "description": "Top-up initiated successfully. Some fields are conditional on which path was taken \u2014 see each field's description.",
+            "description": "Top-up initiated successfully. Some fields are conditional on which path was taken — see each field's description.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1935,7 +2303,7 @@
     },
     "/api/admins": {
       "get": {
-        "description": "Check if the authenticated account is a Recoup admin. An account is considered an admin if it is a member of the Recoup organization. No input parameters required \u2014 authentication is performed via the x-api-key or Authorization header.",
+        "description": "Check if the authenticated account is a Recoup admin. An account is considered an admin if it is a member of the Recoup organization. No input parameters required — authentication is performed via the x-api-key or Authorization header.",
         "parameters": [],
         "security": [
           {
@@ -2999,7 +3367,12 @@
             "description": "Rollup window. `daily` = today (last 1 day), `weekly` = last 7 days, `monthly` = last 30 days, `all` = no cutoff (every event ever recorded). Defaults to `monthly`. Follows the existing admin period convention.",
             "schema": {
               "type": "string",
-              "enum": ["all", "daily", "weekly", "monthly"],
+              "enum": [
+                "all",
+                "daily",
+                "weekly",
+                "monthly"
+              ],
               "default": "monthly"
             }
           },
@@ -3028,30 +3401,48 @@
           }
         ],
         "security": [
-          { "apiKeyAuth": [] },
-          { "bearerAuth": [] }
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
         ],
         "responses": {
           "200": {
             "description": "Credit usage rollup retrieved successfully",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/AdminCreditsRollupResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/AdminCreditsRollupResponse"
+                }
               }
             }
           },
           "400": {
             "description": "Invalid `period` or `limit` parameter",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/AccountErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountErrorResponse"
+                }
+              }
             }
           },
-          "401": { "description": "Unauthorized - missing or invalid credentials" },
-          "403": { "description": "Forbidden - authenticated account is not a Recoup admin" },
+          "401": {
+            "description": "Unauthorized - missing or invalid credentials"
+          },
+          "403": {
+            "description": "Forbidden - authenticated account is not a Recoup admin"
+          },
           "500": {
             "description": "Internal server error while computing the rollup",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/AccountErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountErrorResponse"
+                }
+              }
             }
           }
         }
@@ -3066,7 +3457,10 @@
             "in": "query",
             "required": true,
             "description": "UUID of the account whose `usage_events` rows to return.",
-            "schema": { "type": "string", "format": "uuid" }
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
           },
           {
             "name": "period",
@@ -3075,7 +3469,12 @@
             "description": "Window to filter `created_at` against. Same semantics as the rollup endpoint. Defaults to `monthly`.",
             "schema": {
               "type": "string",
-              "enum": ["all", "daily", "weekly", "monthly"],
+              "enum": [
+                "all",
+                "daily",
+                "weekly",
+                "monthly"
+              ],
               "default": "monthly"
             }
           },
@@ -3104,30 +3503,48 @@
           }
         ],
         "security": [
-          { "apiKeyAuth": [] },
-          { "bearerAuth": [] }
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
         ],
         "responses": {
           "200": {
             "description": "Usage events retrieved successfully",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/AdminCreditsEventsResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/AdminCreditsEventsResponse"
+                }
               }
             }
           },
           "400": {
             "description": "Missing or invalid `account_id`, `period`, or `limit`",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/AccountErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountErrorResponse"
+                }
+              }
             }
           },
-          "401": { "description": "Unauthorized - missing or invalid credentials" },
-          "403": { "description": "Forbidden - authenticated account is not a Recoup admin" },
+          "401": {
+            "description": "Unauthorized - missing or invalid credentials"
+          },
+          "403": {
+            "description": "Forbidden - authenticated account is not a Recoup admin"
+          },
           "500": {
             "description": "Internal server error while fetching usage events",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/AccountErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountErrorResponse"
+                }
+              }
             }
           }
         }
@@ -3135,7 +3552,7 @@
     },
     "/api/agents/signup": {
       "post": {
-        "description": "Register an agent. For new agent+ emails, returns an API key immediately. For all other cases, sends a verification code to the email \u2014 call [POST /api/agents/verify](/api-reference/agents/verify) with the code to get your API key.\n\n**Tip:** If you're unsure what email to register, generate a unique `agent+{suffix}@recoupable.com` address (e.g. `agent+1744410896-28439@recoupable.com`, combining a Unix timestamp with a random integer). This guarantees a fresh `agent+` address on every call \u2014 including multiple signups within the same second \u2014 and returns an API key instantly with no email verification required.",
+        "description": "Register an agent. For new agent+ emails, returns an API key immediately. For all other cases, sends a verification code to the email — call [POST /api/agents/verify](/api-reference/agents/verify) with the code to get your API key.\n\n**Tip:** If you're unsure what email to register, generate a unique `agent+{suffix}@recoupable.com` address (e.g. `agent+1744410896-28439@recoupable.com`, combining a Unix timestamp with a random integer). This guarantees a fresh `agent+` address on every call — including multiple signups within the same second — and returns an API key instantly with no email verification required.",
         "security": [],
         "requestBody": {
           "description": "Agent email to register",
@@ -3226,9 +3643,68 @@
       }
     },
     "schemas": {
+      "OrganizationProfessional": {
+        "type": "object",
+        "required": [
+          "id",
+          "organization_id",
+          "name",
+          "roles",
+          "confirmed_by",
+          "confirmation_basis",
+          "created_at",
+          "updated_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "organization_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "songwriter",
+                "producer"
+              ]
+            }
+          },
+          "confirmed_by": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "confirmation_basis": {
+            "type": "string",
+            "enum": [
+              "operator_confirmed"
+            ],
+            "description": "Operator assertion for this organization; not a globally verified person identity."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
       "AdminGrantCreditsRequest": {
         "type": "object",
-        "required": ["account_id", "remaining_credits", "reason"],
+        "required": [
+          "account_id",
+          "remaining_credits",
+          "reason"
+        ],
         "properties": {
           "account_id": {
             "type": "string",
@@ -3262,7 +3738,9 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the request"
           },
           "grant_id": {
@@ -3302,18 +3780,30 @@
       },
       "AdminGrantCreditsValidationError": {
         "type": "object",
-        "required": ["status", "error"],
+        "required": [
+          "status",
+          "error"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "description": "Status of the request"
           },
           "missing_fields": {
             "type": "array",
             "description": "JSON path segments of the first field that failed validation, e.g. `[\"reason\"]`. Absent when the body was not valid JSON at all.",
             "items": {
-              "oneOf": [{ "type": "string" }, { "type": "integer" }]
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
             }
           },
           "error": {
@@ -3324,16 +3814,31 @@
       },
       "AdminCreditsRollupResponse": {
         "type": "object",
-        "required": ["status", "period", "page", "limit", "total_count", "rows"],
+        "required": [
+          "status",
+          "period",
+          "page",
+          "limit",
+          "total_count",
+          "rows"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success", "error"],
+            "enum": [
+              "success",
+              "error"
+            ],
             "description": "Status of the request"
           },
           "period": {
             "type": "string",
-            "enum": ["all", "daily", "weekly", "monthly"],
+            "enum": [
+              "all",
+              "daily",
+              "weekly",
+              "monthly"
+            ],
             "description": "The period the response was computed over (echoes the request)"
           },
           "page": {
@@ -3356,7 +3861,11 @@
             "description": "Per-account credit usage totals, sorted by `total_credits_deducted` descending",
             "items": {
               "type": "object",
-              "required": ["account_id", "total_credits_deducted", "event_count"],
+              "required": [
+                "account_id",
+                "total_credits_deducted",
+                "event_count"
+              ],
               "properties": {
                 "account_id": {
                   "type": "string",
@@ -3406,7 +3915,10 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success", "error"],
+            "enum": [
+              "success",
+              "error"
+            ],
             "description": "Status of the request"
           },
           "account_id": {
@@ -3416,7 +3928,12 @@
           },
           "period": {
             "type": "string",
-            "enum": ["all", "daily", "weekly", "monthly"],
+            "enum": [
+              "all",
+              "daily",
+              "weekly",
+              "monthly"
+            ],
             "description": "The period the response was filtered to (echoes the request)"
           },
           "page": {
@@ -3462,12 +3979,18 @@
                 },
                 "source": {
                   "type": "string",
-                  "enum": ["web", "api"],
+                  "enum": [
+                    "web",
+                    "api"
+                  ],
                   "description": "Which surface originated the debit. `web` = open-agents chat. `api` = recoupable api (chat completion or research call)."
                 },
                 "agent_type": {
                   "type": "string",
-                  "enum": ["main", "subagent"],
+                  "enum": [
+                    "main",
+                    "subagent"
+                  ],
                   "description": "`main` for the top-level agent turn or any non-agent debit; `subagent` for a nested task-tool step"
                 },
                 "provider": {
@@ -4769,7 +5292,7 @@
               "string",
               "null"
             ],
-            "description": "API key returned immediately for new agent+ prefix emails. Null for all other cases \u2014 check your email for a verification code.",
+            "description": "API key returned immediately for new agent+ prefix emails. Null for all other cases — check your email for a verification code.",
             "example": "recoup_sk_abc123..."
           },
           "message": {
@@ -4834,11 +5357,6 @@
           "successUrl"
         ],
         "properties": {
-          "fulfillment": {
-            "type": "string",
-            "enum": ["recoup-plugin"],
-            "description": "Optional plugin delivery email after verified payment and account linking. Requires the plugin fulfillment API deployment; omit for ordinary subscriptions."
-          },
           "plan": {
             "type": "string",
             "enum": [
@@ -4913,7 +5431,7 @@
         "properties": {
           "isPro": {
             "type": "boolean",
-            "description": "True when the account has an active paid subscription, directly or via an organization."
+            "description": "True only for effective Pro entitlement. A paid Starter account returns false. Use plan for paid-plan decisions."
           },
           "status": {
             "type": "string",
@@ -4924,14 +5442,18 @@
               "past_due",
               "none"
             ],
-            "description": "Lifecycle state of the subscription. `none` when no subscription exists.",
+            "description": "Current entitlement view. Resolving to Free returns none and null billing fields, including for an inactive subscription; this is not subscription lifecycle history.",
             "example": "active"
           },
           "plan": {
             "type": "string",
             "nullable": true,
             "description": "Plan identifier (e.g. `pro`). Null when no subscription exists.",
-            "example": "pro"
+            "example": "pro",
+            "enum": [
+              "starter",
+              "pro"
+            ]
           },
           "source": {
             "type": "string",
@@ -4991,7 +5513,7 @@
             "example": "2026-10-04T00:00:00Z"
           }
         },
-        "description": "Subscription that confers the account's plan, directly or via an organization. `plan`, `source`, and the six billing fields (`name`, `amountCents`, `currency`, `interval`, `collectionMethod`, `currentPeriodEnd`) are all null when `status` is `none`."
+        "description": "Current subscription conferring the effective plan. Inactive/free entitlement has status none and null plan, source and billing details."
       },
       "SubscriptionErrorResponse": {
         "type": "object",
@@ -5014,7 +5536,10 @@
           "total_credits",
           "used_credits",
           "is_pro",
-          "timestamp"
+          "timestamp",
+          "plan",
+          "task_limit",
+          "min_cadence_minutes"
         ],
         "properties": {
           "account_id": {
@@ -5027,19 +5552,19 @@
             "type": "integer",
             "minimum": 0,
             "description": "Credits still available in the current monthly period. Refills automatically once the period elapses.",
-            "example": 87
+            "example": 292450000
           },
           "total_credits": {
             "type": "integer",
             "minimum": 0,
-            "description": "Total credits granted per monthly period for the account's current plan. Free accounts and pro accounts receive different allotments.",
-            "example": 100
+            "description": "Monthly refill floor in integer micro-dollars: Free 3,330,000; Starter 20,000,000; Pro 300,000,000. Top-ups can put remaining credits above this floor.",
+            "example": 300000000
           },
           "used_credits": {
             "type": "integer",
             "minimum": 0,
-            "description": "Credits consumed in the current monthly period. Equal to `total_credits - remaining_credits`.",
-            "example": 13
+            "description": "max(0, total_credits - remaining_credits). A balance-derived display, not lifetime or period ledger spend.",
+            "example": 7550000
           },
           "is_pro": {
             "type": "boolean",
@@ -5052,6 +5577,23 @@
             "nullable": true,
             "description": "ISO 8601 timestamp of the last balance update or monthly refill. Null when the account has never spent or refilled credits.",
             "example": "2026-05-01T12:34:56.000Z"
+          },
+          "plan": {
+            "type": "string",
+            "enum": [
+              "free",
+              "starter",
+              "pro"
+            ]
+          },
+          "task_limit": {
+            "type": "integer",
+            "nullable": true,
+            "description": "Enabled scheduled-task limit; null means unlimited."
+          },
+          "min_cadence_minutes": {
+            "type": "integer",
+            "description": "Minimum allowed cadence: Free 10080, Starter 1440, Pro 60."
           }
         }
       },
@@ -5206,7 +5748,12 @@
           },
           "series_bucket": {
             "type": "string",
-            "enum": ["hour", "day", "week", "month"],
+            "enum": [
+              "hour",
+              "day",
+              "week",
+              "month"
+            ],
             "description": "Granularity of `series`, derived from the span of the period: `hour` up to 2 days, `day` up to 90 days, `week` up to 12 months, `month` beyond. Present only on a first page (no `cursor`).",
             "example": "day"
           },
@@ -5215,7 +5762,12 @@
             "description": "Spend over the period, one entry per `series_bucket` that had at least one charge, ascending by `start`, in UTC. The sum of `credits_deducted` across the entries equals `total_credits_deducted`. Present only on a first page (no `cursor`); omitted on cursor pages so paging never recomputes it.",
             "items": {
               "type": "object",
-              "required": ["start", "credits_deducted", "usd", "events"],
+              "required": [
+                "start",
+                "credits_deducted",
+                "usd",
+                "events"
+              ],
               "properties": {
                 "start": {
                   "type": "string",
@@ -5241,9 +5793,24 @@
               }
             },
             "example": [
-              { "start": "2026-08-11T00:00:00.000Z", "credits_deducted": 56080000, "usd": "$56.08", "events": 727 },
-              { "start": "2026-08-12T00:00:00.000Z", "credits_deducted": 221090000, "usd": "$221.09", "events": 2462 },
-              { "start": "2026-08-13T00:00:00.000Z", "credits_deducted": 440930000, "usd": "$440.93", "events": 5479 }
+              {
+                "start": "2026-08-11T00:00:00.000Z",
+                "credits_deducted": 56080000,
+                "usd": "$56.08",
+                "events": 727
+              },
+              {
+                "start": "2026-08-12T00:00:00.000Z",
+                "credits_deducted": 221090000,
+                "usd": "$221.09",
+                "events": 2462
+              },
+              {
+                "start": "2026-08-13T00:00:00.000Z",
+                "credits_deducted": 440930000,
+                "usd": "$440.93",
+                "events": 5479
+              }
             ]
           }
         }
@@ -5323,7 +5890,7 @@
                 "type": "null"
               }
             ],
-            "description": "Default card on file. `null` when the account has never saved a payment method \u2014 the top-up flow will route through a checkout session in that case."
+            "description": "Default card on file. `null` when the account has never saved a payment method — the top-up flow will route through a checkout session in that case."
           }
         }
       },
@@ -5418,7 +5985,7 @@
             "items": {
               "$ref": "#/components/schemas/AccountPayment"
             },
-            "description": "Invoices, newest first. Empty when the account has no Stripe customer or no invoices."
+            "description": "Invoices, newest first, merged across every Stripe customer tagged with the account id. Empty when the account has no tagged Stripe customer or no invoices."
           },
           "hasMore": {
             "type": "boolean",
@@ -5531,20 +6098,22 @@
       "CreateCreditsSessionRequest": {
         "type": "object",
         "required": [
-          "credits"
+          "credits",
+          "successUrl"
         ],
         "properties": {
           "successUrl": {
             "type": "string",
             "format": "uri",
-            "description": "The URL to redirect the customer to after a successful Stripe Checkout payment. Only used when the response is a Checkout fallback (no card on file or 3-D Secure required) \u2014 ignored when the card on file is charged directly. Defaults to a generic Recoup success page if omitted.",
+            "description": "Required valid redirect URL, including when a saved card is charged directly. Used by Checkout fallback; no default is supplied.",
             "example": "https://chat.recoupable.com?credits=success"
           },
           "credits": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 10000,
             "description": "The number of credits to purchase, in integer micro-dollars (1,000,000 = \\$1.00), so the value in USD is `credits / 1000000`. Example: `2500000` is \\$2.50 worth of credits (the customer is also charged a Stripe processing fee on top).",
-            "example": 250
+            "example": 2500000,
+            "multipleOf": 10000
           },
           "accountId": {
             "type": "string",
@@ -5552,11 +6121,16 @@
             "description": "UUID of the account to create the session for. Only applicable when the authenticated account has admin access to multiple accounts. If not provided, creates a session for the API key's own account.",
             "example": "123e4567-e89b-12d3-a456-426614174000"
           }
+        },
+        "additionalProperties": false,
+        "example": {
+          "credits": 2500000,
+          "successUrl": "https://chat.recoupable.dev/credits/success"
         }
       },
       "CreditsTopupResponse": {
         "type": "object",
-        "description": "Top-up response. Two paths share this shape \u2014 clients can discriminate on the presence of `url` (Checkout fallback) vs `paymentIntentId` (auto-charged).",
+        "description": "Top-up response. Two paths share this shape — clients can discriminate on the presence of `url` (Checkout fallback) vs `paymentIntentId` (auto-charged).",
         "properties": {
           "paymentIntentId": {
             "type": "string",
@@ -5567,12 +6141,12 @@
             "type": "integer",
             "minimum": 1,
             "description": "**Auto-charge path only.** The number of credits purchased, matching the `credits` request field. These credits are added to the account's balance asynchronously via Stripe webhook (typically within seconds). Omitted on the Checkout fallback path.",
-            "example": 250
+            "example": 2500000
           },
           "totalCents": {
             "type": "integer",
             "minimum": 1,
-            "description": "**Auto-charge path only.** Total amount in cents charged to the saved card, equal to `creditsPurchased` plus the Stripe processing fee. Omitted on the Checkout fallback path.",
+            "description": "Auto-charge path only. Whole cents: creditsPurchased / 10000 plus the processing fee. Example: 2,500,000 micro-dollars is 250 cents before fees.",
             "example": 289
           },
           "id": {
@@ -5583,7 +6157,7 @@
           "url": {
             "type": "string",
             "format": "uri",
-            "description": "**Checkout fallback only.** The hosted Stripe Checkout URL \u2014 redirect the customer here to enter card details and complete payment. Omitted on the auto-charge path.",
+            "description": "**Checkout fallback only.** The hosted Stripe Checkout URL — redirect the customer here to enter card details and complete payment. Omitted on the auto-charge path.",
             "example": "https://checkout.stripe.com/pay/cs_test_a1b2c3d4e5f6g7h8i9j0"
           }
         }

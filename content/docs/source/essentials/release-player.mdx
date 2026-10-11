@@ -5,9 +5,7 @@ description: "Register a release once, then share a listening page or embed Spot
 
 This feature requires the release-player API, browser app and database migration. Documentation or a player ID alone does not activate it.
 
-## Register and publish
-
-Use the existing authenticated Recoup API or MCP. Select an artist from your authorized roster, then call `create_release_player` with its `artistId`, a release `name`, and at least one of `spotifyUrl` or `appleUrl`. Add the website's `allowedOrigins` when embedding; hosted listening pages do not require this field. Select `organizationId` for an authorized organization workspace; ownership comes from authentication.
+Use the existing authenticated Recoup API or MCP. Select an artist from your authorized roster, then call `create_release_player` with its `artistId`, a release `name`, at least one of `spotifyUrl` or `appleUrl`, and the website's `allowedOrigins`. Select `organizationId` for an authorized organization workspace; ownership comes from authentication.
 
 ```json
 {
@@ -21,8 +19,6 @@ Use the existing authenticated Recoup API or MCP. Select an artist from your aut
 ```
 
 The returned player is disabled by default. Review its destinations and approved origins, then explicitly publish using `update_release_player` with `id`, the current `revision`, and `enabled: true`. Publishing requires an active paid Recoup workspace. Destination, artwork, title and origin edits use the same operation; owner/artist attribution is immutable. Updates invalidate active sessions so changed configuration cannot silently collect under old permissions.
-
-## Share or embed
 
 Recoup returns `listenUrl`, `spotifyEmbedUrl`, and `appleEmbedUrl`. Only offer providers configured for that release. The listening page needs no custom website build.
 
@@ -38,13 +34,9 @@ Add `source`, `medium`, `campaign`, and `content` query parameters to campaign l
 
 The website sends a player ID and its exact origin, not a provider token, email, owner ID or arbitrary release override. Recoup handles provider authorization, playback and reporting. Display the direct DSP destination as a fallback for unavailable browser playback.
 
-## Spotify Free playback policy
-
 For a listening-only player, a verified Spotify Premium account stays in the browser player. By default, a verified Spotify Free account automatically opens the configured release in Spotify after authorization; no extra playback click is required in Recoup. An unavailable profile lookup is not treated as proof of a Free account. Spotify chooses whether the destination opens in its app or website, and its Free-account playback rules still apply.
 
 The release owner can instead select `freePlayback: "audio"` and supply `audioUrl`. Upload an MP3 or WAV through the authenticated `POST /api/sites/assets` endpoint in the same workspace (currently up to 4 MB), then pass its returned `asset.url` to `create_release_player` or `update_release_player`. Recoup verifies workspace ownership, object existence and audio metadata. Audio mode also requires a Spotify destination for fallback. Fans do not select this policy, and embed query parameters cannot override it.
-
-MCP arguments for `update_release_player`:
 
 ```json
 {
@@ -55,13 +47,9 @@ MCP arguments for `update_release_player`:
 }
 ```
 
-For REST, send `PATCH /api/players/PLAYER_UUID` with the same body except `id`; the player ID belongs in the URL.
-
 After a verified Free-account sign-in, audio mode opens the uploaded-file controls in Recoup. Premium keeps Spotify streaming. If the file is absent, Free accounts open Spotify; if the file fails to load, the player offers the existing Open in Spotify link. This version plays one uploaded file per release player, not an uploaded playlist. Uploaded-file playback does not generate Spotify streams and is excluded from the DSP playback reports; fan connection reporting still applies. Switch back using `freePlayback: "spotify"`; optionally clear `audioUrl` to null in the same update.
 
-Embedded websites must handle the `recoup:open-dsp` message with `provider: "spotify"`, verify both the player origin and iframe window, then navigate to their configured Spotify destination. Do not accept a destination URL from the message. Recoup can capture the available fan profile before this handoff, but playback after leaving the player is outside its listening telemetry.
-
-## Fan capture and activity
+Embedded websites must handle the `recoup:open-dsp` message with `provider: "spotify"`, verify both the player origin and iframe window, then navigate to their configured Spotify destination. Do not accept a destination URL from the message. Gatsby implements this handler. Recoup can capture the available fan profile before this handoff, but playback after leaving the player is outside its listening telemetry.
 
 `get_release_player_fans` returns available Spotify-confirmed profile/email across this artist's releases in the same workspace. `get_release_player_activity` returns 30-day campaign totals and paginated fan-linked track/play/pause/skip activity. Apple Music sessions are anonymous in this version; they do not capture an email or connect to a Spotify fan identity. Events cover this player while it is open, not listening elsewhere in the DSP.
 
@@ -73,7 +61,7 @@ The API owns `SITES_SPOTIFY_CLIENT_ID` and the optional `PLAYER_APP_ORIGIN` (def
 
 The browser app uses the existing server-only `SITES_API_URL` override for a local/preview API. Provider credentials stay on the trusted player origin. Existing Apple developer signing credentials supply the short-lived, origin-bound browser token.
 
-Apply release-player migrations `20261010060000` through `20261010060004`, release the API and browser app, register and enable the player's destinations/origins, then verify actual provider authorization, fan readback, playback and activity readback before declaring a campaign live.
+Apply release-player migrations `20261010060000` through `20261010060004`, release the API and browser app, register and enable the player's destinations/origins, then verify actual provider authorization, fan readback, playback and activity readback before declaring a campaign live. For the Gatsby Grace artist website (a Next.js app, not the Gatsby framework), set `NEXT_PUBLIC_RECOUP_PLAYER_ID` and `NEXT_PUBLIC_RECOUP_WISH_PLAYER_ID` to the corresponding registered player IDs. Until configured, Gatsby retains its direct DSP links.
 
 ## Playlist browsing and organization fan relationships
 
@@ -86,9 +74,3 @@ A workspace contact is keyed by owner, provider and provider user ID. Its artist
 Use `get_workspace_player_fans` or `GET /api/players/fans?organizationId=ORGANIZATION_UUID` for deduplicated contacts and artist relationships. Existing `get_release_player_fans` / `GET /api/players/{id}/fans` remain artist-scoped and add `contact_id`; available profile fields come from the workspace contact. Listening activity retains its historical artist relationship `fan_id` and adds `contact_id`. A Spotify connection still does not subscribe the fan to marketing emails.
 
 Apply `20261010100000_player_organization_contacts.sql` before releasing the API consumers. It backfills organization contacts and links existing fan relationships without changing their IDs or session/event history. The browser playlist change can ship independently. Verify a real non-owner Premium playlist session, selected-song playback, fan readback and organization isolation after deployment.
-
-## Available components and remaining work
-
-The hosted listening page and provider embeds are available through the release-player API and MCP tools above. The Spotify playlist browser and workspace fan relationships are implemented. A standalone shared sign-in/start/player component library and a dedicated release-player building skill are not available yet.
-
-Validate each campaign on its target devices: provider authorization, playlist loading and selected-song playback, Spotify Free handoff, Apple playback, fan readback and organization isolation. Browser event reports do not replace catalog stream measurements.

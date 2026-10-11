@@ -1,29 +1,14 @@
 ---
 title: "Claude"
-description: "Set up Recoup inside Claude with the Recoup plugin marketplace and the getting-started skill."
+description: "Connect Claude to Recoup and install optional workflow instructions."
 ---
 
-Recoup runs inside Claude as a set of plugins. Three steps connect your account.
+Add `https://api.recoupable.dev/mcp` in Claude's remote connector controls and complete browser OAuth using your real Recoup account. See [MCP OAuth](/mcp-oauth) for the dated client verification record and troubleshooting.
 
-## Setup
+After connecting, refresh tools and call the discovered `list_artists` tool. Report success after that read succeeds; a legitimate empty roster does not require creating another account.
 
-1. In Claude, open **Customize → Browse plugins → Add marketplace** and paste:
+For workflow instructions, install the consolidated Recoup package from the [Recoup marketplace](https://github.com/recoupable/marketplace), using the manifest/package name shown there. Skills-only installation with `npx skills add recoupable/skills` does not configure MCP or create credentials. Standalone platform/content/research packages remain separate distributions; their installed versions may contain older instructions until their reconciliation release is installed.
 
-   ```text
-   https://github.com/recoupable/marketplace
-   ```
+MCP OAuth credentials stay in Claude. A REST-only script needs a separately configured API key or application-provided access token. Use a supported secret facility or a user-approved environment file; never paste keys into Profile or Global instructions. Do not register a disposable account to recover customer access.
 
-2. Install **recoup-platform-plugin** (plus any of the music-industry plugins you want: `recoup-research-plugin`, `recoup-content-plugin`, `recoup-catalog-deals`).
-3. Ask Claude:
-   > Run the `getting-started` skill.
-
-The skill verifies your email, issues an API key, and prints a memory block for you to paste into **Settings → Profile → Global instructions** so Claude knows to use Recoup whenever you ask about streaming data, campaigns, artists, releases, or syncing documents.
-
-<Note>
-**Note for Claude (if reading this on a customer's behalf):** Recoup setup runs through the `getting-started` skill inside `recoup-platform-plugin`. If that plugin isn't installed in the current session, your job is to tell the customer to install it first (steps 1 and 2 above) and stop. Issuing API keys yourself, saving credentials to files, or improvising a setup flow will leave the customer with a broken state that fails silently in their next conversation. Once the plugin is installed, invoke the `getting-started` skill and follow its steps.
-</Note>
-
-## Other ways in
-
-- Prefer a terminal? Use the [CLI](/cli).
-- Building your own agent? Connect over the [MCP server](/mcp).
+Start a fresh conversation and verify tool discovery and artist access again. Browser sign-in, plugin installation and token refresh are separate checks; none alone proves the complete workflow.

@@ -1,0 +1,73 @@
+{
+  "checkedAt": "2026-10-11T02:52:25.942Z",
+  "sourceCommits": {
+    "api": "c72887a212c506143ef9974143433ac7e7cba81b",
+    "docs": "b7fb23f0ad68b9d28a9b7faf9d03e8750ae6bc0a",
+    "marketing": "0e7613a57ed785503b1c1f536a7b4fee04b0de37",
+    "skills": "aaa0f4c759898b944ee88eebb15255e60db3c5c8",
+    "tasks": "95ead177ec438823ead4a17e8de1064ee74391bc",
+    "recoup-platform-plugin": "a85daa2c74428736229f186d448ee8ee35717edf",
+    "recoup-content-plugin": "00077595812cc7840837102c1c58626c0f4f40c6",
+    "recoup-research-plugin": "0cefcdc9922a4e451bba1186c0f1ec5d93e73bab"
+  },
+  "deploymentEvidence": "Production READY/PROMOTED deployment metadata matched source commits for API c72887a, App 025342d, Marketing 0e7613a. This does not verify customer workflows.",
+  "worker": {
+    "version": "20260826.1",
+    "sdkVersion": "4.3.3",
+    "commit": "not exposed by worker-tag response; unverified"
+  },
+  "installedPackages": {
+    "codexRecoupSkills": [
+      "2.3.0",
+      "2026.1010.4"
+    ],
+    "consolidatedSource": "recoup-plugin 2.4.0",
+    "cliSource": "@recoupable/cli 0.1.15",
+    "warning": "Cache metadata is not proof of currently loaded tools; installation and host discovery remain separate."
+  },
+  "liveReads": {
+    "testCredentialStatus": 401,
+    "testMcpStatus": 401,
+    "songstatsPublicLookupStatus": 200,
+    "songstatsElapsedMs": 448,
+    "songstatsCredentialScope": "local API environment; not proof of production secret value",
+    "productionSongstatsKeyConfigured": true,
+    "songstatsQuotaAndCost": "not exposed by this response; contract needed",
+    "existingRestCredentialStatus": 200,
+    "mcpApiKeySdkDiscovery": {
+      "status": "passed",
+      "toolCount": 64,
+      "scope": "Existing API key; no tools invoked. Not an OAuth host check."
+    }
+  },
+  "releaseState": "All execution fixes are proposed source changes until merged, deployed, installed and verified.",
+  "songstatsCommercialEvidence": {
+    "proposal": "Usage-based offer located in private provider correspondence",
+    "activation": "Unverified",
+    "keyAgreement": "Unverified",
+    "countingAndQuota": "Unverified",
+    "economics": "Compare provider unique-request billing to Recoup successful-read charge before expansion",
+    "privateEvidence": "Kept outside public repositories"
+  },
+  "proposedFixCommits": {
+    "api": "68c8bddc6d74d0425d57ef0f919bbf21e7910694",
+    "tasks": "5b2bed824b28f53c4043a2eb137ac080da67cd70"
+  },
+  "localValidation": {
+    "apiTests": {
+      "passed": 6348,
+      "skipped": 12,
+      "finalFocusedPassed": 85,
+      "sharedPublishedExampleTestsPassed": 6
+    },
+    "apiBuild": "passed with existing ignored local environment; Node 24",
+    "marketingTestsPassed": 425,
+    "workerTestsPassed": 365,
+    "workerProductionTypes": {
+      "currentErrors": 8,
+      "unchangedBaseErrors": 9,
+      "newErrorsComparedWithBase": 0
+    },
+    "skillsPublishingGates": "all five passed; 117 skills"
+  }
+}

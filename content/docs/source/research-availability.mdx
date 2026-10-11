@@ -1,0 +1,71 @@
+---
+title: "Research availability"
+description: "Dated provider evidence and the disposition of legacy music-research operations."
+---
+
+As of October 11, 2026 UTC, the production Songstats key is configured. One public
+artist search using the local API environment credential returned 200 in 448ms.
+This verifies that lookup and credential only; it does not prove production secret
+parity, broader coverage, history depth, quota, reliability or contract cost.
+
+Retain the existing integration during evaluation. No route is retired by this
+reconciliation, and no blanket promise of restored public coverage is made.
+Expansion, broad route re-publication and recurring provider fan-out stay pending
+quota/cost confirmation through [mono#325](https://github.com/recoupable/mono/issues/325),
+[App#1987](https://github.com/recoupable/app/issues/1987) and
+[API#875](https://github.com/recoupable/api/pull/875). These are tracking links,
+not proof the implementations are delivered.
+
+## Current track statistics
+
+Supply exactly one of `isrc`, `songstats_track_id`, `spotify_track_id`,
+`apple_music_track_id`, plus a required `source`. For Spotify with an ISRC, the
+measurement store is preferred when it has data; otherwise the API falls back to
+Songstats. Other requested sources use Songstats. Preserve `data_source` when
+returned; an unlabeled provider payload is not evidence of an Apify measurement.
+Unavailable/429 responses must be surfaced, without an unbounded retry loop or
+invented metrics. Recoup balance limits are separate from provider quota.
+
+## Route disposition
+
+All routes below are **retained in source, expansion deferred** until their
+coverage and support decisions are documented. The first 15 were removed from
+docs; the final four are legacy or auxiliary operations. No source omission is
+being treated as proof of feature loss.
+
+| Method | Path | Disposition |
+| --- | --- | --- |
+| GET | `/api/research` | Retain existing source; expansion deferred |
+| GET | `/api/research/albums` | Retain existing source; expansion deferred |
+| GET | `/api/research/audience` | Retain existing source; expansion deferred |
+| GET | `/api/research/career` | Retain existing source; expansion deferred |
+| GET | `/api/research/insights` | Retain existing source; expansion deferred |
+| GET | `/api/research/lookup` | Retain existing source; expansion deferred |
+| GET | `/api/research/metrics` | Retain existing source; expansion deferred |
+| GET | `/api/research/milestones` | Retain existing source; expansion deferred |
+| GET | `/api/research/playlists` | Retain existing source; expansion deferred |
+| GET | `/api/research/profile` | Retain existing source; expansion deferred |
+| GET | `/api/research/similar` | Retain existing source; expansion deferred |
+| GET | `/api/research/track` | Retain existing source; expansion deferred |
+| GET | `/api/research/track/playlists` | Retain existing source; expansion deferred |
+| GET | `/api/research/tracks` | Retain existing source; expansion deferred |
+| GET | `/api/research/urls` | Retain existing source; expansion deferred |
+| GET | `/api/research/playcounts` | Retain existing source; expansion deferred |
+| POST | `/api/research/snapshots` | Retain existing source; expansion deferred |
+| GET | `/api/research/track/historic-stats` | Retain existing source; expansion deferred |
+| GET | `/api/research/track/playcount-deltas` | Retain existing source; expansion deferred |
+
+## Evaluation still required
+
+A current private provider proposal offers usage-based billing. Activation of
+that proposal, the configured key agreement, unique-request counting and the
+relationship to Recoup research charges remain unverified. Confirm those terms
+and monthly/daily/request quotas before expanding polling. Then sample
+large and small artists across Spotify, Apple, TikTok, YouTube and playlist/radio
+coverage; verify earliest and latest historic dates against dated samples;
+measure repeated success, latency and 429/Retry-After behavior; inspect dependent
+measurement jobs before choosing caching TTLs or changing their frequency.
+
+A single passing lookup is insufficient to set a caching policy or claim uptime.
+Record sample dates, exact operations, provenance, units consumed and errors;
+keep commercial contract details in their approved private home.

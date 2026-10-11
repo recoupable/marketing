@@ -1,0 +1,31 @@
+name: Documentation contract inventory
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read pinned API revision
+        id: api
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          from pathlib import Path
+          commit = json.loads(Path('content/docs/contracts/operation-inventory.json').read_text())['apiSourceCommit']
+          if not re.fullmatch('[0-9a-f]{40}', commit):
+              raise SystemExit('Invalid API commit pin')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('commit=' + commit + '\n')
+          PY
+      - uses: actions/checkout@v4
+        with:
+          repository: recoupable/api
+          ref: ${{ steps.api.outputs.commit }}
+          path: .contract-api
+      - run: python3 scripts/refresh-contract-inventory.py --api .contract-api --check
+      - run: python3 scripts/build-contract-examples.py --api .contract-api --check

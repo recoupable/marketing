@@ -10,8 +10,11 @@
           "cli",
           "claude",
           "mcp",
+          "mcp-oauth",
+          "mcp-cimd",
           "authentication",
-          "credits"
+          "credits",
+          "research-availability"
         ]
       }
     ]
@@ -134,10 +137,23 @@
           "api-reference/songs/valuation-run",
           "api-reference/songs/runs",
           "api-reference/songs/catalog-measurements",
+          "api-reference/songs/catalog-playcount-history",
           "api-reference/songs/catalog-valuations",
           "api-reference/songs/catalog-songs",
           "api-reference/songs/catalog-songs-add",
-          "api-reference/songs/catalog-songs-delete"
+          "api-reference/songs/catalog-songs-delete",
+          "api-reference/songs/catalog-streams",
+          "api-reference/songs/catalog-stream-tracking",
+          "api-reference/songs/update-catalog-stream-tracking"
+        ]
+      },
+      {
+        "group": "Context",
+        "pages": [
+          "api-reference/context/operate",
+          "api-reference/context/guest-start",
+          "api-reference/context/guest-read",
+          "api-reference/context/guest-claim"
         ]
       }
     ]
@@ -167,7 +183,8 @@
           "api-reference/content/validate",
           "api-reference/content/estimate",
           "api-reference/image/generation",
-          "api-reference/transcribe/audio"
+          "api-reference/transcribe/audio",
+          "api-reference/content/lipsync"
         ]
       },
       {
@@ -350,7 +367,9 @@
           "api-reference/organizations/remove-member",
           "api-reference/organizations/list-domains",
           "api-reference/organizations/add-domain",
-          "api-reference/organizations/remove-domain"
+          "api-reference/organizations/remove-domain",
+          "api-reference/organizations/professionals",
+          "api-reference/organizations/professionals-confirm"
         ]
       },
       {
@@ -409,6 +428,18 @@
           "api-reference/connectors/list-actions",
           "api-reference/connectors/upload-file",
           "api-reference/connectors/execute-action"
+        ]
+      }
+    ]
+  },
+  {
+    "tab": "Sites",
+    "groups": [
+      {
+        "group": "Sites",
+        "pages": [
+          "api-reference/sites/overview",
+          "essentials/site-fan-connection"
         ]
       }
     ]
