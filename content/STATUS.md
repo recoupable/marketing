@@ -1,3 +1,7 @@
+## Release-player guide clarity — October 10, 2026
+
+Rewrote the public guide around creating, publishing, sharing, embedding and measuring a player. Removed deployment variables, migration instructions, internal rollout history and component/skill roadmap notes. Kept subscription behavior, secure embed handoff, workspace ownership, consent and reporting limits. Publication pending review and merge.
+
 ## Release-player documentation — October 10, 2026
 
 Added the shipped release-player guide and seven API operations to the marketing site’s documentation source. Covers sharing/embedding, publication and revisions, Spotify playlist browsing, Free-account playback policy, anonymous Apple sessions, organization-owned fan relationships and player activity limits. Generated website and agent indexes include these pages. The shared component library and dedicated building skill remain proposed. The production build, docs checks and agent-index parity tests pass; local served guide, Markdown, OpenAPI and LLM indexes are verified. Marketing publication is pending PR merge and production verification.
