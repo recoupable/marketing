@@ -87,7 +87,7 @@ export const productPages: PageSummary[] = [
     paragraphs: [
       "Recoup exposes a REST API, an authenticated platform MCP server, a CLI, and open-source Skills. The public documentation describes request parameters, responses, and credits.",
       "API and MCP are billed by usage, separately from subscriptions. The credits guide explains which operations incur charges and how usage is measured.",
-      "The documented platform MCP endpoint is https://api.recoupable.dev/mcp. Compatible hosts use OAuth and discover their scope-dependent tool catalog. REST scripts need separately configured credentials; public website reading and search are separate tools.",
+      "The documented platform MCP endpoint is https://api.recoupable.dev/mcp. Its setup flow uses OAuth and scope-dependent tool discovery; verify sign-in, workspace access and available tools in your chosen host. REST scripts need separately configured credentials; public website reading and search are separate tools.",
       "The CLI is installed as @recoupable/cli and uses RECOUP_API_KEY. Available commands and current beta limitations are documented. Keep API keys on the server and consult the individual endpoint's authentication requirements.",
     ],
     links: [

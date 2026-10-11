@@ -50,14 +50,14 @@
     "privateEvidence": "Kept outside public repositories"
   },
   "proposedFixCommits": {
-    "api": "3c459b8bacd74f09ae0ccb97c42b56260bb63022",
+    "api": "5ec45217c69fe70408f5178360d0fb5363923ce0",
     "tasks": "98d2bdfe73d88cf7db5bb69ff31b8d884c942dd4"
   },
   "localValidation": {
     "apiTests": {
       "passed": 6348,
       "skipped": 12,
-      "finalFocusedPassed": 97,
+      "finalFocusedPassed": 102,
       "sharedPublishedExampleTestsPassed": 7
     },
     "apiBuild": "passed with existing ignored local environment; Node 24",
@@ -65,12 +65,14 @@
     "workerTestsPassed": 365,
     "workerProductionTypes": {
       "currentErrors": 8,
-      "unchangedBaseErrors": 9,
-      "newErrorsComparedWithBase": 0
+      "newErrorsComparedWithBase": 0,
+      "baseErrors": 9
     },
     "skillsPublishingGates": "all five passed; 117 skills",
-    "researchAdapterTests": "13 passed including nested generic ID regression tests; no provider calls.",
-    "marketingBuild": "Blocked locally by Turbopack CSS worker port binding (EPERM); not passed."
+    "researchAdapterTests": "18 passed including nested, blank and non-string ID regressions; no provider calls.",
+    "marketingBuild": "Blocked locally by Turbopack CSS worker port binding (EPERM); not passed.",
+    "skillsExampleRegressionsPassed": 8,
+    "marketingRemoteBuild": "Vercel preview passed at Marketing 275a4cd; recheck after final follow-up."
   },
   "latestApiProduction": {
     "checkedAt": "2026-10-11T17:45:41.556781+00:00",

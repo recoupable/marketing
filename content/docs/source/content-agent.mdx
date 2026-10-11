@@ -51,3 +51,27 @@ The separate [Slack webhook](/api-reference/content-agent/webhook) handles
 Content Agent mentions. Its request/event contract and the [completion callback](/api-reference/content-agent/callback) are distinct from direct primitives.
 Workspace operators must configure the Slack application and service credentials;
 installing a creative skill does not install that integration.
+
+### Set up the Slack app
+
+Create a Slack app, enable the `chat:write` and `app_mentions:read` bot scopes,
+and subscribe to `app_mention` events at
+`https://api.recoupable.dev/api/content-agent/slack`. Install it in the intended
+workspace and invite it to the channel.
+
+Configure `SLACK_CONTENT_BOT_TOKEN`, `SLACK_CONTENT_SIGNING_SECRET`,
+`CODING_AGENT_CALLBACK_SECRET` and `REDIS_URL` in the Recoup API service.
+The existing Tasks worker uses the same `CODING_AGENT_CALLBACK_SECRET` for
+completion callbacks and its authorized Recoup credential and API base URL.
+Keep these values in service secret settings. The current callback secret name
+is `CODING_AGENT_CALLBACK_SECRET`; `CONTENT_AGENT_CALLBACK_SECRET` is obsolete.
+
+Mention the installed bot with the authorized artist account UUID:
+
+```text
+@RecoupContentAgent ARTIST_ACCOUNT_UUID artist-caption-bedroom batch=1
+```
+
+The template, `batch=N` (1–30) and `lipsync` flags are optional. Check the
+acknowledgment, then inspect the completed result or reported failure in the
+thread. Generated output still requires the inspection described above.

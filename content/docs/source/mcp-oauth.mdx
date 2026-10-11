@@ -137,4 +137,9 @@ For clients without OAuth, [API-key authentication](/mcp) remains available. Kee
 
 For help, contact [agent@recoupable.dev](mailto:agent@recoupable.dev). Include the client name, time, and error text; never include tokens, passwords, or API keys.
 
-Full OAuth tool calls share account-level limits of 120 calls per minute and 30 calls per tool per minute across connected clients. Chat compaction accepts up to 50 chats per call.
+Full OAuth MCP calls currently share account-level limits of 120 calls per minute
+and 30 calls per tool per minute across connected clients. See the
+[pinned rate-limit implementation](https://github.com/recoupable/api/blob/c25715ea1b5e31ac31d0079955b90dc1ce2f1631/lib/mcp/oauth/checkFullOAuthRateLimit.ts).
+The `compact_chats` MCP tool accepts up to 50 chats per call under the
+[pinned MCP guard](https://github.com/recoupable/api/blob/c25715ea1b5e31ac31d0079955b90dc1ce2f1631/lib/mcp/oauth/prepareFullOAuthTool.ts);
+this is an MCP limit, not a claimed REST request limit.
