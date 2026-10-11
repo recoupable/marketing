@@ -9,7 +9,7 @@ Create a player for a song, album or Spotify playlist. Share its listening page 
 
 Use the [Recoup API](/api-reference/players/create) or the `create_release_player` MCP tool. Choose an artist you can access, name the player, and provide a `spotifyUrl`, an `appleUrl`, or both. Use `organizationId` to create it in your organization workspace.
 
-For website embeds, add the exact website origins to `allowedOrigins`. An origin includes the scheme and hostname, such as `https://artist.example`. Include both the www and non-www origins if fans can visit either. You can omit this field when sharing only the hosted listening page.
+For website embeds, add the exact website origins to `allowedOrigins`. An origin includes the scheme, hostname and any non-default port, such as `https://artist.example:8443`. Embed origins must use HTTPS. Include both the www and non-www origins if fans can visit either. You can omit this field when sharing only the hosted listening page.
 
 Example create request:
 
