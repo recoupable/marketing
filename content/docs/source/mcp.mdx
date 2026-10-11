@@ -1,78 +1,14 @@
 ---
 title: "MCP"
-description: "Connect AI agents to the Recoup platform using the Model Context Protocol (MCP) server."
+description: "Connect an agent to Recoup through OAuth and discover its authorized tools."
 ---
 
-The Recoup API exposes an [MCP](https://modelcontextprotocol.io/) server that AI agents can connect to for tool use. The server is available at:
+Connect your host to `https://api.recoupable.dev/mcp` using OAuth. Sign in to your real Recoup account and approve the requested scope. Follow the [OAuth setup guide](/mcp-oauth).
 
-```
-https://api.recoupable.dev/mcp
-```
+Use `tools/list` after connection and after changing consent. The catalog depends on the grant, credential type and deployed server. A fixed count is not a compatibility contract. For example, discover `list_artists` and call it with its returned schema to verify access. An empty roster is a valid result.
 
-## Authentication
+`mcp:tools` grants the business catalog, including writes and paid generation. Narrow grants remain restricted until broader consent is approved. Account membership determines accessible personal and organization data; OAuth consent does not create organization access.
 
-All MCP tools require an API key. Pass it as a Bearer token in the `Authorization` header when connecting to the MCP server.
+Sandbox command tools previously shown on this page are absent from the current registry. Do not call `prompt_sandbox`, `run_sandbox_command`, or infer that every REST endpoint is exposed as MCP. Use documented [REST sandbox operations](/api-reference/sandboxes/create) with a separate authorized credential when required.
 
-You can get a key from the [API Keys page](https://chat.recoupable.dev/keys).
-
-## Tools
-
-### prompt_sandbox
-
-Send a prompt to OpenClaw running in a persistent per-account sandbox. The sandbox is reused across calls — if one is already running it picks up where you left off, otherwise a new one is created from the account's latest snapshot.
-
-Returns raw `stdout` and `stderr` from the command. The sandbox stays alive after each prompt for follow-up interactions.
-
-**Input schema:**
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `prompt` | `string` | Yes | The prompt to send to OpenClaw in the sandbox. |
-
-**Response fields:**
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `sandboxId` | `string` | The Vercel Sandbox ID. |
-| `stdout` | `string` | Standard output from the command. |
-| `stderr` | `string` | Standard error from the command. |
-| `exitCode` | `number` | Process exit code (`0` = success). |
-| `created` | `boolean` | `true` if a new sandbox was created, `false` if an existing one was reused. |
-
-**Example usage (TypeScript with MCP SDK):**
-
-```typescript
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
-import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
-
-const transport = new StreamableHTTPClientTransport(
-  new URL("https://api.recoupable.dev/mcp"),
-  { requestInit: { headers: { Authorization: `Bearer ${RECOUP_API_KEY}` } } },
-);
-
-const client = new Client({ name: "my-agent", version: "1.0.0" });
-await client.connect(transport);
-
-const result = await client.callTool({
-  name: "prompt_sandbox",
-  arguments: { prompt: "list all files in the orgs directory" },
-});
-
-console.log(result.content);
-```
-
-### run_sandbox_command
-
-Create a sandbox and run a shell command or OpenClaw prompt in it. Unlike `prompt_sandbox`, this creates a **new sandbox each call** and runs the command asynchronously via a background task. Returns a sandbox ID and run ID to track progress.
-
-See [`POST /api/sandboxes`](/api-reference/sandboxes/create) for the equivalent REST endpoint.
-
-**Input schema:**
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `command` | `string` | No | Shell command to run. Cannot be used with `prompt`. |
-| `args` | `string[]` | No | Arguments for the command. |
-| `cwd` | `string` | No | Working directory for the command. |
-| `prompt` | `string` | No | OpenClaw prompt. Cannot be used with `command`. |
-| `account_id` | `string` | No | Target a specific account (org API keys only). |
+For an API-key MCP connection, configure `Authorization: Bearer YOUR_RECOUP_API_KEY` in the client's secret settings. The `x-api-key` header is for [REST requests](/authentication). Store credentials in the client's secret facility or environment. Never paste them into global instructions or extract host-managed OAuth tokens for REST.

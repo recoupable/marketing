@@ -113,3 +113,7 @@ Some endpoints accept an `organization_id` parameter. When provided, the API add
 - API keys are **never stored in plaintext** — only an HMAC-SHA256 hash (keyed with your project secret) is persisted in the database
 - **Never include `account_id` in your API key creation request** — the account is always derived from your authenticated credentials
 - Rotate keys immediately if compromised via the [API Keys Management Page](https://chat.recoupable.dev/keys)
+
+## MCP OAuth and REST credentials
+
+Remote MCP uses host-managed OAuth. Its tokens remain in the host and are not REST credentials to extract. Use a separate personal API key or application-provided Privy JWT (Bearer token) for REST-only operations. Never put a key in global instructions or use a disposable account to gain access to customer data. The authorized account and organization membership still control every request. See [MCP OAuth](/mcp-oauth).

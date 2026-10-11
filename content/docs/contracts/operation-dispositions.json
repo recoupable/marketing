@@ -1,0 +1,230 @@
+{
+  "POST /api/apify": {
+    "classification": "pending",
+    "reason": "Product or legacy supporting routes require documented public/internal disposition"
+  },
+  "DELETE /api/keys": {
+    "classification": "pending",
+    "reason": "Product or legacy supporting routes require documented public/internal disposition"
+  },
+  "GET /api/keys": {
+    "classification": "pending",
+    "reason": "Product or legacy supporting routes require documented public/internal disposition"
+  },
+  "POST /api/keys": {
+    "classification": "pending",
+    "reason": "Product or legacy supporting routes require documented public/internal disposition"
+  },
+  "POST /api/leads": {
+    "classification": "pending",
+    "reason": "Product or legacy supporting routes require documented public/internal disposition"
+  },
+  "POST /api/plugin/download-access": {
+    "classification": "pending",
+    "reason": "Product or legacy supporting routes require documented public/internal disposition"
+  },
+  "GET /api/x402/image/generate": {
+    "classification": "pending",
+    "reason": "Product or legacy supporting routes require documented public/internal disposition"
+  },
+  "POST /api/x402/session-token": {
+    "classification": "pending",
+    "reason": "Product or legacy supporting routes require documented public/internal disposition"
+  },
+  "GET /api/chat/slack": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "POST /api/chat/slack": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "POST /api/coding-agent/callback": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "POST /api/coding-agent/github": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "GET /api/coding-agent/{platform}": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "POST /api/coding-agent/{platform}": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "GET /api/content-agent/{platform}": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "POST /api/emails/inbound": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "GET /api/internal/catalog-stream-maintenance": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "GET /api/internal/context-guest-maintenance": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "GET /api/internal/credit-spend-digest": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "GET /api/internal/playcount-maintenance": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "POST /api/webhooks/stripe": {
+    "classification": "internal/callback",
+    "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
+  },
+  "GET /api/research": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/albums": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/audience": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/career": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/insights": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/lookup": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/metrics": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/milestones": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/playlists": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/profile": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/similar": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/track": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/track/playlists": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/tracks": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/urls": {
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+  },
+  "GET /api/research/playcounts": {
+    "classification": "legacy",
+    "reason": "Research legacy or auxiliary routes require disposition (not automatically public docs gaps)"
+  },
+  "POST /api/research/snapshots": {
+    "classification": "legacy",
+    "reason": "Research legacy or auxiliary routes require disposition (not automatically public docs gaps)"
+  },
+  "GET /api/research/track/historic-stats": {
+    "classification": "legacy",
+    "reason": "Research legacy or auxiliary routes require disposition (not automatically public docs gaps)"
+  },
+  "GET /api/research/track/playcount-deltas": {
+    "classification": "legacy",
+    "reason": "Research legacy or auxiliary routes require disposition (not automatically public docs gaps)"
+  },
+  "GET /api/sites": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "POST /api/sites": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "GET /api/sites/apple/config": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "POST /api/sites/assets": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "GET /api/sites/public/{id}": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "POST /api/sites/public/{id}/activity": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "POST /api/sites/public/{id}/signup": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "GET /api/sites/public/{id}/spotify": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "POST /api/sites/public/{id}/spotify": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "GET /api/sites/spotify/callback": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "GET /api/sites/{id}": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "PATCH /api/sites/{id}": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "GET /api/sites/{id}/activity": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "GET /api/sites/{id}/fan-connection": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "PUT /api/sites/{id}/fan-connection": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "GET /api/sites/{id}/fans": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  },
+  "GET /api/sites/{id}/signups": {
+    "classification": "public/integration",
+    "reason": "Sites prose documented or integration subroute; no OpenAPI"
+  }
+}

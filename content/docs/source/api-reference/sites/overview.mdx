@@ -1,0 +1,131 @@
+---
+title: "Sites"
+description: "Create, generate, and publish fan experiences through the API or MCP."
+---
+
+Sites uses the same backend operations from the web app, HTTP API, and MCP. A new site is a **private draft**. Generation never publishes it automatically.
+
+## Authentication
+
+Private HTTP endpoints accept exactly one of `x-api-key: YOUR_API_KEY` or `Authorization: Bearer YOUR_PRIVY_ACCESS_TOKEN`.
+MCP uses the existing authenticated `https://api.recoupable.dev/mcp` connection.
+
+The caller is derived from authentication. Do not send an `account_id`. An optional `organizationId` selects a workspace the caller can access. Omit it for the authenticated account's workspace.
+
+## Endpoints and tools
+
+| HTTP | MCP tool | Result |
+| --- | --- | --- |
+| `GET /api/sites` | `list_sites` | `{ sites: [...] }` |
+| `POST /api/sites` | `create_site` | `{ site: ... }`, HTTP 201 |
+| `GET /api/sites/{id}` | `get_site` | `{ site: ... }` |
+| `PATCH /api/sites/{id}` action `concepts` | `propose_site_concepts` | Short pitches or missing context |
+| `PATCH /api/sites/{id}` action `generate` | `generate_site` | Generate from an optional customer-selected pitch; otherwise select a concept |
+| `PATCH /api/sites/{id}` action `publish` | `publish_site` | Saved draft becomes public |
+| `PATCH /api/sites/{id}` action `unpublish` | `unpublish_site` | Public snapshot removed, draft retained |
+| `GET /api/sites/{id}/signups` | `get_site_signups` | `{ signups: [{ email, created_at }] }`, up to 10,000 |
+| `POST /api/sites/assets` | `upload_site_asset` | `{ asset: { url, name, type } }` |
+
+Listing accepts optional `organizationId` and `artistId` query parameters. All private reads and writes verify workspace access. Signup emails are never part of the public response.
+
+## Create and generate
+
+Create a draft with a Spotify track, album, or playlist URL. Recoup retrieves its title and artwork. The brief is optional; without it, Recoup uses the available song and artist context to propose activities. Alternatively, supply both a name and a brief without a release URL.
+
+```bash
+curl https://api.recoupable.dev/api/sites \
+  -H "x-api-key: $RECOUP_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"releaseUrl":"https://open.spotify.com/track/TRACK_ID","brief":"Build a maze game"}'
+```
+
+Optional creation fields: `name` (120 characters), `brief` (6,000), `organizationId`, `artistId`, and `assets` (up to eight workspace-owned assets returned by the upload endpoint). An artist must be accessible to the caller and belong to the selected organization when one is used.
+
+Read `site.id` and `site.revision`, then start automatic generation:
+
+```json
+{"action":"generate","revision":0}
+```
+
+For Spotify tracks, the background workflow saves metadata, acquires and verifies full audio, saves Music Flamingo lyrics and musical analysis, collects artwork observations and public artist research, compiles a saved brief, selects a concept, and builds and reviews the site. No separate collector calls are required. Audio acquisition requires a Spotify preview for waveform verification and stops if no matching full recording is found. Completed accepted context is reused.
+
+To choose a concept yourself before generation, optionally request pitches:
+
+```json
+{"action":"concepts","revision":0}
+```
+
+Send this to `PATCH /api/sites/{id}`, or call MCP `propose_site_concepts` with `id` and `revision`. Optional `instruction` and `contextBriefId` apply to pitching too. This can use credits for context collection and a pitch call, but does not create images, site code or change the draft.
+
+The response is `{ concepts: { status, candidates, reason }, revision }`. Status is `ready`, `needs-context`, or `no-good-concept`. Metadata and cover details alone return `needs-context`; provide usable song analysis or sourced artist context rather than forcing an activity out of the artwork.
+
+In the explicit-selection flow, show the short pitches to the customer and wait for their choice. Each candidate contains `name`, `activity`, `fanMotivation`, `songOrArtistConnection`, and `friendHook`. Pass the selected object unchanged as `approvedConcept`:
+
+```json
+{
+  "action": "generate",
+  "revision": 0,
+  "approvedConcept": {
+    "name": "CUSTOMER_SELECTED_NAME",
+    "activity": "SELECTED_ACTIVITY",
+    "fanMotivation": "SELECTED_MOTIVATION",
+    "songOrArtistConnection": "SELECTED_CONNECTION",
+    "friendHook": "SELECTED_HOOK"
+  }
+}
+```
+
+MCP `generate_site` accepts the same fields plus `id`, without `action`. A customer-authored concept is also accepted. The optional `approvedConcept` preserves a caller-selected activity. When omitted, the engine selects from its proposed concepts after collecting context.
+
+Generation defaults to background execution and returns a generation token; poll `get_site_generation` (HTTP action `generation`) for the result. Set `background: false` only for a synchronous client that supports a long timeout. If review rejects the concept, the draft is marked `needs-review`; the system does not silently substitute a new activity. Asset and implementation repairs retain their bounded pass.
+
+Generation failures identify the stopped stage and leave the saved draft unchanged. A `409` means another edit changed the revision; read the site again before retrying.
+
+## Generate from saved Context Engine evidence
+
+Save a single-song `creative_direction` brief using the Context Engine `save_brief` action, then pass its snapshot ID when requesting pitches:
+
+```json
+{
+  "action": "concepts",
+  "revision": 0,
+  "contextBriefId": "SAVED_BRIEF_UUID"
+}
+```
+
+Pass the same `contextBriefId` with the selected `approvedConcept` to generation. It is available on both MCP `propose_site_concepts` and `generate_site`. Without a saved brief, track generation automatically collects and saves context, reusing compatible accepted module results. The brief must belong to the site's workspace and match its Spotify track. Sites rejects unavailable or superseded snapshots before generation. Revisions reuse the draft's selected brief unless a new ID is supplied.
+
+This path reuses accepted song summaries, artwork observations, public artist research and release/artist metadata instead of collecting them again. The creative director and generator receive attribution, coverage and missing-topic information. Supported evidence includes public Spotify metadata/artwork, YouTube-attributed audio analysis and saved public-search research. Private uploads, customer assertions and raw lyrics are excluded. Matching saved machine transcripts inform paraphrased themes but are not forwarded to the site. Partial evidence stays partial.
+
+Generation still uses credits for creative direction, assets, implementation and review. It saves a private draft, never publishes automatically. Snapshot availability is checked again before saving and publishing. Later source withdrawal does not automatically retract an already published site. Internal evidence and source identifiers are excluded from the public site response.
+
+## Publish
+
+After reviewing the draft, send `{"action":"publish","revision":CURRENT_REVISION}` to the same PATCH endpoint, or call `publish_site` with `id` and `revision`.
+
+Publishing automatically prepares Spotify fan connection for an active paid workspace. The standard agreement uses the attributed artist's name; the customer does not need a separate setup step. Missing artist attribution or unavailable Spotify configuration stops paid publication with an actionable error. Publication requires an eligible paid workspace. Unpaid publication returns HTTP 402 before publishing. Successful paid setup reports `fanConnection: "enabled"`.
+
+For a custom hosted destination, HTTP callers may include `returnUrl` (an HTTPS URL without credentials or fragment) in the publish body. Otherwise an existing connection destination is preserved, or the configured Sites public origin is used. The Recoup editor supplies its actual published URL. The authenticated fan-connection API remains available for external integrations.
+
+The public page is `https://chat.recoupable.dev/s/{id}`.
+
+Unpublish with `action: "unpublish"`, or `unpublish_site`. Agents should publish only when explicitly instructed.
+
+## Uploads
+
+HTTP uploads are multipart forms with a `file` field and optional `organizationId` query parameter. Supported formats: JPEG, PNG, WebP, MP3, and WAV, up to 4 MB per file. Images are re-encoded to WebP. Audio is checked for its file signature.
+
+MCP's `upload_site_asset` accepts `name`, `contentType`, `base64` file bytes, and optional `organizationId`. It uses the same validation and storage path as HTTP.
+
+## Public endpoints
+
+- `GET /api/sites/public/{id}` returns `{ snapshot: ... }` for a published site only. Drafts, account identifiers, and signup data are excluded.
+- `POST /api/sites/public/{id}/signup` accepts `{"email":"fan@example.com","consent":"yes"}`. An optional `website` honeypot must be empty. Duplicate submissions succeed without disclosing list membership. Unpublished sites reject signups.
+
+Public pages render in the chat app. The API owns snapshots, generation, uploads, and signup persistence. Spotify OAuth and the browser music player remain in the web app.
+
+## Errors
+
+- `402`: publication requires an eligible paid workspace.
+
+`400` invalid input; `401` missing/invalid authentication; `403` workspace or artist access denied; `404` missing/unpublished site; `409` stale revision; `422` Spotify metadata unavailable; `503` temporary operation failure.

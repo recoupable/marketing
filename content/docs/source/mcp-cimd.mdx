@@ -1,0 +1,39 @@
+---
+title: "Published client metadata (CIMD)"
+description: "Connect using an HTTPS client identity without dynamic registration."
+---
+
+Recoup supports Client ID Metadata Documents (CIMD) alongside Dynamic Client Registration (DCR). A CIMD client uses the HTTPS URL of its public metadata document as its OAuth `client_id`. Recoup retrieves that document and validates the client's callbacks before asking you to approve access.
+
+Use the same MCP server URL: `https://api.recoupable.dev/mcp`. A compatible client can discover CIMD through `client_id_metadata_document_supported: true` in Recoup's [authorization-server metadata](https://api.recoupable.dev/.well-known/oauth-authorization-server/api/oauth). No vendor-specific registration or callback allowlist is needed.
+
+## Access and trust
+
+CIMD uses the same [permissions and consent](/mcp-oauth) as DCR. It does not bypass sign-in, PKCE, tool scope checks, grant expiry, or disconnection. Existing DCR connections continue to work.
+
+A client name or logo is self-declared metadata, not proof of vendor endorsement. Check the client identity and requested permissions before allowing access. Publishing a document does not authorize its client to access your account.
+
+## Client requirements
+
+- Serve JSON with HTTP 200 over public HTTPS on port 443. Redirects are rejected.
+- Set `client_id` to the exact document URL and include `client_name` and `redirect_uris`.
+- Use a document URL with an explicit path and without credentials, fragments, or dot path segments.
+- Use authorization code flow with PKCE S256 and `mcp:tools` for the full Recoup catalog, or `mcp:read` / `mcp:write` for the original limited personal tools.
+- Public clients should set `token_endpoint_auth_method` to `none`. Never publish client secrets or private keys.
+- Register exact callbacks. Hosted HTTP callbacks are rejected; native loopback callbacks support dynamic ports. `localhost` and `127.0.0.1` remain different hosts.
+
+Recoup limits each metadata/JWKS response to 16 KiB and each fetch to 2.5 seconds, including DNS resolution and body transfer. It rejects private, loopback, reserved, and mixed public/private DNS results and pins connections to a validated address. Remote JWKS retrieval follows the same network policy.
+
+Metadata caching respects freshness headers up to five minutes. `no-store`, `no-cache`, absent freshness information, or expired freshness causes a new fetch. A failed refresh does not reuse expired metadata.
+
+## Verification status
+
+The implementation has passed local production-provider tests for CIMD discovery, consent, token exchange, MCP access, refresh rotation, and revoked access. Network tests cover unsafe destinations, redirects, timeouts, response sizes, and concurrency limits.
+
+A local smoke test also retrieved the official Claude and Claude Code documents over real DNS/TLS, resolved them using the production provider, and checked Claude Code's dynamic loopback ports. This is metadata compatibility evidence, not a completed production user login through CIMD. The client-specific production results on [Connect an agent](/mcp-oauth) were obtained using DCR.
+
+Production verification on October 7, 2026 confirmed CIMD discovery with DCR still available and successfully started OAuth authorization interactions using the official Claude and Claude Code client IDs, including a dynamic localhost callback port. Completing user sign-in and a tool call through CIMD in production remains unverified.
+
+If a metadata host is unavailable or blocks server requests, CIMD fails closed. Use DCR if the client offers that choice, or retry after its metadata endpoint is restored.
+
+See the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization) and [CIMD draft 02](https://www.ietf.org/archive/id/draft-ietf-oauth-client-id-metadata-document-02.html). CIMD remains a draft specification; Recoup's provider currently implements draft 02.

@@ -288,3 +288,11 @@ The readiness result action takes visitors to `/contact?brief=readiness`. Only t
 `/label-in-a-box` is the unlisted, noindex packaged Skills + MCP offer. Keep `/skills` as the public open-source collection. Checkout stays in preview until `LABEL_KIT_CHECKOUT_ENABLED=true`, `LABEL_KIT_BLOB_PATH` (a private `label-kit/` Blob pathname), `LABEL_KIT_BLOB_READ_WRITE_TOKEN` are configured and verified. POST `/api/label-kit/checkout` asks the existing API for Starter checkout. `/label-in-a-box/setup` reads the private purchase link fragment; `/api/label-kit/download` sends its checkout session ID to the API for Stripe verification before streaming the private file. This download-only capability never grants an account login. Payment, fulfillment metadata and an active Starter/Pro subscription are checked on every download. Legacy Payment Link configuration is ignored. Delivery wraps the verified official customer release with pinned Claude/Cursor manifests and START HERE.html in one deterministic ZIP. Input and output SHA-256 hashes are pinned in `content/label-kit/release.json`. Checkout sets `fulfillment: recoup-plugin` for the API payment-webhook email. Do not regenerate a skills-only package. See `docs/plans/label-in-a-box.md` for staging and launch verification. Never put the paid ZIP in `public/` or imply that a browser flag verifies payment.
 
 The label kit narrative leads with outcomes for artists, managers, and labels. `audience-preview.tsx` owns the role-specific request/output examples. Keep original campaign art in `public/images/label-kit/` attributed as illustrative until verified through the shipped kit; no invented customer proof.
+
+## Documentation ownership
+
+Author platform docs in `content/docs/source`; follow [DOCUMENTATION-POLICY.md](DOCUMENTATION-POLICY.md).
+Run `pnpm docs:build` and `pnpm docs:check` after changes. Commit the maintained
+source, then use `python3 scripts/sync-legacy-docs.py --target /path/to/docs` to
+prepare a pinned publication PR in the retained Mintlify repository. Keep host
+cutover and archival separate from content reconciliation.

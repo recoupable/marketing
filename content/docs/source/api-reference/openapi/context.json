@@ -1,0 +1,482 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Recoup Context Engine",
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.recoupable.dev"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "ApiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "GuestSession": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "recoup_context_guest"
+      }
+    }
+  },
+  "paths": {
+    "/api/context": {
+      "post": {
+        "operationId": "contextOperation",
+        "summary": "Ingest, read, or compile context briefs",
+        "description": "Coverage note: this reference describes a subset of the current Context Engine action catalog. Additional actions are being reconciled in mono#329; this page is not a complete capability inventory. Save reusable music context, read progress, or compile a task-specific evidence brief. This reference documents the ingestion, read, brief, save_brief and read_brief actions of the shared HTTP/MCP operation. Brief compilation combines up to ten completed or partial requests in one authorized workspace, reuses saved evidence without provider or model calls, and returns bounded Markdown plus the selected input versions. Creative direction prioritizes lyrics and artwork; playlist pitching prioritizes catalog/audio metadata. Shared artist evidence appears once, with coverage reported separately for each request. Briefs are evidence packets, not generated creative concepts or finished outreach. Inspect readiness, request_coverage and gaps. The brief action is read-only; use save_brief with the same inputs and an idempotency_key to freeze the server-compiled output, then read_brief with its brief_id to retrieve it without recompilation. A newer document revision marks the snapshot superseded without rewriting it. Withdrawn/unavailable evidence, cancelled requests, or removed subject scope withhold the payload. Saving rechecks current evidence before committing. Apply the companion snapshot migration before using save_brief/read_brief. Ingestion dispatches a durable workflow; retry the same input and idempotency key after dispatch failure.",
+        "security": [
+          {
+            "ApiKey": []
+          },
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "url",
+                      "idempotency_key"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "ingest"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Optional organization that owns the private context. Current membership is checked."
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "Spotify track URL. Albums, playlists and YouTube ingestion are not enabled in this pilot."
+                      },
+                      "idempotency_key": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9._:-]+$",
+                        "description": "Stable key for retrying the same input without duplicate work."
+                      },
+                      "topics": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 10,
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "release_metadata",
+                            "artist_metadata",
+                            "catalog_metadata",
+                            "lyrics",
+                            "song_summary",
+                            "artwork_branding",
+                            "artist_research",
+                            "artist_brand",
+                            "era",
+                            "video_narrative"
+                          ]
+                        }
+                      },
+                      "direction": {
+                        "type": "string",
+                        "maxLength": 4000,
+                        "description": "Stored customer direction. Metadata extraction does not interpret it as source facts."
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "request_id"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "read"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Optional organization that owns the private context. Current membership is checked."
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "request_id",
+                      "purpose"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "brief"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Optional organization that owns the private context. Current membership is checked."
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "purpose": {
+                        "type": "string",
+                        "enum": [
+                          "creative_direction",
+                          "playlist_pitch"
+                        ]
+                      },
+                      "max_characters": {
+                        "type": "integer",
+                        "minimum": 1000,
+                        "maximum": 32000,
+                        "default": 12000,
+                        "description": "Bounds selected evidence JSON and rendered Markdown independently. Does not cap the entire response, which also contains coverage and manifests. Documents are omitted whole to fit; omissions appear as coverage gaps."
+                      },
+                      "additional_request_ids": {
+                        "type": "array",
+                        "maxItems": 9,
+                        "default": [],
+                        "items": {
+                          "type": "string",
+                          "format": "uuid"
+                        },
+                        "description": "Additional saved requests in the same selected workspace. Duplicate IDs are read once. Every request must be completed or partial; unavailable, cancelled, or inaccessible requests reject the operation."
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "request_id",
+                      "purpose",
+                      "idempotency_key"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "save_brief"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Optional organization that owns the private context. Current membership is checked."
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "purpose": {
+                        "type": "string",
+                        "enum": [
+                          "creative_direction",
+                          "playlist_pitch"
+                        ]
+                      },
+                      "max_characters": {
+                        "type": "integer",
+                        "minimum": 1000,
+                        "maximum": 32000,
+                        "default": 12000,
+                        "description": "Bounds selected evidence JSON and rendered Markdown independently. Does not cap the entire response, which also contains coverage and manifests. Documents are omitted whole to fit; omissions appear as coverage gaps."
+                      },
+                      "additional_request_ids": {
+                        "type": "array",
+                        "maxItems": 9,
+                        "default": [],
+                        "items": {
+                          "type": "string",
+                          "format": "uuid"
+                        },
+                        "description": "Additional saved requests in the same selected workspace. Duplicate IDs are read once. Every request must be completed or partial; unavailable, cancelled, or inaccessible requests reject the operation."
+                      },
+                      "idempotency_key": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9._:-]+$",
+                        "description": "Identifies one exact compiled output. Identical output reuses the saved record; different output with this key returns a conflict. After context updates, use read_brief for the old copy or a new key for a new snapshot."
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "brief_id"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "read_brief"
+                      },
+                      "brief_id": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Optional organization that owns the private context. Current membership is checked."
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "twoSongBrief": {
+                  "summary": "Compile creative direction from two saved songs",
+                  "value": {
+                    "action": "brief",
+                    "request_id": "11111111-1111-4111-8111-111111111111",
+                    "additional_request_ids": [
+                      "22222222-2222-4222-8222-222222222222"
+                    ],
+                    "purpose": "creative_direction",
+                    "max_characters": 12000
+                  }
+                },
+                "saveBrief": {
+                  "summary": "Save a playlist-pitch brief",
+                  "value": {
+                    "action": "save_brief",
+                    "request_id": "11111111-1111-4111-8111-111111111111",
+                    "purpose": "playlist_pitch",
+                    "idempotency_key": "pitch-v1"
+                  }
+                },
+                "readBrief": {
+                  "summary": "Read an exact saved brief",
+                  "value": {
+                    "action": "read_brief",
+                    "brief_id": "33333333-3333-4333-8333-333333333333"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Saved ingestion request; inspect request.status and use read to poll. Existing completed/partial requests return without provider work."
+          },
+          "200": {
+            "description": "Read returns request. Brief returns request_id, request_ids, purpose, readiness, bounded Markdown text and text_characters, documents and their serialized characters count, missingTopics, guidance, gaps, request_coverage, and input_manifest. Each coverage entry includes requestId, readiness and missingTopics; overall readiness remains partial if any request has a gap or partial evidence. The manifest includes compilerVersion, method, requestIds, excludedTopics, and selected documents with documentId, resultId (null only if unavailable), subjectId, topic, version and sourceVersionIds. The result is returned without creating a saved brief record. Save/read brief return {snapshot: {id, created_at, purpose, state, superseded, brief}}. state is saved or unavailable; unavailable snapshots return brief: null. saved snapshots return the exact compiled response including its input manifest. Another workspace cannot read the record."
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "409": {
+            "description": "Operation failed, access unavailable, input/key conflict, or request not found. Retry ingestion with the same idempotency key after correcting the cause."
+          }
+        }
+      }
+    },
+    "/api/context/guest": {
+      "post": {
+        "summary": "Start guest context extraction",
+        "description": "Feature-flagged metadata pilot. Saves a Spotify track URL in a temporary workspace before signup. Uses an HttpOnly seven-day cookie; only its hash is stored. One URL per guest session and 100 new guest workspaces per day globally. Extracts artist and release metadata only. Does not run paid enrichment, generate a site, or send email. Serve through the same-origin funnel; cross-site cookie integration is not provided. Retry the same URL and cookie to resume dispatch.",
+        "security": [],
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The configured funnel origin. This is a browser session flow, not a public unauthenticated MCP tool."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "action",
+                  "url"
+                ],
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "start"
+                    ]
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved guest context or claim receipt."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "401": {
+            "description": "Guest session or account authentication missing."
+          },
+          "403": {
+            "description": "Origin or workspace access denied."
+          },
+          "409": {
+            "description": "Operation unavailable; retry the same input and session."
+          },
+          "503": {
+            "description": "Guest context is disabled."
+          },
+          "202": {
+            "description": "Guest work saved and workflow dispatched. Preserve Set-Cookie for status and claim."
+          }
+        }
+      },
+      "get": {
+        "summary": "Read guest context",
+        "description": "Returns metadata and status for the current unclaimed, unexpired guest session. Guest access ends when claimed. Unclaimed work expires after seven days.",
+        "security": [
+          {
+            "GuestSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Saved guest context or claim receipt."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "401": {
+            "description": "Guest session or account authentication missing."
+          },
+          "403": {
+            "description": "Origin or workspace access denied."
+          },
+          "409": {
+            "description": "Operation unavailable; retry the same input and session."
+          },
+          "503": {
+            "description": "Guest context is disabled."
+          }
+        }
+      }
+    },
+    "/api/context/guest/claim": {
+      "post": {
+        "summary": "Claim guest context after sign-in",
+        "description": "Requires the original guest cookie plus verified account authentication. Optionally claims into an authorized organization. Transfers saved metadata without refetching it; an in-progress worker finishes into the claimed destination. Repeated claims by the same account and destination return the same request ID. Another account cannot claim it. Existing matching identities and customer corrections are preserved. No artist ownership claim is implied. Signup UI integration must call this endpoint after authentication. The Recoup app provides a /context entry page and claims into the personal account after login. A failed extraction remains retryable through the same claim receipt. No completion email or website is generated by this flow.",
+        "security": [
+          {
+            "GuestSession": [],
+            "BearerAuth": []
+          },
+          {
+            "GuestSession": [],
+            "ApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Origin",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The configured funnel origin. This is a browser session flow, not a public unauthenticated MCP tool."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "action"
+                ],
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "claim"
+                    ]
+                  },
+                  "organization_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved guest context or claim receipt."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "401": {
+            "description": "Guest session or account authentication missing."
+          },
+          "403": {
+            "description": "Origin or workspace access denied."
+          },
+          "409": {
+            "description": "Operation unavailable; retry the same input and session."
+          },
+          "503": {
+            "description": "Guest context is disabled."
+          }
+        }
+      }
+    }
+  }
+}
