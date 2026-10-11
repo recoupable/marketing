@@ -1,10 +1,9 @@
 import type { Episode } from "./episodeSchema.ts";
+import { episodePath } from "./episodePath.ts";
 
-export type EpisodeAction = { label: "Watch now" | "Listen now"; href: string; platform: "youtube" | "spotify" };
+export type EpisodeAction = { label: "Watch now" | "Listen now"; href: string };
 
-/** The card's one action: video where it exists, otherwise the Spotify audio. */
-export function episodeAction(links: Episode["links"]): EpisodeAction {
-  return links.youtube
-    ? { label: "Watch now", href: links.youtube, platform: "youtube" }
-    : { label: "Listen now", href: links.spotify, platform: "spotify" };
+/** The card's one action: opens the episode page, worded for video where the episode has it, audio otherwise. */
+export function episodeAction(episode: Pick<Episode, "slug" | "links">): EpisodeAction {
+  return { label: episode.links.youtube ? "Watch now" : "Listen now", href: episodePath(episode.slug) };
 }

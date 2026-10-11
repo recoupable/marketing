@@ -10,7 +10,26 @@
     "links": {
       "spotify": "https://open.spotify.com/episode/0sVqvX9bANq4cpFAx5PFXL",
       "youtube": "https://www.youtube.com/watch?v=q8CsBbdmXqA"
-    }
+    },
+    "summary": [
+      "Jesse Kirshbaum signed the Clipse at 23. More than twenty years later, \"Grindin'\" is a Lavazza coffee. \"Songs don't get old, but context is consistently changing,\" he says. That is his Living Catalog: brand partnerships that give older songs new meaning, and new income, long after the release date.",
+      "Jesse runs Nue Agency and writes the Beats + Bytes newsletter. He explains how a brand picks a song (data shows where the heat is, taste shows where it is going), why music licensing needs to be frictionless rather than permissionless, and what a label sitting on 5,000 songs should pitch first: not a playlist, a concept.",
+      "We cover Dolly Parton's Cup of Ambition coffee, DJ Khaled and Nesquik's \"Another Bun\", the 2025 NFL Draft walkout songs, Kid A Mnesia, and which archive deserves that treatment next."
+    ],
+    "guestLinks": [
+      {
+        "label": "Nue Agency",
+        "href": "https://nueagency.com/"
+      },
+      {
+        "label": "Beats + Bytes",
+        "href": "https://www.beatsxbytes.com/subscribe"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/jessekirshbaum/"
+      }
+    ]
   },
   {
     "slug": "vickie-nauman",
@@ -22,8 +41,23 @@
     "cover": "/podcast/vickie-nauman-wide.jpg",
     "links": {
       "spotify": "https://open.spotify.com/episode/04QoyBh6NxS5occCDq77WG",
-      "youtube": "https://www.youtube.com/watch?v=dhmwk6aK0HA"
-    }
+      "youtube": "https://www.youtube.com/watch?v=dhmwk6aK0HA",
+      "apple": "https://podcasts.apple.com/us/podcast/ai-music-licenses-will-switch-from-market-share-to/id1316209308?i=1000793159857"
+    },
+    "summary": [
+      "Vickie Nauman expects the first AI music licenses, signed on market share, to start paying on actual usage when they come up for renewal in one to two years. The founder and CEO of CrossBorderWorks has spent 26 years licensing new music technology, and she lays out what rights holders need before that switch: an attribution system for AI output, artist opt-in, and a transparency clause in every AI license.",
+      "We cover Spotify's AI artist badges, whether a Drake hit and a Kansas City singer-songwriter carry the same value in a training set, Merlin's role for independent catalogs, GEMA's court win against Suno, why AI-generated music should flow through the same DDEX pipes as everything else, and why 3.5 billion gamers make games a catalog income line. Vickie also explains why the industry lost four years trying to stop digital from 1999 to 2004, and why rights holders are at the table this time."
+    ],
+    "guestLinks": [
+      {
+        "label": "CrossBorderWorks",
+        "href": "https://www.crossborderworks.com/"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/vnauman"
+      }
+    ]
   },
   {
     "slug": "xcelencia",
@@ -35,8 +69,23 @@
     "cover": "/podcast/xcelencia-wide.jpg",
     "links": {
       "spotify": "https://open.spotify.com/episode/4gIQjPCwCOpNdzoi8HQDjL",
-      "youtube": "https://www.youtube.com/watch?v=ZXLjcYggrwc"
-    }
+      "youtube": "https://www.youtube.com/watch?v=ZXLjcYggrwc",
+      "apple": "https://podcasts.apple.com/us/podcast/the-%24100k-playbook-of-an-independent-artist-w-xcelencia/id1316209308?i=1000679696884"
+    },
+    "summary": [
+      "Recorded in Miami during Art Basel 2024. Xcelencia runs his career the way a good company runs a product line: the album treated as software, distribution engineered through quests rather than playlist luck, and a direct commercial relationship with the collectors who fund the work.",
+      "We go through the numbers behind his $100K year, the tooling he built versus bought, token-bound accounts as fan infrastructure, and what he would keep if he started again. Required listening for anyone who owns a catalog and wants to see the leading edge of independent operation in practice."
+    ],
+    "guestLinks": [
+      {
+        "label": "X",
+        "href": "https://x.com/xcelencia"
+      },
+      {
+        "label": "Spotify",
+        "href": "https://open.spotify.com/artist/7c34Wg8HcWO9BWhHLwiXsr"
+      }
+    ]
   },
   {
     "slug": "nick-merich",
@@ -48,8 +97,19 @@
     "cover": "/podcast/nick-merich-wide.jpg",
     "links": {
       "spotify": "https://open.spotify.com/episode/2BGKNlumOWCEdpcZMMnh2O",
-      "youtube": "https://www.youtube.com/watch?v=0TFRtda1xHg"
-    }
+      "youtube": "https://www.youtube.com/watch?v=0TFRtda1xHg",
+      "apple": "https://podcasts.apple.com/us/podcast/growing-a-music-platform-what-worked-at-mint-songs/id1316209308?i=1000568762506"
+    },
+    "summary": [
+      "Nick Merich ran growth at Mint Songs while it went from a first release to a second protocol version on Ethereum. Fresh from NFT NYC, he lays out the parts of growth that were repeatable: how the team chose which artists to launch, what a release week looked like operationally, which metrics they reported to investors and which they ignored, and what a platform owes the artists who trust it with their first sale.",
+      "A candid account of building distribution from zero, from the person who had to make the numbers move."
+    ],
+    "guestLinks": [
+      {
+        "label": "X",
+        "href": "https://twitter.com/Nick_Merich"
+      }
+    ]
   },
   {
     "slug": "sidney-swift",
@@ -61,8 +121,14 @@
     "cover": "/podcast/sidney-swift-wide.jpg",
     "links": {
       "spotify": "https://open.spotify.com/episode/4KCglIfrD8i5JdN2c1gZlF",
-      "youtube": "https://www.youtube.com/watch?v=z_3qo3YVPWQ"
-    }
+      "youtube": "https://www.youtube.com/watch?v=z_3qo3YVPWQ",
+      "apple": "https://podcasts.apple.com/us/podcast/from-grammy-winning-producer-to-building-software-for/id1316209308?i=1000570288536"
+    },
+    "summary": [
+      "Sidney Swift has produced records that won Grammys, holds a US patent, and now runs Recoup, where labels and rights companies come when they need an AI strategy that works. This conversation was recorded months before we started working together, and it is the origin of the way we operate: a long, specific conversation first, the contract later.",
+      "We cover what a producer learns about leverage, why most music-tech pitches fail the people who actually run catalogs, and what it takes to build something a finance team will trust with royalty data."
+    ],
+    "guestLinks": []
   },
   {
     "slug": "kantor",
@@ -74,7 +140,22 @@
     "cover": "/podcast/kantor-wide.jpg",
     "links": {
       "spotify": "https://open.spotify.com/episode/23ficFzRzJMYbnWV7hB3o3",
-      "youtube": "https://www.youtube.com/watch?v=y0qslS8vMMs"
-    }
+      "youtube": "https://www.youtube.com/watch?v=y0qslS8vMMs",
+      "apple": "https://podcasts.apple.com/us/podcast/how-the-traditional-music-industry-moves-into-new/id1316209308?i=1000561551650"
+    },
+    "summary": [
+      "Every wave of technology reaches the music business the same way: a few operators move early, the rest wait for the case study. Kantor has been on both sides.",
+      "We talk through how an established artist evaluates a new platform, what a label's finance and legal teams need to see before they sign off, where the traditional distribution stack still wins, and the difference between a technology that changes the economics and one that changes the press release. A clear framework for anyone deciding what to adopt and when."
+    ],
+    "guestLinks": [
+      {
+        "label": "X",
+        "href": "https://twitter.com/kantormusic"
+      },
+      {
+        "label": "Facebook",
+        "href": "https://www.facebook.com/KantorMusic/videos/848396465647613"
+      }
+    ]
   }
 ]
