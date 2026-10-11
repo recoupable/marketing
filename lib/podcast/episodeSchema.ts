@@ -14,6 +14,10 @@ export const episodeSchema = z.object({
     youtube: z.string().url().optional(),
     apple: z.string().url().optional(),
   }),
+  /** The episode page's summary, one string per paragraph (the published episode description, without links). */
+  summary: z.array(z.string().min(1)).min(1),
+  /** The guest's own links, shown on the episode page. */
+  guestLinks: z.array(z.object({ label: z.string().min(1), href: z.string().url() })),
 });
 
 export type Episode = z.infer<typeof episodeSchema>;

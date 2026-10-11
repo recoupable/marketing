@@ -10,4 +10,16 @@ export const podcastCopy = {
   subscribe: { label: "Email", placeholder: "Enter your email", action: "Subscribe", success: "You are on the list. New episodes and the notes will land in your inbox.", noScript: "Subscribing needs JavaScript. Follow the show on YouTube, Spotify or Apple Podcasts above instead.", consent: "By subscribing you agree to receive episode notes and occasional updates from Recoup. You can unsubscribe at any time." },
   guest: { kicker: "Be a guest", description: "Run a label, a fund, a publisher or a management company? Come tell your story.", action: "Request an invite", href: "/start-project?workflow=Podcast%20guest" },
   episodes: { heading: "All episodes" },
+  episode: {
+    back: "All episodes",
+    listen: "Listen and watch",
+    guestLinks: "Find {guest}",
+    about: {
+      kicker: "About Recoup",
+      description: "Recoup designs and builds the systems behind conversations like this one: catalog data, royalty operations, and AI agents for labels, publishers, funds and management companies.",
+      action: "Take the AI readiness check",
+      href: "/audit",
+    },
+    credits: { guest: "Guest", host: "Host", hostName: "Patrick Sweetman, Cofounder, Recoup" },
+  },
 };
