@@ -3144,7 +3144,7 @@
           ],
           "num_images": 1
         },
-        "description": "Reconciliation release contract (deployment pending): "
+        "description": "Generate images from a prompt, or edit the supplied image_urls. num_images controls the number of returned images. Unsupported request fields return 400 before paid generation."
       },
       "ContentCreateImageResponse": {
         "type": "object",
@@ -3471,7 +3471,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Reconciliation release contract (deployment pending): House MiniMax H3 Max primitive. No mode, model, audio_url or video_url input. Unsupported semantic fields return 400 before paid generation. Audio-driven hosted presets remain POST /api/content/create with lipsync true.",
+        "description": "House MiniMax H3 Max primitive. No mode, model, audio_url or video_url input. Unsupported semantic fields return 400 before paid generation. Audio-driven hosted presets use POST /api/content/create with lipsync true.",
         "example": {
           "prompt": "Slow camera push with natural movement.",
           "image_url": "https://example.com/artist.png",

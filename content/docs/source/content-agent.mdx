@@ -6,7 +6,7 @@ description: "Use hosted creative presets and current image, video and compositi
 ## Hosted workflows
 
 `POST /api/content/create` retains the hosted preset workflow. Supply the authorized
-`artist_account_id`, optional `template`, `images`, `songs`, `batch` (1–30), `lipsync`, `upscale`
+`artist_account_id`, optional `template`, `images`, `songs`, `batch` (defaults to 1; range 1–30), `lipsync`, `upscale`
 and `caption_length`. Discover templates through `/api/content/templates` and its
 detail route. The response contains `runIds`; poll `/api/tasks/runs?runId=...` until
 terminal. Report failures and inspect the final artifact before delivery.
