@@ -73,6 +73,10 @@ Only a successful provider exchange with `user-read-email` and `user-read-privat
 
 Each fan has `id`, `site_id`, `spotify_id`, `display_name`, `email`, first/last connection timestamps and nested `site_fan_connections` with `site_fan_permissions` and `site_fan_marketing_consents`. Paginate up to 100 fans per page. Records are private to authorized workspace members. Read access remains available after paid eligibility expires. Repeated connection updates the existing fan for that site and adds a connection history entry. The site's owner and artist supply attribution. These records are separate from email-only signups and other artist audience data.
 
+Starter Checkout can return HTTP 400 `starter_unavailable` when its price is not
+configured. Explain the unavailable option and use a configured plan; do not retry
+it as a transient provider failure.
+
 ## Recoup operator setup
 
 Operators must apply `20260928010000_site_fan_connections.sql`, configure `SITES_SPOTIFY_CLIENT_ID`, register an HTTPS callback ending `/api/sites/spotify/callback`, set `SITES_FAN_SPOTIFY_REDIRECT_URI`. This is Recoup service configuration, not work to impose on each artist. The existing browser playback callback remains separate.

@@ -20,7 +20,7 @@ The caller is derived from authentication. Do not send an `account_id`. An optio
 | `POST /api/sites` | `create_site` | `{ site: ... }`, HTTP 201 |
 | `GET /api/sites/{id}` | `get_site` | `{ site: ... }` |
 | `PATCH /api/sites/{id}` action `concepts` | `propose_site_concepts` | Short pitches or missing context |
-| `PATCH /api/sites/{id}` action `generate` | `generate_site` | Production from a customer-selected pitch |
+| `PATCH /api/sites/{id}` action `generate` | `generate_site` | Generate from an optional customer-selected pitch; otherwise select a concept |
 | `PATCH /api/sites/{id}` action `publish` | `publish_site` | Saved draft becomes public |
 | `PATCH /api/sites/{id}` action `unpublish` | `unpublish_site` | Public snapshot removed, draft retained |
 | `GET /api/sites/{id}/signups` | `get_site_signups` | `{ signups: [{ email, created_at }] }`, up to 10,000 |
@@ -126,8 +126,6 @@ Public pages render in the chat app. The API owns snapshots, generation, uploads
 
 ## Errors
 
+- `402`: publication requires an eligible paid workspace.
+
 `400` invalid input; `401` missing/invalid authentication; `403` workspace or artist access denied; `404` missing/unpublished site; `409` stale revision; `422` Spotify metadata unavailable; `503` temporary operation failure.
-
-## Reconciliation status
-
-Publication is gated on an eligible paid workspace; unavailable entitlement returns 402 before publication. Earlier prose describing free publishing is obsolete. Newer delete/cancel and generation-token lifecycle contracts are tracked in [mono#330](https://github.com/recoupable/mono/issues/330); this guide does not claim complete lifecycle coverage.

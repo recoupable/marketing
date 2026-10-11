@@ -116,4 +116,4 @@ Some endpoints accept an `organization_id` parameter. When provided, the API add
 
 ## MCP OAuth and REST credentials
 
-Remote MCP uses host-managed OAuth. Its tokens remain in the host and are not REST credentials to extract. Use a separate personal API key or application-provided access token for REST-only operations. Never put a key in global instructions or use a disposable account to gain access to customer data. The authorized account and organization membership still control every request. See [MCP OAuth](/mcp-oauth).
+Remote MCP uses host-managed OAuth. Its tokens remain in the host and are not REST credentials to extract. Use a separate personal API key or application-provided Privy JWT (Bearer token) for REST-only operations. Never put a key in global instructions or use a disposable account to gain access to customer data. The authorized account and organization membership still control every request. See [MCP OAuth](/mcp-oauth).

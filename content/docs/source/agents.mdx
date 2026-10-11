@@ -1,62 +1,26 @@
 ---
 title: 'Agents'
-description: 'Programmatic agent onboarding — sign up and obtain API keys in one call, no dashboard, no human in the loop.'
+description: 'Verified email onboarding for a separate Recoup REST API key.'
 ---
 
-## Quickest start
+## Use your real account
 
-Get a working API key in a single unauthenticated request:
+Prefer [MCP OAuth](/mcp-oauth) for supported AI hosts. REST integrations need a
+separate API key; an OAuth connection does not export one into your shell.
 
-```bash
-curl -X POST "https://api.recoupable.dev/api/agents/signup" \
-  -H "Content-Type: application/json" \
-  -d '{"email": "agent+'$(date +%s)-$RANDOM'@recoupable.com"}'
-```
+Use the email verification flow below with an address the user controls. Keep
+the returned key out of messages and logs, and store it through a secret facility
+or an explicitly approved local environment file. Never use a disposable account
+to recover an existing user's data.
 
-Response:
-
-```json
-{
-  "account_id": "123e4567-e89b-12d3-a456-426614174000",
-  "api_key": "recoup_sk_abc123...",
-  "message": "If this is a new agent+ email, your API key is included. Otherwise, check your email for a verification code."
-}
-```
-
-That's it. Store `api_key`, pass it in the `x-api-key` header on every subsequent request, and you're done.
-
-<Tip>
-**One-liner — sign up and export the key in one shot.** Drop this into your shell and you'll have `$RECOUP_API_KEY` ready to use on the next line:
-
-```bash
-export RECOUP_API_KEY=$(curl -s -X POST "https://api.recoupable.dev/api/agents/signup" \
-  -H "Content-Type: application/json" \
-  -d '{"email": "agent+'$(date +%s)-$RANDOM'@recoupable.com"}' | jq -r .api_key)
-```
-
-Verify it worked:
-
-```bash
-curl -H "x-api-key: $RECOUP_API_KEY" https://api.recoupable.dev/api/accounts/id
-```
-</Tip>
-
-<Tip>
-The `agent+{unique-suffix}@recoupable.com` shape is the recommended path for agents — it always returns an API key instantly, with no email verification required. Combining `$(date +%s)` with `$RANDOM` guarantees a fresh, collision-free address on every call (including multiple signups within the same second) and is portable across macOS and Linux shells.
-</Tip>
-
-## How it works
-
-Two unauthenticated endpoints power agent onboarding:
-
-- **[`POST /api/agents/signup`](/api-reference/agents/signup)** — Register with an email address. Emails with the `agent+` prefix that have never been seen before receive an API key immediately. Any other email (or a previously-used `agent+` address) receives a 6-digit verification code via email.
-- **[`POST /api/agents/verify`](/api-reference/agents/verify)** — Submit the verification code to receive an API key.
-
-Multiple API keys per account are supported — each signup or verification generates a new key without revoking existing ones.
+The source signup contract also supports immediate keys for new `agent+` addresses.
+That creates a separate identity; it does not grant customer or organization access.
+It is not the recommended onboarding path for customer work. Multiple API keys per
+account are supported, without revoking existing keys.
 
 ## Standard signup (email verification)
 
-If you're building a human-facing integration and want the user to verify their real email, use any non-`agent+` address:
+If you're building a human-facing integration and want the user to verify their real email, use an email address the user controls:
 
 Step 1 — request a verification code:
 

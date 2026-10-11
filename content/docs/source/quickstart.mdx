@@ -1,29 +1,23 @@
 ---
 title: "Quickstart"
-description: "Get a Recoup API key in one call and make your first request — no browser, no dashboard."
+description: "Connect your real account and make your first authenticated request."
 ---
 
-## Quickest start
+## Connect first
 
-Sign up your agent and get an API key in a single API call — no dashboard, no browser, no human in the loop. This one-liner signs up a fresh `agent+` address and exports the returned key to `$RECOUP_API_KEY`:
+Use [MCP OAuth](/mcp-oauth) for a supported AI host. For the REST examples below,
+create a personal API key in [account settings](https://chat.recoupable.dev/keys)
+or follow the [Agents email verification guide](/agents). Store the key as
+`RECOUP_API_KEY` through your secret facility or an approved environment file.
+Never paste credentials into agent instructions or create a disposable account
+to access an existing customer's data.
+
+Verify the REST credential before continuing:
 
 ```bash
-export RECOUP_API_KEY=$(curl -s -X POST "https://api.recoupable.dev/api/agents/signup" \
-  -H "Content-Type: application/json" \
-  -d '{"email": "agent+'$(date +%s)-$RANDOM'@recoupable.com"}' | jq -r .api_key)
+curl --fail-with-body -sS -H "x-api-key: $RECOUP_API_KEY" \
+  https://api.recoupable.dev/api/accounts/id
 ```
-
-Verify it worked:
-
-```bash
-curl -H "x-api-key: $RECOUP_API_KEY" https://api.recoupable.dev/api/accounts/id
-```
-
-<Tip>
-The `agent+{timestamp}@recoupable.com` shape is the fastest path for agents — it guarantees a fresh `agent+` address and returns an API key instantly without email verification.
-</Tip>
-
-For the full signup + email-verification flow, see the [Agents guide](/agents).
 
 ## Base URL
 

@@ -89,18 +89,43 @@
     "tab": "Research",
     "groups": [
       {
+        "group": "Artist discovery",
+        "pages": [
+          "api-reference/research/search",
+          "api-reference/research/lookup",
+          "api-reference/research/profile"
+        ]
+      },
+      {
         "group": "Metrics & insights",
         "pages": [
-          "api-reference/research/events"
+          "api-reference/research/metrics",
+          "api-reference/research/audience",
+          "api-reference/research/insights",
+          "api-reference/research/career",
+          "api-reference/research/milestones",
+          "api-reference/research/events",
+          "api-reference/research/similar",
+          "api-reference/research/urls"
         ]
       },
       {
         "group": "Catalog",
         "pages": [
+          "api-reference/research/albums",
+          "api-reference/research/tracks",
+          "api-reference/research/track",
           "api-reference/research/track-stats",
           "api-reference/research/measurements",
           "api-reference/research/album-measurements",
           "api-reference/research/measurement-jobs"
+        ]
+      },
+      {
+        "group": "Playlists",
+        "pages": [
+          "api-reference/research/playlists",
+          "api-reference/research/track-playlists"
         ]
       },
       {

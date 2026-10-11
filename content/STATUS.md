@@ -1,3 +1,11 @@
+## Recoup contract reconciliation — October 11, 2026
+
+Restored 15 artist and track research references under Recoup branding. Public examples use opaque research IDs or ISRC/Spotify/Apple Music identifiers; Recoup owns the data connections. Kept coverage, history, billing and error limits explicit. Added a publication guard against vendor names and credential-operation notes. Canonical documentation and the retained Docs host publish from one committed source. Auth, creative/lipsync, billing and headless fixes remain coordinated through mono#318; merge, deployed artifact inspection and fresh OAuth host checks are still required.
+
+## Release-player guide clarity — October 10, 2026
+
+Rewrote the public guide around creating, publishing, sharing, embedding and measuring a player. Removed deployment variables, migration instructions, internal rollout history and component/skill roadmap notes. Kept subscription behavior, secure embed handoff, workspace ownership, consent and reporting limits. Publication pending review and merge.
+
 ## Release-player documentation — October 10, 2026
 
 Added the shipped release-player guide and seven API operations to the marketing site’s documentation source. Covers sharing/embedding, publication and revisions, Spotify playlist browsing, Free-account playback policy, anonymous Apple sessions, organization-owned fan relationships and player activity limits. Generated website and agent indexes include these pages. The shared component library and dedicated building skill remain proposed. The production build, docs checks and agent-index parity tests pass; local served guide, Markdown, OpenAPI and LLM indexes are verified. Marketing publication is pending PR merge and production verification.

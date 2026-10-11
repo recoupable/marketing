@@ -19,6 +19,13 @@ dirty = subprocess.check_output(
 if dirty:
     raise SystemExit('Commit the maintained documentation source before publishing its copy')
 commit = subprocess.check_output(['git', '-C', str(root), 'rev-parse', 'HEAD'], text=True).strip()
+managed = {str(p.relative_to(source)) for p in source.rglob('*') if p.is_file() and p.name != 'docs.json'}
+old_pin_path = target / 'SOURCE-PROVENANCE.json'
+previous = {entry['path'] for entry in json.loads(old_pin_path.read_text())['files']} if old_pin_path.exists() else set()
+published = {str(p.relative_to(target)) for p in target.rglob('*') if p.is_file() and (p.suffix == '.mdx' or str(p.relative_to(target)).startswith('api-reference/openapi/')) and not any(part.startswith('.') or part == 'node_modules' for part in p.relative_to(target).parts)}
+extras = (published | {p for p in previous if (target / p).exists()}) - managed
+if extras:
+    raise SystemExit('Review and remove stale publication files before syncing: ' + ', '.join(sorted(extras)))
 files = []
 for path in sorted(source.rglob('*')):
     if not path.is_file() or path.name == 'docs.json':

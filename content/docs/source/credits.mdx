@@ -3,7 +3,7 @@ title: "Credits"
 description: "How Recoup credits work — what's billed, how to check your balance, and how to upgrade."
 ---
 
-Some Recoup endpoints are billed in **credits** — primarily endpoints that hit external data providers, run AI inference, or generate content. The rest of the API is free at the API layer.
+Some Recoup endpoints are billed in **credits** — primarily endpoints that hit external data providers, run AI inference, or generate content. Check the specific endpoint contract for other charges and subscription gates.
 
 ---
 
@@ -59,7 +59,7 @@ To see what consumed the balance, list the charges line by line with [`GET /api/
 
 ## Subscription
 
-For Platform, Advisory, Build + Partner, and Enterprise options, see [Recoup pricing](/pricing). API and MCP usage is billed separately through credits.
+For Platform, Advisory, Build + Partner, and Enterprise options, see [Recoup pricing](https://recoupable.dev/pricing). API and MCP usage is billed separately through credits.
 
 Your account's current credit allowance and scheduled-task limits are returned by [Get Account Credits](/api-reference/accounts/credits-get). Use `total_credits`, `task_limit`, and `min_cadence_minutes` from that response rather than inferring limits from a public plan name.
 
@@ -205,7 +205,7 @@ Current as of this revision of the page. The authoritative source is the per-end
 | Endpoint | Cost |
 |----------|------|
 | [`POST /api/chat`](/api-reference/chat/workflow) (streaming) | Variable, priced from the model's token usage; see `required_credits` on a 402 |
-| [`GET /api/research/*`](/api-reference/research/web) (artist & non-artist research) | \$0.05 per call |
+| [Recoup artist and track research](/api-reference/research/search) | \$0.05 per successful research call (50,000 credits); track-name resolution can add separately charged provider lookups |
 | [`POST /api/research/people`](/api-reference/research/people) | \$0.05 per call |
 | [`POST /api/research/web`](/api-reference/research/web) | \$0.01 per call |
 | [`POST /api/research/extract`](/api-reference/research/extract) | \$0.05 × number of URLs |
@@ -216,8 +216,8 @@ Current as of this revision of the page. The authoritative source is the per-end
 
 ## Billing recovery and units
 
-`insufficient_credits` returns `billingUrl`, a static app link, not a Stripe Checkout session. Stop and surface it; do not silently retry or initiate a charge. Other subscription/plan gates may legitimately return `checkoutUrl`; inspect the error type.
+`insufficient_credits` returns `billingUrl`, a static app link, not a Stripe Checkout session. Stop and surface it; do not silently retry or initiate a charge. The separate historical measurement card-setup gate returns `checkoutUrl`; subscription Checkout returns `url`. Inspect the endpoint-specific error type.
 
 Top-ups require `successUrl` on every request and a positive whole-cent multiple of 10,000 micro-dollar credits. For example, 2,500,000 credits buys $2.50 before fees; `totalCents` is 289 for that example. It is not a credit count. `isPro` means effective Pro only, and is false for paid Starter; use `plan` for paid-plan decisions.
 
-A single-task GET can return a plan-limit 402 before execution after a downgrade, while listing tasks does not run that gate. Free/Starter/Pro are technical entitlement values. Platform/Advisory/Build/Enterprise marketing offers describe commercial services; they are not interchangeable names.
+Scheduled task creation and updates can return a plan-limit 402; task reads do not run that gate. Free/Starter/Pro are technical entitlement values. Platform/Advisory/Build/Enterprise marketing offers describe commercial services; they are not interchangeable names.

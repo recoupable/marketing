@@ -3,17 +3,13 @@ title: "Recoup API Documentation"
 description: "Use the Recoup API to build your record label. Access research, content creation, chat, artist analytics, social media, and platform management endpoints."
 ---
 
-## Quickest start — one curl call
+## Connect your account
 
-Get a working API key in a single unauthenticated request. No dashboard, no browser, no human in the loop.
-
-```bash
-export RECOUP_API_KEY=$(curl -s -X POST "https://api.recoupable.dev/api/agents/signup" \
-  -H "Content-Type: application/json" \
-  -d '{"email": "agent+'$(date +%s)-$RANDOM'@recoupable.com"}' | jq -r .api_key)
-```
-
-`$RECOUP_API_KEY` is now ready to pass in the `x-api-key` header on any request. See the [Agents guide](/agents) for the full signup and verification flow.
+For an AI host, start with [MCP OAuth](/mcp-oauth): sign in to your real account,
+approve the intended scope and verify access with a read. For REST integrations,
+create an API key in your [account settings](https://chat.recoupable.dev/keys), or
+follow the [verified email/PIN flow](/agents). Keep credentials in a secret facility.
+An empty roster can be valid; do not create a disposable account to recover access.
 
 ## What is Recoup?
 
@@ -55,7 +51,7 @@ Keep your API key secure. Do not share it publicly or commit it to version contr
     icon="user-plus"
     href="/agents"
   >
-    Get an API key in one curl call. The fastest path for AI agents — no dashboard required.
+    Verify your email and obtain a separate REST API key.
   </Card>
   <Card
     title="Quickstart"
@@ -76,7 +72,7 @@ Keep your API key secure. Do not share it publicly or commit it to version contr
     icon="sparkles"
     href="/claude"
   >
-    Install the Recoup plugins in Claude and run the getting-started skill.
+    Connect Claude to Recoup through MCP OAuth, then add optional workflow skills.
   </Card>
   <Card
     title="MCP Server"
@@ -89,15 +85,15 @@ Keep your API key secure. Do not share it publicly or commit it to version contr
 
 ## API Sections
 
-The API is organized into six main sections. Use these links to jump to the right area.
+The API includes these major sections. Use these links to jump to the right area.
 
 <CardGroup cols={2}>
   <Card
     title="Research"
     icon="magnifying-glass-chart"
-    href="/api-reference/research/web"
+    href="/api-reference/research/search"
   >
-    Web search, deep research, people search, page extraction and enrichment, upcoming events, and the Apify-backed play-count measurement store.
+    Recoup artist and track discovery, current metrics, activities and playlists; web research, upcoming events, and stored play-count measurements.
   </Card>
   <Card
     title="Content Creation"
@@ -134,6 +130,9 @@ The API is organized into six main sections. Use these links to jump to the righ
   >
     Accounts, organizations, subscriptions, pulses, notifications, sandboxes, and admin tools.
   </Card>
+  <Card title="Release Players" icon="play" href="/essentials/release-player">
+    Hosted listening pages, embeddable players, event reporting and fan connections.
+  </Card>
 </CardGroup>
 
 ## Agents
@@ -160,7 +159,7 @@ The API is organized into six main sections. Use these links to jump to the righ
 If you are an LLM navigating these docs, here is a summary of the endpoint structure:
 
 - **`/api/artists/*`** — Artist management (list, create, socials, socials-scrape, profile)
-- **`/api/research/*`** — Artist research (search, lookup, profile, metrics, audience, cities, similar, urls, instagram-posts, playlists, albums, track, tracks, career, insights, genres, festivals, web, deep, people, extract, enrich, milestones, venues, rank, charts, radio, discover, curator, playlist)
+- **`/api/research/*`** — Artist and track search, lookup, profile, current metrics, audience, related artists, URLs, playlists, catalog entries and activities; track statistics and measurements; web, deep and people research, extraction, enrichment and events. See each operation's contract for provider mapping and coverage limits.
 - **`/api/content/*`** — Content creation (create, generate-image, generate-video, generate-caption, transcribe-audio, edit, upscale, analyze-video, templates, validate, estimate)
 - **`/api/chat/*`** — Chat (chats, artist, messages, messages-copy, messages-trailing-delete, create, update, delete, runs, runs-status, stream, compact)
 - **`/api/songs/*`** — Songs and catalogs (songs, create, analyze, analyze-presets, catalogs, catalogs-create, catalogs-delete, catalog-songs, catalog-songs-add, catalog-songs-delete)
@@ -172,12 +171,13 @@ If you are an LLM navigating these docs, here is a summary of the endpoint struc
 - **`/api/accounts/*`** — Accounts (get, id, create, update, add-artist)
 - **`/api/organizations/*`** — Organizations (list, create, add-artist)
 - **`/api/sandboxes/*`** — Sandboxes (list, create, snapshot, delete, setup, file, upload)
+- **`/api/players/*`** — Release Players (list, create, update, activity and fans)
 - **`/api/content-agent/*`** — Content agent webhooks (webhook, callback)
 - **`/api/agents/*`** — Agent onboarding (signup, verify) — no auth required
 
 Base URL: `https://api.recoupable.dev/api`
 
-[OpenAPI Specification](https://github.com/sweetmantech/docs/blob/main/api-reference/openapi.json)
+[OpenAPI Specification](https://github.com/recoupable/marketing/tree/main/content/docs/source/api-reference/openapi)
 
 ## Need Help?
 

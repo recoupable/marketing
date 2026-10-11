@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "68c8bddc6d74d0425d57ef0f919bbf21e7910694",
+  "apiSourceCommit": "3c459b8bacd74f09ae0ccb97c42b56260bb63022",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -9,6 +9,14 @@
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/accounts/{id}/auto-top-up",
+      "implementation": "app/api/accounts/[id]/auto-top-up/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "PUT",
@@ -27,12 +35,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/accounts/{id}/catalogs",
+      "implementation": "app/api/accounts/[id]/catalogs/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/accounts/{id}/credits",
       "implementation": "app/api/accounts/[id]/credits/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/accounts/{id}/credits",
+      "implementation": "app/api/accounts/[id]/credits/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "DELETE",
@@ -51,6 +75,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/accounts/{id}/payment-method",
+      "implementation": "app/api/accounts/[id]/payment-method/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/accounts/{id}/payment-method",
       "implementation": "app/api/accounts/[id]/payment-method/route.ts",
@@ -65,6 +97,22 @@
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/accounts/{id}/payments",
+      "implementation": "app/api/accounts/[id]/payments/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/accounts/{id}/portal",
+      "implementation": "app/api/accounts/[id]/portal/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -83,6 +131,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/accounts/{id}",
+      "implementation": "app/api/accounts/[id]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/accounts/{id}/subscription",
       "implementation": "app/api/accounts/[id]/subscription/route.ts",
@@ -91,12 +147,36 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/accounts/{id}/subscription",
+      "implementation": "app/api/accounts/[id]/subscription/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/accounts/{id}/usage",
       "implementation": "app/api/accounts/[id]/usage/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/accounts/{id}/usage",
+      "implementation": "app/api/accounts/[id]/usage/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/accounts/artists",
+      "implementation": "app/api/accounts/artists/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -113,6 +193,22 @@
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/accounts/id",
+      "implementation": "app/api/accounts/id/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/accounts",
+      "implementation": "app/api/accounts/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "PATCH",
@@ -139,12 +235,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/admins/artists/pro",
+      "implementation": "app/api/admins/artists/pro/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/admins/coding/pr",
       "implementation": "app/api/admins/coding/pr/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/admins/coding/pr",
+      "implementation": "app/api/admins/coding/pr/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
@@ -155,12 +267,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/admins/coding/slack",
+      "implementation": "app/api/admins/coding/slack/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/admins/content/slack",
       "implementation": "app/api/admins/content/slack/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/admins/content/slack",
+      "implementation": "app/api/admins/content/slack/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
@@ -171,12 +299,36 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/admins/credits/events",
+      "implementation": "app/api/admins/credits/events/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/admins/credits/rollup",
       "implementation": "app/api/admins/credits/rollup/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/admins/credits/rollup",
+      "implementation": "app/api/admins/credits/rollup/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/admins/credits",
+      "implementation": "app/api/admins/credits/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -195,12 +347,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/admins/emails",
+      "implementation": "app/api/admins/emails/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/admins/privy",
       "implementation": "app/api/admins/privy/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/admins/privy",
+      "implementation": "app/api/admins/privy/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
@@ -211,12 +379,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/admins",
+      "implementation": "app/api/admins/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/admins/sandboxes/orgs",
       "implementation": "app/api/admins/sandboxes/orgs/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/admins/sandboxes/orgs",
+      "implementation": "app/api/admins/sandboxes/orgs/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
@@ -227,12 +411,36 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/admins/sandboxes",
+      "implementation": "app/api/admins/sandboxes/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/agents/signup",
+      "implementation": "app/api/agents/signup/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/agents/signup",
       "implementation": "app/api/agents/signup/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/agents/templates/{id}/favorite",
+      "implementation": "app/api/agents/templates/[id]/favorite/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "PUT",
@@ -251,6 +459,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/agents/templates/{id}",
+      "implementation": "app/api/agents/templates/[id]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "PATCH",
       "path": "/api/agents/templates/{id}",
       "implementation": "app/api/agents/templates/[id]/route.ts",
@@ -267,12 +483,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/agents/templates",
+      "implementation": "app/api/agents/templates/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/agents/templates",
       "implementation": "app/api/agents/templates/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/templates.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/agents/verify",
+      "implementation": "app/api/agents/verify/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -291,6 +523,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/ai/models",
+      "implementation": "app/api/ai/models/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/apify",
       "implementation": "app/api/apify/route.ts",
@@ -307,12 +547,36 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/apify/runs/{runId}",
+      "implementation": "app/api/apify/runs/[runId]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/apple/songs",
       "implementation": "app/api/apple/songs/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/social.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/apple/songs",
+      "implementation": "app/api/apple/songs/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/artist/socials/scrape",
+      "implementation": "app/api/artist/socials/scrape/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -331,12 +595,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/artists/{id}/fans",
+      "implementation": "app/api/artists/[id]/fans/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/artists/{id}/posts",
       "implementation": "app/api/artists/[id]/posts/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/social.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/artists/{id}/posts",
+      "implementation": "app/api/artists/[id]/posts/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
@@ -347,12 +627,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/artists/{id}/profile",
+      "implementation": "app/api/artists/[id]/profile/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "DELETE",
       "path": "/api/artists/{id}",
       "implementation": "app/api/artists/[id]/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/releases.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/artists/{id}",
+      "implementation": "app/api/artists/[id]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "PATCH",
@@ -371,6 +667,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/artists/{id}/socials/{socialId}",
+      "implementation": "app/api/artists/[id]/socials/[socialId]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/artists/{id}/socials",
       "implementation": "app/api/artists/[id]/socials/route.ts",
@@ -379,12 +683,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/artists/{id}/socials",
+      "implementation": "app/api/artists/[id]/socials/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/artists",
       "implementation": "app/api/artists/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/releases.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/artists",
+      "implementation": "app/api/artists/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -403,6 +723,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/catalogs/{catalogId}/measurements",
+      "implementation": "app/api/catalogs/[catalogId]/measurements/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/catalogs/{catalogId}/playcount-history",
       "implementation": "app/api/catalogs/[catalogId]/playcount-history/route.ts",
@@ -411,12 +739,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/catalogs/{catalogId}/playcount-history",
+      "implementation": "app/api/catalogs/[catalogId]/playcount-history/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "DELETE",
       "path": "/api/catalogs/{catalogId}",
       "implementation": "app/api/catalogs/[catalogId]/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/releases.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/catalogs/{catalogId}",
+      "implementation": "app/api/catalogs/[catalogId]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "PATCH",
@@ -435,6 +779,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/catalogs/{catalogId}/stream-tracking",
+      "implementation": "app/api/catalogs/[catalogId]/stream-tracking/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/catalogs/{catalogId}/stream-tracking",
       "implementation": "app/api/catalogs/[catalogId]/stream-tracking/route.ts",
@@ -449,6 +801,22 @@
       "documentation": "content/docs/source/api-reference/openapi/releases.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/catalogs/{catalogId}/streams",
+      "implementation": "app/api/catalogs/[catalogId]/streams/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/catalogs",
+      "implementation": "app/api/catalogs/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -475,12 +843,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/catalogs/songs",
+      "implementation": "app/api/catalogs/songs/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/catalogs/songs",
       "implementation": "app/api/catalogs/songs/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/releases.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/chat/{chatId}/stop",
+      "implementation": "app/api/chat/[chatId]/stop/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -499,6 +883,22 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/chat/{chatId}/stream",
+      "implementation": "app/api/chat/[chatId]/stream/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/chat",
+      "implementation": "app/api/chat/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/chat",
       "implementation": "app/api/chat/route.ts",
@@ -513,6 +913,22 @@
       "documentation": "content/docs/source/api-reference/openapi/research.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/chat/runs/{runId}",
+      "implementation": "app/api/chat/runs/[runId]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/chat/runs",
+      "implementation": "app/api/chat/runs/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -547,6 +963,22 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/chats/{id}/artist",
+      "implementation": "app/api/chats/[id]/artist/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/chats/{id}/messages/copy",
+      "implementation": "app/api/chats/[id]/messages/copy/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/chats/{id}/messages/copy",
       "implementation": "app/api/chats/[id]/messages/copy/route.ts",
@@ -563,12 +995,36 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/chats/{id}/messages",
+      "implementation": "app/api/chats/[id]/messages/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "DELETE",
       "path": "/api/chats/{id}/messages/trailing",
       "implementation": "app/api/chats/[id]/messages/trailing/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/research.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/chats/{id}/messages/trailing",
+      "implementation": "app/api/chats/[id]/messages/trailing/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/chats/compact",
+      "implementation": "app/api/chats/compact/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -593,6 +1049,14 @@
       "documentation": "content/docs/source/api-reference/openapi/research.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/chats",
+      "implementation": "app/api/chats/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "PATCH",
@@ -651,12 +1115,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/connectors/actions",
+      "implementation": "app/api/connectors/actions/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/connectors/actions",
       "implementation": "app/api/connectors/actions/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/social.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/connectors/files",
+      "implementation": "app/api/connectors/files/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -683,12 +1163,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/connectors",
+      "implementation": "app/api/connectors/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/connectors",
       "implementation": "app/api/connectors/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/social.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/content/analyze",
+      "implementation": "app/api/content/analyze/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -699,12 +1195,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/content/caption",
+      "implementation": "app/api/content/caption/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/content/caption",
       "implementation": "app/api/content/caption/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/content.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/content/create",
+      "implementation": "app/api/content/create/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -723,6 +1235,22 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/content/estimate",
+      "implementation": "app/api/content/estimate/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/content/image",
+      "implementation": "app/api/content/image/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/content/image",
       "implementation": "app/api/content/image/route.ts",
@@ -731,12 +1259,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/content/lipsync",
+      "implementation": "app/api/content/lipsync/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/content/lipsync",
       "implementation": "app/api/content/lipsync/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/content.json",
       "classification": "pending",
       "reason": "Coordinated API/worker release and real artifact inspection required."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/content",
+      "implementation": "app/api/content/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "PATCH",
@@ -755,6 +1299,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/content/templates/{id}",
+      "implementation": "app/api/content/templates/[id]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/content/templates",
       "implementation": "app/api/content/templates/route.ts",
@@ -763,12 +1315,36 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/content/templates",
+      "implementation": "app/api/content/templates/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/content/transcribe",
+      "implementation": "app/api/content/transcribe/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/content/transcribe",
       "implementation": "app/api/content/transcribe/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/content.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/content/upscale",
+      "implementation": "app/api/content/upscale/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -785,6 +1361,22 @@
       "documentation": "content/docs/source/api-reference/openapi/content.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/content/validate",
+      "implementation": "app/api/content/validate/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/content/video",
+      "implementation": "app/api/content/video/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -851,6 +1443,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/credits/sessions",
+      "implementation": "app/api/credits/sessions/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/credits/sessions",
       "implementation": "app/api/credits/sessions/route.ts",
@@ -867,6 +1467,14 @@
       "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/emails",
+      "implementation": "app/api/emails/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/emails",
       "implementation": "app/api/emails/route.ts",
@@ -881,6 +1489,14 @@
       "documentation": "content/docs/source/api-reference/openapi/content.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/image/generate",
+      "implementation": "app/api/image/generate/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
@@ -931,12 +1547,28 @@
       "reason": "Product or legacy supporting routes require documented public/internal disposition"
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/keys",
+      "implementation": "app/api/keys/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/keys",
       "implementation": "app/api/keys/route.ts",
       "documentation": null,
       "classification": "pending",
       "reason": "Product or legacy supporting routes require documented public/internal disposition"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/leads",
+      "implementation": "app/api/leads/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -955,6 +1587,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/music/{generationId}",
+      "implementation": "app/api/music/[generationId]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/music",
       "implementation": "app/api/music/route.ts",
@@ -963,12 +1603,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/music",
+      "implementation": "app/api/music/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/music",
       "implementation": "app/api/music/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/content.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/organizations/artists",
+      "implementation": "app/api/organizations/artists/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -995,6 +1651,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/organizations/domains",
+      "implementation": "app/api/organizations/domains/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/organizations/domains",
       "implementation": "app/api/organizations/domains/route.ts",
@@ -1011,6 +1675,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/organizations/members",
+      "implementation": "app/api/organizations/members/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/organizations/members",
       "implementation": "app/api/organizations/members/route.ts",
@@ -1027,6 +1699,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/organizations/professionals",
+      "implementation": "app/api/organizations/professionals/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/organizations/professionals",
       "implementation": "app/api/organizations/professionals/route.ts",
@@ -1041,6 +1721,14 @@
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/organizations",
+      "implementation": "app/api/organizations/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1059,6 +1747,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/players/{id}/activity",
+      "implementation": "app/api/players/[id]/activity/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/players/{id}/fans",
       "implementation": "app/api/players/[id]/fans/route.ts",
@@ -1067,6 +1763,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/players/{id}/fans",
+      "implementation": "app/api/players/[id]/fans/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/players/{id}",
       "implementation": "app/api/players/[id]/route.ts",
@@ -1075,12 +1779,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/players/{id}",
+      "implementation": "app/api/players/[id]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "PATCH",
       "path": "/api/players/{id}",
       "implementation": "app/api/players/[id]/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/players.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/players/events",
+      "implementation": "app/api/players/events/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1099,12 +1819,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/players/fans",
+      "implementation": "app/api/players/fans/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/players/public/{id}",
       "implementation": "app/api/players/public/[id]/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/players.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/players/public/{id}/session",
+      "implementation": "app/api/players/public/[id]/session/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1123,12 +1859,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/players",
+      "implementation": "app/api/players/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/players",
       "implementation": "app/api/players/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/players.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/players/spotify/session",
+      "implementation": "app/api/players/spotify/session/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1155,12 +1907,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/projects/{projectId}",
+      "implementation": "app/api/projects/[projectId]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/projects/{projectId}/tasks/{taskId}/comments",
       "implementation": "app/api/projects/[projectId]/tasks/[taskId]/comments/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/projects.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/projects/{projectId}/tasks/{taskId}/comments",
+      "implementation": "app/api/projects/[projectId]/tasks/[taskId]/comments/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1187,12 +1955,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/projects/{projectId}/tasks/{taskId}",
+      "implementation": "app/api/projects/[projectId]/tasks/[taskId]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "PATCH",
       "path": "/api/projects/{projectId}/tasks/{taskId}",
       "implementation": "app/api/projects/[projectId]/tasks/[taskId]/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/projects.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/projects/{projectId}/tasks",
+      "implementation": "app/api/projects/[projectId]/tasks/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1211,6 +1995,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/pulses",
+      "implementation": "app/api/pulses/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "PATCH",
       "path": "/api/pulses",
       "implementation": "app/api/pulses/route.ts",
@@ -1227,28 +2019,68 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/research/albums/{id}/measurements",
+      "implementation": "app/api/research/albums/[id]/measurements/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/research/albums",
       "implementation": "app/api/research/albums/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/albums",
+      "implementation": "app/api/research/albums/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
       "path": "/api/research/audience",
       "implementation": "app/api/research/audience/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/audience",
+      "implementation": "app/api/research/audience/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
       "path": "/api/research/career",
       "implementation": "app/api/research/career/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/career",
+      "implementation": "app/api/research/career/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/deep",
+      "implementation": "app/api/research/deep/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1259,6 +2091,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/research/enrich",
+      "implementation": "app/api/research/enrich/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/research/enrich",
       "implementation": "app/api/research/enrich/route.ts",
@@ -1267,12 +2107,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/research/events",
+      "implementation": "app/api/research/events/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/research/events",
       "implementation": "app/api/research/events/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/research.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/extract",
+      "implementation": "app/api/research/extract/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1286,17 +2142,41 @@
       "method": "GET",
       "path": "/api/research/insights",
       "implementation": "app/api/research/insights/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/insights",
+      "implementation": "app/api/research/insights/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
       "path": "/api/research/lookup",
       "implementation": "app/api/research/lookup/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/lookup",
+      "implementation": "app/api/research/lookup/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/measurement-jobs",
+      "implementation": "app/api/research/measurement-jobs/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1310,17 +2190,41 @@
       "method": "GET",
       "path": "/api/research/metrics",
       "implementation": "app/api/research/metrics/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/metrics",
+      "implementation": "app/api/research/metrics/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
       "path": "/api/research/milestones",
       "implementation": "app/api/research/milestones/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/milestones",
+      "implementation": "app/api/research/milestones/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/people",
+      "implementation": "app/api/research/people/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1339,36 +2243,84 @@
       "reason": "Research legacy or auxiliary routes require disposition (not automatically public docs gaps)"
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/research/playcounts",
+      "implementation": "app/api/research/playcounts/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/research/playlists",
       "implementation": "app/api/research/playlists/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/playlists",
+      "implementation": "app/api/research/playlists/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
       "path": "/api/research/profile",
       "implementation": "app/api/research/profile/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/profile",
+      "implementation": "app/api/research/profile/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
       "path": "/api/research",
       "implementation": "app/api/research/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research",
+      "implementation": "app/api/research/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
       "path": "/api/research/similar",
       "implementation": "app/api/research/similar/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/similar",
+      "implementation": "app/api/research/similar/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/snapshots",
+      "implementation": "app/api/research/snapshots/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1387,6 +2339,14 @@
       "reason": "Research legacy or auxiliary routes require disposition (not automatically public docs gaps)"
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/research/track/historic-stats",
+      "implementation": "app/api/research/track/historic-stats/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/research/track/playcount-deltas",
       "implementation": "app/api/research/track/playcount-deltas/route.ts",
@@ -1395,20 +2355,44 @@
       "reason": "Research legacy or auxiliary routes require disposition (not automatically public docs gaps)"
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/research/track/playcount-deltas",
+      "implementation": "app/api/research/track/playcount-deltas/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/research/track/playlists",
       "implementation": "app/api/research/track/playlists/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/track/playlists",
+      "implementation": "app/api/research/track/playlists/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
       "path": "/api/research/track",
       "implementation": "app/api/research/track/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/track",
+      "implementation": "app/api/research/track/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
@@ -1419,6 +2403,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/research/track/stats",
+      "implementation": "app/api/research/track/stats/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/research/tracks/{id}/measurements",
       "implementation": "app/api/research/tracks/[id]/measurements/route.ts",
@@ -1427,20 +2419,52 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/research/tracks/{id}/measurements",
+      "implementation": "app/api/research/tracks/[id]/measurements/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/research/tracks",
       "implementation": "app/api/research/tracks/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/tracks",
+      "implementation": "app/api/research/tracks/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
       "path": "/api/research/urls",
       "implementation": "app/api/research/urls/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/research.json",
+      "classification": "public",
+      "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/urls",
+      "implementation": "app/api/research/urls/route.ts",
       "documentation": null,
-      "classification": "legacy",
-      "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/research/web",
+      "implementation": "app/api/research/web/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1459,12 +2483,36 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/runs",
+      "implementation": "app/api/runs/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/sandbox/reconnect",
       "implementation": "app/api/sandbox/reconnect/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/sandbox.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/sandbox/reconnect",
+      "implementation": "app/api/sandbox/reconnect/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/sandbox",
+      "implementation": "app/api/sandbox/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1483,12 +2531,36 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/sandbox/status",
+      "implementation": "app/api/sandbox/status/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/sandboxes/file",
       "implementation": "app/api/sandboxes/file/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/content.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/sandboxes/file",
+      "implementation": "app/api/sandboxes/file/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/sandboxes/files",
+      "implementation": "app/api/sandboxes/files/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1515,6 +2587,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/sandboxes",
+      "implementation": "app/api/sandboxes/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "PATCH",
       "path": "/api/sandboxes",
       "implementation": "app/api/sandboxes/route.ts",
@@ -1531,6 +2611,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/sandboxes/setup",
+      "implementation": "app/api/sandboxes/setup/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/sandboxes/setup",
       "implementation": "app/api/sandboxes/setup/route.ts",
@@ -1539,12 +2627,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/sandboxes/staged-file",
+      "implementation": "app/api/sandboxes/staged-file/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/sandboxes/staged-file",
       "implementation": "app/api/sandboxes/staged-file/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/content.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/sessions/{sessionId}/chats/{chatId}/read",
+      "implementation": "app/api/sessions/[sessionId]/chats/[chatId]/read/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1571,6 +2675,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/sessions/{sessionId}/chats/{chatId}",
+      "implementation": "app/api/sessions/[sessionId]/chats/[chatId]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "PATCH",
       "path": "/api/sessions/{sessionId}/chats/{chatId}",
       "implementation": "app/api/sessions/[sessionId]/chats/[chatId]/route.ts",
@@ -1585,6 +2697,14 @@
       "documentation": "content/docs/source/api-reference/openapi/sessions.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/sessions/{sessionId}/chats",
+      "implementation": "app/api/sessions/[sessionId]/chats/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1603,12 +2723,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/sessions/{sessionId}",
+      "implementation": "app/api/sessions/[sessionId]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "PATCH",
       "path": "/api/sessions/{sessionId}",
       "implementation": "app/api/sessions/[sessionId]/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/sessions.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/sessions",
+      "implementation": "app/api/sessions/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1627,12 +2763,28 @@
       "reason": "Sites prose documented or integration subroute; no OpenAPI"
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/sites/{id}/activity",
+      "implementation": "app/api/sites/[id]/activity/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/sites/{id}/fan-connection",
       "implementation": "app/api/sites/[id]/fan-connection/route.ts",
       "documentation": null,
       "classification": "public/integration",
       "reason": "Sites prose documented or integration subroute; no OpenAPI"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/sites/{id}/fan-connection",
+      "implementation": "app/api/sites/[id]/fan-connection/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "PUT",
@@ -1651,12 +2803,28 @@
       "reason": "Sites prose documented or integration subroute; no OpenAPI"
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/sites/{id}/fans",
+      "implementation": "app/api/sites/[id]/fans/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/sites/{id}",
       "implementation": "app/api/sites/[id]/route.ts",
       "documentation": null,
       "classification": "public/integration",
       "reason": "Sites prose documented or integration subroute; no OpenAPI"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/sites/{id}",
+      "implementation": "app/api/sites/[id]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "PATCH",
@@ -1675,6 +2843,14 @@
       "reason": "Sites prose documented or integration subroute; no OpenAPI"
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/sites/{id}/signups",
+      "implementation": "app/api/sites/[id]/signups/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/sites/apple/config",
       "implementation": "app/api/sites/apple/config/route.ts",
@@ -1683,12 +2859,28 @@
       "reason": "Sites prose documented or integration subroute; no OpenAPI"
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/sites/assets",
+      "implementation": "app/api/sites/assets/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/sites/assets",
       "implementation": "app/api/sites/assets/route.ts",
       "documentation": null,
       "classification": "public/integration",
       "reason": "Sites prose documented or integration subroute; no OpenAPI"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/sites/public/{id}/activity",
+      "implementation": "app/api/sites/public/[id]/activity/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1739,6 +2931,14 @@
       "reason": "Sites prose documented or integration subroute; no OpenAPI"
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/sites",
+      "implementation": "app/api/sites/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/sites",
       "implementation": "app/api/sites/route.ts",
@@ -1753,6 +2953,14 @@
       "documentation": null,
       "classification": "public/integration",
       "reason": "Sites prose documented or integration subroute; no OpenAPI"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/socials/{id}/scrape",
+      "implementation": "app/api/socials/[id]/scrape/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1771,6 +2979,22 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/songs/analyze/presets",
+      "implementation": "app/api/songs/analyze/presets/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/songs/analyze",
+      "implementation": "app/api/songs/analyze/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/songs/analyze",
       "implementation": "app/api/songs/analyze/route.ts",
@@ -1787,12 +3011,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/songs",
+      "implementation": "app/api/songs/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/spotify/album",
       "implementation": "app/api/spotify/album/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/social.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/spotify/album",
+      "implementation": "app/api/spotify/album/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
@@ -1803,12 +3043,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/spotify/artist/albums",
+      "implementation": "app/api/spotify/artist/albums/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/spotify/artist",
       "implementation": "app/api/spotify/artist/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/social.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/spotify/artist",
+      "implementation": "app/api/spotify/artist/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
@@ -1819,6 +3075,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/spotify/artist/topTracks",
+      "implementation": "app/api/spotify/artist/topTracks/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "GET",
       "path": "/api/spotify/search",
       "implementation": "app/api/spotify/search/route.ts",
@@ -1827,12 +3091,36 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/spotify/search",
+      "implementation": "app/api/spotify/search/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/subscriptions/claim",
+      "implementation": "app/api/subscriptions/claim/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/subscriptions/claim",
       "implementation": "app/api/subscriptions/claim/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/subscriptions/sessions",
+      "implementation": "app/api/subscriptions/sessions/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1859,6 +3147,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/tasks",
+      "implementation": "app/api/tasks/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "PATCH",
       "path": "/api/tasks",
       "implementation": "app/api/tasks/route.ts",
@@ -1883,6 +3179,14 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/tasks/runs",
+      "implementation": "app/api/tasks/runs/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/transcribe",
       "implementation": "app/api/transcribe/route.ts",
@@ -1891,12 +3195,28 @@
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/valuation",
+      "implementation": "app/api/valuation/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
       "method": "POST",
       "path": "/api/valuation",
       "implementation": "app/api/valuation/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/releases.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/webhooks/stripe",
+      "implementation": "app/api/webhooks/stripe/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -1913,6 +3233,14 @@
       "documentation": null,
       "classification": "pending",
       "reason": "Product or legacy supporting routes require documented public/internal disposition"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/x402/image/generate",
+      "implementation": "app/api/x402/image/generate/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "POST",
@@ -2258,14 +3586,14 @@
     }
   ],
   "specificationHashes": {
-    "content/docs/source/api-reference/openapi/accounts.json": "f1bdfe7150f4bda12381a16c4a89da2322b6a871e204e1e1da48c87ed1b95a64",
+    "content/docs/source/api-reference/openapi/accounts.json": "db81e931f01769677503410969c8a2f4e2bd00745be8648e1c6635a2a8166afd",
     "content/docs/source/api-reference/openapi/ai.json": "ac3d356376c5cd870d3fcf9a8cf2f4dca1375ee6d41057d33fbd6bbae67dac09",
-    "content/docs/source/api-reference/openapi/content.json": "ebe0ced0ee49d1394a5275e9cd57f451d27c2fd1d667b963c299a382ada87f5e",
+    "content/docs/source/api-reference/openapi/content.json": "2b8d2b504107cb9ecc6ac6be97c238b34fd4a3b2056ad40e80d9c4765e35fcbc",
     "content/docs/source/api-reference/openapi/context.json": "021891944f58cf959d8e281b6ebca1799ae1f22770b7883d5e44121d3d67854d",
-    "content/docs/source/api-reference/openapi/players.json": "797af1dbee3ff18dbc8dc1b3ebafdb41de23692eac6b7e02977614e675f8d801",
+    "content/docs/source/api-reference/openapi/players.json": "8b97d047e8f2fc698b7dfa704b153a1325bba5161b1f95a9c1e6a9f2421b7d23",
     "content/docs/source/api-reference/openapi/projects.json": "4fc6dfe80102013d60d1a82d93466e41de27c35fb3f94967dc02115f431eecfc",
     "content/docs/source/api-reference/openapi/releases.json": "dccf64ff9815268852dca0f6e1e12c29077eca60fe20551aaa4a07f48999ea5f",
-    "content/docs/source/api-reference/openapi/research.json": "320cfd7dac57be22a8e2da95f48f2888bbff8c3dfe5016cf0773c0a24201459d",
+    "content/docs/source/api-reference/openapi/research.json": "698f422e0c3fd39470294431590ff4f62a263c18c081a2365d24dcd0fe34df96",
     "content/docs/source/api-reference/openapi/sandbox.json": "b626a5d424acf7b2795a8d4b561c70b6f37be3f1fb5314fc33f506201874d1b9",
     "content/docs/source/api-reference/openapi/sessions.json": "e3332130860d1bc436e754fdfcbfa1e5ac58daf9414f79db5c0cd9acab21503c",
     "content/docs/source/api-reference/openapi/social.json": "a881e8cbb9e57545d9803d495ad403e06dcbefef3eb6560e79c0d54aba5d2c48",

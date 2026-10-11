@@ -29,3 +29,5 @@ jobs:
           path: .contract-api
       - run: python3 scripts/refresh-contract-inventory.py --api .contract-api --check
       - run: python3 scripts/build-contract-examples.py --api .contract-api --check
+      - run: python3 scripts/test_sync_legacy_docs.py
+      - run: python3 scripts/test_contract_inventory.py

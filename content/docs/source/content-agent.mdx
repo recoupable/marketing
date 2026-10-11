@@ -6,7 +6,7 @@ description: "Use hosted creative presets and current image, video and compositi
 ## Hosted workflows
 
 `POST /api/content/create` retains the hosted preset workflow. Supply the authorized
-`artist_account_id`, optional `template`, `images`, `songs`, `lipsync`, `upscale`
+`artist_account_id`, optional `template`, `images`, `songs`, `batch` (1–30), `lipsync`, `upscale`
 and `caption_length`. Discover templates through `/api/content/templates` and its
 detail route. The response contains `runIds`; poll `/api/tasks/runs?runId=...` until
 terminal. Report failures and inspect the final artifact before delivery.
@@ -43,4 +43,11 @@ On insufficient credits, surface `billingUrl` and stop. Consult [Credits](/credi
 
 Record image inspection, motion review and audio playback. The worker checks for
 an audio stream on lipsync output before composition; perceptual mouth alignment
-still requires inspection. No removed Stop hook enforces this QA.
+still requires inspection. Automated checks do not replace human QA.
+
+## Slack integration
+
+The separate [Slack webhook](/api-reference/content-agent/webhook) handles
+Content Agent mentions. Its request/event contract and the [completion callback](/api-reference/content-agent/callback) are distinct from direct primitives.
+Workspace operators must configure the Slack application and service credentials;
+installing a creative skill does not install that integration.

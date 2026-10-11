@@ -84,64 +84,64 @@
     "reason": "Internal scheduler, webhooks, callbacks or bot integrations; public omission not itself a defect"
   },
   "GET /api/research": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/albums": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/audience": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/career": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/insights": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/lookup": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/metrics": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/milestones": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/playlists": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/profile": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/similar": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/track": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/track/playlists": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/tracks": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/urls": {
-    "classification": "legacy",
-    "reason": "Unreconciled research retirement (docs PR 323 explicitly removed these public operations)"
+    "classification": "public",
+    "reason": "Recoup research data connection retained by explicit October 11, 2026 product decision; contract restored against current validation/adapters. Provider coverage and release verification remain tracked in mono#325."
   },
   "GET /api/research/playcounts": {
     "classification": "legacy",

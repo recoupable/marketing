@@ -1,36 +1,128 @@
-"""Refresh method/path and static MCP evidence. Run with --api PATH; no network or customer calls."""
+"""Refresh method/path and static MCP evidence without network or customer calls."""
+import argparse
+import hashlib
+import json
 from pathlib import Path
-import argparse,hashlib,json,re,subprocess
-parser=argparse.ArgumentParser();parser.add_argument('--api',required=True);parser.add_argument('--check',action='store_true');args=parser.parse_args()
-api=Path(args.api).resolve();root=Path(__file__).resolve().parent.parent;source=root/'content/docs/source';out=root/'content/docs/contracts'
-def sha(p):return subprocess.check_output(['git','-C',str(p),'rev-parse','HEAD'],text=True).strip()
-docs={}
-for p in (source/'api-reference/openapi').glob('*.json'):
- for route,ops in json.loads(p.read_text()).get('paths',{}).items():
-  for method in ops:
-   if method in ['get','post','put','patch','delete','head']:
-    docs[method.upper()+' '+route.rstrip('/')]=str(p.relative_to(root))
-dispositions=json.loads((out/'operation-dispositions.json').read_text());operations=[]
-for p in sorted((api/'app/api').rglob('route.ts')):
- route='/api/'+str(p.parent.relative_to(api/'app/api'));route=re.sub(r'\[([^]]+)\]',r'{\1}',route).replace('/.','')
- methods = re.findall(r'export\s+(?:async\s+)?(?:function|const)\s+(GET|POST|PUT|PATCH|DELETE|HEAD)\b',p.read_text())
- for block in re.findall(r'export\s+(?:const\s+)?\{([^}]+)\}',p.read_text()):
-  methods.extend(re.findall(r'\b(GET|POST|PUT|PATCH|DELETE|HEAD)\b', block))
- for method in sorted(set(methods)):
-  key=method+' '+route;disposition=dispositions.get(key,{'classification':'public' if key in docs else 'pending','reason':'Split OpenAPI contract exists; alignment outside packages 1–7 is not assessed.' if key in docs else 'Needs owning-route disposition.'})
-  if route=='/api/content/lipsync':disposition={'classification':'pending','reason':'Coordinated API/worker release and real artifact inspection required.'}
-  operations.append({'method':method,'path':route,'implementation':str(p.relative_to(api)),'documentation':docs.get(key),**disposition})
-implemented={x['method']+' '+x['path'] for x in operations}
-for key in sorted(set(docs)-implemented):
- method,route=key.split(' ',1);operations.append({'method':method,'path':route,'implementation':None,'documentation':docs[key],'classification':'retired' if route.endswith('/pin') else 'pending','reason':'Use PATCH /api/artists/{id} with pinned boolean.' if route.endswith('/pin') else 'Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket.'})
-mcp=[]
-for p in sorted((api/'lib/mcp').rglob('*.ts')):
- if '__tests__' in p.parts:continue
- for name in re.findall(r'\.registerTool\(\s*["\']([^"\']+)',p.read_text()):mcp.append({'name':name,'source':str(p.relative_to(api))})
-specifications={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((source/'api-reference/openapi').glob('*.json'))}
-record={'apiSourceCommit':sha(api),'evidence':'Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.','operations':operations,'staticMcpRegistrations':sorted(mcp,key=lambda x:(x['name'],x['source'])),'specificationHashes':specifications}
-serialized=json.dumps(record,indent=2)+'\n'
-if args.check:
- if (out/'operation-inventory.json').read_text()!=serialized:raise SystemExit('Contract inventory is stale. Review the API/documentation changes, refresh the inventory, and commit it.')
-else:(out/'operation-inventory.json').write_text(serialized)
-print(len(implemented),'implemented method/path pairs;',len(set(docs)-implemented),'unmatched documented pairs;',len(mcp),'static MCP registrations')
+import re
+import subprocess
+
+
+METHODS = ('GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS')
+METHOD_PATTERN = '|'.join(METHODS)
+
+
+def documented_operations(root, source):
+    operations = {}
+    for path in sorted((source / 'api-reference/openapi').glob('*.json')):
+        for route, methods in json.loads(path.read_text()).get('paths', {}).items():
+            for method in methods:
+                if method.upper() in METHODS:
+                    key = method.upper() + ' ' + route.rstrip('/')
+                    operations[key] = str(path.relative_to(root))
+    return operations
+
+
+def exported_methods(source):
+    methods = re.findall(
+        rf'export\s+(?:async\s+)?(?:function|const)\s+({METHOD_PATTERN})\b', source
+    )
+    for block in re.findall(r'export\s+(?:const\s+)?\{([^}]+)\}', source):
+        methods.extend(re.findall(rf'\b({METHOD_PATTERN})\b', block))
+    return sorted(set(methods))
+
+
+def default_disposition(method, documented):
+    if documented:
+        return {
+            'classification': 'public',
+            'reason': 'Split OpenAPI contract exists; alignment outside packages 1–7 is not assessed.',
+        }
+    if method == 'OPTIONS':
+        return {'classification': 'internal', 'reason': 'HTTP preflight handler; no public operation contract.'}
+    return {'classification': 'pending', 'reason': 'Needs owning-route disposition.'}
+
+
+def implementation_operations(api, docs, dispositions):
+    operations = []
+    route_root = api / 'app/api'
+    for path in sorted(route_root.rglob('route.ts')):
+        # Path.parts keeps the API root empty and preserves literal dotted segments.
+        segments = path.parent.relative_to(route_root).parts
+        route = '/'.join(('/api', *segments))
+        route = re.sub(r'\[([^]]+)\]', r'{\1}', route)
+        for method in exported_methods(path.read_text()):
+            key = method + ' ' + route
+            disposition = dispositions.get(key, default_disposition(method, key in docs))
+            if route == '/api/content/lipsync' and method == 'POST':
+                disposition = {
+                    'classification': 'pending',
+                    'reason': 'Coordinated API/worker release and real artifact inspection required.',
+                }
+            operations.append({
+                'method': method, 'path': route, 'implementation': str(path.relative_to(api)),
+                'documentation': docs.get(key), **disposition,
+            })
+    return operations
+
+
+def unmatched_operations(docs, implemented):
+    operations = []
+    for key in sorted(set(docs) - implemented):
+        method, route = key.split(' ', 1)
+        retired = route.endswith('/pin')
+        operations.append({
+            'method': method, 'path': route, 'implementation': None, 'documentation': docs[key],
+            'classification': 'retired' if retired else 'pending',
+            'reason': 'Use PATCH /api/artists/{id} with pinned boolean.' if retired else
+                'Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket.',
+        })
+    return operations
+
+
+def static_mcp_registrations(api):
+    registrations = []
+    for path in sorted((api / 'lib/mcp').rglob('*.ts')):
+        if '__tests__' in path.parts:
+            continue
+        for name in re.findall(r'\.registerTool\(\s*["\']([^"\']+)', path.read_text()):
+            registrations.append({'name': name, 'source': str(path.relative_to(api))})
+    return sorted(registrations, key=lambda item: (item['name'], item['source']))
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--api', required=True)
+    parser.add_argument('--check', action='store_true')
+    args = parser.parse_args()
+    api = Path(args.api).resolve()
+    root = Path(__file__).resolve().parent.parent
+    source = root / 'content/docs/source'
+    out = root / 'content/docs/contracts'
+    docs = documented_operations(root, source)
+    dispositions = json.loads((out / 'operation-dispositions.json').read_text())
+    operations = implementation_operations(api, docs, dispositions)
+    implemented = {item['method'] + ' ' + item['path'] for item in operations}
+    registrations = static_mcp_registrations(api)
+    record = {
+        'apiSourceCommit': subprocess.check_output(['git', '-C', str(api), 'rev-parse', 'HEAD'], text=True).strip(),
+        'evidence': 'Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.',
+        'operations': operations + unmatched_operations(docs, implemented),
+        'staticMcpRegistrations': registrations,
+        'specificationHashes': {
+            str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted((source / 'api-reference/openapi').glob('*.json'))
+        },
+    }
+    serialized = json.dumps(record, indent=2) + '\n'
+    inventory = out / 'operation-inventory.json'
+    if args.check:
+        if inventory.read_text() != serialized:
+            raise SystemExit('Contract inventory is stale. Review the API/documentation changes, refresh the inventory, and commit it.')
+    else:
+        inventory.write_text(serialized)
+    print(len(implemented), 'implemented method/path pairs;', len(set(docs) - implemented),
+          'unmatched documented pairs;', len(registrations), 'static MCP registrations')
+
+
+if __name__ == '__main__':
+    main()

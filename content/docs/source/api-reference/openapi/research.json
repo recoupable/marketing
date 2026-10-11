@@ -1295,7 +1295,7 @@
     },
     "/api/research/track/stats": {
       "get": {
-        "description": "Current per-track statistics. Exactly one of isrc, songstats_track_id, spotify_track_id or apple_music_track_id and a source are required. Spotify with an ISRC uses the measurement store when available; other sources and missing store data use Songstats. Inspect each stats entry data_source when supplied; provider shape drift can return unlabeled data. Provider coverage, entitlement and quota affect availability.",
+        "description": "Read current track statistics using exactly one of `isrc`, `spotify_track_id` or `apple_music_track_id`, plus the required platform `source`. Recoup uses stored Spotify measurements when available for an ISRC and otherwise requests current research data. Fields and coverage vary. Preserve returned `data_source` and capture timestamps; missing provenance remains unknown.",
         "parameters": [
           {
             "name": "isrc",
@@ -1306,15 +1306,6 @@
             },
             "description": "Supply exactly one track identifier.",
             "example": "USQY51771120"
-          },
-          {
-            "name": "songstats_track_id",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Supply exactly one track identifier."
           },
           {
             "name": "spotify_track_id",
@@ -1351,7 +1342,8 @@
             "schema": {
               "type": "string"
             },
-            "description": "Optional passthrough to Songstats, availability depends on provider."
+            "description": "Optional raw string forwarded unchanged to the configured research data connection. Use true or false per the provider contract; Recoup does not validate or coerce this flag.",
+            "example": "true"
           },
           {
             "name": "with_charts",
@@ -1360,7 +1352,8 @@
             "schema": {
               "type": "string"
             },
-            "description": "Optional passthrough to Songstats, availability depends on provider."
+            "description": "Optional raw string forwarded unchanged to the configured research data connection. Use true or false per the provider contract; Recoup does not validate or coerce this flag.",
+            "example": "true"
           },
           {
             "name": "with_stations",
@@ -1369,7 +1362,8 @@
             "schema": {
               "type": "string"
             },
-            "description": "Optional passthrough to Songstats, availability depends on provider."
+            "description": "Optional raw string forwarded unchanged to the configured research data connection. Use true or false per the provider contract; Recoup does not validate or coerce this flag.",
+            "example": "true"
           },
           {
             "name": "with_videos",
@@ -1378,7 +1372,8 @@
             "schema": {
               "type": "string"
             },
-            "description": "Optional passthrough to Songstats, availability depends on provider."
+            "description": "Optional raw string forwarded unchanged to the configured research data connection. Use true or false per the provider contract; Recoup does not validate or coerce this flag.",
+            "example": "true"
           },
           {
             "name": "with_links",
@@ -1387,7 +1382,8 @@
             "schema": {
               "type": "string"
             },
-            "description": "Optional passthrough to Songstats, availability depends on provider."
+            "description": "Optional raw string forwarded unchanged to the configured research data connection. Use true or false per the provider contract; Recoup does not validate or coerce this flag.",
+            "example": "true"
           },
           {
             "name": "only_current",
@@ -1396,7 +1392,8 @@
             "schema": {
               "type": "string"
             },
-            "description": "Optional passthrough to Songstats, availability depends on provider."
+            "description": "Optional raw string forwarded unchanged to the configured research data connection. Use true or false per the provider contract; Recoup does not validate or coerce this flag.",
+            "example": "true"
           },
           {
             "name": "limit",
@@ -1405,7 +1402,8 @@
             "schema": {
               "type": "string"
             },
-            "description": "Optional passthrough to Songstats, availability depends on provider."
+            "description": "Optional raw pagination string forwarded unchanged to the configured research data connection. Recoup does not validate its numeric range; provider limits apply.",
+            "example": "50"
           },
           {
             "name": "offset",
@@ -1414,12 +1412,13 @@
             "schema": {
               "type": "string"
             },
-            "description": "Optional passthrough to Songstats, availability depends on provider."
+            "description": "Optional raw pagination string forwarded unchanged to the configured research data connection. Recoup does not validate its numeric range; provider limits apply.",
+            "example": "0"
           }
         ],
         "responses": {
           "200": {
-            "description": "Current per-source track statistics from the measurement store or Songstats, with data_source on recognized stats entries.",
+            "description": "Current per-source track statistics from the measurement store or the configured research data connection, with data_source on recognized stats entries.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1475,7 +1474,7 @@
             "description": "Missing provider configuration, transport failure or internal error."
           },
           "504": {
-            "description": "Songstats request timed out."
+            "description": "the configured research data connection request timed out."
           }
         }
       }
@@ -1706,7 +1705,7 @@
     "/api/research/measurement-jobs": {
       "post": {
         "summary": "Create a measurement job",
-        "description": "One async ingest resource. `source:\"current\"` captures present counts via the snapshot pipeline. Provide exactly one of `catalog_id` / `album_ids` / `isrcs` in `scope`. The returned `id` is a snapshot id you can pass to [Create catalog](/api-reference/songs/catalogs-create) to materialize the measured tracks into an account-owned catalog.",
+        "description": "Create a current capture or enqueue historical the configured research data connection backfill. Provide exactly one of catalog_id, album_ids or isrcs in scope; platforms supports spotify only. source=current uses the snapshot pipeline and returns an ID that can be passed to [Create catalog](/api-reference/songs/catalogs-create). source=historical requires a card on file, resolves scope recordings and returns id:null with enqueued/skipped counts; it attempts to start the existing budget-gated backfill workflow, with daily maintenance as a backstop. Enqueue success is not capture completion or evidence of complete historical coverage. Songs with any historical research measurement are skipped, including potentially partial history. Historical enqueue itself makes no credit deduction; current capture estimates and provider/account gates remain separate.",
         "requestBody": {
           "required": true,
           "content": {
@@ -1729,7 +1728,7 @@
             }
           },
           "400": {
-            "description": "Validation error \u2014 provide a `source` and exactly one of `scope.catalog_id`, `scope.album_ids`, `scope.isrcs`.",
+            "description": "Invalid scope/source/platform, or no recordings resolvable from the selected historical scope.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1750,6 +1749,49 @@
           },
           "429": {
             "description": "Per-organization monthly cap reached.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Historical backfill requires a saved payment method. Unlike the ordinary research credit gate, this gate creates a card-setup Checkout Session per denied request and returns checkoutUrl; do not repeatedly submit to poll this error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "error",
+                    "checkoutUrl"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "error"
+                      ]
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "checkoutUrl": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Card-setup checkout URL returned by Stripe. Distinct from the static billingUrl used by ordinary research credit errors."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal, enqueue or provider configuration error.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1798,6 +1840,2347 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ChatRunNotFoundError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research": {
+      "get": {
+        "description": "Search Recoup Research for artists, tracks or labels by name. Artist and track matches include an `id` when an identifier is available. Select a match and reuse that ID for detail requests. `type` accepts artists, tracks or labels, plus their singular aliases, case-insensitively. Playlist search is unavailable. Recoup defaults `limit` to 10; pagination strings are passed to the data connection and its limits apply.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "Required search text, such as an artist or track name. For a Spotify artist URL use the lookup endpoint.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Entity type to search: artists, tracks, or labels.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "artists",
+                "tracks",
+                "labels",
+                "artist",
+                "track",
+                "label"
+              ],
+              "default": "artists"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Raw pagination string forwarded to the configured research data connection. Recoup defaults limit to 10; offset is omitted when absent. Provider limits apply.",
+            "schema": {
+              "type": "string",
+              "default": "10"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Raw pagination string forwarded to the configured research data connection. Recoup defaults limit to 10; offset is omitted when absent. Provider limits apply.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchSearchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error (e.g., missing required query parameter `q`)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/albums": {
+      "get": {
+        "description": "Read the artist catalog through the `albums` view using the `artist_id` selected from [Search](/api-reference/research/search). Results can include track-shaped catalog entries rather than distinct album objects. `is_primary` accepts true/false; filtering depends on the data connection. `limit` must be a positive integer string and `offset` a non-negative integer string.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "artist_id",
+            "in": "query",
+            "required": true,
+            "description": "Provider artist ID. Obtain it from search or lookup results.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "example": "artist_123"
+            }
+          },
+          {
+            "name": "is_primary",
+            "in": "query",
+            "required": false,
+            "description": "When `true` (default), returns only albums where the artist is a main artist. Set to `false` to include feature appearances, DJ compilations, and soundtracks.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "default": "true"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Number of albums to return. Defaults to the provider's default when omitted.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[1-9][0-9]*$"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Pagination offset. Defaults to 0 when omitted.",
+            "schema": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Artist albums",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchAlbumsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error \u2014 `artist_id` missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/audience": {
+      "get": {
+        "description": "Read available audience data for an artist and platform. The default is `instagram`; other supported data connections can include Spotify, TikTok and YouTube. Geographic and demographic coverage varies. Age and gender breakdowns are not guaranteed.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "artist",
+            "in": "query",
+            "required": false,
+            "description": "Artist name; Recoup resolves the first provider search match. Required unless id is supplied. Recoup artist UUID resolution is not implemented here.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "platform",
+            "in": "query",
+            "required": false,
+            "description": "Platform mapped to a provider audience metric source. Common values include instagram, tiktok, spotify, youtube_artist and youtube_channel. Unmapped strings pass through; provider support applies.",
+            "schema": {
+              "type": "string",
+              "default": "instagram"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Research artist ID returned by search or lookup; treat it as an opaque string. Required unless artist is supplied; takes precedence when both are provided. This is not a Recoup artist/account ID.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "example": "artist_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audience demographics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchAudienceResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/career": {
+      "get": {
+        "description": "Read available dated artist activities under `career`. Career, insights and milestones use the same activity feed. This endpoint does not calculate a career stage or score, and does not guarantee a complete career history.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "artist",
+            "in": "query",
+            "required": false,
+            "description": "Artist name; Recoup resolves the first provider search match. Required unless id is supplied. Recoup artist UUID resolution is not implemented here.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Research artist ID returned by search or lookup; treat it as an opaque string. Required unless artist is supplied; takes precedence when both are provided. This is not a Recoup artist/account ID.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "example": "artist_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Career timeline",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchCareerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/insights": {
+      "get": {
+        "description": "Read available artist activities under `insights`. This endpoint returns activity data; it does not generate an AI analysis or a separate insight report.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "artist",
+            "in": "query",
+            "required": false,
+            "description": "Artist name; Recoup resolves the first provider search match. Required unless id is supplied. Recoup artist UUID resolution is not implemented here.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Research artist ID returned by search or lookup; treat it as an opaque string. Required unless artist is supplied; takes precedence when both are provided. This is not a Recoup artist/account ID.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "example": "artist_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "AI-generated insights",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsightsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/lookup": {
+      "get": {
+        "description": "Resolve a Spotify artist URL or ID through Recoup Research. Supply `spotifyId` (22 alphanumeric characters) or a Spotify artist `url`; a nonempty `spotifyId` takes precedence. Apple Music URLs and Recoup account UUIDs are not accepted. Available artist metadata is returned; an `id` is included when the artist identifier can be resolved.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": false,
+            "description": "Spotify artist URL. Required unless `spotifyId` is provided.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "spotifyId",
+            "in": "query",
+            "required": false,
+            "description": "Spotify artist ID. Required unless `url` is provided.",
+            "schema": {
+              "type": "string",
+              "example": "3TVXtAsR1Inumwj472S9r4",
+              "pattern": "^[A-Za-z0-9]{22}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Artist profile matching the platform URL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchLookupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/metrics": {
+      "get": {
+        "description": "Read current artist statistics for the required platform `source`. This is a synchronous snapshot, without a historical series or refresh-pending job. A valid source does not guarantee data is available. Save dated responses to compare results over time.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "artist",
+            "in": "query",
+            "required": false,
+            "description": "Artist name; Recoup resolves the first provider search match. Required unless id is supplied. Recoup artist UUID resolution is not implemented here.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "required": true,
+            "description": "Platform to get metrics for.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "spotify",
+                "instagram",
+                "tiktok",
+                "twitter",
+                "facebook",
+                "youtube_channel",
+                "youtube_artist",
+                "soundcloud",
+                "deezer",
+                "twitch",
+                "line",
+                "melon",
+                "wikipedia",
+                "bandsintown",
+                "radio",
+                "sxm"
+              ]
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Research artist ID returned by search or lookup; treat it as an opaque string. Required unless artist is supplied; takes precedence when both are provided. This is not a Recoup artist/account ID.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "example": "artist_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Platform metrics over time",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchMetricsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/milestones": {
+      "get": {
+        "description": "Read available artist activities under `milestones`. Coverage varies; an empty result does not prove the artist has no milestones. This endpoint does not guarantee a complete history or scored career timeline.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "artist",
+            "in": "query",
+            "required": false,
+            "description": "Artist name; Recoup resolves the first provider search match. Required unless id is supplied. Recoup artist UUID resolution is not implemented here.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Research artist ID returned by search or lookup; treat it as an opaque string. Required unless artist is supplied; takes precedence when both are provided. This is not a Recoup artist/account ID.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "example": "artist_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Milestone list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchMilestonesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/playlists": {
+      "get": {
+        "description": "Read available playlist placements for an artist. `status=current` selects current scope; `status=past` selects all-time scope, which can include current placements. `limit` is an optional raw string with no Recoup default; supported limits and coverage depend on the data connection.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "artist",
+            "in": "query",
+            "required": false,
+            "description": "Artist name; Recoup resolves the first provider search match. Required unless id is supplied. Recoup artist UUID resolution is not implemented here.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "platform",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "spotify",
+                "applemusic",
+                "deezer",
+                "amazon",
+                "youtube"
+              ],
+              "default": "spotify"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "current",
+                "past"
+              ],
+              "default": "current"
+            },
+            "description": "current uses current placements; past uses all-time scope total, which may include current placements."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional raw string; no Recoup default. For similar artists, only a positive integer limits the returned list; for playlists it passes through to the provider."
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Research artist ID returned by search or lookup; treat it as an opaque string. Required unless artist is supplied; takes precedence when both are provided. This is not a Recoup artist/account ID.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "example": "artist_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Playlist placements",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchPlaylistsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/profile": {
+      "get": {
+        "description": "Read artist identity and available biography, links, genres and related-artist metadata. Fields depend on available research data. For current platform counts, use [Metrics](/api-reference/research/metrics).\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "artist",
+            "in": "query",
+            "required": false,
+            "description": "Artist name; Recoup resolves the first provider search match. Required unless id is supplied. Recoup artist UUID resolution is not implemented here.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Research artist ID returned by search or lookup; treat it as an opaque string. Required unless artist is supplied; takes precedence when both are provided. This is not a Recoup artist/account ID.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "example": "artist_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Artist profile",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchProfileResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/similar": {
+      "get": {
+        "description": "Read unweighted related artists. The accepted `audience`, `genre`, `mood` and `musicality` values (high/medium/low) do not currently change the ranking. No similarity score is calculated. A positive integer `limit` slices the returned list; invalid or non-positive limits are ignored.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "artist",
+            "in": "query",
+            "required": false,
+            "description": "Artist name; Recoup resolves the first provider search match. Required unless id is supplied. Recoup artist UUID resolution is not implemented here.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "audience",
+            "in": "query",
+            "required": false,
+            "description": "Audience overlap weight.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "default": "medium"
+            }
+          },
+          {
+            "name": "genre",
+            "in": "query",
+            "required": false,
+            "description": "Genre similarity weight.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "default": "medium"
+            }
+          },
+          {
+            "name": "mood",
+            "in": "query",
+            "required": false,
+            "description": "Mood similarity weight.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "default": "medium"
+            }
+          },
+          {
+            "name": "musicality",
+            "in": "query",
+            "required": false,
+            "description": "Musicality similarity weight.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "default": "medium"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional raw string; no Recoup default. For similar artists, only a positive integer limits the returned list; for playlists it passes through to the provider."
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Research artist ID returned by search or lookup; treat it as an opaque string. Required unless artist is supplied; takes precedence when both are provided. This is not a Recoup artist/account ID.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "example": "artist_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Unweighted related artists with provider fields; no overlap scores are computed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchSimilarResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/track": {
+      "get": {
+        "description": "Read track details using the `id` selected from [Search](/api-reference/research/search) with `type=tracks`. Treat this ID as an opaque string, separate from a Recoup account UUID. Track metadata and available fields vary by recording.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "Provider track ID. Obtain it from search results or a track lookup.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "example": "track_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Track metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchTrackResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing id or invalid provider ID string pattern.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/tracks": {
+      "get": {
+        "description": "Read available artist catalog entries under `tracks`. Entries can include remixes and features; completeness and fields vary. This endpoint accepts an artist identifier without catalog pagination or filtering controls.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "artist",
+            "in": "query",
+            "required": false,
+            "description": "Artist name; Recoup resolves the first provider search match. Required unless id is supplied. Recoup artist UUID resolution is not implemented here.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Research artist ID returned by search or lookup; treat it as an opaque string. Required unless artist is supplied; takes precedence when both are provided. This is not a Recoup artist/account ID.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "example": "artist_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Artist tracks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchTracksResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/urls": {
+      "get": {
+        "description": "Read available platform URLs as `{domain, url}` entries. A missing link means no matching URL was returned; it does not prove the artist lacks an account on that platform.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "artist",
+            "in": "query",
+            "required": false,
+            "description": "Artist name; Recoup resolves the first provider search match. Required unless id is supplied. Recoup artist UUID resolution is not implemented here.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "description": "Research artist ID returned by search or lookup; treat it as an opaque string. Required unless artist is supplied; takes precedence when both are provided. This is not a Recoup artist/account ID.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "example": "artist_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Social and streaming URLs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchUrlsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/research/track/playlists": {
+      "get": {
+        "description": "Read available track playlist and activity entries. Supply a selected track `id`, or a track name `q` with optional `artist`. Name resolution selects the first Spotify match and resolves its research ID; `id` takes precedence. Filtering and pagination support depend on the data connection. With no filter flags, editorial, indie, majorCurator and popularIndie default to true. Track-name resolution can add separately charged lookup calls; reuse a selected ID to avoid them.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Exact provider track ID; required unless q is supplied. Takes precedence over q. Recoup does not validate its format here.",
+            "schema": {
+              "type": "string",
+              "example": "track_123"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Track name to look up. Required if `id` is not provided. Combine with `artist` to narrow the match.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "artist",
+            "in": "query",
+            "description": "Optional artist name to narrow Spotify track-name matching. Ignored when id is supplied.",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "name": "platform",
+            "in": "query",
+            "description": "Streaming platform to return playlists for. Defaults to `spotify`.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "spotify",
+                "applemusic",
+                "deezer",
+                "amazon"
+              ],
+              "default": "spotify"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Return current or past playlist placements. Defaults to `current`.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "current",
+                "past"
+              ],
+              "default": "current"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of placements to return. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Pagination offset. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "since",
+            "in": "query",
+            "description": "ISO date lower bound for placements. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "until",
+            "in": "query",
+            "description": "ISO date upper bound for placements. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort column. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "editorial",
+            "in": "query",
+            "description": "Include editorial playlists. When no filter flags are set, defaults to `true` along with `indie`, `majorCurator`, `popularIndie`. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "indie",
+            "in": "query",
+            "description": "Include indie playlists. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "majorCurator",
+            "in": "query",
+            "description": "Include major-curator playlists. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "popularIndie",
+            "in": "query",
+            "description": "Include popular indie playlists. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "personalized",
+            "in": "query",
+            "description": "Include personalized playlists. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "chart",
+            "in": "query",
+            "description": "Include chart playlists. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "newMusicFriday",
+            "in": "query",
+            "description": "Include New Music Friday playlists. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "thisIs",
+            "in": "query",
+            "description": "Include \"This Is\" artist playlists. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "radio",
+            "in": "query",
+            "description": "Include algorithmic radio playlists. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "brand",
+            "in": "query",
+            "description": "Include brand playlists. Forwarded unchanged as a raw string; Recoup does not validate its range, date format or boolean value. Provider support applies.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Playlist placements for the track.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "placements"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "success"
+                      ],
+                      "example": "success"
+                    },
+                    "placements": {
+                      "type": "array",
+                      "description": "Playlist placement objects returned by the configured provider (shape varies per platform).",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error \u2014 missing `id`/`q`, invalid `platform`, or invalid `status`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed \u2014 invalid or missing API key.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artist/track resolution or requested provider data was not found. A failed name search may be reported as 404; retry with an exact provider ID when known.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "$ref": "#/components/responses/ResearchDataSourceUnsupported"
+          },
+          "402": {
+            "description": "Insufficient research credits. The response includes a static billingUrl; no checkout session is created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchInsufficientCreditsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Credential, account or provider permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Provider rate or quota limit. The adapter returns an error status but does not forward provider Retry-After headers. Avoid an unbounded retry loop.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Missing provider configuration, transport failure or internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream provider failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "the configured research data connection request timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResearchErrorResponse"
                 }
               }
             }
@@ -3105,7 +5488,7 @@
       },
       "ResearchTrackStatsResponse": {
         "type": "object",
-        "description": "Current Spotify play count for one recording from the measurement store.",
+        "description": "Current per-source track statistics from the Spotify measurement store or the configured research data connection. Provider payloads and coverage vary; inspect per-entry provenance when present.",
         "properties": {
           "status": {
             "type": "string",
@@ -3129,11 +5512,11 @@
         "properties": {
           "source": {
             "type": "string",
-            "description": "Platform the stats belong to \u2014 `spotify`."
+            "description": "Requested provider platform (for example spotify or apple_music); coverage depends on provider entitlement."
           },
           "data": {
             "type": "object",
-            "description": "Per-source counters for this track. `streams_total` is the platform-displayed play count from the measurement store, not a royalty-bearing stream count.",
+            "description": "Provider-specific track counters. A Spotify store streams_total is a platform-displayed play count, not a royalty-bearing stream count.",
             "additionalProperties": true,
             "example": {
               "streams_total": 84213771
@@ -3141,8 +5524,7 @@
           },
           "data_source": {
             "type": "string",
-            "description": "Provenance of the numbers: `apify_spotify_playcount` (platform-displayed count from the measurement store) or `granted_analytics` (customer-granted data).",
-            "example": "apify_spotify_playcount"
+            "description": "Opaque provenance label identifying the measurement origin. Preserve this value for traceability. Labels can vary with the data connection and are not a supported vendor selector. Missing provenance remains unknown."
           },
           "captured_at": {
             "type": "string",
@@ -3197,8 +5579,7 @@
             "example": 297289495
           },
           "data_source": {
-            "type": "string",
-            "example": "apify_spotify_playcount"
+            "type": "string"
           }
         }
       },
@@ -3280,8 +5661,7 @@
             "format": "date-time"
           },
           "data_source": {
-            "type": "string",
-            "example": "apify_spotify_playcount"
+            "type": "string"
           }
         }
       },
@@ -3348,14 +5728,18 @@
           "source": {
             "type": "string",
             "enum": [
-              "current"
+              "current",
+              "historical"
             ],
-            "description": "`current` = capture present counts (Apify snapshot)."
+            "description": "current captures present counts through the snapshot pipeline; historical enqueues the configured research data connection backfill. Historical requires a saved payment method and does not promise complete history."
           },
           "platforms": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "spotify"
+              ]
             },
             "default": [
               "spotify"
@@ -3364,41 +5748,103 @@
               "spotify"
             ]
           }
+        },
+        "example": {
+          "scope": {
+            "isrcs": [
+              "USQY51771120"
+            ]
+          },
+          "source": "historical",
+          "platforms": [
+            "spotify"
+          ]
         }
       },
       "ResearchMeasurementJobResponse": {
-        "type": "object",
-        "description": "`id` is the snapshot id to poll.",
-        "properties": {
-          "status": {
-            "type": "string",
-            "example": "success"
-          },
-          "source": {
-            "type": "string",
-            "example": "current"
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "description": "Snapshot id."
-          },
-          "state": {
-            "type": "string",
-            "enum": [
-              "queued"
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "status",
+              "source",
+              "id",
+              "state",
+              "album_count",
+              "estimated_cost_usd"
             ],
-            "example": "queued"
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "success"
+                ]
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "current"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Snapshot ID for current captures."
+              },
+              "state": {
+                "type": "string",
+                "description": "State returned by the snapshot pipeline; reused captures need not be queued."
+              },
+              "album_count": {
+                "type": "integer"
+              },
+              "estimated_cost_usd": {
+                "type": "number"
+              },
+              "reused": {
+                "type": "boolean",
+                "description": "Present when an existing capture is handed back."
+              }
+            }
           },
-          "album_count": {
-            "type": "integer",
-            "description": "Albums the job will capture."
-          },
-          "estimated_cost_usd": {
-            "type": "number",
-            "description": "Scraper cost estimate before spend."
+          {
+            "type": "object",
+            "required": [
+              "status",
+              "source",
+              "id",
+              "enqueued",
+              "skipped"
+            ],
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "success"
+                ]
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "historical"
+                ]
+              },
+              "id": {
+                "type": "null",
+                "description": "No pollable snapshot ID is created for historical backfill."
+              },
+              "enqueued": {
+                "type": "integer",
+                "description": "Recordings submitted to the backfill queue; this does not mean history is captured."
+              },
+              "skipped": {
+                "type": "integer",
+                "description": "Recordings with any existing historical research measurement; skipping does not prove complete history."
+              }
+            }
           }
-        }
+        ],
+        "description": "Current captures return a snapshot ID; historical backfill returns queue counts and id:null."
       },
       "ChatGenerateAcceptedResponse": {
         "type": "object",
@@ -3499,6 +5945,680 @@
             "example": "Run not found"
           }
         }
+      },
+      "ResearchUrlsResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "error"
+            ],
+            "example": "success"
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchUrlEntry"
+            }
+          }
+        }
+      },
+      "ResearchUrlEntry": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Platform name (e.g., spotify, instagram)."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "ResearchTracksResponse": {
+        "type": "object",
+        "description": "Artist catalog (tracks view).",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "tracks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchCatalogItem"
+            }
+          }
+        }
+      },
+      "ResearchCatalogItem": {
+        "type": "object",
+        "description": "Catalog entry. Unfiltered \u2014 high-catalog artists include remixes/features.",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "nullable": true
+          },
+          "site_url": {
+            "type": "string"
+          },
+          "isrcs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "artists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchArtistMini"
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchArtistMini": {
+        "type": "object",
+        "description": "Minimal artist reference embedded in catalog/activity payloads.",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchTrackResponse": {
+        "type": "object",
+        "description": "Track metadata and audio analysis.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "result": {
+            "type": "string",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "example": "Data Retrieved."
+          },
+          "track_info": {
+            "$ref": "#/components/schemas/ResearchTrackInfo"
+          },
+          "audio_analysis": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchAudioAnalysisEntry"
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchAudioAnalysisEntry": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Audio feature name, e.g. `acousticness`, `tempo`."
+          },
+          "value": {
+            "type": "string",
+            "description": "Feature value (string-encoded)."
+          }
+        }
+      },
+      "ResearchTrackInfo": {
+        "type": "object",
+        "description": "Full track record.",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "site_url": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "nullable": true
+          },
+          "artists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchArtistMini"
+            }
+          },
+          "is_remix": {
+            "type": "boolean"
+          },
+          "collaborators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchCollaborator"
+            }
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "distributors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "genres": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchLink"
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchLink": {
+        "type": "object",
+        "description": "External platform link.",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Platform name, e.g. `spotify`, `apple_music`."
+          },
+          "external_id": {
+            "type": "string",
+            "description": "Platform-specific ID."
+          },
+          "url": {
+            "type": "string"
+          },
+          "isrc": {
+            "type": "string",
+            "description": "ISRC (tracks only)."
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchCollaborator": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchSimilarResponse": {
+        "type": "object",
+        "description": "Similar artists. Similarity is unweighted (no score/ranking fields).",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "artists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchArtistRef"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "description": "Only present if the adapter receives a provider total; not guaranteed."
+          }
+        }
+      },
+      "ResearchArtistRef": {
+        "type": "object",
+        "description": "Provider-neutral artist reference.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Provider-neutral artist ID.",
+            "example": "wjcgfd9i"
+          },
+          "name": {
+            "type": "string",
+            "example": "Drake"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "Artist image URL.",
+            "nullable": true
+          },
+          "site_url": {
+            "type": "string",
+            "description": "Artist page URL.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchProfileResponse": {
+        "type": "object",
+        "description": "Full artist profile. For longitudinal platform metrics call `GET /api/research/metrics`.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "result": {
+            "type": "string",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "example": "Data Retrieved."
+          },
+          "artist_info": {
+            "$ref": "#/components/schemas/ResearchArtistInfo"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchArtistInfo": {
+        "type": "object",
+        "description": "Full artist record \u2014 identity, bio, genres, platform links, and related artists.",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "site_url": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string",
+            "description": "ISO country code.",
+            "nullable": true
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true
+          },
+          "genres": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchLink"
+            }
+          },
+          "related_artists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchArtistRef"
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchPlaylistsResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "error"
+            ],
+            "example": "success"
+          },
+          "placements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchPlaylistPlacement"
+            }
+          }
+        }
+      },
+      "ResearchPlaylistPlacement": {
+        "type": "object",
+        "description": "A playlist the artist currently appears on.",
+        "properties": {
+          "playlist_id": {
+            "type": "string"
+          },
+          "playlist_name": {
+            "type": "string"
+          },
+          "external_url": {
+            "type": "string",
+            "description": "Link to the playlist on the platform."
+          },
+          "followers_total": {
+            "type": "string",
+            "description": "Human-readable follower count, e.g. \"34.3M\"."
+          },
+          "image_url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchMilestonesResponse": {
+        "type": "object",
+        "description": "Milestone activity entries (same shape as career/insights).",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "milestones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchActivity"
+            }
+          }
+        }
+      },
+      "ResearchActivity": {
+        "type": "object",
+        "description": "Dated activity event. Shared by career, insights, and milestones.",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Platform, e.g. `spotify`."
+          },
+          "activity_text": {
+            "type": "string",
+            "description": "Human-readable activity description."
+          },
+          "activity_type": {
+            "type": "string",
+            "description": "e.g. `playlist`, `chart`."
+          },
+          "activity_date": {
+            "type": "string",
+            "example": "2026-06-04"
+          },
+          "activity_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "activity_avatar": {
+            "type": "string",
+            "nullable": true
+          },
+          "activity_tier": {
+            "type": "integer",
+            "description": "Importance tier (lower = more significant)."
+          },
+          "track_info": {
+            "$ref": "#/components/schemas/ResearchActivityTrackInfo"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchActivityTrackInfo": {
+        "type": "object",
+        "description": "Track context attached to an activity entry.",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "nullable": true
+          },
+          "site_url": {
+            "type": "string"
+          },
+          "artists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchArtistMini"
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchMetricsResponse": {
+        "type": "object",
+        "description": "Current statistics for the artist on the requested `source`.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "result": {
+            "type": "string",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "example": "Data Retrieved."
+          },
+          "stats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchMetricStat"
+            }
+          },
+          "artist_info": {
+            "$ref": "#/components/schemas/ResearchArtistRef"
+          },
+          "source_ids": {
+            "type": "array",
+            "description": "Sources included in `stats`.",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ResearchMetricStat": {
+        "type": "object",
+        "description": "Per-source current statistics.",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Platform the metrics belong to, e.g. `spotify`, `tiktok`."
+          },
+          "data": {
+            "type": "object",
+            "description": "Platform-specific metric fields. Keys vary by `source`.",
+            "additionalProperties": true,
+            "example": {
+              "monthly_listeners_current": 99222567,
+              "followers_total": 112035525,
+              "popularity_current": 100,
+              "streams_total": 137582496099,
+              "playlists_current": 169220,
+              "charts_current": 184
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchLookupResponse": {
+        "type": "object",
+        "description": "Artist resolved from a Spotify URL or ID.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "result": {
+            "type": "string",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "example": "Data Retrieved."
+          },
+          "artist_info": {
+            "$ref": "#/components/schemas/ResearchArtistInfo"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ResearchInsightsResponse": {
+        "type": "object",
+        "description": "Noteworthy activity highlights.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "insights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchActivity"
+            }
+          }
+        }
+      },
+      "ResearchCareerResponse": {
+        "type": "object",
+        "description": "Career activity feed.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "career": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchActivity"
+            }
+          }
+        }
+      },
+      "ResearchAudienceResponse": {
+        "type": "object",
+        "description": "Provider audience payload. Available geographic and demographic fields vary by source and entitlement.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "result": {
+            "type": "string",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "example": "Data Retrieved."
+          },
+          "audience": {
+            "type": "array",
+            "description": "Provider audience entries; fields vary by requested metric source. Empty data does not establish an absent audience.",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "artist_info": {
+            "$ref": "#/components/schemas/ResearchArtistRef"
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ResearchAlbumsResponse": {
+        "type": "object",
+        "description": "Artist catalog (albums view).",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "albums": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResearchCatalogItem"
+            }
+          }
+        }
+      },
+      "ResearchSearchResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "error"
+            ],
+            "example": "success"
+          },
+          "results": {
+            "type": "array",
+            "description": "Matching artists, tracks or labels with provider identifiers and metadata.",
+            "items": {
+              "$ref": "#/components/schemas/ResearchSearchResult"
+            }
+          }
+        }
+      },
+      "ResearchSearchResult": {
+        "type": "object",
+        "description": "Search result. Additional type-specific identifier fields pass through. The set depends on `type` (artists | tracks | labels).",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Provider-neutral ID."
+          },
+          "name": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string",
+            "nullable": true
+          },
+          "site_url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": true
       }
     },
     "responses": {

@@ -1,6 +1,6 @@
 # Documentation authoring and transition
 
-`marketing/content/docs/source` is the maintained authoring tree. Keep request and
+`content/docs/source` is the maintained authoring tree. Keep request and
 response descriptions in its split OpenAPI files. Reconcile with implementation
 before copying. Run `pnpm docs:build`, `pnpm docs:check`, and `pnpm build`; commit the
 generated docs artifacts. Update the static product/MCP summaries too.

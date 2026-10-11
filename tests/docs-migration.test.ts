@@ -14,6 +14,7 @@ test('documentation migration covers every navigation page and every supplied AP
  expect(new Set(pages.map((page:{slug:string})=>page.slug)).size).toBe(pages.length);
 
  expect(navPages.length).toBeGreaterThan(0);
+ expect(new Set(navPages).size).toBe(navPages.length);
  for(const slug of navPages)expect(pages.some((page:{slug:string})=>page.slug===(slug==='index'?'':slug)), `Missing nav page ${slug}`).toBeTruthy();
  for(const [name,spec] of Object.entries(specs))for(const [endpoint,path] of Object.entries(spec.paths))for(const method of Object.keys(path as object)) {
   if(!['get','post','put','patch','delete','head','options'].includes(method))continue;

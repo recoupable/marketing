@@ -1,71 +1,83 @@
 ---
 title: "Research availability"
-description: "Dated provider evidence and the disposition of legacy music-research operations."
+description: "Explore Recoup research, choose the right identifiers, and handle incomplete data."
 ---
 
-As of October 11, 2026 UTC, the production Songstats key is configured. One public
-artist search using the local API environment credential returned 200 in 448ms.
-This verifies that lookup and credential only; it does not prove production secret
-parity, broader coverage, history depth, quota, reliability or contract cost.
+Recoup Research lets you discover artists and tracks, read current metrics,
+explore audience and playlist activity, and capture recording measurements.
+Authenticate with your Recoup API key or supported bearer credential. Recoup
+manages the data connections; you do not need a separate data-service key.
 
-Retain the existing integration during evaluation. No route is retired by this
-reconciliation, and no blanket promise of restored public coverage is made.
-Expansion, broad route re-publication and recurring provider fan-out stay pending
-quota/cost confirmation through [mono#325](https://github.com/recoupable/mono/issues/325),
-[App#1987](https://github.com/recoupable/app/issues/1987) and
-[API#875](https://github.com/recoupable/api/pull/875). These are tracking links,
-not proof the implementations are delivered.
+Coverage varies by artist, recording, platform and metric. An empty result means
+no matching data was returned; it does not prove an artist has no activity or audience.
+
+## Choose an identifier
+
+Search by name, inspect the matches, and pass the selected result's `id` to the
+detail endpoints. Treat research IDs as opaque strings: do not parse them or
+substitute a Recoup account UUID. Artist-name shortcuts use the first match;
+select an explicit ID when names are ambiguous.
+
+For portable recording references, store the ISRC and available Spotify or
+Apple Music identifiers. Additional response fields and provenance labels may
+vary as Recoup's data connections change. Preserve returned provenance for
+traceability without using it to choose a data vendor.
 
 ## Current track statistics
 
-Supply exactly one of `isrc`, `songstats_track_id`, `spotify_track_id`,
-`apple_music_track_id`, plus a required `source`. For Spotify with an ISRC, the
-measurement store is preferred when it has data; otherwise the API falls back to
-Songstats. Other requested sources use Songstats. Preserve `data_source` when
-returned; an unlabeled provider payload is not evidence of an Apify measurement.
-Unavailable/429 responses must be surfaced, without an unbounded retry loop or
-invented metrics. Recoup balance limits are separate from provider quota.
+Supply exactly one of `isrc`, `spotify_track_id`, or `apple_music_track_id`, plus
+the required `source` (the platform, such as `spotify`). Recoup uses stored
+Spotify measurements when available for an ISRC, and otherwise requests current
+research data. Preserve `data_source` and capture timestamps when returned;
+missing provenance remains unknown. A displayed play count is not a verified
+royalty-bearing stream count.
 
-## Route disposition
+## Research endpoints
 
-All routes below are **retained in source, expansion deferred** until their
-coverage and support decisions are documented. The first 15 were removed from
-docs; the final four are legacy or auxiliary operations. No source omission is
-being treated as proof of feature loss.
-
-| Method | Path | Disposition |
+| Method | Path | Reference |
 | --- | --- | --- |
-| GET | `/api/research` | Retain existing source; expansion deferred |
-| GET | `/api/research/albums` | Retain existing source; expansion deferred |
-| GET | `/api/research/audience` | Retain existing source; expansion deferred |
-| GET | `/api/research/career` | Retain existing source; expansion deferred |
-| GET | `/api/research/insights` | Retain existing source; expansion deferred |
-| GET | `/api/research/lookup` | Retain existing source; expansion deferred |
-| GET | `/api/research/metrics` | Retain existing source; expansion deferred |
-| GET | `/api/research/milestones` | Retain existing source; expansion deferred |
-| GET | `/api/research/playlists` | Retain existing source; expansion deferred |
-| GET | `/api/research/profile` | Retain existing source; expansion deferred |
-| GET | `/api/research/similar` | Retain existing source; expansion deferred |
-| GET | `/api/research/track` | Retain existing source; expansion deferred |
-| GET | `/api/research/track/playlists` | Retain existing source; expansion deferred |
-| GET | `/api/research/tracks` | Retain existing source; expansion deferred |
-| GET | `/api/research/urls` | Retain existing source; expansion deferred |
-| GET | `/api/research/playcounts` | Retain existing source; expansion deferred |
-| POST | `/api/research/snapshots` | Retain existing source; expansion deferred |
-| GET | `/api/research/track/historic-stats` | Retain existing source; expansion deferred |
-| GET | `/api/research/track/playcount-deltas` | Retain existing source; expansion deferred |
+| GET | `/api/research` | [Search](/api-reference/research/search) |
+| GET | `/api/research/albums` | [Albums](/api-reference/research/albums) |
+| GET | `/api/research/audience` | [Audience](/api-reference/research/audience) |
+| GET | `/api/research/career` | [Career activities](/api-reference/research/career) |
+| GET | `/api/research/insights` | [Insights activities](/api-reference/research/insights) |
+| GET | `/api/research/lookup` | [Spotify artist lookup](/api-reference/research/lookup) |
+| GET | `/api/research/metrics` | [Current artist metrics](/api-reference/research/metrics) |
+| GET | `/api/research/milestones` | [Milestones](/api-reference/research/milestones) |
+| GET | `/api/research/playlists` | [Artist playlists](/api-reference/research/playlists) |
+| GET | `/api/research/profile` | [Artist profile](/api-reference/research/profile) |
+| GET | `/api/research/similar` | [Related artists](/api-reference/research/similar) |
+| GET | `/api/research/track` | [Track details](/api-reference/research/track) |
+| GET | `/api/research/track/playlists` | [Track playlists](/api-reference/research/track-playlists) |
+| GET | `/api/research/tracks` | [Artist tracks](/api-reference/research/tracks) |
+| GET | `/api/research/urls` | [Platform URLs](/api-reference/research/urls) |
 
-## Evaluation still required
+## Understand the results
 
-A current private provider proposal offers usage-based billing. Activation of
-that proposal, the configured key agreement, unique-request counting and the
-relationship to Recoup research charges remain unverified. Confirm those terms
-and monthly/daily/request quotas before expanding polling. Then sample
-large and small artists across Spotify, Apple, TikTok, YouTube and playlist/radio
-coverage; verify earliest and latest historic dates against dated samples;
-measure repeated success, latency and 429/Retry-After behavior; inspect dependent
-measurement jobs before choosing caching TTLs or changing their frequency.
+- Artist metrics are current snapshots. Save dated results to compare them over time.
+- Related artists are unweighted; the accepted similarity axes do not change the ranking.
+- Artist playlist `status=past` uses all-time scope and can include current placements.
+- Career, insights and milestones expose available activities. They do not calculate a career score, create an AI report or guarantee a complete timeline.
+- Album results can include track-shaped catalog entries. Do not assume every entry is a distinct album.
+- Pagination and track-playlist filter behavior depend on the available data connection. Check the returned entries before assuming a filter was applied.
 
-A single passing lookup is insufficient to set a caching policy or claim uptime.
-Record sample dates, exact operations, provenance, units consumed and errors;
-keep commercial contract details in their approved private home.
+## Historical measurement jobs
+
+`POST /api/research/measurement-jobs` supports `source: "historical"`
+for Spotify backfill. It requires a card on file and returns queue counts with
+`id: null`; enqueueing does not confirm capture completion. Recordings with an
+existing historical research measurement can be skipped even when their history
+is partial. Inspect the available dates before claiming complete coverage.
+Current capture jobs return a snapshot ID.
+
+## Costs and unavailable data
+
+Successful research calls cost $0.05 (50,000 micro-dollar credits). Track-name
+resolution can add separately charged lookup calls; reuse a selected research
+ID when available. Historical enqueue itself does not deduct research credits;
+capture work has its own balance and budget checks.
+
+For `402 insufficient_credits`, show the returned `billingUrl`. Surface `429`
+and unavailable-data errors; use bounded retries for transient failures and stop
+when the request cannot be served. Recoup does not promise a `Retry-After` header
+on these routes. Never fill a missing metric with an invented number or zero.

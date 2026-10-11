@@ -1440,7 +1440,7 @@
     },
     "/api/accounts/{id}/payment-method": {
       "get": {
-        "description": "Retrieve the default payment method on file for an account. An account may be tagged on more than one Stripe customer (for example an organization whose card was saved on one customer and whose invoiced plan lives on another); the card is read from the tagged customer that holds a default payment method. Returns `card: null` when no tagged customer has a payment method saved yet — the top-up dialog uses this to decide whether to show a pre-charge confirmation (card present) or route to a checkout session to collect one (`card: null`). Cards are returned even when expired; callers should compare `exp_month` / `exp_year` against the current date and warn the customer, since an off-session charge against an expired card will decline.",
+        "description": "Retrieve the default payment method on file for an account. An account may be tagged on more than one Stripe customer (for example an organization whose card was saved on one customer and whose invoiced plan lives on another); the card is read from the tagged customer that holds a default payment method. Returns `card: null` when no tagged customer has a payment method saved yet \u2014 the top-up dialog uses this to decide whether to show a pre-charge confirmation (card present) or route to a checkout session to collect one (`card: null`). Cards are returned even when expired; callers should compare `exp_month` / `exp_year` against the current date and warn the customer, since an off-session charge against an expired card will decline.",
         "parameters": [
           {
             "name": "id",
@@ -1977,7 +1977,7 @@
     },
     "/api/credits/sessions": {
       "post": {
-        "description": "Top up credits on the authenticated account.\n\n**Credits are integer micro-dollars (1,000,000 = \\$1.00, the same 6-decimal unit as USDC).** The customer is charged the USD value of `credits` plus a Stripe processing fee (US card pricing: 2.9% + \\$0.30) — e.g. `credits: 100000000` charges \\$103.30 total (\\$100.00 credits + \\$3.30 fee).\n\n**Two outcomes, distinguished by response shape:**\n\n- **Auto-charged** — if the account has a card on file (from a prior subscription or top-up), the card is charged immediately and the response is `{ paymentIntentId, creditsPurchased, totalCents }`. Credits land in the account's balance asynchronously via Stripe webhook (typically within seconds). No human interaction required.\n\n- **Checkout required** — if no card is on file, or the saved card requires 3-D Secure authentication, the response is `{ id, url }` with a hosted Stripe Checkout URL. Redirect to that URL; credits land on successful payment.\n\nClients should discriminate on the presence of `url` (Checkout) vs `paymentIntentId` (auto-charged). Cards entered through the Checkout fallback are saved for future top-ups, so a customer's second top-up typically auto-charges.",
+        "description": "Top up credits on the authenticated account.\n\n**Credits are integer micro-dollars (1,000,000 = \\$1.00, the same 6-decimal unit as USDC).** The customer is charged the USD value of `credits` plus a Stripe processing fee (US card pricing: 2.9% + \\$0.30) \u2014 e.g. `credits: 100000000` charges \\$103.30 total (\\$100.00 credits + \\$3.30 fee).\n\n**Two outcomes, distinguished by response shape:**\n\n- **Auto-charged** \u2014 if the account has a card on file (from a prior subscription or top-up), the card is charged immediately and the response is `{ paymentIntentId, creditsPurchased, totalCents }`. Credits land in the account's balance asynchronously via Stripe webhook (typically within seconds). No human interaction required.\n\n- **Checkout required** \u2014 if no card is on file, or the saved card requires 3-D Secure authentication, the response is `{ id, url }` with a hosted Stripe Checkout URL. Redirect to that URL; credits land on successful payment.\n\nClients should discriminate on the presence of `url` (Checkout) vs `paymentIntentId` (auto-charged). Cards entered through the Checkout fallback are saved for future top-ups, so a customer's second top-up typically auto-charges.",
         "security": [
           {
             "apiKeyAuth": []
@@ -1999,7 +1999,7 @@
         },
         "responses": {
           "200": {
-            "description": "Top-up initiated successfully. Some fields are conditional on which path was taken — see each field's description.",
+            "description": "Top-up initiated successfully. Some fields are conditional on which path was taken \u2014 see each field's description.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2303,7 +2303,7 @@
     },
     "/api/admins": {
       "get": {
-        "description": "Check if the authenticated account is a Recoup admin. An account is considered an admin if it is a member of the Recoup organization. No input parameters required — authentication is performed via the x-api-key or Authorization header.",
+        "description": "Check if the authenticated account is a Recoup admin. An account is considered an admin if it is a member of the Recoup organization. No input parameters required \u2014 authentication is performed via the x-api-key or Authorization header.",
         "parameters": [],
         "security": [
           {
@@ -3272,7 +3272,7 @@
     },
     "/api/admins/credits": {
       "post": {
-        "description": "Sets an account's credit balance, and records who set it and why. Requires the authenticated account to be a Recoup admin.\n\n**Absolute, not a delta.** `remaining_credits` is the balance the account is left holding, whatever it held before — the outcome never depends on the balance at the moment the request lands. The prior balance comes back as `previous_credits` for the record. There is deliberately no add/subtract variant.\n\n**Every grant is audited.** `reason` is required and must be non-empty. The grant is stored against the acting admin's account ID and is readable afterwards in the `grants` array of [`GET /api/admins/credits/events`](/api-reference/admins/credits-events).\n\n**A grant is never reduced by the monthly refill.** Credit balances are topped up to the plan total by a monthly refill that runs lazily on the next read of [`GET /api/accounts/{id}/credits`](/api-reference/accounts/credits-get), once the underlying row is more than a month old. That refill is a floor, not an assignment: it raises a balance up to the plan total and never lowers one. A grant above the plan total therefore survives every refill and holds until it is spent, so headroom granted once stays granted and does not need re-granting on a schedule.",
+        "description": "Sets an account's credit balance, and records who set it and why. Requires the authenticated account to be a Recoup admin.\n\n**Absolute, not a delta.** `remaining_credits` is the balance the account is left holding, whatever it held before \u2014 the outcome never depends on the balance at the moment the request lands. The prior balance comes back as `previous_credits` for the record. There is deliberately no add/subtract variant.\n\n**Every grant is audited.** `reason` is required and must be non-empty. The grant is stored against the acting admin's account ID and is readable afterwards in the `grants` array of [`GET /api/admins/credits/events`](/api-reference/admins/credits-events).\n\n**A grant is never reduced by the monthly refill.** Credit balances are topped up to the plan total by a monthly refill that runs lazily on the next read of [`GET /api/accounts/{id}/credits`](/api-reference/accounts/credits-get), once the underlying row is more than a month old. That refill is a floor, not an assignment: it raises a balance up to the plan total and never lowers one. A grant above the plan total therefore survives every refill and holds until it is spent, so headroom granted once stays granted and does not need re-granting on a schedule.",
         "security": [
           {
             "apiKeyAuth": []
@@ -3358,7 +3358,7 @@
     },
     "/api/admins/credits/rollup": {
       "get": {
-        "description": "Returns the per-account rollup of credit usage over the selected period, sorted by total credits deducted descending. Each row carries the account identity (UUID + display name + primary email) and the aggregated spend so the admin dashboard can render a top-spenders table without joining client-side. Pair with [`GET /api/admins/credits/events?account_id=…&period=…`](/api-reference/admins/credits-events) to drill into the individual `usage_events` rows for a single account. Requires the authenticated account to be a Recoup admin.",
+        "description": "Returns the per-account rollup of credit usage over the selected period, sorted by total credits deducted descending. Each row carries the account identity (UUID + display name + primary email) and the aggregated spend so the admin dashboard can render a top-spenders table without joining client-side. Pair with [`GET /api/admins/credits/events?account_id=\u2026&period=\u2026`](/api-reference/admins/credits-events) to drill into the individual `usage_events` rows for a single account. Requires the authenticated account to be a Recoup admin.",
         "parameters": [
           {
             "name": "period",
@@ -3380,7 +3380,7 @@
             "name": "limit",
             "in": "query",
             "required": false,
-            "description": "Page size — number of accounts to return per request, sorted by total credits deducted descending. Defaults to 100; max 500.",
+            "description": "Page size \u2014 number of accounts to return per request, sorted by total credits deducted descending. Defaults to 100; max 500.",
             "schema": {
               "type": "integer",
               "minimum": 1,
@@ -3450,7 +3450,7 @@
     },
     "/api/admins/credits/events": {
       "get": {
-        "description": "Returns the raw `usage_events` rows for a single account over the selected period, sorted by `created_at` descending. Powers the drilldown view that expands when a row in the [`/api/admins/credits/rollup`](/api-reference/admins/credits-rollup) table is opened. Each event represents one debit (main agent turn, subagent step, chat completion, or research call), with token counts and `credits_deducted` matching the wallet drop on `credits_usage` for that account.\n\nThe response also carries a `grants` array covering the same account and period: the admin credit grants made through [`POST /api/admins/credits`](/api-reference/admins/credits-grant). The two arrays answer different questions — `events` is what the system spent, `grants` is what a person set by hand, and only a grant carries an actor and a reason. Requires the authenticated account to be a Recoup admin.",
+        "description": "Returns the raw `usage_events` rows for a single account over the selected period, sorted by `created_at` descending. Powers the drilldown view that expands when a row in the [`/api/admins/credits/rollup`](/api-reference/admins/credits-rollup) table is opened. Each event represents one debit (main agent turn, subagent step, chat completion, or research call), with token counts and `credits_deducted` matching the wallet drop on `credits_usage` for that account.\n\nThe response also carries a `grants` array covering the same account and period: the admin credit grants made through [`POST /api/admins/credits`](/api-reference/admins/credits-grant). The two arrays answer different questions \u2014 `events` is what the system spent, `grants` is what a person set by hand, and only a grant carries an actor and a reason. Requires the authenticated account to be a Recoup admin.",
         "parameters": [
           {
             "name": "account_id",
@@ -3482,7 +3482,7 @@
             "name": "limit",
             "in": "query",
             "required": false,
-            "description": "Page size — number of events to return per request, sorted by `created_at` descending. Defaults to 100; max 500.",
+            "description": "Page size \u2014 number of events to return per request, sorted by `created_at` descending. Defaults to 100; max 500.",
             "schema": {
               "type": "integer",
               "minimum": 1,
@@ -3552,7 +3552,7 @@
     },
     "/api/agents/signup": {
       "post": {
-        "description": "Register an agent. For new agent+ emails, returns an API key immediately. For all other cases, sends a verification code to the email — call [POST /api/agents/verify](/api-reference/agents/verify) with the code to get your API key.\n\n**Tip:** If you're unsure what email to register, generate a unique `agent+{suffix}@recoupable.com` address (e.g. `agent+1744410896-28439@recoupable.com`, combining a Unix timestamp with a random integer). This guarantees a fresh `agent+` address on every call — including multiple signups within the same second — and returns an API key instantly with no email verification required.",
+        "description": "Register an agent. For new agent+ emails, returns an API key immediately. For all other cases, sends a verification code to the email \u2014 call [POST /api/agents/verify](/api-reference/agents/verify) with the code to get your API key.\n\n**Tip:** If you're unsure what email to register, generate a unique `agent+{suffix}@recoupable.com` address (e.g. `agent+1744410896-28439@recoupable.com`, combining a Unix timestamp with a random integer). This guarantees a fresh `agent+` address on every call \u2014 including multiple signups within the same second \u2014 and returns an API key instantly with no email verification required.",
         "security": [],
         "requestBody": {
           "description": "Agent email to register",
@@ -3709,17 +3709,17 @@
           "account_id": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the account whose balance is being set. Must be an existing account — an unknown UUID is a 404, not a silent no-op."
+            "description": "UUID of the account whose balance is being set. Must be an existing account \u2014 an unknown UUID is a 404, not a silent no-op."
           },
           "remaining_credits": {
             "type": "integer",
             "minimum": 0,
-            "description": "The balance to leave the account holding, in credits (1 credit = 1 US cent). Absolute, not a delta. Zero is allowed — it is how an account is deliberately zeroed out. Negative values are rejected with a 400, even though ordinary usage can overdraw a balance below zero on its own."
+            "description": "The balance to leave the account holding, in credits (1 credit = 1 US cent). Absolute, not a delta. Zero is allowed \u2014 it is how an account is deliberately zeroed out. Negative values are rejected with a 400, even though ordinary usage can overdraw a balance below zero on its own."
           },
           "reason": {
             "type": "string",
             "minLength": 1,
-            "description": "Why the grant was made, in plain language — e.g. `Trial headroom for the Aug 12 label demo`. Required and non-empty (a whitespace-only string is rejected): this is the field that makes a grant distinguishable from a Stripe top-up or a monthly reset when someone asks months later. Stored verbatim and returned by the events endpoint."
+            "description": "Why the grant was made, in plain language \u2014 e.g. `Trial headroom for the Aug 12 label demo`. Required and non-empty (a whitespace-only string is rejected): this is the field that makes a grant distinguishable from a Stripe top-up or a monthly reset when someone asks months later. Stored verbatim and returned by the events endpoint."
           }
         }
       },
@@ -3755,7 +3755,7 @@
           },
           "remaining_credits": {
             "type": "integer",
-            "description": "The balance the account now holds — the value supplied in the request"
+            "description": "The balance the account now holds \u2014 the value supplied in the request"
           },
           "previous_credits": {
             "type": "integer",
@@ -4033,7 +4033,7 @@
           },
           "grants": {
             "type": "array",
-            "description": "Admin credit grants made against this account in the selected period, sorted by `created_at` descending — the write-side counterpart to `events`. A grant is a staff member setting the balance through [`POST /api/admins/credits`](/api-reference/admins/credits-grant), so unlike an event it carries an actor and a reason. Not paginated by `page`/`limit` and not counted in `total_count`, which describe `usage_events` only; capped at the 500 most recent grants in the period. Empty for the overwhelming majority of accounts, which have never been granted anything.",
+            "description": "Admin credit grants made against this account in the selected period, sorted by `created_at` descending \u2014 the write-side counterpart to `events`. A grant is a staff member setting the balance through [`POST /api/admins/credits`](/api-reference/admins/credits-grant), so unlike an event it carries an actor and a reason. Not paginated by `page`/`limit` and not counted in `total_count`, which describe `usage_events` only; capped at the 500 most recent grants in the period. Empty for the overwhelming majority of accounts, which have never been granted anything.",
             "items": {
               "type": "object",
               "required": [
@@ -4049,7 +4049,7 @@
                 "id": {
                   "type": "string",
                   "format": "uuid",
-                  "description": "UUID of the grant row — the `grant_id` returned by `POST /api/admins/credits`"
+                  "description": "UUID of the grant row \u2014 the `grant_id` returned by `POST /api/admins/credits`"
                 },
                 "account_id": {
                   "type": "string",
@@ -4666,7 +4666,7 @@
               "type": "string",
               "format": "email"
             },
-            "description": "Recipient email address(es). Optional — when omitted, the email is sent to the authenticated account's own email address. Without a payment method on file, restricted to the account's own email; [add a payment method](/api-reference/credits/sessions-create) to send to any recipient.",
+            "description": "Recipient email address(es). Optional \u2014 when omitted, the email is sent to the authenticated account's own email address. Without a payment method on file, restricted to the account's own email; [add a payment method](/api-reference/credits/sessions-create) to send to any recipient.",
             "example": [
               "recipient@example.com"
             ]
@@ -4684,7 +4684,7 @@
           },
           "subject": {
             "type": "string",
-            "description": "Email subject line. Optional — when omitted, defaults to the first heading or line of the body, falling back to `Message from Recoup` if the body is empty.",
+            "description": "Email subject line. Optional \u2014 when omitted, defaults to the first heading or line of the body, falling back to `Message from Recoup` if the body is empty.",
             "example": "Weekly Pulse Report"
           },
           "text": {
@@ -5292,7 +5292,7 @@
               "string",
               "null"
             ],
-            "description": "API key returned immediately for new agent+ prefix emails. Null for all other cases — check your email for a verification code.",
+            "description": "API key returned immediately for new agent+ prefix emails. Null for all other cases \u2014 check your email for a verification code.",
             "example": "recoup_sk_abc123..."
           },
           "message": {
@@ -5446,74 +5446,94 @@
             "example": "active"
           },
           "plan": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Plan identifier (e.g. `pro`). Null when no subscription exists.",
             "example": "pro",
             "enum": [
               "starter",
-              "pro"
+              "pro",
+              null
             ]
           },
           "source": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "enum": [
               "account",
-              "organization"
+              "organization",
+              null
             ],
-            "nullable": true,
             "description": "Origin of the subscription. `account` for direct, `organization` when covered by an organization. Null when no subscription exists.",
             "example": "account"
           },
           "name": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Display name of the plan's Stripe price (nickname) or product. Null when no subscription exists.",
             "example": "Pro"
           },
           "amountCents": {
-            "type": "integer",
-            "nullable": true,
+            "type": [
+              "integer",
+              "null"
+            ],
             "description": "Recurring amount in the smallest currency unit (cents for USD). Null when no subscription exists.",
             "example": 9900
           },
           "currency": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "ISO 4217 currency code, lowercase.",
             "example": "usd"
           },
           "interval": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "enum": [
               "day",
               "week",
               "month",
-              "year"
+              "year",
+              null
             ],
-            "nullable": true,
             "description": "Billing interval of the recurring price.",
             "example": "month"
           },
           "collectionMethod": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "enum": [
               "charge_automatically",
-              "send_invoice"
+              "send_invoice",
+              null
             ],
-            "nullable": true,
             "description": "`charge_automatically` bills the card on file at renewal; `send_invoice` emails an invoice that is paid manually (enterprise plans). A saved card is never charged for a `send_invoice` plan.",
             "example": "charge_automatically"
           },
           "currentPeriodEnd": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
-            "nullable": true,
             "description": "End of the current billing period: the renewal date, or the next invoice date for invoiced plans.",
             "example": "2026-10-04T00:00:00Z"
           }
         },
-        "description": "Current subscription conferring the effective plan. Inactive/free entitlement has status none and null plan, source and billing details."
+        "description": "Effective subscription details. When status is none, plan, source, name, amountCents, currency, interval, collectionMethod and currentPeriodEnd are all null."
       },
       "SubscriptionErrorResponse": {
         "type": "object",
@@ -5890,7 +5910,7 @@
                 "type": "null"
               }
             ],
-            "description": "Default card on file. `null` when the account has never saved a payment method — the top-up flow will route through a checkout session in that case."
+            "description": "Default card on file. `null` when the account has never saved a payment method \u2014 the top-up flow will route through a checkout session in that case."
           }
         }
       },
@@ -6106,7 +6126,7 @@
             "type": "string",
             "format": "uri",
             "description": "Required valid redirect URL, including when a saved card is charged directly. Used by Checkout fallback; no default is supplied.",
-            "example": "https://chat.recoupable.com?credits=success"
+            "example": "https://chat.recoupable.dev?credits=success"
           },
           "credits": {
             "type": "integer",
@@ -6125,12 +6145,12 @@
         "additionalProperties": false,
         "example": {
           "credits": 2500000,
-          "successUrl": "https://chat.recoupable.dev/credits/success"
+          "successUrl": "https://chat.recoupable.dev?credits=success"
         }
       },
       "CreditsTopupResponse": {
         "type": "object",
-        "description": "Top-up response. Two paths share this shape — clients can discriminate on the presence of `url` (Checkout fallback) vs `paymentIntentId` (auto-charged).",
+        "description": "Top-up response. Two paths share this shape \u2014 clients can discriminate on the presence of `url` (Checkout fallback) vs `paymentIntentId` (auto-charged).",
         "properties": {
           "paymentIntentId": {
             "type": "string",
@@ -6157,7 +6177,7 @@
           "url": {
             "type": "string",
             "format": "uri",
-            "description": "**Checkout fallback only.** The hosted Stripe Checkout URL — redirect the customer here to enter card details and complete payment. Omitted on the auto-charge path.",
+            "description": "**Checkout fallback only.** The hosted Stripe Checkout URL \u2014 redirect the customer here to enter card details and complete payment. Omitted on the auto-charge path.",
             "example": "https://checkout.stripe.com/pay/cs_test_a1b2c3d4e5f6g7h8i9j0"
           }
         }

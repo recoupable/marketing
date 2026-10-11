@@ -15,6 +15,7 @@ content = specs['content.json']['components']['schemas']
 research = specs['research.json']
 record = {
     'evidence': 'Copyable syntax only. URLs are placeholders; no provider, payment or customer workflow is exercised.',
+    'sourceRepository': 'recoupable/marketing',
     'sourceHashes': {str((source / name).relative_to(root)): hashlib.sha256((source / name).read_bytes()).hexdigest() for name in specs},
     'examples': {
         'image': content['ContentCreateImageRequest']['example'],
@@ -23,6 +24,7 @@ record = {
         'topup': specs['accounts.json']['components']['schemas']['CreateCreditsSessionRequest']['example'],
         'headless': research['components']['schemas']['ChatGenerateRequest']['example'],
         'trackStats': {p['name']: p['example'] for p in research['paths']['/api/research/track/stats']['get']['parameters'] if p['name'] in ['isrc', 'source']},
+        'historicalMeasurementJob': research['components']['schemas']['ResearchMeasurementJobRequest']['example'],
     },
 }
 serialized = json.dumps(record, indent=2) + '\n'

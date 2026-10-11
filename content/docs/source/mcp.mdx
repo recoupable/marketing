@@ -11,4 +11,4 @@ Use `tools/list` after connection and after changing consent. The catalog depend
 
 Sandbox command tools previously shown on this page are absent from the current registry. Do not call `prompt_sandbox`, `run_sandbox_command`, or infer that every REST endpoint is exposed as MCP. Use documented [REST sandbox operations](/api-reference/sandboxes/create) with a separate authorized credential when required.
 
-API-key clients may authenticate through a configured secret header where supported. Store credentials in the client's secret facility or environment. Never paste them into global instructions or extract host-managed OAuth tokens for REST.
+For an API-key MCP connection, configure `Authorization: Bearer YOUR_RECOUP_API_KEY` in the client's secret settings. The `x-api-key` header is for [REST requests](/authentication). Store credentials in the client's secret facility or environment. Never paste them into global instructions or extract host-managed OAuth tokens for REST.

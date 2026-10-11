@@ -26,6 +26,6 @@ describe("llms-full.txt documentation parity", () => {
     expect(text.indexOf("Content ID: page:")).toBeLessThan(text.indexOf(documentation));
     expect(text.match(/^Source: .*\/docs(\/|$)/gm)?.length ?? 0).toBe(docs.length);
     expect(text).toContain(`# ${quickstart.title}\n\nSource: ${siteConfig.url}/docs/quickstart\n`);
-    expect(text).toContain("## Quickest start");
+    expect(text).toContain("## Connect first");
   }, 60000);
 });

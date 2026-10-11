@@ -28,11 +28,11 @@
   "liveReads": {
     "testCredentialStatus": 401,
     "testMcpStatus": 401,
-    "songstatsPublicLookupStatus": 200,
-    "songstatsElapsedMs": 448,
-    "songstatsCredentialScope": "local API environment; not proof of production secret value",
-    "productionSongstatsKeyConfigured": true,
-    "songstatsQuotaAndCost": "not exposed by this response; contract needed",
+    "researchPublicLookupStatus": 200,
+    "researchElapsedMs": 448,
+    "researchCredentialScope": "local API environment; not proof of production secret value",
+    "productionresearchKeyConfigured": true,
+    "researchQuotaAndCost": "not exposed by this response; contract needed",
     "existingRestCredentialStatus": 200,
     "mcpApiKeySdkDiscovery": {
       "status": "passed",
@@ -41,7 +41,7 @@
     }
   },
   "releaseState": "All execution fixes are proposed source changes until merged, deployed, installed and verified.",
-  "songstatsCommercialEvidence": {
+  "researchCommercialEvidence": {
     "proposal": "Usage-based offer located in private provider correspondence",
     "activation": "Unverified",
     "keyAgreement": "Unverified",
@@ -50,24 +50,34 @@
     "privateEvidence": "Kept outside public repositories"
   },
   "proposedFixCommits": {
-    "api": "68c8bddc6d74d0425d57ef0f919bbf21e7910694",
-    "tasks": "5b2bed824b28f53c4043a2eb137ac080da67cd70"
+    "api": "3c459b8bacd74f09ae0ccb97c42b56260bb63022",
+    "tasks": "98d2bdfe73d88cf7db5bb69ff31b8d884c942dd4"
   },
   "localValidation": {
     "apiTests": {
       "passed": 6348,
       "skipped": 12,
-      "finalFocusedPassed": 85,
-      "sharedPublishedExampleTestsPassed": 6
+      "finalFocusedPassed": 97,
+      "sharedPublishedExampleTestsPassed": 7
     },
     "apiBuild": "passed with existing ignored local environment; Node 24",
-    "marketingTestsPassed": 425,
+    "marketingTestsPassed": 427,
     "workerTestsPassed": 365,
     "workerProductionTypes": {
       "currentErrors": 8,
       "unchangedBaseErrors": 9,
       "newErrorsComparedWithBase": 0
     },
-    "skillsPublishingGates": "all five passed; 117 skills"
+    "skillsPublishingGates": "all five passed; 117 skills",
+    "researchAdapterTests": "13 passed including nested generic ID regression tests; no provider calls.",
+    "marketingBuild": "Blocked locally by Turbopack CSS worker port binding (EPERM); not passed."
+  },
+  "latestApiProduction": {
+    "checkedAt": "2026-10-11T17:45:41.556781+00:00",
+    "commit": "c25715ea1b5e31ac31d0079955b90dc1ce2f1631",
+    "deploymentId": "dpl_7eVhT1z2iytQfk6M58qZ9YsqNVJh",
+    "state": "READY",
+    "productionAlias": "api.recoupable.dev",
+    "researchCredential": "Production environment rotated and current production code redeployed; new credential passed a direct research lookup (HTTP 200). This does not verify every research route or history entitlement."
   }
 }
