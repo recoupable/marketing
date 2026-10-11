@@ -5,6 +5,7 @@ import { podcastCopy } from "@/lib/copy/podcast";
 import type { Episode } from "@/lib/podcast/episodeSchema";
 import { formatDuration } from "@/lib/podcast/formatDuration";
 import { formatEpisodeDate } from "@/lib/podcast/formatEpisodeDate";
+import { youtubeEmbedUrl } from "@/lib/podcast/youtubeEmbedUrl";
 import { EpisodeListenLinks } from "./EpisodeListenLinks";
 
 /**
@@ -13,13 +14,18 @@ import { EpisodeListenLinks } from "./EpisodeListenLinks";
  */
 export function EpisodeDetail({ episode }: { episode: Episode }) {
   const copy = podcastCopy.episode;
+  const embed = youtubeEmbedUrl(episode.links.youtube);
   return (
     <article className="col-start-2 row-start-1 min-w-0 pt-11 max-[760px]:pt-4" aria-labelledby="episode-title">
       <Link className="inline-flex items-center gap-2 text-sm font-medium text-[#53707d] hover:text-[#087bab] [&_svg]:!w-4 [&_svg]:!h-4" href="/podcast"><SkyArrow direction="left" /> {copy.back}</Link>
       <p className="!mt-7 text-[13px] font-medium text-[#586f78]">{formatEpisodeDate(episode.date)} · {formatDuration(episode.durationSeconds)}</p>
       <h1 id="episode-title" className="!mt-3 !text-[clamp(36px,3.6vw,52px)] !font-[450] !leading-[1.08] !tracking-[-0.05em]">{episode.title} <span className="text-[#586f78]">w/ {episode.guest}</span></h1>
       <EpisodeListenLinks slug={episode.slug} links={episode.links} />
-      <Image className="w-full h-auto rounded-2xl mt-8" src={episode.cover} alt={`${episode.title} w/ ${episode.guest}`} width={1280} height={720} sizes="(max-width: 760px) 100vw, 760px" priority />
+      {embed ? (
+        <iframe className="w-full aspect-video rounded-2xl mt-8 border-0 bg-[#132b26]" src={embed} title={`${episode.title} w/ ${episode.guest} (YouTube video)`} allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen loading="lazy" />
+      ) : (
+        <Image className="w-full h-auto rounded-2xl mt-8" src={episode.cover} alt={`${episode.title} w/ ${episode.guest}`} width={1280} height={720} sizes="(max-width: 760px) 100vw, 760px" priority />
+      )}
       <div className="mt-8 max-w-[680px]">
         {episode.summary.map((paragraph, index) => <p key={paragraph} className={`${index === 0 ? "" : "!mt-5"} text-[17px] !leading-[1.7] text-[#22343c]`}>{paragraph}</p>)}
       </div>

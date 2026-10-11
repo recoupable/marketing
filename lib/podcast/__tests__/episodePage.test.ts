@@ -42,3 +42,11 @@ test("episode dates read as calendar dates", () => {
 test("no published copy carries an em or en dash", () => {
   expect(JSON.stringify(readEpisodes())).not.toMatch(/[–—]/);
 });
+
+test("YouTube links become embed URLs; anything else does not", async () => {
+  const { youtubeEmbedUrl } = await import("../youtubeEmbedUrl.ts");
+  expect(youtubeEmbedUrl("https://www.youtube.com/watch?v=q8CsBbdmXqA")).toBe("https://www.youtube.com/embed/q8CsBbdmXqA?rel=0");
+  expect(youtubeEmbedUrl("https://youtu.be/q8CsBbdmXqA")).toBe("https://www.youtube.com/embed/q8CsBbdmXqA?rel=0");
+  expect(youtubeEmbedUrl("https://open.spotify.com/episode/abc")).toBeUndefined();
+  expect(youtubeEmbedUrl(undefined)).toBeUndefined();
+});
