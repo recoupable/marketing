@@ -3,12 +3,12 @@ import { episodeAction } from "../episodeAction.ts";
 
 const links = { spotify: "https://open.spotify.com/episode/abc" };
 
-test("an episode with a YouTube link reads Watch now and opens YouTube", () => {
-  expect(episodeAction({ ...links, youtube: "https://www.youtube.com/watch?v=xyz" })).toStrictEqual({
-    label: "Watch now", href: "https://www.youtube.com/watch?v=xyz", platform: "youtube",
+test("an episode with a YouTube link reads Watch now and opens its episode page", () => {
+  expect(episodeAction({ slug: "jesse-kirshbaum", links: { ...links, youtube: "https://www.youtube.com/watch?v=xyz" } })).toStrictEqual({
+    label: "Watch now", href: "/podcast/jesse-kirshbaum",
   });
 });
 
-test("an audio-only episode reads Listen now and opens Spotify", () => {
-  expect(episodeAction(links)).toStrictEqual({ label: "Listen now", href: links.spotify, platform: "spotify" });
+test("an audio-only episode reads Listen now and opens its episode page", () => {
+  expect(episodeAction({ slug: "kantor", links })).toStrictEqual({ label: "Listen now", href: "/podcast/kantor" });
 });

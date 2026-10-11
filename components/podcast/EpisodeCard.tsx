@@ -7,7 +7,7 @@ import { formatDuration } from "@/lib/podcast/formatDuration";
 import { EpisodeActionLink } from "./EpisodeActionLink";
 
 export function EpisodeCard({ episode }: { episode: Episode }) {
-  const action = episodeAction(episode.links);
+  const action = episodeAction(episode);
   return (
     <article className="flex flex-col min-w-0 p-4 border border-[#e2e9eb] rounded-2xl bg-white shadow-[0_3px_7px_#17334206]">
       <Link href={episodePath(episode.slug)} tabIndex={-1} aria-hidden="true"><Image className="w-full h-auto rounded-[10px]" src={episode.cover} alt="" width={1280} height={720} sizes="(max-width: 760px) 100vw, 400px" /></Link>
