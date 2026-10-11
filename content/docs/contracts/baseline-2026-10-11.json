@@ -71,8 +71,9 @@
     "skillsPublishingGates": "all five passed; 117 skills",
     "researchAdapterTests": "18 passed including nested, blank and non-string ID regressions; no provider calls.",
     "marketingBuild": "Blocked locally by Turbopack CSS worker port binding (EPERM); not passed.",
-    "skillsExampleRegressionsPassed": 8,
-    "marketingRemoteBuild": "Vercel preview passed at Marketing 275a4cd; recheck after final follow-up."
+    "skillsExampleRegressionsPassed": 14,
+    "marketingRemoteBuild": "Vercel preview and both contract CI jobs passed at 22ee637. Recheck the current PR head before merge.",
+    "onboardingMockedScenariosPassed": 16
   },
   "latestApiProduction": {
     "checkedAt": "2026-10-11T17:45:41.556781+00:00",
