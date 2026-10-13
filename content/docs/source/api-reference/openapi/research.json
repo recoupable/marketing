@@ -648,7 +648,7 @@
     },
     "/api/chat/runs": {
       "post": {
-        "description": "Start an asynchronous, headless chat-generation run on the durable agent workflow \u2014 the same engine as interactive [`POST /api/chat`](/api-reference/chat/workflow).\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) \u2014 use that for **interactive, streaming** turns on an existing chat; use this for **headless/programmatic** runs (no browser or pre-provisioned session needed).\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) \u2014 poll to learn **whether** the run finished (and if it succeeded).\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) \u2014 **watch the output live** by passing the returned `chatId`.",
+        "description": "Start an asynchronous, headless chat-generation run on the durable agent workflow — the same engine as interactive [`POST /api/chat`](/api-reference/chat/workflow).\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) — use that for **interactive, streaming** turns on an existing chat; use this for **headless/programmatic** runs (no browser or pre-provisioned session needed).\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — poll to learn **whether** the run finished (and if it succeeded).\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — **watch the output live** by passing the returned `chatId`.",
         "security": [
           {
             "apiKeyAuth": []
@@ -667,7 +667,7 @@
         },
         "responses": {
           "202": {
-            "description": "Run accepted. A durable workflow run was started; `runId` identifies it. `chatId` / `sessionId` identify the persisted output \u2014 read the result via [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) (resume the stream) or the chat's persisted messages. Poll [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) for status.",
+            "description": "Run accepted. A durable workflow run was started; `runId` identifies it. `chatId` / `sessionId` identify the persisted output — read the result via [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) (resume the stream) or the chat's persisted messages. Poll [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) for status.",
             "content": {
               "application/json": {
                 "schema": {
@@ -701,7 +701,7 @@
     },
     "/api/chat/{chatId}/stop": {
       "post": {
-        "description": "Stop the response currently being generated for a chat, freeing it to accept a new message. Idempotent \u2014 returns `stopped: false` when nothing is in progress. The chat must belong to the authenticated account.",
+        "description": "Stop the response currently being generated for a chat, freeing it to accept a new message. Idempotent — returns `stopped: false` when nothing is in progress. The chat must belong to the authenticated account.\n\nThe active slot is released only after cancellation is confirmed. Cancellation failure (502) or termination timeout (504) keeps it occupied; a later stop can retry. A successful no-active stop returns stopped: false.",
         "security": [
           {
             "apiKeyAuth": []
@@ -759,6 +759,46 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StopChatErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Session ownership lookup failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StopChatErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Workflow cancellation failed; the active slot remains held.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StopChatErrorResponse"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Workflow did not reach a terminal state before the wait deadline; the active slot remains held.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StopChatErrorResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -766,7 +806,7 @@
     "/api/chat/{chatId}/stream": {
       "get": {
         "summary": "Resume a chat response stream",
-        "description": "Reconnects to an in-progress chat response \u2014 the resume counterpart to [`POST /api/chat`](/api-reference/chat/workflow), which never resumes. Returns the live Server-Sent Events stream when a response is still being generated, or `204 No Content` when there is nothing to resume. The chat must belong to the authenticated account.\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) \u2014 the interactive turn whose stream this resumes.\n- [`POST /api/chat/runs`](/api-reference/chat/runs) \u2014 start a **headless** run, then pass the returned `chatId` here to **watch its output live**.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) \u2014 check **whether** that run finished (status, not content).",
+        "description": "Reconnects to an in-progress chat response — the resume counterpart to [`POST /api/chat`](/api-reference/chat/workflow), which never resumes. Returns the live Server-Sent Events stream when a response is still being generated, or a `200` finish-only SSE stream when no active response exists or the run is terminal. The chat must belong to the authenticated account.\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) — the interactive turn whose stream this resumes.\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — start a **headless** run, then pass the returned `chatId` here to **watch its output live**.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** that run finished (status, not content).",
         "security": [
           {
             "apiKeyAuth": []
@@ -790,7 +830,7 @@
             "name": "account_id",
             "in": "query",
             "required": false,
-            "description": "Act on a chat belonging to another account. Only honoured for a key that is authorised for that account \u2014 an organization key may pass a member account's id; a personal key passing anyone else's is rejected with `403 Access denied to specified account_id`. Omit it to act as the authenticated account.",
+            "description": "Act on a chat belonging to another account. Only honoured for a key that is authorised for that account — an organization key may pass a member account's id; a personal key passing anyone else's is rejected with `403 Access denied to specified account_id`. Omit it to act as the authenticated account.",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -800,7 +840,7 @@
             "name": "startIndex",
             "in": "query",
             "required": false,
-            "description": "Zero-based index of the first stream chunk to return, so a client that was already receiving this response resumes where it left off instead of replaying the whole turn.\n\nPass the number of chunks already received. Omit it to receive the response from the beginning \u2014 the right choice for a fresh reader such as a page load, or a client watching a headless [`POST /api/chat/runs`](/api-reference/chat/runs) run for the first time.\n\nA long turn's stream can end before the run does; reconnecting with `startIndex` is how a client keeps rendering without duplicating or skipping chunks.",
+            "description": "Zero-based index of the first stream chunk to return, so a client that was already receiving this response resumes where it left off instead of replaying the whole turn.\n\nPass the number of chunks already received. Omit it to receive the response from the beginning — the right choice for a fresh reader such as a page load, or a client watching a headless [`POST /api/chat/runs`](/api-reference/chat/runs) run for the first time.\n\nA long turn's stream can end before the run does; reconnecting with `startIndex` is how a client keeps rendering without duplicating or skipping chunks.",
             "schema": {
               "type": "integer",
               "minimum": 0
@@ -809,7 +849,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Server-Sent Events stream of UI message parts for the in-progress response, compatible with the Vercel AI SDK. The `x-workflow-run-id` response header carries the run ID for this response, and `x-workflow-stream-tail-index` carries the index of the last chunk known when this read was opened \u2014 a base for computing absolute positions, not a record of where the response ended.",
+            "description": "Server-Sent Events stream of UI message parts for the in-progress response, compatible with the Vercel AI SDK. The `x-workflow-run-id` response header carries the run ID for this response, and `x-workflow-stream-tail-index` carries the index of the last chunk known when this read was opened — a base for computing absolute positions, not a record of where the response ended. When there is nothing to resume, the stream contains one terminal finish chunk; workflow headers are absent on that path.",
             "headers": {
               "x-workflow-run-id": {
                 "description": "Durable workflow run ID of the resumed run.",
@@ -818,7 +858,7 @@
                 }
               },
               "x-workflow-stream-tail-index": {
-                "description": "Zero-based index of the last chunk known to the stream **at the moment this read was opened**. Because headers are sent before the body, a read that stays open past that point will deliver chunks beyond it \u2014 so this is a base for computing absolute positions, not a record of where the response ended. A client resuming precisely should count the chunks it receives on top of this value. Omitted if the runtime cannot report it.",
+                "description": "Zero-based index of the last chunk known to the stream **at the moment this read was opened**. Because headers are sent before the body, a read that stays open past that point will deliver chunks beyond it — so this is a base for computing absolute positions, not a record of where the response ended. A client resuming precisely should count the chunks it receives on top of this value. Omitted if the runtime cannot report it.",
                 "schema": {
                   "type": "integer"
                 }
@@ -833,11 +873,8 @@
               }
             }
           },
-          "204": {
-            "description": "No active stream to resume for this chat."
-          },
           "400": {
-            "description": "`startIndex` was provided but is not a non-negative integer.",
+            "description": "Invalid chat ID or startIndex.",
             "content": {
               "application/json": {
                 "schema": {
@@ -847,7 +884,7 @@
             }
           },
           "401": {
-            "description": "Missing or invalid credentials.",
+            "description": "Missing or invalid authentication.",
             "content": {
               "application/json": {
                 "schema": {
@@ -857,7 +894,7 @@
             }
           },
           "403": {
-            "description": "The authenticated account does not own the referenced chat.",
+            "description": "The caller does not own the chat session.",
             "content": {
               "application/json": {
                 "schema": {
@@ -867,7 +904,27 @@
             }
           },
           "404": {
-            "description": "Chat not found.",
+            "description": "Chat or owning session not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Session ownership lookup failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Workflow status lookup failed; this is not an empty or completed response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -882,7 +939,7 @@
     "/api/chat": {
       "post": {
         "summary": "Stream sandbox-driven chat (Vercel Workflow)",
-        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) \u2014 no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) \u2014 the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) \u2014 reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) \u2014 check **whether** a headless run finished (status, not content).",
+        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) — no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** a headless run finished (status, not content).",
         "security": [
           {
             "apiKeyAuth": []
@@ -920,7 +977,7 @@
             }
           },
           "400": {
-            "description": "Bad request \u2014 missing required fields, invalid body, or sandbox not initialized for the session.",
+            "description": "Bad request — missing required fields, invalid body, or sandbox not initialized for the session.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1007,7 +1064,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1024,7 +1081,7 @@
     },
     "/api/research/enrich": {
       "post": {
-        "description": "Enrich an entity with structured data from web research. Provide a description of who or what to research and a JSON schema defining the fields to extract. Returns typed data with citations. **Important:** The `schema` object must include `\"type\": \"object\"` at the top level \u2014 requests without an explicit type will be rejected.",
+        "description": "Enrich an entity with structured data from web research. Provide a description of who or what to research and a JSON schema defining the fields to extract. Returns typed data with citations. **Important:** The `schema` object must include `\"type\": \"object\"` at the top level — requests without an explicit type will be rejected.",
         "requestBody": {
           "required": true,
           "content": {
@@ -1057,7 +1114,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1107,7 +1164,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1124,7 +1181,7 @@
     },
     "/api/research/people": {
       "post": {
-        "description": "Search for people in the music industry \u2014 artists, managers, A&R reps, producers. Returns multi-source profiles including LinkedIn data.",
+        "description": "Search for people in the music industry — artists, managers, A&R reps, producers. Returns multi-source profiles including LinkedIn data.",
         "requestBody": {
           "required": true,
           "content": {
@@ -1157,7 +1214,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1207,7 +1264,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1257,7 +1314,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1267,7 +1324,7 @@
             }
           },
           "402": {
-            "description": "Insufficient research credits \u2014 the body includes a static `billingUrl`. No Stripe object is created.",
+            "description": "Insufficient research credits — the body includes a static `billingUrl`. No Stripe object is created.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1438,7 +1495,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key.",
+            "description": "Authentication failed — invalid or missing API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1458,7 +1515,7 @@
             }
           },
           "402": {
-            "description": "Insufficient research credits \u2014 the body includes a static `billingUrl`. No Stripe object is created.",
+            "description": "Insufficient research credits — the body includes a static `billingUrl`. No Stripe object is created.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1491,7 +1548,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Provider-neutral track id \u2014 ISRC or Spotify track id."
+            "description": "Provider-neutral track id — ISRC or Spotify track id."
           },
           {
             "name": "platform",
@@ -1534,7 +1591,9 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": ["daily"],
+              "enum": [
+                "daily"
+              ],
               "default": "daily"
             },
             "description": "Series granularity. `daily` returns the per-day cumulative series."
@@ -1544,7 +1603,9 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": ["run_rate"]
+              "enum": [
+                "run_rate"
+              ]
             },
             "description": "Return a derived aggregate instead of the raw series. `run_rate` returns the trailing-window annualized run-rate (a projection of the series)."
           },
@@ -1570,7 +1631,7 @@
             }
           },
           "400": {
-            "description": "Validation error \u2014 bad identifier or query param.",
+            "description": "Validation error — bad identifier or query param.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1580,7 +1641,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key.",
+            "description": "Authentication failed — invalid or missing API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1600,7 +1661,7 @@
             }
           },
           "404": {
-            "description": "No measurements for this track yet \u2014 create a `current` measurement job to capture it.",
+            "description": "No measurements for this track yet — create a `current` measurement job to capture it.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1666,7 +1727,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key.",
+            "description": "Authentication failed — invalid or missing API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1686,7 +1747,7 @@
             }
           },
           "404": {
-            "description": "No capture exists for this album yet \u2014 create a `current` measurement-job.",
+            "description": "No capture exists for this album yet — create a `current` measurement-job.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1734,7 +1795,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key.",
+            "description": "Authentication failed — invalid or missing API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1759,17 +1820,26 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": ["status", "error", "checkoutUrl"],
+                  "required": [
+                    "status",
+                    "error",
+                    "checkoutUrl"
+                  ],
                   "properties": {
                     "status": {
                       "type": "string",
-                      "enum": ["error"]
+                      "enum": [
+                        "error"
+                      ]
                     },
                     "error": {
                       "type": "string"
                     },
                     "checkoutUrl": {
-                      "type": ["string", "null"],
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "Card-setup checkout URL returned by Stripe. Distinct from the static billingUrl used by ordinary research credit errors."
                     }
                   }
@@ -1792,7 +1862,7 @@
     },
     "/api/chat/runs/{runId}": {
       "get": {
-        "description": "Status of an asynchronous run started via [`POST /api/chat/runs`](/api-reference/chat/runs). Returns a point-in-time snapshot (**is it done?**) \u2014 not the generated content.\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) \u2014 starts the run this reports on.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) \u2014 read the **content**: poll *this* to know **whether** a run finished; use the stream to **watch the output** as it's produced.\n- [`POST /api/chat`](/api-reference/chat/workflow) \u2014 the interactive, streaming counterpart to a headless run.",
+        "description": "Status of an asynchronous run started via [`POST /api/chat/runs`](/api-reference/chat/runs). Returns a point-in-time snapshot (**is it done?**) — not the generated content.\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — starts the run this reports on.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — read the **content**: poll *this* to know **whether** a run finished; use the stream to **watch the output** as it's produced.\n- [`POST /api/chat`](/api-reference/chat/workflow) — the interactive, streaming counterpart to a headless run.",
         "security": [
           {
             "apiKeyAuth": []
@@ -1907,7 +1977,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2014,7 +2084,10 @@
             "description": "When `true` (default), returns only albums where the artist is a main artist. Set to `false` to include feature appearances, DJ compilations, and soundtracks.",
             "schema": {
               "type": "string",
-              "enum": ["true", "false"],
+              "enum": [
+                "true",
+                "false"
+              ],
               "default": "true"
             }
           },
@@ -2051,7 +2124,7 @@
             }
           },
           "400": {
-            "description": "Validation error \u2014 `artist_id` missing or invalid",
+            "description": "Validation error — `artist_id` missing or invalid",
             "content": {
               "application/json": {
                 "schema": {
@@ -2061,7 +2134,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2203,7 +2276,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2335,7 +2408,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2467,7 +2540,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2599,7 +2672,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2758,7 +2831,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2890,7 +2963,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2994,7 +3067,13 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": ["spotify", "applemusic", "deezer", "amazon", "youtube"],
+              "enum": [
+                "spotify",
+                "applemusic",
+                "deezer",
+                "amazon",
+                "youtube"
+              ],
               "default": "spotify"
             }
           },
@@ -3004,7 +3083,10 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": ["current", "past"],
+              "enum": [
+                "current",
+                "past"
+              ],
               "default": "current"
             },
             "description": "current uses current placements; past uses all-time scope total, which may include current placements."
@@ -3052,7 +3134,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -3184,7 +3266,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -3289,7 +3371,11 @@
             "description": "Audience overlap weight.",
             "schema": {
               "type": "string",
-              "enum": ["high", "medium", "low"],
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
               "default": "medium"
             }
           },
@@ -3300,7 +3386,11 @@
             "description": "Genre similarity weight.",
             "schema": {
               "type": "string",
-              "enum": ["high", "medium", "low"],
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
               "default": "medium"
             }
           },
@@ -3311,7 +3401,11 @@
             "description": "Mood similarity weight.",
             "schema": {
               "type": "string",
-              "enum": ["high", "medium", "low"],
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
               "default": "medium"
             }
           },
@@ -3322,7 +3416,11 @@
             "description": "Musicality similarity weight.",
             "schema": {
               "type": "string",
-              "enum": ["high", "medium", "low"],
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
               "default": "medium"
             }
           },
@@ -3369,7 +3467,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -3492,7 +3590,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -3624,7 +3722,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -3756,7 +3854,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key",
+            "description": "Authentication failed — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -3877,7 +3975,12 @@
             "description": "Streaming platform to return playlists for. Defaults to `spotify`.",
             "schema": {
               "type": "string",
-              "enum": ["spotify", "applemusic", "deezer", "amazon"],
+              "enum": [
+                "spotify",
+                "applemusic",
+                "deezer",
+                "amazon"
+              ],
               "default": "spotify"
             }
           },
@@ -3887,7 +3990,10 @@
             "description": "Return current or past playlist placements. Defaults to `current`.",
             "schema": {
               "type": "string",
-              "enum": ["current", "past"],
+              "enum": [
+                "current",
+                "past"
+              ],
               "default": "current"
             }
           },
@@ -4019,11 +4125,16 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": ["status", "placements"],
+                  "required": [
+                    "status",
+                    "placements"
+                  ],
                   "properties": {
                     "status": {
                       "type": "string",
-                      "enum": ["success"],
+                      "enum": [
+                        "success"
+                      ],
                       "example": "success"
                     },
                     "placements": {
@@ -4039,7 +4150,7 @@
             }
           },
           "400": {
-            "description": "Validation error \u2014 missing `id`/`q`, invalid `platform`, or invalid `status`.",
+            "description": "Validation error — missing `id`/`q`, invalid `platform`, or invalid `status`.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4049,7 +4160,7 @@
             }
           },
           "401": {
-            "description": "Authentication failed \u2014 invalid or missing API key.",
+            "description": "Authentication failed — invalid or missing API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4151,7 +4262,10 @@
     "schemas": {
       "StopChatResponse": {
         "type": "object",
-        "required": ["success", "stopped"],
+        "required": [
+          "success",
+          "stopped"
+        ],
         "properties": {
           "success": {
             "type": "boolean",
@@ -4167,11 +4281,16 @@
       },
       "StopChatErrorResponse": {
         "type": "object",
-        "required": ["status", "error"],
+        "required": [
+          "status",
+          "error"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "description": "Status of the request"
           },
           "error": {
@@ -4182,11 +4301,16 @@
       },
       "ChatGenerateErrorResponse": {
         "type": "object",
-        "required": ["status", "message"],
+        "required": [
+          "status",
+          "message"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "description": "Status of the request"
           },
           "message": {
@@ -4252,7 +4376,12 @@
       },
       "ChatMessage": {
         "type": "object",
-        "required": ["id", "room_id", "content", "updated_at"],
+        "required": [
+          "id",
+          "room_id",
+          "content",
+          "updated_at"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -4277,7 +4406,13 @@
       },
       "ChatRoom": {
         "type": "object",
-        "required": ["id", "title", "accountId", "sessionId", "updatedAt"],
+        "required": [
+          "id",
+          "title",
+          "accountId",
+          "sessionId",
+          "updatedAt"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -4313,37 +4448,45 @@
       },
       "ChatStreamErrorResponse": {
         "type": "object",
-        "required": ["status", "error"],
+        "required": [
+          "error"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
-            "description": "Status of the request"
+            "enum": [
+              "error"
+            ]
           },
           "error": {
-            "type": "string",
-            "description": "Error message describing what went wrong"
+            "type": "string"
           },
           "missing_fields": {
             "type": "array",
-            "description": "Present on validation failures (400): the path of the field that failed. Empty for a malformed path parameter.",
             "items": {
-              "type": "string"
+              "type": [
+                "string",
+                "integer"
+              ]
             }
           }
         }
       },
       "ChatWorkflowRequest": {
         "type": "object",
-        "description": "Request body for the sandbox-driven, Workflow-backed chat endpoint. Requires an existing session, chat, and provisioned sandbox. The Bearer key from the `Authorization` header is forwarded into the sandbox for skill-based callbacks to the Recoup API \u2014 no separate access-token field needed.",
-        "required": ["messages", "chatId", "sessionId"],
+        "description": "Request body for the sandbox-driven, Workflow-backed chat endpoint. Requires an existing session, chat, and provisioned sandbox. The Bearer key from the `Authorization` header is forwarded into the sandbox for skill-based callbacks to the Recoup API — no separate access-token field needed.",
+        "required": [
+          "messages",
+          "chatId",
+          "sessionId"
+        ],
         "properties": {
           "messages": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UIMessage"
             },
-            "description": "Conversation history as an array of `UIMessage` objects, matching the [Vercel AI SDK](https://sdk.vercel.ai/) `UIMessage` shape. The last entry is typically the new user turn \u2014 the agent loop reads the entire array and persists the latest user message before the workflow starts."
+            "description": "Conversation history as an array of `UIMessage` objects, matching the [Vercel AI SDK](https://sdk.vercel.ai/) `UIMessage` shape. The last entry is typically the new user turn — the agent loop reads the entire array and persists the latest user message before the workflow starts."
           },
           "chatId": {
             "type": "string",
@@ -4353,7 +4496,7 @@
           "sessionId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the session that owns both the chat and the sandbox. The session must have a non-null `sandbox_state` \u2014 call [POST /api/sandbox](/api-reference/sandbox/create) first if not."
+            "description": "UUID of the session that owns both the chat and the sandbox. The session must have a non-null `sandbox_state` — call [POST /api/sandbox](/api-reference/sandbox/create) first if not."
           },
           "context": {
             "type": "object",
@@ -4369,7 +4512,9 @@
       },
       "CompactChatsRequest": {
         "type": "object",
-        "required": ["chatId"],
+        "required": [
+          "chatId"
+        ],
         "properties": {
           "chatId": {
             "type": "array",
@@ -4388,7 +4533,9 @@
       },
       "CompactChatsResponse": {
         "type": "object",
-        "required": ["chats"],
+        "required": [
+          "chats"
+        ],
         "properties": {
           "chats": {
             "type": "array",
@@ -4401,7 +4548,10 @@
       },
       "CompactedChat": {
         "type": "object",
-        "required": ["chatId", "compacted"],
+        "required": [
+          "chatId",
+          "compacted"
+        ],
         "properties": {
           "chatId": {
             "type": "string",
@@ -4416,11 +4566,16 @@
       },
       "CopyChatMessagesErrorResponse": {
         "type": "object",
-        "required": ["status", "error"],
+        "required": [
+          "status",
+          "error"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "description": "Status of the request"
           },
           "error": {
@@ -4431,7 +4586,9 @@
       },
       "CopyChatMessagesRequest": {
         "type": "object",
-        "required": ["targetChatId"],
+        "required": [
+          "targetChatId"
+        ],
         "properties": {
           "targetChatId": {
             "type": "string",
@@ -4457,7 +4614,9 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the request",
             "example": "success"
           },
@@ -4483,11 +4642,16 @@
       },
       "CreateChatErrorResponse": {
         "type": "object",
-        "required": ["status", "message"],
+        "required": [
+          "status",
+          "message"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "description": "Status of the request"
           },
           "message": {
@@ -4522,11 +4686,16 @@
       },
       "CreateChatResponse": {
         "type": "object",
-        "required": ["status", "chat"],
+        "required": [
+          "status",
+          "chat"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the request",
             "example": "success"
           },
@@ -4538,11 +4707,16 @@
       },
       "DeleteChatErrorResponse": {
         "type": "object",
-        "required": ["status", "error"],
+        "required": [
+          "status",
+          "error"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "description": "Status of the request"
           },
           "error": {
@@ -4553,7 +4727,9 @@
       },
       "DeleteChatRequest": {
         "type": "object",
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -4564,11 +4740,17 @@
       },
       "DeleteChatResponse": {
         "type": "object",
-        "required": ["status", "id", "message"],
+        "required": [
+          "status",
+          "id",
+          "message"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the request",
             "example": "success"
           },
@@ -4585,11 +4767,16 @@
       },
       "DeleteTrailingChatMessagesErrorResponse": {
         "type": "object",
-        "required": ["status", "error"],
+        "required": [
+          "status",
+          "error"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "description": "Status of the request"
           },
           "error": {
@@ -4607,11 +4794,17 @@
       },
       "DeleteTrailingChatMessagesResponse": {
         "type": "object",
-        "required": ["status", "chat_id", "from_message_id"],
+        "required": [
+          "status",
+          "chat_id",
+          "from_message_id"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the request",
             "example": "success"
           },
@@ -4628,7 +4821,10 @@
         }
       },
       "Error": {
-        "required": ["error", "message"],
+        "required": [
+          "error",
+          "message"
+        ],
         "type": "object",
         "properties": {
           "error": {
@@ -4642,11 +4838,16 @@
       },
       "GetChatArtistErrorResponse": {
         "type": "object",
-        "required": ["status", "error"],
+        "required": [
+          "status",
+          "error"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "description": "Status of the request"
           },
           "error": {
@@ -4657,11 +4858,18 @@
       },
       "GetChatArtistResponse": {
         "type": "object",
-        "required": ["status", "room_id", "artist_id", "artist_exists"],
+        "required": [
+          "status",
+          "room_id",
+          "artist_id",
+          "artist_exists"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the request",
             "example": "success"
           },
@@ -4684,11 +4892,16 @@
       },
       "GetChatMessagesErrorResponse": {
         "type": "object",
-        "required": ["status", "error"],
+        "required": [
+          "status",
+          "error"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "description": "Status of the request"
           },
           "error": {
@@ -4699,7 +4912,9 @@
       },
       "GetChatMessagesResponse": {
         "type": "object",
-        "required": ["data"],
+        "required": [
+          "data"
+        ],
         "properties": {
           "data": {
             "type": "array",
@@ -4712,11 +4927,16 @@
       },
       "GetChatsErrorResponse": {
         "type": "object",
-        "required": ["status", "error"],
+        "required": [
+          "status",
+          "error"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "description": "Status of the request"
           },
           "error": {
@@ -4727,11 +4947,16 @@
       },
       "GetChatsResponse": {
         "type": "object",
-        "required": ["status", "chats"],
+        "required": [
+          "status",
+          "chats"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the request",
             "example": "success"
           },
@@ -4746,12 +4971,14 @@
       },
       "ResearchDeepRequest": {
         "type": "object",
-        "required": ["query"],
+        "required": [
+          "query"
+        ],
         "description": "Request body for deep research. Performs comprehensive multi-source analysis.",
         "properties": {
           "query": {
             "type": "string",
-            "description": "The research question \u2014 be specific and detailed for best results."
+            "description": "The research question — be specific and detailed for best results."
           }
         }
       },
@@ -4761,7 +4988,10 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success", "error"],
+            "enum": [
+              "success",
+              "error"
+            ],
             "example": "success"
           },
           "content": {
@@ -4780,7 +5010,10 @@
       },
       "ResearchEnrichRequest": {
         "type": "object",
-        "required": ["input", "schema"],
+        "required": [
+          "input",
+          "schema"
+        ],
         "properties": {
           "input": {
             "type": "string",
@@ -4793,7 +5026,9 @@
             "properties": {
               "type": {
                 "type": "string",
-                "enum": ["object"],
+                "enum": [
+                  "object"
+                ],
                 "description": "Must be \"object\""
               },
               "properties": {
@@ -4802,11 +5037,18 @@
                 "additionalProperties": true
               }
             },
-            "required": ["type", "properties"]
+            "required": [
+              "type",
+              "properties"
+            ]
           },
           "processor": {
             "type": "string",
-            "enum": ["base", "core", "ultra"],
+            "enum": [
+              "base",
+              "core",
+              "ultra"
+            ],
             "default": "base",
             "description": "Research depth: base (fast), core (balanced), ultra (comprehensive)."
           }
@@ -4848,7 +5090,9 @@
       },
       "ResearchExtractRequest": {
         "type": "object",
-        "required": ["urls"],
+        "required": [
+          "urls"
+        ],
         "properties": {
           "urls": {
             "type": "array",
@@ -4873,11 +5117,17 @@
       },
       "ResearchExtractResponse": {
         "type": "object",
-        "required": ["status", "results"],
+        "required": [
+          "status",
+          "results"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success", "error"],
+            "enum": [
+              "success",
+              "error"
+            ],
             "example": "success"
           },
           "results": {
@@ -4928,7 +5178,9 @@
       },
       "ResearchPeopleRequest": {
         "type": "object",
-        "required": ["query"],
+        "required": [
+          "query"
+        ],
         "properties": {
           "query": {
             "type": "string",
@@ -4948,7 +5200,10 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success", "error"],
+            "enum": [
+              "success",
+              "error"
+            ],
             "example": "success"
           },
           "results": {
@@ -5002,12 +5257,14 @@
       },
       "ResearchWebRequest": {
         "type": "object",
-        "required": ["query"],
+        "required": [
+          "query"
+        ],
         "description": "Request body for web research.",
         "properties": {
           "query": {
             "type": "string",
-            "description": "The search query \u2014 what you want to find on the web."
+            "description": "The search query — what you want to find on the web."
           },
           "max_results": {
             "type": "integer",
@@ -5069,7 +5326,11 @@
       },
       "UIMessage": {
         "type": "object",
-        "required": ["id", "role", "parts"],
+        "required": [
+          "id",
+          "role",
+          "parts"
+        ],
         "description": "AI SDK UIMessage. Parts are structurally validated before provisioning for headless runs. Legacy content-only messages are rejected.",
         "properties": {
           "id": {
@@ -5077,7 +5338,11 @@
           },
           "role": {
             "type": "string",
-            "enum": ["user", "assistant", "system"]
+            "enum": [
+              "user",
+              "assistant",
+              "system"
+            ]
           },
           "metadata": {},
           "parts": {
@@ -5085,7 +5350,9 @@
             "minItems": 1,
             "items": {
               "type": "object",
-              "required": ["type"],
+              "required": [
+                "type"
+              ],
               "properties": {
                 "type": {
                   "type": "string"
@@ -5105,11 +5372,16 @@
       },
       "UpdateChatErrorResponse": {
         "type": "object",
-        "required": ["status", "message"],
+        "required": [
+          "status",
+          "message"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "description": "Status of the request"
           },
           "message": {
@@ -5120,7 +5392,10 @@
       },
       "UpdateChatRequest": {
         "type": "object",
-        "required": ["chatId", "topic"],
+        "required": [
+          "chatId",
+          "topic"
+        ],
         "properties": {
           "chatId": {
             "type": "string",
@@ -5137,11 +5412,16 @@
       },
       "UpdateChatResponse": {
         "type": "object",
-        "required": ["status", "chat"],
+        "required": [
+          "status",
+          "chat"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the request",
             "example": "success"
           },
@@ -5153,7 +5433,9 @@
       },
       "ResearchEventsRequest": {
         "type": "object",
-        "required": ["artist_id"],
+        "required": [
+          "artist_id"
+        ],
         "description": "Request body for artist event lookup.",
         "properties": {
           "artist_id": {
@@ -5164,7 +5446,11 @@
           },
           "date": {
             "type": "string",
-            "enum": ["upcoming", "past", "all"],
+            "enum": [
+              "upcoming",
+              "past",
+              "all"
+            ],
             "default": "upcoming",
             "description": "Which events to return."
           }
@@ -5172,7 +5458,10 @@
       },
       "ResearchEventsResponse": {
         "type": "object",
-        "required": ["status", "events"],
+        "required": [
+          "status",
+          "events"
+        ],
         "description": "Live events for one artist.",
         "properties": {
           "status": {
@@ -5233,12 +5522,17 @@
       },
       "ResearchErrorResponse": {
         "type": "object",
-        "required": ["status", "error"],
+        "required": [
+          "status",
+          "error"
+        ],
         "description": "Error response returned by all research endpoints for validation failures (400) and authentication errors (401).",
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "example": "error"
           },
           "error": {
@@ -5302,7 +5596,9 @@
         "properties": {
           "error": {
             "type": "string",
-            "enum": ["insufficient_credits"]
+            "enum": [
+              "insufficient_credits"
+            ]
           },
           "remaining_credits": {
             "type": "integer",
@@ -5345,7 +5641,7 @@
       },
       "ResearchMeasurementsResponse": {
         "type": "object",
-        "description": "A track's measured series, or \u2014 when `aggregate` is set \u2014 the derived projection.",
+        "description": "A track's measured series, or — when `aggregate` is set — the derived projection.",
         "properties": {
           "status": {
             "type": "string",
@@ -5477,32 +5773,48 @@
       },
       "ResearchMeasurementJobRequest": {
         "type": "object",
-        "required": ["scope", "source"],
+        "required": [
+          "scope",
+          "source"
+        ],
         "properties": {
           "scope": {
             "$ref": "#/components/schemas/ResearchMeasurementJobScope"
           },
           "source": {
             "type": "string",
-            "enum": ["current", "historical"],
+            "enum": [
+              "current",
+              "historical"
+            ],
             "description": "current captures present counts through the snapshot pipeline; historical enqueues the configured research data connection backfill. Historical requires a saved payment method and does not promise complete history."
           },
           "platforms": {
             "type": "array",
             "items": {
               "type": "string",
-              "enum": ["spotify"]
+              "enum": [
+                "spotify"
+              ]
             },
-            "default": ["spotify"],
-            "example": ["spotify"]
+            "default": [
+              "spotify"
+            ],
+            "example": [
+              "spotify"
+            ]
           }
         },
         "example": {
           "scope": {
-            "isrcs": ["USQY51771120"]
+            "isrcs": [
+              "USQY51771120"
+            ]
           },
           "source": "historical",
-          "platforms": ["spotify"]
+          "platforms": [
+            "spotify"
+          ]
         }
       },
       "ResearchMeasurementJobResponse": {
@@ -5520,11 +5832,15 @@
             "properties": {
               "status": {
                 "type": "string",
-                "enum": ["success"]
+                "enum": [
+                  "success"
+                ]
               },
               "source": {
                 "type": "string",
-                "enum": ["current"]
+                "enum": [
+                  "current"
+                ]
               },
               "id": {
                 "type": "string",
@@ -5549,15 +5865,25 @@
           },
           {
             "type": "object",
-            "required": ["status", "source", "id", "enqueued", "skipped"],
+            "required": [
+              "status",
+              "source",
+              "id",
+              "enqueued",
+              "skipped"
+            ],
             "properties": {
               "status": {
                 "type": "string",
-                "enum": ["success"]
+                "enum": [
+                  "success"
+                ]
               },
               "source": {
                 "type": "string",
-                "enum": ["historical"]
+                "enum": [
+                  "historical"
+                ]
               },
               "id": {
                 "type": "null",
@@ -5578,7 +5904,11 @@
       },
       "ChatGenerateAcceptedResponse": {
         "type": "object",
-        "required": ["runId", "chatId", "sessionId"],
+        "required": [
+          "runId",
+          "chatId",
+          "sessionId"
+        ],
         "description": "Confirmation that an asynchronous chat-generation run has been started on the durable agent workflow.",
         "properties": {
           "runId": {
@@ -5602,7 +5932,10 @@
       },
       "ChatRunStatusResponse": {
         "type": "object",
-        "required": ["runId", "status"],
+        "required": [
+          "runId",
+          "status"
+        ],
         "description": "Point-in-time status of an asynchronous chat-generation run.",
         "properties": {
           "runId": {
@@ -5612,7 +5945,13 @@
           },
           "status": {
             "type": "string",
-            "enum": ["queued", "running", "completed", "failed", "cancelled"],
+            "enum": [
+              "queued",
+              "running",
+              "completed",
+              "failed",
+              "cancelled"
+            ],
             "description": "Lifecycle state of the run. Read the produced content via the chat (`chatId` from the start response)."
           },
           "createdAt": {
@@ -5646,11 +5985,16 @@
       },
       "ChatRunNotFoundError": {
         "type": "object",
-        "required": ["status", "error"],
+        "required": [
+          "status",
+          "error"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"]
+            "enum": [
+              "error"
+            ]
           },
           "error": {
             "type": "string",
@@ -5663,7 +6007,10 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success", "error"],
+            "enum": [
+              "success",
+              "error"
+            ],
             "example": "success"
           },
           "urls": {
@@ -5705,7 +6052,7 @@
       },
       "ResearchCatalogItem": {
         "type": "object",
-        "description": "Catalog entry. Unfiltered \u2014 high-catalog artists include remixes/features.",
+        "description": "Catalog entry. Unfiltered — high-catalog artists include remixes/features.",
         "properties": {
           "title": {
             "type": "string"
@@ -5959,7 +6306,7 @@
       },
       "ResearchArtistInfo": {
         "type": "object",
-        "description": "Full artist record \u2014 identity, bio, genres, platform links, and related artists.",
+        "description": "Full artist record — identity, bio, genres, platform links, and related artists.",
         "properties": {
           "name": {
             "type": "string"
@@ -6005,7 +6352,10 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success", "error"],
+            "enum": [
+              "success",
+              "error"
+            ],
             "example": "success"
           },
           "placements": {
@@ -6293,7 +6643,10 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success", "error"],
+            "enum": [
+              "success",
+              "error"
+            ],
             "example": "success"
           },
           "results": {

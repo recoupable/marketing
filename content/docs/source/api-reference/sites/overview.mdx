@@ -111,6 +111,12 @@ The public page is `https://chat.recoupable.dev/s/{id}`.
 
 Unpublish with `action: "unpublish"`, or `unpublish_site`. Agents should publish only when explicitly instructed.
 
+## Delete and cancel generation
+
+Delete only when explicitly instructed. Send `DELETE /api/sites/{id}` with the current `revision`. Include `generationToken` when cancelling a known in-progress generation. The token must belong to this site and caller; cancellation is attempted before deletion. Omitting it does not request cancellation of every running job.
+
+Deletion checks workspace access and revision, then returns `{ "deleted": true, "id": "..." }`. A stale revision returns 409; reload before retrying. Unpublish with `action: "unpublish"` when the draft should remain available.
+
 ## Uploads
 
 HTTP uploads are multipart forms with a `file` field and optional `organizationId` query parameter. Supported formats: JPEG, PNG, WebP, MP3, and WAV, up to 4 MB per file. Images are re-encoded to WebP. Audio is checked for its file signature.

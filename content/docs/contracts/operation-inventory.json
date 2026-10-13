@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "2a882dd460ef6757af6d7b1b93bbc1fd8d0c6e86",
+  "apiSourceCommit": "fc316746043586b2b090678f85058cf573012b28",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -3251,14 +3251,6 @@
       "reason": "Product or legacy supporting routes require documented public/internal disposition"
     },
     {
-      "method": "DELETE",
-      "path": "/api/artists/{id}/pin",
-      "implementation": null,
-      "documentation": "content/docs/source/api-reference/openapi/releases.json",
-      "classification": "retired",
-      "reason": "Use PATCH /api/artists/{id} with pinned boolean."
-    },
-    {
       "method": "GET",
       "path": "/api/admins/agent/signups",
       "implementation": null,
@@ -3281,14 +3273,6 @@
       "documentation": "content/docs/source/api-reference/openapi/social.json",
       "classification": "pending",
       "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
-    },
-    {
-      "method": "POST",
-      "path": "/api/artists/{id}/pin",
-      "implementation": null,
-      "documentation": "content/docs/source/api-reference/openapi/releases.json",
-      "classification": "retired",
-      "reason": "Use PATCH /api/artists/{id} with pinned boolean."
     },
     {
       "method": "POST",
@@ -3588,15 +3572,15 @@
   "specificationHashes": {
     "content/docs/source/api-reference/openapi/accounts.json": "db81e931f01769677503410969c8a2f4e2bd00745be8648e1c6635a2a8166afd",
     "content/docs/source/api-reference/openapi/ai.json": "ac3d356376c5cd870d3fcf9a8cf2f4dca1375ee6d41057d33fbd6bbae67dac09",
-    "content/docs/source/api-reference/openapi/content.json": "c573ee6a8a1cd743e93328b4e4d3246fcdad3dd52d4e2649ed5eacc771c2ff12",
-    "content/docs/source/api-reference/openapi/context.json": "021891944f58cf959d8e281b6ebca1799ae1f22770b7883d5e44121d3d67854d",
+    "content/docs/source/api-reference/openapi/content.json": "06baa189ad89f871c8772131cdc06084c173f967aa9769638ec1483f5ff74f85",
+    "content/docs/source/api-reference/openapi/context.json": "902cff5146fe178d2f92469c7af8fb66df558d100577c3588bca29bc9ac045a9",
     "content/docs/source/api-reference/openapi/players.json": "8b97d047e8f2fc698b7dfa704b153a1325bba5161b1f95a9c1e6a9f2421b7d23",
     "content/docs/source/api-reference/openapi/projects.json": "4fc6dfe80102013d60d1a82d93466e41de27c35fb3f94967dc02115f431eecfc",
-    "content/docs/source/api-reference/openapi/releases.json": "dccf64ff9815268852dca0f6e1e12c29077eca60fe20551aaa4a07f48999ea5f",
-    "content/docs/source/api-reference/openapi/research.json": "92f2b54d4d05328bdf3f737f16aaa1489d7eb3b91c257cec358e74b7ccd9c824",
+    "content/docs/source/api-reference/openapi/releases.json": "24743273d5d0637d20e725127ea159ba3255031fecad9843dee28990664cca21",
+    "content/docs/source/api-reference/openapi/research.json": "2671ceab80a9ff88d26053bcf27a7ac36aee0c3955a8a3dd7c91f71a27ed5b09",
     "content/docs/source/api-reference/openapi/sandbox.json": "b626a5d424acf7b2795a8d4b561c70b6f37be3f1fb5314fc33f506201874d1b9",
     "content/docs/source/api-reference/openapi/sessions.json": "e3332130860d1bc436e754fdfcbfa1e5ac58daf9414f79db5c0cd9acab21503c",
-    "content/docs/source/api-reference/openapi/social.json": "a881e8cbb9e57545d9803d495ad403e06dcbefef3eb6560e79c0d54aba5d2c48",
+    "content/docs/source/api-reference/openapi/social.json": "1921c6777b279fdac635023d3f4b0587e6d30d2d4f0ea78a3c62e25188772581",
     "content/docs/source/api-reference/openapi/templates.json": "65c63ec2e5c942cbe79cc3f1dfd0a1f7abb97f9b5077826f0d430b3cb9478fcf"
   }
 }
