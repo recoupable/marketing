@@ -1193,6 +1193,428 @@
           }
         }
       }
+    },
+    "/api/posts": {
+      "post": {
+        "summary": "Create post",
+        "description": "Publish a video with its copy to **one** connected social account, now or at a set time. Send one request per target account; to post the same video to several platforms, call this once per platform.\n\nWithout `publish_at` the post starts publishing immediately and is returned as `publishing`. With `publish_at` it is returned as `scheduled` and publishes at that time. Either way this returns **202** right away: poll [Get Post](/api-reference/publishing/get) until `status` is `posted`, `failed` or `cancelled`.\n\nThe platform must already be connected for the account (see [Authorize Connector](/api-reference/connectors/authorize)). Copy uses one shape for every platform. Which fields each platform uses, and their limits:\n\n| Platform | `title` | `description` | `cover_url` | `privacy`, `tags` |\n|---|---|---|---|---|\n| `youtube` | **required**, video title, max 100 characters | video description, max 5,000 characters | not used (YouTube picks the frame) | used |\n| `instagram` | not used | **required**, Reel caption, max 2,200 characters | Reel cover image | not used |\n| `x` | not used | **required**, post text, max 280 weighted characters (URLs count as 23) | not used | not used |\n| `linkedin` | video title shown on the post | **required**, post commentary, max 3,000 characters | video thumbnail | not used |\n\nLimits are checked here, so an over-length body fails with 400 instead of at publish time.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePostRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Post accepted: publishing now, or scheduled for `publish_at`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePostResponse"
+                }
+              }
+            },
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "URL of the created post."
+              }
+            }
+          },
+          "400": {
+            "description": "Validation failed: a missing or unknown field, a field the platform requires (YouTube `title`; Instagram, X and LinkedIn `description`), a body over the platform's limit, or a `publish_at` in the past. `missing_fields` names the first offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Provide exactly one of `x-api-key` or `Authorization: Bearer`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied to the specified `account_id`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The `platform` is not connected for this account. Authorize it via [Authorize Connector](/api-reference/connectors/authorize) before retrying.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List posts",
+        "description": "The account's posts, newest first, with each one's status and live URL.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Optional. Act on behalf of another account you can access. Defaults to the calling account."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "scheduled",
+                "publishing",
+                "posted",
+                "failed",
+                "cancelled"
+              ]
+            },
+            "description": "Optional. Return only posts in this state."
+          },
+          {
+            "name": "platform",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/PostPlatform"
+            },
+            "description": "Optional. Return only posts to this platform."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "default": 20
+            },
+            "description": "Optional. Maximum posts to return, newest first."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            },
+            "description": "Optional. Number of posts to skip, for paging."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Posts in the requested account, newest first.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameter.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied to the specified `account_id`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/posts/{id}": {
+      "get": {
+        "summary": "Get post",
+        "description": "One post, with its status, live `post_url` once posted, `error_message` if it failed, and `text_verified` once the live text has been re-read. This is the polling target after [Create Post](/api-reference/publishing/create).",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The post's id, from [Create Post](/api-reference/publishing/create)."
+          },
+          {
+            "name": "account_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Optional. Act on behalf of another account you can access. Defaults to the calling account."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The post.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostDetailResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`id` is not a valid uuid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied to this post's account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No post with that id.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Cancel post",
+        "description": "Cancel a post that is still `scheduled`. Nothing is sent to the platform. A post that is already `publishing`, `posted`, `failed` or `cancelled` cannot be cancelled (409); to remove a live post, delete it on the platform.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The post's id, from [Create Post](/api-reference/publishing/create)."
+          },
+          {
+            "name": "account_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Optional. Act on behalf of another account you can access. Defaults to the calling account."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The post is cancelled.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePostResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`id` is not a valid uuid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied to this post's account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No post with that id.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The post is not `scheduled`, so it can no longer be cancelled.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -2985,6 +3407,285 @@
                 "integer"
               ]
             }
+          }
+        }
+      },
+      "PostPlatform": {
+        "type": "string",
+        "enum": [
+          "instagram",
+          "x",
+          "linkedin",
+          "youtube"
+        ],
+        "description": "Target platform. The account must have this platform connected."
+      },
+      "PostStatus": {
+        "type": "string",
+        "enum": [
+          "scheduled",
+          "publishing",
+          "posted",
+          "failed",
+          "cancelled"
+        ],
+        "description": "Lifecycle phase. `scheduled` until `publish_at`, `publishing` while the platform upload runs, then `posted` or `failed`. `cancelled` only from `scheduled`."
+      },
+      "CreatePostRequest": {
+        "type": "object",
+        "required": [
+          "platform",
+          "video_url"
+        ],
+        "description": "One post to one connected account. Copy uses the same fields for every platform; see the operation description for which fields each platform uses and their limits.",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Optional. The account whose connection posts (e.g. an artist). The authenticated account must have access. Defaults to the calling account."
+          },
+          "platform": {
+            "$ref": "#/components/schemas/PostPlatform"
+          },
+          "sub_account_id": {
+            "type": "string",
+            "description": "Optional, LinkedIn only. Organization URN to post as a Page (e.g. `urn:li:organization:101127186`) instead of as the connected member. The connected member must be an admin of that Page."
+          },
+          "video_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Publicly reachable URL of the video file (MP4). It is fetched at publish time, so it must still resolve then."
+          },
+          "cover_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Optional. Publicly reachable image URL used as the cover or thumbnail where the platform supports one (see the table in the description)."
+          },
+          "title": {
+            "type": "string",
+            "description": "Title. Required for `youtube`; see the table in the description."
+          },
+          "description": {
+            "type": "string",
+            "description": "Body text: caption, post text or description, depending on the platform. Required for `instagram`, `x` and `linkedin`."
+          },
+          "privacy": {
+            "type": "string",
+            "enum": [
+              "public",
+              "unlisted",
+              "private"
+            ],
+            "default": "public",
+            "description": "Optional, YouTube only. Visibility after upload."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Optional, YouTube only. Video tags."
+          },
+          "publish_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Optional. ISO 8601 time to publish, in the future. Omit to publish now."
+          }
+        }
+      },
+      "CreatePostResponse": {
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "description": "The post's id and current status.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The post's id. Poll [Get Post](/api-reference/publishing/get) with this."
+          },
+          "status": {
+            "$ref": "#/components/schemas/PostStatus"
+          }
+        }
+      },
+      "Post": {
+        "type": "object",
+        "description": "One post to one account.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The post's id."
+          },
+          "account_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The account whose connection posts."
+          },
+          "platform": {
+            "$ref": "#/components/schemas/PostPlatform"
+          },
+          "sub_account_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "LinkedIn organization URN when posting as a Page, else null."
+          },
+          "status": {
+            "$ref": "#/components/schemas/PostStatus"
+          },
+          "video_url": {
+            "type": "string",
+            "description": "The video that is or was published."
+          },
+          "cover_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The cover or thumbnail image, if any."
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Submitted title."
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Submitted body text."
+          },
+          "privacy": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Submitted YouTube visibility."
+          },
+          "tags": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Submitted YouTube tags."
+          },
+          "publish_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "description": "Requested publish time. Null when published on creation."
+          },
+          "post_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Live URL on the platform. Null until `posted`."
+          },
+          "error_message": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Why publishing failed, as returned by the platform (e.g. a daily upload quota). Null unless `status` is `failed`."
+          },
+          "text_verified": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "description": "Whether the live text, re-read from the platform after posting, equals the submitted `title`/`description`. Null until checked."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the post was created."
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the post last changed."
+          }
+        }
+      },
+      "PostDetailResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ],
+            "description": "Status of the request"
+          },
+          "post": {
+            "$ref": "#/components/schemas/Post"
+          }
+        }
+      },
+      "PostListResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ],
+            "description": "Status of the request"
+          },
+          "posts": {
+            "type": "array",
+            "description": "Posts, newest first. Empty when the account has none.",
+            "items": {
+              "$ref": "#/components/schemas/Post"
+            }
+          }
+        }
+      },
+      "PostErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Always `error`"
+          },
+          "missing_fields": {
+            "type": "array",
+            "description": "JSON path segments to the first field that failed validation, e.g. `[\"description\"]`",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "error": {
+            "type": "string",
+            "description": "Human-readable error message"
           }
         }
       }

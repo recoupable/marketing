@@ -465,6 +465,15 @@
               "api-reference/connectors/upload-file",
               "api-reference/connectors/execute-action"
             ]
+          },
+          {
+            "group": "Publishing",
+            "pages": [
+              "api-reference/publishing/create",
+              "api-reference/publishing/list",
+              "api-reference/publishing/get",
+              "api-reference/publishing/cancel"
+            ]
           }
         ]
       },
