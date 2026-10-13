@@ -6,7 +6,7 @@ description: "Install the Recoup CLI and interact with the platform from your te
 The Recoup CLI (`@recoupable/cli`) wraps the Recoup API for terminal-first workflows. It's available as a global npm package and comes pre-installed in sandbox environments.
 
 <Note>
-**The CLI is in beta.** The commands listed below are what's shipped today (v0.1.13). For research workflows and most content operations, call the [REST API](/api-reference) directly — the CLI is gradually catching up.
+**The CLI is in beta.** The reference below follows the v0.1.15 source command set. Check `recoup --version` and `--help` for the package installed in your environment. For research workflows and most content operations, call the [REST API](/api-reference) directly — the CLI is gradually catching up.
 
 **Agents:** if a command isn't listed below, don't retry — fall back to the corresponding REST endpoint linked under each command.
 </Note>
@@ -40,7 +40,7 @@ Get an API key from the [API Keys page](https://chat.recoupable.dev/keys) or use
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
 | `RECOUP_API_KEY` | Yes | — | Your Recoup API key |
-| `RECOUP_API_URL` | No | `https://api.recoupable.dev` | API base URL override |
+| `RECOUP_API_URL` | No | `https://recoup-api.vercel.app` | API base URL override; set `https://api.recoupable.dev` to use the canonical API domain |
 
 All commands support `--json` for machine-readable output and `--help` for usage info.
 
@@ -87,11 +87,11 @@ recoup emails --subject "Update" --html "<h1>Report</h1><p>Details here.</p>"
 
 | Flag | Required | Description |
 |------|----------|-------------|
-| `--subject <text>` | Yes | Email subject line |
+| `--subject <text>` | No | Email subject line; defaults from the body when omitted |
 | `--text <body>` | No | Plain text or Markdown body |
 | `--html <body>` | No | Raw HTML body (takes precedence over `--text`) |
 | `--cc <email>` | No | CC recipient (repeatable) |
-| `--room-id <id>` | No | Room ID for a chat link in the email footer |
+| `--chat-id <id>` | No | Chat ID for a chat link in the email footer |
 | `--account <accountId>` | No | Send to a specific account (org keys only) |
 
 ### chats
@@ -132,13 +132,13 @@ recoup songs analyze --preset catalog_metadata --audio https://example.com/track
 recoup songs analyze --prompt "Describe the production style" --audio https://example.com/track.mp3
 ```
 
-One of `--preset` or `--prompt` is required. The other flags are optional.
+Exactly one of `--preset` or `--prompt` is required, together with `--audio`. The API rejects both selectors together and verifies the audio URL before inference. The coordinated CLI validation fix reports these errors before sending a request; older installed packages may send them to the API.
 
 | Flag | Required | Description |
 |------|----------|-------------|
 | `--preset <name>` | Conditional | Curated analysis preset. Required when `--prompt` is omitted. |
 | `--prompt <text>` | Conditional | Custom text prompt. Required when `--preset` is omitted. |
-| `--audio <url>` | No | Public URL to the audio file (MP3, WAV, FLAC). Some presets analyze the audio file; others (like `catalog_metadata`) work from metadata alone. |
+| `--audio <url>` | Yes | Public URL to an audio file (MP3, WAV, FLAC), required for every preset and custom prompt. Metadata-only analysis is not supported. |
 | `--max-tokens <n>` | No | Max tokens to generate (default 512). |
 
 ---
@@ -163,11 +163,11 @@ recoup content validate --artist <artistAccountId>
 
 ### Estimate cost
 
-Preview estimated cost and duration before kicking off the pipeline. See [`POST /api/content/estimate`](/api-reference/content/estimate).
+Preview estimated cost and duration before kicking off the pipeline. See [`GET /api/content/estimate`](/api-reference/content/estimate).
 
 ```bash
-recoup content estimate --artist <artistAccountId>
-recoup content estimate --artist <artistAccountId> --template <name>
+recoup content estimate
+recoup content estimate --lipsync --batch 2 --compare
 ```
 
 ### Create content

@@ -65,15 +65,15 @@ def implementation_operations(api, docs, dispositions):
     return operations
 
 
-def unmatched_operations(docs, implemented):
+def unmatched_operations(docs, implemented, availability):
     operations = []
     for key in sorted(set(docs) - implemented):
         method, route = key.split(' ', 1)
-        retired = route.endswith('/pin')
+        retired = availability[key] == 'retired'
         operations.append({
             'method': method, 'path': route, 'implementation': None, 'documentation': docs[key],
             'classification': 'retired' if retired else 'pending',
-            'reason': 'Use PATCH /api/artists/{id} with pinned boolean.' if retired else
+            'reason': 'Documentation marks this route retired; its disposition belongs to the owning epic ticket.' if retired else
                 'Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket.',
         })
     return operations
@@ -102,11 +102,20 @@ def main():
     dispositions = json.loads((out / 'operation-dispositions.json').read_text())
     operations = implementation_operations(api, docs, dispositions)
     implemented = {item['method'] + ' ' + item['path'] for item in operations}
+    availability_by_operation = {}
+    for key in sorted(set(docs) - implemented):
+        method, route = key.split(' ', 1)
+        paths = json.loads((root / docs[key]).read_text())['paths']
+        operation = next(methods[method.lower()] for path, methods in paths.items() if path.rstrip('/') == route)
+        availability = operation.get('x-recoup-availability')
+        if availability not in ('pending', 'retired') or not re.search(r'\b' + availability + r'\b', operation.get('description', ''), re.IGNORECASE):
+            raise SystemExit('Unmatched documentation needs explicit pending/retired availability: ' + key)
+        availability_by_operation[key] = availability
     registrations = static_mcp_registrations(api)
     record = {
         'apiSourceCommit': subprocess.check_output(['git', '-C', str(api), 'rev-parse', 'HEAD'], text=True).strip(),
         'evidence': 'Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.',
-        'operations': operations + unmatched_operations(docs, implemented),
+        'operations': operations + unmatched_operations(docs, implemented, availability_by_operation),
         'staticMcpRegistrations': registrations,
         'specificationHashes': {
             str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest()

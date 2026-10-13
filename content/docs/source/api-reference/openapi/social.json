@@ -124,7 +124,7 @@
     },
     "/api/comments": {
       "get": {
-        "description": "Retrieve comments associated with an artist or a specific post, with support for pagination. This endpoint returns raw comment data including the comment text, associated post, and commenter's social profile reference.",
+        "description": "**Availability: pending reconciliation.** The legacy comments read route has no matching route in the inspected API source. The comments and fan-recency workflow remains a retained product outcome pending its public read integration. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nRetrieve comments associated with an artist or a specific post, with support for pagination. This endpoint returns raw comment data including the comment text, associated post, and commenter's social profile reference.",
         "parameters": [
           {
             "name": "artist_account_id",
@@ -188,7 +188,8 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/spotify/search": {
@@ -628,7 +629,7 @@
     },
     "/api/socials/{id}/scrape": {
       "post": {
-        "description": "Trigger a scrape of one social profile. Use [Get Artist Socials](/api-reference/artists/socials) first to get the social `id`. The response is the Apify run metadata; poll it with the [Scraper Results API](/api-reference/apify/scraper).\n\n**Credits:** `5 + posts` per scrape (5 when `posts` is omitted).\n\n**What `posts` does per platform**\n\n| Platform | `posts` | When `posts` is omitted |\n|---|---|---|\n| Instagram | ignored | the profile's latest posts (up to 12), always |\n| TikTok | `resultsPerPage` | 1 video |\n| YouTube | `maxResults`, `maxResultsShorts`, `maxResultStreams` (per content type) | 1 video, 0 Shorts, 0 streams |\n| X / Twitter | timeline items; retweets and replies are fetched but not stored | 1 item |\n| LinkedIn | `maxPosts` on the posts actor (runs instead of the profile actor) | profile only, no posts |\n| Threads | ignored | profile only |\n| Facebook | ignored | profile only |\n\n**What gets stored.** Once the run succeeds, the webhook handler persists every item in the dataset; nothing is discarded after the response is read:\n\n- The profile: username, avatar, bio, follower and following counts, region. Served by [Get Artist Socials](/api-reference/artists/socials).\n- One follower snapshot per social per day whenever the run reports a follower count (following and post counts too, where the platform reports them). Served by the `history` parameter of Get Artist Socials.\n- Every returned post with its engagement (`views`, `likes`, `comments`, `reposts`, where the platform reports them). Served by [Get Artist Posts](/api-reference/posts/get).\n- Instagram only: the comments on the returned posts (one follow-up comments run), then one batched profile run over the distinct commenters that fills avatar, bio, follower and following counts on every commenter. Served by [Get Artist Fans](/api-reference/fans/get).\n\n**Fan discovery is one hop deep.** The commenter profile run is terminal: it never schedules comments or profile runs of its own. One Instagram scrape therefore produces at most three runs (profile, comments, commenter profiles). Pass `subtitles=true` on a YouTube social to include each video's transcript in the run results.",
+        "description": "Trigger a scrape of one social profile. Use [Get Artist Socials](/api-reference/artists/socials) first to get the social `id`. The response contains scraper run metadata; poll it with the [Scraper Results API](/api-reference/apify/scraper).\n\n**Credits:** `50,000 + 10,000 × posts` micro-dollar credits per profile: $0.05 base + $0.01 per requested post. Omitting `posts` charges the 50,000 base, even when the selected platform fetches a default depth.\n\n**What `posts` does per platform**\n\n| Platform | `posts` | When `posts` is omitted |\n|---|---|---|\n| Instagram | ignored | the profile's latest posts (up to 12), always |\n| TikTok | `resultsPerPage` | 1 video |\n| YouTube | `maxResults`, `maxResultsShorts`, `maxResultStreams` (per content type) | 1 video, 0 Shorts, 0 streams |\n| X / Twitter | timeline items; retweets and replies are fetched but not stored | 10 timeline items before filtering |\n| LinkedIn | `maxPosts` on the posts actor (runs instead of the profile actor) | profile only, no posts |\n| Threads | ignored | profile only |\n| Facebook | ignored | profile only |\n\n**What gets stored.** Webhook processing persists supported records from successful runs. Platform filtering, missing fields and budget-limited follow-ups can leave partial results:\n\n- The profile: username, avatar, bio, follower and following counts, region. Served by [Get Artist Socials](/api-reference/artists/socials).\n- One follower snapshot per social per day whenever the run reports a follower count (following and post counts too, where the platform reports them). Served by the `history` parameter of Get Artist Socials.\n- Every returned post with its engagement (`views`, `likes`, `comments`, `reposts`, where the platform reports them). Served by [Get Artist Posts](/api-reference/posts/get).\n- Instagram only: comments batches for already-known and newly discovered posts, then terminal profile batches for the returned commenters. Available profile fields are saved; completion and field coverage are not guaranteed. Served by [Get Artist Fans](/api-reference/fans/get).\n\n**Fan discovery is one hop deep.** The commenter profile run is terminal: it never schedules comments or profile runs of its own. A normal single delivery can produce one profile run, two comments batches and two terminal commenter-profile batches. Five is a derived case, not a universal bound: retries, concurrent deliveries and budget checks affect the outcome. Budget checks are not atomic reservations and may allow overshoot; bookkeeping failures do not guarantee a hard cap. Pass `subtitles=true` on a YouTube social to include each video's transcript in the run results.",
         "parameters": [
           {
             "name": "id",
@@ -643,7 +644,7 @@
           {
             "name": "posts",
             "in": "query",
-            "description": "Recent-post depth. Honored on TikTok, YouTube (per content type), X and LinkedIn; ignored on Instagram (always the profile's latest posts, up to 12), Threads and Facebook. Without it TikTok, YouTube and X return a single latest item, so pass it whenever you need post history. Every returned post is stored with its engagement counts. See the per-platform table above.",
+            "description": "Recent-post depth. Honored on TikTok, YouTube (per content type), X and LinkedIn; ignored on Instagram (always the profile's latest posts, up to 12), Threads and Facebook. Without it TikTok and YouTube use their single-item defaults; X fetches ten timeline items before filtering, so pass it whenever you need post history. Every returned post is stored with its engagement counts. See the per-platform table above.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -657,7 +658,10 @@
             "in": "query",
             "required": false,
             "description": "YouTube only. When `true`, the scrape also downloads each returned video's captions (auto-generated captions preferred, English, plain text). The transcript is returned on the run's dataset items as `subtitles[0].plaintext` and is not persisted; read it from [Scraper Results](/api-reference/apify/scraper) while the run's dataset is available. Ignored on every other platform. Adds no credits beyond the `posts` price.",
-            "schema": { "type": "boolean", "default": false }
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "responses": {
@@ -672,11 +676,37 @@
             }
           },
           "400": {
-            "description": "Bad request - missing required parameters",
+            "description": "Invalid path/query, malformed input or unsupported platform.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SocialErrorResponse"
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/SocialScrapeErrorResponse"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "runId",
+                        "datasetId",
+                        "error"
+                      ],
+                      "properties": {
+                        "runId": {
+                          "type": "null"
+                        },
+                        "datasetId": {
+                          "type": "null"
+                        },
+                        "error": {
+                          "type": "string",
+                          "enum": [
+                            "Unsupported social media platform"
+                          ]
+                        }
+                      }
+                    }
+                  ]
                 }
               }
             }
@@ -690,13 +720,68 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Missing, invalid or conflicting authentication headers.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SocialScrapeErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The caller cannot access an artist linked to this social profile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SocialScrapeErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The social profile was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SocialScrapeErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Scraper startup, persistence or an internal operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SocialScrapeErrorResponse"
+                }
+              }
+            }
           }
-        }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/connectors": {
       "get": {
-        "security": [{ "apiKeyAuth": [] }, { "bearerAuth": [] }],
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
         "description": "List available connectors and their connection status. Returns all supported third-party integrations (e.g., Google Sheets, TikTok, YouTube, X (Twitter), LinkedIn) along with whether they are currently connected.",
         "parameters": [
           {
@@ -754,7 +839,14 @@
         }
       },
       "delete": {
-        "security": [{ "apiKeyAuth": [] }, { "bearerAuth": [] }],
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
         "description": "Disconnect a connected account from a third-party service. This revokes the OAuth connection and removes stored credentials.",
         "requestBody": {
           "description": "Connection to disconnect",
@@ -811,7 +903,14 @@
         }
       },
       "post": {
-        "security": [{ "apiKeyAuth": [] }, { "bearerAuth": [] }],
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
         "description": "Generate an OAuth authorization URL for connecting a third-party service. Redirect to the returned URL to complete the OAuth flow.",
         "requestBody": {
           "description": "Authorization request details",
@@ -870,7 +969,14 @@
     },
     "/api/connectors/actions": {
       "get": {
-        "security": [{ "apiKeyAuth": [] }, { "bearerAuth": [] }],
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
         "description": "List the executable actions available across the authenticated account's connectors. Each action is a single tool that can be invoked via POST /api/connectors/actions — for example, the `googlesheets` connector exposes actions like `GOOGLESHEETS_WRITE_SPREADSHEET`. Actions whose parent connector is not yet connected are returned with `isConnected: false` and cannot be executed until the connector is authorized via POST /api/connectors.",
         "parameters": [
           {
@@ -928,7 +1034,14 @@
         }
       },
       "post": {
-        "security": [{ "apiKeyAuth": [] }, { "bearerAuth": [] }],
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
         "description": "Execute a connector action with the given parameters. The `actionSlug` must come from a prior call to GET /api/connectors/actions, and `parameters` must match the `parameters` JSON Schema returned for that action. The action's parent connector must be currently connected (`isConnected: true` in the catalog) — otherwise this endpoint returns 409. The `result` field passes through whatever the underlying connector returns; its shape is action-specific. To attach an image to a `file_uploadable` parameter (e.g. `images`), first stage it with [Upload Connector File](/api-reference/connectors/upload-file) and pass the returned descriptor.",
         "requestBody": {
           "description": "Action to execute and the parameters for it",
@@ -2846,6 +2959,32 @@
           "s3key": {
             "type": "string",
             "description": "Connector storage key. Pass this together with `name` and `mimetype` in the action's file_uploadable array."
+          }
+        }
+      },
+      "SocialScrapeErrorResponse": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ]
+          },
+          "error": {
+            "type": "string"
+          },
+          "missing_fields": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "integer"
+              ]
+            }
           }
         }
       }

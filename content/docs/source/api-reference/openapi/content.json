@@ -291,7 +291,7 @@
     },
     "/api/sandboxes/file": {
       "get": {
-        "description": "Retrieve the contents of a file from the authenticated account's sandbox GitHub repository. Resolves the github_repo from the [account's snapshot](/api-reference/sandboxes/list), then fetches the file at the specified path from the repository's main branch. **Text files are returned verbatim. Binary files (`.mp3`, `.png`, `.jpg`, `.mp4`, `.pdf`, etc.) are returned base64-encoded \u2014 decode before writing to disk.** Authentication is handled via the x-api-key header or Authorization Bearer token.",
+        "description": "Retrieve the contents of a file from the authenticated account's sandbox GitHub repository. Resolves the github_repo from the [account's snapshot](/api-reference/sandboxes/list), then fetches the file at the specified path from the repository's main branch. **Text files are returned verbatim. Binary files (`.mp3`, `.png`, `.jpg`, `.mp4`, `.pdf`, etc.) are returned base64-encoded — decode before writing to disk.** Authentication is handled via the x-api-key header or Authorization Bearer token.",
         "parameters": [
           {
             "name": "path",
@@ -375,7 +375,7 @@
         },
         "responses": {
           "200": {
-            "description": "Handshake response from `@vercel/blob/client` \u2014 return verbatim to the library.",
+            "description": "Handshake response from `@vercel/blob/client` — return verbatim to the library.",
             "content": {
               "application/json": {
                 "schema": {
@@ -410,7 +410,7 @@
     },
     "/api/sandboxes/files": {
       "post": {
-        "description": "Upload one or more files to the authenticated account's sandbox GitHub repository. Accepts an array of file URLs and commits each file to the specified directory path within the repository. Supports submodule resolution \u2014 if the target path falls within a git submodule, the file is committed to the submodule's repository. Authentication is handled via the x-api-key header or Authorization Bearer token.",
+        "description": "Upload one or more files to the authenticated account's sandbox GitHub repository. Accepts an array of file URLs and commits each file to the specified directory path within the repository. Supports submodule resolution — if the target path falls within a git submodule, the file is committed to the submodule's repository. Authentication is handled via the x-api-key header or Authorization Bearer token.",
         "requestBody": {
           "description": "JSON body containing file URLs and target path",
           "required": true,
@@ -622,7 +622,7 @@
     },
     "/api/content": {
       "patch": {
-        "description": "Apply ffmpeg edits to a video \u2014 trim, crop, resize, or overlay text. Pass a `template` for a preset edit pipeline, or build your own with an `operations` array.",
+        "description": "Apply ffmpeg edits to a video — trim, crop, resize, or overlay text. Pass a `template` for a preset edit pipeline, or build your own with an `operations` array.",
         "security": [
           {
             "apiKeyAuth": []
@@ -654,7 +654,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -664,7 +664,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -688,7 +688,7 @@
     },
     "/api/content/create": {
       "post": {
-        "description": "Trigger the content creation pipeline for an artist. Provide `artist_account_id` to identify the target artist. Validates the artist has all required files (face guide, songs) unless overridden via `songs` URLs or `images`, then triggers a background task that generates a short-form video. Returns `runIds` \u2014 an array of run IDs that can each be polled via [GET /api/tasks/runs](/api-reference/tasks/runs).",
+        "description": "Trigger the content creation pipeline for an artist. Provide `artist_account_id` to identify the target artist. Validates the artist has all required files (face guide, songs) unless overridden via `songs` URLs or `images`, then triggers a background task that generates a short-form video. Returns `runIds` — an array of run IDs that can each be polled via [GET /api/tasks/runs](/api-reference/tasks/runs).",
         "security": [
           {
             "apiKeyAuth": []
@@ -710,7 +710,7 @@
         },
         "responses": {
           "202": {
-            "description": "Pipeline triggered successfully. Returns `runIds` \u2014 an array of run IDs. Poll each via [GET /api/tasks/runs](/api-reference/tasks/runs) to check progress.",
+            "description": "Pipeline triggered successfully. Returns `runIds` — an array of run IDs. Poll each via [GET /api/tasks/runs](/api-reference/tasks/runs) to check progress.",
             "content": {
               "application/json": {
                 "schema": {
@@ -720,7 +720,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 missing artist identifier, artist is missing required files, or template not found",
+            "description": "Validation failed — missing artist identifier, artist is missing required files, or template not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -730,7 +730,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -740,7 +740,7 @@
             }
           },
           "404": {
-            "description": "Artist not found \u2014 the provided artist_account_id does not match any artist",
+            "description": "Artist not found — the provided artist_account_id does not match any artist",
             "content": {
               "application/json": {
                 "schema": {
@@ -754,7 +754,7 @@
     },
     "/api/content/templates": {
       "get": {
-        "description": "List all available content creation templates. Templates are optional \u2014 every content primitive works without one. When you do use a template, it provides a complete creative recipe: image prompts, video motion config, caption style rules, and edit operations. Returns template ID and description only \u2014 enough to pick the right one.",
+        "description": "List all available content creation templates. Templates are optional — every content primitive works without one. When you do use a template, it provides a complete creative recipe: image prompts, video motion config, caption style rules, and edit operations. Returns template ID and description only — enough to pick the right one.",
         "security": [
           {
             "apiKeyAuth": []
@@ -775,7 +775,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -822,7 +822,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -890,7 +890,7 @@
             }
           },
           "400": {
-            "description": "Bad request \u2014 artist_account_id is required",
+            "description": "Bad request — artist_account_id is required",
             "content": {
               "application/json": {
                 "schema": {
@@ -900,7 +900,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -910,7 +910,7 @@
             }
           },
           "404": {
-            "description": "Artist not found \u2014 the provided artist_account_id does not match any artist",
+            "description": "Artist not found — the provided artist_account_id does not match any artist",
             "content": {
               "application/json": {
                 "schema": {
@@ -924,7 +924,7 @@
     },
     "/api/content/estimate": {
       "get": {
-        "description": "Estimate the cost of running the content creation pipeline. Calculates per-step and per-video costs based on current pricing. Supports comparing multiple workflow profiles (e.g., premium vs. budget) and projecting batch costs. This endpoint is informational only \u2014 it does not trigger any pipeline execution or spend credits.",
+        "description": "Estimate the cost of running the content creation pipeline. Calculates per-step and per-video costs based on current pricing. Supports comparing multiple workflow profiles (e.g., premium vs. budget) and projecting batch costs. This endpoint is informational only — it does not trigger any pipeline execution or spend credits.",
         "security": [
           {
             "apiKeyAuth": []
@@ -980,7 +980,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1003,7 +1003,9 @@
             "required": true,
             "schema": {
               "type": "string",
-              "enum": ["slack"]
+              "enum": [
+                "slack"
+              ]
             }
           }
         ],
@@ -1014,7 +1016,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Slack Events API envelope \u2014 the shape depends on the event type"
+                "description": "Slack Events API envelope — the shape depends on the event type"
               }
             }
           }
@@ -1043,7 +1045,7 @@
     },
     "/api/content-agent/callback": {
       "post": {
-        "description": "Internal callback endpoint for the `poll-content-run` Trigger.dev task. Receives content generation results and posts them back to the originating Slack thread. Authenticated via the `x-callback-secret` header.\n\nThis endpoint is not intended for external use \u2014 it is called automatically by the polling task when content runs complete, fail, or time out.",
+        "description": "Internal worker callback for a configured content agent. Requires the shared callback secret in x-callback-secret. Public content creation uses POST /api/content/create.\n\nInternal callback endpoint for the `poll-content-run` Trigger.dev task. Receives content generation results and posts them back to the originating Slack thread. Authenticated via the `x-callback-secret` header.\n\nThis endpoint is not intended for external use — it is called automatically by the polling task when content runs complete, fail, or time out.",
         "requestBody": {
           "description": "Content generation results from the polling task",
           "required": true,
@@ -1051,7 +1053,10 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["threadId", "status"],
+                "required": [
+                  "threadId",
+                  "status"
+                ],
                 "properties": {
                   "threadId": {
                     "type": "string",
@@ -1059,7 +1064,11 @@
                   },
                   "status": {
                     "type": "string",
-                    "enum": ["completed", "failed", "timeout"],
+                    "enum": [
+                      "completed",
+                      "failed",
+                      "timeout"
+                    ],
                     "description": "Overall status of the content generation batch"
                   },
                   "results": {
@@ -1067,7 +1076,10 @@
                     "description": "Per-run results",
                     "items": {
                       "type": "object",
-                      "required": ["runId", "status"],
+                      "required": [
+                        "runId",
+                        "status"
+                      ],
                       "properties": {
                         "runId": {
                           "type": "string",
@@ -1075,7 +1087,11 @@
                         },
                         "status": {
                           "type": "string",
-                          "enum": ["completed", "failed", "timeout"]
+                          "enum": [
+                            "completed",
+                            "failed",
+                            "timeout"
+                          ]
                         },
                         "videoUrl": {
                           "type": "string",
@@ -1123,6 +1139,24 @@
           },
           "401": {
             "description": "Missing or invalid callback secret"
+          },
+          "503": {
+            "description": "Content agent is not configured.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1166,7 +1200,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1176,7 +1210,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1200,7 +1234,7 @@
     },
     "/api/content/analyze": {
       "post": {
-        "description": "Analyze a video and answer questions about it. Pass a video URL and a text prompt \u2014 for example, \"Describe what happens\" or \"Rate the visual quality 1-10.\" Returns the generated text.",
+        "description": "Analyze a video and answer questions about it. Pass a video URL and a text prompt — for example, \"Describe what happens\" or \"Rate the visual quality 1-10.\" Returns the generated text.",
         "security": [
           {
             "apiKeyAuth": []
@@ -1232,7 +1266,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1242,7 +1276,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1298,7 +1332,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1308,7 +1342,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1364,7 +1398,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1374,7 +1408,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1440,7 +1474,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1450,7 +1484,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1516,7 +1550,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1526,7 +1560,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1669,7 +1703,12 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": ["pending", "processing", "completed", "failed"]
+              "enum": [
+                "pending",
+                "processing",
+                "completed",
+                "failed"
+              ]
             },
             "description": "Optional. Return only generations in this state."
           },
@@ -1851,7 +1890,7 @@
     },
     "/api/music/compose": {
       "post": {
-        "description": "Generate a song from a text prompt or a composition plan. The prompt can describe mood, genre, instruments, lyrics, and structure. Alternatively, pass a full composition_plan for fine-grained control over sections, styles, and lyrics. Returns binary audio in the requested format (default MP3).",
+        "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGenerate a song from a text prompt or a composition plan. The prompt can describe mood, genre, instruments, lyrics, and structure. Alternatively, pass a full composition_plan for fine-grained control over sections, styles, and lyrics. Returns binary audio in the requested format (default MP3).",
         "security": [
           {
             "apiKeyAuth": []
@@ -1892,7 +1931,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1902,7 +1941,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1921,12 +1960,13 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/music/compose/detailed": {
       "post": {
-        "description": "Generate a song with metadata and optional word-level timestamps. Returns a multipart/mixed response: the first part is JSON metadata (song ID, duration, seed, etc.) and the second part is binary audio. Use with_timestamps to get precise timing for each word in the lyrics.",
+        "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGenerate a song with metadata and optional word-level timestamps. Returns a multipart/mixed response: the first part is JSON metadata (song ID, duration, seed, etc.) and the second part is binary audio. Use with_timestamps to get precise timing for each word in the lyrics.",
         "security": [
           {
             "apiKeyAuth": []
@@ -1959,7 +1999,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1969,7 +2009,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1988,12 +2028,13 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/music/stream": {
       "post": {
-        "description": "Generate a song and stream audio chunks in real time. Use this endpoint when you want to begin playback before the full song is generated. The response streams binary audio chunks as they are produced.",
+        "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGenerate a song and stream audio chunks in real time. Use this endpoint when you want to begin playback before the full song is generated. The response streams binary audio chunks as they are produced.",
         "security": [
           {
             "apiKeyAuth": []
@@ -2034,7 +2075,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -2044,7 +2085,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2063,12 +2104,13 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/music/plan": {
       "post": {
-        "description": "Create a composition plan from a text prompt. A composition plan is a structured representation of a song \u2014 sections, styles, lyrics, and durations \u2014 that you can review and tweak before passing to the compose endpoint. This endpoint is free and does not consume credits.",
+        "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nCreate a composition plan from a text prompt. A composition plan is a structured representation of a song — sections, styles, lyrics, and durations — that you can review and tweak before passing to the compose endpoint. This endpoint is free and does not consume credits.",
         "security": [
           {
             "apiKeyAuth": []
@@ -2100,7 +2142,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -2110,7 +2152,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2129,12 +2171,13 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/music/video-to-music": {
       "post": {
-        "description": "Generate background music from video files. Upload 1\u201310 video files via multipart/form-data (max 200 MB total). The AI analyzes the video content and generates music that matches the mood, pacing, and style. Optionally provide a text description and style tags to guide the output.",
+        "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGenerate background music from video files. Upload 1–10 video files via multipart/form-data (max 200 MB total). The AI analyzes the video content and generates music that matches the mood, pacing, and style. Optionally provide a text description and style tags to guide the output.",
         "security": [
           {
             "apiKeyAuth": []
@@ -2184,7 +2227,9 @@
                     "description": "Audio output format (e.g. mp3_44100_192)"
                   }
                 },
-                "required": ["files"]
+                "required": [
+                  "files"
+                ]
               }
             }
           }
@@ -2210,7 +2255,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -2220,7 +2265,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2239,12 +2284,13 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/music/stem-separation": {
       "post": {
-        "description": "Separate an audio file into individual stems (vocals, drums, bass, etc.). Upload an audio file via multipart/form-data. Choose between two-stem separation (vocals + instrumental) or six-stem separation (vocals, drums, bass, guitar, piano, other). Returns a ZIP archive containing the separated stems.",
+        "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nSeparate an audio file into individual stems (vocals, drums, bass, etc.). Upload an audio file via multipart/form-data. Choose between two-stem separation (vocals + instrumental) or six-stem separation (vocals, drums, bass, guitar, piano, other). Returns a ZIP archive containing the separated stems.",
         "security": [
           {
             "apiKeyAuth": []
@@ -2268,7 +2314,10 @@
                   },
                   "stem_variation_id": {
                     "type": "string",
-                    "enum": ["two_stems_v1", "six_stems_v1"],
+                    "enum": [
+                      "two_stems_v1",
+                      "six_stems_v1"
+                    ],
                     "default": "six_stems_v1",
                     "description": "Stem separation mode. `two_stems_v1` produces vocals + instrumental. `six_stems_v1` produces vocals, drums, bass, guitar, piano, and other."
                   },
@@ -2282,7 +2331,9 @@
                     "description": "Audio output format (e.g. mp3_44100_192)"
                   }
                 },
-                "required": ["file"]
+                "required": [
+                  "file"
+                ]
               }
             }
           }
@@ -2300,7 +2351,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -2310,7 +2361,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2329,7 +2380,8 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/content/lipsync": {
@@ -2337,7 +2389,9 @@
         "summary": "Generate audio-driven video (release pending)",
         "description": "Available after the coordinated API and Tasks release for mono#348. Not verified on the deployed baseline. Fixed fal-ai/ltx-2-19b/audio-to-video; estimated rounded output megapixels at $0.0018 per unit, actual provider units used when supplied. The worker verifies an audio stream before final composition; presence of audio is not proof of perceptual lip alignment.",
         "operationId": "createContentLipsync",
-        "tags": ["Content"],
+        "tags": [
+          "Content"
+        ],
         "security": [
           {
             "apiKeyAuth": []
@@ -2368,7 +2422,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -2378,7 +2432,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2431,12 +2485,21 @@
         "in": "header",
         "name": "x-api-key",
         "description": "Your Recoup API key. [Learn more](/quickstart#api-keys)."
+      },
+      "callbackSecret": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-callback-secret",
+        "description": "Shared secret for the internal worker callback. Ordinary Recoup API keys and OAuth credentials are not accepted here."
       }
     },
     "schemas": {
       "MusicGenerationRequest": {
         "type": "object",
-        "required": ["prompt", "lyrics"],
+        "required": [
+          "prompt",
+          "lyrics"
+        ],
         "properties": {
           "prompt": {
             "type": "string",
@@ -2491,7 +2554,12 @@
           },
           "status": {
             "type": "string",
-            "enum": ["pending", "processing", "completed", "failed"],
+            "enum": [
+              "pending",
+              "processing",
+              "completed",
+              "failed"
+            ],
             "description": "Lifecycle phase. `pending` until the workflow picks it up, `processing` while fal is rendering, then `completed` or `failed`."
           },
           "prompt": {
@@ -2508,15 +2576,24 @@
             "example": "minimax/music-3"
           },
           "duration_seconds": {
-            "type": ["number", "null"],
+            "type": [
+              "number",
+              "null"
+            ],
             "description": "Actual length of the generated audio. Null until completed; may be shorter than requested."
           },
           "audio_url": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Playable audio URL. Null until the generation completes."
           },
           "error_message": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Why the generation failed. Null unless `status` is `failed`."
           },
           "created_at": {
@@ -2556,7 +2633,10 @@
             "type": "object",
             "properties": {
               "seed": {
-                "type": ["integer", "null"],
+                "type": [
+                  "integer",
+                  "null"
+                ],
                 "description": "The seed the model actually used, read live from the provider rather than stored. Null until the generation completes, and null if the provider cannot be reached. Pass it back as `seed` to reproduce a generation. It is the only generation parameter recoverable after the fact: `num_inference_steps` and `guidance_scale` are consumed when the request is submitted and are never reported back."
               },
               "logs": {
@@ -2576,7 +2656,9 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the request"
           },
           "generation": {
@@ -2589,7 +2671,9 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the request"
           },
           "generations": {
@@ -2606,7 +2690,9 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the request"
           },
           "generation": {
@@ -2616,11 +2702,16 @@
       },
       "MusicGenerationErrorResponse": {
         "type": "object",
-        "required": ["status", "error"],
+        "required": [
+          "status",
+          "error"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["error"],
+            "enum": [
+              "error"
+            ],
             "description": "Always `error`"
           },
           "missing_fields": {
@@ -2694,7 +2785,10 @@
       },
       "ContentCreateAnalyzeRequest": {
         "type": "object",
-        "required": ["video_url", "prompt"],
+        "required": [
+          "video_url",
+          "prompt"
+        ],
         "properties": {
           "video_url": {
             "type": "string",
@@ -2723,7 +2817,9 @@
       },
       "ContentCreateAnalyzeResponse": {
         "type": "object",
-        "required": ["text"],
+        "required": [
+          "text"
+        ],
         "properties": {
           "text": {
             "type": "string",
@@ -2731,7 +2827,10 @@
           },
           "finish_reason": {
             "type": "string",
-            "enum": ["stop", "length"],
+            "enum": [
+              "stop",
+              "length"
+            ],
             "nullable": true,
             "description": "`stop` if the generation completed normally. `length` if truncated at the token limit."
           },
@@ -2749,7 +2848,9 @@
       },
       "ContentCreateAudioRequest": {
         "type": "object",
-        "required": ["audio_urls"],
+        "required": [
+          "audio_urls"
+        ],
         "properties": {
           "audio_urls": {
             "type": "array",
@@ -2767,7 +2868,11 @@
           },
           "chunk_level": {
             "type": "string",
-            "enum": ["none", "segment", "word"],
+            "enum": [
+              "none",
+              "segment",
+              "word"
+            ],
             "default": "word",
             "description": "Granularity of timestamp chunks. Defaults to word-level."
           },
@@ -2784,7 +2889,12 @@
       },
       "ContentCreateAudioResponse": {
         "type": "object",
-        "required": ["audioUrl", "fullLyrics", "segments", "segmentCount"],
+        "required": [
+          "audioUrl",
+          "fullLyrics",
+          "segments",
+          "segmentCount"
+        ],
         "properties": {
           "audioUrl": {
             "type": "string",
@@ -2809,7 +2919,11 @@
       },
       "ContentCreateAudioSegment": {
         "type": "object",
-        "required": ["start", "end", "text"],
+        "required": [
+          "start",
+          "end",
+          "text"
+        ],
         "properties": {
           "start": {
             "type": "number",
@@ -2827,7 +2941,9 @@
       },
       "ContentCreateEditRequest": {
         "type": "object",
-        "required": ["video_url"],
+        "required": [
+          "video_url"
+        ],
         "description": "Requires a video URL. Operations are applied sequentially via ffmpeg.",
         "properties": {
           "video_url": {
@@ -2844,11 +2960,18 @@
             "description": "Array of edit operations to apply in order. Required if template is not provided.",
             "items": {
               "type": "object",
-              "required": ["type"],
+              "required": [
+                "type"
+              ],
               "properties": {
                 "type": {
                   "type": "string",
-                  "enum": ["trim", "crop", "resize", "overlay_text"],
+                  "enum": [
+                    "trim",
+                    "crop",
+                    "resize",
+                    "overlay_text"
+                  ],
                   "description": "Operation type"
                 },
                 "start": {
@@ -2893,7 +3016,11 @@
                 },
                 "position": {
                   "type": "string",
-                  "enum": ["top", "center", "bottom"],
+                  "enum": [
+                    "top",
+                    "center",
+                    "bottom"
+                  ],
                   "description": "Text position (overlay_text)"
                 }
               }
@@ -2901,7 +3028,11 @@
           },
           "output_format": {
             "type": "string",
-            "enum": ["mp4", "webm", "mov"],
+            "enum": [
+              "mp4",
+              "webm",
+              "mov"
+            ],
             "default": "mp4",
             "description": "Output format"
           }
@@ -2909,7 +3040,10 @@
       },
       "ContentCreateEditResponse": {
         "type": "object",
-        "required": ["runId", "status"],
+        "required": [
+          "runId",
+          "status"
+        ],
         "properties": {
           "runId": {
             "type": "string",
@@ -2917,14 +3051,18 @@
           },
           "status": {
             "type": "string",
-            "enum": ["triggered"],
+            "enum": [
+              "triggered"
+            ],
             "description": "Status of the edit task"
           }
         }
       },
       "ContentCreateErrorResponse": {
         "type": "object",
-        "required": ["error"],
+        "required": [
+          "error"
+        ],
         "description": "Returned when the artist is missing required files or the template is not found. Includes actionable instructions for resolving each issue.",
         "properties": {
           "error": {
@@ -2999,7 +3137,11 @@
           },
           "output_format": {
             "type": "string",
-            "enum": ["jpeg", "png", "webp"],
+            "enum": [
+              "jpeg",
+              "png",
+              "webp"
+            ],
             "default": "webp",
             "description": "Format of the generated image"
           },
@@ -3027,14 +3169,19 @@
         "additionalProperties": false,
         "example": {
           "prompt": "Edit the lighting while preserving this artist.",
-          "image_urls": ["https://example.com/artist.png"],
+          "image_urls": [
+            "https://example.com/artist.png"
+          ],
           "num_images": 1
         },
         "description": "Generate images from a prompt, or edit the supplied image_urls. num_images controls the number of returned images. Unsupported request fields return 400 before paid generation."
       },
       "ContentCreateImageResponse": {
         "type": "object",
-        "required": ["imageUrl", "images"],
+        "required": [
+          "imageUrl",
+          "images"
+        ],
         "properties": {
           "imageUrl": {
             "type": "string",
@@ -3073,7 +3220,12 @@
           },
           "caption_length": {
             "type": "string",
-            "enum": ["none", "short", "medium", "long"],
+            "enum": [
+              "none",
+              "short",
+              "medium",
+              "long"
+            ],
             "description": "Controls the length of the generated caption text. `none` skips caption generation. `short` produces 1-2 lines (punchy, minimal). `medium` produces 1-2 sentences. `long` produces a paragraph (stream of consciousness style). Defaults to `none`.",
             "default": "none",
             "example": "none"
@@ -3097,8 +3249,11 @@
             "items": {
               "type": "string"
             },
-            "description": "Optional list of song slugs or public URLs to use for the audio track. Song slugs match filenames without extension from the artist's `songs/` directory (e.g. `\"hiccups\"` for `hiccups.mp3`). Public URLs (e.g. `\"https://example.com/my-song.mp3\"`) are downloaded, transcribed, and clipped directly \u2014 bypassing the Git repo. When omitted, all songs in the artist's repo are eligible.",
-            "example": ["hiccups", "https://example.com/unreleased-track.mp3"]
+            "description": "Optional list of song slugs or public URLs to use for the audio track. Song slugs match filenames without extension from the artist's `songs/` directory (e.g. `\"hiccups\"` for `hiccups.mp3`). Public URLs (e.g. `\"https://example.com/my-song.mp3\"`) are downloaded, transcribed, and clipped directly — bypassing the Git repo. When omitted, all songs in the artist's repo are eligible.",
+            "example": [
+              "hiccups",
+              "https://example.com/unreleased-track.mp3"
+            ]
           },
           "images": {
             "type": "array",
@@ -3107,15 +3262,23 @@
               "format": "uri"
             },
             "description": "Optional list of public image URLs to use as face guides instead of the artist's default `face-guide.png` from their GitHub repo. The first image is used as the primary face guide. Useful when the caller wants to override the default face reference.",
-            "example": ["https://example.com/face.png"]
+            "example": [
+              "https://example.com/face.png"
+            ]
           }
         },
-        "required": ["artist_account_id"]
+        "required": [
+          "artist_account_id"
+        ]
       },
       "ContentCreateResponse": {
         "type": "object",
-        "required": ["runIds", "status", "artist_account_id"],
-        "description": "Confirmation that the content creation pipeline has been triggered. Always returns `runIds` as an array \u2014 even for a single run, it contains one element.",
+        "required": [
+          "runIds",
+          "status",
+          "artist_account_id"
+        ],
+        "description": "Confirmation that the content creation pipeline has been triggered. Always returns `runIds` as an array — even for a single run, it contains one element.",
         "properties": {
           "runIds": {
             "type": "array",
@@ -3123,11 +3286,15 @@
               "type": "string"
             },
             "description": "Array of run IDs. Poll each via [GET /api/tasks/runs](/api-reference/tasks/runs). For single runs this contains one element.",
-            "example": ["run_abc123def456"]
+            "example": [
+              "run_abc123def456"
+            ]
           },
           "status": {
             "type": "string",
-            "enum": ["triggered"],
+            "enum": [
+              "triggered"
+            ],
             "description": "Indicates the pipeline has been triggered"
           },
           "artist_account_id": {
@@ -3137,7 +3304,10 @@
             "example": "1873859c-dd37-4e9a-9bac-80d3558527a9"
           },
           "template": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Template ID when a preset pipeline is used; null in malleable mode.",
             "example": null
           },
@@ -3155,7 +3325,9 @@
       },
       "ContentCreateTextRequest": {
         "type": "object",
-        "required": ["topic"],
+        "required": [
+          "topic"
+        ],
         "properties": {
           "template": {
             "type": "string",
@@ -3167,7 +3339,11 @@
           },
           "length": {
             "type": "string",
-            "enum": ["short", "medium", "long"],
+            "enum": [
+              "short",
+              "medium",
+              "long"
+            ],
             "default": "short",
             "description": "Desired text length"
           }
@@ -3175,14 +3351,22 @@
       },
       "ContentCreateTextResponse": {
         "type": "object",
-        "required": ["content", "color", "borderColor", "maxFontSize"],
+        "required": [
+          "content",
+          "color",
+          "borderColor",
+          "maxFontSize"
+        ],
         "properties": {
           "content": {
             "type": "string",
             "description": "Generated on-screen text content"
           },
           "font": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Font name for the text, or null for default"
           },
           "color": {
@@ -3204,7 +3388,10 @@
       },
       "ContentCreateUpscaleRequest": {
         "type": "object",
-        "required": ["url", "type"],
+        "required": [
+          "url",
+          "type"
+        ],
         "properties": {
           "url": {
             "type": "string",
@@ -3213,7 +3400,10 @@
           },
           "type": {
             "type": "string",
-            "enum": ["image", "video"],
+            "enum": [
+              "image",
+              "video"
+            ],
             "description": "Whether the input is an image or video"
           },
           "upscale_factor": {
@@ -3225,14 +3415,21 @@
           },
           "target_resolution": {
             "type": "string",
-            "enum": ["720p", "1080p", "1440p", "2160p"],
+            "enum": [
+              "720p",
+              "1080p",
+              "1440p",
+              "2160p"
+            ],
             "description": "Target output resolution. When provided, overrides upscale_factor with a resolution-based upscale."
           }
         }
       },
       "ContentCreateUpscaleResponse": {
         "type": "object",
-        "required": ["url"],
+        "required": [
+          "url"
+        ],
         "properties": {
           "url": {
             "type": "string",
@@ -3243,7 +3440,9 @@
       },
       "ContentCreateVideoRequest": {
         "type": "object",
-        "required": ["prompt"],
+        "required": [
+          "prompt"
+        ],
         "properties": {
           "prompt": {
             "type": "string",
@@ -3254,7 +3453,10 @@
           "prompt_expansion_mode": {
             "type": "string",
             "default": "balanced",
-            "enum": ["balanced", "quality"],
+            "enum": [
+              "balanced",
+              "quality"
+            ],
             "description": "How much effort to spend rewriting the prompt before generation. `balanced` returns in about a second. `quality` spends up to ~30s on a richer prompt."
           },
           "image_url": {
@@ -3276,7 +3478,10 @@
           },
           "resolution": {
             "type": "string",
-            "enum": ["480P", "768P"],
+            "enum": [
+              "480P",
+              "768P"
+            ],
             "default": "768P",
             "description": "The native generation resolution of the video"
           },
@@ -3306,7 +3511,9 @@
       },
       "ContentCreateVideoResponse": {
         "type": "object",
-        "required": ["videoUrl"],
+        "required": [
+          "videoUrl"
+        ],
         "properties": {
           "videoUrl": {
             "type": "string",
@@ -3317,7 +3524,9 @@
       },
       "ContentErrorResponse": {
         "type": "object",
-        "required": ["error"],
+        "required": [
+          "error"
+        ],
         "properties": {
           "error": {
             "type": "string",
@@ -3368,7 +3577,9 @@
       },
       "ContentEstimateResponse": {
         "type": "object",
-        "required": ["workflows"],
+        "required": [
+          "workflows"
+        ],
         "description": "Cost estimates based on current pricing. When `compare` is `false`, the `workflows` array contains a single entry. When `true`, it contains all available profiles.",
         "properties": {
           "workflows": {
@@ -3409,7 +3620,12 @@
       },
       "ContentMissingFile": {
         "type": "object",
-        "required": ["file", "severity", "description", "fix"],
+        "required": [
+          "file",
+          "severity",
+          "description",
+          "fix"
+        ],
         "description": "A missing file that prevents or degrades content creation.",
         "properties": {
           "file": {
@@ -3419,7 +3635,10 @@
           },
           "severity": {
             "type": "string",
-            "enum": ["required", "recommended"],
+            "enum": [
+              "required",
+              "recommended"
+            ],
             "description": "`required` means the pipeline will fail without this file. `recommended` means the pipeline will run but output quality is degraded.",
             "example": "required"
           },
@@ -3437,7 +3656,12 @@
       },
       "ContentStepEstimate": {
         "type": "object",
-        "required": ["name", "model", "cost", "note"],
+        "required": [
+          "name",
+          "model",
+          "cost",
+          "note"
+        ],
         "description": "Cost details for a single pipeline step.",
         "properties": {
           "name": {
@@ -3476,8 +3700,11 @@
       },
       "ContentTemplate": {
         "type": "object",
-        "required": ["id", "description"],
-        "description": "A content creation template \u2014 a complete creative recipe defining visual style, composition, caption rules, and edit operations. Templates are optional; all primitives work without one.",
+        "required": [
+          "id",
+          "description"
+        ],
+        "description": "A content creation template — a complete creative recipe defining visual style, composition, caption rules, and edit operations. Templates are optional; all primitives work without one.",
         "properties": {
           "id": {
             "type": "string",
@@ -3493,7 +3720,10 @@
       },
       "ContentTemplateDetail": {
         "type": "object",
-        "required": ["id", "description"],
+        "required": [
+          "id",
+          "description"
+        ],
         "description": "Full configuration for a content creation template including image prompts, video motion config, caption style rules, and edit operations.",
         "properties": {
           "id": {
@@ -3594,7 +3824,9 @@
                 "description": "Default edit operations applied during post-processing",
                 "items": {
                   "type": "object",
-                  "required": ["type"],
+                  "required": [
+                    "type"
+                  ],
                   "properties": {
                     "type": {
                       "type": "string",
@@ -3649,7 +3881,11 @@
                     },
                     "position": {
                       "type": "string",
-                      "enum": ["top", "center", "bottom"],
+                      "enum": [
+                        "top",
+                        "center",
+                        "bottom"
+                      ],
                       "description": "Text position (overlay_text)"
                     },
                     "audio_url": {
@@ -3670,7 +3906,9 @@
       },
       "ContentTemplatesResponse": {
         "type": "object",
-        "required": ["templates"],
+        "required": [
+          "templates"
+        ],
         "description": "List of available content creation templates.",
         "properties": {
           "templates": {
@@ -3683,7 +3921,10 @@
       },
       "ContentValidateResponse": {
         "type": "object",
-        "required": ["ready", "artist_account_id"],
+        "required": [
+          "ready",
+          "artist_account_id"
+        ],
         "description": "Validation report for an artist's content creation readiness.",
         "properties": {
           "ready": {
@@ -3757,12 +3998,18 @@
       },
       "ContentValidationCheck": {
         "type": "object",
-        "required": ["status"],
+        "required": [
+          "status"
+        ],
         "description": "Status of a single validation check.",
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["ok", "missing", "warning"],
+            "enum": [
+              "ok",
+              "missing",
+              "warning"
+            ],
             "description": "Whether the file was found",
             "example": "ok"
           }
@@ -3770,7 +4017,11 @@
       },
       "ContentWorkflowEstimate": {
         "type": "object",
-        "required": ["name", "perVideo", "steps"],
+        "required": [
+          "name",
+          "perVideo",
+          "steps"
+        ],
         "description": "Cost breakdown for a single workflow profile.",
         "properties": {
           "name": {
@@ -3825,7 +4076,10 @@
               "type": "string"
             },
             "description": "Optional arguments to pass to the command.",
-            "example": ["-la", "/home"]
+            "example": [
+              "-la",
+              "/home"
+            ]
           },
           "cwd": {
             "type": "string",
@@ -3857,11 +4111,16 @@
       },
       "DeleteSandboxResponse": {
         "type": "object",
-        "required": ["status"],
+        "required": [
+          "status"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success", "error"],
+            "enum": [
+              "success",
+              "error"
+            ],
             "description": "Status of the delete operation"
           },
           "deleted_snapshot": {
@@ -3877,7 +4136,11 @@
       },
       "FileTreeEntry": {
         "type": "object",
-        "required": ["path", "type", "sha"],
+        "required": [
+          "path",
+          "type",
+          "sha"
+        ],
         "description": "A single entry in a GitHub repository file tree",
         "properties": {
           "path": {
@@ -3887,7 +4150,10 @@
           },
           "type": {
             "type": "string",
-            "enum": ["blob", "tree"],
+            "enum": [
+              "blob",
+              "tree"
+            ],
             "description": "The type of entry: blob for files, tree for directories"
           },
           "sha": {
@@ -4045,7 +4311,7 @@
         "properties": {
           "prompt": {
             "type": "string",
-            "description": "Text prompt describing the desired song \u2014 mood, genre, instruments, lyrics, structure."
+            "description": "Text prompt describing the desired song — mood, genre, instruments, lyrics, structure."
           },
           "composition_plan": {
             "type": "object",
@@ -4079,7 +4345,7 @@
         "properties": {
           "prompt": {
             "type": "string",
-            "description": "Text prompt describing the desired song \u2014 mood, genre, instruments, lyrics, structure."
+            "description": "Text prompt describing the desired song — mood, genre, instruments, lyrics, structure."
           },
           "composition_plan": {
             "type": "object",
@@ -4104,7 +4370,9 @@
       },
       "MusicCreatePlanRequest": {
         "type": "object",
-        "required": ["prompt"],
+        "required": [
+          "prompt"
+        ],
         "description": "Parameters for creating a composition plan from a text prompt.",
         "properties": {
           "prompt": {
@@ -4151,7 +4419,9 @@
       },
       "MusicErrorResponse": {
         "type": "object",
-        "required": ["error"],
+        "required": [
+          "error"
+        ],
         "description": "Error response from a music endpoint.",
         "properties": {
           "error": {
@@ -4166,7 +4436,7 @@
         "properties": {
           "prompt": {
             "type": "string",
-            "description": "Text prompt describing the desired song \u2014 mood, genre, instruments, lyrics, structure."
+            "description": "Text prompt describing the desired song — mood, genre, instruments, lyrics, structure."
           },
           "composition_plan": {
             "type": "object",
@@ -4191,7 +4461,12 @@
       },
       "Sandbox": {
         "type": "object",
-        "required": ["sandboxId", "sandboxStatus", "timeout", "createdAt"],
+        "required": [
+          "sandboxId",
+          "sandboxStatus",
+          "timeout",
+          "createdAt"
+        ],
         "description": "A sandbox environment instance",
         "properties": {
           "sandboxId": {
@@ -4201,7 +4476,13 @@
           },
           "sandboxStatus": {
             "type": "string",
-            "enum": ["pending", "running", "stopping", "stopped", "failed"],
+            "enum": [
+              "pending",
+              "running",
+              "stopping",
+              "stopped",
+              "failed"
+            ],
             "description": "Current lifecycle state of the sandbox",
             "example": "running"
           },
@@ -4225,7 +4506,9 @@
       },
       "SandboxErrorResponse": {
         "type": "object",
-        "required": ["error"],
+        "required": [
+          "error"
+        ],
         "properties": {
           "error": {
             "type": "string",
@@ -4236,27 +4519,38 @@
       },
       "SandboxFileResponse": {
         "type": "object",
-        "required": ["status", "content"],
+        "required": [
+          "status",
+          "content"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the operation"
           },
           "content": {
             "type": "string",
-            "description": "The file content. Text files (`.md`, `.json`, `.txt`, source code, etc.) are returned verbatim. Binary files (`.mp3`, `.png`, `.jpg`, `.mp4`, `.pdf`, etc.) are returned base64-encoded \u2014 decode before writing to disk. The encoding is inferred from the file extension server-side; `encoding` field is not yet returned but planned."
+            "description": "The file content. Text files (`.md`, `.json`, `.txt`, source code, etc.) are returned verbatim. Binary files (`.mp3`, `.png`, `.jpg`, `.mp4`, `.pdf`, etc.) are returned base64-encoded — decode before writing to disk. The encoding is inferred from the file extension server-side; `encoding` field is not yet returned but planned."
           }
         }
       },
       "SandboxesResponse": {
         "type": "object",
-        "required": ["status", "sandboxes"],
+        "required": [
+          "status",
+          "sandboxes"
+        ],
         "description": "Response containing sandbox information",
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success", "error"],
+            "enum": [
+              "success",
+              "error"
+            ],
             "description": "Status of the request"
           },
           "sandboxes": {
@@ -4304,11 +4598,16 @@
       },
       "SetupSandboxResponse": {
         "type": "object",
-        "required": ["status", "runId"],
+        "required": [
+          "status",
+          "runId"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the setup operation"
           },
           "runId": {
@@ -4320,7 +4619,9 @@
       },
       "TranscribeAudioErrorResponse": {
         "type": "object",
-        "required": ["error"],
+        "required": [
+          "error"
+        ],
         "properties": {
           "error": {
             "type": "string",
@@ -4330,7 +4631,10 @@
       },
       "TranscribeAudioRequest": {
         "type": "object",
-        "required": ["audio_url", "artist_account_id"],
+        "required": [
+          "audio_url",
+          "artist_account_id"
+        ],
         "properties": {
           "audio_url": {
             "type": "string",
@@ -4364,7 +4668,12 @@
       },
       "TranscribeAudioResponse": {
         "type": "object",
-        "required": ["success", "audioFile", "transcriptFile", "text"],
+        "required": [
+          "success",
+          "audioFile",
+          "transcriptFile",
+          "text"
+        ],
         "properties": {
           "success": {
             "type": "boolean",
@@ -4472,7 +4781,9 @@
       },
       "UploadSandboxFilesRequest": {
         "type": "object",
-        "required": ["files"],
+        "required": [
+          "files"
+        ],
         "properties": {
           "path": {
             "type": "string",
@@ -4483,7 +4794,10 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["url", "name"],
+              "required": [
+                "url",
+                "name"
+              ],
               "properties": {
                 "url": {
                   "type": "string",
@@ -4509,11 +4823,16 @@
       },
       "UploadSandboxFilesResponse": {
         "type": "object",
-        "required": ["status", "uploaded"],
+        "required": [
+          "status",
+          "uploaded"
+        ],
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["success"],
+            "enum": [
+              "success"
+            ],
             "description": "Status of the operation"
           },
           "uploaded": {
@@ -4537,7 +4856,12 @@
       },
       "ContentCreateLipsyncRequest": {
         "type": "object",
-        "required": ["prompt", "image_url", "audio_url", "duration"],
+        "required": [
+          "prompt",
+          "image_url",
+          "audio_url",
+          "duration"
+        ],
         "additionalProperties": false,
         "properties": {
           "prompt": {

@@ -23,6 +23,7 @@ The caller is derived from authentication. Do not send an `account_id`. An optio
 | `PATCH /api/sites/{id}` action `generate` | `generate_site` | Generate from an optional customer-selected pitch; otherwise select a concept |
 | `PATCH /api/sites/{id}` action `publish` | `publish_site` | Saved draft becomes public |
 | `PATCH /api/sites/{id}` action `unpublish` | `unpublish_site` | Public snapshot removed, draft retained |
+| `PATCH /api/sites/{id}` action `delete` | `delete_site` | `{ "deleted": true, "id": "..." }` |
 | `GET /api/sites/{id}/signups` | `get_site_signups` | `{ signups: [{ email, created_at }] }`, up to 10,000 |
 | `POST /api/sites/assets` | `upload_site_asset` | `{ asset: { url, name, type } }` |
 
@@ -110,6 +111,20 @@ For a custom hosted destination, HTTP callers may include `returnUrl` (an HTTPS 
 The public page is `https://chat.recoupable.dev/s/{id}`.
 
 Unpublish with `action: "unpublish"`, or `unpublish_site`. Agents should publish only when explicitly instructed.
+
+## Delete and cancel generation
+
+Delete only when explicitly instructed. Send `PATCH /api/sites/{id}` with `action: "delete"` and the current `revision` in its JSON request body (Content-Type: application/json). Include `generationToken` when cancelling a known in-progress generation. The token must belong to this site and caller; cancellation is attempted before deletion. Omitting it does not request cancellation of every running job.
+
+For example, use the current saved revision and the token returned by a known generation:
+
+```json
+{"action":"delete","revision":3,"generationToken":"TOKEN_FROM_GENERATION"}
+```
+
+Omit generationToken when no known generation needs cancellation.
+
+Deletion checks workspace access and revision, then returns `{ "deleted": true, "id": "..." }`. A stale revision returns 409; reload before retrying. Unpublish with `action: "unpublish"` when the draft should remain available.
 
 ## Uploads
 

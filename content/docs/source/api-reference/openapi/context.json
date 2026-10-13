@@ -32,7 +32,7 @@
       "post": {
         "operationId": "contextOperation",
         "summary": "Ingest, read, or compile context briefs",
-        "description": "Coverage note: this reference describes a subset of the current Context Engine action catalog. Additional actions are being reconciled in mono#329; this page is not a complete capability inventory. Save reusable music context, read progress, or compile a task-specific evidence brief. This reference documents the ingestion, read, brief, save_brief and read_brief actions of the shared HTTP/MCP operation. Brief compilation combines up to ten completed or partial requests in one authorized workspace, reuses saved evidence without provider or model calls, and returns bounded Markdown plus the selected input versions. Creative direction prioritizes lyrics and artwork; playlist pitching prioritizes catalog/audio metadata. Shared artist evidence appears once, with coverage reported separately for each request. Briefs are evidence packets, not generated creative concepts or finished outreach. Inspect readiness, request_coverage and gaps. The brief action is read-only; use save_brief with the same inputs and an idempotency_key to freeze the server-compiled output, then read_brief with its brief_id to retrieve it without recompilation. A newer document revision marks the snapshot superseded without rewriting it. Withdrawn/unavailable evidence, cancelled requests, or removed subject scope withhold the payload. Saving rechecks current evidence before committing. Apply the companion snapshot migration before using save_brief/read_brief. Ingestion dispatches a durable workflow; retry the same input and idempotency key after dispatch failure.",
+        "description": "Save and reuse evidence in an authorized Recoup workspace. **Preview: this reference is verified against API source, not a completed hosted acceptance test.** Actions require the corresponding database and workflow release; verification actions also require their feature to be enabled. Do not infer provider readiness, complete coverage, or a successful workflow from an accepted request schema.\n\n### Create context\n\n`ingest` creates or reuses a Spotify-track request and dispatches its durable workflow (202). The parser recognizes YouTube URLs, but ingestion still rejects them in this pilot. `ingest_release` stores a Spotify album locator; it does not automatically verify the release. `ingest_catalog` and `ingest_artist` refer to accessible Recoup records. `ingest_songwriter_name`, `ingest_company_name`, `ingest_campaign_brief`, and `ingest_supporting_text` store submitted context (200). Names and customer text are not verified identities or facts. Reuse an idempotency key only for the same intended input.\n\n### Read, plan and inspect\n\n`read` reads one request. `plan` plans modules from stored context; a plan is not authorization to collect data. `list_executions` and `read_execution` expose execution records. `list_catalog_members` pages saved members; `expand_catalog_members` materializes a bounded member page. These operations return 200. Request IDs, subject IDs and execution IDs refer to different records; use the IDs returned by the corresponding read rather than substituting an account ID. Catalog membership does not establish rights ownership. The implementation also accepts plan_catalog_members, which is intentionally omitted from this preview request union pending a provider-neutral public module contract. This is a remaining documentation and API design gap, not an access restriction.\n\n### Release verification and review\n\n`verify_release` and `verify_release_tracks` enqueue enabled verification workflows (202); disabled features or unmet readiness conditions return 409. `list_release_tracks`, `read_release_track_observations`, and `review_release_track_identities` inspect saved slots and identity evidence (200). Inspect the returned readiness, coverage and unresolved identity state before using a recording match. `list_release_cases`, `read_release_case`, `read_release_case_review`, and `review_release_case` read or record release-case review. A review requires the current fingerprint, a decision, and an idempotency key; it does not silently rewrite source evidence.\n\n### Compile and save briefs\n\n`brief` compiles evidence from up to ten completed or partial requests in one workspace without provider or model calls. Purposes are `creative_direction`, `playlist_pitch`, and `company_onboarding`. Creative direction prioritizes lyrics and artwork; playlist pitching prioritizes catalog/audio metadata. Inspect readiness, request_coverage, selected input versions and gaps. Briefs are evidence packets, not finished creative concepts or outreach. `save_brief` freezes the server-compiled output, and `read_brief` retrieves that snapshot without recompilation. Newer evidence can supersede a snapshot without rewriting it; withdrawn evidence or removed scope can withhold its payload. All three actions return 200.\n\n### Scope and failures\n\nAuthentication determines the account. Optional organization_id selects an authorized organization workspace; request and subject ownership are checked again by the operation. Invalid request syntax returns 400, missing authentication 401, rejected organization access 403, and operation conflicts, unavailable evidence or disabled verification 409. No action accepts a caller-supplied account identity. Local schema tests do not establish hosted availability.\n\n### MCP mapping\n\nStandard MCP uses the `context` tool with the same action and fields as this REST request. Delegated OAuth exposes the named tools below and supplies the action server-side; omit action from the named tool input. These registrations require the full `mcp:tools` grant, current ownership and fresh credential verification. Read-only is a tool annotation, not a guarantee of hosted readiness. Discover the actual tools in the connected client before use; this is a static source mapping, not a verified client catalog. The omitted provider-bound planning action is still a remaining contract gap.\n\n| REST action | Delegated OAuth tool | Classification |\n| --- | --- | --- |\n| `list_release_cases` | `list_music_release_cases` | Read-only hint |\n| `read_release_case` | `read_music_release_case` | Read-only hint |\n| `read_release_case_review` | `read_music_release_case_review` | Read-only hint |\n| `review_release_case` | `record_music_release_case_review` | Writes or dispatches |\n| `save_brief` | `save_music_context_brief` | Writes or dispatches |\n| `read_brief` | `read_music_context_brief` | Read-only hint |\n| `plan` | `plan_music_context_research` | Read-only hint |\n| `list_executions` | `list_music_context_executions` | Read-only hint |\n| `list_catalog_members` | `list_music_context_catalog_members` | Read-only hint |\n| `list_release_tracks` | `list_music_context_release_tracks` | Read-only hint |\n| `read_release_track_observations` | `read_music_release_track_observations` | Read-only hint |\n| `review_release_track_identities` | `review_music_release_track_identities` | Read-only hint |\n| `verify_release_tracks` | `verify_music_release_tracks` | Writes or dispatches |\n| `expand_catalog_members` | `expand_music_context_catalog` | Writes or dispatches |\n| `read_execution` | `read_music_context_execution` | Read-only hint |\n| `ingest_catalog` | `import_catalog_context` | Writes or dispatches |\n| `ingest_artist` | `import_artist_context` | Writes or dispatches |\n| `ingest_songwriter_name` | `import_songwriter_context` | Writes or dispatches |\n| `ingest_company_name` | `import_music_company_context` | Writes or dispatches |\n| `ingest_campaign_brief` | `import_music_campaign_brief` | Writes or dispatches |\n| `ingest_supporting_text` | `import_music_supporting_text` | Writes or dispatches |\n| `ingest_release` | `import_music_release_context` | Writes or dispatches |\n| `verify_release` | `verify_music_release` | Writes or dispatches |\n| `ingest` | `import_song_context` | Writes or dispatches |\n| `read` | `read_music_context` | Read-only hint |\n| `brief` | `compile_music_context_brief` | Read-only hint |",
         "security": [
           {
             "ApiKey": []
@@ -49,38 +49,819 @@
                 "oneOf": [
                   {
                     "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "action",
-                      "url",
-                      "idempotency_key"
-                    ],
                     "properties": {
                       "action": {
                         "type": "string",
-                        "const": "ingest"
+                        "const": "list_release_cases"
                       },
                       "organization_id": {
                         "type": "string",
                         "format": "uuid",
-                        "description": "Optional organization that owns the private context. Current membership is checked."
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
                       },
-                      "url": {
+                      "after_id": {
                         "type": "string",
-                        "format": "uri",
-                        "description": "Spotify track URL. Albums, playlists and YouTube ingestion are not enabled in this pilot."
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      }
+                    },
+                    "required": [
+                      "action"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "read_release_case"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "read_release_case_review"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "review_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "review_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "review_release_case"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "fingerprint": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "decision": {
+                        "type": "string",
+                        "enum": [
+                          "reviewed",
+                          "needs_changes"
+                        ]
+                      },
+                      "note": {
+                        "default": "",
+                        "type": "string",
+                        "maxLength": 2000
+                      },
+                      "idempotency_key": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9._:-]+$"
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id",
+                      "fingerprint",
+                      "decision",
+                      "idempotency_key"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "save_brief"
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "additional_request_ids": {
+                        "default": [],
+                        "maxItems": 9,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "format": "uuid",
+                          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                        },
+                        "description": "Up to nine additional requests in the same workspace. Every selected request must be completed or partial. Duplicate IDs are read once."
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "purpose": {
+                        "type": "string",
+                        "enum": [
+                          "creative_direction",
+                          "playlist_pitch",
+                          "company_onboarding"
+                        ]
+                      },
+                      "max_characters": {
+                        "default": 12000,
+                        "type": "integer",
+                        "minimum": 1000,
+                        "maximum": 32000,
+                        "description": "Bounds selected evidence JSON and rendered Markdown independently, not the entire response. Whole documents are omitted to fit; inspect reported gaps."
                       },
                       "idempotency_key": {
                         "type": "string",
                         "minLength": 1,
                         "maxLength": 128,
                         "pattern": "^[A-Za-z0-9._:-]+$",
-                        "description": "Stable key for retrying the same input without duplicate work."
+                        "description": "Freezes the server-compiled output. Reusing the key with different output conflicts; use a new key for a newer snapshot."
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id",
+                      "purpose",
+                      "idempotency_key"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "read_brief"
+                      },
+                      "brief_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "brief_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "plan"
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "list_executions"
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "list_catalog_members"
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "subject_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "after_isrc": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 100
+                      },
+                      "limit": {
+                        "default": 100,
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 100
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id",
+                      "subject_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "list_release_tracks"
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "subject_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "after_slot": {
+                        "default": -1,
+                        "type": "integer",
+                        "minimum": -1,
+                        "maximum": 9007199254740991
+                      },
+                      "limit": {
+                        "default": 100,
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 100
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id",
+                      "subject_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "read_release_track_observations"
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "subject_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id",
+                      "subject_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "review_release_track_identities"
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "subject_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id",
+                      "subject_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "verify_release_tracks"
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "subject_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id",
+                      "subject_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "expand_catalog_members"
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "subject_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "after_isrc": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 100
+                      },
+                      "limit": {
+                        "default": 100,
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 100
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id",
+                      "subject_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "read_execution"
+                      },
+                      "execution_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "execution_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "ingest_catalog"
+                      },
+                      "catalog_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "idempotency_key": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9._:-]+$"
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "catalog_id",
+                      "idempotency_key"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "ingest_artist"
+                      },
+                      "artist_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "idempotency_key": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9._:-]+$"
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "artist_id",
+                      "idempotency_key"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "ingest_songwriter_name"
+                      },
+                      "name": {
+                        "type": "string",
+                        "minLength": 2,
+                        "maxLength": 200
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "idempotency_key": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9._:-]+$"
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "name",
+                      "idempotency_key"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "ingest_company_name"
+                      },
+                      "name": {
+                        "type": "string",
+                        "minLength": 2,
+                        "maxLength": 200
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "idempotency_key": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9._:-]+$"
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "name",
+                      "idempotency_key"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "ingest_campaign_brief"
+                      },
+                      "brief": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "minLength": 2,
+                            "maxLength": 200
+                          },
+                          "goal": {
+                            "type": "string",
+                            "minLength": 2,
+                            "maxLength": 2000
+                          },
+                          "audience": {
+                            "type": "string",
+                            "maxLength": 500
+                          },
+                          "start_date": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+                          },
+                          "end_date": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "goal"
+                        ],
+                        "additionalProperties": false,
+                        "description": "Customer-provided campaign direction; end_date must not precede start_date. This is an assertion, not verified external evidence."
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "idempotency_key": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9._:-]+$"
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "brief",
+                      "idempotency_key"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "ingest_supporting_text"
+                      },
+                      "title": {
+                        "type": "string",
+                        "minLength": 2,
+                        "maxLength": 200
+                      },
+                      "text": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 20000
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "idempotency_key": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9._:-]+$"
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "title",
+                      "text",
+                      "idempotency_key"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "ingest_release"
+                      },
+                      "url": {
+                        "type": "string",
+                        "maxLength": 2048,
+                        "format": "uri",
+                        "description": "Use a public HTTPS open.spotify.com album URL, including a single release album page. Other hosts and resource types fail the operation with 409."
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "idempotency_key": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9._:-]+$"
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "url",
+                      "idempotency_key"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "const": "verify_release"
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "maxLength": 2048,
+                        "format": "uri",
+                        "description": "Use a public HTTPS Spotify track URL. The URL parser also recognizes a single YouTube video, but the pilot ingestion operation rejects YouTube with 409. Albums use ingest_release."
+                      },
+                      "idempotency_key": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9._:-]+$"
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
                       },
                       "topics": {
-                        "type": "array",
                         "minItems": 1,
                         "maxItems": 10,
+                        "type": "array",
                         "items": {
                           "type": "string",
                           "enum": [
@@ -99,160 +880,96 @@
                       },
                       "direction": {
                         "type": "string",
-                        "maxLength": 4000,
-                        "description": "Stored customer direction. Metadata extraction does not interpret it as source facts."
+                        "maxLength": 4000
+                      },
+                      "action": {
+                        "type": "string",
+                        "const": "ingest"
                       }
-                    }
+                    },
+                    "required": [
+                      "url",
+                      "idempotency_key",
+                      "action"
+                    ],
+                    "additionalProperties": false
                   },
                   {
                     "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "action",
-                      "request_id"
-                    ],
                     "properties": {
                       "action": {
                         "type": "string",
                         "const": "read"
                       },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
                       "organization_id": {
                         "type": "string",
                         "format": "uuid",
-                        "description": "Optional organization that owns the private context. Current membership is checked."
-                      },
-                      "request_id": {
-                        "type": "string",
-                        "format": "uuid"
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
                       }
-                    }
+                    },
+                    "required": [
+                      "action",
+                      "request_id"
+                    ],
+                    "additionalProperties": false
                   },
                   {
                     "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "action",
-                      "request_id",
-                      "purpose"
-                    ],
                     "properties": {
                       "action": {
                         "type": "string",
                         "const": "brief"
                       },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      "additional_request_ids": {
+                        "default": [],
+                        "maxItems": 9,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "format": "uuid",
+                          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                        },
+                        "description": "Up to nine additional requests in the same workspace. Every selected request must be completed or partial. Duplicate IDs are read once."
+                      },
                       "organization_id": {
                         "type": "string",
                         "format": "uuid",
-                        "description": "Optional organization that owns the private context. Current membership is checked."
-                      },
-                      "request_id": {
-                        "type": "string",
-                        "format": "uuid"
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
                       },
                       "purpose": {
                         "type": "string",
                         "enum": [
                           "creative_direction",
-                          "playlist_pitch"
+                          "playlist_pitch",
+                          "company_onboarding"
                         ]
                       },
                       "max_characters": {
+                        "default": 12000,
                         "type": "integer",
                         "minimum": 1000,
                         "maximum": 32000,
-                        "default": 12000,
-                        "description": "Bounds selected evidence JSON and rendered Markdown independently. Does not cap the entire response, which also contains coverage and manifests. Documents are omitted whole to fit; omissions appear as coverage gaps."
-                      },
-                      "additional_request_ids": {
-                        "type": "array",
-                        "maxItems": 9,
-                        "default": [],
-                        "items": {
-                          "type": "string",
-                          "format": "uuid"
-                        },
-                        "description": "Additional saved requests in the same selected workspace. Duplicate IDs are read once. Every request must be completed or partial; unavailable, cancelled, or inaccessible requests reject the operation."
+                        "description": "Bounds selected evidence JSON and rendered Markdown independently, not the entire response. Whole documents are omitted to fit; inspect reported gaps."
                       }
-                    }
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
+                    },
                     "required": [
                       "action",
                       "request_id",
-                      "purpose",
-                      "idempotency_key"
+                      "purpose"
                     ],
-                    "properties": {
-                      "action": {
-                        "type": "string",
-                        "const": "save_brief"
-                      },
-                      "organization_id": {
-                        "type": "string",
-                        "format": "uuid",
-                        "description": "Optional organization that owns the private context. Current membership is checked."
-                      },
-                      "request_id": {
-                        "type": "string",
-                        "format": "uuid"
-                      },
-                      "purpose": {
-                        "type": "string",
-                        "enum": [
-                          "creative_direction",
-                          "playlist_pitch"
-                        ]
-                      },
-                      "max_characters": {
-                        "type": "integer",
-                        "minimum": 1000,
-                        "maximum": 32000,
-                        "default": 12000,
-                        "description": "Bounds selected evidence JSON and rendered Markdown independently. Does not cap the entire response, which also contains coverage and manifests. Documents are omitted whole to fit; omissions appear as coverage gaps."
-                      },
-                      "additional_request_ids": {
-                        "type": "array",
-                        "maxItems": 9,
-                        "default": [],
-                        "items": {
-                          "type": "string",
-                          "format": "uuid"
-                        },
-                        "description": "Additional saved requests in the same selected workspace. Duplicate IDs are read once. Every request must be completed or partial; unavailable, cancelled, or inaccessible requests reject the operation."
-                      },
-                      "idempotency_key": {
-                        "type": "string",
-                        "minLength": 1,
-                        "maxLength": 128,
-                        "pattern": "^[A-Za-z0-9._:-]+$",
-                        "description": "Identifies one exact compiled output. Identical output reuses the saved record; different output with this key returns a conflict. After context updates, use read_brief for the old copy or a new key for a new snapshot."
-                      }
-                    }
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "action",
-                      "brief_id"
-                    ],
-                    "properties": {
-                      "action": {
-                        "type": "string",
-                        "const": "read_brief"
-                      },
-                      "brief_id": {
-                        "type": "string",
-                        "format": "uuid"
-                      },
-                      "organization_id": {
-                        "type": "string",
-                        "format": "uuid",
-                        "description": "Optional organization that owns the private context. Current membership is checked."
-                      }
-                    }
+                    "additionalProperties": false
                   }
                 ]
               },
@@ -291,10 +1008,26 @@
         },
         "responses": {
           "202": {
-            "description": "Saved ingestion request; inspect request.status and use read to poll. Existing completed/partial requests return without provider work."
+            "description": "Accepted ingest, verify_release, or verify_release_tracks. Ingest returns request; verification returns request_id and verificationQueued, or request_id, subject_id and lookupQueued. Acceptance does not mean completion.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
           },
           "200": {
-            "description": "Read returns request. Brief returns request_id, request_ids, purpose, readiness, bounded Markdown text and text_characters, documents and their serialized characters count, missingTopics, guidance, gaps, request_coverage, and input_manifest. Each coverage entry includes requestId, readiness and missingTopics; overall readiness remains partial if any request has a gap or partial evidence. The manifest includes compilerVersion, method, requestIds, excludedTopics, and selected documents with documentId, resultId (null only if unavailable), subjectId, topic, version and sourceVersionIds. The result is returned without creating a saved brief record. Save/read brief return {snapshot: {id, created_at, purpose, state, superseded, brief}}. state is saved or unavailable; unavailable snapshots return brief: null. saved snapshots return the exact compiled response including its input manifest. Another workspace cannot read the record."
+            "description": "Action-specific result: request, page, execution(s), observation, review, saved snapshot, release-case result, module plan, or a compiled brief. Inspect readiness and coverage; 200 does not establish complete evidence.\n\nRead returns request. Brief returns request_id, request_ids, purpose, readiness, bounded Markdown text and text_characters, documents and their serialized characters count, missingTopics, guidance, gaps, request_coverage, and input_manifest. Each coverage entry includes requestId, readiness and missingTopics; overall readiness remains partial if any request has a gap or partial evidence. The manifest includes compilerVersion, method, requestIds, excludedTopics, and selected documents with documentId, resultId (null when not recorded), subjectId, topic, version and sourceVersionIds. The result is returned without creating a saved brief record. Save/read brief return {snapshot: {id, created_at, purpose, state, superseded, brief}}. state is saved or unavailable; unavailable snapshots return brief: null. saved snapshots return the exact compiled response including its input manifest. Another workspace cannot read the record. Company-onboarding briefs also include assessment_scope and next_steps. Other action groups return the action-specific result described above; a successful response does not establish complete coverage.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input"
@@ -304,6 +1037,118 @@
           },
           "409": {
             "description": "Operation failed, access unavailable, input/key conflict, or request not found. Retry ingestion with the same idempotency key after correcting the cause."
+          },
+          "403": {
+            "description": "The authenticated account cannot access the selected organization workspace."
+          }
+        },
+        "x-undocumented-actions": [
+          "plan_catalog_members"
+        ],
+        "x-recoup-mcp-operations": {
+          "list_release_cases": {
+            "name": "list_music_release_cases",
+            "readOnly": true
+          },
+          "read_release_case": {
+            "name": "read_music_release_case",
+            "readOnly": true
+          },
+          "read_release_case_review": {
+            "name": "read_music_release_case_review",
+            "readOnly": true
+          },
+          "review_release_case": {
+            "name": "record_music_release_case_review",
+            "readOnly": false
+          },
+          "save_brief": {
+            "name": "save_music_context_brief",
+            "readOnly": false
+          },
+          "read_brief": {
+            "name": "read_music_context_brief",
+            "readOnly": true
+          },
+          "plan": {
+            "name": "plan_music_context_research",
+            "readOnly": true
+          },
+          "list_executions": {
+            "name": "list_music_context_executions",
+            "readOnly": true
+          },
+          "list_catalog_members": {
+            "name": "list_music_context_catalog_members",
+            "readOnly": true
+          },
+          "list_release_tracks": {
+            "name": "list_music_context_release_tracks",
+            "readOnly": true
+          },
+          "read_release_track_observations": {
+            "name": "read_music_release_track_observations",
+            "readOnly": true
+          },
+          "review_release_track_identities": {
+            "name": "review_music_release_track_identities",
+            "readOnly": true
+          },
+          "verify_release_tracks": {
+            "name": "verify_music_release_tracks",
+            "readOnly": false
+          },
+          "expand_catalog_members": {
+            "name": "expand_music_context_catalog",
+            "readOnly": false
+          },
+          "read_execution": {
+            "name": "read_music_context_execution",
+            "readOnly": true
+          },
+          "ingest_catalog": {
+            "name": "import_catalog_context",
+            "readOnly": false
+          },
+          "ingest_artist": {
+            "name": "import_artist_context",
+            "readOnly": false
+          },
+          "ingest_songwriter_name": {
+            "name": "import_songwriter_context",
+            "readOnly": false
+          },
+          "ingest_company_name": {
+            "name": "import_music_company_context",
+            "readOnly": false
+          },
+          "ingest_campaign_brief": {
+            "name": "import_music_campaign_brief",
+            "readOnly": false
+          },
+          "ingest_supporting_text": {
+            "name": "import_music_supporting_text",
+            "readOnly": false
+          },
+          "ingest_release": {
+            "name": "import_music_release_context",
+            "readOnly": false
+          },
+          "verify_release": {
+            "name": "verify_music_release",
+            "readOnly": false
+          },
+          "ingest": {
+            "name": "import_song_context",
+            "readOnly": false
+          },
+          "read": {
+            "name": "read_music_context",
+            "readOnly": true
+          },
+          "brief": {
+            "name": "compile_music_context_brief",
+            "readOnly": true
           }
         }
       }

@@ -17,7 +17,7 @@
     "/api/catalogs/{catalogId}/streams": {
       "get": {
         "summary": "Read daily catalog streams",
-        "description": "Saved Luminate worldwide aggregate calendar-day streams across reporting DSPs, not Spotify-only or royalty statements. Includes current catalog recordings even when unmeasured, latest collection status, per-recording daily rows/retrieval time, missing dates, equal-period totals and growth. Newer source corrections win; historical versions remain stored. Missing days and changed provider recording identity suppress comparisons. Zero baseline yields null percentage. Page through pagination.has_more; summary_scope is page. Reads make no provider requests. Standard MCP: get_catalog_streams. Requires API and database feature release; unavailable to delegated OAuth. Unchanged daily values reuse their saved versions; new dates and corrections are appended, with fresh coverage/provenance receipts for every run.",
+        "description": "Saved Luminate worldwide aggregate calendar-day streams across reporting DSPs, not Spotify-only or royalty statements. Includes current catalog recordings even when unmeasured, latest collection status, per-recording daily rows/retrieval time, missing dates, equal-period totals and growth. Newer source corrections win; historical versions remain stored. Missing days and changed provider recording identity suppress comparisons. Zero baseline yields null percentage. Page through pagination.has_more; summary_scope is page. Reads make no provider requests. Standard MCP: get_catalog_streams. Requires API and database feature release; unavailable to delegated OAuth. Unchanged daily values reuse their saved versions; new dates and corrections are appended, with fresh coverage/provenance receipts for every run.\n\nUse paging for large catalogs. Accepted date ranges do not establish measurement completeness; inspect per-record coverage and missing data.",
         "security": [
           {
             "apiKeyAuth": []
@@ -54,9 +54,10 @@
             "schema": {
               "type": "integer",
               "minimum": 1,
-              "maximum": 31
+              "maximum": 366
             },
-            "description": "Equal period length; end dates are exclusive. Missing days suppress growth."
+            "description": "Comparison period length, 1–366 days; end dates are exclusive. Missing measurements suppress growth. This range does not imply complete backfill. The separate catalog playcount endpoint retains its 31-day limit.",
+            "example": 90
           },
           {
             "name": "page",
@@ -953,10 +954,14 @@
     },
     "/api/tasks": {
       "get": {
-        "description": "Retrieve scheduled tasks. Each task includes `recent_runs` (last 5 runs), `upcoming` (next scheduled run times) sourced directly from the Trigger.dev API, and `owner_email` when an account email exists for the task owner. Supports filtering by id, account_id, or artist_account_id.",
+        "description": "Retrieve scheduled tasks. Each task includes `recent_runs` (last 5 runs), `upcoming` (next scheduled run times) sourced directly from the Trigger.dev API, and `owner_email` when an account email exists for the task owner. Supports filtering by id, account_id, or artist_account_id.\n\nFetching one task by id performs the owner-plan preflight used by the runner and can return 402 plan_limit. Listing tasks remains distinct from permission to execute them.",
         "security": [
-          { "apiKeyAuth": [] },
-          { "bearerAuth": [] }
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
         ],
         "parameters": [
           {
@@ -1037,6 +1042,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "A single task fetched by id is blocked by its owner plan. Returns plan_limit with task_count or min_cadence and billingUrl. Ordinary listing does not apply this pre-run gate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanLimitError"
                 }
               }
             }
@@ -1153,8 +1168,12 @@
         "summary": "Update scheduled task",
         "description": "Update an existing scheduled task. Only the id field is required; any additional fields you include will be updated on the task. The response shape matches the GET endpoint (an array containing the updated task).",
         "security": [
-          { "apiKeyAuth": [] },
-          { "bearerAuth": [] }
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
         ],
         "requestBody": {
           "description": "JSON object with `id` and optional fields to merge onto the task.",
@@ -1307,8 +1326,12 @@
         "summary": "Delete scheduled task",
         "description": "Delete an existing scheduled task by `id`. Returns only the delete operation status.",
         "security": [
-          { "apiKeyAuth": [] },
-          { "bearerAuth": [] }
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
         ],
         "requestBody": {
           "description": "JSON object containing the task `id` to delete.",
@@ -1407,8 +1430,12 @@
         "summary": "Get task runs",
         "description": "Returns task runs for the authenticated account. When `runId` is provided, the response contains that single run (`runs` length 1) or 404 if not found. When `runId` is omitted, returns recent runs filtered by account context (default authenticated account, or `account_id` override when authorized).",
         "security": [
-          { "apiKeyAuth": [] },
-          { "bearerAuth": [] }
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
         ],
         "parameters": [
           {
@@ -1627,128 +1654,6 @@
         }
       }
     },
-    "/api/artists/{id}/pin": {
-      "post": {
-        "description": "Pin an artist. This updates the caller's pinned preference for the artist.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Artist ID.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Artist pinned.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PinArtistResponse"
-                }
-              }
-            }
-          },
-      "400": {
-        "description": "Bad request - invalid artist ID path parameter",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/PinArtistErrorResponse"
-            }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized - missing or invalid authentication"
-          },
-          "403": {
-            "description": "Forbidden - the authenticated account cannot access this artist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PinArtistErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Artist not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PinArtistErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "description": "Unpin an artist. This updates the caller's pinned preference for the artist.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Artist ID.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-      "200": {
-        "description": "Artist unpinned.",
-        "content": {
-          "application/json": {
-            "schema": {
-                  "$ref": "#/components/schemas/PinArtistResponse"
-                }
-          }
-        }
-      },
-      "400": {
-        "description": "Bad request - invalid artist ID path parameter",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/PinArtistErrorResponse"
-            }
-          }
-        }
-      },
-      "401": {
-        "description": "Unauthorized - missing or invalid authentication"
-      },
-          "403": {
-            "description": "Forbidden - the authenticated account cannot access this artist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PinArtistErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Artist not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PinArtistErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/artists/{id}": {
       "patch": {
         "description": "Update an artist. All body fields are optional, but at least one must be provided. Use this endpoint to set basic profile (name, image, label), AI instructions, knowledge base entries, social profile URLs (mapped by platform), and pinned state for the calling account.",
@@ -1771,6 +1676,20 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateArtistRequest"
+              },
+              "examples": {
+                "pin": {
+                  "summary": "Pin for the authenticated account",
+                  "value": {
+                    "pinned": true
+                  }
+                },
+                "unpin": {
+                  "summary": "Unpin for the authenticated account",
+                  "value": {
+                    "pinned": false
+                  }
+                }
               }
             }
           }
@@ -1912,7 +1831,7 @@
     },
     "/api/artists/{id}/profile": {
       "get": {
-        "description": "Public artist profile: the artist's name, image, connected social profiles, and linked catalogs in one call.\n\n**No authentication.** This endpoint is deliberately public and unbilled \u2014 it backs the shareable artist page at `chat.recoupable.dev/artists/{id}` and can be called without an API key. Only public fields are returned; account settings, instructions, and valuation data are never included.\n\nResponses are cacheable (`Cache-Control: public, s-maxage=300, stale-while-revalidate=600`), so a value may be up to a few minutes stale.",
+        "description": "Public artist profile: the artist's name, image, connected social profiles, and linked catalogs in one call.\n\n**No authentication.** This endpoint is deliberately public and unbilled — it backs the shareable artist page at `chat.recoupable.dev/artists/{id}` and can be called without an API key. Only public fields are returned; account settings, instructions, and valuation data are never included.\n\nResponses are cacheable (`Cache-Control: public, s-maxage=300, stale-while-revalidate=600`), so a value may be up to a few minutes stale.",
         "parameters": [
           {
             "name": "id",
@@ -1937,7 +1856,7 @@
             }
           },
           "404": {
-            "description": "No artist with this id. Returned for unknown ids and for accounts that are not artists \u2014 the two cases are deliberately indistinguishable, so the endpoint cannot be used to probe which account ids exist.",
+            "description": "No artist with this id. Returned for unknown ids and for accounts that are not artists — the two cases are deliberately indistinguishable, so the endpoint cannot be used to probe which account ids exist.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2131,8 +2050,12 @@
       "post": {
         "description": "Trigger scrape jobs for all social profiles linked to an artist. Returns a runId per social profile that you can poll for status and results via the [Scraper Results API](/api-reference/apify/scraper).",
         "security": [
-          { "apiKeyAuth": [] },
-          { "bearerAuth": [] }
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
         ],
         "requestBody": {
           "description": "Artist to scrape socials for",
@@ -2347,7 +2270,7 @@
         }
       },
       "post": {
-        "description": "Bulk create or fetch songs by ISRC. For each song, the API attempts to look up metadata via internal search. If no data is found, optional fallback fields (name, album, notes, artists) are used.",
+        "description": "**Availability: pending reconciliation.** This song-creation REST route has no matching route in the inspected API source. Resolve the supported creation contract separately; existing catalog or analysis operations do not establish this write route. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nBulk create or fetch songs by ISRC. For each song, the API attempts to look up metadata via internal search. If no data is found, optional fallback fields (name, album, notes, artists) are used.",
         "requestBody": {
           "description": "Array of songs to create or fetch",
           "required": true,
@@ -2380,7 +2303,8 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/accounts/{id}/catalogs": {
@@ -2466,8 +2390,12 @@
       "post": {
         "description": "Create a catalog, owned by the calling account or - with organization_id - by one of the caller's organizations, in which case every member of that organization sees it via [Get Catalogs](/api-reference/songs/catalogs). When materializing from a valuation snapshot, the endpoint also attaches the snapshot's canonical artist to the caller's roster: the measured songs' existing song-artist links are resolved to the dominant artist account, which is added to the caller's roster if not already present. The attach also runs on idempotent re-claims of an already-materialized snapshot. The roster attach always targets the calling account, even when the catalog is owned by an organization.",
         "security": [
-          { "apiKeyAuth": [] },
-          { "bearerAuth": [] }
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
         ],
         "requestBody": {
           "description": "Catalog to create. Provide name, snapshot, or both - at least one is required.",
@@ -3104,7 +3032,7 @@
     },
     "/api/catalogs/{catalogId}/valuations": {
       "get": {
-        "description": "Get the persisted valuation history for a catalog, latest first. A row is written each time a valuation band is computed for the whole catalog (valuation runs and measurement reads persist at most one row per catalog per day). Use limit=1 for the current value. History is what makes week-over-week deltas possible.",
+        "description": "**Availability: pending reconciliation.** Valuation-history readback has no matching route in the inspected API source. Valuation calculation and history persistence/readback are separate outcomes; calculation alone does not prove a saved, account-scoped history. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGet the persisted valuation history for a catalog, latest first. A row is written each time a valuation band is computed for the whole catalog (valuation runs and measurement reads persist at most one row per catalog per day). Use limit=1 for the current value. History is what makes week-over-week deltas possible.",
         "security": [
           {
             "apiKeyAuth": []
@@ -3178,7 +3106,8 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/catalogs/{catalogId}/measurements": {
@@ -3208,7 +3137,10 @@
             "in": "query",
             "description": "Act on behalf of this account (UUID). Only applicable when the authenticated account has access to the target account, for example an organization key acting for a member account. The catalog ownership check then runs against this account instead of the caller. Omitted: the caller's own account.",
             "required": false,
-            "schema": { "type": "string", "format": "uuid" }
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
           },
           {
             "name": "artist_account_id",
@@ -3675,9 +3607,15 @@
             "items": {
               "type": "object",
               "properties": {
-                "name": { "type": "string" },
-                "url": { "type": "string" },
-                "type": { "type": "string" }
+                "name": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -4038,7 +3976,7 @@
           },
           "songs": {
             "type": "array",
-            "description": "The catalog's songs crediting this artist, sorted by plays descending and capped at the top 50 \u2014 `song_count` reflects the full catalog and may exceed `songs.length`.",
+            "description": "The catalog's songs crediting this artist, sorted by plays descending and capped at the top 50 — `song_count` reflects the full catalog and may exceed `songs.length`.",
             "items": {
               "$ref": "#/components/schemas/ArtistPublicProfileSong"
             }
@@ -4081,7 +4019,7 @@
           },
           "est_value_usd": {
             "type": "number",
-            "description": "Estimated value of the song in USD \u2014 the mid point of the published Recoup valuation model applied to this song's plays."
+            "description": "Estimated value of the song in USD — the mid point of the published Recoup valuation model applied to this song's plays."
           }
         }
       },
@@ -4284,188 +4222,188 @@
         }
       },
       "RunValuationRequest": {
-      "type": "object",
-      "required": [
-        "spotify_artist_id"
-      ],
-      "properties": {
-        "spotify_artist_id": {
-          "type": "string",
-          "description": "The Spotify artist id to value (e.g. from a Spotify artist search). The endpoint resolves this artist's releases, measures them, and builds the catalog."
-        },
-        "organization_id": {
-          "type": "string",
-          "format": "uuid",
-          "description": "Optional. ID of an organization to own the resulting catalog instead of the calling account. Every member of that organization then sees it in their own [Get Catalogs](/api-reference/songs/catalogs) response. The caller must be a member of the organization; otherwise the request is rejected with 403. Credits are still spent by the calling account, and the searched artist is still linked to the caller's roster. Omit to own the catalog personally, which is the default."
-        },
-        "account_id": {
-          "type": "string",
-          "format": "uuid",
-          "description": "Optional. Act on behalf of this account (UUID). Only applicable when the authenticated account has access to the target account, for example an organization key acting for a member account. Every side effect of the run - the playcount snapshot, the catalog claim, the roster attach, and the report email - is scoped to this account instead of the caller. Omit to run for the caller's own account, which is the default."
-        }
-      }
-    },
-    "MusicRun": {
-      "type": "object",
-      "description": "One music generation, surfaced as a run. `id` is the generation's id: read the full record, including its logs, with [Get Music Generation](/api-reference/music/get).",
-      "properties": {
-        "id": {
-          "type": "string",
-          "format": "uuid",
-          "description": "The generation's id."
-        },
-        "kind": {
-          "type": "string",
-          "enum": [
-            "music"
-          ],
-          "description": "The run type."
-        },
-        "state": {
-          "type": "string",
-          "enum": [
-            "queued",
-            "generating",
-            "complete",
-            "failed"
-          ],
-          "description": "Domain phase of the run: `queued` before the workflow picks it up, `generating` while the model renders, then `complete` or `failed`."
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time",
-          "description": "When the generation was created."
-        },
-        "result": {
-          "type": "object",
-          "nullable": true,
-          "description": "Set once the generation completes; null before that.",
-          "properties": {
-            "generation_id": {
-              "type": "string",
-              "format": "uuid",
-              "description": "The completed generation."
-            },
-            "audio_url": {
-              "type": "string",
-              "description": "Playable audio URL."
-            }
+        "type": "object",
+        "required": [
+          "spotify_artist_id"
+        ],
+        "properties": {
+          "spotify_artist_id": {
+            "type": "string",
+            "description": "The Spotify artist id to value (e.g. from a Spotify artist search). The endpoint resolves this artist's releases, measures them, and builds the catalog."
+          },
+          "organization_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Optional. ID of an organization to own the resulting catalog instead of the calling account. Every member of that organization then sees it in their own [Get Catalogs](/api-reference/songs/catalogs) response. The caller must be a member of the organization; otherwise the request is rejected with 403. Credits are still spent by the calling account, and the searched artist is still linked to the caller's roster. Omit to own the catalog personally, which is the default."
+          },
+          "account_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Optional. Act on behalf of this account (UUID). Only applicable when the authenticated account has access to the target account, for example an organization key acting for a member account. Every side effect of the run - the playcount snapshot, the catalog claim, the roster attach, and the report email - is scoped to this account instead of the caller. Omit to run for the caller's own account, which is the default."
           }
         }
-      }
-    },
-    "ValuationRun": {
-      "type": "object",
-      "description": "One background run. `id` is opaque; `state` is a domain phase, not a storage value: `queued` (capture accepted, not yet scraping), `measuring` (capture in flight, or finished moments ago and being claimed), `claimed` (catalog materialized - `result.catalog_id` is set), `failed` (the capture finished but no catalog was claimed, or the capture itself failed).",
-      "properties": {
-        "id": {
-          "type": "string",
-          "format": "uuid",
-          "description": "Opaque run id. Do not infer anything from its format; it is stable for polling a single run across requests."
-        },
-        "kind": {
-          "type": "string",
-          "enum": [
-            "valuation"
-          ],
-          "description": "The run type."
-        },
-        "state": {
-          "type": "string",
-          "enum": [
-            "queued",
-            "measuring",
-            "claimed",
-            "failed"
-          ],
-          "description": "Domain phase of the run."
-        },
-        "album_count": {
-          "type": "integer",
-          "description": "Number of releases in the run's capture scope."
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time",
-          "description": "When the run was created."
-        },
-        "result": {
-          "type": "object",
-          "nullable": true,
-          "description": "Set once the run is claimed; null before that.",
-          "properties": {
-            "catalog_id": {
-              "type": "string",
-              "format": "uuid",
-              "description": "The materialized catalog. Read its value band via [Get Catalog Measurements](/api-reference/songs/catalog-measurements)."
-            }
-          }
-        }
-      }
-    },
-    "GetRunsResponse": {
-      "type": "object",
-      "description": "The calling account's runs of the requested kind, newest first.",
-      "properties": {
-        "status": {
-          "type": "string",
-          "enum": [
-            "success",
-            "error"
-          ],
-          "description": "Status of the request"
-        },
-        "runs": {
-          "type": "array",
-          "description": "Runs, newest first. Empty when the account has never run one of this kind. The item shape follows the requested `kind`.",
-          "items": {
-            "oneOf": [
-              {
-                "title": "Valuation run",
-                "$ref": "#/components/schemas/ValuationRun"
+      },
+      "MusicRun": {
+        "type": "object",
+        "description": "One music generation, surfaced as a run. `id` is the generation's id: read the full record, including its logs, with [Get Music Generation](/api-reference/music/get).",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The generation's id."
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "music"
+            ],
+            "description": "The run type."
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "generating",
+              "complete",
+              "failed"
+            ],
+            "description": "Domain phase of the run: `queued` before the workflow picks it up, `generating` while the model renders, then `complete` or `failed`."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the generation was created."
+          },
+          "result": {
+            "type": "object",
+            "nullable": true,
+            "description": "Set once the generation completes; null before that.",
+            "properties": {
+              "generation_id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "The completed generation."
               },
-              {
-                "title": "Music run",
-                "$ref": "#/components/schemas/MusicRun"
+              "audio_url": {
+                "type": "string",
+                "description": "Playable audio URL."
               }
-            ]
+            }
           }
-        },
-        "error": {
-          "type": "string",
-          "description": "Error message (only present if status is 'error')"
         }
-      }
-    },
-    "RunValuationResponse": {
-      "type": "object",
-      "description": "Result of a valuation run: the materialized catalog and its estimated value band.",
-      "properties": {
-        "status": {
-          "type": "string",
-          "enum": [
-            "success",
-            "error"
-          ],
-          "description": "Status of the request"
-        },
-        "catalog": {
-          "$ref": "#/components/schemas/Catalog"
-        },
-        "band": {
-          "$ref": "#/components/schemas/ValuationBand"
-        },
-        "songs_measured": {
-          "type": "integer",
-          "description": "Number of tracks with a captured play count that were materialized into the catalog."
-        },
-        "error": {
-          "type": "string",
-          "description": "Error message (only present if status is 'error')"
+      },
+      "ValuationRun": {
+        "type": "object",
+        "description": "One background run. `id` is opaque; `state` is a domain phase, not a storage value: `queued` (capture accepted, not yet scraping), `measuring` (capture in flight, or finished moments ago and being claimed), `claimed` (catalog materialized - `result.catalog_id` is set), `failed` (the capture finished but no catalog was claimed, or the capture itself failed).",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Opaque run id. Do not infer anything from its format; it is stable for polling a single run across requests."
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "valuation"
+            ],
+            "description": "The run type."
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "measuring",
+              "claimed",
+              "failed"
+            ],
+            "description": "Domain phase of the run."
+          },
+          "album_count": {
+            "type": "integer",
+            "description": "Number of releases in the run's capture scope."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the run was created."
+          },
+          "result": {
+            "type": "object",
+            "nullable": true,
+            "description": "Set once the run is claimed; null before that.",
+            "properties": {
+              "catalog_id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "The materialized catalog. Read its value band via [Get Catalog Measurements](/api-reference/songs/catalog-measurements)."
+              }
+            }
+          }
         }
-      }
-    },
-    "CreateCatalogRequest": {
+      },
+      "GetRunsResponse": {
+        "type": "object",
+        "description": "The calling account's runs of the requested kind, newest first.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "runs": {
+            "type": "array",
+            "description": "Runs, newest first. Empty when the account has never run one of this kind. The item shape follows the requested `kind`.",
+            "items": {
+              "oneOf": [
+                {
+                  "title": "Valuation run",
+                  "$ref": "#/components/schemas/ValuationRun"
+                },
+                {
+                  "title": "Music run",
+                  "$ref": "#/components/schemas/MusicRun"
+                }
+              ]
+            }
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message (only present if status is 'error')"
+          }
+        }
+      },
+      "RunValuationResponse": {
+        "type": "object",
+        "description": "Result of a valuation run: the materialized catalog and its estimated value band.",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "catalog": {
+            "$ref": "#/components/schemas/Catalog"
+          },
+          "band": {
+            "$ref": "#/components/schemas/ValuationBand"
+          },
+          "songs_measured": {
+            "type": "integer",
+            "description": "Number of tracks with a captured play count that were materialized into the catalog."
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message (only present if status is 'error')"
+          }
+        }
+      },
+      "CreateCatalogRequest": {
         "type": "object",
         "description": "Request body for creating a catalog. At least one of name or snapshot must be supplied. The catalog is owned by the authenticated account unless organization_id names an organization to own it instead.",
         "properties": {
@@ -5293,6 +5231,10 @@
             "format": "uuid",
             "description": "UUID of the associated artist account",
             "example": "1873859c-dd37-4e9a-9bac-80d35a1b2c3d"
+          },
+          "model": {
+            "type": "string",
+            "description": "Optional AI model ID. Omit it to use the configured default. Empty strings are accepted by input validation; select a supported model when explicitly overriding."
           }
         }
       },
@@ -6062,12 +6004,30 @@
             "type": "object",
             "description": "Metadata about the song clip used in the final composition.",
             "properties": {
-              "songTitle": { "type": "string" },
-              "songFilename": { "type": "string" },
-              "startSeconds": { "type": "number", "description": "Offset into the source song where the clip starts." },
-              "durationSeconds": { "type": "number", "description": "Length of the audio clip in seconds." },
-              "clipLyrics": { "type": "string", "nullable": true, "description": "Lyrics for the chosen clip, when available." },
-              "clipMood": { "type": "string", "nullable": true, "description": "Inferred mood for the chosen clip, when available." }
+              "songTitle": {
+                "type": "string"
+              },
+              "songFilename": {
+                "type": "string"
+              },
+              "startSeconds": {
+                "type": "number",
+                "description": "Offset into the source song where the clip starts."
+              },
+              "durationSeconds": {
+                "type": "number",
+                "description": "Length of the audio clip in seconds."
+              },
+              "clipLyrics": {
+                "type": "string",
+                "nullable": true,
+                "description": "Lyrics for the chosen clip, when available."
+              },
+              "clipMood": {
+                "type": "string",
+                "nullable": true,
+                "description": "Inferred mood for the chosen clip, when available."
+              }
             }
           }
         }
@@ -6247,8 +6207,13 @@
             "description": "Task output data. Only present when retrieving by runId, and only populated when `status` is `COMPLETED`. Shape varies by `taskIdentifier`. The `create-content` task returns the schema below; other tasks return their own.",
             "nullable": true,
             "oneOf": [
-              { "$ref": "#/components/schemas/CreateContentRunOutput" },
-              { "type": "object", "description": "Generic task output (for tasks not yet schema'd)" }
+              {
+                "$ref": "#/components/schemas/CreateContentRunOutput"
+              },
+              {
+                "type": "object",
+                "description": "Generic task output (for tasks not yet schema'd)"
+              }
             ]
           },
           "error": {
