@@ -114,7 +114,15 @@ Unpublish with `action: "unpublish"`, or `unpublish_site`. Agents should publish
 
 ## Delete and cancel generation
 
-Delete only when explicitly instructed. Send `DELETE /api/sites/{id}` with the current `revision`. Include `generationToken` when cancelling a known in-progress generation. The token must belong to this site and caller; cancellation is attempted before deletion. Omitting it does not request cancellation of every running job.
+Delete only when explicitly instructed. Send `PATCH /api/sites/{id}` with `action: "delete"` and the current `revision` in its JSON request body (Content-Type: application/json). Include `generationToken` when cancelling a known in-progress generation. The token must belong to this site and caller; cancellation is attempted before deletion. Omitting it does not request cancellation of every running job.
+
+For example, use the current saved revision and the token returned by a known generation:
+
+```json
+{"action":"delete","revision":3,"generationToken":"TOKEN_FROM_GENERATION"}
+```
+
+Omit generationToken when no known generation needs cancellation.
 
 Deletion checks workspace access and revision, then returns `{ "deleted": true, "id": "..." }`. A stale revision returns 409; reload before retrying. Unpublish with `action: "unpublish"` when the draft should remain available.
 

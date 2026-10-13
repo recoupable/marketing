@@ -40,6 +40,9 @@ twitter_default = int(re.search(r'\d+', twitter_row.split('|')[-2]).group())
 releases = specs['releases.json']
 resume = research['paths']['/api/chat/{chatId}/stream']['get']
 callback = specs['content.json']['components']['securitySchemes'].get('callbackSecret', {})
+sites_path = root / 'content/docs/source/api-reference/sites/overview.mdx'
+deletion_section = sites_path.read_text().split('## Delete and cancel generation')[1].split('\n## ')[0]
+deletion_json = re.search(r'```json\n(.*?)\n```', deletion_section, re.DOTALL)
 record = {
     'evidence': 'Provider-free request syntax and static contract claims only. URLs are placeholders; no provider, payment or customer workflow is exercised.',
     'sourceRepository': 'recoupable/marketing',
@@ -69,8 +72,11 @@ record = {
         'taskModelRequired': 'model' in releases['components']['schemas']['CreateTaskRequest'].get('required', []),
         'taskReadResponses': sorted(releases['paths']['/api/tasks']['get']['responses']),
         'callbackHeader': callback.get('name'),
+        'siteDeleteMethods': re.findall(r'`(GET|POST|PATCH|PUT|DELETE) /api/sites/\{id\}`', deletion_section),
+        'siteDeleteExample': json.loads(deletion_json[1]) if deletion_json else None,
     },
 }
+record['sourceHashes'][str(sites_path.relative_to(root))] = hashlib.sha256(sites_path.read_bytes()).hexdigest()
 context = specs['context.json']['paths']['/api/context']['post']
 context_record = {
     'evidence': record['evidence'],
