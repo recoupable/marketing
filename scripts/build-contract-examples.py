@@ -12,6 +12,23 @@ args = parser.parse_args()
 root = Path(__file__).resolve().parent.parent
 source = root / 'content/docs/source/api-reference/openapi'
 specs = {name: json.loads((source / name).read_text()) for name in ['accounts.json', 'content.json', 'research.json', 'releases.json', 'social.json', 'context.json']}
+context_operation = specs['context.json']['paths']['/api/context']['post']
+mcp = context_operation['x-recoup-mcp-operations']
+table = '\n'.join([
+    '| REST action | Delegated OAuth tool | Classification |',
+    '| --- | --- | --- |',
+    *[f'| `{action}` | `{item["name"]}` | {"Read-only hint" if item["readOnly"] else "Writes or dispatches"} |' for action, item in mcp.items()],
+])
+description = context_operation['description']
+table_start = '| REST action | Delegated OAuth tool | Classification |'
+if table_start not in description:
+    raise SystemExit('Context description is missing the generated MCP mapping table.')
+expected_description = description.split(table_start)[0] + table
+if args.check and description != expected_description:
+    raise SystemExit('Stale Context MCP mapping table; regenerate it from the canonical metadata.')
+if not args.check and description != expected_description:
+    context_operation['description'] = expected_description
+    (source / 'context.json').write_text(json.dumps(specs['context.json'], indent=2, ensure_ascii=False) + '\n')
 content = specs['content.json']['components']['schemas']
 research = specs['research.json']
 social = specs['social.json']['paths']['/api/socials/{id}/scrape']['post']
@@ -49,20 +66,31 @@ record = {
         'resumeResponses': sorted(resume['responses']),
         'stopResponses': sorted(research['paths']['/api/chat/{chatId}/stop']['post']['responses']),
         'taskModelType': releases['components']['schemas']['CreateTaskRequest']['properties'].get('model', {}).get('type'),
+        'taskModelRequired': 'model' in releases['components']['schemas']['CreateTaskRequest'].get('required', []),
         'taskReadResponses': sorted(releases['paths']['/api/tasks']['get']['responses']),
         'callbackHeader': callback.get('name'),
-        'contextRequestSchemas': specs['context.json']['paths']['/api/context']['post']['requestBody']['content']['application/json']['schema']['oneOf'],
-        'contextUndocumentedActions': specs['context.json']['paths']['/api/context']['post']['x-undocumented-actions'],
-        'contextMcpOperations': specs['context.json']['paths']['/api/context']['post']['x-recoup-mcp-operations'],
     },
 }
-serialized = json.dumps(record, indent=2) + '\n'
-paths = [root / 'content/docs/contracts/example-cases.json', Path(args.api).resolve() / 'lib/contracts/fixtures/published-docs.json']
-for path in paths:
-    if args.check:
-        if not path.is_file() or path.read_text() != serialized:
-            raise SystemExit(f'Stale documentation example fixture: {path}. Refresh and test the coordinated API fixture.')
-    else:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(serialized)
+context = specs['context.json']['paths']['/api/context']['post']
+context_record = {
+    'evidence': record['evidence'],
+    'sourceHash': record['sourceHashes']['content/docs/source/api-reference/openapi/context.json'],
+    'requestSchemas': context['requestBody']['content']['application/json']['schema']['oneOf'],
+    'undocumentedActions': context['x-undocumented-actions'],
+    'mcpOperations': context['x-recoup-mcp-operations'],
+}
+api = Path(args.api).resolve()
+outputs = [
+    (record, [root / 'content/docs/contracts/example-cases.json', api / 'lib/contracts/fixtures/published-docs.json']),
+    (context_record, [root / 'content/docs/contracts/context-contract.json', api / 'lib/contracts/fixtures/context-contract.json']),
+]
+for item, paths in outputs:
+    serialized = json.dumps(item, indent=2) + '\n'
+    for path in paths:
+        if args.check:
+            if not path.is_file() or path.read_text() != serialized:
+                raise SystemExit(f'Stale documentation example fixture: {path}. Refresh and test the coordinated API fixture.')
+        else:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(serialized)
 print('Verified shared examples' if args.check else 'Updated shared examples; run API publishedDocs tests before committing')

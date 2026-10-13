@@ -23,6 +23,7 @@ The caller is derived from authentication. Do not send an `account_id`. An optio
 | `PATCH /api/sites/{id}` action `generate` | `generate_site` | Generate from an optional customer-selected pitch; otherwise select a concept |
 | `PATCH /api/sites/{id}` action `publish` | `publish_site` | Saved draft becomes public |
 | `PATCH /api/sites/{id}` action `unpublish` | `unpublish_site` | Public snapshot removed, draft retained |
+| `PATCH /api/sites/{id}` action `delete` | `delete_site` | `{ "deleted": true, "id": "..." }` |
 | `GET /api/sites/{id}/signups` | `get_site_signups` | `{ signups: [{ email, created_at }] }`, up to 10,000 |
 | `POST /api/sites/assets` | `upload_site_asset` | `{ asset: { url, name, type } }` |
 

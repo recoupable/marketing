@@ -874,7 +874,7 @@
             }
           },
           "400": {
-            "description": "Invalid chat ID or startIndex.",
+            "description": "Invalid chatId UUID or malformed startIndex. When supplied, startIndex must parse to a non-negative integer; blank, nonnumeric, fractional and negative values fail validation. Authentication/ownership is checked first. Validation errors include status: error, error and missing_fields when a validation path is available.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4468,7 +4468,8 @@
                 "string",
                 "integer"
               ]
-            }
+            },
+            "description": "Optional validation path for the first rejected field. String entries identify object/query fields; integer entries identify array positions. An empty path can represent validation of the path value itself. Lookup or workflow errors can omit this field."
           }
         }
       },

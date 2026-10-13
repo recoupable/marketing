@@ -69,6 +69,17 @@ class InventoryTests(unittest.TestCase):
             spec_path.write_text(json.dumps(spec))
             subprocess.run(command, env=env, check=True, capture_output=True)
 
+            spec['paths']['/api/missing/'] = spec['paths'].pop('/api/missing')
+            spec['paths']['/api/missing/']['get'].update({
+                'x-recoup-availability': 'retired',
+                'description': '**Status:** retired. Keep the disposition ticket.',
+            })
+            spec_path.write_text(json.dumps(spec))
+            subprocess.run(command, env=env, check=True, capture_output=True)
+            record = json.loads((contracts / 'operation-inventory.json').read_text())
+            missing = next(row for row in record['operations'] if row['path'] == '/api/missing')
+            self.assertEqual(missing['classification'], 'retired')
+
 
 if __name__ == '__main__':
     unittest.main()
