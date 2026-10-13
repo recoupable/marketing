@@ -53,6 +53,7 @@ record = {
         'callbackHeader': callback.get('name'),
         'contextRequestSchemas': specs['context.json']['paths']['/api/context']['post']['requestBody']['content']['application/json']['schema']['oneOf'],
         'contextUndocumentedActions': specs['context.json']['paths']['/api/context']['post']['x-undocumented-actions'],
+        'contextMcpOperations': specs['context.json']['paths']['/api/context']['post']['x-recoup-mcp-operations'],
     },
 }
 serialized = json.dumps(record, indent=2) + '\n'

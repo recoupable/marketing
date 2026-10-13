@@ -55,6 +55,19 @@ class InventoryTests(unittest.TestCase):
             self.assertEqual(operations[('OPTIONS', '/api/content/lipsync')]['classification'], 'internal')
             self.assertEqual(operations[('POST', '/api/content/lipsync')]['classification'], 'pending')
             subprocess.run([*command, '--check'], env=env, check=True, capture_output=True)
+            spec_path = specs / 'fixture.json'
+            spec = json.loads(spec_path.read_text())
+            spec['paths']['/api/missing'] = {'get': {'description': 'Read the promised feature.'}}
+            spec_path.write_text(json.dumps(spec))
+            failed = subprocess.run(command, env=env, capture_output=True, text=True)
+            self.assertNotEqual(failed.returncode, 0)
+            self.assertIn('GET /api/missing', failed.stderr)
+            spec['paths']['/api/missing']['get'].update({
+                'x-recoup-availability': 'pending',
+                'description': '**Availability: pending reconciliation.** Retain the feature ticket.',
+            })
+            spec_path.write_text(json.dumps(spec))
+            subprocess.run(command, env=env, check=True, capture_output=True)
 
 
 if __name__ == '__main__':

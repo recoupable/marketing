@@ -1890,7 +1890,7 @@
     },
     "/api/music/compose": {
       "post": {
-        "description": "Generate a song from a text prompt or a composition plan. The prompt can describe mood, genre, instruments, lyrics, and structure. Alternatively, pass a full composition_plan for fine-grained control over sections, styles, and lyrics. Returns binary audio in the requested format (default MP3).",
+        "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGenerate a song from a text prompt or a composition plan. The prompt can describe mood, genre, instruments, lyrics, and structure. Alternatively, pass a full composition_plan for fine-grained control over sections, styles, and lyrics. Returns binary audio in the requested format (default MP3).",
         "security": [
           {
             "apiKeyAuth": []
@@ -1960,12 +1960,13 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/music/compose/detailed": {
       "post": {
-        "description": "Generate a song with metadata and optional word-level timestamps. Returns a multipart/mixed response: the first part is JSON metadata (song ID, duration, seed, etc.) and the second part is binary audio. Use with_timestamps to get precise timing for each word in the lyrics.",
+        "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGenerate a song with metadata and optional word-level timestamps. Returns a multipart/mixed response: the first part is JSON metadata (song ID, duration, seed, etc.) and the second part is binary audio. Use with_timestamps to get precise timing for each word in the lyrics.",
         "security": [
           {
             "apiKeyAuth": []
@@ -2027,12 +2028,13 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/music/stream": {
       "post": {
-        "description": "Generate a song and stream audio chunks in real time. Use this endpoint when you want to begin playback before the full song is generated. The response streams binary audio chunks as they are produced.",
+        "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGenerate a song and stream audio chunks in real time. Use this endpoint when you want to begin playback before the full song is generated. The response streams binary audio chunks as they are produced.",
         "security": [
           {
             "apiKeyAuth": []
@@ -2102,12 +2104,13 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/music/plan": {
       "post": {
-        "description": "Create a composition plan from a text prompt. A composition plan is a structured representation of a song — sections, styles, lyrics, and durations — that you can review and tweak before passing to the compose endpoint. This endpoint is free and does not consume credits.",
+        "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nCreate a composition plan from a text prompt. A composition plan is a structured representation of a song — sections, styles, lyrics, and durations — that you can review and tweak before passing to the compose endpoint. This endpoint is free and does not consume credits.",
         "security": [
           {
             "apiKeyAuth": []
@@ -2168,12 +2171,13 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/music/video-to-music": {
       "post": {
-        "description": "Generate background music from video files. Upload 1–10 video files via multipart/form-data (max 200 MB total). The AI analyzes the video content and generates music that matches the mood, pacing, and style. Optionally provide a text description and style tags to guide the output.",
+        "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGenerate background music from video files. Upload 1–10 video files via multipart/form-data (max 200 MB total). The AI analyzes the video content and generates music that matches the mood, pacing, and style. Optionally provide a text description and style tags to guide the output.",
         "security": [
           {
             "apiKeyAuth": []
@@ -2280,12 +2284,13 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/music/stem-separation": {
       "post": {
-        "description": "Separate an audio file into individual stems (vocals, drums, bass, etc.). Upload an audio file via multipart/form-data. Choose between two-stem separation (vocals + instrumental) or six-stem separation (vocals, drums, bass, guitar, piano, other). Returns a ZIP archive containing the separated stems.",
+        "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nSeparate an audio file into individual stems (vocals, drums, bass, etc.). Upload an audio file via multipart/form-data. Choose between two-stem separation (vocals + instrumental) or six-stem separation (vocals, drums, bass, guitar, piano, other). Returns a ZIP archive containing the separated stems.",
         "security": [
           {
             "apiKeyAuth": []
@@ -2375,7 +2380,8 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/content/lipsync": {

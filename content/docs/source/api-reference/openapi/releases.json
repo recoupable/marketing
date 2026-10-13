@@ -2270,7 +2270,7 @@
         }
       },
       "post": {
-        "description": "Bulk create or fetch songs by ISRC. For each song, the API attempts to look up metadata via internal search. If no data is found, optional fallback fields (name, album, notes, artists) are used.",
+        "description": "**Availability: pending reconciliation.** This song-creation REST route has no matching route in the inspected API source. Resolve the supported creation contract separately; existing catalog or analysis operations do not establish this write route. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nBulk create or fetch songs by ISRC. For each song, the API attempts to look up metadata via internal search. If no data is found, optional fallback fields (name, album, notes, artists) are used.",
         "requestBody": {
           "description": "Array of songs to create or fetch",
           "required": true,
@@ -2303,7 +2303,8 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/accounts/{id}/catalogs": {
@@ -3031,7 +3032,7 @@
     },
     "/api/catalogs/{catalogId}/valuations": {
       "get": {
-        "description": "Get the persisted valuation history for a catalog, latest first. A row is written each time a valuation band is computed for the whole catalog (valuation runs and measurement reads persist at most one row per catalog per day). Use limit=1 for the current value. History is what makes week-over-week deltas possible.",
+        "description": "**Availability: pending reconciliation.** Valuation-history readback has no matching route in the inspected API source. Valuation calculation and history persistence/readback are separate outcomes; calculation alone does not prove a saved, account-scoped history. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGet the persisted valuation history for a catalog, latest first. A row is written each time a valuation band is computed for the whole catalog (valuation runs and measurement reads persist at most one row per catalog per day). Use limit=1 for the current value. History is what makes week-over-week deltas possible.",
         "security": [
           {
             "apiKeyAuth": []
@@ -3105,7 +3106,8 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/catalogs/{catalogId}/measurements": {

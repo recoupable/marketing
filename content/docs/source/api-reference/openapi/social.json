@@ -124,7 +124,7 @@
     },
     "/api/comments": {
       "get": {
-        "description": "Retrieve comments associated with an artist or a specific post, with support for pagination. This endpoint returns raw comment data including the comment text, associated post, and commenter's social profile reference.",
+        "description": "**Availability: pending reconciliation.** The legacy comments read route has no matching route in the inspected API source. The comments and fan-recency workflow remains a retained product outcome pending its public read integration. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nRetrieve comments associated with an artist or a specific post, with support for pagination. This endpoint returns raw comment data including the comment text, associated post, and commenter's social profile reference.",
         "parameters": [
           {
             "name": "artist_account_id",
@@ -188,7 +188,8 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/spotify/search": {

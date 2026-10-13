@@ -35,5 +35,7 @@ the current provider-neutral Context schemas without calling services, set
 `RECOUP_CONTEXT_SCHEMA_OUTPUT=/tmp/context-requests.json` while running
 `lib/contracts/__tests__/contextContract.test.ts`; use that union in `context.json`,
 retain semantic restrictions in descriptions, and refresh the shared fixture.
+Set `RECOUP_CONTEXT_MCP_OUTPUT=/tmp/context-mcp.json` in the same test to export
+the static delegated names and permission annotations; retain the discovery caveat.
 Record actions omitted from the reference explicitly until their provider-neutral
 public contract is stable; omission is not an API access restriction. Exported schemas do not prove hosted workflow acceptance.

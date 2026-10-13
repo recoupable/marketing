@@ -69,7 +69,7 @@ def unmatched_operations(docs, implemented):
     operations = []
     for key in sorted(set(docs) - implemented):
         method, route = key.split(' ', 1)
-        retired = route.endswith('/pin')
+        retired = route == '/api/artists/{id}/pin'
         operations.append({
             'method': method, 'path': route, 'implementation': None, 'documentation': docs[key],
             'classification': 'retired' if retired else 'pending',
@@ -102,6 +102,12 @@ def main():
     dispositions = json.loads((out / 'operation-dispositions.json').read_text())
     operations = implementation_operations(api, docs, dispositions)
     implemented = {item['method'] + ' ' + item['path'] for item in operations}
+    for key in sorted(set(docs) - implemented):
+        method, route = key.split(' ', 1)
+        operation = json.loads((root / docs[key]).read_text())['paths'][route][method.lower()]
+        availability = operation.get('x-recoup-availability')
+        if availability not in ('pending', 'retired') or ('availability: ' + availability) not in operation.get('description', '').lower():
+            raise SystemExit('Unmatched documentation needs explicit pending/retired availability: ' + key)
     registrations = static_mcp_registrations(api)
     record = {
         'apiSourceCommit': subprocess.check_output(['git', '-C', str(api), 'rev-parse', 'HEAD'], text=True).strip(),

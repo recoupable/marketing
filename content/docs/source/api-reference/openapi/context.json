@@ -32,7 +32,7 @@
       "post": {
         "operationId": "contextOperation",
         "summary": "Ingest, read, or compile context briefs",
-        "description": "Save and reuse evidence in an authorized Recoup workspace. **Preview: this reference is verified against API source, not a completed hosted acceptance test.** Actions require the corresponding database and workflow release; verification actions also require their feature to be enabled. Do not infer provider readiness, complete coverage, or a successful workflow from an accepted request schema.\n\n### Create context\n\n`ingest` creates or reuses a Spotify-track request and dispatches its durable workflow (202). The parser recognizes YouTube URLs, but ingestion still rejects them in this pilot. `ingest_release` stores a Spotify album locator; it does not automatically verify the release. `ingest_catalog` and `ingest_artist` refer to accessible Recoup records. `ingest_songwriter_name`, `ingest_company_name`, `ingest_campaign_brief`, and `ingest_supporting_text` store submitted context (200). Names and customer text are not verified identities or facts. Reuse an idempotency key only for the same intended input.\n\n### Read, plan and inspect\n\n`read` reads one request. `plan` plans modules from stored context; a plan is not authorization to collect data. `list_executions` and `read_execution` expose execution records. `list_catalog_members` pages saved members; `expand_catalog_members` materializes a bounded member page. These operations return 200. Request IDs, subject IDs and execution IDs refer to different records; use the IDs returned by the corresponding read rather than substituting an account ID. Catalog membership does not establish rights ownership. The implementation also accepts plan_catalog_members, which is intentionally omitted from this preview request union pending a provider-neutral public module contract. This is a remaining documentation and API design gap, not an access restriction.\n\n### Release verification and review\n\n`verify_release` and `verify_release_tracks` enqueue enabled verification workflows (202); disabled features or unmet readiness conditions return 409. `list_release_tracks`, `read_release_track_observations`, and `review_release_track_identities` inspect saved slots and identity evidence (200). Inspect the returned readiness, coverage and unresolved identity state before using a recording match. `list_release_cases`, `read_release_case`, `read_release_case_review`, and `review_release_case` read or record release-case review. A review requires the current fingerprint, a decision, and an idempotency key; it does not silently rewrite source evidence.\n\n### Compile and save briefs\n\n`brief` compiles evidence from up to ten completed or partial requests in one workspace without provider or model calls. Purposes are `creative_direction`, `playlist_pitch`, and `company_onboarding`. Creative direction prioritizes lyrics and artwork; playlist pitching prioritizes catalog/audio metadata. Inspect readiness, request_coverage, selected input versions and gaps. Briefs are evidence packets, not finished creative concepts or outreach. `save_brief` freezes the server-compiled output, and `read_brief` retrieves that snapshot without recompilation. Newer evidence can supersede a snapshot without rewriting it; withdrawn evidence or removed scope can withhold its payload. All three actions return 200.\n\n### Scope and failures\n\nAuthentication determines the account. Optional organization_id selects an authorized organization workspace; request and subject ownership are checked again by the operation. Invalid request syntax returns 400, missing authentication 401, rejected organization access 403, and operation conflicts, unavailable evidence or disabled verification 409. No action accepts a caller-supplied account identity. Local schema tests do not establish hosted availability.",
+        "description": "Save and reuse evidence in an authorized Recoup workspace. **Preview: this reference is verified against API source, not a completed hosted acceptance test.** Actions require the corresponding database and workflow release; verification actions also require their feature to be enabled. Do not infer provider readiness, complete coverage, or a successful workflow from an accepted request schema.\n\n### Create context\n\n`ingest` creates or reuses a Spotify-track request and dispatches its durable workflow (202). The parser recognizes YouTube URLs, but ingestion still rejects them in this pilot. `ingest_release` stores a Spotify album locator; it does not automatically verify the release. `ingest_catalog` and `ingest_artist` refer to accessible Recoup records. `ingest_songwriter_name`, `ingest_company_name`, `ingest_campaign_brief`, and `ingest_supporting_text` store submitted context (200). Names and customer text are not verified identities or facts. Reuse an idempotency key only for the same intended input.\n\n### Read, plan and inspect\n\n`read` reads one request. `plan` plans modules from stored context; a plan is not authorization to collect data. `list_executions` and `read_execution` expose execution records. `list_catalog_members` pages saved members; `expand_catalog_members` materializes a bounded member page. These operations return 200. Request IDs, subject IDs and execution IDs refer to different records; use the IDs returned by the corresponding read rather than substituting an account ID. Catalog membership does not establish rights ownership. The implementation also accepts plan_catalog_members, which is intentionally omitted from this preview request union pending a provider-neutral public module contract. This is a remaining documentation and API design gap, not an access restriction.\n\n### Release verification and review\n\n`verify_release` and `verify_release_tracks` enqueue enabled verification workflows (202); disabled features or unmet readiness conditions return 409. `list_release_tracks`, `read_release_track_observations`, and `review_release_track_identities` inspect saved slots and identity evidence (200). Inspect the returned readiness, coverage and unresolved identity state before using a recording match. `list_release_cases`, `read_release_case`, `read_release_case_review`, and `review_release_case` read or record release-case review. A review requires the current fingerprint, a decision, and an idempotency key; it does not silently rewrite source evidence.\n\n### Compile and save briefs\n\n`brief` compiles evidence from up to ten completed or partial requests in one workspace without provider or model calls. Purposes are `creative_direction`, `playlist_pitch`, and `company_onboarding`. Creative direction prioritizes lyrics and artwork; playlist pitching prioritizes catalog/audio metadata. Inspect readiness, request_coverage, selected input versions and gaps. Briefs are evidence packets, not finished creative concepts or outreach. `save_brief` freezes the server-compiled output, and `read_brief` retrieves that snapshot without recompilation. Newer evidence can supersede a snapshot without rewriting it; withdrawn evidence or removed scope can withhold its payload. All three actions return 200.\n\n### Scope and failures\n\nAuthentication determines the account. Optional organization_id selects an authorized organization workspace; request and subject ownership are checked again by the operation. Invalid request syntax returns 400, missing authentication 401, rejected organization access 403, and operation conflicts, unavailable evidence or disabled verification 409. No action accepts a caller-supplied account identity. Local schema tests do not establish hosted availability.\n\n### MCP mapping\n\nStandard MCP uses the `context` tool with the same action and fields as this REST request. Delegated OAuth exposes the named tools below and supplies the action server-side; omit action from the named tool input. These registrations require the full `mcp:tools` grant, current ownership and fresh credential verification. Read-only is a tool annotation, not a guarantee of hosted readiness. Discover the actual tools in the connected client before use; this is a static source mapping, not a verified client catalog. The omitted provider-bound planning action is still a remaining contract gap.\n\n| REST action | Delegated OAuth tool | Classification |\n| --- | --- | --- |\n| `list_release_cases` | `list_music_release_cases` | Read-only hint |\n| `read_release_case` | `read_music_release_case` | Read-only hint |\n| `read_release_case_review` | `read_music_release_case_review` | Read-only hint |\n| `review_release_case` | `record_music_release_case_review` | Writes or dispatches |\n| `save_brief` | `save_music_context_brief` | Writes or dispatches |\n| `read_brief` | `read_music_context_brief` | Read-only hint |\n| `plan` | `plan_music_context_research` | Read-only hint |\n| `list_executions` | `list_music_context_executions` | Read-only hint |\n| `list_catalog_members` | `list_music_context_catalog_members` | Read-only hint |\n| `list_release_tracks` | `list_music_context_release_tracks` | Read-only hint |\n| `read_release_track_observations` | `read_music_release_track_observations` | Read-only hint |\n| `review_release_track_identities` | `review_music_release_track_identities` | Read-only hint |\n| `verify_release_tracks` | `verify_music_release_tracks` | Writes or dispatches |\n| `expand_catalog_members` | `expand_music_context_catalog` | Writes or dispatches |\n| `read_execution` | `read_music_context_execution` | Read-only hint |\n| `ingest_catalog` | `import_catalog_context` | Writes or dispatches |\n| `ingest_artist` | `import_artist_context` | Writes or dispatches |\n| `ingest_songwriter_name` | `import_songwriter_context` | Writes or dispatches |\n| `ingest_company_name` | `import_music_company_context` | Writes or dispatches |\n| `ingest_campaign_brief` | `import_music_campaign_brief` | Writes or dispatches |\n| `ingest_supporting_text` | `import_music_supporting_text` | Writes or dispatches |\n| `ingest_release` | `import_music_release_context` | Writes or dispatches |\n| `verify_release` | `verify_music_release` | Writes or dispatches |\n| `ingest` | `import_song_context` | Writes or dispatches |\n| `read` | `read_music_context` | Read-only hint |\n| `brief` | `compile_music_context_brief` | Read-only hint |",
         "security": [
           {
             "ApiKey": []
@@ -1044,7 +1044,113 @@
         },
         "x-undocumented-actions": [
           "plan_catalog_members"
-        ]
+        ],
+        "x-recoup-mcp-operations": {
+          "list_release_cases": {
+            "name": "list_music_release_cases",
+            "readOnly": true
+          },
+          "read_release_case": {
+            "name": "read_music_release_case",
+            "readOnly": true
+          },
+          "read_release_case_review": {
+            "name": "read_music_release_case_review",
+            "readOnly": true
+          },
+          "review_release_case": {
+            "name": "record_music_release_case_review",
+            "readOnly": false
+          },
+          "save_brief": {
+            "name": "save_music_context_brief",
+            "readOnly": false
+          },
+          "read_brief": {
+            "name": "read_music_context_brief",
+            "readOnly": true
+          },
+          "plan": {
+            "name": "plan_music_context_research",
+            "readOnly": true
+          },
+          "list_executions": {
+            "name": "list_music_context_executions",
+            "readOnly": true
+          },
+          "list_catalog_members": {
+            "name": "list_music_context_catalog_members",
+            "readOnly": true
+          },
+          "list_release_tracks": {
+            "name": "list_music_context_release_tracks",
+            "readOnly": true
+          },
+          "read_release_track_observations": {
+            "name": "read_music_release_track_observations",
+            "readOnly": true
+          },
+          "review_release_track_identities": {
+            "name": "review_music_release_track_identities",
+            "readOnly": true
+          },
+          "verify_release_tracks": {
+            "name": "verify_music_release_tracks",
+            "readOnly": false
+          },
+          "expand_catalog_members": {
+            "name": "expand_music_context_catalog",
+            "readOnly": false
+          },
+          "read_execution": {
+            "name": "read_music_context_execution",
+            "readOnly": true
+          },
+          "ingest_catalog": {
+            "name": "import_catalog_context",
+            "readOnly": false
+          },
+          "ingest_artist": {
+            "name": "import_artist_context",
+            "readOnly": false
+          },
+          "ingest_songwriter_name": {
+            "name": "import_songwriter_context",
+            "readOnly": false
+          },
+          "ingest_company_name": {
+            "name": "import_music_company_context",
+            "readOnly": false
+          },
+          "ingest_campaign_brief": {
+            "name": "import_music_campaign_brief",
+            "readOnly": false
+          },
+          "ingest_supporting_text": {
+            "name": "import_music_supporting_text",
+            "readOnly": false
+          },
+          "ingest_release": {
+            "name": "import_music_release_context",
+            "readOnly": false
+          },
+          "verify_release": {
+            "name": "verify_music_release",
+            "readOnly": false
+          },
+          "ingest": {
+            "name": "import_song_context",
+            "readOnly": false
+          },
+          "read": {
+            "name": "read_music_context",
+            "readOnly": true
+          },
+          "brief": {
+            "name": "compile_music_context_brief",
+            "readOnly": true
+          }
+        }
       }
     },
     "/api/context/guest": {
