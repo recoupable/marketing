@@ -32,6 +32,9 @@ if not args.check and description != expected_description:
 content = specs['content.json']['components']['schemas']
 research = specs['research.json']
 social = specs['social.json']['paths']['/api/socials/{id}/scrape']['post']
+artist_social = specs['releases.json']['paths']['/api/artist/socials/scrape']['post']
+artist_price = re.search(r'([\d,]+) \+ ([\d,]+) × posts', artist_social['description'])
+usage_properties = specs['accounts.json']['components']['schemas']['AccountUsageEvent']['properties']
 price = re.search(r'([\d,]+) \+ (?:([\d,]+) × )?posts', social['description'])
 if not price:
     raise SystemExit('Social scrape description must declare base + per-post micro-dollar credits.')
@@ -63,7 +66,12 @@ record = {
             'twitterDefaultDepth': twitter_default,
             'security': social.get('security', []),
             'responses': sorted(social['responses']),
+            'artistBaseCredits': int(artist_price[1].replace(',', '')) if artist_price else None,
+            'artistPerPostCredits': int(artist_price[2].replace(',', '')) if artist_price else None,
+            'requiredCreditsExample': specs['social.json']['components']['schemas']['SocialInsufficientCreditsResponse']['properties']['required_credits']['example'],
         },
+        'usageEventNullables': sorted(name for name, schema in usage_properties.items() if schema.get('nullable') or 'null' in schema.get('type', [])),
+        'usageTimeCursorExample': specs['accounts.json']['components']['schemas']['AccountUsageResponse']['properties']['next_cursor']['example'],
         'catalogDaysMaximum': next(p['schema']['maximum'] for p in releases['paths']['/api/catalogs/{catalogId}/streams']['get']['parameters'] if p['name'] == 'days'),
         'resumeNoActiveStatus': 204 if '204' in resume['responses'] else 200,
         'resumeResponses': sorted(resume['responses']),

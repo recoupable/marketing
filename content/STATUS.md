@@ -1,3 +1,7 @@
+## Usage pagination and social billing contracts — October 13, 2026
+
+Documented opaque timestamp/ID usage cursors, preserved microsecond precision, legacy cursor compatibility, cost/ID tie ordering and nullable response fields. Both social scrape references now show the same per-profile micro-dollar prices and corrected insufficient-credit examples; artist-wide billing describes the upfront balance gate and debit for started runs. Added a docs check for unresolved OpenAPI security schemes and shared usage/price fixtures tested against API helpers. All 441 Marketing tests, docs generation and contract checks pass. Coordinated API/Marketing/Docs PRs and final preview/publication checks remain required; no paid scrape or historical billing discrepancy is asserted. Mintlify routing/cutover repair remains deferred.
+
 ## Recoup contract reconciliation — October 11, 2026
 
 Restored 15 artist and track research references under Recoup branding. Public examples use opaque research IDs or ISRC/Spotify/Apple Music identifiers; Recoup owns the data connections. Kept coverage, history, billing and error limits explicit. Added a publication guard against vendor names and credential-operation notes. Canonical documentation and the retained Docs host publish from one committed source. Auth, creative/lipsync, billing and headless fixes remain coordinated through mono#318; merge, deployed artifact inspection and fresh OAuth host checks are still required.
