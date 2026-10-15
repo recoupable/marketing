@@ -161,8 +161,14 @@
 }
 .cm-canvas-area {
   min-width: 0;
-  background: var(--cm-soft);
-  background-image: radial-gradient(var(--cm-edge) 0.7px, transparent 0.7px);
+  --cm-white: #f7fbfd;
+  --cm-text: #18333d;
+  --cm-muted: #bdd0d8;
+  --cm-edge: #7194a4;
+  --cm-blue: #79d0ff;
+  background: #17323e;
+  color: #eef7fa;
+  background-image: radial-gradient(#365460 0.7px, transparent 0.7px);
   background-size: 20px 20px;
 }
 .cm-map-heading {
@@ -259,6 +265,7 @@
   margin-right: auto;
 }
 .cm-map-controls button {
+  color: var(--cm-text);
   min-width: 40px;
   height: 40px;
   background: var(--cm-white);
@@ -274,6 +281,7 @@
   padding: 18px 22px;
 }
 .cm-component-list button {
+  color: var(--cm-text);
   border: 0;
   border-radius: 20px;
   background: var(--cm-white);
