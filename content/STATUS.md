@@ -1,3 +1,7 @@
+## Company operating model explorer — October 15, 2026
+
+Added `/company-map` with circular company-area and workflow exploration, component search, operating rules, fields, clickable connections and shareable hashes. Derived from the privacy-checked atlas public export with a narrower model-only field allowlist. Resources navigation, sitemap and agent summary included. Verification and publication state: see the feature PR and `docs/company-map.md`; no production claim.
+
 ## Usage pagination and social billing contracts — October 13, 2026
 
 Documented opaque timestamp/ID usage cursors, preserved microsecond precision, legacy cursor compatibility, cost/ID tie ordering and nullable response fields. Human API references now display property examples that were already present in Markdown and OpenAPI. Both social scrape references now show the same per-profile micro-dollar prices and corrected insufficient-credit examples; artist-wide billing describes the upfront balance gate and debit for started runs. Added a docs check for unresolved OpenAPI security schemes and shared usage/price fixtures tested against API helpers. All 441 Marketing tests, docs generation and contract checks pass. Coordinated API/Marketing/Docs PRs and final preview/publication checks remain required; no paid scrape or historical billing discrepancy is asserted. Mintlify routing/cutover repair remains deferred.
