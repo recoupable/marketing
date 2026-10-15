@@ -363,6 +363,16 @@ export function CompanyMap() {
         >
           {node ? (
             <>
+              {workflow && (
+                <button
+                  className="cm-workflow-link"
+                  onClick={() =>
+                    choose({ domain: "", node: "", workflow: workflow.id })
+                  }
+                >
+                  ← Workflow overview
+                </button>
+              )}
               <p className="sp-kicker">{domainById.get(node.domain)?.label}</p>
               <h2>{node.label}</h2>
               {node.technicalLabel && (
@@ -426,6 +436,52 @@ export function CompanyMap() {
                   ))}
                 </section>
               )}
+            </>
+          ) : workflow || domain ? (
+            <>
+              <p className="sp-kicker">
+                {workflow ? "WORKFLOW" : "COMPANY AREA"}
+              </p>
+              <h2>{workflow?.label || domain?.label}</h2>
+              <p>{workflow?.summary || domain?.summary}</p>
+              <section>
+                <h3>
+                  Connected components <small>{nodes.length}</small>
+                </h3>
+                <p>
+                  Select a component to inspect its information, operating rules
+                  and connections.
+                </p>
+                <div className="cm-relations">
+                  {(workflow
+                    ? workflow.nodes
+                        .map((id) => nodeById.get(id)!)
+                        .filter(Boolean)
+                    : nodes
+                  ).map((n) => (
+                    <button key={n.id} onClick={() => chooseNode(n.id)}>
+                      <strong>{n.label}</strong>
+                      <span>{n.summary}</span>
+                    </button>
+                  ))}
+                </div>
+              </section>
+              <section>
+                <h3>
+                  Connections in this view <small>{graphEdges.length}</small>
+                </h3>
+                <div className="cm-relations">
+                  {graphEdges.map((e) => (
+                    <button key={e.id} onClick={() => chooseNode(e.source)}>
+                      <strong>
+                        {nodeById.get(e.source)?.label} →{" "}
+                        {nodeById.get(e.target)?.label}
+                      </strong>
+                      <span>{e.relation}</span>
+                    </button>
+                  ))}
+                </div>
+              </section>
             </>
           ) : (
             <>
