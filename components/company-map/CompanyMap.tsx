@@ -14,6 +14,7 @@ const empty: Selection = { domain: "", workflow: "", node: "" };
 
 export function CompanyMap() {
   const [selection, setSelection] = useState(empty);
+  const [hoveredNode, setHoveredNode] = useState("");
   const [edgeId, setEdgeId] = useState("");
   const [expanded, setExpanded] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -63,6 +64,7 @@ export function CompanyMap() {
   }, [expanded]);
   const choose = (next: Selection, reset = true) => {
     setEdgeId("");
+    setHoveredNode("");
     setSelection(next);
     if (reset) {
       setZoom(1);
@@ -165,7 +167,14 @@ export function CompanyMap() {
           .includes(query.trim().toLowerCase()),
       )
     : [];
-  const connected = new Set(relations.flatMap((e) => [e.source, e.target]));
+  const highlightedNode = hoveredNode || selection.node;
+  const connected = new Set(
+    model.edges
+      .filter(
+        (e) => e.source === highlightedNode || e.target === highlightedNode,
+      )
+      .flatMap((e) => [e.source, e.target]),
+  );
   const relatedWorkflows = node
     ? model.workflows.filter((w) => w.nodes.includes(node.id))
     : [];
@@ -276,7 +285,8 @@ export function CompanyMap() {
           <div className="cm-canvas">
             <svg
               ref={svgRef}
-              className={selection.node ? "cm-has-selection" : ""}
+              className={highlightedNode ? "cm-has-selection" : ""}
+              onPointerLeave={() => setHoveredNode("")}
               viewBox={`${bounds.x + (bounds.width * (1 - 1 / zoom)) / 2 - pan.x} ${bounds.y + (bounds.height * (1 - 1 / zoom)) / 2 - pan.y} ${bounds.width / zoom} ${bounds.height / zoom}`}
               aria-label="Company relationship map; use search or company areas to find components"
               onPointerDown={(e) => {
@@ -335,7 +345,7 @@ export function CompanyMap() {
                       y1={a.y}
                       x2={b.x}
                       y2={b.y}
-                      className={`cm-edge ${e.source === selection.node || e.target === selection.node ? "cm-edge-active" : ""}`}
+                      className={`cm-edge ${e.source === highlightedNode || e.target === highlightedNode ? "cm-edge-active" : ""}`}
                     />
                   </g>
                 );
@@ -361,6 +371,13 @@ export function CompanyMap() {
                     aria-label={`Explore ${item.label}`}
                     aria-pressed={active}
                     onClick={open}
+                    onPointerEnter={(event) => {
+                      if (event.pointerType !== "touch")
+                        setHoveredNode(item.id);
+                    }}
+                    onPointerLeave={() => setHoveredNode("")}
+                    onFocus={() => setHoveredNode(item.id)}
+                    onBlur={() => setHoveredNode("")}
                     onDoubleClick={() =>
                       choose({
                         domain: item.domain,
@@ -374,7 +391,7 @@ export function CompanyMap() {
                         open();
                       }
                     }}
-                    className={`cm-node ${active ? "cm-node-active" : ""} ${connected.has(item.id) ? "cm-node-connected" : ""}`}
+                    className={`cm-node ${active ? "cm-node-active" : ""} ${hoveredNode === item.id ? "cm-node-hovered" : ""} ${connected.has(item.id) ? "cm-node-connected" : ""}`}
                     transform={`translate(${p.x},${p.y})`}
                   >
                     <rect x="-87" y="-28" width="174" height="56" rx="12" />

@@ -210,7 +210,7 @@
   vector-effect: non-scaling-stroke;
   stroke: var(--cm-edge);
   stroke-width: 1;
-  opacity: 0.45;
+  opacity: 0.2;
   pointer-events: none;
 }
 .cm-edge-active {
@@ -555,6 +555,36 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .cm-node {
+    transition: none;
+  }
+}
+
+/* A quiet overview; hover and selection reveal the graph's local structure. */
+.cm-edge {
+  transition:
+    opacity 180ms ease,
+    stroke 180ms ease;
+}
+.cm-edge-active {
+  stroke-width: 1.6;
+  opacity: 0.9;
+}
+.cm-node-hovered rect {
+  stroke: #d6ff62;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px #d6ff6260);
+}
+.cm-node-active rect {
+  filter: drop-shadow(0 0 8px #d6ff6270);
+}
+.cm-node-connected rect {
+  filter: drop-shadow(0 0 3px #79d0ff40);
+}
+.cm-has-selection .cm-node-hovered {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cm-edge {
     transition: none;
   }
 }
