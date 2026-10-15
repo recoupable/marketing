@@ -142,7 +142,7 @@
   --cm-muted: #bdd0d8;
   --cm-edge: #7194a4;
   --cm-blue: #79d0ff;
-  background: #17392b;
+  background: var(--cm-forest);
   color: #eef7fa;
   background-image: radial-gradient(#365b46 0.7px, transparent 0.7px);
   background-size: 20px 20px;
