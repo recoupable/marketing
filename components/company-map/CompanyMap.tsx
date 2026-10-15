@@ -345,13 +345,31 @@ export function CompanyMap() {
               aria-label="Components in this view"
             >
               {nodes.map((n) => (
-                <button
-                  key={n.id}
-                  aria-pressed={selection.node === n.id}
-                  onClick={() => chooseNode(n.id)}
-                >
-                  {n.label}
-                </button>
+                <article className="cm-component-card" key={n.id}>
+                  <button
+                    aria-pressed={selection.node === n.id}
+                    onClick={() => chooseNode(n.id)}
+                  >
+                    {n.label} ↗
+                  </button>
+                  <p>{n.summary}</p>
+                  <h3>Information it holds</h3>
+                  <div className="cm-fields">
+                    {n.fields.map((f) => (
+                      <span key={f}>{f.replaceAll("_", " ")}</span>
+                    ))}
+                  </div>
+                  {n.rules.length > 0 && (
+                    <details>
+                      <summary>Operating rules</summary>
+                      <ul>
+                        {n.rules.map((r, i) => (
+                          <li key={i}>{r}</li>
+                        ))}
+                      </ul>
+                    </details>
+                  )}
+                </article>
               ))}
             </div>
           )}
@@ -361,147 +379,153 @@ export function CompanyMap() {
           aria-label="Selected component details"
           aria-live="polite"
         >
-          {node ? (
-            <>
-              {workflow && (
-                <button
-                  className="cm-workflow-link"
-                  onClick={() =>
-                    choose({ domain: "", node: "", workflow: workflow.id })
-                  }
-                >
-                  ← Workflow overview
-                </button>
-              )}
-              <p className="sp-kicker">{domainById.get(node.domain)?.label}</p>
-              <h2>{node.label}</h2>
-              {node.technicalLabel && (
-                <p>
-                  <strong>Technical name:</strong> {node.technicalLabel}
+          <div className="cm-detail-scroll">
+            {node ? (
+              <>
+                {workflow && (
+                  <button
+                    className="cm-workflow-link"
+                    onClick={() =>
+                      choose({ domain: "", node: "", workflow: workflow.id })
+                    }
+                  >
+                    ← Workflow overview
+                  </button>
+                )}
+                <p className="sp-kicker">
+                  {domainById.get(node.domain)?.label}
                 </p>
-              )}
-              <p>{node.summary}</p>
-              {node.rules.length > 0 && (
+                <h2>{node.label}</h2>
+                {node.technicalLabel && (
+                  <p>
+                    <strong>Technical name:</strong> {node.technicalLabel}
+                  </p>
+                )}
+                <p>{node.summary}</p>
+                {node.rules.length > 0 && (
+                  <section>
+                    <h3>Operating rules</h3>
+                    <ul>
+                      {node.rules.map((r, i) => (
+                        <li key={i}>{r}</li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
                 <section>
-                  <h3>Operating rules</h3>
-                  <ul>
-                    {node.rules.map((r, i) => (
-                      <li key={i}>{r}</li>
+                  <h3>Information it holds</h3>
+                  <div className="cm-fields">
+                    {node.fields.map((f) => (
+                      <span key={f}>{f.replaceAll("_", " ")}</span>
                     ))}
-                  </ul>
+                  </div>
                 </section>
-              )}
-              <section>
-                <h3>Information it holds</h3>
-                <div className="cm-fields">
-                  {node.fields.map((f) => (
-                    <span key={f}>{f.replaceAll("_", " ")}</span>
-                  ))}
-                </div>
-              </section>
-              <section>
-                <h3>
-                  Connections <small>{relations.length}</small>
-                </h3>
-                <div className="cm-relations">
-                  {relations.map((e) => {
-                    const outgoing = e.source === node.id;
-                    const other = nodeById.get(outgoing ? e.target : e.source)!;
-                    return (
-                      <button key={e.id} onClick={() => chooseNode(other.id)}>
-                        <small>
-                          {outgoing ? "→" : "←"} {e.relation}
-                        </small>
-                        <strong>{other.label}</strong>
-                        <span>{domainById.get(other.domain)?.label}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </section>
-              {relatedWorkflows.length > 0 && (
                 <section>
-                  <h3>Part of these workflows</h3>
-                  {relatedWorkflows.map((w) => (
-                    <button
-                      className="cm-workflow-link"
-                      key={w.id}
-                      onClick={() => {
-                        setMode("workflows");
-                        choose({ domain: "", node: node.id, workflow: w.id });
-                      }}
-                    >
-                      {w.label} ↗
-                    </button>
-                  ))}
+                  <h3>
+                    Connections <small>{relations.length}</small>
+                  </h3>
+                  <div className="cm-relations">
+                    {relations.map((e) => {
+                      const outgoing = e.source === node.id;
+                      const other = nodeById.get(
+                        outgoing ? e.target : e.source,
+                      )!;
+                      return (
+                        <button key={e.id} onClick={() => chooseNode(other.id)}>
+                          <small>
+                            {outgoing ? "→" : "←"} {e.relation}
+                          </small>
+                          <strong>{other.label}</strong>
+                          <span>{domainById.get(other.domain)?.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </section>
-              )}
-            </>
-          ) : workflow || domain ? (
-            <>
-              <p className="sp-kicker">
-                {workflow ? "WORKFLOW" : "COMPANY AREA"}
-              </p>
-              <h2>{workflow?.label || domain?.label}</h2>
-              <p>{workflow?.summary || domain?.summary}</p>
-              <section>
-                <h3>
-                  Connected components <small>{nodes.length}</small>
-                </h3>
-                <p>
-                  Select a component to inspect its information, operating rules
-                  and connections.
+                {relatedWorkflows.length > 0 && (
+                  <section>
+                    <h3>Part of these workflows</h3>
+                    {relatedWorkflows.map((w) => (
+                      <button
+                        className="cm-workflow-link"
+                        key={w.id}
+                        onClick={() => {
+                          setMode("workflows");
+                          choose({ domain: "", node: node.id, workflow: w.id });
+                        }}
+                      >
+                        {w.label} ↗
+                      </button>
+                    ))}
+                  </section>
+                )}
+              </>
+            ) : workflow || domain ? (
+              <>
+                <p className="sp-kicker">
+                  {workflow ? "WORKFLOW" : "COMPANY AREA"}
                 </p>
-                <div className="cm-relations">
-                  {(workflow
-                    ? workflow.nodes
-                        .map((id) => nodeById.get(id)!)
-                        .filter(Boolean)
-                    : nodes
-                  ).map((n) => (
-                    <button key={n.id} onClick={() => chooseNode(n.id)}>
-                      <strong>{n.label}</strong>
-                      <span>{n.summary}</span>
-                    </button>
-                  ))}
+                <h2>{workflow?.label || domain?.label}</h2>
+                <p>{workflow?.summary || domain?.summary}</p>
+                <section>
+                  <h3>
+                    Connected components <small>{nodes.length}</small>
+                  </h3>
+                  <p>
+                    Select a component to inspect its information, operating
+                    rules and connections.
+                  </p>
+                  <div className="cm-relations">
+                    {(workflow
+                      ? workflow.nodes
+                          .map((id) => nodeById.get(id)!)
+                          .filter(Boolean)
+                      : nodes
+                    ).map((n) => (
+                      <button key={n.id} onClick={() => chooseNode(n.id)}>
+                        <strong>{n.label}</strong>
+                        <span>{n.summary}</span>
+                      </button>
+                    ))}
+                  </div>
+                </section>
+                <section>
+                  <h3>
+                    Connections in this view <small>{graphEdges.length}</small>
+                  </h3>
+                  <div className="cm-relations">
+                    {graphEdges.map((e) => (
+                      <button key={e.id} onClick={() => chooseNode(e.source)}>
+                        <strong>
+                          {nodeById.get(e.source)?.label} →{" "}
+                          {nodeById.get(e.target)?.label}
+                        </strong>
+                        <span>{e.relation}</span>
+                      </button>
+                    ))}
+                  </div>
+                </section>
+              </>
+            ) : (
+              <>
+                <p className="sp-kicker">HOW TO EXPLORE</p>
+                <h2>Follow the work.</h2>
+                <p>
+                  Select a component to see what it means, the information it
+                  holds and everything it connects to.
+                </p>
+                <ol>
+                  <li>Explore the full map, or filter by area or workflow.</li>
+                  <li>Select a component on the map.</li>
+                  <li>Follow a connection into another part of the company.</li>
+                </ol>
+                <div className="cm-detail-note">
+                  People, music, money and agents share one connected operating
+                  model.
                 </div>
-              </section>
-              <section>
-                <h3>
-                  Connections in this view <small>{graphEdges.length}</small>
-                </h3>
-                <div className="cm-relations">
-                  {graphEdges.map((e) => (
-                    <button key={e.id} onClick={() => chooseNode(e.source)}>
-                      <strong>
-                        {nodeById.get(e.source)?.label} →{" "}
-                        {nodeById.get(e.target)?.label}
-                      </strong>
-                      <span>{e.relation}</span>
-                    </button>
-                  ))}
-                </div>
-              </section>
-            </>
-          ) : (
-            <>
-              <p className="sp-kicker">HOW TO EXPLORE</p>
-              <h2>Follow the work.</h2>
-              <p>
-                Select a component to see what it means, the information it
-                holds and everything it connects to.
-              </p>
-              <ol>
-                <li>Explore the full map, or filter by area or workflow.</li>
-                <li>Select a component on the map.</li>
-                <li>Follow a connection into another part of the company.</li>
-              </ol>
-              <div className="cm-detail-note">
-                People, music, money and agents share one connected operating
-                model.
-              </div>
-            </>
-          )}
+              </>
+            )}
+          </div>
         </aside>
       </div>
     </section>

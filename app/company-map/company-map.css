@@ -52,6 +52,7 @@
   cursor: pointer;
 }
 .cm-layout {
+  background: var(--cm-forest);
   display: grid;
   grid-template-columns: 235px minmax(0, 1fr) 300px;
   min-height: 800px;
@@ -68,8 +69,12 @@
   color: var(--cm-text);
   color-scheme: dark;
 }
-.cm-search input::placeholder { color: var(--cm-muted); }
-.cm-tabs button { color: var(--cm-text); }
+.cm-search input::placeholder {
+  color: var(--cm-muted);
+}
+.cm-tabs button {
+  color: var(--cm-text);
+}
 .cm-sidebar {
   padding: 20px 12px;
   box-shadow: 1px 0 var(--cm-line);
@@ -273,8 +278,9 @@
   cursor: pointer;
 }
 .cm-component-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  align-items: start;
   gap: 6px;
   padding: 18px 22px;
 }
@@ -294,6 +300,8 @@
 .cm-detail {
   padding: 28px 24px;
   box-shadow: -1px 0 var(--cm-line);
+}
+.cm-detail-scroll {
   overflow-y: auto;
   max-height: 980px;
 }
@@ -484,5 +492,34 @@
   .cm-map-controls button {
     min-width: 44px;
     min-height: 44px;
+  }
+}
+
+.cm-component-card {
+  padding: 16px;
+  background: #203a31;
+  border-radius: 12px;
+  color: #eef7f2;
+}
+.cm-component-card p,
+.cm-component-card li {
+  font-size: 12px;
+  line-height: 1.65;
+  color: #bed0c5;
+}
+.cm-component-card h3,
+.cm-component-card summary {
+  font-size: 12px;
+  margin: 14px 0 8px;
+}
+.cm-component-card .cm-fields span {
+  background: #29433b;
+}
+.cm-component-card summary {
+  cursor: pointer;
+}
+@media (max-width: 1150px) {
+  .cm-detail-scroll {
+    max-height: none;
   }
 }
