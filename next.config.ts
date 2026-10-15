@@ -23,6 +23,7 @@ export const nextConfig: NextConfig = {
   // Legacy URLs resolve to their final page in one 308; keep every destination a real route.
   async redirects() {
     return [
+      { source: "/company-map", destination: "/atlas", permanent: true },
       { source: "/designs/sky", destination: "/", permanent: true },
       { source: "/company/about", destination: "/about", permanent: true },
       {
