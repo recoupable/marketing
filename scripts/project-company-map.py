@@ -31,7 +31,7 @@ for n in nodes:
 ids = {n['id'] for n in nodes}
 edges = [{k: text(e[k]) for k in ('id','source','target','relation')} for e in source['edges'] if e['id'] in public_records['edges'] and e['layer']=='target' and e['source'] in ids and e['target'] in ids and not re.match(r'^(?:qualify|accept)_[a-z]{2}_', e['relation'])]
 for edge in edges:
-    edge['relation'] = edge['relation'].replace('_', ' ')
+    edge['relation'] = copy.get('relations', {}).get(edge['id'], edge['relation']).replace('_', ' ')
 base = {'release-lifecycle','catalog-ingestion','artist-research','rights-review','publishing','royalty-reconciliation','campaigns','agent-work','corrections','access-change','analytics','architecture','platform-reliability','agent-memory-evaluation','agent-workspace-goals-reporting','creative-outcomes','royalty-ingestion','ingestion-layouts','ingestion-corrections'}
 workflows = [{k:text(w[k]) for k in ('id','label','summary')} | {'nodes':[n for n in w['nodes'] if n in ids]} for w in source['workflows'] if w['id'] in public_records['workflows']]
 workflows.append({'id':'specialist-topics', 'label':'Specialist: digital wallets & tokenized interests', 'summary':'Explore digital wallets, tokenized income interests and a specialized music-NFT exchange, with rights and payment authority kept explicit.', 'nodes':copy['specialists']})

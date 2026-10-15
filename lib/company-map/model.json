@@ -11063,7 +11063,7 @@
       "id": "ingestion-council-p06",
       "source": "source-contract",
       "target": "historical-backfill",
-      "relation": "Show what IRIS exports do and do not preserve"
+      "relation": "Preserve source export coverage and limitations"
     },
     {
       "id": "ingestion-council-p07",
@@ -11375,7 +11375,7 @@
       "id": "ingestion-family-49",
       "source": "source-contract",
       "target": "ingestion-adapter",
-      "relation": "IRIS / Synchtank source contract"
+      "relation": "Catalog administration source contract"
     },
     {
       "id": "ingestion-source-families-handoff-1",

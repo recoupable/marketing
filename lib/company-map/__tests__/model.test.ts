@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import model from "../model.json";
+import publicCopy from "../public-copy.json";
 
 describe("public operating model boundary", () => {
   it("contains only model fields, never private research or adoption claims", () => {
@@ -38,6 +39,11 @@ describe("public operating model boundary", () => {
     expect(JSON.stringify(model)).not.toMatch(
       /\/Users\/|box\.com\/(file|folder|s)\/|github\.com\/recoupable\/(business|projects)|src-[a-f0-9]{20}|\bproposed\b|roadmap-\d|Source reference omitted/i,
     );
+  });
+  it("retains reviewed public relationship wording", () => {
+    for (const [id, relation] of Object.entries(publicCopy.relations)) {
+      expect(model.edges.find((edge) => edge.id === id)?.relation).toBe(relation);
+    }
   });
   it("has complete traversable relationships and every company area", () => {
     expect(model.edges.length).toBeGreaterThan(0);

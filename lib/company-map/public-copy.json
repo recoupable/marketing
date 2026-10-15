@@ -53,13 +53,13 @@
     "tokenized-income-interest"
   ],
   "technicalNames": {
-    "ddex-pie": "DDEX PIE \u2014 Party Identification and Enrichment",
-    "ddex-mead": "DDEX MEAD \u2014 Media Enrichment and Description",
-    "ddex-bwarm": "DDEX BWARM \u2014 Bulk Communication of Work and Recording Metadata",
-    "ddex-ern": "DDEX ERN \u2014 Electronic Release Notification",
-    "ddex-rin": "DDEX RIN \u2014 Recording Information Notification",
-    "ddex-dsr": "DDEX DSR \u2014 Digital Sales Reporting",
-    "ddex-lraw": "DDEX LRAW \u2014 Links between Resources and Musical Works"
+    "ddex-pie": "DDEX PIE — Party Identification and Enrichment",
+    "ddex-mead": "DDEX MEAD — Media Enrichment and Description",
+    "ddex-bwarm": "DDEX BWARM — Bulk Communication of Work and Recording Metadata",
+    "ddex-ern": "DDEX ERN — Electronic Release Notification",
+    "ddex-rin": "DDEX RIN — Recording Information Notification",
+    "ddex-dsr": "DDEX DSR — Digital Sales Reporting",
+    "ddex-lraw": "DDEX LRAW — Links between Resources and Musical Works"
   },
   "textReplacements": {
     "Under the inspected ERN 4.3.2 common rules": "Under the ERN 4.3.2 common rules",
@@ -71,5 +71,9 @@
       "Support summaries and important-event alerts. Choose recipients and channels using the output type, priority and company rules. Companies must define which preferences take precedence.",
       "A saved preference or artifact is not delivered, read or accepted. Preserve exact content/version, recipient, scoped destination, channel capability and receipts. Unavailable or uncertain delivery stays visible; fallback is explicit and retries reconcile prior effects."
     ]
+  },
+  "relations": {
+    "ingestion-council-p06": "Preserve source export coverage and limitations",
+    "ingestion-family-49": "Catalog administration source contract"
   }
 }
