@@ -63,7 +63,7 @@ export const headerNavigation = [
       },
       {
         label: "Atlas",
-        href: "/company-map",
+        href: "/atlas",
         description: "Explore the music-company operating model.",
         icon: "lab",
       },

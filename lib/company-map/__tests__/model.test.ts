@@ -9,6 +9,8 @@ describe("public operating model boundary", () => {
       "nodes",
       "workflows",
     ]);
+    for (const d of model.domains)
+      expect(Object.keys(d).sort()).toEqual(["id", "label", "summary"]);
     for (const n of model.nodes)
       expect(Object.keys(n).sort()).toEqual([
         "domain",
@@ -38,6 +40,8 @@ describe("public operating model boundary", () => {
     );
   });
   it("has complete traversable relationships and every company area", () => {
+    expect(model.edges.length).toBeGreaterThan(0);
+    expect(model.workflows.length).toBeGreaterThan(0);
     const nodes = new Set(model.nodes.map((n) => n.id));
     const domains = new Set(model.domains.map((d) => d.id));
     expect(domains.size).toBe(16);

@@ -62,9 +62,14 @@
     "ddex-lraw": "DDEX LRAW \u2014 Links between Resources and Musical Works"
   },
   "textReplacements": {
-    "Agreed interview answer16: support both summary and important-event modules. Select effective recipient preferences according to output kind/priority and company rules; exact precedence remains to be designed, not silently fixed here.": "Support summaries and important-event alerts. Choose recipients and channels using the output type, priority and company rules. Companies must define which preferences take precedence.",
     "Under the inspected ERN 4.3.2 common rules": "Under the ERN 4.3.2 common rules",
     "Treat the inspected full replacement": "Treat a full replacement",
     "Show delivery channels outside the inspected corpus": "Other delivery channels"
+  },
+  "rules": {
+    "agent-reporting-preference": [
+      "Support summaries and important-event alerts. Choose recipients and channels using the output type, priority and company rules. Companies must define which preferences take precedence.",
+      "A saved preference or artifact is not delivered, read or accepted. Preserve exact content/version, recipient, scoped destination, channel capability and receipts. Unavailable or uncertain delivery stays visible; fallback is explicit and retries reconcile prior effects."
+    ]
   }
 }

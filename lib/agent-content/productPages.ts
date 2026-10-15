@@ -12,14 +12,14 @@ import { platformCopy } from "../copy/platform.ts";
 // Summaries of the software and pricing pages; same representation rules as offerPages.
 export const productPages: PageSummary[] = [
   {
-    path: "/company-map",
+    path: "/atlas",
     title: companyMapCopy.title,
     description: companyMapCopy.description,
     keywords:
       "music company operating model catalog rights capital agents workflows permissions",
     paragraphs: [companyMapCopy.intro, companyMapCopy.note],
     links: [
-      ["Explore the Atlas", "/company-map"],
+      ["Explore the Atlas", "/atlas"],
       ["Custom builds", "/build"],
       ["Start a project", "/start-project"],
     ],

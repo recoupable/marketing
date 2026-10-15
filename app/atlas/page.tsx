@@ -7,7 +7,7 @@ import "./company-map.css";
 export const metadata = withPageMetadata({
   title: "Atlas: The Agentic Music Company Operating Model",
   description: copy.description,
-  alternates: { canonical: "/company-map" },
+  alternates: { canonical: "/atlas" },
 });
 
 export default function CompanyMapPage() {

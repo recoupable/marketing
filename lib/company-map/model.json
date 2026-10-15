@@ -14155,7 +14155,7 @@
     {
       "id": "specialist-topics",
       "label": "Specialist: digital wallets & tokenized interests",
-      "summary": "Explore specialist digital-asset structures and music metadata exchanges, with rights and payment authority kept explicit.",
+      "summary": "Explore digital wallets, tokenized income interests and a specialized music-NFT exchange, with rights and payment authority kept explicit.",
       "nodes": [
         "ddex-nft",
         "digital-wallet-profile",

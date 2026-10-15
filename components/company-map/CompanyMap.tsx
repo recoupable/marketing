@@ -78,6 +78,7 @@ export function CompanyMap() {
     if (hoverTimer.current) clearTimeout(hoverTimer.current);
     setHoveredNode("");
     setSelection(next);
+    setMode(next.workflow ? "workflows" : "areas");
     if (reset) {
       setZoom(1);
       setPan({ x: 0, y: 0 });
@@ -204,7 +205,7 @@ export function CompanyMap() {
           <strong>Atlas</strong>
           <span>
             {model.domains.length} areas · {model.nodes.length} components ·{" "}
-            {model.edges.length.toLocaleString()} connections
+            {model.edges.length.toLocaleString("en-US")} connections
           </span>
         </div>
         <button
@@ -477,11 +478,7 @@ export function CompanyMap() {
             </div>
           )}
         </div>
-        <aside
-          className="cm-detail"
-          aria-label="Selected component details"
-          aria-live="polite"
-        >
+        <aside className="cm-detail" aria-label="Selected component details">
           <div className="cm-detail-scroll">
             {selectedEdge ? (
               <>
