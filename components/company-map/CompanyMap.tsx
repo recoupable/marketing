@@ -290,7 +290,6 @@ export function CompanyMap() {
         </aside>
         <div className="cm-canvas-area">
           <div className="cm-map-heading">
-            <span className="sp-kicker">{copy.eyebrow}</span>
             <h1>{copy.title}</h1>
             <p>{copy.intro}</p>
             {!overview && <h2>{workflow?.label || domain?.label}</h2>}
@@ -461,7 +460,6 @@ export function CompanyMap() {
               </button>
             </div>
           </div>
-
         </div>
         <aside className="cm-detail" aria-label="Selected component details">
           <div className="cm-detail-scroll">
