@@ -17,6 +17,7 @@ describe("public operating model boundary", () => {
         "label",
         "rules",
         "summary",
+        "technicalLabel",
       ]);
     for (const e of model.edges)
       expect(Object.keys(e).sort()).toEqual([

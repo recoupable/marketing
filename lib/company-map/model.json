@@ -102,7 +102,8 @@
       ],
       "rules": [
         "Do not merge parties by name alone."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "act",
@@ -123,7 +124,8 @@
       ],
       "rules": [
         "An act is not automatically a legal entity."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "company",
@@ -144,7 +146,8 @@
       ],
       "rules": [
         "Researching a company does not create a workspace or access grant."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "role",
@@ -163,7 +166,8 @@
       ],
       "rules": [
         "Being a songwriter does not establish a credit or share in a particular work."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "company-relationship",
@@ -183,11 +187,12 @@
       ],
       "rules": [
         "Ending a roster relationship preserves identity and catalog history."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "external-identifier",
-      "label": "Identifier assertion",
+      "label": "External identifiers",
       "summary": "Namespace-scoped, evidenced identifiers attached to parties or music subjects.",
       "domain": "parties",
       "fields": [
@@ -210,7 +215,8 @@
       ],
       "rules": [
         "Conflicting identifiers stay visible; external IDs do not replace internal identity."
-      ]
+      ],
+      "technicalLabel": "Identifier assertion"
     },
     {
       "id": "identity-resolution",
@@ -230,7 +236,8 @@
       ],
       "rules": [
         "Ambiguity is a result, not permission to invent a match."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "recording",
@@ -263,7 +270,8 @@
       ],
       "rules": [
         "An unreleased recording can exist before an ISRC."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "composition",
@@ -286,7 +294,8 @@
       ],
       "rules": [
         "Never infer a composition identity from ISRC alone."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "recording-work-link",
@@ -308,7 +317,8 @@
       ],
       "rules": [
         "Medleys, adaptations and disputed links need explicit handling."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "release",
@@ -339,7 +349,8 @@
       ],
       "rules": [
         "Release identity is distinct from a catalog and recording."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "release-track",
@@ -363,7 +374,8 @@
       ],
       "rules": [
         "Reuse recording context across single, album and compilation."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "catalog",
@@ -383,7 +395,8 @@
       ],
       "rules": [
         "Membership grants neither rights nor software access."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "catalog-member",
@@ -402,7 +415,8 @@
       ],
       "rules": [
         "Importing catalog repertoire must not enroll a creator in the roster."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "music-version",
@@ -427,7 +441,8 @@
       "rules": [
         "Do not collapse a materially distinct recording into a duplicate.",
         "Type recording-to-recording, composition-to-composition, asset-to-asset and sample/component links separately; no inherited clearance or assumed identifier equivalence."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "agreement",
@@ -455,7 +470,8 @@
       ],
       "rules": [
         "A draft or extraction is not an approved legal interpretation."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "agreement-scope",
@@ -478,12 +494,13 @@
       ],
       "rules": [
         "Changing catalog membership cannot silently expand an agreement."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "rights-interest",
       "label": "Rights interest",
-      "summary": "Sourced interest held by a person/company in an explicitly typed right, asset, use, territory and period. Ownership and licenses remain distinguishable; specialized rights require further review.",
+      "summary": "An ownership or licensed interest held by a person or company, defined by right, asset, use, territory and time period. Each interest retains its supporting evidence and conditions.",
       "domain": "rights",
       "fields": [
         "id",
@@ -509,7 +526,8 @@
       ],
       "rules": [
         "Unknown shares are not zero or 100%; do not sum unlike bases."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "income-entitlement",
@@ -537,7 +555,8 @@
       ],
       "rules": [
         "Income entitlement does not by itself establish title or cash received."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "mandate",
@@ -566,7 +585,8 @@
       ],
       "rules": [
         "Business authority is distinct from application access."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "collection-route",
@@ -605,7 +625,8 @@
       ],
       "rules": [
         "Submitted direction is not confirmed active routing or payment."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "rights-claim",
@@ -636,7 +657,8 @@
       ],
       "rules": [
         "Conflicting assertions coexist until an authorized review resolves them."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "license",
@@ -661,7 +683,8 @@
       ],
       "rules": [
         "Availability of a file is not clearance to exploit it."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "asset",
@@ -681,7 +704,8 @@
       ],
       "rules": [
         "A public-looking URL does not establish public usage rights."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "asset-version",
@@ -713,7 +737,8 @@
       ],
       "rules": [
         "Do not overwrite the only original or detach derivative provenance."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "asset-manifest",
@@ -734,7 +759,8 @@
       ],
       "rules": [
         "Object URL secrecy is not the authorization model."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "creative-brief",
@@ -763,7 +789,8 @@
       ],
       "rules": [
         "Private reference media stays within permitted use."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "creative-review",
@@ -785,11 +812,12 @@
       ],
       "rules": [
         "Rendering success does not prove creative or factual quality."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "artifact-promotion",
-      "label": "Artifact promotion",
+      "label": "Approving & saving finished work",
       "summary": "Explicit transition from scratch/draft to a persistent reviewed artifact.",
       "domain": "assets",
       "fields": [
@@ -817,7 +845,8 @@
       ],
       "rules": [
         "Workspace existence is not durable product persistence."
-      ]
+      ],
+      "technicalLabel": "Artifact promotion"
     },
     {
       "id": "object-store",
@@ -838,7 +867,8 @@
       ],
       "rules": [
         "Do not use public storage for confidential originals."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "source-contract",
@@ -870,7 +900,8 @@
       ],
       "rules": [
         "Source access is neither unlimited collection nor redistribution permission."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "raw-snapshot",
@@ -901,7 +932,8 @@
       ],
       "rules": [
         "A snapshot is an observation, not the whole historical truth."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "historical-backfill",
@@ -923,7 +955,8 @@
       ],
       "rules": [
         "Partial downloads must not be reported as complete history."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "incremental-ingest",
@@ -945,7 +978,8 @@
       ],
       "rules": [
         "Advance cursor only after successful durable commit."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "staging",
@@ -970,11 +1004,12 @@
       ],
       "rules": [
         "Reject ambiguous coercion and preserve recoverable source evidence."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "schema-mapping",
-      "label": "Versioned normalization",
+      "label": "Converting source data",
       "summary": "Explicit mappings of provider schemas and semantics to domain assertions.",
       "domain": "ingestion",
       "fields": [
@@ -1008,11 +1043,12 @@
       ],
       "rules": [
         "A renamed field is not necessarily the same metric."
-      ]
+      ],
+      "technicalLabel": "Versioned normalization"
     },
     {
       "id": "ingestion-checkpoint",
-      "label": "Run checkpoint & replay",
+      "label": "Import progress & recovery",
       "summary": "Durable progress, idempotency and bounded recovery.",
       "domain": "ingestion",
       "fields": [
@@ -1032,7 +1068,8 @@
       ],
       "rules": [
         "Resuming must not duplicate facts or repeat external actions."
-      ]
+      ],
+      "technicalLabel": "Run checkpoint & replay"
     },
     {
       "id": "quality-coverage",
@@ -1076,7 +1113,8 @@
       ],
       "rules": [
         "Coverage and correctness are separate dimensions."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "evidence-source",
@@ -1097,7 +1135,8 @@
       ],
       "rules": [
         "Provenance follows information, not the requester."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "claim",
@@ -1123,11 +1162,12 @@
       ],
       "rules": [
         "Model output is not a verified fact by itself."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "provenance",
-      "label": "Derivation lineage",
+      "label": "Source & transformation history",
       "summary": "Trace source → extraction → claim → transformation → output.",
       "domain": "knowledge",
       "fields": [
@@ -1146,11 +1186,12 @@
       ],
       "rules": [
         "Private-dependent derivations remain private."
-      ]
+      ],
+      "technicalLabel": "Derivation lineage"
     },
     {
       "id": "temporal-history",
-      "label": "Temporal history",
+      "label": "Changes over time",
       "summary": "What was true and what was known at each time, with corrections.",
       "domain": "knowledge",
       "fields": [
@@ -1167,7 +1208,8 @@
       ],
       "rules": [
         "Do not replace historical beliefs with today's state."
-      ]
+      ],
+      "technicalLabel": "Temporal history"
     },
     {
       "id": "public-knowledge",
@@ -1188,7 +1230,8 @@
       ],
       "rules": [
         "Private requests, research history and relationships are not published."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "private-context",
@@ -1210,7 +1253,8 @@
       ],
       "rules": [
         "Ambiguous provenance defaults to private pending review."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "context-discovery",
@@ -1231,7 +1275,8 @@
       ],
       "rules": [
         "The currently selected request is not all known context."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "context-bundle",
@@ -1254,7 +1299,8 @@
       ],
       "rules": [
         "Explain omissions and recheck authorization before reuse."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "search-projection",
@@ -1275,7 +1321,8 @@
       ],
       "rules": [
         "Index similarity is not evidence, identity or access authority."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "agent-task",
@@ -1315,7 +1362,8 @@
       ],
       "rules": [
         "A general objective is not unlimited delegated authority."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "skill-version",
@@ -1348,7 +1396,8 @@
       ],
       "rules": [
         "Skills hold procedure, not hidden customer state."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "execution-plan",
@@ -1371,7 +1420,8 @@
       ],
       "rules": [
         "Plan approval and execution success are separate states."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "workflow-run",
@@ -1414,7 +1464,8 @@
       ],
       "rules": [
         "A chat transcript is not durable orchestration state."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "agent-workspace",
@@ -1436,7 +1487,8 @@
       ],
       "rules": [
         "Scratch files are not the canonical knowledge or rights store."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "tool-action",
@@ -1475,7 +1527,8 @@
       ],
       "rules": [
         "Recheck current authority at the point of side effect."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "approval",
@@ -1514,7 +1567,8 @@
       ],
       "rules": [
         "An old or broad approval cannot authorize changed payloads."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "receipt",
@@ -1547,7 +1601,8 @@
       ],
       "rules": [
         "Accepted or submitted is not proof of the original outcome."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "handoff",
@@ -1576,7 +1631,8 @@
       ],
       "rules": [
         "Narrative alone cannot prove completed external work."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "account",
@@ -1598,7 +1654,8 @@
       ],
       "rules": [
         "A business party and a login account are distinct."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "workspace",
@@ -1622,7 +1679,8 @@
       ],
       "rules": [
         "Subject relationships never implicitly provision a tenant."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "membership",
@@ -1643,7 +1701,8 @@
       ],
       "rules": [
         "Historical business involvement does not establish current access."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "policy-decision",
@@ -1668,7 +1727,8 @@
       ],
       "rules": [
         "Enforce before read, derivation, export and side effect."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "classification",
@@ -1689,7 +1749,8 @@
       ],
       "rules": [
         "Null owner is not proof of public provenance."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "audit-event",
@@ -1710,7 +1771,8 @@
       ],
       "rules": [
         "Logs must not become an alternate private-data leak."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "connection-vault",
@@ -1732,7 +1794,8 @@
       ],
       "rules": [
         "Never place bearer credentials in graph, prompts or research files."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "retention",
@@ -1753,7 +1816,8 @@
       ],
       "rules": [
         "Revocation must affect cached context and exported capability paths."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "release-plan",
@@ -1779,11 +1843,12 @@
       ],
       "rules": [
         "A planned release date is not observed availability."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "metadata-qc",
-      "label": "Metadata & asset QC",
+      "label": "Metadata & asset quality checks",
       "summary": "Validate identity, credits, technical assets and delivery completeness.",
       "domain": "distribution",
       "fields": [
@@ -1802,7 +1867,8 @@
       ],
       "rules": [
         "Syntactic validity does not prove partner acceptance."
-      ]
+      ],
+      "technicalLabel": "Metadata & asset QC"
     },
     {
       "id": "delivery-package",
@@ -1831,7 +1897,8 @@
       "rules": [
         "Package must pin reviewed versions.",
         "Component edits create a new package revision, hash and approval requirement."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "partner-exchange",
@@ -1867,7 +1934,8 @@
       ],
       "rules": [
         "DDEX schema validity is not semantic conformance or delivery success."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "availability",
@@ -1891,7 +1959,8 @@
       ],
       "rules": [
         "Reconcile external state before reporting delivery complete."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "registration",
@@ -1920,7 +1989,8 @@
       ],
       "rules": [
         "Credits alone do not authorize registration."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "repertoire-match",
@@ -1944,7 +2014,8 @@
       ],
       "rules": [
         "Retain unmatched and negative links."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "registration-conflict",
@@ -1965,7 +2036,8 @@
       ],
       "rules": [
         "Conflict is not automatically a legal dispute."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "licensing-workflow",
@@ -2000,7 +2072,8 @@
       ],
       "rules": [
         "Control of a master does not establish control of composition."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "partner-profile",
@@ -2031,7 +2104,8 @@
       ],
       "rules": [
         "One partner's acceptance is not universal interoperability."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "campaign",
@@ -2060,7 +2134,8 @@
       ],
       "rules": [
         "A campaign is an operation, not music identity."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "audience",
@@ -2082,7 +2157,8 @@
       ],
       "rules": [
         "Access to a platform audience does not authorize unrestricted export."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "consent",
@@ -2103,7 +2179,8 @@
       ],
       "rules": [
         "A purchased or inferred contact is not consent."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "content-plan",
@@ -2124,7 +2201,8 @@
       ],
       "rules": [
         "Drafting is distinct from publishing."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "attribution",
@@ -2151,7 +2229,8 @@
       ],
       "rules": [
         "Correlation does not prove incremental lift."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "statement",
@@ -2193,7 +2272,8 @@
       ],
       "rules": [
         "A statement is a report, not cash received."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "statement-line",
@@ -2229,7 +2309,8 @@
       ],
       "rules": [
         "Preserve unmatched lines, original values and correction links."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "royalty-calculation",
@@ -2266,7 +2347,8 @@
       ],
       "rules": [
         "Generic JSON terms are not an implemented calculator."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "recoupment",
@@ -2287,7 +2369,8 @@
       ],
       "rules": [
         "Do not mix pools or apply undocumented recoupment rules."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "ledger",
@@ -2319,7 +2402,8 @@
       ],
       "rules": [
         "Expected revenue is not settled cash."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "payable",
@@ -2341,7 +2425,8 @@
       ],
       "rules": [
         "A route or entitlement does not authorize a payment."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "usage-billing",
@@ -2363,7 +2448,8 @@
       ],
       "rules": [
         "Provider cost, customer charge and music royalties are distinct."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "observation",
@@ -2403,7 +2489,8 @@
       ],
       "rules": [
         "Never sum snapshots of cumulative counters as activity."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "metric-definition",
@@ -2434,7 +2521,8 @@
       ],
       "rules": [
         "Different providers' metrics are not automatically comparable."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "analytics-store",
@@ -2458,7 +2546,8 @@
       ],
       "rules": [
         "Projection is rebuildable, with lineage and tenant controls."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "forecast",
@@ -2507,7 +2596,8 @@
       ],
       "rules": [
         "Forecast is not an observed fact or financial guarantee."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "recommendation",
@@ -2540,7 +2630,8 @@
       ],
       "rules": [
         "A recommendation does not grant permission to execute."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "feature-contract",
@@ -2562,7 +2653,8 @@
       ],
       "rules": [
         "UI completion alone cannot establish a connected feature."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "decision-log",
@@ -2583,7 +2675,8 @@
       ],
       "rules": [
         "A proposal is not a roadmap commitment."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "graph-view",
@@ -2604,7 +2697,8 @@
       ],
       "rules": [
         "Visual structure does not implement data or security behavior."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "verification",
@@ -2635,7 +2729,8 @@
       ],
       "rules": [
         "Code-present, tested and live-verified remain separate."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "schema-registry",
@@ -2663,7 +2758,8 @@
       ],
       "rules": [
         "Do not equate a reference model with a deployable migration."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "drift-review",
@@ -2688,7 +2784,8 @@
       ],
       "rules": [
         "Old source evidence remains dated, not silently current."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "idea-intake",
@@ -2714,11 +2811,12 @@
       ],
       "rules": [
         "Client evidence stays in its authorized private home."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "identity-binding",
-      "label": "Identity & representation binding",
+      "label": "People, accounts & representation",
       "summary": "Sourced binding between a creative/researched identity, actual legal party, optional software account and represented workspace.",
       "domain": "parties",
       "fields": [
@@ -2735,7 +2833,8 @@
       ],
       "rules": [
         "No binding grants software access by itself."
-      ]
+      ],
+      "technicalLabel": "Identity & representation binding"
     },
     {
       "id": "contribution",
@@ -2761,7 +2860,8 @@
       ],
       "rules": [
         "Credit is not a rights share or generic identity role."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "service-actor",
@@ -2783,7 +2883,8 @@
       ],
       "rules": [
         "A worker never inherits all of a human account capability by implication."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "delegation",
@@ -2804,7 +2905,8 @@
       ],
       "rules": [
         "Child authority and budgets cannot exceed the parent grant."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "budget-reservation",
@@ -2826,7 +2928,8 @@
       ],
       "rules": [
         "Retries must not charge twice; reservation does not change prices or authorize new spend."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "disclosure",
@@ -2847,11 +2950,12 @@
       ],
       "rules": [
         "Private-dependent output cannot be made public by relabeling its file."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "context-scope",
-      "label": "Authorized context scope",
+      "label": "Information an agent may use",
       "summary": "Selected subjects and permitted relationship neighborhood for a purpose-specific retrieval.",
       "domain": "knowledge",
       "fields": [
@@ -2868,11 +2972,12 @@
       ],
       "rules": [
         "Related subject identity does not expose another workspace research activity."
-      ]
+      ],
+      "technicalLabel": "Authorized context scope"
     },
     {
       "id": "assertion-review",
-      "label": "Assertion adjudication",
+      "label": "Fact checking & dispute resolution",
       "summary": "Review incoming claims against evidence, preserve disputes and accepted interpretation history.",
       "domain": "knowledge",
       "fields": [
@@ -2889,7 +2994,8 @@
       ],
       "rules": [
         "Receiving a claim is not confirmation that it is true."
-      ]
+      ],
+      "technicalLabel": "Assertion adjudication"
     },
     {
       "id": "change-event",
@@ -2910,7 +3016,8 @@
       ],
       "rules": [
         "Handle duplicate, out-of-order and deletion events; external projections are not one atomic transaction."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "model-evaluation",
@@ -2944,11 +3051,12 @@
       ],
       "rules": [
         "A fluent answer does not prove grounded retrieval or authorized execution."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "operational-readiness",
-      "label": "Operations & recovery",
+      "label": "Service health & recovery",
       "summary": "SLOs, queues, capacity, observability, incident response, backup and restore evidence.",
       "domain": "operations",
       "fields": [
@@ -2967,7 +3075,8 @@
       ],
       "rules": [
         "A configured backup is not a successful restore test."
-      ]
+      ],
+      "technicalLabel": "Operations & recovery"
     },
     {
       "id": "legal-continuity",
@@ -2988,7 +3097,8 @@
       ],
       "rules": [
         "Do not infer support from this navigational placeholder."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "specialized-rights",
@@ -3009,11 +3119,12 @@
       ],
       "rules": [
         "Do not infer support from this navigational placeholder."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "production-detail",
-      "label": "Sessions, stems & technical QC",
+      "label": "Sessions, stems & quality checks",
       "summary": "A production revision dossier groups exact session assets, contributors and technical checks without treating source audio as the approved delivery master.",
       "domain": "assets",
       "fields": [
@@ -3031,12 +3142,13 @@
       ],
       "rules": [
         "Do not infer support from this navigational placeholder."
-      ]
+      ],
+      "technicalLabel": "Sessions, stems & technical QC"
     },
     {
       "id": "accounting-detail",
-      "label": "FX, taxes & accounting close",
-      "summary": "A private period-close and reconciliation dossier connects statements, cash/ledger evidence, currency conversion inputs and tax/withholding assertions without implementing accounting policy.",
+      "label": "Currency, taxes & accounting close",
+      "summary": "Connect statements, cash, ledger entries, currency conversions and tax or withholding records for a defined accounting period.",
       "domain": "finance",
       "fields": [
         "id",
@@ -3062,7 +3174,8 @@
       ],
       "rules": [
         "Do not infer support from this navigational placeholder."
-      ]
+      ],
+      "technicalLabel": "FX, taxes & accounting close"
     },
     {
       "id": "customer-operations",
@@ -3083,7 +3196,8 @@
       ],
       "rules": [
         "Do not infer support from this navigational placeholder."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "audience-privacy",
@@ -3104,7 +3218,8 @@
       ],
       "rules": [
         "Do not infer support from this navigational placeholder."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "live-commerce",
@@ -3125,7 +3240,8 @@
       ],
       "rules": [
         "Do not infer support from this navigational placeholder."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "ar-development",
@@ -3146,7 +3262,8 @@
       ],
       "rules": [
         "Do not infer support from this navigational placeholder."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "continuity-testing",
@@ -3167,7 +3284,8 @@
       ],
       "rules": [
         "Do not infer support from this navigational placeholder."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "guest-session",
@@ -3190,7 +3308,8 @@
         "Private guest work remains session-owned until an explicit verified attachment to an authenticated owner.",
         "Guest identity does not grant workspace membership, business mandates, publication rights or collection authority.",
         "Expiry invalidates retrieval and derived caches under retention policy; never reuse an expired owner ID."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "sec-public-private",
@@ -3198,7 +3317,8 @@
       "summary": "public-source facts may compound; private or ambiguous evidence, customer activity and private-derived results stay private.",
       "domain": "security",
       "fields": [],
-      "rules": []
+      "rules": [],
+      "technicalLabel": ""
     },
     {
       "id": "sec-mandate",
@@ -3206,7 +3326,8 @@
       "summary": "Separate represented-party authority from software access, rights, income entitlements and collection routes. Unknown territory, period or exclusions cannot imply broad permission.",
       "domain": "security",
       "fields": [],
-      "rules": []
+      "rules": [],
+      "technicalLabel": ""
     },
     {
       "id": "sec-approval",
@@ -3214,23 +3335,26 @@
       "summary": "durable approvals bind exact proposal/content/resource versions, recipient, purpose, budget and expiry; read permission alone never grants export or publish.",
       "domain": "security",
       "fields": [],
-      "rules": []
+      "rules": [],
+      "technicalLabel": ""
     },
     {
       "id": "sec-policy-decision",
-      "label": "Unified policy decision contract",
+      "label": "Shared permission rules",
       "summary": "shared decision combines actor, workspace, resource, action, purpose, time, delegation, mandate, approval and budget; domain operations enforce it across all transports.",
       "domain": "security",
       "fields": [],
-      "rules": []
+      "rules": [],
+      "technicalLabel": "Unified policy decision contract"
     },
     {
       "id": "sec-persistence",
-      "label": "Persistent authority versus working files",
+      "label": "Official records & working files",
       "summary": "Product database owns accepted operational state; evidence storage owns originals; skills own reusable instructions; scoped agent files own drafts and resumable work. Promotion is explicit.",
       "domain": "security",
       "fields": [],
-      "rules": []
+      "rules": [],
+      "technicalLabel": "Persistent authority versus working files"
     },
     {
       "id": "evaluation-case",
@@ -3257,7 +3381,8 @@
       "rules": [
         "Versioned scoped definition; evaluation quality is separate from action authority and external outcome.",
         "Freeze grouped membership and versioned rubric/fixtures. Reusing held-out scores to choose patches consumes their independence; retain a further locked confirmation set. Accept multiple valid action paths and evaluate required final state."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "evaluation-grader",
@@ -3287,7 +3412,8 @@
       "rules": [
         "Versioned scoped definition; evaluation quality is separate from action authority and external outcome.",
         "Validate subjective judgments against attributed reserved labels before their intended use. Preserve both error classes, applicability/unknowns, denominators and legitimate disagreement. Same-model or different-model judging alone establishes no reliability. Revalidate on material changes; no universal numeric threshold or reviewer requirement."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "model-call",
@@ -3325,7 +3451,8 @@
       "rules": [
         "Every model attempt has durable identity and run ancestry; unavailable counters are unknown, not zero.",
         "Costs and token totals preserve provider accounting semantics and never double count child runs or cached/reasoning subsets."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "agent-working-environment",
@@ -3360,7 +3487,8 @@
         "Platform owns authority/lifecycle, the agent owns mutable working methods, and product services own accepted business meaning. Editing a file or local database never grants permissions. Independent workspace goals are allowed within company context/authority; register scoped tasks when shared scheduling/reporting depends on them.",
         "Persist selected progress/context/artifacts independently of replaceable runtime. Restore files and leases separately; reconcile prior external actions rather than infer completion from a snapshot.",
         "Use a coordinated writer or isolated copies with revision reconciliation; never silently overwrite another agent’s work. Versioned platform defaults and agent/user customization have separate update ownership."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "agent-reporting-preference",
@@ -3383,9 +3511,10 @@
         "preference_state"
       ],
       "rules": [
-        "Agreed interview answer16: support both summary and important-event modules. Select effective recipient preferences according to output kind/priority and company rules; exact precedence remains to be designed, not silently fixed here.",
+        "Support summaries and important-event alerts. Choose recipients and channels using the output type, priority and company rules. Companies must define which preferences take precedence.",
         "A saved preference or artifact is not delivered, read or accepted. Preserve exact content/version, recipient, scoped destination, channel capability and receipts. Unavailable or uncertain delivery stays visible; fallback is explicit and retries reconcile prior effects."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "creative-attempt",
@@ -3412,7 +3541,8 @@
       "rules": [
         "Retain repeated declined pitches and failed activations as separate attempts. A pitch can occur without exposure; an agreement can succeed before launch. Never-launched means no public exposure, not no work.",
         "Company settings may authorize human or agent initiation/acceptance. Suggestion generation alone is not an operational commitment; current mode/access/budget and business evidence still govern execution."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "creative-assessment",
@@ -3443,11 +3573,12 @@
         "Commercial facts remain at their basis, currency, asset and period. Contract, invoice, earned amount, settlement and cash are stages of one chain, not additive revenue. Administration income does not require copyright ownership.",
         "A failed causal gate returns inconclusive without hiding a valid license or an unpriced recommendation. Signed outcomes, costs, control quality, date uncertainty, temporal leakage and overlap remain visible.",
         "Current grants/revocation, input identity and worker generation are rechecked before qualification/publication. Acquisition scenarios create a research annex by default, not writes to an investment model."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "capability-reach",
-      "label": "Agent capability reach",
+      "label": "What an agent can actually do",
       "summary": "A scoped record comparing a capability claim with configured tools, permitted reads/writes and demonstrated operator behavior.",
       "domain": "agents",
       "fields": [
@@ -3467,7 +3598,8 @@
       "rules": [
         "Compare application support, actual connector reach, current grants and observed behavior independently. A visible Accounting module and no agent financial connector are compatible facts. Selected label filters are not proof of enforced access.",
         "Saved-thread recall, fresh-chat recall, workspace context, durable artifacts and semantic retrieval are separate tests. A single failed recall does not establish absent memory infrastructure."
-      ]
+      ],
+      "technicalLabel": "Agent capability reach"
     },
     {
       "id": "exchange-requirement",
@@ -3490,11 +3622,12 @@
       "rules": [
         "Preserve grammar, profile, reference-integrity, arithmetic, choreography and bilateral acceptance as separate check layers. Compilation or vocabulary membership does not establish truth or recipient acceptance.",
         "Normative requirements, informative examples, historical guides and local interpretations retain different authority. Missing definitions and source conflicts cannot be silently filled."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "exchange-field-binding",
-      "label": "Standards field & semantic binding",
+      "label": "Connecting standard fields to company data",
       "summary": "A mapping decision from an exact source path and structural context to an internal meaning; source fields remain inspectable independently.",
       "domain": "ingestion",
       "fields": [
@@ -3513,7 +3646,8 @@
       "rules": [
         "XML local cardinality, optional/repeating parents, choices, groups and inherited types remain intact. JSON required/null/alternatives and flat-file positional/block rules are not interchangeable.",
         "A source definition or similarly named field is not a production mapping. Record preserved, transformed, unresolved, intentionally unsupported or rejected outcomes and reversible round-trip/loss evidence."
-      ]
+      ],
+      "technicalLabel": "Standards field & semantic binding"
     },
     {
       "id": "distribution-deal-set",
@@ -3536,9 +3670,10 @@
         "supersedes_ref"
       ],
       "rules": [
-        "Under the inspected ERN 4.3.2 common rules, new release-message deals replace existing deals effective at MessageCreatedDate. Retain every still-valid deal in the replacement; omission may withdraw a current permission.",
+        "Under the ERN 4.3.2 common rules, new release-message deals replace existing deals effective at MessageCreatedDate. Retain every still-valid deal in the replacement; omission may withdraw a current permission.",
         "Future reductions require the selected version’s end-dated terms. Empty deals, pre-release takedown and purge differ; a purge also needs evidenced requester authority. Unknown prior deals block an unsafe full-replacement interpretation, not unrelated work."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "production-session",
@@ -3564,7 +3699,8 @@
       "rules": [
         "Preserve sessions, contributors, activities, components, files and technical settings at their actual scope. Do not turn every production component into a new distributed recording or infer legal shares from credits.",
         "RIN source structure and selected profile/version remain pinned; missing contribution or file metadata stays unknown and does not authorize fabricated credits or asset access."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "identity-cluster",
@@ -3587,23 +3723,25 @@
       "rules": [
         "ECM represents a contributor’s view at a version and purpose. Different sources may disagree; keep cluster members, exclusions, amendments, withdrawal and sender/origin separate from a canonical identity decision.",
         "A duplicate ISRC cluster or negative LRAW link is evidence for review, not an automatic identity/rights merge. Current authorization and original scope govern all derived uses."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "ddex-ern",
-      "label": "ERN — release delivery",
+      "label": "Release delivery",
       "summary": "Release/resource/party/cue/chapter metadata, technical editions and version-specific deals; full deal-set replacement, future/current reductions, pre-orders, takedown and purge.",
       "domain": "distribution",
       "fields": [],
       "rules": [
         "Prepare the complete selected release and deals; validate metadata/resources/profile; send an authorized exact package; reconcile acceptance and actual availability.",
-        "Treat the inspected full replacement as a rights-reduction risk; recover supported full terms before sending. Future reductions carry selected-version end dates.",
+        "Treat a full replacement as a rights-reduction risk; recover supported full terms before sending. Future reductions carry selected-version end dates.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "DDEX ERN — Electronic Release Notification"
     },
     {
       "id": "ddex-mead",
-      "label": "MEAD — media enrichment",
+      "label": "Music descriptions & enrichment",
       "summary": "Source-attributed content enrichment: descriptive/context metadata, origin/trust and separately identified parties.",
       "domain": "knowledge",
       "fields": [],
@@ -3611,11 +3749,12 @@
         "Receive attributed enrichment; preserve origin and version; check references/trust; qualify context without converting description into ownership.",
         "Retain origin and uncertainty; do not promote sender identity into verified truth.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "DDEX MEAD — Media Enrichment and Description"
     },
     {
       "id": "ddex-pie",
-      "label": "PIE — party enrichment",
+      "label": "Artist & contributor information",
       "summary": "Party identity, names, enrichment and requests; distinguish party from credited name and message-local reference.",
       "domain": "parties",
       "fields": [],
@@ -3623,11 +3762,12 @@
         "Receive or request party enrichment; preserve identifiers/names/source; evaluate ambiguity; publish a scoped assertion or explicit unresolved match.",
         "Preserve both candidates and provenance; do not name-only merge.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "DDEX PIE — Party Identification and Enrichment"
     },
     {
       "id": "ddex-ct",
-      "label": "CT — catalog transfer",
+      "label": "Catalog transfers",
       "summary": "Three-party controller reassignment and confirmation; broader best practices cover distributor-involved transfers outside the narrow CT standard.",
       "domain": "distribution",
       "fields": [],
@@ -3635,11 +3775,12 @@
         "Resolve relinquishing/acquiring controller and DSP scope; conduct main/confirmation exchanges; reconcile affected resources, identifiers and availability; record continuity.",
         "Use the applicable broader procedure and preserve unknowns; CT receipt alone does not prove legal acquisition, payout setup or uninterrupted store availability.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "CT — catalog transfer"
     },
     {
       "id": "ddex-rin",
-      "label": "RIN — recording production",
+      "label": "Recording session information",
       "summary": "Production sessions, activities, contributors, components and files retain technical/creative history separate from release editions.",
       "domain": "assets",
       "fields": [],
@@ -3647,23 +3788,25 @@
         "Collect sourced session/contribution/component/file data; preserve scope and roles; validate selected RIN dependencies; connect qualified recording/asset histories.",
         "Keep components and recordings distinct; preserve unknown credits and broken dependency diagnostics.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "DDEX RIN — Recording Information Notification"
     },
     {
       "id": "ddex-dsr",
-      "label": "DSR — usage and sales reports",
-      "summary": "Architecture, record definitions and profile/variant govern period/territory usage/revenue/control totals, related files and corrections; Part 2 AVS is deprecated in the inspected architecture.",
+      "label": "Sales & usage reporting",
+      "summary": "Exchange sales, usage, revenue and control totals by period and territory, with versioned reporting formats and corrections.",
       "domain": "finance",
       "fields": [],
       "rules": [
         "Pin architecture/profile/variant/records/AVS; acquire complete report batch; parse original positions and reconcile controls; publish supported units/amounts and correction lineage.",
         "Require actual header/summary/footer and negotiated no-activity scope; preserve missing/incomplete partitions and replace only exact supported coverage.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "DDEX DSR — Digital Sales Reporting"
     },
     {
       "id": "ddex-cdm",
-      "label": "CDM — work claims and discrepancies",
+      "label": "Work claims & discrepancies",
       "summary": "Six-part claim/detail/discrepancy/overclaim/correction suite: claims and responses are evidence, not royalty cash or adjudicated ownership.",
       "domain": "rights",
       "fields": [],
@@ -3671,11 +3814,12 @@
         "Link exact report/work/right/share scopes; exchange claim statements; retain data/overclaim discrepancies; reconcile corrective claims and recipient outcomes.",
         "Keep claimants and scope distinct; open review/response rather than silently rescaling ownership or paying inferred balances.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "CDM — work claims and discrepancies"
     },
     {
       "id": "ddex-mwn",
-      "label": "MWN — work right-share notifications",
+      "label": "Work ownership-share notifications",
       "summary": "Notifications, requests and recalls with profile-bound share basis, work part, territory/use/DSP/carrier/model exclusions, period and prior-royalty/payable qualifiers.",
       "domain": "publishing",
       "fields": [],
@@ -3683,11 +3827,12 @@
         "Qualify work/party/share/mandate evidence; prepare selected notifications/requests; validate profile/references; reconcile response/recall and scoped claims.",
         "Preserve distinct share bases, unknown/not-claimed/disputed states and original authorizations.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "MWN — work right-share notifications"
     },
     {
       "id": "ddex-mwl",
-      "label": "MWL — US work licensing",
+      "label": "US musical-work licensing",
       "summary": "US-specific musical-work licence requests, licences and revocation choreography; preserve jurisdiction and version-specific participants.",
       "domain": "publishing",
       "fields": [],
@@ -3695,11 +3840,12 @@
         "Prepare authorized work/use/territory requests; follow the selected US choreography; retain licence/revocation terms and exact evidence; reconcile downstream licensed use.",
         "Honor only supported licence scope and current mandates; retain pending/rejected/revoked states.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "MWL — US work licensing"
     },
     {
       "id": "ddex-lod",
-      "label": "LoD — US letters of direction",
+      "label": "US collection instructions",
       "summary": "US-specific direction/confirmation changes representation or collection routing; identity, legal mandate and payment redirection require separate evidence.",
       "domain": "rights",
       "fields": [],
@@ -3707,11 +3853,12 @@
         "Verify direction and affected routing; send exact message; collect counterpart confirmation; update only accepted future/effective scope with history preserved.",
         "Keep ownership, mandate, collection and payment-change authorization separate; no implicit access grants.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "LoD — US letters of direction"
     },
     {
       "id": "ddex-bwarm",
-      "label": "BWARM — linked bulk repertoire",
+      "label": "Bulk work & recording metadata",
       "summary": "Related bulk work/recording/share files, positional definitions, cross-file links and completeness; not generic unversioned CSV.",
       "domain": "ingestion",
       "fields": [],
@@ -3719,11 +3866,12 @@
         "Acquire permitted whole related-file batch; parse exact positions/profiles; reconcile cross-file reference/completeness; qualify linked repertoire assertions.",
         "Retain batch incompleteness and original rows; no fabricated identity or share defaults.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "DDEX BWARM — Bulk Communication of Work and Recording Metadata"
     },
     {
       "id": "ddex-rdr",
-      "label": "RDR — recording rights and revenue",
+      "label": "Recording rights & revenue exchange",
       "summary": "RDR-C protocol, RDR-N recording/claim/contributor/mandate messages, RDR-R revenue and RDR-RCC narrow overclaim responses remain distinct.",
       "domain": "rights",
       "fields": [],
@@ -3731,11 +3879,12 @@
         "Acquire and send exact repertoire/claim/mandate/revenue messages; inspect producer/performer/territory scopes; respond pending/maintain/update/revoke to conflicts; reconcile accepted assertions and reported revenue.",
         "Record an explicit pending response and required follow-up; avoid conflating historic MLC naming with The Mechanical Licensing Collective.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "RDR — recording rights and revenue"
     },
     {
       "id": "ddex-lraw",
-      "label": "LRAW — recording/work links",
+      "label": "Recording-to-composition links",
       "summary": "Positive and negative links/requests retain optional music identifiers, source purposes and unresolved identity.",
       "domain": "music",
       "fields": [],
@@ -3743,11 +3892,12 @@
         "Acquire sourced positive/negative linking assertion; preserve identifiers and purpose; compare competing evidence; publish a reviewed link or explicit unresolved/negative assertion.",
         "Preserve the original negative evidence and versioned review; no global entity deletion.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "DDEX LRAW — Links between Resources and Musical Works"
     },
     {
       "id": "ddex-ecm",
-      "label": "ECM — entity clusters",
+      "label": "Related works & recording identifiers",
       "summary": "Contributor-specific musical-work and duplicate-ISRC cluster views with JSON/dialect/dependency context; cluster membership is not canonical identity.",
       "domain": "music",
       "fields": [],
@@ -3755,11 +3905,12 @@
         "Receive a dated source/purpose cluster view; parse exact JSON and dependencies; evaluate contradictions; qualify a scoped view without automatic merge.",
         "Preserve syntax/meta-schema failure and the affected source view; do not patch or invent canonical agreement.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "ECM — entity clusters"
     },
     {
       "id": "ddex-ar",
-      "label": "AR — engagement anomalies",
+      "label": "Unusual listening activity",
       "summary": "Consumer-engagement anomaly notifications and responses preserve evidence and resolution scope; observed anomaly is not proven fraud.",
       "domain": "intelligence",
       "fields": [],
@@ -3767,11 +3918,12 @@
         "Capture permitted anomaly evidence at metric/time/source grain; use exact JSON/protocol; investigate and exchange scoped response; retain resolution or unknown cause.",
         "Keep observation, interpretation and accepted decision separate; apply company task modes and affected-only rules.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "AR — engagement anomalies"
     },
     {
       "id": "ddex-nft",
-      "label": "Web3 — simple music NFT",
+      "label": "Music NFTs & metadata",
       "summary": "Specialized defined music NFT exchange; token/product metadata does not by itself convey music copyright, consent or financial entitlement.",
       "domain": "rights",
       "fields": [],
@@ -3779,11 +3931,12 @@
         "Select supplied specialized exchange and permitted use; qualify metadata/asset/rights evidence; validate exact contract; retain authorized exchange and independently supported entitlement.",
         "Keep token metadata and explicit licensed rights/terms distinct; broader Web3 architecture is not inferred.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "Web3 — simple music NFT"
     },
     {
       "id": "ddex-supporting",
-      "label": "Shared DDEX standards & governance",
+      "label": "Music data exchange standards",
       "summary": "Independent AVS, dictionary and DPID standards/governance, source licensing and supporting dependencies determine terminology and exchange identity without agent access authority.",
       "domain": "research",
       "fields": [],
@@ -3791,19 +3944,8 @@
         "Preserve exact published artifacts and vocabulary editions; qualify relevant organization/partner conditions; resolve imports and identity representation; approve only evidenced compatibility and current actor access.",
         "Keep old bytes/meaning, licensing unknowns and actual membership/delegation separately.",
         "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
-    },
-    {
-      "id": "ddex-adjacent",
-      "label": "Adjacent music-model research leads",
-      "summary": "CISAC CWR/CRD, IFPI identifiers, MusicBrainz, other registries, DSP/society models, file metadata and ontologies remain separately scoped research leads.",
-      "domain": "research",
-      "fields": [],
-      "rules": [
-        "Register each existing adjacent research lead; preserve its source and inspected extent; compare only supported meanings; return unknowns for uninspected full schemas/rights/access/licensing.",
-        "Mark exact incomplete coverage; no extrapolated standard versions, contractual truth or current Recoup absence.",
-        "Standards reference/workflow lens only; this node is not a new application table or proof of supported exchange."
-      ]
+      ],
+      "technicalLabel": "Shared DDEX standards & governance"
     },
     {
       "id": "evaluation-observation",
@@ -3833,7 +3975,8 @@
         "Reviewed requires exact trace/criteria, authorized reviewer, timestamp and evidence critique; selected/excluded/missing records never count as reviewed labels.",
         "Sample manifests preserve selection method, population, grouped unit and exclusions. Targeted discoveries cannot establish ordinary traffic prevalence without a justified sampling design.",
         "Disputed and rejected labels remain versioned; label changes do not rewrite historical grader calibration. Private labels/fixtures are not shared by reusing their general procedure."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "evaluation-failure-mode",
@@ -3858,7 +4001,8 @@
         "Definitions and evidence are versioned independently of judge implementation; criteria drift needs recorded reasons and new comparison/validation boundaries.",
         "Human expertise from the research informs initial definitions; company/task modes may assign authorized people or agents and modular checks. No universal staffing minimum, human-only gate or benchmark threshold.",
         "Failure discovery does not assign or execute a product fix. Direct engineering regression checks and ongoing optional quality review remain separate; no global eval gate blocks all shipping."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "acquisition-opportunity",
@@ -3882,7 +4026,8 @@
         "Acceptance requires exact source evidence and an authorized reviewer. Never infer ownership, permission or execution from this record existing.",
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Permission to investigate or model does not authorize an offer or confer ownership."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "acquisition-component",
@@ -3908,7 +4053,8 @@
         "Acceptance requires exact source evidence and an authorized reviewer. Never infer ownership, permission or execution from this record existing.",
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Accounting inference must not overwrite authorized legal interpretation."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "diligence-item",
@@ -3951,7 +4097,8 @@
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Seller claims remain claims until supported and reviewed by the appropriate owner.",
         "Source evidence and acceptance must remain separate from design, current implementation and external completion."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "acquisition-closing",
@@ -3981,7 +4128,8 @@
         "Acceptance requires exact source evidence and an authorized reviewer. Never infer ownership, permission or execution from this record existing.",
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Signature, cash settlement and legal/operating completeness require separate evidence."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "business-obligation",
@@ -4040,7 +4188,8 @@
         "Expose protected pointers and status, not bank/tax identifiers or unrelated sensitive person fields.",
         "A contractual duty is not evidence of performance; tax clauses are attributed historical terms, not current tax advice.",
         "Source evidence and acceptance must remain separate from design, current implementation and external completion."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "equity-position",
@@ -4067,7 +4216,8 @@
         "Acceptance requires exact source evidence and an authorized reviewer. Never infer ownership, permission or execution from this record existing.",
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Separate investor subscription, company issuance, shareholder transfer, filing, escrow release and restricted use of funds; incomplete extraction cannot establish current ownership."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "equity-transaction",
@@ -4100,7 +4250,8 @@
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Contribution of an income stream does not transfer copyright; entity equity is distinct from catalog rights.",
         "Historical exercise windows do not prove present authority; rights over securities or excluded songs are not ownership itself."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "governance-rule",
@@ -4143,7 +4294,8 @@
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Different board and shareholder rules may overlap; unresolved precedence and extraction gaps block automatic authorization.",
         "Source evidence and acceptance must remain separate from design, current implementation and external completion."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "governance-session",
@@ -4171,7 +4323,8 @@
         "Acceptance requires exact source evidence and an authorized reviewer. Never infer ownership, permission or execution from this record existing.",
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Decision participation, confidential information access and external speaking/signing authority differ."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "service-engagement",
@@ -4199,7 +4352,8 @@
         "Acceptance requires exact source evidence and an authorized reviewer. Never infer ownership, permission or execution from this record existing.",
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Shared department access is purpose-bound; service performance, expense approval and transaction authority are separate."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "funding-facility",
@@ -4229,7 +4383,8 @@
         "Acceptance requires exact source evidence and an authorized reviewer. Never infer ownership, permission or execution from this record existing.",
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "A workbook rule or target closing date is not proof of an executed facility or lender permission."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "collateral-membership",
@@ -4262,7 +4417,8 @@
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Latest external valuation is not automatically complete for newly acquired catalogs.",
         "Source evidence and acceptance must remain separate from design, current implementation and external completion."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "covenant-assessment",
@@ -4297,7 +4453,8 @@
         "Acceptance requires exact source evidence and an authorized reviewer. Never infer ownership, permission or execution from this record existing.",
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Allocated purchase price and DCF are different bases; unattributed All Other cannot imply low artist concentration."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "capital-allocation",
@@ -4327,7 +4484,8 @@
         "Acceptance requires exact source evidence and an authorized reviewer. Never infer ownership, permission or execution from this record existing.",
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Avoid counting holdback or acquisition financing twice; model cash distribution policy separately from accounting profit."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "physical-configuration",
@@ -4358,7 +4516,8 @@
         "Acceptance requires exact source evidence and an authorized reviewer. Never infer ownership, permission or execution from this record existing.",
         "An unknown value stays unknown; a missing receipt does not mean an action failed or succeeded. All example acceptance checks describe behavior, not executed tests.",
         "Source evidence and acceptance must remain separate from design, current implementation and external completion."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "ingestion-adapter",
@@ -4389,7 +4548,8 @@
         "logical design only: source discovery, parser success, financial acceptance and live behavior are separate.",
         "Company/task settings and scoped evidence govern automation; reusable modules never inherit private source access.",
         "Preserve original versions and ambiguity; no title-only identity, blanket source-rule adoption or silent double-count removal."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "statement-component",
@@ -4420,11 +4580,12 @@
         "logical design only: source discovery, parser success, financial acceptance and live behavior are separate.",
         "Company/task settings and scoped evidence govern automation; reusable modules never inherit private source access.",
         "Preserve original versions and ambiguity; no title-only identity, blanket source-rule adoption or silent double-count removal."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "statement-coverage-selection",
-      "label": "Accepted statement coverage selection",
+      "label": "Selecting authoritative statements",
       "summary": "An immutable choice of qualified source components for one company/report basis and coverage revision; preserves replacement history without adding a second ledger.",
       "domain": "finance",
       "fields": [
@@ -4451,7 +4612,8 @@
         "logical design only: source discovery, parser success, financial acceptance and live behavior are separate.",
         "Company/task settings and scoped evidence govern automation; reusable modules never inherit private source access.",
         "Preserve original versions and ambiguity; no title-only identity, blanket source-rule adoption or silent double-count removal."
-      ]
+      ],
+      "technicalLabel": "Accepted statement coverage selection"
     },
     {
       "id": "provider-job",
@@ -4483,7 +4645,8 @@
         "Keep provider job identity/state separate from local workflow/task state and immutable input versions.",
         "Only exact authorized action inputs may spend money or replace approved outputs.",
         "Reconcile an uncertain submission before creating another job; preserve every attempt and unknown source guarantee."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "catalog-migration",
@@ -4510,7 +4673,8 @@
         "Freeze selected products, exact bytes, identifiers and cutover ordering independently of provider workspace custody.",
         "Copyright interests, mandates and past financial records do not transfer merely because products move.",
         "A successful batch submit or source takedown intent does not prove safe per-store cutover; resume only unresolved members."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "asset-share-grant",
@@ -4538,7 +4702,8 @@
         "Scope listening/download/comment/version permissions independently of ownership, project membership and consent.",
         "A link following latest cannot authorize promotion of a later version from a review of an earlier mix.",
         "A link view, play count or anonymous name does not identify a person or prove delivery acceptance."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "media-annotation",
@@ -4568,7 +4733,8 @@
         "Pin every marker, comment or range to the immutable version it describes.",
         "Store anonymous claimed names separately from verified authors; comments do not approve rights, metadata or creative promotion.",
         "Keep the original annotation when listening to another mix; require alignment evidence before copying its time coordinates."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "playlist",
@@ -4603,7 +4769,8 @@
         "Preserve platform-native playlist identity, provider crosswalk, curator and storefront as separately sourced roles.",
         "Membership, editorial classification and popularity confer no distribution, rights or roster authority.",
         "Private queries/history remain private even when independently public playlist identity is reusable."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "playlist-placement-observation",
@@ -4644,7 +4811,8 @@
         "A dated playlist occurrence is a measurement claim with source track namespace, window and position basis.",
         "Observed placement and estimated playlist-attributed streams remain independent and non-causal.",
         "Missing/uncomputed history404 is not an invalid native track ID or zero streams; preserve coverage and correction history."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "digital-wallet-profile",
@@ -4675,7 +4843,8 @@
         "Preserve source/network/resource identity separately from legal person, income entitlement, software tenancy and copyright.",
         "Technical chain/control state requires exact separately authorized evidence; no source docs satisfy finality or legal-effect gates.",
         "Token holder units and source payout sentinel0 never become copyright/equity percent or verified settled cash."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "tokenized-income-interest",
@@ -4716,7 +4885,8 @@
         "Preserve source/network/resource identity separately from legal person, income entitlement, software tenancy and copyright.",
         "Technical chain/control state requires exact separately authorized evidence; no source docs satisfy finality or legal-effect gates.",
         "Token holder units and source payout sentinel0 never become copyright/equity percent or verified settled cash."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "royalty-rate-rule",
@@ -4759,7 +4929,8 @@
         "Future-effective, provisional, withdrawn or conflicting versions cannot silently replace an accepted applicable version. A private agreement can override a statutory default only with evidenced applicability.",
         "Preserve immutable versions and correction ancestry. Current knowledge may restate historical calculations; as-known outputs retain their exact selected versions.",
         "No rule grants ownership, access, payment approval or applicability merely from a matching provider name."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "royalty-rate-observation",
@@ -4805,7 +4976,8 @@
         "Never average row rates, duplicate summary/detail money or multiply earnings through multiple song/work matches. Preserve unmatched money in accounted totals.",
         "Unknown units, zero denominator, suppressed or ineligible usage and missing currencies produce explicit coverage/exception states, never an invented zero payout.",
         "Private-dependent rates and forecasts inherit their source scope. Public facts may compound independently, but private contracts or earnings do not become shared facts."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "swarm-mission",
@@ -4831,7 +5003,8 @@
         "Reusable mission definition is not a singleton agent, run, shared conversation or combined departmental task list.",
         "A registered module does not grant source/tool access; trusted module registration is separate from sandboxing arbitrary code.",
         "Domain evaluation may require external evidence; completed tasks and syntactically valid output do not prove the business goal."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "swarm-group",
@@ -4859,7 +5032,8 @@
         "Hierarchical ownership and selective lateral exchange may coexist; one model cannot be required to read all group messages.",
         "Group and mission state/credentials/budgets/cancellation are scoped; shared quota exhaustion is an admission condition, not fabricated task failure.",
         "Different role names or model agreement are not independent corroboration; record source ancestry and exact influences."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "agent-message",
@@ -4895,7 +5069,8 @@
         "Persist intent/message and outbox transactionally, deduplicate inbox delivery, retain poison/failed/stale state; at-least-once unordered transport never implies exactly-once external effects.",
         "A receiver rereads effective permissions and revision preconditions; original source facts and dissent survive bounded retrieval.",
         "Accepted communication is not accepted truth, external action authorization, completed work or business success."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "release-delivery-configuration",
@@ -4928,7 +5103,8 @@
         "Resolve only selected destination overrides; absent/null/empty/false must retain separate semantics.",
         "Configuration, legal permission, QC, authorized submission, transport acceptance and verified availability are independent gates.",
         "Changing effective commercial inputs invalidates the earlier package approval unless exact permitted scope remains satisfied."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "catalog-custody-transfer",
@@ -4958,7 +5134,8 @@
       "rules": [
         "Only a separately authorized recipient accepts; expiry, repeated acceptance and cross-tenant conflicts require explicit state guards.",
         "ISRC/UPC and shared subject identity survive administrative custody change; rights, mandate, entitlements and historical financial access do not silently move."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "webhook-subscription",
@@ -4984,7 +5161,8 @@
       "rules": [
         "Provider acceptance of a callback registration is independent of delivered, authenticated and processed events.",
         "Each signing secret version and retry attempt keeps a separate receipt; event filters cannot prove completeness of the provider event stream."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "external-event",
@@ -5020,7 +5198,8 @@
         "An incoming provider event has no canonical aggregate_version until a separately authorized atomic commit emits change-event.",
         "Signature validity proves source integrity, not rights, freshness, ordering, real destination effects or permission to apply state.",
         "Retry attempts share stable event identity where available; ambiguous source IDs are quarantined rather than inventing exactly-once guarantees."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "service-subscription",
@@ -5050,7 +5229,8 @@
         "Payment verification may mutate activation even when exposed as GET; method/tool naming is not an authority classification.",
         "A successful return or charge.success callback is source evidence; independently qualify settled funds and entitlement activation.",
         "402 release allowance/invoice grace and 403 video entitlement failures do not assert missing rights or revoke unrelated domain access."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "rights-enforcement-case",
@@ -5078,7 +5258,8 @@
       "rules": [
         "Reported ownership, operational platform access, reviewed enforcement authority, submitted notice and observed remedy are distinct.",
         "Do not automate legal claims from an ISRC match, name match, provider asset ID or provider case flag alone."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "upload-intent",
@@ -5105,7 +5286,8 @@
       "rules": [
         "No accepted asset/version is manufactured from a future CDN URL or presigned object key.",
         "Verify retained bytes/hash, technical profile and subject association separately from transport acknowledgment and QC approval."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "release-package-item",
@@ -5129,7 +5311,8 @@
         "Package component edits produce a new package revision and require new action approval; old approval remains historical.",
         "The manifest and asset_version must identify the same bytes/version; each track master belongs to an explicit release slot.",
         "Completeness depends on the selected partner profile; no fixed worldwide master/artwork requirements are invented."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "statement-line-match",
@@ -5154,7 +5337,8 @@
         "All candidate identities and supporting evidence retain their versions; corrections supersede decisions without rewriting the original source row.",
         "Ambiguous identity remains a candidate/conflict; no title-only automatic acceptance.",
         "Until a separate allocation contract is adopted, accepted requires exactly one candidate and a review of this claim/evidence version. Multi-asset rows remain unresolved, never assigned arbitrarily."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "statement-reconciliation",
@@ -5185,31 +5369,35 @@
         "Missing control totals, omitted rows or unknown currency cannot produce matched. Keep parse failures and excluded-row counts explicit.",
         "Negative corrections are legitimate source values; retain sign and original/correction semantics instead of clamping to zero.",
         "Rounding tolerance must name scale/method/threshold and authority; do not silently force totals to agree."
-      ]
+      ],
+      "technicalLabel": ""
     },
     {
       "id": "ticket-sec-action-binding",
-      "label": "Exact review-to-dispatch binding",
+      "label": "Approval before execution",
       "summary": "intent binds final bytes/lineage, actor/owner, action, recipient/destination, validity, mandate and spend to one approval. Dispatch rechecks authority; unknown outcomes reconcile before retry.",
       "domain": "security",
       "fields": [],
-      "rules": []
+      "rules": [],
+      "technicalLabel": "Exact review-to-dispatch binding"
     },
     {
       "id": "ticket-sec-public-admission",
-      "label": "Public admission and derivative lineage",
+      "label": "Public knowledge & source history",
       "summary": "independent source eligibility/terms/public lineage allows public facts to compound while requests/private-derived results stay private, without customer sharing prerequisites.",
       "domain": "knowledge",
       "fields": [],
-      "rules": []
+      "rules": [],
+      "technicalLabel": "Public admission and derivative lineage"
     },
     {
       "id": "ticket-sec-capability-envelope",
-      "label": "Scoped runtime capability envelope",
+      "label": "Agent permissions & limits",
       "summary": "non-secret connection references bind actor/client/run/owner/resource/purpose/action, destination and limits. Parent revocation invalidates descendants/resume; output/egress denial needs separate evidence.",
       "domain": "security",
       "fields": [],
-      "rules": []
+      "rules": [],
+      "technicalLabel": "Scoped runtime capability envelope"
     }
   ],
   "edges": [
@@ -7965,60 +8153,6 @@
       "id": "ddex-161",
       "source": "ddex-supporting",
       "target": "policy-decision",
-      "relation": "defines scoped exchange meaning"
-    },
-    {
-      "id": "ddex-162",
-      "source": "ddex-adjacent",
-      "target": "partner-profile",
-      "relation": "defines scoped exchange meaning"
-    },
-    {
-      "id": "ddex-163",
-      "source": "ddex-adjacent",
-      "target": "schema-registry",
-      "relation": "defines scoped exchange meaning"
-    },
-    {
-      "id": "ddex-164",
-      "source": "ddex-adjacent",
-      "target": "partner-exchange",
-      "relation": "defines scoped exchange meaning"
-    },
-    {
-      "id": "ddex-165",
-      "source": "ddex-adjacent",
-      "target": "verification",
-      "relation": "defines scoped exchange meaning"
-    },
-    {
-      "id": "ddex-166",
-      "source": "ddex-adjacent",
-      "target": "external-identifier",
-      "relation": "defines scoped exchange meaning"
-    },
-    {
-      "id": "ddex-167",
-      "source": "ddex-adjacent",
-      "target": "composition",
-      "relation": "defines scoped exchange meaning"
-    },
-    {
-      "id": "ddex-168",
-      "source": "ddex-adjacent",
-      "target": "recording",
-      "relation": "defines scoped exchange meaning"
-    },
-    {
-      "id": "ddex-169",
-      "source": "ddex-adjacent",
-      "target": "release",
-      "relation": "defines scoped exchange meaning"
-    },
-    {
-      "id": "ddex-170",
-      "source": "ddex-adjacent",
-      "target": "source-contract",
       "relation": "defines scoped exchange meaning"
     },
     {
@@ -10887,7 +11021,7 @@
       "id": "ingestion-council-o08",
       "source": "source-contract",
       "target": "quality-coverage",
-      "relation": "Show delivery channels outside the inspected corpus"
+      "relation": "Other delivery channels"
     },
     {
       "id": "ingestion-council-a01",
@@ -14016,6 +14150,16 @@
         "statement-coverage-selection",
         "statement-reconciliation",
         "workflow-run"
+      ]
+    },
+    {
+      "id": "specialist-topics",
+      "label": "Specialist: digital wallets & tokenized interests",
+      "summary": "Explore specialist digital-asset structures and music metadata exchanges, with rights and payment authority kept explicit.",
+      "nodes": [
+        "ddex-nft",
+        "digital-wallet-profile",
+        "tokenized-income-interest"
       ]
     }
   ]

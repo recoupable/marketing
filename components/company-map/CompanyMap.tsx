@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { circularLayout, layoutBounds } from "@/lib/company-map/circularLayout";
+import publicCopy from "@/lib/company-map/public-copy.json";
 import model from "@/lib/company-map/model.json";
 
 const nodeById = new Map(model.nodes.map((n) => [n.id, n]));
@@ -77,9 +78,11 @@ export function CompanyMap() {
       model.nodes.filter((n) =>
         workflow
           ? workflow.nodes.includes(n.id)
-          : !selection.domain || n.domain === selection.domain,
+          : selection.domain
+            ? n.domain === selection.domain
+            : !publicCopy.specialists.includes(n.id) || n.id === selection.node,
       ),
-    [workflow, selection.domain],
+    [workflow, selection.domain, selection.node],
   );
   const entries = nodes;
   const positions = useMemo(() => circularLayout(entries), [entries]);
@@ -98,7 +101,7 @@ export function CompanyMap() {
   }, [positions]);
   const searchResults = query.trim()
     ? model.nodes.filter((n) =>
-        `${n.label} ${n.summary}`
+        `${n.label} ${n.technicalLabel} ${n.summary}`
           .toLowerCase()
           .includes(query.trim().toLowerCase()),
       )
@@ -216,7 +219,7 @@ export function CompanyMap() {
             <p>
               {workflow?.summary ||
                 domain?.summary ||
-                "The full operating model. Select a component to highlight its connections; double-click to explore its company area."}
+                "The connected operating model. Specialist digital-asset topics are available under Workflows and search. Select a component to highlight its connections; double-click to explore its company area."}
             </p>
           </div>
           <div className="cm-canvas">
@@ -372,6 +375,11 @@ export function CompanyMap() {
             <>
               <p className="sp-kicker">{domainById.get(node.domain)?.label}</p>
               <h2>{node.label}</h2>
+              {node.technicalLabel && (
+                <p>
+                  <strong>Technical name:</strong> {node.technicalLabel}
+                </p>
+              )}
               <p>{node.summary}</p>
               {node.rules.length > 0 && (
                 <section>
