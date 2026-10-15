@@ -577,9 +577,7 @@
 .cm-node-active rect {
   filter: drop-shadow(0 0 8px #d6ff6270);
 }
-.cm-node-connected rect {
-  filter: drop-shadow(0 0 3px #79d0ff40);
-}
+
 .cm-has-selection .cm-node-hovered {
   opacity: 1;
 }
@@ -587,4 +585,15 @@
   .cm-edge {
     transition: none;
   }
+}
+
+/* Hit geometry stays fixed while the decorative surface changes. */
+.cm-node-surface {
+  pointer-events: none;
+}
+.cm-node rect.cm-node-hit {
+  fill: transparent;
+  stroke: none;
+  filter: none;
+  pointer-events: all;
 }
