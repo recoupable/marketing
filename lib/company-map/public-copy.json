@@ -74,6 +74,6 @@
   },
   "relations": {
     "ingestion-council-p06": "Preserve source export coverage and limitations",
-    "ingestion-family-49": "Catalog administration source contract"
+    "ingestion-family-49": "Source contract selects a qualified ingestion adapter"
   }
 }

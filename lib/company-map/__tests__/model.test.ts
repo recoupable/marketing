@@ -45,6 +45,9 @@ describe("public operating model boundary", () => {
       expect(model.edges.find((edge) => edge.id === id)?.relation).toBe(relation);
     }
   });
+  it("keeps source connections generic", () => {
+    expect(model.edges.filter((edge) => edge.id.startsWith("ingestion-family-")).length).toBe(1);
+  });
   it("has complete traversable relationships and every company area", () => {
     expect(model.edges.length).toBeGreaterThan(0);
     expect(model.workflows.length).toBeGreaterThan(0);
