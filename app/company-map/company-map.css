@@ -56,6 +56,20 @@
   grid-template-columns: 235px minmax(0, 1fr) 300px;
   min-height: 800px;
 }
+.cm-sidebar,
+.cm-detail {
+  --cm-white: #29433b;
+  --cm-soft: #203a31;
+  --cm-text: #eef7f2;
+  --cm-muted: #bed0c5;
+  --cm-line: #355046;
+  --cm-blue: #b8e8cb;
+  background: var(--cm-forest);
+  color: var(--cm-text);
+  color-scheme: dark;
+}
+.cm-search input::placeholder { color: var(--cm-muted); }
+.cm-tabs button { color: var(--cm-text); }
 .cm-sidebar {
   padding: 20px 12px;
   box-shadow: 1px 0 var(--cm-line);
