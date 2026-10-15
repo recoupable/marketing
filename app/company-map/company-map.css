@@ -278,9 +278,8 @@
   cursor: pointer;
 }
 .cm-component-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   padding: 18px 22px;
 }
