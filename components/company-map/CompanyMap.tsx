@@ -119,7 +119,7 @@ export function CompanyMap() {
     >
       <div className="cm-toolbar">
         <div>
-          <strong>Explore the company</strong>
+          <strong>Atlas</strong>
           <span>
             {model.domains.length} areas · {model.nodes.length} components ·{" "}
             {model.edges.length.toLocaleString()} connections
