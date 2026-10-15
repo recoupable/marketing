@@ -6,10 +6,24 @@ import {
 } from "../pricing.ts";
 import { siteConfig } from "../config.ts";
 import type { PageSummary } from "./types.ts";
+import { companyMapCopy } from "../copy/company-map.ts";
 import { platformCopy } from "../copy/platform.ts";
 
 // Summaries of the software and pricing pages; same representation rules as offerPages.
 export const productPages: PageSummary[] = [
+  {
+    path: "/atlas",
+    title: companyMapCopy.title,
+    description: companyMapCopy.description,
+    keywords:
+      "music company operating model catalog rights capital agents workflows permissions",
+    paragraphs: [companyMapCopy.intro, companyMapCopy.note],
+    links: [
+      ["Explore the Atlas", "/atlas"],
+      ["Custom builds", "/build"],
+      ["Start a project", "/start-project"],
+    ],
+  },
   {
     path: "/platform",
     title: platformCopy.title,
@@ -20,8 +34,12 @@ export const productPages: PageSummary[] = [
       platformCopy.hero.description,
       platformCopy.start.title,
       platformCopy.audience.title.join(" "),
-      ...platformCopy.audience.reasons.map(item => `${item.title} ${item.description}`),
-      ...platformCopy.capabilities.map(item => `${item.title}: ${item.description}`),
+      ...platformCopy.audience.reasons.map(
+        (item) => `${item.title} ${item.description}`,
+      ),
+      ...platformCopy.capabilities.map(
+        (item) => `${item.title}: ${item.description}`,
+      ),
       `${platformCopy.hosted.title.join(" ")} ${platformCopy.hosted.description}`,
       `${platformCopy.alternatives.title.join(" ")} ${platformCopy.alternatives.description}`,
       `${platformCopy.closing.title} ${platformCopy.closing.description}`,
@@ -32,7 +50,9 @@ export const productPages: PageSummary[] = [
       [platformCopy.hero.action, siteConfig.appUrl],
       ["Recoup Platform plan", "/pricing#platform"],
       [platformCopy.hosted.sourceAction, siteConfig.platformSourceUrl],
-      ...platformCopy.alternatives.links.map(link => [link.label, link.href] as [string, string]),
+      ...platformCopy.alternatives.links.map(
+        (link) => [link.label, link.href] as [string, string],
+      ),
       ["Custom systems", "/build"],
     ],
   },

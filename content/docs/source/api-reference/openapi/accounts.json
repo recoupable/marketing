@@ -1340,7 +1340,7 @@
             "name": "sort",
             "in": "query",
             "required": false,
-            "description": "Order of the line items, both descending: `created_at` (newest first, the default) or `cost` (largest `credits_deducted` first, ties by newest).",
+            "description": "Both orders are descending: created_at uses timestamp then row ID; cost uses credits_deducted then row ID. Cost ties are ordered by ID, not timestamp.",
             "schema": {
               "type": "string",
               "enum": [
@@ -1354,7 +1354,7 @@
             "name": "cursor",
             "in": "query",
             "required": false,
-            "description": "Opaque paging token: pass the `next_cursor` value from the previous page, with the same `sort`, `from` and `to`. With `sort=created_at` it is the last item's `created_at`; with `sort=cost` it encodes the last item's amount and id. Returns the items that follow it.",
+            "description": "Opaque paging token: pass next_cursor unchanged with the same sort, from and to. New time cursors retain both the last timestamp and row ID, so tied timestamps are not skipped. Cost cursors retain amount and row ID. Legacy timestamp-only cursors remain accepted as strict time boundaries; start a fresh traversal to obtain complete tie coverage.",
             "schema": {
               "type": "string"
             }
@@ -1400,7 +1400,7 @@
             }
           },
           "400": {
-            "description": "Bad request - invalid query parameter (for example `limit` above 100 or a `cursor` that is not a timestamp)",
+            "description": "Bad request: invalid query parameter, limit above 100, malformed cursor, or a non-positive period after database timestamp normalization.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5644,18 +5644,20 @@
           "created_at": {
             "type": "string",
             "format": "date-time",
-            "description": "When the charge was recorded.",
-            "example": "2026-08-27T11:56:58.000Z"
+            "description": "When the charge was recorded, normalized to UTC at database microsecond precision.",
+            "example": "2026-08-27T11:56:58.000000Z"
           },
           "source": {
             "type": "string",
-            "description": "Which surface originated the charge: `api` for a request to the API, `web` for the chat app.",
-            "example": "api"
+            "description": "Which surface originated the charge: `api` for a request to the API, `web` for the chat app. Null when this field was not recorded.",
+            "example": "api",
+            "nullable": true
           },
           "agent_type": {
             "type": "string",
-            "description": "`main` for a top-level request or any non-agent charge; `subagent` for a nested task step.",
-            "example": "main"
+            "description": "`main` for a top-level request or any non-agent charge; `subagent` for a nested task step. Null when this field was not recorded.",
+            "example": "main",
+            "nullable": true
           },
           "provider": {
             "type": "string",
@@ -5671,23 +5673,27 @@
           },
           "input_tokens": {
             "type": "integer",
-            "description": "Input tokens for the call, including cached. 0 for non-LLM charges.",
-            "example": 0
+            "description": "Input tokens for the call, including cached. 0 for non-LLM charges. Null when this field was not recorded.",
+            "example": 0,
+            "nullable": true
           },
           "cached_input_tokens": {
             "type": "integer",
-            "description": "Subset of `input_tokens` served from the provider cache.",
-            "example": 0
+            "description": "Subset of `input_tokens` served from the provider cache. Null when this field was not recorded.",
+            "example": 0,
+            "nullable": true
           },
           "output_tokens": {
             "type": "integer",
-            "description": "Output tokens for the call. 0 for non-LLM charges.",
-            "example": 0
+            "description": "Output tokens for the call. 0 for non-LLM charges. Null when this field was not recorded.",
+            "example": 0,
+            "nullable": true
           },
           "tool_call_count": {
             "type": "integer",
-            "description": "Number of tool calls in this step.",
-            "example": 0
+            "description": "Number of tool calls in this step. Null when this field was not recorded.",
+            "example": 0,
+            "nullable": true
           },
           "credits_deducted": {
             "type": "integer",
@@ -5764,8 +5770,8 @@
           "next_cursor": {
             "type": "string",
             "nullable": true,
-            "description": "Opaque; pass as `cursor` (with the same `sort`, `from` and `to`) to fetch the next page. Null when the page was the last one in the period.",
-            "example": "2026-08-27T11:56:58.000Z"
+            "description": "Opaque; pass unchanged as cursor with the same sort, from and to. A full page may return a cursor followed by an empty final page; null means this traversal has ended. Time cursors retain timestamp and ID; cost cursors retain amount and ID.",
+            "example": "v1:WyIyMDI2LTA4LTI3VDExOjU2OjU4LjAwMDAwMFoiLCIzQUFObjNJajl1Ri16WklsV196bFAiXQ"
           },
           "series_bucket": {
             "type": "string",

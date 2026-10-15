@@ -2048,7 +2048,7 @@
     },
     "/api/artist/socials/scrape": {
       "post": {
-        "description": "Trigger scrape jobs for all social profiles linked to an artist. Returns a runId per social profile that you can poll for status and results via the [Scraper Results API](/api-reference/apify/scraper).",
+        "description": "Trigger scrape jobs for all social profiles linked to an artist. Returns a runId per social profile that you can poll for status and results via the [Scraper Results API](/api-reference/apify/scraper).\n\n**Credits:** `50,000 + 10,000 × posts` micro-dollar credits per profile: $0.05 base + $0.01 per requested post. Omitting posts uses the 50,000 base. The upfront balance check covers every linked profile; deduction covers only profiles with a started scraper run ID. Per-profile start errors remain in the response and are not charged when no run starts. For two linked profiles and posts=20, the balance gate requires 500,000 credits ($0.50); one started run charges 250,000 credits ($0.25).",
         "security": [
           {
             "apiKeyAuth": []
@@ -4067,7 +4067,7 @@
       },
       "ArtistSocialsInsufficientCreditsResponse": {
         "type": "object",
-        "description": "Returned (402) when the account lacks credits for the scrapes. Nothing is charged and no Stripe object is created. Credits must be bought explicitly via [`POST /api/credits/sessions`](/api-reference/credits/sessions-create).",
+        "description": "Returned (402) when the account lacks credits for the scrapes. Nothing is charged and no Stripe object is created. Credits must be bought explicitly via [`POST /api/credits/sessions`](/api-reference/credits/sessions-create). Example: two linked profiles with posts=20 require 500,000 micro-dollar credits ($0.50) at the upfront balance gate.",
         "properties": {
           "error": {
             "type": "string",
@@ -4081,7 +4081,7 @@
           },
           "required_credits": {
             "type": "integer",
-            "example": 100
+            "example": 500000
           },
           "billingUrl": {
             "type": "string",

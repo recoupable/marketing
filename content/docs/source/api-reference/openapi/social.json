@@ -2440,7 +2440,7 @@
       },
       "SocialInsufficientCreditsResponse": {
         "type": "object",
-        "description": "Returned (402) when the account lacks credits for the scrape. Nothing is charged and no Stripe object is created. Credits must be bought explicitly via [`POST /api/credits/sessions`](/api-reference/credits/sessions-create).",
+        "description": "Returned (402) when the account lacks credits for the scrape. Nothing is charged and no Stripe object is created. Credits must be bought explicitly via [`POST /api/credits/sessions`](/api-reference/credits/sessions-create). Example: one profile with posts=20 requires 250,000 micro-dollar credits ($0.25).",
         "properties": {
           "error": {
             "type": "string",
@@ -2454,7 +2454,7 @@
           },
           "required_credits": {
             "type": "integer",
-            "example": 25
+            "example": 250000
           },
           "billingUrl": {
             "type": "string",

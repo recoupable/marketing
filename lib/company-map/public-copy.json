@@ -1,0 +1,79 @@
+{
+  "labels": {
+    "external-identifier": "External identifiers",
+    "assertion-review": "Fact checking & dispute resolution",
+    "artifact-promotion": "Approving & saving finished work",
+    "ticket-sec-capability-envelope": "Agent permissions & limits",
+    "ticket-sec-action-binding": "Approval before execution",
+    "statement-coverage-selection": "Selecting authoritative statements",
+    "ticket-sec-public-admission": "Public knowledge & source history",
+    "identity-binding": "People, accounts & representation",
+    "exchange-field-binding": "Connecting standard fields to company data",
+    "context-scope": "Information an agent may use",
+    "capability-reach": "What an agent can actually do",
+    "sec-policy-decision": "Shared permission rules",
+    "sec-persistence": "Official records & working files",
+    "provenance": "Source & transformation history",
+    "temporal-history": "Changes over time",
+    "schema-mapping": "Converting source data",
+    "ingestion-checkpoint": "Import progress & recovery",
+    "operational-readiness": "Service health & recovery",
+    "ddex-ern": "Release delivery",
+    "ddex-mead": "Music descriptions & enrichment",
+    "ddex-pie": "Artist & contributor information",
+    "ddex-ct": "Catalog transfers",
+    "ddex-rin": "Recording session information",
+    "ddex-dsr": "Sales & usage reporting",
+    "ddex-cdm": "Work claims & discrepancies",
+    "ddex-mwn": "Work ownership-share notifications",
+    "ddex-mwl": "US musical-work licensing",
+    "ddex-lod": "US collection instructions",
+    "ddex-bwarm": "Bulk work & recording metadata",
+    "ddex-rdr": "Recording rights & revenue exchange",
+    "ddex-lraw": "Recording-to-composition links",
+    "ddex-ecm": "Related works & recording identifiers",
+    "ddex-ar": "Unusual listening activity",
+    "ddex-nft": "Music NFTs & metadata",
+    "ddex-supporting": "Music data exchange standards",
+    "production-detail": "Sessions, stems & quality checks",
+    "metadata-qc": "Metadata & asset quality checks",
+    "accounting-detail": "Currency, taxes & accounting close"
+  },
+  "summaries": {
+    "rights-interest": "An ownership or licensed interest held by a person or company, defined by right, asset, use, territory and time period. Each interest retains its supporting evidence and conditions.",
+    "ddex-dsr": "Exchange sales, usage, revenue and control totals by period and territory, with versioned reporting formats and corrections.",
+    "accounting-detail": "Connect statements, cash, ledger entries, currency conversions and tax or withholding records for a defined accounting period."
+  },
+  "exclude": [
+    "ddex-adjacent"
+  ],
+  "specialists": [
+    "ddex-nft",
+    "digital-wallet-profile",
+    "tokenized-income-interest"
+  ],
+  "technicalNames": {
+    "ddex-pie": "DDEX PIE — Party Identification and Enrichment",
+    "ddex-mead": "DDEX MEAD — Media Enrichment and Description",
+    "ddex-bwarm": "DDEX BWARM — Bulk Communication of Work and Recording Metadata",
+    "ddex-ern": "DDEX ERN — Electronic Release Notification",
+    "ddex-rin": "DDEX RIN — Recording Information Notification",
+    "ddex-dsr": "DDEX DSR — Digital Sales Reporting",
+    "ddex-lraw": "DDEX LRAW — Links between Resources and Musical Works"
+  },
+  "textReplacements": {
+    "Under the inspected ERN 4.3.2 common rules": "Under the ERN 4.3.2 common rules",
+    "Treat the inspected full replacement": "Treat a full replacement",
+    "Show delivery channels outside the inspected corpus": "Other delivery channels"
+  },
+  "rules": {
+    "agent-reporting-preference": [
+      "Support summaries and important-event alerts. Choose recipients and channels using the output type, priority and company rules. Companies must define which preferences take precedence.",
+      "A saved preference or artifact is not delivered, read or accepted. Preserve exact content/version, recipient, scoped destination, channel capability and receipts. Unavailable or uncertain delivery stays visible; fallback is explicit and retries reconcile prior effects."
+    ]
+  },
+  "relations": {
+    "ingestion-council-p06": "Preserve source export coverage and limitations",
+    "ingestion-family-49": "Source contract selects a qualified ingestion adapter"
+  }
+}
