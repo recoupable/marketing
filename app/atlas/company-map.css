@@ -277,25 +277,6 @@
   box-shadow: 0 0 0 1px var(--cm-line);
   cursor: pointer;
 }
-.cm-component-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding: 18px 22px;
-}
-.cm-component-list button {
-  color: var(--cm-text);
-  border: 0;
-  border-radius: 20px;
-  background: var(--cm-white);
-  color: var(--cm-text);
-  font-size: 11px;
-  padding: 9px 12px;
-  cursor: pointer;
-}
-.cm-component-list button[aria-pressed="true"] {
-  background: var(--cm-accent);
-}
 .cm-detail {
   padding: 28px 24px;
   box-shadow: -1px 0 var(--cm-line);
@@ -484,9 +465,6 @@
   }
   .cm-detail {
     padding: 24px 18px;
-  }
-  .cm-component-list button {
-    min-height: 44px;
   }
   .cm-map-controls button {
     min-width: 44px;

@@ -290,7 +290,6 @@ export function CompanyMap() {
         </aside>
         <div className="cm-canvas-area">
           <div className="cm-map-heading">
-            <span className="sp-kicker">{copy.eyebrow}</span>
             <h1>{copy.title}</h1>
             <p>{copy.intro}</p>
             {!overview && <h2>{workflow?.label || domain?.label}</h2>}
@@ -461,22 +460,6 @@ export function CompanyMap() {
               </button>
             </div>
           </div>
-          {!overview && (
-            <div
-              className="cm-component-list"
-              aria-label="Components in this view"
-            >
-              {nodes.map((n) => (
-                <button
-                  key={n.id}
-                  aria-pressed={selection.node === n.id}
-                  onClick={() => chooseNode(n.id)}
-                >
-                  {n.label}
-                </button>
-              ))}
-            </div>
-          )}
         </div>
         <aside className="cm-detail" aria-label="Selected component details">
           <div className="cm-detail-scroll">
