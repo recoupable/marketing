@@ -28,7 +28,7 @@ export function CompanyMap() {
         : "";
       const domain = domainById.has(p.get("domain") || "")
         ? p.get("domain")!
-        : nodeById.get(node)?.domain || "";
+        : "";
       setSelection({ node, domain, workflow });
       setMode(workflow ? "workflows" : "areas");
       setZoom(1);
@@ -42,10 +42,12 @@ export function CompanyMap() {
       window.removeEventListener("popstate", sync);
     };
   }, []);
-  const choose = (next: Selection) => {
+  const choose = (next: Selection, reset = true) => {
     setSelection(next);
-    setZoom(1);
-    setPan({ x: 0, y: 0 });
+    if (reset) {
+      setZoom(1);
+      setPan({ x: 0, y: 0 });
+    }
     const p = new URLSearchParams();
     for (const [k, v] of Object.entries(next)) if (v) p.set(k, v);
     window.history.pushState(null, "", `#${p.toString()}`);
@@ -54,13 +56,16 @@ export function CompanyMap() {
     const n = nodeById.get(id);
     if (n) {
       setQuery("");
-      choose({
-        domain: n.domain,
-        node: id,
-        workflow: workflowById.get(selection.workflow)?.nodes.includes(id)
-          ? selection.workflow
-          : "",
-      });
+      choose(
+        {
+          domain: selection.domain ? n.domain : "",
+          node: id,
+          workflow: workflowById.get(selection.workflow)?.nodes.includes(id)
+            ? selection.workflow
+            : "",
+        },
+        false,
+      );
     }
   };
   const node = nodeById.get(selection.node);
@@ -72,11 +77,11 @@ export function CompanyMap() {
       model.nodes.filter((n) =>
         workflow
           ? workflow.nodes.includes(n.id)
-          : n.domain === selection.domain,
+          : !selection.domain || n.domain === selection.domain,
       ),
     [workflow, selection.domain],
   );
-  const entries = overview ? model.domains : nodes;
+  const entries = nodes;
   const positions = useMemo(() => circularLayout(entries), [entries]);
   const bounds = useMemo(() => layoutBounds(positions), [positions]);
   const relations = useMemo(
@@ -87,22 +92,10 @@ export function CompanyMap() {
     [selection.node],
   );
   const graphEdges = useMemo(() => {
-    if (overview) {
-      const seen = new Set<string>();
-      return model.edges.flatMap((e) => {
-        const a = nodeById.get(e.source)?.domain,
-          b = nodeById.get(e.target)?.domain;
-        if (!a || !b || a === b) return [];
-        const key = [a, b].sort().join(":");
-        if (seen.has(key)) return [];
-        seen.add(key);
-        return [{ id: key, source: a, target: b }];
-      });
-    }
     return model.edges.filter(
       (e) => positions.has(e.source) && positions.has(e.target),
     );
-  }, [overview, positions]);
+  }, [positions]);
   const searchResults = query.trim()
     ? model.nodes.filter((n) =>
         `${n.label} ${n.summary}`
@@ -135,7 +128,7 @@ export function CompanyMap() {
             setMode("areas");
           }}
         >
-          Company overview ↗
+          All components ↗
         </button>
       </div>
       <div className="cm-layout">
@@ -223,13 +216,13 @@ export function CompanyMap() {
             <p>
               {workflow?.summary ||
                 domain?.summary ||
-                "Choose an area to explore its people, records, rules and relationships."}
+                "The full operating model. Select a component to highlight its connections; double-click to explore its company area."}
             </p>
           </div>
           <div className="cm-canvas">
             <svg
-              viewBox={`${bounds.x - pan.x} ${bounds.y - pan.y} ${bounds.width / zoom} ${bounds.height / zoom}`}
-              aria-label="Circular relationship map; the same components are available in the list below"
+              viewBox={`${bounds.x + (bounds.width * (1 - 1 / zoom)) / 2 - pan.x} ${bounds.y + (bounds.height * (1 - 1 / zoom)) / 2 - pan.y} ${bounds.width / zoom} ${bounds.height / zoom}`}
+              aria-label="Company relationship map; use search or company areas to find components"
               onPointerDown={(e) => {
                 if ((e.target as Element).closest('[role="button"]')) return;
                 e.currentTarget.setPointerCapture(e.pointerId);
@@ -261,7 +254,6 @@ export function CompanyMap() {
                 drag.current = null;
               }}
             >
-              <circle cx="500" cy="420" r="320" className="cm-orbit" />
               {graphEdges.map((e) => {
                 const a = positions.get(e.source),
                   b = positions.get(e.target);
@@ -277,17 +269,6 @@ export function CompanyMap() {
                   />
                 );
               })}
-              {overview && (
-                <g className="cm-center">
-                  <circle cx="500" cy="420" r="100" />
-                  <text x="500" y="411" textAnchor="middle">
-                    AGENTIC
-                  </text>
-                  <text x="500" y="438" textAnchor="middle">
-                    MUSIC COMPANY
-                  </text>
-                </g>
-              )}
               {entries.map((item) => {
                 const p = positions.get(item.id)!;
                 const active = item.id === selection.node;
@@ -300,10 +281,7 @@ export function CompanyMap() {
                         words.slice(midpoint).join(" "),
                       ]
                     : [item.label];
-                const open = () =>
-                  overview
-                    ? choose({ domain: item.id, node: "", workflow: "" })
-                    : chooseNode(item.id);
+                const open = () => chooseNode(item.id);
                 return (
                   <g
                     key={item.id}
@@ -312,6 +290,13 @@ export function CompanyMap() {
                     aria-label={`Explore ${item.label}`}
                     aria-pressed={active}
                     onClick={open}
+                    onDoubleClick={() =>
+                      choose({
+                        domain: item.domain,
+                        node: item.id,
+                        workflow: "",
+                      })
+                    }
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
                         e.preventDefault();
@@ -355,7 +340,7 @@ export function CompanyMap() {
               </button>
               <button
                 aria-label="Zoom in"
-                onClick={() => setZoom((z) => Math.min(3, z + 0.25))}
+                onClick={() => setZoom((z) => Math.min(8, z + 0.5))}
               >
                 +
               </button>
@@ -453,7 +438,7 @@ export function CompanyMap() {
                 holds and everything it connects to.
               </p>
               <ol>
-                <li>Choose a company area or workflow.</li>
+                <li>Explore the full map, or filter by area or workflow.</li>
                 <li>Select a component on the map.</li>
                 <li>Follow a connection into another part of the company.</li>
               </ol>

@@ -22,3 +22,5 @@ Public copy is in `lib/copy/company-map.ts`; the route is included in Resources,
 ## Local verification — 2026-10-15
 
 Production build passed under Node 24 using only the existing public Privy app ID required by the unrelated valuation route. No auth environment file was copied. All three public-model boundary, graph integrity and all-area/workflow label-layout tests passed; browser verification covered area selection, component/relationship traversal, royalty search, acquisition workflow, zoom/reset and a narrow viewport with equal document/viewport width. This is local evidence; the feature is not merged or deployed.
+
+The default view now displays all 201 components and 1,355 connections in a circular field. Selecting a component preserves the full view and highlights its connections; double-click opens its area. Area/workflow filters remain available, and All components resets the graph. Zoom is centered and supports up to 8x. Layout checks include the complete graph.

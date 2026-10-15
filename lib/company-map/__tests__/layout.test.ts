@@ -4,6 +4,7 @@ import { circularLayout, layoutBounds } from "../circularLayout";
 it("keeps labels separated in every domain and workflow", () => {
   const groups = [
     model.domains,
+    model.nodes,
     ...model.domains.map((d) => model.nodes.filter((n) => n.domain === d.id)),
     ...model.workflows.map((w) =>
       model.nodes.filter((n) => w.nodes.includes(n.id)),

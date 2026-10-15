@@ -1,8 +1,16 @@
 /** Keep the circular arrangement, separating labels where the arc becomes tight. */
 export function circularLayout(entries: { id: string }[]) {
   const points = entries.map((n, i) => {
-    const angle = (i / entries.length) * Math.PI * 2 - Math.PI / 2;
-    const radius = entries.length > 22 && i % 2 ? 205 : 320;
+    const angle =
+      entries.length > 60
+        ? i * Math.PI * (3 - Math.sqrt(5))
+        : (i / entries.length) * Math.PI * 2 - Math.PI / 2;
+    const radius =
+      entries.length > 60
+        ? 105 * Math.sqrt(i + 1)
+        : entries.length > 22 && i % 2
+          ? 205
+          : 320;
     return {
       id: n.id,
       x: 500 + Math.cos(angle) * radius,

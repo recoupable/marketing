@@ -198,6 +198,7 @@
   stroke-dasharray: 3 8;
 }
 .cm-edge {
+  vector-effect: non-scaling-stroke;
   stroke: var(--cm-edge);
   stroke-width: 1;
   opacity: 0.45;
@@ -212,9 +213,10 @@
   cursor: pointer;
 }
 .cm-node rect {
+  vector-effect: non-scaling-stroke;
   fill: var(--cm-white);
   stroke: var(--cm-edge);
-  stroke-width: 1.5;
+  stroke-width: 0.8;
 }
 .cm-node text {
   fill: var(--cm-text);
