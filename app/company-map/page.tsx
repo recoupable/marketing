@@ -13,12 +13,6 @@ export const metadata = withPageMetadata({
 export default function CompanyMapPage() {
   return (
     <div className="sky-subpage company-map-page">
-      <header className="cm-hero">
-        <p className="sp-kicker">{copy.eyebrow}</p>
-        <h1>{copy.title}</h1>
-        <p>{copy.intro}</p>
-        <div className="cm-caption">{copy.note}</div>
-      </header>
       <CompanyMap />
       <PageCTA
         title="Put the model to work in your company."

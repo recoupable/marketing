@@ -11,30 +11,6 @@
   --cm-muted: #586f78;
   color: var(--cm-text);
 }
-.cm-hero {
-  padding: 70px 5% 48px;
-  max-width: 1100px;
-}
-.cm-hero h1 {
-  font-family: var(--display);
-  font-size: clamp(2.5rem, 5.8vw, 5rem);
-  font-weight: 450;
-  line-height: 1.04;
-  letter-spacing: -0.055em;
-  margin: 20px 0 26px;
-  max-width: 900px;
-}
-.cm-hero > p:not(.sp-kicker) {
-  font-size: clamp(17px, 1.7vw, 21px);
-  line-height: 1.65;
-  max-width: 710px;
-}
-.cm-caption {
-  color: var(--cm-muted);
-  font-size: 14px;
-  margin-top: 25px;
-  max-width: 650px;
-}
 .cm-explorer {
   box-shadow:
     0 0 0 1px var(--cm-line),
@@ -172,8 +148,16 @@
   background-size: 20px 20px;
 }
 .cm-map-heading {
-  padding: 25px 28px 0;
-  min-height: 135px;
+  padding: 28px 28px 12px;
+}
+.cm-map-heading h1 {
+  font-family: var(--display);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 450;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  margin: 14px 0;
+  max-width: 760px;
 }
 .cm-map-heading h2 {
   font-size: 27px;

@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { circularLayout, layoutBounds } from "@/lib/company-map/circularLayout";
 import publicCopy from "@/lib/company-map/public-copy.json";
+import { companyMapCopy as copy } from "@/lib/copy/company-map";
 import model from "@/lib/company-map/model.json";
 
 const nodeById = new Map(model.nodes.map((n) => [n.id, n]));
@@ -206,21 +207,10 @@ export function CompanyMap() {
         </aside>
         <div className="cm-canvas-area">
           <div className="cm-map-heading">
-            <span className="sp-kicker">
-              {overview
-                ? "THE WHOLE COMPANY"
-                : workflow
-                  ? "WORKFLOW MAP"
-                  : "COMPANY AREA"}
-            </span>
-            <h2>
-              {workflow?.label || domain?.label || "Every part connects."}
-            </h2>
-            <p>
-              {workflow?.summary ||
-                domain?.summary ||
-                "The connected operating model. Specialist digital-asset topics are available under Workflows and search. Select a component to highlight its connections; double-click to explore its company area."}
-            </p>
+            <span className="sp-kicker">{copy.eyebrow}</span>
+            <h1>{copy.title}</h1>
+            <p>{copy.intro}</p>
+            {!overview && <h2>{workflow?.label || domain?.label}</h2>}
           </div>
           <div className="cm-canvas">
             <svg
