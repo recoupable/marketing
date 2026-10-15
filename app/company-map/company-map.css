@@ -523,3 +523,8 @@
     max-height: none;
   }
 }
+
+.cm-component-card:not(.is-selected) {
+  padding: 0;
+  background: transparent;
+}

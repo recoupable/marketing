@@ -345,29 +345,37 @@ export function CompanyMap() {
               aria-label="Components in this view"
             >
               {nodes.map((n) => (
-                <article className="cm-component-card" key={n.id}>
+                <article
+                  className={`cm-component-card ${selection.node === n.id ? "is-selected" : ""}`}
+                  key={n.id}
+                >
                   <button
                     aria-pressed={selection.node === n.id}
+                    aria-expanded={selection.node === n.id}
                     onClick={() => chooseNode(n.id)}
                   >
                     {n.label} ↗
                   </button>
-                  <p>{n.summary}</p>
-                  <h3>Information it holds</h3>
-                  <div className="cm-fields">
-                    {n.fields.map((f) => (
-                      <span key={f}>{f.replaceAll("_", " ")}</span>
-                    ))}
-                  </div>
-                  {n.rules.length > 0 && (
-                    <details>
-                      <summary>Operating rules</summary>
-                      <ul>
-                        {n.rules.map((r, i) => (
-                          <li key={i}>{r}</li>
+                  {selection.node === n.id && (
+                    <>
+                      <p>{n.summary}</p>
+                      <h3>Information it holds</h3>
+                      <div className="cm-fields">
+                        {n.fields.map((f) => (
+                          <span key={f}>{f.replaceAll("_", " ")}</span>
                         ))}
-                      </ul>
-                    </details>
+                      </div>
+                      {n.rules.length > 0 && (
+                        <details>
+                          <summary>Operating rules</summary>
+                          <ul>
+                            {n.rules.map((r, i) => (
+                              <li key={i}>{r}</li>
+                            ))}
+                          </ul>
+                        </details>
+                      )}
+                    </>
                   )}
                 </article>
               ))}
