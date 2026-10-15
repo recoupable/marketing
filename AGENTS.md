@@ -296,3 +296,7 @@ Run `pnpm docs:build` and `pnpm docs:check` after changes. Commit the maintained
 source, then use `python3 scripts/sync-legacy-docs.py --target /path/to/docs` to
 prepare a pinned publication PR in the retained Mintlify repository. Keep host
 cutover and archival separate from content reconciliation.
+
+## Public company map
+
+`/atlas` presents the company operating model. See `docs/company-map.md` for the public-only projection boundary and refresh checks. Never copy private atlas evidence, engineering findings or source files into this public repository.
