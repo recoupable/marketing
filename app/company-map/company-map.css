@@ -166,9 +166,9 @@
   --cm-muted: #bdd0d8;
   --cm-edge: #7194a4;
   --cm-blue: #79d0ff;
-  background: #17323e;
+  background: #17392b;
   color: #eef7fa;
-  background-image: radial-gradient(#365460 0.7px, transparent 0.7px);
+  background-image: radial-gradient(#365b46 0.7px, transparent 0.7px);
   background-size: 20px 20px;
 }
 .cm-map-heading {
