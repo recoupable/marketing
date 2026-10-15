@@ -64,7 +64,8 @@
   "textReplacements": {
     "Under the inspected ERN 4.3.2 common rules": "Under the ERN 4.3.2 common rules",
     "Treat the inspected full replacement": "Treat a full replacement",
-    "Show delivery channels outside the inspected corpus": "Other delivery channels"
+    "Show delivery channels outside the inspected corpus": "Other delivery channels",
+    "Company decisions & oversight": "Leadership & oversight"
   },
   "rules": {
     "agent-reporting-preference": [
