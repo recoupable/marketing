@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "4dd30758ef40ce443569581d996d5dc89b9a698a",
+  "apiSourceCommit": "72ef838c5687af2b0885ece4daef6deaf17d9c3f",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -3251,6 +3251,14 @@
       "reason": "Product or legacy supporting routes require documented public/internal disposition"
     },
     {
+      "method": "DELETE",
+      "path": "/api/posts/{id}",
+      "implementation": null,
+      "documentation": "content/docs/source/api-reference/openapi/social.json",
+      "classification": "pending",
+      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
+    },
+    {
       "method": "GET",
       "path": "/api/admins/agent/signups",
       "implementation": null,
@@ -3269,6 +3277,22 @@
     {
       "method": "GET",
       "path": "/api/comments",
+      "implementation": null,
+      "documentation": "content/docs/source/api-reference/openapi/social.json",
+      "classification": "pending",
+      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
+    },
+    {
+      "method": "GET",
+      "path": "/api/posts",
+      "implementation": null,
+      "documentation": "content/docs/source/api-reference/openapi/social.json",
+      "classification": "pending",
+      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
+    },
+    {
+      "method": "GET",
+      "path": "/api/posts/{id}",
       "implementation": null,
       "documentation": "content/docs/source/api-reference/openapi/social.json",
       "classification": "pending",
@@ -3319,6 +3343,14 @@
       "path": "/api/music/video-to-music",
       "implementation": null,
       "documentation": "content/docs/source/api-reference/openapi/content.json",
+      "classification": "pending",
+      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
+    },
+    {
+      "method": "POST",
+      "path": "/api/posts",
+      "implementation": null,
+      "documentation": "content/docs/source/api-reference/openapi/social.json",
       "classification": "pending",
       "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
     },
@@ -3580,7 +3612,7 @@
     "content/docs/source/api-reference/openapi/research.json": "e41af080333df4740bf2a217fc40c588b95ae7cf0d73728a0caaff7367f25547",
     "content/docs/source/api-reference/openapi/sandbox.json": "b626a5d424acf7b2795a8d4b561c70b6f37be3f1fb5314fc33f506201874d1b9",
     "content/docs/source/api-reference/openapi/sessions.json": "e3332130860d1bc436e754fdfcbfa1e5ac58daf9414f79db5c0cd9acab21503c",
-    "content/docs/source/api-reference/openapi/social.json": "2eda569b07c628ec0757d7239d2adc69454d74ef9163b9c902ce241427ed3949",
+    "content/docs/source/api-reference/openapi/social.json": "8d903dea3ecc0eb29c198ccc4ab23449f8929132c7c346151dd03461a828de80",
     "content/docs/source/api-reference/openapi/templates.json": "65c63ec2e5c942cbe79cc3f1dfd0a1f7abb97f9b5077826f0d430b3cb9478fcf"
   }
 }

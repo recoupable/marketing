@@ -1,10 +1,12 @@
 'use client';
-import { useState, useEffect, useRef, useId, Children, isValidElement, type ReactNode, type KeyboardEvent as ReactKeyboardEvent } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef, useId, Children, isValidElement, type ReactNode, type KeyboardEvent as ReactKeyboardEvent } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import type { DocPage } from '@/lib/docs';
 import { docHref } from '@/lib/docs-paths';
 import { SkyArrow } from '@/components/sky/arrow';
+
+const SIDEBAR_SCROLL_KEY='docs-sidebar-scroll';
 
 export function DocsSidebar({ pages }: {pages: Pick<DocPage,'slug'|'title'|'category'|'group'|'api'|'searchText'>[]}) {
  const pathname=usePathname();
@@ -19,11 +21,14 @@ export function DocsSidebar({ pages }: {pages: Pick<DocPage,'slug'|'title'|'cate
  const score=(page:typeof pages[number])=>page.title.toLowerCase()===normalized?100:page.title.toLowerCase().includes(normalized)?60:page.api?.path.toLowerCase().includes(normalized)?40:normalized.split(/\s+/).filter(word=>page.title.toLowerCase().includes(word)).length*10;
  const results=normalized ? pages.filter(page=>normalized.split(/\s+/).every(word=>page.searchText.toLowerCase().includes(word))).sort((a,b)=>score(b)-score(a)).slice(0,30) : [];
  useEffect(()=>{ const handle=(event:KeyboardEvent)=>{if((event.metaKey||event.ctrlKey)&&event.key==='k'){event.preventDefault();setOpen(true);input.current?.focus();} if(event.key==='Escape'){if(navigation.current?.contains(document.activeElement)){const target=browse.current?.getClientRects().length?browse.current:input.current;target?.focus();}setQuery('');setOpen(false);}};window.addEventListener('keydown',handle);return()=>window.removeEventListener('keydown',handle);},[]);
+ // Each docs page mounts a fresh sidebar, so keep the nav's scroll position across navigations and keep the current page in view.
+ useLayoutEffect(()=>{const element=navigation.current;if(!element||normalized||!element.getClientRects().length)return;let saved=NaN;try{saved=Number(sessionStorage.getItem(SIDEBAR_SCROLL_KEY)??NaN);}catch{}if(Number.isFinite(saved))element.scrollTop=saved;const active=element.querySelector<HTMLElement>('nav [aria-current="page"]');if(!active)return;const box=element.getBoundingClientRect(),item=active.getBoundingClientRect();if(item.top<box.top||item.bottom>box.bottom)element.scrollTop+=item.top-box.top-(box.height-item.height)/2;},[pathname,normalized,open]);
+ function rememberScroll() {if(normalized||!navigation.current)return;try{sessionStorage.setItem(SIDEBAR_SCROLL_KEY,String(navigation.current.scrollTop));}catch{}}
  function navigate() {setQuery('');setOpen(false);}
  return <aside className={`docs-sidebar${open?' docs-sidebar-open':''}`}>
   <div className="docs-sidebar-heading"><Link href="/docs" onClick={navigate}>Documentation</Link><button ref={browse} type="button" aria-expanded={open} aria-controls="docs-navigation" onClick={()=>setOpen(!open)}>{open?'Close':'Browse'}</button></div>
   <div className="docs-search"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" strokeWidth="1.5"/><path d="m13 13 4 4" stroke="currentColor" strokeWidth="1.5"/></svg><input ref={input} value={query} onChange={event=>{setQuery(event.target.value);setOpen(true);}} placeholder="Search docs" aria-label="Search documentation"/>{query?<button type="button" className="docs-search-clear" aria-label="Clear documentation search" onClick={()=>{setQuery('');input.current?.focus();}}>Clear</button>:<kbd>⌘ K</kbd>}</div>
-  <div ref={navigation} id="docs-navigation" className="docs-navigation">
+  <div ref={navigation} id="docs-navigation" className="docs-navigation" onScroll={rememberScroll}>
   {normalized ? <div className="docs-search-results"><p role="status">{results.length ? `${results.length}${results.length===30?'+':''} results`:'No matches. Try an endpoint, tool, or task.'}</p>{results.map(page=><Link key={page.slug} href={docHref(page.slug)} onClick={navigate}><strong>{page.title}</strong><span>{page.category}{page.api ? ` · ${page.api.method} ${page.api.path}`:''}</span></Link>)}</div> : <nav aria-label="Documentation"><Link className="docs-reference-link" href="/docs/api-reference" onClick={navigate} aria-current={pathname==='/docs/api-reference'?'page':undefined}>API overview <span aria-hidden="true"><SkyArrow /></span></Link>{categories.map(category=><details key={`${category}-${current?.category}`} open={category===current?.category || (!current && category==='Quickstart')}><summary>{category}<span aria-hidden="true">+</span></summary><div>{[...new Set(pages.filter(page=>page.category===category).map(page=>page.group))].map(group=><div className="docs-nav-group" key={group}>{group!==category && <p>{group}</p>}{pages.filter(page=>page.category===category && page.group===group).map(page=><Link key={page.slug} href={docHref(page.slug)} aria-current={docHref(page.slug)===pathname?'page':undefined} onClick={navigate}>{page.api && <span className={`docs-method docs-method-${page.api.method.toLowerCase()}`}>{page.api.method}</span>}<span>{page.title.replace('Recoup API Documentation','Introduction')}</span></Link>)}</div>)}</div></details>)}</nav>}
   </div><a className="docs-support" href="mailto:agent@recoupable.dev">Need a hand? Contact support <SkyArrow /></a>
  </aside>;
