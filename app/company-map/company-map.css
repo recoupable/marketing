@@ -527,3 +527,34 @@
   padding: 0;
   background: transparent;
 }
+
+.cm-edge-hit {
+  stroke: transparent;
+  stroke-width: 10px;
+  vector-effect: non-scaling-stroke;
+  cursor: pointer;
+}
+.cm-has-selection .cm-edge:not(.cm-edge-active) {
+  opacity: 0.06;
+}
+.cm-has-selection .cm-node:not(.cm-node-active):not(.cm-node-connected) {
+  opacity: 0.22;
+}
+.cm-node {
+  transition: opacity 180ms;
+}
+.cm-expanded {
+  position: fixed;
+  inset: 10px;
+  z-index: 100;
+  margin: 0;
+  overflow: auto;
+}
+.cm-expanded .cm-canvas svg {
+  height: 72vh;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cm-node {
+    transition: none;
+  }
+}

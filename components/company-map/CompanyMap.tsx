@@ -14,6 +14,10 @@ const empty: Selection = { domain: "", workflow: "", node: "" };
 
 export function CompanyMap() {
   const [selection, setSelection] = useState(empty);
+  const [edgeId, setEdgeId] = useState("");
+  const [expanded, setExpanded] = useState(false);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const cameraFrame = useRef<number>(0);
   const [query, setQuery] = useState("");
   const [mode, setMode] = useState<"areas" | "workflows">("areas");
   const [zoom, setZoom] = useState(1);
@@ -44,7 +48,21 @@ export function CompanyMap() {
       window.removeEventListener("popstate", sync);
     };
   }, []);
+  useEffect(() => {
+    if (!expanded) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setExpanded(false);
+    };
+    window.addEventListener("keydown", escape);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", escape);
+    };
+  }, [expanded]);
   const choose = (next: Selection, reset = true) => {
+    setEdgeId("");
     setSelection(next);
     if (reset) {
       setZoom(1);
@@ -100,6 +118,46 @@ export function CompanyMap() {
       (e) => positions.has(e.source) && positions.has(e.target),
     );
   }, [positions]);
+  const selectedEdge = model.edges.find((e) => e.id === edgeId);
+  useEffect(() => {
+    if (!selection.node) return;
+    const point = positions.get(selection.node);
+    if (!point) return;
+    const target = {
+      x: bounds.x + bounds.width / 2 - point.x,
+      y: bounds.y + bounds.height / 2 - point.y,
+    };
+    const startTime = performance.now();
+    const duration = window.matchMedia("(prefers-reduced-motion: reduce)")
+      .matches
+      ? 0
+      : 280;
+    const frame = (time: number) => {
+      const progress = duration
+        ? Math.min(1, (time - startTime) / duration)
+        : 1;
+      const t = 1 - Math.pow(1 - progress, 3);
+      setPan({ x: target.x * t, y: target.y * t });
+      setZoom(1 + ((overview ? 3 : 1.4) - 1) * t);
+      if (progress < 1) cameraFrame.current = requestAnimationFrame(frame);
+    };
+    cameraFrame.current = requestAnimationFrame(frame);
+    return () => cancelAnimationFrame(cameraFrame.current);
+  }, [selection.node, positions, bounds, overview]);
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const wheel = (event: WheelEvent) => {
+      if (!event.ctrlKey && !event.metaKey) return;
+      event.preventDefault();
+      cancelAnimationFrame(cameraFrame.current);
+      setZoom((z) =>
+        Math.max(0.65, Math.min(8, z * Math.exp(-event.deltaY * 0.006))),
+      );
+    };
+    svg.addEventListener("wheel", wheel, { passive: false });
+    return () => svg.removeEventListener("wheel", wheel);
+  }, []);
   const searchResults = query.trim()
     ? model.nodes.filter((n) =>
         `${n.label} ${n.technicalLabel} ${n.summary}`
@@ -114,10 +172,13 @@ export function CompanyMap() {
 
   return (
     <section
-      className="cm-explorer"
+      className={`cm-explorer ${expanded ? "cm-expanded" : ""}`}
       aria-label="Interactive company operating model"
     >
       <div className="cm-toolbar">
+        <button onClick={() => setExpanded(!expanded)}>
+          {expanded ? "Exit fullscreen" : "Fullscreen"}
+        </button>
         <div>
           <strong>Atlas</strong>
           <span>
@@ -214,10 +275,13 @@ export function CompanyMap() {
           </div>
           <div className="cm-canvas">
             <svg
+              ref={svgRef}
+              className={selection.node ? "cm-has-selection" : ""}
               viewBox={`${bounds.x + (bounds.width * (1 - 1 / zoom)) / 2 - pan.x} ${bounds.y + (bounds.height * (1 - 1 / zoom)) / 2 - pan.y} ${bounds.width / zoom} ${bounds.height / zoom}`}
               aria-label="Company relationship map; use search or company areas to find components"
               onPointerDown={(e) => {
                 if ((e.target as Element).closest('[role="button"]')) return;
+                cancelAnimationFrame(cameraFrame.current);
                 e.currentTarget.setPointerCapture(e.pointerId);
                 drag.current = {
                   x: e.clientX,
@@ -252,14 +316,28 @@ export function CompanyMap() {
                   b = positions.get(e.target);
                 if (!a || !b) return null;
                 return (
-                  <line
-                    key={e.id}
-                    x1={a.x}
-                    y1={a.y}
-                    x2={b.x}
-                    y2={b.y}
-                    className={`cm-edge ${e.source === selection.node || e.target === selection.node ? "cm-edge-active" : ""}`}
-                  />
+                  <g key={e.id}>
+                    <line
+                      role="button"
+                      tabIndex={-1}
+                      aria-label={`${nodeById.get(e.source)?.label}: ${e.relation}: ${nodeById.get(e.target)?.label}`}
+                      className="cm-edge-hit"
+                      x1={a.x}
+                      y1={a.y}
+                      x2={b.x}
+                      y2={b.y}
+                      onClick={() => setEdgeId(e.id)}
+                    >
+                      <title>{`${nodeById.get(e.source)?.label} → ${e.relation} → ${nodeById.get(e.target)?.label}`}</title>
+                    </line>
+                    <line
+                      x1={a.x}
+                      y1={a.y}
+                      x2={b.x}
+                      y2={b.y}
+                      className={`cm-edge ${e.source === selection.node || e.target === selection.node ? "cm-edge-active" : ""}`}
+                    />
+                  </g>
                 );
               })}
               {entries.map((item) => {
@@ -315,7 +393,7 @@ export function CompanyMap() {
               })}
             </svg>
             <div className="cm-map-controls">
-              <span>Drag to move</span>
+              <span>Drag · Ctrl/⌘ scroll to zoom</span>
               <button
                 aria-label="Zoom out"
                 onClick={() => setZoom((z) => Math.max(0.65, z - 0.25))}
@@ -362,7 +440,32 @@ export function CompanyMap() {
           aria-live="polite"
         >
           <div className="cm-detail-scroll">
-            {node ? (
+            {selectedEdge ? (
+              <>
+                <p className="sp-kicker">CONNECTION</p>
+                <h2>
+                  {nodeById.get(selectedEdge.source)?.label} →{" "}
+                  {nodeById.get(selectedEdge.target)?.label}
+                </h2>
+                <p>{selectedEdge.relation}</p>
+                <p>This relationship describes the operating model.</p>
+                {[selectedEdge.source, selectedEdge.target].map((id) => (
+                  <button
+                    className="cm-workflow-link"
+                    key={id}
+                    onClick={() => chooseNode(id)}
+                  >
+                    Explore {nodeById.get(id)?.label} ↗
+                  </button>
+                ))}
+                <button
+                  className="cm-workflow-link"
+                  onClick={() => setEdgeId("")}
+                >
+                  Back to details
+                </button>
+              </>
+            ) : node ? (
               <>
                 {workflow && (
                   <button
