@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type CSSProperties,
-} from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { circularLayout, layoutBounds } from "@/lib/company-map/circularLayout";
 import { HoverConnections } from "./HoverConnections";
 import { AmbientActivity } from "./AmbientActivity";
@@ -24,11 +18,6 @@ export function CompanyMap() {
   const [selection, setSelection] = useState(empty);
   const [edgeId, setEdgeId] = useState("");
   const [expanded, setExpanded] = useState(false);
-  const [entering, setEntering] = useState(true);
-  useEffect(() => {
-    const timer = window.setTimeout(() => setEntering(false), 1300);
-    return () => window.clearTimeout(timer);
-  }, []);
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const detailsDismissed = useRef(false);
@@ -222,10 +211,7 @@ export function CompanyMap() {
 
   return (
     <section
-      className={`cm-explorer ${expanded ? "cm-expanded" : ""} ${entering && !selection.node ? "cm-entering" : ""}`}
-      onPointerDownCapture={() => setEntering(false)}
-      onKeyDownCapture={() => setEntering(false)}
-      onWheelCapture={() => setEntering(false)}
+      className={`cm-explorer ${expanded ? "cm-expanded" : ""}`}
       aria-label="Interactive company operating model"
     >
       <div className="cm-toolbar">
@@ -483,7 +469,6 @@ export function CompanyMap() {
                         y1={a.y}
                         x2={b.x}
                         y2={b.y}
-                        pathLength="1"
                         className={`cm-edge ${e.source === highlightedNode || e.target === highlightedNode ? "cm-edge-active" : ""}`}
                       />
                     </g>
@@ -496,7 +481,7 @@ export function CompanyMap() {
                   positions={positions}
                   disabled={Boolean(selection.node)}
                 />
-                {entries.map((item, index) => {
+                {entries.map((item) => {
                   const p = positions.get(item.id)!;
                   const active = item.id === selection.node;
                   const words = item.label.split(" ");
@@ -517,11 +502,6 @@ export function CompanyMap() {
                       aria-label={`Explore ${item.label}`}
                       aria-pressed={active}
                       data-node-id={item.id}
-                      style={
-                        {
-                          "--cm-enter-delay": `${Math.min(index * 1.4, 300)}ms`,
-                        } as CSSProperties
-                      }
                       onClick={open}
                       onDoubleClick={() =>
                         choose({
@@ -590,7 +570,7 @@ export function CompanyMap() {
                   svgRef={svgRef}
                   edges={graphEdges}
                   positions={positions}
-                  disabled={entering || Boolean(selection.node) || !overview}
+                  disabled={Boolean(selection.node) || !overview}
                 />
               </svg>
             </div>

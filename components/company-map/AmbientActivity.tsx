@@ -33,7 +33,8 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
     let frame = 0;
     let visible = true;
     let interacting = false;
-    let resumeAt = performance.now() + 900;
+    let resumeAt = performance.now();
+    let opening = true;
     let cycleStart = resumeAt;
     let route = 0;
     let continued = false;
@@ -65,7 +66,10 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
         const age = now - cycleStart;
         // A pixel-sized drift, measured in screen pixels rather than graph units.
         const settle = Math.min(1, (now - resumeAt) / 2000);
-        svg.style.translate = `${Math.sin((now - resumeAt) / 5500) * 2.4 * settle}px ${Math.sin((now - resumeAt) / 7300) * 1.4 * settle}px`;
+        const arrivalOffset = opening
+          ? 8 * Math.pow(Math.max(0, 1 - (now - resumeAt) / 1800), 3)
+          : 0;
+        svg.style.translate = `${Math.sin((now - resumeAt) / 5500) * 2.4 * settle}px ${Math.sin((now - resumeAt) / 7300) * 1.4 * settle + arrivalOffset}px`;
         const next = continuation();
         const pause = next >= 0 ? 700 : 1800 + (route % 7) * 270;
         if (age >= travelTime() + pause) {
@@ -130,6 +134,7 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
       frame = requestAnimationFrame(tick);
     };
     const restart = () => {
+      opening = false;
       cancelAnimationFrame(frame);
       hide();
       resumeAt = performance.now() + 900;
@@ -141,6 +146,7 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
     };
     const enter = () => {
       interacting = true;
+      opening = false;
       cancelAnimationFrame(frame);
       hide();
     };
@@ -150,8 +156,10 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
       restart();
     };
     const observer = new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      restart();
+      if (visible !== entry.isIntersecting) {
+        visible = entry.isIntersecting;
+        restart();
+      }
     });
     observer.observe(svg);
     svg.addEventListener("pointerdown", enter);
@@ -162,7 +170,9 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
     svg.addEventListener("wheel", restart, { passive: true });
     document.addEventListener("visibilitychange", restart);
     motion.addEventListener("change", restart);
-    restart();
+    // Begin partway along a connection, as if the network was already active.
+    cycleStart = resumeAt - 800;
+    frame = requestAnimationFrame(tick);
     return () => {
       cancelAnimationFrame(frame);
       observer.disconnect();
