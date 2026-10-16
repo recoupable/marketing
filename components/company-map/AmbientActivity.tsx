@@ -34,7 +34,6 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
     let visible = true;
     let interacting = false;
     let resumeAt = performance.now();
-    let opening = true;
     let cycleStart = resumeAt;
     let route = 0;
     let continued = false;
@@ -66,10 +65,7 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
         const age = now - cycleStart;
         // A pixel-sized drift, measured in screen pixels rather than graph units.
         const settle = Math.min(1, (now - resumeAt) / 2000);
-        const arrivalOffset = opening
-          ? 8 * Math.pow(Math.max(0, 1 - (now - resumeAt) / 1800), 3)
-          : 0;
-        svg.style.translate = `${Math.sin((now - resumeAt) / 5500) * 2.4 * settle}px ${Math.sin((now - resumeAt) / 7300) * 1.4 * settle + arrivalOffset}px`;
+        svg.style.translate = `${Math.sin((now - resumeAt) / 5500) * 2.4 * settle}px ${Math.sin((now - resumeAt) / 7300) * 1.4 * settle}px`;
         const next = continuation();
         const pause = next >= 0 ? 700 : 1800 + (route % 7) * 270;
         if (age >= travelTime() + pause) {
@@ -134,7 +130,6 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
       frame = requestAnimationFrame(tick);
     };
     const restart = () => {
-      opening = false;
       cancelAnimationFrame(frame);
       hide();
       resumeAt = performance.now() + 900;
@@ -146,7 +141,6 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
     };
     const enter = () => {
       interacting = true;
-      opening = false;
       cancelAnimationFrame(frame);
       hide();
     };
