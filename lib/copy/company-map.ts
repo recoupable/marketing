@@ -1,5 +1,5 @@
 export const companyMapCopy = {
-  title: "The agentic music company",
+  title: "The agentic music company map",
   description:
     "Explore how catalogs, rights, capital, teams and AI agents connect in Recoup’s music-company operating model, informed by our work in the music industry.",
   intro:
