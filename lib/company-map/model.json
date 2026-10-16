@@ -4616,6 +4616,368 @@
       "technicalLabel": "Accepted statement coverage selection"
     },
     {
+      "id": "learning-dataset",
+      "label": "Learning dataset & joins",
+      "summary": "Versioned, permission-scoped dataset assembled at a declared grain and knowledge cutoff.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "snapshot_manifest",
+        "join_specification",
+        "grain",
+        "knowledge_cutoff",
+        "split_manifest",
+        "target_definition",
+        "use_policy_version"
+      ],
+      "rules": [
+        "Reading data does not authorize training or cross-company reuse. Derived datasets inherit restrictions.",
+        "Many-to-many joins require explicit allocation or deduplication; never multiply earnings or count summary and detail together.",
+        "Future revisions and outcome labels cannot enter earlier prediction inputs; keep held-out entities and time windows separate."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "prediction-input",
+      "label": "Reusable prediction inputs",
+      "summary": "Versioned transformations that produce the same eligible inputs during training and prediction.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "transform_version",
+        "dataset_version",
+        "input_schema",
+        "availability_rule",
+        "missing_value_policy",
+        "materialization_manifest"
+      ],
+      "rules": [
+        "Fit learned transforms only on training data; apply frozen versions to validation and prediction.",
+        "Identifiers, embeddings and aggregates retain source permissions; features do not anonymize records by themselves."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "data-compute-plan",
+      "label": "Large-data processing plan",
+      "summary": "Bounded partitioned computation with checkpoints, reconciliation and resource limits.",
+      "domain": "ingestion",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "partition_manifest",
+        "execution_version",
+        "resource_limits",
+        "output_manifest",
+        "replay_key",
+        "reconciliation",
+        "training_hardware_profile",
+        "distributed_training_profile",
+        "training_checkpoint_policy",
+        "compute_cost_receipts"
+      ],
+      "rules": [
+        "Use existing durable workflow runs, provider jobs and checkpoints; do not load whole datasets into model prompts.",
+        "Publish a complete accepted snapshot only after required partitions reconcile; retry must not duplicate observations.",
+        "Agents plan and inspect results; data engines execute bounded computation within source and tenant permissions."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "predictive-model",
+      "label": "Predictive model version",
+      "summary": "Immutable trained model or statistical baseline with lineage, evaluation and controlled promotion.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "artifact_digest",
+        "training_dataset_version",
+        "input_version",
+        "training_configuration",
+        "training_run_ref",
+        "evaluation_version",
+        "lifecycle_state",
+        "predecessor_version",
+        "permitted_uses"
+      ],
+      "rules": [
+        "Training success is not promotion; company-configured evidence thresholds and authority select a candidate.",
+        "Preserve history and rollback; a new version cannot rewrite earlier predictions.",
+        "Forecasts may use transparent formulas or baselines without trained models. Agent-quality evals remain distinct from statistical model evaluation."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "prediction-evaluation",
+      "label": "Prediction tests & backtests",
+      "summary": "Reproducible comparison against baselines using only information available at each historical decision.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "protocol_version",
+        "split_manifest",
+        "baseline_version",
+        "horizon_metrics",
+        "uncertainty_check",
+        "leakage_checks",
+        "result_manifest"
+      ],
+      "rules": [
+        "Retain unscorable and immature outcomes; missing actuals are not success or failure.",
+        "Repeated candidate tuning must not consume the final holdout; choose a fresh validation protocol when required.",
+        "Correlation and predictive accuracy do not prove campaign incrementality or causal benefit."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "prediction-result",
+      "label": "Prediction & uncertainty",
+      "summary": "Dated estimate for a scoped subject and horizon, separate from actual observations.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "subject_scope",
+        "model_version",
+        "input_snapshot",
+        "target_horizon",
+        "estimate",
+        "uncertainty",
+        "actual_observation_refs",
+        "supersedes_prediction"
+      ],
+      "rules": [
+        "Predictions are estimates, never ledger entries, rights assertions or payment authorization.",
+        "Out-of-scope or stale inputs yield an explicit unsupported result or governed fallback, never silent confidence."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "prediction-monitor",
+      "label": "Prediction monitoring & renewal",
+      "summary": "Tracks data drift, mature outcome error and whether a model should be retained, retrained or rolled back.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "monitor_version",
+        "model_version",
+        "coverage_state",
+        "drift_evidence",
+        "performance_evidence",
+        "decision_receipt",
+        "replacement_version"
+      ],
+      "rules": [
+        "Drift signals trigger investigation, not automatic promotion or proof of failure.",
+        "Retraining repeats eligibility and evaluation checks; source revocation assesses derived datasets, models and outputs.",
+        "Company-configured automation may act within explicit authority and budgets; ambiguous exceptions route to the responsible manager."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "model-design",
+      "label": "AI model families & objectives",
+      "summary": "Objectives and architecture for LLMs, music/audio, speech, image, video, multimodal and world models.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "model_family",
+        "modalities",
+        "architecture_version",
+        "task_objective",
+        "base_model_ref",
+        "use_constraints"
+      ],
+      "rules": [
+        "Model family, architecture, modality and training stage are separate dimensions, not interchangeable labels.",
+        "A world model predicts or represents environment dynamics; simulator success alone does not prove real-world performance."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "training-corpus",
+      "label": "Training corpus & consent",
+      "summary": "Versioned eligible media, text and interaction data with training rights, preparation and split history.",
+      "domain": "ingestion",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "dataset_version",
+        "media_preparation",
+        "annotation_version",
+        "eligibility_manifest",
+        "split_and_dedup_manifest",
+        "synthetic_provenance",
+        "retention_and_revocation"
+      ],
+      "rules": [
+        "Owning a recording or accessing a catalog does not automatically establish all training, likeness or redistribution permissions.",
+        "Keep train/test leakage checks across versions, clips, stems and near-duplicates; preserve private-company boundaries.",
+        "Eligibility changes trigger an impact review of datasets and derivatives; deleting files does not establish model unlearning."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "training-recipe",
+      "label": "Pretraining & adaptation recipe",
+      "summary": "Versioned plan for pretraining, continued training, supervised fine-tuning, adapters and post-training.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "training_stage",
+        "method_configuration",
+        "base_and_dependencies",
+        "data_mixture",
+        "reproducibility",
+        "stopping_policy",
+        "execution_run_ref"
+      ],
+      "rules": [
+        "Pretraining, supervised fine-tuning, direct preference optimization and online RL must retain distinct data and execution requirements.",
+        "LoRA is an adaptation method, not a model family; preserve base compatibility and the adapter dependency chain.",
+        "Teacher outputs, distillation and synthetic data inherit applicable permissions; a derived artifact does not erase restrictions."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "trained-model-version",
+      "label": "Trained models & adapters",
+      "summary": "Immutable model weights, adapters and checkpoints with complete training lineage and compatibility.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "artifact_kind",
+        "artifact_manifest",
+        "training_recipe_version",
+        "base_dependencies",
+        "resume_state_manifest",
+        "derivation_history",
+        "licence_and_use_scope",
+        "evaluation_refs"
+      ],
+      "rules": [
+        "An adapter without its compatible base is not a standalone model. Exporting or merging creates a separately identified artifact.",
+        "Weights-only checkpoints cannot claim exact training resumption without required state.",
+        "Completed training is not an accepted model, a deployed endpoint or proof of quality."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "training-feedback",
+      "label": "Preferences, rewards & feedback",
+      "summary": "Versioned demonstrations, preference pairs, reward functions and feedback used to improve models.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "signal_kind",
+        "source_and_consent",
+        "reward_definition",
+        "reward_model_version",
+        "quality_controls",
+        "exploration_budget",
+        "evaluation_separation"
+      ],
+      "rules": [
+        "Optimizing reward does not prove business or artistic quality; test reward gaming and regression against independent criteria.",
+        "AI preference labels and human feedback retain provenance and uncertainty; feedback collection does not itself authorize training.",
+        "Offline preference optimization and online reinforcement learning require different interaction and permission controls."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "training-environment",
+      "label": "Simulation & interaction environment",
+      "summary": "Versioned environment for model interaction, rollouts and controlled reinforcement learning.",
+      "domain": "agents",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "environment_version",
+        "observation_action_spec",
+        "rollout_manifest",
+        "authority_scope",
+        "resource_and_stop_limits",
+        "transfer_evaluation"
+      ],
+      "rules": [
+        "Simulation and training runs do not authorize actions in production systems.",
+        "A learned world model, a simulator and an acting policy are distinct components; record which role each version plays.",
+        "Replay retains policy/environment versions; environment reward alone does not prove transfer."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "model-capability-evaluation",
+      "label": "Generative model evaluation",
+      "summary": "Versioned checks of generated outputs, understanding and behavior across model modalities.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "evaluation_protocol",
+        "modality_checks",
+        "comparison_versions",
+        "human_ai_and_metric_reviews",
+        "misuse_and_memorization_checks",
+        "cost_latency_quality",
+        "result_manifest"
+      ],
+      "rules": [
+        "Agent-task evals, predictive backtests and generative-model evals share evidence patterns but answer different questions.",
+        "A benchmark score is bounded to its population and protocol; retain artistic/subjective disagreement and unknown coverage.",
+        "Company policy chooses review methods and acceptance thresholds; human feedback is not automatically a universal shipping blocker."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "model-serving-release",
+      "label": "Model release & serving",
+      "summary": "Controlled release of an evaluated model artifact to an endpoint or downloadable package.",
+      "domain": "agents",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "artifact_version",
+        "serving_configuration",
+        "release_scope",
+        "acceptance_receipt",
+        "rollout_plan",
+        "generation_lineage",
+        "monitoring_policy",
+        "release_state"
+      ],
+      "rules": [
+        "Release approval, deployment and intended-user verification remain separate facts.",
+        "Training compute and inference capacity have separate budgets and lifecycle.",
+        "A rollback preserves prior generated outputs and their model lineage; it does not rewrite history."
+      ],
+      "technicalLabel": ""
+    },
+    {
       "id": "provider-job",
       "label": "External provider job",
       "summary": "A provider-owned asynchronous operation with native lifecycle, exact input identity, separately retained outputs and billing effects. It is not the company workflow run.",
@@ -11720,6 +12082,294 @@
       "relation": "resumes only the correlated waiting branch"
     },
     {
+      "id": "ml-link-01",
+      "source": "raw-snapshot",
+      "target": "learning-dataset",
+      "relation": "supplies immutable inputs"
+    },
+    {
+      "id": "ml-link-02",
+      "source": "identity-resolution",
+      "target": "learning-dataset",
+      "relation": "qualifies join identities"
+    },
+    {
+      "id": "ml-link-03",
+      "source": "analytics-store",
+      "target": "learning-dataset",
+      "relation": "supplies curated facts"
+    },
+    {
+      "id": "ml-link-04",
+      "source": "policy-decision",
+      "target": "learning-dataset",
+      "relation": "authorizes purpose and company scope"
+    },
+    {
+      "id": "ml-link-05",
+      "source": "learning-dataset",
+      "target": "prediction-input",
+      "relation": "defines eligible training inputs"
+    },
+    {
+      "id": "ml-link-06",
+      "source": "learning-dataset",
+      "target": "data-compute-plan",
+      "relation": "bounds processing"
+    },
+    {
+      "id": "ml-link-07",
+      "source": "data-compute-plan",
+      "target": "workflow-run",
+      "relation": "executes through durable runs"
+    },
+    {
+      "id": "ml-link-08",
+      "source": "data-compute-plan",
+      "target": "ingestion-checkpoint",
+      "relation": "resumes reconciled partitions"
+    },
+    {
+      "id": "ml-link-09",
+      "source": "prediction-input",
+      "target": "predictive-model",
+      "relation": "versions model inputs"
+    },
+    {
+      "id": "ml-link-10",
+      "source": "learning-dataset",
+      "target": "predictive-model",
+      "relation": "grounds training lineage"
+    },
+    {
+      "id": "ml-link-11",
+      "source": "predictive-model",
+      "target": "prediction-evaluation",
+      "relation": "requires held-out comparison"
+    },
+    {
+      "id": "ml-link-12",
+      "source": "prediction-evaluation",
+      "target": "predictive-model",
+      "relation": "qualifies promotion"
+    },
+    {
+      "id": "ml-link-13",
+      "source": "predictive-model",
+      "target": "prediction-result",
+      "relation": "produces scoped estimates"
+    },
+    {
+      "id": "ml-link-14",
+      "source": "prediction-input",
+      "target": "prediction-result",
+      "relation": "reproduces inference inputs"
+    },
+    {
+      "id": "ml-link-15",
+      "source": "prediction-result",
+      "target": "forecast",
+      "relation": "supplies uncertain scenarios"
+    },
+    {
+      "id": "ml-link-16",
+      "source": "prediction-result",
+      "target": "recommendation",
+      "relation": "informs decisions"
+    },
+    {
+      "id": "ml-link-17",
+      "source": "observation",
+      "target": "prediction-evaluation",
+      "relation": "supplies mature actuals"
+    },
+    {
+      "id": "ml-link-18",
+      "source": "observation",
+      "target": "prediction-monitor",
+      "relation": "measures realized outcomes"
+    },
+    {
+      "id": "ml-link-19",
+      "source": "prediction-result",
+      "target": "prediction-monitor",
+      "relation": "tracks estimate accuracy"
+    },
+    {
+      "id": "ml-link-20",
+      "source": "prediction-monitor",
+      "target": "predictive-model",
+      "relation": "requests evaluated replacement"
+    },
+    {
+      "id": "ml-link-21",
+      "source": "prediction-monitor",
+      "target": "policy-decision",
+      "relation": "checks promotion authority"
+    },
+    {
+      "id": "ml-link-22",
+      "source": "prediction-evaluation",
+      "target": "attribution",
+      "relation": "keeps prediction separate from causality"
+    },
+    {
+      "id": "ml-link-23",
+      "source": "agent-task",
+      "target": "data-compute-plan",
+      "relation": "coordinates bounded computation"
+    },
+    {
+      "id": "ml-link-24",
+      "source": "metric-definition",
+      "target": "prediction-evaluation",
+      "relation": "defines outcome and score units"
+    },
+    {
+      "id": "training-link-01",
+      "source": "model-design",
+      "target": "training-recipe",
+      "relation": "defines learning objective"
+    },
+    {
+      "id": "training-link-02",
+      "source": "learning-dataset",
+      "target": "training-corpus",
+      "relation": "supplies versioned data"
+    },
+    {
+      "id": "training-link-03",
+      "source": "policy-decision",
+      "target": "training-corpus",
+      "relation": "qualifies training permission"
+    },
+    {
+      "id": "training-link-04",
+      "source": "training-corpus",
+      "target": "training-recipe",
+      "relation": "supplies eligible examples"
+    },
+    {
+      "id": "training-link-05",
+      "source": "training-recipe",
+      "target": "data-compute-plan",
+      "relation": "specifies training compute"
+    },
+    {
+      "id": "training-link-06",
+      "source": "training-recipe",
+      "target": "workflow-run",
+      "relation": "executes durable training"
+    },
+    {
+      "id": "training-link-07",
+      "source": "training-recipe",
+      "target": "trained-model-version",
+      "relation": "produces immutable artifacts"
+    },
+    {
+      "id": "training-link-08",
+      "source": "trained-model-version",
+      "target": "training-recipe",
+      "relation": "provides base or teacher version"
+    },
+    {
+      "id": "training-link-09",
+      "source": "training-feedback",
+      "target": "training-recipe",
+      "relation": "provides post-training signals"
+    },
+    {
+      "id": "training-link-10",
+      "source": "training-environment",
+      "target": "training-feedback",
+      "relation": "records rollout rewards"
+    },
+    {
+      "id": "training-link-11",
+      "source": "trained-model-version",
+      "target": "training-environment",
+      "relation": "provides rollout policy or dynamics"
+    },
+    {
+      "id": "training-link-12",
+      "source": "training-environment",
+      "target": "workflow-run",
+      "relation": "coordinates bounded episodes"
+    },
+    {
+      "id": "training-link-13",
+      "source": "trained-model-version",
+      "target": "model-capability-evaluation",
+      "relation": "requires capability evaluation"
+    },
+    {
+      "id": "training-link-14",
+      "source": "training-corpus",
+      "target": "model-capability-evaluation",
+      "relation": "separates held-out evidence"
+    },
+    {
+      "id": "training-link-15",
+      "source": "training-feedback",
+      "target": "model-capability-evaluation",
+      "relation": "keeps reward separate from success"
+    },
+    {
+      "id": "training-link-16",
+      "source": "model-capability-evaluation",
+      "target": "model-serving-release",
+      "relation": "qualifies release acceptance"
+    },
+    {
+      "id": "training-link-17",
+      "source": "trained-model-version",
+      "target": "model-serving-release",
+      "relation": "pins release artifact"
+    },
+    {
+      "id": "training-link-18",
+      "source": "policy-decision",
+      "target": "model-serving-release",
+      "relation": "authorizes distribution and use"
+    },
+    {
+      "id": "training-link-19",
+      "source": "model-serving-release",
+      "target": "asset-version",
+      "relation": "records generation lineage"
+    },
+    {
+      "id": "training-link-20",
+      "source": "model-serving-release",
+      "target": "prediction-monitor",
+      "relation": "connects operational monitoring"
+    },
+    {
+      "id": "training-link-21",
+      "source": "trained-model-version",
+      "target": "predictive-model",
+      "relation": "shares version lineage for predictive uses"
+    },
+    {
+      "id": "training-link-22",
+      "source": "model-capability-evaluation",
+      "target": "model-evaluation",
+      "relation": "connects agent integration checks"
+    },
+    {
+      "id": "training-link-23",
+      "source": "model-serving-release",
+      "target": "data-compute-plan",
+      "relation": "defines inference resource limits"
+    },
+    {
+      "id": "training-link-24",
+      "source": "training-corpus",
+      "target": "model-serving-release",
+      "relation": "propagates usage restrictions"
+    },
+    {
       "id": "rate-lesson-01",
       "source": "royalty-rate-rule",
       "target": "income-entitlement",
@@ -13862,6 +14512,152 @@
         "statement-coverage-selection",
         "statement-reconciliation",
         "workflow-run"
+      ]
+    },
+    {
+      "id": "learning-data",
+      "label": "Prepare permitted learning data",
+      "summary": "Versioned data, reproducible computation and permission-scoped decisions.",
+      "nodes": [
+        "raw-snapshot",
+        "identity-resolution",
+        "policy-decision",
+        "learning-dataset",
+        "prediction-input",
+        "analytics-store"
+      ]
+    },
+    {
+      "id": "large-data-processing",
+      "label": "Process large datasets",
+      "summary": "Versioned data, reproducible computation and permission-scoped decisions.",
+      "nodes": [
+        "agent-task",
+        "data-compute-plan",
+        "workflow-run",
+        "ingestion-checkpoint",
+        "analytics-store"
+      ]
+    },
+    {
+      "id": "model-training-validation",
+      "label": "Train and validate prediction models",
+      "summary": "Versioned data, reproducible computation and permission-scoped decisions.",
+      "nodes": [
+        "learning-dataset",
+        "prediction-input",
+        "predictive-model",
+        "prediction-evaluation",
+        "metric-definition",
+        "observation",
+        "policy-decision"
+      ]
+    },
+    {
+      "id": "forecast-prediction",
+      "label": "Forecast with evidence and uncertainty",
+      "summary": "Versioned data, reproducible computation and permission-scoped decisions.",
+      "nodes": [
+        "predictive-model",
+        "prediction-result",
+        "forecast",
+        "recommendation",
+        "observation"
+      ]
+    },
+    {
+      "id": "prediction-renewal",
+      "label": "Monitor and improve predictions",
+      "summary": "Versioned data, reproducible computation and permission-scoped decisions.",
+      "nodes": [
+        "prediction-result",
+        "observation",
+        "prediction-monitor",
+        "prediction-evaluation",
+        "predictive-model",
+        "policy-decision"
+      ]
+    },
+    {
+      "id": "model-pretraining",
+      "label": "Pretrain and continue training models",
+      "summary": "Versioned model training, eligible data, bounded compute and evaluated releases.",
+      "nodes": [
+        "model-design",
+        "learning-dataset",
+        "training-corpus",
+        "training-recipe",
+        "data-compute-plan",
+        "workflow-run",
+        "trained-model-version",
+        "model-capability-evaluation"
+      ]
+    },
+    {
+      "id": "model-adaptation",
+      "label": "Fine-tune models and train adapters",
+      "summary": "Versioned model training, eligible data, bounded compute and evaluated releases.",
+      "nodes": [
+        "model-design",
+        "training-corpus",
+        "trained-model-version",
+        "training-recipe",
+        "data-compute-plan",
+        "model-capability-evaluation"
+      ]
+    },
+    {
+      "id": "model-posttraining",
+      "label": "Improve models with preferences and RL",
+      "summary": "Versioned model training, eligible data, bounded compute and evaluated releases.",
+      "nodes": [
+        "trained-model-version",
+        "training-feedback",
+        "training-environment",
+        "training-recipe",
+        "workflow-run",
+        "model-capability-evaluation"
+      ]
+    },
+    {
+      "id": "model-multimodal",
+      "label": "Train audio, image, video and multimodal models",
+      "summary": "Versioned model training, eligible data, bounded compute and evaluated releases.",
+      "nodes": [
+        "model-design",
+        "training-corpus",
+        "training-recipe",
+        "trained-model-version",
+        "model-capability-evaluation",
+        "asset-version"
+      ]
+    },
+    {
+      "id": "model-world-learning",
+      "label": "Train and evaluate world models",
+      "summary": "Versioned model training, eligible data, bounded compute and evaluated releases.",
+      "nodes": [
+        "model-design",
+        "training-environment",
+        "training-corpus",
+        "training-feedback",
+        "training-recipe",
+        "trained-model-version",
+        "model-capability-evaluation"
+      ]
+    },
+    {
+      "id": "model-release-serving",
+      "label": "Release, serve and monitor trained models",
+      "summary": "Versioned model training, eligible data, bounded compute and evaluated releases.",
+      "nodes": [
+        "trained-model-version",
+        "model-capability-evaluation",
+        "policy-decision",
+        "model-serving-release",
+        "data-compute-plan",
+        "prediction-monitor",
+        "asset-version"
       ]
     },
     {
