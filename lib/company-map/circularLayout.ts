@@ -1,5 +1,41 @@
 /** Keep the circular arrangement, separating labels where the arc becomes tight. */
 export function circularLayout(entries: { id: string }[]) {
+  // Medium groups need room for wide labels, not two competing circular arcs.
+  if (entries.length > 22 && entries.length <= 60) {
+    const rowCount = Math.ceil(Math.sqrt(entries.length / 1.1) / 2) * 2;
+    const weights = Array.from({ length: rowCount }, (_, row) =>
+      row === 0 || row === rowCount - 1 ? 0.65 : 1,
+    );
+    const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+    const counts = weights.map((weight) =>
+      Math.floor((entries.length * weight) / totalWeight),
+    );
+    let remaining =
+      entries.length - counts.reduce((sum, count) => sum + count, 0);
+    // Add symmetric pairs from the center outward; an odd final card stays central.
+    for (let offset = 0; remaining > 0; offset++) {
+      const row = rowCount / 2 - 1 - (offset % (rowCount / 2));
+      counts[row]++;
+      remaining--;
+      if (remaining > 0) {
+        counts[rowCount - 1 - row]++;
+        remaining--;
+      }
+    }
+    const slots = counts.flatMap((count, row) =>
+      Array.from({ length: count }, (_, column) => ({
+        x: 500 + (column - (count - 1) / 2) * 218,
+        y: 420 + (row - (rowCount - 1) / 2) * 112,
+      })),
+    );
+    // Preserve the original clockwise reading order around the balanced field.
+    slots.sort((a, b) => {
+      const angle = (p: { x: number; y: number }) =>
+        (Math.atan2(p.y - 420, p.x - 500) + Math.PI * 2.5) % (Math.PI * 2);
+      return angle(a) - angle(b);
+    });
+    return new Map(entries.map((entry, index) => [entry.id, slots[index]]));
+  }
   const points = entries.map((n, i) => {
     const angle =
       entries.length > 60
@@ -8,9 +44,7 @@ export function circularLayout(entries: { id: string }[]) {
     const radius =
       entries.length > 60
         ? 105 * Math.sqrt(i + 1)
-        : entries.length > 22 && i % 2
-          ? 205
-          : 320;
+        : 320;
     return {
       id: n.id,
       x: 500 + Math.cos(angle) * radius,

@@ -27,3 +27,19 @@ it("keeps labels separated in every domain and workflow", () => {
     }
   }
 });
+
+it("keeps medium groups balanced with consistent card clearance", () => {
+  for (let count = 23; count <= 60; count++) {
+    const positions = circularLayout(
+      Array.from({ length: count }, (_, i) => ({ id: String(i) })),
+    );
+    const points = [...positions.values()];
+    expect(points.reduce((sum, p) => sum + p.x, 0) / count).toBeCloseTo(500);
+    for (let i = 0; i < points.length; i++)
+      for (let j = i + 1; j < points.length; j++)
+        expect(
+          Math.abs(points[i].x - points[j].x) >= 218 ||
+            Math.abs(points[i].y - points[j].y) >= 112,
+        ).toBe(true);
+  }
+});
