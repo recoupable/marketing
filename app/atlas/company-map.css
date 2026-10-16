@@ -915,3 +915,6 @@
 .cm-detail .cm-relations {
   grid-template-columns: minmax(0, 1fr);
 }
+.cm-details-panel > .cm-detail:focus {
+  outline: none;
+}
