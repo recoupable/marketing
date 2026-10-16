@@ -417,9 +417,8 @@ export function CompanyMap() {
         </div>
         <div className="cm-canvas-area">
           <div className="cm-map-heading">
-            <h1>{copy.title}</h1>
-            <p>{copy.intro}</p>
-            {!overview && <h2>{workflow?.label || domain?.label}</h2>}
+            <h1>{workflow?.label || domain?.label || copy.title}</h1>
+            <p>{workflow?.summary || domain?.summary || copy.intro}</p>
           </div>
           <div className="cm-canvas">
             <div className="cm-graph-viewport">
