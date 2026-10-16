@@ -600,11 +600,12 @@
   stroke-width: 6;
   stroke-opacity: 0;
   pointer-events: none;
-  transition: stroke-opacity 160ms ease-out;
+  transition: stroke-opacity 280ms ease-out;
 }
 .cm-node:hover rect.cm-node-halo,
 .cm-node:focus-visible rect.cm-node-halo {
   stroke-opacity: 0.2;
+  transition-duration: 140ms;
 }
 .cm-hover-connections {
   pointer-events: none;
@@ -850,4 +851,50 @@
   box-shadow:
     0 0 0 1px #355046,
     0 4px 12px #0001;
+}
+
+/* Small paint-only accents preserve the graph's established layout. */
+.cm-ambient circle {
+  fill: #b8e8ff;
+}
+.cm-ambient line,
+.cm-ambient rect {
+  stroke: #b8e8ff;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.cm-node rect.cm-selection-pulse {
+  fill: none;
+  stroke: var(--cm-blue);
+  stroke-width: 1;
+  stroke-opacity: 0;
+  pointer-events: none;
+  animation: cm-selection-acknowledge 480ms ease-out;
+}
+@keyframes cm-selection-acknowledge {
+  from {
+    stroke-opacity: 0.5;
+    stroke-width: 1;
+  }
+  to {
+    stroke-opacity: 0;
+    stroke-width: 7;
+  }
+}
+.cm-toolbar .cm-panel-toggle:active svg {
+  scale: 0.92;
+}
+.cm-toolbar .cm-panel-toggle svg {
+  transition: scale 150ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cm-node rect.cm-selection-pulse {
+    animation: none;
+  }
+  .cm-toolbar .cm-panel-toggle svg {
+    transition: none;
+  }
+  .cm-toolbar .cm-panel-toggle:active svg {
+    scale: 1;
+  }
 }
