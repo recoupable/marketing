@@ -198,12 +198,11 @@ export function CompanyMap() {
       aria-label="Interactive company operating model"
     >
       <div className="cm-toolbar">
-        <button onClick={() => setExpanded(!expanded)}>
-          {expanded ? "Exit fullscreen" : "Fullscreen"}
-        </button>
-        <div>
-          <strong>Atlas</strong>
-          <span>
+        <div className="cm-toolbar-context">
+          <button onClick={() => setExpanded(!expanded)}>
+            {expanded ? "Exit fullscreen" : "Fullscreen"}
+          </button>
+          <span className="cm-toolbar-counts">
             {model.domains.length} areas · {model.nodes.length} components ·{" "}
             {model.edges.length.toLocaleString("en-US")} connections
           </span>
