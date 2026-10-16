@@ -231,7 +231,7 @@ export function CompanyMap() {
         <div
           className="cm-control-dock"
           role="group"
-          aria-label="Atlas controls"
+          aria-label="Map controls"
         >
           <button
             className="cm-panel-toggle"
