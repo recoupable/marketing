@@ -573,7 +573,8 @@
 /* Selection owns graph-wide emphasis; hover paints a separate local overlay. */
 .cm-edge-active {
   stroke-width: 1.6;
-  opacity: 0.9;
+  opacity: 1;
+  stroke-opacity: 0.9;
 }
 
 /* Hit geometry stays fixed while the decorative surface changes. */
@@ -597,19 +598,21 @@
   fill: none;
   stroke: var(--cm-blue);
   stroke-width: 6;
-  opacity: 0;
+  stroke-opacity: 0;
   pointer-events: none;
-  transition: opacity 160ms ease-out;
+  transition: stroke-opacity 160ms ease-out;
 }
 .cm-node:hover rect.cm-node-halo,
 .cm-node:focus-visible rect.cm-node-halo {
-  opacity: 0.2;
+  stroke-opacity: 0.2;
 }
 .cm-hover-connections {
   pointer-events: none;
-  animation: cm-connection-reveal 180ms ease-out both;
 }
+/* Fade painted strokes, not an offscreen surface spanning distant endpoints. */
 .cm-hover-connections line {
+  animation: cm-connection-reveal 180ms ease-out both;
+  stroke-opacity: 0.9;
   stroke: var(--cm-blue);
   stroke-width: 1.5;
   vector-effect: non-scaling-stroke;
@@ -620,17 +623,17 @@
 }
 @keyframes cm-connection-reveal {
   from {
-    opacity: 0;
+    stroke-opacity: 0;
   }
   to {
-    opacity: 0.9;
+    stroke-opacity: 0.9;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .cm-node rect.cm-node-halo {
     transition: none;
   }
-  .cm-hover-connections,
+  .cm-hover-connections line,
   .cm-edge-active {
     animation: none;
   }

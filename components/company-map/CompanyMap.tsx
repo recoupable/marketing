@@ -25,6 +25,11 @@ export function CompanyMap() {
   const [mode, setMode] = useState<"areas" | "workflows">("areas");
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
+  const camera = useRef({ zoom: 1, pan: { x: 0, y: 0 } });
+  const previousFocus = useRef<{ scope: string; node: string } | null>(null);
+  useEffect(() => {
+    camera.current = { zoom, pan };
+  }, [zoom, pan]);
   const drag = useRef<{ x: number; y: number; ox: number; oy: number } | null>(
     null,
   );
@@ -126,7 +131,14 @@ export function CompanyMap() {
   }, [positions]);
   const selectedEdge = model.edges.find((e) => e.id === edgeId);
   useEffect(() => {
+    const scope = `${selection.domain}:${selection.workflow}`;
+    const switchingNodes =
+      previousFocus.current?.scope === scope &&
+      previousFocus.current.node !== selection.node;
+    previousFocus.current = selection.node ? { scope, node: selection.node } : null;
     if (!selection.node) return;
+    const start = camera.current;
+    const targetZoom = switchingNodes ? start.zoom : overview ? 3 : 1.4;
     const point = positions.get(selection.node);
     if (!point) return;
     const target = {
@@ -143,13 +155,23 @@ export function CompanyMap() {
         ? Math.min(1, (time - startTime) / duration)
         : 1;
       const t = 1 - Math.pow(1 - progress, 3);
-      setPan({ x: target.x * t, y: target.y * t });
-      setZoom(1 + ((overview ? 3 : 1.4) - 1) * t);
+      setPan({
+        x: start.pan.x + (target.x - start.pan.x) * t,
+        y: start.pan.y + (target.y - start.pan.y) * t,
+      });
+      setZoom(start.zoom + (targetZoom - start.zoom) * t);
       if (progress < 1) cameraFrame.current = requestAnimationFrame(frame);
     };
     cameraFrame.current = requestAnimationFrame(frame);
     return () => cancelAnimationFrame(cameraFrame.current);
-  }, [selection.node, positions, bounds, overview]);
+  }, [
+    selection.node,
+    selection.domain,
+    selection.workflow,
+    positions,
+    bounds,
+    overview,
+  ]);
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
@@ -538,13 +560,17 @@ export function CompanyMap() {
               >
                 <button
                   aria-label="Zoom out"
-                  onClick={() => setZoom((z) => Math.max(0.65, z - 0.25))}
+                  onClick={() => {
+                    cancelAnimationFrame(cameraFrame.current);
+                    setZoom((z) => Math.max(0.65, z - 0.25));
+                  }}
                 >
                   −
                 </button>
                 <button
                   aria-label="Reset map zoom"
                   onClick={() => {
+                    cancelAnimationFrame(cameraFrame.current);
                     setZoom(1);
                     setPan({ x: 0, y: 0 });
                   }}
@@ -553,7 +579,10 @@ export function CompanyMap() {
                 </button>
                 <button
                   aria-label="Zoom in"
-                  onClick={() => setZoom((z) => Math.min(8, z + 0.5))}
+                  onClick={() => {
+                    cancelAnimationFrame(cameraFrame.current);
+                    setZoom((z) => Math.min(8, z + 0.5));
+                  }}
                 >
                   +
                 </button>
