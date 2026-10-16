@@ -198,29 +198,64 @@ export function CompanyMap() {
         </div>
         <div className="cm-panel-controls">
           <button
+            className="cm-panel-toggle"
+            aria-label={navigationOpen ? "Hide navigation" : "Show navigation"}
+            title={navigationOpen ? "Hide navigation" : "Show navigation"}
             aria-expanded={navigationOpen}
             aria-controls="cm-navigation"
             onClick={() => setNavigationOpen(!navigationOpen)}
           >
-            {navigationOpen ? "‹ Hide navigation" : "› Show navigation"}
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            >
+              <rect x="3" y="4" width="18" height="16" rx="3" />
+              <path d="M9 4v16" />
+              {navigationOpen && (
+                <path d="M5 7h2v10H5z" fill="currentColor" stroke="none" />
+              )}
+            </svg>
           </button>
           <button
+            className="cm-panel-toggle"
+            aria-label={detailsOpen ? "Hide details" : "Show details"}
+            title={detailsOpen ? "Hide details" : "Show details"}
             aria-expanded={detailsOpen}
             aria-controls="cm-details"
             onClick={() => setDetailsOpen(!detailsOpen)}
           >
-            {detailsOpen ? "Hide details ›" : "Show details ‹"}
-          </button>
-          <button
-            onClick={() => {
-              choose(empty);
-              setQuery("");
-              setMode("areas");
-            }}
-          >
-            All components ↗
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            >
+              <rect x="3" y="4" width="18" height="16" rx="3" />
+              <path d="M15 4v16" />
+              {detailsOpen && (
+                <path d="M17 7h2v10h-2z" fill="currentColor" stroke="none" />
+              )}
+            </svg>
           </button>
         </div>
+        <button
+          className="cm-reset-view"
+          onClick={() => {
+            choose(empty);
+            setQuery("");
+            setMode("areas");
+          }}
+        >
+          All components ↗
+        </button>
       </div>
       <div
         className={`cm-layout ${navigationOpen ? "" : "cm-navigation-closed"} ${detailsOpen ? "" : "cm-details-closed"}`}

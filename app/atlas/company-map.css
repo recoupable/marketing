@@ -598,16 +598,49 @@
 /* Keep controls outside the panels so either side can always be reopened. */
 .cm-panel-controls {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
+  margin-left: auto;
+  gap: 4px;
 }
 .cm-toolbar {
   flex-wrap: wrap;
   gap: 12px;
 }
-.cm-panel-controls button {
-  background: var(--cm-soft);
+.cm-toolbar .cm-panel-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #bed0c5;
+  transition:
+    color 140ms ease,
+    background-color 140ms ease;
+}
+.cm-toolbar .cm-panel-toggle:hover {
   color: #eef7f2;
+  background: #29433b;
+}
+.cm-toolbar .cm-panel-toggle:focus-visible {
+  outline: 2px solid var(--cm-accent);
+  outline-offset: 2px;
+}
+.cm-toolbar .cm-reset-view {
+  background: transparent;
+  color: #eef7f2;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+.cm-toolbar .cm-reset-view:hover {
+  background: #29433b;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cm-toolbar .cm-panel-toggle {
+    transition: none;
+  }
 }
 .cm-layout {
   --cm-navigation-width: 235px;
