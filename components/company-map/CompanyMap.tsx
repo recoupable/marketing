@@ -18,7 +18,7 @@ export function CompanyMap() {
   const [edgeId, setEdgeId] = useState("");
   const [expanded, setExpanded] = useState(false);
   const [navigationOpen, setNavigationOpen] = useState(true);
-  const [detailsOpen, setDetailsOpen] = useState(true);
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
   const cameraFrame = useRef<number>(0);
   const [query, setQuery] = useState("");
@@ -39,6 +39,7 @@ export function CompanyMap() {
         ? p.get("domain")!
         : "";
       setSelection({ node, domain, workflow });
+      setDetailsOpen(Boolean(node));
       setMode(workflow ? "workflows" : "areas");
       setZoom(1);
       setPan({ x: 0, y: 0 });
@@ -67,6 +68,7 @@ export function CompanyMap() {
   const choose = (next: Selection, reset = true) => {
     setEdgeId("");
     setSelection(next);
+    setDetailsOpen(Boolean(next.node));
     setMode(next.workflow ? "workflows" : "areas");
     if (reset) {
       setZoom(1);
@@ -188,15 +190,6 @@ export function CompanyMap() {
     >
       <div className="cm-toolbar">
         <div className="cm-toolbar-context">
-          <button onClick={() => setExpanded(!expanded)}>
-            {expanded ? "Exit fullscreen" : "Fullscreen"}
-          </button>
-          <span className="cm-toolbar-counts">
-            {model.domains.length} areas · {model.nodes.length} components ·{" "}
-            {model.edges.length.toLocaleString("en-US")} connections
-          </span>
-        </div>
-        <div className="cm-panel-controls">
           <button
             className="cm-panel-toggle"
             aria-label={navigationOpen ? "Hide navigation" : "Show navigation"}
@@ -221,13 +214,21 @@ export function CompanyMap() {
               )}
             </svg>
           </button>
+          <span className="cm-toolbar-counts">
+            {model.domains.length} areas · {model.nodes.length} components ·{" "}
+            {model.edges.length.toLocaleString("en-US")} connections
+          </span>
+        </div>
+        <div className="cm-panel-controls">
           <button
             className="cm-panel-toggle"
-            aria-label={detailsOpen ? "Hide details" : "Show details"}
-            title={detailsOpen ? "Hide details" : "Show details"}
-            aria-expanded={detailsOpen}
-            aria-controls="cm-details"
-            onClick={() => setDetailsOpen(!detailsOpen)}
+            aria-label="Show full map"
+            title="Show full map"
+            onClick={() => {
+              choose(empty);
+              setQuery("");
+              setMode("areas");
+            }}
           >
             <svg
               width="18"
@@ -238,24 +239,64 @@ export function CompanyMap() {
               strokeWidth="1.5"
               aria-hidden="true"
             >
-              <rect x="3" y="4" width="18" height="16" rx="3" />
-              <path d="M15 4v16" />
-              {detailsOpen && (
-                <path d="M17 7h2v10h-2z" fill="currentColor" stroke="none" />
+              <circle cx="12" cy="4" r="2" />
+              <circle cx="19" cy="9" r="2" />
+              <circle cx="17" cy="18" r="2" />
+              <circle cx="7" cy="18" r="2" />
+              <circle cx="5" cy="9" r="2" />
+              <path d="m14 5 3 3m2 3-2 5M15 18H9M7 16l-2-5m2-3 3-3" />
+            </svg>
+          </button>
+          <button
+            className="cm-panel-toggle"
+            aria-label={expanded ? "Exit fullscreen" : "Fullscreen"}
+            title={expanded ? "Exit fullscreen" : "Fullscreen"}
+            aria-pressed={expanded}
+            onClick={() => setExpanded(!expanded)}
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            >
+              {expanded ? (
+                <path d="M9 3v6H3m18 0h-6V3M3 15h6v6m6 0v-6h6" />
+              ) : (
+                <path d="M9 3H3v6m12-6h6v6M3 15v6h6m6 0h6v-6" />
               )}
             </svg>
           </button>
+          {selection.node && (
+            <button
+              className="cm-panel-toggle"
+              aria-label={detailsOpen ? "Hide details" : "Show details"}
+              title={detailsOpen ? "Hide details" : "Show details"}
+              aria-expanded={detailsOpen}
+              aria-controls="cm-details"
+              onClick={() => setDetailsOpen(!detailsOpen)}
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="16" rx="3" />
+                <path d="M15 4v16" />
+                {detailsOpen && (
+                  <path d="M17 7h2v10h-2z" fill="currentColor" stroke="none" />
+                )}
+              </svg>
+            </button>
+          )}
         </div>
-        <button
-          className="cm-reset-view"
-          onClick={() => {
-            choose(empty);
-            setQuery("");
-            setMode("areas");
-          }}
-        >
-          All components ↗
-        </button>
       </div>
       <div
         className={`cm-layout ${navigationOpen ? "" : "cm-navigation-closed"} ${detailsOpen ? "" : "cm-details-closed"}`}
