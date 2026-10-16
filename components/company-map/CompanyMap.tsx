@@ -423,6 +423,7 @@ export function CompanyMap() {
           </div>
           <div className="cm-canvas">
             <div className="cm-graph-viewport">
+              <div className="cm-side-fades" aria-hidden="true" />
               <svg
                 ref={svgRef}
                 className={highlightedNode ? "cm-has-selection" : ""}

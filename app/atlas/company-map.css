@@ -932,3 +932,20 @@
 .cm-graph-viewport > svg:focus {
   outline: none;
 }
+
+.cm-side-fades {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, var(--cm-forest), transparent) left / 40px 100%
+      no-repeat,
+    linear-gradient(to left, var(--cm-forest), transparent) right / 40px 100%
+      no-repeat;
+}
+@media (max-width: 1150px) {
+  .cm-layout:not(.cm-details-closed) .cm-side-fades {
+    right: min(300px, 90%);
+  }
+}
