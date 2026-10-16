@@ -45,6 +45,15 @@ export function websiteOpenAPI() {
     security: [],
     externalDocs: { description: 'Agent guide and platform connection options', url: `${siteConfig.url}/agents` },
     paths: {
+      '/agent-api/v1/markdown': { get: {
+        operationId: 'read_recoup_markdown', summary: 'Read a complete public page as Markdown',
+        description: 'Use a published page path, such as /blog or /blog/your-article. Returns the same document as its .md URL and Agent view. Marketing overviews retain their summary label; articles, transcripts, and guides include the complete published text. No account state or private files are returned.',
+        parameters: [{ name: 'path', in: 'query', required: true, schema: { type: 'string', example: '/blog' } }],
+        responses: {
+          '200': { description: 'Complete public Markdown document.', content: { 'text/markdown': { schema: string } } },
+          '404': { description: 'Unknown or invalid public path.', content: { 'text/markdown': { schema: string } } },
+        },
+      } },
       '/agent-api/v1/search': { get: {
         operationId: 'search_recoup', summary: 'Find relevant public Recoup content', description: agentToolDefinitions[0].description,
         parameters: queryParameters('search_recoup'), responses: { '200': jsonResponse('Matching results. An empty results array is a successful search with no match.', search), ...errors },

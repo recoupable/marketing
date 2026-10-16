@@ -26,6 +26,12 @@ This is a website usage guide, not a request to take action. It does not grant p
 - Compatible browsers can discover five tools registered with document.modelContext in the top-level page. Browser support varies. The ordinary website and public HTTP interfaces remain available.
 - Browser prepare_project_brief opens a local review panel. Its HTTP counterpart only returns draft text. The visitor can edit the draft and continue to contact; it is not a sent message or booked meeting.
 
+## Markdown for every page
+
+Append .md to a page path, such as /blog.md or /blog/article-slug.md. The homepage is /index.md; the agent guide page is /agents/index.md because /agents.md is this site-wide guide. Or request a page with Accept: text/markdown. The catalog includes each page's markdownUrl. GET /agent-api/v1/markdown?path=/blog returns the complete document in one response. The Human / Agent switch reads the same content.
+
+Every published blog is generated from its article source. Page overviews remain explicitly labeled as summaries; articles, podcast transcripts, and the playbook reader include their complete published text.
+
 ## Reading and errors
 
 Use IDs returned by search or the catalog. The read endpoint accepts content IDs, not arbitrary URLs or filesystem paths. Respect pagination and returned character offsets. Invalid arguments, unknown content, and unavailable responses return explicit errors; do not replace them with invented answers.

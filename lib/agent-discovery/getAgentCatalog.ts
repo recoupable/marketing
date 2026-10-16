@@ -1,3 +1,4 @@
+import { agentMarkdownPath } from "../agent-markdown-path.ts";
 import { agentToolDefinitions } from "../agent-tools/agentToolDefinitions.ts";
 import { absoluteUrl } from "../seo.ts";
 import type { DiscoveryContent } from "./DiscoveryContent.ts";
@@ -11,7 +12,17 @@ export function getAgentCatalog(index: readonly DiscoveryContent[]) {
     description: introduction,
     documentation: absoluteUrl(discoveryPaths.hub),
     openapi: absoluteUrl(discoveryPaths.openapi),
-    content: index.map((item) => ({ ...item, url: absoluteUrl(item.url) })),
+    content: index.map((item) => ({
+      ...item,
+      url: absoluteUrl(item.url),
+      ...(!new URL(absoluteUrl(item.url)).hash
+        ? {
+            markdownUrl: absoluteUrl(
+              agentMarkdownPath(new URL(absoluteUrl(item.url)).pathname),
+            ),
+          }
+        : {}),
+    })),
     tools: agentToolDefinitions,
     interfaces: {
       http: {

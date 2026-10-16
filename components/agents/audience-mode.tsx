@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { agentMarkdownPath } from "@/lib/agent-markdown-path";
 import "./audience-mode.css";
 
 export function AudienceMode({
@@ -66,38 +67,14 @@ export function AudienceMode({
     const controller = new AbortController();
     async function read() {
       setError("");
-      const id =
-        pathname === "/docs"
-          ? "docs:index"
-          : pathname.startsWith("/docs/")
-            ? `docs:${pathname.slice(6)}`
-            : pathname.startsWith("/blog/")
-              ? `blog:${pathname.slice(6)}`
-              : `page:${pathname}`;
-      let offset: number | null = 0;
-      let document = "";
       try {
-        while (offset !== null) {
-          const query = new URLSearchParams({
-            id,
-            offset: String(offset),
-            maxLength: "12000",
-          });
-          const response = await fetch(`/agent-api/v1/read?${query}`, {
-            signal: controller.signal,
-          });
-          if (!response.ok)
-            throw new Error(
-              response.status === 404
-                ? "This page does not have an agent document yet."
-                : "The document could not load. Please try again.",
-            );
-          const page: { markdown: string; nextOffset: number | null } =
-            await response.json();
-          document += page.markdown;
-          offset = page.nextOffset;
-        }
-        setMarkdown(document);
+        const response = await fetch(agentMarkdownPath(pathname), {
+          signal: controller.signal,
+        });
+        if (!response.ok)
+          throw new Error("The document could not load. Please try again.");
+        const document = await response.text();
+        if (!controller.signal.aborted) setMarkdown(document);
       } catch (failure) {
         if (!controller.signal.aborted)
           setError(

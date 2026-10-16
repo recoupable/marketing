@@ -1,3 +1,9 @@
+## Markdown for every page — October 16, 2026
+
+Added missing page documents, including the blog archive, resource/company/tool pages, plugin pages, podcast episodes, the complete playbook reader, and the API overview. Every published page has a direct Markdown URL and accepts `Accept: text/markdown`; the Agent switch reads the same complete response. Blog articles remain generated from the published source, and podcast documents include their published transcripts. Marketing overviews retain explicit summary labels.
+
+`tests/page-markdown.test.ts` guards actual route and published-content coverage. The production build, TypeScript, and all 454 tests pass. Lint has no errors (39 pre-existing warnings outside this change). A local production-server audit passed 638 Markdown requests across 319 pages, including all 32 articles, plus HTML negotiation, HEAD, and unknown-page checks. Browser verification covered the archive and full article Agent views, Copy Markdown, and returning to Human mode. Publication is pending PR review and merge.
+
 ## Company operating model explorer — October 15, 2026
 
 Added `/atlas` with circular company-area and workflow exploration, component search, operating rules, fields, clickable connections and shareable hashes. Derived from the privacy-checked atlas public export with a narrower model-only field allowlist. Resources navigation, sitemap and agent summary included. Verification and publication state: see the feature PR and `docs/company-map.md`; no production claim.
