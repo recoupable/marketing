@@ -511,15 +511,13 @@
   stroke-width: 10px;
   vector-effect: non-scaling-stroke;
   cursor: pointer;
+  pointer-events: none;
 }
 .cm-has-selection .cm-edge:not(.cm-edge-active) {
   opacity: 0.06;
 }
 .cm-has-selection .cm-node:not(.cm-node-active):not(.cm-node-connected) {
   opacity: 0.22;
-}
-.cm-node {
-  transition: opacity 180ms;
 }
 .cm-expanded {
   position: fixed;
@@ -531,38 +529,10 @@
 .cm-expanded .cm-canvas svg {
   height: 72vh;
 }
-@media (prefers-reduced-motion: reduce) {
-  .cm-node {
-    transition: none;
-  }
-}
-
-/* A quiet overview; hover and selection reveal the graph's local structure. */
-.cm-edge {
-  transition:
-    opacity 180ms ease,
-    stroke 180ms ease;
-}
+/* Selection owns graph-wide emphasis; hover paints a separate local overlay. */
 .cm-edge-active {
   stroke-width: 1.6;
   opacity: 0.9;
-}
-.cm-node-hovered rect {
-  stroke: #d6ff62;
-  stroke-width: 2;
-  filter: drop-shadow(0 0 6px #d6ff6260);
-}
-.cm-node-active rect {
-  filter: drop-shadow(0 0 8px #d6ff6270);
-}
-
-.cm-has-selection .cm-node-hovered {
-  opacity: 1;
-}
-@media (prefers-reduced-motion: reduce) {
-  .cm-edge {
-    transition: none;
-  }
 }
 
 /* Hit geometry stays fixed while the decorative surface changes. */
@@ -574,4 +544,53 @@
   stroke: none;
   filter: none;
   pointer-events: all;
+}
+
+/* Connections become pointer targets only when their endpoint is selected. */
+.cm-edge-hit.cm-edge-hit-active {
+  pointer-events: stroke;
+}
+
+/* A translucent outline gives depth without an SVG blur/filter surface. */
+.cm-node rect.cm-node-halo {
+  fill: none;
+  stroke: var(--cm-blue);
+  stroke-width: 6;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease-out;
+}
+.cm-node:hover rect.cm-node-halo,
+.cm-node:focus-visible rect.cm-node-halo {
+  opacity: 0.2;
+}
+.cm-hover-connections {
+  pointer-events: none;
+  animation: cm-connection-reveal 180ms ease-out both;
+}
+.cm-hover-connections line {
+  stroke: var(--cm-blue);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+.cm-edge-active {
+  animation: cm-connection-reveal 220ms ease-out both;
+}
+@keyframes cm-connection-reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cm-node rect.cm-node-halo {
+    transition: none;
+  }
+  .cm-hover-connections,
+  .cm-edge-active {
+    animation: none;
+  }
 }

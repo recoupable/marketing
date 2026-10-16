@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { circularLayout, layoutBounds } from "@/lib/company-map/circularLayout";
+import { HoverConnections } from "./HoverConnections";
 import publicCopy from "@/lib/company-map/public-copy.json";
 import { companyMapCopy as copy } from "@/lib/copy/company-map";
 import model from "@/lib/company-map/model.json";
@@ -14,18 +15,6 @@ const empty: Selection = { domain: "", workflow: "", node: "" };
 
 export function CompanyMap() {
   const [selection, setSelection] = useState(empty);
-  const [hoveredNode, setHoveredNode] = useState("");
-  const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const previewNode = (id: string) => {
-    if (hoverTimer.current) clearTimeout(hoverTimer.current);
-    hoverTimer.current = setTimeout(() => setHoveredNode(id), id ? 100 : 140);
-  };
-  useEffect(
-    () => () => {
-      if (hoverTimer.current) clearTimeout(hoverTimer.current);
-    },
-    [],
-  );
   const [edgeId, setEdgeId] = useState("");
   const [expanded, setExpanded] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -75,8 +64,6 @@ export function CompanyMap() {
   }, [expanded]);
   const choose = (next: Selection, reset = true) => {
     setEdgeId("");
-    if (hoverTimer.current) clearTimeout(hoverTimer.current);
-    setHoveredNode("");
     setSelection(next);
     setMode(next.workflow ? "workflows" : "areas");
     if (reset) {
@@ -180,7 +167,7 @@ export function CompanyMap() {
           .includes(query.trim().toLowerCase()),
       )
     : [];
-  const highlightedNode = hoveredNode || selection.node;
+  const highlightedNode = selection.node;
   const connected = new Set(
     model.edges
       .filter(
@@ -297,7 +284,6 @@ export function CompanyMap() {
             <svg
               ref={svgRef}
               className={highlightedNode ? "cm-has-selection" : ""}
-              onPointerLeave={() => previewNode("")}
               viewBox={`${bounds.x + (bounds.width * (1 - 1 / zoom)) / 2 - pan.x} ${bounds.y + (bounds.height * (1 - 1 / zoom)) / 2 - pan.y} ${bounds.width / zoom} ${bounds.height / zoom}`}
               aria-label="Company relationship map; use search or company areas to find components"
               onPointerDown={(e) => {
@@ -342,15 +328,13 @@ export function CompanyMap() {
                       role="button"
                       tabIndex={-1}
                       aria-label={`${nodeById.get(e.source)?.label}: ${e.relation}: ${nodeById.get(e.target)?.label}`}
-                      className="cm-edge-hit"
+                      className={`cm-edge-hit ${selection.node && (e.source === selection.node || e.target === selection.node) ? "cm-edge-hit-active" : ""}`}
                       x1={a.x}
                       y1={a.y}
                       x2={b.x}
                       y2={b.y}
                       onClick={() => setEdgeId(e.id)}
-                    >
-                      <title>{`${nodeById.get(e.source)?.label} → ${e.relation} → ${nodeById.get(e.target)?.label}`}</title>
-                    </line>
+                    />
                     <line
                       x1={a.x}
                       y1={a.y}
@@ -361,6 +345,13 @@ export function CompanyMap() {
                   </g>
                 );
               })}
+              <HoverConnections
+                key={`${selection.domain}:${selection.workflow}:${selection.node}`}
+                svgRef={svgRef}
+                edges={graphEdges}
+                positions={positions}
+                disabled={Boolean(selection.node)}
+              />
               {entries.map((item) => {
                 const p = positions.get(item.id)!;
                 const active = item.id === selection.node;
@@ -381,13 +372,8 @@ export function CompanyMap() {
                     tabIndex={0}
                     aria-label={`Explore ${item.label}`}
                     aria-pressed={active}
+                    data-node-id={item.id}
                     onClick={open}
-                    onPointerEnter={(event) => {
-                      if (event.pointerType !== "touch") previewNode(item.id);
-                    }}
-                    onPointerLeave={() => previewNode("")}
-                    onFocus={() => previewNode(item.id)}
-                    onBlur={() => previewNode("")}
                     onDoubleClick={() =>
                       choose({
                         domain: item.domain,
@@ -401,9 +387,17 @@ export function CompanyMap() {
                         open();
                       }
                     }}
-                    className={`cm-node ${active ? "cm-node-active" : ""} ${hoveredNode === item.id ? "cm-node-hovered" : ""} ${connected.has(item.id) ? "cm-node-connected" : ""}`}
+                    className={`cm-node ${active ? "cm-node-active" : ""} ${connected.has(item.id) ? "cm-node-connected" : ""}`}
                     transform={`translate(${p.x},${p.y})`}
                   >
+                    <rect
+                      className="cm-node-halo"
+                      x="-91"
+                      y="-32"
+                      width="182"
+                      height="64"
+                      rx="16"
+                    />
                     <rect
                       className="cm-node-surface"
                       x="-87"
