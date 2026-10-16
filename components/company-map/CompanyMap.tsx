@@ -268,32 +268,30 @@ export function CompanyMap() {
               )}
             </svg>
           </button>
-          {selection.node && (
-            <button
-              className="cm-panel-toggle"
-              aria-label={detailsOpen ? "Hide details" : "Show details"}
-              title={detailsOpen ? "Hide details" : "Show details"}
-              aria-expanded={detailsOpen}
-              aria-controls="cm-details"
-              onClick={() => setDetailsOpen(!detailsOpen)}
+          <button
+            className="cm-panel-toggle"
+            aria-label={detailsOpen ? "Hide details" : "Show details"}
+            title={detailsOpen ? "Hide details" : "Show details"}
+            aria-expanded={detailsOpen}
+            aria-controls="cm-details"
+            onClick={() => setDetailsOpen(!detailsOpen)}
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
             >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                aria-hidden="true"
-              >
-                <rect x="3" y="4" width="18" height="16" rx="3" />
-                <path d="M15 4v16" />
-                {detailsOpen && (
-                  <path d="M17 7h2v10h-2z" fill="currentColor" stroke="none" />
-                )}
-              </svg>
-            </button>
-          )}
+              <rect x="3" y="4" width="18" height="16" rx="3" />
+              <path d="M15 4v16" />
+              {detailsOpen && (
+                <path d="M17 7h2v10h-2z" fill="currentColor" stroke="none" />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
       <div
