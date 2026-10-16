@@ -206,7 +206,15 @@
     "predictive-model",
     "prediction-evaluation",
     "prediction-result",
-    "prediction-monitor"
+    "prediction-monitor",
+    "model-design",
+    "training-corpus",
+    "training-recipe",
+    "trained-model-version",
+    "training-feedback",
+    "training-environment",
+    "model-capability-evaluation",
+    "model-serving-release"
   ],
   "workflows": [
     "company-onboarding",
@@ -253,7 +261,13 @@
     "large-data-processing",
     "model-training-validation",
     "forecast-prediction",
-    "prediction-renewal"
+    "prediction-renewal",
+    "model-pretraining",
+    "model-adaptation",
+    "model-posttraining",
+    "model-multimodal",
+    "model-world-learning",
+    "model-release-serving"
   ],
   "edges": [
     "target-edge-001",
@@ -1577,6 +1591,30 @@
     "ml-link-21",
     "ml-link-22",
     "ml-link-23",
-    "ml-link-24"
+    "ml-link-24",
+    "training-link-01",
+    "training-link-02",
+    "training-link-03",
+    "training-link-04",
+    "training-link-05",
+    "training-link-06",
+    "training-link-07",
+    "training-link-08",
+    "training-link-09",
+    "training-link-10",
+    "training-link-11",
+    "training-link-12",
+    "training-link-13",
+    "training-link-14",
+    "training-link-15",
+    "training-link-16",
+    "training-link-17",
+    "training-link-18",
+    "training-link-19",
+    "training-link-20",
+    "training-link-21",
+    "training-link-22",
+    "training-link-23",
+    "training-link-24"
   ]
 }
