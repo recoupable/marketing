@@ -27,3 +27,13 @@ it("keeps labels separated in every domain and workflow", () => {
     }
   }
 });
+
+it("keeps fixed-size overview cards separated at the intro inhale", () => {
+  const points = [...circularLayout(model.nodes).values()];
+  for (let i = 0; i < points.length; i++)
+    for (let j = i + 1; j < points.length; j++)
+      expect(
+        Math.abs(points[i].x - points[j].x) * 0.94 >= 174 ||
+          Math.abs(points[i].y - points[j].y) * (1 - 0.06 * 0.88) >= 56,
+      ).toBe(true);
+});

@@ -128,7 +128,11 @@ function AmbientJourney({
       }
       const delta = Math.min(50, now - lastFrame);
       lastFrame = now;
-      const resting = pointerHeld || focused || now < quietUntil;
+      const resting =
+        svg.hasAttribute("data-arriving") ||
+        pointerHeld ||
+        focused ||
+        now < quietUntil;
       // Fade the paint, not an SVG group; group compositing breaks the dense map.
       // The logical clock stops with the handoff, then resumes the same journey.
       const target = resting ? 0 : 1;
