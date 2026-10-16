@@ -15,6 +15,7 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
   const light = useRef<SVGCircleElement>(null);
   const trail = useRef<SVGLineElement>(null);
   const arrival = useRef<SVGRectElement>(null);
+  const afterglow = useRef<SVGLineElement>(null);
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg || disabled) return;
@@ -24,7 +25,9 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
         b = positions.get(edge.target);
       if (!a || !b) return [];
       const distance = Math.hypot(b.x - a.x, b.y - a.y);
-      return distance > 250 && distance < 1200 ? [{ a, b }] : [];
+      return distance > 250 && distance < 1200
+        ? [{ a, b, source: edge.source, target: edge.target }]
+        : [];
     });
     if (!routes.length) return;
     let frame = 0;
@@ -33,10 +36,23 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
     let resumeAt = performance.now() + 900;
     let cycleStart = resumeAt;
     let route = 0;
+    let continued = false;
+    let completed = false;
+    let glow: { a: Point; b: Point; started: number } | null = null;
+    const travelTime = () => 2200 + (route % 5) * 180;
+    const continuation = () =>
+      continued
+        ? -1
+        : routes.findIndex(
+            (candidate) =>
+              candidate.source === routes[route].target &&
+              candidate.target !== routes[route].source,
+          );
     const hide = () => {
       light.current?.setAttribute("fill-opacity", "0");
       trail.current?.setAttribute("stroke-opacity", "0");
       arrival.current?.setAttribute("stroke-opacity", "0");
+      afterglow.current?.setAttribute("stroke-opacity", "0");
       svg.style.translate = "";
     };
     const tick = (now: number) => {
@@ -50,21 +66,40 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
         // A pixel-sized drift, measured in screen pixels rather than graph units.
         const settle = Math.min(1, (now - resumeAt) / 2000);
         svg.style.translate = `${Math.sin((now - resumeAt) / 5500) * 2.4 * settle}px ${Math.sin((now - resumeAt) / 7300) * 1.4 * settle}px`;
-        if (age >= 5200) {
+        const next = continuation();
+        const pause = next >= 0 ? 700 : 1800 + (route % 7) * 270;
+        if (age >= travelTime() + pause) {
           cycleStart = now;
-          route = (route + 37) % routes.length;
+          route = next >= 0 ? next : (route + 37) % routes.length;
+          continued = next >= 0;
+          completed = false;
         }
         const elapsed = now - cycleStart;
+        const duration = travelTime();
         const { a, b } = routes[route];
         const dx = b.x - a.x,
           dy = b.y - a.y;
         // Stop at card boundaries so the signal never crosses a label.
         const inset = Math.min(87 / Math.abs(dx), 28 / Math.abs(dy));
-        const progress = Math.min(1, elapsed / 2800);
+        const progress = Math.min(1, elapsed / duration);
         const at = (p: number) => ({
           x: a.x + dx * (inset + p * (1 - 2 * inset)),
           y: a.y + dy * (inset + p * (1 - 2 * inset)),
         });
+        if (elapsed >= duration && !completed) {
+          completed = true;
+          glow = { a: at(0), b: at(1), started: cycleStart + duration };
+        }
+        if (glow) {
+          afterglow.current?.setAttribute("x1", String(glow.a.x));
+          afterglow.current?.setAttribute("y1", String(glow.a.y));
+          afterglow.current?.setAttribute("x2", String(glow.b.x));
+          afterglow.current?.setAttribute("y2", String(glow.b.y));
+          afterglow.current?.setAttribute(
+            "stroke-opacity",
+            String(Math.max(0, 1 - (now - glow.started) / 1200) * 0.3),
+          );
+        }
         const head = at(progress),
           tail = at(Math.max(0, progress - 0.1));
         const scale = svg.viewBox.baseVal.width / Math.max(1, svg.clientWidth);
@@ -73,7 +108,7 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
         light.current?.setAttribute("r", String(2 * scale));
         light.current?.setAttribute(
           "fill-opacity",
-          elapsed < 2800 ? String(Math.min(0.75, elapsed / 400)) : "0",
+          elapsed < duration ? String(Math.min(0.75, elapsed / 400)) : "0",
         );
         trail.current?.setAttribute("x1", String(tail.x));
         trail.current?.setAttribute("y1", String(tail.y));
@@ -81,14 +116,14 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
         trail.current?.setAttribute("y2", String(head.y));
         trail.current?.setAttribute(
           "stroke-opacity",
-          elapsed < 2800 ? "0.4" : "0",
+          elapsed < duration ? "0.4" : "0",
         );
         arrival.current?.setAttribute("x", String(b.x - 87));
         arrival.current?.setAttribute("y", String(b.y - 28));
         arrival.current?.setAttribute(
           "stroke-opacity",
-          elapsed >= 2800 && elapsed < 3500
-            ? String(Math.sin(((elapsed - 2800) / 700) * Math.PI) * 0.5)
+          elapsed >= duration && elapsed < duration + 700
+            ? String(Math.sin(((elapsed - duration) / 700) * Math.PI) * 0.5)
             : "0",
         );
       }
@@ -99,6 +134,9 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
       hide();
       resumeAt = performance.now() + 900;
       cycleStart = resumeAt;
+      glow = null;
+      completed = false;
+      continued = false;
       frame = requestAnimationFrame(tick);
     };
     const enter = () => {
@@ -130,7 +168,7 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
       observer.disconnect();
       svg.removeEventListener("pointerdown", enter);
       window.removeEventListener("pointerup", leave);
-    window.removeEventListener("pointercancel", leave);
+      window.removeEventListener("pointercancel", leave);
       svg.removeEventListener("focusin", enter);
       svg.removeEventListener("focusout", leave);
       svg.removeEventListener("wheel", restart);
@@ -141,6 +179,7 @@ export function AmbientActivity({ svgRef, edges, positions, disabled }: Props) {
   }, [svgRef, edges, positions, disabled]);
   return (
     <g className="cm-ambient" aria-hidden="true" pointerEvents="none">
+      <line ref={afterglow} strokeOpacity="0" />
       <line ref={trail} strokeOpacity="0" />
       <circle ref={light} fillOpacity="0" />
       <rect
