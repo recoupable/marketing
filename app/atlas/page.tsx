@@ -5,7 +5,7 @@ import { PageCTA } from "@/components/sky/page-ui";
 import "./company-map.css";
 
 export const metadata = withPageMetadata({
-  title: "Atlas: The Agentic Music Company Operating Model",
+  title: "Map: The Agentic Music Company Operating Model",
   description: copy.description,
   alternates: { canonical: "/atlas" },
 });

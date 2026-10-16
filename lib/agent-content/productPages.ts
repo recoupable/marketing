@@ -19,7 +19,7 @@ export const productPages: PageSummary[] = [
       "music company operating model catalog rights capital agents workflows permissions",
     paragraphs: [companyMapCopy.intro, companyMapCopy.note],
     links: [
-      ["Explore the Atlas", "/atlas"],
+      ["Explore the Map", "/atlas"],
       ["Custom builds", "/build"],
       ["Start a project", "/start-project"],
     ],
