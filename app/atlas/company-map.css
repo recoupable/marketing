@@ -195,6 +195,16 @@
 .cm-canvas {
   position: relative;
 }
+/* Soften the clipped map edge without filtering or animating the SVG. */
+.cm-canvas::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0 0 auto;
+  height: 56px;
+  background: linear-gradient(to bottom, var(--cm-forest), transparent);
+  pointer-events: none;
+}
 .cm-canvas svg {
   display: block;
   width: 100%;
