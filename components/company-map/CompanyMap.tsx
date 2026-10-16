@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { circularLayout, layoutBounds } from "@/lib/company-map/circularLayout";
 import { HoverConnections } from "./HoverConnections";
+import { AmbientActivity } from "./AmbientActivity";
 import publicCopy from "@/lib/company-map/public-copy.json";
 import { companyMapCopy as copy } from "@/lib/copy/company-map";
 import model from "@/lib/company-map/model.json";
@@ -19,6 +20,7 @@ export function CompanyMap() {
   const [expanded, setExpanded] = useState(false);
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const detailsDismissed = useRef(false);
   const svgRef = useRef<SVGSVGElement>(null);
   const cameraFrame = useRef<number>(0);
   const [query, setQuery] = useState("");
@@ -44,7 +46,7 @@ export function CompanyMap() {
         ? p.get("domain")!
         : "";
       setSelection({ node, domain, workflow });
-      setDetailsOpen(Boolean(node));
+      setDetailsOpen(Boolean(node) && !detailsDismissed.current);
       setMode(workflow ? "workflows" : "areas");
       setZoom(1);
       setPan({ x: 0, y: 0 });
@@ -73,7 +75,7 @@ export function CompanyMap() {
   const choose = (next: Selection, reset = true) => {
     setEdgeId("");
     setSelection(next);
-    setDetailsOpen(Boolean(next.node));
+    setDetailsOpen(Boolean(next.node) && !detailsDismissed.current);
     setMode(next.workflow ? "workflows" : "areas");
     if (reset) {
       setZoom(1);
@@ -135,7 +137,9 @@ export function CompanyMap() {
     const switchingNodes =
       previousFocus.current?.scope === scope &&
       previousFocus.current.node !== selection.node;
-    previousFocus.current = selection.node ? { scope, node: selection.node } : null;
+    previousFocus.current = selection.node
+      ? { scope, node: selection.node }
+      : null;
     if (!selection.node) return;
     const start = camera.current;
     const targetZoom = switchingNodes ? start.zoom : overview ? 3 : 1.4;
@@ -296,7 +300,10 @@ export function CompanyMap() {
             title={detailsOpen ? "Hide details" : "Show details"}
             aria-expanded={detailsOpen}
             aria-controls="cm-details"
-            onClick={() => setDetailsOpen(!detailsOpen)}
+            onClick={() => {
+              detailsDismissed.current = detailsOpen;
+              setDetailsOpen(!detailsOpen);
+            }}
           >
             <svg
               width="18"
@@ -512,6 +519,16 @@ export function CompanyMap() {
                       className={`cm-node ${active ? "cm-node-active" : ""} ${connected.has(item.id) ? "cm-node-connected" : ""}`}
                       transform={`translate(${p.x},${p.y})`}
                     >
+                      {active && (
+                        <rect
+                          className="cm-selection-pulse"
+                          x="-91"
+                          y="-32"
+                          width="182"
+                          height="64"
+                          rx="16"
+                        />
+                      )}
                       <rect
                         className="cm-node-halo"
                         x="-91"
@@ -549,6 +566,12 @@ export function CompanyMap() {
                     </g>
                   );
                 })}
+                <AmbientActivity
+                  svgRef={svgRef}
+                  edges={graphEdges}
+                  positions={positions}
+                  disabled={Boolean(selection.node) || !overview}
+                />
               </svg>
             </div>
             <div className="cm-map-controls">
