@@ -949,3 +949,46 @@
     right: min(300px, 90%);
   }
 }
+
+/* One arrival breath travels through the already complete network. Individual
+   paint animation avoids the large SVG compositing surfaces that caused blanks. */
+.cm-canvas svg[data-arriving] .cm-edge {
+  opacity: 1;
+  animation: cm-arrival-connection 1800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--cm-arrival-delay, 0ms);
+}
+.cm-canvas svg[data-arriving] .cm-node-surface {
+  animation: cm-arrival-node 1800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--cm-arrival-delay, 0ms);
+}
+@keyframes cm-arrival-connection {
+  0%,
+  100% {
+    stroke: var(--cm-edge);
+    stroke-opacity: 0.2;
+  }
+  28% {
+    stroke: #9dbda9;
+    stroke-opacity: 0.32;
+  }
+}
+@keyframes cm-arrival-node {
+  0%,
+  100% {
+    fill: var(--cm-white);
+    stroke: var(--cm-edge);
+  }
+  28% {
+    fill: #edf8e8;
+    stroke: #b8e8cb;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cm-canvas svg[data-arriving] .cm-edge,
+  .cm-canvas svg[data-arriving] .cm-node-surface {
+    animation: none;
+  }
+  .cm-canvas svg[data-arriving] .cm-edge {
+    opacity: 0.2;
+  }
+}

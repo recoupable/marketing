@@ -1,9 +1,16 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 import { circularLayout, layoutBounds } from "@/lib/company-map/circularLayout";
 import { HoverConnections } from "./HoverConnections";
 import { AmbientActivity } from "./AmbientActivity";
+import { IntroActivation } from "./IntroActivation";
 import publicCopy from "@/lib/company-map/public-copy.json";
 import { companyMapCopy as copy } from "@/lib/copy/company-map";
 import model from "@/lib/company-map/model.json";
@@ -483,6 +490,11 @@ export function CompanyMap() {
                         y1={a.y}
                         x2={b.x}
                         y2={b.y}
+                        style={
+                          {
+                            "--cm-arrival-delay": `${Math.hypot((a.x + b.x) / 2 - 500, (a.y + b.y) / 2 - 420) * 0.34}ms`,
+                          } as CSSProperties
+                        }
                         className={`cm-edge ${e.source === highlightedNode || e.target === highlightedNode ? "cm-edge-active" : ""}`}
                       />
                     </g>
@@ -553,6 +565,11 @@ export function CompanyMap() {
                       />
                       <rect
                         className="cm-node-surface"
+                        style={
+                          {
+                            "--cm-arrival-delay": `${Math.hypot(p.x - 500, p.y - 420) * 0.34}ms`,
+                          } as CSSProperties
+                        }
                         x="-87"
                         y="-28"
                         width="174"
@@ -580,6 +597,7 @@ export function CompanyMap() {
                     </g>
                   );
                 })}
+                <IntroActivation svgRef={svgRef} />
                 <AmbientActivity
                   svgRef={svgRef}
                   edges={graphEdges}
