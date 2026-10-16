@@ -1,12 +1,59 @@
 export const aiStrategyCopy = {
-  title: "Choose your first AI project for your music business",
+  title: "Plan your first AI project for your music business",
   description:
-    "Choose an AI project for your music team. Check the work, access and owner, then download a pilot brief with clear measures and a review date.",
-  eyebrow: "THE RECOUP METHOD",
-  readyLabel: "READY TO REVIEW",
-  buildAction: "Build my project brief",
+    "Turn a recurring music-business task into an AI project plan. Get a goal, a checklist of missing requirements, and a way to measure the first test.",
+  eyebrow: "FREE TOOL FOR MUSIC TEAMS",
+  readyLabel: "YOUR PLAN",
+  buildAction: "Create my AI project plan",
+  offerNote: "Free to use. Download without an email.",
+  exampleLabel: "EXAMPLE PROJECT PLAN",
+  exampleTitle: "Monthly royalty report",
+  exampleRows: [
+    {
+      label: "Goal",
+      text: "Flag missing statements before the finance review.",
+    },
+    {
+      label: "Still needed",
+      text: "Access to the files. A person to check the report.",
+    },
+    {
+      label: "Success check",
+      text: "Less total time, including review and corrections.",
+    },
+  ],
+  exampleCaption:
+    "Your plan will use your answers and list every missing requirement.",
+  starterLabel: "Start with an example",
+  starters: [
+    {
+      label: "Royalty reporting",
+      workflow: "Prepare the monthly royalty report",
+      outcome:
+        "Finance gets a checked report with missing statements flagged before the monthly review.",
+    },
+    {
+      label: "Catalog cleanup",
+      workflow: "Find incomplete catalog metadata",
+      outcome:
+        "The catalog team gets a list of missing or conflicting fields to check before delivery.",
+    },
+    {
+      label: "Release prep",
+      workflow: "Check release assets before distributor delivery",
+      outcome:
+        "The release manager gets a checklist of missing assets and approvals before the delivery deadline.",
+    },
+  ],
+  progressLabel: "Project planning steps",
+  stepLabels: ["Your task", "What you have", "Your test"],
+  stepDescriptions: [
+    "Choose one task your team repeats. Use an example or describe your own.",
+    "These answers become your preparation checklist. Choose “Not sure yet” for anything you still need to confirm.",
+    "Set a review date and describe the result you would need to see before doing more.",
+  ],
   noScript:
-    "Enable JavaScript to build a brief, or download the team worksheet below to work offline.",
+    "Enable JavaScript to create a plan, or download the team worksheet below to work offline.",
   methodLabel: "How Recoup approaches AI projects",
   related: {
     title: "Work through the details",
@@ -21,25 +68,25 @@ export const aiStrategyCopy = {
   },
   prerequisiteMessages: {
     access: "Confirm permission to use the required files and tools.",
-    example: "Choose a representative completed task and its accepted output.",
+    example: "Find a finished report or other example to compare the AI’s work against.",
     review:
       "Assign a reviewer who can catch mistakes before the output is used.",
-    baseline: "Record how the work performs today before comparing a pilot.",
+    baseline: "Measure how long the task takes today and record any common errors.",
   },
-  heading: "Choose the work.\nThen choose the AI.",
+  heading: "Plan your first\nAI project.",
   introduction:
-    "Start with a recurring job in your music business. Leave with a project brief your team can challenge, test, and use.",
+    "Tell us which task you want AI to help with. Get a downloadable plan with a clear goal, a checklist of what’s missing, and a way to check whether it worked.",
   method: [
     {
-      title: "Find the work worth changing",
+      title: "Choose a recurring task",
       body: "Bring a recent report, release handoff, or catalog request. Ask the people doing it where time goes and what a useful result looks like.",
     },
     {
-      title: "Make a test possible",
+      title: "List what you need before starting",
       body: "Choose an owner, confirm access, and agree on an example the team can judge. Resolve missing inputs before committing to a build.",
     },
     {
-      title: "Decide what earns another round",
+      title: "Define a successful test",
       body: "Write down the measure, the review date, and the reason to stop. Keep a record of what improved and what still needs a person.",
     },
   ],
@@ -50,79 +97,83 @@ export const aiStrategyCopy = {
         "Test representative examples, including difficult cases. Record accepted outputs, corrections, and failures. Decide whether there is enough evidence to scope a build.",
     },
     capacity: {
-      label: "Give the team time back",
+      label: "Save the team time",
       measure:
         "Compare total preparation, execution, review, and correction time for the same kind of work. Record output quality and where recovered time will go. Treat cash savings as a separate, confirmed budget change.",
     },
     revenue: {
-      label: "Create a commercial opportunity",
+      label: "Test a revenue opportunity",
       measure:
         "Choose a comparable group or staggered rollout before starting. Track qualified opportunities and paid outcomes, include selling and delivery costs, and record other changes that could explain the result.",
     },
   },
   fields: {
-    workflow: "Which recurring job would you change?",
-    outcome: "What should be different when it works?",
-    purpose: "What must this first test establish?",
-    owner: "Who owns the result? A role is enough.",
-    access: "Can the team use the required files and tools with permission?",
-    example: "Do you have a completed example and an accepted output?",
-    review: "Is someone responsible for checking the output before use?",
-    baseline: "Have you recorded how the work performs today?",
-    reviewDate: "When will the owner review the evidence?",
-    success: "What result would justify continuing?",
-    stop: "What result would make you stop or change the test?",
+    workflow: "What task do you want to improve?",
+    outcome: "What should the finished result look like?",
+    purpose: "Why try AI for this task?",
+    owner: "Who will run this project?",
+    access: "Do you have permission to use the files and tools?",
+    example: "Do you have a finished example to compare against?",
+    review: "Has someone agreed to check the AI’s work?",
+    baseline: "Have you measured the time and quality of this task today?",
+    reviewDate: "When will you review the results?",
+    success: "What would make this test a success?",
+    stop: "What would make you stop or change it?",
   },
-  steps: ["Name the work", "Check the inputs", "Set the test"],
+  steps: [
+    "What do you want AI to help with?",
+    "What is already in place?",
+    "How will you know it worked?",
+  ],
   placeholders: {
-    workflow: "Prepare the weekly catalog exceptions report",
+    workflow: "e.g. Prepare the monthly royalty report",
     outcome:
-      "Finance receives a checked list of unmatched records before the Monday review.",
-    owner: "Catalog operations lead",
+      "e.g. A checked report that flags missing statements before the finance review.",
+    owner: "e.g. Finance lead",
     success:
-      "The reviewer accepts the report with fewer corrections and less total preparation time.",
-    stop: "Unmatched rights records are presented as confirmed matches, or checking takes longer.",
+      "e.g. The report takes less total time and the reviewer finds no missing statements.",
+    stop: "e.g. The report misses a statement, or checking it takes longer than doing it manually.",
   },
   privacy:
     "Your written answers stay in this page until you download them or choose to prepare an inquiry. We record tool usage without your written responses. Use role names and general descriptions; no confidential records needed.",
-  resultTitle: "Your first-project brief",
-  readyTitle: "Scope a small test",
-  gapsTitle: "Prepare the missing inputs",
+  resultTitle: "Your AI project plan",
+  readyTitle: "You have the basics for a first test",
+  gapsTitle: "Here’s what you still need",
   readinessNote:
     "This is a planning aid based on your answers. A project still needs an agreed scope, budget, and checks before it runs on live work.",
-  worksheetTitle: "Ask the team about last week",
+  worksheetTitle: "Not sure which task to choose?",
   worksheetBody:
-    "Use the Recoup team worksheet to collect a recent example, the handoffs, existing tools, and the result people need. Keep responses in your own workspace.",
+    "Ask your team these 10 questions about a recent report, catalog update, or release. Use their answers to choose a task for your plan.",
   downloadWorksheet: "Download the team worksheet",
-  downloadBrief: "Download my brief",
+  downloadBrief: "Download my plan",
   handoff: "Discuss this project with Recoup",
   handoffNote:
     "Next, choose Use prepared brief on the contact form. Review it and add your contact details before sending.",
   handoffFailure:
-    "This browser couldn’t save the brief. Download it and paste it into the contact form.",
+    "This browser couldn’t save the plan. Download it and paste it into the contact form.",
   validation: "Complete this step with a specific answer in every field.",
   dateError: "Choose today or a later review date.",
   readyBody:
-    "You have identified the basic inputs. Agree on the test size, cost ceiling, and acceptance checks with the owner.",
+    "Before you start, agree on the budget, how much work to test, and who checks the results.",
   gapsBody:
-    "Resolve these items with the owner, then return to the brief. An unanswered question remains open.",
+    "Arrange each item with the person running the project. You can still download this plan and use it as your checklist.",
   resultLabels: {
-    workflow: "The work",
-    outcome: "Intended change",
-    owner: "Owner",
+    workflow: "Task",
+    outcome: "Expected result",
+    owner: "Project owner",
     purpose: "Test purpose",
     measure: "What to measure",
     reviewDate: "Review date",
-    success: "Continue when",
-    stop: "Stop or revise when",
+    success: "Success criteria",
+    stop: "Reasons to stop or change the test",
     gaps: "Before the test",
   },
   actions: {
     back: "Back",
     next: "Continue",
-    build: "Build my brief",
+    build: "Create my plan",
     edit: "Edit answers",
-    reset: "Start a new brief",
+    reset: "Start a new plan",
   },
   answers: { unknown: "Not sure yet", yes: "Yes", no: "No" },
 } as const;

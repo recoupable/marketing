@@ -110,13 +110,26 @@ export function StrategyPlanner() {
   }
   return (
     <div className="strategy-planner" id="planner">
+      {!complete && (
+        <ol className="strategy-progress" aria-label={copy.progressLabel}>
+          {copy.stepLabels.map((label, index) => (
+            <li
+              key={label}
+              aria-current={index === step ? "step" : undefined}
+              data-complete={index < step}
+            >
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              {label}
+            </li>
+          ))}
+        </ol>
+      )}
       <div className="strategy-planner-heading">
-        <p className="sp-kicker">
-          {complete ? copy.readyLabel : `${step + 1} / 3`}
-        </p>
+        {complete && <p className="strategy-eyebrow">{copy.readyLabel}</p>}
         <h2 tabIndex={-1} ref={heading}>
           {complete ? copy.resultTitle : copy.steps[step]}
         </h2>
+        {!complete && <p>{copy.stepDescriptions[step]}</p>}
       </div>
       {complete ? (
         <div className="strategy-result">

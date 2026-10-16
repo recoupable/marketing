@@ -1,5 +1,9 @@
 ## First-project AI strategy toolkit — October 16, 2026
 
+Revised the local toolkit after design review: direct “Plan your first AI project” offer,
+form beside the introduction, example download, editable music-business starters, visible
+step progress, and plain-language questions. All missing prerequisites remain visible.
+
 Added `/ai-strategy`: a team worksheet, three-step project brief, explicit missing prerequisites,
 purpose-specific measurement guidance, Markdown download, and the existing reviewed Contact
 handoff. Resources and Advisory link to it; public discovery uses shared copy. Three original

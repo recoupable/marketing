@@ -50,9 +50,9 @@ export const headerNavigation = [
     layout: "resources",
     links: [
       {
-        label: "AI strategy",
+        label: "AI project planner",
         href: "/ai-strategy",
-        description: "Choose a project and define the first test.",
+        description: "Get a plan and a checklist of what’s missing.",
         icon: "docs",
       },
       {

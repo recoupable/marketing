@@ -225,6 +225,9 @@ handoff. Its page copy is in `lib/copy/ai-strategy.ts`; decisions, schema, and e
 `lib/ai-strategy/`. Answers stay in page memory until an explicit download or inquiry handoff.
 Events contain only purpose/readiness, never answers. Companion article drafts live in
 `content/drafts/ai-strategy/` and are not included in the public blog registry.
+The planner sits beside its explanation and an example download on desktop, and directly
+below the explanation on phones. Starter examples fill only task/outcome; ownership and
+prerequisites must stay explicit visitor answers. Use plain project-plan wording throughout.
 
 The header’s Get Started button opens `components/sky/get-started-dialog.tsx`, styled by `get-started-dialog.css`. Shared labels live in `lib/copy/get-started.ts`. Try Our Platform uses the attributed `AppLink`; Build Your Platform links to `/start-project?workflow=Custom%20systems`, preselecting the Custom systems intake interest. Keep the same dialog available from the mobile menu and retain native modal keyboard behavior.
 

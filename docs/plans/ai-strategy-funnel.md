@@ -9,6 +9,7 @@ Help music-company leaders choose one piece of work, identify missing prerequisi
 - Resources menu, resources page, and Advisory link to `/ai-strategy`.
 - A free team worksheet helps a leader gather concrete examples before the engagement.
 - Three form steps produce a brief without email capture or an AI call.
+- The form starts beside the plain-language offer and an example download. Reporting, catalog cleanup, and release-prep starters fill only the editable task and expected result; they never assert readiness or ownership.
 - The result lists unresolved prerequisites explicitly and gives measurement guidance suited to the purpose.
 - Download works without contact details. An explicit inquiry action stores the reviewed brief in the existing one-hour browser draft store, then opens Contact. The visitor chooses **Use prepared brief**, adds contact details, and sends.
 - The existing ROI planner covers numerical assumptions. The conversational workflow planner remains available for deeper exploration.
@@ -42,3 +43,4 @@ Validate unknown and negative prerequisites, invalid dates, download contents, f
 - Browser checks passed for all missing prerequisites, all confirmed prerequisites, past-date rejection, step/result focus, editing, reset, brief download, and manual Contact import. No inquiry was sent.
 - Desktop and narrow-screen layouts were inspected; the browser's actual narrow viewport was 355px, with no horizontal overflow.
 - Article links resolve to existing registered posts; the three new articles remain unpublished drafts.
+- Design revision: replaced the tall hero and abstract method row with the offer, form, and concrete plan example in one desktop workspace. Verified editable starter selection, step progression, all four unresolved requirements, reset, and phone reflow at an actual 355px width. The revision passed 35 focused tests, scoped lint, and the production build.

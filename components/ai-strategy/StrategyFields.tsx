@@ -16,7 +16,30 @@ export function StrategyFields({
     ["reviewDate", "success", "stop"],
   ];
   return (
-    <div className="strategy-fields">
+    <div className={`strategy-fields strategy-fields-step-${step}`}>
+      {step === 0 && (
+        <div className="strategy-starters">
+          <p>{copy.starterLabel}</p>
+          <div>
+            {copy.starters.map((starter) => (
+              <button
+                key={starter.label}
+                type="button"
+                aria-pressed={
+                  values.workflow === starter.workflow &&
+                  values.outcome === starter.outcome
+                }
+                onClick={() => {
+                  onChange("workflow", starter.workflow);
+                  onChange("outcome", starter.outcome);
+                }}
+              >
+                {starter.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
       {fields[step].map((key) => {
         const common = {
           id: `strategy-${key}`,
@@ -34,7 +57,11 @@ export function StrategyFields({
             ? copy.placeholders[key as keyof typeof copy.placeholders]
             : undefined;
         return (
-          <label key={key} htmlFor={common.id}>
+          <label
+            key={key}
+            htmlFor={common.id}
+            className={`strategy-field-${key}`}
+          >
             <span>{copy.fields[key]}</span>
             {key === "purpose" ? (
               <select {...common}>
@@ -58,7 +85,7 @@ export function StrategyFields({
                 placeholder={placeholder}
                 minLength={10}
                 maxLength={400}
-                rows={3}
+                rows={2}
               />
             ) : (
               <input

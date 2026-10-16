@@ -32,7 +32,7 @@ describe("first-project decisions", () => {
     expect(result.ready).toBe(false);
     expect(result.gaps).toHaveLength(3);
     expect(result.gaps.join(" ")).toMatch(
-      /permission.*reviewer.*performs today/,
+      /permission.*reviewer.*task takes today/,
     );
   });
   test.each(["access", "example", "review", "baseline"] as const)(
