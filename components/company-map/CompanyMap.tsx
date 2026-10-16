@@ -17,6 +17,8 @@ export function CompanyMap() {
   const [selection, setSelection] = useState(empty);
   const [edgeId, setEdgeId] = useState("");
   const [expanded, setExpanded] = useState(false);
+  const [navigationOpen, setNavigationOpen] = useState(true);
+  const [detailsOpen, setDetailsOpen] = useState(true);
   const svgRef = useRef<SVGSVGElement>(null);
   const cameraFrame = useRef<number>(0);
   const [query, setQuery] = useState("");
@@ -194,86 +196,111 @@ export function CompanyMap() {
             {model.edges.length.toLocaleString("en-US")} connections
           </span>
         </div>
-        <button
-          onClick={() => {
-            choose(empty);
-            setQuery("");
-            setMode("areas");
-          }}
-        >
-          All components ↗
-        </button>
+        <div className="cm-panel-controls">
+          <button
+            aria-expanded={navigationOpen}
+            aria-controls="cm-navigation"
+            onClick={() => setNavigationOpen(!navigationOpen)}
+          >
+            {navigationOpen ? "‹ Hide navigation" : "› Show navigation"}
+          </button>
+          <button
+            aria-expanded={detailsOpen}
+            aria-controls="cm-details"
+            onClick={() => setDetailsOpen(!detailsOpen)}
+          >
+            {detailsOpen ? "Hide details ›" : "Show details ‹"}
+          </button>
+          <button
+            onClick={() => {
+              choose(empty);
+              setQuery("");
+              setMode("areas");
+            }}
+          >
+            All components ↗
+          </button>
+        </div>
       </div>
-      <div className="cm-layout">
-        <aside className="cm-sidebar" aria-label="Map navigation">
-          <label className="cm-search">
-            Find a component
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Try rights, royalty, agent…"
-              type="search"
-            />
-          </label>
-          {query.trim() ? (
-            <div className="cm-nav">
-              <p role="status">{searchResults.length} results</p>
-              {searchResults.map((n) => (
-                <button key={n.id} onClick={() => chooseNode(n.id)}>
-                  {n.label}
-                  <small>{domainById.get(n.domain)?.label}</small>
-                </button>
-              ))}
-            </div>
-          ) : (
-            <>
-              <div className="cm-tabs">
-                <button
-                  aria-pressed={mode === "areas"}
-                  onClick={() => setMode("areas")}
-                >
-                  Company areas
-                </button>
-                <button
-                  aria-pressed={mode === "workflows"}
-                  onClick={() => setMode("workflows")}
-                >
-                  Workflows
-                </button>
+      <div
+        className={`cm-layout ${navigationOpen ? "" : "cm-navigation-closed"} ${detailsOpen ? "" : "cm-details-closed"}`}
+      >
+        <div
+          id="cm-navigation"
+          className="cm-panel cm-navigation-panel"
+          inert={!navigationOpen}
+          aria-hidden={!navigationOpen}
+        >
+          <aside className="cm-sidebar" aria-label="Map navigation">
+            <label className="cm-search">
+              Find a component
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Try rights, royalty, agent…"
+                type="search"
+              />
+            </label>
+            {query.trim() ? (
+              <div className="cm-nav">
+                <p role="status">{searchResults.length} results</p>
+                {searchResults.map((n) => (
+                  <button key={n.id} onClick={() => chooseNode(n.id)}>
+                    {n.label}
+                    <small>{domainById.get(n.domain)?.label}</small>
+                  </button>
+                ))}
               </div>
-              <nav
-                className="cm-nav"
-                aria-label={mode === "areas" ? "Company areas" : "Workflows"}
-              >
-                {(mode === "areas" ? model.domains : model.workflows).map(
-                  (item, i) => (
-                    <button
-                      key={item.id}
-                      aria-pressed={
-                        item.id ===
-                        (mode === "areas"
-                          ? selection.domain
-                          : selection.workflow)
-                      }
-                      onClick={() =>
-                        choose(
-                          mode === "areas"
-                            ? { domain: item.id, workflow: "", node: "" }
-                            : { workflow: item.id, domain: "", node: "" },
-                        )
-                      }
-                    >
-                      <span className="cm-index">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      {item.label}
-                    </button>
-                  ),
-                )}
-              </nav>
-            </>
-          )}
-        </aside>
+            ) : (
+              <>
+                <div className="cm-tabs">
+                  <button
+                    aria-pressed={mode === "areas"}
+                    onClick={() => setMode("areas")}
+                  >
+                    Company areas
+                  </button>
+                  <button
+                    aria-pressed={mode === "workflows"}
+                    onClick={() => setMode("workflows")}
+                  >
+                    Workflows
+                  </button>
+                </div>
+                <nav
+                  className="cm-nav"
+                  aria-label={mode === "areas" ? "Company areas" : "Workflows"}
+                >
+                  {(mode === "areas" ? model.domains : model.workflows).map(
+                    (item, i) => (
+                      <button
+                        key={item.id}
+                        aria-pressed={
+                          item.id ===
+                          (mode === "areas"
+                            ? selection.domain
+                            : selection.workflow)
+                        }
+                        onClick={() =>
+                          choose(
+                            mode === "areas"
+                              ? { domain: item.id, workflow: "", node: "" }
+                              : { workflow: item.id, domain: "", node: "" },
+                          )
+                        }
+                      >
+                        <span className="cm-index">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        {item.label}
+                      </button>
+                    ),
+                  )}
+                </nav>
+              </>
+            )}
+          </aside>
+        </div>
         <div className="cm-canvas-area">
           <div className="cm-map-heading">
             <h1>{copy.title}</h1>
@@ -454,180 +481,199 @@ export function CompanyMap() {
             </div>
           </div>
         </div>
-        <aside className="cm-detail" aria-label="Selected component details">
-          <div className="cm-detail-scroll">
-            {selectedEdge ? (
-              <>
-                <p className="sp-kicker">CONNECTION</p>
-                <h2>
-                  {nodeById.get(selectedEdge.source)?.label} →{" "}
-                  {nodeById.get(selectedEdge.target)?.label}
-                </h2>
-                <p>{selectedEdge.relation}</p>
-                <p>This relationship describes the operating model.</p>
-                {[selectedEdge.source, selectedEdge.target].map((id) => (
+        <div
+          id="cm-details"
+          className="cm-panel cm-details-panel"
+          inert={!detailsOpen}
+          aria-hidden={!detailsOpen}
+        >
+          <aside className="cm-detail" aria-label="Selected component details">
+            <div className="cm-detail-scroll">
+              {selectedEdge ? (
+                <>
+                  <p className="sp-kicker">CONNECTION</p>
+                  <h2>
+                    {nodeById.get(selectedEdge.source)?.label} →{" "}
+                    {nodeById.get(selectedEdge.target)?.label}
+                  </h2>
+                  <p>{selectedEdge.relation}</p>
+                  <p>This relationship describes the operating model.</p>
+                  {[selectedEdge.source, selectedEdge.target].map((id) => (
+                    <button
+                      className="cm-workflow-link"
+                      key={id}
+                      onClick={() => chooseNode(id)}
+                    >
+                      Explore {nodeById.get(id)?.label} ↗
+                    </button>
+                  ))}
                   <button
                     className="cm-workflow-link"
-                    key={id}
-                    onClick={() => chooseNode(id)}
+                    onClick={() => setEdgeId("")}
                   >
-                    Explore {nodeById.get(id)?.label} ↗
+                    Back to details
                   </button>
-                ))}
-                <button
-                  className="cm-workflow-link"
-                  onClick={() => setEdgeId("")}
-                >
-                  Back to details
-                </button>
-              </>
-            ) : node ? (
-              <>
-                {workflow && (
-                  <button
-                    className="cm-workflow-link"
-                    onClick={() =>
-                      choose({ domain: "", node: "", workflow: workflow.id })
-                    }
-                  >
-                    ← Workflow overview
-                  </button>
-                )}
-                <p className="sp-kicker">
-                  {domainById.get(node.domain)?.label}
-                </p>
-                <h2>{node.label}</h2>
-                {node.technicalLabel && (
-                  <p>
-                    <strong>Technical name:</strong> {node.technicalLabel}
+                </>
+              ) : node ? (
+                <>
+                  {workflow && (
+                    <button
+                      className="cm-workflow-link"
+                      onClick={() =>
+                        choose({ domain: "", node: "", workflow: workflow.id })
+                      }
+                    >
+                      ← Workflow overview
+                    </button>
+                  )}
+                  <p className="sp-kicker">
+                    {domainById.get(node.domain)?.label}
                   </p>
-                )}
-                <p>{node.summary}</p>
-                {node.rules.length > 0 && (
+                  <h2>{node.label}</h2>
+                  {node.technicalLabel && (
+                    <p>
+                      <strong>Technical name:</strong> {node.technicalLabel}
+                    </p>
+                  )}
+                  <p>{node.summary}</p>
+                  {node.rules.length > 0 && (
+                    <section>
+                      <h3>Operating rules</h3>
+                      <ul>
+                        {node.rules.map((r, i) => (
+                          <li key={i}>{r}</li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
                   <section>
-                    <h3>Operating rules</h3>
-                    <ul>
-                      {node.rules.map((r, i) => (
-                        <li key={i}>{r}</li>
+                    <h3>Information it holds</h3>
+                    <div className="cm-fields">
+                      {node.fields.map((f) => (
+                        <span key={f}>{f.replaceAll("_", " ")}</span>
                       ))}
-                    </ul>
+                    </div>
                   </section>
-                )}
-                <section>
-                  <h3>Information it holds</h3>
-                  <div className="cm-fields">
-                    {node.fields.map((f) => (
-                      <span key={f}>{f.replaceAll("_", " ")}</span>
-                    ))}
-                  </div>
-                </section>
-                <section>
-                  <h3>
-                    Connections <small>{relations.length}</small>
-                  </h3>
-                  <div className="cm-relations">
-                    {relations.map((e) => {
-                      const outgoing = e.source === node.id;
-                      const other = nodeById.get(
-                        outgoing ? e.target : e.source,
-                      )!;
-                      return (
-                        <button key={e.id} onClick={() => chooseNode(other.id)}>
-                          <small>
-                            {outgoing ? "→" : "←"} {e.relation}
-                          </small>
-                          <strong>{other.label}</strong>
-                          <span>{domainById.get(other.domain)?.label}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </section>
-                {relatedWorkflows.length > 0 && (
                   <section>
-                    <h3>Part of these workflows</h3>
-                    {relatedWorkflows.map((w) => (
-                      <button
-                        className="cm-workflow-link"
-                        key={w.id}
-                        onClick={() => {
-                          setMode("workflows");
-                          choose({ domain: "", node: node.id, workflow: w.id });
-                        }}
-                      >
-                        {w.label} ↗
-                      </button>
-                    ))}
+                    <h3>
+                      Connections <small>{relations.length}</small>
+                    </h3>
+                    <div className="cm-relations">
+                      {relations.map((e) => {
+                        const outgoing = e.source === node.id;
+                        const other = nodeById.get(
+                          outgoing ? e.target : e.source,
+                        )!;
+                        return (
+                          <button
+                            key={e.id}
+                            onClick={() => chooseNode(other.id)}
+                          >
+                            <small>
+                              {outgoing ? "→" : "←"} {e.relation}
+                            </small>
+                            <strong>{other.label}</strong>
+                            <span>{domainById.get(other.domain)?.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </section>
-                )}
-              </>
-            ) : workflow || domain ? (
-              <>
-                <p className="sp-kicker">
-                  {workflow ? "WORKFLOW" : "COMPANY AREA"}
-                </p>
-                <h2>{workflow?.label || domain?.label}</h2>
-                <p>{workflow?.summary || domain?.summary}</p>
-                <section>
-                  <h3>
-                    Connected components <small>{nodes.length}</small>
-                  </h3>
-                  <p>
-                    Select a component to inspect its information, operating
-                    rules and connections.
+                  {relatedWorkflows.length > 0 && (
+                    <section>
+                      <h3>Part of these workflows</h3>
+                      {relatedWorkflows.map((w) => (
+                        <button
+                          className="cm-workflow-link"
+                          key={w.id}
+                          onClick={() => {
+                            setMode("workflows");
+                            choose({
+                              domain: "",
+                              node: node.id,
+                              workflow: w.id,
+                            });
+                          }}
+                        >
+                          {w.label} ↗
+                        </button>
+                      ))}
+                    </section>
+                  )}
+                </>
+              ) : workflow || domain ? (
+                <>
+                  <p className="sp-kicker">
+                    {workflow ? "WORKFLOW" : "COMPANY AREA"}
                   </p>
-                  <div className="cm-relations">
-                    {(workflow
-                      ? workflow.nodes
-                          .map((id) => nodeById.get(id)!)
-                          .filter(Boolean)
-                      : nodes
-                    ).map((n) => (
-                      <button key={n.id} onClick={() => chooseNode(n.id)}>
-                        <strong>{n.label}</strong>
-                        <span>{n.summary}</span>
-                      </button>
-                    ))}
+                  <h2>{workflow?.label || domain?.label}</h2>
+                  <p>{workflow?.summary || domain?.summary}</p>
+                  <section>
+                    <h3>
+                      Connected components <small>{nodes.length}</small>
+                    </h3>
+                    <p>
+                      Select a component to inspect its information, operating
+                      rules and connections.
+                    </p>
+                    <div className="cm-relations">
+                      {(workflow
+                        ? workflow.nodes
+                            .map((id) => nodeById.get(id)!)
+                            .filter(Boolean)
+                        : nodes
+                      ).map((n) => (
+                        <button key={n.id} onClick={() => chooseNode(n.id)}>
+                          <strong>{n.label}</strong>
+                          <span>{n.summary}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </section>
+                  <section>
+                    <h3>
+                      Connections in this view{" "}
+                      <small>{graphEdges.length}</small>
+                    </h3>
+                    <div className="cm-relations">
+                      {graphEdges.map((e) => (
+                        <button key={e.id} onClick={() => chooseNode(e.source)}>
+                          <strong>
+                            {nodeById.get(e.source)?.label} →{" "}
+                            {nodeById.get(e.target)?.label}
+                          </strong>
+                          <span>{e.relation}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </section>
+                </>
+              ) : (
+                <>
+                  <p className="sp-kicker">HOW TO EXPLORE</p>
+                  <h2>Follow the work.</h2>
+                  <p>
+                    Select a component to see what it means, the information it
+                    holds and everything it connects to.
+                  </p>
+                  <ol>
+                    <li>
+                      Explore the full map, or filter by area or workflow.
+                    </li>
+                    <li>Select a component on the map.</li>
+                    <li>
+                      Follow a connection into another part of the company.
+                    </li>
+                  </ol>
+                  <div className="cm-detail-note">
+                    People, music, money and agents share one connected
+                    operating model.
                   </div>
-                </section>
-                <section>
-                  <h3>
-                    Connections in this view <small>{graphEdges.length}</small>
-                  </h3>
-                  <div className="cm-relations">
-                    {graphEdges.map((e) => (
-                      <button key={e.id} onClick={() => chooseNode(e.source)}>
-                        <strong>
-                          {nodeById.get(e.source)?.label} →{" "}
-                          {nodeById.get(e.target)?.label}
-                        </strong>
-                        <span>{e.relation}</span>
-                      </button>
-                    ))}
-                  </div>
-                </section>
-              </>
-            ) : (
-              <>
-                <p className="sp-kicker">HOW TO EXPLORE</p>
-                <h2>Follow the work.</h2>
-                <p>
-                  Select a component to see what it means, the information it
-                  holds and everything it connects to.
-                </p>
-                <ol>
-                  <li>Explore the full map, or filter by area or workflow.</li>
-                  <li>Select a component on the map.</li>
-                  <li>Follow a connection into another part of the company.</li>
-                </ol>
-                <div className="cm-detail-note">
-                  People, music, money and agents share one connected operating
-                  model.
-                </div>
-              </>
-            )}
-          </div>
-        </aside>
+                </>
+              )}
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
   );
