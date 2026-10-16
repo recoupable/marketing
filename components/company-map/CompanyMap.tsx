@@ -189,7 +189,11 @@ export function CompanyMap() {
       aria-label="Interactive company operating model"
     >
       <div className="cm-toolbar">
-        <div className="cm-toolbar-context">
+        <div
+          className="cm-control-dock"
+          role="group"
+          aria-label="Atlas controls"
+        >
           <button
             className="cm-panel-toggle"
             aria-label={navigationOpen ? "Hide navigation" : "Show navigation"}
@@ -214,12 +218,6 @@ export function CompanyMap() {
               )}
             </svg>
           </button>
-          <span className="cm-toolbar-counts">
-            {model.domains.length} areas · {model.nodes.length} components ·{" "}
-            {model.edges.length.toLocaleString("en-US")} connections
-          </span>
-        </div>
-        <div className="cm-panel-controls">
           <button
             className="cm-panel-toggle"
             aria-label="Show full map"

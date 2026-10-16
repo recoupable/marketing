@@ -815,3 +815,20 @@
     transition: none;
   }
 }
+
+/* One centered dock replaces the counts and scattered toolbar actions. */
+.cm-toolbar {
+  justify-content: center;
+  padding: 14px 20px;
+}
+.cm-control-dock {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: #203a31;
+  box-shadow:
+    0 0 0 1px #355046,
+    0 4px 12px #0001;
+}
