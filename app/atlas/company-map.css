@@ -24,23 +24,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 28px;
+  padding: 14px 28px;
   gap: 20px;
   background: var(--cm-forest);
   color: var(--cm-on-dark);
 }
-.cm-toolbar strong {
-  display: block;
-  font-weight: 500;
-  font-size: 19px;
+.cm-toolbar-context {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 18px;
 }
-.cm-toolbar span {
+.cm-toolbar-counts {
   display: block;
   font:
     11px "IBM Plex Mono",
     monospace;
-  margin-top: 7px;
-  opacity: 0.75;
+  line-height: 1.5;
+  color: #bed0c5;
 }
 .cm-toolbar button {
   background: var(--cm-accent);
@@ -444,12 +445,11 @@
     grid-template-columns: 1fr 1fr;
   }
   .cm-toolbar {
-    padding: 20px 16px;
-    align-items: flex-start;
-    flex-direction: column;
+    padding: 14px 16px;
+    flex-wrap: wrap;
     gap: 12px;
   }
-  .cm-toolbar span {
+  .cm-toolbar-counts {
     font-size: 10px;
     line-height: 1.7;
   }
