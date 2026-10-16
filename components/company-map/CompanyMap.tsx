@@ -22,6 +22,16 @@ export function CompanyMap() {
   const [detailsOpen, setDetailsOpen] = useState(false);
   const detailsDismissed = useRef(false);
   const svgRef = useRef<SVGSVGElement>(null);
+  const [viewportHeight, setViewportHeight] = useState(580);
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const observer = new ResizeObserver(() =>
+      setViewportHeight(svg.clientHeight),
+    );
+    observer.observe(svg);
+    return () => observer.disconnect();
+  }, []);
   const cameraFrame = useRef<number>(0);
   const [query, setQuery] = useState("");
   const [mode, setMode] = useState<"areas" | "workflows">("areas");
@@ -118,7 +128,10 @@ export function CompanyMap() {
   );
   const entries = nodes;
   const positions = useMemo(() => circularLayout(entries), [entries]);
-  const bounds = useMemo(() => layoutBounds(positions), [positions]);
+  const bounds = useMemo(
+    () => layoutBounds(positions, viewportHeight),
+    [positions, viewportHeight],
+  );
   const relations = useMemo(
     () =>
       model.edges.filter(

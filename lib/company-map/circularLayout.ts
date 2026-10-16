@@ -43,13 +43,16 @@ export function circularLayout(entries: { id: string }[]) {
 }
 
 /** Fit every label with padding while keeping the overview's familiar frame. */
-export function layoutBounds(positions: Map<string, { x: number; y: number }>) {
+export function layoutBounds(
+  positions: Map<string, { x: number; y: number }>,
+  viewportHeight = 580,
+) {
   const points = [...positions.values()];
   const x = Math.min(0, ...points.map((p) => p.x - 110));
   const y = Math.min(0, ...points.map((p) => p.y - 52));
   const height = Math.max(840, ...points.map((p) => p.y + 52)) - y;
-  // Reserve over 60 screen pixels per edge even in the 400px mobile view.
-  const verticalPadding = height * 0.22;
+  // Match the 56px fades plus a small allowance for idle drift.
+  const verticalPadding = (height * 62) / Math.max(1, viewportHeight - 124);
   return {
     x,
     y: y - verticalPadding,
