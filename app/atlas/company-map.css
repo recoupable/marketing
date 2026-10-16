@@ -898,3 +898,47 @@
     scale: 1;
   }
 }
+
+/* A one-time entrance gives the network a clear arrival, then gets out of the way. */
+@media (prefers-reduced-motion: no-preference) {
+  .cm-entering .cm-edge {
+    stroke-dasharray: 1;
+    animation: cm-thread-arrive 850ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .cm-entering .cm-node {
+    animation: cm-card-arrive 600ms cubic-bezier(0.22, 1, 0.36, 1)
+      var(--cm-enter-delay) both;
+  }
+  .cm-entering .cm-node-surface,
+  .cm-entering .cm-node text {
+    animation: cm-card-ink 600ms ease-out var(--cm-enter-delay) both;
+  }
+}
+@keyframes cm-thread-arrive {
+  from {
+    stroke-dashoffset: 1;
+    stroke-opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+  }
+}
+@keyframes cm-card-arrive {
+  from {
+    translate: 0 28px;
+  }
+  to {
+    translate: 0 0;
+  }
+}
+@keyframes cm-card-ink {
+  from {
+    fill-opacity: 0;
+    stroke-opacity: 0;
+  }
+  to {
+    fill-opacity: 1;
+    stroke-opacity: 1;
+  }
+}
