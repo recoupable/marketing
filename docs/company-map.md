@@ -30,3 +30,9 @@ Public wording is maintained in `lib/company-map/public-copy.json` and applied b
 Publication uses `/atlas`; `/company-map` permanently redirects. `public-records.json` explicitly lists reviewed node, edge and workflow IDs; new source records require public review before inclusion.
 
 Reviewed relationship wording is maintained by ID in `public-copy.json`. Source contracts connect to qualified adapters through one generic relationship; refreshes must not publish a source-provider inventory.
+
+## Hover rendering stability — October 15, 2026
+
+Hover/focus previews now render incident connections in an isolated decorative component, leaving the base graph unchanged. A translucent node outline replaces the SVG blur filter. Preview connections and selected connections fade in, with reduced-motion support. Selection retains graph-wide emphasis and the details panel. Connection hit regions activate only for selected endpoints; native SVG edge tooltips are removed.
+
+Validation: five model/layout tests and the production build passed. Local browser checks verified focus previews, selection details, active connections, overview reset, and no console errors. The reported cross-browser blank raster regions during ordinary pointer hover have not been reproduced with the available browser controls; this is a targeted mitigation pending manual hover confirmation, not a verified root-cause resolution.
