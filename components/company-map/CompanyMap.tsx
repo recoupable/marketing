@@ -17,7 +17,7 @@ export function CompanyMap() {
   const [selection, setSelection] = useState(empty);
   const [edgeId, setEdgeId] = useState("");
   const [expanded, setExpanded] = useState(false);
-  const [navigationOpen, setNavigationOpen] = useState(true);
+  const [navigationOpen, setNavigationOpen] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
   const cameraFrame = useRef<number>(0);
