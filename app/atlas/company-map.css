@@ -927,3 +927,8 @@
     transparent
   );
 }
+/* The canvas is a surface, not a single selectable control. */
+.cm-graph-viewport:focus,
+.cm-graph-viewport > svg:focus {
+  outline: none;
+}
