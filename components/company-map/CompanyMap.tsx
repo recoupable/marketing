@@ -372,7 +372,7 @@ export function CompanyMap() {
                     aria-pressed={mode === "areas"}
                     onClick={() => setMode("areas")}
                   >
-                    Company areas
+                    Company
                   </button>
                   <button
                     aria-pressed={mode === "workflows"}
@@ -383,7 +383,7 @@ export function CompanyMap() {
                 </div>
                 <nav
                   className="cm-nav"
-                  aria-label={mode === "areas" ? "Company areas" : "Workflows"}
+                  aria-label={mode === "areas" ? "Company" : "Workflows"}
                 >
                   {(mode === "areas" ? model.domains : model.workflows).map(
                     (item, i) => (
