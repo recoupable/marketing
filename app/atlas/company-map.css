@@ -268,15 +268,44 @@
   color: var(--cm-muted);
   margin-right: auto;
 }
-.cm-map-controls button {
-  color: var(--cm-text);
-  min-width: 40px;
-  height: 40px;
-  background: var(--cm-white);
+.cm-zoom-controls {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  background: #203a31;
+  border-radius: 7px;
+  box-shadow: 0 0 0 1px #355046;
+}
+.cm-zoom-controls button {
+  color: #bed0c5;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1;
+  background: transparent;
   border: 0;
-  border-radius: 8px;
-  box-shadow: 0 0 0 1px var(--cm-line);
+  border-radius: 5px;
   cursor: pointer;
+}
+.cm-zoom-controls button[aria-label="Reset map zoom"] {
+  width: 44px;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.cm-zoom-controls button:hover {
+  background: #29433b;
+  color: #fff;
+}
+.cm-zoom-controls button:focus-visible {
+  outline: 2px solid var(--cm-accent);
+  outline-offset: 1px;
+}
+@media (pointer: coarse) {
+  .cm-zoom-controls button {
+    min-width: 44px;
+    min-height: 44px;
+  }
 }
 .cm-detail {
   padding: 28px 24px;
@@ -465,10 +494,6 @@
   }
   .cm-detail {
     padding: 24px 18px;
-  }
-  .cm-map-controls button {
-    min-width: 44px;
-    min-height: 44px;
   }
 }
 

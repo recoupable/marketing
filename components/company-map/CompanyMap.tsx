@@ -492,27 +492,33 @@ export function CompanyMap() {
             </svg>
             <div className="cm-map-controls">
               <span>Drag · Ctrl/⌘ scroll to zoom</span>
-              <button
-                aria-label="Zoom out"
-                onClick={() => setZoom((z) => Math.max(0.65, z - 0.25))}
+              <div
+                className="cm-zoom-controls"
+                role="group"
+                aria-label="Map zoom"
               >
-                −
-              </button>
-              <button
-                aria-label="Reset map zoom"
-                onClick={() => {
-                  setZoom(1);
-                  setPan({ x: 0, y: 0 });
-                }}
-              >
-                {Math.round(zoom * 100)}%
-              </button>
-              <button
-                aria-label="Zoom in"
-                onClick={() => setZoom((z) => Math.min(8, z + 0.5))}
-              >
-                +
-              </button>
+                <button
+                  aria-label="Zoom out"
+                  onClick={() => setZoom((z) => Math.max(0.65, z - 0.25))}
+                >
+                  −
+                </button>
+                <button
+                  aria-label="Reset map zoom"
+                  onClick={() => {
+                    setZoom(1);
+                    setPan({ x: 0, y: 0 });
+                  }}
+                >
+                  {Math.round(zoom * 100)}%
+                </button>
+                <button
+                  aria-label="Zoom in"
+                  onClick={() => setZoom((z) => Math.min(8, z + 0.5))}
+                >
+                  +
+                </button>
+              </div>
             </div>
           </div>
         </div>
