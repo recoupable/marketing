@@ -168,7 +168,7 @@
   background-size: 20px 20px;
 }
 .cm-map-heading {
-  padding: 28px 28px 12px;
+  padding: 28px 28px 48px;
 }
 .cm-map-heading h1 {
   font-family: var(--display);
@@ -483,7 +483,7 @@
     line-height: 1.7;
   }
   .cm-map-heading {
-    padding: 23px 18px 0;
+    padding: 23px 18px 32px;
     min-height: 0;
   }
   .cm-canvas svg {
