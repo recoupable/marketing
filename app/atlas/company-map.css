@@ -918,3 +918,12 @@
 .cm-details-panel > .cm-detail:focus {
   outline: none;
 }
+.cm-details-panel > .cm-detail {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 20px,
+    #000 calc(100% - 20px),
+    transparent
+  );
+}
