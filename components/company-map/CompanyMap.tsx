@@ -519,7 +519,7 @@ export function CompanyMap() {
                       data-node-id={item.id}
                       style={
                         {
-                          "--cm-enter-delay": `${180 + Math.min(index * 2, 420)}ms`,
+                          "--cm-enter-delay": `${Math.min(index * 1.4, 300)}ms`,
                         } as CSSProperties
                       }
                       onClick={open}
@@ -590,7 +590,7 @@ export function CompanyMap() {
                   svgRef={svgRef}
                   edges={graphEdges}
                   positions={positions}
-                  disabled={Boolean(selection.node) || !overview}
+                  disabled={entering || Boolean(selection.node) || !overview}
                 />
               </svg>
             </div>
