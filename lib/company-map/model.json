@@ -4616,6 +4616,173 @@
       "technicalLabel": "Accepted statement coverage selection"
     },
     {
+      "id": "learning-dataset",
+      "label": "Learning dataset & joins",
+      "summary": "Versioned, permission-scoped dataset assembled at a declared grain and knowledge cutoff.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "snapshot_manifest",
+        "join_specification",
+        "grain",
+        "knowledge_cutoff",
+        "split_manifest",
+        "target_definition",
+        "use_policy_version"
+      ],
+      "rules": [
+        "Reading data does not authorize training or cross-company reuse. Derived datasets inherit restrictions.",
+        "Many-to-many joins require explicit allocation or deduplication; never multiply earnings or count summary and detail together.",
+        "Future revisions and outcome labels cannot enter earlier prediction inputs; keep held-out entities and time windows separate."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "prediction-input",
+      "label": "Reusable prediction inputs",
+      "summary": "Versioned transformations that produce the same eligible inputs during training and prediction.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "transform_version",
+        "dataset_version",
+        "input_schema",
+        "availability_rule",
+        "missing_value_policy",
+        "materialization_manifest"
+      ],
+      "rules": [
+        "Fit learned transforms only on training data; apply frozen versions to validation and prediction.",
+        "Identifiers, embeddings and aggregates retain source permissions; features do not anonymize records by themselves."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "data-compute-plan",
+      "label": "Large-data processing plan",
+      "summary": "Bounded partitioned computation with checkpoints, reconciliation and resource limits.",
+      "domain": "ingestion",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "partition_manifest",
+        "execution_version",
+        "resource_limits",
+        "output_manifest",
+        "replay_key",
+        "reconciliation"
+      ],
+      "rules": [
+        "Use existing durable workflow runs, provider jobs and checkpoints; do not load whole datasets into model prompts.",
+        "Publish a complete accepted snapshot only after required partitions reconcile; retry must not duplicate observations.",
+        "Agents plan and inspect results; data engines execute bounded computation within source and tenant permissions."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "predictive-model",
+      "label": "Predictive model version",
+      "summary": "Immutable trained model or statistical baseline with lineage, evaluation and controlled promotion.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "artifact_digest",
+        "training_dataset_version",
+        "input_version",
+        "training_configuration",
+        "training_run_ref",
+        "evaluation_version",
+        "lifecycle_state",
+        "predecessor_version",
+        "permitted_uses"
+      ],
+      "rules": [
+        "Training success is not promotion; company-configured evidence thresholds and authority select a candidate.",
+        "Preserve history and rollback; a new version cannot rewrite earlier predictions.",
+        "Forecasts may use transparent formulas or baselines without trained models. Agent-quality evals remain distinct from statistical model evaluation."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "prediction-evaluation",
+      "label": "Prediction tests & backtests",
+      "summary": "Reproducible comparison against baselines using only information available at each historical decision.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "protocol_version",
+        "split_manifest",
+        "baseline_version",
+        "horizon_metrics",
+        "uncertainty_check",
+        "leakage_checks",
+        "result_manifest"
+      ],
+      "rules": [
+        "Retain unscorable and immature outcomes; missing actuals are not success or failure.",
+        "Repeated candidate tuning must not consume the final holdout; choose a fresh validation protocol when required.",
+        "Correlation and predictive accuracy do not prove campaign incrementality or causal benefit."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "prediction-result",
+      "label": "Prediction & uncertainty",
+      "summary": "Dated estimate for a scoped subject and horizon, separate from actual observations.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "subject_scope",
+        "model_version",
+        "input_snapshot",
+        "target_horizon",
+        "estimate",
+        "uncertainty",
+        "actual_observation_refs",
+        "supersedes_prediction"
+      ],
+      "rules": [
+        "Predictions are estimates, never ledger entries, rights assertions or payment authorization.",
+        "Out-of-scope or stale inputs yield an explicit unsupported result or governed fallback, never silent confidence."
+      ],
+      "technicalLabel": ""
+    },
+    {
+      "id": "prediction-monitor",
+      "label": "Prediction monitoring & renewal",
+      "summary": "Tracks data drift, mature outcome error and whether a model should be retained, retrained or rolled back.",
+      "domain": "intelligence",
+      "fields": [
+        "id",
+        "version",
+        "scope",
+        "monitor_version",
+        "model_version",
+        "coverage_state",
+        "drift_evidence",
+        "performance_evidence",
+        "decision_receipt",
+        "replacement_version"
+      ],
+      "rules": [
+        "Drift signals trigger investigation, not automatic promotion or proof of failure.",
+        "Retraining repeats eligibility and evaluation checks; source revocation assesses derived datasets, models and outputs.",
+        "Company-configured automation may act within explicit authority and budgets; ambiguous exceptions route to the responsible manager."
+      ],
+      "technicalLabel": ""
+    },
+    {
       "id": "provider-job",
       "label": "External provider job",
       "summary": "A provider-owned asynchronous operation with native lifecycle, exact input identity, separately retained outputs and billing effects. It is not the company workflow run.",
@@ -11720,6 +11887,150 @@
       "relation": "resumes only the correlated waiting branch"
     },
     {
+      "id": "ml-link-01",
+      "source": "raw-snapshot",
+      "target": "learning-dataset",
+      "relation": "supplies immutable inputs"
+    },
+    {
+      "id": "ml-link-02",
+      "source": "identity-resolution",
+      "target": "learning-dataset",
+      "relation": "qualifies join identities"
+    },
+    {
+      "id": "ml-link-03",
+      "source": "analytics-store",
+      "target": "learning-dataset",
+      "relation": "supplies curated facts"
+    },
+    {
+      "id": "ml-link-04",
+      "source": "policy-decision",
+      "target": "learning-dataset",
+      "relation": "authorizes purpose and company scope"
+    },
+    {
+      "id": "ml-link-05",
+      "source": "learning-dataset",
+      "target": "prediction-input",
+      "relation": "defines eligible training inputs"
+    },
+    {
+      "id": "ml-link-06",
+      "source": "learning-dataset",
+      "target": "data-compute-plan",
+      "relation": "bounds processing"
+    },
+    {
+      "id": "ml-link-07",
+      "source": "data-compute-plan",
+      "target": "workflow-run",
+      "relation": "executes through durable runs"
+    },
+    {
+      "id": "ml-link-08",
+      "source": "data-compute-plan",
+      "target": "ingestion-checkpoint",
+      "relation": "resumes reconciled partitions"
+    },
+    {
+      "id": "ml-link-09",
+      "source": "prediction-input",
+      "target": "predictive-model",
+      "relation": "versions model inputs"
+    },
+    {
+      "id": "ml-link-10",
+      "source": "learning-dataset",
+      "target": "predictive-model",
+      "relation": "grounds training lineage"
+    },
+    {
+      "id": "ml-link-11",
+      "source": "predictive-model",
+      "target": "prediction-evaluation",
+      "relation": "requires held-out comparison"
+    },
+    {
+      "id": "ml-link-12",
+      "source": "prediction-evaluation",
+      "target": "predictive-model",
+      "relation": "qualifies promotion"
+    },
+    {
+      "id": "ml-link-13",
+      "source": "predictive-model",
+      "target": "prediction-result",
+      "relation": "produces scoped estimates"
+    },
+    {
+      "id": "ml-link-14",
+      "source": "prediction-input",
+      "target": "prediction-result",
+      "relation": "reproduces inference inputs"
+    },
+    {
+      "id": "ml-link-15",
+      "source": "prediction-result",
+      "target": "forecast",
+      "relation": "supplies uncertain scenarios"
+    },
+    {
+      "id": "ml-link-16",
+      "source": "prediction-result",
+      "target": "recommendation",
+      "relation": "informs decisions"
+    },
+    {
+      "id": "ml-link-17",
+      "source": "observation",
+      "target": "prediction-evaluation",
+      "relation": "supplies mature actuals"
+    },
+    {
+      "id": "ml-link-18",
+      "source": "observation",
+      "target": "prediction-monitor",
+      "relation": "measures realized outcomes"
+    },
+    {
+      "id": "ml-link-19",
+      "source": "prediction-result",
+      "target": "prediction-monitor",
+      "relation": "tracks estimate accuracy"
+    },
+    {
+      "id": "ml-link-20",
+      "source": "prediction-monitor",
+      "target": "predictive-model",
+      "relation": "requests evaluated replacement"
+    },
+    {
+      "id": "ml-link-21",
+      "source": "prediction-monitor",
+      "target": "policy-decision",
+      "relation": "checks promotion authority"
+    },
+    {
+      "id": "ml-link-22",
+      "source": "prediction-evaluation",
+      "target": "attribution",
+      "relation": "keeps prediction separate from causality"
+    },
+    {
+      "id": "ml-link-23",
+      "source": "agent-task",
+      "target": "data-compute-plan",
+      "relation": "coordinates bounded computation"
+    },
+    {
+      "id": "ml-link-24",
+      "source": "metric-definition",
+      "target": "prediction-evaluation",
+      "relation": "defines outcome and score units"
+    },
+    {
       "id": "rate-lesson-01",
       "source": "royalty-rate-rule",
       "target": "income-entitlement",
@@ -13862,6 +14173,70 @@
         "statement-coverage-selection",
         "statement-reconciliation",
         "workflow-run"
+      ]
+    },
+    {
+      "id": "learning-data",
+      "label": "Prepare permitted learning data",
+      "summary": "Versioned data, reproducible computation and permission-scoped decisions.",
+      "nodes": [
+        "raw-snapshot",
+        "identity-resolution",
+        "policy-decision",
+        "learning-dataset",
+        "prediction-input",
+        "analytics-store"
+      ]
+    },
+    {
+      "id": "large-data-processing",
+      "label": "Process large datasets",
+      "summary": "Versioned data, reproducible computation and permission-scoped decisions.",
+      "nodes": [
+        "agent-task",
+        "data-compute-plan",
+        "workflow-run",
+        "ingestion-checkpoint",
+        "analytics-store"
+      ]
+    },
+    {
+      "id": "model-training-validation",
+      "label": "Train and validate prediction models",
+      "summary": "Versioned data, reproducible computation and permission-scoped decisions.",
+      "nodes": [
+        "learning-dataset",
+        "prediction-input",
+        "predictive-model",
+        "prediction-evaluation",
+        "metric-definition",
+        "observation",
+        "policy-decision"
+      ]
+    },
+    {
+      "id": "forecast-prediction",
+      "label": "Forecast with evidence and uncertainty",
+      "summary": "Versioned data, reproducible computation and permission-scoped decisions.",
+      "nodes": [
+        "predictive-model",
+        "prediction-result",
+        "forecast",
+        "recommendation",
+        "observation"
+      ]
+    },
+    {
+      "id": "prediction-renewal",
+      "label": "Monitor and improve predictions",
+      "summary": "Versioned data, reproducible computation and permission-scoped decisions.",
+      "nodes": [
+        "prediction-result",
+        "observation",
+        "prediction-monitor",
+        "prediction-evaluation",
+        "predictive-model",
+        "policy-decision"
       ]
     },
     {

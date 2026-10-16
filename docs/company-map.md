@@ -8,7 +8,7 @@ Use the maintained private atlas's explicit privacy-checked public exporter firs
 
 The current projection retains model summaries, operating rules and field names. It is not the complete technical contract library or competitor research catalog. Edges express conceptual relationships, not deployed database foreign keys. Do not turn snapshot counts into product availability claims. Model-level proposed language is removed only in this public projection; the maintained research remains unchanged. Business concepts such as proposed deals and approvals keep their meaning.
 
-Source snapshot: Business commit 3917e06e (2026-10-15 projection). Upstream export passed its content-boundary audit. Keep export receipts in the private Business task folder. No private raw export is committed here.
+Source snapshot: Business commit a48e9b7d (2026-10-15 projection). Upstream export passed its content-boundary audit. Keep export receipts in the private Business task folder. No private raw export is committed here.
 
 ## Checks
 
@@ -23,10 +23,16 @@ Public copy is in `lib/copy/company-map.ts`; the route is included in Resources,
 
 Production build passed under Node 24 using only the existing public Privy app ID required by the unrelated valuation route. No auth environment file was copied. All three public-model boundary, graph integrity and all-area/workflow label-layout tests passed; browser verification covered area selection, component/relationship traversal, royalty search, acquisition workflow, zoom/reset and a narrow viewport with equal document/viewport width. This is local evidence; the feature is not merged or deployed.
 
-The default view now displays 197 core components from a 200-component model with 1,298 total connections in a circular field. Selecting a component preserves the full view and highlights its connections; double-click opens its area. Area/workflow filters remain available, and All components resets the graph. Zoom is centered and supports up to 8x. Layout checks include the complete graph.
+The default view now displays 204 core components from a 207-component model with 1,322 total connections in a circular field. Selecting a component preserves the full view and highlights its connections; double-click opens its area. Area/workflow filters remain available, and All components resets the graph. Zoom is centered and supports up to 8x. Layout checks include the complete graph.
 
-Public wording is maintained in `lib/company-map/public-copy.json` and applied by the projector. Technical names remain searchable and visible in details. Internal research-lead records are excluded; the 200-component model includes three digital-asset specialist topics reachable through their own workflow, area filters and search. The default map shows 197 core components.
+Public wording is maintained in `lib/company-map/public-copy.json` and applied by the projector. Technical names remain searchable and visible in details. Internal research-lead records are excluded; the 207-component model includes three digital-asset specialist topics reachable through their own workflow, area filters and search. The default map shows 204 core components.
 
 Publication uses `/atlas`; `/company-map` permanently redirects. `public-records.json` explicitly lists reviewed node, edge and workflow IDs; new source records require public review before inclusion.
 
 Reviewed relationship wording is maintained by ID in `public-copy.json`. Source contracts connect to qualified adapters through one generic relationship; refreshes must not publish a source-provider inventory.
+
+## Forecasting and machine learning model
+
+Adds seven conceptual records and five workflows for permitted datasets, reusable prediction inputs, scalable processing, model versions, historical backtests, uncertainty and ongoing monitoring. These extend the operating model; they do not establish deployed training or prediction services. The projection passed the upstream content-boundary audit and retains only reviewed model records.
+
+Validation for this extension: all five public model/layout tests and the Next.js production build passed. No existing public records changed. Publication remains pending review and merge.

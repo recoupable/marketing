@@ -199,7 +199,14 @@
     "statement-reconciliation",
     "ticket-sec-action-binding",
     "ticket-sec-public-admission",
-    "ticket-sec-capability-envelope"
+    "ticket-sec-capability-envelope",
+    "learning-dataset",
+    "prediction-input",
+    "data-compute-plan",
+    "predictive-model",
+    "prediction-evaluation",
+    "prediction-result",
+    "prediction-monitor"
   ],
   "workflows": [
     "company-onboarding",
@@ -241,7 +248,12 @@
     "royalty-ingestion",
     "ingestion-layouts",
     "ingestion-corrections",
-    "specialist-topics"
+    "specialist-topics",
+    "learning-data",
+    "large-data-processing",
+    "model-training-validation",
+    "forecast-prediction",
+    "prediction-renewal"
   ],
   "edges": [
     "target-edge-001",
@@ -1541,6 +1553,30 @@
     "ticket-sec-edge-37",
     "ticket-sec-edge-38",
     "ticket-sec-edge-39",
-    "ticket-sec-edge-40"
+    "ticket-sec-edge-40",
+    "ml-link-01",
+    "ml-link-02",
+    "ml-link-03",
+    "ml-link-04",
+    "ml-link-05",
+    "ml-link-06",
+    "ml-link-07",
+    "ml-link-08",
+    "ml-link-09",
+    "ml-link-10",
+    "ml-link-11",
+    "ml-link-12",
+    "ml-link-13",
+    "ml-link-14",
+    "ml-link-15",
+    "ml-link-16",
+    "ml-link-17",
+    "ml-link-18",
+    "ml-link-19",
+    "ml-link-20",
+    "ml-link-21",
+    "ml-link-22",
+    "ml-link-23",
+    "ml-link-24"
   ]
 }
