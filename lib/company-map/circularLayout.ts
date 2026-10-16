@@ -47,10 +47,13 @@ export function layoutBounds(positions: Map<string, { x: number; y: number }>) {
   const points = [...positions.values()];
   const x = Math.min(0, ...points.map((p) => p.x - 110));
   const y = Math.min(0, ...points.map((p) => p.y - 52));
+  const height = Math.max(840, ...points.map((p) => p.y + 52)) - y;
+  // Reserve over 60 screen pixels per edge even in the 400px mobile view.
+  const verticalPadding = height * 0.22;
   return {
     x,
-    y,
+    y: y - verticalPadding,
     width: Math.max(1000, ...points.map((p) => p.x + 110)) - x,
-    height: Math.max(840, ...points.map((p) => p.y + 52)) - y,
+    height: height + verticalPadding * 2,
   };
 }
