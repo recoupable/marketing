@@ -382,153 +382,155 @@ export function CompanyMap() {
             {!overview && <h2>{workflow?.label || domain?.label}</h2>}
           </div>
           <div className="cm-canvas">
-            <svg
-              ref={svgRef}
-              className={highlightedNode ? "cm-has-selection" : ""}
-              viewBox={`${bounds.x + (bounds.width * (1 - 1 / zoom)) / 2 - pan.x} ${bounds.y + (bounds.height * (1 - 1 / zoom)) / 2 - pan.y} ${bounds.width / zoom} ${bounds.height / zoom}`}
-              aria-label="Company relationship map; use search or company areas to find components"
-              onPointerDown={(e) => {
-                if ((e.target as Element).closest('[role="button"]')) return;
-                cancelAnimationFrame(cameraFrame.current);
-                e.currentTarget.setPointerCapture(e.pointerId);
-                drag.current = {
-                  x: e.clientX,
-                  y: e.clientY,
-                  ox: pan.x,
-                  oy: pan.y,
-                };
-              }}
-              onPointerMove={(e) => {
-                if (!drag.current) return;
-                const ratio =
-                  Math.max(
-                    bounds.width /
-                      e.currentTarget.getBoundingClientRect().width,
-                    bounds.height /
-                      e.currentTarget.getBoundingClientRect().height,
-                  ) / zoom;
-                setPan({
-                  x: drag.current.ox + (e.clientX - drag.current.x) * ratio,
-                  y: drag.current.oy + (e.clientY - drag.current.y) * ratio,
-                });
-              }}
-              onPointerUp={() => {
-                drag.current = null;
-              }}
-              onPointerCancel={() => {
-                drag.current = null;
-              }}
-            >
-              {graphEdges.map((e) => {
-                const a = positions.get(e.source),
-                  b = positions.get(e.target);
-                if (!a || !b) return null;
-                return (
-                  <g key={e.id}>
-                    <line
+            <div className="cm-graph-viewport">
+              <svg
+                ref={svgRef}
+                className={highlightedNode ? "cm-has-selection" : ""}
+                viewBox={`${bounds.x + (bounds.width * (1 - 1 / zoom)) / 2 - pan.x} ${bounds.y + (bounds.height * (1 - 1 / zoom)) / 2 - pan.y} ${bounds.width / zoom} ${bounds.height / zoom}`}
+                aria-label="Company relationship map; use search or company areas to find components"
+                onPointerDown={(e) => {
+                  if ((e.target as Element).closest('[role="button"]')) return;
+                  cancelAnimationFrame(cameraFrame.current);
+                  e.currentTarget.setPointerCapture(e.pointerId);
+                  drag.current = {
+                    x: e.clientX,
+                    y: e.clientY,
+                    ox: pan.x,
+                    oy: pan.y,
+                  };
+                }}
+                onPointerMove={(e) => {
+                  if (!drag.current) return;
+                  const ratio =
+                    Math.max(
+                      bounds.width /
+                        e.currentTarget.getBoundingClientRect().width,
+                      bounds.height /
+                        e.currentTarget.getBoundingClientRect().height,
+                    ) / zoom;
+                  setPan({
+                    x: drag.current.ox + (e.clientX - drag.current.x) * ratio,
+                    y: drag.current.oy + (e.clientY - drag.current.y) * ratio,
+                  });
+                }}
+                onPointerUp={() => {
+                  drag.current = null;
+                }}
+                onPointerCancel={() => {
+                  drag.current = null;
+                }}
+              >
+                {graphEdges.map((e) => {
+                  const a = positions.get(e.source),
+                    b = positions.get(e.target);
+                  if (!a || !b) return null;
+                  return (
+                    <g key={e.id}>
+                      <line
+                        role="button"
+                        tabIndex={-1}
+                        aria-label={`${nodeById.get(e.source)?.label}: ${e.relation}: ${nodeById.get(e.target)?.label}`}
+                        className={`cm-edge-hit ${selection.node && (e.source === selection.node || e.target === selection.node) ? "cm-edge-hit-active" : ""}`}
+                        x1={a.x}
+                        y1={a.y}
+                        x2={b.x}
+                        y2={b.y}
+                        onClick={() => setEdgeId(e.id)}
+                      />
+                      <line
+                        x1={a.x}
+                        y1={a.y}
+                        x2={b.x}
+                        y2={b.y}
+                        className={`cm-edge ${e.source === highlightedNode || e.target === highlightedNode ? "cm-edge-active" : ""}`}
+                      />
+                    </g>
+                  );
+                })}
+                <HoverConnections
+                  key={`${selection.domain}:${selection.workflow}:${selection.node}`}
+                  svgRef={svgRef}
+                  edges={graphEdges}
+                  positions={positions}
+                  disabled={Boolean(selection.node)}
+                />
+                {entries.map((item) => {
+                  const p = positions.get(item.id)!;
+                  const active = item.id === selection.node;
+                  const words = item.label.split(" ");
+                  const midpoint = Math.ceil(words.length / 2);
+                  const lines =
+                    item.label.length > 22
+                      ? [
+                          words.slice(0, midpoint).join(" "),
+                          words.slice(midpoint).join(" "),
+                        ]
+                      : [item.label];
+                  const open = () => chooseNode(item.id);
+                  return (
+                    <g
+                      key={item.id}
                       role="button"
-                      tabIndex={-1}
-                      aria-label={`${nodeById.get(e.source)?.label}: ${e.relation}: ${nodeById.get(e.target)?.label}`}
-                      className={`cm-edge-hit ${selection.node && (e.source === selection.node || e.target === selection.node) ? "cm-edge-hit-active" : ""}`}
-                      x1={a.x}
-                      y1={a.y}
-                      x2={b.x}
-                      y2={b.y}
-                      onClick={() => setEdgeId(e.id)}
-                    />
-                    <line
-                      x1={a.x}
-                      y1={a.y}
-                      x2={b.x}
-                      y2={b.y}
-                      className={`cm-edge ${e.source === highlightedNode || e.target === highlightedNode ? "cm-edge-active" : ""}`}
-                    />
-                  </g>
-                );
-              })}
-              <HoverConnections
-                key={`${selection.domain}:${selection.workflow}:${selection.node}`}
-                svgRef={svgRef}
-                edges={graphEdges}
-                positions={positions}
-                disabled={Boolean(selection.node)}
-              />
-              {entries.map((item) => {
-                const p = positions.get(item.id)!;
-                const active = item.id === selection.node;
-                const words = item.label.split(" ");
-                const midpoint = Math.ceil(words.length / 2);
-                const lines =
-                  item.label.length > 22
-                    ? [
-                        words.slice(0, midpoint).join(" "),
-                        words.slice(midpoint).join(" "),
-                      ]
-                    : [item.label];
-                const open = () => chooseNode(item.id);
-                return (
-                  <g
-                    key={item.id}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`Explore ${item.label}`}
-                    aria-pressed={active}
-                    data-node-id={item.id}
-                    onClick={open}
-                    onDoubleClick={() =>
-                      choose({
-                        domain: item.domain,
-                        node: item.id,
-                        workflow: "",
-                      })
-                    }
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        open();
+                      tabIndex={0}
+                      aria-label={`Explore ${item.label}`}
+                      aria-pressed={active}
+                      data-node-id={item.id}
+                      onClick={open}
+                      onDoubleClick={() =>
+                        choose({
+                          domain: item.domain,
+                          node: item.id,
+                          workflow: "",
+                        })
                       }
-                    }}
-                    className={`cm-node ${active ? "cm-node-active" : ""} ${connected.has(item.id) ? "cm-node-connected" : ""}`}
-                    transform={`translate(${p.x},${p.y})`}
-                  >
-                    <rect
-                      className="cm-node-halo"
-                      x="-91"
-                      y="-32"
-                      width="182"
-                      height="64"
-                      rx="16"
-                    />
-                    <rect
-                      className="cm-node-surface"
-                      x="-87"
-                      y="-28"
-                      width="174"
-                      height="56"
-                      rx="12"
-                    />
-                    <rect
-                      className="cm-node-hit"
-                      x="-87"
-                      y="-28"
-                      width="174"
-                      height="56"
-                      rx="12"
-                    />
-                    {lines.map((line, i) => (
-                      <text
-                        key={i}
-                        x="0"
-                        y={lines.length === 1 ? 5 : i === 0 ? -3 : 15}
-                        textAnchor="middle"
-                      >
-                        {line}
-                      </text>
-                    ))}
-                  </g>
-                );
-              })}
-            </svg>
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          open();
+                        }
+                      }}
+                      className={`cm-node ${active ? "cm-node-active" : ""} ${connected.has(item.id) ? "cm-node-connected" : ""}`}
+                      transform={`translate(${p.x},${p.y})`}
+                    >
+                      <rect
+                        className="cm-node-halo"
+                        x="-91"
+                        y="-32"
+                        width="182"
+                        height="64"
+                        rx="16"
+                      />
+                      <rect
+                        className="cm-node-surface"
+                        x="-87"
+                        y="-28"
+                        width="174"
+                        height="56"
+                        rx="12"
+                      />
+                      <rect
+                        className="cm-node-hit"
+                        x="-87"
+                        y="-28"
+                        width="174"
+                        height="56"
+                        rx="12"
+                      />
+                      {lines.map((line, i) => (
+                        <text
+                          key={i}
+                          x="0"
+                          y={lines.length === 1 ? 5 : i === 0 ? -3 : 15}
+                          textAnchor="middle"
+                        >
+                          {line}
+                        </text>
+                      ))}
+                    </g>
+                  );
+                })}
+              </svg>
+            </div>
             <div className="cm-map-controls">
               <span>Drag · Ctrl/⌘ scroll to zoom</span>
               <div

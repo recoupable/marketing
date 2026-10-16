@@ -192,11 +192,13 @@
   max-width: 600px;
   color: var(--cm-muted);
 }
-.cm-canvas {
+.cm-canvas,
+.cm-graph-viewport {
   position: relative;
 }
 /* Soften the clipped map edge without filtering or animating the SVG. */
-.cm-canvas::before {
+.cm-graph-viewport::before,
+.cm-graph-viewport::after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -204,6 +206,10 @@
   height: 56px;
   background: linear-gradient(to bottom, var(--cm-forest), transparent);
   pointer-events: none;
+}
+.cm-graph-viewport::after {
+  inset: auto 0 0;
+  background: linear-gradient(to top, var(--cm-forest), transparent);
 }
 .cm-canvas svg {
   display: block;
