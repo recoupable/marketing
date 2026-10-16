@@ -898,3 +898,20 @@
     scale: 1;
   }
 }
+
+/* Keep long component details reachable inside both the column and drawer. */
+.cm-details-panel > .cm-detail {
+  min-height: 0;
+  max-height: calc(100dvh - 120px);
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
+}
+.cm-detail-scroll {
+  max-height: none;
+  overflow: visible;
+  overflow-wrap: anywhere;
+}
+.cm-detail .cm-relations {
+  grid-template-columns: minmax(0, 1fr);
+}
