@@ -1,0 +1,196 @@
+.strategy-page {
+  --strategy-ink: #152e37;
+  --strategy-muted: #586f78;
+  --strategy-soft: #f0f7fa;
+  --strategy-line: #e2e9eb;
+  --strategy-action: #d6ff62;
+  color: var(--strategy-ink);
+}
+.strategy-page .sp-hero h1 {
+  white-space: pre-line;
+}
+.strategy-method {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin: 64px auto 88px;
+  max-width: 1120px;
+  padding: 0 30px;
+}
+.strategy-method h2 {
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 16px 0;
+  letter-spacing: -0.035em;
+}
+.strategy-method p,
+.strategy-next a {
+  font-size: 16px;
+  line-height: 1.65;
+}
+.strategy-planner {
+  scroll-margin-top: 120px;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 42px;
+  border-radius: 24px;
+  background: var(--strategy-soft);
+}
+.strategy-planner-heading {
+  margin-bottom: 32px;
+}
+.strategy-planner h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+.strategy-fields {
+  display: grid;
+  gap: 24px;
+}
+.strategy-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.strategy-actions .sp-button {
+  padding: 12px 24px;
+}
+.strategy-page a[download] {
+  padding: 12px 24px;
+  box-shadow: 0 0 0 1px var(--strategy-line);
+}
+.strategy-fields label {
+  display: grid;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.strategy-fields input,
+.strategy-fields select,
+.strategy-fields textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 14px;
+  font: inherit;
+  font-weight: 400;
+  color: var(--strategy-ink);
+  background: #fff;
+  border: 0;
+  border-radius: 9px;
+  box-shadow: 0 0 0 1px #82969d;
+}
+.strategy-fields textarea {
+  resize: vertical;
+}
+.strategy-fields ::placeholder {
+  color: var(--strategy-muted);
+  opacity: 1;
+}
+.strategy-page :is(button, a, input, textarea, select):focus-visible {
+  outline: 3px solid #087bab;
+  outline-offset: 4px;
+}
+.strategy-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+.strategy-actions button {
+  cursor: pointer;
+  min-height: 48px;
+}
+.strategy-page .strategy-note {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--strategy-muted);
+  margin-top: 18px;
+}
+.strategy-verdict {
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--strategy-line);
+  border-radius: 16px;
+  padding: 24px;
+}
+.strategy-verdict h3 {
+  font-size: 25px;
+  margin: 0 0 12px;
+}
+.strategy-verdict li {
+  margin: 10px 0;
+}
+.strategy-result dl {
+  margin: 28px 0;
+}
+.strategy-result dl > div {
+  padding: 18px 0;
+  box-shadow: 0 1px 0 var(--strategy-line);
+}
+.strategy-result dt {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--strategy-muted);
+}
+.strategy-result dd {
+  font-size: 17px;
+  line-height: 1.65;
+  margin: 8px 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.strategy-text-button {
+  border: 0;
+  background: transparent;
+  padding: 8px 0;
+  text-decoration: underline;
+  color: var(--strategy-ink);
+  font: inherit;
+}
+.strategy-error {
+  color: #8c2525;
+  margin-top: 20px;
+}
+.strategy-next {
+  max-width: 880px;
+  margin: 0 auto 88px;
+  display: grid;
+  gap: 16px;
+  padding: 0 30px;
+}
+.strategy-next h2 {
+  font-size: 28px;
+}
+.strategy-next a {
+  color: #087bab;
+  text-decoration: underline;
+}
+@media (max-width: 700px) {
+  .strategy-method {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  .strategy-method h2 {
+    margin: 8px 0;
+  }
+  .strategy-planner {
+    margin: 0 12px;
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+  .strategy-actions {
+    flex-direction: column;
+  }
+  .strategy-actions .sp-button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}

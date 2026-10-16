@@ -1,5 +1,12 @@
 # Published Posts
 
+## In review: AI strategy series — October 16, 2026
+
+Three unpublished drafts live in `content/drafts/ai-strategy/`: choosing a first project,
+measuring work through acceptance, and team workflow discovery. They support the proposed
+`/ai-strategy` toolkit and are absent from `content/blog/posts.json`. Publication dates and
+artwork will be set at publication. See `docs/plans/ai-strategy-funnel.md`.
+
 ## September 28, 2026
 
 - `/blog/your-ai-lives-in-one-persons-head` — Your AI lives in one person's head. Publication date confirmed by Sidney; September 14 replaced with September 28. Source: `content/blog/posts.json`.

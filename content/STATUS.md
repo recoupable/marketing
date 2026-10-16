@@ -1,3 +1,11 @@
+## First-project AI strategy toolkit — October 16, 2026
+
+Added `/ai-strategy`: a team worksheet, three-step project brief, explicit missing prerequisites,
+purpose-specific measurement guidance, Markdown download, and the existing reviewed Contact
+handoff. Resources and Advisory link to it; public discovery uses shared copy. Three original
+Recoup article drafts remain outside the published blog registry. The companion consulting
+skills are a separate Skills change. See `docs/plans/ai-strategy-funnel.md`. Not deployed.
+
 ## Company operating model explorer — October 15, 2026
 
 Added `/atlas` with circular company-area and workflow exploration, component search, operating rules, fields, clickable connections and shareable hashes. Derived from the privacy-checked atlas public export with a narrower model-only field allowlist. Resources navigation, sitemap and agent summary included. Verification and publication state: see the feature PR and `docs/company-map.md`; no production claim.

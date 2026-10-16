@@ -50,6 +50,12 @@ export const headerNavigation = [
     layout: "resources",
     links: [
       {
+        label: "AI strategy",
+        href: "/ai-strategy",
+        description: "Choose a project and define the first test.",
+        icon: "docs",
+      },
+      {
         label: "Docs",
         href: "/docs",
         description: "Get started and build with Recoup.",

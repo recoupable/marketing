@@ -219,6 +219,13 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 
 ## Shared navigation
 
+The `/ai-strategy` toolkit prepares a first-project brief in three steps, lists every missing
+prerequisite, offers a team worksheet download, and uses the existing reviewed-draft Contact
+handoff. Its page copy is in `lib/copy/ai-strategy.ts`; decisions, schema, and export live in
+`lib/ai-strategy/`. Answers stay in page memory until an explicit download or inquiry handoff.
+Events contain only purpose/readiness, never answers. Companion article drafts live in
+`content/drafts/ai-strategy/` and are not included in the public blog registry.
+
 The header’s Get Started button opens `components/sky/get-started-dialog.tsx`, styled by `get-started-dialog.css`. Shared labels live in `lib/copy/get-started.ts`. Try Our Platform uses the attributed `AppLink`; Build Your Platform links to `/start-project?workflow=Custom%20systems`, preselecting the Custom systems intake interest. Keep the same dialog available from the mobile menu and retain native modal keyboard behavior.
 
 The header has four primary items: Services, Products, Resources, and Pricing. Menu destinations live in `lib/copy/navigation.ts`; `components/sky/header-nav-items.tsx` renders them for both desktop and mobile. Keep changes in this shared configuration so the two navigation layouts stay aligned.
