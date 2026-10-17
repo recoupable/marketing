@@ -30,20 +30,37 @@ replace tool discovery/readback/refresh/revoke evidence.
 
 The Artist Profile and Projects error components are imported from the API's
 `lib/contracts/generated/error-responses.json`, generated from its typed response
-constructors. Keep endpoint narrative in this tree. Do not hand-edit these two
-components: `scripts/build-contract-examples.py --api /path/to/api` imports them and
+constructors. Keep endpoint narrative, including which 401 message field to read,
+in this tree. Projects uses `AuthenticationError` only for 401; its other errors and
+Artist Profile use the required `error` envelope. Do not hand-edit these generated
+components: `python3 scripts/build-contract-examples.py --api /path/to/api` imports them and
 freezes resolved response schemas by method, path and HTTP status for API tests.
 The check mode rejects drift from the pinned API artifact. It covers selected error
 responses, not every operation or hosted authentication.
 
-For coordinated changes, regenerate the API artifact and both fixture copies, run
-the API contract tests and type check, then commit API. Refresh this repository's
-operation inventory against that exact API commit and run the checks below before
-committing Marketing. Only then run `scripts/sync-legacy-docs.py` against a Docs
-worktree and verify its source pin. The API fixture uses source-file hashes; this
-avoids a circular commit dependency. These checks do not authorize merge or deployment.
+For coordinated changes, regenerate the API artifact and the two fixture copies:
+Marketing's `content/docs/contracts/example-cases.json` and API's
+`lib/contracts/fixtures/published-docs.json`. Run the API contract tests and
+`pnpm typecheck:response-contracts`, then commit API. From Marketing run:
 
-`scripts/build-contract-examples.py --api /path/to/api` freezes examples and
+```sh
+python3 scripts/refresh-contract-inventory.py --api /path/to/api
+python3 scripts/refresh-contract-inventory.py --api /path/to/api --check
+python3 scripts/build-contract-examples.py --api /path/to/api --check
+python3 scripts/test_response_contracts.py
+pnpm docs:build
+pnpm docs:check
+pnpm test
+pnpm build
+```
+
+Commit Marketing, then prepare the Docs copy with
+`python3 scripts/sync-legacy-docs.py --target /path/to/docs`. In Docs run
+`python3 scripts/check_source.py --source /path/to/marketing` to verify its source pin.
+The API fixture uses source-file hashes; this avoids a circular commit dependency.
+These checks do not authorize merge or deployment.
+
+`python3 scripts/build-contract-examples.py --api /path/to/api` freezes examples and
 important contract claims for API tests, including Context's public request union.
 Run `pnpm exec vitest run lib/contracts/__tests__` from the API checkout. To export
 the current provider-neutral Context schemas without calling services, set

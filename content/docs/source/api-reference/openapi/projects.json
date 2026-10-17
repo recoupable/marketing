@@ -60,11 +60,11 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/AuthenticationError"
                 }
               }
             }
@@ -160,11 +160,11 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/AuthenticationError"
                 }
               }
             }
@@ -248,11 +248,11 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/AuthenticationError"
                 }
               }
             }
@@ -365,11 +365,11 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/AuthenticationError"
                 }
               }
             }
@@ -451,11 +451,11 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/AuthenticationError"
                 }
               }
             }
@@ -539,11 +539,11 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/AuthenticationError"
                 }
               }
             }
@@ -644,11 +644,11 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials.",
+            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/AuthenticationError"
                 }
               }
             }
@@ -693,50 +693,25 @@
     },
     "schemas": {
       "Error": {
-        "anyOf": [
-          {
-            "type": "object",
-            "properties": {
-              "status": {
-                "description": "Always `error`.",
-                "type": "string",
-                "enum": [
-                  "error"
-                ]
-              },
-              "error": {
-                "description": "Human-readable error message or documented error code.",
-                "type": "string"
-              }
-            },
-            "required": [
-              "status",
+        "type": "object",
+        "properties": {
+          "status": {
+            "description": "Always `error`.",
+            "type": "string",
+            "enum": [
               "error"
-            ],
-            "additionalProperties": {}
+            ]
           },
-          {
-            "type": "object",
-            "properties": {
-              "status": {
-                "description": "Always `error`.",
-                "type": "string",
-                "enum": [
-                  "error"
-                ]
-              },
-              "message": {
-                "description": "Human-readable authentication error message.",
-                "type": "string"
-              }
-            },
-            "required": [
-              "status",
-              "message"
-            ],
-            "additionalProperties": {}
+          "error": {
+            "description": "Human-readable error message or documented error code.",
+            "type": "string"
           }
-        ]
+        },
+        "required": [
+          "status",
+          "error"
+        ],
+        "additionalProperties": {}
       },
       "ProjectCollaborator": {
         "type": "object",
@@ -1075,6 +1050,52 @@
             "$ref": "#/components/schemas/ProjectComment"
           }
         }
+      },
+      "AuthenticationError": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "error": {
+                "description": "Human-readable error message or documented error code.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "error"
+            ],
+            "additionalProperties": {}
+          },
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "message": {
+                "description": "Human-readable authentication error message.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "message"
+            ],
+            "additionalProperties": {}
+          }
+        ]
       }
     }
   }
