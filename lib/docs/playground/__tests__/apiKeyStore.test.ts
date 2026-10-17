@@ -38,9 +38,12 @@ describe("apiKeyStore", () => {
     apiKeyStore.write("");
     expect(storage.map.has("recoup:docs:api-key")).toBe(false);
   });
-  it("survives a storage that throws", () => {
+  it("keeps the key in memory for this page when storage throws", () => {
     vi.stubGlobal("sessionStorage", { getItem: () => { throw new Error("blocked"); }, setItem: () => { throw new Error("blocked"); } });
     expect(apiKeyStore.read()).toBe("");
     expect(() => apiKeyStore.write("x")).not.toThrow();
+    expect(apiKeyStore.read()).toBe("x");
+    apiKeyStore.write("");
+    expect(apiKeyStore.read()).toBe("");
   });
 });

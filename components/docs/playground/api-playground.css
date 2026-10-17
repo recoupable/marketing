@@ -36,3 +36,4 @@
   .docs-playground-send { width: 100%; min-height: 46px; }
   .docs-playground-headers dl > div { grid-template-columns: 1fr; gap: 2px; }
 }
+.docs-playground-field > input[readonly] { background: #f0f7fa; color: #586f78; }
