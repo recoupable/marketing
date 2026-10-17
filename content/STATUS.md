@@ -1,3 +1,7 @@
+## Stable Human / Agent toggle — October 16, 2026
+
+Kept the shared header mounted in both views and removed the second toggle from the Markdown toolbar. Agent content starts below the measured header; only the human body/footer becomes hidden and inert. The page reserves its scrollbar gutter to prevent horizontal movement while scrolling is locked. Desktop and mobile browser measurements confirmed identical toggle and button bounds before and after switching; Escape returns focus to Human. The production build and all 454 tests pass, and scoped lint has no errors. Updated the local preview; publication remains pending PR review and merge.
+
 ## Markdown for every page — October 16, 2026
 
 Added missing page documents, including the blog archive, resource/company/tool pages, plugin pages, podcast episodes, the complete playbook reader, and the API overview. Every published page has a direct Markdown URL and accepts `Accept: text/markdown`; the Agent switch reads the same complete response. Blog articles remain generated from the published source, and podcast documents include their published transcripts. Marketing overviews retain explicit summary labels.

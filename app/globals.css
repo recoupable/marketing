@@ -18,6 +18,8 @@
   box-sizing: border-box;
 }
 html {
+  /* Locking the page behind Agent view must not shift the header horizontally. */
+  scrollbar-gutter: stable;
   scroll-behavior: smooth;
   scroll-padding-top: 104px;
 }

@@ -7,6 +7,11 @@
   --agent-control: #d6ff62;
   --agent-focus: #d6ff62;
 }
+/* Keep the original navigation and toggle above the document in both modes. */
+.audience-header {
+  position: relative;
+  z-index: 100;
+}
 .audience-human {
   transition:
     opacity 240ms ease,
@@ -178,7 +183,7 @@
   }
 }
 @media print {
-  .audience-toggle,
+  .audience-header,
   .agent-document-toolbar {
     display: none;
   }
@@ -206,25 +211,6 @@
 }
 .ss-header-with-audience > .audience-toggle {
   justify-self: end;
-}
-.agent-document-toolbar > .audience-toggle {
-  margin-left: auto;
-  flex-shrink: 0;
-  color: var(--agent-ink);
-  background: #ffffff12;
-}
-.agent-document .audience-toggle button {
-  min-height: 36px;
-}
-.agent-document .audience-toggle button[aria-pressed="true"] {
-  background: #ffffff;
-  color: var(--agent-paper);
-}
-.agent-document .audience-toggle button[aria-pressed="true"]:hover {
-  color: var(--agent-paper);
-}
-.agent-document .audience-toggle button:hover {
-  color: var(--agent-bright);
 }
 .agent-document-heading {
   color: var(--agent-control);
@@ -265,8 +251,7 @@
 }
 @media (pointer: coarse) {
   .audience-toggle button,
-  .ss-mobile-audience .audience-toggle button,
-  .agent-document .audience-toggle button {
+  .ss-mobile-audience .audience-toggle button {
     min-height: 44px;
   }
 }

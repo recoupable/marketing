@@ -21,25 +21,25 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
   if (pathname === "/brand" || pathname.startsWith("/brand/"))
     return <>{children}</>;
   const isFocusedLanding = pathname === "/workflow-plan" || pathname === "/ask";
-  const page = (toggle?: React.ReactNode) => (
-    <div className="sky-site">
-      {!isFocusedLanding && <SkySiteHeader audienceToggle={toggle} />}
-      <main id="main">{children}</main>
-      {!isFocusedLanding && <SkySiteFooter />}
-    </div>
-  );
   return (
     <>
       <Suspense fallback={null}>
         <ReferralCapture />
       </Suspense>
-      {isFocusedLanding ? (
-        page()
-      ) : (
-        <AudienceMode key={pathname} pathname={pathname}>
-          {page}
-        </AudienceMode>
-      )}
+      <div className="sky-site">
+        {isFocusedLanding ? (
+          <main id="main">{children}</main>
+        ) : (
+          <AudienceMode
+            key={pathname}
+            pathname={pathname}
+            header={(toggle) => <SkySiteHeader audienceToggle={toggle} />}
+          >
+            <main id="main">{children}</main>
+            <SkySiteFooter />
+          </AudienceMode>
+        )}
+      </div>
       <ScrollMotion />
       <BrowserAgentTools />
     </>
