@@ -57,7 +57,7 @@ agent/            — Public website assistant: Eve instructions, tools, session
 components/website-agent/ — Company header, chat turns, source findings, question composer and streaming report artifacts
 lib/website-agent/ — Public website reading, source validation, conversation helpers and report-readiness schemas
 lib/docs/         — Documentation helpers (llms.txt sections, llms-full corpus, markdown negotiation)
-proxy.ts          — Request proxy (Next 16 successor to middleware): serves /docs/* as markdown on Accept: text/markdown or a .md suffix
+proxy.ts          — Request proxy (Next 16 successor to middleware): serves public pages as Markdown on Accept: text/markdown or a .md suffix
 public/           — Static assets (brand/, icons/, images/)
 content/blog/posts.json — Published blog source for pages, feed, metadata and machine discovery
 content/posts/    — Legacy MDX sources and historical post index
@@ -213,11 +213,18 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 
 ## Agent discovery
 
+- Every page must resolve through `lib/agent-content/entryForPath.ts`. `tests/page-markdown.test.ts` checks actual App Router page files, public routes, all docs, every blog, and every podcast episode. Add published paths to this test when introducing a dynamic route family.
+- Raw URLs append `.md`; the homepage uses `/index.md` and `/agents` uses `/agents/index.md` to preserve the site-wide `/agents.md` guide. `GET /agent-api/v1/markdown?path=/blog` returns one complete document. The Human / Agent switch uses the same raw URLs. Keep `Vary: Accept` on negotiated HTML and Markdown responses.
+- Blog and API overview indexes are generated in `indexPages.ts`; the playbook reader combines the existing chapters. `podcastEntries.ts` reads the same summaries and published transcripts as episode pages. Keep filesystem tracing for transcripts in agent routes. Summaries must retain their representation label; never export account or purchase-link state.
+- Run `pnpm agents:markdown-check http://localhost:3000` against a built local server to verify every catalog page's raw URL and content negotiation.
+
 - `/llms.txt`, `/llms-full.txt`, `/agents.md`, `/agents/catalog.json`, and `/agent-api/v1/*` are built from `lib/agent-content.ts` and `lib/agent-discovery.ts`. Documentation descriptions pass through `lib/resolve-description-links.ts` so docs-root links carry the `/docs` prefix everywhere they are published.
 - `/api/machine` is a permanent redirect to `/llms.txt`.
 - Legacy URLs (`/company/about`, `/company/recoup-records`, `/company/recoupable-records`, `/learn`, `/build/start`, `/advisory/book`) are 308 rules in `next.config.ts`; add new aliases there, not as redirecting page files.
 
 ## Shared navigation
+
+`AudienceMode` keeps the shared header mounted in both Human and Agent views. Render the toggle only through the header slot; the Markdown toolbar contains the filename and copy action. Keep the toggle's position and size unchanged during mode switches, including inside the mobile menu. The document starts below the measured header, and the human content stays mounted to preserve its scroll position.
 
 The header’s Get Started button opens `components/sky/get-started-dialog.tsx`, styled by `get-started-dialog.css`. Shared labels live in `lib/copy/get-started.ts`. Try Our Platform uses the attributed `AppLink`; Build Your Platform links to `/start-project?workflow=Custom%20systems`, preselecting the Custom systems intake interest. Keep the same dialog available from the mobile menu and retain native modal keyboard behavior.
 

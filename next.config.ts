@@ -18,7 +18,10 @@ export const nextConfig: NextConfig = {
     ],
     "/docs/spec/*": ["./content/docs/source/api-reference/openapi/*.json"],
     "/docs/raw/*": ["./content/docs/source/api-reference/openapi/*.json"],
-    "/agent-api/v1/*": ["./content/docs/source/api-reference/openapi/*.json"],
+    "/agent-api/v1/*": [
+      "./content/docs/source/api-reference/openapi/*.json",
+      "./content/podcast/transcripts/*.json",
+    ],
   },
   // Legacy URLs resolve to their final page in one 308; keep every destination a real route.
   async redirects() {
@@ -77,6 +80,7 @@ export const nextConfig: NextConfig = {
         headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }],
       },
       docsVaryHeader,
+      { source: "/:path*", headers: [{ key: "Vary", value: "Accept" }] },
     ];
   },
 };

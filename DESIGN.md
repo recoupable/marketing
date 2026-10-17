@@ -353,6 +353,8 @@ Use `SkyArrow` for directional icons: 24×24 viewBox, 2px stroke, rounded caps a
 
 Shared page buttons, text links, and documentation use 17px arrows; the homepage uses 20px. Component rules must take precedence over page defaults. Mobile navigation and copy controls have 44px tap targets. Menus switch from bars to a close icon when open; dropdown chevrons point upward. At widths of 370px or less, stack homepage hero actions and keep their labels on one line.
 
+The Human / Agent toggle stays in the shared header with identical position and dimensions in both modes. On mobile it remains beside Pricing inside the menu. In Agent mode the header is transparent over the forest-green document canvas, with white navigation and the existing white `PageMark`/wordmark, and the document starts below the measured header. Dropdowns and the mobile menu use the same dark palette; the lime action keeps dark text and the selected mode keeps its white tab. The document toolbar contains only its filename and copy action. Reserve the page scrollbar gutter so locking the human page cannot shift the header sideways.
+
 ## Components
 
 ### Reuse map

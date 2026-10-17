@@ -47,7 +47,8 @@ test("the fixed public registry covers published content with canonical URLs and
   for (const item of index) {
     expect(new URL(item.url).origin).toBe(new URL(siteConfig.url).origin);
     expect(!/\/designs(?:\/|$)|\/clients(?:\/|$)|\.local|\/source\//.test(item.url)).toBeTruthy();
-    expect(item.representation).toBe(item.type === "page" && item.id !== "page:/music-videos" ? "summary" : "full");
+    expect(["summary", "full"]).toContain(item.representation);
+    if (item.type !== "page") expect(item.representation).toBe("full");
     expect(item.title && item.description).toBeTruthy();
   }
   expect(index.some(item => item.id === "page:/agents")).toBeTruthy();

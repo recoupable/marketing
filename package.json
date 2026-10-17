@@ -12,6 +12,7 @@
     "lint:fix": "eslint . --fix",
     "docs:build": "node scripts/build-docs.mjs",
     "docs:check": "node scripts/import-docs-check.mjs",
+    "agents:markdown-check": "node scripts/audit-page-markdown.mjs",
     "agents:check": "node scripts/audit-agents.mjs",
     "brand-studio": "next dev --turbopack --port 3012",
     "brand-studio:index": "python3 brand-studio/scripts/build-review-board.py",

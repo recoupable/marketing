@@ -1,21 +1,24 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { agentMarkdownPath } from "@/lib/agent-markdown-path";
 import "./audience-mode.css";
 
 export function AudienceMode({
   pathname,
+  header,
   children,
 }: {
   pathname: string;
-  children: (toggle: React.ReactNode) => React.ReactNode;
+  header: (toggle: React.ReactNode) => React.ReactNode;
+  children: React.ReactNode;
 }) {
   const [agent, setAgent] = useState(false);
   const [markdown, setMarkdown] = useState("");
   const [error, setError] = useState("");
   const [attempt, setAttempt] = useState(0);
   const [copyStatus, setCopyStatus] = useState("Copy Markdown");
-  const humanRoot = useRef<HTMLDivElement>(null);
+  const headerRoot = useRef<HTMLDivElement>(null);
   const agentRoot = useRef<HTMLElement>(null);
 
   const hasOpened = useRef(false);
@@ -28,13 +31,13 @@ export function AudienceMode({
     if (!agent) {
       if (hasOpened.current) {
         const visibleToggle = Array.from(
-          humanRoot.current?.querySelectorAll<HTMLButtonElement>(
+          headerRoot.current?.querySelectorAll<HTMLButtonElement>(
             ".audience-toggle button",
           ) ?? [],
         ).find((button) => button.checkVisibility());
         (
           visibleToggle ??
-          humanRoot.current?.querySelector<HTMLElement>(
+          headerRoot.current?.querySelector<HTMLElement>(
             ".ss-mobile-menu > summary",
           )
         )?.focus({ preventScroll: true });
@@ -42,10 +45,12 @@ export function AudienceMode({
       return;
     }
     hasOpened.current = true;
-    agentRoot.current
-      ?.querySelector<HTMLButtonElement>(
+    Array.from(
+      headerRoot.current?.querySelectorAll<HTMLButtonElement>(
         '.audience-toggle button[aria-pressed="true"]',
-      )
+      ) ?? [],
+    )
+      .find((button) => button.checkVisibility())
       ?.focus({ preventScroll: true });
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -61,43 +66,37 @@ export function AudienceMode({
     };
   }, [agent]);
 
+  // Follow the existing header, including a partially scrolled or resized viewport.
+  useLayoutEffect(() => {
+    if (!agent || !headerRoot.current || !agentRoot.current) return;
+    const header = headerRoot.current;
+    const document = agentRoot.current;
+    const position = () => {
+      document.style.top = `${Math.max(0, header.getBoundingClientRect().bottom)}px`;
+    };
+    position();
+    const observer = new ResizeObserver(position);
+    observer.observe(header);
+    window.addEventListener("resize", position);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", position);
+    };
+  }, [agent]);
+
   useEffect(() => {
     if (!agent || markdown) return;
     const controller = new AbortController();
     async function read() {
       setError("");
-      const id =
-        pathname === "/docs"
-          ? "docs:index"
-          : pathname.startsWith("/docs/")
-            ? `docs:${pathname.slice(6)}`
-            : pathname.startsWith("/blog/")
-              ? `blog:${pathname.slice(6)}`
-              : `page:${pathname}`;
-      let offset: number | null = 0;
-      let document = "";
       try {
-        while (offset !== null) {
-          const query = new URLSearchParams({
-            id,
-            offset: String(offset),
-            maxLength: "12000",
-          });
-          const response = await fetch(`/agent-api/v1/read?${query}`, {
-            signal: controller.signal,
-          });
-          if (!response.ok)
-            throw new Error(
-              response.status === 404
-                ? "This page does not have an agent document yet."
-                : "The document could not load. Please try again.",
-            );
-          const page: { markdown: string; nextOffset: number | null } =
-            await response.json();
-          document += page.markdown;
-          offset = page.nextOffset;
-        }
-        setMarkdown(document);
+        const response = await fetch(agentMarkdownPath(pathname), {
+          signal: controller.signal,
+        });
+        if (!response.ok)
+          throw new Error("The document could not load. Please try again.");
+        const document = await response.text();
+        if (!controller.signal.aborted) setMarkdown(document);
       } catch (failure) {
         if (!controller.signal.aborted)
           setError(
@@ -137,13 +136,15 @@ export function AudienceMode({
 
   return (
     <div className="audience-mode" data-agent={agent}>
+      <div className="audience-header" ref={headerRoot}>
+        {header(toggle)}
+      </div>
       <div
         className="audience-human"
-        ref={humanRoot}
         inert={agent}
         aria-hidden={agent || undefined}
       >
-        {children(toggle)}
+        {children}
       </div>
       {agent && (
         <section
@@ -158,7 +159,6 @@ export function AudienceMode({
               <span className="agent-document-filename">
                 {pathname === "/" ? "recoup" : pathname.slice(1)}.md
               </span>
-              {toggle}
               <button
                 type="button"
                 onClick={copy}

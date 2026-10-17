@@ -26,6 +26,9 @@ export function negotiateDocsMarkdown(pathname: string, accept: string | null): 
   if (slug === "api-reference") return null;
   const header = accept ?? "";
   const [markdown, plain, html] = ["text/markdown", "text/plain", "text/html"].map(type => quality(header, type));
-  const wantsMarkdown = explicit || (markdown > 0 && markdown >= html) || (plain > 0 && plain > html);
+  const refusesMarkdown = markdown === 0 && header.split(",").some(entry =>
+    entry.split(";")[0].trim().toLowerCase() === "text/markdown",
+  );
+  const wantsMarkdown = explicit || (!refusesMarkdown && ((markdown > 0 && markdown >= html) || (plain > 0 && plain > html)));
   return wantsMarkdown ? `/docs/raw/${slug}.md` : null;
 }

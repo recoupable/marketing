@@ -1,3 +1,21 @@
+## Markdown merge checks — October 17, 2026
+
+Preserved Brand Studio Markdown downloads during page negotiation, honored explicit Markdown refusal before falling back to plain text, and added the shared CORS preflight handler. Human-mode printing retains the header. Route coverage now includes all JavaScript and TypeScript page extensions. All 455 tests, scoped lint, and the production build pass. HTTP checks passed for 20 Studio Markdown assets, three negotiated HTML routes, four explicit Markdown URLs, and CORS preflight. Merge remains pending checks on this commit.
+
+## Agent navigation palette — October 16, 2026
+
+The Agent header is transparent over the forest-green document canvas, with white navigation text and the existing logo rendered in white. Desktop dropdowns and the mobile menu share the dark palette; lime actions retain dark labels and the selected mode remains a white tab. No header or toggle dimensions changed. The production build and TypeScript pass. Browser checks confirmed transparent header/white logo colors, readable desktop and mobile menus, no mobile horizontal overflow, and identical desktop toggle bounds across modes. The local preview is updated; publication remains pending PR review and merge.
+
+## Stable Human / Agent toggle — October 16, 2026
+
+Kept the shared header mounted in both views and removed the second toggle from the Markdown toolbar. Agent content starts below the measured header; only the human body/footer becomes hidden and inert. The page reserves its scrollbar gutter to prevent horizontal movement while scrolling is locked. Desktop and mobile browser measurements confirmed identical toggle and button bounds before and after switching; Escape returns focus to Human. The production build and all 454 tests pass, and scoped lint has no errors. Updated the local preview; publication remains pending PR review and merge.
+
+## Markdown for every page — October 16, 2026
+
+Added missing page documents, including the blog archive, resource/company/tool pages, plugin pages, podcast episodes, the complete playbook reader, and the API overview. Every published page has a direct Markdown URL and accepts `Accept: text/markdown`; the Agent switch reads the same complete response. Blog articles remain generated from the published source, and podcast documents include their published transcripts. Marketing overviews retain explicit summary labels.
+
+`tests/page-markdown.test.ts` guards actual route and published-content coverage. The production build, TypeScript, and all 454 tests pass. Lint has no errors (39 pre-existing warnings outside this change). A local production-server audit passed 638 Markdown requests across 319 pages, including all 32 articles, plus HTML negotiation, HEAD, and unknown-page checks. Browser verification covered the archive and full article Agent views, Copy Markdown, and returning to Human mode. Publication is pending PR review and merge.
+
 ## Company operating model explorer — October 15, 2026
 
 Added `/atlas` with circular company-area and workflow exploration, component search, operating rules, fields, clickable connections and shareable hashes. Derived from the privacy-checked atlas public export with a narrower model-only field allowlist. Resources navigation, sitemap and agent summary included. Verification and publication state: see the feature PR and `docs/company-map.md`; no production claim.

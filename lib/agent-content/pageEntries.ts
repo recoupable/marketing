@@ -1,3 +1,6 @@
+import { additionalPages } from "./additionalPages.ts";
+import { indexPages } from "./indexPages.ts";
+import { podcastEntries } from "./podcastEntries.ts";
 import {
   musicVideosCopy,
   musicVideosToMarkdown,
@@ -14,7 +17,10 @@ import { workflowPages } from "./workflowPages.ts";
 import type { AgentContentEntry } from "./types.ts";
 
 export const pageEntries: AgentContentEntry[] = [
+  ...indexPages,
+  ...podcastEntries,
   ...[
+    ...additionalPages,
     ...offerPages,
     ...productPages,
     ...companyPages,
