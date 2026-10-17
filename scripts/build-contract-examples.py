@@ -5,13 +5,17 @@ import json
 import re
 from pathlib import Path
 
+from build_response_contracts import build_response_contracts
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--api', required=True)
 parser.add_argument('--check', action='store_true')
 args = parser.parse_args()
 root = Path(__file__).resolve().parent.parent
 source = root / 'content/docs/source/api-reference/openapi'
-specs = {name: json.loads((source / name).read_text()) for name in ['accounts.json', 'content.json', 'research.json', 'releases.json', 'social.json', 'context.json']}
+specs = {name: json.loads((source / name).read_text()) for name in ['accounts.json', 'content.json', 'research.json', 'releases.json', 'social.json', 'context.json', 'projects.json']}
+api = Path(args.api).resolve()
+schema_hash, response_schemas = build_response_contracts(specs, source, api, args.check)
 context_operation = specs['context.json']['paths']['/api/context']['post']
 mcp = context_operation['x-recoup-mcp-operations']
 table = '\n'.join([
@@ -48,7 +52,10 @@ deletion_section = sites_path.read_text().split('## Delete and cancel generation
 deletion_json = re.search(r'```json\n(.*?)\n```', deletion_section, re.DOTALL)
 record = {
     'evidence': 'Provider-free request syntax and static contract claims only. URLs are placeholders; no provider, payment or customer workflow is exercised.',
+    'responseEvidence': 'Selected route exports use real request, response and authentication code under dependency mocks. No live provider, customer or hosted route is exercised.',
     'sourceRepository': 'recoupable/marketing',
+    'apiResponseSchemaSha256': schema_hash,
+    'responseSchemas': response_schemas,
     'sourceHashes': {str((source / name).relative_to(root)): hashlib.sha256((source / name).read_bytes()).hexdigest() for name in specs},
     'examples': {
         'image': content['ContentCreateImageRequest']['example'],
@@ -93,7 +100,6 @@ context_record = {
     'undocumentedActions': context['x-undocumented-actions'],
     'mcpOperations': context['x-recoup-mcp-operations'],
 }
-api = Path(args.api).resolve()
 outputs = [
     (record, [root / 'content/docs/contracts/example-cases.json', api / 'lib/contracts/fixtures/published-docs.json']),
     (context_record, [root / 'content/docs/contracts/context-contract.json', api / 'lib/contracts/fixtures/context-contract.json']),
