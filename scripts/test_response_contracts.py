@@ -12,7 +12,10 @@ class ResponseContractsTest(unittest.TestCase):
         root = Path(__file__).resolve().parent.parent
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
-        workspace = Path(temporary.name)
+        real_workspace = Path(temporary.name) / 'resolved-workspace'
+        real_workspace.mkdir()
+        workspace = Path(temporary.name) / 'workspace-link'
+        workspace.symlink_to(real_workspace, target_is_directory=True)
         self.marketing, self.api = workspace / 'marketing', workspace / 'api'
         script = self.marketing / 'scripts/build-contract-examples.py'
         script.parent.mkdir(parents=True)
@@ -66,7 +69,7 @@ class ResponseContractsTest(unittest.TestCase):
                     failed = subprocess.run([*self.command, '--check'], capture_output=True, text=True)
                     self.assertNotEqual(failed.returncode, 0)
                     self.assertIn('Stale documentation example fixture', failed.stderr)
-                    self.assertIn(str(path), failed.stderr)
+                    self.assertIn(str(path.resolve()), failed.stderr)
                     path.write_bytes(original)
 
     def test_check_rejects_authentication_union_on_project_404(self):
@@ -78,6 +81,22 @@ class ResponseContractsTest(unittest.TestCase):
         self.assertNotEqual(failed.returncode, 0)
         self.assertIn('Projects response schema reference', failed.stderr)
         self.assertIn('404', failed.stderr)
+
+    def test_path_item_metadata_is_preserved(self):
+        path = self.marketing / 'content/docs/source/api-reference/openapi/projects.json'
+        spec = json.loads(path.read_text())
+        metadata = {
+            'summary': 'Project operations',
+            'parameters': [{'name': 'projectId', 'in': 'path', 'required': True, 'schema': {'type': 'string'}}],
+        }
+        spec['paths']['/api/projects/{projectId}'].update(metadata)
+        path.write_text(json.dumps(spec, indent=2) + '\n')
+        generated = subprocess.run(self.command, capture_output=True, text=True)
+        self.assertEqual(generated.returncode, 0, generated.stderr)
+        updated = json.loads(path.read_text())['paths']['/api/projects/{projectId}']
+        for key, value in metadata.items():
+            self.assertEqual(updated[key], value)
+        subprocess.run([*self.command, '--check'], check=True, capture_output=True, text=True)
 
 
 if __name__ == '__main__':

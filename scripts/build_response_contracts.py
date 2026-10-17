@@ -31,6 +31,8 @@ def build_response_contracts(specs, source, api, check=False):
 
     for path, methods in specs['projects.json']['paths'].items():
         for method, operation in methods.items():
+            if method not in {'get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace'}:
+                continue
             for status, response in operation.get('responses', {}).items():
                 if status not in ('400', '401', '404', '500'):
                     continue
