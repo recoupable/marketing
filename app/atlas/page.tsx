@@ -15,7 +15,7 @@ export default function CompanyMapPage() {
     <div className="sky-subpage company-map-page">
       <CompanyMap />
       <PageCTA
-        title="Put the model to work in your company."
+        title="Put the atlas to work in your company."
         description="Start with your team, your catalog and the work that needs to connect. We’ll help you turn the model into a system your company can use."
       />
     </div>
