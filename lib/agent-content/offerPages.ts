@@ -1,5 +1,4 @@
 import { trainingCopy } from "../copy/training.ts";
-import { freeAuditAnswer, homeCopy } from "../copy/home.ts";
 import { pricingInquiryHref } from "../pricing.ts";
 import type { PageSummary } from "./types.ts";
 
@@ -12,29 +11,6 @@ export const offerPages: PageSummary[] = [
     keywords: "training workshops team AI adoption music artists catalogs releases workflows practice",
     paragraphs: [trainingCopy.hero.description, ...trainingCopy.outcomes.map(item => `${item.title} ${item.description}`), trainingCopy.format.description, ...trainingCopy.faq.map(item => `${item.question} ${item.answer}`)],
     links: [[trainingCopy.action, trainingCopy.href], ["Advisory", "/advisory"], ["Build", "/build"]],
-  },
-  {
-    path: "/",
-    title: "Recoup: AI transformation for music funds and rightsholders",
-    description:
-      "AI strategy, custom systems, and team training for the business of music.",
-    keywords:
-      "music funds rightsholders catalog owners consulting transformation strategy systems training",
-    paragraphs: [
-      homeCopy.statement.join(" "),
-      `Advisory: ${homeCopy.engagements.advisory} Build + Partner: ${homeCopy.engagements.partner}`,
-      homeCopy.ownership.deliverables.map((item) => item.description).join(" "),
-      homeCopy.ownership.terms,
-      freeAuditAnswer,
-      `${homeCopy.tools.introduction} ${homeCopy.tools.platform} ${homeCopy.tools.skills} ${homeCopy.tools.developers}`,
-      "Work includes royalty reporting, investment review, catalog intelligence, and workflow automation. Read the case studies for the full examples.",
-    ],
-    links: [
-      ["Services", "/services"],
-      ["Plans and pricing", "/pricing"],
-      ["Our software", "/platform"],
-      ["Get a Free Audit", "/start-project"],
-    ],
   },
   {
     path: "/services",

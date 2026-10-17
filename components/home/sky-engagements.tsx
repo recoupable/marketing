@@ -19,7 +19,7 @@ export function SkyEngagements() {
 
   return <section className="sky-section sky-engagements" id="work-with-us" aria-labelledby="sky-engagements-title">
     <header className="sky-engagement-heading" data-reveal="">
-      <div><p className="sky-section-label">WORK WITH RECOUP</p><h2 id="sky-engagements-title">{homeCopy.engagements.title}</h2></div>
+      <div><p className="sky-section-label">{homeCopy.engagements.eyebrow}</p><h2 id="sky-engagements-title">{homeCopy.engagements.title}</h2></div>
       <fieldset className="sky-engagement-billing"><legend>Choose your billing</legend><div>
         {(["monthly", "annual"] as const).map((cycle) => <label key={cycle}><input type="radio" name="home-billing" value={cycle} checked={billing === cycle} onChange={() => { setBilling(cycle); trackEvent("pricing_billing_toggled", { billing: cycle }); }} /><span>{cycle === "monthly" ? "Monthly" : "Annually"}</span></label>)}
       </div><p>Save {annualDiscountPercent}% or more annually</p></fieldset>
@@ -34,7 +34,7 @@ export function SkyEngagements() {
           <p className="sky-engagement-description">{build ? homeCopy.engagements.partner : homeCopy.engagements.advisory}</p>
           <div className="sky-engagement-price"><span className="sky-engagement-price-label">{homeCopy.engagements.startingAt}</span><strong>{price.monthly}</strong><span>/ month</span></div>
           <p className="sky-engagement-terms">USD · {price.terms}</p>
-          <TrackedLink className="sky-engagement-action" href={pricingInquiryHref(plan.id, billing)} cta={plan.id} placement="home_engagements" plan={plan.id}>{build ? "Discuss your build" : "Explore advisory"}<span><SkyArrow /></span></TrackedLink>
+          <TrackedLink className="sky-engagement-action" href={pricingInquiryHref(plan.id, billing)} cta={plan.id} placement="home_engagements" plan={plan.id}>{build ? homeCopy.engagements.partnerAction : homeCopy.engagements.advisoryAction}<span><SkyArrow /></span></TrackedLink>
           {build && <p className="sky-engagement-scope">{homeCopy.engagements.scope}</p>}
         </article>;
       })}
