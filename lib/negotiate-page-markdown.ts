@@ -11,6 +11,9 @@ export function negotiatePageMarkdown(pathname: string, accept: string | null) {
   const path =
     (explicit ? pathname.slice(0, -3) : pathname).replace(/\/+$/, "") || "/";
   if (!/^\/(?:[a-z0-9-]+(?:\/[a-z0-9-]+)*)?$/.test(path)) return null;
+  // Brand Studio's catch-all serves existing Markdown assets, not page summaries.
+  if (path.startsWith("/brand/") && !["/brand/carousels", "/brand/experiments"].includes(path))
+    return null;
   // Keep existing docs downloads/specifications and the playbook asset intact.
   if (
     /^\/docs(?:\/|$)/.test(path) &&

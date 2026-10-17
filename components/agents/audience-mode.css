@@ -277,7 +277,8 @@
   .audience-mode[data-agent="true"]::before {
     display: none;
   }
-  .audience-header,
+  .audience-mode[data-agent="true"] .audience-header,
+  .audience-toggle,
   .agent-document-toolbar {
     display: none;
   }

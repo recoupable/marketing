@@ -1,3 +1,7 @@
+## Markdown merge checks — October 17, 2026
+
+Preserved Brand Studio Markdown downloads during page negotiation, honored explicit Markdown refusal before falling back to plain text, and added the shared CORS preflight handler. Human-mode printing retains the header. Route coverage now includes all JavaScript and TypeScript page extensions. All 455 tests, scoped lint, and the production build pass. HTTP checks passed for 20 Studio Markdown assets, three negotiated HTML routes, four explicit Markdown URLs, and CORS preflight. Merge remains pending checks on this commit.
+
 ## Agent navigation palette — October 16, 2026
 
 The Agent header is transparent over the forest-green document canvas, with white navigation text and the existing logo rendered in white. Desktop dropdowns and the mobile menu share the dark palette; lime actions retain dark labels and the selected mode remains a white tab. No header or toggle dimensions changed. The production build and TypeScript pass. Browser checks confirmed transparent header/white logo colors, readable desktop and mobile menus, no mobile horizontal overflow, and identical desktop toggle bounds across modes. The local preview is updated; publication remains pending PR review and merge.

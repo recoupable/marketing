@@ -15,6 +15,7 @@ import { playbookEntries } from "../lib/agent-content/playbookEntries";
 import { getAgentCatalog } from "../lib/agent-discovery/getAgentCatalog";
 import { getAgentContentIndex } from "../lib/agent-content/getAgentContentIndex";
 import { nextConfig } from "../next.config";
+import { OPTIONS } from "../app/agent-api/v1/markdown/route";
 
 const read = (path: string) =>
   markdownResponse(
@@ -32,10 +33,10 @@ const pageFiles = (
   readdirSync(new URL("../app", import.meta.url), {
     recursive: true,
   }) as string[]
-).filter((file) => /(?:^|\/)page\.tsx$/.test(file));
+).filter((file) => /(?:^|\/)page\.[jt]sx?$/.test(file));
 const staticPaths = pageFiles
   .filter((file) => !file.includes("["))
-  .map((file) => `/${file.replace(/(?:^|\/)page\.tsx$/, "")}`);
+  .map((file) => `/${file.replace(/(?:^|\/)page\.[jt]sx?$/, "")}`);
 const paths = [
   ...new Set([
     ...staticPaths,
@@ -144,6 +145,7 @@ test("negotiation respects media preferences and leaves existing machine endpoin
     "*/*",
     "text/html,text/plain",
     "text/markdown;q=0",
+    "text/markdown;q=0, text/plain",
     "text/html,text/markdown;q=0.5",
   ])
     expect(
@@ -166,12 +168,21 @@ test("negotiation respects media preferences and leaves existing machine endpoin
     "/docs/raw/index.md",
     "/docs/spec/accounts.json",
     "/playbook/recoup-ai-music-playbook.md",
+    "/brand/background-study.md",
+    "/brand/product-brief.md",
     "/images/photo.png",
   ])
     expect(
       rewrite(path, "text/markdown").headers.get("x-middleware-rewrite"),
       path,
     ).toBeNull();
+});
+
+test("Markdown clients can preflight the public endpoint", () => {
+  const response = OPTIONS();
+  expect(response.status).toBe(204);
+  expect(response.headers.get("access-control-allow-origin")).toBe("*");
+  expect(response.headers.get("access-control-allow-methods")).toContain("GET");
 });
 
 test("Markdown alternates are discoverable and negotiated responses vary on Accept", async () => {

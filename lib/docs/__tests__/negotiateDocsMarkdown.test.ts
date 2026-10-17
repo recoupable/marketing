@@ -15,6 +15,8 @@ describe("negotiateDocsMarkdown", () => {
   it("honours q-values: a rejected type never selects markdown", () => {
     expect(negotiateDocsMarkdown("/docs/quickstart", "text/markdown;q=0")).toBeNull();
     expect(negotiateDocsMarkdown("/docs/quickstart", "text/markdown;q=0, text/html")).toBeNull();
+    expect(negotiateDocsMarkdown("/docs/quickstart", "text/markdown;q=0, text/plain")).toBeNull();
+    expect(negotiateDocsMarkdown("/docs/quickstart", " TEXT/MARKDOWN ; Q=0 , text/plain")).toBeNull();
     expect(negotiateDocsMarkdown("/docs/quickstart", "text/plain;q=0, */*")).toBeNull();
     expect(negotiateDocsMarkdown("/docs/quickstart", "text/plain;q=0")).toBeNull();
   });
