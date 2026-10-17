@@ -1,22 +1,10 @@
+import { homeHeroCopy } from "@/lib/copy/home-hero";
+
 import Image from "next/image";
 import Link from "next/link";
 import { SkyArrow } from "@/components/sky/arrow";
 import { SkyHeroCards } from "./sky-hero-cards";
 
-const customers = [
-  { name: "Duetti", file: "duetti", width: 104, height: 16 },
-  {
-    name: "Seeker Music",
-    file: "seeker-music",
-    src: "/images/customers/seeker-logotype-white.png",
-    width: 76,
-    height: 30,
-  },
-  { name: "Warner Records", file: "warner-records", width: 95, height: 24 },
-  { name: "Atlantic Records", file: "atlantic-records", width: 44, height: 30 },
-  { name: "Rostrum Records", file: "rostrum-records", width: 77, height: 30 },
-  { name: "Fat Beats", file: "fatbeats-records-white", width: 75, height: 30 },
-];
 
 export function SkyHero() {
   return (
@@ -31,26 +19,26 @@ export function SkyHero() {
       />
       <div className="sky-hero-shade" />
       <div className="sky-hero-copy">
-        <Link className="sky-hero-pill" href="/skills">
-          <span className="sky-hero-pill-badge">New</span>
-          <span>Catalog Skills V2 is here</span>
+        <Link className="sky-hero-pill" href={homeHeroCopy.announcement.href}>
+          <span className="sky-hero-pill-badge">{homeHeroCopy.announcement.badge}</span>
+          <span>{homeHeroCopy.announcement.label}</span>
           <SkyArrow />
         </Link>
         <h1 id="sky-title">
-          AI transformation
+          {homeHeroCopy.title[0]}
           <br />
-          <span>for music rightsholders</span>
+          <span>{homeHeroCopy.title[1]}</span>
         </h1>
         <p className="sky-hero-description">
-          We build AI systems you own and train your team to use them.
+          {homeHeroCopy.description}
         </p>
       </div>
 
       <SkyHeroCards />
       <section className="sky-proof" aria-label="Music companies using Recoup">
-        <p data-reveal="">Used by teams at</p>
+        <p data-reveal="">{homeHeroCopy.proof}</p>
         <div data-reveal-group="">
-          {customers.map((customer) => (
+          {homeHeroCopy.customers.map((customer) => (
             <Image
               key={customer.file}
               src={customer.src ?? `/images/customers/${customer.file}-transparent.webp`}

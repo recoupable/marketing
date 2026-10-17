@@ -1,4 +1,5 @@
 import { additionalPages } from "./additionalPages.ts";
+import { homePage } from "./homePage.ts";
 import { indexPages } from "./indexPages.ts";
 import { podcastEntries } from "./podcastEntries.ts";
 import {
@@ -17,6 +18,7 @@ import { workflowPages } from "./workflowPages.ts";
 import type { AgentContentEntry } from "./types.ts";
 
 export const pageEntries: AgentContentEntry[] = [
+  homePage,
   ...indexPages,
   ...podcastEntries,
   ...[

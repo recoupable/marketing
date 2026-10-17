@@ -154,7 +154,7 @@ content/posts/INDEX.md       — Published posts + topic gaps
 
 - **Brand assets** (see `public/brand/README.md`): logo mark `icon-lightmode.svg` / `icon-darkmode.svg`, word mark `wordmark-lightmode.svg` / `wordmark-darkmode.svg`, profile/hero `pfp-sky-bg.png`. Use in UI as `/brand/<filename>`.
 - **Favicons / PWA icons:** `public/icons/` (see that folder's README)
-- **Page copy:** `lib/copy/` — single source for human pages and machine (markdown) view; edit copy there only so both stay in sync. Homepage summaries live in `home.ts`, `home-offers.ts`, and `home-case-studies.ts`; keep detailed offer and pricing data intact for the destination pages. Shared footer copy lives in `footer.ts`.
+- **Page copy:** `lib/copy/` — single source for human pages and machine (markdown) view; edit copy there only so both stay in sync. Homepage copy lives in `home.ts`, `home-hero.ts`, `home-offers.ts`, and `home-case-studies.ts`. `homeToMarkdown.ts` exports the full homepage in display order, including both billing choices from shared pricing data; keep detailed destination-page content in those pages. Shared footer copy lives in `footer.ts`.
 - NEVER hardcode brand values — import `siteConfig` from `lib/config.ts`, the only site configuration module (origin, app URL, docs path, GitHub URLs, contact email, booking link; `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_CONTACT_EMAIL`, and `NEXT_PUBLIC_BOOKING_URL` are read there)
 
 ## Integrations
@@ -215,6 +215,7 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 
 - Every page must resolve through `lib/agent-content/entryForPath.ts`. `tests/page-markdown.test.ts` checks actual App Router page files, public routes, all docs, every blog, and every podcast episode. Add published paths to this test when introducing a dynamic route family.
 - Raw URLs append `.md`; the homepage uses `/index.md` and `/agents` uses `/agents/index.md` to preserve the site-wide `/agents.md` guide. `GET /agent-api/v1/markdown?path=/blog` returns one complete document. The Human / Agent switch uses the same raw URLs. Keep `Vary: Accept` on negotiated HTML and Markdown responses.
+- The homepage has a full entry in `homePage.ts`, generated from shared homepage copy. `tests/home-markdown.test.ts` checks every editorial field, section order, billing terms, FAQs, and complete endpoint/reader output.
 - Blog and API overview indexes are generated in `indexPages.ts`; the playbook reader combines the existing chapters. `podcastEntries.ts` reads the same summaries and published transcripts as episode pages. Keep filesystem tracing for transcripts in agent routes. Summaries must retain their representation label; never export account or purchase-link state.
 - Run `pnpm agents:markdown-check http://localhost:3000` against a built local server to verify every catalog page's raw URL and content negotiation.
 
