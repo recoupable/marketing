@@ -524,3 +524,11 @@ Inline article illustrations use pure white #FFFFFF backgrounds and white object
 with forest/ink outlines, blue connections and restrained lime accents. Keep them simple: one useful
 concept, minimal labels, optional headlines and no recurring wordmark. No pale-blue backgrounds or
 panels. Keep the thumbnail and inline figures distinct; strong color belongs where it earns attention.
+
+## Automation examples
+
+`/ai-strategy` uses a short centered introduction, three task choices, and one output
+example beside a concise build proposal. Royalty reporting appears immediately; choosing
+another task updates the output and inquiry link. On phones, the proposal and primary
+action come before the output illustration. Keep every prerequisite in the optional
+details and download. There are no planning questions or numbered steps for visitors.

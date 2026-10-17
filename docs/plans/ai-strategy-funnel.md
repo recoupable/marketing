@@ -1,46 +1,59 @@
-# Recoup first-project funnel
+# Recoup automation examples funnel
 
-## Offer
+## Offer and conversion
 
-Help music-company leaders choose one piece of work, identify missing prerequisites, and define a test they can evaluate. The method is expressed as Recoup's operating approach. All examples and copy are original; no borrowed results, testimonials, proprietary framework names, or third-party branding are used.
+Music-business visitors see a proposed royalty-reporting system immediately. They can
+switch to catalog cleanup or release prep with one click. Each example names what Recoup
+would build, shows the output, and explains the human review. There are no questionnaire
+fields, contact gates, AI calls, or invented estimates of savings.
 
-## Entry and conversion
+Resources, Advisory, and the three companion article drafts link to `/ai-strategy`.
+“Talk to Recoup” opens Contact with the selected example ID. The server accepts only
+known IDs and prefills an editable note. Contact details and a separate Send action are
+still required. No browser draft import or repeated project description is needed.
 
-- Resources menu, resources page, and Advisory link to `/ai-strategy`.
-- A free team worksheet helps a leader gather concrete examples before the engagement.
-- Three form steps produce a brief without email capture or an AI call.
-- The form starts beside the plain-language offer and an example download. Reporting, catalog cleanup, and release-prep starters fill only the editable task and expected result; they never assert readiness or ownership.
-- The result lists unresolved prerequisites explicitly and gives measurement guidance suited to the purpose.
-- Download works without contact details. An explicit inquiry action stores the reviewed brief in the existing one-hour browser draft store, then opens Contact. The visitor chooses **Use prepared brief**, adds contact details, and sends.
-- The existing ROI planner covers numerical assumptions. The conversational workflow planner remains available for deeper exploration.
+“Save this example” downloads Markdown without contact details. “How we’d get started”
+keeps every prerequisite and the measurement plan available without making the visitor
+fill them in. The examples do not assert which prerequisites a visitor has satisfied.
+The existing team worksheet remains available at its stable download URL for article
+readers who want to run discovery themselves.
 
-## Article sequence
+## Content ownership
 
-Drafts are in `content/drafts/ai-strategy/`. They are deliberately absent from the published blog registry, RSS, and sitemap. Review copy and create approved artwork before publishing them; keep the existing featured article. Proposed sequence:
+`lib/copy/ai-strategy.ts` supplies the page, example download, inquiry wording, and public
+agent summary. `getStrategyProject` rejects arbitrary or repeated URL values. The old
+form, date validation, readiness assessment, and answer-to-brief exporter were removed.
 
-1. `choose-an-ai-project-your-music-team-can-finish`: project selection → toolkit.
-2. `measure-ai-after-the-report-is-checked`: measurement → toolkit + ROI planner.
-3. `ask-your-team-to-show-you-last-weeks-work`: team discovery → worksheet + toolkit.
+Three original article drafts remain in `content/drafts/ai-strategy/`, outside the
+published blog registry, RSS, and sitemap. Their CTAs lead to the examples. Review copy
+and artwork before publishing; preserve the existing featured article.
 
-Each draft includes metadata and links to existing articles. No publication date has been invented.
+The separate Skills PR adds `recoup-internal-consulting-team-workflow-discovery`,
+`recoup-internal-consulting-ai-project-selection`, and
+`recoup-internal-consulting-ai-pilot-review`. Detailed discovery, project prerequisites,
+and measurement belong to that consulting delivery process. Client records stay in the
+selected private Business workspace; the skills and blank templates are public.
 
-## Consulting handoff
+## Measurement and validation
 
-The separate Skills PR adds `recoup-internal-consulting-team-workflow-discovery`, `recoup-internal-consulting-ai-project-selection`, and `recoup-internal-consulting-ai-pilot-review`. These create private discovery records, project decisions, and evidence reviews in the selected Business workspace. Their instructions and blank templates are public. Neither repository publishes the other.
+Events are `strategy_example_selected {project}`, `strategy_example_downloaded {project}`,
+and `cta_clicked {cta: strategy_inquiry, placement: ai_strategy_example, project}`. They
+contain only allowlisted example IDs. Existing inquiry events measure submitted leads;
+example clicks are not qualified leads or evidence of conversion lift.
 
-## Measurement
+Validate all three selections, the complete download, known/invalid/repeated inquiry
+parameters, mobile reading burden, keyboard operation, and human/agent copy parity. Run
+the focused tests, scoped lint, TypeScript, and production build. Never send a live test
+inquiry. A PR, merge, deployment, and article publication are distinct release steps.
 
-Use `strategy_brief_created {purpose, ready}`, `strategy_brief_downloaded {purpose}`, and the existing `cta_clicked {cta: strategy_inquiry, placement: ai_strategy_result}`. No answer text, names, dates, or client details enter analytics. These events measure tool use and intent; the existing inquiry-submitted event is the lead receipt. Do not claim causal conversion lift without a comparison.
+## Local verification — October 16, 2026
 
-## Validation and release
-
-Validate unknown and negative prerequisites, invalid dates, download contents, focus changes, narrow-screen reflow, editing/reset, and manual inquiry import. Check public discovery and metadata alongside the production build. Do not send a test inquiry to production. A feature PR and article drafts are reviewable deliverables; merge, deployment, and article publication are separate release steps.
-
-### Local verification — October 16, 2026
-
-- Production `pnpm build` passed with Node 24 and the existing public Privy app configuration; 355 pages generated. No environment file was copied into this worktree.
-- TypeScript and scoped ESLint passed. Five focused test files passed all 38 tests, covering the new decisions and the existing discovery, funnel, and blog contracts.
-- Browser checks passed for all missing prerequisites, all confirmed prerequisites, past-date rejection, step/result focus, editing, reset, brief download, and manual Contact import. No inquiry was sent.
-- Desktop and narrow-screen layouts were inspected; the browser's actual narrow viewport was 355px, with no horizontal overflow.
-- Article links resolve to existing registered posts; the three new articles remain unpublished drafts.
-- Design revision: replaced the tall hero and abstract method row with the offer, form, and concrete plan example in one desktop workspace. Verified editable starter selection, step progression, all four unresolved requirements, reset, and phone reflow at an actual 355px width. The revision passed 35 focused tests, scoped lint, and the production build.
+- Production build and TypeScript passed with Node 24; 355 pages generated.
+- All 38 focused tests across four files passed; scoped ESLint passed.
+- Browser verified all three task choices, keyboard selection, optional prerequisites,
+  the actual Markdown download, and the prefilled unsent Contact form.
+- HTTP checks confirmed each selected task reaches the correct editable inquiry note.
+- The narrow browser viewport was 355px after browser scaling, with no horizontal
+  overflow and no inputs in the page’s main content. Desktop was restored for review.
+- Local preview remains at port 3047 under the existing independent user-session service.
+- Articles remain drafts. No live inquiry was sent or production deployment performed.

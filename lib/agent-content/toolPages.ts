@@ -8,9 +8,9 @@ export const toolPages: PageSummary[] = [
     path: "/ai-strategy",
     title: aiStrategyCopy.title,
     description: aiStrategyCopy.description,
-    keywords: "AI strategy first project pilot measurement team questionnaire consulting readiness",
-    paragraphs: [aiStrategyCopy.introduction, ...aiStrategyCopy.method.map(item => `${item.title}. ${item.body}`), ...Object.values(aiStrategyCopy.purposes).map(item => `${item.label}. ${item.measure}`), aiStrategyCopy.privacy, aiStrategyCopy.readinessNote],
-    links: [["Build a project brief", "/ai-strategy#planner"], [aiStrategyCopy.downloadWorksheet, "/downloads/recoup-team-workflow-worksheet.md"], ["Estimate time and cost", "/roi"], ["AI advisory", "/advisory"]],
+    keywords: "AI strategy automation examples royalty reporting catalog cleanup release prep consulting",
+    paragraphs: [aiStrategyCopy.introduction, aiStrategyCopy.exampleNote, ...aiStrategyCopy.projects.map(item => `${item.title} ${item.description} ${item.review} ${item.firstTest} ${aiStrategyCopy.requirementsLabel}: ${item.requirements.join(" ")} ${item.measure}`), aiStrategyCopy.handoffNote],
+    links: [["Explore automation examples", "/ai-strategy#examples"], ...aiStrategyCopy.projects.map(item => [`Discuss ${item.label.toLowerCase()}`, `/contact?workflow=Custom%20systems&strategy=${item.id}`] as [string, string]), ["AI advisory", "/advisory"]],
   },
   {
     path: "/workflow-plan",

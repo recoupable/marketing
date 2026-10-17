@@ -219,15 +219,14 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 
 ## Shared navigation
 
-The `/ai-strategy` toolkit prepares a first-project brief in three steps, lists every missing
-prerequisite, offers a team worksheet download, and uses the existing reviewed-draft Contact
-handoff. Its page copy is in `lib/copy/ai-strategy.ts`; decisions, schema, and export live in
-`lib/ai-strategy/`. Answers stay in page memory until an explicit download or inquiry handoff.
-Events contain only purpose/readiness, never answers. Companion article drafts live in
-`content/drafts/ai-strategy/` and are not included in the public blog registry.
-The planner sits beside its explanation and an example download on desktop, and directly
-below the explanation on phones. Starter examples fill only task/outcome; ownership and
-prerequisites must stay explicit visitor answers. Use plain project-plan wording throughout.
+The `/ai-strategy` page shows an automation example immediately. Three one-click task
+choices switch the proposed output, review responsibility, and inquiry link. It has no
+questionnaire, account gate, or AI call. Shared copy lives in `lib/copy/ai-strategy.ts`.
+Every prerequisite remains available in the optional “How we’d get started” disclosure
+and the ungated Markdown download. These are scoping examples, not a personal assessment.
+The inquiry carries an allowlisted `strategy` ID to Contact, which prefills an editable
+note. It does not create a browser draft or submit a lead. Analytics contain example IDs
+only. Companion articles in `content/drafts/ai-strategy/` remain unpublished drafts.
 
 The header’s Get Started button opens `components/sky/get-started-dialog.tsx`, styled by `get-started-dialog.css`. Shared labels live in `lib/copy/get-started.ts`. Try Our Platform uses the attributed `AppLink`; Build Your Platform links to `/start-project?workflow=Custom%20systems`, preselecting the Custom systems intake interest. Keep the same dialog available from the mobile menu and retain native modal keyboard behavior.
 

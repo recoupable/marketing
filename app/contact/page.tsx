@@ -10,6 +10,8 @@ import {
   getImmersiveWorkflow,
 } from "@/lib/immersive-workflows";
 import { siteConfig } from "@/lib/config";
+import { getStrategyProject } from "@/lib/ai-strategy/getStrategyProject";
+import { aiStrategyCopy } from "@/lib/copy/ai-strategy";
 
 export const metadata: Metadata = withPageMetadata({
   title: "Let’s put AI to work",
@@ -26,11 +28,13 @@ export default async function ContactPage({
     workflow?: string | string[];
     project?: string | string[];
     brief?: string | string[];
+    strategy?: string | string[];
   }>;
 }) {
-  const { workflow, project, brief } = await searchParams;
+  const { workflow, project, brief, strategy } = await searchParams;
   const readinessHandoff = brief === "readiness";
   const selectedProject = getImmersiveWorkflow(project);
+  const strategyProject = getStrategyProject(strategy);
   const requestedInterest =
     typeof workflow === "string" &&
     generalInterests.some((interest) => interest === workflow)
@@ -38,8 +42,10 @@ export default async function ContactPage({
       : undefined;
   // Preserve an explicit choice; a known project can begin with a scoped build.
   const initialInterest =
-    requestedInterest ?? (selectedProject ? "Custom systems" : "Not sure yet");
-  const initialBrief = getImmersiveProjectBrief(project);
+    requestedInterest ?? (selectedProject || strategyProject ? "Custom systems" : "Not sure yet");
+  const initialBrief = getImmersiveProjectBrief(project) ?? (strategyProject
+    ? `${aiStrategyCopy.inquiryMessage} ${strategyProject.label.toLowerCase()} with my team.`
+    : undefined);
 
   return (
     <section className="transformation-contact contact-layout section-padding">
@@ -67,7 +73,7 @@ export default async function ContactPage({
       </div>
       <InquiryForm
         source="/contact"
-        key={`${initialInterest}:${selectedProject?.id ?? "general"}:${readinessHandoff}`}
+        key={`${initialInterest}:${selectedProject?.id ?? strategyProject?.id ?? "general"}:${readinessHandoff}`}
         readinessHandoff={readinessHandoff}
         connected={true}
         initialInterest={initialInterest}

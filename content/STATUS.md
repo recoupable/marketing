@@ -1,14 +1,12 @@
-## First-project AI strategy toolkit — October 16, 2026
+## Automation examples funnel — October 16, 2026
 
-Revised the local toolkit after design review: direct “Plan your first AI project” offer,
-form beside the introduction, example download, editable music-business starters, visible
-step progress, and plain-language questions. All missing prerequisites remain visible.
-
-Added `/ai-strategy`: a team worksheet, three-step project brief, explicit missing prerequisites,
-purpose-specific measurement guidance, Markdown download, and the existing reviewed Contact
-handoff. Resources and Advisory link to it; public discovery uses shared copy. Three original
-Recoup article drafts remain outside the published blog registry. The companion consulting
-skills are a separate Skills change. See `docs/plans/ai-strategy-funnel.md`. Not deployed.
+Replaced the three-step AI project questionnaire with immediate examples for royalty
+reporting, catalog cleanup, and release prep. No answers are required to see the output
+or download the example. Optional details retain every prerequisite and the success
+measure. Contact receives the selected task as an editable note through an allowlisted
+URL parameter. Resources, Advisory, agent discovery, and the three unpublished article
+CTAs describe the new flow. The consulting skills remain a separate Skills change.
+See `docs/plans/ai-strategy-funnel.md`. Not deployed.
 
 ## Company operating model explorer — October 15, 2026
 

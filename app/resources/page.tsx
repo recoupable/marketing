@@ -10,7 +10,7 @@ export const metadata: Metadata = withPageMetadata({ title:"Recoup resources: Gu
 type Resource = { type: string; title: string; description: string; href: string };
 
 const tools: Resource[] = [
-  { type: "FREE PROJECT PLANNER", title: "Plan your first AI project", description: "Choose a task and download a plan with the goal, missing requirements, and success checks.", href: "/ai-strategy" },
+  { type: "AI AT WORK", title: "See what your team could automate", description: "Explore royalty reporting, catalog cleanup, and release prep. See what Recoup would build.", href: "/ai-strategy" },
   { type: "FREE WORKFLOW PLAN", title: "Find your first useful AI workflow", description: "Four questions. A practical plan for your music team. No signup.", href: "/workflow-plan" },
   { type: "READINESS CHECK", title: "Find your starting point", description: "A few questions about the work, your information, and your team.", href: "/audit" },
   { type: "PLANNING TOOL", title: "Work out the value", description: "Model the potential time and cost impact, with assumptions you control.", href: "/roi" },

@@ -56,6 +56,6 @@ We keep confidential files in the approved workspace and collect only what the i
 
 For the release example, the first change might be a request that gathers the required asset information, checks for missing fields, and prepares a review packet. The reviewer still approves it. The test measures whether requests come back less often and whether the accepted handoff takes less total effort.
 
-Download the [Recoup team worksheet](/downloads/recoup-team-workflow-worksheet.md), then use the [first-project toolkit](/ai-strategy) to define the owner and the test. Related reading covers [keeping methods usable by the team](/blog/your-ai-lives-in-one-persons-head), [training from accepted examples](/blog/teach-ai-with-past-investment-memos), and [rolling out beyond one team](/blog/roll-out-ai-beyond-first-team).
+See [what Recoup could automate for your team](/ai-strategy), including royalty reporting, catalog cleanup, and release prep. If you’re running discovery yourself, the [team worksheet](/downloads/recoup-team-workflow-worksheet.md) is available too. Related reading covers [keeping methods usable by the team](/blog/your-ai-lives-in-one-persons-head), [training from accepted examples](/blog/teach-ai-with-past-investment-memos), and [rolling out beyond one team](/blog/roll-out-ai-beyond-first-team).
 
 Start with the last request that came back for correction. Ask the sender and the recipient to explain the same one.

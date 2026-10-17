@@ -54,6 +54,6 @@ The pilot review should end with a specific next commitment: expand to another o
 
 We attach the evidence to that decision. The owner can see the task volume, total human time, quality checks, full costs, and unresolved assumptions. A small sample can justify another test while leaving a larger financial claim open.
 
-Use the [Recoup project brief](/ai-strategy) to name the measure and review date before work starts. Read our guides to [board reporting](/blog/show-your-board-ai-roi), [catalog reporting](/blog/ai-agents-for-music-catalog-reporting), and [expanding beyond the first team](/blog/roll-out-ai-beyond-first-team) for the surrounding work.
+See [Recoup’s automation examples](/ai-strategy) for the work we could take on and how we’d measure each result. Read our guides to [board reporting](/blog/show-your-board-ai-roi), [catalog reporting](/blog/ai-agents-for-music-catalog-reporting), and [expanding beyond the first team](/blog/roll-out-ai-beyond-first-team) for the surrounding work.
 
 The useful timestamp is the moment the recipient accepts the output. Keep the clock running until then.

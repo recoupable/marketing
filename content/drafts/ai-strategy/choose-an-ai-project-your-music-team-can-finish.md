@@ -52,7 +52,7 @@ The first commitment can be small. A few representative runs may establish wheth
 
 ## Bring one piece of work
 
-Our [first-project toolkit](/ai-strategy) turns these decisions into a brief you can download and discuss with your team. It also includes the worksheet we use to ask operators about a recent job.
+Explore [what Recoup could automate for your team](/ai-strategy). Pick a familiar task to see the output we’d build, then talk with us about doing it for your business.
 
 For the reporting example, read [how we bring catalog data into a quarterly report](/blog/automate-royalty-reporting-with-existing-files). For the handoff, see [how to keep AI knowledge from living in one person's head](/blog/your-ai-lives-in-one-persons-head) and [how to extend a working process to another team](/blog/roll-out-ai-beyond-first-team).
 
