@@ -1,3 +1,7 @@
+## Agent navigation palette — October 16, 2026
+
+The Agent header is transparent over the forest-green document canvas, with white navigation text and the existing logo rendered in white. Desktop dropdowns and the mobile menu share the dark palette; lime actions retain dark labels and the selected mode remains a white tab. No header or toggle dimensions changed. The production build and TypeScript pass. Browser checks confirmed transparent header/white logo colors, readable desktop and mobile menus, no mobile horizontal overflow, and identical desktop toggle bounds across modes. The local preview is updated; publication remains pending PR review and merge.
+
 ## Stable Human / Agent toggle — October 16, 2026
 
 Kept the shared header mounted in both views and removed the second toggle from the Markdown toolbar. Agent content starts below the measured header; only the human body/footer becomes hidden and inert. The page reserves its scrollbar gutter to prevent horizontal movement while scrolling is locked. Desktop and mobile browser measurements confirmed identical toggle and button bounds before and after switching; Escape returns focus to Human. The production build and all 454 tests pass, and scoped lint has no errors. Updated the local preview; publication remains pending PR review and merge.

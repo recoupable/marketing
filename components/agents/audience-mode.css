@@ -6,11 +6,102 @@
   --agent-line: #ffffff24;
   --agent-control: #d6ff62;
   --agent-focus: #d6ff62;
+  --agent-surface: #ffffff0d;
+  --agent-hover: #ffffff14;
 }
 /* Keep the original navigation and toggle above the document in both modes. */
 .audience-header {
   position: relative;
   z-index: 100;
+}
+/* Extend the document canvas behind the transparent header without moving it. */
+.audience-mode[data-agent="true"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 89;
+  background: var(--agent-paper);
+  pointer-events: none;
+}
+.sky-site .audience-mode[data-agent="true"] .ss-header {
+  color: var(--agent-bright);
+  background: transparent;
+}
+.audience-mode[data-agent="true"]
+  .ss-header
+  :is(
+    .ss-wordmark,
+    .ss-desktop-nav > a,
+    .ss-tool-menu > summary,
+    .ss-nav-panel a,
+    .ss-mobile-menu > summary,
+    .ss-mobile-menu > nav > a
+  ) {
+  color: var(--agent-bright);
+}
+.audience-mode[data-agent="true"]
+  .ss-header
+  :is(
+    .ss-desktop-nav > a:hover,
+    .ss-tool-menu > summary:hover,
+    .ss-tool-menu[open] > summary,
+    .ss-nav-panel a:hover,
+    .ss-nav-panel a:focus-visible,
+    .ss-mobile-menu > nav > a:hover
+  ) {
+  background: var(--agent-hover);
+}
+.audience-mode[data-agent="true"]
+  .ss-header
+  :is(.ss-desktop-nav .ss-nav-panel, .ss-mobile-menu > nav) {
+  background: var(--agent-paper);
+  box-shadow:
+    0 0 0 1px var(--agent-line),
+    0 20px 40px #0003;
+}
+.audience-mode[data-agent="true"]
+  .ss-header
+  :is(.ss-nav-product-link, .ss-nav-work-card, .ss-nav-resource-icon) {
+  background: var(--agent-surface);
+}
+.audience-mode[data-agent="true"]
+  .ss-header
+  :is(
+    .ss-nav-panel a > span,
+    .ss-nav-resource-copy span,
+    .ss-nav-panel .sky-arrow-icon,
+    .ss-nav-resource-icon
+  ) {
+  color: var(--agent-ink);
+}
+.audience-mode[data-agent="true"]
+  .ss-header
+  .ss-mobile-menu
+  > nav
+  > .ss-tool-menu {
+  box-shadow: 0 1px 0 var(--agent-line);
+}
+.audience-mode[data-agent="true"] .ss-header .ss-mobile-menu .ss-nav-panel {
+  box-shadow: inset 1px 0 var(--agent-line);
+}
+.audience-mode[data-agent="true"]
+  .ss-header
+  :is(.ss-contact, .ss-mobile-start) {
+  color: var(--agent-paper);
+}
+.audience-mode[data-agent="true"]
+  .ss-header
+  :is(a, button, summary):focus-visible {
+  outline-color: var(--agent-focus);
+}
+.audience-mode[data-agent="true"] .audience-toggle {
+  background: var(--agent-hover);
+  color: var(--agent-ink);
+}
+.audience-mode[data-agent="true"]
+  .audience-toggle
+  button:not([aria-pressed="true"]):hover {
+  color: var(--agent-bright);
 }
 .audience-human {
   transition:
@@ -183,6 +274,9 @@
   }
 }
 @media print {
+  .audience-mode[data-agent="true"]::before {
+    display: none;
+  }
   .audience-header,
   .agent-document-toolbar {
     display: none;
