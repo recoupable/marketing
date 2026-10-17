@@ -11,7 +11,53 @@ parser.add_argument('--check', action='store_true')
 args = parser.parse_args()
 root = Path(__file__).resolve().parent.parent
 source = root / 'content/docs/source/api-reference/openapi'
-specs = {name: json.loads((source / name).read_text()) for name in ['accounts.json', 'content.json', 'research.json', 'releases.json', 'social.json', 'context.json']}
+specs = {name: json.loads((source / name).read_text()) for name in ['accounts.json', 'content.json', 'research.json', 'releases.json', 'social.json', 'context.json', 'projects.json']}
+api = Path(args.api).resolve()
+schema_artifact = api / 'lib/contracts/generated/error-responses.json'
+producer_schemas = json.loads(schema_artifact.read_text())
+for name, component, producer in [
+    ('releases.json', 'ArtistPublicProfileErrorResponse', 'ErrorResponse'),
+    ('projects.json', 'Error', 'ErrorOrMessageResponse'),
+]:
+    current = specs[name]['components']['schemas'][component]
+    expected = producer_schemas[producer]
+    if current != expected:
+        if args.check:
+            raise SystemExit(f'API-owned response schema is stale: {name} {component}')
+        specs[name]['components']['schemas'][component] = expected
+        ascii_source = (source / name).read_text().isascii()
+        (source / name).write_text(json.dumps(specs[name], indent=2, ensure_ascii=ascii_source) + '\n')
+
+
+def resolve_schema(schema, document, visited=()):
+    if isinstance(schema, list):
+        return [resolve_schema(item, document, visited) for item in schema]
+    if not isinstance(schema, dict):
+        return schema
+    if '$ref' in schema:
+        reference = schema['$ref']
+        if not reference.startswith('#/') or reference in visited:
+            raise ValueError(f'Response contract requires an acyclic local reference: {reference}')
+        target = document
+        for segment in reference[2:].split('/'):
+            target = target[segment.replace('~1', '/').replace('~0', '~')]
+        return resolve_schema(target, document, (*visited, reference))
+    return {key: resolve_schema(value, document, visited) for key, value in schema.items()}
+
+
+response_schemas = []
+for name, method, path, status in [
+    ('releases.json', 'GET', '/api/artists/{id}/profile', 404),
+    ('projects.json', 'GET', '/api/projects/{projectId}', 401),
+    ('projects.json', 'GET', '/api/projects/{projectId}', 404),
+]:
+    document = specs[name]
+    response = document['paths'][path][method.lower()]['responses'][str(status)]
+    response_schemas.append({
+        'specification': name, 'method': method, 'path': path, 'status': status,
+        'mediaType': 'application/json',
+        'schema': resolve_schema(response['content']['application/json']['schema'], document),
+    })
 context_operation = specs['context.json']['paths']['/api/context']['post']
 mcp = context_operation['x-recoup-mcp-operations']
 table = '\n'.join([
@@ -48,7 +94,10 @@ deletion_section = sites_path.read_text().split('## Delete and cancel generation
 deletion_json = re.search(r'```json\n(.*?)\n```', deletion_section, re.DOTALL)
 record = {
     'evidence': 'Provider-free request syntax and static contract claims only. URLs are placeholders; no provider, payment or customer workflow is exercised.',
+    'responseEvidence': 'Selected route exports use real request, response and authentication code under dependency mocks. No live provider, customer or hosted route is exercised.',
     'sourceRepository': 'recoupable/marketing',
+    'apiResponseSchemaSha256': hashlib.sha256(schema_artifact.read_bytes()).hexdigest(),
+    'responseSchemas': response_schemas,
     'sourceHashes': {str((source / name).relative_to(root)): hashlib.sha256((source / name).read_bytes()).hexdigest() for name in specs},
     'examples': {
         'image': content['ContentCreateImageRequest']['example'],
@@ -93,7 +142,6 @@ context_record = {
     'undocumentedActions': context['x-undocumented-actions'],
     'mcpOperations': context['x-recoup-mcp-operations'],
 }
-api = Path(args.api).resolve()
 outputs = [
     (record, [root / 'content/docs/contracts/example-cases.json', api / 'lib/contracts/fixtures/published-docs.json']),
     (context_record, [root / 'content/docs/contracts/context-contract.json', api / 'lib/contracts/fixtures/context-contract.json']),

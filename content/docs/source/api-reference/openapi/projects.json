@@ -693,28 +693,50 @@
     },
     "schemas": {
       "Error": {
-        "type": "object",
-        "required": [
-          "status",
-          "error"
-        ],
-        "properties": {
-          "status": {
-            "type": "string",
-            "enum": [
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "error": {
+                "description": "Human-readable error message or documented error code.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
               "error"
             ],
-            "description": "Always `\"error\"` for error responses."
+            "additionalProperties": {}
           },
-          "error": {
-            "type": "string",
-            "description": "Human-readable error message."
-          },
-          "message": {
-            "type": "string",
-            "description": "Carries the message in place of `error` when the failure comes from the authentication layer, so a 401 raised while verifying the credential reads `message` and every other error reads `error`."
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "message": {
+                "description": "Human-readable authentication error message.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "message"
+            ],
+            "additionalProperties": {}
           }
-        }
+        ]
       },
       "ProjectCollaborator": {
         "type": "object",
