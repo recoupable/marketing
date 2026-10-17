@@ -23,6 +23,7 @@ export const publicRoutes = [
   "/operations",
   "/royalty-reporting",
   "/resources",
+  "/ai-strategy",
   "/learn/demos",
   "/playbook",
   "/playbook/download",

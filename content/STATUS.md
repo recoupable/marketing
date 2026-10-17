@@ -1,3 +1,13 @@
+## Automation examples funnel — October 16, 2026
+
+Replaced the three-step AI project questionnaire with immediate examples for royalty
+reporting, catalog cleanup, and release prep. No answers are required to see the output
+or download the example. Optional details retain every prerequisite and the success
+measure. Contact receives the selected task as an editable note through an allowlisted
+URL parameter. Resources, Advisory, agent discovery, and the three unpublished article
+CTAs describe the new flow. The consulting skills remain a separate Skills change.
+See `docs/plans/ai-strategy-funnel.md`. Not deployed.
+
 ## Company operating model explorer — October 15, 2026
 
 Added `/atlas` with circular company-area and workflow exploration, component search, operating rules, fields, clickable connections and shareable hashes. Derived from the privacy-checked atlas public export with a narrower model-only field allowlist. Resources navigation, sitemap and agent summary included. Verification and publication state: see the feature PR and `docs/company-map.md`; no production claim.

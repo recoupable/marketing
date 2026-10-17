@@ -1,8 +1,17 @@
 import { workflowPlanCopy } from "../copy/workflow-plan.ts";
+import { aiStrategyCopy } from "../copy/ai-strategy.ts";
 import type { PageSummary } from "./types.ts";
 
 // Summaries of the free tools and the agent entry page; same representation rules as offerPages.
 export const toolPages: PageSummary[] = [
+  {
+    path: "/ai-strategy",
+    title: aiStrategyCopy.title,
+    description: aiStrategyCopy.description,
+    keywords: "AI strategy automation examples royalty reporting catalog cleanup release prep consulting",
+    paragraphs: [aiStrategyCopy.introduction, aiStrategyCopy.exampleNote, ...aiStrategyCopy.projects.map(item => `${item.title} ${item.description} ${item.review} ${item.firstTest} ${aiStrategyCopy.requirementsLabel}: ${item.requirements.join(" ")} ${item.measure}`), aiStrategyCopy.handoffNote],
+    links: [["Explore automation examples", "/ai-strategy#examples"], ...aiStrategyCopy.projects.map(item => [`Discuss ${item.label.toLowerCase()}`, `/contact?workflow=Custom%20systems&strategy=${item.id}`] as [string, string]), ["AI advisory", "/advisory"]],
+  },
   {
     path: "/workflow-plan",
     title: workflowPlanCopy.title,
