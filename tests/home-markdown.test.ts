@@ -11,11 +11,20 @@ import { billingCycles, planPrice, pricingInquiryHref } from "../lib/pricing";
 import { absoluteUrl } from "../lib/seo";
 
 const copies = [homeCopy, homeHeroCopy, homeOffersCopy, homeCaseStudiesCopy];
-const implementationFields = new Set(["id", "visual", "file", "src", "href"]);
+const implementationFields = new Set([
+  "id",
+  "visual",
+  "file",
+  "src",
+  "href",
+  "width",
+  "height",
+]);
 
 // Checking every editorial field catches newly added copy that the export omits.
 function editorialStrings(value: unknown): string[] {
-  if (typeof value === "string") return [value];
+  if (["string", "number", "boolean"].includes(typeof value))
+    return [String(value)];
   if (!value || typeof value !== "object") return [];
   return Object.entries(value).flatMap(([key, item]) =>
     implementationFields.has(key) ? [] : editorialStrings(item),
@@ -33,6 +42,10 @@ test("homepage exports every shared editorial field as one full document", async
   expect(markdown).not.toContain("Summary of the public page");
   for (const text of editorialStrings(copies))
     expect(markdown, text).toContain(text);
+  const investment = homeHeroCopy.cards.investment;
+  expect(markdown).toContain(
+    `${investment.assumption}: ${investment.share}% ${investment.shareLabel}`,
+  );
   expect(entry.searchable).toBe(markdown);
 });
 
