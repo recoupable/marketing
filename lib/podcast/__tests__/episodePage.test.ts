@@ -36,7 +36,7 @@ test("episode JSON-LD is a PodcastEpisode in the Recoup Podcast series", () => {
 });
 
 test("episode dates read as calendar dates", () => {
-  expect(formatEpisodeDate("2026-10-11")).toBe("October 11, 2026");
+  expect(formatEpisodeDate("2026-10-11")).toBe("10/11/2026");
 });
 
 test("no published copy carries an em or en dash", () => {

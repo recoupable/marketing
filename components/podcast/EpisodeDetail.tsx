@@ -3,8 +3,7 @@ import Link from "next/link";
 import { SkyArrow } from "@/components/sky/arrow";
 import { podcastCopy } from "@/lib/copy/podcast";
 import type { Episode } from "@/lib/podcast/episodeSchema";
-import { formatDuration } from "@/lib/podcast/formatDuration";
-import { formatEpisodeDate } from "@/lib/podcast/formatEpisodeDate";
+import { episodeMeta } from "@/lib/podcast/episodeMeta";
 import { youtubeEmbedUrl } from "@/lib/podcast/youtubeEmbedUrl";
 import { EpisodeListenLinks } from "./EpisodeListenLinks";
 import { EpisodeTranscript } from "./EpisodeTranscript";
@@ -21,7 +20,7 @@ export function EpisodeDetail({ episode, transcript }: { episode: Episode; trans
   return (
     <article className="col-start-2 row-start-1 min-w-0 pt-11 max-[760px]:pt-4" aria-labelledby="episode-title">
       <Link className="inline-flex items-center gap-2 text-sm font-medium text-[#53707d] hover:text-[#087bab] [&_svg]:!w-4 [&_svg]:!h-4" href="/podcast"><SkyArrow direction="left" /> {copy.back}</Link>
-      <p className="!mt-7 text-[13px] font-medium text-[#586f78]">{formatEpisodeDate(episode.date)} · {formatDuration(episode.durationSeconds)}</p>
+      <p className="!mt-7 text-[13px] font-medium text-[#586f78]">{episodeMeta(episode)}</p>
       <h1 id="episode-title" className="!mt-3 !text-[clamp(36px,3.6vw,52px)] !font-[450] !leading-[1.08] !tracking-[-0.05em]">{episode.title} <span className="text-[#586f78]">w/ {episode.guest}</span></h1>
       <EpisodeListenLinks slug={episode.slug} links={episode.links} />
       {embed ? (
