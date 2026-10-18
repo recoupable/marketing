@@ -9,7 +9,7 @@ const deliverableIcons = [
 export function SkyOwnership() {
   return <section className="sky-section sky-ownership" id="ownership" aria-labelledby="sky-ownership-title">
     <div className="sky-ownership-panel">
-      <header data-reveal=""><p className="sky-section-label">{homeCopy.ownership.eyebrow}</p><h2 id="sky-ownership-title">Built by Recoup.<br /><span>Owned by you.</span></h2></header>
+      <header data-reveal=""><p className="sky-section-label">{homeCopy.ownership.eyebrow}</p><h2 id="sky-ownership-title">{homeCopy.ownership.title[0]}<br /><span>{homeCopy.ownership.title[1]}</span></h2></header>
       <dl className="sky-ownership-deliverables" data-reveal-group="">
         {homeCopy.ownership.deliverables.map((item, index) => <div key={item.title}><dt><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={deliverableIcons[index]} /></svg>{item.title}</dt><dd>{item.description}</dd></div>)}
       </dl>

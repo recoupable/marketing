@@ -1,3 +1,9 @@
+## Full homepage Markdown — October 17, 2026
+
+Replaced the 215-word homepage summary with the complete 914-word editorial document, generated from the same hero, service, case-study, process, ownership, tool, and FAQ copy as the Human page. Both billing options reuse the pricing calculations and inquiry links. Agent mode, `/index.md`, content negotiation, discovery metadata, and the paginated reader share this full entry.
+
+All 459 tests, scoped ESLint, and the production build pass. An HTML-to-Markdown audit verified all 184 editorial text fragments and 23 links rendered by the Human homepage; Human text and link destinations match current production. The Markdown document contains 25 links because it also includes the two monthly inquiry links alongside the default annual choices. Browser checks confirmed the full document through its final FAQ/closing sections, Copied feedback, returning to Human mode, and identical toggle bounds. Preview is local; publication is pending PR review and merge.
+
 ## Markdown merge checks — October 17, 2026
 
 Preserved Brand Studio Markdown downloads during page negotiation, honored explicit Markdown refusal before falling back to plain text, and added the shared CORS preflight handler. Human-mode printing retains the header. Route coverage now includes all JavaScript and TypeScript page extensions. All 455 tests, scoped lint, and the production build pass. HTTP checks passed for 20 Studio Markdown assets, three negotiated HTML routes, four explicit Markdown URLs, and CORS preflight. Merge remains pending checks on this commit.

@@ -7,6 +7,7 @@ export const homeCopy = {
   ],
   ownership: {
     eyebrow: "After the handoff",
+    title: ["Built by Recoup.", "Owned by you."],
     deliverables: [
       { title: "Your code.", description: "Custom code in a repository your company controls." },
       { title: "Your documentation.", description: "How to run, maintain, and connect the system." },
@@ -15,7 +16,10 @@ export const homeCopy = {
     terms: "Ownership, licenses, hosting, and platform or third-party costs are agreed in scope. Continued support is separate.",
   },
   engagements: {
+    eyebrow: "WORK WITH RECOUP",
     title: "Choose your level of support.",
+    advisoryAction: "Explore advisory",
+    partnerAction: "Discuss your build",
     startingAt: "Starting at",
     advisory: "Your team implements. We provide strategy, planning, and coaching.",
     partner: "We build and integrate the systems, train your team, and support adoption.",
@@ -23,6 +27,14 @@ export const homeCopy = {
     compare: "Compare all plans",
   },
   tools: {
+    eyebrow: "RECOUP TOOLS",
+    title: ["Use Recoup Platform.", "Or bring your own AI."],
+    platformTitle: ["Your music team’s", "AI workspace."],
+    platformIncludes: "Recoup Platform + music skill pack · USD",
+    platformAction: "Explore Recoup Platform",
+    skillsTitle: ["Give your agent", "a music playbook."],
+    developersTitle: ["Build Recoup", "into your product."],
+    developersAction: "Explore developer tools",
     platformLabel: "Platform",
     skillsLabel: "Open-source skills",
     developersLabel: "Developer tools",
@@ -32,6 +44,7 @@ export const homeCopy = {
     skills: "Open-source playbooks for research, releases, content, and catalogs, installed in a compatible AI agent.",
     developers: "Add artist context, research, and content tools to your application through the API, MCP, or CLI.",
   },
+  questionsTitle: ["Before we", "get started."],
   questions: [
     {
       question: "What does the free audit include?",

@@ -6,7 +6,7 @@ export function SkyBuyingQuestions() {
   return (
     <section className="sky-buying-questions" aria-labelledby="sky-buying-title">
       <header data-reveal="">
-        <h2 id="sky-buying-title">Before we<br /> get started.</h2>
+        <h2 id="sky-buying-title">{homeCopy.questionsTitle[0]}<br /> {homeCopy.questionsTitle[1]}</h2>
       </header>
       <div className="sky-buying-answers" data-reveal-group="">
         {homeCopy.questions.map(({ question, answer, link }) => (

@@ -478,7 +478,7 @@ The shared header uses DM Sans for navigation and its Get Started button. Deskto
 
 ### Homepage copy reduction — September 14, 2026
 
-The homepage gives visitors enough information to choose a next step; linked service, pricing, product, and case-study pages carry the detail. Changed homepage copy lives in `lib/copy/home.ts`, `home-offers.ts`, and `home-case-studies.ts`; footer copy lives in `lib/copy/footer.ts`. The machine-readable homepage summary reuses homepage copy.
+The homepage gives visitors enough information to choose a next step; linked service, pricing, product, and case-study pages carry the detail. Changed homepage copy lives in `lib/copy/home.ts`, `home-hero.ts`, `home-offers.ts`, and `home-case-studies.ts`; footer copy lives in `lib/copy/footer.ts`. The machine-readable homepage document includes the full homepage copy, in the same reading order, including FAQs and both billing options. Human and Agent headings and body copy share the same source.
 
 The statement is “We help the people who create, own, and invest in music put AI to work.” Preserve its word-by-word reveal and accessible plain-text equivalent, with a balanced text measure capped at 820px or 30ch. Give this statement an editorial pause: 144–208px above and 160–232px below on desktop, and 112px above / 128px below on phones. Use content-based spacing instead of a viewport-height scroll section. Ownership retains repository control, documentation, training, licenses, and separate support terms. FAQs retain practical audit, ownership, integration, data-access, and cost questions. Prices, annual billing totals, attribution, form behavior, and destination-page detail stay intact.
 
