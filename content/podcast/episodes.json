@@ -157,33 +157,5 @@
       "We cover what a producer learns about leverage, why most music-tech pitches fail the people who actually run catalogs, and what it takes to build something a finance team will trust with royalty data."
     ],
     "guestLinks": []
-  },
-  {
-    "slug": "kantor",
-    "title": "How the traditional music industry moves into new technology",
-    "guest": "Kantor",
-    "role": "Artist",
-    "date": "2022-05-16",
-    "durationSeconds": 3567,
-    "cover": "/podcast/kantor-wide.jpg",
-    "links": {
-      "spotify": "https://open.spotify.com/episode/23ficFzRzJMYbnWV7hB3o3",
-      "youtube": "https://www.youtube.com/watch?v=y0qslS8vMMs",
-      "apple": "https://podcasts.apple.com/us/podcast/how-the-traditional-music-industry-moves-into-new/id1316209308?i=1000561551650"
-    },
-    "summary": [
-      "Every wave of technology reaches the music business the same way: a few operators move early, the rest wait for the case study. Kantor has been on both sides.",
-      "We talk through how an established artist evaluates a new platform, what a label's finance and legal teams need to see before they sign off, where the traditional distribution stack still wins, and the difference between a technology that changes the economics and one that changes the press release. A clear framework for anyone deciding what to adopt and when."
-    ],
-    "guestLinks": [
-      {
-        "label": "X",
-        "href": "https://twitter.com/kantormusic"
-      },
-      {
-        "label": "Facebook",
-        "href": "https://www.facebook.com/KantorMusic/videos/848396465647613"
-      }
-    ]
   }
 ]
