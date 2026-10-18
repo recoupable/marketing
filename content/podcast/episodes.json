@@ -1,5 +1,33 @@
 [
   {
+    "slug": "sean-peace",
+    "title": "Buy at 8x, sell to fans at 20x",
+    "guest": "Sean Peace",
+    "role": "Founder, SongVest",
+    "date": "2026-10-18",
+    "durationSeconds": 1826,
+    "cover": "/podcast/sean-peace-wide.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/episode/5kGHfRMSMh1rFgw4Vfep2a",
+      "youtube": "https://www.youtube.com/watch?v=becKY4awx_o"
+    },
+    "summary": [
+      "\"Our target multiple is a 20X,\" says Sean Peace, who founded SongVest in 2007. A catalog owner buys at 8x, then sells 10% or 15% of a song to fans at 20x. Fans pay it because a SongShare is \"the coolest piece of memorabilia you'll ever buy\": a piece of a song they love that actually pays a royalty.",
+      "We test that on one real offering. In SongVest's 2026 offering circular, a share of \"Rain On Me\" earned $12,637 over the last twelve months. The seller gets $252,750, about 20 times that, and fans pay up to $318,465, about 25 times. Sean explains who those buyers are, how payouts reach them, and why the first song he put on the marketplace, \"Hit The Quan\", was one he owned himself.",
+      "We also cover fewer, bigger buyers after Sony and Recognition and BMG and Concord, what drives a multiple a year later, why a ton of money doesn't make you good at valuing catalogs, why song shares don't trade like stocks yet, and what AI licensing will actually pay song owners."
+    ],
+    "guestLinks": [
+      {
+        "label": "SongVest",
+        "href": "https://www.songvest.com/"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/seanpeace/"
+      }
+    ]
+  },
+  {
     "slug": "jesse-kirshbaum",
     "title": "Music licensing needs to be frictionless, not permissionless",
     "guest": "Jesse Kirshbaum",
@@ -129,33 +157,5 @@
       "We cover what a producer learns about leverage, why most music-tech pitches fail the people who actually run catalogs, and what it takes to build something a finance team will trust with royalty data."
     ],
     "guestLinks": []
-  },
-  {
-    "slug": "kantor",
-    "title": "How the traditional music industry moves into new technology",
-    "guest": "Kantor",
-    "role": "Artist",
-    "date": "2022-05-16",
-    "durationSeconds": 3567,
-    "cover": "/podcast/kantor-wide.jpg",
-    "links": {
-      "spotify": "https://open.spotify.com/episode/23ficFzRzJMYbnWV7hB3o3",
-      "youtube": "https://www.youtube.com/watch?v=y0qslS8vMMs",
-      "apple": "https://podcasts.apple.com/us/podcast/how-the-traditional-music-industry-moves-into-new/id1316209308?i=1000561551650"
-    },
-    "summary": [
-      "Every wave of technology reaches the music business the same way: a few operators move early, the rest wait for the case study. Kantor has been on both sides.",
-      "We talk through how an established artist evaluates a new platform, what a label's finance and legal teams need to see before they sign off, where the traditional distribution stack still wins, and the difference between a technology that changes the economics and one that changes the press release. A clear framework for anyone deciding what to adopt and when."
-    ],
-    "guestLinks": [
-      {
-        "label": "X",
-        "href": "https://twitter.com/kantormusic"
-      },
-      {
-        "label": "Facebook",
-        "href": "https://www.facebook.com/KantorMusic/videos/848396465647613"
-      }
-    ]
   }
 ]

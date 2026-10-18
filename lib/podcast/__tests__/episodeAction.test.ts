@@ -10,5 +10,5 @@ test("an episode with a YouTube link reads Watch now and opens its episode page"
 });
 
 test("an audio-only episode reads Listen now and opens its episode page", () => {
-  expect(episodeAction({ slug: "kantor", links })).toStrictEqual({ label: "Listen now", href: "/podcast/kantor" });
+  expect(episodeAction({ slug: "audio-only-guest", links })).toStrictEqual({ label: "Listen now", href: "/podcast/audio-only-guest" });
 });
