@@ -4931,7 +4931,7 @@
                 "expected_sha": {
                   "type": "string",
                   "pattern": "^[a-f0-9]{40}$",
-                  "description": "Optional observed blob SHA from the matching versioned read. When provided, update the existing file on main only if its current contents still match. Omission retains unguarded legacy create/update behavior; no automatic conflict retry occurs. If the target was deleted after the read, do not retry without the condition. This upload has no dedicated missing-target status: non-conflict failures return 500 when no file succeeds, or appear in `errors` alongside successful receipts in a 200 partial result. A missing target is not guaranteed to return 404 or 409; reread the path before deciding how to recover.",
+                  "description": "Optional observed blob SHA from the matching versioned read. When provided, update the existing file on main only if its current contents still match. Omission retains unguarded legacy create/update behavior; no automatic conflict retry occurs. See the upload operation's missing-target recovery guidance before retrying a failed save.",
                   "example": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                 }
               }

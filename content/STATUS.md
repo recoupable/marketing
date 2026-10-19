@@ -5,7 +5,7 @@ encoding, conflict-only and mixed failures, partial-success receipts and explici
 retry behavior. The API/Marketing fixtures freeze the copyable requests and
 response schemas; declaration checks also catch removal of optional fields.
 All 460 Marketing tests, seven Python checks, docs generation/checks and the local
-production build pass. The API companion's 42 contract tests pass without provider
+production build pass. The API companion's 44 contract tests pass without provider
 or customer writes. Coordinated API fixture, Marketing and retained Docs PRs still
 need final-head review and publication. Client adoption, live-sandbox atomicity
 and hosted save/access acceptance remain separate; no production behavior is
