@@ -19,7 +19,12 @@ def build_context_fixture(document, source_hash, evidence):
         'undocumentedActions': context['x-undocumented-actions'],
         'mcpOperations': context['x-recoup-mcp-operations'],
         'standardMcpOperations': context['x-recoup-standard-mcp-operations'],
-        'evidenceResponseReferences': expected,
+        'evidenceResponseReferences': ['#/evidenceSchemas/receipt', '#/evidenceSchemas/page'],
+        'evidenceResponseReferenceSource': {
+            'repository': 'recoupable/marketing',
+            'path': 'content/docs/source/api-reference/openapi/context.json',
+            'references': expected,
+        },
         'evidenceSchemas': {
             'receipt': resolve_response_schema({'$ref': expected[0]}, document),
             'page': resolve_response_schema({'$ref': expected[1]}, document),
