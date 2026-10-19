@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "fb90255608c48bd92b78ebc89ddc74c8dff635a4",
+  "apiSourceCommit": "173b2e32a79dd804f2ce7db14f73e66191bc09d0",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -1899,6 +1899,14 @@
       "reason": "Product or legacy supporting routes require documented public/internal disposition"
     },
     {
+      "method": "DELETE",
+      "path": "/api/posts/{id}",
+      "implementation": "app/api/posts/[id]/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/social.json",
+      "classification": "public",
+      "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
       "method": "GET",
       "path": "/api/posts/{id}",
       "implementation": "app/api/posts/[id]/route.ts",
@@ -3291,14 +3299,6 @@
       "reason": "Product or legacy supporting routes require documented public/internal disposition"
     },
     {
-      "method": "DELETE",
-      "path": "/api/posts/{id}",
-      "implementation": null,
-      "documentation": "content/docs/source/api-reference/openapi/social.json",
-      "classification": "pending",
-      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
-    },
-    {
       "method": "GET",
       "path": "/api/admins/agent/signups",
       "implementation": null,
@@ -3628,7 +3628,7 @@
     "content/docs/source/api-reference/openapi/research.json": "e41af080333df4740bf2a217fc40c588b95ae7cf0d73728a0caaff7367f25547",
     "content/docs/source/api-reference/openapi/sandbox.json": "b626a5d424acf7b2795a8d4b561c70b6f37be3f1fb5314fc33f506201874d1b9",
     "content/docs/source/api-reference/openapi/sessions.json": "e3332130860d1bc436e754fdfcbfa1e5ac58daf9414f79db5c0cd9acab21503c",
-    "content/docs/source/api-reference/openapi/social.json": "641b6cb00a9aedf13a82f5621e1cb8573b699ff06026ba3a5bb234a755cd508e",
+    "content/docs/source/api-reference/openapi/social.json": "27c3953e379c558d017271fa4e323d5818a63b83ff310b2f97a1599c8bd5aa2f",
     "content/docs/source/api-reference/openapi/templates.json": "65c63ec2e5c942cbe79cc3f1dfd0a1f7abb97f9b5077826f0d430b3cb9478fcf"
   }
 }
