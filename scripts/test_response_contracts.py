@@ -8,4 +8,4 @@ if __name__ == '__main__':
         str(Path(__file__).resolve().parent), pattern='test_*_contracts.py',
     )
     result = unittest.TextTestRunner().run(suite)
-    raise SystemExit(0 if result.wasSuccessful() else 1)
+    raise SystemExit(0 if result.wasSuccessful() and result.testsRun else 1)

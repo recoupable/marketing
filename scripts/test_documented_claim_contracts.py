@@ -12,6 +12,7 @@ class DocumentedClaimContractsTest(ResponseContractTestCase):
             ('releases.json', 'artist', 'Artist scrape description'),
             ('social.json', 'social', 'Social scrape description'),
             ('content.json', 'callback', 'callbackSecret'),
+            ('content.json', 'callback_name', 'callbackSecret'),
         ]
         for filename, mutation, message in cases:
             with self.subTest(claim=mutation):
@@ -23,8 +24,10 @@ class DocumentedClaimContractsTest(ResponseContractTestCase):
                 elif mutation == 'social':
                     operation = spec['paths']['/api/socials/{id}/scrape']['post']
                     operation['description'] = re.sub(r'([\d,]+) \+ ([\d,]+) × posts', r'\1 + posts', operation['description'])
-                else:
+                elif mutation == 'callback':
                     spec['components']['securitySchemes'].pop('callbackSecret')
+                else:
+                    spec['components']['securitySchemes']['callbackSecret'].pop('name')
                 path.write_text(json.dumps(spec, indent=2) + '\n')
                 failed = subprocess.run(self.command, capture_output=True, text=True)
                 self.assertNotEqual(failed.returncode, 0)

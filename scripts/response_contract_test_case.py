@@ -32,5 +32,6 @@ class ResponseContractTestCase(unittest.TestCase):
         self.authentication = {'anyOf': [self.error, message]}
         artifact.write_text(json.dumps({'ErrorResponse': self.error, 'MessageErrorResponse': message, 'AuthenticationErrorResponse': self.authentication}))
         self.command = ['python3', str(script), '--api', str(self.api)]
-        subprocess.run(self.command, check=True, capture_output=True, text=True)
+        result = subprocess.run(self.command, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
 

@@ -25,12 +25,14 @@ class ResponseSchemaContractsTest(ResponseContractTestCase):
                 original = path.read_bytes()
                 spec = json.loads(original)
                 spec['components']['schemas'][component] = {'type': 'string'}
-                path.write_text(json.dumps(spec, indent=2) + '\n')
-                failed = subprocess.run([*self.command, '--check'], capture_output=True, text=True)
-                self.assertNotEqual(failed.returncode, 0)
-                self.assertIn('API-owned response schema', failed.stderr)
-                self.assertIn(component, failed.stderr)
-                path.write_bytes(original)
+                try:
+                    path.write_text(json.dumps(spec, indent=2) + '\n')
+                    failed = subprocess.run([*self.command, '--check'], capture_output=True, text=True)
+                    self.assertNotEqual(failed.returncode, 0)
+                    self.assertIn('API-owned response schema', failed.stderr)
+                    self.assertIn(component, failed.stderr)
+                finally:
+                    path.write_bytes(original)
 
 
     def test_check_rejects_operation_identity_drift_in_either_fixture_copy(self):
@@ -67,11 +69,15 @@ class ResponseSchemaContractsTest(ResponseContractTestCase):
             'parameters': [{'name': 'projectId', 'in': 'path', 'required': True, 'schema': {'type': 'string'}}],
         }
         spec['paths']['/api/projects/{projectId}'].update(metadata)
+        response = spec['paths']['/api/projects/{projectId}']['get']['responses']['404']['content']['application/json']
+        response['schema'] = {'$ref': '#/components/schemas/AuthenticationError'}
         path.write_text(json.dumps(spec, indent=2) + '\n')
         generated = subprocess.run(self.command, capture_output=True, text=True)
         self.assertEqual(generated.returncode, 0, generated.stderr)
         updated = json.loads(path.read_text())['paths']['/api/projects/{projectId}']
         for key, value in metadata.items():
             self.assertEqual(updated[key], value)
+        self.assertEqual(updated['get']['responses']['404']['content']['application/json']['schema'],
+                         {'$ref': '#/components/schemas/Error'})
         subprocess.run([*self.command, '--check'], check=True, capture_output=True, text=True)
 

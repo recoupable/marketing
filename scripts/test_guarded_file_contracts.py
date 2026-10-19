@@ -39,7 +39,7 @@ class GuardedFileContractsTest(ResponseContractTestCase):
     def test_missing_guarded_file_parameters_or_examples_fail_before_freezing(self):
         path = self.marketing / 'content/docs/source/api-reference/openapi/content.json'
         original = path.read_bytes()
-        for name, remove in [('path', True), ('include_revision', True), ('path', False)]:
+        for name, remove in [('path', True), ('include_revision', True), ('path', False), ('include_revision', False)]:
             with self.subTest(parameter=name, removed=remove):
                 spec = json.loads(original)
                 parameters = spec['paths']['/api/sandboxes/file']['get']['parameters']
