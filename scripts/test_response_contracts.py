@@ -98,6 +98,30 @@ class ResponseContractsTest(unittest.TestCase):
             self.assertEqual(updated[key], value)
         subprocess.run([*self.command, '--check'], check=True, capture_output=True, text=True)
 
+    def test_standard_only_evidence_cannot_be_published_as_delegated(self):
+        path = self.marketing / 'content/docs/source/api-reference/openapi/context.json'
+        spec = json.loads(path.read_text())
+        operation = spec['paths']['/api/context']['post']
+        operation['x-recoup-mcp-operations']['attach_evidence'] = operation['x-recoup-standard-mcp-operations']['attach_evidence']
+        path.write_text(json.dumps(spec, indent=2) + '\n')
+        failed = subprocess.run(self.command, capture_output=True, text=True)
+        self.assertNotEqual(failed.returncode, 0)
+        self.assertIn('cannot appear in the delegated MCP mapping', failed.stderr)
+
+    def test_check_rejects_evidence_classification_and_response_drift_in_both_copies(self):
+        paths = [self.api / 'lib/contracts/fixtures/context-contract.json', self.marketing / 'content/docs/contracts/context-contract.json']
+        for path in paths:
+            for field in ['standardMcpOperations', 'evidenceSchemas']:
+                with self.subTest(path=str(path), field=field):
+                    original = path.read_bytes()
+                    fixture = json.loads(original)
+                    fixture[field] = {}
+                    path.write_text(json.dumps(fixture, indent=2) + '\n')
+                    failed = subprocess.run([*self.command, '--check'], capture_output=True, text=True)
+                    self.assertNotEqual(failed.returncode, 0)
+                    self.assertIn(str(path.resolve()), failed.stderr)
+                    path.write_bytes(original)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,3 +1,14 @@
+## Retained evidence association contracts — October 19, 2026
+
+Prepared a canonical Context contract companion for the current-main API candidate.
+It documents three evidence-linking actions, separates standard-only tools from
+delegated connections, and freezes exact receipt/page schemas in both fixture
+copies. It also preserves the merged supporting-text receipt boundary: metadata
+only, no verified file origin, and no added delegated disclosure. The producer now
+rejects an evidence action in both tool maps; fixture checks catch classification
+and response drift. Publication, independent review and the prerequisite database
+release remain pending. This source work performs no migration or hosted write.
+
 ## Guarded Git file contracts — October 19, 2026
 
 Documented versioned file reads, observed-SHA updates, canonical paths, returned

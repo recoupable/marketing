@@ -19,6 +19,9 @@ api = Path(args.api).resolve()
 schema_hash, response_schemas = build_response_contracts(specs, source, api, args.check)
 context_operation = specs['context.json']['paths']['/api/context']['post']
 mcp = context_operation['x-recoup-mcp-operations']
+standard_mcp = context_operation['x-recoup-standard-mcp-operations']
+if set(mcp) & set(standard_mcp):
+    raise SystemExit('Standard-only Context actions cannot appear in the delegated MCP mapping.')
 table = '\n'.join([
     '| REST action | Delegated OAuth tool | Classification |',
     '| --- | --- | --- |',
@@ -28,7 +31,16 @@ description = context_operation['description']
 table_start = '| REST action | Delegated OAuth tool | Classification |'
 if table_start not in description:
     raise SystemExit('Context description is missing the generated MCP mapping table.')
-expected_description = description.split(table_start)[0] + table
+standard_table = '\n'.join([
+    '### Standard-only evidence tools',
+    '',
+    'These tools are available to standard MCP clients after the required database/API release. They are excluded from delegated OAuth connections pending organization-grant review.',
+    '',
+    '| REST action | Standard MCP tool | Classification |',
+    '| --- | --- | --- |',
+    *[f'| `{action}` | `{item["name"]}` | {"Read-only hint" if item["readOnly"] else "Writes"} |' for action, item in standard_mcp.items()],
+])
+expected_description = description.split(table_start)[0] + table + '\n\n' + standard_table
 if args.check and description != expected_description:
     raise SystemExit('Stale Context MCP mapping table; regenerate it from the canonical metadata.')
 if not args.check and description != expected_description:
@@ -129,6 +141,11 @@ context_record = {
     'requestSchemas': context['requestBody']['content']['application/json']['schema']['oneOf'],
     'undocumentedActions': context['x-undocumented-actions'],
     'mcpOperations': context['x-recoup-mcp-operations'],
+    'standardMcpOperations': context['x-recoup-standard-mcp-operations'],
+    'evidenceSchemas': {
+        'receipt': specs['context.json']['components']['schemas']['ContextEvidenceAttachmentReceipt'],
+        'page': specs['context.json']['components']['schemas']['ContextEvidenceAttachmentPage'],
+    },
 }
 outputs = [
     (record, [root / 'content/docs/contracts/example-cases.json', api / 'lib/contracts/fixtures/published-docs.json']),
