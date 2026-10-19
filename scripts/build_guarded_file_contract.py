@@ -7,7 +7,10 @@ def build_guarded_file_contract(document):
     file_read = document['paths']['/api/sandboxes/file']['get']
     file_write = document['paths']['/api/sandboxes/files']['post']
     required = {'path', 'include_revision'}
-    parameters = {parameter['name']: parameter for parameter in file_read['parameters'] if parameter['name'] in required}
+    parameters = {
+        parameter['name']: parameter for parameter in file_read['parameters']
+        if parameter.get('in') == 'query' and parameter['name'] in required
+    }
     if set(parameters) != required or any(
         parameter.get('example', parameter['schema'].get('example')) is None
         for parameter in parameters.values()
