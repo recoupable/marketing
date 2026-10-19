@@ -19,7 +19,9 @@ class ResponseContractsTest(unittest.TestCase):
         self.marketing, self.api = workspace / 'marketing', workspace / 'api'
         script = self.marketing / 'scripts/build-contract-examples.py'
         script.parent.mkdir(parents=True)
-        for name in ['build-contract-examples.py', 'build_response_contracts.py', 'resolve_response_schema.py']:
+        for name in ['build-contract-examples.py', 'build_response_contracts.py', 'resolve_response_schema.py',
+                     'refresh_context_mapping.py', 'build_published_docs_record.py',
+                     'build_guarded_file_contract.py', 'build_context_fixture.py']:
             shutil.copyfile(root / 'scripts' / name, script.parent / name)
         shutil.copytree(root / 'content/docs/source', self.marketing / 'content/docs/source')
         (self.marketing / 'content/docs/contracts').mkdir()
@@ -121,6 +123,18 @@ class ResponseContractsTest(unittest.TestCase):
                     self.assertNotEqual(failed.returncode, 0)
                     self.assertIn(str(path.resolve()), failed.stderr)
                     path.write_bytes(original)
+
+    def test_context_models_are_reachable_and_page_reuses_the_receipt(self):
+        path = self.marketing / 'content/docs/source/api-reference/openapi/context.json'
+        spec = json.loads(path.read_text())
+        components = spec['components']['schemas']
+        self.assertEqual(components['ContextEvidenceAttachmentPage']['properties']['items']['items'],
+                         {'$ref': '#/components/schemas/ContextEvidenceAttachmentReceipt'})
+        spec['paths']['/api/context']['post']['responses']['200']['content']['application/json']['schema'] = {'type': 'object'}
+        path.write_text(json.dumps(spec, indent=2) + '\n')
+        failed = subprocess.run(self.command, capture_output=True, text=True)
+        self.assertNotEqual(failed.returncode, 0)
+        self.assertIn('must be connected to the 200 response', failed.stderr)
 
 
 if __name__ == '__main__':

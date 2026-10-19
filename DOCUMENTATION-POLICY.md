@@ -75,9 +75,14 @@ the current provider-neutral Context schemas without calling services, set
 retain semantic restrictions in descriptions, and refresh the shared fixture.
 Set `RECOUP_CONTEXT_MCP_OUTPUT=/tmp/context-mcp.json` in the same test to export
 the static delegated names and permission annotations; retain the discovery caveat.
-Set `RECOUP_CONTEXT_STANDARD_MCP_OUTPUT` to export the separately classified
-standard-only evidence tools and `RECOUP_CONTEXT_EVIDENCE_OUTPUT` for their
+Set `RECOUP_CONTEXT_STANDARD_MCP_OUTPUT=/tmp/context-standard-mcp.json` to export the separately classified
+standard-only evidence tools and `RECOUP_CONTEXT_EVIDENCE_OUTPUT=/tmp/context-evidence.json` for their
 receipt/page response schemas. Keep those tools out of the delegated table.
 The shared fixture checks both classifications and exact response declarations.
+Preserve authored field descriptions when updating exported request shapes;
+they explain pilot URL restrictions, workspace checks and brief limits beyond JSON
+syntax. Evidence receipt/page components must be referenced by the 200 response
+union, and page items reuse the receipt component. Other Context actions retain
+their existing object fallback; this does not make every legacy result typed.
 Record actions omitted from the reference explicitly until their provider-neutral
 public contract is stable; omission is not an API access restriction. Exported schemas do not prove hosted workflow acceptance.

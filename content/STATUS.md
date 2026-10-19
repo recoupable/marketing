@@ -1,5 +1,10 @@
 ## Retained evidence association contracts — October 19, 2026
 
+Review follow-up restores field guidance, connects the evidence models to the
+response union, reuses the receipt schema in pages, and documents duplicate and
+cursor behavior. Focused producer modules and drift checks keep these declarations
+aligned with the API; other legacy results retain their existing object fallback.
+
 Prepared a canonical Context contract companion for the current-main API candidate.
 It documents three evidence-linking actions, separates standard-only tools from
 delegated connections, and freezes exact receipt/page schemas in both fixture
