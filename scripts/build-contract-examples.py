@@ -6,6 +6,7 @@ import re
 from pathlib import Path
 
 from build_response_contracts import build_response_contracts
+from resolve_response_schema import resolve_response_schema
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--api', required=True)
@@ -92,6 +93,35 @@ record = {
     },
 }
 record['sourceHashes'][str(sites_path.relative_to(root))] = hashlib.sha256(sites_path.read_bytes()).hexdigest()
+file_read = specs['content.json']['paths']['/api/sandboxes/file']['get']
+file_write = specs['content.json']['paths']['/api/sandboxes/files']['post']
+record['guardedGitFiles'] = {
+    'readQuery': {
+        parameter['name']: str(parameter.get('example', parameter['schema'].get('example'))).lower()
+        if parameter['schema']['type'] == 'boolean'
+        else parameter.get('example', parameter['schema'].get('example'))
+        for parameter in file_read['parameters']
+        if parameter['name'] in ('path', 'include_revision')
+    },
+    'upload': content['UploadSandboxFilesRequest']['example'],
+    'uploadSchema': resolve_response_schema(
+        file_write['requestBody']['content']['application/json']['schema'], specs['content.json'],
+    ),
+    'responses': [
+        {
+            'method': method, 'path': path, 'status': status,
+            'schema': resolve_response_schema(
+                operation['responses'][str(status)]['content']['application/json']['schema'],
+                specs['content.json'],
+            ),
+        }
+        for method, path, operation, statuses in [
+            ('GET', '/api/sandboxes/file', file_read, [200]),
+            ('POST', '/api/sandboxes/files', file_write, [200, 409, 500]),
+        ]
+        for status in statuses
+    ],
+}
 context = specs['context.json']['paths']['/api/context']['post']
 context_record = {
     'evidence': record['evidence'],

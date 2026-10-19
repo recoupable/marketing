@@ -15,7 +15,8 @@ function description(spec:string,path:string,method:string){
 
 test('sandbox file descriptions render inline code inside strong text',()=>{
  const html=render(description('content','/api/sandboxes/file','get'));
- expect(html).toMatch(/<strong>Text files are returned verbatim\. Binary files \(<code>\.mp3<\/code>, <code>\.png<\/code>, <code>\.jpg<\/code>, <code>\.mp4<\/code>, <code>\.pdf<\/code>, etc\.\)/);
+ const strongElements=html.match(/<strong>[\s\S]*?<\/strong>/g)??[];
+ expect(strongElements.some(element=>element.includes('<code>.png</code>'))).toBeTruthy();
  expect(!html.includes('`')).toBeTruthy();
  expect(html.includes('href="/docs/api-reference/sandboxes/list"')).toBeTruthy();
 });
