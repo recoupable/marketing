@@ -6,13 +6,19 @@ def build_guarded_file_contract(document):
     content = document['components']['schemas']
     file_read = document['paths']['/api/sandboxes/file']['get']
     file_write = document['paths']['/api/sandboxes/files']['post']
+    required = {'path', 'include_revision'}
+    parameters = {parameter['name']: parameter for parameter in file_read['parameters'] if parameter['name'] in required}
+    if set(parameters) != required or any(
+        parameter.get('example', parameter['schema'].get('example')) is None
+        for parameter in parameters.values()
+    ):
+        raise SystemExit('Guarded file read requires path/include_revision parameters and examples.')
     return {
         'readQuery': {
             parameter['name']: str(parameter.get('example', parameter['schema'].get('example'))).lower()
             if parameter['schema']['type'] == 'boolean'
             else parameter.get('example', parameter['schema'].get('example'))
-            for parameter in file_read['parameters']
-            if parameter['name'] in ('path', 'include_revision')
+            for parameter in parameters.values()
         },
         'upload': content['UploadSandboxFilesRequest']['example'],
         'uploadSchema': resolve_response_schema(

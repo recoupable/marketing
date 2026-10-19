@@ -11,18 +11,24 @@ def build_published_docs_record(specs, source, root, schema_hash, response_schem
     social = specs['social.json']['paths']['/api/socials/{id}/scrape']['post']
     artist_social = specs['releases.json']['paths']['/api/artist/socials/scrape']['post']
     artist_price = re.search(r'([\d,]+) \+ ([\d,]+) × posts', artist_social['description'])
+    if not artist_price:
+        raise SystemExit('Artist scrape description must declare base + per-post micro-dollar credits.')
     usage_properties = specs['accounts.json']['components']['schemas']['AccountUsageEvent']['properties']
-    price = re.search(r'([\d,]+) \+ (?:([\d,]+) × )?posts', social['description'])
+    price = re.search(r'([\d,]+) \+ ([\d,]+) × posts', social['description'])
     if not price:
         raise SystemExit('Social scrape description must declare base + per-post micro-dollar credits.')
     twitter_row = next(line for line in social['description'].splitlines() if line.startswith('| X / Twitter |'))
     twitter_default = int(re.search(r'\d+', twitter_row.split('|')[-2]).group())
     releases = specs['releases.json']
     resume = research['paths']['/api/chat/{chatId}/stream']['get']
-    callback = specs['content.json']['components']['securitySchemes'].get('callbackSecret', {})
+    callback = specs['content.json']['components']['securitySchemes'].get('callbackSecret')
+    if not callback or not callback.get('name'):
+        raise SystemExit('Content callbackSecret must declare its header name.')
     sites_path = root / 'content/docs/source/api-reference/sites/overview.mdx'
     deletion_section = sites_path.read_text().split('## Delete and cancel generation')[1].split('\n## ')[0]
     deletion_json = re.search(r'```json\n(.*?)\n```', deletion_section, re.DOTALL)
+    if not deletion_json:
+        raise SystemExit('Sites delete section requires a JSON response example.')
     record = {
         'evidence': 'Provider-free request syntax and static contract claims only. URLs are placeholders; no provider, payment or customer workflow is exercised.',
         'responseEvidence': 'Selected route exports use real request, response and authentication code under dependency mocks. No live provider, customer or hosted route is exercised.',
@@ -42,12 +48,12 @@ def build_published_docs_record(specs, source, root, schema_hash, response_schem
         'contracts': {
             'social': {
                 'baseCredits': int(price[1].replace(',', '')),
-                'perPostCredits': int((price[2] or '1').replace(',', '')),
+                'perPostCredits': int(price[2].replace(',', '')),
                 'twitterDefaultDepth': twitter_default,
                 'security': social.get('security', []),
                 'responses': sorted(social['responses']),
-                'artistBaseCredits': int(artist_price[1].replace(',', '')) if artist_price else None,
-                'artistPerPostCredits': int(artist_price[2].replace(',', '')) if artist_price else None,
+                'artistBaseCredits': int(artist_price[1].replace(',', '')),
+                'artistPerPostCredits': int(artist_price[2].replace(',', '')),
                 'requiredCreditsExample': specs['social.json']['components']['schemas']['SocialInsufficientCreditsResponse']['properties']['required_credits']['example'],
             },
             'usageEventNullables': sorted(name for name, schema in usage_properties.items() if schema.get('nullable') or 'null' in schema.get('type', [])),
@@ -59,9 +65,9 @@ def build_published_docs_record(specs, source, root, schema_hash, response_schem
             'taskModelType': releases['components']['schemas']['CreateTaskRequest']['properties'].get('model', {}).get('type'),
             'taskModelRequired': 'model' in releases['components']['schemas']['CreateTaskRequest'].get('required', []),
             'taskReadResponses': sorted(releases['paths']['/api/tasks']['get']['responses']),
-            'callbackHeader': callback.get('name'),
+            'callbackHeader': callback['name'],
             'siteDeleteMethods': re.findall(r'`(GET|POST|PATCH|PUT|DELETE) /api/sites/\{id\}`', deletion_section),
-            'siteDeleteExample': json.loads(deletion_json[1]) if deletion_json else None,
+            'siteDeleteExample': json.loads(deletion_json[1]),
         },
     }
     record['sourceHashes'][str(sites_path.relative_to(root))] = hashlib.sha256(sites_path.read_bytes()).hexdigest()
