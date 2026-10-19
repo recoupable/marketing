@@ -1197,7 +1197,7 @@
     "/api/posts": {
       "post": {
         "summary": "Create post",
-        "description": "**Availability: pending.** This endpoint is specified ahead of implementation and is not yet live on the hosted API; it ships through recoupable/app#2241. Do not rely on it until this notice is removed.\n\nPublish a video with its copy to **one** connected social account, now or at a set time. Send one request per target account; to post the same video to several platforms, call this once per platform.\n\nWithout `publish_at` the post starts publishing immediately and is returned as `publishing`. With `publish_at` it is returned as `scheduled` and publishes at that time. Either way this returns **202** right away: poll [Get Post](/api-reference/publishing/get) until `status` is `posted`, `failed` or `cancelled`.\n\nThe platform must already be connected for the account (see [Authorize Connector](/api-reference/connectors/authorize)). Copy uses one shape for every platform. Which fields each platform uses, and their limits:\n\n| Platform | `title` | `description` | `cover_url` | `privacy`, `tags` |\n|---|---|---|---|---|\n| `youtube` | **required**, video title, max 100 characters | video description, max 5,000 characters | not used (YouTube picks the frame) | used |\n| `instagram` | not used | **required**, Reel caption, max 2,200 characters | Reel cover image | not used |\n| `x` | not used | **required**, post text, max 280 weighted characters (URLs count as 23) | not used | not used |\n| `linkedin` | video title shown on the post | **required**, post commentary, max 3,000 characters | video thumbnail | not used |\n\nLimits are checked here, so an over-length body fails with 400 instead of at publish time.",
+        "description": "**Availability: publish now is live; `publish_at` is pending.** Requests without `publish_at` publish immediately. Requests with `publish_at` return 400 until scheduling ships through recoupable/app#2241.\n\nPublish a video with its copy to **one** connected social account, now or at a set time. Send one request per target account; to post the same video to several platforms, call this once per platform.\n\nWithout `publish_at` the post starts publishing immediately and is returned as `publishing`. Once scheduling ships, a request with `publish_at` will be returned as `scheduled` and publish at that time; until then it returns 400. A publish-now request returns **202** right away: poll [Get Post](/api-reference/publishing/get) until `status` is `posted`, `failed` or `cancelled`.\n\nThe platform must already be connected for the account (see [Authorize Connector](/api-reference/connectors/authorize)). Copy uses one shape for every platform. Which fields each platform uses, and their limits:\n\n| Platform | `title` | `description` | `cover_url` | `privacy`, `tags` |\n|---|---|---|---|---|\n| `youtube` | **required**, video title, max 100 characters | video description, max 5,000 characters | not used (YouTube picks the frame) | used |\n| `instagram` | not used | **required**, Reel caption, max 2,200 characters | Reel cover image | not used |\n| `x` | not used | **required**, post text, max 280 weighted characters (URLs count as 23) | not used | not used |\n| `linkedin` | video title shown on the post | **required**, post commentary, max 3,000 characters | video thumbnail | not used |\n\nLimits are checked here, so an over-length body fails with 400 instead of at publish time.\n\nRecoup applies no rate limit of its own to this endpoint. Each platform enforces its own caps, and a post over one ends `failed` with the platform's message in `error_message`:\n\n| Platform | Cap |\n|---|---|\n| `instagram` | 100 API-published posts per account per 24 hours |\n| `x` | the X API's per-app and per-user posting limits |\n| `youtube` | the daily YouTube Data API upload quota of the connected Google project |\n| `linkedin` | LinkedIn's daily per-member and per-organization API limits |",
         "security": [
           {
             "apiKeyAuth": []
@@ -1236,7 +1236,7 @@
             }
           },
           "400": {
-            "description": "Validation failed: a missing or unknown field, a field the platform requires (YouTube `title`; Instagram, X and LinkedIn `description`), a body over the platform's limit, or a `publish_at` in the past. `missing_fields` names the first offending field.",
+            "description": "Validation failed: a missing or unknown field, a field the platform requires (YouTube `title`; Instagram, X and LinkedIn `description`), a body over the platform's limit, or any `publish_at` (scheduling is not available yet). `missing_fields` names the first offending field.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1285,12 +1285,11 @@
               }
             }
           }
-        },
-        "x-recoup-availability": "pending"
+        }
       },
       "get": {
         "summary": "List posts",
-        "description": "**Availability: pending.** This endpoint is specified ahead of implementation and is not yet live on the hosted API; it ships through recoupable/app#2241. Do not rely on it until this notice is removed.\n\nThe account's posts, newest first, with each one's status and live URL.",
+        "description": "The account's posts, newest first, with each one's status and live URL.",
         "security": [
           {
             "apiKeyAuth": []
@@ -1410,14 +1409,13 @@
               }
             }
           }
-        },
-        "x-recoup-availability": "pending"
+        }
       }
     },
     "/api/posts/{id}": {
       "get": {
         "summary": "Get post",
-        "description": "**Availability: pending.** This endpoint is specified ahead of implementation and is not yet live on the hosted API; it ships through recoupable/app#2241. Do not rely on it until this notice is removed.\n\nOne post, with its status, live `post_url` once posted, `error_message` if it failed, and `text_verified` once the live text has been re-read. This is the polling target after [Create Post](/api-reference/publishing/create).",
+        "description": "One post, with its status, live `post_url` once posted, `error_message` if it failed, and `text_verified` once the live text has been re-read. This is the polling target after [Create Post](/api-reference/publishing/create).",
         "security": [
           {
             "apiKeyAuth": []
@@ -1509,8 +1507,7 @@
               }
             }
           }
-        },
-        "x-recoup-availability": "pending"
+        }
       },
       "delete": {
         "summary": "Cancel post",
@@ -3493,7 +3490,7 @@
           "publish_at": {
             "type": "string",
             "format": "date-time",
-            "description": "Optional. ISO 8601 time to publish, in the future. Omit to publish now."
+            "description": "Optional. ISO 8601 time to publish, in the future. Omit to publish now. Not accepted yet: any `publish_at` returns 400 until scheduling ships."
           }
         }
       },
