@@ -291,32 +291,70 @@
     },
     "/api/sandboxes/file": {
       "get": {
-        "description": "Retrieve the contents of a file from the authenticated account's sandbox GitHub repository. Resolves the github_repo from the [account's snapshot](/api-reference/sandboxes/list), then fetches the file at the specified path from the repository's main branch. **Text files are returned verbatim. Binary files (`.mp3`, `.png`, `.jpg`, `.mp4`, `.pdf`, etc.) are returned base64-encoded — decode before writing to disk.** Authentication is handled via the x-api-key header or Authorization Bearer token.",
+        "description": "Read a file from the authenticated account's Git-backed repository, including resolved submodule paths, on `main`. The repository comes from the [account's snapshot](/api-reference/sandboxes/list). Authenticate with `x-api-key` or an Authorization Bearer token.\n\nTo update an existing file without silently replacing a newer edit, set `include_revision=true`. The response pairs `content` with its blob `sha` from the same repository read. Keep that SHA with the opened draft and send it as `files[].expected_sha` when saving to the same account, resolved repository and path. Omitting the flag, or setting it to `false`, retains the legacy raw read without a SHA.\n\n**Text files are returned verbatim. Recognized binary extensions (`.mp3`, `.png`, `.jpg`, `.mp4`, `.pdf`, etc.) return base64 content with `encoding: base64`; decode those bytes before use.**\n\nVersioned reads support existing regular files whose content is returned inline by the repository service (normally up to 1 MB). Unknown binary content that is not valid UTF-8 is rejected by the versioned read rather than converted into damaged text. Missing/unsupported content, directories and symlinks return an error.\n\nThe SHA represents content equality, not edit history or an accepted Context document version. This option does not synchronize or protect writes inside an already running sandbox.",
         "parameters": [
           {
             "name": "path",
             "in": "query",
             "required": true,
-            "description": "The file path within the repository (e.g. \"src/index.ts\" or \"README.md\").",
+            "description": "File path within the resolved repository. Use a canonical relative path. Dot/traversal segments, backslashes, control characters, malformed Unicode and leading/trailing/doubled slashes return 400. These checks also apply to legacy requests.",
             "schema": {
               "type": "string",
-              "example": "src/index.ts"
+              "example": "drafts/notes.txt",
+              "minLength": 1
             }
+          },
+          {
+            "name": "include_revision",
+            "in": "query",
+            "required": false,
+            "description": "Return content and blob sha together for a guarded update of an existing file. Only the literal query values true and false are accepted.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "example": true
           }
         ],
         "responses": {
           "200": {
-            "description": "File contents retrieved successfully",
+            "description": "File content. Versioned reads also return sha; recognized binary extensions also return encoding: base64.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SandboxFileResponse"
+                },
+                "examples": {
+                  "legacyText": {
+                    "summary": "Legacy text read",
+                    "value": {
+                      "status": "success",
+                      "content": "Release notes"
+                    }
+                  },
+                  "versionedText": {
+                    "summary": "Text and its observed revision",
+                    "value": {
+                      "status": "success",
+                      "content": "Release notes",
+                      "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    }
+                  },
+                  "versionedBinary": {
+                    "summary": "Recognized binary bytes and revision",
+                    "value": {
+                      "status": "success",
+                      "content": "aGVsbG8=",
+                      "encoding": "base64",
+                      "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                    }
+                  }
                 }
               }
             }
           },
           "400": {
-            "description": "Bad request - missing or invalid path parameter",
+            "description": "Missing/noncanonical path or include_revision other than true/false. Use a canonical relative path. Dot/traversal segments, backslashes, control characters, malformed Unicode and leading/trailing/doubled slashes return 400. These checks also apply to legacy requests.",
             "content": {
               "application/json": {
                 "schema": {
@@ -326,7 +364,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized - invalid or missing API key",
+            "description": "Missing or invalid API-key/Bearer authentication.",
             "content": {
               "application/json": {
                 "schema": {
@@ -346,7 +384,7 @@
             }
           },
           "404": {
-            "description": "Not found - no snapshot, no github_repo, or file not found in repository",
+            "description": "No usable account snapshot/repository, missing file, or unsupported/failed versioned read. Guarded reads do not fall back to another branch or separately fetched bytes.",
             "content": {
               "application/json": {
                 "schema": {
@@ -410,7 +448,7 @@
     },
     "/api/sandboxes/files": {
       "post": {
-        "description": "Upload one or more files to the authenticated account's sandbox GitHub repository. Accepts an array of file URLs and commits each file to the specified directory path within the repository. Supports submodule resolution — if the target path falls within a git submodule, the file is committed to the submodule's repository. Authentication is handled via the x-api-key header or Authorization Bearer token.",
+        "description": "Upload one or more files to the authenticated account's Git-backed repository. Each file URL is committed separately; paths inside a submodule resolve to that repository. Authenticate with `x-api-key` or an Authorization Bearer token.\n\nFor a guarded update of an existing file:\n1. Read it with `GET /api/sandboxes/file?include_revision=true` and retain the returned `sha` with that draft.\n2. Upload the edited bytes using the [staged-file upload](/api-reference/sandboxes/stage-file), then send the resulting URL and the original SHA as `files[].expected_sha`. Guarded updates use `main` and pass the observed condition unchanged; the server does not replace it with a newer SHA or automatically retry a conflict.\n3. On a conflict, preserve the unsaved draft, reread the latest content and reconcile explicitly. Do not fetch a new SHA merely to force an older draft through.\n\nA batch is not a transaction. HTTP 200 can include successful `uploaded` receipts alongside `errors` and `conflicts`; inspect every file. If every upload fails only because its condition conflicts, the response is 409. If all fail with mixed conflict/other failures, it is 500 and keeps the conflicts list. Conflicts contain submitted file names; successes include resulting blob SHAs.\n\nTemporary upload blobs are deleted after every attempt, including conflicts, so retrying requires a new upload URL. Omitting `expected_sha` retains legacy create/update behavior on the repository default branch, including a latest-SHA lookup; those writes remain unguarded. No create-if-absent condition is provided. Adding this option does not automatically migrate clients, protect other writers, synchronize running sandbox files or accept company facts.",
         "requestBody": {
           "description": "JSON body containing file URLs and target path",
           "required": true,
@@ -424,17 +462,49 @@
         },
         "responses": {
           "200": {
-            "description": "Files uploaded successfully",
+            "description": "At least one file was saved. Partial success also returns errors and optional conflicts; keep every successful receipt and inspect every failure.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UploadSandboxFilesResponse"
+                },
+                "examples": {
+                  "success": {
+                    "summary": "All requested files saved",
+                    "value": {
+                      "status": "success",
+                      "uploaded": [
+                        {
+                          "path": "drafts/notes.txt",
+                          "sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                        }
+                      ]
+                    }
+                  },
+                  "partialConflict": {
+                    "summary": "One file saved and another conflicted",
+                    "value": {
+                      "status": "success",
+                      "uploaded": [
+                        {
+                          "path": "drafts/saved.txt",
+                          "sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                        }
+                      ],
+                      "errors": [
+                        "notes.txt: File changed"
+                      ],
+                      "conflicts": [
+                        "notes.txt"
+                      ]
+                    }
+                  }
                 }
               }
             }
           },
           "400": {
-            "description": "Bad request - missing files or invalid path",
+            "description": "Invalid JSON, empty files, noncanonical path/name, or expected_sha not exactly 40 lowercase hexadecimal characters. Empty root directory is allowed; empty file names are not.",
             "content": {
               "application/json": {
                 "schema": {
@@ -444,7 +514,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized - invalid or missing API key",
+            "description": "Missing or invalid API-key/Bearer authentication.",
             "content": {
               "application/json": {
                 "schema": {
@@ -469,6 +539,40 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SandboxErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Every upload failed with a revision conflict. No file was saved. Keep the draft and reconcile with the latest content before uploading again.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SandboxFileConflictResponse"
+                },
+                "example": {
+                  "status": "error",
+                  "error": "All uploads failed: notes.txt: File changed",
+                  "conflicts": [
+                    "notes.txt"
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "All uploads failed and at least one failure was not a revision conflict. Mixed failures retain conflicts; other total failures may omit them.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SandboxUploadErrorResponse"
+                },
+                "example": {
+                  "status": "error",
+                  "error": "All uploads failed: notes.txt: File changed; cover.png: Download failed",
+                  "conflicts": [
+                    "notes.txt"
+                  ]
                 }
               }
             }
@@ -4533,7 +4637,20 @@
           },
           "content": {
             "type": "string",
-            "description": "The file content. Text files (`.md`, `.json`, `.txt`, source code, etc.) are returned verbatim. Binary files (`.mp3`, `.png`, `.jpg`, `.mp4`, `.pdf`, etc.) are returned base64-encoded — decode before writing to disk. The encoding is inferred from the file extension server-side; `encoding` field is not yet returned but planned."
+            "description": "Text content, or base64 bytes for recognized binary extensions. Decode when encoding is base64. Versioned reads reject unknown non-UTF-8 binary content."
+          },
+          "encoding": {
+            "type": "string",
+            "enum": [
+              "base64"
+            ],
+            "description": "Present for recognized binary extensions, on both legacy and versioned reads. When absent, content is text."
+          },
+          "sha": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{40}$",
+            "description": "Present when include_revision=true; use this reader-observed blob SHA as files[].expected_sha. Absent from legacy reads. It identifies the returned bytes, not an accepted Context source version.",
+            "example": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
           }
         }
       },
@@ -4787,7 +4904,7 @@
         "properties": {
           "path": {
             "type": "string",
-            "description": "The target directory path within the repository to upload files to. Defaults to the repository root if omitted.",
+            "description": "Target directory within the resolved repository; omitted or empty means root. Use a canonical relative path. Dot/traversal segments, backslashes, control characters, malformed Unicode and leading/trailing/doubled slashes return 400. These checks also apply to legacy requests.",
             "example": "assets/images"
           },
           "files": {
@@ -4807,18 +4924,37 @@
                 },
                 "name": {
                   "type": "string",
-                  "description": "The filename to use when committing to the repository",
-                  "example": "album-cover.png"
+                  "description": "Nonempty relative file name/path under the target directory. Use a canonical relative path. Dot/traversal segments, backslashes, control characters, malformed Unicode and leading/trailing/doubled slashes return 400. These checks also apply to legacy requests.",
+                  "example": "album-cover.png",
+                  "minLength": 1
+                },
+                "expected_sha": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{40}$",
+                  "description": "Optional observed blob SHA from the matching versioned read. When provided, update the existing file on main only if its current contents still match. Omission retains unguarded legacy create/update behavior; no automatic conflict retry occurs.",
+                  "example": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                 }
               }
             },
-            "description": "Array of files to upload, each with a URL and target filename"
+            "description": "Array of files to upload, each with a URL and target filename",
+            "minItems": 1
           },
           "message": {
             "type": "string",
             "description": "Optional commit message. Defaults to 'Upload files via API'.",
             "example": "Add new album artwork"
           }
+        },
+        "example": {
+          "path": "drafts",
+          "message": "Update release notes",
+          "files": [
+            {
+              "name": "notes.txt",
+              "url": "https://example.com/staged/notes.txt",
+              "expected_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ]
         }
       },
       "UploadSandboxFilesResponse": {
@@ -4846,11 +4982,33 @@
                 },
                 "sha": {
                   "type": "string",
-                  "description": "The git SHA of the created/updated file"
+                  "pattern": "^[a-f0-9]{40}$",
+                  "description": "Blob SHA of the newly saved file. Retain it as the next observed condition when editing these saved bytes.",
+                  "example": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
                 }
-              }
+              },
+              "required": [
+                "path",
+                "sha"
+              ]
             },
-            "description": "Array of uploaded file details"
+            "description": "Array of uploaded file details",
+            "minItems": 1
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Per-file failures retained alongside successful receipts. HTTP 200 does not mean every file was saved."
+          },
+          "conflicts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "description": "Submitted names of files rejected because their observed revision no longer matches."
           }
         }
       },
@@ -4893,6 +5051,61 @@
           "image_url": "https://example.com/artist.png",
           "audio_url": "https://example.com/selected-clip.mp3",
           "duration": 15
+        }
+      },
+      "SandboxUploadErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ]
+          },
+          "error": {
+            "type": "string",
+            "description": "Combined upload failure description."
+          },
+          "conflicts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "description": "Submitted names of files rejected because their observed revision no longer matches."
+          }
+        }
+      },
+      "SandboxFileConflictResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error",
+          "conflicts"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ]
+          },
+          "error": {
+            "type": "string",
+            "description": "Combined upload failure description."
+          },
+          "conflicts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "description": "Submitted names of files rejected because their observed revision no longer matches."
+          }
         }
       }
     }

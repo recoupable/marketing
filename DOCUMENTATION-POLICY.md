@@ -60,6 +60,12 @@ Commit Marketing, then prepare the Docs copy with
 The API fixture uses source-file hashes; this avoids a circular commit dependency.
 These checks do not authorize merge or deployment.
 
+The same export freezes the guarded-file query/upload examples and resolved
+GET 200 / POST 200, 409 and 500 schemas in `guardedGitFiles`. The API's
+`publishedSandboxFiles.test.ts` checks those examples against the real validators,
+GET export and upload response builder under mocked service boundaries. This
+does not prove hosted Git writes, sandbox atomicity or adoption by existing clients.
+
 `python3 scripts/build-contract-examples.py --api /path/to/api` freezes examples and
 important contract claims for API tests, including Context's public request union.
 Run `pnpm exec vitest run lib/contracts/__tests__` from the API checkout. To export
