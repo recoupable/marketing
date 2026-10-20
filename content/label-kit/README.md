@@ -1,16 +1,38 @@
-# Customer plugin bundle
+# Customer plugin delivery
 
-One download after subscribing. The private purchase link opens the download without another sign-in; the API verifies payment and an active Starter/Pro subscription. Checkout is tagged `fulfillment: recoup-plugin` so, after deploying the companion API PR #995, its verified payment webhook sends the download-page link and short instructions to the billing email. No app selector or terminal instructions on the website.
+One private download after subscribing. The API verifies the purchase and active
+subscription on every download. This grants file access, not a Recoup account
+login. The existing payment webhook emails the setup link; setup directs customers
+to connect Recoup through their host’s OAuth UI using their checkout account.
 
-The deterministic builder verifies the official customer archive and overlays the official Claude/Cursor manifests from the same pinned source commit. All original customer files are retained under `recoup-plugin/`; `START HERE.html` sits beside that folder. No internal skills are included. The bundle includes installation options, not a claim that every host has been tested end to end. ChatGPT distribution is not an available option.
+Skills is the single authoring and packaging source. Marketing copies the official
+`packages.buyer` ZIP without overlays, repacking or a second setup guide. That
+archive contains `START HERE.html` and `recoup-plugin/`. Host adapters, skills and
+release provenance are produced together. Host-specific ZIP checksums may differ;
+the customer-content digest is shared across buyer, local, workspace and Claude
+packages. Store review and approval remain separate from a published source release.
 
-`release.json` pins input and output hashes. Any guide or manifest change requires rebuilding and reviewing the output hash. The upload helper verifies that exact bundle and requests private storage. A dedicated private Blob store is a deployment prerequisite; the helper does not verify store ownership.
-
-Run:
+`release.json` pins the immutable official artifact URL, source commit, release,
+archive SHA-256 and shared content digest. The build/upload helpers verify these
+pins. The download route requires the matching private Blob pathname and verifies
+the bytes before delivery, returning release and checksum headers. Checkout is
+unavailable while the deployment pathname and source pin differ. Cut over the
+source pin, private artifact and deployment configuration together.
 
 ```sh
-python3 scripts/label-kit/build.py /private/recoup-customer-2026.1008.2.zip /private/recoup-plugin.zip
-node scripts/label-kit/upload.mjs /private/recoup-plugin.zip 2026.1008.2-bundle.2
+python3 scripts/label-kit/build.py /private/recoup-buyer-VERSION.zip /private/recoup-plugin.zip
+node scripts/label-kit/upload.mjs /private/recoup-plugin.zip VERSION
 ```
 
-Never publish the bundle under `public/`. Plugin source and its AGPL license remain included. Account access and usage require the Recoup subscription. Installed-client, private hosting and payment-to-email-to-download verification remain launch gates.
+The version is visible on setup and in the archive’s `RELEASE.json`. ZIP updates
+are manual: use the original purchase-email link to download the pinned release,
+then replace the installed plugin through the host’s install flow. No reinstall
+claims imply that a store listing has been updated. Never publish the private ZIP
+under `public/`; the underlying open-source skills and AGPL license remain included.
+
+First request: attach a song and ask “Create a release pack for this song.” The
+skill collects essential creative context inline and preserves the brief through
+connection. New releases, anniversaries, reissues, remixes and catalog rediscovery
+use the same flow. Media generation requires exposed backend tools, usable audio
+and an approved complete quote. A paid subscription is not a claim that every host
+supports uploading a selected file or that a store review has passed.

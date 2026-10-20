@@ -1,7 +1,0 @@
-{
-  "mcpServers": {
-    "recoup": {
-      "url": "https://api.recoupable.dev/mcp"
-    }
-  }
-}

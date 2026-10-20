@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "1f4f0a69d84efe7bea75f1a0862e391c81f9dc74",
+  "apiSourceCommit": "70b748792e79e6b529668e43d27206a7175a6f07",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -1289,6 +1289,70 @@
       "documentation": "content/docs/source/api-reference/openapi/content.json",
       "classification": "pending",
       "reason": "Coordinated API/worker release and real artifact inspection required."
+    },
+    {
+      "method": "POST",
+      "path": "/api/content/packs/{id}/estimate",
+      "implementation": "app/api/content/packs/[id]/estimate/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/content.json",
+      "classification": "public",
+      "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "GET",
+      "path": "/api/content/packs/{id}/export",
+      "implementation": "app/api/content/packs/[id]/export/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/content.json",
+      "classification": "public",
+      "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/content/packs/{id}/generate",
+      "implementation": "app/api/content/packs/[id]/generate/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/content.json",
+      "classification": "public",
+      "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/content/packs/{id}/retry",
+      "implementation": "app/api/content/packs/[id]/retry/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/content.json",
+      "classification": "public",
+      "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "GET",
+      "path": "/api/content/packs/{id}",
+      "implementation": "app/api/content/packs/[id]/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/content.json",
+      "classification": "public",
+      "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/content/packs/{id}",
+      "implementation": "app/api/content/packs/[id]/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/content.json",
+      "classification": "public",
+      "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/content/packs/assets",
+      "implementation": "app/api/content/packs/assets/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/content.json",
+      "classification": "public",
+      "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/content/packs",
+      "implementation": "app/api/content/packs/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/content.json",
+      "classification": "public",
+      "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
       "method": "OPTIONS",
@@ -3331,70 +3395,6 @@
       "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
     },
     {
-      "method": "GET",
-      "path": "/api/content/packs/{id}",
-      "implementation": null,
-      "documentation": "content/docs/source/api-reference/openapi/content.json",
-      "classification": "pending",
-      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
-    },
-    {
-      "method": "GET",
-      "path": "/api/content/packs/{id}/export",
-      "implementation": null,
-      "documentation": "content/docs/source/api-reference/openapi/content.json",
-      "classification": "pending",
-      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/content/packs/{id}",
-      "implementation": null,
-      "documentation": "content/docs/source/api-reference/openapi/content.json",
-      "classification": "pending",
-      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
-    },
-    {
-      "method": "POST",
-      "path": "/api/content/packs",
-      "implementation": null,
-      "documentation": "content/docs/source/api-reference/openapi/content.json",
-      "classification": "pending",
-      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
-    },
-    {
-      "method": "POST",
-      "path": "/api/content/packs/assets",
-      "implementation": null,
-      "documentation": "content/docs/source/api-reference/openapi/content.json",
-      "classification": "pending",
-      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
-    },
-    {
-      "method": "POST",
-      "path": "/api/content/packs/{id}/estimate",
-      "implementation": null,
-      "documentation": "content/docs/source/api-reference/openapi/content.json",
-      "classification": "pending",
-      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
-    },
-    {
-      "method": "POST",
-      "path": "/api/content/packs/{id}/generate",
-      "implementation": null,
-      "documentation": "content/docs/source/api-reference/openapi/content.json",
-      "classification": "pending",
-      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
-    },
-    {
-      "method": "POST",
-      "path": "/api/content/packs/{id}/retry",
-      "implementation": null,
-      "documentation": "content/docs/source/api-reference/openapi/content.json",
-      "classification": "pending",
-      "reason": "Documented operation is unmatched; retained outcome or retirement decision belongs to its epic ticket."
-    },
-    {
       "method": "POST",
       "path": "/api/music/compose",
       "implementation": null,
@@ -3704,7 +3704,7 @@
   "specificationHashes": {
     "content/docs/source/api-reference/openapi/accounts.json": "b9f420adfb8b7297632d53ced154e7040b59914a73fc43f12fa21b259cf0eefa",
     "content/docs/source/api-reference/openapi/ai.json": "678f649fff58a1c49c81002ea2cbe66636ad5da1044ea66261e6ab4084600687",
-    "content/docs/source/api-reference/openapi/content.json": "8b9ee297e05b1b3753ca5c70b4ee01848a79fea44b8b2149966787e52962a856",
+    "content/docs/source/api-reference/openapi/content.json": "c9ec39f40a9927d078c7b0703f254e88320bfb63bcbabe511b47952047caa408",
     "content/docs/source/api-reference/openapi/context.json": "8a95843d8146f9ce1efa9ae17baee1564bdf7188ad6dd9d1ae5e353ad53ea8e9",
     "content/docs/source/api-reference/openapi/players.json": "4a4c90583fe1de6487444581b293a32b1cc04622fc929965ab90f365feb8bc94",
     "content/docs/source/api-reference/openapi/projects.json": "b059cf8baa83a7f73a3c15db19f54fa56e46a3840e91bd42979b83550f543ace",

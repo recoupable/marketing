@@ -19,8 +19,8 @@ const release = JSON.parse(
 );
 const bytes = await readFile(file);
 if (
-  version !== release.bundleVersion ||
-  createHash("sha256").update(bytes).digest("hex") !== release.bundleSha256
+  version !== release.version ||
+  createHash("sha256").update(bytes).digest("hex") !== release.sha256
 )
   throw new Error("Expected the pinned customer bundle and version");
 const result = await put(`label-kit/${version}.zip`, bytes, {
@@ -31,5 +31,5 @@ const result = await put(`label-kit/${version}.zip`, bytes, {
   allowOverwrite: false,
 });
 console.log(
-  `Set LABEL_KIT_BLOB_PATH=${result.pathname}. Checkout remains disabled until verified.`,
+  `Set LABEL_KIT_BLOB_PATH=${result.pathname}. Verify deployment headers and downloaded checksum before enabling checkout.`,
 );

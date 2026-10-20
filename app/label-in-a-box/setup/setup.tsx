@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export function Setup() {
+export function Setup({ version }: { version: string }) {
   const [purchase, setPurchase] = useState("");
   const [ready, setReady] = useState(false);
   useEffect(() => {
@@ -72,7 +72,9 @@ export function Setup() {
           </div>
         </div>
         <h1>Recoup plugin</h1>
-        <p className="setup-intro">Skills, tools & setup guide.</p>
+        <p className="setup-intro">
+          Skills, tools & setup guide. Release {version}.
+        </p>
         <button
           className="setup-download-button"
           disabled={!ready || busy || !purchase}
@@ -96,7 +98,18 @@ export function Setup() {
           </p>
         )}
         <p className="setup-next">
-          Unzip, then open <strong>START HERE.html</strong>.
+          Unzip, then open <strong>START HERE.html</strong> for your app’s
+          install instructions. Connect Recoup, attach your song and ask:
+          <br />
+          <strong>“Create a release pack for this song.”</strong>
+          <br />
+          New release, anniversary, reissue or remix—add the occasion and any
+          creative references. Recoup asks for missing essentials and quotes
+          generation before you spend credits.
+          <br />
+          Updating? Replace your installed plugin with this release using your
+          app’s install flow. Your purchase-email link always serves the pinned
+          release shown above.
         </p>
       </div>
       <div className="setup-support">
