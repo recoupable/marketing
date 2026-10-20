@@ -51,7 +51,12 @@ assert.ok(spec.paths["/batch"].post.requestBody.content["application/json"].sche
 const { response: apiBase, body: apiBaseBody } = await read("/api/v1");
 assert.equal(apiBase.status, 200);
 assert.equal(new URL(apiBase.url).pathname, "/agent-api/v1");
-assert.deepEqual(JSON.parse(apiBaseBody), spec);
+const websiteSpec = JSON.parse(apiBaseBody);
+assert.equal(websiteSpec.info.title, "Recoup public website tools");
+assert.equal(websiteSpec.paths["/batch"].post.operationId, spec.paths["/batch"].post.operationId);
+const bundledOperations = Object.values(spec.paths).flatMap(item => Object.entries(item).filter(([method]) => ["get", "post", "put", "patch", "delete", "head", "options", "trace"].includes(method)).map(([, operation]) => operation));
+assert.equal(bundledOperations.length, 217);
+assert.ok(bundledOperations.every(operation => operation.servers?.length && Array.isArray(operation.security)));
 assert.match(apiBase.headers.get("link"), /rel="deprecation"/);
 assert.equal(apiBase.headers.has("deprecation"), false);
 assert.equal(apiBase.headers.has("sunset"), false);
@@ -72,7 +77,10 @@ console.log("PASS versioned API alias preserves query and exposes the enforced q
 const metadata = await readJson("/.well-known/oauth-authorization-server");
 const { response: authGuide, body: authGuideBody } = await read("/auth.md");
 assert.equal(authGuide.status, 200);
-assert.equal(authGuide.url, metadata.agent_auth.skill);
+const { response: advertisedGuide, body: advertisedGuideBody } = await read(metadata.agent_auth.skill);
+assert.equal(advertisedGuide.status, 200);
+assert.equal(authGuide.url, advertisedGuide.url);
+assert.equal(authGuideBody, advertisedGuideBody);
 assert.match(authGuide.headers.get("content-type"), /text\/markdown/);
 assert.match(authGuideBody, /^# Recoup agent authentication/);
 console.log("PASS auth.md resolves to the guide advertised by the authorization server");

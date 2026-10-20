@@ -86,10 +86,23 @@ const policyLinkHeader = {
     'RFC 9745 rel="deprecation" link to the published versioning and retirement policy. The link is available while v1 is active; no Deprecation or Sunset date is currently scheduled.',
   schema: { type: "string", example: deprecationPolicyLink },
 };
+const retirementHeaders = {
+  Link: policyLinkHeader,
+  Deprecation: {
+    description:
+      "Conditional RFC 9745 structured date, present only after deprecation is announced. Not emitted for the currently active v1.",
+    schema: { type: "string", pattern: "^@[0-9]+$" },
+  },
+  Sunset: {
+    description:
+      "Conditional RFC 8594 HTTP-date, present only when a retirement date is announced. Not emitted for the currently active v1.",
+    schema: { type: "string" },
+  },
+};
 const jsonResponse = (description: string, schema: unknown) => ({
   description,
   headers: {
-    Link: policyLinkHeader,
+    ...retirementHeaders,
     "RateLimit-Limit": {
       description:
         "Hosted requests per IP per serving region in a 60-second fixed window.",
@@ -197,13 +210,15 @@ export function websiteOpenAPI() {
       strategy: "url-path",
       currentVersion: "v1",
       pathPrefix: "/agent-api/v1",
-      compatibleChanges: "Additive response fields; ignore unrecognized fields.",
+      compatibleChanges:
+        "Additive response fields; ignore unrecognized fields.",
       breakingChanges: "Require a new major URL version.",
       deprecation: {
         scheduled: false,
         policyUrl: `${siteConfig.url}/docs/public-website-api#versioning-and-deprecation`,
         responseHeaders: ["Deprecation", "Sunset", "Link"],
-        announcement: "Migration guide and dated response headers before retirement.",
+        announcement:
+          "Migration guide and dated response headers before retirement.",
       },
     },
     servers: [
@@ -373,14 +388,14 @@ export function websiteOpenAPI() {
           responses: {
             "200": {
               description: "Complete public Markdown document.",
-              headers: { Link: policyLinkHeader },
+              headers: retirementHeaders,
               content: { "text/markdown": { schema: string } },
             },
             "429": errors["429"],
             "503": errors["503"],
             "404": {
               description: "Unknown or invalid public path.",
-              headers: { Link: policyLinkHeader },
+              headers: retirementHeaders,
               content: { "text/markdown": { schema: string } },
             },
           },

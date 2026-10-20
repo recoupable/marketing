@@ -28,7 +28,7 @@ export function getArdManifest() {
           "website-api",
           "Recoup website API",
           "application/vnd.oai.openapi+json;version=3.1",
-          absoluteUrl(discoveryPaths.openapi),
+          absoluteUrl("/agent-api/v1"),
           "Public website search, reading, workflow calculations, and project inquiry drafts. No private account access or submission.",
           [
             "Find Recoup services for royalty operations",
@@ -40,10 +40,10 @@ export function getArdManifest() {
       },
       entry(
         "platform-api",
-        "Recoup platform API documentation",
-        "text/html",
-        absoluteUrl("/docs/api-reference"),
-        "Published platform endpoint references and OpenAPI specifications. Follow each endpoint authentication and permission requirements.",
+        "Recoup complete API specification",
+        "application/vnd.oai.openapi+json;version=3.1",
+        absoluteUrl(discoveryPaths.openapi),
+        "Published platform endpoints and public website tools in one OpenAPI specification. Each operation retains its own server and authentication requirements.",
         [
           "Find the Recoup API for catalog search",
           "How do I authenticate a Recoup platform request?",

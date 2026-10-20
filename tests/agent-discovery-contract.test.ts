@@ -154,4 +154,12 @@ test("JSON and Markdown expose the retirement policy without claiming an active 
   expect(
     spec.paths["/markdown"].get.responses["200"].headers.Link.schema.example,
   ).toBe(deprecationPolicyLink);
+  for (const headers of [
+    spec.paths["/search"].get.responses["200"].headers,
+    spec.paths["/markdown"].get.responses["200"].headers,
+  ]) {
+    expect(headers.Deprecation.description).toContain("Not emitted");
+    expect(headers.Deprecation.schema.pattern).toBe("^@[0-9]+$");
+    expect(headers.Sunset.description).toContain("Not emitted");
+  }
 });

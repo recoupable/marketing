@@ -28,7 +28,8 @@ ${getWhenToUseGuidance()}
 - [Browser agent guide](${absoluteUrl(discoveryPaths.hub)}): Human-readable overview and connection options.
 - [Public content and tool catalog](${absoluteUrl(discoveryPaths.catalog)}): Content IDs, canonical URLs, and tool input schemas.
 - [Public website MCP manifest](${absoluteUrl("/.well-known/mcp.json")}): Five anonymous website tools at /mcp.
-- [Website OpenAPI](${absoluteUrl(discoveryPaths.openapi)}): Public search, reading, and utility endpoints; no account key required.
+- [Complete Recoup OpenAPI](${absoluteUrl(discoveryPaths.openapi)}): All published platform and website operations with their own servers and authentication requirements.
+- [Website OpenAPI](${absoluteUrl("/agent-api/v1")}): Public search, reading, and utility endpoints; no account key required.
 - [Documentation](${absoluteUrl("/docs")}): Platform guides and endpoint references.
 - [Recoup SDKs](${absoluteUrl("/docs/sdks")}): Official published Python and Go SDKs and the npm CLI, with authentication and response handling.
 - [Recoup Python SDK 0.1.0](https://pypi.org/project/recoupable/0.1.0/): Install with pip install recoupable==0.1.0.
