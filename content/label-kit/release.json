@@ -1,13 +1,13 @@
 {
-  "version": "2026.1020.35",
-  "tag": "plugin-v2026.1020.35",
-  "sourceCommit": "fa08dbb4c6651e79042d448c54ee7b8c8b74ae7c",
-  "file": "recoup-buyer-2026.1020.35.zip",
-  "sha256": "f6121b68995658ca2beca8abee59452b3e38dc12d84c953d6befceca17542efa",
-  "customerContentSha256": "859cbf309663cb1b77fa74543f4993867eb504f5802f24bd8a46941e8edb9094",
+  "version": "2026.1020.36",
+  "tag": "plugin-v2026.1020.36",
+  "sourceCommit": "580cb2cb032fb889438750cabd0013dcdfaa222a",
+  "file": "recoup-buyer-2026.1020.36.zip",
+  "sha256": "e013d72406782f35d71bf495f30f92df87ce15596b16a2b69781fd8650a90b0a",
+  "customerContentSha256": "c663b87781afa4366f36634451c58536d5c743613046910dca621bee533a30d4",
   "skillCount": 40,
-  "url": "https://github.com/recoupable/skills/releases/download/plugin-v2026.1020.35/recoup-buyer-2026.1020.35.zip",
-  "manifestUrl": "https://github.com/recoupable/skills/releases/download/plugin-v2026.1020.35/release-manifest.json",
+  "url": "https://github.com/recoupable/skills/releases/download/plugin-v2026.1020.36/recoup-buyer-2026.1020.36.zip",
+  "manifestUrl": "https://github.com/recoupable/skills/releases/download/plugin-v2026.1020.36/release-manifest.json",
   "openaiStatus": "upload_and_review_required",
   "claudeStatus": "submission_and_review_required"
 }
