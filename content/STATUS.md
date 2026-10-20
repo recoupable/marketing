@@ -1,3 +1,16 @@
+## Agent discovery contract follow-up — October 20, 2026
+
+The fresh audit confirms the deployed OpenAPI Markdown fallback now passes.
+The remaining discovery follow-up exposes the authoritative authentication guide
+at `/auth.md`, makes the website API's existing major version explicit in the
+OpenAPI server URL and machine-readable policy, and retains typed errors and
+enforced quota headers on unsupported tool/batch methods. The conventional
+`/api/v1` namespace redirects to the existing public API, whose base URL now
+serves its specification through the same quota. Published operation
+URLs, IDs, request shapes, quotas, and authentication permissions are unchanged.
+The main agent indexes also link the published Python SDK.
+Production publication and fresh audit results for this follow-up remain pending.
+
 ## OpenAPI Markdown fallback — October 20, 2026
 
 The agent audit sampled `/openapi.json.md`, which had no matching Markdown route.

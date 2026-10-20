@@ -29,6 +29,8 @@ export const nextConfig: NextConfig = {
     return [
       { source: "/.well-known/oauth-authorization-server", destination: siteConfig.platformOAuthMetadataUrl, permanent: true },
       { source: "/.well-known/oauth-protected-resource", destination: siteConfig.platformResourceMetadataUrl, permanent: true },
+      { source: "/auth.md", destination: siteConfig.platformAgentAuthGuideUrl, permanent: true },
+      { source: "/api/v1/:path*", destination: "/agent-api/v1/:path*", permanent: true },
       { source: "/company-map", destination: "/atlas", permanent: true },
       { source: "/designs/sky", destination: "/", permanent: true },
       { source: "/company/about", destination: "/about", permanent: true },

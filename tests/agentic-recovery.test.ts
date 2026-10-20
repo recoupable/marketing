@@ -21,7 +21,7 @@ test("unknown API routes and invalid public reads return typed JSON recovery", a
   }
   const spec = websiteOpenAPI();
   expect(spec.components.schemas.ErrorResponse.properties.error).toMatchObject({ required: ["code", "message", "resolution"] });
-  expect(spec.paths["/agent-api/v1/read"].get.responses[404].content["application/json"].schema).toEqual({ $ref: "#/components/schemas/ErrorResponse" });
+  expect(spec.paths["/read"].get.responses[404].content["application/json"].schema).toEqual({ $ref: "#/components/schemas/ErrorResponse" });
   expect(spec.security).toEqual([]);
 });
 
@@ -45,5 +45,6 @@ test("OAuth discovery points to the existing issuer and MCP advertises its real 
   const redirects = await nextConfig.redirects!();
   expect(redirects).toContainEqual({ source: "/.well-known/oauth-authorization-server", destination: siteConfig.platformOAuthMetadataUrl, permanent: true });
   expect(redirects).toContainEqual({ source: "/.well-known/oauth-protected-resource", destination: siteConfig.platformResourceMetadataUrl, permanent: true });
+  expect(redirects).toContainEqual({ source: "/auth.md", destination: siteConfig.platformAgentAuthGuideUrl, permanent: true });
   expect(getMcpManifest().remotes).toEqual([{ type: "streamable-http", url: `${siteConfig.url}/mcp` }]);
 });
