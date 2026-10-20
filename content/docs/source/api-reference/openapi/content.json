@@ -2613,7 +2613,7 @@
     "/api/content/packs": {
       "post": {
         "operationId": "prepareReleasePack",
-        "description": "Prepare a resumable pack brief. No artist profile or GitHub repository required; no paid generation.",
+        "description": "Release rollout pending; discover current host capabilities before execution. Prepare a resumable pack brief. No artist profile or GitHub repository required; no paid generation.",
         "security": [
           {
             "apiKeyAuth": []
@@ -2674,7 +2674,7 @@
             }
           },
           "409": {
-            "description": "Revision, quote or idempotency conflict.",
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2685,16 +2685,6 @@
           },
           "402": {
             "description": "Insufficient credits; use returned billingUrl.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReleasePackError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Execution capability unavailable; no paid submission.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2713,13 +2703,14 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/content/packs/{id}": {
       "get": {
         "operationId": "getReleasePack",
-        "description": "Read current owned job, assets, gaps and next action.",
+        "description": "Release rollout pending; discover current host capabilities before execution. Read current owned job, assets, gaps and next action.",
         "security": [
           {
             "apiKeyAuth": []
@@ -2780,7 +2771,7 @@
             }
           },
           "409": {
-            "description": "Revision, quote or idempotency conflict.",
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2791,16 +2782,6 @@
           },
           "402": {
             "description": "Insufficient credits; use returned billingUrl.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReleasePackError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Execution capability unavailable; no paid submission.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2829,11 +2810,12 @@
               "format": "uuid"
             }
           }
-        ]
+        ],
+        "x-recoup-availability": "pending"
       },
       "patch": {
         "operationId": "updateReleasePack",
-        "description": "Update the draft using expected_revision; changed inputs invalidate prior quotes.",
+        "description": "Release rollout pending; discover current host capabilities before execution. Update the draft using expected_revision; changed inputs invalidate prior quotes.",
         "security": [
           {
             "apiKeyAuth": []
@@ -2894,7 +2876,7 @@
             }
           },
           "409": {
-            "description": "Revision, quote or idempotency conflict.",
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2905,16 +2887,6 @@
           },
           "402": {
             "description": "Insufficient credits; use returned billingUrl.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReleasePackError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Execution capability unavailable; no paid submission.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2944,13 +2916,14 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/content/packs/{id}/estimate": {
       "post": {
         "operationId": "estimateReleasePack",
-        "description": "Quote complete scope at existing house image/video rates. Caption, inspection and composition are included at no additional customer charge.",
+        "description": "Release rollout pending; discover current host capabilities before execution. Quote complete scope at existing house image/video rates. Caption, inspection and composition are included at no additional customer charge.",
         "security": [
           {
             "apiKeyAuth": []
@@ -3011,7 +2984,7 @@
             }
           },
           "409": {
-            "description": "Revision, quote or idempotency conflict.",
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3022,16 +2995,6 @@
           },
           "402": {
             "description": "Insufficient credits; use returned billingUrl.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReleasePackError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Execution capability unavailable; no paid submission.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3061,13 +3024,14 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/content/packs/{id}/generate": {
       "post": {
         "operationId": "generateReleasePack",
-        "description": "Approve the current quote and budget ceiling. Start or resume the same job without duplicate submission.",
+        "description": "Release rollout pending; discover current host capabilities before execution. Approve the current quote and budget ceiling. Start or resume the same job without duplicate submission.",
         "security": [
           {
             "apiKeyAuth": []
@@ -3128,7 +3092,7 @@
             }
           },
           "409": {
-            "description": "Revision, quote or idempotency conflict.",
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3139,16 +3103,6 @@
           },
           "402": {
             "description": "Insufficient credits; use returned billingUrl.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReleasePackError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Execution capability unavailable; no paid submission.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3178,13 +3132,14 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/content/packs/{id}/retry": {
       "post": {
         "operationId": "retryReleasePack",
-        "description": "Retry only the selected failed asset within approved scope and ceiling; retain successful work.",
+        "description": "Release rollout pending; discover current host capabilities before execution. Retry only the selected failed asset within approved scope and ceiling; retain successful work.",
         "security": [
           {
             "apiKeyAuth": []
@@ -3245,7 +3200,7 @@
             }
           },
           "409": {
-            "description": "Revision, quote or idempotency conflict.",
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3256,16 +3211,6 @@
           },
           "402": {
             "description": "Insufficient credits; use returned billingUrl.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReleasePackError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Execution capability unavailable; no paid submission.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3295,13 +3240,14 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/content/packs/assets": {
       "post": {
         "operationId": "uploadReleasePackAsset",
-        "description": "Upload explicitly selected audio or reference artwork to owned private storage; return a temporary locator.",
+        "description": "Release rollout pending; discover current host capabilities before execution. Upload explicitly selected audio or reference artwork to owned private storage; return a temporary locator.",
         "security": [
           {
             "apiKeyAuth": []
@@ -3362,7 +3308,7 @@
             }
           },
           "409": {
-            "description": "Revision, quote or idempotency conflict.",
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3373,16 +3319,6 @@
           },
           "402": {
             "description": "Insufficient credits; use returned billingUrl.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReleasePackError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Execution capability unavailable; no paid submission.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3401,13 +3337,14 @@
               }
             }
           }
-        }
+        },
+        "x-recoup-availability": "pending"
       }
     },
     "/api/content/packs/{id}/export": {
       "get": {
         "operationId": "exportReleasePack",
-        "description": "Retrieve an authenticated JSON manifest with captions, gaps and refreshed signed file URLs. Does not publish.",
+        "description": "Release rollout pending; discover current host capabilities before execution. Retrieve an authenticated JSON manifest with captions, gaps and refreshed signed file URLs. Does not publish.",
         "security": [
           {
             "apiKeyAuth": []
@@ -3469,7 +3406,7 @@
             }
           },
           "409": {
-            "description": "Revision, quote or idempotency conflict.",
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3480,16 +3417,6 @@
           },
           "402": {
             "description": "Insufficient credits; use returned billingUrl.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReleasePackError"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Execution capability unavailable; no paid submission.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3518,7 +3445,8 @@
               "format": "uuid"
             }
           }
-        ]
+        ],
+        "x-recoup-availability": "pending"
       }
     }
   },
