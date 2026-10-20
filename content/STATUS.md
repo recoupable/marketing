@@ -1,3 +1,10 @@
+## Retained-host agent discovery — October 19, 2026
+
+Added a compact custom Mintlify `llms.txt` with a link to the complete maintained
+page index and full documentation text. The public website API guide documents
+its existing batch endpoint, shared hosted quota, versioned paths, and MCP
+connection separately from authenticated music-platform access.
+
 ## Public MCP discovery branding — October 19, 2026
 
 The public MCP manifest and handshake share the site's existing 192-pixel Recoup
