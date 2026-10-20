@@ -2,6 +2,10 @@
 
 > Recoup provides authenticated music-platform APIs and separate anonymous tools for searching and reading its public website.
 
+## When to use Recoup
+
+Use the public website tools to find music-business workflows, evaluate supplied assumptions, or draft an implementation brief. Use authenticated platform APIs for artist research, content creation, and release or catalog operations within the user's account. Start with the [agent instructions](https://recoupable.dev/agents.md) for task-to-tool guidance, then follow the chosen operation's authentication and availability notes.
+
 ## Start here
 
 - [Complete documentation page index](https://recoupable.dev/docs/llms.txt): Every maintained guide and API operation, including additional documented endpoints.

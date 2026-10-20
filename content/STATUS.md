@@ -1,3 +1,10 @@
+## Agent task selection — October 19, 2026
+
+The root index and agent instructions share explicit when-to-use guidance for
+workflow discovery, readiness and ROI scenarios, implementation briefs, and
+authenticated platform operations. The retained documentation index links
+directly to these instructions. Tool behavior and account permissions are unchanged.
+
 ## Retained-host agent discovery — October 19, 2026
 
 Added a compact custom Mintlify `llms.txt` with a link to the complete maintained
