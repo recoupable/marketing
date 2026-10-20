@@ -219,7 +219,12 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 
 ## Agent discovery
 
-- `/.well-known/mcp.json` advertises the existing platform Streamable HTTP MCP server. OAuth discovery aliases redirect to that platform's authoritative issuer/resource metadata; anonymous website tools remain unauthenticated. Keep the platform's actual scopes and host-managed OAuth guidance aligned in `lib/agent-discovery/`.
+- `/.well-known/mcp.json` advertises the anonymous website MCP at `/mcp`, backed by the same five public tools as HTTP. `lib/website-mcp/` uses a fresh official SDK server per exchange. The account-bearing platform MCP remains separately documented; OAuth aliases redirect to its authoritative issuer/resource metadata.
+- `/agent-api/v1/batch` runs 1–10 independent public operations, preserves input order, and returns per-item results/errors. Shared dispatch is `lib/agent-tools/executeAgentTool.ts`; the whole JSON body remains limited to 16 KB.
+- Hosted public HTTP/MCP calls use Vercel SDK rule `recoup-public-tools`: 120 requests per 60 seconds per IP per region. Keep its configured quota aligned with `withAgentRateLimit.ts`. No in-process quota or invented remaining count is used; failed checks return 503, exhausted quotas return 429 with Retry-After.
+- `/llms.txt` is a compact index under 30,000 characters. Every imported document remains linked from `/docs/llms.txt`, with full text in `/llms-full.txt`.
+- `getWhenToUseGuidance.ts` owns the task-to-tool guidance shared by `/llms.txt` and `/agents.md`. Keep its public website examples separate from authenticated platform operations.
+- The retained Mintlify host uses the compact `content/docs/source/llms.txt` override, copied through the normal provenance sync. Keep its complete-index link and distinguish the anonymous website API in `public-website-api.mdx` from authenticated platform access.
 - Unknown API paths return JSON errors with recovery guidance through the optional catch-all routes. Missing negotiated pages and docs return Markdown with HTTP 404 and public recovery links. Shared error schemas live in the website OpenAPI document.
 - The Get Started dialog is rendered after page content in `SiteFrame`, with its ref passed to the header, so the page H1 leads the raw document heading outline.
 - Run `node scripts/audit-agent-readiness.mjs <origin>` against a built server or deployment to verify recovery responses and discovery. It reads public metadata only; it never signs in or executes platform tools.
@@ -318,3 +323,16 @@ cutover and archival separate from content reconciliation.
 ## Public company map
 
 `/atlas` presents the company operating model. See `docs/company-map.md` for the public-only projection boundary and refresh checks. Never copy private atlas evidence, engineering findings or source files into this public repository.
+
+## Official Python and Go SDKs
+
+`sdk/python` and `sdk/go` are independently packaged JSON clients for the platform
+API. Preserve API-key/Bearer support, trusted-origin restrictions, bounded responses
+and explicit retry behavior. SDK licenses apply only inside those directories.
+Run Python tests against the built wheel, `twine check --strict`, and Go tests with
+`-race` plus `go vet`. See `sdk/README.md` for the account-owner PyPI setup and
+nested Go module release tag. Never describe a registry release as published until
+a clean registry installation has been verified.
+Maintain the public installation guide at `content/docs/source/sdks.mdx`, linked
+from documentation navigation and `llms.txt`; distinguish source installs from
+verified registry releases.

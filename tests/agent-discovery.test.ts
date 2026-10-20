@@ -22,7 +22,7 @@ test('navigation and full-context summaries identify scope and separate website 
   for (const text of [getLlmsText(index), getLlmsFullText(index), getAgentsMarkdown()]) {
     expect(text).toMatch(/x-api-key/);
     expect(text).toMatch(/Authorization: Bearer/);
-    expect(text).toMatch(/website does not host a remote MCP server/);
+    expect(text).toMatch(/website MCP server is/);
     expect(text).toMatch(/do not submit an inquiry or book a call/);
     expect(text).toMatch(/not guaranteed cash savings/);
     expect(!text.includes('YOUR_API_KEY')).toBeTruthy();
@@ -35,11 +35,13 @@ test('navigation and full-context summaries identify scope and separate website 
   expect(!getLlmsText([{ ...index[0], title: 'A [special]\npage' }]).includes('[A [special]')).toBeTruthy();
 });
 
-test('custom catalog uses actual tools and content metadata without claiming an MCP protocol', () => {
+test('custom catalog uses actual tools and content metadata and distinguishes public MCP from authenticated platform MCP', () => {
   const catalog = getAgentCatalog(index);
   expect(catalog.tools).toStrictEqual(agentToolDefinitions);
   expect(catalog.content[0].representation).toBe('summary');
   expect(catalog.content[0].url).toBe(new URL('/services', siteConfig.url).href);
+  expect(catalog.interfaces.mcp.authentication).toBe("none");
+  expect(catalog.interfaces.mcp.url).toBe(`${siteConfig.url}/mcp`);
   expect(catalog.interfaces.http.authentication).toBe('none');
   expect(catalog.interfaces.webmcp.draftEffect).toMatch(/Nothing is submitted/);
   expect(catalog.platform.mcp.url).toBe('https://api.recoupable.dev/mcp');

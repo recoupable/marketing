@@ -20,7 +20,7 @@ export function negotiateDocsMarkdown(pathname: string, accept: string | null): 
   const match = /^\/docs(?:\/(.*))?$/.exec(pathname);
   if (!match) return null;
   const rest = (match[1] ?? "").replace(/\/+$/, "");
-  if (/^(raw|spec)(\/|$)/.test(rest)) return null;
+  if (rest === "llms.txt" || /^(raw|spec)(\/|$)/.test(rest)) return null;
   const explicit = rest.endsWith(".md");
   const slug = (explicit ? rest.slice(0, -3) : rest) || "index";
   if (slug === "api-reference") return null;

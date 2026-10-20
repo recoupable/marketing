@@ -1,3 +1,61 @@
+## Context contract release reference — October 20, 2026
+
+Refreshed the API inventory from the actual #1049 merge `090f9880`, preserving
+the posting contracts and the separately classified standard-only evidence tools.
+Current Marketing main is integrated with both status records retained. The API
+source reference is released; this Marketing publication and hosted customer
+attachment/readback acceptance remain separate pending steps.
+
+All 482 tests, 14 contract-producer checks, 11 docs checks, TypeScript, lint and
+the local production build pass. The build uses a synthetic public sign-in ID;
+it does not verify sign-in or a hosted customer operation.
+
+## Agent task selection — October 19, 2026
+
+The root index and agent instructions share explicit when-to-use guidance for
+workflow discovery, readiness and ROI scenarios, implementation briefs, and
+authenticated platform operations. The retained documentation index links
+directly to these instructions. Tool behavior and account permissions are unchanged.
+
+## Retained-host agent discovery — October 19, 2026
+
+Added a compact custom Mintlify `llms.txt` with a link to the complete maintained
+page index and full documentation text. The public website API guide documents
+its existing batch endpoint, shared hosted quota, versioned paths, and MCP
+connection separately from authenticated music-platform access.
+
+## Public MCP discovery branding — October 19, 2026
+
+The public MCP manifest and handshake share the site's existing 192-pixel Recoup
+icon, display title, version, and website link. This metadata update preserves
+the five public tools and the separate authenticated platform MCP.
+
+## SDK discovery and Go release — October 19, 2026
+
+Go SDK v0.1.0 is published from Marketing `7c93a8f` and indexed on pkg.go.dev.
+A clean module-proxy download resolved that exact commit and passed race tests.
+The SDK guide adds branded installation examples, package links, authentication
+and response guidance to the docs navigation and agent discovery files. Python
+remains available from a pinned source revision while PyPI setup is pending.
+
+## Official Python and Go clients — October 19, 2026
+
+Prepared MIT-licensed Python and Go clients for platform JSON endpoints. Both
+support API keys or existing Bearer tokens, account identification, bounded
+responses, typed errors, explicit timeouts, and credential-safe redirect handling.
+Streaming, multipart, OAuth login, and generated method coverage remain outside
+the initial release. Empty successful responses are accepted; advertised streams
+are rejected before body reads. HTTP errors retain status and Retry-After even
+when their bodies exceed the cap. Configuration rejects invalid origins and
+unreadable response limits; error messages and Go formatting redact credentials.
+
+Fourteen installed-wheel Python tests, strict distribution metadata validation,
+Ruff, Go race tests, and Go vet pass, including accepted empty writes, delayed
+streams, deep JSON, timeout/no-write-retry and malformed-response regressions.
+PyPI account/trusted publisher setup and registry publication remain pending.
+The Go module needs its reviewed release tag after merge. The manual OIDC
+publishing workflow and SDK CI are ready; source availability is not publication.
+
 ## Agent readiness recovery and discovery — October 19, 2026
 
 Addressed the 71/100 Is Agentic baseline with recoverable Markdown 404s, JSON API fallback errors and a named error schema, platform OAuth metadata aliases and a Streamable HTTP MCP manifest, current OAuth connection guidance, organization contact/address metadata, and a page-first heading outline. Website tools remain anonymous; platform access still requires consent and account membership.
@@ -17,8 +75,31 @@ delegated connections, and freezes exact receipt/page schemas in both fixture
 copies. It also preserves the merged supporting-text receipt boundary: metadata
 only, no verified file origin, and no added delegated disclosure. The producer now
 rejects an evidence action in both tool maps; fixture checks catch classification
-and response drift. Publication, independent review and the prerequisite database
-release remain pending. This source work performs no migration or hosted write.
+and response drift. API #1049 is merged and its database prerequisite is verified.
+Marketing publication and independent release review remain pending. This source
+work performs no migration or hosted write.
+
+## Public MCP, batching, and compact discovery — October 19, 2026
+
+The anonymous website MCP at `/mcp` exposes the five existing public tools through
+Streamable HTTP. `/agent-api/v1/batch` accepts up to ten independent operations
+with ordered per-item receipts and a 16 KB total request bound. The manifest,
+catalog, OpenAPI and agent guides describe the shipped interfaces and keep
+account-bearing platform tools separate. Hosted calls use the Vercel SDK rule
+`recoup-public-tools` (120 requests per 60 seconds per IP per region), with policy
+headers, recoverable 429s and fail-closed configuration errors.
+
+The root `/llms.txt` is 16,015 characters; the complete documentation link index
+is 19,673 characters at `/docs/llms.txt`. Full documentation remains available at
+`/llms-full.txt`. Organization metadata includes the verified Recoup LinkedIn
+profile. The canonical domain remains recoupable.dev.
+
+All 482 tests, repository lint, TypeScript and production build pass. Ten real-client
+MCP scenarios, a 2024-protocol handshake, a mixed-success batch and the readiness
+HTTP audit pass against the local production build. The hosted preview passed all ten MCP scenarios and returned 429 with Retry-After
+when the shared quota was exhausted. Review also added discovery-file negotiation
+coverage and a shared bounded JSON reader. Final review and the next scan remain pending. The prior PR #185
+produced a live 100/100 scan; that scan's public saved snapshot was still stale.
 
 ## Guarded Git file contracts — October 19, 2026
 

@@ -1,0 +1,45 @@
+# Recoup developer documentation
+
+> Recoup provides authenticated music-platform APIs and separate anonymous tools for searching and reading its public website.
+
+## When to use Recoup
+
+Use the public website tools to find music-business workflows, evaluate supplied assumptions, or draft an implementation brief. Use authenticated platform APIs for artist research, content creation, and release or catalog operations within the user's account. Start with the [agent instructions](https://recoupable.dev/agents.md) for task-to-tool guidance, then follow the chosen operation's authentication and availability notes.
+
+## Start here
+
+- [Complete documentation page index](https://recoupable.dev/docs/llms.txt): Every maintained guide and API operation, including additional documented endpoints.
+- [Full documentation text](https://docs.recoupable.dev/llms-full.txt): Read the complete documentation when a navigation index is insufficient.
+- [Platform overview](https://docs.recoupable.dev/index.md): Music-platform API access and capabilities.
+- [Platform quickstart](https://docs.recoupable.dev/quickstart.md): Make an authenticated request.
+- [Recoup SDKs](https://docs.recoupable.dev/sdks.md): Published Go package, Python source client, and npm CLI.
+- [Developer portal](https://recoupable.dev/developers.md): Choose an integration surface.
+
+## Anonymous public website tools
+
+- [Public website API guide](https://docs.recoupable.dev/public-website-api.md): Search, reading, calculations, and unsubmitted drafts; no account access.
+- [Website OpenAPI specification](https://recoupable.dev/openapi.json): Typed requests and responses, versioned paths, rate-limit headers, and the batch endpoint.
+- [Live public search](https://recoupable.dev/agent-api/v1/search?query=royalty&limit=1): A credential-free read that returns the hosted quota headers.
+- [Public MCP manifest](https://recoupable.dev/.well-known/mcp.json): Five public tools over Streamable HTTP at https://recoupable.dev/mcp.
+- [Website agent guide](https://recoupable.dev/agents.md): Usage, errors, pagination, quotas, and versioning policy.
+
+## Authenticated music platform
+
+- [Authentication](https://docs.recoupable.dev/authentication.md): API keys and existing Bearer tokens.
+- [MCP OAuth](https://docs.recoupable.dev/mcp-oauth.md): Connect an AI host to the user's real account with consent.
+- [Agent account access](https://docs.recoupable.dev/agents.md): Verified email onboarding and account recovery guidance.
+- [API catalog](https://recoupable.dev/.well-known/api-catalog): Machine-readable links to the website API and all platform specifications.
+- [Accounts and artists OpenAPI](https://recoupable.dev/docs/spec/accounts.json)
+- [AI OpenAPI](https://recoupable.dev/docs/spec/ai.json)
+- [Content OpenAPI](https://recoupable.dev/docs/spec/content.json)
+- [Context OpenAPI](https://recoupable.dev/docs/spec/context.json)
+- [Players OpenAPI](https://recoupable.dev/docs/spec/players.json)
+- [Projects OpenAPI](https://recoupable.dev/docs/spec/projects.json)
+- [Releases OpenAPI](https://recoupable.dev/docs/spec/releases.json)
+- [Research OpenAPI](https://recoupable.dev/docs/spec/research.json)
+- [Sandbox OpenAPI](https://recoupable.dev/docs/spec/sandbox.json)
+- [Sessions OpenAPI](https://recoupable.dev/docs/spec/sessions.json)
+- [Social OpenAPI](https://recoupable.dev/docs/spec/social.json)
+- [Templates OpenAPI](https://recoupable.dev/docs/spec/templates.json)
+
+Platform credentials are separate from anonymous website access. Follow each operation's authentication and availability notes. Pending routes are not evidence of deployed support.

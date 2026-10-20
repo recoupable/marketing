@@ -72,7 +72,7 @@ export const toolPages: PageSummary[] = [
     keywords:
       "agent public website search read MCP WebMCP machine readable discovery content tools",
     paragraphs: [
-      "The public agent interface searches and reads the website's published content. Documentation, articles, and playbook chapters are returned as readable Markdown; marketing-page overviews are explicitly labeled as summaries with links to the complete pages.",
+      "The public agent interface searches and reads published content, estimates workflow ROI, assesses readiness, and prepares a project-brief draft. The same five tools are available through anonymous Streamable HTTP MCP at /mcp and the public HTTP API. Batch requests accept up to ten independent operations. Documentation, articles, and playbook chapters are returned as readable Markdown; marketing-page overviews are explicitly labeled as summaries with links to the complete pages.",
       "These tools do not access private account or client information, run platform tasks, submit inquiries, or book meetings. Platform actions use the separate authenticated Recoup API and MCP server.",
     ],
     links: [

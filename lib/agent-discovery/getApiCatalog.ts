@@ -47,6 +47,7 @@ export function getApiCatalog() {
         "service-doc": [
           { href: absoluteUrl("/docs"), type: "text/html" },
           { href: absoluteUrl("/docs/authentication"), type: "text/html" },
+          { href: absoluteUrl("/docs/sdks"), type: "text/html" },
         ],
         "terms-of-service": [
           { href: absoluteUrl("/terms"), type: "text/html" },

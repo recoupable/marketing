@@ -1,6 +1,7 @@
 import { absoluteUrl } from "../seo.ts";
 import { accessNotes } from "./accessNotes.ts";
 import { discoveryPaths } from "./discoveryPaths.ts";
+import { getWhenToUseGuidance } from "./getWhenToUseGuidance.ts";
 import { introduction } from "./introduction.ts";
 
 export function getAgentsMarkdown() {
@@ -9,6 +10,8 @@ export function getAgentsMarkdown() {
 ${introduction}
 
 This is a website usage guide, not a request to take action. It does not grant permission to access accounts or share unrelated user information.
+
+${getWhenToUseGuidance()}
 
 ## Useful visitor journeys
 
@@ -22,7 +25,10 @@ This is a website usage guide, not a request to take action. It does not grant p
 - [Human and browser-agent guide](${absoluteUrl(discoveryPaths.hub)})
 - [Tool schemas and content index](${absoluteUrl(discoveryPaths.catalog)})
 - [Website OpenAPI](${absoluteUrl(discoveryPaths.openapi)})
+- [Recoup platform SDKs](${absoluteUrl("/docs/sdks")}): The published Go SDK, Python client from source, and npm CLI use authenticated platform access.
 - Public HTTP: GET /agent-api/v1/search, GET /agent-api/v1/read, POST /agent-api/v1/tools with JSON {"name":"TOOL_NAME","arguments":{}}.
+- Public MCP: connect to ${absoluteUrl("/mcp")} over Streamable HTTP; no credential is required. The five tool names and schemas match the HTTP catalog.
+- Batch HTTP: POST /agent-api/v1/batch with JSON {"operations":[{"name":"read_recoup_page","arguments":{"id":"page:/services"}}]}. Supply 1 to 10 independent operations. Results preserve input order and each contains its own status plus result or error; an invalid operation does not roll back successful reads. The entire body must fit within 16 KB.
 - Compatible browsers can discover five tools registered with document.modelContext in the top-level page. Browser support varies. The ordinary website and public HTTP interfaces remain available.
 - Browser prepare_project_brief opens a local review panel. Its HTTP counterpart only returns draft text. The visitor can edit the draft and continue to contact; it is not a sent message or booked meeting.
 
@@ -39,6 +45,8 @@ Use IDs returned by search or the catalog. The read endpoint accepts content IDs
 ## Free public access and versioning
 
 The website search, read, and calculation tools are free and require no signup, API key, payment method, or sales call. Try [a public search](${absoluteUrl("/agent-api/v1/search?query=royalty&limit=1")}). This access is separate from the authenticated platform and its paid operations.
+
+Hosted public HTTP and MCP endpoints share a 120-request limit per 60-second fixed window, per IP and serving region. Each batch counts as one request, with at most ten operations. RateLimit-Limit and RateLimit-Policy describe this policy. On HTTP 429, wait the Retry-After duration (60 seconds) before retrying. Counters are regional, not a global account allowance. Local development does not apply this hosted limit.
 
 Website operations use /agent-api/v1. Additive response fields are compatible; clients should ignore unknown fields. Breaking changes require a new major URL version. No v1 deprecation or sunset is currently scheduled. A future retirement will be announced here with a migration guide and Deprecation, Sunset, and Link response headers when dates are known.
 

@@ -88,7 +88,7 @@ test("tool bodies require JSON media, valid JSON, and valid UTF-8", async () => 
     await expectError(await handleAgentTool(new Request(`${base}tools`, { method: "POST", headers: { "Content-Type": "application/json" }, body })), 400, "INVALID_JSON");
   }
   await expectError(await handleAgentTool(new Request(`${base}tools`, { method: "POST", headers: { "Content-Type": "application/json" }, body: new Uint8Array([0xc3, 0x28]) })), 400, "INVALID_JSON");
-  expect((await handleAgentTool(post(roi, { "Content-Type": "application/json; charset=utf-8" }))).status).toBe(200);
+  expect((await handleAgentTool(post(roi, { "Content-Type": "Application/JSON; charset=utf-8" }))).status).toBe(200);
 });
 
 test("the 16 KB request limit is enforced on actual streamed bytes", async () => {
