@@ -30,6 +30,12 @@ when the agent needs authenticated execution; it should resume the same request.
 rollout plan. Ask for a release pack to produce media, or ask for both so the agent
 can carry the same brief into production.
 
+When ChatGPT supplies a selected attachment to the upload tool, the tool accepts
+its host file reference directly. It imports the selected download URL into
+private Recoup storage and validates the actual media bytes. Other hosts can use
+the supported source URL, inline or signed-upload modes; a filename alone is not
+an accessible recording.
+
 For direct API uploads, small inline files are limited to approximately 3 MB
 (4,000,000 base64 characters). For normal song files, request a private signed
 upload, transfer the file and finalize it, or import an accessible HTTPS source

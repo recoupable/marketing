@@ -6546,12 +6546,36 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 400
+          },
+          "file": {
+            "type": "object",
+            "properties": {
+              "download_url": {
+                "type": "string",
+                "maxLength": 4000,
+                "format": "uri"
+              },
+              "file_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "mime_type": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "file_name": {
+                "type": "string",
+                "maxLength": 300
+              }
+            },
+            "required": [
+              "download_url",
+              "file_id"
+            ],
+            "additionalProperties": false
           }
         },
-        "required": [
-          "filename",
-          "content_type"
-        ],
         "additionalProperties": false
       },
       "UpdateReleasePackRequest": {
