@@ -1,7 +1,9 @@
-## Platform OpenAPI operation names — October 19, 2026
+## Public MCP discovery branding — October 19, 2026
 
 The public MCP manifest and handshake now share the site's existing 192-pixel
-Recoup icon, display title, and website link for recognizable client listings.
+Recoup icon, display title, version, and website link for recognizable client listings.
+
+## Platform OpenAPI operation names — October 19, 2026
 
 Added stable operation IDs to the platform's split OpenAPI specifications so
 agents and client generators can name every documented operation. Existing IDs,
