@@ -9,6 +9,8 @@ enforced quota headers on unsupported tool/batch methods. The conventional
 serves its specification through the same quota. Published operation
 URLs, IDs, request shapes, quotas, and authentication permissions are unchanged.
 The main agent indexes also link the published Python SDK.
+JSON and Markdown API responses expose the existing retirement policy with an
+RFC 9745 `rel="deprecation"` link. No deprecation or sunset date is announced.
 Production publication and fresh audit results for this follow-up remain pending.
 
 ## OpenAPI Markdown fallback — October 20, 2026

@@ -9,6 +9,7 @@ import { boundedJson } from "./agent-tools/boundedJson.ts";
 import { RequestError } from "./agent-tools/RequestError.ts";
 import { z } from "zod";
 import { siteConfig } from "./config.ts";
+import { deprecationPolicyLink } from "./agent-api/deprecationPolicyLink";
 
 const headers = {
   "Access-Control-Allow-Origin": "*",
@@ -16,6 +17,8 @@ const headers = {
   "Access-Control-Allow-Headers": "Content-Type",
   "Cache-Control": "no-store",
   "X-Content-Type-Options": "nosniff",
+  Link: deprecationPolicyLink,
+  "Access-Control-Expose-Headers": "Link",
 };
 
 export function agentResponse(value: unknown, status = 200) {

@@ -52,6 +52,14 @@ const { response: apiBase, body: apiBaseBody } = await read("/api/v1");
 assert.equal(apiBase.status, 200);
 assert.equal(new URL(apiBase.url).pathname, "/agent-api/v1");
 assert.deepEqual(JSON.parse(apiBaseBody), spec);
+assert.match(apiBase.headers.get("link"), /rel="deprecation"/);
+assert.equal(apiBase.headers.has("deprecation"), false);
+assert.equal(apiBase.headers.has("sunset"), false);
+const policyTarget = apiBase.headers.get("link").match(/<([^>]+)>; rel="deprecation"/)?.[1];
+assert.ok(policyTarget);
+const policyResponse = await fetch(policyTarget, { signal: AbortSignal.timeout(20_000) });
+assert.equal(policyResponse.status, 200);
+assert.match(await policyResponse.text(), /No v1 deprecation or sunset is scheduled/);
 if (origin.startsWith("https://")) {
   assert.equal(apiBase.headers.get("ratelimit-limit"), "120");
   assert.match(apiBase.headers.get("ratelimit-policy"), /q=120;w=60/);

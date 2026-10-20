@@ -6,6 +6,8 @@ import { GET as apiIndex } from "../app/agent-api/v1/route";
 import { websiteOpenAPI } from "../lib/agent-openapi";
 import { siteConfig } from "../lib/config";
 import { nextConfig } from "../next.config";
+import { GET as markdown } from "../app/agent-api/v1/markdown/route";
+import { deprecationPolicyLink } from "../lib/agent-api/deprecationPolicyLink";
 
 vi.mock("@vercel/firewall", () => ({ checkRateLimit: vi.fn() }));
 afterEach(() => {
@@ -121,8 +123,35 @@ test("the conventional versioned API alias leads to a quota-enforced discovery d
   expect(await response.json()).toEqual(websiteOpenAPI());
   expect(response.headers.get("ratelimit-limit")).toBe("120");
   expect(response.headers.get("link")).toContain('rel="service-desc"');
+  expect(response.headers.get("link")).toContain(deprecationPolicyLink);
   vi.mocked(checkRateLimit).mockResolvedValueOnce({ rateLimited: true });
   const limited = await apiIndex(request);
   expect(limited.status).toBe(429);
   expect(limited.headers.get("retry-after")).toBe("60");
+});
+
+test("JSON and Markdown expose the retirement policy without claiming an active deprecation", async () => {
+  vi.stubEnv("VERCEL", "");
+  const responses = [
+    await apiIndex(new Request(`${siteConfig.url}/agent-api/v1`)),
+    await markdown(
+      new Request(`${siteConfig.url}/agent-api/v1/markdown?path=/services`),
+    ),
+  ];
+  for (const response of responses) {
+    expect(response.status).toBe(200);
+    expect(response.headers.get("link")).toContain(deprecationPolicyLink);
+    expect(response.headers.get("access-control-expose-headers")).toContain(
+      "Link",
+    );
+    expect(response.headers.has("deprecation")).toBe(false);
+    expect(response.headers.has("sunset")).toBe(false);
+  }
+  const spec = websiteOpenAPI();
+  expect(
+    spec.paths["/search"].get.responses["200"].headers.Link.schema.example,
+  ).toBe(deprecationPolicyLink);
+  expect(
+    spec.paths["/markdown"].get.responses["200"].headers.Link.schema.example,
+  ).toBe(deprecationPolicyLink);
 });

@@ -1,6 +1,7 @@
 import { maximumBatchOperations } from "./agent-tools/maximumBatchOperations.ts";
 import { agentToolDefinitions } from "./agent-tools/agentToolDefinitions.ts";
 import { siteConfig } from "./config.ts";
+import { deprecationPolicyLink } from "./agent-api/deprecationPolicyLink";
 
 const object = (
   properties: Record<string, unknown>,
@@ -80,9 +81,15 @@ const errorSchema = object({
   ),
 });
 const error = { $ref: "#/components/schemas/ErrorResponse" };
+const policyLinkHeader = {
+  description:
+    'RFC 9745 rel="deprecation" link to the published versioning and retirement policy. The link is available while v1 is active; no Deprecation or Sunset date is currently scheduled.',
+  schema: { type: "string", example: deprecationPolicyLink },
+};
 const jsonResponse = (description: string, schema: unknown) => ({
   description,
   headers: {
+    Link: policyLinkHeader,
     "RateLimit-Limit": {
       description:
         "Hosted requests per IP per serving region in a 60-second fixed window.",
@@ -366,12 +373,14 @@ export function websiteOpenAPI() {
           responses: {
             "200": {
               description: "Complete public Markdown document.",
+              headers: { Link: policyLinkHeader },
               content: { "text/markdown": { schema: string } },
             },
             "429": errors["429"],
             "503": errors["503"],
             "404": {
               description: "Unknown or invalid public path.",
+              headers: { Link: policyLinkHeader },
               content: { "text/markdown": { schema: string } },
             },
           },

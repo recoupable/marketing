@@ -6,7 +6,7 @@ import { withAgentRateLimit } from "@/lib/agent-tools/withAgentRateLimit";
 export function GET(request: Request) {
   return withAgentRateLimit(request, async () => {
     const response = agentResponse(websiteOpenAPI());
-    response.headers.set(
+    response.headers.append(
       "Link",
       '</openapi.json>; rel="service-desc"; type="application/json", </agents>; rel="service-doc"',
     );
