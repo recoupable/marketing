@@ -1,3 +1,16 @@
+## Official Python and Go clients — October 19, 2026
+
+Prepared MIT-licensed Python and Go SDKs for the platform JSON API, with API-key
+and Bearer authentication, account identification, generic documented endpoint
+requests, bounded responses, explicit errors and deadlines, and credential-safe
+redirect handling. No streaming, multipart, OAuth login or full generated endpoint
+coverage is claimed. Seven installed-wheel Python tests and five Go integration
+tests (including race detection), Go vet, and Python package checks pass.
+
+PyPI account/trusted publisher setup and registry publication remain pending. The
+Go module needs its reviewed release tag after merge. The manual OIDC publishing
+workflow and SDK CI are ready; source availability is not registry publication.
+
 ## Agent readiness recovery and discovery — October 19, 2026
 
 Addressed the 71/100 Is Agentic baseline with recoverable Markdown 404s, JSON API fallback errors and a named error schema, platform OAuth metadata aliases and a Streamable HTTP MCP manifest, current OAuth connection guidance, organization contact/address metadata, and a page-first heading outline. Website tools remain anonymous; platform access still requires consent and account membership.
