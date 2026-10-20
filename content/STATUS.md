@@ -1,3 +1,13 @@
+## Python registry release — October 20, 2026
+
+The MIT-licensed `recoupable` 0.1.0 SDK is published on PyPI from Marketing
+`d7933440`. The main-only GitHub `pypi` environment uses trusted publishing.
+The release workflow passed its build, strict metadata validation, and SDK tests.
+A separate clean registry installation verified the wheel's SHA-256, official
+project links, MIT metadata, imports, and all 14 tests. The SDK guide and release
+instructions now link to the published package; their site publication follows
+the coordinated OpenAPI release.
+
 ## Context contract release reference — October 20, 2026
 
 Refreshed the API inventory from the actual #1049 merge `090f9880`, preserving
@@ -35,15 +45,16 @@ the five public tools and the separate authenticated platform MCP.
 Added stable operation IDs to the platform's split OpenAPI specifications so
 agents and client generators can name every documented operation. Existing IDs,
 HTTP paths, request and response schemas, authentication, and availability
-annotations are preserved. API PR #1051 updates the documentation fixture
-hashes; it changes no runtime behavior. The latest reconciliation preserves the
+annotations are preserved. API PR #1051 is merged at `8edd0bf7` and updates the
+documentation fixture hashes without changing runtime behavior. The inventory
+now references that released commit. The latest reconciliation preserves the
 released Context evidence contracts, all five existing operation IDs, and all
 non-ID schema content. All 483 website tests, 14 contract-producer checks,
 documentation generation/checks, and the inventory and shared-fixture checks pass.
 The API companion passes all 51 contract tests, response-contract type checks,
 lint and formatting. The local production build is blocked by worker-port
-permissions; the hosted preview build remains a publication gate. Merge,
-deployment, and rescoring remain pending.
+permissions; the hosted preview build remains a publication gate for the
+refreshed Marketing source. Marketing/Docs publication and rescoring remain pending.
 
 ## SDK discovery and Go release — October 19, 2026
 

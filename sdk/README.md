@@ -6,7 +6,7 @@ These packages add Python and Go integrations; they do not grant new account acc
 
 | Language | Source | Registry status |
 | --- | --- | --- |
-| Python 3.10+ | [Python SDK](python/README.md) | Package built and tested; PyPI account/trusted publisher setup is pending |
+| Python 3.10+ | [Python SDK](python/README.md) | [0.1.0 published on PyPI](https://pypi.org/project/recoupable/0.1.0/); clean registry installation and all 14 SDK tests verified |
 | Go 1.23+ | [Go SDK](go/README.md) | [v0.1.0 published and indexed](https://pkg.go.dev/github.com/recoupable/marketing/sdk/go@v0.1.0); clean proxy download and race tests verified |
 
 Both initial clients handle API keys or existing Bearer tokens, arbitrary documented
@@ -17,13 +17,14 @@ MIT licenses apply only to these SDK directories.
 
 ## Python publication
 
-The built project name is `recoupable`, version `0.1.0`. No matching public PyPI
-package was found during preparation; this does not reserve the name.
+Version `0.1.0` is published as [recoupable on PyPI](https://pypi.org/project/recoupable/0.1.0/).
+The [release workflow](https://github.com/recoupable/marketing/actions/runs/39378001507)
+published the reviewed source at `d7933440caf11d34ac491cb1b4283cc344c6c1ec`.
+A fresh registry installation verified the MIT metadata, project links, imports,
+and all 14 SDK tests.
 
-The account owner must create/verify a [PyPI account](https://pypi.org/account/register/)
-and enable its required two-factor authentication. Keep passwords, recovery codes
-and tokens out of Git and chat. Then configure a pending trusted publisher using
-[PyPI's publishing settings](https://pypi.org/manage/account/publishing/):
+Trusted publishing is configured for this project. Keep passwords, recovery codes
+and tokens out of Git and chat. The publisher's configuration is:
 
 - Project name: `recoupable`
 - Owner: `recoupable`
@@ -31,13 +32,13 @@ and tokens out of Git and chat. Then configure a pending trusted publisher using
 - Workflow filename: `publish-python-sdk.yml`
 - Environment: `pypi`
 
-Configure the repository's `pypi` environment to allow deployments only from
-`main`. Once this PR is merged and the account-owner setup is complete, run
-**Publish Python SDK** on `main` with the reviewed version. The workflow builds
+The repository's `pypi` environment allows deployments only from `main`.
+For a subsequent release, merge the reviewed version update, then run
+**Publish Python SDK** on `main` with that version. The workflow builds
 and tests the wheel, then publishes through short-lived OIDC credentials. It does
 not require a stored PyPI password or API token. It is never triggered by a PR.
-Verify the registry metadata, a clean `pip install recoupable==0.1.0`, and imports
-before changing the website or table above to say the package is published.
+Verify the registry metadata, a clean installation of the new version, and imports
+before changing the website or table above to say the release is published.
 
 ## Go publication
 
