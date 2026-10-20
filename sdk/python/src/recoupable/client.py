@@ -53,7 +53,7 @@ class Client:
     def request(
         self, method: str, path: str, *, query: dict | None = None, body: object = None
     ) -> object:
-        """Call a documented /api/ JSON endpoint; returns decoded JSON or None for HTTP 204.
+        """Call a documented /api/ JSON endpoint; empty successes return None.
 
         Supply an unencoded path and a query mapping. Streaming and multipart endpoints
         are outside this client's scope. The timeout bounds blocking socket operations.

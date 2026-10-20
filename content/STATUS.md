@@ -1,23 +1,20 @@
 ## Official Python and Go clients — October 19, 2026
 
-Release review added bounded HTTP error bodies that retain status and Retry-After,
-strict account-identity responses, typed Python transport failures, and Go
-credential redaction for both options and client values. Eleven Python wheel
-integration tests and the Go race suite pass, including timeout/no-write-retry
-and malformed-response regressions. Runtime modules have focused configuration,
-request, and response responsibilities. The production build passes after these
-changes; registry publication remains pending.
+Prepared MIT-licensed Python and Go clients for platform JSON endpoints. Both
+support API keys or existing Bearer tokens, account identification, bounded
+responses, typed errors, explicit timeouts, and credential-safe redirect handling.
+Streaming, multipart, OAuth login, and generated method coverage remain outside
+the initial release. Empty successful responses are accepted; advertised streams
+are rejected before body reads. HTTP errors retain status and Retry-After even
+when their bodies exceed the cap. Configuration rejects invalid origins and
+unreadable response limits; error messages and Go formatting redact credentials.
 
-Prepared MIT-licensed Python and Go SDKs for the platform JSON API, with API-key
-and Bearer authentication, account identification, generic documented endpoint
-requests, bounded responses, explicit errors and deadlines, and credential-safe
-redirect handling. No streaming, multipart, OAuth login or full generated endpoint
-coverage is claimed. Seven installed-wheel Python tests and five Go integration
-tests (including race detection), Go vet, and Python package checks pass.
-
-PyPI account/trusted publisher setup and registry publication remain pending. The
-Go module needs its reviewed release tag after merge. The manual OIDC publishing
-workflow and SDK CI are ready; source availability is not registry publication.
+Fourteen installed-wheel Python tests, strict distribution metadata validation,
+Ruff, Go race tests, and Go vet pass, including accepted empty writes, delayed
+streams, deep JSON, timeout/no-write-retry and malformed-response regressions.
+PyPI account/trusted publisher setup and registry publication remain pending.
+The Go module needs its reviewed release tag after merge. The manual OIDC
+publishing workflow and SDK CI are ready; source availability is not publication.
 
 ## Agent readiness recovery and discovery — October 19, 2026
 

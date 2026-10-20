@@ -39,7 +39,8 @@ Use `Options{AccessToken: ...}` for an existing access token. Supply exactly one
 credential; the SDK does not sign in or read environment variables implicitly.
 `Request(ctx, method, path, query, body, out)` works with documented JSON routes.
 Pass an unencoded `/api/` path, `url.Values` for query parameters, an encodable
-body (or nil), and a response pointer (or nil). HTTP 204 leaves `out` unchanged.
+body (or nil), and a response pointer (or nil). Empty successful responses,
+including HTTP 204, leave `out` unchanged.
 
 The default origin is `https://api.recoupable.dev`. A custom HTTPS `BaseURL` is an
 explicit trusted destination for your credential; HTTP is restricted to loopback.

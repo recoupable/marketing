@@ -6,14 +6,21 @@ requests, API-key and Bearer authentication, structured HTTP errors, response-si
 bounds, and explicit timeouts. It does not implement SSE, multipart uploads,
 OAuth login, pagination automation, or automatic retries.
 
-## Install from source
+## Install
+
+For a published release:
+
+```sh
+python -m pip install recoupable==0.1.0
+```
+
+For a checkout or before the first registry release:
 
 ```sh
 python -m pip install 'git+https://github.com/recoupable/marketing.git#subdirectory=sdk/python'
 ```
 
-A PyPI release is being prepared; the source installation is the available path
-until a registry release is verified. Pin a commit for reproducible deployments.
+Pin a source commit for reproducible deployments.
 
 ```python
 import os
@@ -35,7 +42,8 @@ Redirects are not followed, and `/api/` paths cannot contain traversal or a new
 origin. Pass unencoded paths and use the `query` argument for query parameters.
 
 `client.request(method, path, query=..., body=...)` returns decoded JSON or `None`
-for HTTP 204. The default response cap is 16 MiB; `max_response_bytes` overrides it.
+for an empty successful response (including HTTP 204). The default response cap is
+16 MiB; `max_response_bytes` overrides it.
 `timeout` defaults to 30 seconds per blocking socket operation, not a total deadline.
 
 Catch `APIError` for non-2xx responses and inspect `status`, `body`, `headers`, or

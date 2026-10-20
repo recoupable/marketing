@@ -48,8 +48,11 @@ func New(options Options) (*Client, error) {
 	if origin.Hostname() == "" || (origin.Scheme != "https" && !(local && origin.Scheme == "http")) || origin.User != nil || (origin.Path != "" && origin.Path != "/") || origin.RawQuery != "" || origin.ForceQuery || origin.Fragment != "" {
 		return nil, errors.New("base URL must be an HTTPS origin; HTTP is allowed only for loopback tests")
 	}
-	if options.Timeout < 0 || options.MaxResponseBytes < 0 || options.MaxResponseBytes == math.MaxInt64 {
+	if options.Timeout < 0 || options.MaxResponseBytes < 0 {
 		return nil, errors.New("request limits cannot be negative")
+	}
+	if options.MaxResponseBytes == math.MaxInt64 {
+		return nil, errors.New("MaxResponseBytes must be smaller than math.MaxInt64")
 	}
 	if options.Timeout == 0 {
 		options.Timeout = 30 * time.Second

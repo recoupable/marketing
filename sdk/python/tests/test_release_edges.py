@@ -1,6 +1,7 @@
 import copy
 import json
 import pickle
+import sys
 import threading
 import unittest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -89,6 +90,10 @@ class ReleaseEdges(unittest.TestCase):
             {"base_url": self.origin + "?"},
             {"base_url": self.origin + "#"},
             {"max_response_bytes": True},
+            {"max_response_bytes": sys.maxsize},
+            {"base_url": "https://@example.com"},
+            {"base_url": "https://example.com:invalid"},
+            {"base_url": "https://example.com:65536"},
         ]:
             with self.subTest(kwargs=kwargs), self.assertRaises(ValueError):
                 Client(api_key="key", **kwargs)

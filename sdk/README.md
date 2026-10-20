@@ -31,8 +31,8 @@ and tokens out of Git and chat. Then configure a pending trusted publisher using
 - Workflow filename: `publish-python-sdk.yml`
 - Environment: `pypi`
 
-Configure the repository's `pypi` environment with a release reviewer and restrict
-it to `main`. Once this PR is merged and the account-owner setup is complete, run
+Configure the repository's `pypi` environment to allow deployments only from
+`main`. Once this PR is merged and the account-owner setup is complete, run
 **Publish Python SDK** on `main` with the reviewed version. The workflow builds
 and tests the wheel, then publishes through short-lived OIDC credentials. It does
 not require a stored PyPI password or API token. It is never triggered by a PR.
