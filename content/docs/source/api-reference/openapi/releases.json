@@ -2142,7 +2142,7 @@
     "/api/artists/{id}/fans": {
       "get": {
         "operationId": "getArtistsByIdFans",
-        "description": "Retrieve the social profiles of an artist's fans: the accounts that commented on the artist's scraped posts (Instagram today). Every Instagram scrape is followed by one batched profile run over the new commenters, which fills `avatar`, `bio`, `follower_count` and `following_count` on each fan; `region` is null unless the platform reports one. Supports pagination for large fan lists.",
+        "description": "Retrieve the social profiles of an artist's fans: the accounts that commented on the artist's scraped posts (Instagram today). Every Instagram scrape is followed by one batched profile run over the new commenters, which fills `avatar`, `bio`, `follower_count` and `following_count` on each fan; `region` is null unless the platform reports one. Supports pagination for large fan lists.\n\n`last_comment_at` is the timestamp of the latest stored comment linked to that fan relationship, when the comment's author matches the returned fan. Missing or mismatched comment evidence returns `null`; it does not mean the fan has never commented. Profile refresh time and other engagement timestamps are not substituted. This is stored evidence, not a live scrape or exhaustive interaction history, and older relationship links are not guaranteed backfilled. Existing ordering, pagination and duplicate fan rows across relationships are unchanged.\n\nThe caller must be authenticated and have access to the artist. This field supports a report's Last heard column; it does not return comment bodies or implement the pending `GET /api/comments` operation.",
         "parameters": [
           {
             "name": "id",
@@ -3709,6 +3709,15 @@
             "type": "string",
             "format": "date-time",
             "description": "ISO timestamp of when the fan data was last updated"
+          },
+          "last_comment_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time",
+            "description": "Timestamp of the latest stored comment linked to this fan relationship, only when the comment author matches this fan. Null means matching stored comment evidence is unavailable, not that the fan never commented. This is not the profile refresh time, a generic engagement time or a live cross-platform history.",
+            "example": "2026-10-01T12:00:00Z"
           }
         }
       },
@@ -3760,6 +3769,27 @@
           "fans",
           "pagination"
         ],
+        "example": {
+          "status": "success",
+          "fans": [
+            {
+              "id": "fan_fixture_known",
+              "username": "example_fan",
+              "last_comment_at": "2026-10-01T12:00:00Z"
+            },
+            {
+              "id": "fan_fixture_unknown",
+              "username": "example_fan_unknown",
+              "last_comment_at": null
+            }
+          ],
+          "pagination": {
+            "total_count": 2,
+            "page": 1,
+            "limit": 20,
+            "total_pages": 1
+          }
+        },
         "properties": {
           "status": {
             "type": "string",

@@ -1,3 +1,32 @@
+## Stored fan comment dates — October 20, 2026
+
+The ArtistFan response now documents optional nullable `last_comment_at`, from
+API #1057's actual merge `e51d4ed9`. A matching stored comment supplies its date;
+missing or mismatched evidence returns null. Profile refresh dates and generic
+engagement times are not substituted. This supports a report's Last heard
+column without promising live data, complete history or restored GET /api/comments.
+
+The known/unknown response example and resolved schema are frozen into the
+shared API fixture. Four provider-free contract cases exercise the actual route
+with real validation/projection under mocked access/storage, including array
+joins and mismatched evidence. All 77 fan/contract cases, 484 website tests,
+14 producer checks and 11 docs checks pass. Existing authentication, artist
+access, ordering, pagination and relationship duplicates remain unchanged.
+Source and publication review are separate from a live weekly report; no customer
+comments, provider request or production write were used.
+
+The refreshed branch preserves current Marketing #196/#198 and the corrected
+billing-guide null paragraph. A standards check reproduced another mismatch:
+OpenAPI 3.1's JSON Schema rejects null when the new field uses only string plus
+legacy nullable. The field now uses string/null types; the standard validator
+accepts both documented states and rejects numbers. A focused API companion
+updates the fixture and adds a guard without the older nullable extension.
+API #1061 is merged as `52a2e218bffdea2b69c0f8a8ba075202b08754d0` after
+independent review. The inventory now references that actual release, with the
+accepted schema and both fixtures unchanged. Final narrow review and Marketing
+publication remain; retained fan docs must follow the actual Marketing merge.
+The billing publication from actual #198 remains separate.
+
 ## Billing guide null-card correction — October 20, 2026
 
 The saved-card guide now agrees with the corrected Accounts schema: a null card
