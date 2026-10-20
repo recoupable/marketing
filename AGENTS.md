@@ -321,3 +321,13 @@ cutover and archival separate from content reconciliation.
 ## Public company map
 
 `/atlas` presents the company operating model. See `docs/company-map.md` for the public-only projection boundary and refresh checks. Never copy private atlas evidence, engineering findings or source files into this public repository.
+
+## Official Python and Go SDKs
+
+`sdk/python` and `sdk/go` are independently packaged JSON clients for the platform
+API. Preserve API-key/Bearer support, trusted-origin restrictions, bounded responses
+and explicit retry behavior. SDK licenses apply only inside those directories.
+Run Python tests against the built wheel, `twine check --strict`, and Go tests with
+`-race` plus `go vet`. See `sdk/README.md` for the account-owner PyPI setup and
+nested Go module release tag. Never describe a registry release as published until
+a clean registry installation has been verified.
