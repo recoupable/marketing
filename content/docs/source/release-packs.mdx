@@ -66,6 +66,37 @@ face is optional; artwork-led and typographic work are valid directions.
 
 ## Scope and budget before generation
 
+### Save a direction and choose how involved to be
+
+Connections exposing `brief.creative_context` can save an established visual world,
+a rough idea or an exploratory direction in the same pack. The field is optional;
+older connections keep their existing brief behavior. It holds attributed references,
+up to three direction candidates and the selected candidate.
+
+**Run with it** uses `working_mode: "autonomous"`: the agent records its direction
+selection and continues within the approved budget. **Show me directions first**
+uses `working_mode: "guided"`: final quoting and generation wait for a selection
+recorded from the customer's feedback. An agent's own choice does not count as
+customer selection in guided mode.
+
+Save candidates under `directions`, then record `selection.direction_id`,
+`selection.selected_by` (`customer` or `agent`) and a short `decision_note`.
+Direction and reference IDs must be unique within this brief; selections cannot
+point to another pack's candidate. Updating these fields follows the same saved
+job and expected-revision rules and invalidates its earlier quote.
+
+A reference manifest item declares its source, media type and `usage`:
+`reference_only` is inspiration, while `production` explicitly makes an image
+eligible as a selected generation input. Only production images referenced by
+the chosen direction enter the renderer. Together with explicit legacy
+`reference_image_urls`, at most five distinct production images are supported.
+The original source manifest stays unchanged when production inputs are resolved.
+
+This first slice accepts supplied direction boards through an optional `board_url`.
+It does not add automatic mood-board generation, public-profile harvesting or new
+asset types. Discover those capabilities before promising them. An optional
+customer checkpoint does not authorize additional spending or publication.
+
 Preparation and generation are separate operations. Before paid production, the
 agent shows the proposed direction, deliverables, cost scope and maximum budget.
 The quote binds the current brief and deliverables. Changing the song or scope

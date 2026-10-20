@@ -6144,6 +6144,9 @@
               ],
               "additionalProperties": false
             }
+          },
+          "creative_context": {
+            "$ref": "#/components/schemas/ReleasePackCreativeContext"
           }
         },
         "additionalProperties": false
@@ -6336,6 +6339,9 @@
                   ],
                   "additionalProperties": false
                 }
+              },
+              "creative_context": {
+                "$ref": "#/components/schemas/ReleasePackCreativeContext"
               }
             },
             "additionalProperties": false
@@ -6761,6 +6767,9 @@
                   ],
                   "additionalProperties": false
                 }
+              },
+              "creative_context": {
+                "$ref": "#/components/schemas/ReleasePackCreativeContext"
               }
             },
             "additionalProperties": false
@@ -7052,6 +7061,189 @@
             "format": "uri"
           }
         }
+      },
+      "ReleasePackCreativeContext": {
+        "type": "object",
+        "properties": {
+          "starting_point": {
+            "type": "string",
+            "enum": [
+              "established",
+              "rough_idea",
+              "none"
+            ]
+          },
+          "working_mode": {
+            "default": "autonomous",
+            "type": "string",
+            "enum": [
+              "autonomous",
+              "guided"
+            ]
+          },
+          "references": {
+            "default": [],
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9_-]+$"
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                },
+                "url": {
+                  "type": "string",
+                  "maxLength": 4000,
+                  "format": "uri"
+                },
+                "media_type": {
+                  "type": "string",
+                  "enum": [
+                    "image",
+                    "document",
+                    "link"
+                  ]
+                },
+                "source_kind": {
+                  "type": "string",
+                  "enum": [
+                    "recoup",
+                    "customer",
+                    "public",
+                    "generated"
+                  ]
+                },
+                "usage": {
+                  "default": "reference_only",
+                  "type": "string",
+                  "enum": [
+                    "reference_only",
+                    "production"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "url",
+                "media_type",
+                "source_kind",
+                "usage"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "directions": {
+            "default": [],
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9_-]+$"
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "concept": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1200
+                },
+                "palette": {
+                  "default": [],
+                  "maxItems": 8,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 48
+                  }
+                },
+                "typography": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "reference_ids": {
+                  "default": [],
+                  "maxItems": 20,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80,
+                    "pattern": "^[A-Za-z0-9_-]+$"
+                  }
+                },
+                "board_url": {
+                  "type": "string",
+                  "maxLength": 4000,
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "concept",
+                "palette",
+                "reference_ids"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "selection": {
+            "type": "object",
+            "properties": {
+              "direction_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "selected_by": {
+                "type": "string",
+                "enum": [
+                  "customer",
+                  "agent"
+                ]
+              },
+              "decision_note": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              }
+            },
+            "required": [
+              "direction_id",
+              "selected_by",
+              "decision_note"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "starting_point",
+          "working_mode",
+          "references",
+          "directions"
+        ],
+        "additionalProperties": false,
+        "description": "Optional saved creative state. Ids are unique within this brief, selections reference an existing direction, and each direction references existing manifest ids. Guided mode requires customer selection before final quote or generation. Selected production image references plus legacy reference_image_urls must contain at most five distinct URLs. Reference-only inputs never become production image inputs."
       }
     }
   }
