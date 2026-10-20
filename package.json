@@ -9,6 +9,8 @@
     "lint": "eslint .",
     "format": "prettier --write . && pnpm lint",
     "test": "vitest run",
+    "posts:build": "node scripts/build-post-index.mjs",
+    "posts:check": "node scripts/build-post-index.mjs --check",
     "lint:fix": "eslint . --fix",
     "docs:build": "node scripts/build-docs.mjs",
     "docs:check": "node scripts/import-docs-check.mjs",

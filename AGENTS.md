@@ -60,7 +60,7 @@ lib/docs/         — Documentation helpers (llms.txt sections, llms-full corpus
 proxy.ts          — Request proxy (Next 16 successor to middleware): serves public pages as Markdown on Accept: text/markdown or a .md suffix
 public/           — Static assets (brand/, icons/, images/)
 content/blog/posts.json — Published blog source for pages, feed, metadata and machine discovery
-content/posts/    — Legacy MDX sources and historical post index
+content/posts/    — Generated published-post index, archived planning notes and legacy MDX sources
 content/brand/    — Brand context files (read before creating content)
 content/seo/      — SEO strategy + keyword targets
 content/STATUS.md — Current state snapshot (read FIRST every session)
@@ -115,16 +115,16 @@ content/brand/product.md     — Features, stats (check updated date)
 content/brand/audience.md    — Customer personas (structured format)
 content/brand/examples.md    — Approved + rejected copy with reasons
 content/seo/pillars.md       — Topic clusters, target keywords
-content/posts/INDEX.md       — Published posts + topic gaps
+content/posts/INDEX.md       — Generated inventory from the active published source; links dated planning archive
 ```
 
 ## Adding a Blog Post
 
-1. Read `content/STATUS.md` + `content/posts/INDEX.md` (check gaps)
+1. Read `content/STATUS.md` + `content/posts/INDEX.md` (check current publication coverage; archived topic gaps are historical)
 2. Read `content/brand/voice.md` + relevant context files
 3. Prepare drafts outside `content/blog/posts.json`; every entry in that file is public when deployed. After publishing approval, add a post matching `BlogPost` in `lib/blog.ts`.
 4. Use `coverImage` for the article hero/social image and `thumbnailImage` for approved archive artwork. Store local delivery assets in `public/images/blog/<slug>/`; body image URLs must start with `/images/`. Omit duplicate H1/hero images, private frontmatter and source paths from the public body. Preserve the existing featured entry unless asked to replace it.
-5. Run `pnpm build` and the blog/metadata checks. Update `content/posts/INDEX.md` and `content/STATUS.md`.
+5. Run `pnpm posts:build` after approved published-source changes, then `pnpm posts:check`, `pnpm build` and the blog/metadata checks. The index is generated; do not hand-edit it. Update `content/STATUS.md`. CI rejects an outdated inventory or duplicate published slug.
 
 ## Content Types
 
