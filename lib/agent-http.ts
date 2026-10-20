@@ -3,6 +3,7 @@ import { readAgentContent } from './agent-content/readAgentContent.ts';
 import { searchAgentContent } from './agent-content/searchAgentContent.ts';
 import { AgentToolInputError } from './agent-tools/AgentToolInputError.ts';
 import { executeUtilityTool } from './agent-tools/executeUtilityTool.ts';
+import { siteConfig } from './config.ts';
 
 const headers = {
   'Access-Control-Allow-Origin': '*',
@@ -27,13 +28,14 @@ class RequestError extends Error {
 }
 
 export function agentError(error: unknown) {
+  const resolution = `Correct the request using ${siteConfig.url}/openapi.json. Search /agent-api/v1/search for a public content ID before reading it.`;
   if (error instanceof AgentContentError || error instanceof RequestError) {
-    return agentResponse({ error: { code: error.code, message: error.message } }, error.status);
+    return agentResponse({ error: { code: error.code, message: error.message, resolution } }, error.status);
   }
   if (error instanceof AgentToolInputError) {
-    return agentResponse({ error: { code: error.code, message: error.message, issues: error.issues } }, 400);
+    return agentResponse({ error: { code: error.code, message: error.message, resolution, issues: error.issues } }, 400);
   }
-  return agentResponse({ error: { code: 'UNAVAILABLE', message: 'This request could not be completed. Please retry.' } }, 503);
+  return agentResponse({ error: { code: 'UNAVAILABLE', message: 'This request could not be completed. Please retry.', resolution: 'Wait briefly, then retry the same request. Contact Recoup if the problem persists.' } }, 503);
 }
 
 function queryValues(request: Request, keys: string[]) {

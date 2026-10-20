@@ -46,6 +46,8 @@ export function organizationGraph() {
         founder: { "@type": "Person", "@id": absoluteUrl("/about#sidney-swift"), name: "Sidney Swift", url: absoluteUrl("/about#sidney-swift") },
         sameAs: [siteConfig.githubOrganizationUrl],
         email: siteConfig.contactEmail,
+        contactPoint: { "@type": "ContactPoint", email: siteConfig.contactEmail, contactType: "customer support", url: absoluteUrl("/contact"), availableLanguage: "English" },
+        address: { "@type": "PostalAddress", streetAddress: siteConfig.address, addressCountry: "US" },
       },
       { "@type": "WebSite", "@id": absoluteUrl("/#website"), name: siteConfig.name, url: absoluteUrl("/"), inLanguage: "en", publisher: { "@id": absoluteUrl("/#organization") } },
     ],

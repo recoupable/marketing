@@ -1,4 +1,5 @@
 import { entryForPath } from "./entryForPath.ts";
+import { markdownNotFound } from "./markdownNotFound.ts";
 
 /** One complete document, using the same published registry as search and read. */
 export async function markdownResponse(request: Request) {
@@ -16,11 +17,7 @@ export async function markdownResponse(request: Request) {
     "X-Robots-Tag": "noindex, follow",
     Vary: "Accept",
   };
-  if (!entry)
-    return new Response(
-      "# Not found\n\nNo published page exists at this path.\n",
-      { status: 404, headers },
-    );
+  if (!entry) return markdownNotFound();
   return new Response(await entry.markdown(), {
     headers: { ...headers, Link: `<${entry.metadata.url}>; rel="canonical"` },
   });

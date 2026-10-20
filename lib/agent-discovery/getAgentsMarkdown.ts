@@ -36,6 +36,12 @@ Every published blog is generated from its article source. Page overviews remain
 
 Use IDs returned by search or the catalog. The read endpoint accepts content IDs, not arbitrary URLs or filesystem paths. Respect pagination and returned character offsets. Invalid arguments, unknown content, and unavailable responses return explicit errors; do not replace them with invented answers.
 
+## Free public access and versioning
+
+The website search, read, and calculation tools are free and require no signup, API key, payment method, or sales call. Try [a public search](${absoluteUrl("/agent-api/v1/search?query=royalty&limit=1")}). This access is separate from the authenticated platform and its paid operations.
+
+Website operations use /agent-api/v1. Additive response fields are compatible; clients should ignore unknown fields. Breaking changes require a new major URL version. No v1 deprecation or sunset is currently scheduled. A future retirement will be announced here with a migration guide and Deprecation, Sunset, and Link response headers when dates are known.
+
 ${accessNotes()}
 `;
 }

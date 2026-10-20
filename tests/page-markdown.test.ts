@@ -140,6 +140,18 @@ test("unknown paths and user data cannot become arbitrary reads", async () => {
   expect(entryForPath("/terms-of-use")).toBe(entryForPath("/terms"));
 });
 
+test("missing pages negotiate recoverable Markdown even with underscores or capitals", async () => {
+  for (const path of ["/__missing-page_probe", "/Missing_Page", "/blog/missing-article"]) {
+    const target = rewrite(path, "text/markdown").headers.get("x-middleware-rewrite");
+    expect(target, path).toBeTruthy();
+    const response = await markdownResponse(new Request(target!));
+    expect(response.status).toBe(404);
+    expect(response.headers.get("content-type")).toContain("text/markdown");
+    expect(await response.text()).toContain("/llms.txt)");
+    expect(rewrite(path, "text/html").headers.get("x-middleware-rewrite")).toBeNull();
+  }
+});
+
 test("negotiation respects media preferences and leaves existing machine endpoints and assets alone", () => {
   for (const accept of [
     "*/*",

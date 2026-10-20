@@ -1,3 +1,9 @@
+## Agent readiness recovery and discovery — October 19, 2026
+
+Addressed the 71/100 Is Agentic baseline with recoverable Markdown 404s, JSON API fallback errors and a named error schema, platform OAuth metadata aliases and a Streamable HTTP MCP manifest, current OAuth connection guidance, organization contact/address metadata, and a page-first heading outline. Website tools remain anonymous; platform access still requires consent and account membership.
+
+All 464 tests, TypeScript, scoped lint, and the production build pass. The local production server passed all 638 Markdown requests across 319 pages, including 32 blogs. `scripts/audit-agent-readiness.mjs` verifies recovery responses, live issuer redirects, the manifest, schemas, raw heading order, and organization metadata. Browser checks confirm dialog appearance, opening, and Escape focus return. Production release and Is Agentic rescoring remain pending.
+
 ## Guarded Git file contracts — October 19, 2026
 
 Documented versioned file reads, observed-SHA updates, canonical paths, returned

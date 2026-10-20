@@ -10,7 +10,8 @@ export function negotiatePageMarkdown(pathname: string, accept: string | null) {
   const explicit = pathname.endsWith(".md");
   const path =
     (explicit ? pathname.slice(0, -3) : pathname).replace(/\/+$/, "") || "/";
-  if (!/^\/(?:[a-z0-9-]+(?:\/[a-z0-9-]+)*)?$/.test(path)) return null;
+  // Unknown page names need the same recoverable Markdown 404 as known slugs.
+  if (!/^\/(?:[a-z0-9_-]+(?:\/[a-z0-9_-]+)*)?$/i.test(path)) return null;
   // Brand Studio's catch-all serves existing Markdown assets, not page summaries.
   if (path.startsWith("/brand/") && !["/brand/carousels", "/brand/experiments"].includes(path))
     return null;

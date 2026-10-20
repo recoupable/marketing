@@ -2,19 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, type MouseEvent } from "react";
+import { useEffect, useRef, type MouseEvent, type RefObject } from "react";
 import { SkyArrow } from "@/components/sky/arrow";
 import { trackEvent } from "@/lib/analytics/trackEvent";
 import { getStartedCopy } from "@/lib/copy/get-started";
-import { GetStartedDialog } from "./get-started-dialog";
 import { PageMark } from "./brand";
 import { HeaderNavItems } from "./header-nav-items";
 import { NavigationIcon } from "./navigation-icon";
 
-export function SkySiteHeader({ audienceToggle }: { audienceToggle?: React.ReactNode }) {
+export function SkySiteHeader({ audienceToggle, dialog }: { audienceToggle?: React.ReactNode; dialog: RefObject<HTMLDialogElement | null> }) {
   const pathname = usePathname();
   const header = useRef<HTMLElement>(null);
-  const dialog = useRef<HTMLDialogElement>(null);
   const startButton = useRef<HTMLButtonElement>(null);
 
   function openGetStarted(placement: string) {
@@ -115,7 +113,6 @@ export function SkySiteHeader({ audienceToggle }: { audienceToggle?: React.React
       <button ref={startButton} type="button" aria-haspopup="dialog" onClick={() => openGetStarted("header")} className="ss-contact ss-get-started">
         {getStartedCopy.trigger}<SkyArrow />
       </button>
-      <GetStartedDialog ref={dialog} />
     </header>
   );
 }
