@@ -3,6 +3,7 @@ import { absoluteUrl } from "../seo.ts";
 import { accessNotes } from "./accessNotes.ts";
 import type { DiscoveryContent } from "./DiscoveryContent.ts";
 import { discoveryPaths } from "./discoveryPaths.ts";
+import { getWhenToUseGuidance } from "./getWhenToUseGuidance.ts";
 import { introduction } from "./introduction.ts";
 import { markdownLabel } from "./markdownLabel.ts";
 import { oneLine } from "./oneLine.ts";
@@ -19,9 +20,12 @@ export function getLlmsText(index: readonly DiscoveryContent[]) {
 
 > ${introduction}
 
+${getWhenToUseGuidance()}
+
 ## Start here
 
-- [Agent guide](${absoluteUrl(discoveryPaths.hub)}): Available actions, examples, and human review.
+- [Agent instructions](${absoluteUrl(discoveryPaths.instructions)}): When to use Recoup, tool selection, examples, and human review.
+- [Browser agent guide](${absoluteUrl(discoveryPaths.hub)}): Human-readable overview and connection options.
 - [Public content and tool catalog](${absoluteUrl(discoveryPaths.catalog)}): Content IDs, canonical URLs, and tool input schemas.
 - [Public website MCP manifest](${absoluteUrl("/.well-known/mcp.json")}): Five anonymous website tools at /mcp.
 - [Website OpenAPI](${absoluteUrl(discoveryPaths.openapi)}): Public search, reading, and utility endpoints; no account key required.
