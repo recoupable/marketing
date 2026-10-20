@@ -21,9 +21,11 @@ OpenAPI 3.1's JSON Schema rejects null when the new field uses only string plus
 legacy nullable. The field now uses string/null types; the standard validator
 accepts both documented states and rejects numbers. A focused API companion
 updates the fixture and adds a guard without the older nullable extension.
-API #1061 supplies that fixture-only companion and must be independently
-reviewed/merged before this source pin can be finalized. The billing publication
-from actual #198 remains separate.
+API #1061 is merged as `52a2e218bffdea2b69c0f8a8ba075202b08754d0` after
+independent review. The inventory now references that actual release, with the
+accepted schema and both fixtures unchanged. Final narrow review and Marketing
+publication remain; retained fan docs must follow the actual Marketing merge.
+The billing publication from actual #198 remains separate.
 
 ## Billing guide null-card correction — October 20, 2026
 
