@@ -14,6 +14,14 @@ generation/checks, the inventory and shared-fixture checks, and the production
 build pass. The API companion passes all 44 contract tests, response-contract
 type checks, lint and formatting. Merge, deployment, and rescoring remain pending.
 
+## SDK discovery and Go release — October 19, 2026
+
+Go SDK v0.1.0 is published from Marketing `7c93a8f` and indexed on pkg.go.dev.
+A clean module-proxy download resolved that exact commit and passed race tests.
+The SDK guide adds branded installation examples, package links, authentication
+and response guidance to the docs navigation and agent discovery files. Python
+remains available from a pinned source revision while PyPI setup is pending.
+
 ## Official Python and Go clients — October 19, 2026
 
 Prepared MIT-licensed Python and Go clients for platform JSON endpoints. Both

@@ -18,6 +18,7 @@
             "pages": [
               "index",
               "quickstart",
+              "sdks",
               "cli",
               "claude",
               "mcp",

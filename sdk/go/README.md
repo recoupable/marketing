@@ -6,10 +6,10 @@ authentication, structured errors, context cancellation, and explicit request
 limits. SSE, multipart uploads, OAuth login, pagination automation and automatic
 retries are outside this initial release's scope.
 
-After the module is published on the default branch:
+Install the published release:
 
 ```sh
-go get github.com/recoupable/marketing/sdk/go@latest
+go get github.com/recoupable/marketing/sdk/go@v0.1.0
 ```
 
 Pin a released version in production. This nested module uses Git tags shaped
