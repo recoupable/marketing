@@ -58,9 +58,17 @@ class ResponseEdges(unittest.TestCase):
             with self.subTest(path=path):
                 self.assertIsNone(self.client.request("POST", path))
 
-    def test_deep_json_keeps_structured_errors(self):
-        with self.assertRaises(ResponseError):
-            self.client.request("POST", "/api/deep")
+    def test_deep_json_is_decoded_or_returns_a_structured_error(self):
+        try:
+            result = self.client.request("POST", "/api/deep")
+        except ResponseError:
+            pass  # Some supported Python parsers reject deep nesting.
+        else:
+            for _ in range(max(10000, 2 * sys.getrecursionlimit())):
+                self.assertIsInstance(result, list)
+                self.assertEqual(len(result), 1)
+                result = result[0]
+            self.assertEqual(result, 0)
         with self.assertRaises(APIError) as caught:
             self.client.request("POST", "/api/deep-error")
         self.assertEqual(caught.exception.status, 429)
