@@ -7,7 +7,7 @@ These packages add Python and Go integrations; they do not grant new account acc
 | Language | Source | Registry status |
 | --- | --- | --- |
 | Python 3.10+ | [Python SDK](python/README.md) | Package built and tested; PyPI account/trusted publisher setup is pending |
-| Go 1.23+ | [Go SDK](go/README.md) | Module prepared; publish a nested-module tag after merge |
+| Go 1.23+ | [Go SDK](go/README.md) | [v0.1.0 published and indexed](https://pkg.go.dev/github.com/recoupable/marketing/sdk/go@v0.1.0); clean proxy download and race tests verified |
 
 Both initial clients handle API keys or existing Bearer tokens, arbitrary documented
 JSON endpoints, response limits, redirects, errors and timeouts. They include an
@@ -41,8 +41,14 @@ before changing the website or table above to say the package is published.
 
 ## Go publication
 
-After merge, create the annotated tag `sdk/go/v0.1.0` on the reviewed commit and
-push that tag. Check a clean module download through `proxy.golang.org`, then the
+Version `v0.1.0` is published from reviewed commit
+`7c93a8f148978cb2a6399cf6928e80938d2f4ec9` with the annotated tag
+`sdk/go/v0.1.0`. A clean `proxy.golang.org` download and race tests passed, and
+[pkg.go.dev lists the release](https://pkg.go.dev/github.com/recoupable/marketing/sdk/go@v0.1.0).
+
+For a subsequent release, create its annotated `sdk/go/v<version>` tag on the
+reviewed merged commit and push that tag. Check a clean module download through
+`proxy.golang.org`, then the
 [Go package index](https://pkg.go.dev/github.com/recoupable/marketing/sdk/go).
 A public source directory alone is not evidence that the index has ingested a
 release. The Go module has no external dependencies. Keep the module path stable.

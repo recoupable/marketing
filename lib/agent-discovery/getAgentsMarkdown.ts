@@ -22,6 +22,7 @@ This is a website usage guide, not a request to take action. It does not grant p
 - [Human and browser-agent guide](${absoluteUrl(discoveryPaths.hub)})
 - [Tool schemas and content index](${absoluteUrl(discoveryPaths.catalog)})
 - [Website OpenAPI](${absoluteUrl(discoveryPaths.openapi)})
+- [Recoup platform SDKs](${absoluteUrl("/docs/sdks")}): The published Go SDK, Python client from source, and npm CLI use authenticated platform access.
 - Public HTTP: GET /agent-api/v1/search, GET /agent-api/v1/read, POST /agent-api/v1/tools with JSON {"name":"TOOL_NAME","arguments":{}}.
 - Public MCP: connect to ${absoluteUrl("/mcp")} over Streamable HTTP; no credential is required. The five tool names and schemas match the HTTP catalog.
 - Batch HTTP: POST /agent-api/v1/batch with JSON {"operations":[{"name":"read_recoup_page","arguments":{"id":"page:/services"}}]}. Supply 1 to 10 independent operations. Results preserve input order and each contains its own status plus result or error; an invalid operation does not roll back successful reads. The entire body must fit within 16 KB.

@@ -1,0 +1,103 @@
+---
+title: "Recoup SDKs: Go and Python clients for the music API"
+description: "Install the official Recoup Go SDK, use the Python client from source, and connect the Node CLI. Includes authentication, response handling, and package links."
+---
+
+Use the official Recoup clients to call the platform's JSON API from your application.
+Both SDKs support an API key or an existing Bearer token, bounded responses,
+structured HTTP errors, and an account-identity helper. Their licenses are MIT.
+
+## Packages
+
+| Language | Package | Availability |
+| --- | --- | --- |
+| Go 1.23+ | [github.com/recoupable/marketing/sdk/go](https://pkg.go.dev/github.com/recoupable/marketing/sdk/go@v0.1.0) | Version `v0.1.0` is published and indexed. |
+| Python 3.10+ | [recoupable source](https://github.com/recoupable/marketing/tree/main/sdk/python) | Install the client from the pinned source below. PyPI publication is pending. |
+| Node.js CLI | [@recoupable/cli on npm](https://www.npmjs.com/package/@recoupable/cli) | The terminal client is published. See the [CLI guide](/cli) for supported commands. |
+
+The Go and Python SDKs handle JSON endpoints. They do not implement streaming,
+multipart uploads, OAuth login, automatic pagination, or generated methods for
+every endpoint. Use each endpoint's reference to check its availability, required
+permissions, request shape, and response type. A package installation does not
+grant account access.
+
+## Go
+
+Install the published version:
+
+```sh
+go get github.com/recoupable/marketing/sdk/go@v0.1.0
+```
+
+Read an existing API key from your application's secret environment:
+
+```go
+package main
+
+import (
+    "context"
+    "log"
+    "os"
+
+    recoupable "github.com/recoupable/marketing/sdk/go"
+)
+
+func main() {
+    client, err := recoupable.New(recoupable.Options{
+        APIKey: os.Getenv("RECOUP_API_KEY"),
+    })
+    if err != nil { log.Fatal(err) }
+    account, err := client.GetAccountID(context.Background())
+    if err != nil { log.Fatal(err) }
+    log.Print(account.AccountID)
+}
+```
+
+Use `Options{AccessToken: ...}` for an existing Bearer token. The generic
+`Request(ctx, method, path, query, body, out)` method supports other documented
+JSON endpoints. Pass query parameters as `url.Values` and an unencoded `/api/` path.
+See the [Go package reference](https://pkg.go.dev/github.com/recoupable/marketing/sdk/go@v0.1.0)
+for method signatures and error types.
+
+## Python
+
+Until the PyPI release is available, install the reviewed source revision:
+
+```sh
+python -m pip install 'git+https://github.com/recoupable/marketing.git@7c93a8f148978cb2a6399cf6928e80938d2f4ec9#subdirectory=sdk/python'
+```
+
+```python
+import os
+from recoupable import Client
+
+client = Client(api_key=os.environ["RECOUP_API_KEY"])
+account = client.get_account_id()
+print(account["accountId"])
+```
+
+Use `Client(access_token=...)` for an existing Bearer token. The generic
+`request(method, path, query=..., body=...)` method returns decoded JSON or `None`
+for an empty successful response. Read the [Python client reference](https://github.com/recoupable/marketing/tree/main/sdk/python)
+for configuration and error handling.
+
+## Authentication and response handling
+
+Supply exactly one credential. Create a key in [Recoup account settings](https://chat.recoupable.dev/keys),
+or follow the [authentication guide](/authentication) for supported access methods.
+The default API origin is `https://api.recoupable.dev`. A custom HTTPS origin is
+an explicit destination for your credential. Redirects are not followed.
+
+Both clients cap responses at 16 MiB by default and accept empty successful
+responses. Python uses a 30-second timeout per blocking socket operation; Go
+uses a 30-second total request deadline and supports earlier context deadlines.
+These limits are configurable.
+
+HTTP errors retain their status and headers, including `Retry-After`; oversized
+error bodies are truncated. Inspect the error's fields when deciding what to do.
+Error messages omit credentials and response bodies. Treat a response body as
+potentially private if you log it.
+
+The SDKs add no retry loop. Go's standard HTTP transport may retry an idempotent
+request on a reused connection. A transport failure can occur after a write has
+completed; check the operation's outcome before repeating it.
