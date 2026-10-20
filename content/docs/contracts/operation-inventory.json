@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "ac544caa4095c7f9ba15b3c22f96bb70f74db95e",
+  "apiSourceCommit": "090f988060407e343d65dfdc3387156fb7dec0a5",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -3389,6 +3389,10 @@
       "source": "lib/mcp/tools/registerArtistDeepResearchTool.ts"
     },
     {
+      "name": "attach_music_evidence",
+      "source": "lib/mcp/tools/context/registerContextEvidenceTools.ts"
+    },
+    {
       "name": "compact_chats",
       "source": "lib/mcp/tools/chats/registerCompactChatsTool.ts"
     },
@@ -3533,6 +3537,10 @@
       "source": "lib/mcp/oauth/registerOAuthTools.ts"
     },
     {
+      "name": "list_music_evidence_attachments",
+      "source": "lib/mcp/tools/context/registerContextEvidenceTools.ts"
+    },
+    {
       "name": "list_professional_roster",
       "source": "lib/mcp/tools/artists/registerProfessionalRosterTools.ts"
     },
@@ -3547,6 +3555,10 @@
     {
       "name": "open_recoup_workflows",
       "source": "lib/mcp/extension/registerRecoupExtension.ts"
+    },
+    {
+      "name": "read_music_evidence_attachment",
+      "source": "lib/mcp/tools/context/registerContextEvidenceTools.ts"
     },
     {
       "name": "retrieve_sora_2_video",
@@ -3621,7 +3633,7 @@
     "content/docs/source/api-reference/openapi/accounts.json": "0803ba921d739f023353e7ec6807ff407542483a679ee1cf5226539637f424d7",
     "content/docs/source/api-reference/openapi/ai.json": "ac3d356376c5cd870d3fcf9a8cf2f4dca1375ee6d41057d33fbd6bbae67dac09",
     "content/docs/source/api-reference/openapi/content.json": "65a70807962d7bf2862531c165436f047952ea8229fe3527e218a0d4bd9c154e",
-    "content/docs/source/api-reference/openapi/context.json": "de67b0fecf1759ffad99f0f32eedd2e9b33e22c7feebcebfd961e4d26d21262e",
+    "content/docs/source/api-reference/openapi/context.json": "eb0ceb56fe4594115dfc9997ffe17558257db1f1afea67fb92cb5592ff00056a",
     "content/docs/source/api-reference/openapi/players.json": "8b97d047e8f2fc698b7dfa704b153a1325bba5161b1f95a9c1e6a9f2421b7d23",
     "content/docs/source/api-reference/openapi/projects.json": "ccf2eea18ad384efefad04b170cfbdcbec84dc9cf29e9660064ba89cef219fc0",
     "content/docs/source/api-reference/openapi/releases.json": "026d07948366d6498489d93fb8c809e919403d6154bd90d85aa0151d89150f3c",
