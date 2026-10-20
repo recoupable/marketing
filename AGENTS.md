@@ -219,6 +219,10 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 
 ## Agent discovery
 
+- `/.well-known/mcp.json` advertises the existing platform Streamable HTTP MCP server. OAuth discovery aliases redirect to that platform's authoritative issuer/resource metadata; anonymous website tools remain unauthenticated. Keep the platform's actual scopes and host-managed OAuth guidance aligned in `lib/agent-discovery/`.
+- Unknown API paths return JSON errors with recovery guidance through the optional catch-all routes. Missing negotiated pages and docs return Markdown with HTTP 404 and public recovery links. Shared error schemas live in the website OpenAPI document.
+- The Get Started dialog is rendered after page content in `SiteFrame`, with its ref passed to the header, so the page H1 leads the raw document heading outline.
+- Run `node scripts/audit-agent-readiness.mjs <origin>` against a built server or deployment to verify recovery responses and discovery. It reads public metadata only; it never signs in or executes platform tools.
 - Every page must resolve through `lib/agent-content/entryForPath.ts`. `tests/page-markdown.test.ts` checks actual App Router page files, public routes, all docs, every blog, and every podcast episode. Add published paths to this test when introducing a dynamic route family.
 - Raw URLs append `.md`; the homepage uses `/index.md` and `/agents` uses `/agents/index.md` to preserve the site-wide `/agents.md` guide. `GET /agent-api/v1/markdown?path=/blog` returns one complete document. The Human / Agent switch uses the same raw URLs. Keep `Vary: Accept` on negotiated HTML and Markdown responses.
 - The homepage has a full entry in `homePage.ts`, generated from shared homepage copy. `tests/home-markdown.test.ts` checks every editorial field, section order, billing terms, FAQs, and complete endpoint/reader output.

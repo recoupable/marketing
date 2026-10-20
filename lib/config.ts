@@ -1,3 +1,11 @@
+const postalAddress = {
+  streetAddress: "720 Capitol Square Pl. SW",
+  addressLocality: "Washington",
+  addressRegion: "DC",
+  postalCode: "20024",
+  addressCountry: "US",
+} as const;
+
 /**
  * Recoup API base. Preview/dev builds talk to the test API so a Privy bearer
  * (minted by the preview Privy app) verifies against the matching app; only
@@ -28,6 +36,9 @@ export const siteConfig = {
   docsUrl: "https://docs.recoupable.dev",
   /** In-site documentation route. */
   docsPath: "/docs",
+  platformMcpUrl: "https://api.recoupable.dev/mcp",
+  platformOAuthMetadataUrl: "https://api.recoupable.dev/.well-known/oauth-authorization-server/api/oauth",
+  platformResourceMetadataUrl: "https://api.recoupable.dev/.well-known/oauth-protected-resource/mcp",
   githubUrl: "https://github.com/recoupable/skills",
   githubOrganizationUrl: "https://github.com/recoupable",
   platformSourceUrl: "https://github.com/recoupable/app",
@@ -48,7 +59,8 @@ export const siteConfig = {
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL || "",
 
   /** Company address — used in legal pages */
-  address: "720 Capitol Square Pl. SW, Washington, DC 20024",
+  address: `${postalAddress.streetAddress}, ${postalAddress.addressLocality}, ${postalAddress.addressRegion} ${postalAddress.postalCode}`,
+  postalAddress,
 
   /** Where the Recoup Podcast is published; the YouTube link is the show playlist, not the channel. */
   podcast: {

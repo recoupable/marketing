@@ -47,7 +47,7 @@ html:has(.ss-start-dialog[open]) { overflow: hidden; }
 }
 .ss-start-card-platform { background: var(--start-blue); }
 .ss-start-card-build { background: var(--start-forest); }
-.ss-header .ss-start-card > .ss-nav-art {
+.ss-start-dialog .ss-start-card > .ss-nav-art {
   width: 100%;
   height: 106px;
   margin-bottom: 24px;
@@ -74,6 +74,7 @@ html:has(.ss-start-dialog[open]) { overflow: hidden; }
   .ss-start-card:hover .ss-start-arrow .sky-arrow-icon { transform: translateX(3px); }
 }
 @media (max-width: 900px) {
+  .ss-start-dialog .ss-start-card > .ss-nav-art { display: none; }
   .ss-header .ss-get-started { gap: 7px; padding-inline: 11px; }
   .ss-header .ss-get-started > .sky-arrow-icon { width: 16px; height: 16px; }
 }
@@ -82,7 +83,7 @@ html:has(.ss-start-dialog[open]) { overflow: hidden; }
   .ss-start-dialog h2 { margin-right: 28px; }
   .ss-start-options { grid-template-columns: 1fr; gap: 12px; }
   .ss-start-card { position: relative; padding: 20px 64px 20px 20px; }
-  .ss-header .ss-start-card > .ss-nav-art { display: none; }
+  .ss-start-dialog .ss-start-card > .ss-nav-art { display: none; }
   .ss-start-card h3 { font-size: 21px; }
   .ss-start-card p { margin-bottom: 0; font-size: 14px; }
   .ss-start-arrow { position: absolute; right: 16px; top: 50%; width: 40px; height: 40px; transform: translateY(-50%); }

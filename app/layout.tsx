@@ -46,6 +46,7 @@ export default function RootLayout({
         <link rel="ard" href="/.well-known/ard.json" />
         <link rel="api-catalog" href="/.well-known/api-catalog" />
         <link rel="service-desc" type="application/json" href="/openapi.json" />
+        <link rel="mcp" type="application/json" href="/.well-known/mcp.json" />
       </head>
       <body>
         <a href="#main" className="skip-link">

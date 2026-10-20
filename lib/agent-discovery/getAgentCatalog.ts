@@ -1,4 +1,5 @@
 import { agentMarkdownPath } from "../agent-markdown-path.ts";
+import { siteConfig } from "../config.ts";
 import { agentToolDefinitions } from "../agent-tools/agentToolDefinitions.ts";
 import { absoluteUrl } from "../seo.ts";
 import type { DiscoveryContent } from "./DiscoveryContent.ts";
@@ -47,9 +48,17 @@ export function getAgentCatalog(index: readonly DiscoveryContent[]) {
         apiKeyHeader: "x-api-key",
       },
       mcp: {
-        url: "https://api.recoupable.dev/mcp",
-        documentation: absoluteUrl("/docs/mcp"),
-        authentication: "Authorization: Bearer <Recoup API key>",
+        url: siteConfig.platformMcpUrl,
+        transport: "streamable-http",
+        documentation: absoluteUrl("/docs/mcp-oauth"),
+        authentication: "Host-managed OAuth 2.0 with PKCE S256 and explicit user consent",
+        apiKeyAuthentication: {
+          header: "Authorization: Bearer <Recoup API key>",
+          documentation: absoluteUrl("/docs/mcp"),
+        },
+        manifest: absoluteUrl("/.well-known/mcp.json"),
+        authorizationServerMetadata: absoluteUrl("/.well-known/oauth-authorization-server"),
+        protectedResourceMetadata: absoluteUrl("/.well-known/oauth-protected-resource"),
       },
     },
     contact: absoluteUrl("/contact"),

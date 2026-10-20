@@ -17,7 +17,8 @@ const content = object({
 const search = object({ query: string, results: { type: 'array', maxItems: 10, items: { allOf: [content, object({ excerpt: string })] } }, total: { type: 'integer', minimum: 0 }, nextCursor: { type: ['string', 'null'] } });
 const read = { allOf: [content, object({ markdown: string, offset: { type: 'integer', minimum: 0 }, nextOffset: nullableOffset, totalLength: { type: 'integer', minimum: 0 } })] };
 const toolSchema = (name: string) => agentToolDefinitions.find(tool => tool.name === name)!.inputSchema;
-const error = object({ error: object({ code: string, message: string, issues: { type: 'array', items: object({ field: string, message: string }) } }, ['code', 'message']) });
+const errorSchema = object({ error: object({ code: string, message: string, resolution: string, issues: { type: 'array', items: object({ field: string, message: string }) } }, ['code', 'message', 'resolution']) });
+const error = { $ref: '#/components/schemas/ErrorResponse' };
 const jsonResponse = (description: string, schema: unknown) => ({ description, content: { 'application/json': { schema } } });
 const errors = {
   '400': jsonResponse('Invalid input, unknown tool, or unsupported cursor. Correct the named inputs before retrying.', error),
@@ -37,23 +38,15 @@ export function websiteOpenAPI() {
     openapi: '3.1.0',
     info: {
       title: 'Recoup public website tools', version: '1.0.0',
-      description: 'Search and read public Recoup content, assess workflow readiness, calculate a scenario, and prepare a project brief. Anonymous, bounded, read-only computation: no account data, inquiry submission, purchases, or code execution. These are website tools; the authenticated music platform API and MCP are documented separately at /docs. Version v1 permits additive fields; incompatible changes require a new versioned path. Clients should ignore unknown response fields.',
+      description: 'Search and read public Recoup content, assess workflow readiness, calculate a scenario, and prepare a project brief. Free, anonymous, bounded, read-only computation: no account data, signup, purchases, or code execution. These are website tools; the authenticated music platform API and MCP are documented separately at /docs. Version v1 permits additive fields; incompatible changes require a new versioned path. Clients should ignore unknown response fields. No v1 deprecation or sunset is scheduled. Future retirement will be announced in /agents.md with a migration guide and Deprecation, Sunset, and Link headers when dates are known.',
       contact: { name: 'Recoup', email: siteConfig.contactEmail, url: `${siteConfig.url}/contact` },
       termsOfService: `${siteConfig.url}/terms`,
     },
     servers: [{ url: siteConfig.url, description: 'Recoup website; use the origin that served this specification for local or preview testing.' }],
     security: [],
+    components: { schemas: { ErrorResponse: errorSchema } },
     externalDocs: { description: 'Agent guide and platform connection options', url: `${siteConfig.url}/agents` },
     paths: {
-      '/agent-api/v1/markdown': { get: {
-        operationId: 'read_recoup_markdown', summary: 'Read a complete public page as Markdown',
-        description: 'Use a published page path, such as /blog or /blog/your-article. Returns the same document as its .md URL and Agent view. Marketing overviews retain their summary label; articles, transcripts, and guides include the complete published text. No account state or private files are returned.',
-        parameters: [{ name: 'path', in: 'query', required: true, schema: { type: 'string', example: '/blog' } }],
-        responses: {
-          '200': { description: 'Complete public Markdown document.', content: { 'text/markdown': { schema: string } } },
-          '404': { description: 'Unknown or invalid public path.', content: { 'text/markdown': { schema: string } } },
-        },
-      } },
       '/agent-api/v1/search': { get: {
         operationId: 'search_recoup', summary: 'Find relevant public Recoup content', description: agentToolDefinitions[0].description,
         parameters: queryParameters('search_recoup'), responses: { '200': jsonResponse('Matching results. An empty results array is a successful search with no match.', search), ...errors },
@@ -75,6 +68,15 @@ export function websiteOpenAPI() {
           ...errors,
           '413': jsonResponse('Request body is larger than 16 KB. Shorten the supplied context.', error),
           '415': jsonResponse('Send application/json.', error),
+        },
+      } },
+      '/agent-api/v1/markdown': { get: {
+        operationId: 'read_recoup_markdown', summary: 'Read a complete public page as Markdown',
+        description: 'Use a published page path, such as /blog or /blog/your-article. Returns the same document as its .md URL and Agent view. Marketing overviews retain their summary label; articles, transcripts, and guides include the complete published text. No account state or private files are returned.',
+        parameters: [{ name: 'path', in: 'query', required: true, schema: { type: 'string', example: '/blog' } }],
+        responses: {
+          '200': { description: 'Complete public Markdown document.', content: { 'text/markdown': { schema: string } } },
+          '404': { description: 'Unknown or invalid public path.', content: { 'text/markdown': { schema: string } } },
         },
       } },
     },

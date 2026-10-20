@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import { withEve } from "eve/next";
 import { docsVaryHeader } from "./lib/docs/docsVaryHeader";
+import { siteConfig } from "./lib/config";
 
 export const nextConfig: NextConfig = {
   devIndicators: false,
@@ -26,6 +27,8 @@ export const nextConfig: NextConfig = {
   // Legacy URLs resolve to their final page in one 308; keep every destination a real route.
   async redirects() {
     return [
+      { source: "/.well-known/oauth-authorization-server", destination: siteConfig.platformOAuthMetadataUrl, permanent: true },
+      { source: "/.well-known/oauth-protected-resource", destination: siteConfig.platformResourceMetadataUrl, permanent: true },
       { source: "/company-map", destination: "/atlas", permanent: true },
       { source: "/designs/sky", destination: "/", permanent: true },
       { source: "/company/about", destination: "/about", permanent: true },
