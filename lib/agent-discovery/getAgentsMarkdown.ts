@@ -25,8 +25,9 @@ ${getWhenToUseGuidance()}
 - [Human and browser-agent guide](${absoluteUrl(discoveryPaths.hub)})
 - [Tool schemas and content index](${absoluteUrl(discoveryPaths.catalog)})
 - [Website OpenAPI](${absoluteUrl(discoveryPaths.openapi)})
-- [Recoup platform SDKs](${absoluteUrl("/docs/sdks")}): The published Go SDK, Python client from source, and npm CLI use authenticated platform access.
+- [Recoup platform SDKs](${absoluteUrl("/docs/sdks")}): The published Python and Go SDKs and npm CLI use authenticated platform access.
 - Public HTTP: GET /agent-api/v1/search, GET /agent-api/v1/read, POST /agent-api/v1/tools with JSON {"name":"TOOL_NAME","arguments":{}}.
+- [Public API base](${absoluteUrl("/agent-api/v1")}): GET returns the website specification and live quota policy. /api/v1 and its operation paths redirect to this namespace, preserving the HTTP method and query.
 - Public MCP: connect to ${absoluteUrl("/mcp")} over Streamable HTTP; no credential is required. The five tool names and schemas match the HTTP catalog.
 - Batch HTTP: POST /agent-api/v1/batch with JSON {"operations":[{"name":"read_recoup_page","arguments":{"id":"page:/services"}}]}. Supply 1 to 10 independent operations. Results preserve input order and each contains its own status plus result or error; an invalid operation does not roll back successful reads. The entire body must fit within 16 KB.
 - Compatible browsers can discover five tools registered with document.modelContext in the top-level page. Browser support varies. The ordinary website and public HTTP interfaces remain available.

@@ -1,4 +1,5 @@
 import { checkRateLimit } from "@vercel/firewall";
+import { deprecationPolicyLink } from "../agent-api/deprecationPolicyLink";
 
 const policy = {
   "RateLimit-Limit": "120",
@@ -35,7 +36,8 @@ export async function withAgentRateLimit(
           "Access-Control-Allow-Origin": "*",
           "X-Content-Type-Options": "nosniff",
           "Retry-After": "5",
-          "Access-Control-Expose-Headers": "Retry-After",
+          Link: deprecationPolicyLink,
+          "Access-Control-Expose-Headers": "Retry-After, Link",
         },
       },
     );
@@ -57,6 +59,8 @@ export async function withAgentRateLimit(
             "Access-Control-Allow-Origin": "*",
             "X-Content-Type-Options": "nosniff",
             "Retry-After": "60",
+            Link: deprecationPolicyLink,
+            "Access-Control-Expose-Headers": "Link",
           },
         },
       )

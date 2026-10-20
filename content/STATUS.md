@@ -1,3 +1,18 @@
+## Agent discovery contract follow-up — October 20, 2026
+
+The fresh audit confirms the deployed OpenAPI Markdown fallback now passes.
+The remaining discovery follow-up exposes the authoritative authentication guide
+at `/auth.md`, makes the website API's existing major version explicit in the
+OpenAPI server URL and machine-readable policy, and retains typed errors and
+enforced quota headers on unsupported tool/batch methods. The conventional
+`/api/v1` namespace redirects to the existing public API, whose base URL now
+serves its specification through the same quota. Published operation
+URLs, IDs, request shapes, quotas, and authentication permissions are unchanged.
+The main agent indexes also link the published Python SDK.
+JSON and Markdown API responses expose the existing retirement policy with an
+RFC 9745 `rel="deprecation"` link. No deprecation or sunset date is announced.
+Production publication and fresh audit results for this follow-up remain pending.
+
 ## Card removal contract alignment — October 20, 2026
 
 The billing guide and Accounts reference describe the released selected-card
@@ -14,7 +29,6 @@ operation-name documentation from #188 and the Python SDK record are preserved.
 This narrow release-reference update requires final checks and UI delta review.
 After the actual Marketing merge, generate retained Docs from that merge and
 verify publication. Hosting repair/cutover stays deferred; no billing call occurs.
-
 
 ## OpenAPI Markdown fallback — October 20, 2026
 

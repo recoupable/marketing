@@ -39,6 +39,7 @@ export const siteConfig = {
   platformMcpUrl: "https://api.recoupable.dev/mcp",
   platformOAuthMetadataUrl: "https://api.recoupable.dev/.well-known/oauth-authorization-server/api/oauth",
   platformResourceMetadataUrl: "https://api.recoupable.dev/.well-known/oauth-protected-resource/mcp",
+  platformAgentAuthGuideUrl: "https://api.recoupable.dev/api/oauth/auth.md",
   githubUrl: "https://github.com/recoupable/skills",
   githubOrganizationUrl: "https://github.com/recoupable",
   platformSourceUrl: "https://github.com/recoupable/app",
