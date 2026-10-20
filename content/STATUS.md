@@ -1,3 +1,20 @@
+## Stored fan comment dates — October 20, 2026
+
+The ArtistFan response now documents optional nullable `last_comment_at`, from
+API #1057's actual merge `e51d4ed9`. A matching stored comment supplies its date;
+missing or mismatched evidence returns null. Profile refresh dates and generic
+engagement times are not substituted. This supports a report's Last heard
+column without promising live data, complete history or restored GET /api/comments.
+
+The known/unknown response example and resolved schema are frozen into the
+shared API fixture. Four provider-free contract cases exercise the actual route
+with real validation/projection under mocked access/storage, including array
+joins and mismatched evidence. All 77 fan/contract cases, 484 website tests,
+14 producer checks and 11 docs checks pass. Existing authentication, artist
+access, ordering, pagination and relationship duplicates remain unchanged.
+Source and publication review are separate from a live weekly report; no customer
+comments, provider request or production write were used.
+
 ## Card removal contract alignment — October 20, 2026
 
 The billing guide and Accounts reference describe the released selected-card

@@ -3,6 +3,7 @@ import hashlib
 import json
 import re
 from build_guarded_file_contract import build_guarded_file_contract
+from resolve_response_schema import resolve_response_schema
 
 
 def build_published_docs_record(specs, source, root, schema_hash, response_schemas):
@@ -72,4 +73,10 @@ def build_published_docs_record(specs, source, root, schema_hash, response_schem
     }
     record['sourceHashes'][str(sites_path.relative_to(root))] = hashlib.sha256(sites_path.read_bytes()).hexdigest()
     record['guardedGitFiles'] = build_guarded_file_contract(specs['content.json'])
+    record['artistFans'] = {
+        'schema': resolve_response_schema(
+            releases['paths']['/api/artists/{id}/fans']['get']['responses']['200']['content']['application/json']['schema'], releases,
+        ),
+        'example': releases['components']['schemas']['ArtistFansResponse']['example'],
+    }
     return record
