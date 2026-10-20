@@ -1,3 +1,16 @@
+## Catalog range in AI documentation — October 20, 2026
+
+The maintained Daily Catalog Streams page now states the 1–366-day integer
+range, a 90-day example, exclusive end dates, missing-coverage limits and the
+separate 31-day playcount-history maximum in its written body. Normal public
+readback found the correct current parameter table on both hosts, while the
+retained full AI text included only the operation description. The explicit
+prose prevents that format from losing the numeric limits. This was a content
+omission, not proof of a stale deployment. Two regressions fail against the
+frontmatter-only page and cover maintained, generated and full-AI text.
+API behavior/specifications and host controls are unchanged; publication and
+normal retained-host AI-text readback follow review and release.
+
 ## Stored fan comment dates — October 20, 2026
 
 The ArtistFan response now documents optional nullable `last_comment_at`, from
