@@ -47,7 +47,7 @@ export function organizationGraph() {
         sameAs: [siteConfig.githubOrganizationUrl],
         email: siteConfig.contactEmail,
         contactPoint: { "@type": "ContactPoint", email: siteConfig.contactEmail, contactType: "customer support", url: absoluteUrl("/contact"), availableLanguage: "English" },
-        address: { "@type": "PostalAddress", streetAddress: siteConfig.address, addressCountry: "US" },
+        address: { "@type": "PostalAddress", ...siteConfig.postalAddress },
       },
       { "@type": "WebSite", "@id": absoluteUrl("/#website"), name: siteConfig.name, url: absoluteUrl("/"), inLanguage: "en", publisher: { "@id": absoluteUrl("/#organization") } },
     ],

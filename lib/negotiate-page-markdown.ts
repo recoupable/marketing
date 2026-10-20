@@ -4,7 +4,7 @@ import { negotiateDocsMarkdown } from "./docs/negotiateDocsMarkdown.ts";
 export function negotiatePageMarkdown(pathname: string, accept: string | null) {
   if (
     pathname === "/agents.md" ||
-    /^\/(?:api|agent-api|_next|brand\/assets)(?:\/|$)/.test(pathname)
+    /^\/(?:api|agent-api|_next|icons|images|brand\/assets)(?:\/|$)/.test(pathname)
   )
     return null;
   const explicit = pathname.endsWith(".md");

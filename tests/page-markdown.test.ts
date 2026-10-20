@@ -183,6 +183,10 @@ test("negotiation respects media preferences and leaves existing machine endpoin
     "/brand/background-study.md",
     "/brand/product-brief.md",
     "/images/photo.png",
+    "/icons/README.md",
+    "/images/customers/README.md",
+    "/images/label-kit/README.md",
+    "/images/label-kit/brands/README.md",
   ])
     expect(
       rewrite(path, "text/markdown").headers.get("x-middleware-rewrite"),

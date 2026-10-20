@@ -5,4 +5,4 @@ export {
   unknownApiRoute as PATCH,
   unknownApiRoute as DELETE,
 } from "@/lib/agent-api/unknownApiRoute";
-export { agentOptions as OPTIONS } from "@/lib/agent-http";
+export { unknownApiOptions as OPTIONS } from "@/lib/agent-api/unknownApiOptions";

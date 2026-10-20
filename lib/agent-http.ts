@@ -28,7 +28,7 @@ class RequestError extends Error {
 }
 
 export function agentError(error: unknown) {
-  const resolution = `Correct the request using ${siteConfig.url}/openapi.json. Search /agent-api/v1/search for a public content ID before reading it.`;
+  const resolution = `Check the operation and its accepted parameters in ${siteConfig.url}/openapi.json, then correct the request.`;
   if (error instanceof AgentContentError || error instanceof RequestError) {
     return agentResponse({ error: { code: error.code, message: error.message, resolution } }, error.status);
   }
