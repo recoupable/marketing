@@ -32,10 +32,11 @@ test("missing documentation offers Markdown recovery links with a real 404", asy
   expect(await response.text()).toContain("/sitemap.xml)");
 });
 
-test("unknown-route preflight allows clients to receive JSON errors for each supported method", () => {
+test("unknown-route preflight supports anonymous JSON clients for each supported method", () => {
   for (const response of [apiOptions(), agentApiOptions()]) {
     expect(response.status).toBe(204);
     expect(response.headers.get("access-control-allow-origin")).toBe("*");
+    expect(response.headers.get("access-control-allow-headers")?.toLowerCase()).toBe("content-type");
     expect(response.headers.get("access-control-allow-methods")?.split(", ")).toEqual(["GET", "HEAD", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]);
   }
 });

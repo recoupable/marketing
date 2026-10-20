@@ -48,10 +48,12 @@ assert.ok(spec.components.schemas.ErrorResponse);
 assert.deepEqual(spec.security, []);
 for (const path of ["/api/missing", "/agent-api/missing"]) {
   const response = await fetch(new URL(path, origin), {
-    method: "OPTIONS", headers: { Origin: "https://example.com", "Access-Control-Request-Method": "DELETE" },
+    method: "OPTIONS", headers: { Origin: "https://example.com", "Access-Control-Request-Method": "DELETE", "Access-Control-Request-Headers": "content-type" },
     signal: AbortSignal.timeout(20_000),
   });
   assert.equal(response.status, 204);
+  assert.equal(response.headers.get("access-control-allow-origin"), "*");
+  assert.ok(response.headers.get("access-control-allow-headers").toLowerCase().split(", ").includes("content-type"));
   assert.ok(response.headers.get("access-control-allow-methods").split(", ").includes("DELETE"));
 }
 for (const path of ["/icons/README.md", "/images/customers/README.md", "/images/label-kit/README.md", "/images/label-kit/brands/README.md"]) {
@@ -63,7 +65,10 @@ const { response: homepage, body: html } = await read("/", "text/html");
 assert.equal(homepage.status, 200);
 assert.match(homepage.headers.get("content-type"), /text\/html/);
 assert.equal(html.match(/<h([1-6])\b/i)?.[1], "1");
-assert.ok(html.indexOf("<dialog") > html.indexOf("</main>"));
+const mainEnd = html.indexOf("</main>");
+const dialogStart = html.indexOf("<dialog");
+assert.ok(mainEnd >= 0 && dialogStart >= 0, "Main content and dialog must both exist");
+assert.ok(dialogStart > mainEnd, "Dialog follows main content");
 const organization = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)]
   .flatMap((match) => JSON.parse(match[1])["@graph"] ?? [])
   .find((entry) => entry["@type"] === "Organization");
