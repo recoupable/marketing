@@ -3711,8 +3711,10 @@
             "description": "ISO timestamp of when the fan data was last updated"
           },
           "last_comment_at": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
             "description": "Timestamp of the latest stored comment linked to this fan relationship, only when the comment author matches this fan. Null means matching stored comment evidence is unavailable, not that the fan never commented. This is not the profile refresh time, a generic engagement time or a live cross-platform history.",
             "example": "2026-10-01T12:00:00Z"

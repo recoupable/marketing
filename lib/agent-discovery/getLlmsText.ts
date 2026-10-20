@@ -30,7 +30,8 @@ ${getWhenToUseGuidance()}
 - [Public website MCP manifest](${absoluteUrl("/.well-known/mcp.json")}): Five anonymous website tools at /mcp.
 - [Website OpenAPI](${absoluteUrl(discoveryPaths.openapi)}): Public search, reading, and utility endpoints; no account key required.
 - [Documentation](${absoluteUrl("/docs")}): Platform guides and endpoint references.
-- [Recoup SDKs](${absoluteUrl("/docs/sdks")}): Official Go release, Python source installation, and the npm CLI, with authentication and response handling.
+- [Recoup SDKs](${absoluteUrl("/docs/sdks")}): Official published Python and Go SDKs and the npm CLI, with authentication and response handling.
+- [Recoup Python SDK 0.1.0](https://pypi.org/project/recoupable/0.1.0/): Install with pip install recoupable==0.1.0.
 - [Recoup Go SDK v0.1.0](https://pkg.go.dev/github.com/recoupable/marketing/sdk/go@v0.1.0): Published Go module and API reference.
 - [Complete documentation index](${absoluteUrl("/docs/llms.txt")}): A link to every platform guide and API operation. Use website search to find a specific task.
 - [API catalog](${absoluteUrl(discoveryPaths.apiCatalog)}): Website API and the platform's published OpenAPI specifications.

@@ -15,6 +15,42 @@ access, ordering, pagination and relationship duplicates remain unchanged.
 Source and publication review are separate from a live weekly report; no customer
 comments, provider request or production write were used.
 
+The refreshed branch preserves current Marketing #196/#198 and the corrected
+billing-guide null paragraph. A standards check reproduced another mismatch:
+OpenAPI 3.1's JSON Schema rejects null when the new field uses only string plus
+legacy nullable. The field now uses string/null types; the standard validator
+accepts both documented states and rejects numbers. A focused API companion
+updates the fixture and adds a guard without the older nullable extension.
+API #1061 supplies that fixture-only companion and must be independently
+reviewed/merged before this source pin can be finalized. The billing publication
+from actual #198 remains separate.
+
+## Billing guide null-card correction — October 20, 2026
+
+The saved-card guide now agrees with the corrected Accounts schema: a null card
+describes the current lookup, not whether a card was ever saved or whether other
+cards remain. It no longer infers the next purchase path from that result alone.
+Two regressions cover the maintained guide/schema and generated guide, failing
+against the former history claim. Docs #385 remains on hold until this source
+correction is reviewed/merged and the publication is regenerated from that actual
+merge. The earlier source-copy PASS verified parity, not this semantic omission.
+No payment behavior, API fixture, host control or customer billing operation changes.
+
+## Agent discovery contract follow-up — October 20, 2026
+
+The fresh audit confirms the deployed OpenAPI Markdown fallback now passes.
+The remaining discovery follow-up exposes the authoritative authentication guide
+at `/auth.md`, makes the website API's existing major version explicit in the
+OpenAPI server URL and machine-readable policy, and retains typed errors and
+enforced quota headers on unsupported tool/batch methods. The conventional
+`/api/v1` namespace redirects to the existing public API, whose base URL now
+serves its specification through the same quota. Published operation
+URLs, IDs, request shapes, quotas, and authentication permissions are unchanged.
+The main agent indexes also link the published Python SDK.
+JSON and Markdown API responses expose the existing retirement policy with an
+RFC 9745 `rel="deprecation"` link. No deprecation or sunset date is announced.
+Production publication and fresh audit results for this follow-up remain pending.
+
 ## Card removal contract alignment — October 20, 2026
 
 The billing guide and Accounts reference describe the released selected-card
@@ -31,7 +67,6 @@ operation-name documentation from #188 and the Python SDK record are preserved.
 This narrow release-reference update requires final checks and UI delta review.
 After the actual Marketing merge, generate retained Docs from that merge and
 verify publication. Hosting repair/cutover stays deferred; no billing call occurs.
-
 
 ## OpenAPI Markdown fallback — October 20, 2026
 

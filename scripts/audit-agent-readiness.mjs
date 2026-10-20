@@ -46,6 +46,47 @@ assert.deepEqual(manifest.remotes, [{ type: "streamable-http", url: "https://rec
 const spec = await readJson("/openapi.json");
 assert.ok(spec.components.schemas.ErrorResponse);
 assert.deepEqual(spec.security, []);
+assert.equal(spec.servers[0].url, "https://recoupable.dev/agent-api/v1");
+assert.ok(spec.paths["/batch"].post.requestBody.content["application/json"].schema.properties.operations);
+const { response: apiBase, body: apiBaseBody } = await read("/api/v1");
+assert.equal(apiBase.status, 200);
+assert.equal(new URL(apiBase.url).pathname, "/agent-api/v1");
+assert.deepEqual(JSON.parse(apiBaseBody), spec);
+assert.match(apiBase.headers.get("link"), /rel="deprecation"/);
+assert.equal(apiBase.headers.has("deprecation"), false);
+assert.equal(apiBase.headers.has("sunset"), false);
+const policyTarget = apiBase.headers.get("link").match(/<([^>]+)>; rel="deprecation"/)?.[1];
+assert.ok(policyTarget);
+const policyResponse = await fetch(policyTarget, { signal: AbortSignal.timeout(20_000) });
+assert.equal(policyResponse.status, 200);
+assert.match(await policyResponse.text(), /No v1 deprecation or sunset is scheduled/);
+if (origin.startsWith("https://")) {
+  assert.equal(apiBase.headers.get("ratelimit-limit"), "120");
+  assert.match(apiBase.headers.get("ratelimit-policy"), /q=120;w=60/);
+}
+const { response: aliasSearch, body: aliasSearchBody } = await read("/api/v1/search?query=royalty&limit=1");
+assert.equal(aliasSearch.status, 200);
+assert.equal(new URL(aliasSearch.url).search, "?query=royalty&limit=1");
+assert.equal(JSON.parse(aliasSearchBody).query, "royalty");
+console.log("PASS versioned API alias preserves query and exposes the enforced quota");
+const metadata = await readJson("/.well-known/oauth-authorization-server");
+const { response: authGuide, body: authGuideBody } = await read("/auth.md");
+assert.equal(authGuide.status, 200);
+assert.equal(authGuide.url, metadata.agent_auth.skill);
+assert.match(authGuide.headers.get("content-type"), /text\/markdown/);
+assert.match(authGuideBody, /^# Recoup agent authentication/);
+console.log("PASS auth.md resolves to the guide advertised by the authorization server");
+for (const path of ["/agent-api/v1/tools", "/agent-api/v1/batch"]) {
+  const { response, body } = await read(path);
+  assert.equal(response.status, 405, path);
+  assert.equal(response.headers.get("allow"), "POST, OPTIONS");
+  assert.equal(JSON.parse(body).error.code, "METHOD_NOT_ALLOWED");
+  if (origin.startsWith("https://")) {
+    assert.equal(response.headers.get("ratelimit-limit"), "120");
+    assert.match(response.headers.get("ratelimit-policy"), /q=120;w=60/);
+  }
+}
+console.log("PASS POST-only API probes expose method recovery and hosted quota policy");
 const { response: markdownSpec, body: markdownSpecBody } = await read("/openapi.json.md");
 assert.equal(markdownSpec.status, 200);
 assert.match(markdownSpec.headers.get("content-type"), /text\/markdown/);

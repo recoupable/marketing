@@ -1,6 +1,7 @@
 import { maximumBatchOperations } from "./agent-tools/maximumBatchOperations.ts";
 import { agentToolDefinitions } from "./agent-tools/agentToolDefinitions.ts";
 import { siteConfig } from "./config.ts";
+import { deprecationPolicyLink } from "./agent-api/deprecationPolicyLink";
 
 const object = (
   properties: Record<string, unknown>,
@@ -80,9 +81,15 @@ const errorSchema = object({
   ),
 });
 const error = { $ref: "#/components/schemas/ErrorResponse" };
+const policyLinkHeader = {
+  description:
+    'RFC 9745 rel="deprecation" link to the published versioning and retirement policy. The link is available while v1 is active; no Deprecation or Sunset date is currently scheduled.',
+  schema: { type: "string", example: deprecationPolicyLink },
+};
 const jsonResponse = (description: string, schema: unknown) => ({
   description,
   headers: {
+    Link: policyLinkHeader,
     "RateLimit-Limit": {
       description:
         "Hosted requests per IP per serving region in a 60-second fixed window.",
@@ -186,11 +193,24 @@ export function websiteOpenAPI() {
       },
       termsOfService: `${siteConfig.url}/terms`,
     },
+    "x-api-versioning": {
+      strategy: "url-path",
+      currentVersion: "v1",
+      pathPrefix: "/agent-api/v1",
+      compatibleChanges: "Additive response fields; ignore unrecognized fields.",
+      breakingChanges: "Require a new major URL version.",
+      deprecation: {
+        scheduled: false,
+        policyUrl: `${siteConfig.url}/docs/public-website-api#versioning-and-deprecation`,
+        responseHeaders: ["Deprecation", "Sunset", "Link"],
+        announcement: "Migration guide and dated response headers before retirement.",
+      },
+    },
     servers: [
       {
-        url: siteConfig.url,
+        url: `${siteConfig.url}/agent-api/v1`,
         description:
-          "Recoup website; use the origin that served this specification for local or preview testing.",
+          "Recoup public website API v1. Replace only the origin for local or preview testing; keep /agent-api/v1.",
       },
     ],
     security: [],
@@ -202,8 +222,9 @@ export function websiteOpenAPI() {
       url: `${siteConfig.url}/agents`,
     },
     paths: {
-      "/agent-api/v1/batch": {
+      "/batch": {
         post: {
+          deprecated: false,
           operationId: "batch_recoup_website_tools",
           summary: "Run up to ten public operations in one request",
           description:
@@ -265,8 +286,9 @@ export function websiteOpenAPI() {
           },
         },
       },
-      "/agent-api/v1/search": {
+      "/search": {
         get: {
+          deprecated: false,
           operationId: "search_recoup",
           summary: "Find relevant public Recoup content",
           description: agentToolDefinitions[0].description,
@@ -280,8 +302,9 @@ export function websiteOpenAPI() {
           },
         },
       },
-      "/agent-api/v1/read": {
+      "/read": {
         get: {
+          deprecated: false,
           operationId: "read_recoup_page",
           summary: "Read public content by registry ID",
           description: agentToolDefinitions[1].description,
@@ -295,8 +318,9 @@ export function websiteOpenAPI() {
           },
         },
       },
-      "/agent-api/v1/tools": {
+      "/tools": {
         post: {
+          deprecated: false,
           operationId: "execute_recoup_website_tool",
           summary: "Run a public website tool",
           description:
@@ -331,8 +355,9 @@ export function websiteOpenAPI() {
           },
         },
       },
-      "/agent-api/v1/markdown": {
+      "/markdown": {
         get: {
+          deprecated: false,
           operationId: "read_recoup_markdown",
           summary: "Read a complete public page as Markdown",
           description:
@@ -348,12 +373,14 @@ export function websiteOpenAPI() {
           responses: {
             "200": {
               description: "Complete public Markdown document.",
+              headers: { Link: policyLinkHeader },
               content: { "text/markdown": { schema: string } },
             },
             "429": errors["429"],
             "503": errors["503"],
             "404": {
               description: "Unknown or invalid public path.",
+              headers: { Link: policyLinkHeader },
               content: { "text/markdown": { schema: string } },
             },
           },
