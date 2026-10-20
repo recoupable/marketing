@@ -1,8 +1,9 @@
+import release from "@/content/label-kit/release.json";
 import { describe, expect, it } from "vitest";
 import { getOffer } from "./getOffer";
 const ready = {
   LABEL_KIT_CHECKOUT_ENABLED: "true",
-  LABEL_KIT_BLOB_PATH: "label-kit/v1.zip",
+  LABEL_KIT_BLOB_PATH: `label-kit/${release.version}.zip`,
   LABEL_KIT_BLOB_READ_WRITE_TOKEN: "test-token",
 };
 describe("plugin checkout activation", () => {
@@ -22,6 +23,11 @@ describe("plugin checkout activation", () => {
         ...ready,
         LABEL_KIT_BLOB_PATH: "https://example.com/file.zip",
       }),
+    ).toBeNull();
+  });
+  it("rejects a stale release pin", () => {
+    expect(
+      getOffer({ ...ready, LABEL_KIT_BLOB_PATH: "label-kit/old.zip" }),
     ).toBeNull();
   });
   it("uses Starter pricing and creates checkout on demand", () => {

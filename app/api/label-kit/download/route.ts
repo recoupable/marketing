@@ -1,3 +1,5 @@
+import release from "@/content/label-kit/release.json";
+import { readVerifiedPlugin } from "@/lib/label-kit/readVerifiedPlugin";
 import { get } from "@vercel/blob";
 import { requirePluginPurchase } from "@/lib/label-kit/requirePluginPurchase";
 export const dynamic = "force-dynamic";
@@ -6,7 +8,7 @@ export async function GET(request: Request) {
     await requirePluginPurchase(request);
     const path = process.env.LABEL_KIT_BLOB_PATH;
     if (
-      !path?.startsWith("label-kit/") ||
+      path !== `label-kit/${release.version}.zip` ||
       !process.env.LABEL_KIT_BLOB_READ_WRITE_TOKEN
     )
       return Response.json(
@@ -23,12 +25,18 @@ export async function GET(request: Request) {
         { error: "The download is temporarily unavailable. Please retry." },
         { status: 503 },
       );
-    return new Response(file.stream, {
+    const bytes = await readVerifiedPlugin(file.stream);
+    return new Response(bytes, {
       headers: {
         "Content-Type": "application/zip",
         "Content-Disposition": 'attachment; filename="recoup-plugin.zip"',
         "Cache-Control": "private, no-store",
         "X-Content-Type-Options": "nosniff",
+        "Content-Length": String(bytes.byteLength),
+        "X-Recoup-Release": release.version,
+        "X-Recoup-Source": release.sourceCommit,
+        "X-Recoup-Content-SHA256": release.customerContentSha256,
+        "X-Recoup-Archive-SHA256": release.sha256,
       },
     });
   } catch (error) {

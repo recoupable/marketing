@@ -3,6 +3,14 @@ import { GET as download } from "@/app/api/label-kit/download/route";
 import { POST as checkout } from "@/app/api/label-kit/checkout/route";
 const blobGet = vi.hoisted(() => vi.fn());
 vi.mock("@vercel/blob", () => ({ get: blobGet }));
+vi.mock("@/content/label-kit/release.json", () => ({
+  default: {
+    version: "test-release",
+    sourceCommit: "source-fixture",
+    customerContentSha256: "content-fixture",
+    sha256: "4a70fe9aa6436e02c2dea340fbd1e352e4ef2d8ce6ca52ad25d4b95471fc8bf2",
+  },
+}));
 const sessionId = "cs_test_123456789012345678901234";
 const request = () =>
   new Request("https://recoupable.dev/api/label-kit/download", {
@@ -50,7 +58,7 @@ describe("protected plugin delivery", () => {
   it("verifies the private purchase link and streams private files without account login", async () => {
     const fetch = vi.fn().mockResolvedValue(Response.json({ allowed: true }));
     vi.stubGlobal("fetch", fetch);
-    vi.stubEnv("LABEL_KIT_BLOB_PATH", "label-kit/v1.zip");
+    vi.stubEnv("LABEL_KIT_BLOB_PATH", "label-kit/test-release.zip");
     vi.stubEnv("LABEL_KIT_BLOB_READ_WRITE_TOKEN", "private-test-token");
     blobGet.mockResolvedValue({
       statusCode: 200,
@@ -58,22 +66,49 @@ describe("protected plugin delivery", () => {
     });
     const response = await download(request());
     expect(response.status).toBe(200);
+    expect(response.headers.get("X-Recoup-Release")).toBe("test-release");
+    expect(response.headers.get("X-Recoup-Source")).toBe("source-fixture");
     expect(await response.text()).toBe("zip");
     expect(response.headers.get("cache-control")).toBe("private, no-store");
     expect(fetch.mock.calls[0][0]).toContain("/plugin/download-access");
     expect(JSON.parse(fetch.mock.calls[0][1].body)).toEqual({ sessionId });
-    expect(blobGet).toHaveBeenCalledWith("label-kit/v1.zip", {
+    expect(blobGet).toHaveBeenCalledWith("label-kit/test-release.zip", {
       access: "private",
       token: "private-test-token",
       useCache: false,
     });
+  });
+  it("refuses a stale configured release before reading private storage", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue(Response.json({ allowed: true })),
+    );
+    vi.stubEnv("LABEL_KIT_BLOB_PATH", "label-kit/old.zip");
+    vi.stubEnv("LABEL_KIT_BLOB_READ_WRITE_TOKEN", "test");
+    expect((await download(request())).status).toBe(503);
+    expect(blobGet).not.toHaveBeenCalled();
+  });
+  it("never sends a modified archive to a verified buyer", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue(Response.json({ allowed: true })),
+    );
+    vi.stubEnv("LABEL_KIT_BLOB_PATH", "label-kit/test-release.zip");
+    vi.stubEnv("LABEL_KIT_BLOB_READ_WRITE_TOKEN", "test");
+    blobGet.mockResolvedValue({
+      statusCode: 200,
+      stream: new Blob(["changed ZIP"]).stream(),
+    });
+    const response = await download(request());
+    expect(response.status).toBe(503);
+    expect(await response.text()).not.toContain("changed ZIP");
   });
   it("returns unavailable when the private file is missing", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn().mockResolvedValue(Response.json({ allowed: true })),
     );
-    vi.stubEnv("LABEL_KIT_BLOB_PATH", "label-kit/v1.zip");
+    vi.stubEnv("LABEL_KIT_BLOB_PATH", "label-kit/test-release.zip");
     vi.stubEnv("LABEL_KIT_BLOB_READ_WRITE_TOKEN", "private-test-token");
     blobGet.mockResolvedValue(null);
     expect((await download(request())).status).toBe(503);
@@ -103,7 +138,7 @@ describe("Starter checkout", () => {
     });
   function enable() {
     vi.stubEnv("LABEL_KIT_CHECKOUT_ENABLED", "true");
-    vi.stubEnv("LABEL_KIT_BLOB_PATH", "label-kit/v1.zip");
+    vi.stubEnv("LABEL_KIT_BLOB_PATH", "label-kit/test-release.zip");
     vi.stubEnv("LABEL_KIT_BLOB_READ_WRITE_TOKEN", "test");
   }
   it("rejects cross-origin and disabled checkout", async () => {
