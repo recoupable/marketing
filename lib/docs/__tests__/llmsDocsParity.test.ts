@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { GET as getLlms } from "@/app/llms.txt/route";
 import { GET as getLlmsFull } from "@/app/llms-full.txt/route";
+import { GET as getDocsLlms } from "@/app/docs/llms.txt/route";
 import { docs } from "@/lib/docs";
 import { docsLlmsFullText } from "@/lib/docs/docsLlmsFullText";
 import { siteConfig } from "@/lib/config";
@@ -9,12 +10,14 @@ const pages = docs.filter(page => page.slug);
 const quickstart = docs.find(page => page.slug === "quickstart")!;
 
 describe("llms.txt documentation parity", () => {
-  it("links every documentation page after the site sections", async () => {
+  it("keeps the root index compact and links every document through its documentation index", async () => {
     const text = await getLlms().text();
-    expect(text.match(/\/docs\//g)?.length ?? 0).toBeGreaterThanOrEqual(pages.length);
-    expect(text.indexOf("## Services and public pages")).toBeLessThan(text.indexOf("## Documentation"));
-    expect(text.indexOf("## Documentation")).toBeLessThan(text.indexOf("## API reference"));
-    for (const page of pages) expect(text).toContain(`${siteConfig.url}/docs/${page.slug})`);
+    expect(text.length).toBeLessThan(30_000);
+    expect(text).toContain(`${siteConfig.url}/docs/llms.txt)`);
+    const documentation = await getDocsLlms().text();
+    expect(documentation.length).toBeLessThan(30_000);
+    expect(documentation).toMatch(/^# Recoup documentation/);
+    for (const page of pages) expect(documentation).toContain(`${siteConfig.url}/docs/${page.slug})`);
   });
 });
 

@@ -42,7 +42,7 @@ const readJson = async (path) => {
   return JSON.parse(body);
 };
 const manifest = await readJson("/.well-known/mcp.json");
-assert.deepEqual(manifest.remotes, [{ type: "streamable-http", url: "https://api.recoupable.dev/mcp" }]);
+assert.deepEqual(manifest.remotes, [{ type: "streamable-http", url: "https://recoupable.dev/mcp" }]);
 const spec = await readJson("/openapi.json");
 assert.ok(spec.components.schemas.ErrorResponse);
 assert.deepEqual(spec.security, []);

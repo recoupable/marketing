@@ -33,7 +33,7 @@ assert.equal(new Set(catalog.content.map(item => item.id)).size, catalog.content
 const { data: openapi } = await json('/openapi.json');
 assert.equal(openapi.openapi, '3.1.0');
 assert.deepEqual(openapi.security, []);
-assert.equal(Object.keys(openapi.paths).length, 4);
+assert.equal(Object.keys(openapi.paths).length, 5);
 checks.push('Documented public tools and a unique content registry');
 const { data: apiCatalog, response: apiResponse } = await json('/.well-known/api-catalog');
 assert.match(apiResponse.headers.get('content-type'), /profile="https:\/\/www.rfc-editor.org\/info\/rfc9727"/);

@@ -45,5 +45,5 @@ test("OAuth discovery points to the existing issuer and MCP advertises its real 
   const redirects = await nextConfig.redirects!();
   expect(redirects).toContainEqual({ source: "/.well-known/oauth-authorization-server", destination: siteConfig.platformOAuthMetadataUrl, permanent: true });
   expect(redirects).toContainEqual({ source: "/.well-known/oauth-protected-resource", destination: siteConfig.platformResourceMetadataUrl, permanent: true });
-  expect(getMcpManifest().remotes).toEqual([{ type: "streamable-http", url: "https://api.recoupable.dev/mcp" }]);
+  expect(getMcpManifest().remotes).toEqual([{ type: "streamable-http", url: `${siteConfig.url}/mcp` }]);
 });

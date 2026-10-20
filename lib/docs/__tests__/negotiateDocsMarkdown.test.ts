@@ -55,3 +55,7 @@ describe("negotiateDocsMarkdown", () => {
     expect(negotiateDocsMarkdown("/pricing", "text/markdown")).toBeNull();
   });
 });
+
+it.each(["text/plain", "text/markdown", "text/html"])("preserves the documentation discovery file for %s", accept => {
+  expect(negotiateDocsMarkdown("/docs/llms.txt", accept)).toBeNull();
+});

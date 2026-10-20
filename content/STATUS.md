@@ -4,6 +4,28 @@ Addressed the 71/100 Is Agentic baseline with recoverable Markdown 404s, JSON AP
 
 All 465 tests, TypeScript, scoped lint, and the production build pass. The local production server passed all 638 Markdown requests across 319 pages, including 32 blogs. `scripts/audit-agent-readiness.mjs` verifies recovery responses, exact live issuer/resource redirects, the manifest, schemas, CORS, public Markdown downloads, raw heading/dialog order, and organization metadata. Browser checks confirm dialog appearance, opening, tablet artwork visibility, and Escape focus return. Production release and Is Agentic rescoring remain pending.
 
+## Public MCP, batching, and compact discovery — October 19, 2026
+
+The anonymous website MCP at `/mcp` exposes the five existing public tools through
+Streamable HTTP. `/agent-api/v1/batch` accepts up to ten independent operations
+with ordered per-item receipts and a 16 KB total request bound. The manifest,
+catalog, OpenAPI and agent guides describe the shipped interfaces and keep
+account-bearing platform tools separate. Hosted calls use the Vercel SDK rule
+`recoup-public-tools` (120 requests per 60 seconds per IP per region), with policy
+headers, recoverable 429s and fail-closed configuration errors.
+
+The root `/llms.txt` is 16,015 characters; the complete documentation link index
+is 19,673 characters at `/docs/llms.txt`. Full documentation remains available at
+`/llms-full.txt`. Organization metadata includes the verified Recoup LinkedIn
+profile. The canonical domain remains recoupable.dev.
+
+All 482 tests, repository lint, TypeScript and production build pass. Ten real-client
+MCP scenarios, a 2024-protocol handshake, a mixed-success batch and the readiness
+HTTP audit pass against the local production build. The hosted preview passed all ten MCP scenarios and returned 429 with Retry-After
+when the shared quota was exhausted. Review also added discovery-file negotiation
+coverage and a shared bounded JSON reader. Final review and the next scan remain pending. The prior PR #185
+produced a live 100/100 scan; that scan's public saved snapshot was still stale.
+
 ## Guarded Git file contracts — October 19, 2026
 
 Documented versioned file reads, observed-SHA updates, canonical paths, returned

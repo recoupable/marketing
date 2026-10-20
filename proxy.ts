@@ -21,5 +21,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: "/((?!api/|agent-api/|_next/|\\.well-known/).*)",
+  matcher: "/((?!api/|agent-api/|mcp(?:/|$)|_next/|\\.well-known/).*)",
 };
