@@ -2609,6 +2609,845 @@
           }
         }
       }
+    },
+    "/api/content/packs": {
+      "post": {
+        "operationId": "prepareReleasePack",
+        "description": "Release rollout pending; discover current host capabilities before execution. Prepare a resumable pack brief. No artist profile or GitHub repository required; no paid generation.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current owned result; running is not completed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace access denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Owned resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits; use returned billingUrl.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrepareReleasePackRequest"
+              }
+            }
+          }
+        },
+        "x-recoup-availability": "pending"
+      }
+    },
+    "/api/content/packs/{id}": {
+      "get": {
+        "operationId": "getReleasePack",
+        "description": "Release rollout pending; discover current host capabilities before execution. Read current owned job, assets, gaps and next action.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current owned result; running is not completed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace access denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Owned resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits; use returned billingUrl.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "organization_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "x-recoup-availability": "pending"
+      },
+      "patch": {
+        "operationId": "updateReleasePack",
+        "description": "Release rollout pending; discover current host capabilities before execution. Update the draft using expected_revision; changed inputs invalidate prior quotes.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current owned result; running is not completed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace access denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Owned resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits; use returned billingUrl.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateReleasePackRequest"
+              }
+            }
+          }
+        },
+        "x-recoup-availability": "pending"
+      }
+    },
+    "/api/content/packs/{id}/estimate": {
+      "post": {
+        "operationId": "estimateReleasePack",
+        "description": "Release rollout pending; discover current host capabilities before execution. Quote complete scope at existing house image/video rates. Caption, inspection and composition are included at no additional customer charge.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current owned result; running is not completed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace access denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Owned resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits; use returned billingUrl.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EstimateReleasePackRequest"
+              }
+            }
+          }
+        },
+        "x-recoup-availability": "pending"
+      }
+    },
+    "/api/content/packs/{id}/generate": {
+      "post": {
+        "operationId": "generateReleasePack",
+        "description": "Release rollout pending; discover current host capabilities before execution. Approve the current quote and budget ceiling. Start or resume the same job without duplicate submission.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current owned result; running is not completed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace access denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Owned resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits; use returned billingUrl.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateReleasePackRequest"
+              }
+            }
+          }
+        },
+        "x-recoup-availability": "pending"
+      }
+    },
+    "/api/content/packs/{id}/retry": {
+      "post": {
+        "operationId": "retryReleasePack",
+        "description": "Release rollout pending; discover current host capabilities before execution. Retry only the selected failed asset within approved scope and ceiling; retain successful work.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current owned result; running is not completed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace access denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Owned resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits; use returned billingUrl.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RetryReleasePackHttpRequest"
+              }
+            }
+          }
+        },
+        "x-recoup-availability": "pending"
+      }
+    },
+    "/api/content/packs/assets": {
+      "post": {
+        "operationId": "uploadReleasePackAsset",
+        "description": "Release rollout pending; discover current host capabilities before execution. Upload explicitly selected audio or reference artwork to owned private storage; return a temporary locator.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current owned result; running is not completed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackUploadResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace access denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Owned resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits; use returned billingUrl.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UploadReleasePackAssetRequest"
+              }
+            }
+          }
+        },
+        "x-recoup-availability": "pending"
+      }
+    },
+    "/api/content/packs/{id}/export": {
+      "get": {
+        "operationId": "exportReleasePack",
+        "description": "Release rollout pending; discover current host capabilities before execution. Retrieve an authenticated JSON manifest with captions, gaps and refreshed signed file URLs. Does not publish.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current owned result; running is not completed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Pack manifest with signed file URLs and captions; components and format variants identified separately."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Workspace access denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Owned resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Stale quote/revision, unresolved submission, budget/state conflict or required execution capability unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits; use returned billingUrl.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReleasePackError"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "organization_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "x-recoup-availability": "pending"
+      }
     }
   },
   "components": {
@@ -5138,6 +5977,1055 @@
             },
             "minItems": 1,
             "description": "Submitted names of files rejected because their observed revision no longer matches."
+          }
+        }
+      },
+      "ReleasePackBrief": {
+        "type": "object",
+        "properties": {
+          "artist_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "artist_account_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "song_title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "recording_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "audio_url": {
+            "type": "string",
+            "maxLength": 4000,
+            "format": "uri"
+          },
+          "audio_start_seconds": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1200
+          },
+          "occasion": {
+            "type": "string",
+            "enum": [
+              "new_release",
+              "anniversary",
+              "reissue",
+              "remix",
+              "rediscovery"
+            ]
+          },
+          "original_release_date": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+          },
+          "campaign_date": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+          },
+          "primary_action": {
+            "default": "listen",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "destination_url": {
+            "type": "string",
+            "maxLength": 4000,
+            "format": "uri"
+          },
+          "audience": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "song_summary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "lyrics_excerpt": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "creative_direction": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "allow_creative_defaults": {
+            "default": false,
+            "type": "boolean"
+          },
+          "reference_image_urls": {
+            "default": [],
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 4000,
+              "format": "uri"
+            }
+          },
+          "constraints": {
+            "default": [],
+            "maxItems": 12,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            }
+          },
+          "platforms": {
+            "default": [
+              "instagram",
+              "tiktok"
+            ],
+            "minItems": 1,
+            "maxItems": 6,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "instagram",
+                "tiktok",
+                "youtube",
+                "facebook",
+                "linkedin",
+                "x"
+              ]
+            }
+          },
+          "context_brief_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "evidence": {
+            "default": [],
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "customer_assertion",
+                    "source_observation",
+                    "creative_proposal"
+                  ]
+                },
+                "source_url": {
+                  "type": "string",
+                  "maxLength": 4000,
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "text",
+                "kind"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrepareReleasePackRequest": {
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "organization_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "expected_revision": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "idempotency_key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "^[A-Za-z0-9._:-]+$"
+          },
+          "brief": {
+            "type": "object",
+            "properties": {
+              "artist_name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "artist_account_id": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "song_title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "recording_version": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "audio_url": {
+                "type": "string",
+                "maxLength": 4000,
+                "format": "uri"
+              },
+              "audio_start_seconds": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1200
+              },
+              "occasion": {
+                "type": "string",
+                "enum": [
+                  "new_release",
+                  "anniversary",
+                  "reissue",
+                  "remix",
+                  "rediscovery"
+                ]
+              },
+              "original_release_date": {
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+              },
+              "campaign_date": {
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+              },
+              "primary_action": {
+                "default": "listen",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "destination_url": {
+                "type": "string",
+                "maxLength": 4000,
+                "format": "uri"
+              },
+              "audience": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "song_summary": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "lyrics_excerpt": {
+                "type": "string",
+                "maxLength": 1000
+              },
+              "creative_direction": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "allow_creative_defaults": {
+                "default": false,
+                "type": "boolean"
+              },
+              "reference_image_urls": {
+                "default": [],
+                "maxItems": 5,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 4000,
+                  "format": "uri"
+                }
+              },
+              "constraints": {
+                "default": [],
+                "maxItems": 12,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "platforms": {
+                "default": [
+                  "instagram",
+                  "tiktok"
+                ],
+                "minItems": 1,
+                "maxItems": 6,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "instagram",
+                    "tiktok",
+                    "youtube",
+                    "facebook",
+                    "linkedin",
+                    "x"
+                  ]
+                }
+              },
+              "context_brief_id": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "evidence": {
+                "default": [],
+                "maxItems": 20,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 2000
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "customer_assertion",
+                        "source_observation",
+                        "creative_proposal"
+                      ]
+                    },
+                    "source_url": {
+                      "type": "string",
+                      "maxLength": 4000,
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "kind"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "deliverables": {
+            "default": {
+              "videos": 8,
+              "quote_cards": 4,
+              "artwork": 1,
+              "carousels": 1,
+              "visualizers": 1,
+              "video_seconds": 8
+            },
+            "type": "object",
+            "properties": {
+              "videos": {
+                "default": 8,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 12
+              },
+              "quote_cards": {
+                "default": 4,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8
+              },
+              "artwork": {
+                "default": 1,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2
+              },
+              "carousels": {
+                "default": 1,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2
+              },
+              "visualizers": {
+                "default": 1,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3
+              },
+              "video_seconds": {
+                "default": 8,
+                "type": "integer",
+                "minimum": 5,
+                "maximum": 15
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "idempotency_key",
+          "brief"
+        ],
+        "additionalProperties": false
+      },
+      "ReleasePackLocator": {
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "organization_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "job_id"
+        ],
+        "additionalProperties": false
+      },
+      "ApproveReleasePackRequest": {
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "organization_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "quote_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "expected_revision": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "approved_max_usd": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "job_id",
+          "quote_id",
+          "expected_revision",
+          "approved_max_usd"
+        ],
+        "additionalProperties": false
+      },
+      "RetryReleasePackRequest": {
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "organization_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "quote_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "expected_revision": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "approved_max_usd": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 100
+          },
+          "asset_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "job_id",
+          "quote_id",
+          "expected_revision",
+          "approved_max_usd",
+          "asset_id"
+        ],
+        "additionalProperties": false
+      },
+      "UploadReleasePackAssetRequest": {
+        "type": "object",
+        "properties": {
+          "organization_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "filename": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160,
+            "pattern": "^[A-Za-z0-9._ -]+$"
+          },
+          "content_type": {
+            "type": "string",
+            "enum": [
+              "audio/mpeg",
+              "audio/wav",
+              "audio/x-wav",
+              "audio/flac",
+              "audio/mp4",
+              "image/png",
+              "image/jpeg",
+              "image/webp"
+            ]
+          },
+          "mode": {
+            "default": "inline",
+            "type": "string",
+            "enum": [
+              "inline",
+              "signed_url",
+              "finalize"
+            ]
+          },
+          "base64": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 4000000
+          },
+          "source_url": {
+            "type": "string",
+            "maxLength": 4000,
+            "format": "uri"
+          },
+          "storage_key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        },
+        "required": [
+          "filename",
+          "content_type"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateReleasePackRequest": {
+        "type": "object",
+        "properties": {
+          "organization_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "expected_revision": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "idempotency_key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "^[A-Za-z0-9._:-]+$"
+          },
+          "brief": {
+            "type": "object",
+            "properties": {
+              "artist_name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "artist_account_id": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "song_title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "recording_version": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "audio_url": {
+                "type": "string",
+                "maxLength": 4000,
+                "format": "uri"
+              },
+              "audio_start_seconds": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1200
+              },
+              "occasion": {
+                "type": "string",
+                "enum": [
+                  "new_release",
+                  "anniversary",
+                  "reissue",
+                  "remix",
+                  "rediscovery"
+                ]
+              },
+              "original_release_date": {
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+              },
+              "campaign_date": {
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+              },
+              "primary_action": {
+                "default": "listen",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "destination_url": {
+                "type": "string",
+                "maxLength": 4000,
+                "format": "uri"
+              },
+              "audience": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "song_summary": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "lyrics_excerpt": {
+                "type": "string",
+                "maxLength": 1000
+              },
+              "creative_direction": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "allow_creative_defaults": {
+                "default": false,
+                "type": "boolean"
+              },
+              "reference_image_urls": {
+                "default": [],
+                "maxItems": 5,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 4000,
+                  "format": "uri"
+                }
+              },
+              "constraints": {
+                "default": [],
+                "maxItems": 12,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "platforms": {
+                "default": [
+                  "instagram",
+                  "tiktok"
+                ],
+                "minItems": 1,
+                "maxItems": 6,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "instagram",
+                    "tiktok",
+                    "youtube",
+                    "facebook",
+                    "linkedin",
+                    "x"
+                  ]
+                }
+              },
+              "context_brief_id": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "evidence": {
+                "default": [],
+                "maxItems": 20,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 2000
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "customer_assertion",
+                        "source_observation",
+                        "creative_proposal"
+                      ]
+                    },
+                    "source_url": {
+                      "type": "string",
+                      "maxLength": 4000,
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "kind"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "deliverables": {
+            "default": {
+              "videos": 8,
+              "quote_cards": 4,
+              "artwork": 1,
+              "carousels": 1,
+              "visualizers": 1,
+              "video_seconds": 8
+            },
+            "type": "object",
+            "properties": {
+              "videos": {
+                "default": 8,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 12
+              },
+              "quote_cards": {
+                "default": 4,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8
+              },
+              "artwork": {
+                "default": 1,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2
+              },
+              "carousels": {
+                "default": 1,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2
+              },
+              "visualizers": {
+                "default": 1,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3
+              },
+              "video_seconds": {
+                "default": 8,
+                "type": "integer",
+                "minimum": 5,
+                "maximum": 15
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "idempotency_key",
+          "brief",
+          "expected_revision"
+        ],
+        "additionalProperties": false
+      },
+      "EstimateReleasePackRequest": {
+        "type": "object",
+        "properties": {
+          "organization_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "asset_id": {
+            "description": "Quote a fresh paid attempt only for this confirmed failed asset. Omit for the initial complete pack quote.",
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "GenerateReleasePackRequest": {
+        "type": "object",
+        "properties": {
+          "organization_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "quote_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "expected_revision": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "approved_max_usd": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "quote_id",
+          "expected_revision",
+          "approved_max_usd"
+        ],
+        "additionalProperties": false
+      },
+      "RetryReleasePackHttpRequest": {
+        "type": "object",
+        "properties": {
+          "organization_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "quote_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "expected_revision": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "approved_max_usd": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 100
+          },
+          "asset_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "quote_id",
+          "expected_revision",
+          "approved_max_usd",
+          "asset_id"
+        ],
+        "additionalProperties": false
+      },
+      "ReleasePackResponse": {
+        "type": "object",
+        "required": [
+          "job",
+          "assets",
+          "readiness",
+          "next_action"
+        ],
+        "properties": {
+          "job": {
+            "type": "object",
+            "required": [
+              "id",
+              "revision",
+              "status",
+              "brief",
+              "deliverables"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "draft",
+                  "needs_input",
+                  "ready_to_quote",
+                  "awaiting_approval",
+                  "running",
+                  "partial",
+                  "completed",
+                  "failed",
+                  "canceled"
+                ]
+              },
+              "brief": {
+                "$ref": "#/components/schemas/ReleasePackBrief"
+              },
+              "deliverables": {
+                "type": "object"
+              },
+              "quote": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "description": "Quote id, fingerprint, revision, expiry, complete line_items, maximum_usd, credits, piece/file/caption counts and retry policy."
+              }
+            }
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "Owned asset state, files, caption, inspection and controlled failure information."
+            }
+          },
+          "readiness": {
+            "type": "object",
+            "properties": {
+              "ready": {
+                "type": "boolean"
+              },
+              "missing": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "assumptions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      },
+      "ReleasePackUploadResponse": {
+        "type": "object",
+        "description": "Private uploaded source locator or owner-scoped direct upload capability. Signed-upload mode requires transfer followed by finalize before using the source.",
+        "properties": {
+          "storage_key": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "content_type": {
+            "type": "string"
+          },
+          "bytes": {
+            "type": "integer"
+          },
+          "expires_at": {
+            "type": "string"
+          },
+          "signed_upload_url": {
+            "type": "string"
+          },
+          "upload_token": {
+            "type": "string"
+          },
+          "expires_in_seconds": {
+            "type": "integer"
+          },
+          "maximum_bytes": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      },
+      "ReleasePackError": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "error"
+          },
+          "error": {
+            "type": "string"
+          },
+          "billingUrl": {
+            "type": "string",
+            "format": "uri"
           }
         }
       }
