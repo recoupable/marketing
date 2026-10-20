@@ -33,6 +33,13 @@ export function getAgentCatalog(index: readonly DiscoveryContent[]) {
         effects:
           "Public reading, calculation, and draft generation. Does not submit inquiries or modify a platform account.",
       },
+      mcp: {
+        url: absoluteUrl("/mcp"),
+        transport: "streamable-http",
+        authentication: "none",
+        manifest: absoluteUrl("/.well-known/mcp.json"),
+      },
+      batch: { endpoint: absoluteUrl("/agent-api/v1/batch"), method: "POST", maximumOperations: 10 },
       webmcp: {
         registration: "document.modelContext",
         scope: "top-level browser document",
@@ -56,7 +63,6 @@ export function getAgentCatalog(index: readonly DiscoveryContent[]) {
           header: "Authorization: Bearer <Recoup API key>",
           documentation: absoluteUrl("/docs/mcp"),
         },
-        manifest: absoluteUrl("/.well-known/mcp.json"),
         authorizationServerMetadata: absoluteUrl("/.well-known/oauth-authorization-server"),
         protectedResourceMetadata: absoluteUrl("/.well-known/oauth-protected-resource"),
       },

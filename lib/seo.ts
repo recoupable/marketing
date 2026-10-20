@@ -44,7 +44,7 @@ export function organizationGraph() {
         logo: { "@type": "ImageObject", url: absoluteUrl("/images/recoup-logo.svg"), width: 256, height: 256 },
         description: "AI transformation, custom software, and team training for music funds and rightsholders.",
         founder: { "@type": "Person", "@id": absoluteUrl("/about#sidney-swift"), name: "Sidney Swift", url: absoluteUrl("/about#sidney-swift") },
-        sameAs: [siteConfig.githubOrganizationUrl],
+        sameAs: [siteConfig.githubOrganizationUrl, siteConfig.social.linkedin],
         email: siteConfig.contactEmail,
         contactPoint: { "@type": "ContactPoint", email: siteConfig.contactEmail, contactType: "customer support", url: absoluteUrl("/contact"), availableLanguage: "English" },
         address: { "@type": "PostalAddress", ...siteConfig.postalAddress },
