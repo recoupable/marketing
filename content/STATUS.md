@@ -14,6 +14,16 @@ the retained Docs copy from the actual Marketing merge afterward; hosting
 repair/cutover remains deferred. Local validation and independent exact-head
 review are recorded in the PR and release receipt.
 
+## Python registry release — October 20, 2026
+
+The MIT-licensed `recoupable` 0.1.0 SDK is published on PyPI from Marketing
+`d7933440`. The main-only GitHub `pypi` environment uses trusted publishing.
+The release workflow passed its build, strict metadata validation, and SDK tests.
+A separate clean registry installation verified the wheel's SHA-256, official
+project links, MIT metadata, imports, and all 14 tests. The SDK guide and release
+instructions now link to the published package; their site publication follows
+the coordinated OpenAPI release.
+
 ## Context contract release reference — October 20, 2026
 
 Refreshed the API inventory from the actual #1049 merge `090f9880`, preserving
