@@ -1460,7 +1460,7 @@
     "/api/accounts/{id}/payment-method": {
       "get": {
         "operationId": "getAccountsByIdPaymentMethod",
-        "description": "Retrieve the default payment method on file for an account. An account may be tagged on more than one Stripe customer (for example an organization whose card was saved on one customer and whose invoiced plan lives on another); the card is read from the tagged customer that holds a default payment method. Returns `card: null` when no tagged customer has a payment method saved yet — the top-up dialog uses this to decide whether to show a pre-charge confirmation (card present) or route to a checkout session to collect one (`card: null`). Cards are returned even when expired; callers should compare `exp_month` / `exp_year` against the current date and warn the customer, since an off-session charge against an expired card will decline.",
+        "description": "Retrieve the default payment method on file for an account. An account may be tagged on more than one Stripe customer (for example an organization whose card was saved on one customer and whose invoiced plan lives on another); the card is read from the tagged customer that holds a default payment method. Returns `card: null` when the selected customer has no supported default card, including when no tagged customer exists — the top-up dialog uses this to decide whether to show a pre-charge confirmation (card present) or route to a checkout session to collect one (`card: null`). Cards are returned even when expired; callers should compare `exp_month` / `exp_year` against the current date and warn the customer, since an off-session charge against an expired card will decline. Removing the selected card does not remove other saved cards: a later read can select a different remaining card. Auto top-up stays off after successful removal until explicitly re-enabled.",
         "parameters": [
           {
             "name": "id",
@@ -1615,7 +1615,7 @@
       },
       "delete": {
         "operationId": "deleteAccountsByIdPaymentMethod",
-        "description": "Detach the default card on file from an account, whichever tagged Stripe customer holds it. After this call `GET /api/accounts/{id}/payment-method` returns `card: null`, credit purchases route through checkout again, and auto top-up (if enabled) is turned off because it has nothing to charge. Subscriptions collected by invoice are unaffected. `id` may be the authenticated account or an organization the caller belongs to.",
+        "description": "Turn off automatic credit top-ups for the authorized account, then detach its selected default card. This removes one card selected from the account's tagged Stripe customers; it does not delete every saved card. A successful request returns 204 with no response body. `id` may be the authenticated account or an organization the caller belongs to.\n\n### Other saved cards and later purchases\n\nOther cards remain attached. A later `GET /api/accounts/{id}/payment-method` can return another remaining card; removal does not guarantee `card: null` or checkout-only purchases. A later explicitly requested credit purchase can use a remaining card, while an account with no card uses checkout. Removal does not turn automatic top-ups back on; enabling them again requires an explicit settings update.\n\n### Ordered changes and recovery\n\nThe API saves `auto_topup_enabled: false` before detaching the selected card. If saving that setting fails, no card is detached. If settings are saved but detachment fails, automatic top-ups remain off and the request returns 500. Both failures return the same generic error, so read the payment method and auto-top-up settings to determine the current state. A missing customer or selected card returns 404 without changing settings or cards.\n\nAfter an error or uncertain response, reread both states before deciding whether to retry. A successful removal may expose another selected card, so blindly repeating DELETE can remove a different card. Removal preserves balances, configured top-up amounts and thresholds, and other saved cards. It does not cancel subscriptions, invoices, a charge already in progress, or a concurrent explicit settings update.",
         "parameters": [
           {
             "name": "id",
@@ -1638,7 +1638,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Payment method detached; no body."
+            "description": "Automatic top-ups are off and the selected card is detached; no response body."
+          },
+          "400": {
+            "description": "Invalid account id; no billing changes are performed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountPaymentMethodErrorResponse"
+                },
+                "example": {
+                  "error": "id must be a valid UUID"
+                }
+              }
+            }
           },
           "401": {
             "description": "Unauthorized - invalid or missing authentication",
@@ -1659,6 +1672,32 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AccountPaymentMethodErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No tagged Stripe customer or selected card exists. Settings and cards are unchanged.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountPaymentMethodErrorResponse"
+                },
+                "example": {
+                  "error": "No payment method on file"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unable to complete card removal. Automatic top-ups may already be off; read the card and settings before retrying.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountPaymentMethodErrorResponse"
+                },
+                "example": {
+                  "error": "Internal server error"
                 }
               }
             }
@@ -1909,7 +1948,7 @@
       },
       "put": {
         "operationId": "putAccountsByIdAutoTopUp",
-        "description": "Set the auto top-up settings for an account. All three fields are required on every call; there is no partial update. Turning it on requires a card on file (`GET /api/accounts/{id}/payment-method` returns a card), an amount between 5.00 and 1,000.00 USD, and a threshold below the amount. Turning it off keeps the last amount and threshold so the account can turn it back on without retyping them. Guardrails that apply once it is on: at most one top-up per account per 10 minutes; a card decline turns `enabled` back to `false`, records `lastError`, and emails the account instead of retrying; removing the card turns it off. `id` may be the authenticated account or an organization the caller belongs to.",
+        "description": "Set the auto top-up settings for an account. All three fields are required on every call; there is no partial update. Turning it on requires a card on file (`GET /api/accounts/{id}/payment-method` returns a card), an amount between 5.00 and 1,000.00 USD, and a threshold below the amount. Turning it off keeps the last amount and threshold so the account can turn it back on without retyping them. Guardrails that apply once it is on: at most one top-up per account per 10 minutes; a card decline turns `enabled` back to `false`, records `lastError`, and emails the account instead of retrying; a successful selected-card removal turns it off before detachment, even when other saved cards remain. Removal does not cancel a charge already in progress. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
             "name": "id",

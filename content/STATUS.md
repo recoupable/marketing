@@ -1,12 +1,18 @@
-## Python registry release — October 20, 2026
+## Card removal contract alignment — October 20, 2026
 
-The MIT-licensed `recoupable` 0.1.0 SDK is published on PyPI from Marketing
-`d7933440`. The main-only GitHub `pypi` environment uses trusted publishing.
-The release workflow passed its build, strict metadata validation, and SDK tests.
-A separate clean registry installation verified the wheel's SHA-256, official
-project links, MIT metadata, imports, and all 14 tests. The SDK guide and release
-instructions now link to the published package; their site publication follows
-the coordinated OpenAPI release.
+The billing guide and Accounts reference now describe the released API #1054
+selected-card policy: disable automatic purchases before removing one card,
+preserve other saved cards, and explain manual purchases, in-progress charges,
+400/404/500 responses and partial-failure recovery. This is a documentation
+candidate; it performs no billing operation.
+
+Current released operation-name documentation from Marketing #188 (`01c3ba0`)
+is preserved. The shared fixture companion is API #1056 at candidate `837eb047`.
+The inventory uses that unmerged candidate only for preview checks. Before this
+publication merges, refresh it to the companion's actual merge commit. Generate
+the retained Docs copy from the actual Marketing merge afterward; hosting
+repair/cutover remains deferred. Local validation and independent exact-head
+review are recorded in the PR and release receipt.
 
 ## Context contract release reference — October 20, 2026
 
