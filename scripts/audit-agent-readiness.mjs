@@ -46,6 +46,14 @@ assert.deepEqual(manifest.remotes, [{ type: "streamable-http", url: "https://rec
 const spec = await readJson("/openapi.json");
 assert.ok(spec.components.schemas.ErrorResponse);
 assert.deepEqual(spec.security, []);
+const { response: markdownSpec, body: markdownSpecBody } = await read("/openapi.json.md");
+assert.equal(markdownSpec.status, 200);
+assert.match(markdownSpec.headers.get("content-type"), /text\/markdown/);
+assert.ok(markdownSpecBody.startsWith(`# ${spec.info.title}\n`));
+const fencedSpec = markdownSpecBody.match(/```json\n([\s\S]+?)\n```/)?.[1];
+assert.ok(fencedSpec, "Markdown fallback includes the full OpenAPI document");
+assert.deepEqual(JSON.parse(fencedSpec), spec);
+console.log("PASS OpenAPI Markdown fallback preserves the full JSON contract");
 for (const path of ["/api/missing", "/agent-api/missing"]) {
   const response = await fetch(new URL(path, origin), {
     method: "OPTIONS", headers: { Origin: "https://example.com", "Access-Control-Request-Method": "DELETE", "Access-Control-Request-Headers": "content-type" },
