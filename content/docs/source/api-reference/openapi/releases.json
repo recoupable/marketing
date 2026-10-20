@@ -16,6 +16,7 @@
   "paths": {
     "/api/catalogs/{catalogId}/streams": {
       "get": {
+        "operationId": "getCatalogsByCatalogIdStreams",
         "summary": "Read daily catalog streams",
         "description": "Saved Luminate worldwide aggregate calendar-day streams across reporting DSPs, not Spotify-only or royalty statements. Includes current catalog recordings even when unmeasured, latest collection status, per-recording daily rows/retrieval time, missing dates, equal-period totals and growth. Newer source corrections win; historical versions remain stored. Missing days and changed provider recording identity suppress comparisons. Zero baseline yields null percentage. Page through pagination.has_more; summary_scope is page. Reads make no provider requests. Standard MCP: get_catalog_streams. Requires API and database feature release; unavailable to delegated OAuth. Unchanged daily values reuse their saved versions; new dates and corrections are appended, with fresh coverage/provenance receipts for every run.\n\nUse paging for large catalogs. Accepted date ranges do not establish measurement completeness; inspect per-record coverage and missing data.",
         "security": [
@@ -313,6 +314,7 @@
     },
     "/api/catalogs/{catalogId}/stream-tracking": {
       "get": {
+        "operationId": "getCatalogsByCatalogIdStreamTracking",
         "summary": "Inspect daily catalog tracking",
         "description": "Read enabled state and latest run coverage without starting provider work. Standard MCP manage_catalog_stream_tracking with action=status. Unchanged daily values reuse their saved versions; new dates and corrections are appended, with fresh coverage/provenance receipts for every run.",
         "security": [
@@ -450,6 +452,7 @@
         }
       },
       "post": {
+        "operationId": "postCatalogsByCatalogIdStreamTracking",
         "summary": "Control daily catalog tracking",
         "description": "Enable starts initial 62-day backfill and daily refresh at 09:00 UTC. Source window ends two UTC dates before the run date to allow reporting lag; source freshness is not guaranteed. New recordings join the next run. Maximum 250 recordings per catalog; larger catalogs fail before provider calls. Disable fences future writes and retains saved history. Refresh claims at most one run per UTC day and subscription revision; repeated enable is idempotent. If today was already claimed, collection.state=already_claimed_or_disabled and no duplicate provider work starts; failed claims can run again the next day. Failures are isolated by recording and exposed in coverage. Standard MCP manage_catalog_stream_tracking. Enabled tracking makes asynchronous provider calls. API-key/Privy bearer auth supported; identity overrides rejected. Requires API and database feature release. Unchanged daily values reuse their saved versions; new dates and corrections are appended, with fresh coverage/provenance receipts for every run.",
         "security": [
@@ -619,6 +622,7 @@
     },
     "/api/catalogs/{catalogId}/playcount-history": {
       "get": {
+        "operationId": "getCatalogsByCatalogIdPlaycountHistory",
         "summary": "Read catalog playcount history and period comparisons",
         "description": "Read-only, store-backed public Spotify observations for current catalog membership, including unmeasured recordings. No collection, provider calls, charges or cron activation. API keys and Privy bearer tokens supported; identity overrides, unknown and duplicate query parameters rejected. Compare two adjacent equal observation periods with complete daily coverage and at most one hour capture drift. Missing days, invalid counts, negative corrections and excessive drift suppress growth. Real zero values remain zero; zero prior movement produces null percentage growth. Summaries apply only to this page; increment page while pagination.has_more. Catalog edits can change paging. Legacy rows lack historical provider counter identity and upstream update time: comparisons are provisional, not verified same-counter history, exact daily streams, royalties or causal marketing uplift. This endpoint does not import private artist analytics. Standard MCP tool: get_catalog_playcount_history; unavailable for delegated OAuth pending organization-grant audit. Proposed endpoint requires the linked API feature release; documentation is not proof of production availability.",
         "security": [
@@ -954,6 +958,7 @@
     },
     "/api/tasks": {
       "get": {
+        "operationId": "getTasks",
         "description": "Retrieve scheduled tasks. Each task includes `recent_runs` (last 5 runs), `upcoming` (next scheduled run times) sourced directly from the Trigger.dev API, and `owner_email` when an account email exists for the task owner. Supports filtering by id, account_id, or artist_account_id.\n\nFetching one task by id performs the owner-plan preflight used by the runner and can return 402 plan_limit. Listing tasks remains distinct from permission to execute them.",
         "security": [
           {
@@ -1059,6 +1064,7 @@
         }
       },
       "post": {
+        "operationId": "postTasks",
         "description": "Create a new scheduled task that runs a prompt against an artist on a recurring cron schedule. The response matches the [GET endpoint](/api-reference/tasks/get) (a `TasksResponse` with the created task in the `tasks` array).",
         "requestBody": {
           "description": "Task to create",
@@ -1165,6 +1171,7 @@
         }
       },
       "patch": {
+        "operationId": "patchTasks",
         "summary": "Update scheduled task",
         "description": "Update an existing scheduled task. Only the id field is required; any additional fields you include will be updated on the task. The response shape matches the GET endpoint (an array containing the updated task).",
         "security": [
@@ -1323,6 +1330,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteTasks",
         "summary": "Delete scheduled task",
         "description": "Delete an existing scheduled task by `id`. Returns only the delete operation status.",
         "security": [
@@ -1427,6 +1435,7 @@
     },
     "/api/tasks/runs": {
       "get": {
+        "operationId": "getTasksRuns",
         "summary": "Get task runs",
         "description": "Returns task runs for the authenticated account. When `runId` is provided, the response contains that single run (`runs` length 1) or 404 if not found. When `runId` is omitted, returns recent runs filtered by account context (default authenticated account, or `account_id` override when authorized).",
         "security": [
@@ -1545,6 +1554,7 @@
     },
     "/api/artists": {
       "get": {
+        "operationId": "getArtists",
         "description": "Retrieve artists accessible to the authenticated account. The account is derived from the API key or Bearer token. When org_id is omitted, returns only the account's own artists. Pass org_id to view artists in a specific organization. Pass account_id to filter to a specific account the API key has access to.",
         "parameters": [
           {
@@ -1598,6 +1608,7 @@
         }
       },
       "post": {
+        "operationId": "postArtists",
         "description": "Create a new artist account. When spotify_artist_id is provided and a canonical artist already exists for it, the existing artist is linked to the account instead of creating a duplicate. The artist can optionally be linked to an organization.",
         "requestBody": {
           "description": "Artist creation parameters",
@@ -1656,6 +1667,7 @@
     },
     "/api/artists/{id}": {
       "patch": {
+        "operationId": "patchArtistsById",
         "description": "Update an artist. All body fields are optional, but at least one must be provided. Use this endpoint to set basic profile (name, image, label), AI instructions, knowledge base entries, social profile URLs (mapped by platform), and pinned state for the calling account.",
         "parameters": [
           {
@@ -1751,6 +1763,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteArtistsById",
         "description": "Delete an artist accessible to the authenticated account. This removes the caller's direct artist link and, if no owner links remain, deletes the artist account itself.",
         "parameters": [
           {
@@ -1831,6 +1844,7 @@
     },
     "/api/artists/{id}/profile": {
       "get": {
+        "operationId": "getArtistsByIdProfile",
         "description": "Public artist profile: the artist's name, image, connected social profiles, and linked catalogs in one call.\n\n**No authentication.** This endpoint is deliberately public and unbilled — it backs the shareable artist page at `chat.recoupable.dev/artists/{id}` and can be called without an API key. Only public fields are returned; account settings, instructions, and valuation data are never included.\n\nResponses are cacheable (`Cache-Control: public, s-maxage=300, stale-while-revalidate=600`), so a value may be up to a few minutes stale.",
         "parameters": [
           {
@@ -1874,6 +1888,7 @@
     },
     "/api/artists/{id}/socials": {
       "get": {
+        "operationId": "getArtistsByIdSocials",
         "description": "Retrieve all social media profiles associated with an artist, with the latest follower counts from the most recent scrape. Call this before the Social Posts or Social Scrape endpoints to obtain the social IDs. Pass `history` to also get each profile's follower snapshots, so week-over-week movement is a read instead of something the caller has to remember.",
         "parameters": [
           {
@@ -1976,6 +1991,7 @@
     },
     "/api/artists/{id}/socials/{socialId}": {
       "delete": {
+        "operationId": "deleteArtistsByIdSocialsBySocialId",
         "description": "Remove a social profile link from an artist. Use this to correct a wrongly auto-matched social. This unlinks the social from the artist account; it does not delete the underlying social record, which may still be linked to other accounts.",
         "parameters": [
           {
@@ -2048,6 +2064,7 @@
     },
     "/api/artist/socials/scrape": {
       "post": {
+        "operationId": "postArtistSocialsScrape",
         "description": "Trigger scrape jobs for all social profiles linked to an artist. Returns a runId per social profile that you can poll for status and results via the [Scraper Results API](/api-reference/apify/scraper).\n\n**Credits:** `50,000 + 10,000 × posts` micro-dollar credits per profile: $0.05 base + $0.01 per requested post. Omitting posts uses the 50,000 base. The upfront balance check covers every linked profile; deduction covers only profiles with a started scraper run ID. Per-profile start errors remain in the response and are not charged when no run starts. For two linked profiles and posts=20, the balance gate requires 500,000 credits ($0.50); one started run charges 250,000 credits ($0.25).",
         "security": [
           {
@@ -2124,6 +2141,7 @@
     },
     "/api/artists/{id}/fans": {
       "get": {
+        "operationId": "getArtistsByIdFans",
         "description": "Retrieve the social profiles of an artist's fans: the accounts that commented on the artist's scraped posts (Instagram today). Every Instagram scrape is followed by one batched profile run over the new commenters, which fills `avatar`, `bio`, `follower_count` and `following_count` on each fan; `region` is null unless the platform reports one. Supports pagination for large fan lists.",
         "parameters": [
           {
@@ -2204,6 +2222,7 @@
     },
     "/api/songs": {
       "get": {
+        "operationId": "getSongs",
         "description": "Retrieve songs from the database with optional filtering by ISRC (International Standard Recording Code) or artist account. This endpoint joins the songs table with song_artists and accounts tables to provide comprehensive song information.",
         "parameters": [
           {
@@ -2270,6 +2289,7 @@
         }
       },
       "post": {
+        "operationId": "postSongs",
         "description": "**Availability: pending reconciliation.** This song-creation REST route has no matching route in the inspected API source. Resolve the supported creation contract separately; existing catalog or analysis operations do not establish this write route. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nBulk create or fetch songs by ISRC. For each song, the API attempts to look up metadata via internal search. If no data is found, optional fallback fields (name, album, notes, artists) are used.",
         "requestBody": {
           "description": "Array of songs to create or fetch",
@@ -2309,6 +2329,7 @@
     },
     "/api/accounts/{id}/catalogs": {
       "get": {
+        "operationId": "getAccountsByIdCatalogs",
         "description": "Retrieve the catalogs visible to a specific account. Returns the catalogs the account owns directly, plus the catalogs owned by any organization the account belongs to - so every member of an organization sees that organization's catalogs without passing the organization's id. A catalog owned both directly and through an organization is returned once. An account that belongs to no organization receives only its own catalogs. Create an organization-owned catalog with [Create catalog](/api-reference/songs/catalogs-create) or [Run valuation](/api-reference/songs/valuation-run).\n\nEach catalog carries its estimated value band and its owner, so a list of catalogs can be ranked by worth and a member can tell an organization's catalog from their own. `valuation` is null for a catalog with no measured songs; `owner.image` is null when the owner account has no avatar.",
         "parameters": [
           {
@@ -2388,6 +2409,7 @@
     },
     "/api/catalogs": {
       "post": {
+        "operationId": "postCatalogs",
         "description": "Create a catalog, owned by the calling account or - with organization_id - by one of the caller's organizations, in which case every member of that organization sees it via [Get Catalogs](/api-reference/songs/catalogs). When materializing from a valuation snapshot, the endpoint also attaches the snapshot's canonical artist to the caller's roster: the measured songs' existing song-artist links are resolved to the dominant artist account, which is added to the caller's roster if not already present. The attach also runs on idempotent re-claims of an already-materialized snapshot. The roster attach always targets the calling account, even when the catalog is owned by an organization.",
         "security": [
           {
@@ -2464,6 +2486,7 @@
     },
     "/api/runs": {
       "get": {
+        "operationId": "getRuns",
         "summary": "Get runs",
         "description": "Get background runs, newest first. A run is the generic status resource for long-running work. `kind` selects the run type (`valuation` and `music` today); future kinds are new enum values here, never new endpoints.",
         "security": [
@@ -2537,6 +2560,7 @@
     },
     "/api/valuation": {
       "post": {
+        "operationId": "postValuation",
         "summary": "Run valuation",
         "description": "Generate a catalog from a Spotify artist in one call. Resolves the artist's releases, captures current Spotify play counts (spending the account's credits), materializes a catalog from the resulting snapshot (idempotent - see [Create catalog](/api-reference/songs/catalogs-create)), and returns the catalog with its estimated value band. The catalog is owned by the calling account unless organization_id names one of the caller's organizations to own it instead, in which case every member of that organization sees it. The calling account is always taken from the credentials, never the body, and it is the account whose credits are spent. The searched artist is also linked to the caller's roster (so a funnel signup lands with a populated `GET /api/artists` it can confirm); when the catalog's songs already resolve a canonical artist that one is used, otherwise the searched Spotify artist is linked directly. Synchronous: the request waits for the capture to land (typically under two minutes). Each run also persists a row in the catalog's valuation history, readable via [Get Catalog Valuations](/api-reference/songs/catalog-valuations).",
         "security": [
@@ -2634,6 +2658,7 @@
     },
     "/api/catalogs/songs": {
       "get": {
+        "operationId": "getCatalogsSongs",
         "security": [
           {
             "apiKeyAuth": []
@@ -2739,6 +2764,7 @@
         }
       },
       "post": {
+        "operationId": "postCatalogsSongs",
         "security": [
           {
             "apiKeyAuth": []
@@ -2803,6 +2829,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteCatalogsSongs",
         "security": [
           {
             "apiKeyAuth": []
@@ -2869,6 +2896,7 @@
     },
     "/api/catalogs/{catalogId}": {
       "patch": {
+        "operationId": "patchCatalogsByCatalogId",
         "description": "Rename a catalog. The only mutable field is the display name — catalog membership is managed through [Add catalog songs](/api-reference/songs/catalog-songs-add) and [Remove catalog songs](/api-reference/songs/catalog-songs-delete).\n\nCatalogs created by [Run valuation](/api-reference/songs/valuation-run) are named after the measured artist. Catalogs created before that shipped are all named `Valuation Catalog` — this endpoint is how you give them real names.",
         "security": [
           {
@@ -2955,6 +2983,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteCatalogsByCatalogId",
         "description": "Delete a catalog. Removes the catalog, its song membership (catalog_songs), its ownership links (account_catalogs) and its stored valuation history (catalog_valuations).\n\nThe measurement that produced the catalog is **not** deleted. A playcount snapshot is a metered capture that spent credits and cannot be reproduced for a past date, while a catalog is a label over songs that can be rebuilt from it in one call — so deleting a catalog only clears the snapshot's reference to it. The snapshot then reads as unclaimed, and [Create catalog](/api-reference/songs/catalogs-create) can re-materialize it under a correct name. The released snapshot IDs are returned so that recovery does not require hunting for them.\n\nUse this for genuine duplicates. To fix a catalog's name, use [Rename catalog](/api-reference/songs/catalog-rename) instead — it keeps the catalog's measurements and valuation history intact.",
         "security": [
           {
@@ -3032,6 +3061,7 @@
     },
     "/api/catalogs/{catalogId}/valuations": {
       "get": {
+        "operationId": "getCatalogsByCatalogIdValuations",
         "description": "**Availability: pending reconciliation.** Valuation-history readback has no matching route in the inspected API source. Valuation calculation and history persistence/readback are separate outcomes; calculation alone does not prove a saved, account-scoped history. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGet the persisted valuation history for a catalog, latest first. A row is written each time a valuation band is computed for the whole catalog (valuation runs and measurement reads persist at most one row per catalog per day). Use limit=1 for the current value. History is what makes week-over-week deltas possible.",
         "security": [
           {
@@ -3112,6 +3142,7 @@
     },
     "/api/catalogs/{catalogId}/measurements": {
       "get": {
+        "operationId": "getCatalogsByCatalogIdMeasurements",
         "description": "Get the latest play counts and a derived valuation band for a catalog. Measurements are captured by [Create measurement job](/api-reference/research/measurement-jobs) runs; the band is computed at read time from the latest capture per song.",
         "security": [
           {
@@ -3222,6 +3253,7 @@
     },
     "/api/songs/analyze/presets": {
       "get": {
+        "operationId": "getSongsAnalyzePresets",
         "description": "Lists all available music analysis presets. Each preset is a curated prompt with optimized generation parameters for a specific use case (e.g. catalog metadata enrichment, sync licensing analysis, audience profiling). Requires authentication via API key or Bearer token.",
         "security": [
           {
@@ -3298,6 +3330,7 @@
     },
     "/api/songs/analyze": {
       "post": {
+        "operationId": "postSongsAnalyze",
         "description": "Analyze music using a state-of-the-art Audio Language Model ([Music Flamingo](https://www.universalmusic.com/universal-music-group-to-transform-music-experience-for-billions-of-fans-with-nvidia-ai/)) that listens directly to the audio waveform.",
         "security": [
           {

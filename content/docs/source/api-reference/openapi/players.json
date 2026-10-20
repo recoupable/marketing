@@ -12,6 +12,7 @@
   "paths": {
     "/api/players": {
       "get": {
+        "operationId": "getPlayers",
         "summary": "List release players",
         "description": "List up to 100 players in the authenticated workspace. MCP: list_release_player.",
         "security": [
@@ -130,6 +131,7 @@
         }
       },
       "post": {
+        "operationId": "postPlayers",
         "summary": "Create a release player",
         "description": "Register one reusable listening page plus provider embeds. Returns player, listenUrl, spotifyEmbedUrl, appleEmbedUrl. MCP: create_release_player. No site generation is required. This feature requires its API/app/database releases.",
         "security": [
@@ -342,6 +344,7 @@
     },
     "/api/players/{id}": {
       "get": {
+        "operationId": "getPlayersById",
         "summary": "Read a release player",
         "description": "Read settings, revision and share/embed links. MCP: get_release_player.",
         "security": [
@@ -449,6 +452,7 @@
         }
       },
       "patch": {
+        "operationId": "patchPlayersById",
         "summary": "Update a release player",
         "description": "Edit branding, DSP destinations, embed origins, or enabled. Requires current revision; stale edits return 409. Artist/owner cannot change. Any update invalidates existing listening sessions. MCP: update_release_player.",
         "security": [
@@ -653,6 +657,7 @@
     },
     "/api/players/{id}/activity": {
       "get": {
+        "operationId": "getPlayersByIdActivity",
         "summary": "Read player listening activity",
         "description": "Private 30-day summary plus up to 100 events, newest first. Returns measurement=browser_reported_playback, dspStreams=null, periodDays, offset, limit and report (sessions, connectedFans, reportedListeningMs, playEvents, campaigns, activity). Activity has session_id, provider, track_id, event, position_ms, listened_ms, received_at, fan_id and display_name. Anonymous Apple sessions have no fan identity. These are reported SDK observations, not DSP stream counts, cross-device monitoring, or causal uplift. MCP: get_release_player_activity.",
         "security": [
@@ -772,6 +777,7 @@
     },
     "/api/players/{id}/fans": {
       "get": {
+        "operationId": "getPlayersByIdFans",
         "summary": "Read artist player fans",
         "description": "Artist-level Spotify fan relationships across releases in the authorized workspace. Each row keeps its stable relationship id and adds contact_id, the workspace-owned contact shared across artist relationships. Email/display_name come from the latest available confirmed workspace contact profile. scope=artist_in_workspace; marketingConsent=false. No provider tokens or cross-workspace identity links. MCP: get_release_player_fans.",
         "security": [
@@ -901,6 +907,7 @@
     },
     "/api/players/public/{id}": {
       "get": {
+        "operationId": "getPlayersPublicById",
         "summary": "Read public player metadata without creating a session",
         "description": "Internal transport for the trusted Recoup browser player. Without provider, returns only public release settings. With provider, validates parent and creates or resumes a signed, provider-bound listening session. No owner, fan profile or email is exposed. The embedding website should use returned embed URLs rather than calling this API or handling credentials.",
         "security": [],
@@ -991,6 +998,7 @@
     },
     "/api/players/events": {
       "post": {
+        "operationId": "postPlayersEvents",
         "summary": "Record reported listening",
         "description": "Internal trusted Recoup player transport. Requires its Origin plus signed flow; browser-facing same-origin app proxy forwards to API. Provider and fan attribution come from the stored session. Event UUID makes retries idempotent, listenedMs is capped at 30 seconds and checked against elapsed server time. Recording failures do not stop music.",
         "security": [],
@@ -1145,6 +1153,7 @@
     },
     "/api/players/spotify/session": {
       "post": {
+        "operationId": "postPlayersSpotifySession",
         "summary": "Exchange player Spotify authorization",
         "description": "Internal trusted Recoup player endpoint, not an external website integration. Requires a fresh Spotify listening session, PKCE code/verifier, API-configured OAuth app and required scopes. Captures Spotify-confirmed available profile/email for the registered artist/workspace. Returns provider credentials only to the trusted Recoup browser, plus player_session_id and fanCapture; no email/fan ID in the response. Tokens are not persisted in fan tables. A failed capture reports fanCapture=false while valid playback credentials remain usable. Authorization is not email marketing consent.",
         "security": [],
@@ -1396,6 +1405,7 @@
     },
     "/api/players/fans": {
       "get": {
+        "operationId": "getPlayersFans",
         "summary": "Read workspace player fans",
         "description": "One contact per workspace and Spotify provider identity, with all artist relationships for that workspace. Authentication and current workspace access are required. Never merged by email/name or linked across organizations. Sign-in does not grant email marketing consent. MCP: get_workspace_player_fans.",
         "security": [
@@ -1718,7 +1728,7 @@
           "contact_id": {
             "type": "string",
             "format": "uuid",
-            "description": "Workspace-owned contact shared across this fan\u2019s artist relationships."
+            "description": "Workspace-owned contact shared across this fan’s artist relationships."
           }
         },
         "required": [

@@ -210,6 +210,7 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 - Source of truth: `content/docs/source` (MDX pages, `docs.json` navigation, `api-reference/openapi/*.json`). Edit there; the `recoupable/docs` repository is not read.
 - After editing, run `pnpm docs:build` and commit the generated `content/docs/inventory.json`, `manifest.json`, and `navigation.json` together with the source change. `scripts/__tests__/build-docs.test.ts` fails when they drift.
 - `pnpm docs:check` validates route coverage, schema references, guide links, and request examples.
+- Every platform OpenAPI operation needs a unique, stable `operationId` and a description. Preserve published IDs when editing descriptions or schemas; `tests/platform-openapi.test.ts` checks coverage and collisions across the split specifications.
 - Artist Profile and Projects error components come from the API-owned generated
   error schemas. Run `python3 scripts/build-contract-examples.py --api /path/to/api` to
   import them and refresh selected response fixtures; its `--check` mode is in CI.

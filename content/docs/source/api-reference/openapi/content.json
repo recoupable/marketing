@@ -16,6 +16,7 @@
   "paths": {
     "/api/sandboxes": {
       "get": {
+        "operationId": "getSandboxes",
         "description": "List all sandboxes associated with the authenticated account and their current statuses. Returns sandbox details including lifecycle state, timeout remaining, and creation timestamp. Pass account_id to retrieve sandboxes for a specific account the API key has access to. Authentication is handled via the x-api-key header or Authorization Bearer token.",
         "parameters": [
           {
@@ -73,6 +74,7 @@
         }
       },
       "post": {
+        "operationId": "postSandboxes",
         "description": "Create a new ephemeral sandbox environment. Optionally executes a command or an OpenCode prompt if provided. Sandboxes are isolated Linux microVMs that can be used to evaluate account-generated code, run AI agent output safely, or execute reproducible tasks. The sandbox will automatically stop after the timeout period. If no command or prompt is provided, the sandbox is created without triggering any background task. Use the prompt parameter as a shortcut to run `opencode run \"<prompt>\"` in the sandbox. Pass account_id to create a sandbox for a specific account the API key has access to. Authentication is handled via the x-api-key header or Authorization Bearer token.",
         "requestBody": {
           "description": "Optional command execution parameters. If command and prompt are both omitted, sandbox is created without running any command. Use prompt as a shortcut for running OpenCode.",
@@ -129,6 +131,7 @@
         }
       },
       "patch": {
+        "operationId": "patchSandboxes",
         "description": "Set a custom snapshot ID for an account. By default, updates the key owner's account. Pass account_id to target a specific account the API key has access to. This allows accounts to use a specific sandbox snapshot when creating new sandboxes, enabling reproducible environments with pre-configured tools, dependencies, and files.",
         "requestBody": {
           "description": "Snapshot configuration parameters",
@@ -185,6 +188,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteSandboxes",
         "description": "Delete a sandbox environment for the authenticated account. This permanently deletes the associated GitHub repository and removes the account's snapshot record from the database. By default, deletes the sandbox for the key owner's account. Pass account_id to target a specific account the API key has access to. Authentication is handled via the x-api-key header or Authorization Bearer token.",
         "requestBody": {
           "description": "Optional account targeting parameters",
@@ -243,6 +247,7 @@
     },
     "/api/sandboxes/setup": {
       "post": {
+        "operationId": "postSandboxesSetup",
         "description": "Triggers the setup-sandbox background task to create a personal sandbox, provision a GitHub repo, take a snapshot, and shut down. By default, sets up the sandbox for the key owner's account. Pass account_id to target a specific account the API key has access to. Authentication is handled via the x-api-key header or Authorization Bearer token.",
         "requestBody": {
           "description": "Optional account targeting parameters",
@@ -291,6 +296,7 @@
     },
     "/api/sandboxes/file": {
       "get": {
+        "operationId": "getSandboxesFile",
         "description": "Read a file from the authenticated account's Git-backed repository, including resolved submodule paths, on `main`. The repository comes from the [account's snapshot](/api-reference/sandboxes/list). Authenticate with `x-api-key` or an Authorization Bearer token.\n\nTo update an existing file without silently replacing a newer edit, set `include_revision=true`. The response pairs `content` with its blob `sha` from the same repository read. Keep that SHA with the opened draft and send it as `files[].expected_sha` when saving to the same account, resolved repository and path. Omitting the flag, or setting it to `false`, retains the legacy raw read without a SHA.\n\n**Text files are returned verbatim. Recognized binary extensions (`.mp3`, `.png`, `.jpg`, `.mp4`, `.pdf`, etc.) return base64 content with `encoding: base64`; decode those bytes before use.**\n\nVersioned reads support existing regular files whose content is returned inline by the repository service (normally up to 1 MB). Unknown binary content that is not valid UTF-8 is rejected by the versioned read rather than converted into damaged text. Missing/unsupported content, directories and symlinks return an error.\n\nThe SHA identifies the file content; it is not an editing history.",
         "parameters": [
           {
@@ -398,6 +404,7 @@
     },
     "/api/sandboxes/staged-file": {
       "post": {
+        "operationId": "postSandboxesStagedFile",
         "description": "Issue a presigned upload token so the browser can upload a file directly to Vercel Blob, then call `POST /api/sandboxes/files` with the resulting blob URL to commit it to the sandbox repo. Use `upload()` from `@vercel/blob/client` rather than calling this route by hand. Max file size 100MB.",
         "requestBody": {
           "description": "`HandleUploadBody` envelope from `@vercel/blob/client`.",
@@ -448,6 +455,7 @@
     },
     "/api/sandboxes/files": {
       "post": {
+        "operationId": "postSandboxesFiles",
         "description": "Upload one or more files to the authenticated account's Git-backed repository. Each file URL is committed separately; paths inside a submodule resolve to that repository. Authenticate with `x-api-key` or an Authorization Bearer token.\n\nFor a guarded update of an existing file:\n1. Read it with `GET /api/sandboxes/file?include_revision=true` and retain the returned `sha` with that draft.\n2. Upload the edited bytes using the [staged-file upload](/api-reference/sandboxes/stage-file), then send the resulting URL and the original SHA as `files[].expected_sha`. Guarded updates save to `main`. A conflicting save is not retried automatically.\n3. On a conflict, preserve the unsaved draft, reread the latest content and reconcile explicitly. Do not fetch a new SHA merely to force an older draft through.\n\nA batch is not a transaction. HTTP 200 can include successful `uploaded` receipts alongside `errors` and `conflicts`; inspect every file. If every upload fails only because its condition conflicts, the response is 409. If all fail with mixed conflict/other failures, it is 500 and keeps the conflicts list. Conflicts contain submitted file names; successes include resulting blob SHAs.\n\nTemporary upload blobs are deleted after every attempt, including conflicts, so retrying requires a new upload URL. Omitting `expected_sha` creates or updates the file on the repository default branch without checking the version you opened. The condition only supports updates to existing files. It protects saves that supply it; saving here does not update files in an already running sandbox.\n\nIf the target was deleted after the read, do not retry without the condition. This upload has no dedicated missing-target status: non-conflict failures return 500 when no file succeeds, or appear in `errors` alongside successful receipts in a 200 partial result. A missing target is not guaranteed to return 404 or 409; reread the path before deciding how to recover.",
         "requestBody": {
           "description": "JSON body containing file URLs and target path",
@@ -582,6 +590,7 @@
     },
     "/api/image/generate": {
       "get": {
+        "operationId": "getImageGenerate",
         "description": "Generate high-quality images using AI models. Images are automatically stored on Arweave and include In Process moment metadata for provenance and ownership tracking.",
         "parameters": [
           {
@@ -630,6 +639,7 @@
     },
     "/api/transcribe": {
       "post": {
+        "operationId": "postTranscribe",
         "description": "Transcribe audio files using OpenAI Whisper. The API saves both the original audio file and the generated markdown transcript to the customer's files in Supabase Storage. The owner account is derived from your credentials; you must have access to the specified artist_account_id.",
         "security": [
           {
@@ -726,6 +736,7 @@
     },
     "/api/content": {
       "patch": {
+        "operationId": "patchContent",
         "description": "Apply ffmpeg edits to a video — trim, crop, resize, or overlay text. Pass a `template` for a preset edit pipeline, or build your own with an `operations` array.",
         "security": [
           {
@@ -792,6 +803,7 @@
     },
     "/api/content/create": {
       "post": {
+        "operationId": "postContentCreate",
         "description": "Trigger the content creation pipeline for an artist. Provide `artist_account_id` to identify the target artist. Validates the artist has all required files (face guide, songs) unless overridden via `songs` URLs or `images`, then triggers a background task that generates a short-form video. Returns `runIds` — an array of run IDs that can each be polled via [GET /api/tasks/runs](/api-reference/tasks/runs).",
         "security": [
           {
@@ -858,6 +870,7 @@
     },
     "/api/content/templates": {
       "get": {
+        "operationId": "getContentTemplates",
         "description": "List all available content creation templates. Templates are optional — every content primitive works without one. When you do use a template, it provides a complete creative recipe: image prompts, video motion config, caption style rules, and edit operations. Returns template ID and description only — enough to pick the right one.",
         "security": [
           {
@@ -893,6 +906,7 @@
     },
     "/api/content/templates/{id}": {
       "get": {
+        "operationId": "getContentTemplatesById",
         "description": "Get the full configuration for a specific content creation template. Returns the complete creative recipe including image prompts, video motion config, caption style rules, and edit operations.",
         "security": [
           {
@@ -960,6 +974,7 @@
     },
     "/api/content/validate": {
       "get": {
+        "operationId": "getContentValidate",
         "description": "Check whether an artist has all the required files to run the content creation pipeline. Returns a structured report of each required and recommended file with its status. Required files must be present or the pipeline will fail. Recommended files improve output quality but are not strictly necessary. Provide `artist_account_id` as a query parameter.",
         "security": [
           {
@@ -1028,6 +1043,7 @@
     },
     "/api/content/estimate": {
       "get": {
+        "operationId": "getContentEstimate",
         "description": "Estimate the cost of running the content creation pipeline. Calculates per-step and per-video costs based on current pricing. Supports comparing multiple workflow profiles (e.g., premium vs. budget) and projecting batch costs. This endpoint is informational only — it does not trigger any pipeline execution or spend credits.",
         "security": [
           {
@@ -1098,6 +1114,7 @@
     },
     "/api/content-agent/{platform}": {
       "post": {
+        "operationId": "postContentAgentByPlatform",
         "description": "Webhook endpoint for the Recoup Content Agent Slack bot. Receives @mention events from Slack and triggers content generation for the mentioned artist. The bot parses the mention text for `<artist_account_id> [template] [batch=N] [lipsync]`, validates the artist, calls POST /api/content/create, and starts a background polling task that reports results back to the Slack thread.\n\nFor Slack, also handles `url_verification` challenges during app setup.",
         "parameters": [
           {
@@ -1149,6 +1166,7 @@
     },
     "/api/content-agent/callback": {
       "post": {
+        "operationId": "postContentAgentCallback",
         "description": "Internal worker callback for a configured content agent. Requires the shared callback secret in x-callback-secret. Public content creation uses POST /api/content/create.\n\nInternal callback endpoint for the `poll-content-run` Trigger.dev task. Receives content generation results and posts them back to the originating Slack thread. Authenticated via the `x-callback-secret` header.\n\nThis endpoint is not intended for external use — it is called automatically by the polling task when content runs complete, fail, or time out.",
         "requestBody": {
           "description": "Content generation results from the polling task",
@@ -1272,6 +1290,7 @@
     },
     "/api/content/upscale": {
       "post": {
+        "operationId": "postContentUpscale",
         "description": "Upscale an image or video to higher resolution. Pass the URL and specify the type. Returns the upscaled URL.",
         "security": [
           {
@@ -1338,6 +1357,7 @@
     },
     "/api/content/analyze": {
       "post": {
+        "operationId": "postContentAnalyze",
         "description": "Analyze a video and answer questions about it. Pass a video URL and a text prompt — for example, \"Describe what happens\" or \"Rate the visual quality 1-10.\" Returns the generated text.",
         "security": [
           {
@@ -1404,6 +1424,7 @@
     },
     "/api/content/caption": {
       "post": {
+        "operationId": "postContentCaption",
         "description": "Generate a short caption from a topic. Returns the text content and default styling (font, color, size).",
         "security": [
           {
@@ -1470,6 +1491,7 @@
     },
     "/api/content/image": {
       "post": {
+        "operationId": "postContentImage",
         "description": "Generate an image from a text prompt. Pass `image_urls` to edit those images with the prompt instead of generating a new one. Returns the image URL.",
         "security": [
           {
@@ -1546,6 +1568,7 @@
     },
     "/api/content/video": {
       "post": {
+        "operationId": "postContentVideo",
         "description": "Generate a video from a text prompt, optionally animating a still image (`image_url`) or transitioning between two images (`image_url` + `end_image_url`).",
         "security": [
           {
@@ -1622,6 +1645,7 @@
     },
     "/api/content/transcribe": {
       "post": {
+        "operationId": "postContentTranscribe",
         "description": "Transcribe audio into text with word-level timestamps. Pass one or more audio file URLs in `audio_urls`. Returns the full transcript and an array of timed segments.",
         "security": [
           {
@@ -1688,6 +1712,7 @@
     },
     "/api/music": {
       "post": {
+        "operationId": "postMusic",
         "summary": "Generate music",
         "description": "Start a song generation with MiniMax Music 3. Generation runs in the background and takes roughly one to two minutes, so this returns **202** immediately with a `pending` generation. Poll [Get Music Generation](/api-reference/music/get) until `status` is `completed` or `failed`; `audio_url` is populated on completion. Credits are checked before the model is called and deducted only when a generation completes, so a failed generation is never charged.",
         "security": [
@@ -1780,6 +1805,7 @@
         }
       },
       "get": {
+        "operationId": "getMusic",
         "summary": "List music generations",
         "description": "The calling account's music generations, newest first. Scope follows the standard account override: with no `account_id` you get your own personal and organization generations; pass `account_id` to read another account you can access.",
         "security": [
@@ -1896,6 +1922,7 @@
     },
     "/api/music/{generationId}": {
       "get": {
+        "operationId": "getMusicByGenerationId",
         "summary": "Get music generation",
         "description": "One generation, including the `seed` the model used and its `logs` progress, both read live from the provider rather than stored. This is the polling target while a generation is in flight: call it until `status` is `completed` or `failed`. Responses are never cached.",
         "security": [
@@ -1994,6 +2021,7 @@
     },
     "/api/music/compose": {
       "post": {
+        "operationId": "postMusicCompose",
         "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGenerate a song from a text prompt or a composition plan. The prompt can describe mood, genre, instruments, lyrics, and structure. Alternatively, pass a full composition_plan for fine-grained control over sections, styles, and lyrics. Returns binary audio in the requested format (default MP3).",
         "security": [
           {
@@ -2070,6 +2098,7 @@
     },
     "/api/music/compose/detailed": {
       "post": {
+        "operationId": "postMusicComposeDetailed",
         "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGenerate a song with metadata and optional word-level timestamps. Returns a multipart/mixed response: the first part is JSON metadata (song ID, duration, seed, etc.) and the second part is binary audio. Use with_timestamps to get precise timing for each word in the lyrics.",
         "security": [
           {
@@ -2138,6 +2167,7 @@
     },
     "/api/music/stream": {
       "post": {
+        "operationId": "postMusicStream",
         "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGenerate a song and stream audio chunks in real time. Use this endpoint when you want to begin playback before the full song is generated. The response streams binary audio chunks as they are produced.",
         "security": [
           {
@@ -2214,6 +2244,7 @@
     },
     "/api/music/plan": {
       "post": {
+        "operationId": "postMusicPlan",
         "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nCreate a composition plan from a text prompt. A composition plan is a structured representation of a song — sections, styles, lyrics, and durations — that you can review and tweak before passing to the compose endpoint. This endpoint is free and does not consume credits.",
         "security": [
           {
@@ -2281,6 +2312,7 @@
     },
     "/api/music/video-to-music": {
       "post": {
+        "operationId": "postMusicVideoToMusic",
         "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGenerate background music from video files. Upload 1–10 video files via multipart/form-data (max 200 MB total). The AI analyzes the video content and generates music that matches the mood, pacing, and style. Optionally provide a text description and style tags to guide the output.",
         "security": [
           {
@@ -2394,6 +2426,7 @@
     },
     "/api/music/stem-separation": {
       "post": {
+        "operationId": "postMusicStemSeparation",
         "description": "**Availability: pending reconciliation.** This specialized music REST route has no matching route in the inspected API source. Existing skills or local composition workflows do not establish this hosted path. The supported music-generation API is a separate contract; the retained outcome and public route need reconciliation. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nSeparate an audio file into individual stems (vocals, drums, bass, etc.). Upload an audio file via multipart/form-data. Choose between two-stem separation (vocals + instrumental) or six-stem separation (vocals, drums, bass, guitar, piano, other). Returns a ZIP archive containing the separated stems.",
         "security": [
           {

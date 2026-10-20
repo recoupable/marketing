@@ -1,3 +1,14 @@
+## Platform OpenAPI operation names — October 19, 2026
+
+Added stable operation IDs to the platform's split OpenAPI specifications so
+agents and client generators can name every documented operation. Existing IDs,
+HTTP paths, request and response schemas, authentication, and availability
+annotations are preserved. API PR #1051 updates the documentation fixture
+hashes; it changes no runtime behavior. All 483 website tests, documentation
+generation/checks, the inventory and shared-fixture checks, and the production
+build pass. The API companion passes all 44 contract tests, response-contract
+type checks, lint and formatting. Merge, deployment, and rescoring remain pending.
+
 ## Agent readiness recovery and discovery — October 19, 2026
 
 Addressed the 71/100 Is Agentic baseline with recoverable Markdown 404s, JSON API fallback errors and a named error schema, platform OAuth metadata aliases and a Streamable HTTP MCP manifest, current OAuth connection guidance, organization contact/address metadata, and a page-first heading outline. Website tools remain anonymous; platform access still requires consent and account membership.
