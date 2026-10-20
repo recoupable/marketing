@@ -1,7 +1,8 @@
 ## Public MCP discovery branding — October 19, 2026
 
-The public MCP manifest and handshake now share the site's existing 192-pixel
-Recoup icon, display title, version, and website link for recognizable client listings.
+The public MCP manifest and handshake share the site's existing 192-pixel Recoup
+icon, display title, version, and website link. This metadata update preserves
+the five public tools and the separate authenticated platform MCP.
 
 ## Platform OpenAPI operation names — October 19, 2026
 
