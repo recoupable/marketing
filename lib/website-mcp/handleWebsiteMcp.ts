@@ -11,7 +11,7 @@ const cors = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
   "Access-Control-Allow-Headers":
-    "Content-Type, Accept, MCP-Protocol-Version, MCP-Session-Id",
+    "Content-Type, Accept, MCP-Protocol-Version, MCP-Session-Id, MCP-Method, MCP-Name",
   "Access-Control-Expose-Headers":
     "MCP-Protocol-Version, MCP-Session-Id, RateLimit-Limit, RateLimit-Policy, Retry-After",
   "Cache-Control": "no-store",

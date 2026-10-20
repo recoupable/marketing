@@ -76,6 +76,12 @@ test("MCP preflight supports anonymous cross-origin clients without cookies", as
   expect(response.headers.get("access-control-allow-headers")).toContain(
     "MCP-Protocol-Version",
   );
+  expect(response.headers.get("access-control-allow-headers")).toContain(
+    "MCP-Method",
+  );
+  expect(response.headers.get("access-control-allow-headers")).toContain(
+    "MCP-Name",
+  );
   expect(response.headers.get("access-control-allow-credentials")).toBeNull();
 });
 
