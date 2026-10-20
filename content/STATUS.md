@@ -1,3 +1,15 @@
+## Context contract release reference — October 20, 2026
+
+Refreshed the API inventory from the actual #1049 merge `090f9880`, preserving
+the posting contracts and the separately classified standard-only evidence tools.
+Current Marketing main is integrated with both status records retained. The API
+source reference is released; this Marketing publication and hosted customer
+attachment/readback acceptance remain separate pending steps.
+
+All 482 tests, 14 contract-producer checks, 11 docs checks, TypeScript, lint and
+the local production build pass. The build uses a synthetic public sign-in ID;
+it does not verify sign-in or a hosted customer operation.
+
 ## Agent task selection — October 19, 2026
 
 The root index and agent instructions share explicit when-to-use guidance for
@@ -18,16 +30,20 @@ The public MCP manifest and handshake share the site's existing 192-pixel Recoup
 icon, display title, version, and website link. This metadata update preserves
 the five public tools and the separate authenticated platform MCP.
 
-## Platform OpenAPI operation names — October 19, 2026
+## Platform OpenAPI operation names — October 20, 2026
 
 Added stable operation IDs to the platform's split OpenAPI specifications so
 agents and client generators can name every documented operation. Existing IDs,
 HTTP paths, request and response schemas, authentication, and availability
 annotations are preserved. API PR #1051 updates the documentation fixture
-hashes; it changes no runtime behavior. All 483 website tests, documentation
-generation/checks, the inventory and shared-fixture checks, and the production
-build pass. The API companion passes all 44 contract tests, response-contract
-type checks, lint and formatting. Merge, deployment, and rescoring remain pending.
+hashes; it changes no runtime behavior. The latest reconciliation preserves the
+released Context evidence contracts, all five existing operation IDs, and all
+non-ID schema content. All 483 website tests, 14 contract-producer checks,
+documentation generation/checks, and the inventory and shared-fixture checks pass.
+The API companion passes all 51 contract tests, response-contract type checks,
+lint and formatting. The local production build is blocked by worker-port
+permissions; the hosted preview build remains a publication gate. Merge,
+deployment, and rescoring remain pending.
 
 ## SDK discovery and Go release — October 19, 2026
 
@@ -60,6 +76,23 @@ publishing workflow and SDK CI are ready; source availability is not publication
 Addressed the 71/100 Is Agentic baseline with recoverable Markdown 404s, JSON API fallback errors and a named error schema, platform OAuth metadata aliases and a Streamable HTTP MCP manifest, current OAuth connection guidance, organization contact/address metadata, and a page-first heading outline. Website tools remain anonymous; platform access still requires consent and account membership.
 
 All 465 tests, TypeScript, scoped lint, and the production build pass. The local production server passed all 638 Markdown requests across 319 pages, including 32 blogs. `scripts/audit-agent-readiness.mjs` verifies recovery responses, exact live issuer/resource redirects, the manifest, schemas, CORS, public Markdown downloads, raw heading/dialog order, and organization metadata. Browser checks confirm dialog appearance, opening, tablet artwork visibility, and Escape focus return. Production release and Is Agentic rescoring remain pending.
+
+## Retained evidence association contracts — October 19, 2026
+
+Review follow-up restores field guidance, connects the evidence models to the
+response union, reuses the receipt schema in pages, and documents duplicate and
+cursor behavior. Focused producer modules and drift checks keep these declarations
+aligned with the API; other legacy results retain their existing object fallback.
+
+Prepared a canonical Context contract companion for the current-main API candidate.
+It documents three evidence-linking actions, separates standard-only tools from
+delegated connections, and freezes exact receipt/page schemas in both fixture
+copies. It also preserves the merged supporting-text receipt boundary: metadata
+only, no verified file origin, and no added delegated disclosure. The producer now
+rejects an evidence action in both tool maps; fixture checks catch classification
+and response drift. API #1049 is merged and its database prerequisite is verified.
+Marketing publication and independent release review remain pending. This source
+work performs no migration or hosted write.
 
 ## Public MCP, batching, and compact discovery — October 19, 2026
 
