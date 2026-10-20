@@ -1,3 +1,14 @@
+## Published editorial inventory — October 20, 2026
+
+`content/posts/INDEX.md` is now generated from the same 32 approved source entries
+used by the blog, feed and agent content, restoring the 14 omitted article links.
+Dates, titles, categories and publication status come from `content/blog/posts.json`.
+Run `pnpm posts:build` after changing approved publication source; CI's
+`pnpm posts:check` rejects drift and duplicate slugs. The former index and topic
+gaps are preserved as dated history under `content/posts/archive/`; they do not
+assert current gaps. Article copy, publication approvals and public routes are
+unchanged. Source inventory is distinct from a fresh live publication check.
+
 ## Stored fan comment dates — October 20, 2026
 
 The ArtistFan response now documents optional nullable `last_comment_at`, from

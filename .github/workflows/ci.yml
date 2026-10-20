@@ -16,6 +16,8 @@ jobs:
           node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: Check published editorial inventory
+        run: pnpm posts:check
       - run: pnpm exec vitest run
       - run: pnpm exec tsc --noEmit
       - run: pnpm exec eslint .
