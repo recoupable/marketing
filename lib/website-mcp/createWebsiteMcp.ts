@@ -3,10 +3,12 @@ import { z } from "zod";
 import { agentToolDefinitions } from "../agent-tools/agentToolDefinitions.ts";
 import { executeAgentTool } from "../agent-tools/executeAgentTool.ts";
 import { agentError } from "../agent-http.ts";
+import { getMcpManifest } from "../agent-discovery/getMcpManifest.ts";
 
 export function createWebsiteMcp() {
+  const { title, icons, websiteUrl } = getMcpManifest();
   const server = new McpServer(
-    { name: "recoup-public-website", version: "1.0.0" },
+    { name: "recoup-public-website", version: "1.0.0", title, icons, websiteUrl },
     {
       instructions:
         "Search and read published Recoup content, calculate supplied scenarios, or prepare an unsubmitted project brief. These tools never access platform accounts. Do not send credentials or private records. ROI is illustrative capacity value, not guaranteed savings.",

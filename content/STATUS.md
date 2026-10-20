@@ -1,5 +1,8 @@
 ## Platform OpenAPI operation names — October 19, 2026
 
+The public MCP manifest and handshake now share the site's existing 192-pixel
+Recoup icon, display title, and website link for recognizable client listings.
+
 Added stable operation IDs to the platform's split OpenAPI specifications so
 agents and client generators can name every documented operation. Existing IDs,
 HTTP paths, request and response schemas, authentication, and availability
