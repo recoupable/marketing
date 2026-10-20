@@ -7,7 +7,7 @@ preserve other saved cards, and explain manual purchases, in-progress charges,
 candidate; it performs no billing operation.
 
 Current released operation-name documentation from Marketing #188 (`01c3ba0`)
-is preserved. The shared fixture companion is API #1056 at candidate `837eb047`.
+is preserved. The shared fixture companion is API #1056 at candidate `184759cc`.
 The inventory uses that unmerged candidate only for preview checks. Before this
 publication merges, refresh it to the companion's actual merge commit. Generate
 the retained Docs copy from the actual Marketing merge afterward; hosting
