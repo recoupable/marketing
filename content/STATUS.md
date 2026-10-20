@@ -1,3 +1,11 @@
+## OpenAPI Markdown fallback — October 20, 2026
+
+The agent audit sampled `/openapi.json.md`, which had no matching Markdown route.
+Added a static Markdown representation generated from the same complete website
+OpenAPI document, with links between formats. The JSON contract remains unchanged.
+The response test and hosted readiness audit verify the fenced schema matches the
+JSON endpoint exactly.
+
 ## Python registry release — October 20, 2026
 
 The MIT-licensed `recoupable` 0.1.0 SDK is published on PyPI from Marketing
