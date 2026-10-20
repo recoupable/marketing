@@ -1,3 +1,21 @@
+## Card removal contract alignment — October 20, 2026
+
+The billing guide and Accounts reference describe the released selected-card
+policy: disable automatic purchases before removing one card, preserve other
+saved cards, and explain manual purchases, in-progress charges, 400/404/500 and
+partial-failure recovery. The nullable card schema describes only the current
+lookup, never saved-card history or all-card absence. The public source is
+unchanged from independently accepted Marketing `b2bf8839`.
+
+The API inventory now references actual #1056 merge
+`098ebde771bf4588415ca448a3476428e60930b9`, replacing the preview-only commit.
+All shared fixtures remain unchanged and match that released API. Current
+operation-name documentation from #188 and the Python SDK record are preserved.
+This narrow release-reference update requires final checks and UI delta review.
+After the actual Marketing merge, generate retained Docs from that merge and
+verify publication. Hosting repair/cutover stays deferred; no billing call occurs.
+
+
 ## OpenAPI Markdown fallback — October 20, 2026
 
 The agent audit sampled `/openapi.json.md`, which had no matching Markdown route.
