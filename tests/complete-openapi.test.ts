@@ -3,6 +3,7 @@ import inventory from "../content/docs/inventory.json";
 import { websiteOpenAPI } from "../lib/agent-openapi";
 import { getCompleteOpenAPI } from "../lib/agent-discovery/getCompleteOpenAPI";
 import { namespaceOpenApiComponents } from "../lib/agent-discovery/namespaceOpenApiComponents";
+import { normalizeOpenApiNullable } from "../lib/agent-discovery/normalizeOpenApiNullable";
 import { getDocSpec, type ApiObject } from "../lib/docs-server";
 
 const methods = new Set([
@@ -42,14 +43,16 @@ test("the complete contract preserves all source operations, URLs, security and 
           JSON.stringify(operation).replaceAll(`${namespace}__`, ""),
         );
         delete restored["x-source-specification"];
-        expect(restored).toEqual({
-          ...original,
-          servers: original.servers ?? item.servers ?? spec.servers,
-          security: original.security ?? spec.security ?? [],
-        });
+        expect(restored).toEqual(
+          normalizeOpenApiNullable({
+            ...original,
+            servers: original.servers ?? item.servers ?? spec.servers,
+            security: original.security ?? spec.security ?? [],
+          }),
+        );
       }
     }
-    if (spec.openapi === "3.1.0") {
+    {
       for (const [kind, entries] of Object.entries(spec.components ?? {})) {
         for (const [name, component] of Object.entries(entries as ApiObject)) {
           const key = namespace === "website" ? name : `${namespace}__${name}`;
@@ -59,7 +62,9 @@ test("the complete contract preserves all source operations, URLs, security and 
               "",
             ),
           );
-          expect(restored, `${namespace}: ${kind}/${name}`).toEqual(component);
+          expect(restored, `${namespace}: ${kind}/${name}`).toEqual(
+            normalizeOpenApiNullable(component),
+          );
         }
       }
     }

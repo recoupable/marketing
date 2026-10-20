@@ -3,7 +3,8 @@
 The primary OpenAPI document now combines all 212 published platform operations
 with the five public website operations. Each keeps its own server, security,
 operation ID and request/response contract. Namespaced components prevent
-collisions; Projects' OpenAPI 3.0 nullable schemas are represented in 3.1 syntax.
+collisions; legacy nullable declarations are represented in valid 3.1 syntax,
+including nullable references and enums. Existing website component names remain stable.
 The split platform documents and smaller website specification remain available.
 The website's existing retirement policy now defines conditional Deprecation and
 Sunset headers in OpenAPI; active responses still omit both. This policy applies

@@ -1,4 +1,5 @@
 import type { ApiObject } from "../docs-server";
+import { normalizeOpenApiNullable } from "./normalizeOpenApiNullable";
 
 /** Isolate a source document's references before combining independent contracts. */
 export function namespaceOpenApiComponents(
@@ -22,17 +23,9 @@ export function namespaceOpenApiComponents(
         result[key] = rewrite(child);
       }
     }
-    // The Projects source uses 3.0's nullable keyword; the combined document is 3.1.
-    if (source.openapi.startsWith("3.0.") && result.nullable !== undefined) {
-      if (result.nullable && typeof result.type !== "string") {
-        throw new Error(`Unsupported nullable schema in ${namespace}`);
-      }
-      if (result.nullable) result.type = [result.type, "null"];
-      delete result.nullable;
-    }
     return result;
   };
-  const document = rewrite(source) as ApiObject;
+  const document = rewrite(normalizeOpenApiNullable(source)) as ApiObject;
   document.components = Object.fromEntries(
     Object.entries(document.components ?? {}).map(([kind, entries]) => [
       kind,
