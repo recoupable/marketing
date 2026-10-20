@@ -27,7 +27,10 @@ export async function handleWebsiteMcp(request: Request) {
   ];
   const url = new URL(request.url);
   const trustedHost = (host: string) => {
-    if (hosts.includes(host)) return true;
+    if (
+      hosts.some((candidate) => candidate?.toLowerCase() === host.toLowerCase())
+    )
+      return true;
     if (process.env.VERCEL === "1") return false;
     try {
       return ["localhost", "127.0.0.1", "[::1]"].includes(

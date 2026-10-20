@@ -1,3 +1,4 @@
+import { maximumBatchOperations } from "./agent-tools/maximumBatchOperations.ts";
 import { withAgentRateLimit } from "./agent-tools/withAgentRateLimit.ts";
 import { AgentContentError } from "./agent-content/AgentContentError.ts";
 import { readAgentContent } from "./agent-content/readAgentContent.ts";
@@ -134,7 +135,7 @@ const batchSchema = z.strictObject({
       }),
     )
     .min(1)
-    .max(10),
+    .max(maximumBatchOperations),
 });
 
 export async function handleAgentBatch(request: Request) {

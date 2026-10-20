@@ -4,7 +4,23 @@ import {
   StreamableHTTPClientTransport,
 } from "@modelcontextprotocol/client";
 
-const origin = new URL(process.argv[2] ?? "http://localhost:3027");
+const origin = new URL(process.argv[2] ?? "http://localhost:3000");
+const local = ["localhost", "127.0.0.1", "[::1]"].includes(origin.hostname);
+if (
+  origin.username ||
+  origin.password ||
+  origin.pathname !== "/" ||
+  origin.search ||
+  origin.hash ||
+  !["http:", "https:"].includes(origin.protocol)
+)
+  throw new Error(
+    "Provide an HTTP origin without credentials, path, query, or fragment.",
+  );
+if (!local && !process.argv.includes("--allow-hosted"))
+  throw new Error(
+    "Hosted verification requires --allow-hosted. The audit uses only public, read-only tools.",
+  );
 const client = new Client({
   name: "recoup-public-mcp-audit",
   version: "1.0.0",

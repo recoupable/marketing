@@ -1,3 +1,4 @@
+import { maximumBatchOperations } from "./agent-tools/maximumBatchOperations.ts";
 import { agentToolDefinitions } from "./agent-tools/agentToolDefinitions.ts";
 import { siteConfig } from "./config.ts";
 
@@ -147,7 +148,10 @@ const errors = {
       "Rate limit reached. Wait 60 seconds before retrying.",
       error,
     ),
-    headers: { "Retry-After": { schema: { type: "integer", const: 60 } } },
+    headers: {
+      ...jsonResponse("", error).headers,
+      "Retry-After": { schema: { type: "integer", const: 60 } },
+    },
   },
   "503": jsonResponse(
     "Temporarily unable to complete the request. Retry later.",
@@ -213,7 +217,7 @@ export function websiteOpenAPI() {
                     operations: {
                       type: "array",
                       minItems: 1,
-                      maxItems: 10,
+                      maxItems: maximumBatchOperations,
                       items: {
                         oneOf: agentToolDefinitions.map((tool) => ({
                           ...object({
@@ -237,7 +241,7 @@ export function websiteOpenAPI() {
                 results: {
                   type: "array",
                   minItems: 1,
-                  maxItems: 10,
+                  maxItems: maximumBatchOperations,
                   items: {
                     oneOf: [
                       object({
@@ -253,7 +257,9 @@ export function websiteOpenAPI() {
                 },
               }),
             ),
-            ...errors,
+            "400": errors["400"],
+            "429": errors["429"],
+            "503": errors["503"],
             "413": jsonResponse("The entire batch exceeds 16 KB.", error),
             "415": jsonResponse("Send application/json.", error),
           },

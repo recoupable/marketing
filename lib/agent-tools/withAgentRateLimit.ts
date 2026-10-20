@@ -17,8 +17,7 @@ export async function withAgentRateLimit(
       request,
       timeout: 1500,
     });
-    if (result.error === "not-found")
-      throw new Error("Public quota is not configured.");
+    if (result.error) throw new Error("Public quota could not be checked.");
     limited = result.rateLimited;
   } catch {
     return Response.json(
@@ -36,6 +35,7 @@ export async function withAgentRateLimit(
           "Access-Control-Allow-Origin": "*",
           "X-Content-Type-Options": "nosniff",
           "Retry-After": "5",
+          "Access-Control-Expose-Headers": "Retry-After",
         },
       },
     );

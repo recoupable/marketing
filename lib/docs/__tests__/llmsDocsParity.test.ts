@@ -15,6 +15,7 @@ describe("llms.txt documentation parity", () => {
     expect(text.length).toBeLessThan(30_000);
     expect(text).toContain(`${siteConfig.url}/docs/llms.txt)`);
     const documentation = await getDocsLlms().text();
+    expect(documentation.length).toBeLessThan(30_000);
     expect(documentation).toMatch(/^# Recoup documentation/);
     for (const page of pages) expect(documentation).toContain(`${siteConfig.url}/docs/${page.slug})`);
   });

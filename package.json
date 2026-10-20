@@ -17,7 +17,8 @@
     "brand-studio": "next dev --turbopack --port 3012",
     "brand-studio:index": "python3 brand-studio/scripts/build-review-board.py",
     "brand-studio:legacy": "python3 brand-studio/scripts/serve.py",
-    "brand-studio:publish-assets": "node scripts/publish-brand-assets.mjs"
+    "brand-studio:publish-assets": "node scripts/publish-brand-assets.mjs",
+    "agents:mcp-check": "node scripts/audit-website-mcp.mjs"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",

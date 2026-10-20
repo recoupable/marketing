@@ -71,3 +71,18 @@ test("a missing firewall rule cannot be mistaken for an enforced quota", async (
   expect(response.status).toBe(503);
   expect(response.headers.has("ratelimit-limit")).toBe(false);
 });
+
+test("a returned firewall error cannot run tools and exposes retry guidance", async () => {
+  vi.stubEnv("VERCEL", "1");
+  vi.mocked(checkRateLimit).mockResolvedValue({
+    rateLimited: false,
+    error: "blocked",
+  });
+  const run = vi.fn();
+  const response = await withAgentRateLimit(request, run);
+  expect(run).not.toHaveBeenCalled();
+  expect(response.status).toBe(503);
+  expect(response.headers.get("access-control-expose-headers")).toContain(
+    "Retry-After",
+  );
+});

@@ -19,10 +19,11 @@ is 19,673 characters at `/docs/llms.txt`. Full documentation remains available a
 `/llms-full.txt`. Organization metadata includes the verified Recoup LinkedIn
 profile. The canonical domain remains recoupable.dev.
 
-All 477 tests, scoped lint, TypeScript and production build pass. Ten real-client
+All 482 tests, repository lint, TypeScript and production build pass. Ten real-client
 MCP scenarios, a 2024-protocol handshake, a mixed-success batch and the readiness
-HTTP audit pass against the local production build. PR review, hosted rate-limit
-verification and the next Is Agentic scan remain pending. The prior PR #185
+HTTP audit pass against the local production build. The hosted preview passed all ten MCP scenarios and returned 429 with Retry-After
+when the shared quota was exhausted. Review also added discovery-file negotiation
+coverage and a shared bounded JSON reader. Final review and the next scan remain pending. The prior PR #185
 produced a live 100/100 scan; that scan's public saved snapshot was still stale.
 
 ## Guarded Git file contracts — October 19, 2026

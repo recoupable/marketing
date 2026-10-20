@@ -1,3 +1,4 @@
+import { readBoundedJson } from "../http/readBoundedJson.ts";
 import { InquiryError } from "./InquiryError.ts";
 
 const MAX_BODY_BYTES = 32 * 1024;
@@ -25,33 +26,5 @@ export async function readInquiryJson(request: Request): Promise<unknown> {
   if (!origin || origin !== expectedOrigin(request) || request.headers.get("sec-fetch-site") === "cross-site") {
     throw new InquiryError(403);
   }
-  const length = request.headers.get("content-length");
-  if (length !== null) {
-    if (!/^\d+$/.test(length)) throw new InquiryError(400);
-    if (Number(length) > MAX_BODY_BYTES) throw new InquiryError(413);
-  }
-  if (!request.body) throw new InquiryError(400);
-  const reader = request.body.getReader();
-  const decoder = new TextDecoder("utf-8", { fatal: true });
-  let bytes = 0;
-  let body = "";
-  try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      bytes += value.byteLength;
-      if (bytes > MAX_BODY_BYTES) {
-        void reader.cancel().catch(() => undefined);
-        throw new InquiryError(413);
-      }
-      body += decoder.decode(value, { stream: true });
-    }
-    body += decoder.decode();
-    return JSON.parse(body) as unknown;
-  } catch (error) {
-    if (error instanceof InquiryError) throw error;
-    throw new InquiryError(400);
-  } finally {
-    reader.releaseLock();
-  }
+  return readBoundedJson(request, MAX_BODY_BYTES, status => new InquiryError(status));
 }

@@ -114,3 +114,13 @@ test("local Next.js host normalization accepts only loopback host aliases", asyn
     ).status,
   ).toBe(403);
 });
+
+test("MCP host matching is case-insensitive", async () => {
+  const response = await handleWebsiteMcp(
+    new Request("https://recoupable.dev/mcp", {
+      method: "OPTIONS",
+      headers: { host: "RECOUPABLE.DEV" },
+    }),
+  );
+  expect(response.status).toBe(204);
+});

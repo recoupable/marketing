@@ -1,3 +1,4 @@
+import { maximumBatchOperations } from "../agent-tools/maximumBatchOperations.ts";
 import { agentMarkdownPath } from "../agent-markdown-path.ts";
 import { siteConfig } from "../config.ts";
 import { agentToolDefinitions } from "../agent-tools/agentToolDefinitions.ts";
@@ -39,7 +40,7 @@ export function getAgentCatalog(index: readonly DiscoveryContent[]) {
         authentication: "none",
         manifest: absoluteUrl("/.well-known/mcp.json"),
       },
-      batch: { endpoint: absoluteUrl("/agent-api/v1/batch"), method: "POST", maximumOperations: 10 },
+      batch: { endpoint: absoluteUrl("/agent-api/v1/batch"), method: "POST", maximumOperations: maximumBatchOperations },
       webmcp: {
         registration: "document.modelContext",
         scope: "top-level browser document",
