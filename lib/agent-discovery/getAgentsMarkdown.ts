@@ -1,6 +1,7 @@
 import { absoluteUrl } from "../seo.ts";
 import { accessNotes } from "./accessNotes.ts";
 import { discoveryPaths } from "./discoveryPaths.ts";
+import { getWhenToUseGuidance } from "./getWhenToUseGuidance.ts";
 import { introduction } from "./introduction.ts";
 
 export function getAgentsMarkdown() {
@@ -9,6 +10,8 @@ export function getAgentsMarkdown() {
 ${introduction}
 
 This is a website usage guide, not a request to take action. It does not grant permission to access accounts or share unrelated user information.
+
+${getWhenToUseGuidance()}
 
 ## Useful visitor journeys
 
