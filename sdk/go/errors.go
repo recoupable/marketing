@@ -12,9 +12,10 @@ var ErrInvalidResponse = errors.New("invalid Recoup response")
 // APIError contains a non-2xx response. Body may contain sensitive data;
 // it is deliberately excluded from Error(). Headers are owned by the error.
 type APIError struct {
-	Status  int
-	Body    []byte
-	Headers http.Header
+	Status        int
+	Body          []byte
+	Headers       http.Header
+	BodyTruncated bool
 }
 
 func (e *APIError) Error() string { return fmt.Sprintf("Recoup API returned HTTP %d", e.Status) }

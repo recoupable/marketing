@@ -51,6 +51,8 @@ with positive `Timeout` and `MaxResponseBytes`; zero selects defaults.
 Use `errors.As(err, &apiError)` with a `*recoupable.APIError` for HTTP failures;
 inspect `Status`, `Body`, `Headers`, or `RetryAfter()` explicitly. Retry-After may
 be seconds or an HTTP date. Error strings omit response bodies and credentials.
+Oversized HTTP error bodies are capped with `BodyTruncated=true`; status and
+headers remain available. Oversized success bodies return `ErrInvalidResponse`.
 Treat response bodies as sensitive when logging. Use `errors.Is` with
 `ErrInvalidResponse` or `context.Canceled`. `TransportError` preserves the cause.
 The SDK adds no retry loop. Go's standard transport may retry idempotent

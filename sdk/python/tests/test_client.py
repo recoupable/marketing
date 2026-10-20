@@ -22,7 +22,11 @@ class Handler(BaseHTTPRequestHandler):
     def respond(self):
         payload = self.rfile.read(int(self.headers.get("content-length", 0)))
         self.requests.append((self.command, self.path, dict(self.headers), payload))
-        status, body, content_type = 200, b'{"accountId":"fixture"}', "application/json"
+        status, body, content_type = (
+            200,
+            b'{"status":"success","accountId":"fixture"}',
+            "application/json",
+        )
         if self.path == "/api/limited":
             status, body = 429, b'{"error":"rate_limit_exceeded"}'
         elif self.path == "/api/redirect":
@@ -62,7 +66,9 @@ class ClientTests(unittest.TestCase):
         self.client = Client(api_key="fixture-key", base_url=self.server.origin)
 
     def test_authenticated_account_and_encoded_query(self):
-        self.assertEqual(self.client.get_account_id(), {"accountId": "fixture"})
+        self.assertEqual(
+            self.client.get_account_id(), {"status": "success", "accountId": "fixture"}
+        )
         self.client.request("GET", "/api/accounts", query={"name": "A & B"})
         self.assertEqual(Handler.requests[0][1], "/api/accounts/id")
         self.assertEqual(Handler.requests[0][2]["X-Api-Key"], "fixture-key")

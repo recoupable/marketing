@@ -40,7 +40,9 @@ for HTTP 204. The default response cap is 16 MiB; `max_response_bytes` overrides
 
 Catch `APIError` for non-2xx responses and inspect `status`, `body`, `headers`, or
 `retry_after` (the raw Retry-After value, which may be seconds or an HTTP date).
-Catch `ResponseError` for oversized/non-JSON responses and `TransportError` for
+Oversized error bodies are truncated to the response cap with `body_truncated=True`;
+HTTP status and headers remain available. Catch `ResponseError` for oversized or
+invalid successful responses and `TransportError` for
 network failures. Error strings omit response bodies and credentials. Treat error
 bodies as potentially sensitive when logging. No request is automatically retried:
 a failed connection or timeout may follow a successfully performed write.

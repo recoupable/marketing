@@ -1,12 +1,12 @@
 """Synchronous JSON client for the documented Recoup platform API."""
 
 import json
-import math
-from urllib.error import HTTPError, URLError
-from urllib.parse import quote, urlencode, urlsplit
+from urllib.parse import quote, urlencode
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
-from .errors import APIError, ResponseError, TransportError
+from ._config import validate_config
+from ._transport import send_json
+from .errors import ResponseError
 
 
 class _NoRedirect(HTTPRedirectHandler):
@@ -26,41 +26,9 @@ class Client:
         timeout: float = 30,
         max_response_bytes: int = 16 * 1024 * 1024,
     ):
-        if (api_key is None) == (access_token is None):
-            raise ValueError("Provide exactly one api_key or access_token.")
-        credential = api_key if api_key is not None else access_token
-        if (
-            not isinstance(credential, str)
-            or not credential
-            or any(ord(c) < 33 or ord(c) > 126 for c in credential)
-        ):
-            raise ValueError(
-                "The credential must be a nonempty ASCII token without whitespace."
-            )
-        origin = urlsplit(base_url)
-        local = origin.hostname in ("localhost", "127.0.0.1", "::1")
-        if (
-            (origin.scheme != "https" and not (local and origin.scheme == "http"))
-            or not origin.hostname
-            or origin.username
-            or origin.password
-            or origin.path not in ("", "/")
-            or origin.query
-            or origin.fragment
-        ):
-            raise ValueError(
-                "base_url must be an HTTPS origin (HTTP is allowed only for loopback tests)."
-            )
-        if (
-            not math.isfinite(timeout)
-            or timeout <= 0
-            or not isinstance(max_response_bytes, int)
-            or max_response_bytes <= 0
-        ):
-            raise ValueError(
-                "timeout and max_response_bytes must be positive finite limits."
-            )
-        self._base_url = base_url.rstrip("/")
+        self._base_url = validate_config(
+            api_key, access_token, base_url, timeout, max_response_bytes
+        )
         self._auth = (
             {"x-api-key": api_key}
             if api_key is not None
@@ -72,7 +40,15 @@ class Client:
 
     def get_account_id(self) -> object:
         """GET /api/accounts/id: identify the account associated with these credentials."""
-        return self.request("GET", "/api/accounts/id")
+        result = self.request("GET", "/api/accounts/id")
+        if (
+            not isinstance(result, dict)
+            or result.get("status") != "success"
+            or not isinstance(result.get("accountId"), str)
+            or not result["accountId"]
+        ):
+            raise ResponseError("Recoup returned an incomplete account identity.")
+        return result
 
     def request(
         self, method: str, path: str, *, query: dict | None = None, body: object = None
@@ -110,39 +86,4 @@ class Client:
             data = json.dumps(body, allow_nan=False).encode("utf-8")
             headers["Content-Type"] = "application/json"
         request = Request(url, data=data, headers=headers, method=method)
-        try:
-            try:
-                response = self._opener.open(request, timeout=self._timeout)
-            except HTTPError as error:
-                response = error
-            with response:
-                payload = response.read(self._maximum + 1)
-                status = response.status
-                response_headers = {
-                    key.lower(): value for key, value in response.headers.items()
-                }
-        except (URLError, OSError, TimeoutError):
-            raise TransportError(
-                "Recoup request transport failed; a write may already have completed."
-            ) from None
-        if len(payload) > self._maximum:
-            raise ResponseError("Recoup response exceeded max_response_bytes.")
-        if not 200 <= status < 300:
-            try:
-                error_body = json.loads(payload)
-            except (ValueError, UnicodeError):
-                error_body = payload.decode("utf-8", errors="replace")
-            raise APIError(status, error_body, response_headers)
-        if status == 204:
-            return None
-        content_type = (
-            response_headers.get("content-type", "").split(";", 1)[0].strip().lower()
-        )
-        if content_type != "application/json" and not content_type.endswith("+json"):
-            raise ResponseError(
-                "Expected JSON; streaming and binary endpoints are not supported."
-            )
-        try:
-            return json.loads(payload)
-        except (ValueError, UnicodeError):
-            raise ResponseError("Recoup returned invalid JSON.") from None
+        return send_json(self._opener, request, self._timeout, self._maximum)

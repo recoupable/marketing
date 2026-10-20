@@ -1,5 +1,13 @@
 ## Official Python and Go clients — October 19, 2026
 
+Release review added bounded HTTP error bodies that retain status and Retry-After,
+strict account-identity responses, typed Python transport failures, and Go
+credential redaction for both options and client values. Eleven Python wheel
+integration tests and the Go race suite pass, including timeout/no-write-retry
+and malformed-response regressions. Runtime modules have focused configuration,
+request, and response responsibilities. The production build passes after these
+changes; registry publication remains pending.
+
 Prepared MIT-licensed Python and Go SDKs for the platform JSON API, with API-key
 and Bearer authentication, account identification, generic documented endpoint
 requests, bounded responses, explicit errors and deadlines, and credential-safe
