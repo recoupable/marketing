@@ -146,7 +146,7 @@ Response shape:
 }
 ```
 
-`card` is `null` when no payment method has been saved yet — the next top-up call will route through a checkout session to collect one. Expired cards are still returned (with their original `exp_month` / `exp_year`); callers should compare against the current date and warn the customer, since an off-session charge against an expired card will decline. Full schema at [Get Default Payment Method](/api-reference/accounts/payment-method-get).
+`card` is `null` when this lookup finds no supported default card, including when no tagged Stripe customer exists. It does not establish whether a card was saved previously or whether other saved cards remain. Removing one selected card can leave others available; read the current card and auto-top-up settings before deciding how to proceed. Expired cards are still returned (with their original `exp_month` / `exp_year`); callers should compare against the current date and warn the customer, since an off-session charge against an expired card will decline. Full schema at [Get Default Payment Method](/api-reference/accounts/payment-method-get).
 
 ---
 

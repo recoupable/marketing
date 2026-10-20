@@ -12,6 +12,17 @@ auth-guide URL before comparing it with the public alias.
 Source platform contracts are unchanged. Production publication and a fresh
 scanner result for this follow-up remain pending.
 
+## Billing guide null-card correction — October 20, 2026
+
+The saved-card guide now agrees with the corrected Accounts schema: a null card
+describes the current lookup, not whether a card was ever saved or whether other
+cards remain. It no longer infers the next purchase path from that result alone.
+Two regressions cover the maintained guide/schema and generated guide, failing
+against the former history claim. Docs #385 remains on hold until this source
+correction is reviewed/merged and the publication is regenerated from that actual
+merge. The earlier source-copy PASS verified parity, not this semantic omission.
+No payment behavior, API fixture, host control or customer billing operation changes.
+
 ## Agent discovery contract follow-up — October 20, 2026
 
 The fresh audit confirms the deployed OpenAPI Markdown fallback now passes.
