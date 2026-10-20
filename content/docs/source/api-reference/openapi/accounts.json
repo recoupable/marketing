@@ -16,6 +16,7 @@
   "paths": {
     "/api/organizations/professionals": {
       "get": {
+        "operationId": "getOrganizationsProfessionals",
         "summary": "List professional roster",
         "description": "List organization-private songwriter/producer records. Names are discovery candidates, never identity proof. Follow next_cursor until null to inspect the complete roster. Membership is rechecked on every page; responses are private and not cached. Legacy MCP equivalent (API key or Privy token): list_professional_roster. Not exposed through delegated OAuth MCP.",
         "security": [
@@ -140,6 +141,7 @@
         }
       },
       "post": {
+        "operationId": "postOrganizationsProfessionals",
         "summary": "Confirm professional roster addition",
         "description": "Requires explicit operator identity confirmation and organization roster intent. Use new only after confirming a distinct professional, including resolving same-name candidates; never infer identity from a name. Use existing with a professional_id from this organization to add roles without renaming. Both songwriter and producer can belong to one record. This operation creates no login account, shared canonical identity, catalog rights, enrichment job, or cross-workspace context. Research/name intake alone never calls this operation. Membership is rechecked before idempotency replay. Legacy MCP equivalent (API key or Privy token): confirm_professional_roster. Not exposed through delegated OAuth MCP. Returns the original saved response on retry, including its created flag and original status (201 for a new record, 200 for an existing record).",
         "security": [
@@ -381,6 +383,7 @@
     },
     "/api/accounts/{id}": {
       "get": {
+        "operationId": "getAccountsById",
         "description": "Retrieve detailed account information by ID. Returns the account with associated profile info, emails, and wallet addresses.",
         "parameters": [
           {
@@ -420,6 +423,7 @@
     },
     "/api/accounts/id": {
       "get": {
+        "operationId": "getAccountsId",
         "description": "Retrieve the ID of the authenticated account associated with the provided credentials. This is useful when you have an API key or access token but do not yet know the corresponding accountId.",
         "parameters": [],
         "security": [
@@ -456,6 +460,7 @@
     },
     "/api/accounts": {
       "post": {
+        "operationId": "postAccounts",
         "description": "Create a new account or retrieve an existing account by email or wallet address. If an account with the provided email or wallet already exists, returns that account. Otherwise creates a new account and initializes credits.",
         "requestBody": {
           "description": "Account credentials to create or lookup",
@@ -492,6 +497,7 @@
         }
       },
       "patch": {
+        "operationId": "patchAccounts",
         "description": "Update an existing account's profile information including name, organization, image, instruction, job title, role type, company name, and knowledges. Requires authentication via x-api-key or Authorization Bearer token. The authenticated account may update itself or a permitted account_id override.",
         "requestBody": {
           "description": "Account fields to update",
@@ -550,6 +556,7 @@
     },
     "/api/accounts/artists": {
       "post": {
+        "operationId": "postAccountsArtists",
         "description": "Add an artist to an account's list of associated artists. If the artist is already associated with the account, returns success without modification.",
         "requestBody": {
           "description": "Account and artist identifiers",
@@ -588,6 +595,7 @@
     },
     "/api/organizations": {
       "get": {
+        "operationId": "getOrganizations",
         "description": "Retrieve all organizations that the authenticated account belongs to. Pass account_id to retrieve organizations for a specific account the API key has access to.",
         "security": [
           {
@@ -653,6 +661,7 @@
         }
       },
       "post": {
+        "operationId": "postOrganizations",
         "description": "Create a new organization. The creator is automatically added as a member of the organization.",
         "security": [
           {
@@ -699,6 +708,7 @@
     },
     "/api/organizations/artists": {
       "post": {
+        "operationId": "postOrganizationsArtists",
         "description": "Add an artist to an organization. This allows organization members to access and manage the artist. This endpoint is idempotent - calling it multiple times with the same artistId and organizationId will not create duplicate records.",
         "security": [
           {
@@ -765,6 +775,7 @@
     },
     "/api/organizations/members": {
       "post": {
+        "operationId": "postOrganizationsMembers",
         "description": "Add a member to an organization. This endpoint is idempotent - Adding an existing member returns the existing membership.",
         "security": [
           {
@@ -829,6 +840,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteOrganizationsMembers",
         "description": "Remove a member from an organization. This endpoint is idempotent - Removing an account that is not a member succeeds without error.",
         "security": [
           {
@@ -906,6 +918,7 @@
     },
     "/api/organizations/domains": {
       "get": {
+        "operationId": "getOrganizationsDomains",
         "description": "List the email domains mapped to an organization. Accounts that sign up with an email at a mapped domain automatically join the organization.",
         "security": [
           {
@@ -971,6 +984,7 @@
         }
       },
       "post": {
+        "operationId": "postOrganizationsDomains",
         "description": "Map an email domain to an organization for automatic membership. After mapping, any account that signs up (or signs in) with an email at this domain is automatically added to the organization. A domain can belong to at most one organization.  This endpoint is idempotent - re-adding the same domain to the same organization returns the existing mapping.",
         "security": [
           {
@@ -1045,6 +1059,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteOrganizationsDomains",
         "description": "Remove an email domain mapping from an organization. New signups at this domain will no longer auto-join the organization; existing members are not affected. This endpoint is idempotent.",
         "security": [
           {
@@ -1121,6 +1136,7 @@
     },
     "/api/subscriptions/sessions": {
       "post": {
+        "operationId": "postSubscriptionsSessions",
         "description": "Create a checkout session to start a subscription for the authenticated account. Returns a hosted checkout URL that the client should redirect to. `plan` picks the price: `pro` (default) is pre-configured with a 30-day trial period; `starter` is charged at checkout with no trial.",
         "requestBody": {
           "description": "Session creation parameters",
@@ -1182,6 +1198,7 @@
     },
     "/api/accounts/{id}/subscription": {
       "get": {
+        "operationId": "getAccountsByIdSubscription",
         "description": "Retrieve the subscription that confers an account's plan, directly or via an organization: `isPro`, `status`, `plan`, `source`, plus the billing fields `name`, `amountCents`, `currency`, `interval`, `collectionMethod` and `currentPeriodEnd`. Everything but `isPro` and `status` is null when `status` is `none`. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
@@ -1252,6 +1269,7 @@
     },
     "/api/accounts/{id}/credits": {
       "get": {
+        "operationId": "getAccountsByIdCredits",
         "description": "Retrieve the current credit balance for an account. Returns the remaining credits along with the plan-derived monthly total and used count, plus a flag indicating whether the account is on a pro plan (directly or via an organization). Credits refill monthly; the `timestamp` field reflects the last refill or balance update.",
         "parameters": [
           {
@@ -1312,6 +1330,7 @@
     },
     "/api/accounts/{id}/usage": {
       "get": {
+        "operationId": "getAccountsByIdUsage",
         "description": "List the charges that consumed an account's credits: one line item per deduction from `usage_events`, newest first, over a period. Each item carries the amount as the raw ledger integer (`credits_deducted`, micro-dollars: 1,000,000 = $1.00) and the same amount formatted as a dollar string (`usd`), and the response carries the total for the whole period, not just the page. Access is the same as [`GET /api/accounts/{id}/credits`](/api-reference/accounts/credits-get): the authenticated account itself, or another account reachable through organization membership.",
         "parameters": [
           {
@@ -1440,6 +1459,7 @@
     },
     "/api/accounts/{id}/payment-method": {
       "get": {
+        "operationId": "getAccountsByIdPaymentMethod",
         "description": "Retrieve the default payment method on file for an account. An account may be tagged on more than one Stripe customer (for example an organization whose card was saved on one customer and whose invoiced plan lives on another); the card is read from the tagged customer that holds a default payment method. Returns `card: null` when no tagged customer has a payment method saved yet — the top-up dialog uses this to decide whether to show a pre-charge confirmation (card present) or route to a checkout session to collect one (`card: null`). Cards are returned even when expired; callers should compare `exp_month` / `exp_year` against the current date and warn the customer, since an off-session charge against an expired card will decline.",
         "parameters": [
           {
@@ -1498,6 +1518,7 @@
         }
       },
       "post": {
+        "operationId": "postAccountsByIdPaymentMethod",
         "description": "Create a $0 card-on-file checkout session for an account. Stripe `setup` mode saves a payment method without charging anything or starting a subscription; the saved card becomes the account's default and is what credit purchases and auto top-up charge. The card is saved on the account's Stripe customer that already holds a default card, or the newest tagged customer; a customer is created (and tagged with the account id) if none exists yet. Returns a hosted checkout URL that the client should redirect to. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
@@ -1593,6 +1614,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteAccountsByIdPaymentMethod",
         "description": "Detach the default card on file from an account, whichever tagged Stripe customer holds it. After this call `GET /api/accounts/{id}/payment-method` returns `card: null`, credit purchases route through checkout again, and auto top-up (if enabled) is turned off because it has nothing to charge. Subscriptions collected by invoice are unaffected. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
@@ -1646,6 +1668,7 @@
     },
     "/api/accounts/{id}/portal": {
       "post": {
+        "operationId": "postAccountsByIdPortal",
         "description": "Create a Stripe Customer Portal session for an account. Returns a hosted URL where the customer can update the card on file, view invoices, or cancel a Starter or Pro subscription; the client should redirect the user to that URL. The portal opens on the Stripe customer that owns the account's active subscription, so accounts without an active subscription get a 400 even when a tagged customer with a card exists. `id` may be the authenticated account or an organization the caller belongs to. Enterprise (invoiced) plans are managed with your Recoup contact and the app does not offer this portal for them, but the endpoint works for any account with an active subscription.",
         "parameters": [
           {
@@ -1730,6 +1753,7 @@
     },
     "/api/accounts/{id}/payments": {
       "get": {
+        "operationId": "getAccountsByIdPayments",
         "description": "List the invoices paid or owed by an account, newest first: subscription renewals, credit purchases, and invoiced enterprise plans alike. Invoices are merged across every Stripe customer tagged with the account id, so a card saved on one customer and an invoiced plan on another appear in one list. Non-draft rows carry the hosted invoice URL for the receipt; `url` is null for drafts. Returns an empty list (not 404) when the account has no tagged Stripe customer or no invoices yet. `startingAfter` is an invoice id from a previous page; the next page holds invoices created before it. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
@@ -1825,6 +1849,7 @@
     },
     "/api/accounts/{id}/auto-top-up": {
       "get": {
+        "operationId": "getAccountsByIdAutoTopUp",
         "description": "Read the auto top-up settings for an account. Auto top-up is opt-in: it is off for every account until the account turns it on and chooses both the amount to buy and the balance that triggers it. When it is on, the api charges the default card on file for `amountCents` the first time a credit deduction leaves the balance below `thresholdCents`, then grants the credits and emails a receipt. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
@@ -1883,6 +1908,7 @@
         }
       },
       "put": {
+        "operationId": "putAccountsByIdAutoTopUp",
         "description": "Set the auto top-up settings for an account. All three fields are required on every call; there is no partial update. Turning it on requires a card on file (`GET /api/accounts/{id}/payment-method` returns a card), an amount between 5.00 and 1,000.00 USD, and a threshold below the amount. Turning it off keeps the last amount and threshold so the account can turn it back on without retyping them. Guardrails that apply once it is on: at most one top-up per account per 10 minutes; a card decline turns `enabled` back to `false`, records `lastError`, and emails the account instead of retrying; removing the card turns it off. `id` may be the authenticated account or an organization the caller belongs to.",
         "parameters": [
           {
@@ -1977,6 +2003,7 @@
     },
     "/api/credits/sessions": {
       "post": {
+        "operationId": "postCreditsSessions",
         "description": "Top up credits on the authenticated account.\n\n**Credits are integer micro-dollars (1,000,000 = \\$1.00, the same 6-decimal unit as USDC).** The customer is charged the USD value of `credits` plus a Stripe processing fee (US card pricing: 2.9% + \\$0.30) — e.g. `credits: 100000000` charges \\$103.30 total (\\$100.00 credits + \\$3.30 fee).\n\n**Two outcomes, distinguished by response shape:**\n\n- **Auto-charged** — if the account has a card on file (from a prior subscription or top-up), the card is charged immediately and the response is `{ paymentIntentId, creditsPurchased, totalCents }`. Credits land in the account's balance asynchronously via Stripe webhook (typically within seconds). No human interaction required.\n\n- **Checkout required** — if no card is on file, or the saved card requires 3-D Secure authentication, the response is `{ id, url }` with a hosted Stripe Checkout URL. Redirect to that URL; credits land on successful payment.\n\nClients should discriminate on the presence of `url` (Checkout) vs `paymentIntentId` (auto-charged). Cards entered through the Checkout fallback are saved for future top-ups, so a customer's second top-up typically auto-charges.",
         "security": [
           {
@@ -2033,6 +2060,7 @@
     },
     "/api/subscriptions/claim": {
       "post": {
+        "operationId": "postSubscriptionsClaim",
         "description": "Attach a subscription bought through [Create Subscription Session](/api-reference/subscriptions/sessions-create) (anonymous path) to the authenticated account. Needed only when the signed-in email differs from the email typed into Stripe Checkout; when they match, the webhook already linked the subscription and this call is a no-op that returns 200.",
         "security": [
           {
@@ -2127,6 +2155,7 @@
     },
     "/api/pulses": {
       "get": {
+        "operationId": "getPulses",
         "description": "Retrieve pulse information for the authenticated account. If the account has access to organizations, pass account_id to filter to a specific account within those organizations.",
         "parameters": [
           {
@@ -2197,6 +2226,7 @@
         }
       },
       "patch": {
+        "operationId": "patchPulses",
         "description": "Update the pulse settings for an account. Use this to enable or disable the pulse. Returns an array of pulses for consistency with the GET endpoint.",
         "requestBody": {
           "description": "Pulse fields to update",
@@ -2245,6 +2275,7 @@
     },
     "/api/emails": {
       "post": {
+        "operationId": "postEmails",
         "description": "Send an email to one or more recipients. Emails are sent from `Agent by Recoup <agent@recoupable.dev>`.",
         "requestBody": {
           "description": "Email payload",
@@ -2303,6 +2334,7 @@
     },
     "/api/admins": {
       "get": {
+        "operationId": "getAdmins",
         "description": "Check if the authenticated account is a Recoup admin. An account is considered an admin if it is a member of the Recoup organization. No input parameters required — authentication is performed via the x-api-key or Authorization header.",
         "parameters": [],
         "security": [
@@ -2339,6 +2371,7 @@
     },
     "/api/admins/sandboxes": {
       "get": {
+        "operationId": "getAdminsSandboxes",
         "description": "Returns a list of all accounts and their sandbox usage statistics. Each item includes the account email, total number of sandboxes created, and the timestamp of the most recently created sandbox. Requires the authenticated account to be a Recoup admin. Authentication via x-api-key or Authorization Bearer token.",
         "parameters": [],
         "security": [
@@ -2395,6 +2428,7 @@
     },
     "/api/admins/sandboxes/orgs": {
       "get": {
+        "operationId": "getAdminsSandboxesOrgs",
         "description": "Returns commit statistics for each repository in the recoupable GitHub organization. Each item includes the repo name, URL, total commit count, latest 5 commit messages, earliest and latest commit timestamps, and the list of account repo URLs that include this org repo as a submodule. Requires the authenticated account to be a Recoup admin. Authentication via x-api-key or Authorization Bearer token.",
         "parameters": [],
         "security": [
@@ -2451,6 +2485,7 @@
     },
     "/api/admins/emails": {
       "get": {
+        "operationId": "getAdminsEmails",
         "description": "Returns Resend emails including HTML content. Provide either account_id (returns all emails for an account) or email_id (returns a single email by Resend ID). Requires the authenticated account to be a Recoup admin. Authentication via x-api-key or Authorization Bearer token. Email response shape matches the [Resend Retrieve Email API](https://resend.com/docs/api-reference/emails/retrieve-email).",
         "parameters": [
           {
@@ -2537,6 +2572,7 @@
     },
     "/api/admins/coding/slack": {
       "get": {
+        "operationId": "getAdminsCodingSlack",
         "description": "Returns a list of Slack mentions of the Recoup Coding Agent bot, pulled directly from the Slack API as the source of truth. Each entry includes the tagger's information, the prompt they sent, the timestamp, the channel, and any GitHub pull request URLs opened in response. Also returns aggregate pull request statistics. Supports optional time-period filtering. Requires the authenticated account to be a Recoup admin. Authentication via x-api-key or Authorization Bearer token.",
         "parameters": [
           {
@@ -2709,6 +2745,7 @@
     },
     "/api/admins/content/slack": {
       "get": {
+        "operationId": "getAdminsContentSlack",
         "description": "Returns a list of Slack mentions of the Recoup Content Agent bot, pulled directly from the Slack API as the source of truth. Each entry includes the tagger's information, the prompt they sent, the timestamp, the channel, and any video link responses. Also returns aggregate video statistics for measuring tag-to-video conversion. Supports optional time-period filtering. Requires the authenticated account to be a Recoup admin. Authentication via x-api-key or Authorization Bearer token.",
         "parameters": [
           {
@@ -2881,6 +2918,7 @@
     },
     "/api/admins/coding/pr": {
       "get": {
+        "operationId": "getAdminsCodingPr",
         "description": "Returns the status (open, closed, or merged) for each provided GitHub pull request URL. Accepts one or more `pull_requests` query parameters containing GitHub PR URLs. Uses the GitHub REST API to check each pull request's state. Requires the authenticated account to be a Recoup admin. Authentication via x-api-key or Authorization Bearer token.",
         "parameters": [
           {
@@ -3007,6 +3045,7 @@
     },
     "/api/admins/privy": {
       "get": {
+        "operationId": "getAdminsPrivy",
         "description": "Returns Privy login statistics for a given time period. Results include counts for new accounts (created_at), active accounts (latest_verified_at), total Privy accounts across all time, and the full, unmodified Privy account objects. See [Privy User object documentation](https://docs.privy.io/api-reference/users/get-all) for the complete type definition. Defaults to period=all (no date filter). Requires the authenticated account to be a Recoup admin. Authentication via x-api-key or Authorization Bearer token.",
         "parameters": [
           {
@@ -3118,6 +3157,7 @@
     },
     "/api/admins/agent/signups": {
       "get": {
+        "operationId": "getAdminsAgentSignups",
         "description": "**Availability: pending reconciliation.** The admin signup reporting route has no matching route in the inspected API source. Its supported replacement or restoration remains to be resolved. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nReturns API key sign-up records created by AI agents. Agent sign-ups are identified by the agent+ email prefix in the associated account email. Supports period filtering and returns individual API key records with their associated email and creation timestamp, suitable for building sign-up trend charts. Requires admin authentication.",
         "parameters": [
           {
@@ -3235,6 +3275,7 @@
     },
     "/api/admins/artists/pro": {
       "get": {
+        "operationId": "getAdminsArtistsPro",
         "description": "Retrieve the deduplicated list of artist IDs owned by pro accounts. An account is \"pro\" when its email belongs to an enterprise domain or it has an active Stripe subscription. Admin-scoped: requires an admin-flagged API key because the response identifies paying customer accounts.",
         "security": [
           {
@@ -3273,6 +3314,7 @@
     },
     "/api/admins/credits": {
       "post": {
+        "operationId": "postAdminsCredits",
         "description": "Sets an account's credit balance, and records who set it and why. Requires the authenticated account to be a Recoup admin.\n\n**Absolute, not a delta.** `remaining_credits` is the balance the account is left holding, whatever it held before — the outcome never depends on the balance at the moment the request lands. The prior balance comes back as `previous_credits` for the record. There is deliberately no add/subtract variant.\n\n**Every grant is audited.** `reason` is required and must be non-empty. The grant is stored against the acting admin's account ID and is readable afterwards in the `grants` array of [`GET /api/admins/credits/events`](/api-reference/admins/credits-events).\n\n**A grant is never reduced by the monthly refill.** Credit balances are topped up to the plan total by a monthly refill that runs lazily on the next read of [`GET /api/accounts/{id}/credits`](/api-reference/accounts/credits-get), once the underlying row is more than a month old. That refill is a floor, not an assignment: it raises a balance up to the plan total and never lowers one. A grant above the plan total therefore survives every refill and holds until it is spent, so headroom granted once stays granted and does not need re-granting on a schedule.",
         "security": [
           {
@@ -3359,6 +3401,7 @@
     },
     "/api/admins/credits/rollup": {
       "get": {
+        "operationId": "getAdminsCreditsRollup",
         "description": "Returns the per-account rollup of credit usage over the selected period, sorted by total credits deducted descending. Each row carries the account identity (UUID + display name + primary email) and the aggregated spend so the admin dashboard can render a top-spenders table without joining client-side. Pair with [`GET /api/admins/credits/events?account_id=…&period=…`](/api-reference/admins/credits-events) to drill into the individual `usage_events` rows for a single account. Requires the authenticated account to be a Recoup admin.",
         "parameters": [
           {
@@ -3451,6 +3494,7 @@
     },
     "/api/admins/credits/events": {
       "get": {
+        "operationId": "getAdminsCreditsEvents",
         "description": "Returns the raw `usage_events` rows for a single account over the selected period, sorted by `created_at` descending. Powers the drilldown view that expands when a row in the [`/api/admins/credits/rollup`](/api-reference/admins/credits-rollup) table is opened. Each event represents one debit (main agent turn, subagent step, chat completion, or research call), with token counts and `credits_deducted` matching the wallet drop on `credits_usage` for that account.\n\nThe response also carries a `grants` array covering the same account and period: the admin credit grants made through [`POST /api/admins/credits`](/api-reference/admins/credits-grant). The two arrays answer different questions — `events` is what the system spent, `grants` is what a person set by hand, and only a grant carries an actor and a reason. Requires the authenticated account to be a Recoup admin.",
         "parameters": [
           {
@@ -3553,6 +3597,7 @@
     },
     "/api/agents/signup": {
       "post": {
+        "operationId": "postAgentsSignup",
         "description": "Register an agent. For new agent+ emails, returns an API key immediately. For all other cases, sends a verification code to the email — call [POST /api/agents/verify](/api-reference/agents/verify) with the code to get your API key.\n\n**Tip:** If you're unsure what email to register, generate a unique `agent+{suffix}@recoupable.com` address (e.g. `agent+1744410896-28439@recoupable.com`, combining a Unix timestamp with a random integer). This guarantees a fresh `agent+` address on every call — including multiple signups within the same second — and returns an API key instantly with no email verification required.",
         "security": [],
         "requestBody": {
@@ -3582,6 +3627,7 @@
     },
     "/api/agents/verify": {
       "post": {
+        "operationId": "postAgentsVerify",
         "description": "Verify an agent's email with the code sent during signup. Returns an API key on success.",
         "security": [],
         "requestBody": {

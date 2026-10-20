@@ -8,13 +8,13 @@ OAuth login, pagination automation, or automatic retries.
 
 ## Install
 
-For a published release:
+Install the [published release from PyPI](https://pypi.org/project/recoupable/0.1.0/):
 
 ```sh
 python -m pip install recoupable==0.1.0
 ```
 
-For a checkout or before the first registry release:
+For source development:
 
 ```sh
 python -m pip install 'git+https://github.com/recoupable/marketing.git#subdirectory=sdk/python'

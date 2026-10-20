@@ -1,6 +1,6 @@
 ---
 title: "Recoup SDKs: Go and Python clients for the music API"
-description: "Install the official Recoup Go SDK, use the Python client from source, and connect the Node CLI. Includes authentication, response handling, and package links."
+description: "Install the official Recoup Python SDK from PyPI, the Go SDK from its module registry, and the Node CLI from npm. Includes authentication, response handling, and package links."
 ---
 
 Use the official Recoup clients to call the platform's JSON API from your application.
@@ -12,7 +12,7 @@ structured HTTP errors, and an account-identity helper. Their licenses are MIT.
 | Language | Package | Availability |
 | --- | --- | --- |
 | Go 1.23+ | [github.com/recoupable/marketing/sdk/go](https://pkg.go.dev/github.com/recoupable/marketing/sdk/go@v0.1.0) | Version `v0.1.0` is published and indexed. |
-| Python 3.10+ | [recoupable source](https://github.com/recoupable/marketing/tree/main/sdk/python) | Install the client from the pinned source below. PyPI publication is pending. |
+| Python 3.10+ | [recoupable on PyPI](https://pypi.org/project/recoupable/0.1.0/) | Version `0.1.0` is published. |
 | Node.js CLI | [@recoupable/cli on npm](https://www.npmjs.com/package/@recoupable/cli) | The terminal client is published. See the [CLI guide](/cli) for supported commands. |
 
 The Go and Python SDKs handle JSON endpoints. They do not implement streaming,
@@ -61,10 +61,10 @@ for method signatures and error types.
 
 ## Python
 
-Until the PyPI release is available, install the reviewed source revision:
+Install the published version:
 
 ```sh
-python -m pip install 'git+https://github.com/recoupable/marketing.git@7c93a8f148978cb2a6399cf6928e80938d2f4ec9#subdirectory=sdk/python'
+python -m pip install recoupable==0.1.0
 ```
 
 ```python

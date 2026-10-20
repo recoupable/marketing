@@ -16,6 +16,7 @@
   "paths": {
     "/api/chats": {
       "get": {
+        "operationId": "getChats",
         "description": "Returns chats for the authenticated account. Personal Bearer tokens see only the caller's chats; org keys see chats across the org's member accounts; admin keys see all chats. Each row carries the chat id and the session id needed to build the chat URL.",
         "parameters": [
           {
@@ -83,6 +84,7 @@
         }
       },
       "post": {
+        "operationId": "postChats",
         "description": "Create a new chat room. Optionally associate it with an artist and/or provide a client-generated chat ID. Pass accountId to create a chat on behalf of a specific account the API key has access to.",
         "requestBody": {
           "description": "Chat creation parameters",
@@ -129,6 +131,7 @@
         }
       },
       "patch": {
+        "operationId": "patchChats",
         "description": "Update a chat room's topic (display name). The chatId is required; the topic field will be updated. Topic must be between 3 and 50 characters.",
         "requestBody": {
           "description": "Chat fields to update",
@@ -195,6 +198,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteChats",
         "description": "Delete a chat room by ID. This operation also removes related room records (memory emails, memories) before deleting the room itself.",
         "requestBody": {
           "description": "Chat deletion parameters",
@@ -273,6 +277,7 @@
     },
     "/api/chats/{id}/artist": {
       "get": {
+        "operationId": "getChatsByIdArtist",
         "description": "Retrieve the artist associated with a specific chat room. Returns 404 if the chat does not exist or is not accessible by the authenticated caller.",
         "parameters": [
           {
@@ -332,6 +337,7 @@
     },
     "/api/chats/{id}/messages": {
       "get": {
+        "operationId": "getChatsByIdMessages",
         "description": "Retrieve all messages (memories) for a specific chat room in chronological order.",
         "parameters": [
           {
@@ -411,6 +417,7 @@
     },
     "/api/chats/{id}/messages/copy": {
       "post": {
+        "operationId": "postChatsByIdMessagesCopy",
         "description": "Copy all messages from the source chat (`id` path param) to a target chat (`targetChatId` in request body). By default, existing target messages are cleared before copy.",
         "parameters": [
           {
@@ -501,6 +508,7 @@
     },
     "/api/chats/{id}/messages/trailing": {
       "delete": {
+        "operationId": "deleteChatsByIdMessagesTrailing",
         "description": "Delete all messages in a chat from a given message onward (inclusive), identified by `from_message_id`.",
         "parameters": [
           {
@@ -590,6 +598,7 @@
     },
     "/api/chats/compact": {
       "post": {
+        "operationId": "postChatsCompact",
         "description": "Compact one or more chat conversations into summarized versions. This reduces the size of chat history while preserving key information. Optionally provide a prompt to control what information gets preserved in the compacted summary.",
         "requestBody": {
           "description": "Chat compaction parameters",
@@ -648,6 +657,7 @@
     },
     "/api/chat/runs": {
       "post": {
+        "operationId": "postChatRuns",
         "description": "Start an asynchronous, headless chat-generation run on the durable agent workflow — the same engine as interactive [`POST /api/chat`](/api-reference/chat/workflow).\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) — use that for **interactive, streaming** turns on an existing chat; use this for **headless/programmatic** runs (no browser or pre-provisioned session needed).\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — poll to learn **whether** the run finished (and if it succeeded).\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — **watch the output live** by passing the returned `chatId`.",
         "security": [
           {
@@ -701,6 +711,7 @@
     },
     "/api/chat/{chatId}/stop": {
       "post": {
+        "operationId": "postChatByChatIdStop",
         "description": "Stop the response currently being generated for a chat, freeing it to accept a new message. Idempotent — returns `stopped: false` when nothing is in progress. The chat must belong to the authenticated account.\n\nThe active slot is released only after cancellation is confirmed. Cancellation failure (502) or termination timeout (504) keeps it occupied; a later stop can retry. A successful no-active stop returns stopped: false.",
         "security": [
           {
@@ -805,6 +816,7 @@
     },
     "/api/chat/{chatId}/stream": {
       "get": {
+        "operationId": "getChatByChatIdStream",
         "summary": "Resume a chat response stream",
         "description": "Reconnects to an in-progress chat response — the resume counterpart to [`POST /api/chat`](/api-reference/chat/workflow), which never resumes. Returns the live Server-Sent Events stream when a response is still being generated, or a `200` finish-only SSE stream when no active response exists or the run is terminal. The chat must belong to the authenticated account.\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) — the interactive turn whose stream this resumes.\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — start a **headless** run, then pass the returned `chatId` here to **watch its output live**.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** that run finished (status, not content).",
         "security": [
@@ -938,6 +950,7 @@
     },
     "/api/chat": {
       "post": {
+        "operationId": "postChat",
         "summary": "Stream sandbox-driven chat (Vercel Workflow)",
         "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) — no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** a headless run finished (status, not content).",
         "security": [
@@ -1031,6 +1044,7 @@
     },
     "/api/research/deep": {
       "post": {
+        "operationId": "postResearchDeep",
         "description": "Perform deep, comprehensive research on a topic. Browses multiple sources extensively and returns a cited report. Use for full artist deep dives, competitive analysis, and any research requiring synthesis across many sources.",
         "requestBody": {
           "required": true,
@@ -1081,6 +1095,7 @@
     },
     "/api/research/enrich": {
       "post": {
+        "operationId": "postResearchEnrich",
         "description": "Enrich an entity with structured data from web research. Provide a description of who or what to research and a JSON schema defining the fields to extract. Returns typed data with citations. **Important:** The `schema` object must include `\"type\": \"object\"` at the top level — requests without an explicit type will be rejected.",
         "requestBody": {
           "required": true,
@@ -1131,6 +1146,7 @@
     },
     "/api/research/extract": {
       "post": {
+        "operationId": "postResearchExtract",
         "description": "Extract clean markdown content from one or more public URLs. Handles JavaScript-heavy pages and PDFs. Returns focused excerpts aligned to an objective, or full page content.",
         "requestBody": {
           "required": true,
@@ -1181,6 +1197,7 @@
     },
     "/api/research/people": {
       "post": {
+        "operationId": "postResearchPeople",
         "description": "Search for people in the music industry — artists, managers, A&R reps, producers. Returns multi-source profiles including LinkedIn data.",
         "requestBody": {
           "required": true,
@@ -1231,6 +1248,7 @@
     },
     "/api/research/web": {
       "post": {
+        "operationId": "postResearchWeb",
         "description": "Search the web for real-time information. Returns ranked results with titles, URLs, and content snippets. Use for narrative context, press coverage, and cultural research that structured data endpoints don't cover.",
         "requestBody": {
           "required": true,
@@ -1281,6 +1299,7 @@
     },
     "/api/research/events": {
       "post": {
+        "operationId": "postResearchEvents",
         "description": "List an artist's live shows. Returns one row per event with venue, city, country, ticket link, and lineup.",
         "requestBody": {
           "required": true,
@@ -1352,6 +1371,7 @@
     },
     "/api/research/track/stats": {
       "get": {
+        "operationId": "getResearchTrackStats",
         "description": "Read current track statistics using exactly one of `isrc`, `spotify_track_id` or `apple_music_track_id`, plus the required platform `source`. Recoup uses stored Spotify measurements when available for an ISRC and otherwise requests current research data. Fields and coverage vary. Preserve returned `data_source` and capture timestamps; missing provenance remains unknown.",
         "parameters": [
           {
@@ -1538,6 +1558,7 @@
     },
     "/api/research/tracks/{id}/measurements": {
       "get": {
+        "operationId": "getResearchTracksByIdMeasurements",
         "summary": "Track measurements",
         "description": "Time-series of a track's measured counts.",
         "parameters": [
@@ -1675,6 +1696,7 @@
     },
     "/api/research/albums/{id}/measurements": {
       "get": {
+        "operationId": "getResearchAlbumsByIdMeasurements",
         "summary": "Album measurements",
         "description": "Latest measured count per track on an album, from the measurement store. `{id}` is a Spotify album id.",
         "parameters": [
@@ -1761,6 +1783,7 @@
     },
     "/api/research/measurement-jobs": {
       "post": {
+        "operationId": "postResearchMeasurementJobs",
         "summary": "Create a measurement job",
         "description": "Create a current capture or enqueue historical the configured research data connection backfill. Provide exactly one of catalog_id, album_ids or isrcs in scope; platforms supports spotify only. source=current uses the snapshot pipeline and returns an ID that can be passed to [Create catalog](/api-reference/songs/catalogs-create). source=historical requires a card on file, resolves scope recordings and returns id:null with enqueued/skipped counts; it attempts to start the existing budget-gated backfill workflow, with daily maintenance as a backstop. Enqueue success is not capture completion or evidence of complete historical coverage. Songs with any historical research measurement are skipped, including potentially partial history. Historical enqueue itself makes no credit deduction; current capture estimates and provider/account gates remain separate.",
         "requestBody": {
@@ -1862,6 +1885,7 @@
     },
     "/api/chat/runs/{runId}": {
       "get": {
+        "operationId": "getChatRunsByRunId",
         "description": "Status of an asynchronous run started via [`POST /api/chat/runs`](/api-reference/chat/runs). Returns a point-in-time snapshot (**is it done?**) — not the generated content.\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — starts the run this reports on.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — read the **content**: poll *this* to know **whether** a run finished; use the stream to **watch the output** as it's produced.\n- [`POST /api/chat`](/api-reference/chat/workflow) — the interactive, streaming counterpart to a headless run.",
         "security": [
           {
@@ -1906,6 +1930,7 @@
     },
     "/api/research": {
       "get": {
+        "operationId": "getResearch",
         "description": "Search Recoup Research for artists, tracks or labels by name. Artist and track matches include an `id` when an identifier is available. Select a match and reuse that ID for detail requests. `type` accepts artists, tracks or labels, plus their singular aliases, case-insensitively. Playlist search is unavailable. Recoup defaults `limit` to 10; pagination strings are passed to the data connection and its limits apply.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -2064,6 +2089,7 @@
     },
     "/api/research/albums": {
       "get": {
+        "operationId": "getResearchAlbums",
         "description": "Read the artist catalog through the `albums` view using the `artist_id` selected from [Search](/api-reference/research/search). Results can include track-shaped catalog entries rather than distinct album objects. `is_primary` accepts true/false; filtering depends on the data connection. `limit` must be a positive integer string and `offset` a non-negative integer string.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -2221,6 +2247,7 @@
     },
     "/api/research/audience": {
       "get": {
+        "operationId": "getResearchAudience",
         "description": "Read available audience data for an artist and platform. The default is `instagram`; other supported data connections can include Spotify, TikTok and YouTube. Geographic and demographic coverage varies. Age and gender breakdowns are not guaranteed.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -2363,6 +2390,7 @@
     },
     "/api/research/career": {
       "get": {
+        "operationId": "getResearchCareer",
         "description": "Read available dated artist activities under `career`. Career, insights and milestones use the same activity feed. This endpoint does not calculate a career stage or score, and does not guarantee a complete career history.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -2495,6 +2523,7 @@
     },
     "/api/research/insights": {
       "get": {
+        "operationId": "getResearchInsights",
         "description": "Read available artist activities under `insights`. This endpoint returns activity data; it does not generate an AI analysis or a separate insight report.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -2627,6 +2656,7 @@
     },
     "/api/research/lookup": {
       "get": {
+        "operationId": "getResearchLookup",
         "description": "Resolve a Spotify artist URL or ID through Recoup Research. Supply `spotifyId` (22 alphanumeric characters) or a Spotify artist `url`; a nonempty `spotifyId` takes precedence. Apple Music URLs and Recoup account UUIDs are not accepted. Available artist metadata is returned; an `id` is included when the artist identifier can be resolved.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -2759,6 +2789,7 @@
     },
     "/api/research/metrics": {
       "get": {
+        "operationId": "getResearchMetrics",
         "description": "Read current artist statistics for the required platform `source`. This is a synchronous snapshot, without a historical series or refresh-pending job. A valid source does not guarantee data is available. Save dated responses to compare results over time.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -2918,6 +2949,7 @@
     },
     "/api/research/milestones": {
       "get": {
+        "operationId": "getResearchMilestones",
         "description": "Read available artist activities under `milestones`. Coverage varies; an empty result does not prove the artist has no milestones. This endpoint does not guarantee a complete history or scored career timeline.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -3050,6 +3082,7 @@
     },
     "/api/research/playlists": {
       "get": {
+        "operationId": "getResearchPlaylists",
         "description": "Read available playlist placements for an artist. `status=current` selects current scope; `status=past` selects all-time scope, which can include current placements. `limit` is an optional raw string with no Recoup default; supported limits and coverage depend on the data connection.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -3221,6 +3254,7 @@
     },
     "/api/research/profile": {
       "get": {
+        "operationId": "getResearchProfile",
         "description": "Read artist identity and available biography, links, genres and related-artist metadata. Fields depend on available research data. For current platform counts, use [Metrics](/api-reference/research/metrics).\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -3353,6 +3387,7 @@
     },
     "/api/research/similar": {
       "get": {
+        "operationId": "getResearchSimilar",
         "description": "Read unweighted related artists. The accepted `audience`, `genre`, `mood` and `musicality` values (high/medium/low) do not currently change the ranking. No similarity score is calculated. A positive integer `limit` slices the returned list; invalid or non-positive limits are ignored.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -3554,6 +3589,7 @@
     },
     "/api/research/track": {
       "get": {
+        "operationId": "getResearchTrack",
         "description": "Read track details using the `id` selected from [Search](/api-reference/research/search) with `type=tracks`. Treat this ID as an opaque string, separate from a Recoup account UUID. Track metadata and available fields vary by recording.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -3677,6 +3713,7 @@
     },
     "/api/research/tracks": {
       "get": {
+        "operationId": "getResearchTracks",
         "description": "Read available artist catalog entries under `tracks`. Entries can include remixes and features; completeness and fields vary. This endpoint accepts an artist identifier without catalog pagination or filtering controls.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -3809,6 +3846,7 @@
     },
     "/api/research/urls": {
       "get": {
+        "operationId": "getResearchUrls",
         "description": "Read available platform URLs as `{domain, url}` entries. A missing link means no matching URL was returned; it does not prove the artist lacks an account on that platform.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {
@@ -3941,6 +3979,7 @@
     },
     "/api/research/track/playlists": {
       "get": {
+        "operationId": "getResearchTrackPlaylists",
         "description": "Read available track playlist and activity entries. Supply a selected track `id`, or a track name `q` with optional `artist`. Name resolution selects the first Spotify match and resolves its research ID; `id` takes precedence. Filtering and pagination support depend on the data connection. With no filter flags, editorial, indie, majorCurator and popularIndie default to true. Track-name resolution can add separately charged lookup calls; reuse a selected ID to avoid them.\n\nUse your Recoup API key (`x-api-key`) or supported bearer credential. Successful artist and track research reads cost $0.05 (50,000 micro-dollar credits). Recoup manages the data connections. Coverage and rate limits vary; see [Research availability](/research-availability).",
         "parameters": [
           {

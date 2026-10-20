@@ -24,6 +24,7 @@
   "paths": {
     "/api/agents/templates": {
       "get": {
+        "operationId": "getAgentsTemplates",
         "summary": "List templates",
         "description": "Retrieve every template visible to the authenticated account. The response combines templates the account owns, public templates created by other accounts, and private templates that have been shared with the authenticated account's email.",
         "security": [
@@ -68,6 +69,7 @@
         }
       },
       "post": {
+        "operationId": "postAgentsTemplates",
         "summary": "Create a template",
         "description": "Create a new template owned by the authenticated account. When `is_private` is true, the optional `share_emails` array grants explicit read access to the listed accounts; for public templates the field is ignored.",
         "security": [
@@ -135,6 +137,7 @@
     },
     "/api/agents/templates/{id}": {
       "patch": {
+        "operationId": "patchAgentsTemplatesById",
         "summary": "Update a template",
         "description": "Update fields on an existing template owned by the authenticated account. All body fields are optional and only the supplied fields are modified. Providing `share_emails` replaces the existing share list for the template.",
         "security": [
@@ -232,6 +235,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteAgentsTemplatesById",
         "summary": "Delete a template",
         "description": "Permanently delete an template. Only the owner of the template may perform this action. Associated share records and favorite entries are removed as part of the deletion.",
         "security": [
@@ -310,6 +314,7 @@
     },
     "/api/agents/templates/{id}/favorite": {
       "put": {
+        "operationId": "putAgentsTemplatesByIdFavorite",
         "summary": "Toggle favorite on a template",
         "description": "Mark or unmark an template as a favorite for the authenticated account. The endpoint is idempotent - calling it repeatedly with the same `is_favourite` value has no additional effect. The caller must be able to see the template (own it, the template is public, or it has been shared with them).",
         "security": [
@@ -423,7 +428,10 @@
     },
     "schemas": {
       "TemplateCreator": {
-        "type": ["object", "null"],
+        "type": [
+          "object",
+          "null"
+        ],
         "description": "The account that created the template. May be null when the creator account is unavailable.",
         "required": [
           "id",
@@ -438,11 +446,17 @@
             "description": "Unique identifier of the creator account"
           },
           "name": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Display name of the creator account"
           },
           "image": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Profile image URL of the creator account"
           },
           "is_admin": {
@@ -521,7 +535,10 @@
             "description": "ISO 8601 timestamp of when the template was created"
           },
           "updated_at": {
-            "type": ["string", "null"],
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
             "description": "ISO 8601 timestamp of when the template was last updated"
           }

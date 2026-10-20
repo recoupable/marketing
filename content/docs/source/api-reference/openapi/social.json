@@ -16,6 +16,7 @@
   "paths": {
     "/api/artists/{id}/posts": {
       "get": {
+        "operationId": "getArtistsByIdPosts",
         "description": "Retrieve all social media posts from an artist across all platforms. This endpoint aggregates posts from all connected social media profiles for the specified artist, newest first. Engagement counts (`views`, `likes`, `comments`, `reposts`) are the values captured by the most recent scrape of that profile; they are null on platforms that do not report them and on posts stored before engagement capture. Supports pagination for large post collections.",
         "security": [
           {
@@ -124,6 +125,7 @@
     },
     "/api/comments": {
       "get": {
+        "operationId": "getComments",
         "description": "**Availability: pending reconciliation.** The legacy comments read route has no matching route in the inspected API source. The comments and fan-recency workflow remains a retained product outcome pending its public read integration. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nRetrieve comments associated with an artist or a specific post, with support for pagination. This endpoint returns raw comment data including the comment text, associated post, and commenter's social profile reference.",
         "parameters": [
           {
@@ -194,6 +196,7 @@
     },
     "/api/spotify/search": {
       "get": {
+        "operationId": "getSpotifySearch",
         "description": "Search for artists, albums, tracks, and playlists using the Spotify API. This endpoint is a proxy to the official Spotify Search API.",
         "parameters": [
           {
@@ -273,6 +276,7 @@
     },
     "/api/spotify/artist/": {
       "get": {
+        "operationId": "getSpotifyArtist",
         "description": "Get Spotify catalog information for a single artist identified by their unique Spotify ID.",
         "parameters": [
           {
@@ -311,6 +315,7 @@
     },
     "/api/spotify/artist/albums": {
       "get": {
+        "operationId": "getSpotifyArtistAlbums",
         "description": "Get Spotify catalog information about an artist's albums.",
         "parameters": [
           {
@@ -389,6 +394,7 @@
     },
     "/api/spotify/artist/topTracks": {
       "get": {
+        "operationId": "getSpotifyArtistTopTracks",
         "description": "Get an artist's top tracks by country.",
         "parameters": [
           {
@@ -436,6 +442,7 @@
     },
     "/api/spotify/album": {
       "get": {
+        "operationId": "getSpotifyAlbum",
         "description": "Get Spotify catalog information for a single album.",
         "parameters": [
           {
@@ -483,6 +490,7 @@
     },
     "/api/apple/songs": {
       "get": {
+        "operationId": "getAppleSongs",
         "description": "Look up recordings in the Apple Music catalog by ISRC. Accepts up to 25 comma-separated ISRCs per request and returns one row per **requested** ISRC, so a recording that Apple does not carry comes back explicitly as `found: false` rather than being omitted. Complements `GET /api/spotify/search`, which reaches ISRCs only through a fuzzy `isrc:` search query; Apple matches the identifier exactly and additionally returns release-level rights metadata (`upc`, `record_label`, `copyright`) that Spotify does not expose.",
         "security": [
           {
@@ -573,6 +581,7 @@
     },
     "/api/apify/runs/{runId}": {
       "get": {
+        "operationId": "getApifyRunsByRunId",
         "description": "Check the status and retrieve results from Apify scraper runs. This endpoint uses the Apify API Client to fetch the current status of a scraper run and its results if available. Use the runId returned from endpoints like Instagram Comments, Instagram Profiles, Social Scrape, or Artist Socials Scrape to poll for results.",
         "parameters": [
           {
@@ -629,6 +638,7 @@
     },
     "/api/socials/{id}/scrape": {
       "post": {
+        "operationId": "postSocialsByIdScrape",
         "description": "Trigger a scrape of one social profile. Use [Get Artist Socials](/api-reference/artists/socials) first to get the social `id`. The response contains scraper run metadata; poll it with the [Scraper Results API](/api-reference/apify/scraper).\n\n**Credits:** `50,000 + 10,000 × posts` micro-dollar credits per profile: $0.05 base + $0.01 per requested post. Omitting `posts` charges the 50,000 base, even when the selected platform fetches a default depth.\n\n**What `posts` does per platform**\n\n| Platform | `posts` | When `posts` is omitted |\n|---|---|---|\n| Instagram | ignored | the profile's latest posts (up to 12), always |\n| TikTok | `resultsPerPage` | 1 video |\n| YouTube | `maxResults`, `maxResultsShorts`, `maxResultStreams` (per content type) | 1 video, 0 Shorts, 0 streams |\n| X / Twitter | timeline items; retweets and replies are fetched but not stored | 10 timeline items before filtering |\n| LinkedIn | `maxPosts` on the posts actor (runs instead of the profile actor) | profile only, no posts |\n| Threads | ignored | profile only |\n| Facebook | ignored | profile only |\n\n**What gets stored.** Webhook processing persists supported records from successful runs. Platform filtering, missing fields and budget-limited follow-ups can leave partial results:\n\n- The profile: username, avatar, bio, follower and following counts, region. Served by [Get Artist Socials](/api-reference/artists/socials).\n- One follower snapshot per social per day whenever the run reports a follower count (following and post counts too, where the platform reports them). Served by the `history` parameter of Get Artist Socials.\n- Every returned post with its engagement (`views`, `likes`, `comments`, `reposts`, where the platform reports them). Served by [Get Artist Posts](/api-reference/posts/get).\n- Instagram only: comments batches for already-known and newly discovered posts, then terminal profile batches for the returned commenters. Available profile fields are saved; completion and field coverage are not guaranteed. Served by [Get Artist Fans](/api-reference/fans/get).\n\n**Fan discovery is one hop deep.** The commenter profile run is terminal: it never schedules comments or profile runs of its own. A normal single delivery can produce one profile run, two comments batches and two terminal commenter-profile batches. Five is a derived case, not a universal bound: retries, concurrent deliveries and budget checks affect the outcome. Budget checks are not atomic reservations and may allow overshoot; bookkeeping failures do not guarantee a hard cap. Pass `subtitles=true` on a YouTube social to include each video's transcript in the run results.",
         "parameters": [
           {
@@ -774,6 +784,7 @@
     },
     "/api/connectors": {
       "get": {
+        "operationId": "getConnectors",
         "security": [
           {
             "apiKeyAuth": []
@@ -839,6 +850,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteConnectors",
         "security": [
           {
             "apiKeyAuth": []
@@ -903,6 +915,7 @@
         }
       },
       "post": {
+        "operationId": "postConnectors",
         "security": [
           {
             "apiKeyAuth": []
@@ -969,6 +982,7 @@
     },
     "/api/connectors/actions": {
       "get": {
+        "operationId": "getConnectorsActions",
         "security": [
           {
             "apiKeyAuth": []
@@ -1034,6 +1048,7 @@
         }
       },
       "post": {
+        "operationId": "postConnectorsActions",
         "security": [
           {
             "apiKeyAuth": []
@@ -1130,6 +1145,7 @@
     },
     "/api/connectors/files": {
       "post": {
+        "operationId": "postConnectorsFiles",
         "security": [
           {
             "apiKeyAuth": []
@@ -1196,6 +1212,7 @@
     },
     "/api/posts": {
       "post": {
+        "operationId": "postPosts",
         "summary": "Create post",
         "description": "Publish a video with its copy to **one** connected social account, now or at a set time. Send one request per target account; to post the same video to several platforms, call this once per platform.\n\nWithout `publish_at` the post starts publishing immediately and is returned as `publishing`. With `publish_at` (a time in the future) it is returned as `scheduled`, starts publishing at that time, and can be cancelled until then with [Cancel Post](/api-reference/publishing/cancel). Either way this returns **202** right away: poll [Get Post](/api-reference/publishing/get) until `status` is `posted`, `failed` or `cancelled`.\n\nThe platform must already be connected for the artist in `artist_account_id`, or for the account itself when it is omitted (see [Authorize Connector](/api-reference/connectors/authorize)). Copy uses one shape for every platform. Which fields each platform uses, and their limits:\n\n| Platform | `title` | `description` | `cover_url` | `privacy`, `tags` |\n|---|---|---|---|---|\n| `youtube` | **required**, video title, max 100 characters | video description, max 5,000 characters | not used (YouTube picks the frame) | used |\n| `instagram` | not used | **required**, Reel caption, max 2,200 characters | Reel cover image | not used |\n| `x` | not used | **required**, post text, max 280 weighted characters (URLs count as 23) | not used | not used |\n| `linkedin` | video title shown on the post | **required**, post commentary, max 3,000 characters | video thumbnail | not used |\n\nLimits are checked here, so an over-length body fails with 400 instead of at publish time.\n\nRecoup applies no rate limit of its own to this endpoint. Each platform enforces its own caps, and a post over one ends `failed` with the platform's message in `error_message`:\n\n| Platform | Cap |\n|---|---|\n| `instagram` | 100 API-published posts per account per 24 hours |\n| `x` | the X API's per-app and per-user posting limits |\n| `youtube` | the daily YouTube Data API upload quota of the connected Google project |\n| `linkedin` | LinkedIn's daily per-member and per-organization API limits |\n\nEach post costs **$0.01**, charged to the account the post is made in (`account_id`, or the calling account when omitted), never to the artist. The balance is checked here, so an account without enough credits gets **402** and no post is created. The charge is made only when the post reaches `posted`: a post that ends `failed` or `cancelled` is never charged. A scheduled post is checked against the balance when it is created and charged when it goes live.",
         "security": [
@@ -1298,6 +1315,7 @@
         }
       },
       "get": {
+        "operationId": "getPosts",
         "summary": "List posts",
         "description": "The account's posts, newest first, with each one's status and live URL.",
         "security": [
@@ -1434,6 +1452,7 @@
     },
     "/api/posts/{id}": {
       "get": {
+        "operationId": "getPostsById",
         "summary": "Get post",
         "description": "One post, with its status, live `post_url` once posted, `error_message` if it failed, and `text_verified` once the live text has been re-read. This is the polling target after [Create Post](/api-reference/publishing/create).",
         "security": [
@@ -1530,6 +1549,7 @@
         }
       },
       "delete": {
+        "operationId": "deletePostsById",
         "summary": "Cancel post",
         "description": "Cancel a post that is still `scheduled`. It ends `cancelled`, nothing is sent to the platform and nothing is charged. A post that is already `publishing`, `posted`, `failed` or `cancelled` cannot be cancelled (409); to remove a live post, delete it on the platform.",
         "security": [

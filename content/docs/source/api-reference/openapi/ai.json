@@ -16,6 +16,7 @@
   "paths": {
     "/api/ai/models": {
       "get": {
+        "operationId": "getAiModels",
         "description": "Returns the catalog of language models available through the Vercel AI Gateway. Embedding models are filtered out. The full schema mirrors the Vercel AI Gateway response (`GatewayLanguageModelEntry` from `@ai-sdk/gateway`); the documented properties below are the load-bearing fields used by clients. No authentication required.",
         "responses": {
           "200": {

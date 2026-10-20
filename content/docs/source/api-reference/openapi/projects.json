@@ -16,6 +16,7 @@
   "paths": {
     "/api/projects/{projectId}": {
       "get": {
+        "operationId": "getProjectsByProjectId",
         "summary": "Get project",
         "description": "A client project and every task on it, oldest first, with the project's collaborators. This is what the project page renders.",
         "security": [
@@ -50,7 +51,7 @@
             }
           },
           "400": {
-            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "description": "Bad request — invalid path parameter or request body.",
             "content": {
               "application/json": {
                 "schema": {
@@ -60,7 +61,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
+            "description": "Unauthorized — missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -70,7 +71,7 @@
             }
           },
           "404": {
-            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "description": "Not found — either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
             "content": {
               "application/json": {
                 "schema": {
@@ -94,6 +95,7 @@
     },
     "/api/projects/{projectId}/tasks": {
       "post": {
+        "operationId": "postProjectsByProjectIdTasks",
         "summary": "Create project task",
         "description": "Add a task to a project. New tasks are always incomplete; set `completed` with [the update endpoint](/api-reference/projects/task-update) instead.",
         "security": [
@@ -150,7 +152,7 @@
             }
           },
           "400": {
-            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "description": "Bad request — invalid path parameter or request body.",
             "content": {
               "application/json": {
                 "schema": {
@@ -160,7 +162,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
+            "description": "Unauthorized — missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -170,7 +172,7 @@
             }
           },
           "404": {
-            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "description": "Not found — either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
             "content": {
               "application/json": {
                 "schema": {
@@ -194,6 +196,7 @@
     },
     "/api/projects/{projectId}/tasks/{taskId}": {
       "get": {
+        "operationId": "getProjectsByProjectIdTasksByTaskId",
         "summary": "Get project task",
         "description": "One task with its comment feed and the project's collaborators. This is what the task detail page renders.",
         "security": [
@@ -238,7 +241,7 @@
             }
           },
           "400": {
-            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "description": "Bad request — invalid path parameter or request body.",
             "content": {
               "application/json": {
                 "schema": {
@@ -248,7 +251,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
+            "description": "Unauthorized — missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -258,7 +261,7 @@
             }
           },
           "404": {
-            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "description": "Not found — either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
             "content": {
               "application/json": {
                 "schema": {
@@ -280,6 +283,7 @@
         }
       },
       "patch": {
+        "operationId": "patchProjectsByProjectIdTasksByTaskId",
         "summary": "Update project task",
         "description": "Update a task. Send only the fields that change.\n\nCompletion is toggled with the `completed` boolean rather than by writing a timestamp: the server stamps `completed_at` and records `completed_by` from the authenticated account, so it is never ambiguous who closed an item. Any collaborator may toggle any task, including the client.",
         "security": [
@@ -355,7 +359,7 @@
             }
           },
           "400": {
-            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "description": "Bad request — invalid path parameter or request body.",
             "content": {
               "application/json": {
                 "schema": {
@@ -365,7 +369,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
+            "description": "Unauthorized — missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -375,7 +379,7 @@
             }
           },
           "404": {
-            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "description": "Not found — either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
             "content": {
               "application/json": {
                 "schema": {
@@ -397,6 +401,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteProjectsByProjectIdTasksByTaskId",
         "summary": "Delete project task",
         "description": "Permanently delete a task and every comment on it.",
         "security": [
@@ -441,7 +446,7 @@
             }
           },
           "400": {
-            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "description": "Bad request — invalid path parameter or request body.",
             "content": {
               "application/json": {
                 "schema": {
@@ -451,7 +456,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
+            "description": "Unauthorized — missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -461,7 +466,7 @@
             }
           },
           "404": {
-            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "description": "Not found — either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
             "content": {
               "application/json": {
                 "schema": {
@@ -485,6 +490,7 @@
     },
     "/api/projects/{projectId}/tasks/{taskId}/comments": {
       "get": {
+        "operationId": "getProjectsByProjectIdTasksByTaskIdComments",
         "summary": "List task comments",
         "description": "Every comment on a task, oldest first.",
         "security": [
@@ -529,7 +535,7 @@
             }
           },
           "400": {
-            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "description": "Bad request — invalid path parameter or request body.",
             "content": {
               "application/json": {
                 "schema": {
@@ -539,7 +545,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
+            "description": "Unauthorized — missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -549,7 +555,7 @@
             }
           },
           "404": {
-            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "description": "Not found — either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
             "content": {
               "application/json": {
                 "schema": {
@@ -571,6 +577,7 @@
         }
       },
       "post": {
+        "operationId": "postProjectsByProjectIdTasksByTaskIdComments",
         "summary": "Add task comment",
         "description": "Post a comment on a task, attributed to the authenticated account. Comments are append-only plain text: there is no edit and no delete.",
         "security": [
@@ -634,7 +641,7 @@
             }
           },
           "400": {
-            "description": "Bad request \u2014 invalid path parameter or request body.",
+            "description": "Bad request — invalid path parameter or request body.",
             "content": {
               "application/json": {
                 "schema": {
@@ -644,7 +651,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
+            "description": "Unauthorized — missing or invalid credentials. Missing or conflicting authentication headers return `status: \"error\"` with `error`. Invalid API keys, malformed Bearer headers and token-verification failures return `status: \"error\"` with `message`. Read the field provided by the response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -654,7 +661,7 @@
             }
           },
           "404": {
-            "description": "Not found \u2014 either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
+            "description": "Not found — either no project or task with this id exists, or the authenticated account is not a collaborator on it. The two cases are deliberately indistinguishable so the response cannot be used to discover which project ids are real.",
             "content": {
               "application/json": {
                 "schema": {
@@ -726,7 +733,7 @@
           "name": {
             "type": "string",
             "nullable": true,
-            "description": "The collaborator's `accounts.name`. Frequently null \u2014 nothing captures a name at sign-up today \u2014 so clients must render a fallback."
+            "description": "The collaborator's `accounts.name`. Frequently null — nothing captures a name at sign-up today — so clients must render a fallback."
           }
         }
       },

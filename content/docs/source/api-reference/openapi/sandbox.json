@@ -24,6 +24,7 @@
   "paths": {
     "/api/sandbox": {
       "post": {
+        "operationId": "postSandbox",
         "summary": "Create or restore session sandbox",
         "description": "Provisions a Sandbox for the given session. If a per-org base snapshot exists, the sandbox boots from it (skipping the full repo clone, ~75s saved). Otherwise the sandbox boots from the default base snapshot and a background workflow builds an org-specific snapshot for next time. When the session has prior runtime state (a paused or running sandbox under the same `sandboxName`), the call resumes it instead of creating a new one. On success, the session row is updated with the new `sandboxState` and lifecycle is bumped to `active`; the lifecycle workflow is kicked to manage hibernation and expiry from there.",
         "requestBody": {
@@ -102,6 +103,7 @@
     },
     "/api/sandbox/reconnect": {
       "get": {
+        "operationId": "getSandboxReconnect",
         "summary": "Reconnect to session sandbox",
         "description": "Live runtime probe for the sandbox bound to a session. Unlike `GET /api/sandbox/status` (DB-only read), this endpoint actually runs a quick command inside the sandbox to verify it is reachable. Used by the chat UI on session re-entry / tab refocus to decide whether to flip out of \"loading sandbox…\" or surface a \"resume\" affordance. Returns one of three operational outcomes via the `status` field: `\"connected\"` (sandbox is alive, included `expiresAt` reflects current expiry), `\"expired\"` (the runtime state is gone — the UI should offer to resume from snapshot if `hasSnapshot` is true, otherwise create a fresh sandbox), or `\"no_sandbox\"` (no sandbox has been provisioned for this session yet).",
         "parameters": [
@@ -171,6 +173,7 @@
     },
     "/api/sandbox/status": {
       "get": {
+        "operationId": "getSandboxStatus",
         "summary": "Get session sandbox status",
         "description": "Returns the current lifecycle and runtime state for the sandbox bound to a session. The chat UI polls this endpoint while showing the \"loading sandbox…\" state and flips to \"ready\" when `status` becomes `active`. The response includes `lifecycleVersion` (an optimistic concurrency token) and a `lifecycle` envelope with `serverTime`, the lifecycle FSM `state`, and timestamps for last activity, hibernation deadline, and sandbox expiry. As a side effect, if the runtime state is stale (expired or overdue for hibernation), the lifecycle workflow is kicked to clean up — callers do not need to do this themselves.",
         "parameters": [
