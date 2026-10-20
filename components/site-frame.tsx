@@ -1,5 +1,5 @@
 "use client";
-import { Suspense } from "react";
+import { Suspense, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { ReferralCapture } from "@/components/referral-capture";
 import { BrowserAgentTools } from "@/components/agents/browser-agent-tools";
@@ -7,6 +7,7 @@ import { SkySiteHeader } from "@/components/sky/site-header";
 import { SkySiteFooter } from "@/components/sky/site-footer";
 import { ScrollMotion } from "@/components/motion/scroll-motion";
 import { AudienceMode } from "@/components/agents/audience-mode";
+import { GetStartedDialog } from "@/components/sky/get-started-dialog";
 import "./sky/site.css";
 import "./sky/navigation.css";
 import "./sky/navigation-mobile.css";
@@ -17,6 +18,7 @@ import "./sky/materials.css";
 
 export function SiteFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const startDialog = useRef<HTMLDialogElement>(null);
   // The Brand Studio has its own navigation and main landmark.
   if (pathname === "/brand" || pathname.startsWith("/brand/"))
     return <>{children}</>;
@@ -33,12 +35,13 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
           <AudienceMode
             key={pathname}
             pathname={pathname}
-            header={(toggle) => <SkySiteHeader audienceToggle={toggle} />}
+            header={(toggle) => <SkySiteHeader audienceToggle={toggle} dialog={startDialog} />}
           >
             <main id="main">{children}</main>
             <SkySiteFooter />
           </AudienceMode>
         )}
+        {!isFocusedLanding && <GetStartedDialog key={pathname} ref={startDialog} />}
       </div>
       <ScrollMotion />
       <BrowserAgentTools />
