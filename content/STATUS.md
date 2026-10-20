@@ -14,6 +14,24 @@ generation/checks, the inventory and shared-fixture checks, and the production
 build pass. The API companion passes all 44 contract tests, response-contract
 type checks, lint and formatting. Merge, deployment, and rescoring remain pending.
 
+## Official Python and Go clients — October 19, 2026
+
+Prepared MIT-licensed Python and Go clients for platform JSON endpoints. Both
+support API keys or existing Bearer tokens, account identification, bounded
+responses, typed errors, explicit timeouts, and credential-safe redirect handling.
+Streaming, multipart, OAuth login, and generated method coverage remain outside
+the initial release. Empty successful responses are accepted; advertised streams
+are rejected before body reads. HTTP errors retain status and Retry-After even
+when their bodies exceed the cap. Configuration rejects invalid origins and
+unreadable response limits; error messages and Go formatting redact credentials.
+
+Fourteen installed-wheel Python tests, strict distribution metadata validation,
+Ruff, Go race tests, and Go vet pass, including accepted empty writes, delayed
+streams, deep JSON, timeout/no-write-retry and malformed-response regressions.
+PyPI account/trusted publisher setup and registry publication remain pending.
+The Go module needs its reviewed release tag after merge. The manual OIDC
+publishing workflow and SDK CI are ready; source availability is not publication.
+
 ## Agent readiness recovery and discovery — October 19, 2026
 
 Addressed the 71/100 Is Agentic baseline with recoverable Markdown 404s, JSON API fallback errors and a named error schema, platform OAuth metadata aliases and a Streamable HTTP MCP manifest, current OAuth connection guidance, organization contact/address metadata, and a page-first heading outline. Website tools remain anonymous; platform access still requires consent and account membership.
