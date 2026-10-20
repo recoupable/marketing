@@ -1,3 +1,18 @@
+## Guarded Git file contracts — October 19, 2026
+
+Documented versioned file reads, observed-SHA updates, canonical paths, returned
+encoding, conflict-only and mixed failures, partial-success receipts and explicit
+retry behavior. The API/Marketing fixtures freeze the copyable requests and
+response schemas; declaration checks also catch removal of selected optional fields.
+All 460 Marketing tests, response-contract and inventory Python checks, docs
+generation/checks and the local production build pass. The API companion's
+44 contract tests pass without provider
+or customer writes. The API test/fixture companions are merged; Marketing and the
+retained Docs copy still need final-head review and publication. Client adoption,
+live-sandbox atomicity
+and hosted save/access acceptance remain separate; no production behavior is
+inferred from this documentation change.
+
 ## Full homepage Markdown — October 17, 2026
 
 Replaced the 215-word homepage summary with the complete 914-word editorial document, generated from the same hero, service, case-study, process, ownership, tool, and FAQ copy as the Human page. Both billing options reuse the pricing calculations and inquiry links. Agent mode, `/index.md`, content negotiation, discovery metadata, and the paginated reader share this full entry.
