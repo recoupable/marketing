@@ -12,3 +12,13 @@ Use `tools/list` after connection and after changing consent. The catalog depend
 Sandbox command tools previously shown on this page are absent from the current registry. Do not call `prompt_sandbox`, `run_sandbox_command`, or infer that every REST endpoint is exposed as MCP. Use documented [REST sandbox operations](/api-reference/sandboxes/create) with a separate authorized credential when required.
 
 For an API-key MCP connection, configure `Authorization: Bearer YOUR_RECOUP_API_KEY` in the client's secret settings. The `x-api-key` header is for [REST requests](/authentication). Store credentials in the client's secret facility or environment. Never paste them into global instructions or extract host-managed OAuth tokens for REST.
+
+## Release Packs
+
+When deployed and exposed by the current grant, the pack catalog includes
+`prepare_release_pack`, `get_release_pack`, `estimate_release_pack`,
+`generate_release_pack`, `retry_release_pack`, `upload_release_pack_asset` and
+`export_release_pack`. These use the same account ownership, brief revisions,
+complete quotes and budget limits as REST. No existing artist or GitHub workspace
+is required. Use returned schemas and identifiers; preparation does not authorize
+paid generation. See [Release Packs](/release-packs) for first use and upload limits.

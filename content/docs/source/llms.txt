@@ -31,6 +31,7 @@ Use the public website tools to find music-business workflows, evaluate supplied
 - [API catalog](https://recoupable.dev/.well-known/api-catalog): Machine-readable links to the website API and all platform specifications.
 - [Accounts and artists OpenAPI](https://recoupable.dev/docs/spec/accounts.json)
 - [AI OpenAPI](https://recoupable.dev/docs/spec/ai.json)
+- [Release Packs](https://recoupable.dev/docs/release-packs.md): Inline context, complete quotes, resumable media production and selected-source upload.
 - [Content OpenAPI](https://recoupable.dev/docs/spec/content.json)
 - [Context OpenAPI](https://recoupable.dev/docs/spec/context.json)
 - [Players OpenAPI](https://recoupable.dev/docs/spec/players.json)
