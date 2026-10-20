@@ -53,7 +53,7 @@ export function SkillBrowser() {
           <ul>
             {group.items.map((item) => (
               <li key={item}>
-                <span aria-hidden="true">\u00b7</span>
+                <span aria-hidden="true">·</span>
                 {item}
               </li>
             ))}
@@ -61,7 +61,7 @@ export function SkillBrowser() {
         </div>
         <div className="skill-prompt">
           <span className="mono">START WITH A REQUEST</span>
-          <p>\u201c{group.prompt}\u201d</p>
+          <p>“{group.prompt}”</p>
           <div>
             <span className="small-logo">
               <PageMark />
