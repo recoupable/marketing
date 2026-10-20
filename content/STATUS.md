@@ -1,3 +1,9 @@
+## Public MCP discovery branding — October 19, 2026
+
+The public MCP manifest and handshake share the site's existing 192-pixel Recoup
+icon, display title, version, and website link. This metadata update preserves
+the five public tools and the separate authenticated platform MCP.
+
 ## SDK discovery and Go release — October 19, 2026
 
 Go SDK v0.1.0 is published from Marketing `7c93a8f` and indexed on pkg.go.dev.
