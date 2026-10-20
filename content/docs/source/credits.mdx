@@ -165,7 +165,15 @@ A card on the account is never charged on its own. Charging happens only when th
 
 Auto top-up is off for every account until it is turned on with [`PUT /api/accounts/{id}/auto-top-up`](/api-reference/accounts/auto-top-up-update), which needs three things chosen by the account: `enabled`, the `amountCents` to buy each time (5.00 to 1,000.00 USD), and the `thresholdCents` balance that triggers it. Both are USD cents; the `remaining_credits` balance above is in credit micro-dollars, so divide it by 10,000 to compare. Turning it on requires a card on file.
 
-Once on, the first credit deduction that leaves the balance below the threshold charges the card for the amount, grants the credits, records a usage event, and emails a receipt. Guardrails: at most one top-up per account per 10 minutes; a card decline turns auto top-up off, records the decline message as `lastError` (returned by [`GET /api/accounts/{id}/auto-top-up`](/api-reference/accounts/auto-top-up-get)), and emails the account instead of retrying; removing the card turns it off. Auto top-up never creates a checkout session and never touches an invoiced (enterprise) plan. Saving a card does not turn auto top-up on by itself.
+Once on, the first credit deduction that leaves the balance below the threshold charges the card for the amount, grants the credits, records a usage event, and emails a receipt. Guardrails: at most one top-up per account per 10 minutes; a card decline turns auto top-up off, records the decline message as `lastError` (returned by [`GET /api/accounts/{id}/auto-top-up`](/api-reference/accounts/auto-top-up-get)), and emails the account instead of retrying; a successful selected-card removal turns it off before detachment, even when other cards remain. Auto top-up never creates a checkout session and never touches an invoiced (enterprise) plan. Saving a card does not turn auto top-up on by itself.
+
+### Remove a saved card
+
+[`DELETE /api/accounts/{id}/payment-method`](/api-reference/accounts/payment-method-delete) turns off automatic credit purchases, then removes the selected saved card. It removes one card, preserving other cards, balances, and configured amounts and thresholds. It does not cancel subscriptions or invoices. Other saved cards can still appear in a later card read and fund a purchase you explicitly request; removal does not silently enable automatic purchases again.
+
+Success returns **204** with no body. If no customer or selected card exists, **404** leaves settings and cards unchanged. A **500** can mean the settings save failed before card removal, or that settings were saved but detachment failed; in the latter case automatic purchases stay off. Read the current card and auto-top-up settings before retrying an error or uncertain response. Repeating DELETE after a completed removal may select and remove another card.
+
+This operation does not cancel a charge already in progress or prevent someone from explicitly changing the settings concurrently.
 
 ---
 
