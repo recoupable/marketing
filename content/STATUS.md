@@ -1,19 +1,28 @@
 ## Card removal contract alignment — October 20, 2026
 
-The billing guide and Accounts reference now describe the released API #1054
-selected-card policy: disable automatic purchases before removing one card,
-preserve other saved cards, and explain manual purchases, in-progress charges,
-400/404/500 responses and partial-failure recovery. The nullable card schema
-describes only the current lookup, never saved-card history or all-card absence. This is a documentation
-candidate; it performs no billing operation.
+The billing guide and Accounts reference describe the released selected-card
+policy: disable automatic purchases before removing one card, preserve other
+saved cards, and explain manual purchases, in-progress charges, 400/404/500 and
+partial-failure recovery. The nullable card schema describes only the current
+lookup, never saved-card history or all-card absence. The public source is
+unchanged from independently accepted Marketing `b2bf8839`.
 
-Current released operation-name documentation from Marketing #188 (`01c3ba0`)
-is preserved. The shared fixture companion is API #1056 at candidate `e60627a7`.
-The inventory uses that unmerged candidate only for preview checks. Before this
-publication merges, refresh it to the companion's actual merge commit. Generate
-the retained Docs copy from the actual Marketing merge afterward; hosting
-repair/cutover remains deferred. Local validation and independent exact-head
-review are recorded in the PR and release receipt.
+The API inventory now references actual #1056 merge
+`098ebde771bf4588415ca448a3476428e60930b9`, replacing the preview-only commit.
+All shared fixtures remain unchanged and match that released API. Current
+operation-name documentation from #188 and the Python SDK record are preserved.
+This narrow release-reference update requires final checks and UI delta review.
+After the actual Marketing merge, generate retained Docs from that merge and
+verify publication. Hosting repair/cutover stays deferred; no billing call occurs.
+
+
+## OpenAPI Markdown fallback — October 20, 2026
+
+The agent audit sampled `/openapi.json.md`, which had no matching Markdown route.
+Added a static Markdown representation generated from the same complete website
+OpenAPI document, with links between formats. The JSON contract remains unchanged.
+The response test and hosted readiness audit verify the fenced schema matches the
+JSON endpoint exactly.
 
 ## Python registry release — October 20, 2026
 
