@@ -22,7 +22,7 @@ ${pages.map((item) => `## ${oneLine(item.title)}\n\nContent ID: ${item.id}\n\n${
 
 [Search published content](${absoluteUrl("/agent-api/v1/search")}?query=royalty&type=all&limit=5), then pass a returned ID to ${absoluteUrl("/agent-api/v1/read")}. A response states its representation and provides a continuation offset when applicable.
 
-[Tool and content catalog](${absoluteUrl(discoveryPaths.catalog)}) | [Documentation](${absoluteUrl("/docs")}) | [Website OpenAPI](${absoluteUrl(discoveryPaths.openapi)})
+[Tool and content catalog](${absoluteUrl(discoveryPaths.catalog)}) | [Documentation](${absoluteUrl("/docs")}) | [Complete Recoup OpenAPI](${absoluteUrl(discoveryPaths.openapi)}) | [Website OpenAPI](${absoluteUrl("/agent-api/v1")})
 
 ${accessNotes()}
 `;

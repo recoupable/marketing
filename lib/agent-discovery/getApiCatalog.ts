@@ -11,7 +11,8 @@ export function getApiCatalog() {
           {
             href: absoluteUrl(discoveryPaths.openapi),
             type: "application/json",
-            title: "Recoup website API: public reading and utilities",
+            title:
+              "Recoup API: complete platform and public website specification",
           },
           ...inventory.specifications.map((name) => ({
             href: absoluteUrl(`/docs/spec/${name}`),
@@ -24,7 +25,7 @@ export function getApiCatalog() {
         anchor: absoluteUrl("/agent-api/v1/tools"),
         "service-desc": [
           {
-            href: absoluteUrl(discoveryPaths.openapi),
+            href: absoluteUrl("/agent-api/v1"),
             type: "application/json",
           },
         ],
@@ -40,10 +41,16 @@ export function getApiCatalog() {
       },
       {
         anchor: "https://api.recoupable.dev/api",
-        "service-desc": inventory.specifications.map((name) => ({
-          href: absoluteUrl(`/docs/spec/${name}`),
-          type: "application/json",
-        })),
+        "service-desc": [
+          {
+            href: absoluteUrl(discoveryPaths.openapi),
+            type: "application/json",
+          },
+          ...inventory.specifications.map((name) => ({
+            href: absoluteUrl(`/docs/spec/${name}`),
+            type: "application/json",
+          })),
+        ],
         "service-doc": [
           { href: absoluteUrl("/docs"), type: "text/html" },
           { href: absoluteUrl("/docs/authentication"), type: "text/html" },

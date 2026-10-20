@@ -1,3 +1,18 @@
+## Complete API discovery contract — October 20, 2026
+
+The primary OpenAPI document now combines all 212 published platform operations
+with the five public website operations. Each keeps its own server, security,
+operation ID and request/response contract. Namespaced components prevent
+collisions; legacy nullable declarations are represented in valid 3.1 syntax,
+including nullable references and enums. Existing website component names remain stable.
+The split platform documents and smaller website specification remain available.
+The website's existing retirement policy now defines conditional Deprecation and
+Sunset headers in OpenAPI; active responses still omit both. This policy applies
+only to public website operations. The readiness audit follows the advertised
+auth-guide URL before comparing it with the public alias.
+Source platform contracts are unchanged. Production publication and a fresh
+scanner result for this follow-up remain pending.
+
 ## Billing guide null-card correction — October 20, 2026
 
 The saved-card guide now agrees with the corrected Accounts schema: a null card
@@ -22,7 +37,10 @@ URLs, IDs, request shapes, quotas, and authentication permissions are unchanged.
 The main agent indexes also link the published Python SDK.
 JSON and Markdown API responses expose the existing retirement policy with an
 RFC 9745 `rel="deprecation"` link. No deprecation or sunset date is announced.
-Production publication and fresh audit results for this follow-up remain pending.
+Published in PR #196 at `e04df75`. The exact production deployment and readiness
+audit pass. The fresh scan passes rate headers, Markdown fallback and auth-guide
+discovery; remaining findings concern split-spec selection, the authorization
+server's literal guide URL, and search-provider results.
 
 ## Card removal contract alignment — October 20, 2026
 

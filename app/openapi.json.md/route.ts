@@ -1,9 +1,9 @@
-import { websiteOpenAPI } from "@/lib/agent-openapi";
+import { getCompleteOpenAPI } from "@/lib/agent-discovery/getCompleteOpenAPI";
 
 export const dynamic = "force-static";
 
-export function GET() {
-  const spec = websiteOpenAPI();
+export async function GET() {
+  const spec = await getCompleteOpenAPI();
   const markdown = [
     `# ${spec.info.title}`,
     "",

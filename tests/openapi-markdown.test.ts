@@ -3,8 +3,8 @@ import { GET as jsonSpec } from "../app/openapi.json/route";
 import { GET as markdownSpec } from "../app/openapi.json.md/route";
 
 test("the OpenAPI Markdown fallback preserves the complete published JSON contract", async () => {
-  const json = jsonSpec();
-  const markdown = markdownSpec();
+  const json = await jsonSpec();
+  const markdown = await markdownSpec();
   const body = await markdown.text();
   const spec = await json.json();
   const fencedJson = body.match(/```json\n([\s\S]+?)\n```/)?.[1];
