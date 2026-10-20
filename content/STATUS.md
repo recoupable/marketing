@@ -619,3 +619,15 @@ Content: publish more blog posts targeting SEO pillars. Wire up the nav menu (li
 ## Stable agent conversation — September 21, 2026
 
 Rebuilt `/workflow-plan` and `/ask` around stable user turns. Thinking and observed research remain beneath the corresponding message; the compact question and reply input stay at the bottom. Official AI Elements now provide prompt input, activity, sources, suggestions, message actions and report artifacts, with shadcn scrolling and the existing JSON report renderer. Corrected duplicate prose after structured results and response ordering for follow-ups sent during research. Seeker/WMG live browser checks, mobile layout, stopping and actual report download verified. TypeScript, scoped lint, all 353 tests and the production build pass locally. See `docs/website-agent.md`; production has not been deployed or verified.
+
+
+## Contributor context corrected — October 20, 2026
+
+Required contributor/product guidance now points to current Sky design, navigation,
+configured destinations, published article/docs sources, CLI identity and central
+API lead delivery. Historical positioning/structure/typography bodies are preserved
+verbatim beneath dated supersession notices. Pricing reads the maintained offer
+source and retains Mono #338's purchase-verification decision. Deleted theme and
+missing skill-path instructions are removed. This changes repository guidance,
+not customer UI, pricing, source contracts or hosting; a bounded path/command and
+source-owner audit accompanies the change.

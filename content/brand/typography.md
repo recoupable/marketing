@@ -1,3 +1,12 @@
+# Historical typography guide
+
+> **Historical — current Marketing instructions take precedence.** Original update: March 30, 2026. Marked historical October 20, 2026; superseded for this Marketing website by Sky design. Other Recoup repositories follow their own design rules.
+> Use [the current product/source guide](product.md), [Sky design](../../DESIGN.md),
+> [navigation](../../lib/copy/navigation.ts) and [homepage copy](../../lib/copy/home.ts).
+> The original content is preserved verbatim below.
+
+---
+
 # Typography Guide
 
 > Updated: 2026-03-30
