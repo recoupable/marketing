@@ -6,8 +6,10 @@ export async function GET(request: Request) {
   const response = await withAgentRateLimit(request, () =>
     markdownResponse(request),
   );
-  response.headers.append("Link", deprecationPolicyLink);
-  response.headers.append("Access-Control-Expose-Headers", "Link");
+  if (!response.headers.get("Link")?.includes(deprecationPolicyLink))
+    response.headers.append("Link", deprecationPolicyLink);
+  if (!response.headers.get("Access-Control-Expose-Headers")?.includes("Link"))
+    response.headers.append("Access-Control-Expose-Headers", "Link");
   return response;
 }
 export { agentOptions as OPTIONS } from "@/lib/agent-http";

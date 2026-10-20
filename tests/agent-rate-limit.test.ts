@@ -1,6 +1,7 @@
 import { afterEach, expect, test, vi } from "vitest";
 import { checkRateLimit } from "@vercel/firewall";
 import { withAgentRateLimit } from "../lib/agent-tools/withAgentRateLimit";
+import { deprecationPolicyLink } from "../lib/agent-api/deprecationPolicyLink";
 
 vi.mock("@vercel/firewall", () => ({ checkRateLimit: vi.fn() }));
 afterEach(() => {
@@ -35,6 +36,10 @@ test("exhausted callers receive a recoverable 429 before tools run", async () =>
   expect(run).not.toHaveBeenCalled();
   expect(response.status).toBe(429);
   expect(response.headers.get("retry-after")).toBe("60");
+  expect(response.headers.get("link")).toBe(deprecationPolicyLink);
+  expect(response.headers.get("access-control-expose-headers")).toContain("Link");
+  expect(response.headers.has("deprecation")).toBe(false);
+  expect(response.headers.has("sunset")).toBe(false);
   expect((await response.json()).error.code).toBe("RATE_LIMITED");
 });
 
@@ -47,6 +52,8 @@ test("failed rate checks stop execution without exposing provider details", asyn
   const response = await withAgentRateLimit(request, run);
   expect(run).not.toHaveBeenCalled();
   expect(response.status).toBe(503);
+  expect(response.headers.get("link")).toBe(deprecationPolicyLink);
+  expect(response.headers.get("access-control-expose-headers")).toContain("Link");
   expect(await response.text()).not.toContain("sensitive");
 });
 
