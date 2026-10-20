@@ -3,11 +3,12 @@
 The billing guide and Accounts reference now describe the released API #1054
 selected-card policy: disable automatic purchases before removing one card,
 preserve other saved cards, and explain manual purchases, in-progress charges,
-400/404/500 responses and partial-failure recovery. This is a documentation
+400/404/500 responses and partial-failure recovery. The nullable card schema
+describes only the current lookup, never saved-card history or all-card absence. This is a documentation
 candidate; it performs no billing operation.
 
 Current released operation-name documentation from Marketing #188 (`01c3ba0`)
-is preserved. The shared fixture companion is API #1056 at candidate `184759cc`.
+is preserved. The shared fixture companion is API #1056 at candidate `e60627a7`.
 The inventory uses that unmerged candidate only for preview checks. Before this
 publication merges, refresh it to the companion's actual merge commit. Generate
 the retained Docs copy from the actual Marketing merge afterward; hosting

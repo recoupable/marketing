@@ -6002,7 +6002,7 @@
                 "type": "null"
               }
             ],
-            "description": "Default card on file. `null` when the account has never saved a payment method — the top-up flow will route through a checkout session in that case."
+            "description": "Default card resolved by this lookup. `null` when the selected Stripe customer has no supported default card, including when no tagged customer exists. This describes the current lookup result; it does not establish whether the account previously saved a card or whether other cards remain attached."
           }
         }
       },
