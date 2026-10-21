@@ -137,3 +137,6 @@ in the overall status union is not sufficient. The 202 ingestion/verification
 examples use mocked dispatch; the other specific ingestion actions retain 200.
 Readiness flags, nullable saved source URLs, unknown historical JSON, delegated
 material-evidence exclusions and existing error behavior remain unchanged.
+Use the public saved-context planner's output rather than the wider low-level
+planner types. Brief document constraints follow the compiler's actual selector;
+do not advertise evidence states or coverage that it excludes.

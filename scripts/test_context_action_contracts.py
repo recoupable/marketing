@@ -5,6 +5,19 @@ from response_contract_test_case import ResponseContractTestCase
 
 
 class ContextActionContractsTest(ResponseContractTestCase):
+    def test_declares_only_public_planner_and_compiler_results(self):
+        spec = json.loads((self.marketing / 'content/docs/source/api-reference/openapi/context.json').read_text())
+        models = spec['components']['schemas']
+        node = models['ContextModulePlanResponse']['properties']['plan']['items']['properties']
+        self.assertEqual(len(node['module']['enum']), 10)
+        self.assertTrue({'mlc_search', 'mlc_work', 'release_expansion'}.isdisjoint(node['module']['enum']))
+        self.assertEqual(len(node['targetKind']['enum']), 8)
+        self.assertNotIn('composition', node['targetKind']['enum'])
+        document = models['ContextBriefResponse']['properties']['documents']['items']['properties']
+        self.assertEqual(document['status']['const'], 'accepted')
+        self.assertNotIn('creative_proposal', document['evidenceKind']['enum'])
+        self.assertEqual(set(document['coverage']['enum']), {'full', 'partial'})
+
     def test_response_table_regeneration_preserves_authored_notes(self):
         path = self.marketing / 'content/docs/source/api-reference/openapi/context.json'
         spec = json.loads(path.read_text())

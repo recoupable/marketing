@@ -7,6 +7,9 @@ pairs cover ingestion, planning/execution reads, identity review, release cases 
 briefs, while preserving the existing evidence and catalog-planning examples.
 The shared producer freezes those public examples and contracts for the API's
 processor tests and rejects missing mappings, disconnected models and stale copies.
+Models follow the public saved-context planner's reachable values and the actual
+brief selector: compiled documents have accepted status and full or partial
+coverage, with creative proposals excluded.
 
 Specific ingestion actions keep 200; `ingest` and enabled verification dispatches
 keep 202. Queue receipts are not completed work. Retained JSON stays flexible,
@@ -14,9 +17,9 @@ saved evidence source URLs may be null, and delegated OAuth continues to omit th
 metadata-only material receipt. This is documentation and synthetic contract
 evidence, not runtime validation, feature enabling or a hosted customer/provider
 operation. [API #1075](https://github.com/recoupable/api/pull/1075) candidate
-`12e97327aae46e269c3b39a59c458b16b94dcc7d` commits both synchronized fixtures.
-The inventory pins that immutable candidate; its 33 response/example export tests
-pass in a separate source checkout with exact fixture/export parity. API review
+`e3d9a92024362e81ab8d0495434ff14a85adc00c` commits both corrected fixtures.
+The inventory pins that immutable candidate; its 47 contract/example tests pass
+in a separate source checkout with exact fixture/export parity. API review
 and merge remain pending: refresh to its actual merge before Marketing release,
 then generate retained Docs from the actual Marketing merge. Collection, access,
 spending and wider product gates are unchanged.

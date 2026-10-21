@@ -31,19 +31,16 @@ function contextWithoutCompatibilityIdentifiers(text: string): string {
   expect(modulePlan.module.enum).toEqual([
     "musicbrainz",
     "mlc_recording",
-    "mlc_search",
-    "mlc_work",
     "songstats",
     "saved_socials",
     "catalog_valuation",
     "company_research",
     "campaign_context",
-    "release_expansion",
     "spotify_release",
     "material_extraction",
     "songwriter_research",
   ]);
-  modulePlan.module.enum[4] = "legacy_platform_module";
+  modulePlan.module.enum[2] = "legacy_platform_module";
 
   const operation = spec.paths["/api/context"].post;
   const request = operation.requestBody.content[
