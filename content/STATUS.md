@@ -1,3 +1,22 @@
+## Chat read-failure reference candidate — October 21, 2026
+
+Eight Research/Sessions operations now describe failed chat lookups as 500
+errors rather than missing chats or successful empty lists. Failed lookup
+preconditions stop the corresponding creation/update/delete/read writes.
+The existing fixture producer now includes Sessions and freezes these selected
+errors against canonical API route tests with synthetic service leaves.
+
+The reference also corrects the existing POST resume description: a running or
+pending workflow can return its existing 200 stream without saving a newly
+submitted turn. GET remains the explicit reconnect route, with the same empty
+or terminal finish-only 200 SSE and status-read 502. The separate submission
+conflict/retry repair is held; this read-failure companion does not ship it.
+
+The API source pin is an unreleased candidate. Runtime review and actual merge
+remain release prerequisites; retained Docs must follow the actual Marketing
+merge. The reviewed combined drafts remain separate. No client, disconnect,
+queue, automatic replay or durable-work guarantee is added.
+
 ## Unsupported-operation references — October 21, 2026
 
 Prepared Mono #327's bounded reference correction against API `db3cdd16`.
