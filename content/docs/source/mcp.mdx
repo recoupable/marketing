@@ -13,6 +13,16 @@ Sandbox command tools previously shown on this page are absent from the current 
 
 For an API-key MCP connection, configure `Authorization: Bearer YOUR_RECOUP_API_KEY` in the client's secret settings. The `x-api-key` header is for [REST requests](/authentication). Store credentials in the client's secret facility or environment. Never paste them into global instructions or extract host-managed OAuth tokens for REST.
 
+## Context results
+
+The [Context reference](/api-reference/context/operate) pairs each supported action
+with its success status, response model and synthetic request/result examples.
+Use the status declared for that action: `ingest` returns 202, while the specific
+catalog, artist, release and text ingestion actions return 200. A 202 verification
+receipt means queued after existing readiness checks, not completed work.
+HTTP/standard MCP `read` may include a metadata-only `material_evidence` receipt;
+delegated OAuth omits it. The examples do not verify hosted access or enable collection.
+
 ## Plan a catalog lookup
 
 A catalog manager with an existing catalog Context request can plan a lookup for

@@ -25,6 +25,26 @@ function contextWithoutCompatibilityIdentifiers(text: string): string {
   expect(node.executor.enum[2]).toBe("collectContextSongstats");
   node.executor.enum[2] = "legacy_platform_executor";
 
+  const modulePlan =
+    spec.components.schemas.ContextModulePlanResponse.properties.plan.items
+      .properties;
+  expect(modulePlan.module.enum).toEqual([
+    "musicbrainz",
+    "mlc_recording",
+    "mlc_search",
+    "mlc_work",
+    "songstats",
+    "saved_socials",
+    "catalog_valuation",
+    "company_research",
+    "campaign_context",
+    "release_expansion",
+    "spotify_release",
+    "material_extraction",
+    "songwriter_research",
+  ]);
+  modulePlan.module.enum[4] = "legacy_platform_module";
+
   const operation = spec.paths["/api/context"].post;
   const request = operation.requestBody.content[
     "application/json"
@@ -55,6 +75,18 @@ function contextWithoutCompatibilityIdentifiers(text: string): string {
   example.module = "legacy_platform_module";
   example.executor = "legacy_platform_executor";
   example.key = `${example.subjectId}:legacy_platform_module`;
+  const plan =
+    operation.responses["200"].content["application/json"].examples
+      .contextActionPlan.value.plan;
+  const platform = plan.find(
+    (item: { module: string }) => item.module === "songstats",
+  );
+  expect(platform.executor).toBe("collectContextSongstats");
+  expect(platform.key).toBe(`${platform.subjectId}:songstats`);
+  expect(platform.executionStarted).toBe(false);
+  platform.module = "legacy_platform_module";
+  platform.executor = "legacy_platform_executor";
+  platform.key = `${platform.subjectId}:legacy_platform_module`;
   return JSON.stringify(spec);
 }
 

@@ -98,8 +98,12 @@ The shared fixture checks both classifications and exact response declarations.
 Preserve authored field descriptions when updating exported request shapes;
 they explain pilot URL restrictions, workspace checks and brief limits beyond JSON
 syntax. Evidence receipt/page components must be referenced by the 200 response
-union, and page items reuse the receipt component. Other Context actions retain
-their existing object fallback; this does not make every legacy result typed.
+union, and page items reuse the receipt component. Every Context action maps to
+its own success status and named response model through
+`x-recoup-context-responses`. Keep the status unions limited to those references;
+a generic object fallback must not hide a missing or invalid action response.
+Persisted request JSON and saved execution metadata remain flexible where the
+source contract explicitly allows it; documenting envelopes does not tighten runtime validation.
 Record actions omitted from the reference explicitly until their provider-neutral
 public contract is stable; omission is not an API access restriction. Exported schemas do not prove hosted workflow acceptance.
 
@@ -118,3 +122,18 @@ the generic result branch for other actions cannot establish planning correctnes
 Preserve raw response modules, executor names, stable keys and `collectionPermitted:
 false`. This remains planning only and does not authorize collection, spending or
 hosted customer acceptance. Standard-only evidence classifications remain separate.
+
+Export all Context success models/statuses with
+`RECOUP_CONTEXT_RESPONSES_OUTPUT=/tmp/context-responses.json` while running API
+`contextResponseCatalog.test.ts`. Export the remaining actions' synthetic HTTP/MCP
+example pairs with `RECOUP_CONTEXT_EXAMPLES_OUTPUT=/tmp/context-examples.json`
+while running `contextOperationExamples.test.ts`. Import those actual source
+exports into the canonical specification, retaining authored descriptions and the
+established planning/evidence examples. The producer freezes all models,
+action/status references and `operationExamples` into both Context fixtures;
+the API suite must compare the published pairs with its actual processor results.
+Validate each response against its specific named model. A successful alternative
+in the overall status union is not sufficient. The 202 ingestion/verification
+examples use mocked dispatch; the other specific ingestion actions retain 200.
+Readiness flags, nullable saved source URLs, unknown historical JSON, delegated
+material-evidence exclusions and existing error behavior remain unchanged.

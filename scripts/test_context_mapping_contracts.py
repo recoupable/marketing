@@ -66,7 +66,7 @@ class ContextMappingContractsTest(ResponseContractTestCase):
         self.assertEqual(source['reference'], '#/components/schemas/ContextCatalogPlanningResponse')
         self.assertIn({'$ref': source['reference']}, operation['responses']['200']['content']['application/json']['schema']['anyOf'])
         self.assertEqual(fixture['responseSchemas']['catalogPlanning'], resolve_response_schema({'$ref': source['reference']}, spec))
-        self.assertEqual(fixture['responseReferences'], {'plan_catalog_members': '#/responseSchemas/catalogPlanning'})
+        self.assertEqual(fixture['responseReferences']['plan_catalog_members'], '#/responseSchemas/catalogPlanning')
         self.assertEqual({item['module'] for item in planning['requestExamples']},
                          {'recording_candidates', 'recording_work_candidates', 'platform_metadata'})
         self.assertEqual(set(planning['responseExamples']),
