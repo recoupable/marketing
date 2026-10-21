@@ -5450,16 +5450,25 @@
             "description": "International Standard Recording Code (primary key)"
           },
           "name": {
-            "type": "string",
-            "description": "Name of the song"
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Name of the song, or null when unavailable."
           },
           "album": {
-            "type": "string",
-            "description": "Name of the album the song belongs to"
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Name of the song's album, or null when unavailable."
           },
           "notes": {
-            "type": "string",
-            "description": "Notes for the song"
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Saved notes for the song, or null when unavailable."
           },
           "updated_at": {
             "type": "string",
