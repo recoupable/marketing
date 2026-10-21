@@ -3,9 +3,11 @@
 Corrected the existing catalog-song GET reference: a successful empty result is
 HTTP 200 with zero songs/count, catalog access rejection is 403, and caught server
 failures return 500. Added an explicit empty-result example and explained filtering
-before pagination/counting. This documents the current handler and the intended
-creator-filter behavior in API #1078; it does not verify hosted catalog rendering.
-The coordinated API fixture, Marketing and retained Docs releases remain separate.
+before pagination/counting. The creator-filter repair is merged in API #1078 as
+`bcc3052256863540e15905b8ac945b183e8dc1b1`; the coordinated fixture is merged in
+API #1079 as `934bbe57fc163bfecc14f618a0e8c56c60623378`. The inventory now pins
+that actual API merge. Marketing and retained Docs publication remain separate;
+these source releases do not verify hosted catalog rendering.
 
 ## Complete Context action responses and examples — October 21, 2026
 
