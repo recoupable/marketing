@@ -41265,7 +41265,7 @@ The supplied specification does not declare an OpenAPI security object for this 
     "/api/sandboxes": {
       "get": {
         "operationId": "getSandboxes",
-        "description": "List all sandboxes associated with the authenticated account and their current statuses. Returns sandbox details including lifecycle state, timeout remaining, and creation timestamp. Pass account_id to retrieve sandboxes for a specific account the API key has access to. Authentication is handled via the x-api-key header or Authorization Bearer token.",
+        "description": "List all sandboxes associated with the authenticated account and their current statuses. Returns sandbox details including lifecycle state, timeout remaining, and creation timestamp. Pass account_id to retrieve sandboxes for a specific account the API key has access to. Authentication is handled via the x-api-key header or Authorization Bearer token.\n\nSet `metadata_only=true` when you only need the existing saved metadata. This skips live sandbox status lookups and returns an empty `sandboxes` array alongside `snapshot_id`, `github_repo` and `filetree`, preserving their existing nullable behavior. Stored metadata reads and the optional GitHub filetree lookup still run. The empty array in this mode does not establish whether any sandbox is running.\n\nOmitting `metadata_only` or sending literal `false` preserves normal live-status behavior. Authentication, account access checks and sandbox filters remain the same in either mode. Supplied values must be literal lowercase `true` or `false`; other values, including an empty value, return 400 through query validation.",
         "parameters": [
           {
             "name": "sandbox_id",
@@ -41286,15 +41286,35 @@ The supplied specification does not declare an OpenAPI security object for this 
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "metadata_only",
+            "in": "query",
+            "required": false,
+            "description": "Send literal lowercase true to skip live sandbox status lookups and return the existing metadata with an empty sandboxes array. Omitted or false retains live-status lookups. Database metadata reads and optional GitHub filetree retrieval still run; authentication, access checks and sandbox filters are unchanged. Other supplied values, including an empty value, return 400.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Sandboxes retrieved successfully",
+            "description": "Sandboxes retrieved successfully. In metadata_only mode, sandboxes is empty while the existing saved metadata fields are retained.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SandboxesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameters, including a supplied metadata_only value other than literal lowercase true or false.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SandboxErrorResponse"
                 }
               }
             }
