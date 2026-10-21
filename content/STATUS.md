@@ -1,4 +1,4 @@
-## Chat read-failure reference candidate — October 21, 2026
+## Chat read-failure reference — October 21, 2026
 
 Eight Research/Sessions operations now describe failed chat lookups as 500
 errors rather than missing chats or successful empty lists. Failed lookup
@@ -12,10 +12,12 @@ submitted turn. GET remains the explicit reconnect route, with the same empty
 or terminal finish-only 200 SSE and status-read 502. The separate submission
 conflict/retry repair is held; this read-failure companion does not ship it.
 
-The API source pin is an unreleased candidate. Runtime review and actual merge
-remain release prerequisites; retained Docs must follow the actual Marketing
-merge. The reviewed combined drafts remain separate. No client, disconnect,
-queue, automatic replay or durable-work guarantee is added.
+API #1072's database-read repair and #1073's contract companion are merged.
+The inventory pins actual API merge
+`1ddc18dec13ed3ddeb7b93fd0a733457afe63629`. Marketing publication and retained
+Docs publication have separate verification; retained Docs must follow the
+actual Marketing merge. The reviewed combined drafts remain held. No client,
+disconnect, queue, automatic replay or durable-work guarantee is added.
 
 ## Unsupported-operation references — October 21, 2026
 
