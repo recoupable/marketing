@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "eead76809dbcfba7837ea0e3a53074d719f4e75a",
+  "apiSourceCommit": "50528d60a4c6460809aad15148e6f14724a50dee",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -3630,7 +3630,7 @@
     }
   ],
   "specificationHashes": {
-    "content/docs/source/api-reference/openapi/accounts.json": "3c667f2d6bd457a266e41783135eacb10a7c49a979f27221c5f9ad338e2055f4",
+    "content/docs/source/api-reference/openapi/accounts.json": "2d107a6832ac1732233580675b67a24af7d914bb2417dbaa9377e26677695341",
     "content/docs/source/api-reference/openapi/ai.json": "678f649fff58a1c49c81002ea2cbe66636ad5da1044ea66261e6ab4084600687",
     "content/docs/source/api-reference/openapi/content.json": "c109fc9eb3b5557c6585f32fb4771d3ebe6103ac9532c6a7a3b8f929a2603511",
     "content/docs/source/api-reference/openapi/context.json": "dd0a72fef32fa9abd74410caa71ac2b71df0ee36edb3a6cbc3614cde408c0593",
