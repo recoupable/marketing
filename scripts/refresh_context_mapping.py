@@ -1,4 +1,4 @@
-"""Keep connection-specific Context tables synchronized with canonical metadata."""
+"""Keep Context tool and response tables synchronized with canonical metadata."""
 import json
 import re
 
@@ -43,8 +43,16 @@ def refresh_context_mapping(document, path, check):
         raise SystemExit('Context standard-only section is missing its generated table.')
     else:
         expected_description += '\n\n' + standard_section
+    response_header = '| Action | HTTP status | Response model |'
+    response_table = '\n'.join([
+        response_header,
+        '| --- | --- | --- |',
+        *[f'| `{action}` | {item["status"]} | `{item["schema"]["$ref"].rsplit("/", 1)[-1]}` |'
+          for action, item in context_operation['x-recoup-context-responses'].items()],
+    ])
+    expected_description = replace_table(expected_description, response_header, response_table)
     if check and description != expected_description:
-        raise SystemExit('Stale Context MCP mapping table; regenerate it from the canonical metadata.')
+        raise SystemExit('Stale Context mapping table; regenerate it from the canonical metadata.')
     if not check and description != expected_description:
         context_operation['description'] = expected_description
         path.write_text(json.dumps(document, indent=2, ensure_ascii=False) + '\n')

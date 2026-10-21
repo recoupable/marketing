@@ -1,3 +1,29 @@
+## Complete Context action responses and examples — October 21, 2026
+
+Prepared the remaining Context action response descriptions from the API owner's
+source exports. All 30 actions now map to a success status and a named response
+model; the general object fallback is removed. The 26 new synthetic request/result
+pairs cover ingestion, planning/execution reads, identity review, release cases and
+briefs, while preserving the existing evidence and catalog-planning examples.
+The shared producer freezes those public examples and contracts for the API's
+processor tests and rejects missing mappings, disconnected models and stale copies.
+Models follow the public saved-context planner's reachable values and the actual
+brief selector: compiled documents have accepted status and full or partial
+coverage, with creative proposals excluded.
+
+Specific ingestion actions keep 200; `ingest` and enabled verification dispatches
+keep 202. Queue receipts are not completed work. Retained JSON stays flexible,
+saved evidence source URLs may be null, and delegated OAuth continues to omit the
+metadata-only material receipt. This is documentation and synthetic contract
+evidence, not runtime validation, feature enabling or a hosted customer/provider
+operation. [API #1075](https://github.com/recoupable/api/pull/1075) merged as
+`8586fb7598981f4ec853ce6fea347a559f3c15a0`, with the same complete tree as accepted
+candidate `e3d9a92024362e81ab8d0495434ff14a85adc00c`. Both corrected fixtures and
+the response/example exports are unchanged; the 47 focused contract tests pass.
+The inventory now pins the actual API merge. Marketing review/publication and
+retained Docs publication remain separate; generate the retained copy from the
+actual Marketing merge. Collection, access, spending and wider product gates are unchanged.
+
 ## Catalog lookup planning contract — October 21, 2026
 
 Prepared the Context reference for the three approved public lookup-plan names,
