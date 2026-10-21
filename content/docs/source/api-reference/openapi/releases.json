@@ -2629,7 +2629,7 @@
             "bearerAuth": []
           }
         ],
-        "description": "Retrieve songs within a specific catalog with pagination support. This endpoint joins catalog_songs with songs, song_artists, and accounts to provide comprehensive song information for a given catalog.",
+        "description": "Retrieve songs in an accessible catalog with pagination. When a nonempty artistName is supplied, only songs with a matching artist name contribute to the results and total count. Without that filter, songs without a linked artist remain eligible. A successful query with no matching songs returns HTTP 200 with songs: [] and pagination.total_count: 0.",
         "parameters": [
           {
             "name": "catalog_id",
@@ -2674,11 +2674,26 @@
         ],
         "responses": {
           "200": {
-            "description": "Catalog songs retrieved successfully",
+            "description": "Catalog songs retrieved successfully, including an empty songs array and zero total count when no songs match.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CatalogSongsResponse"
+                },
+                "examples": {
+                  "empty": {
+                    "summary": "Accessible catalog has no matching songs",
+                    "value": {
+                      "status": "success",
+                      "songs": [],
+                      "pagination": {
+                        "total_count": 0,
+                        "page": 1,
+                        "limit": 20,
+                        "total_pages": 0
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -2704,7 +2719,7 @@
             }
           },
           "403": {
-            "description": "Forbidden - the catalog does not belong to the authenticated account",
+            "description": "Forbidden - the catalog is missing or does not belong to the authenticated account or one of its organizations",
             "content": {
               "application/json": {
                 "schema": {
@@ -2713,12 +2728,16 @@
               }
             }
           },
-          "404": {
-            "description": "Catalog not found or no songs in catalog",
+          "500": {
+            "description": "Server or database failure. Returns status: error and error: Internal server error.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CatalogSongsErrorResponse"
+                },
+                "example": {
+                  "status": "error",
+                  "error": "Internal server error"
                 }
               }
             }

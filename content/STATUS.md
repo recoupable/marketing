@@ -1,3 +1,12 @@
+## Catalog song empty-result reference — October 21, 2026
+
+Corrected the existing catalog-song GET reference: a successful empty result is
+HTTP 200 with zero songs/count, catalog access rejection is 403, and caught server
+failures return 500. Added an explicit empty-result example and explained filtering
+before pagination/counting. This documents the current handler and the intended
+creator-filter behavior in API #1078; it does not verify hosted catalog rendering.
+The coordinated API fixture, Marketing and retained Docs releases remain separate.
+
 ## Complete Context action responses and examples — October 21, 2026
 
 Prepared the remaining Context action response descriptions from the API owner's
