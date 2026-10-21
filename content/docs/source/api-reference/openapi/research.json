@@ -2273,9 +2273,25 @@
             "name": "platform",
             "in": "query",
             "required": false,
-            "description": "Platform mapped to a provider audience metric source. Common values include instagram, tiktok, spotify, youtube_artist and youtube_channel. Unmapped strings pass through; provider support applies.",
+            "description": "Audience platform. Leading/trailing whitespace is trimmed; omitted, empty or whitespace-only values default to `instagram`. Other values must be one of the listed lowercase names. Invalid platform values return `400` before authentication, artist resolution, credit checks or research dispatch. Availability and returned coverage vary by platform.",
             "schema": {
               "type": "string",
+              "enum": [
+                "bandsintown",
+                "deezer",
+                "facebook",
+                "instagram",
+                "line",
+                "melon",
+                "soundcloud",
+                "spotify",
+                "tiktok",
+                "twitch",
+                "twitter",
+                "wikipedia",
+                "youtube_artist",
+                "youtube_channel"
+              ],
               "default": "instagram"
             }
           },
