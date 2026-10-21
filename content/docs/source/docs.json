@@ -230,7 +230,8 @@
             "pages": [
               "api-reference/music/generate",
               "api-reference/music/list",
-              "api-reference/music/get"
+              "api-reference/music/get",
+              "api-reference/music/legacy"
             ]
           },
           {

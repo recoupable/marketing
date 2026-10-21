@@ -1,4 +1,20 @@
 ---
-title: 'List Agent Sign-Ups (Admin)'
-openapi: "/api-reference/openapi/accounts.json GET /api/admins/agent/signups"
+title: 'Admin signup report availability'
+description: 'The former admin signup-report route is not available; reporting access still needs a product decision.'
 ---
+
+`GET /api/admins/agent/signups` is not available. There is no implemented
+replacement for the old per-signup report in the current platform API.
+
+[Agent signup and email verification](/agents) are account-onboarding flows,
+not reporting APIs. Creating an account or API key does not grant access to
+other accounts' signup records.
+
+## Unfinished product decision
+
+[Reconciliation #327](https://github.com/recoupable/mono/issues/327) retains the
+decision about who should see this report, whether it needs individual records
+or aggregate counts, and which time windows and identifying fields are allowed.
+No reporting API or permission policy is being introduced by this documentation
+correction. The former request and response are removed from the callable
+specification until the owning product decision and implementation exist.

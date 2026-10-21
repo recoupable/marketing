@@ -1,3 +1,20 @@
+## Unsupported-operation references — October 21, 2026
+
+Prepared Mono #327's bounded reference correction against API `db3cdd16`.
+Nine unimplemented method/path contracts and their unused schemas are removed
+from executable OpenAPI and generated endpoint discovery. The three existing
+song-write, valuation-history and admin-help URLs remain as availability guides;
+a music migration guide names all six former paths and the real generate/poll
+alternative without equating it to specialized outcomes. The existing disposition
+record preserves each decision and tracker. Valuation history remains held with
+Mono #326/API #1059, and standalone writes/admin reporting retain explicit product
+decisions. The original fan report remains separate.
+
+API behavior, authentication, payments, provider configuration, hosting and held
+valuation adapters are unchanged. The coordinated API fixture changes only the
+three affected specification hashes. Source tests/build and independent review
+must pass before release; retained publication follows the actual Marketing merge.
+
 ## Reviewed documentation contracts on current main — October 21, 2026
 
 The maintained docs now combine the reviewed stored-comments, plan/balance,
