@@ -21,7 +21,8 @@ The caller is derived from authentication. Do not send an `account_id`. An optio
 | `GET /api/sites/{id}` | `get_site` | `{ site: ... }` |
 | `PATCH /api/sites/{id}` action `concepts` | `propose_site_concepts` | Short pitches or missing context |
 | `PATCH /api/sites/{id}` action `generate` | `generate_site` | Generate from an optional customer-selected pitch; otherwise select a concept |
-| `PATCH /api/sites/{id}` action `publish` | `publish_site` | Saved draft becomes public |
+| `PATCH /api/sites/{id}` action `generation` | `get_site_generation` | Status for the specified generation token |
+| `PATCH /api/sites/{id}` action `publish` | `publish_site` | Publish the saved draft or the playable build selected by `generationToken` |
 | `PATCH /api/sites/{id}` action `unpublish` | `unpublish_site` | Public snapshot removed, draft retained |
 | `PATCH /api/sites/{id}` action `delete` | `delete_site` | `{ "deleted": true, "id": "..." }` |
 | `GET /api/sites/{id}/signups` | `get_site_signups` | `{ signups: [{ email, created_at }] }`, up to 10,000 |
@@ -82,6 +83,21 @@ Generation defaults to background execution and returns a generation token; poll
 
 Generation failures identify the stopped stage and leave the saved draft unchanged. A `409` means another edit changed the revision; read the site again before retrying.
 
+### Poll background generation
+
+Send this JSON body to `PATCH /api/sites/{id}` using the token returned by the
+generation request. MCP `get_site_generation` takes `id` and `token`, without `action`.
+Polling uses `token`; publishing and cancellation use `generationToken`.
+
+```json
+{"action":"generation","token":"TOKEN_FROM_GENERATION"}
+```
+
+The token is bound to its site and caller and expires. Invalid, expired or
+mismatched tokens return 404 during token verification; a missing or empty token
+is invalid input (400). A running job is not proof that a
+playable build or a published page exists; read the returned status and progress.
+
 ## Generate from saved Context Engine evidence
 
 Save a single-song `creative_direction` brief using the Context Engine `save_brief` action, then pass its snapshot ID when requesting pitches:
@@ -102,15 +118,64 @@ Generation still uses credits for creative direction, assets, implementation and
 
 ## Publish
 
-After reviewing the draft, send `{"action":"publish","revision":CURRENT_REVISION}` to the same PATCH endpoint, or call `publish_site` with `id` and `revision`.
+After reviewing the intended draft or preview, publish through the same PATCH
+endpoint or MCP `publish_site`, using the site's current saved revision.
 
-Publishing automatically prepares Spotify fan connection for an active paid workspace. The standard agreement uses the attributed artist's name; the customer does not need a separate setup step. Missing artist attribution or unavailable Spotify configuration stops paid publication with an actionable error. Publication requires an eligible paid workspace. Unpaid publication returns HTTP 402 before publishing. Successful paid setup reports `fanConnection: "enabled"`.
+Publishing automatically prepares Spotify fan connection for an active paid workspace. The standard agreement uses the attributed artist's name; the customer does not need a separate setup step. Missing artist attribution or unavailable Spotify configuration stops paid publication with an actionable error. Publication requires an eligible paid workspace. The gate checks the site's owning workspace for an active subscription with a positive-priced item; a trial or Pro entitlement alone does not establish eligibility. Unpaid publication returns HTTP 402 before publishing. Successful paid setup reports `fanConnection: "enabled"`.
 
 For a custom hosted destination, HTTP callers may include `returnUrl` (an HTTPS URL without credentials or fragment) in the publish body. Otherwise an existing connection destination is preserved, or the configured Sites public origin is used. The Recoup editor supplies its actual published URL. The authenticated fan-connection API remains available for external integrations.
 
 The public page is `https://chat.recoupable.dev/s/{id}`.
 
-Unpublish with `action: "unpublish"`, or `unpublish_site`. Agents should publish only when explicitly instructed.
+### Publish the saved draft
+
+Use the current revision from the saved site (3 in this example):
+
+```json
+{"action":"publish","revision":3}
+```
+
+Omitting `generationToken` selects the saved draft, even when a background job has
+a newer preview. MCP `publish_site` takes `id` and `revision`, without `action`.
+
+### Publish a working preview
+
+To publish a specific working preview from a background generation, pass its
+token as `generationToken` and the site's current saved revision:
+
+```json
+{"action":"publish","revision":3,"generationToken":"TOKEN_FROM_GENERATION"}
+```
+
+MCP `publish_site` uses the same fields plus `id`, without `action`. The token must
+match the site and caller. The selected build must contain a completed playable
+build step for the current site/workspace/revision; the whole generation job need
+not already be completed. A preview that is not ready returns 400, a stale build
+returns 409, and invalid or expired token access returns 404. A temporary saved-build
+failure may return 503. Without `generationToken`, publication uses the saved draft;
+it does not automatically select the newest background preview.
+
+### Upgrade required
+
+An ineligible workspace receives HTTP 402 with an error body, for example:
+
+```json
+{"error":"An active paid Recoup subscription is required to publish a site. Subscribe in this site’s workspace, then publish again."}
+```
+
+Subscribe in the site's owning workspace before retrying the intended publish.
+This response does not publish the site or create a checkout session.
+
+### Unpublish
+
+Send `PATCH /api/sites/{id}` with the current revision to remove the public
+snapshot while retaining the draft. MCP `unpublish_site` takes `id` and `revision`.
+
+```json
+{"action":"unpublish","revision":3}
+```
+
+Agents should publish, unpublish or delete only when explicitly instructed.
 
 ## Delete and cancel generation
 
@@ -137,7 +202,44 @@ MCP's `upload_site_asset` accepts `name`, `contentType`, `base64` file bytes, an
 - `GET /api/sites/public/{id}` returns `{ snapshot: ... }` for a published site only. Drafts, account identifiers, and signup data are excluded.
 - `POST /api/sites/public/{id}/signup` accepts `{"email":"fan@example.com","consent":"yes"}`. An optional `website` honeypot must be empty. Duplicate submissions succeed without disclosing list membership. Unpublished sites reject signups.
 
-Public pages render in the chat app. The API owns snapshots, generation, uploads, and signup persistence. Spotify OAuth and the browser music player remain in the web app.
+Public pages and the browser music player render in the chat app. The API provides
+snapshots, generation, uploads, signup persistence and the fan-connection integration
+routes listed below.
+
+## Route coverage
+
+The lifecycle and public snapshot/signup operations above are documented here in
+prose; they are not a complete Sites OpenAPI specification. The following existing
+routes are accounted for as integration surfaces, outside the copyable lifecycle
+examples. Listing them does not establish live authorization or add an MCP tool.
+
+### Authenticated integration routes
+
+| HTTP | Purpose |
+| --- | --- |
+| `GET /api/sites/{id}/fan-connection` | Read fan-connection configuration |
+| `PUT /api/sites/{id}/fan-connection` | Configure the fan connection through the authenticated integration |
+| `GET /api/sites/{id}/fans` | Fan reporting |
+| `GET /api/sites/{id}/activity` | Activity reporting |
+
+### Browser integration routes
+
+| HTTP | Purpose |
+| --- | --- |
+| `GET /api/sites/apple/config` | Browser music configuration |
+| `POST /api/sites/public/{id}/activity` | Published-site activity collection |
+| `GET /api/sites/public/{id}/spotify` | Show the fan-connection acceptance page |
+| `POST /api/sites/public/{id}/spotify` | Begin Spotify authorization after acceptance |
+
+These browser flows are not replacements for a private lifecycle request or proof
+of a completed fan connection. Email signup and Spotify connection are distinct.
+
+### Provider callback
+
+`GET /api/sites/spotify/callback` completes the provider redirect flow. It is
+intentionally excluded from agent lifecycle examples; do not invoke it as a
+standalone operation. OPTIONS preflight handlers are also excluded from the
+operation tables because they serve browser CORS negotiation.
 
 ## Errors
 

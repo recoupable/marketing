@@ -39,7 +39,7 @@ Response shape:
 
 ```json
 {
-  "account_id": "acc_…",
+  "account_id": "11111111-1111-4111-8111-111111111111",
   "remaining_credits": 292450000,
   "total_credits": 300000000,
   "used_credits": 7550000,
@@ -47,11 +47,35 @@ Response shape:
   "plan": "pro",
   "task_limit": null,
   "min_cadence_minutes": 60,
-  "timestamp": "2026-04-24T17:50:43.475"
+  "timestamp": "2026-10-01T12:00:00Z"
 }
 ```
 
 `plan`, `task_limit`, and `min_cadence_minutes` describe the [plan](#subscription) the balance belongs to. `total_credits` is your plan-derived monthly allotment. `remaining_credits` can exceed `total_credits` after a top-up or an admin grant, and `used_credits` clamps to 0 in that case. Full schema at [Get Account Credits](/api-reference/accounts/credits-get).
+
+### Plan response examples
+
+`is_pro` on credits and `isPro` on subscriptions mean effective Pro, so both are
+false for paid Starter. Use `plan` to distinguish Starter from Free. The credits
+response reports the effective allowance; the [subscription response](/api-reference/accounts/subscription-get)
+separately identifies whether it comes from the account or an organization.
+
+| Situation | Credits `plan` / `is_pro` | Subscription `source` | Task limit / minimum cadence |
+| --- | --- | --- | --- |
+| Free | `free` / `false` | `null` | 1 / weekly |
+| Paid Starter | `starter` / `false` | `account` | 3 / daily |
+| Direct Pro | `pro` / `true` | `account` | `null` (unlimited) / hourly |
+| Starter account with organization Pro | `pro` / `true` | `organization` | `null` (unlimited) / hourly |
+| Inactive subscription without another paid entitlement | `free` / `false` | `null` | 1 / weekly |
+
+For example, a Pro balance of 325,000,000 against an allowance of 300,000,000
+returns `used_credits: 0`. The API preserves a signed balance: a negative balance
+can make this display exceed the allowance. This is not a ledger of charges.
+A null timestamp means the timestamp is unavailable, not proof of no prior activity.
+An inactive subscription resolves to `status: "none"` and null subscription/billing
+fields; this endpoint does not return the canceled subscription's history. Billing
+details may also be unavailable on an active response. Named reference examples
+illustrate these states without quoting an available offer or a live payment.
 
 To see what consumed the balance, list the charges line by line with [`GET /api/accounts/{id}/usage`](/api-reference/accounts/usage-get): one item per deduction, newest first, each with the amount in micro-dollars and as a dollar string, plus the total for the period. API charges name the endpoint that billed them in `model_id` (for example `POST /api/artist/socials/scrape`), so a list of charges reads as a list of calls.
 
@@ -135,7 +159,7 @@ Response shape:
 
 ```json
 {
-  "account_id": "acc_…",
+  "account_id": "11111111-1111-4111-8111-111111111111",
   "card": {
     "brand": "visa",
     "last4": "4242",

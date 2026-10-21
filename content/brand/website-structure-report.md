@@ -1,3 +1,12 @@
+# Historical website-structure proposal
+
+> **Historical — current Marketing instructions take precedence.** The original file has no reliable authored date recorded here. Marked historical October 20, 2026; superseded for Marketing by the September 2026 Sky migration. Its former source-of-truth claim below is historical, not a current instruction.
+> Use [the current product/source guide](product.md), [Sky design](../../DESIGN.md),
+> [navigation](../../lib/copy/navigation.ts) and [homepage copy](../../lib/copy/home.ts).
+> The original content is preserved verbatim below.
+
+---
+
 # RECOUPABLE — BRAND POSITIONING + WEBSITE STRUCTURE REPORT
 
 > Source of truth for positioning, hero strategy, landing structure, and nav. Reference this when writing copy or changing the site.

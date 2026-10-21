@@ -1,3 +1,22 @@
+## Reviewed documentation contracts on current main — October 21, 2026
+
+The maintained docs now combine the reviewed stored-comments, plan/balance,
+Sites lifecycle, catalog-range and headless-chat corrections with current main.
+Contributor guidance identifies the authoritative source and available tooling.
+Existing release-pack direction state and official plugin delivery remain intact.
+API runtime behavior is unchanged by this documentation companion. Shared
+fixtures are regenerated from these maintained sources, preserving the newer
+Content contract rather than copying an older example record over it.
+
+API #1068's pagination repair and #1067's coordinated fixture are now merged.
+The inventory pins the actual API merge
+`db3cdd16c7225d2090ca74a1a06df8914c6fc379`; regeneration preserves all four
+contract sections and the current release-pack Content source. The API source
+matches its independently accepted revision. This Marketing revision has its
+own checks, normal production build and exact source review; source parity does
+not prove publication or a real customer task. Retained Docs must follow the
+actual Marketing merge. Manual retained-host repair remains deferred.
+
 ## Published editorial inventory — October 20, 2026
 
 `content/posts/INDEX.md` is now generated from the same 32 approved source entries

@@ -1,52 +1,64 @@
-# Product Overview
+# Product and source guide
 
-> Updated: 2026-03-16
+Updated October 20, 2026 against Marketing source `296b8501`. This is contributor
+context for the current website. Source implementation or documented capability
+is separate from a completed customer workflow, payment or provider operation.
 
-## What It Does
+## What the website presents
 
-Recoup is an AI agent platform that handles music marketing end-to-end: content creation, social distribution, audience analysis, and campaign management.
+Recoup helps people who create, own and invest in music put AI to work. The site
+presents Advisory, Build and Training services alongside Recoup Platform,
+open-source Skills and developer access. Use the maintained
+[homepage copy](../../lib/copy/home.ts), [offers](../../lib/copy/home-offers.ts)
+and [navigation](../../lib/copy/navigation.ts) for current names and destinations.
+Historical brand strategy does not prescribe a replacement hero or menu.
 
-## How It Works
+## Current sources and owners
 
-1. **Chat with your agent** at `teams.recoupable.dev` — tell it what you need
-2. **The agent acts** — creates content, analyzes your audience, generates posts
-3. **Content gets distributed** — across Instagram, TikTok, X, LinkedIn via PostBridge
-4. **Performance is tracked** — the agent learns what works and adapts
+| Subject | Maintained source | Responsibility |
+| --- | --- | --- |
+| Website, app, API and contact destinations | [`lib/config.ts`](../../lib/config.ts) | Marketing; preserve configured environment selection |
+| Navigation and homepage | [`lib/copy/navigation.ts`](../../lib/copy/navigation.ts), [`lib/copy/home.ts`](../../lib/copy/home.ts) | Marketing; align human and Markdown copy |
+| Marketing design and fonts | [`DESIGN.md`](../../DESIGN.md), [`app/globals.css`](../../app/globals.css), [`app/layout.tsx`](../../app/layout.tsx) | Sky design; DM Sans Variable and IBM Plex Mono |
+| Published articles and planning inventory | [`content/blog/posts.json`](../blog/posts.json), [`content/posts/INDEX.md`](../posts/INDEX.md) | Editorial; generate the index after approved source changes |
+| Public platform contracts | [`content/docs/source`](../docs/source), [`AGENTS.md`](../../AGENTS.md) | Author here; API owns behavior; Docs is a pinned compatibility publication |
+| CLI identity and setup | [Maintained CLI guide](../docs/source/cli.mdx) | `@recoupable/cli` package, `recoup` executable; verify registry and installed versions separately |
+| Public website assistant | [`docs/website-agent.md`](../../docs/website-agent.md) | Marketing; public website tools are separate from authenticated platform access |
+| Lead and inquiry delivery | [`lib/leads/postLead.ts`](../../lib/leads/postLead.ts), [`lib/inquiries/saveInquiry.ts`](../../lib/inquiries/saveInquiry.ts) | Marketing forwards to API; API owns CRM storage/notifications |
+| GTM research and tools | [`gtm/AGENTS.md`](../../gtm/AGENTS.md) | Repository context and independent engine, not automatically public content |
 
-## Core Features
+The application, API, shared Skills, database and existing workers are separate
+repositories in Mono. Follow their owning instructions. Existing Trigger.dev
+jobs remain supported implementations; new platform scheduled/background work
+belongs in Vercel Workflows inside API under
+[Mono's architecture rules](https://github.com/recoupable/mono/blob/main/AGENTS.md).
+Do not infer identical availability across local skills, API, workers and clients.
 
-| Feature | Description |
-|---|---|
-| **AI Chat Agent** | Conversational interface — tell the agent what you need in plain language |
-| **Content Creation** | Generates social posts, captions, video scripts, and marketing copy |
-| **Audience Analysis** | Scrapes and analyzes social profiles to understand fan demographics |
-| **Multi-Platform Distribution** | Posts to Instagram, TikTok, X, LinkedIn via PostBridge API |
-| **Skills System** | Modular AI capabilities — extensible agent skills for specific tasks |
-| **CLI Tool** | Command-line interface (`recoup`) for power users and automation |
-| **Browser Automation** | Stagehand-powered web scraping and data extraction |
-| **Background Tasks** | Trigger.dev workers for async jobs (scheduled posts, batch operations) |
+## Pricing and purchase evidence
 
-## Platform Architecture
+Displayed offers and billing calculations live in
+[`lib/pricing.ts`](../../lib/pricing.ts), with page wording in
+[`app/pricing`](../../app/pricing). Read those sources instead of maintaining
+another price table here. Marketing service offers and the platform's
+Free/Starter/Pro entitlement contract are separate concepts; consult the
+[credits and plans guide](../docs/source/credits.mdx) for the latter.
 
-```
-teams.recoupable.dev (frontend) → recoup-api (backend) → Supabase (database)
-                                                       → Trigger.dev (async tasks)
-                                                       → PostBridge (social distribution)
-```
+Displayed monthly/annual offers do not verify Stripe intervals, checkout,
+renewal or entitlements. The product/release owner's outstanding offer decision
+and authorized purchase verification remain in
+[Mono #338](https://github.com/recoupable/mono/issues/338). Marketing copy alone
+does not establish completion of those journeys.
 
-## Key Stats
+## History and release claims
 
-- Gatsby Grace experiment: 22 videos produced in one session, zero manual editing
-- CLI published to npm as `recoup` (v0.1.11)
-- Multi-model AI: supports Anthropic, OpenAI, and Google Gemini
-- MCP server integration for extensible tool usage
+The older [positioning](positioning.md), [website structure report](website-structure-report.md)
+and [typography guide](typography.md) preserve earlier decisions. They do not
+override the active Marketing sources above. Keep quantitative customer stories
+and production claims tied to dated evidence and approval; this guide does not
+restate an unverified experiment count or fixed package version.
 
-## Pricing
-
-- Currently in early access — pricing TBD
-- Free tier planned for individual artists
-- Pro tier for managers and labels managing multiple artists
-
-## What Makes It Different
-
-Other tools help you _make_ content. Recoup _is_ your marketing team. The AI agent doesn't just generate — it plans, creates, distributes, measures, and improves. Context-aware, learning, autonomous.
+Before claiming a capability works, name its release and the specific deployed,
+packaged, installed or customer behavior actually checked. Use
+[epic #318](https://github.com/recoupable/mono/issues/318) and its existing feature
+tickets for remaining verification. A passing build establishes source
+compatibility; publication and original customer journeys have separate checks.

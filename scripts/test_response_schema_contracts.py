@@ -19,7 +19,7 @@ class ResponseSchemaContractsTest(ResponseContractTestCase):
 
 
     def test_check_rejects_drift_in_each_owned_component(self):
-        for name, component in [('projects.json', 'Error'), ('projects.json', 'AuthenticationError'), ('releases.json', 'ArtistPublicProfileErrorResponse')]:
+        for name, component in [('projects.json', 'Error'), ('projects.json', 'AuthenticationError'), ('releases.json', 'ArtistPublicProfileErrorResponse'), ('social.json', 'CommentsErrorResponse'), ('social.json', 'CommentsAuthenticationErrorResponse')]:
             with self.subTest(specification=name, component=component):
                 path = self.marketing / 'content/docs/source/api-reference/openapi' / name
                 original = path.read_bytes()

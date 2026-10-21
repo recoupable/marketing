@@ -9,6 +9,8 @@ SCHEMA_TARGETS = [
     ('releases.json', 'ArtistPublicProfileErrorResponse', 'ErrorResponse'),
     ('projects.json', 'Error', 'ErrorResponse'),
     ('projects.json', 'AuthenticationError', 'AuthenticationErrorResponse'),
+    ('social.json', 'CommentsErrorResponse', 'ErrorResponse'),
+    ('social.json', 'CommentsAuthenticationErrorResponse', 'AuthenticationErrorResponse'),
 ]
 RESPONSE_TARGETS = [
     ('releases.json', 'GET', '/api/artists/{id}/profile', 404),

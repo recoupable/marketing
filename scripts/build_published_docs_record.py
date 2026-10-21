@@ -4,6 +4,8 @@ import json
 import re
 from build_guarded_file_contract import build_guarded_file_contract
 from resolve_response_schema import resolve_response_schema
+from build_plan_balance_contract import build_plan_balance_contract
+from build_sites_lifecycle_contract import build_sites_lifecycle_contract
 
 
 def build_published_docs_record(specs, source, root, schema_hash, response_schemas):
@@ -78,5 +80,27 @@ def build_published_docs_record(specs, source, root, schema_hash, response_schem
             releases['paths']['/api/artists/{id}/fans']['get']['responses']['200']['content']['application/json']['schema'], releases,
         ),
         'example': releases['components']['schemas']['ArtistFansResponse']['example'],
+    }
+    comments = specs['social.json']['paths']['/api/comments']['get']
+    record['storedComments'] = {
+        'method': 'GET', 'path': '/api/comments',
+        'security': comments.get('security', []),
+        'parameters': comments['parameters'],
+        'schemas': {
+            status: resolve_response_schema(response['content']['application/json']['schema'], specs['social.json'])
+            for status, response in comments['responses'].items()
+        },
+        'headers': {status: response['headers'] for status, response in comments['responses'].items()},
+        'queryExample': {parameter['name']: parameter['example'] for parameter in comments['parameters']},
+        'example': specs['social.json']['components']['schemas']['CommentsResponse']['example'],
+    }
+    record['planBalances'] = build_plan_balance_contract(specs['accounts.json'], root)
+    record['sourceHashes']['content/docs/source/credits.mdx'] = hashlib.sha256((root / 'content/docs/source/credits.mdx').read_bytes()).hexdigest()
+    record['siteLifecycle'] = build_sites_lifecycle_contract(sites_path.read_text())
+    record['headlessChat'] = {
+        'requestSchema': resolve_response_schema(research['components']['schemas']['ChatGenerateRequest'], research),
+        'requestExamples': [research['components']['schemas']['ChatGenerateRequest']['example'], *research['components']['schemas']['ChatGenerateRequest'].get('examples', [])],
+        'errorSchema': resolve_response_schema(research['components']['schemas']['ChatGenerateErrorResponse'], research),
+        'statusSchema': resolve_response_schema(research['components']['schemas']['ChatRunStatusResponse'], research),
     }
     return record
