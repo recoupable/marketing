@@ -38,6 +38,13 @@ freezes resolved response schemas by method, path and HTTP status for API tests.
 The check mode rejects drift from the pinned API artifact. It covers selected error
 responses, not every operation or hosted authentication.
 
+The same fixture freezes selected Research/Sessions 500 responses for failed
+chat reads. API `publishedChatReadFailures.test.ts` calls eight canonical route
+exports with synthetic service leaves. It also retains the existing POST 200
+resume behavior and GET finish-only 200 SSE; this does not accept a newly
+submitted turn on the POST resume path. No new submission conflict/retry,
+queue, disconnect or client behavior is implied by the read-failure repair.
+
 For coordinated changes, regenerate the API artifact and the two fixture copies:
 Marketing's `content/docs/contracts/example-cases.json` and API's
 `lib/contracts/fixtures/published-docs.json`. Run the API contract tests and

@@ -14,7 +14,7 @@ parser.add_argument('--check', action='store_true')
 args = parser.parse_args()
 root = Path(__file__).resolve().parent.parent
 source = root / 'content/docs/source/api-reference/openapi'
-specs = {name: json.loads((source / name).read_text()) for name in ['accounts.json', 'content.json', 'research.json', 'releases.json', 'social.json', 'context.json', 'projects.json']}
+specs = {name: json.loads((source / name).read_text()) for name in ['accounts.json', 'content.json', 'research.json', 'releases.json', 'social.json', 'context.json', 'projects.json', 'sessions.json']}
 api = Path(args.api).resolve()
 schema_hash, response_schemas = build_response_contracts(specs, source, api, args.check)
 refresh_context_mapping(specs['context.json'], source / 'context.json', args.check)

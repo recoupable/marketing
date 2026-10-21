@@ -63,6 +63,8 @@ def build_published_docs_record(specs, source, root, schema_hash, response_schem
             'usageTimeCursorExample': specs['accounts.json']['components']['schemas']['AccountUsageResponse']['properties']['next_cursor']['example'],
             'catalogDaysMaximum': next(p['schema']['maximum'] for p in releases['paths']['/api/catalogs/{catalogId}/streams']['get']['parameters'] if p['name'] == 'days'),
             'resumeNoActiveStatus': 204 if '204' in resume['responses'] else 200,
+            'chatStartResponses': sorted(research['paths']['/api/chat']['post']['responses']),
+            'chatStartMediaTypes': sorted(research['paths']['/api/chat']['post']['responses']['200']['content']),
             'resumeResponses': sorted(resume['responses']),
             'stopResponses': sorted(research['paths']['/api/chat/{chatId}/stop']['post']['responses']),
             'taskModelType': releases['components']['schemas']['CreateTaskRequest']['properties'].get('model', {}).get('type'),

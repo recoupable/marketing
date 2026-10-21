@@ -818,7 +818,7 @@
       "get": {
         "operationId": "getChatByChatIdStream",
         "summary": "Resume a chat response stream",
-        "description": "Reconnects to an in-progress chat response — the resume counterpart to [`POST /api/chat`](/api-reference/chat/workflow), which never resumes. Returns the live Server-Sent Events stream when a response is still being generated, or a `200` finish-only SSE stream when no active response exists or the run is terminal. The chat must belong to the authenticated account.\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) — the interactive turn whose stream this resumes.\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — start a **headless** run, then pass the returned `chatId` here to **watch its output live**.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** that run finished (status, not content).",
+        "description": "Reconnects to an in-progress chat response without submitting another message. [`POST /api/chat`](/api-reference/chat/workflow) can currently return an existing live stream without accepting the submitted new turn; use this GET route for explicit reconnection. Returns the live Server-Sent Events stream when a response is still being generated, or a `200` finish-only SSE stream when no active response exists or the run is terminal. The chat must belong to the authenticated account.\n\n**Related endpoints**\n- [`POST /api/chat`](/api-reference/chat/workflow) — the interactive turn whose stream this resumes.\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — start a **headless** run, then pass the returned `chatId` here to **watch its output live**.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** that run finished (status, not content).",
         "security": [
           {
             "apiKeyAuth": []
@@ -926,7 +926,7 @@
             }
           },
           "500": {
-            "description": "Session ownership lookup failed.",
+            "description": "The chat or session ownership lookup failed. This is not a missing-chat result.",
             "content": {
               "application/json": {
                 "schema": {
@@ -952,7 +952,7 @@
       "post": {
         "operationId": "postChat",
         "summary": "Stream sandbox-driven chat (Vercel Workflow)",
-        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) — no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** a headless run finished (status, not content).",
+        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) — no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** a headless run finished (status, not content).\n\nIf an existing workflow is running or pending, the current API can return its `200` event stream before saving the submitted new turn. That response does not confirm acceptance of a new message. Use `GET /api/chat/{chatId}/stream` for explicit reconnection and inspect the chat state before submitting another turn.",
         "security": [
           {
             "apiKeyAuth": []
@@ -971,7 +971,7 @@
         },
         "responses": {
           "200": {
-            "description": "Server-Sent Events stream of UI message parts compatible with the Vercel AI SDK `createUIMessageStreamResponse`. The `x-workflow-run-id` response header carries the durable workflow run ID for resume/stop operations.",
+            "description": "Server-Sent Events stream of UI message parts compatible with the Vercel AI SDK `createUIMessageStreamResponse`. The `x-workflow-run-id` response header carries the durable workflow run ID for resume/stop operations. This can be the existing running or pending response rather than a newly accepted turn; the submitted new turn is not saved on that resume path.",
             "headers": {
               "x-workflow-run-id": {
                 "description": "Durable workflow run ID. Persist alongside the chat so a later `GET /api/chat/{chatId}/stream` request can resume this run after a disconnect.",
@@ -1030,7 +1030,17 @@
             }
           },
           "409": {
-            "description": "A response is already streaming for this chat. Reconnect to it via `GET /api/chat/{chatId}/stream` instead of POSTing again.",
+            "description": "A workflow/start conflict, including an unresolved existing run or a race to claim the chat. Inspect the chat state before retrying and use `GET /api/chat/{chatId}/stream` for explicit reconnection. A live run may instead be returned as a `200` stream.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error, including a failed chat or session lookup. A failed lookup is not a missing-chat result.",
             "content": {
               "application/json": {
                 "schema": {
