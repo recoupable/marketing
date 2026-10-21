@@ -38,6 +38,13 @@ freezes resolved response schemas by method, path and HTTP status for API tests.
 The check mode rejects drift from the pinned API artifact. It covers selected error
 responses, not every operation or hosted authentication.
 
+The same fixture freezes selected chat-start/reconnect and session-chat error
+responses from Research and Sessions. API `publishedChatRecovery.test.ts` calls
+the canonical route exports with synthetic service leaves. It distinguishes the
+early active-run rejection from later start conflicts and failed chat reads from
+empty or missing chats. GET's finish-only 200 SSE and status-read 502 stay intact.
+These checks do not establish client text preservation or live reconnect behavior.
+
 For coordinated changes, regenerate the API artifact and the two fixture copies:
 Marketing's `content/docs/contracts/example-cases.json` and API's
 `lib/contracts/fixtures/published-docs.json`. Run the API contract tests and

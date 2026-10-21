@@ -296,7 +296,7 @@
             }
           },
           "500": {
-            "description": "Server error — the read record could not be persisted.",
+            "description": "The chat could not be read, or the read record could not be persisted. A failed chat lookup stops the read-record write.",
             "content": {
               "application/json": {
                 "schema": {
@@ -357,6 +357,16 @@
           },
           "404": {
             "description": "Not found — no session exists with the given id.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The chat list could not be read. A failed lookup returns an error rather than a successful empty list.",
             "content": {
               "application/json": {
                 "schema": {
@@ -454,7 +464,7 @@
             }
           },
           "500": {
-            "description": "Server error — the chat could not be persisted.",
+            "description": "The requested chat id could not be checked, or the new chat could not be persisted. A failed id lookup stops creation; it is not treated as an unused id.",
             "content": {
               "application/json": {
                 "schema": {
@@ -524,6 +534,16 @@
           },
           "404": {
             "description": "Not found — no session exists with the given id, the chat does not exist, or the chat belongs to a different session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The chat could not be read. A failed lookup returns an error rather than a missing-chat response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -620,7 +640,7 @@
             }
           },
           "500": {
-            "description": "Server error — the chat could not be updated.",
+            "description": "The chat could not be read or updated. A failed lookup stops the update.",
             "content": {
               "application/json": {
                 "schema": {
@@ -707,7 +727,7 @@
             }
           },
           "500": {
-            "description": "Server error — the chat could not be deleted.",
+            "description": "The chat or sibling chat list could not be read, or deletion failed. A failed lookup stops deletion.",
             "content": {
               "application/json": {
                 "schema": {

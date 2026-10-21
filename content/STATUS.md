@@ -1,3 +1,19 @@
+## Chat recovery contract candidate — October 21, 2026
+
+The eight Research/Sessions operation references now describe the chat-start
+repair candidate: early active-run conflicts return 409, unresolved run state
+returns 503, and failed chat reads return 500 rather than empty/missing results.
+The new-turn guidance asks clients to preserve submitted text and inspect chat
+state before resubmitting. Other 409 paths can occur after work starts, so the
+no-save/no-start description is limited to the early active-run check.
+
+Selected error schemas are frozen through the existing producer, now including
+Sessions. API route contract tests retain GET's finish-only 200 SSE and 502 on
+failed workflow-status reads. Source inventory pins the candidate API commit,
+not a released version. Runtime review, client acceptance and the actual API
+merge remain release prerequisites; retained Docs must follow the actual
+Marketing merge. No disconnect guarantee, queue or automatic replay is added.
+
 ## Unsupported-operation references — October 21, 2026
 
 Prepared Mono #327's bounded reference correction against API `db3cdd16`.

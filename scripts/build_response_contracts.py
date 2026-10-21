@@ -16,6 +16,17 @@ RESPONSE_TARGETS = [
     ('releases.json', 'GET', '/api/artists/{id}/profile', 404),
     ('projects.json', 'GET', '/api/projects/{projectId}', 401),
     ('projects.json', 'GET', '/api/projects/{projectId}', 404),
+    ('research.json', 'POST', '/api/chat', 409),
+    ('research.json', 'POST', '/api/chat', 500),
+    ('research.json', 'POST', '/api/chat', 503),
+    ('research.json', 'GET', '/api/chat/{chatId}/stream', 500),
+    ('research.json', 'GET', '/api/chat/{chatId}/stream', 502),
+    ('sessions.json', 'GET', '/api/sessions/{sessionId}/chats', 500),
+    ('sessions.json', 'POST', '/api/sessions/{sessionId}/chats', 500),
+    ('sessions.json', 'GET', '/api/sessions/{sessionId}/chats/{chatId}', 500),
+    ('sessions.json', 'PATCH', '/api/sessions/{sessionId}/chats/{chatId}', 500),
+    ('sessions.json', 'DELETE', '/api/sessions/{sessionId}/chats/{chatId}', 500),
+    ('sessions.json', 'POST', '/api/sessions/{sessionId}/chats/{chatId}/read', 500),
 ]
 
 
