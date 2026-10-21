@@ -343,6 +343,15 @@ source, then use `python3 scripts/sync-legacy-docs.py --target /path/to/docs` to
 prepare a pinned publication PR in the retained Mintlify repository. Keep host
 cutover and archival separate from content reconciliation.
 
+`scripts/build_admin_coding_slack_contract.py` freezes the admin author-filter
+and author-options declarations, examples and resolved response schemas through
+the existing shared fixture producer. Keep it in the isolated producer test
+workspace's explicit helper list. API's `publishedAdminCodingSlack.test.ts`
+compares that fixture with real route/query/auth code under mocked credential,
+admin and Slack leaves; it does not verify production access, history coverage,
+latency or quotas. Preserve the admin and per-request collection limits when
+editing these references; no automatic caller is part of this contract.
+
 ## Public company map
 
 `/atlas` presents the company operating model. See `docs/company-map.md` for the public-only projection boundary and refresh checks. Never copy private atlas evidence, engineering findings or source files into this public repository.
