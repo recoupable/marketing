@@ -440,7 +440,7 @@
         },
         "responses": {
           "200": {
-            "description": "Handshake response from `@vercel/blob/client` \u2014 return verbatim to the library.",
+            "description": "Handshake response from `@vercel/blob/client` — return verbatim to the library.",
             "content": {
               "application/json": {
                 "schema": {
@@ -757,7 +757,7 @@
     "/api/content": {
       "patch": {
         "operationId": "patchContent",
-        "description": "Apply ffmpeg edits to a video \u2014 trim, crop, resize, or overlay text. Pass a `template` for a preset edit pipeline, or build your own with an `operations` array.",
+        "description": "Apply ffmpeg edits to a video — trim, crop, resize, or overlay text. Pass a `template` for a preset edit pipeline, or build your own with an `operations` array.",
         "security": [
           {
             "apiKeyAuth": []
@@ -789,7 +789,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -799,7 +799,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -824,7 +824,7 @@
     "/api/content/create": {
       "post": {
         "operationId": "postContentCreate",
-        "description": "Trigger the content creation pipeline for an artist. Provide `artist_account_id` to identify the target artist. Validates the artist has all required files (face guide, songs) unless overridden via `songs` URLs or `images`, then triggers a background task that generates a short-form video. Returns `runIds` \u2014 an array of run IDs that can each be polled via [GET /api/tasks/runs](/api-reference/tasks/runs).",
+        "description": "Trigger the content creation pipeline for an artist. Provide `artist_account_id` to identify the target artist. Validates the artist has all required files (face guide, songs) unless overridden via `songs` URLs or `images`, then triggers a background task that generates a short-form video. Returns `runIds` — an array of run IDs that can each be polled via [GET /api/tasks/runs](/api-reference/tasks/runs).",
         "security": [
           {
             "apiKeyAuth": []
@@ -846,7 +846,7 @@
         },
         "responses": {
           "202": {
-            "description": "Pipeline triggered successfully. Returns `runIds` \u2014 an array of run IDs. Poll each via [GET /api/tasks/runs](/api-reference/tasks/runs) to check progress.",
+            "description": "Pipeline triggered successfully. Returns `runIds` — an array of run IDs. Poll each via [GET /api/tasks/runs](/api-reference/tasks/runs) to check progress.",
             "content": {
               "application/json": {
                 "schema": {
@@ -856,7 +856,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 missing artist identifier, artist is missing required files, or template not found",
+            "description": "Validation failed — missing artist identifier, artist is missing required files, or template not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -866,7 +866,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -876,7 +876,7 @@
             }
           },
           "404": {
-            "description": "Artist not found \u2014 the provided artist_account_id does not match any artist",
+            "description": "Artist not found — the provided artist_account_id does not match any artist",
             "content": {
               "application/json": {
                 "schema": {
@@ -891,7 +891,7 @@
     "/api/content/templates": {
       "get": {
         "operationId": "getContentTemplates",
-        "description": "List all available content creation templates. Templates are optional \u2014 every content primitive works without one. When you do use a template, it provides a complete creative recipe: image prompts, video motion config, caption style rules, and edit operations. Returns template ID and description only \u2014 enough to pick the right one.",
+        "description": "List all available content creation templates. Templates are optional — every content primitive works without one. When you do use a template, it provides a complete creative recipe: image prompts, video motion config, caption style rules, and edit operations. Returns template ID and description only — enough to pick the right one.",
         "security": [
           {
             "apiKeyAuth": []
@@ -912,7 +912,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -960,7 +960,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1029,7 +1029,7 @@
             }
           },
           "400": {
-            "description": "Bad request \u2014 artist_account_id is required",
+            "description": "Bad request — artist_account_id is required",
             "content": {
               "application/json": {
                 "schema": {
@@ -1039,7 +1039,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1049,7 +1049,7 @@
             }
           },
           "404": {
-            "description": "Artist not found \u2014 the provided artist_account_id does not match any artist",
+            "description": "Artist not found — the provided artist_account_id does not match any artist",
             "content": {
               "application/json": {
                 "schema": {
@@ -1064,7 +1064,7 @@
     "/api/content/estimate": {
       "get": {
         "operationId": "getContentEstimate",
-        "description": "Estimate the cost of running the content creation pipeline. Calculates per-step and per-video costs based on current pricing. Supports comparing multiple workflow profiles (e.g., premium vs. budget) and projecting batch costs. This endpoint is informational only \u2014 it does not trigger any pipeline execution or spend credits.",
+        "description": "Estimate the cost of running the content creation pipeline. Calculates per-step and per-video costs based on current pricing. Supports comparing multiple workflow profiles (e.g., premium vs. budget) and projecting batch costs. This endpoint is informational only — it does not trigger any pipeline execution or spend credits.",
         "security": [
           {
             "apiKeyAuth": []
@@ -1120,7 +1120,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1175,7 +1175,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Slack Events API envelope \u2014 the shape depends on the event type"
+                "description": "Slack Events API envelope — the shape depends on the event type"
               }
             }
           }
@@ -1243,7 +1243,7 @@
     "/api/content-agent/callback": {
       "post": {
         "operationId": "postContentAgentCallback",
-        "description": "Internal worker callback for a configured content agent. Requires the shared callback secret in x-callback-secret. Public content creation uses POST /api/content/create.\n\nInternal callback endpoint for the `poll-content-run` Trigger.dev task. Receives content generation results and posts them back to the originating Slack thread. Authenticated via the `x-callback-secret` header.\n\nThis endpoint is not intended for external use \u2014 it is called automatically by the polling task when content runs complete, fail, or time out.\n\nThe receiver retains optional results[].imageUrl as a string, matching the existing videoUrl string validation; this does not add URL syntax validation. Only per-run results with status completed and a videoUrl enter media posting. An image without a completed video does not become an image-only job or still-only success. Existing video-only callbacks continue without an image read or image post.\n\nFor selected completed results, editorial images retain their per-result association and order; all editorial image posts precede all video posts, with videos also in result order. Images attach for normalized reported Content-Type image/png, image/jpeg, image/webp or image/gif. Missing or unsupported reported MIME, or failed image download, falls back to an Editorial Image URL message before video posting continues. Reported MIME is not byte verification or a safety scan. Each supplied image adds a media HTTP read and a thread attachment/link post within existing outbound callback trust, buffering and upload/runtime limits. This callback does not start another generation step or change generation billing.\n\nExisting caption/video labels, failed-run summaries and terminal-thread retry skipping remain. The thread-state skip is not a concurrency-safe or exactly-once delivery guarantee. Normal image delivery requires both this receiver support and a deployed polling mapper that forwards imageUrl (API #1097 and Tasks #162). Source tests and this reference do not establish worker deployment, hosted authorization, actual Slack file rendering or end-to-end image delivery.",
+        "description": "Internal worker callback for a configured content agent. Requires the shared callback secret in x-callback-secret. Public content creation uses POST /api/content/create.\n\nInternal callback endpoint for the `poll-content-run` Trigger.dev task. Receives content generation results and posts them back to the originating Slack thread. Authenticated via the `x-callback-secret` header.\n\nThis endpoint is not intended for external use — it is called automatically by the polling task when content runs complete, fail, or time out.\n\nThe receiver retains optional results[].imageUrl as a string, matching the existing videoUrl string validation; this does not add URL syntax validation. Only per-run results with status completed and a videoUrl enter media posting. An image without a completed video does not become an image-only job or still-only success. Existing video-only callbacks continue without an image read or image post.\n\nFor selected completed results, editorial images retain their per-result association and order; all editorial image posts precede all video posts, with videos also in result order. Images attach for normalized reported Content-Type image/png, image/jpeg, image/webp or image/gif. Missing or unsupported reported MIME, or failed image download, falls back to an Editorial Image URL message before video posting continues. Reported MIME is not byte verification or a safety scan. Each supplied image adds a media HTTP read and a thread attachment/link post within existing outbound callback trust, buffering and upload/runtime limits. This callback does not start another generation step or change generation billing.\n\nExisting caption/video labels, failed-run summaries and terminal-thread retry skipping remain. The thread-state skip is not a concurrency-safe or exactly-once delivery guarantee. Normal image delivery requires both this receiver support and a deployed polling mapper that forwards imageUrl (API #1097 and Tasks #162). Source tests and this reference do not establish worker deployment, hosted authorization, actual Slack file rendering or end-to-end image delivery.",
         "requestBody": {
           "description": "Content generation results from the polling task",
           "required": true,
@@ -1443,7 +1443,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1453,7 +1453,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1478,7 +1478,7 @@
     "/api/content/analyze": {
       "post": {
         "operationId": "postContentAnalyze",
-        "description": "Analyze a video and answer questions about it. Pass a video URL and a text prompt \u2014 for example, \"Describe what happens\" or \"Rate the visual quality 1-10.\" Returns the generated text.",
+        "description": "Analyze a video and answer questions about it. Pass a video URL and a text prompt — for example, \"Describe what happens\" or \"Rate the visual quality 1-10.\" Returns the generated text.",
         "security": [
           {
             "apiKeyAuth": []
@@ -1510,7 +1510,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1520,7 +1520,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1577,7 +1577,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1587,7 +1587,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1644,7 +1644,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1654,7 +1654,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1721,7 +1721,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1731,7 +1731,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1798,7 +1798,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -1808,7 +1808,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -2177,7 +2177,7 @@
             }
           },
           "400": {
-            "description": "Validation failed \u2014 invalid or missing request body fields",
+            "description": "Validation failed — invalid or missing request body fields",
             "content": {
               "application/json": {
                 "schema": {
@@ -2187,7 +2187,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 invalid or missing API key",
+            "description": "Unauthorized — invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -3843,7 +3843,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Optional list of song slugs or public URLs to use for the audio track. Song slugs match filenames without extension from the artist's `songs/` directory (e.g. `\"hiccups\"` for `hiccups.mp3`). Public URLs (e.g. `\"https://example.com/my-song.mp3\"`) are downloaded, transcribed, and clipped directly \u2014 bypassing the Git repo. When omitted, all songs in the artist's repo are eligible.",
+            "description": "Optional list of song slugs or public URLs to use for the audio track. Song slugs match filenames without extension from the artist's `songs/` directory (e.g. `\"hiccups\"` for `hiccups.mp3`). Public URLs (e.g. `\"https://example.com/my-song.mp3\"`) are downloaded, transcribed, and clipped directly — bypassing the Git repo. When omitted, all songs in the artist's repo are eligible.",
             "example": [
               "hiccups",
               "https://example.com/unreleased-track.mp3"
@@ -3872,7 +3872,7 @@
           "status",
           "artist_account_id"
         ],
-        "description": "Confirmation that the content creation pipeline has been triggered. Always returns `runIds` as an array \u2014 even for a single run, it contains one element.",
+        "description": "Confirmation that the content creation pipeline has been triggered. Always returns `runIds` as an array — even for a single run, it contains one element.",
         "properties": {
           "runIds": {
             "type": "array",
@@ -4298,7 +4298,7 @@
           "id",
           "description"
         ],
-        "description": "A content creation template \u2014 a complete creative recipe defining visual style, composition, caption rules, and edit operations. Templates are optional; all primitives work without one.",
+        "description": "A content creation template — a complete creative recipe defining visual style, composition, caption rules, and edit operations. Templates are optional; all primitives work without one.",
         "properties": {
           "id": {
             "type": "string",
