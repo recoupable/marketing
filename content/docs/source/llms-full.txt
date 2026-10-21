@@ -41100,7 +41100,7 @@ This operation requires one of the security alternatives in the specification be
     "/api/content-agent/callback": {
       "post": {
         "operationId": "postContentAgentCallback",
-        "description": "Internal worker callback for a configured content agent. Requires the shared callback secret in x-callback-secret. Public content creation uses POST /api/content/create.\n\nInternal callback endpoint for the `poll-content-run` Trigger.dev task. Receives content generation results and posts them back to the originating Slack thread. Authenticated via the `x-callback-secret` header.\n\nThis endpoint is not intended for external use — it is called automatically by the polling task when content runs complete, fail, or time out.",
+        "description": "Internal worker callback for a configured content agent. Requires the shared callback secret in x-callback-secret. Public content creation uses POST /api/content/create.\n\nInternal callback endpoint for the `poll-content-run` Trigger.dev task. Receives content generation results and posts them back to the originating Slack thread. Authenticated via the `x-callback-secret` header.\n\nThis endpoint is not intended for external use — it is called automatically by the polling task when content runs complete, fail, or time out.\n\nThe receiver retains optional results[].imageUrl as a string, matching the existing videoUrl string validation; this does not add URL syntax validation. Only per-run results with status completed and a videoUrl enter media posting. An image without a completed video does not become an image-only job or still-only success. Existing video-only callbacks continue without an image read or image post.\n\nFor selected completed results, editorial images retain their per-result association and order; all editorial image posts precede all video posts, with videos also in result order. Images attach for normalized reported Content-Type image/png, image/jpeg, image/webp or image/gif. Missing or unsupported reported MIME, or failed image download, falls back to an Editorial Image URL message before video posting continues. Reported MIME is not byte verification or a safety scan. Each supplied image adds a media HTTP read and a thread attachment/link post within existing outbound callback trust, buffering and upload/runtime limits. This callback does not start another generation step or change generation billing.\n\nExisting caption/video labels, failed-run summaries and terminal-thread retry skipping remain. The thread-state skip is not a concurrency-safe or exactly-once delivery guarantee. Normal image delivery requires both this receiver support and a deployed polling mapper that forwards imageUrl (API #1097 and Tasks #162). Source tests and this reference do not establish worker deployment, hosted authorization, actual Slack file rendering or end-to-end image delivery.",
         "requestBody": {
           "description": "Content generation results from the polling task",
           "required": true,
@@ -41159,6 +41159,10 @@ This operation requires one of the security alternatives in the specification be
                         "error": {
                           "type": "string",
                           "description": "Error message (when failed)"
+                        },
+                        "imageUrl": {
+                          "type": "string",
+                          "description": "Optional editorial-image string associated with this run. Used only when this result is completed and also has videoUrl; not an image-only job. Attachment uses supported reported MIME, with URL fallback on download/MIME failure. No URL syntax validation is added by this field."
                         }
                       }
                     }
@@ -41166,6 +41170,46 @@ This operation requires one of the security alternatives in the specification be
                   "message": {
                     "type": "string",
                     "description": "Optional human-readable message"
+                  }
+                }
+              },
+              "examples": {
+                "withEditorialImages": {
+                  "summary": "Synthetic completed results with their already-produced editorial images. No generation or live delivery is exercised.",
+                  "value": {
+                    "threadId": "slack:C_FIXTURE:T_FIXTURE",
+                    "status": "completed",
+                    "results": [
+                      {
+                        "runId": "run-a",
+                        "status": "completed",
+                        "videoUrl": "https://example.invalid/video-a.mp4",
+                        "imageUrl": "https://example.invalid/editorial-a",
+                        "captionText": "First fixture caption"
+                      },
+                      {
+                        "runId": "run-b",
+                        "status": "completed",
+                        "videoUrl": "https://example.invalid/video-b.mp4",
+                        "imageUrl": "https://example.invalid/editorial-b",
+                        "captionText": "Second fixture caption"
+                      }
+                    ]
+                  }
+                },
+                "videoOnly": {
+                  "summary": "Existing video-only callback without an editorial image.",
+                  "value": {
+                    "threadId": "slack:C_FIXTURE:T_FIXTURE",
+                    "status": "completed",
+                    "results": [
+                      {
+                        "runId": "run-video",
+                        "status": "completed",
+                        "videoUrl": "https://example.invalid/video.mp4",
+                        "captionText": "Fixture caption"
+                      }
+                    ]
                   }
                 }
               }
