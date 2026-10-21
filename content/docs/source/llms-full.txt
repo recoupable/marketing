@@ -36280,6 +36280,15 @@ completion callbacks and its authorized Recoup credential and API base URL.
 Keep these values in service secret settings. The current callback secret name
 is `CODING_AGENT_CALLBACK_SECRET`; `CONTENT_AGENT_CALLBACK_SECRET` is obsolete.
 
+Slack sends the signed-request headers listed in the [webhook reference](https://recoupable.dev/docs/api-reference/content-agent/webhook).
+Keep `SLACK_CONTENT_SIGNING_SECRET` matched to that Slack app. Setup requests
+with missing or invalid signatures, a timestamp outside the five-minute window,
+or an unavailable signing secret return `401` with plain-text `Unauthorized`.
+A verified setup request returns its JSON challenge. If setup fails, check the
+app secret and service clock against [Slack request verification](https://docs.slack.dev/authentication/verifying-requests-from-slack/).
+Ordinary event acknowledgements come from the Slack adapter; they acknowledge
+receipt while generation completes separately.
+
 Mention the installed bot with the authorized artist account UUID:
 
 ```text
@@ -40934,7 +40943,7 @@ The supplied specification does not declare an OpenAPI security object for this 
     "/api/content-agent/{platform}": {
       "post": {
         "operationId": "postContentAgentByPlatform",
-        "description": "Webhook endpoint for the Recoup Content Agent Slack bot. Receives @mention events from Slack and triggers content generation for the mentioned artist. The bot parses the mention text for `<artist_account_id> [template] [batch=N] [lipsync]`, validates the artist, calls POST /api/content/create, and starts a background polling task that reports results back to the Slack thread.\n\nFor Slack, also handles `url_verification` challenges during app setup.",
+        "description": "Webhook endpoint for the Recoup Content Agent Slack bot. Receives @mention events from Slack and triggers content generation for the mentioned artist. The bot parses the mention text for `<artist_account_id> [template] [batch=N] [lipsync]`, validates the artist, calls POST /api/content/create, and starts a background polling task that reports results back to the Slack thread.\n\nFor Slack, also handles `url_verification` challenges during app setup.\n\nSlack supplies `X-Slack-Signature` and `X-Slack-Request-Timestamp`. Setup verification checks the exact raw body with the configured Content Agent app signing secret and accepts timestamps within five minutes of the server clock. A valid `url_verification` request returns the JSON challenge; missing or invalid setup signatures, an out-of-window timestamp, or an unavailable app signing secret return `401` with plain-text `Unauthorized`. Ordinary events continue through the existing Slack adapter.",
         "parameters": [
           {
             "name": "platform",
@@ -40946,6 +40955,24 @@ The supplied specification does not declare an OpenAPI security object for this 
               "enum": [
                 "slack"
               ]
+            }
+          },
+          {
+            "name": "X-Slack-Signature",
+            "in": "header",
+            "required": true,
+            "description": "Slack-generated signature for this request. Recoup verifies it with the Content Agent app signing secret; send the computed signature, never the signing secret itself.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Slack-Request-Timestamp",
+            "in": "header",
+            "required": true,
+            "description": "Slack-generated Unix timestamp in seconds. Setup verification rejects timestamps more than five minutes before or after the server clock.",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -40963,15 +40990,53 @@ The supplied specification does not declare an OpenAPI security object for this 
         },
         "responses": {
           "200": {
-            "description": "Event processed successfully",
+            "description": "A verified setup challenge is echoed as JSON. Ordinary JSON event callbacks receive the Slack adapter's plain-text ok acknowledgement; this acknowledges receipt while content generation continues separately.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "ok": {
-                      "type": "boolean"
+                    "challenge": {
+                      "type": "string",
+                      "description": "Echo of the verified Slack setup challenge."
                     }
+                  },
+                  "required": [
+                    "challenge"
+                  ]
+                },
+                "examples": {
+                  "verifiedSetup": {
+                    "summary": "Verified setup challenge",
+                    "value": {
+                      "challenge": "example-challenge"
+                    }
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "ok"
+              }
+            }
+          },
+          "401": {
+            "description": "Slack signature verification failed. Setup challenges use plain-text Unauthorized for missing or invalid signatures, timestamps outside the five-minute window, or an unavailable configured signing secret. The existing adapter handles ordinary event authentication and currently uses plain-text Invalid signature.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "setupChallenge": {
+                    "summary": "Setup signature rejected",
+                    "value": "Unauthorized"
+                  },
+                  "ordinaryEvent": {
+                    "summary": "Event signature rejected by the adapter",
+                    "value": "Invalid signature"
                   }
                 }
               }

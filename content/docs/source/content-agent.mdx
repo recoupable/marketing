@@ -74,6 +74,15 @@ completion callbacks and its authorized Recoup credential and API base URL.
 Keep these values in service secret settings. The current callback secret name
 is `CODING_AGENT_CALLBACK_SECRET`; `CONTENT_AGENT_CALLBACK_SECRET` is obsolete.
 
+Slack sends the signed-request headers listed in the [webhook reference](/api-reference/content-agent/webhook).
+Keep `SLACK_CONTENT_SIGNING_SECRET` matched to that Slack app. Setup requests
+with missing or invalid signatures, a timestamp outside the five-minute window,
+or an unavailable signing secret return `401` with plain-text `Unauthorized`.
+A verified setup request returns its JSON challenge. If setup fails, check the
+app secret and service clock against [Slack request verification](https://docs.slack.dev/authentication/verifying-requests-from-slack/).
+Ordinary event acknowledgements come from the Slack adapter; they acknowledge
+receipt while generation completes separately.
+
 Mention the installed bot with the authorized artist account UUID:
 
 ```text
