@@ -39,10 +39,12 @@ test('all imported OpenAPI references resolve within the independent snapshot',(
  expect(count>100).toBeTruthy();
 });
 
-test('multipart music requests use form file uploads, not JSON',()=>{
- const spec=specs['content.json'];
- for(const endpoint of ['/api/music/video-to-music','/api/music/stem-separation']) {
-  const curl=buildCurl({method:'POST',endpoint,spec,operation:spec.paths[endpoint].post});
+test('multipart request rendering handles individual files and file arrays without JSON',()=>{
+ // Synthetic contracts retain serializer coverage without advertising retired music routes.
+ const spec={};
+ for(const file of [{type:'string',format:'binary'},{type:'array',items:{type:'string',format:'binary'}}]) {
+  const operation={requestBody:{content:{'multipart/form-data':{schema:{type:'object',properties:{file},required:['file']}}}}};
+  const curl=buildCurl({method:'POST',endpoint:'/fixture/upload',spec,operation});
   expect(curl).toMatch(/--form '[^']+=@YOUR_FILE_PATH'/);expect(!curl.includes('--data ')).toBeTruthy();expect(!curl.includes('Content-Type: application/json')).toBeTruthy();
  }
 });

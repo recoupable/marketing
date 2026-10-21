@@ -166,7 +166,7 @@ If you are an LLM navigating these docs, here is a summary of the endpoint struc
 - **`/api/research/*`** — Artist and track search, lookup, profile, current metrics, audience, related artists, URLs, playlists, catalog entries and activities; track statistics and measurements; web, deep and people research, extraction, enrichment and events. See each operation's contract for provider mapping and coverage limits.
 - **`/api/content/*`** — Content creation (create, generate-image, generate-video, generate-caption, transcribe-audio, edit, upscale, analyze-video, templates, validate, estimate)
 - **`/api/chat/*`** — Chat (chats, artist, messages, messages-copy, messages-trailing-delete, create, update, delete, runs, runs-status, stream, compact)
-- **`/api/songs/*`** — Songs and catalogs (songs, create, analyze, analyze-presets, catalogs, catalogs-create, catalogs-delete, catalog-songs, catalog-songs-add, catalog-songs-delete)
+- **Songs and catalogs** — Read songs with `/api/songs`; import songs into an accessible catalog with `/api/catalogs/songs`. Analysis, catalog management and catalog-song reads/deletes have their own references. [Standalone song creation is not available](/api-reference/songs/create).
 - **`/api/tasks/*`** — Task automation (get, create, update, delete, runs)
 - **`/api/spotify/*`** — Spotify (search, artist, artist-albums, artist-top-tracks, album)
 - **`/api/instagram/*`** — Instagram (comments, profiles)

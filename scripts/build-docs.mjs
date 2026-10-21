@@ -72,20 +72,12 @@ for (const tab of nav) for (const group of tab.groups) for (const slug of group.
   entry.searchText=`${entry.title} ${entry.description} ${entry.category} ${entry.group} ${entry.api?.method || ''} ${entry.api?.path || ''} ${body.replace(/```[\s\S]*?```/g,' ').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ')}`;
   pages.push(entry);
 }
-const additionalTitles={
- '/api/music/compose':'Compose music',
- '/api/music/compose-detailed':'Compose detailed music',
- '/api/music/stream':'Stream music',
- '/api/music/plan':'Create a composition plan',
- '/api/music/video-to-music':'Create music from video',
- '/api/music/stem-separation':'Separate audio stems',
-};
 const specOperations=[];
 for(const [name,spec] of Object.entries(specs)) for(const [endpoint,item] of Object.entries(spec.paths)) for(const [method,operation] of Object.entries(item)) {
  if(!['get','post','put','patch','delete','head','options'].includes(method))continue;
  if(pages.some(p=>p.api?.spec===name && p.api.path===endpoint && p.api.method===method.toUpperCase()))continue;
  const slug=`api-reference/complete/${name.replace('.json','')}/${method}-${endpoint.replace(/^\/api\//,'').replace(/[^\w-]+/g,'-').replace(/-$/,'')}`;
- pages.push({slug,title:operation.summary||additionalTitles[endpoint]||`${method.toUpperCase()} ${endpoint}`,description:operation.description?.split('\n')[0]||'',category:'Additional endpoints',group:name.replace('.json',''),source:`api-reference/openapi/${name}`,body:'',headings:[],api:{method:method.toUpperCase(),path:endpoint,spec:name},searchText:`${method.toUpperCase()} ${endpoint} ${operation.summary||''} ${operation.description||''}`});
+ pages.push({slug,title:operation.summary||`${method.toUpperCase()} ${endpoint}`,description:operation.description?.split('\n')[0]||'',category:'Additional endpoints',group:name.replace('.json',''),source:`api-reference/openapi/${name}`,body:'',headings:[],api:{method:method.toUpperCase(),path:endpoint,spec:name},searchText:`${method.toUpperCase()} ${endpoint} ${operation.summary||''} ${operation.description||''}`});
  specOperations.push(slug);
 }
 const inventory={navigationPages:nav.flatMap(t=>t.groups.flatMap(g=>g.pages)).length,guidePages:pages.filter(p=>!p.api).length,apiPages:pages.filter(p=>p.api).length,specifications:Object.keys(specs),additionalOperations:specOperations,gaps};

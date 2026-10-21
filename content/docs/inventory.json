@@ -1,7 +1,7 @@
 {
-  "navigationPages": 225,
-  "guidePages": 21,
-  "apiPages": 222,
+  "navigationPages": 226,
+  "guidePages": 25,
+  "apiPages": 213,
   "specifications": [
     "accounts.json",
     "ai.json",
@@ -17,12 +17,6 @@
     "templates.json"
   ],
   "additionalOperations": [
-    "api-reference/complete/content/post-music-compose",
-    "api-reference/complete/content/post-music-compose-detailed",
-    "api-reference/complete/content/post-music-stream",
-    "api-reference/complete/content/post-music-plan",
-    "api-reference/complete/content/post-music-video-to-music",
-    "api-reference/complete/content/post-music-stem-separation",
     "api-reference/complete/content/post-content-packs",
     "api-reference/complete/content/get-content-packs-id",
     "api-reference/complete/content/patch-content-packs-id",

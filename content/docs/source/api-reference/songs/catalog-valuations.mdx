@@ -1,4 +1,24 @@
 ---
-title: Get Catalog Valuations
-openapi: get /api/catalogs/{catalogId}/valuations
+title: 'Valuation history availability'
+description: 'Saved valuation history is unfinished; current estimates do not establish a history.'
 ---
+
+Saved catalog valuation history is not available through
+`GET /api/catalogs/{catalogId}/valuations`. Current valuation calculations and
+catalog measurements do not establish that estimates were saved or can be read
+back as a dated series.
+
+## Existing implementation work
+
+[Reconciliation #326](https://github.com/recoupable/mono/issues/326) owns this
+outcome through [App #1911](https://github.com/recoupable/app/issues/1911) and
+[API #795](https://github.com/recoupable/api/pull/795).
+[API #1059](https://github.com/recoupable/api/pull/1059) continues that work as a
+held draft of internal adapters. It does not register a REST route, MCP tool or
+production caller and does not connect successful valuation runs to persistence.
+
+The existing owner must finish the access prerequisite, run-to-save integration,
+public read contract and authorized deployed save/readback before this feature
+can be advertised. Removing the unfinished operation from the callable
+specification does not complete or cancel valuation history. Do not rerun a paid
+valuation solely to try to recover an unconfirmed save.

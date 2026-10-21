@@ -2287,44 +2287,6 @@
             }
           }
         }
-      },
-      "post": {
-        "operationId": "postSongs",
-        "description": "**Availability: pending reconciliation.** This song-creation REST route has no matching route in the inspected API source. Resolve the supported creation contract separately; existing catalog or analysis operations do not establish this write route. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nBulk create or fetch songs by ISRC. For each song, the API attempts to look up metadata via internal search. If no data is found, optional fallback fields (name, album, notes, artists) are used.",
-        "requestBody": {
-          "description": "Array of songs to create or fetch",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateSongsRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Songs created or fetched successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SongsResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request - invalid parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SongsErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "x-recoup-availability": "pending"
       }
     },
     "/api/accounts/{id}/catalogs": {
@@ -3057,87 +3019,6 @@
             }
           }
         }
-      }
-    },
-    "/api/catalogs/{catalogId}/valuations": {
-      "get": {
-        "operationId": "getCatalogsByCatalogIdValuations",
-        "description": "**Availability: pending reconciliation.** Valuation-history readback has no matching route in the inspected API source. Valuation calculation and history persistence/readback are separate outcomes; calculation alone does not prove a saved, account-scoped history. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nGet the persisted valuation history for a catalog, latest first. A row is written each time a valuation band is computed for the whole catalog (valuation runs and measurement reads persist at most one row per catalog per day). Use limit=1 for the current value. History is what makes week-over-week deltas possible.",
-        "security": [
-          {
-            "apiKeyAuth": []
-          },
-          {
-            "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "catalogId",
-            "in": "path",
-            "description": "The unique identifier of the catalog. The catalog must belong to the authenticated account. Malformed (non-uuid) values are rejected with 400.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "Maximum number of valuation rows to return, latest first (default 30, max 100). limit=1 returns the current value. Invalid values are rejected with 400.",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100,
-              "default": 30
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The catalog's persisted valuation rows, latest first. Empty when no valuation has been persisted yet.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CatalogValuationsResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Malformed catalogId or limit",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Catalog not found or not owned by the authenticated account",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "x-recoup-availability": "pending"
       }
     },
     "/api/catalogs/{catalogId}/measurements": {
@@ -4971,61 +4852,6 @@
           }
         }
       },
-      "CatalogValuationsResponse": {
-        "type": "object",
-        "required": [
-          "status",
-          "valuations"
-        ],
-        "properties": {
-          "status": {
-            "type": "string",
-            "example": "success"
-          },
-          "valuations": {
-            "type": "array",
-            "description": "Persisted valuation rows, latest first.",
-            "items": {
-              "type": "object",
-              "required": [
-                "low",
-                "mid",
-                "high",
-                "measured_song_count",
-                "total_streams",
-                "measured_at"
-              ],
-              "properties": {
-                "low": {
-                  "type": "number",
-                  "description": "Low end of the estimated catalog value band, USD."
-                },
-                "mid": {
-                  "type": "number",
-                  "description": "Midpoint of the estimated catalog value band, USD."
-                },
-                "high": {
-                  "type": "number",
-                  "description": "High end of the estimated catalog value band, USD."
-                },
-                "measured_song_count": {
-                  "type": "integer",
-                  "description": "Songs measured in the capture this valuation was computed from."
-                },
-                "total_streams": {
-                  "type": "integer",
-                  "description": "Whole-catalog lifetime stream total at measurement time."
-                },
-                "measured_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "description": "When the underlying measurement was taken."
-                }
-              }
-            }
-          }
-        }
-      },
       "CreateArtistRequest": {
         "type": "object",
         "required": [
@@ -5204,52 +5030,6 @@
               "$ref": "#/components/schemas/CreateCatalogInput"
             },
             "description": "Array of catalog inputs for bulk create/link operations"
-          }
-        }
-      },
-      "CreateSongInput": {
-        "type": "object",
-        "required": [
-          "isrc"
-        ],
-        "properties": {
-          "isrc": {
-            "type": "string",
-            "description": "International Standard Recording Code of the song to create or fetch"
-          },
-          "name": {
-            "type": "string",
-            "description": "Optional. Song name, applied only if internal search cannot find valid info"
-          },
-          "album": {
-            "type": "string",
-            "description": "Optional. Album name, applied only if internal search cannot find valid info"
-          },
-          "notes": {
-            "type": "string",
-            "description": "Optional. Notes for the song, applied only if internal search cannot find valid info"
-          },
-          "artists": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Optional array of artist names, applied only if internal search cannot find valid info"
-          }
-        }
-      },
-      "CreateSongsRequest": {
-        "type": "object",
-        "required": [
-          "songs"
-        ],
-        "properties": {
-          "songs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreateSongInput"
-            },
-            "description": "Array of song inputs for bulk create/fetch"
           }
         }
       },
