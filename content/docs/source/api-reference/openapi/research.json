@@ -4342,7 +4342,7 @@
         "type": "object",
         "required": [
           "status",
-          "message"
+          "error"
         ],
         "properties": {
           "status": {
@@ -4352,16 +4352,16 @@
             ],
             "description": "Status of the request"
           },
-          "message": {
+          "error": {
             "type": "string",
-            "description": "Error message describing what went wrong"
+            "description": "Validation error describing why the headless request was rejected."
           },
           "missing_fields": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "Optional validation detail."
+            "description": "Optional validation path when available; a general request error can omit it."
           }
         }
       },
@@ -4411,7 +4411,28 @@
               ]
             }
           ]
-        }
+        },
+        "examples": [
+          {
+            "messages": [
+              {
+                "id": "user-inline-file",
+                "role": "user",
+                "parts": [
+                  {
+                    "type": "text",
+                    "text": "Summarize this attached note."
+                  },
+                  {
+                    "type": "file",
+                    "mediaType": "text/plain",
+                    "url": "data:text/plain;base64,U3ludGhldGljIHJlbGVhc2Ugbm90ZS4="
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       "ChatMessage": {
         "type": "object",
@@ -5995,30 +6016,38 @@
             "description": "Lifecycle state of the run. Read the produced content via the chat (`chatId` from the start response)."
           },
           "createdAt": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
-            "description": "When the workflow run was created.",
-            "example": "2026-08-25T19:33:56.000Z",
-            "nullable": true
+            "description": "When the workflow run was created; null if unavailable, including for terminal runs.",
+            "example": "2026-08-25T19:33:56.000Z"
           },
           "startedAt": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
-            "nullable": true,
-            "description": "When the workflow run started executing; null while queued.",
+            "description": "When execution started; null while unavailable or if its timing getter fails, including for terminal runs.",
             "example": "2026-08-25T19:34:16.386Z"
           },
           "completedAt": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
-            "nullable": true,
-            "description": "When the workflow run reached a terminal state; null while queued or running.",
+            "description": "When the run reached a terminal state; null while unavailable or if its timing getter fails, including for terminal runs.",
             "example": "2026-08-25T20:15:55.000Z"
           },
           "durationMs": {
-            "type": "integer",
-            "nullable": true,
-            "description": "`completedAt - startedAt` in milliseconds; null until the run is terminal.",
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "completedAt minus startedAt in milliseconds; null if either timestamp is unavailable, including for terminal runs.",
             "example": 2498614
           }
         }

@@ -126,52 +126,68 @@
     "/api/comments": {
       "get": {
         "operationId": "getComments",
-        "description": "**Availability: pending reconciliation.** The legacy comments read route has no matching route in the inspected API source. The comments and fan-recency workflow remains a retained product outcome pending its public read integration. Source baseline: October 12, 2026. Do not rely on this documented path as a currently supported hosted operation.\n\nRetrieve comments associated with an artist or a specific post, with support for pagination. This endpoint returns raw comment data including the comment text, associated post, and commenter's social profile reference.",
+        "description": "Read existing stored comments on posts linked to a creator the caller can access. Authenticate with exactly one x-api-key or Authorization: Bearer credential. Caller identity comes from authentication; artist_account_id is the required target creator UUID (the retained wire name), not a caller override. account_id and other unknown or repeated query parameters return 400.\n\nAccess uses direct roster, shared-organization and Recoup-administrator checks, plus endpoint-local self-creator and owning-organization-key reads. These read rules do not grant artist mutation permission. Missing and denied targets both return 403. Access is checked on each request; this is not an atomic guarantee against revocation during an executing request. Ownership follows the creator\u2019s linked socials through the post, not the commenter\u2019s social_id. Optional post_id is a stored posts.id UUID, never a URL, and only narrows the authorized linked-post set. An unrelated post or no linked socials returns an empty page; neither permits an unscoped read.\n\npage defaults to 1 and limit to 10; omitted or empty values use these defaults. Both otherwise require positive integers. Larger positive limits are accepted and clamped to 100; pagination.limit reports the effective value. Requests must satisfy page \u00d7 effective_limit <= 2147483647 or return 400. Comments are ordered by commented_at descending, then id descending. Counts use the same ownership/post filter. Offset pages are deterministic for a fixed dataset, not a frozen snapshot during concurrent changes. A page beyond the results can be empty while retaining a nonzero exact total; no results means total_pages=0. A missing exact count is a 500, not an invented zero.\n\nEach result has only id, post_id, social_id, comment and commented_at. Saved nulls are preserved in the nullable fields; a missing comment author/text is not invented. The stored post join determines inclusion; nullable post_id describes the retained row projection, not permission to read unlinked rows. No joined profile, account or grant metadata is returned. GET success and errors use Cache-Control: private, no-store. Authentication failures are 401; lookup failures are a masked 500 with no unscoped/provider fallback.\n\nThis reads saved evidence and does not start scraping, enrichment, billing or comment-writing work. The existing link lookup reads at most 10,000 social links; stored reads do not establish complete ingestion/history, a live report, or the original customer weekly-report journey. The implementation is merged in API #1062; hosted/customer verification remains separate in Mono #327/app #2023.",
         "parameters": [
           {
             "name": "artist_account_id",
             "in": "query",
-            "description": "The unique identifier of the artist account to fetch comments for",
+            "description": "Required target creator account UUID, using the retained artist wire name. It never overrides the authenticated caller.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "example": "11111111-1111-4111-8111-111111111111"
           },
           {
             "name": "post_id",
             "in": "query",
-            "description": "Filter comments by specific post",
+            "description": "Optional stored posts.id UUID. Narrows the authorized linked-post set; an unrelated stored post returns an empty page. This is not a post URL.",
             "required": false,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "example": "22222222-2222-4222-8222-222222222222"
           },
           {
             "name": "page",
             "in": "query",
-            "description": "Page number for pagination (default: 1)",
+            "description": "Positive integer page, default 1 for omitted or empty values. page \u00d7 effective_limit must not exceed 2147483647.",
             "required": false,
             "schema": {
               "type": "integer",
+              "minimum": 1,
               "default": 1
-            }
+            },
+            "example": 1
           },
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of comments per page (default: 10)",
+            "description": "Positive requested page size, default 10 for omitted or empty values. Values above 100 are accepted and clamped to 100; the response reports the effective size.",
             "required": false,
             "schema": {
               "type": "integer",
+              "minimum": 1,
               "default": 10
-            }
+            },
+            "example": 10
           }
         ],
         "responses": {
           "200": {
-            "description": "Comments retrieved successfully",
+            "description": "Stored comments and exact scoped pagination",
+            "headers": {
+              "Cache-Control": {
+                "description": "All GET success and error responses disable shared caching.",
+                "schema": {
+                  "type": "string",
+                  "const": "private, no-store"
+                },
+                "example": "private, no-store"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -181,7 +197,77 @@
             }
           },
           "400": {
-            "description": "Bad request - missing required parameters",
+            "description": "Invalid, repeated, unknown or unsupported-offset query parameters",
+            "headers": {
+              "Cache-Control": {
+                "description": "All GET success and error responses disable shared caching.",
+                "schema": {
+                  "type": "string",
+                  "const": "private, no-store"
+                },
+                "example": "private, no-store"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommentsValidationErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/conflicting credentials or rejected authentication; existing error or message envelope",
+            "headers": {
+              "Cache-Control": {
+                "description": "All GET success and error responses disable shared caching.",
+                "schema": {
+                  "type": "string",
+                  "const": "private, no-store"
+                },
+                "example": "private, no-store"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommentsAuthenticationErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Target is missing or not accessible; both use the same denial",
+            "headers": {
+              "Cache-Control": {
+                "description": "All GET success and error responses disable shared caching.",
+                "schema": {
+                  "type": "string",
+                  "const": "private, no-store"
+                },
+                "example": "private, no-store"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommentsErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Masked lookup/count failure; no unscoped or provider fallback",
+            "headers": {
+              "Cache-Control": {
+                "description": "All GET success and error responses disable shared caching.",
+                "schema": {
+                  "type": "string",
+                  "const": "private, no-store"
+                },
+                "example": "private, no-store"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -191,7 +277,15 @@
             }
           }
         },
-        "x-recoup-availability": "pending"
+        "summary": "Read saved comments on an authorized creator\u2019s linked posts",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/spotify/search": {
@@ -639,7 +733,7 @@
     "/api/socials/{id}/scrape": {
       "post": {
         "operationId": "postSocialsByIdScrape",
-        "description": "Trigger a scrape of one social profile. Use [Get Artist Socials](/api-reference/artists/socials) first to get the social `id`. The response contains scraper run metadata; poll it with the [Scraper Results API](/api-reference/apify/scraper).\n\n**Credits:** `50,000 + 10,000 × posts` micro-dollar credits per profile: $0.05 base + $0.01 per requested post. Omitting `posts` charges the 50,000 base, even when the selected platform fetches a default depth.\n\n**What `posts` does per platform**\n\n| Platform | `posts` | When `posts` is omitted |\n|---|---|---|\n| Instagram | ignored | the profile's latest posts (up to 12), always |\n| TikTok | `resultsPerPage` | 1 video |\n| YouTube | `maxResults`, `maxResultsShorts`, `maxResultStreams` (per content type) | 1 video, 0 Shorts, 0 streams |\n| X / Twitter | timeline items; retweets and replies are fetched but not stored | 10 timeline items before filtering |\n| LinkedIn | `maxPosts` on the posts actor (runs instead of the profile actor) | profile only, no posts |\n| Threads | ignored | profile only |\n| Facebook | ignored | profile only |\n\n**What gets stored.** Webhook processing persists supported records from successful runs. Platform filtering, missing fields and budget-limited follow-ups can leave partial results:\n\n- The profile: username, avatar, bio, follower and following counts, region. Served by [Get Artist Socials](/api-reference/artists/socials).\n- One follower snapshot per social per day whenever the run reports a follower count (following and post counts too, where the platform reports them). Served by the `history` parameter of Get Artist Socials.\n- Every returned post with its engagement (`views`, `likes`, `comments`, `reposts`, where the platform reports them). Served by [Get Artist Posts](/api-reference/posts/get).\n- Instagram only: comments batches for already-known and newly discovered posts, then terminal profile batches for the returned commenters. Available profile fields are saved; completion and field coverage are not guaranteed. Served by [Get Artist Fans](/api-reference/fans/get).\n\n**Fan discovery is one hop deep.** The commenter profile run is terminal: it never schedules comments or profile runs of its own. A normal single delivery can produce one profile run, two comments batches and two terminal commenter-profile batches. Five is a derived case, not a universal bound: retries, concurrent deliveries and budget checks affect the outcome. Budget checks are not atomic reservations and may allow overshoot; bookkeeping failures do not guarantee a hard cap. Pass `subtitles=true` on a YouTube social to include each video's transcript in the run results.",
+        "description": "Trigger a scrape of one social profile. Use [Get Artist Socials](/api-reference/artists/socials) first to get the social `id`. The response contains scraper run metadata; poll it with the [Scraper Results API](/api-reference/apify/scraper).\n\n**Credits:** `50,000 + 10,000 \u00d7 posts` micro-dollar credits per profile: $0.05 base + $0.01 per requested post. Omitting `posts` charges the 50,000 base, even when the selected platform fetches a default depth.\n\n**What `posts` does per platform**\n\n| Platform | `posts` | When `posts` is omitted |\n|---|---|---|\n| Instagram | ignored | the profile's latest posts (up to 12), always |\n| TikTok | `resultsPerPage` | 1 video |\n| YouTube | `maxResults`, `maxResultsShorts`, `maxResultStreams` (per content type) | 1 video, 0 Shorts, 0 streams |\n| X / Twitter | timeline items; retweets and replies are fetched but not stored | 10 timeline items before filtering |\n| LinkedIn | `maxPosts` on the posts actor (runs instead of the profile actor) | profile only, no posts |\n| Threads | ignored | profile only |\n| Facebook | ignored | profile only |\n\n**What gets stored.** Webhook processing persists supported records from successful runs. Platform filtering, missing fields and budget-limited follow-ups can leave partial results:\n\n- The profile: username, avatar, bio, follower and following counts, region. Served by [Get Artist Socials](/api-reference/artists/socials).\n- One follower snapshot per social per day whenever the run reports a follower count (following and post counts too, where the platform reports them). Served by the `history` parameter of Get Artist Socials.\n- Every returned post with its engagement (`views`, `likes`, `comments`, `reposts`, where the platform reports them). Served by [Get Artist Posts](/api-reference/posts/get).\n- Instagram only: comments batches for already-known and newly discovered posts, then terminal profile batches for the returned commenters. Available profile fields are saved; completion and field coverage are not guaranteed. Served by [Get Artist Fans](/api-reference/fans/get).\n\n**Fan discovery is one hop deep.** The commenter profile run is terminal: it never schedules comments or profile runs of its own. A normal single delivery can produce one profile run, two comments batches and two terminal commenter-profile batches. Five is a derived case, not a universal bound: retries, concurrent deliveries and budget checks affect the outcome. Budget checks are not atomic reservations and may allow overshoot; bookkeeping failures do not guarantee a hard cap. Pass `subtitles=true` on a YouTube social to include each video's transcript in the run results.",
         "parameters": [
           {
             "name": "id",
@@ -722,7 +816,7 @@
             }
           },
           "402": {
-            "description": "Insufficient credits — the body includes a static `billingUrl`. No Stripe object is created.",
+            "description": "Insufficient credits \u2014 the body includes a static `billingUrl`. No Stripe object is created.",
             "content": {
               "application/json": {
                 "schema": {
@@ -991,7 +1085,7 @@
             "bearerAuth": []
           }
         ],
-        "description": "List the executable actions available across the authenticated account's connectors. Each action is a single tool that can be invoked via POST /api/connectors/actions — for example, the `googlesheets` connector exposes actions like `GOOGLESHEETS_WRITE_SPREADSHEET`. Actions whose parent connector is not yet connected are returned with `isConnected: false` and cannot be executed until the connector is authorized via POST /api/connectors.",
+        "description": "List the executable actions available across the authenticated account's connectors. Each action is a single tool that can be invoked via POST /api/connectors/actions \u2014 for example, the `googlesheets` connector exposes actions like `GOOGLESHEETS_WRITE_SPREADSHEET`. Actions whose parent connector is not yet connected are returned with `isConnected: false` and cannot be executed until the connector is authorized via POST /api/connectors.",
         "parameters": [
           {
             "name": "account_id",
@@ -1016,7 +1110,7 @@
             }
           },
           "400": {
-            "description": "Bad request — invalid account_id format",
+            "description": "Bad request \u2014 invalid account_id format",
             "content": {
               "application/json": {
                 "schema": {
@@ -1026,7 +1120,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized — invalid or missing API key",
+            "description": "Unauthorized \u2014 invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1036,7 +1130,7 @@
             }
           },
           "403": {
-            "description": "Forbidden — no access to the specified account",
+            "description": "Forbidden \u2014 no access to the specified account",
             "content": {
               "application/json": {
                 "schema": {
@@ -1057,7 +1151,7 @@
             "bearerAuth": []
           }
         ],
-        "description": "Execute a connector action with the given parameters. The `actionSlug` must come from a prior call to GET /api/connectors/actions, and `parameters` must match the `parameters` JSON Schema returned for that action. The action's parent connector must be currently connected (`isConnected: true` in the catalog) — otherwise this endpoint returns 409. The `result` field passes through whatever the underlying connector returns; its shape is action-specific. To attach an image to a `file_uploadable` parameter (e.g. `images`), first stage it with [Upload Connector File](/api-reference/connectors/upload-file) and pass the returned descriptor.",
+        "description": "Execute a connector action with the given parameters. The `actionSlug` must come from a prior call to GET /api/connectors/actions, and `parameters` must match the `parameters` JSON Schema returned for that action. The action's parent connector must be currently connected (`isConnected: true` in the catalog) \u2014 otherwise this endpoint returns 409. The `result` field passes through whatever the underlying connector returns; its shape is action-specific. To attach an image to a `file_uploadable` parameter (e.g. `images`), first stage it with [Upload Connector File](/api-reference/connectors/upload-file) and pass the returned descriptor.",
         "requestBody": {
           "description": "Action to execute and the parameters for it",
           "required": true,
@@ -1081,7 +1175,7 @@
             }
           },
           "400": {
-            "description": "Bad request — missing or invalid parameters (e.g. `parameters` does not match the action's schema)",
+            "description": "Bad request \u2014 missing or invalid parameters (e.g. `parameters` does not match the action's schema)",
             "content": {
               "application/json": {
                 "schema": {
@@ -1091,7 +1185,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized — invalid or missing API key",
+            "description": "Unauthorized \u2014 invalid or missing API key",
             "content": {
               "application/json": {
                 "schema": {
@@ -1101,7 +1195,7 @@
             }
           },
           "403": {
-            "description": "Forbidden — no access to the specified account",
+            "description": "Forbidden \u2014 no access to the specified account",
             "content": {
               "application/json": {
                 "schema": {
@@ -1178,7 +1272,7 @@
             }
           },
           "400": {
-            "description": "Bad request — missing or invalid `url` (must be a reachable URL) or `toolSlug`.",
+            "description": "Bad request \u2014 missing or invalid `url` (must be a reachable URL) or `toolSlug`.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1188,7 +1282,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized — invalid or missing API key.",
+            "description": "Unauthorized \u2014 invalid or missing API key.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1999,7 +2093,7 @@
             "type": "string",
             "nullable": true,
             "description": "The phonographic copyright line",
-            "example": "℗ 2026 Sleep Sounds"
+            "example": "\u2117 2026 Sleep Sounds"
           },
           "release_date": {
             "type": "string",
@@ -2200,66 +2294,96 @@
             "description": "UUID of the comment"
           },
           "post_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uuid",
-            "description": "UUID of the associated post"
+            "description": "Stored post UUID when present. Saved nullable row shape is retained; ownership is still enforced through the linked post join."
           },
           "social_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uuid",
-            "description": "UUID of the social profile who made the comment"
+            "description": "Stored commenter social UUID, or null when absent. This is not the creator ownership filter."
           },
           "comment": {
-            "type": "string",
-            "description": "Comment text content"
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Saved comment text, or null when unavailable; no text is synthesized."
           },
           "commented_at": {
             "type": "string",
             "format": "date-time",
             "description": "Timestamp with timezone of when the comment was made"
           }
-        }
+        },
+        "required": [
+          "id",
+          "post_id",
+          "social_id",
+          "comment",
+          "commented_at"
+        ],
+        "additionalProperties": false
       },
       "CommentsErrorResponse": {
         "type": "object",
+        "properties": {
+          "status": {
+            "description": "Always `error`.",
+            "type": "string",
+            "enum": [
+              "error"
+            ]
+          },
+          "error": {
+            "description": "Human-readable error message or documented error code.",
+            "type": "string"
+          }
+        },
         "required": [
           "status",
           "error"
         ],
-        "properties": {
-          "status": {
-            "type": "string",
-            "enum": [
-              "error"
-            ],
-            "description": "Status of the request"
-          },
-          "error": {
-            "type": "string",
-            "description": "Error message describing what went wrong"
-          }
-        }
+        "additionalProperties": {}
       },
       "CommentsPagination": {
         "type": "object",
         "properties": {
           "total_count": {
             "type": "integer",
-            "description": "Total number of comments available"
+            "description": "Exact total within the same authorized linked-post and optional post filter.",
+            "minimum": 0
           },
           "page": {
             "type": "integer",
-            "description": "Current page number"
+            "description": "Current page number",
+            "minimum": 1
           },
           "limit": {
             "type": "integer",
-            "description": "Number of comments per page"
+            "description": "Effective page size after clamping to 100.",
+            "minimum": 1,
+            "maximum": 100
           },
           "total_pages": {
             "type": "integer",
-            "description": "Total number of pages available"
+            "description": "Ceiling of total_count/effective limit; zero when total_count is zero.",
+            "minimum": 0
           }
-        }
+        },
+        "required": [
+          "total_count",
+          "page",
+          "limit",
+          "total_pages"
+        ],
+        "additionalProperties": false
       },
       "CommentsResponse": {
         "type": "object",
@@ -2281,11 +2405,37 @@
             "items": {
               "$ref": "#/components/schemas/Comment"
             },
-            "description": "List of comments for the specified artist or post"
+            "description": "Saved comments within the authorized creator\u2019s linked-post set and optional post UUID filter."
           },
           "pagination": {
             "$ref": "#/components/schemas/CommentsPagination",
             "description": "Pagination metadata for the response"
+          }
+        },
+        "additionalProperties": false,
+        "example": {
+          "status": "success",
+          "comments": [
+            {
+              "id": "33333333-3333-4333-8333-333333333333",
+              "post_id": "22222222-2222-4222-8222-222222222222",
+              "social_id": "44444444-4444-4444-8444-444444444444",
+              "comment": "Saved fixture comment",
+              "commented_at": "2026-10-10T12:00:00Z"
+            },
+            {
+              "id": "55555555-5555-4555-8555-555555555555",
+              "post_id": "22222222-2222-4222-8222-222222222222",
+              "social_id": null,
+              "comment": null,
+              "commented_at": "2026-10-09T12:00:00Z"
+            }
+          ],
+          "pagination": {
+            "total_count": 2,
+            "page": 1,
+            "limit": 10,
+            "total_pages": 1
           }
         }
       },
@@ -3291,7 +3441,7 @@
         "properties": {
           "slug": {
             "type": "string",
-            "description": "Unique identifier for the action — pass this as `actionSlug` when calling POST /api/connectors/actions. Action slugs are always UPPERCASE_SNAKE_CASE (e.g. `GITHUB_CREATE_ISSUE`, `GMAIL_FETCH_EMAILS`, `GOOGLESHEETS_WRITE_SPREADSHEET`)."
+            "description": "Unique identifier for the action \u2014 pass this as `actionSlug` when calling POST /api/connectors/actions. Action slugs are always UPPERCASE_SNAKE_CASE (e.g. `GITHUB_CREATE_ISSUE`, `GMAIL_FETCH_EMAILS`, `GOOGLESHEETS_WRITE_SPREADSHEET`)."
           },
           "name": {
             "type": "string",
@@ -3331,7 +3481,7 @@
             "items": {
               "$ref": "#/components/schemas/ConnectorAction"
             },
-            "description": "Available actions across all connectors the authenticated account has access to. Both connected and unconnected actions are returned — check `isConnected` per action before attempting execution."
+            "description": "Available actions across all connectors the authenticated account has access to. Both connected and unconnected actions are returned \u2014 check `isConnected` per action before attempting execution."
           }
         }
       },
@@ -3348,7 +3498,7 @@
           },
           "parameters": {
             "type": "object",
-            "description": "Action-specific parameters matching the `parameters` JSON Schema returned by GET /api/connectors/actions for this `actionSlug`. The connector validates these against the cached schema before executing — invalid shapes return 400. Required.",
+            "description": "Action-specific parameters matching the `parameters` JSON Schema returned by GET /api/connectors/actions for this `actionSlug`. The connector validates these against the cached schema before executing \u2014 invalid shapes return 400. Required.",
             "additionalProperties": true
           },
           "account_id": {
@@ -3371,7 +3521,7 @@
           "result": {
             "type": "object",
             "additionalProperties": true,
-            "description": "Pass-through of the underlying connector's response payload. Shape is action-specific — consult the action's parameters schema and the third-party service's own documentation for what to expect. The server-side wrapper does not transform this field."
+            "description": "Pass-through of the underlying connector's response payload. Shape is action-specific \u2014 consult the action's parameters schema and the third-party service's own documentation for what to expect. The server-side wrapper does not transform this field."
           },
           "executedAt": {
             "type": "string",
@@ -3741,6 +3891,78 @@
             "description": "Human-readable error message"
           }
         }
+      },
+      "CommentsValidationErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error",
+          "missing_fields"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ]
+          },
+          "error": {
+            "type": "string"
+          },
+          "missing_fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Validation path, possibly empty for unknown query keys."
+          }
+        }
+      },
+      "CommentsAuthenticationErrorResponse": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "error": {
+                "description": "Human-readable error message or documented error code.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "error"
+            ],
+            "additionalProperties": {}
+          },
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "message": {
+                "description": "Human-readable authentication error message.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "message"
+            ],
+            "additionalProperties": {}
+          }
+        ]
       }
     }
   }

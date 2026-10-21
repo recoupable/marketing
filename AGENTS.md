@@ -25,8 +25,8 @@ something, fix it in the same commit.
 1. Read `content/STATUS.md` — current state, focus, what changed, what not to touch
 2. Read this file (you're doing it now)
 3. Read the context file relevant to your task (see Context Files below)
-4. **React/Next.js:** When writing or refactoring components, pages, or data fetching, read and follow **Vercel React best practices** (monorepo: `.agent/skills/vercel-react-best-practices/SKILL.md`; full guide: that folder's `AGENTS.md`). Prioritize: no barrel imports, no async waterfalls, minimal RSC payload, safe localStorage usage.
-5. **UI / Frontend design:** When building or refining UI (components, pages, layouts, styling, animations), use the **Impeccable** skills in the monorepo `.agents/skills/`. Read the relevant skill before implementing—especially `frontend-design/SKILL.md` for visual design, plus `animate`, `colorize`, `delight`, `polish`, and `adapt` as needed. See https://github.com/pbakaus/impeccable for the full set.
+4. **React/Next.js:** When writing or refactoring components, pages, or data fetching, read the installed **Vercel React best practices** skill from the session's skill catalogue. In the Mono checkout it is `.codex/skills/vercel-react-best-practices/SKILL.md`, with the full guide beside it in `AGENTS.md`; resolve that path from Mono, not a nested worktree. Prioritize: no barrel imports, no async waterfalls, minimal RSC payload, safe localStorage usage.
+5. **UI / Frontend design:** Read this repository's `DESIGN.md` and use relevant frontend/design skills actually available in the session catalogue. Do not assume an Impeccable installation or copy the old four-font/theme system into this Sky site. Other Recoup applications retain their own design instructions.
 
 ## Build Commands
 
@@ -35,7 +35,7 @@ pnpm install    # Install dependencies
 pnpm dev        # Dev server (Turbopack)
 pnpm build      # Production build (MUST pass before committing)
 pnpm start      # Start production server
-pnpm lint       # Fix lint issues
+pnpm lint       # Check with ESLint
 pnpm format     # Run prettier + lint
 ```
 
@@ -107,16 +107,23 @@ Read relevant swipe files before writing copy — real language > made-up langua
 ## Context Files (Read Before Creating Content)
 
 ```
-content/brand/website-structure-report.md — Positioning, hero, landing structure, nav (read for site/copy changes)
-content/brand/positioning.md — What we are, for whom, differentiators
+content/brand/product.md     — Current product/source ownership, pricing authority and verification boundaries
+DESIGN.md                    — Current Marketing Sky design and typography
+lib/copy/navigation.ts       — Current navigation; lib/copy/home*.ts owns homepage copy
 content/brand/voice.md       — How we sound (with WHY on each rule)
 content/brand/founder.md     — Sidney's story (for thought leadership)
-content/brand/product.md     — Features, stats (check updated date)
 content/brand/audience.md    — Customer personas (structured format)
 content/brand/examples.md    — Approved + rejected copy with reasons
 content/seo/pillars.md       — Topic clusters, target keywords
 content/posts/INDEX.md       — Generated inventory from the active published source; links dated planning archive
 ```
+
+`content/brand/website-structure-report.md`, `content/brand/positioning.md` and
+`content/brand/typography.md` preserve pre-Sky strategy/design history. Their
+historical recommendations do not override the current files above. Marketing
+offers live in `lib/pricing.ts` and `app/pricing/`; their source copy does not
+verify Stripe recurrence or the monthly/annual purchase handoff. The outstanding
+offer decision and authorized purchase verification remain in Mono #338.
 
 ## Adding a Blog Post
 
@@ -144,11 +151,14 @@ content/posts/INDEX.md       — Generated inventory from the active published s
 - Images: always include descriptive alt text
 - Internal links: 3-5 related posts per post
 
-## Dark mode
+## Theme and typography
 
-- **Single place to edit:** `app/globals.css` — the `[data-theme="dark"]` block overrides the same CSS variables (--background, --foreground, --muted, --border, --brand, etc.). Change dark colors only there.
-- **Toggle:** Header (sun/moon icon). Preference is stored in `localStorage` key `recoupable-theme:v1` and respected on load; falls back to `prefers-color-scheme` when no stored value.
-- **No flash:** An inline script in `app/layout.tsx` sets `data-theme` on `<html>` before first paint. Keep its logic in sync with `contexts/ThemeContext.tsx` (storage key and fallback).
+The Sky shell uses the design tokens in `DESIGN.md` and `app/globals.css`.
+`app/layout.tsx` imports DM Sans Variable and IBM Plex Mono. The former global
+theme provider, header toggle and theme-storage initialization were removed;
+do not restore them from historical instructions. A route-local dark selector
+does not establish a site-wide preference system. `contexts/` currently holds
+the route-scoped Privy authentication provider.
 
 ## Brand
 
@@ -159,9 +169,10 @@ content/posts/INDEX.md       — Generated inventory from the active published s
 
 ## Integrations
 
-- **Lead capture:** one browser client, `lib/leads/postLead.ts`, posts to `POST /api/leads` on the Recoup api, which owns Attio storage, the triage note, and the Telegram page (chat#1800). Subscribe surfaces call it through `lib/marketing-subscribe.ts`; the music-video quote form calls it directly. Inquiry forms post to the same-origin `/api/inquiries` proxy (`lib/inquiries/`), which validates `source` against `lib/inquiry/inquirySourceSchema.ts`, de-duplicates, forwards `kind: booking`, and returns `{ ok: true, submission_id }`. Marketing holds no Attio client and no `ATTIO_API_KEY`. The api base is `siteConfig.apiUrl` (`lib/config.
+- **Lead capture:** one browser client, `lib/leads/postLead.ts`, posts to `POST /api/leads` on the Recoup API, which owns CRM storage and notifications. Subscribe surfaces call it through `lib/marketing-subscribe.ts`; the music-video quote form calls it directly. Inquiry forms post to the same-origin `/api/inquiries` proxy (`lib/inquiries/`), which validates `source` against `lib/inquiry/inquirySourceSchema.ts`, de-duplicates, forwards `kind: booking`, and returns `{ ok: true, submission_id }`. Marketing holds no Attio client and no `ATTIO_API_KEY`. The API base is `siteConfig.apiUrl` in `lib/config.ts`; preserve its environment selection rather than hardcoding a host.
 - **Attribution:** one store, `lib/attribution/` (`recoup:acquisition:v1` in sessionStorage, first + latest tagged visit). Forms read it with `currentReferralAttribution()`; CRM notes render it via `describeAcquisitionTags()` as `source=x; medium=y; campaign=z` (no underscores, Attio notes are markdown). App links go through `lib/appLink.ts` / `<AppLink>` and carry `utm_source=marketing&utm_medium=<placement>&utm_campaign=sky`, the visitor's own tags winning.
 - **Analytics:** Vercel Web Analytics (`<Analytics />` in `app/layout.tsx`); custom events go through `lib/analytics/trackEvent.ts` only, and props never carry visitor details. Funnel events: `cta_clicked {cta, placement, plan?}` (`<TrackedLink>`), `pricing_billing_toggled {billing}`, `inquiry_started {source, plan?}`, `inquiry_submitted {source, plan?, budget?, timeline?, company_type?, submission_id}`, `inquiry_failed {source, reason: validation|network|rejected|timeout}`, `subscribe_submitted {source}`, `audit_completed {score}`, `roi_calculated {recommended_plan}`, `podcast_platform_clicked {platform}`, `podcast_episode_clicked {slug, platform}`, `podcast_guest_requested {placement}`.
+- **Background work:** new platform scheduled/background jobs belong in API Vercel Workflows under Mono's architecture rules. Existing Trigger.dev jobs and Marketing's `workflows/` helpers are retained implementations, not the default location for new platform jobs.
 
 ## Code Principles
 
@@ -210,6 +221,8 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 - Source of truth: `content/docs/source` (MDX pages, `docs.json` navigation, `api-reference/openapi/*.json`). Edit there; the `recoupable/docs` repository is not read.
 - After editing, run `pnpm docs:build` and commit the generated `content/docs/inventory.json`, `manifest.json`, and `navigation.json` together with the source change. `scripts/__tests__/build-docs.test.ts` fails when they drift.
 - `pnpm docs:check` validates route coverage, schema references, guide links, and request examples.
+- `scripts/build_plan_balance_contract.py` freezes the public credits/subscription response examples and guide example through the existing `build-contract-examples.py --api /path/to/api` workflow. Run the API's `publishedPlanBalances.test.ts` with the coordinated fixture; builder/example parity does not verify a real payment or current commercial offer.
+- `scripts/build_sites_lifecycle_contract.py` freezes the Sites guide's bounded lifecycle/error examples and route accounting through `build-contract-examples.py --api /path/to/api`. Run the API's `publishedSitesLifecycle.test.ts` with the shared fixture; synthetic validation/HTTP-adapter checks do not establish a real paid publish or account lifecycle.
 - Every platform OpenAPI operation needs a unique, stable `operationId` and a description. Preserve published IDs when editing descriptions or schemas; `tests/platform-openapi.test.ts` checks coverage and collisions across the split specifications.
 - Artist Profile and Projects error components come from the API-owned generated
   error schemas. Run `python3 scripts/build-contract-examples.py --api /path/to/api` to

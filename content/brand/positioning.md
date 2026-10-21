@@ -1,3 +1,12 @@
+# Historical positioning proposal
+
+> **Historical — current Marketing instructions take precedence.** Original update: March 16, 2026. Marked historical October 20, 2026; superseded for current Marketing hero, navigation and offers. Keep its strategic ideas as context, not instructions to replace current copy.
+> Use [the current product/source guide](product.md), [Sky design](../../DESIGN.md),
+> [navigation](../../lib/copy/navigation.ts) and [homepage copy](../../lib/copy/home.ts).
+> The original content is preserved verbatim below.
+
+---
+
 # Positioning
 
 > Updated: 2026-03-16. Full strategy: see `content/brand/website-structure-report.md`.
