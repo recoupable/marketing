@@ -50083,7 +50083,7 @@ This operation requires one of the security alternatives in the specification be
           },
           "tool_call_count": {
             "type": "integer",
-            "description": "Number of tool calls in this step. Null when this field was not recorded.",
+            "description": "Recorded tool count for this event. For the main agent workflow, this counts tool entries in the accumulated assistant reply, including pending and failed requests and entries retained when that reply resumes. Nested subagent entries are excluded. The value describes the reply snapshot, rather than successful executions or only new work after a resume. A writer can default an omitted count to zero, so zero alone does not establish that no tools were requested. Older events retain their previously recorded counts. Null when this field was not recorded.",
             "example": 0,
             "nullable": true
           },
@@ -54994,7 +54994,7 @@ This operation requires one of the security alternatives in the specification be
                 },
                 "tool_call_count": {
                   "type": "integer",
-                  "description": "Number of tool calls observed in this step"
+                  "description": "Recorded tool count for this event. For the main agent workflow, this counts tool entries in the accumulated assistant reply, including pending and failed requests and entries retained when that reply resumes. Nested subagent entries are excluded. The value describes the reply snapshot, rather than successful executions or only new work after a resume. A writer can default an omitted count to zero, so zero alone does not establish that no tools were requested. Older events retain their previously recorded counts."
                 },
                 "credits_deducted": {
                   "type": "integer",
