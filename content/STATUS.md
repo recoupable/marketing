@@ -16,13 +16,13 @@ keep 202. Queue receipts are not completed work. Retained JSON stays flexible,
 saved evidence source URLs may be null, and delegated OAuth continues to omit the
 metadata-only material receipt. This is documentation and synthetic contract
 evidence, not runtime validation, feature enabling or a hosted customer/provider
-operation. [API #1075](https://github.com/recoupable/api/pull/1075) candidate
-`e3d9a92024362e81ab8d0495434ff14a85adc00c` commits both corrected fixtures.
-The inventory pins that immutable candidate; its 47 contract/example tests pass
-in a separate source checkout with exact fixture/export parity. API review
-and merge remain pending: refresh to its actual merge before Marketing release,
-then generate retained Docs from the actual Marketing merge. Collection, access,
-spending and wider product gates are unchanged.
+operation. [API #1075](https://github.com/recoupable/api/pull/1075) merged as
+`8586fb7598981f4ec853ce6fea347a559f3c15a0`, with the same complete tree as accepted
+candidate `e3d9a92024362e81ab8d0495434ff14a85adc00c`. Both corrected fixtures and
+the response/example exports are unchanged; the 47 focused contract tests pass.
+The inventory now pins the actual API merge. Marketing review/publication and
+retained Docs publication remain separate; generate the retained copy from the
+actual Marketing merge. Collection, access, spending and wider product gates are unchanged.
 
 ## Catalog lookup planning contract — October 21, 2026
 
