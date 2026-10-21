@@ -88,6 +88,7 @@ const inventory={navigationPages:nav.flatMap(t=>t.groups.flatMap(g=>g.pages)).le
 await writeFile(path.join(destination,'manifest.json'),JSON.stringify(pages));
 await writeFile(path.join(destination,'navigation.json'),JSON.stringify(nav,null,2));
 await writeFile(path.join(destination,'inventory.json'),JSON.stringify(inventory,null,2));
-const retainedText = `# ${siteConfig.name} developer documentation\n\n${await docsLlmsFullText(pages, siteConfig.canonicalUrl)}`;
+const retainedText = `# ${siteConfig.name} developer documentation\n\n${await docsLlmsFullText(pages, siteConfig.canonicalUrl)}`
+  .replace(/^[>\t ]+$/gm, line => line.trimEnd());
 await writeFile(path.join(outFlag === -1 ? snapshot : destination, 'llms-full.txt'), retainedText);
 console.log(JSON.stringify(inventory,null,2));

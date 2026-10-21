@@ -495,7 +495,7 @@ The Recoup CLI (`@recoupable/cli`) wraps the Recoup API for terminal-first workf
 
 > **Note**
 > **The CLI is in beta.** The reference below follows the v0.1.15 source command set. Check `recoup --version` and `--help` for the package installed in your environment. For research workflows and most content operations, call the [REST API](https://recoupable.dev/docs/api-reference) directly — the CLI is gradually catching up.
-> 
+>
 > **Agents:** if a command isn't listed below, don't retry — fall back to the corresponding REST endpoint linked under each command.
 
 ## Install
@@ -21982,19 +21982,19 @@ The artist record exposes both `id` and `account_id` (both UUIDs). Use **`accoun
 Step 5 (and the async pipeline's lipsync mode) need a `song.mp3`. **Don't assume one exists, and don't assume the user has one locally.** Walk the agent through this fallback chain:
 
 1. **Check the artist's sandbox repo first.** Each Recoup account has a backing GitHub repo. If the user has imported songs through Recoup, they live at predictable paths:
-  
+
   ```
   .openclaw/workspace/orgs/{org-slug}/artists/{artist-slug}/songs/{song-slug}/{song-slug}.mp3
                                                                               /lyrics.json
                                                                               /clips.json
   ```
-  
+
   Discover the repo with [`GET /api/sandboxes`](https://recoupable.dev/docs/api-reference/sandboxes/list) (returns `github_repo` and a `filetree`); fetch a file with [`GET /api/sandboxes/file?path=…`](https://recoupable.dev/docs/api-reference/sandboxes/get-file). **Binary files (`.mp3`, `.png`, `.mp4`) come back base64-encoded in the `content` field — decode before writing to disk.**
 2. **If no song is in the sandbox, ask the user how to proceed.** Two options to offer:
-  
+
   - *"Want me to fetch the audio from YouTube?"* — agent downloads via `yt-dlp` (or equivalent), saves locally; user is responsible for any rights / DSP-licensing implications.
   - *"Want to supply the song yourself?"* — user uploads / drops a path; agent reads from there.
-  
+
   Don't pick a path silently. The cost of fetching the wrong song from YouTube (or fetching one at all) is enough that the user should make the call.
 3. **Don't fall back to "use a placeholder track."** A music video without the song is not a deliverable.
 
@@ -22005,9 +22005,9 @@ The rest of this page walks the same steps you can run by hand or call individua
 ### Prerequisites
 
 - An auth credential for `api.recoupable.dev`. Two options — pick one and use it for every call below:
-  
+
   - **API key** (`recoup_sk_…`, recommended for sandbox / agent use): pass as `-H "x-api-key: $RECOUP_API_KEY"`.
-    
+
     - One-shot agent: `POST /api/agents/signup` with an `agent+{unique}@recoupable.com` email returns the key immediately.
     - Real-email signup: same endpoint with a real email mails a 6-digit code; complete with `POST /api/agents/verify`. See [Agents](https://recoupable.dev/docs/agents).
   - **Privy access token** (for end-user flows in chat/UI): pass as `-H "Authorization: Bearer $RECOUP_ACCESS_TOKEN"`.
