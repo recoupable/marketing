@@ -13,6 +13,21 @@ Sandbox command tools previously shown on this page are absent from the current 
 
 For an API-key MCP connection, configure `Authorization: Bearer YOUR_RECOUP_API_KEY` in the client's secret settings. The `x-api-key` header is for [REST requests](/authentication). Store credentials in the client's secret facility or environment. Never paste them into global instructions or extract host-managed OAuth tokens for REST.
 
+## Plan a catalog lookup
+
+A catalog manager with an existing catalog Context request can plan a lookup for
+its current expanded recording members. Standard MCP uses `context` with
+`action: plan_catalog_members`; delegated OAuth uses `plan_music_catalog_research`
+with the same input fields and no `action`. Discover the tool in the connected
+client before use; this source mapping does not prove hosted availability.
+
+Choose `recording_candidates`, `recording_work_candidates` or `platform_metadata`.
+These plan possible recording matches, linked works or platform track information.
+The response preserves the existing module values and node IDs, returns each node
+blocked and has `collectionPermitted: false`. It does not fetch data, verify rights,
+start collection or grant spending permission. The [Context reference](/api-reference/context/operate)
+lists all accepted compatibility values, required IDs, page cursors and the complete response.
+
 ## Release Packs
 
 When deployed and exposed by the current grant, the pack catalog includes

@@ -102,3 +102,19 @@ union, and page items reuse the receipt component. Other Context actions retain
 their existing object fallback; this does not make every legacy result typed.
 Record actions omitted from the reference explicitly until their provider-neutral
 public contract is stable; omission is not an API access restriction. Exported schemas do not prove hosted workflow acceptance.
+
+Catalog lookup planning uses the same request/mapping export. Its request accepts
+all six public/legacy module values; examples prefer the three public names. Keep
+the complete `ContextCatalogPlanningResponse` connected to the 200 response union.
+Set `RECOUP_CONTEXT_CATALOG_PLANNING_OUTPUT=/tmp/context-catalog-planning.json`
+when running API `catalogPlanningContract.test.ts` to export the planning request,
+complete response schema, fixture reference and delegated tool mapping. Preserve
+authored descriptions while comparing the underlying schema structure.
+The shared Context fixture's `responseSchemas.catalogPlanning` resolves the API
+exported response; `responseReferences.plan_catalog_members` points to it inside
+the fixture. Its `catalogPlanning` section freezes the three request examples and
+four response examples, including the empty page. Validate actual planning results against this schema directly;
+the generic result branch for other actions cannot establish planning correctness.
+Preserve raw response modules, executor names, stable keys and `collectionPermitted:
+false`. This remains planning only and does not authorize collection, spending or
+hosted customer acceptance. Standard-only evidence classifications remain separate.

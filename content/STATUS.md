@@ -1,3 +1,26 @@
+## Catalog lookup planning contract — October 21, 2026
+
+Prepared the Context reference for the three approved public lookup-plan names,
+while retaining all three legacy inputs and unchanged response identities. The
+reference now includes the complete page and blocked-plan response, three public
+request examples, the empty-page result and the existing REST/standard/delegated
+MCP mapping. It says "plan a lookup": collection and execution remain disabled.
+Recording and work candidates do not verify identity, rights or royalty shares;
+platform track information does not promise growth metrics or complete coverage.
+
+The existing Context fixture producer freezes the specific response and examples,
+and rejects disconnected schemas or stale copies. The branding guard permits only
+the exact legacy compatibility fields required by the approved contract; guides
+and other copy remain Recoup branded. API #1074 is merged as
+`4c44ce22dd199daeafa598314fe8c9f3b6ed6662`, with the same complete tree as accepted
+candidate `489aab5b5b1cd4522a37c7d43df6165284c0c52c`. The request/response/mapping
+exports and both fixture files remain unchanged; the accepted source's 156
+contract/alias tests pass. The inventory now pins the actual API merge. Marketing
+review/checks and publication remain separate gates; generate retained Docs only
+from the actual Marketing merge. No hosted workflow, provider call, collection,
+spending or access change is established by the API merge or this documentation
+preparation; wider Context/client gates remain open.
+
 ## Complete retained AI documentation file — October 21, 2026
 
 The docs build now generates a supported `llms-full.txt` override using the same
