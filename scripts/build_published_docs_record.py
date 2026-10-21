@@ -7,6 +7,7 @@ from resolve_response_schema import resolve_response_schema
 from build_plan_balance_contract import build_plan_balance_contract
 from build_sites_lifecycle_contract import build_sites_lifecycle_contract
 from build_admin_coding_slack_contract import build_admin_coding_slack_contract
+from build_agent_signup_metadata_contract import build_agent_signup_metadata_contract
 
 
 def build_published_docs_record(specs, source, root, schema_hash, response_schemas):
@@ -101,6 +102,9 @@ def build_published_docs_record(specs, source, root, schema_hash, response_schem
     record['sourceHashes']['content/docs/source/credits.mdx'] = hashlib.sha256((root / 'content/docs/source/credits.mdx').read_bytes()).hexdigest()
     record['siteLifecycle'] = build_sites_lifecycle_contract(sites_path.read_text())
     record['adminCodingSlack'] = build_admin_coding_slack_contract(specs['accounts.json'])
+    record['agentSignupMetadata'] = build_agent_signup_metadata_contract(specs['accounts.json'])
+    signup_guide = root / 'content/docs/source/api-reference/admins/agent-signups.mdx'
+    record['sourceHashes'][str(signup_guide.relative_to(root))] = hashlib.sha256(signup_guide.read_bytes()).hexdigest()
     record['headlessChat'] = {
         'requestSchema': resolve_response_schema(research['components']['schemas']['ChatGenerateRequest'], research),
         'requestExamples': [research['components']['schemas']['ChatGenerateRequest']['example'], *research['components']['schemas']['ChatGenerateRequest'].get('examples', [])],

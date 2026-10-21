@@ -425,6 +425,7 @@
               "api-reference/admins/coding-pr",
               "api-reference/admins/content-slack-tags",
               "api-reference/admins/agent-signups",
+              "api-reference/admins/agent-key-metadata",
               "api-reference/admins/artists-pro",
               "api-reference/admins/credits-rollup",
               "api-reference/admins/credits-events",

@@ -23,7 +23,7 @@ class ResponseContractTestCase(unittest.TestCase):
                      'refresh_context_mapping.py', 'build_published_docs_record.py',
                      'build_guarded_file_contract.py', 'build_context_fixture.py',
                      'build_plan_balance_contract.py', 'build_sites_lifecycle_contract.py',
-                     'build_admin_coding_slack_contract.py']:
+                     'build_admin_coding_slack_contract.py', 'build_agent_signup_metadata_contract.py']:
             shutil.copyfile(root / 'scripts' / name, script.parent / name)
         shutil.copytree(root / 'content/docs/source', self.marketing / 'content/docs/source')
         (self.marketing / 'content/docs/contracts').mkdir()
