@@ -1,3 +1,15 @@
+## Audience platform input contract — October 21, 2026
+
+Prepared the audience reference for the validation released in API #1082 as
+`7d5c98f7bde08773765d7605109600363c918b89` and the matching fixture released in
+API #1083 as `e2fb91883891cb55aaac19a70822ccf5152758c5`. It lists the existing
+14 accepted lowercase platform names, whitespace trimming, the omitted/blank
+Instagram default and invalid 400 responses before authentication, artist
+resolution, credit checks or research dispatch. The inventory pins the actual
+API #1083 merge. Other inputs, responses, pricing, catalog and Context contracts
+are unchanged. Marketing and retained Docs publication remain separate; accepting
+a platform name does not guarantee coverage for every artist or data breakdown.
+
 ## Catalog song empty-result reference — October 21, 2026
 
 Corrected the existing catalog-song GET reference: a successful empty result is
