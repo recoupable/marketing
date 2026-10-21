@@ -710,6 +710,21 @@ Sandbox command tools previously shown on this page are absent from the current 
 
 For an API-key MCP connection, configure `Authorization: Bearer YOUR_RECOUP_API_KEY` in the client's secret settings. The `x-api-key` header is for [REST requests](https://recoupable.dev/docs/authentication). Store credentials in the client's secret facility or environment. Never paste them into global instructions or extract host-managed OAuth tokens for REST.
 
+## Plan a catalog lookup
+
+A catalog manager with an existing catalog Context request can plan a lookup for
+its current expanded recording members. Standard MCP uses `context` with
+`action: plan_catalog_members`; delegated OAuth uses `plan_music_catalog_research`
+with the same input fields and no `action`. Discover the tool in the connected
+client before use; this source mapping does not prove hosted availability.
+
+Choose `recording_candidates`, `recording_work_candidates` or `platform_metadata`.
+These plan possible recording matches, linked works or platform track information.
+The response preserves the existing module values and node IDs, returns each node
+blocked and has `collectionPermitted: false`. It does not fetch data, verify rights,
+start collection or grant spending permission. The [Context reference](https://recoupable.dev/docs/api-reference/context/operate)
+lists all accepted compatibility values, required IDs, page cursors and the complete response.
+
 ## Release Packs
 
 When deployed and exposed by the current grant, the pack catalog includes
@@ -20073,7 +20088,7 @@ This operation requires one of the security alternatives in the specification be
       "post": {
         "operationId": "contextOperation",
         "summary": "Ingest, read, or compile context briefs",
-        "description": "Save and reuse evidence in an authorized Recoup workspace. **Preview: this reference is verified against API source, not a completed hosted acceptance test.** Actions require the corresponding database and workflow release; verification actions also require their feature to be enabled. Do not infer provider readiness, complete coverage, or a successful workflow from an accepted request schema.\n\n### Create context\n\n`ingest` creates or reuses a Spotify-track request and dispatches its durable workflow (202). The parser recognizes YouTube URLs, but ingestion still rejects them in this pilot. `ingest_release` stores a Spotify album locator; it does not automatically verify the release. `ingest_catalog` and `ingest_artist` refer to accessible Recoup records. `ingest_songwriter_name`, `ingest_company_name`, `ingest_campaign_brief`, and `ingest_supporting_text` store submitted context (200). Names and customer text are not verified identities or facts. Reuse an idempotency key only for the same intended input.\n\n### Read, plan and inspect\n\n`read` reads one request. For saved supporting text, HTTP and standard MCP also return a metadata-only `material_evidence` receipt identifying the current document, result and exact retained source version. It returns no submitted text, source location or signed access. `draft_origin` remains `not_recorded`: a retained customer assertion is not proof of its file origin or reviewed business facts. Unavailable material withholds those references. Delegated OAuth keeps its request-only response. `plan` plans modules from stored context; a plan is not authorization to collect data. `list_executions` and `read_execution` expose execution records. `list_catalog_members` pages saved members; `expand_catalog_members` materializes a bounded member page. These operations return 200. Request IDs, subject IDs and execution IDs refer to different records; use the IDs returned by the corresponding read rather than substituting an account ID. Catalog membership does not establish rights ownership. The implementation also accepts plan_catalog_members, which is intentionally omitted from this preview request union pending a provider-neutral public module contract. This is a remaining documentation and API design gap, not an access restriction.\n\n### Release verification and review\n\n`verify_release` and `verify_release_tracks` enqueue enabled verification workflows (202); disabled features or unmet readiness conditions return 409. `list_release_tracks`, `read_release_track_observations`, and `review_release_track_identities` inspect saved slots and identity evidence (200). Inspect the returned readiness, coverage and unresolved identity state before using a recording match. `list_release_cases`, `read_release_case`, `read_release_case_review`, and `review_release_case` read or record release-case review. A review requires the current fingerprint, a decision, and an idempotency key; it does not silently rewrite source evidence.\n\n### Compile and save briefs\n\n`brief` compiles evidence from up to ten completed or partial requests in one workspace without provider or model calls. Purposes are `creative_direction`, `playlist_pitch`, and `company_onboarding`. Creative direction prioritizes lyrics and artwork; playlist pitching prioritizes catalog/audio metadata. Inspect readiness, request_coverage, selected input versions and gaps. Briefs are evidence packets, not finished creative concepts or outreach. `save_brief` freezes the server-compiled output, and `read_brief` retrieves that snapshot without recompilation. Newer evidence can supersede a snapshot without rewriting it; withdrawn evidence or removed scope can withhold its payload. All three actions return 200.\n\n### Link retained evidence\n\n`attach_evidence` links one exact retained `source_version_id` to 1–100 distinct existing targets: an artist, a professional, or a Context request/subject pair. Supply a stable `idempotency_key`; retry only the same version and targets with that key. Authentication supplies the actor. The receipt records relevance only; it does not confirm identity, rights or a business mandate. It creates no roster entry and makes no provider/model call or charge.\n\n`read_evidence_attachment` reads one receipt by `attachment_id`. `list_evidence_attachments` reads a page for an exact source version. Pass `next_id` as `after_id` while `has_more` is true, including an empty page where protected receipts were withheld. Reads check current workspace access, source retention and independent target access. Evidence responses and domain errors are private and must not be cached. A later source version needs a separate association; these actions do not rewrite historical receipts. They require the matching evidence-association database and API release; accepted request syntax is not hosted availability.\n\n### Scope and failures\n\nAuthentication determines the account. Optional organization_id selects an authorized organization workspace; request and subject ownership are checked again by the operation. Invalid request syntax returns 400, missing authentication 401, rejected organization access 403, and operation conflicts, unavailable evidence or disabled verification 409. No action accepts a caller-supplied account identity. Local schema tests do not establish hosted availability.\n\n### MCP mapping\n\nStandard MCP uses the `context` tool with the same action and fields as this REST request. The three evidence actions also have individually discoverable object-schema tools listed separately below; they are excluded from delegated OAuth connections. Delegated OAuth exposes the named tools below and supplies the action server-side; omit action from the named tool input. These registrations require the full `mcp:tools` grant, current ownership and fresh credential verification. Read-only is a tool annotation, not a guarantee of hosted readiness. Discover the actual tools in the connected client before use; this is a static source mapping, not a verified client catalog. The omitted provider-bound planning action is still a remaining contract gap.\n\n| REST action | Delegated OAuth tool | Classification |\n| --- | --- | --- |\n| `list_release_cases` | `list_music_release_cases` | Read-only hint |\n| `read_release_case` | `read_music_release_case` | Read-only hint |\n| `read_release_case_review` | `read_music_release_case_review` | Read-only hint |\n| `review_release_case` | `record_music_release_case_review` | Writes or dispatches |\n| `save_brief` | `save_music_context_brief` | Writes or dispatches |\n| `read_brief` | `read_music_context_brief` | Read-only hint |\n| `plan` | `plan_music_context_research` | Read-only hint |\n| `list_executions` | `list_music_context_executions` | Read-only hint |\n| `list_catalog_members` | `list_music_context_catalog_members` | Read-only hint |\n| `list_release_tracks` | `list_music_context_release_tracks` | Read-only hint |\n| `read_release_track_observations` | `read_music_release_track_observations` | Read-only hint |\n| `review_release_track_identities` | `review_music_release_track_identities` | Read-only hint |\n| `verify_release_tracks` | `verify_music_release_tracks` | Writes or dispatches |\n| `expand_catalog_members` | `expand_music_context_catalog` | Writes or dispatches |\n| `read_execution` | `read_music_context_execution` | Read-only hint |\n| `ingest_catalog` | `import_catalog_context` | Writes or dispatches |\n| `ingest_artist` | `import_artist_context` | Writes or dispatches |\n| `ingest_songwriter_name` | `import_songwriter_context` | Writes or dispatches |\n| `ingest_company_name` | `import_music_company_context` | Writes or dispatches |\n| `ingest_campaign_brief` | `import_music_campaign_brief` | Writes or dispatches |\n| `ingest_supporting_text` | `import_music_supporting_text` | Writes or dispatches |\n| `ingest_release` | `import_music_release_context` | Writes or dispatches |\n| `verify_release` | `verify_music_release` | Writes or dispatches |\n| `ingest` | `import_song_context` | Writes or dispatches |\n| `read` | `read_music_context` | Read-only hint |\n| `brief` | `compile_music_context_brief` | Read-only hint |\n\n### Standard-only evidence tools\n\nThese tools are available to standard MCP clients after the required database/API release. They are excluded from delegated OAuth connections pending organization-grant review.\n\n| REST action | Standard MCP tool | Classification |\n| --- | --- | --- |\n| `attach_evidence` | `attach_music_evidence` | Writes |\n| `read_evidence_attachment` | `read_music_evidence_attachment` | Read-only hint |\n| `list_evidence_attachments` | `list_music_evidence_attachments` | Read-only hint |",
+        "description": "Save and reuse evidence in an authorized Recoup workspace. **Preview: this reference is verified against API source, not a completed hosted acceptance test.** Actions require the corresponding database and workflow release; verification actions also require their feature to be enabled. Do not infer provider readiness, complete coverage, or a successful workflow from an accepted request schema.\n\n### Create context\n\n`ingest` creates or reuses a Spotify-track request and dispatches its durable workflow (202). The parser recognizes YouTube URLs, but ingestion still rejects them in this pilot. `ingest_release` stores a Spotify album locator; it does not automatically verify the release. `ingest_catalog` and `ingest_artist` refer to accessible Recoup records. `ingest_songwriter_name`, `ingest_company_name`, `ingest_campaign_brief`, and `ingest_supporting_text` store submitted context (200). Names and customer text are not verified identities or facts. Reuse an idempotency key only for the same intended input.\n\n### Read, plan and inspect\n\n`read` reads one request. For saved supporting text, HTTP and standard MCP also return a metadata-only `material_evidence` receipt identifying the current document, result and exact retained source version. It returns no submitted text, source location or signed access. `draft_origin` remains `not_recorded`: a retained customer assertion is not proof of its file origin or reviewed business facts. Unavailable material withholds those references. Delegated OAuth keeps its request-only response. `plan` plans modules from stored context; a plan is not authorization to collect data. `list_executions` and `read_execution` expose execution records. `list_catalog_members` pages saved members; `expand_catalog_members` materializes a bounded member page. These operations return 200. Request IDs, subject IDs and execution IDs refer to different records; use the IDs returned by the corresponding read rather than substituting an account ID. Catalog membership does not establish rights ownership. Use `plan_catalog_members` to plan a lookup for a page of current expanded catalog recordings, as described below.\n\n### Plan a catalog lookup\n\nA catalog manager can inspect which lookup would be proposed for recordings already expanded from an accessible catalog. This action reads the saved targets and returns a plan; it does not fetch recording matches, linked works or platform information.\n\nSupply the existing catalog Context `request_id` and its catalog `subject_id`, one `module`, and optionally `organization_id`, `after_isrc` and `limit` (1–100, default 100). These IDs refer to different records: do not substitute the catalog ID, account ID or a member recording subject for the catalog Context subject.\n\n| Preferred input | Lookup being planned | Legacy accepted input and returned module |\n| --- | --- | --- |\n| `recording_candidates` | Unconfirmed recording candidates from an ISRC; a candidate is not an approved recording identity | `musicbrainz` |\n| `recording_work_candidates` | Candidate works linked to a recording; no ownership or royalty-share verification | `mlc_recording` |\n| `platform_metadata` | Available platform track information; no growth-metric or complete-coverage promise | `songstats` |\n\nAll six input values remain accepted. The three values in the last column are compatibility identifiers, not a promise that data sources are interchangeable. Each preferred/legacy pair returns the same page, raw module, executor, node key, state and reasons. Source and saved-plan provenance remain unchanged.\n\nThe 200 result is `ContextCatalogPlanningResponse`: `page`, `plan` and `collectionPermitted: false`. `page` includes `catalogId`, `catalogSubjectId`, `members`, `nextCursor` and `hasMore`. Each member retains `subjectId`, `kind`, `identityConfirmed`, `availableFields`, `reusableModules` and `isrc`. The saved ISRC-backed target flag does not verify an external recording match, rights or ownership. Only expanded recordings still present in the selected workspace's accessible catalog are returned; removed and not-yet-expanded members are excluded. Pass `page.nextCursor` as `after_isrc` when `page.hasMore` is true.\n\n`plan` has one node per returned member, including `key`, `entry`, `subjectId`, `targetKind`, `module`, `executor`, `state`, `reasons`, `dependsOn`, `scope` and `executionStarted`. Node keys retain `{subjectId}:{legacy_module}`. This action supplies no permitted modules and does not reuse collection permission: every returned node is `blocked`, has `executionStarted: false`, an empty `dependsOn` and the reason `Server collection policy has not permitted this module`. An empty member page returns `plan: []` and still has `collectionPermitted: false`.\n\nAn executor name describes a planned implementation; it does not make that collector runnable. In particular, the platform-metadata collector is not connected to the trusted planned dispatcher. No provider/model call, execution claim, credit charge, new access grant or automatic catalog expansion is triggered. An accepted request or local fixture is not hosted customer-workflow acceptance.\n\n### Release verification and review\n\n`verify_release` and `verify_release_tracks` enqueue enabled verification workflows (202); disabled features or unmet readiness conditions return 409. `list_release_tracks`, `read_release_track_observations`, and `review_release_track_identities` inspect saved slots and identity evidence (200). Inspect the returned readiness, coverage and unresolved identity state before using a recording match. `list_release_cases`, `read_release_case`, `read_release_case_review`, and `review_release_case` read or record release-case review. A review requires the current fingerprint, a decision, and an idempotency key; it does not silently rewrite source evidence.\n\n### Compile and save briefs\n\n`brief` compiles evidence from up to ten completed or partial requests in one workspace without provider or model calls. Purposes are `creative_direction`, `playlist_pitch`, and `company_onboarding`. Creative direction prioritizes lyrics and artwork; playlist pitching prioritizes catalog/audio metadata. Inspect readiness, request_coverage, selected input versions and gaps. Briefs are evidence packets, not finished creative concepts or outreach. `save_brief` freezes the server-compiled output, and `read_brief` retrieves that snapshot without recompilation. Newer evidence can supersede a snapshot without rewriting it; withdrawn evidence or removed scope can withhold its payload. All three actions return 200.\n\n### Link retained evidence\n\n`attach_evidence` links one exact retained `source_version_id` to 1–100 distinct existing targets: an artist, a professional, or a Context request/subject pair. Supply a stable `idempotency_key`; retry only the same version and targets with that key. Authentication supplies the actor. The receipt records relevance only; it does not confirm identity, rights or a business mandate. It creates no roster entry and makes no provider/model call or charge.\n\n`read_evidence_attachment` reads one receipt by `attachment_id`. `list_evidence_attachments` reads a page for an exact source version. Pass `next_id` as `after_id` while `has_more` is true, including an empty page where protected receipts were withheld. Reads check current workspace access, source retention and independent target access. Evidence responses and domain errors are private and must not be cached. A later source version needs a separate association; these actions do not rewrite historical receipts. They require the matching evidence-association database and API release; accepted request syntax is not hosted availability.\n\n### Scope and failures\n\nAuthentication determines the account. Optional organization_id selects an authorized organization workspace; request and subject ownership are checked again by the operation. Invalid request syntax returns 400, missing authentication 401, rejected organization access 403, and operation conflicts, unavailable evidence or disabled verification 409. No action accepts a caller-supplied account identity. Local schema tests do not establish hosted availability.\n\n### MCP mapping\n\nStandard MCP uses the `context` tool with the same action and fields as this REST request. The three evidence actions also have individually discoverable object-schema tools listed separately below; they are excluded from delegated OAuth connections. Delegated OAuth exposes the named tools below and supplies the action server-side; omit action from the named tool input. These registrations require the full `mcp:tools` grant, current ownership and fresh credential verification. Read-only is a tool annotation, not a guarantee of hosted readiness. Discover the actual tools in the connected client before use; this is a static source mapping, not a verified client catalog.\n\n| REST action | Delegated OAuth tool | Classification |\n| --- | --- | --- |\n| `list_release_cases` | `list_music_release_cases` | Read-only hint |\n| `read_release_case` | `read_music_release_case` | Read-only hint |\n| `read_release_case_review` | `read_music_release_case_review` | Read-only hint |\n| `review_release_case` | `record_music_release_case_review` | Writes or dispatches |\n| `save_brief` | `save_music_context_brief` | Writes or dispatches |\n| `read_brief` | `read_music_context_brief` | Read-only hint |\n| `plan` | `plan_music_context_research` | Read-only hint |\n| `list_executions` | `list_music_context_executions` | Read-only hint |\n| `list_catalog_members` | `list_music_context_catalog_members` | Read-only hint |\n| `list_release_tracks` | `list_music_context_release_tracks` | Read-only hint |\n| `read_release_track_observations` | `read_music_release_track_observations` | Read-only hint |\n| `review_release_track_identities` | `review_music_release_track_identities` | Read-only hint |\n| `verify_release_tracks` | `verify_music_release_tracks` | Writes or dispatches |\n| `expand_catalog_members` | `expand_music_context_catalog` | Writes or dispatches |\n| `plan_catalog_members` | `plan_music_catalog_research` | Read-only hint |\n| `read_execution` | `read_music_context_execution` | Read-only hint |\n| `ingest_catalog` | `import_catalog_context` | Writes or dispatches |\n| `ingest_artist` | `import_artist_context` | Writes or dispatches |\n| `ingest_songwriter_name` | `import_songwriter_context` | Writes or dispatches |\n| `ingest_company_name` | `import_music_company_context` | Writes or dispatches |\n| `ingest_campaign_brief` | `import_music_campaign_brief` | Writes or dispatches |\n| `ingest_supporting_text` | `import_music_supporting_text` | Writes or dispatches |\n| `ingest_release` | `import_music_release_context` | Writes or dispatches |\n| `verify_release` | `verify_music_release` | Writes or dispatches |\n| `ingest` | `import_song_context` | Writes or dispatches |\n| `read` | `read_music_context` | Read-only hint |\n| `brief` | `compile_music_context_brief` | Read-only hint |\n\n### Standard-only evidence tools\n\nThese tools are available to standard MCP clients after the required database/API release. They are excluded from delegated OAuth connections pending organization-grant review.\n\n| REST action | Standard MCP tool | Classification |\n| --- | --- | --- |\n| `attach_evidence` | `attach_music_evidence` | Writes |\n| `read_evidence_attachment` | `read_music_evidence_attachment` | Read-only hint |\n| `list_evidence_attachments` | `list_music_evidence_attachments` | Read-only hint |",
         "security": [
           {
             "ApiKey": []
@@ -20729,6 +20744,64 @@ This operation requires one of the security alternatives in the specification be
                     "properties": {
                       "action": {
                         "type": "string",
+                        "const": "plan_catalog_members"
+                      },
+                      "request_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Existing catalog Context request UUID, returned by ingest_catalog or read. This is not an account or catalog UUID."
+                      },
+                      "subject_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Catalog Context subject UUID from that request. This is distinct from the catalog record ID and each member recording subject ID."
+                      },
+                      "organization_id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                        "description": "Optional organization workspace. Current membership and ownership are checked; omitting it uses personal scope."
+                      },
+                      "after_isrc": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 100,
+                        "description": "For the next page, pass page.nextCursor while page.hasMore is true. Omit on the first page."
+                      },
+                      "limit": {
+                        "default": 100,
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 100
+                      },
+                      "module": {
+                        "description": "Plan a lookup using recording_candidates (unconfirmed recording matches), recording_work_candidates (candidate linked works, without ownership verification), or platform_metadata (available platform track information, not growth metrics). The other three values are legacy compatibility identifiers. Returned module values and node keys retain those identifiers. This action does not perform a lookup or permit collection.",
+                        "type": "string",
+                        "enum": [
+                          "recording_candidates",
+                          "recording_work_candidates",
+                          "platform_metadata",
+                          "musicbrainz",
+                          "mlc_recording",
+                          "songstats"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "action",
+                      "request_id",
+                      "subject_id",
+                      "module"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string",
                         "const": "read_execution"
                       },
                       "execution_id": {
@@ -21212,6 +21285,42 @@ This operation requires one of the security alternatives in the specification be
                     ],
                     "idempotency_key": "example-evidence-1"
                   }
+                },
+                "catalogPlanRecording": {
+                  "summary": "Plan a lookup using recording_candidates; synthetic IDs, no collection",
+                  "value": {
+                    "action": "plan_catalog_members",
+                    "request_id": "00000000-0000-4000-8000-000000000003",
+                    "subject_id": "00000000-0000-4000-8000-000000000004",
+                    "organization_id": "00000000-0000-4000-8000-000000000002",
+                    "after_isrc": "AAA000000000",
+                    "limit": 20,
+                    "module": "recording_candidates"
+                  }
+                },
+                "catalogPlanWork": {
+                  "summary": "Plan a lookup using recording_work_candidates; synthetic IDs, no collection",
+                  "value": {
+                    "action": "plan_catalog_members",
+                    "request_id": "00000000-0000-4000-8000-000000000003",
+                    "subject_id": "00000000-0000-4000-8000-000000000004",
+                    "organization_id": "00000000-0000-4000-8000-000000000002",
+                    "after_isrc": "AAA000000000",
+                    "limit": 20,
+                    "module": "recording_work_candidates"
+                  }
+                },
+                "catalogPlanPlatform": {
+                  "summary": "Plan a lookup using platform_metadata; synthetic IDs, no collection",
+                  "value": {
+                    "action": "plan_catalog_members",
+                    "request_id": "00000000-0000-4000-8000-000000000003",
+                    "subject_id": "00000000-0000-4000-8000-000000000004",
+                    "organization_id": "00000000-0000-4000-8000-000000000002",
+                    "after_isrc": "AAA000000000",
+                    "limit": 20,
+                    "module": "platform_metadata"
+                  }
                 }
               }
             }
@@ -21219,7 +21328,7 @@ This operation requires one of the security alternatives in the specification be
         },
         "responses": {
           "200": {
-            "description": "Action-specific result: request, page, execution(s), observation, review, saved snapshot, release-case result, module plan, or a compiled brief. Inspect readiness and coverage; 200 does not establish complete evidence.\n\nRead returns request. Brief returns request_id, request_ids, purpose, readiness, bounded Markdown text and text_characters, documents and their serialized characters count, missingTopics, guidance, gaps, request_coverage, and input_manifest. Each coverage entry includes requestId, readiness and missingTopics; overall readiness remains partial if any request has a gap or partial evidence. The manifest includes compilerVersion, method, requestIds, excludedTopics, and selected documents with documentId, resultId (null when not recorded), subjectId, topic, version and sourceVersionIds. The result is returned without creating a saved brief record. Save/read brief return {snapshot: {id, created_at, purpose, state, superseded, brief}}. state is saved or unavailable; unavailable snapshots return brief: null. saved snapshots return the exact compiled response including its input manifest. Another workspace cannot read the record. Company-onboarding briefs also include assessment_scope and next_steps. Other action groups return the action-specific result described above; a successful response does not establish complete coverage.\n\nAttach/read evidence returns a ContextEvidenceAttachmentReceipt: receipt, owner, original actor and exact source-version IDs, creation time, typed targets, assertion `relevance_only`, `rights_verified: false`, and policy version. List evidence returns ContextEvidenceAttachmentPage with `items` (up to 50 receipts), `next_id` and `has_more`. Continue with the cursor even when a page has no visible receipts. Scope/retention failures reveal no protected receipt.",
+            "description": "Action-specific result: request, page, execution(s), observation, review, saved snapshot, release-case result, module plan, or a compiled brief. Inspect readiness and coverage; 200 does not establish complete evidence.\n\nRead returns request. Brief returns request_id, request_ids, purpose, readiness, bounded Markdown text and text_characters, documents and their serialized characters count, missingTopics, guidance, gaps, request_coverage, and input_manifest. Each coverage entry includes requestId, readiness and missingTopics; overall readiness remains partial if any request has a gap or partial evidence. The manifest includes compilerVersion, method, requestIds, excludedTopics, and selected documents with documentId, resultId (null when not recorded), subjectId, topic, version and sourceVersionIds. The result is returned without creating a saved brief record. Save/read brief return {snapshot: {id, created_at, purpose, state, superseded, brief}}. state is saved or unavailable; unavailable snapshots return brief: null. saved snapshots return the exact compiled response including its input manifest. Another workspace cannot read the record. Company-onboarding briefs also include assessment_scope and next_steps. Other action groups return the action-specific result described above; a successful response does not establish complete coverage.\n\nAttach/read evidence returns a ContextEvidenceAttachmentReceipt: receipt, owner, original actor and exact source-version IDs, creation time, typed targets, assertion `relevance_only`, `rights_verified: false`, and policy version. List evidence returns ContextEvidenceAttachmentPage with `items` (up to 50 receipts), `next_id` and `has_more`. Continue with the cursor even when a page has no visible receipts. Scope/retention failures reveal no protected receipt.\n\nPlan catalog members returns ContextCatalogPlanningResponse with the complete current page and one blocked node per member; collectionPermitted and every executionStarted are false. Preferred input names retain the existing raw module, executor and stable node key. No lookup or collection is performed.",
             "content": {
               "application/json": {
                 "schema": {
@@ -21229,6 +21338,9 @@ This operation requires one of the security alternatives in the specification be
                     },
                     {
                       "$ref": "#/components/schemas/ContextEvidenceAttachmentPage"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ContextCatalogPlanningResponse"
                     },
                     {
                       "type": "object",
@@ -21279,6 +21391,147 @@ This operation requires one of the security alternatives in the specification be
                       "next_id": null,
                       "has_more": false
                     }
+                  },
+                  "catalogPlanRecording": {
+                    "summary": "Synthetic blocked plan; returned module and node key retain compatibility identifiers",
+                    "x-recoup-context-action": "plan_catalog_members",
+                    "value": {
+                      "page": {
+                        "catalogId": "00000000-0000-4000-8000-000000000006",
+                        "catalogSubjectId": "00000000-0000-4000-8000-000000000004",
+                        "members": [
+                          {
+                            "subjectId": "00000000-0000-4000-8000-000000000005",
+                            "kind": "recording",
+                            "identityConfirmed": true,
+                            "availableFields": [
+                              "isrc"
+                            ],
+                            "reusableModules": [],
+                            "isrc": "AAA000000001"
+                          }
+                        ],
+                        "nextCursor": "AAA000000001",
+                        "hasMore": true
+                      },
+                      "plan": [
+                        {
+                          "key": "00000000-0000-4000-8000-000000000005:musicbrainz",
+                          "entry": "catalog",
+                          "subjectId": "00000000-0000-4000-8000-000000000005",
+                          "targetKind": "recording",
+                          "module": "musicbrainz",
+                          "executor": "collectContextMusicBrainz",
+                          "state": "blocked",
+                          "reasons": [
+                            "Server collection policy has not permitted this module"
+                          ],
+                          "dependsOn": [],
+                          "scope": "workspace_private",
+                          "executionStarted": false
+                        }
+                      ],
+                      "collectionPermitted": false
+                    }
+                  },
+                  "catalogPlanWork": {
+                    "summary": "Synthetic blocked plan; returned module and node key retain compatibility identifiers",
+                    "x-recoup-context-action": "plan_catalog_members",
+                    "value": {
+                      "page": {
+                        "catalogId": "00000000-0000-4000-8000-000000000006",
+                        "catalogSubjectId": "00000000-0000-4000-8000-000000000004",
+                        "members": [
+                          {
+                            "subjectId": "00000000-0000-4000-8000-000000000005",
+                            "kind": "recording",
+                            "identityConfirmed": true,
+                            "availableFields": [
+                              "isrc"
+                            ],
+                            "reusableModules": [],
+                            "isrc": "AAA000000001"
+                          }
+                        ],
+                        "nextCursor": "AAA000000001",
+                        "hasMore": true
+                      },
+                      "plan": [
+                        {
+                          "key": "00000000-0000-4000-8000-000000000005:mlc_recording",
+                          "entry": "catalog",
+                          "subjectId": "00000000-0000-4000-8000-000000000005",
+                          "targetKind": "recording",
+                          "module": "mlc_recording",
+                          "executor": "collectContextMlc:recording",
+                          "state": "blocked",
+                          "reasons": [
+                            "Server collection policy has not permitted this module"
+                          ],
+                          "dependsOn": [],
+                          "scope": "workspace_private",
+                          "executionStarted": false
+                        }
+                      ],
+                      "collectionPermitted": false
+                    }
+                  },
+                  "catalogPlanPlatform": {
+                    "summary": "Synthetic blocked plan; returned module and node key retain compatibility identifiers",
+                    "x-recoup-context-action": "plan_catalog_members",
+                    "value": {
+                      "page": {
+                        "catalogId": "00000000-0000-4000-8000-000000000006",
+                        "catalogSubjectId": "00000000-0000-4000-8000-000000000004",
+                        "members": [
+                          {
+                            "subjectId": "00000000-0000-4000-8000-000000000005",
+                            "kind": "recording",
+                            "identityConfirmed": true,
+                            "availableFields": [
+                              "isrc"
+                            ],
+                            "reusableModules": [],
+                            "isrc": "AAA000000001"
+                          }
+                        ],
+                        "nextCursor": "AAA000000001",
+                        "hasMore": true
+                      },
+                      "plan": [
+                        {
+                          "key": "00000000-0000-4000-8000-000000000005:songstats",
+                          "entry": "catalog",
+                          "subjectId": "00000000-0000-4000-8000-000000000005",
+                          "targetKind": "recording",
+                          "module": "songstats",
+                          "executor": "collectContextSongstats",
+                          "state": "blocked",
+                          "reasons": [
+                            "Server collection policy has not permitted this module"
+                          ],
+                          "dependsOn": [],
+                          "scope": "workspace_private",
+                          "executionStarted": false
+                        }
+                      ],
+                      "collectionPermitted": false
+                    }
+                  },
+                  "catalogPlanEmpty": {
+                    "summary": "Synthetic final page with no current expanded members",
+                    "x-recoup-context-action": "plan_catalog_members",
+                    "value": {
+                      "page": {
+                        "catalogId": "00000000-0000-4000-8000-000000000006",
+                        "catalogSubjectId": "00000000-0000-4000-8000-000000000004",
+                        "members": [],
+                        "nextCursor": null,
+                        "hasMore": false
+                      },
+                      "plan": [],
+                      "collectionPermitted": false
+                    }
                   }
                 }
               }
@@ -21308,9 +21561,7 @@ This operation requires one of the security alternatives in the specification be
             "description": "Operation failed, access unavailable, source withdrawn, input/key conflict, or record not found. For attach_evidence, retry only the same source version, targets and idempotency key after resolving the cause. Read/list retries require current access and retained evidence, not an ingestion or write key. Ingestion retries preserve the original input/key."
           }
         },
-        "x-undocumented-actions": [
-          "plan_catalog_members"
-        ],
+        "x-undocumented-actions": [],
         "x-recoup-mcp-operations": {
           "list_release_cases": {
             "name": "list_music_release_cases",
@@ -21367,6 +21618,10 @@ This operation requires one of the security alternatives in the specification be
           "expand_catalog_members": {
             "name": "expand_music_context_catalog",
             "readOnly": false
+          },
+          "plan_catalog_members": {
+            "name": "plan_music_catalog_research",
+            "readOnly": true
           },
           "read_execution": {
             "name": "read_music_context_execution",
@@ -21583,6 +21838,198 @@ This operation requires one of the security alternatives in the specification be
           "has_more"
         ],
         "additionalProperties": false
+      },
+      "ContextCatalogPlanningResponse": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "object",
+            "properties": {
+              "catalogId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+                "description": "Underlying catalog record ID; distinct from the Context catalog subject."
+              },
+              "catalogSubjectId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "members": {
+                "maxItems": 100,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "subjectId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "const": "recording"
+                    },
+                    "identityConfirmed": {
+                      "type": "boolean",
+                      "const": true,
+                      "description": "Saved ISRC-backed planning target; not confirmation of an external match, rights or ownership."
+                    },
+                    "availableFields": {
+                      "type": "array",
+                      "prefixItems": [
+                        {
+                          "type": "string",
+                          "const": "isrc"
+                        }
+                      ]
+                    },
+                    "reusableModules": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Saved target metadata; this planning action still supplies an empty permitted-module list."
+                    },
+                    "isrc": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    }
+                  },
+                  "required": [
+                    "subjectId",
+                    "kind",
+                    "identityConfirmed",
+                    "availableFields",
+                    "reusableModules",
+                    "isrc"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "nextCursor": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "hasMore": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "catalogId",
+              "catalogSubjectId",
+              "members",
+              "nextCursor",
+              "hasMore"
+            ],
+            "additionalProperties": false
+          },
+          "plan": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "description": "Stable {subjectId}:{legacy_module} key; public input aliases do not change it."
+                },
+                "entry": {
+                  "type": "string",
+                  "const": "catalog"
+                },
+                "subjectId": {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                },
+                "targetKind": {
+                  "type": "string",
+                  "const": "recording"
+                },
+                "module": {
+                  "type": "string",
+                  "enum": [
+                    "musicbrainz",
+                    "mlc_recording",
+                    "songstats"
+                  ],
+                  "description": "Unchanged stored compatibility identifier, including when the request uses a preferred public name."
+                },
+                "executor": {
+                  "type": "string",
+                  "enum": [
+                    "collectContextMusicBrainz",
+                    "collectContextMlc:recording",
+                    "collectContextSongstats"
+                  ],
+                  "description": "Planned internal identifier; it does not authorize or dispatch a call."
+                },
+                "state": {
+                  "type": "string",
+                  "const": "blocked"
+                },
+                "reasons": {
+                  "minItems": 1,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "dependsOn": {
+                  "maxItems": 0,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "scope": {
+                  "type": "string",
+                  "const": "workspace_private"
+                },
+                "executionStarted": {
+                  "type": "boolean",
+                  "const": false
+                }
+              },
+              "required": [
+                "key",
+                "entry",
+                "subjectId",
+                "targetKind",
+                "module",
+                "executor",
+                "state",
+                "reasons",
+                "dependsOn",
+                "scope",
+                "executionStarted"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "collectionPermitted": {
+            "type": "boolean",
+            "const": false
+          }
+        },
+        "required": [
+          "page",
+          "plan",
+          "collectionPermitted"
+        ],
+        "additionalProperties": false,
+        "description": "Complete result for plan_catalog_members only. Reads current expanded members and plans a lookup; never performs collection. Other Context actions retain their separate results."
       }
     },
     "securitySchemes": {

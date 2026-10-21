@@ -11,17 +11,77 @@ function publishedFiles(directory: string): string[] {
   });
 }
 
+function contextWithoutCompatibilityIdentifiers(text: string): string {
+  const spec = JSON.parse(text);
+  const node =
+    spec.components.schemas.ContextCatalogPlanningResponse.properties.plan.items
+      .properties;
+  expect(node.module.enum).toEqual([
+    "musicbrainz",
+    "mlc_recording",
+    "songstats",
+  ]);
+  node.module.enum[2] = "legacy_platform_module";
+  expect(node.executor.enum[2]).toBe("collectContextSongstats");
+  node.executor.enum[2] = "legacy_platform_executor";
+
+  const operation = spec.paths["/api/context"].post;
+  const request = operation.requestBody.content[
+    "application/json"
+  ].schema.oneOf.find(
+    (schema: { properties: { action: { const: string } } }) =>
+      schema.properties.action.const === "plan_catalog_members",
+  );
+  expect(request.properties.module.enum).toEqual([
+    "recording_candidates",
+    "recording_work_candidates",
+    "platform_metadata",
+    "musicbrainz",
+    "mlc_recording",
+    "songstats",
+  ]);
+  request.properties.module.enum[5] = "legacy_platform_module";
+  operation.description = operation.description.replace(
+    /^(\| `platform_metadata` \| [^|\n]* \| )`songstats`( \|)$/m,
+    "$1`legacy_platform_module`$2",
+  );
+
+  const example =
+    operation.responses["200"].content["application/json"].examples
+      .catalogPlanPlatform.value.plan[0];
+  expect(example.module).toBe("songstats");
+  expect(example.executor).toBe("collectContextSongstats");
+  expect(example.key).toBe(`${example.subjectId}:songstats`);
+  example.module = "legacy_platform_module";
+  example.executor = "legacy_platform_executor";
+  example.key = `${example.subjectId}:legacy_platform_module`;
+  return JSON.stringify(spec);
+}
+
 describe("Recoup research documentation", () => {
   it("keeps provider branding and credential operations out of published contracts", () => {
     for (const path of publishedFiles(source)) {
       if (!/\.(mdx|json)$/.test(path)) continue;
-      expect(readFileSync(path, "utf8"), path).not.toMatch(
-        /songstats|production.{0,30}key/i,
-      );
+      const text = readFileSync(path, "utf8");
+      // #329 preserves exact legacy wire values; no other public copy is exempt.
+      const copy = path.endsWith("openapi/context.json")
+        ? contextWithoutCompatibilityIdentifiers(text)
+        : text;
+      expect(copy, path).not.toMatch(/songstats|production.{0,30}key/i);
       if (path.endsWith("openapi/research.json")) {
         expect(readFileSync(path, "utf8")).not.toMatch(/chartmetric|apify/i);
       }
     }
+  });
+
+  it("still rejects provider branding outside the exact Context compatibility fields", () => {
+    const spec = JSON.parse(
+      readFileSync(join(source, "api-reference/openapi/context.json"), "utf8"),
+    );
+    spec.paths["/api/context"].post.description += "\nPowered by Songstats.";
+    expect(
+      contextWithoutCompatibilityIdentifiers(JSON.stringify(spec)),
+    ).toMatch(/songstats/i);
   });
 
   it("documents supported portable track selectors without inventing an API alias", () => {
