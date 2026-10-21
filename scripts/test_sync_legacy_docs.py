@@ -22,6 +22,8 @@ class PublicationTests(unittest.TestCase):
             navigation = {'tabs': []}
             (source / 'docs.json').write_text(json.dumps({'navigation': navigation}))
             (source / 'guide.mdx').write_text('A maintained guide')
+            full_text = '# Recoup developer documentation\n\nA complete operation response.'
+            (source / 'llms-full.txt').write_text(full_text)
             target = root / 'docs'
             target.mkdir()
             (target / 'docs.json').write_text(json.dumps({'theme': 'mint', 'name': 'Recoup', 'navigation': {'old': []}}))
@@ -38,6 +40,15 @@ class PublicationTests(unittest.TestCase):
             pin = json.loads((target / 'SOURCE-PROVENANCE.json').read_text())
             self.assertEqual(pin['commit'], 'a' * 40)
             self.assertEqual(pin['files'][0]['sha256'], hashlib.sha256(b'A maintained guide').hexdigest())
+            self.assertEqual((target / 'llms-full.txt').read_text(), full_text)
+            exported = next(entry for entry in pin['files'] if entry['path'] == 'llms-full.txt')
+            self.assertEqual(exported['sha256'], hashlib.sha256(full_text.encode()).hexdigest())
+            (source / 'llms-full.txt').unlink()
+            result = subprocess.run(command, env=env, capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('llms-full.txt', result.stderr)
+            self.assertEqual((target / 'llms-full.txt').read_text(), full_text)
+            (source / 'llms-full.txt').write_text(full_text)
             (target / 'extra.mdx').write_text('Unmapped')
             result = subprocess.run(command, env=env, capture_output=True, text=True)
             self.assertNotEqual(result.returncode, 0)

@@ -3,9 +3,13 @@ import path from 'node:path';
 import { compile } from '@mdx-js/mdx';
 import remarkGfm from 'remark-gfm';
 import { docsHeadingPlugin } from './docs-headings.ts';
+import { docsLlmsFullText } from '../lib/docs/docsLlmsFullText.ts';
+import { siteConfig } from '../lib/config.ts';
 
 // content/docs/source is the only input. `--out <dir>` redirects the generated
-// files (default content/docs) so a test can compare a fresh build against the committed set.
+// JSON files (default content/docs) so a test can compare a fresh build against
+// the committed set. The retained AI export lives in source for the normal
+// provenance copy; --out redirects it too. It is never read as a page input.
 const outFlag = process.argv.indexOf('--out');
 const outPath = outFlag === -1 ? 'content/docs' : process.argv[outFlag + 1];
 if (!outPath || outPath.startsWith('--')) throw new Error('Usage: node scripts/build-docs.mjs [--out <dir>]');
@@ -84,4 +88,7 @@ const inventory={navigationPages:nav.flatMap(t=>t.groups.flatMap(g=>g.pages)).le
 await writeFile(path.join(destination,'manifest.json'),JSON.stringify(pages));
 await writeFile(path.join(destination,'navigation.json'),JSON.stringify(nav,null,2));
 await writeFile(path.join(destination,'inventory.json'),JSON.stringify(inventory,null,2));
+const retainedText = `# ${siteConfig.name} developer documentation\n\n${await docsLlmsFullText(pages, siteConfig.canonicalUrl)}`
+  .replace(/^[>\t ]+$/gm, line => line.trimEnd());
+await writeFile(path.join(outFlag === -1 ? snapshot : destination, 'llms-full.txt'), retainedText);
 console.log(JSON.stringify(inventory,null,2));

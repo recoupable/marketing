@@ -6,8 +6,8 @@ import type { DocPage } from "../docs.ts";
  * order. Each page's markdown opens with its "# Title" heading and a
  * "Source: <canonical URL>" line.
  */
-export async function docsLlmsFullText(pages: readonly DocPage[]): Promise<string> {
+export async function docsLlmsFullText(pages: readonly DocPage[], siteUrl?: string): Promise<string> {
   const sections: string[] = [];
-  for (const page of pages) sections.push((await documentationAgentMarkdown(page)).trimEnd());
+  for (const page of pages) sections.push((await documentationAgentMarkdown(page, siteUrl)).trimEnd());
   return `${sections.join("\n\n\n")}\n`;
 }

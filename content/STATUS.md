@@ -1,3 +1,18 @@
+## Complete retained AI documentation file — October 21, 2026
+
+The docs build now generates a supported `llms-full.txt` override using the same
+renderer as the website's complete documentation export. The retained host's
+automatic aggregate omitted the eight failed-chat-read response descriptions even
+while its individual pages and specifications were current. The derived file
+preserves full operation responses and referenced schemas for every documented
+operation, with canonical public links independent of preview settings.
+
+The source/provenance sync includes this file; regeneration checks reject drift.
+Marketing review, release and the subsequent retained copy/publication readback
+remain separate gates. No API contract, fixture, runtime, navigation, hosting or
+access change is part of this correction. The previous 19 website checks and
+qualified retained aggregate result remain dated evidence, not this new release.
+
 ## Chat read-failure reference — October 21, 2026
 
 Eight Research/Sessions operations now describe failed chat lookups as 500

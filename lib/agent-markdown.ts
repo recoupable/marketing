@@ -107,7 +107,7 @@ function pointerValue(spec: ApiObject, pointer: string): unknown {
 }
 
 /** A complete, source-authored operation slice with its local schema closure. */
-export function operationSpecification(page: DocPage, spec: ApiObject): ApiObject | undefined {
+export function operationSpecification(page: DocPage, spec: ApiObject, siteUrl?: string): ApiObject | undefined {
   if (!page.api) return undefined;
   const pathItem = spec.paths?.[page.api.path];
   const operation = pathItem?.[page.api.method.toLowerCase()];
@@ -146,16 +146,17 @@ export function operationSpecification(page: DocPage, spec: ApiObject): ApiObjec
     scan(value);
   }
   // Every summary and description in the slice, components included, links docs-root paths in the source.
-  return resolveSpecLinks(output);
+  return resolveSpecLinks(output, siteUrl);
 }
 
-export async function documentationAgentMarkdown(page: DocPage): Promise<string> {
-  const url = new URL(page.slug ? `/docs/${page.slug}` : "/docs", siteConfig.url).href;
-  const parts = [`# ${page.title}`, `Source: ${url}`, resolveDescriptionLinks(page.description ?? ""), page.body ? readableAgentMarkdown(page.body, url, true) : ""].filter(Boolean);
+export async function documentationAgentMarkdown(page: DocPage, siteUrl?: string): Promise<string> {
+  const origin = siteUrl ?? siteConfig.url;
+  const url = new URL(page.slug ? `/docs/${page.slug}` : "/docs", origin).href;
+  const parts = [`# ${page.title}`, `Source: ${url}`, resolveDescriptionLinks(page.description ?? "", siteUrl), page.body ? readableAgentMarkdown(page.body, url, true) : ""].filter(Boolean);
   if (page.api?.spec) {
     const spec = await getDocSpec(page.api.spec);
-    const slice = operationSpecification(page, spec);
-    const specificationUrl = new URL(`/docs/spec/${page.api.spec}`, siteConfig.url).href;
+    const slice = operationSpecification(page, spec, siteUrl);
+    const specificationUrl = new URL(`/docs/spec/${page.api.spec}`, origin).href;
     parts.push(`## ${page.api.method} ${page.api.path}`, `Full OpenAPI specification: ${specificationUrl}`);
     if (slice) {
       const operation = spec.paths[page.api.path][page.api.method.toLowerCase()];
@@ -165,7 +166,7 @@ export async function documentationAgentMarkdown(page: DocPage): Promise<string>
         : security.length === 0 || security.some((alternative: Record<string, unknown>) => Object.keys(alternative).length === 0)
           ? "This operation's specification permits a request without authentication."
           : "This operation requires one of the security alternatives in the specification below. Security scheme definitions are included where present in the published specification.";
-      parts.push(`## Authentication\n\n${authentication}\n\n[Authentication guide](${new URL("/docs/authentication", siteConfig.url).href})`);
+      parts.push(`## Authentication\n\n${authentication}\n\n[Authentication guide](${new URL("/docs/authentication", origin).href})`);
       const missingSchemes = [...new Set<string>((security || []).flatMap((alternative: Record<string, unknown>) => Object.keys(alternative)))].filter(name => !Object.hasOwn(spec.components?.securitySchemes || {}, name));
       if (missingSchemes.length) parts.push(`Documentation gap: the published specification names ${missingSchemes.map(name => `\`${name}\``).join(", ")} but does not define ${missingSchemes.length === 1 ? "that security scheme" : "those security schemes"}. Check the full specification and authentication guide before calling this operation.`);
       parts.push("## Operation and referenced schemas\n\n```json\n" + JSON.stringify(slice, null, 2) + "\n```");

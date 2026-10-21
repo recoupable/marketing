@@ -18,6 +18,8 @@ const apiUrl =
     ? "https://recoup-api.vercel.app/api"
     : "https://test-recoup-api.vercel.app/api";
 
+const canonicalSiteUrl = "https://recoupable.dev";
+
 /**
  * Site-wide configuration, the single source of truth for brand values,
  * URLs, and metadata defaults. Import from here, never hardcode.
@@ -29,8 +31,9 @@ export const siteConfig = {
   tagline: "AI agents for music",
   description:
     "Your label. Run by agents. You create. They run strategy, content, revenue.",
-  url: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://recoupable.dev")
+  url: new URL(process.env.NEXT_PUBLIC_SITE_URL || canonicalSiteUrl)
     .origin,
+  canonicalUrl: canonicalSiteUrl,
   appUrl: "https://app.recoupable.dev",
   apiUrl,
   docsUrl: "https://docs.recoupable.dev",
