@@ -410,6 +410,7 @@
           "api-reference/admins/emails",
           "api-reference/admins/privy",
           "api-reference/admins/coding-agent-slack-tags",
+          "api-reference/admins/coding-agent-slack-authors",
           "api-reference/admins/coding-pr",
           "api-reference/admins/content-slack-tags",
           "api-reference/admins/agent-signups",

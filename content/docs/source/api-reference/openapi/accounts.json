@@ -2775,7 +2775,7 @@
     "/api/admins/coding/slack": {
       "get": {
         "operationId": "getAdminsCodingSlack",
-        "description": "Returns a list of Slack mentions of the Recoup Coding Agent bot, pulled directly from the Slack API as the source of truth. Each entry includes the tagger's information, the prompt they sent, the timestamp, the channel, and any GitHub pull request URLs opened in response. Also returns aggregate pull request statistics. Supports optional time-period filtering. Requires the authenticated account to be a Recoup admin. Authentication via x-api-key or Authorization Bearer token.",
+        "description": "Returns a list of Slack mentions of the Recoup Coding Agent bot, pulled directly from the Slack API as the source of truth. Each entry includes the tagger's information, the prompt they sent, the timestamp, the channel, and any GitHub pull request URLs opened in response. Also returns aggregate pull request statistics. Supports optional time-period filtering. Requires the authenticated account to be a Recoup admin. Authentication via x-api-key or Authorization Bearer token. Optional tag filters by the exact, case-sensitive Slack author ID after trimming whitespace. Filtering happens after the existing period collection and before all totals are calculated; omission preserves the unfiltered report, and an unknown ID returns empty tags with zero totals. Empty or whitespace-only tag values return 400 after admin authentication. This is display filtering, not authorization or a reduction in Slack collection work. Collection retains its existing channel access, retention, history/thread pagination and partial-failure limits. No automatic caller, UI, polling, scheduled action or Slack send is added.",
         "parameters": [
           {
             "name": "period",
@@ -2792,6 +2792,18 @@
               ],
               "default": "all"
             }
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "description": "Optional exact, case-sensitive Slack author ID. Leading/trailing whitespace is trimmed; blank values are rejected. This filters already collected mentions before the totals are computed and does not change access or collection work.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "example": "U2"
           }
         ],
         "security": [
@@ -2826,17 +2838,17 @@
                     },
                     "total": {
                       "type": "integer",
-                      "description": "Total number of times the Coding Agent was tagged in the requested period",
+                      "description": "Number of collected Coding Agent mentions after the requested period and optional author filter.",
                       "example": 134
                     },
                     "total_pull_requests": {
                       "type": "integer",
-                      "description": "Total number of pull requests opened by the Coding Agent across all tags in the requested period",
+                      "description": "Number of pull request links across the filtered collected mentions.",
                       "example": 121
                     },
                     "tags_with_pull_requests": {
                       "type": "integer",
-                      "description": "Number of tags that resulted in at least one pull request being opened",
+                      "description": "Number of filtered collected mentions with at least one pull request link.",
                       "example": 84
                     },
                     "tags": {
@@ -2913,11 +2925,11 @@
             }
           },
           "401": {
-            "description": "Unauthorized - missing or invalid credentials",
+            "description": "Missing, conflicting or invalid credentials; inspect error or message according to the returned authentication envelope.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AccountErrorResponse"
+                  "$ref": "#/components/schemas/AdminCodingSlackAuthenticationError"
                 }
               }
             }
@@ -2938,6 +2950,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AccountErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid period or empty/whitespace-only tag; validation follows admin authentication and stops before Slack collection.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminCodingSlackQueryError"
                 }
               }
             }
@@ -3752,6 +3774,92 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admins/coding-agent/slack-tags": {
+      "get": {
+        "operationId": "getAdminsCodingSlackAuthors",
+        "description": "Returns distinct authors of collected Coding Agent mentions for an admin author selector. Requires the authenticated account to be a Recoup admin, using exactly one of x-api-key or Authorization Bearer. No query parameters are defined. Each authorized request runs the existing all-period Slack collector once, then deduplicates by Slack author ID, retains the first collected profile and sorts by display name using localeCompare; identical names do not merge different IDs. The result is authors in that collected data, not a complete all-time Slack directory. Existing channel access, retention, paginated history, first-page thread replies and partial-failure limits remain; partial collection can still produce an incomplete successful result. Thrown collection failures return 500. This call is not free cached metadata: a future caller must account for scan latency and quotas. The release adds no automatic caller, UI, polling, scheduled action, new Slack scope or Slack send. Production admin access, history coverage, latency and quotas were not verified by the source contract tests.",
+        "parameters": [],
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Distinct collected authors; an empty collected dataset returns total 0 and tags [].",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminCodingSlackAuthorsResponse"
+                },
+                "examples": {
+                  "collectedAuthors": {
+                    "summary": "Synthetic distinct authors; the first collected Bob profile has no avatar.",
+                    "value": {
+                      "status": "success",
+                      "total": 2,
+                      "tags": [
+                        {
+                          "id": "U1",
+                          "name": "Alice",
+                          "avatar": null
+                        },
+                        {
+                          "id": "U2",
+                          "name": "Bob",
+                          "avatar": null
+                        }
+                      ]
+                    }
+                  },
+                  "noAuthors": {
+                    "summary": "No collected authors.",
+                    "value": {
+                      "status": "success",
+                      "total": 0,
+                      "tags": []
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, conflicting or invalid credentials; inspect error or message according to the authentication envelope.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminCodingSlackAuthenticationError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The authenticated account is not a Recoup admin.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Thrown collection failure with a generic server message.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountErrorResponse"
                 }
               }
             }
@@ -6471,6 +6579,86 @@
             "format": "uri",
             "description": "The hosted portal URL. Redirect to this URL so the customer can manage their subscription.",
             "example": "https://billing.example.com/manage/portal_sess_a1b2c3d4"
+          }
+        }
+      },
+      "AdminCodingSlackQueryError": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ]
+          },
+          "error": {
+            "type": "string",
+            "description": "The first invalid query field or authentication-mechanism error."
+          }
+        }
+      },
+      "AdminCodingSlackAuthenticationError": {
+        "description": "Missing or simultaneous authentication mechanisms return status/error. An invalid API key or Bearer credential returns status/message. Supply exactly one mechanism and authenticate a Recoup admin account.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AdminCodingSlackQueryError"
+          },
+          {
+            "$ref": "#/components/schemas/AccountErrorResponse"
+          }
+        ]
+      },
+      "AdminCodingSlackAuthorsResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "total",
+          "tags"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ]
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Number of distinct author IDs in the collected data."
+          },
+          "tags": {
+            "type": "array",
+            "description": "Distinct authors, deduplicated by ID and sorted by display name with the server localeCompare order. The first collected profile is retained; equal names do not merge distinct IDs.",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name",
+                "avatar"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Slack author ID; use it as the analytics tag filter."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Display name from the first collected profile."
+                },
+                "avatar": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Avatar URL from the first collected profile, or null."
+                }
+              }
+            }
           }
         }
       }
