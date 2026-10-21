@@ -926,7 +926,7 @@
             }
           },
           "500": {
-            "description": "Session ownership lookup failed.",
+            "description": "The chat or session ownership lookup failed. This is not a missing-chat result.",
             "content": {
               "application/json": {
                 "schema": {
@@ -952,7 +952,7 @@
       "post": {
         "operationId": "postChat",
         "summary": "Stream sandbox-driven chat (Vercel Workflow)",
-        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) — no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** a headless run finished (status, not content).",
+        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) — no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](/api-reference/chat/runs) — the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](/api-reference/chat/workflow-stream) — reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](/api-reference/chat/runs-status) — check **whether** a headless run finished (status, not content).\n\nA new turn is separate from reconnecting. If the active-run check finds a live response, POST returns `409` before saving the new message or starting a new turn. Keep the submitted text locally, reconnect with GET, and decide when to submit it again. Other start conflicts can also return `409`; inspect the current chat state before retrying. Messages are not queued or automatically replayed. If existing run state cannot be resolved safely, POST returns `503` for a later retry.",
         "security": [
           {
             "apiKeyAuth": []
@@ -1030,7 +1030,27 @@
             }
           },
           "409": {
-            "description": "A response is already streaming for this chat. Reconnect to it via `GET /api/chat/{chatId}/stream` instead of POSTing again.",
+            "description": "A response is already streaming or another conflict prevented this start. For an existing live response, reconnect via `GET /api/chat/{chatId}/stream`. Preserve the submitted text and inspect the current chat state before resubmitting; a conflict is not a receipt for the new turn.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error, including a failed chat or session lookup. A failed lookup is not a missing-chat result.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The existing response state could not be resolved or its stale slot could not be safely cleared. Retry shortly. This check returns before saving the new message or starting a new turn.",
             "content": {
               "application/json": {
                 "schema": {
