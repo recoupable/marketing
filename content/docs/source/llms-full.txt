@@ -54634,23 +54634,307 @@ This operation requires one of the security alternatives in the specification be
 
 Source: https://recoupable.dev/docs/api-reference/admins/agent-signups
 
-The former admin signup-report route is not available; reporting access still needs a product decision.
+An admin key-metadata report is available; the former signup-report URL and broader reporting outcome remain separate.
 
-`GET /api/admins/agent/signups` is not available. There is no implemented
-replacement for the old per-signup report in the current platform API.
+`GET /api/admins/agent/signups` is not available. The new
+[admin key-metadata report](https://recoupable.dev/docs/api-reference/admins/agent-key-metadata) uses
+`GET /api/admins/agent-signups` (a different URL).
 
-[Agent signup and email verification](https://recoupable.dev/docs/agents) are account-onboarding flows,
-not reporting APIs. Creating an account or API key does not grant access to
-other accounts' signup records.
+A Recoup admin can use the new report to inspect key-record IDs, names, creation
+times and matching current `agent+…` email addresses. It never returns API-key
+credentials or hashes. Its `total` counts the returned key records; several keys
+can belong to one account. It does not establish where an account signed up,
+how many unique agents signed up, which keys are active, or whether people use
+the product. Current email associations, database visibility and server row limits
+also prevent a guarantee of complete historical reporting.
 
-## Unfinished product decision
+## Unfinished reporting outcome
 
 [Reconciliation #327](https://github.com/recoupable/mono/issues/327) retains the
-decision about who should see this report, whether it needs individual records
-or aggregate counts, and which time windows and identifying fields are allowed.
-No reporting API or permission policy is being introduced by this documentation
-correction. The former request and response are removed from the callable
-specification until the owning product decision and implementation exist.
+broader reporting decision. The bounded metadata route from
+[API #1095](https://github.com/recoupable/api/pull/1095) does not complete the original
+[API #428](https://github.com/recoupable/api/issues/428) customer outcome or restore
+the former URL. Follow the new route's period, admin-access and collection-limit
+notes when using it; do not treat key-record counts as signup-origin or adoption
+measurements.
+
+
+# List Agent Key Metadata (Admin)
+
+Source: https://recoupable.dev/docs/api-reference/admins/agent-key-metadata
+
+List agent-prefixed API-key metadata (Admin)
+
+## GET /api/admins/agent-signups
+
+Full OpenAPI specification: https://recoupable.dev/docs/spec/accounts.json
+
+## Authentication
+
+This operation requires one of the security alternatives in the specification below. Security scheme definitions are included where present in the published specification.
+
+[Authentication guide](https://recoupable.dev/docs/authentication)
+
+## Operation and referenced schemas
+
+```json
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Recoup API - Accounts",
+    "description": "API documentation for the Recoup platform - an AI agent platform for the music industry",
+    "license": {
+      "name": "MIT"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.recoupable.dev"
+    }
+  ],
+  "paths": {
+    "/api/admins/agent-signups": {
+      "get": {
+        "operationId": "getAdminsAgentSignupMetadata",
+        "summary": "List agent-prefixed API-key metadata (Admin)",
+        "description": "Read API-key record metadata associated with current account emails matching the case-insensitive agent+ prefix. Authenticate with exactly one x-api-key or Authorization: Bearer credential for a Recoup admin account. Admin access is checked before query validation or metadata access.\n\nEach returned record contains only id, name, email and created_at. id identifies an API-key record, not an account or credential; no API key value or hash is selected or returned. email is the first matching current associated email, not necessarily a primary or canonical address. Multiple matching emails do not multiply a key record; multiple keys on one account remain separate records. Deleted keys are absent; expired key records are not excluded. Current email associations can change. This is a current-email metadata selection, not evidence of origin from POST /api/agents/signup, a unique-agent/account count, active-key count, usage or adoption.\n\nperiod defaults to all. Other values use inclusive midnight-UTC calendar boundaries on API-key record created_at: daily is today; weekly includes today and the preceding six calendar days; monthly includes today and the preceding 29 calendar days. Rows are ordered by key-record created_at descending. total is the length of the returned signups array, not a separate database-wide count. Existing database visibility and server row limits apply; no pagination or collection-completeness guarantee is provided. A successful empty read returns total 0 and signups []; a read failure returns a masked 500 instead.\n\nThis is GET /api/admins/agent-signups. The former GET /api/admins/agent/signups remains unavailable. The broader reporting decision in Mono #327 and original API #428 are not closed by this metadata route. Source tests use synthetic credential and storage boundaries; they do not prove production admin access, real data completeness or customer adoption. No UI, automatic caller, polling job, export or account/key creation is added.",
+        "parameters": [
+          {
+            "name": "period",
+            "in": "query",
+            "required": false,
+            "description": "Optional key-record creation window, inclusive from 00:00 UTC: daily = today; weekly = 7 calendar days including today; monthly = 30 calendar days including today; all = no cutoff. Defaults to all when omitted; an explicit empty or unsupported value returns 400. This is not a rolling 24-hour window and does not filter by account or email creation time.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "all",
+                "daily",
+                "weekly",
+                "monthly"
+              ],
+              "default": "all"
+            },
+            "example": "all"
+          }
+        ],
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned API-key metadata and the count of these returned records.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdminAgentKeyMetadataResponse"
+                },
+                "examples": {
+                  "multipleKeys": {
+                    "summary": "Synthetic example: two key records share one current matching email; total is not unique accounts.",
+                    "value": {
+                      "status": "success",
+                      "total": 2,
+                      "signups": [
+                        {
+                          "id": "11111111-1111-4111-8111-111111111112",
+                          "name": "Second agent key",
+                          "email": "agent+fixture@example.invalid",
+                          "created_at": "2026-10-21T12:00:00Z"
+                        },
+                        {
+                          "id": "11111111-1111-4111-8111-111111111111",
+                          "name": "First agent key",
+                          "email": "agent+fixture@example.invalid",
+                          "created_at": "2026-10-20T12:00:00Z"
+                        }
+                      ]
+                    }
+                  },
+                  "noRecords": {
+                    "summary": "Successful empty metadata read, subject to existing visibility and collection limits.",
+                    "value": {
+                      "status": "success",
+                      "total": 0,
+                      "signups": []
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or explicitly empty period, after successful admin authentication.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, simultaneous or invalid credentials; inspect error or message according to the authentication envelope.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ErrorEnvelope"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AccountErrorResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The authenticated account is not a Recoup admin.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Metadata read or handler failure. Generic Internal server error message; not an empty success report.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AdminAgentKeyMetadataResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "total",
+          "signups"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ]
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Number of key records in this returned signups array. Not a separate database-wide count or a count of unique accounts, agents, active keys or adoption."
+          },
+          "signups": {
+            "type": "array",
+            "description": "Returned metadata rows ordered by key-record created_at descending. The retained wire name does not establish signup origin. Multiple keys for one account remain separate rows.",
+            "items": {
+              "$ref": "#/components/schemas/AdminAgentKeyMetadata"
+            }
+          }
+        }
+      },
+      "ErrorEnvelope": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          }
+        }
+      },
+      "AccountErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "message"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Status of the request"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          }
+        }
+      },
+      "AdminAgentKeyMetadata": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "email",
+          "created_at"
+        ],
+        "description": "One returned API-key record and the first matching current associated email. No credential value or hash is selected or returned.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "API-key record ID, not an account ID or a credential."
+          },
+          "name": {
+            "type": "string",
+            "description": "Stored name of this API-key record."
+          },
+          "email": {
+            "type": "string",
+            "description": "First current associated email matching the case-insensitive agent+ prefix; not necessarily a primary or canonical email."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Creation time of the API-key record, not the account or email."
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "Your Recoup API key. [Learn more](https://recoupable.dev/docs/quickstart#api-keys)."
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
+```
 
 
 # List Pro Artists (Admin)

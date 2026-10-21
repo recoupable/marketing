@@ -1,20 +1,26 @@
 ---
 title: 'Admin signup report availability'
-description: 'The former admin signup-report route is not available; reporting access still needs a product decision.'
+description: 'An admin key-metadata report is available; the former signup-report URL and broader reporting outcome remain separate.'
 ---
 
-`GET /api/admins/agent/signups` is not available. There is no implemented
-replacement for the old per-signup report in the current platform API.
+`GET /api/admins/agent/signups` is not available. The new
+[admin key-metadata report](/api-reference/admins/agent-key-metadata) uses
+`GET /api/admins/agent-signups` (a different URL).
 
-[Agent signup and email verification](/agents) are account-onboarding flows,
-not reporting APIs. Creating an account or API key does not grant access to
-other accounts' signup records.
+A Recoup admin can use the new report to inspect key-record IDs, names, creation
+times and matching current `agent+…` email addresses. It never returns API-key
+credentials or hashes. Its `total` counts the returned key records; several keys
+can belong to one account. It does not establish where an account signed up,
+how many unique agents signed up, which keys are active, or whether people use
+the product. Current email associations, database visibility and server row limits
+also prevent a guarantee of complete historical reporting.
 
-## Unfinished product decision
+## Unfinished reporting outcome
 
 [Reconciliation #327](https://github.com/recoupable/mono/issues/327) retains the
-decision about who should see this report, whether it needs individual records
-or aggregate counts, and which time windows and identifying fields are allowed.
-No reporting API or permission policy is being introduced by this documentation
-correction. The former request and response are removed from the callable
-specification until the owning product decision and implementation exist.
+broader reporting decision. The bounded metadata route from
+[API #1095](https://github.com/recoupable/api/pull/1095) does not complete the original
+[API #428](https://github.com/recoupable/api/issues/428) customer outcome or restore
+the former URL. Follow the new route's period, admin-access and collection-limit
+notes when using it; do not treat key-record counts as signup-origin or adoption
+measurements.

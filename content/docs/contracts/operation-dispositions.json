@@ -229,7 +229,7 @@
   },
   "GET /api/admins/agent/signups": {
     "classification": "pending",
-    "reason": "Unavailable callable reference withdrawn. Product owner must decide audience, individual vs aggregate reporting, identifying fields and periods in https://github.com/recoupable/mono/issues/327; no replacement or admin policy is established."
+    "reason": "Former URL remains unavailable. The distinct GET /api/admins/agent-signups route from API #1095 provides bounded current-email API-key metadata, without credentials, signup-origin, unique-agent, active-key or adoption evidence. Broader reporting remains in https://github.com/recoupable/mono/issues/327 and original API #428; the metadata route does not close those outcomes."
   },
   "GET /api/catalogs/{catalogId}/valuations": {
     "classification": "pending",

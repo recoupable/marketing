@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "1d2109f1d313ea4cd02e6a294467823c6989c5d1",
+  "apiSourceCommit": "d6f14f605ae04b436dc1eff5490720598ecc8841",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -225,6 +225,22 @@
       "documentation": "content/docs/source/api-reference/openapi/accounts.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "GET",
+      "path": "/api/admins/agent-signups",
+      "implementation": "app/api/admins/agent-signups/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/accounts.json",
+      "classification": "public",
+      "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/admins/agent-signups",
+      "implementation": "app/api/admins/agent-signups/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "GET",
@@ -3646,7 +3662,7 @@
     }
   ],
   "specificationHashes": {
-    "content/docs/source/api-reference/openapi/accounts.json": "2dd43f5daf898995fe2072a720474b4a8d898dd2fcf35a92a6e3cb3b0cffefb0",
+    "content/docs/source/api-reference/openapi/accounts.json": "1a5a04f9ec358a15b8339b7029c9fed5fe69c6f042c8b03b6b4f03f3aafdeeed",
     "content/docs/source/api-reference/openapi/ai.json": "678f649fff58a1c49c81002ea2cbe66636ad5da1044ea66261e6ab4084600687",
     "content/docs/source/api-reference/openapi/content.json": "c109fc9eb3b5557c6585f32fb4771d3ebe6103ac9532c6a7a3b8f929a2603511",
     "content/docs/source/api-reference/openapi/context.json": "dd0a72fef32fa9abd74410caa71ac2b71df0ee36edb3a6cbc3614cde408c0593",
