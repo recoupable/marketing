@@ -5,6 +5,15 @@ response descriptions in its split OpenAPI files. Reconcile with implementation
 before copying. Run `pnpm docs:build`, `pnpm docs:check`, and `pnpm build`; commit the
 generated docs artifacts. Update the static product/MCP summaries too.
 
+`pnpm docs:build` also generates `content/docs/source/llms-full.txt` through the
+same complete-operation Markdown renderer as the website. Do not hand-edit it.
+It retains response descriptions, schemas and local references that the retained
+host's automatic aggregate can omit. The documented Mintlify custom-file mechanism
+serves this source-controlled file at `/llms-full.txt`; normal provenance sync and
+checks include it. This is a publication file, not a hosting or cutover change.
+`--out <dir>` redirects this derived file alongside the JSON snapshots for checks.
+Generated links use the canonical website origin, independent of preview settings.
+
 The separate Docs host remains a compatibility publication during the transition.
 Its copy is generated from a pinned Marketing commit with path hashes recorded in
 `SOURCE-PROVENANCE.json`; do not author the same guide independently in Docs.
