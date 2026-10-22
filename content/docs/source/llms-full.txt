@@ -41100,7 +41100,7 @@ This operation requires one of the security alternatives in the specification be
     "/api/content-agent/callback": {
       "post": {
         "operationId": "postContentAgentCallback",
-        "description": "Internal worker callback for a configured content agent. Requires the shared callback secret in x-callback-secret. Public content creation uses POST /api/content/create.\n\nInternal callback endpoint for the `poll-content-run` Trigger.dev task. Receives content generation results and posts them back to the originating Slack thread. Authenticated via the `x-callback-secret` header.\n\nThis endpoint is not intended for external use — it is called automatically by the polling task when content runs complete, fail, or time out.\n\nThe receiver retains optional results[].imageUrl as a string, matching the existing videoUrl string validation; this does not add URL syntax validation. Only per-run results with status completed and a videoUrl enter media posting. An image without a completed video does not become an image-only job or still-only success. Existing video-only callbacks continue without an image read or image post.\n\nFor selected completed results, editorial images retain their per-result association and order; all editorial image posts precede all video posts, with videos also in result order. Images attach for normalized reported Content-Type image/png, image/jpeg, image/webp or image/gif. Missing or unsupported reported MIME, or failed image download, falls back to an Editorial Image URL message before video posting continues. Reported MIME is not byte verification or a safety scan. Each supplied image adds a media HTTP read and a thread attachment/link post within existing outbound callback trust, buffering and upload/runtime limits. This callback does not start another generation step or change generation billing.\n\nExisting caption/video labels, failed-run summaries and terminal-thread retry skipping remain. The thread-state skip is not a concurrency-safe or exactly-once delivery guarantee. Normal image delivery requires both this receiver support and a deployed polling mapper that forwards imageUrl (API #1097 and Tasks #162). Source tests and this reference do not establish worker deployment, hosted authorization, actual Slack file rendering or end-to-end image delivery.",
+        "description": "Internal worker callback for a configured content agent. Requires the shared callback secret in x-callback-secret. Public content creation uses POST /api/content/create.\n\nInternal callback endpoint for the `poll-content-run` Trigger.dev task. Receives content generation results and posts them back to the originating Slack thread. Authenticated via the `x-callback-secret` header.\n\nThis endpoint is not intended for external use — it is called automatically by the polling task when content runs complete, fail, or time out.\n\nThe receiver retains optional results[].imageUrl as a string, matching the existing videoUrl string validation; this does not add URL syntax validation. Only per-run results with status completed and a videoUrl enter media posting. An image without a completed video does not become an image-only job or still-only success. Existing video-only callbacks continue without an image read or image post.\n\nFor selected completed results, editorial images retain their per-result association and order; all editorial image posts precede all video posts, with videos also in result order. Images attach for normalized reported Content-Type image/png, image/jpeg, image/webp or image/gif. Missing or unsupported reported MIME, or failed image download, falls back to an Editorial Image URL message before video posting continues. For an attachment filename, keep the final URL path component when it contains a dot; otherwise use editorial.<reported MIME extension>, with jpg for image/jpeg. Existing dotted filenames are not rewritten to match the MIME extension. Reported MIME is not byte verification or a safety scan. Each supplied image adds a media HTTP read and a thread attachment/link post within existing outbound callback trust, buffering and upload/runtime limits. This callback does not start another generation step or change generation billing.\n\nExisting caption/video labels, failed-run summaries and terminal-thread retry skipping remain. The thread-state skip is not a concurrency-safe or exactly-once delivery guarantee. Normal image delivery requires both this receiver support and a deployed polling mapper that forwards imageUrl (API #1097 and Tasks #162). Source tests and this reference do not establish worker deployment, hosted authorization, actual Slack file rendering or end-to-end image delivery.\n\nIf the content bot is not configured, the route returns 503 with {error: \"Content agent not configured\"} before bot initialization, callback-secret handling or body parsing. For a configured bot, initialization precedes the handler; the handler checks x-callback-secret before parsing JSON or accessing a thread or media. Missing or invalid secrets return 401 with {status: \"error\", error: \"Unauthorized\"}. Invalid JSON returns 400 with {status: \"error\", error: \"Invalid JSON body\"}. Schema-validation 400 responses use status/error plus missing_fields, the first issue path containing string field names and numeric array positions (for example [\"results\", 0, \"imageUrl\"]). missing_fields is absent for malformed JSON.\n\nA normal handler acknowledgement is 200 {status: \"ok\"}; a callback for an already-terminal thread is 200 {status: \"ok\", skipped: true} without another media post. These acknowledgements do not prove a Slack file was delivered or rendered. Handler 200/400/401 responses include the existing shared CORS headers; the unconfigured-bot 503 has no shared CORS headers. Shared response headers do not promise browser preflight success: x-callback-secret is not in the shared Access-Control-Allow-Headers list, and this route exports no OPTIONS handler. No stable 500 response envelope or delivery guarantee is declared here.",
         "requestBody": {
           "description": "Content generation results from the polling task",
           "required": true,
@@ -41162,7 +41162,7 @@ This operation requires one of the security alternatives in the specification be
                         },
                         "imageUrl": {
                           "type": "string",
-                          "description": "Optional editorial-image string associated with this run. Used only when this result is completed and also has videoUrl; not an image-only job. Attachment uses supported reported MIME, with URL fallback on download/MIME failure. No URL syntax validation is added by this field."
+                          "description": "Optional editorial-image string associated with this run. Used only when this result is completed and also has videoUrl; not an image-only job. Attachment uses supported reported MIME, with URL fallback on download/MIME failure. No URL syntax validation is added by this field. For an attachment filename, keep the final URL path component when it contains a dot; otherwise use editorial.<reported MIME extension>, with jpg for image/jpeg. Existing dotted filenames are not rewritten to match the MIME extension."
                         }
                       }
                     }
@@ -41218,7 +41218,7 @@ This operation requires one of the security alternatives in the specification be
         },
         "responses": {
           "200": {
-            "description": "Callback processed and results posted to Slack",
+            "description": "Handler processing acknowledgement or terminal-thread retry skip. Neither response alone establishes that a Slack file was delivered or rendered.",
             "content": {
               "application/json": {
                 "schema": {
@@ -41226,21 +41226,205 @@ This operation requires one of the security alternatives in the specification be
                   "properties": {
                     "status": {
                       "type": "string",
-                      "example": "ok"
+                      "example": "ok",
+                      "enum": [
+                        "ok"
+                      ]
+                    },
+                    "skipped": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ],
+                      "description": "Present as true for an already-terminal thread; processing/media posting is skipped. This is not a concurrency-safe delivery guarantee."
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "processed": {
+                    "summary": "Normal processing acknowledgement, including non-file notifications.",
+                    "value": {
+                      "status": "ok"
+                    }
+                  },
+                  "terminalRetry": {
+                    "summary": "Existing terminal-thread retry skip without another media post.",
+                    "value": {
+                      "status": "ok",
+                      "skipped": true
                     }
                   }
+                }
+              }
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "description": "Existing shared response header; this does not establish browser preflight support.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "*"
+                  ]
+                }
+              },
+              "Access-Control-Allow-Methods": {
+                "description": "Existing shared response header; this does not establish browser preflight support.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                  ]
+                }
+              },
+              "Access-Control-Allow-Headers": {
+                "description": "Existing shared response header; this does not establish browser preflight support.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "Content-Type, Authorization, X-Requested-With, x-api-key"
+                  ]
+                }
+              },
+              "Access-Control-Expose-Headers": {
+                "description": "Existing shared response header; this does not establish browser preflight support.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "x-workflow-run-id, x-workflow-stream-tail-index"
+                  ]
                 }
               }
             }
           },
           "400": {
-            "description": "Invalid request body"
+            "description": "Malformed JSON or schema validation failure after successful callback-secret validation. Schema failures include the first issue path in missing_fields; malformed JSON omits it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentCallbackValidationErrorResponse"
+                },
+                "examples": {
+                  "invalidJson": {
+                    "value": {
+                      "status": "error",
+                      "error": "Invalid JSON body"
+                    }
+                  },
+                  "invalidImageType": {
+                    "summary": "Synthetic invalid imageUrl type; error wording follows the validator.",
+                    "value": {
+                      "status": "error",
+                      "error": "Invalid input: expected string, received number",
+                      "missing_fields": [
+                        "results",
+                        0,
+                        "imageUrl"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "description": "Existing shared response header; this does not establish browser preflight support.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "*"
+                  ]
+                }
+              },
+              "Access-Control-Allow-Methods": {
+                "description": "Existing shared response header; this does not establish browser preflight support.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                  ]
+                }
+              },
+              "Access-Control-Allow-Headers": {
+                "description": "Existing shared response header; this does not establish browser preflight support.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "Content-Type, Authorization, X-Requested-With, x-api-key"
+                  ]
+                }
+              },
+              "Access-Control-Expose-Headers": {
+                "description": "Existing shared response header; this does not establish browser preflight support.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "x-workflow-run-id, x-workflow-stream-tail-index"
+                  ]
+                }
+              }
+            }
           },
           "401": {
-            "description": "Missing or invalid callback secret"
+            "description": "Missing or invalid shared callback secret, rejected before JSON parsing, thread access or media access in the configured handler.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentCallbackErrorResponse"
+                },
+                "examples": {
+                  "denied": {
+                    "value": {
+                      "status": "error",
+                      "error": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "description": "Existing shared response header; this does not establish browser preflight support.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "*"
+                  ]
+                }
+              },
+              "Access-Control-Allow-Methods": {
+                "description": "Existing shared response header; this does not establish browser preflight support.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                  ]
+                }
+              },
+              "Access-Control-Allow-Headers": {
+                "description": "Existing shared response header; this does not establish browser preflight support.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "Content-Type, Authorization, X-Requested-With, x-api-key"
+                  ]
+                }
+              },
+              "Access-Control-Expose-Headers": {
+                "description": "Existing shared response header; this does not establish browser preflight support.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "x-workflow-run-id, x-workflow-stream-tail-index"
+                  ]
+                }
+              }
+            }
           },
           "503": {
-            "description": "Content agent is not configured.",
+            "description": "Content bot is not configured. Returned before initialization/authentication/body parsing, without shared CORS headers; this envelope has only error, without status.",
             "content": {
               "application/json": {
                 "schema": {
@@ -41251,6 +41435,13 @@ This operation requires one of the security alternatives in the specification be
                   "properties": {
                     "error": {
                       "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "unconfigured": {
+                    "value": {
+                      "error": "Content agent not configured"
                     }
                   }
                 }
@@ -41267,6 +41458,58 @@ This operation requires one of the security alternatives in the specification be
     }
   },
   "components": {
+    "schemas": {
+      "ContentCallbackValidationErrorResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ContentCallbackErrorResponse"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "missing_fields": {
+                "type": "array",
+                "description": "First schema issue path; omitted for malformed JSON. Path elements can be field names or numeric array positions.",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "example": [
+                  "results",
+                  0,
+                  "imageUrl"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ContentCallbackErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ]
+          },
+          "error": {
+            "type": "string",
+            "description": "Human-readable error. Callback-secret denial uses Unauthorized."
+          }
+        }
+      }
+    },
     "securitySchemes": {
       "callbackSecret": {
         "type": "apiKey",
