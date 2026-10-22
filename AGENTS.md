@@ -341,6 +341,13 @@ The label kit narrative leads with outcomes for artists, managers, and labels. `
 
 Author platform docs in `content/docs/source`; follow [DOCUMENTATION-POLICY.md](DOCUMENTATION-POLICY.md).
 
+`build_response_contracts.py` imports the API-owned `TaskFailureErrorResponse`
+and freezes examples with the six selected task 403 and GET/POST 500 response
+schemas. API's `publishedTaskFailures.test.ts` exercises real routes, account
+override checks and PATCH/DELETE owner-denial handlers under synthetic access,
+credential, storage and scheduler leaves. This does not prove organization
+membership policy, live sign-in, task writes or hosted provider behavior.
+
 `scripts/build_task_authentication_contract.py` freezes the four task operations'
 credential alternatives and 401 examples. Their selected response schemas import
 API's existing authentication union through `build_response_contracts.py`. Keep

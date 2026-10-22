@@ -1048,21 +1048,43 @@
             }
           },
           "403": {
-            "description": "Forbidden - account_id is outside caller authorization scope",
+            "description": "Forbidden — the requested `account_id` is outside the authenticated account's authorized access. Read the text `error`.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskFailureErrorResponse"
+                },
+                "examples": {
+                  "accountOverrideDenied": {
+                    "value": {
+                      "status": "error",
+                      "error": "Access denied to specified account_id"
+                    }
+                  }
                 }
               }
             }
           },
           "500": {
-            "description": "Internal server error while retrieving tasks.",
+            "description": "Internal server error while retrieving tasks. Read the text `error`; the message can vary. The examples illustrate the response shape.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskFailureErrorResponse"
+                },
+                "examples": {
+                  "serviceError": {
+                    "value": {
+                      "status": "error",
+                      "error": "Task service unavailable"
+                    }
+                  },
+                  "unexpectedFailure": {
+                    "value": {
+                      "status": "error",
+                      "error": "Internal server error"
+                    }
+                  }
                 }
               }
             }
@@ -1200,21 +1222,43 @@
             }
           },
           "403": {
-            "description": "Forbidden - account_id is outside caller authorization scope",
+            "description": "Forbidden — the requested `account_id` is outside the authenticated account's authorized access. Read the text `error`.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskFailureErrorResponse"
+                },
+                "examples": {
+                  "accountOverrideDenied": {
+                    "value": {
+                      "status": "error",
+                      "error": "Access denied to specified account_id"
+                    }
+                  }
                 }
               }
             }
           },
           "500": {
-            "description": "Internal server error",
+            "description": "Internal server error while creating the task. Read the text `error`; the message can vary. The examples illustrate the response shape.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskFailureErrorResponse"
+                },
+                "examples": {
+                  "serviceError": {
+                    "value": {
+                      "status": "error",
+                      "error": "Task service unavailable"
+                    }
+                  },
+                  "unexpectedFailure": {
+                    "value": {
+                      "status": "error",
+                      "error": "Internal server error"
+                    }
+                  }
                 }
               }
             }
@@ -1383,11 +1427,25 @@
             }
           },
           "403": {
-            "description": "Forbidden - account_id is outside caller authorization scope",
+            "description": "Forbidden — the requested account selection is not allowed, or that account is not allowed to change this task. Read the text `error`.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskFailureErrorResponse"
+                },
+                "examples": {
+                  "accountOverrideDenied": {
+                    "value": {
+                      "status": "error",
+                      "error": "Access denied to specified account_id"
+                    }
+                  },
+                  "taskAccessDenied": {
+                    "value": {
+                      "status": "error",
+                      "error": "Access denied to this task"
+                    }
+                  }
                 }
               }
             }
@@ -1502,11 +1560,19 @@
             }
           },
           "403": {
-            "description": "Forbidden - account_id is outside caller authorization scope",
+            "description": "Forbidden — the authenticated account is not allowed to delete this task. Read the text `error`.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskFailureErrorResponse"
+                },
+                "examples": {
+                  "taskAccessDenied": {
+                    "value": {
+                      "status": "error",
+                      "error": "Access denied to this task"
+                    }
+                  }
                 }
               }
             }
@@ -6754,6 +6820,27 @@
             "additionalProperties": {}
           }
         ]
+      },
+      "TaskFailureErrorResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "description": "Always `error`.",
+            "type": "string",
+            "enum": [
+              "error"
+            ]
+          },
+          "error": {
+            "description": "Human-readable error message or documented error code.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "error"
+        ],
+        "additionalProperties": {}
       }
     }
   }
