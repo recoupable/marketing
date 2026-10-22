@@ -37967,11 +37967,27 @@ This operation requires one of the security alternatives in the specification be
             }
           },
           "401": {
-            "description": "Unauthorized - missing or invalid credentials",
+            "description": "Unauthorized — send exactly one of `x-api-key` or `Authorization: Bearer …`. Missing or conflicting headers return a text `error`; malformed or rejected credentials return a text `message`. Both envelopes include `status: error`; read whichever text field is present.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskAuthenticationErrorResponse"
+                },
+                "examples": {
+                  "missingOrConflictingCredentials": {
+                    "summary": "Missing credentials or both credential headers supplied",
+                    "value": {
+                      "status": "error",
+                      "error": "Exactly one of x-api-key or Authorization must be provided"
+                    }
+                  },
+                  "invalidCredential": {
+                    "summary": "Rejected API key, whether sent in x-api-key or as a Bearer key",
+                    "value": {
+                      "status": "error",
+                      "message": "Unauthorized"
+                    }
+                  }
                 }
               }
             }
@@ -38055,6 +38071,52 @@ This operation requires one of the security alternatives in the specification be
             "type": "string"
           }
         }
+      },
+      "TaskAuthenticationErrorResponse": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "error": {
+                "description": "Human-readable error message or documented error code.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "error"
+            ],
+            "additionalProperties": {}
+          },
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "message": {
+                "description": "Human-readable authentication error message.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "message"
+            ],
+            "additionalProperties": {}
+          }
+        ]
       },
       "PlanLimitError": {
         "type": "object",
@@ -38560,7 +38622,7 @@ Full OpenAPI specification: https://recoupable.dev/docs/spec/releases.json
 
 ## Authentication
 
-The supplied specification does not declare an OpenAPI security object for this operation. Its declared headers and parameters still apply. Consult the authentication guide and the full specification before calling it.
+This operation requires one of the security alternatives in the specification below. Security scheme definitions are included where present in the published specification.
 
 [Authentication guide](https://recoupable.dev/docs/authentication)
 
@@ -38639,11 +38701,27 @@ The supplied specification does not declare an OpenAPI security object for this 
             }
           },
           "401": {
-            "description": "Unauthorized - missing or invalid credentials",
+            "description": "Unauthorized — send exactly one of `x-api-key` or `Authorization: Bearer …`. Missing or conflicting headers return a text `error`; malformed or rejected credentials return a text `message`. Both envelopes include `status: error`; read whichever text field is present.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskAuthenticationErrorResponse"
+                },
+                "examples": {
+                  "missingOrConflictingCredentials": {
+                    "summary": "Missing credentials or both credential headers supplied",
+                    "value": {
+                      "status": "error",
+                      "error": "Exactly one of x-api-key or Authorization must be provided"
+                    }
+                  },
+                  "invalidCredential": {
+                    "summary": "Rejected API key, whether sent in x-api-key or as a Bearer key",
+                    "value": {
+                      "status": "error",
+                      "message": "Unauthorized"
+                    }
+                  }
                 }
               }
             }
@@ -38708,7 +38786,15 @@ The supplied specification does not declare an OpenAPI security object for this 
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     }
   },
@@ -38825,21 +38911,51 @@ The supplied specification does not declare an OpenAPI security object for this 
         },
         "description": "Request-body validation error for creating or updating a task. Invalid JSON omits `missing_fields`; a schema validation failure includes the path of the first issue."
       },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
+      "TaskAuthenticationErrorResponse": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "error": {
+                "description": "Human-readable error message or documented error code.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "error"
+            ],
+            "additionalProperties": {}
           },
-          "message": {
-            "type": "string"
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "message": {
+                "description": "Human-readable authentication error message.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "message"
+            ],
+            "additionalProperties": {}
           }
-        }
+        ]
       },
       "PlanLimitError": {
         "type": "object",
@@ -38915,6 +39031,22 @@ The supplied specification does not declare an OpenAPI security object for this 
             "format": "uri",
             "description": "Static link to `/plan` in the Recoup app, where a human can upgrade. Constant; retrying creates nothing.",
             "example": "https://app.recoupable.dev/plan"
+          }
+        }
+      },
+      "Error": {
+        "required": [
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
           }
         }
       },
@@ -39315,6 +39447,18 @@ The supplied specification does not declare an OpenAPI security object for this 
           }
         }
       }
+    },
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "Your Recoup API key. [Learn more](https://recoupable.dev/docs/quickstart#api-keys)."
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
     }
   }
 }
@@ -39445,11 +39589,27 @@ This operation requires one of the security alternatives in the specification be
             }
           },
           "401": {
-            "description": "Unauthorized - missing or invalid credentials",
+            "description": "Unauthorized — send exactly one of `x-api-key` or `Authorization: Bearer …`. Missing or conflicting headers return a text `error`; malformed or rejected credentials return a text `message`. Both envelopes include `status: error`; read whichever text field is present.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskAuthenticationErrorResponse"
+                },
+                "examples": {
+                  "missingOrConflictingCredentials": {
+                    "summary": "Missing credentials or both credential headers supplied",
+                    "value": {
+                      "status": "error",
+                      "error": "Exactly one of x-api-key or Authorization must be provided"
+                    }
+                  },
+                  "invalidCredential": {
+                    "summary": "Rejected API key, whether sent in x-api-key or as a Bearer key",
+                    "value": {
+                      "status": "error",
+                      "message": "Unauthorized"
+                    }
+                  }
                 }
               }
             }
@@ -39663,21 +39823,51 @@ This operation requires one of the security alternatives in the specification be
         },
         "description": "Request-body validation error for creating or updating a task. Invalid JSON omits `missing_fields`; a schema validation failure includes the path of the first issue."
       },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
+      "TaskAuthenticationErrorResponse": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "error": {
+                "description": "Human-readable error message or documented error code.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "error"
+            ],
+            "additionalProperties": {}
           },
-          "message": {
-            "type": "string"
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "message": {
+                "description": "Human-readable authentication error message.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "message"
+            ],
+            "additionalProperties": {}
           }
-        }
+        ]
       },
       "PlanLimitError": {
         "type": "object",
@@ -39753,6 +39943,22 @@ This operation requires one of the security alternatives in the specification be
             "format": "uri",
             "description": "Static link to `/plan` in the Recoup app, where a human can upgrade. Constant; retrying creates nothing.",
             "example": "https://app.recoupable.dev/plan"
+          }
+        }
+      },
+      "Error": {
+        "required": [
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
           }
         }
       },
@@ -40280,11 +40486,27 @@ This operation requires one of the security alternatives in the specification be
             }
           },
           "401": {
-            "description": "Unauthorized - missing or invalid credentials",
+            "description": "Unauthorized — send exactly one of `x-api-key` or `Authorization: Bearer …`. Missing or conflicting headers return a text `error`; malformed or rejected credentials return a text `message`. Both envelopes include `status: error`; read whichever text field is present.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskAuthenticationErrorResponse"
+                },
+                "examples": {
+                  "missingOrConflictingCredentials": {
+                    "summary": "Missing credentials or both credential headers supplied",
+                    "value": {
+                      "status": "error",
+                      "error": "Exactly one of x-api-key or Authorization must be provided"
+                    }
+                  },
+                  "invalidCredential": {
+                    "summary": "Rejected API key, whether sent in x-api-key or as a Bearer key",
+                    "value": {
+                      "status": "error",
+                      "message": "Unauthorized"
+                    }
+                  }
                 }
               }
             }
@@ -40397,6 +40619,52 @@ This operation requires one of the security alternatives in the specification be
             "description": "Validation message for the first failing field"
           }
         }
+      },
+      "TaskAuthenticationErrorResponse": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "error": {
+                "description": "Human-readable error message or documented error code.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "error"
+            ],
+            "additionalProperties": {}
+          },
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "message": {
+                "description": "Human-readable authentication error message.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "message"
+            ],
+            "additionalProperties": {}
+          }
+        ]
       },
       "Error": {
         "required": [

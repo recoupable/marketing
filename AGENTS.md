@@ -341,6 +341,14 @@ The label kit narrative leads with outcomes for artists, managers, and labels. `
 
 Author platform docs in `content/docs/source`; follow [DOCUMENTATION-POLICY.md](DOCUMENTATION-POLICY.md).
 
+`scripts/build_task_authentication_contract.py` freezes the four task operations'
+credential alternatives and 401 examples. Their selected response schemas import
+API's existing authentication union through `build_response_contracts.py`. Keep
+the helper in the isolated producer workspace's explicit copy list. API's
+`publishedTaskAuthentication.test.ts` uses real routes/authentication code with
+synthetic credential and task leaves; these checks do not sign in a real account,
+run a task or establish client OAuth lifecycle behavior.
+
 `scripts/build_task_validation_contract.py` freezes the task POST/PATCH 400
 schemas and examples into `taskValidation` in the shared fixture. Keep this helper
 in the isolated producer test workspace's explicit copy list. API's

@@ -1022,11 +1022,27 @@
             }
           },
           "401": {
-            "description": "Unauthorized - missing or invalid credentials",
+            "description": "Unauthorized — send exactly one of `x-api-key` or `Authorization: Bearer …`. Missing or conflicting headers return a text `error`; malformed or rejected credentials return a text `message`. Both envelopes include `status: error`; read whichever text field is present.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskAuthenticationErrorResponse"
+                },
+                "examples": {
+                  "missingOrConflictingCredentials": {
+                    "summary": "Missing credentials or both credential headers supplied",
+                    "value": {
+                      "status": "error",
+                      "error": "Exactly one of x-api-key or Authorization must be provided"
+                    }
+                  },
+                  "invalidCredential": {
+                    "summary": "Rejected API key, whether sent in x-api-key or as a Bearer key",
+                    "value": {
+                      "status": "error",
+                      "message": "Unauthorized"
+                    }
+                  }
                 }
               }
             }
@@ -1118,11 +1134,27 @@
             }
           },
           "401": {
-            "description": "Unauthorized - missing or invalid credentials",
+            "description": "Unauthorized — send exactly one of `x-api-key` or `Authorization: Bearer …`. Missing or conflicting headers return a text `error`; malformed or rejected credentials return a text `message`. Both envelopes include `status: error`; read whichever text field is present.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskAuthenticationErrorResponse"
+                },
+                "examples": {
+                  "missingOrConflictingCredentials": {
+                    "summary": "Missing credentials or both credential headers supplied",
+                    "value": {
+                      "status": "error",
+                      "error": "Exactly one of x-api-key or Authorization must be provided"
+                    }
+                  },
+                  "invalidCredential": {
+                    "summary": "Rejected API key, whether sent in x-api-key or as a Bearer key",
+                    "value": {
+                      "status": "error",
+                      "message": "Unauthorized"
+                    }
+                  }
                 }
               }
             }
@@ -1187,7 +1219,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "patch": {
         "operationId": "patchTasks",
@@ -1277,11 +1317,27 @@
             }
           },
           "401": {
-            "description": "Unauthorized - missing or invalid credentials",
+            "description": "Unauthorized — send exactly one of `x-api-key` or `Authorization: Bearer …`. Missing or conflicting headers return a text `error`; malformed or rejected credentials return a text `message`. Both envelopes include `status: error`; read whichever text field is present.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskAuthenticationErrorResponse"
+                },
+                "examples": {
+                  "missingOrConflictingCredentials": {
+                    "summary": "Missing credentials or both credential headers supplied",
+                    "value": {
+                      "status": "error",
+                      "error": "Exactly one of x-api-key or Authorization must be provided"
+                    }
+                  },
+                  "invalidCredential": {
+                    "summary": "Rejected API key, whether sent in x-api-key or as a Bearer key",
+                    "value": {
+                      "status": "error",
+                      "message": "Unauthorized"
+                    }
+                  }
                 }
               }
             }
@@ -1420,11 +1476,27 @@
             }
           },
           "401": {
-            "description": "Unauthorized - missing or invalid credentials",
+            "description": "Unauthorized — send exactly one of `x-api-key` or `Authorization: Bearer …`. Missing or conflicting headers return a text `error`; malformed or rejected credentials return a text `message`. Both envelopes include `status: error`; read whichever text field is present.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/TaskAuthenticationErrorResponse"
+                },
+                "examples": {
+                  "missingOrConflictingCredentials": {
+                    "summary": "Missing credentials or both credential headers supplied",
+                    "value": {
+                      "status": "error",
+                      "error": "Exactly one of x-api-key or Authorization must be provided"
+                    }
+                  },
+                  "invalidCredential": {
+                    "summary": "Rejected API key, whether sent in x-api-key or as a Bearer key",
+                    "value": {
+                      "status": "error",
+                      "message": "Unauthorized"
+                    }
+                  }
                 }
               }
             }
@@ -6636,6 +6708,52 @@
             "description": "Uppercase platform identifier inferred from the profile URL: SPOTIFY, INSTAGRAM, TIKTOK, TWITTER, YOUTUBE, APPLE, FACEBOOK, THREADS, or NONE if the URL did not match a known platform."
           }
         }
+      },
+      "TaskAuthenticationErrorResponse": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "error": {
+                "description": "Human-readable error message or documented error code.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "error"
+            ],
+            "additionalProperties": {}
+          },
+          {
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Always `error`.",
+                "type": "string",
+                "enum": [
+                  "error"
+                ]
+              },
+              "message": {
+                "description": "Human-readable authentication error message.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "message"
+            ],
+            "additionalProperties": {}
+          }
+        ]
       }
     }
   }
