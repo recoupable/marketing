@@ -8,10 +8,19 @@ from resolve_response_schema import resolve_response_schema
 SCHEMA_TARGETS = [
     ('releases.json', 'ArtistPublicProfileErrorResponse', 'ErrorResponse'),
     ('releases.json', 'TaskAuthenticationErrorResponse', 'AuthenticationErrorResponse'),
+    ('releases.json', 'TaskFailureErrorResponse', 'ErrorResponse'),
     ('projects.json', 'Error', 'ErrorResponse'),
     ('projects.json', 'AuthenticationError', 'AuthenticationErrorResponse'),
     ('social.json', 'CommentsErrorResponse', 'ErrorResponse'),
     ('social.json', 'CommentsAuthenticationErrorResponse', 'AuthenticationErrorResponse'),
+]
+TASK_FAILURE_TARGETS = [
+    ('releases.json', 'GET', '/api/tasks', 403),
+    ('releases.json', 'POST', '/api/tasks', 403),
+    ('releases.json', 'PATCH', '/api/tasks', 403),
+    ('releases.json', 'DELETE', '/api/tasks', 403),
+    ('releases.json', 'GET', '/api/tasks', 500),
+    ('releases.json', 'POST', '/api/tasks', 500),
 ]
 RESPONSE_TARGETS = [
     ('releases.json', 'GET', '/api/artists/{id}/profile', 404),
@@ -29,7 +38,7 @@ RESPONSE_TARGETS = [
     ('releases.json', 'POST', '/api/tasks', 401),
     ('releases.json', 'PATCH', '/api/tasks', 401),
     ('releases.json', 'DELETE', '/api/tasks', 401),
-]
+] + TASK_FAILURE_TARGETS
 
 
 def build_response_contracts(specs, source, api, check=False):
@@ -69,9 +78,15 @@ def build_response_contracts(specs, source, api, check=False):
     for name, method, path, status in RESPONSE_TARGETS:
         document = specs[name]
         response = document['paths'][path][method.lower()]['responses'][str(status)]
-        responses.append({
+        record = {
             'specification': name, 'method': method, 'path': path, 'status': status,
             'mediaType': 'application/json',
             'schema': resolve_response_schema(response['content']['application/json']['schema'], document),
-        })
+        }
+        if (name, method, path, status) in TASK_FAILURE_TARGETS:
+            record['examples'] = {
+                key: value['value']
+                for key, value in response['content']['application/json'].get('examples', {}).items()
+            }
+        responses.append(record)
     return hashlib.sha256(artifact.read_bytes()).hexdigest(), responses
