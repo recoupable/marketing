@@ -1089,11 +1089,30 @@
             }
           },
           "400": {
-            "description": "Bad request - missing required fields or invalid body",
+            "description": "Bad request — invalid JSON or request-body schema validation failure, checked before authentication. Read the text `error`; `missing_fields` identifies the first schema issue and is omitted for malformed JSON.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/UpdateTaskValidationErrorResponse"
+                },
+                "examples": {
+                  "invalidJson": {
+                    "summary": "Malformed JSON body",
+                    "value": {
+                      "status": "error",
+                      "error": "Invalid JSON body"
+                    }
+                  },
+                  "invalidScheduleType": {
+                    "summary": "Schedule supplied as a number instead of a string",
+                    "value": {
+                      "status": "error",
+                      "missing_fields": [
+                        "schedule"
+                      ],
+                      "error": "Invalid input: expected string, received number"
+                    }
+                  }
                 }
               }
             }
@@ -1229,11 +1248,30 @@
             }
           },
           "400": {
-            "description": "Bad request — missing `id`, empty strings where a field is provided, or other validation failure from the request body. The body reports the first Zod issue via `missing_fields` and `error`.",
+            "description": "Bad request — invalid JSON or request-body schema validation failure, checked before authentication. Read the text `error`; `missing_fields` identifies the first schema issue and is omitted for malformed JSON.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UpdateTaskValidationErrorResponse"
+                },
+                "examples": {
+                  "invalidJson": {
+                    "summary": "Malformed JSON body",
+                    "value": {
+                      "status": "error",
+                      "error": "Invalid JSON body"
+                    }
+                  },
+                  "invalidScheduleType": {
+                    "summary": "Schedule supplied as a number instead of a string",
+                    "value": {
+                      "status": "error",
+                      "missing_fields": [
+                        "schedule"
+                      ],
+                      "error": "Invalid input: expected string, received number"
+                    }
+                  }
                 }
               }
             }
@@ -6304,7 +6342,6 @@
         "type": "object",
         "required": [
           "status",
-          "missing_fields",
           "error"
         ],
         "properties": {
@@ -6317,7 +6354,7 @@
           },
           "missing_fields": {
             "type": "array",
-            "description": "JSON path segments to the first field that failed validation (from Zod), e.g. `[\"id\"]` or `[\"schedule\"]`",
+            "description": "JSON path segments for the first schema validation issue, e.g. `[\"id\"]` or `[\"schedule\"]`. The path can be empty for a body-level issue. Omitted when the body is not valid JSON.",
             "items": {
               "oneOf": [
                 {
@@ -6331,9 +6368,10 @@
           },
           "error": {
             "type": "string",
-            "description": "Validation message for the first failing field"
+            "description": "`Invalid JSON body` when JSON parsing fails; otherwise the message for the first schema validation issue."
           }
-        }
+        },
+        "description": "Request-body validation error for creating or updating a task. Invalid JSON omits `missing_fields`; a schema validation failure includes the path of the first issue."
       },
       "UpdateTaskRequest": {
         "type": "object",

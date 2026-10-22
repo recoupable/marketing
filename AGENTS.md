@@ -340,6 +340,14 @@ The label kit narrative leads with outcomes for artists, managers, and labels. `
 ## Documentation ownership
 
 Author platform docs in `content/docs/source`; follow [DOCUMENTATION-POLICY.md](DOCUMENTATION-POLICY.md).
+
+`scripts/build_task_validation_contract.py` freezes the task POST/PATCH 400
+schemas and examples into `taskValidation` in the shared fixture. Keep this helper
+in the isolated producer test workspace's explicit copy list. API's
+`publishedTaskValidation.test.ts` compares real request validators with these
+declarations under synthetic authentication and a network fence; it does not
+create, update or run a stored task, or establish hosted schedule acceptance.
+
 Run `pnpm docs:build` and `pnpm docs:check` after changes. Commit the maintained
 source, then use `python3 scripts/sync-legacy-docs.py --target /path/to/docs` to
 prepare a pinned publication PR in the retained Mintlify repository. Keep host
