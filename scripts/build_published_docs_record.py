@@ -9,6 +9,7 @@ from build_sites_lifecycle_contract import build_sites_lifecycle_contract
 from build_admin_coding_slack_contract import build_admin_coding_slack_contract
 from build_agent_signup_metadata_contract import build_agent_signup_metadata_contract
 from build_content_callback_contract import build_content_callback_contract
+from build_task_validation_contract import build_task_validation_contract
 
 
 def build_published_docs_record(specs, source, root, schema_hash, response_schemas):
@@ -105,6 +106,7 @@ def build_published_docs_record(specs, source, root, schema_hash, response_schem
     record['adminCodingSlack'] = build_admin_coding_slack_contract(specs['accounts.json'])
     record['agentSignupMetadata'] = build_agent_signup_metadata_contract(specs['accounts.json'])
     record['contentCallback'] = build_content_callback_contract(specs['content.json'])
+    record['taskValidation'] = build_task_validation_contract(specs['releases.json'])
     signup_guide = root / 'content/docs/source/api-reference/admins/agent-signups.mdx'
     record['sourceHashes'][str(signup_guide.relative_to(root))] = hashlib.sha256(signup_guide.read_bytes()).hexdigest()
     record['headlessChat'] = {

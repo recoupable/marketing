@@ -38610,11 +38610,30 @@ The supplied specification does not declare an OpenAPI security object for this 
             }
           },
           "400": {
-            "description": "Bad request - missing required fields or invalid body",
+            "description": "Bad request — invalid JSON or request-body schema validation failure, checked before authentication. Read the text `error`; `missing_fields` identifies the first schema issue and is omitted for malformed JSON.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/UpdateTaskValidationErrorResponse"
+                },
+                "examples": {
+                  "invalidJson": {
+                    "summary": "Malformed JSON body",
+                    "value": {
+                      "status": "error",
+                      "error": "Invalid JSON body"
+                    }
+                  },
+                  "invalidScheduleType": {
+                    "summary": "Schedule supplied as a number instead of a string",
+                    "value": {
+                      "status": "error",
+                      "missing_fields": [
+                        "schedule"
+                      ],
+                      "error": "Invalid input: expected string, received number"
+                    }
+                  }
                 }
               }
             }
@@ -38770,6 +38789,41 @@ The supplied specification does not declare an OpenAPI security object for this 
             "description": "Error message (only present if status is error)"
           }
         }
+      },
+      "UpdateTaskValidationErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Always `error` when validation fails"
+          },
+          "missing_fields": {
+            "type": "array",
+            "description": "JSON path segments for the first schema validation issue, e.g. `[\"id\"]` or `[\"schedule\"]`. The path can be empty for a body-level issue. Omitted when the body is not valid JSON.",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "error": {
+            "type": "string",
+            "description": "`Invalid JSON body` when JSON parsing fails; otherwise the message for the first schema validation issue."
+          }
+        },
+        "description": "Request-body validation error for creating or updating a task. Invalid JSON omits `missing_fields`; a schema validation failure includes the path of the first issue."
       },
       "Error": {
         "required": [
@@ -39362,11 +39416,30 @@ This operation requires one of the security alternatives in the specification be
             }
           },
           "400": {
-            "description": "Bad request — missing `id`, empty strings where a field is provided, or other validation failure from the request body. The body reports the first Zod issue via `missing_fields` and `error`.",
+            "description": "Bad request — invalid JSON or request-body schema validation failure, checked before authentication. Read the text `error`; `missing_fields` identifies the first schema issue and is omitted for malformed JSON.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UpdateTaskValidationErrorResponse"
+                },
+                "examples": {
+                  "invalidJson": {
+                    "summary": "Malformed JSON body",
+                    "value": {
+                      "status": "error",
+                      "error": "Invalid JSON body"
+                    }
+                  },
+                  "invalidScheduleType": {
+                    "summary": "Schedule supplied as a number instead of a string",
+                    "value": {
+                      "status": "error",
+                      "missing_fields": [
+                        "schedule"
+                      ],
+                      "error": "Invalid input: expected string, received number"
+                    }
+                  }
                 }
               }
             }
@@ -39559,7 +39632,6 @@ This operation requires one of the security alternatives in the specification be
         "type": "object",
         "required": [
           "status",
-          "missing_fields",
           "error"
         ],
         "properties": {
@@ -39572,7 +39644,7 @@ This operation requires one of the security alternatives in the specification be
           },
           "missing_fields": {
             "type": "array",
-            "description": "JSON path segments to the first field that failed validation (from Zod), e.g. `[\"id\"]` or `[\"schedule\"]`",
+            "description": "JSON path segments for the first schema validation issue, e.g. `[\"id\"]` or `[\"schedule\"]`. The path can be empty for a body-level issue. Omitted when the body is not valid JSON.",
             "items": {
               "oneOf": [
                 {
@@ -39586,9 +39658,10 @@ This operation requires one of the security alternatives in the specification be
           },
           "error": {
             "type": "string",
-            "description": "Validation message for the first failing field"
+            "description": "`Invalid JSON body` when JSON parsing fails; otherwise the message for the first schema validation issue."
           }
-        }
+        },
+        "description": "Request-body validation error for creating or updating a task. Invalid JSON omits `missing_fields`; a schema validation failure includes the path of the first issue."
       },
       "Error": {
         "required": [
