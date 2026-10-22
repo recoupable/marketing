@@ -7,6 +7,7 @@ from resolve_response_schema import resolve_response_schema
 
 SCHEMA_TARGETS = [
     ('releases.json', 'ArtistPublicProfileErrorResponse', 'ErrorResponse'),
+    ('releases.json', 'TaskAuthenticationErrorResponse', 'AuthenticationErrorResponse'),
     ('projects.json', 'Error', 'ErrorResponse'),
     ('projects.json', 'AuthenticationError', 'AuthenticationErrorResponse'),
     ('social.json', 'CommentsErrorResponse', 'ErrorResponse'),
@@ -24,6 +25,10 @@ RESPONSE_TARGETS = [
     ('sessions.json', 'PATCH', '/api/sessions/{sessionId}/chats/{chatId}', 500),
     ('sessions.json', 'DELETE', '/api/sessions/{sessionId}/chats/{chatId}', 500),
     ('sessions.json', 'POST', '/api/sessions/{sessionId}/chats/{chatId}/read', 500),
+    ('releases.json', 'GET', '/api/tasks', 401),
+    ('releases.json', 'POST', '/api/tasks', 401),
+    ('releases.json', 'PATCH', '/api/tasks', 401),
+    ('releases.json', 'DELETE', '/api/tasks', 401),
 ]
 
 
