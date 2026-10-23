@@ -1,0 +1,305 @@
+[
+  {
+    "speaker": "Ali Lieberman",
+    "start": 0.1,
+    "paragraphs": [
+      "Nobody actually wants a marketing plan. They want the release to do well. You can't blame Claude if you make a really silly decision that, tanks a P&L line."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 16.6,
+    "paragraphs": [
+      "Today, I'm chatting with Ali Lieberman, the VP of Product at Symphonic Distribution. Symphonic is one of the leading independent music distribution and marketing companies in the industry. Their mission is to empower the independent music community by providing powerful technology, personalized service, access to additional revenue channels, enhanced marketing, and the industry experience to help realize full client potential. Ali, welcome."
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 41.4,
+    "paragraphs": [
+      "Thanks, Patrick, for having me. Excited to talk to you today."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 43.9,
+    "paragraphs": [
+      "I want to get started talking a little bit about your background. Before Symphonic, you managed the US ISRC agency at the RIAA and led product at SoundExchange. What did those years of fixing music data teach you about where AI actually can help?"
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 60.3,
+    "paragraphs": [
+      "Yeah, um, great, great question. I, um, I've spent most of my career on the, you know, least glamorous part of the music industry. Um, so working in metadata and technology and products, and making sure songs are properly identified so that royalties can, can flow to the proper rights holders, um, and really just making sure our, like, supply chain in the industry is, is functioning well, um, to serve those artists. So I would say identifiers, um, and data and systems are such a crucial part of our industry's infrastructure. Um, at the RIAA, I ran the ISRC agency, um, which was assigning ISRC codes out to songs.",
+      "Um, at SoundExchange, I was improving business processes, um, to pay out or up to a billion dollars a year, um, building products. I'm doing this more broadly now at, at Symphonic just to serve creators more closely in their music journey. Um, so I-- when I think of AI, um, and how that's all applied, I, I think, I think of AI as mostly an amplifier. So if your data and your processes are clean, it makes you, like, so much faster, so much more powerful. Um, inverse of that, if your processes are messy, um, if you don't have good critical thinking skills, um, you're really just amplifying mess. Um, and, and I've definitely seen that.",
+      "Um, I've seen some pretty crappy systems and processes out there. Uh, but in many cases, I, I think it's completely understandable, especially with independent artists. I mean, those types of artists and labels, they want to spend their time creating music. They don't wanna enter data in 12 different portals. Um, and so that's where I think it's really exciting to see AI applied. Um, it can take more of those mundane tasks for artists and companies. Um, and, you know, when you have those good data, good standards, good processes, it's just a, a much better starting point."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 182.4,
+    "paragraphs": [
+      "But talking about your other point, identifiers, I think it's actually really important. I build the technology side of Recoup, and one thing that we find is artists getting duplicated in our systems. And so, like there's those ISRC codes for, for individual songs, but then thinking about, okay, someone looks up The Rolling Stones, and then another person looks up The Rolling Stones. What's the core identifier that we have in our database? Do we use a random UUID that identifies internally? Do we use the ID from Spotify? Do we use the ID from Apple Music? Everybody's got their own ID to identify an artist.",
+      "If Spotify rejects our API key, are we then shut out of the identifier that we built our entire system on? You wrote that AI should feel like your super assistant and thought partner that takes care of the grunt work. Which grunt work has Symphonic handed to AI so far, and what stays with people?"
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 231.3,
+    "paragraphs": [
+      "Uh, I-- So one of the big, um, I'd say pieces of grunt work that we're handing to AI now is validating metadata and content that our artists and labels are uploading. So one big thing, um, that distributors have to grapple with is making sure that the content that we're delivering to Spotify and Apple and Amazon all meet certain metadata style guides. Each DSP has their own set of style guides. Um, we inventoried them and tried to, like, break them down. I think we have, like, over 100 probably, like, different, um, reasons a release might not get through to these platforms.",
+      "So, These can be things like the artwork is too pixelated, the audio has this weird droning sound. Um, so what our team was doing and our team continues to do is manually review these releases that come through. Obviously, it doesn't this doesn't scale, and it's a lot of grunt work looking at, like, different metadata and, oh, is featuring in the right place if it's a featuring artist or does it need to go here? Um, so a lot of that we're starting to hand off to AI.",
+      "Um, and I think that's super valuable because, one, we wanna make sure that as a distributor we have, um, preferred provider status with these DSPs that allows us to get our clients' releases out faster. Um, and also it's just such a benefit to clients when they can get feedback on their release much faster than having to deliver their release or submit it, and then couple days later they get an email back, \"Oh, something, something was wrong. We couldn't send it to the DSP. Please fix these things.\"",
+      "So what we're using AI to do is review these releases ahead of time, like, at the moment to say, \"Hey, I think, um, this image, your cover art might be too blurry. You wanna check it out?\" Or, \"We are noticing some droning audio, you know, at the, at the outro clip,\" or something like that. Um, \"That's something you might wanna review before you submit it.\" So I feel like that's been really valuable. We're in the early stages now of testing some of that out. Um, AI can be obviously pretty finicky when things are so nuanced like that, especially dealing with assets and not text.",
+      "Um, so that's been a real challenge, but we've been having a lot of fun with that. Um, I'd say other grunt work, uh, playlist pitching is another one. So, um, releases get pitched to different stores, and typically that means someone on our marketing team entering all of the new releases that are coming out and sending them to playlist staff, um, and playlist backends. And a lot of that we've been able to automate, which is great because that frees up our marketers' time to refine those pitches and say, \"Oh, you know, I think this would be great actually for this, this playlist.\"",
+      "Um, and just spending more of the time doing a lot of that curated stuff. So, um, that's some of the grunt work we've been, we've been tackling at Symphonic."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 412.8,
+    "paragraphs": [
+      "So there's less need for things that you have to repeat every single time, like reviewing metadata or going out and pitching playlists, things that you probably have the workflow pretty well-defined. You're throwing in some automation with AI in there so that the humans can level up to do more high-level, executive-level things, less of the grunt work."
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 432.3,
+    "paragraphs": [
+      "Exactly. If it's, if it's standard and repeatable, again, going back to good processes, per- perfect for AI to just crank it out."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 438.5,
+    "paragraphs": [
+      "How do you define those workflows for the AI? Have you been leverage-- Like, this is kind of getting into the technical weeds, but do you leverage skills, or is it all defined in code, or is it a prompt that you copy and paste into your ChatGPT every time? Where, where do those workflows kind of get defined so that you can enforce that Symphonic-level quality across every workflow run?"
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 459.7,
+    "paragraphs": [
+      "Yeah. So, um, typically we handle this with, like, a, um, a prompt library, and we have, um, an open source tool that we use where we're storing all of the prompts or skills. Um, and there's an eval system baked in, so that way we can, like, review real traces that come in. Sorry, yeah, this is probably getting a little technical, but we can review real traces and real data that's coming in and evaluate the outputs at scale and say, like, \"Do we like this answer or not?\" So we can do, like, human annotation and say, \"Oh, AI rejected this artwork. They thought it was too blurry.\" But actually, you know, it's fine 'cause that was the aesthetic.",
+      "Um, you know, put that back into the dataset. So, so things like that. So we, we do have a system where we're, uh, mostly managing it at the sort of, like, kind of prompt level. We do have skills, but that's more for, um, kinda, like, internal department workflows. Um, but for the, for the bigger AI tools we're, yeah, we're using mostly, like, a prompt library and eval system."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 517.1,
+    "paragraphs": [
+      "Let's talk about your release plan written by AI. In February, Symphonic launched the Release Campaign Builder, a marketing plan built from the release's own data and a blueprint from marketing experts. What does it get right? Where do artists rewrite it? And what has it changed for a label that's releasing through Symphonic?"
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 535.6,
+    "paragraphs": [
+      "Sure. Uh, so I'll start by saying, um, which was a little hard to fully internalize. Nobody actually wants a marketing plan. Um, they want the release to do well. Um, so that's, um... It, it was a great lesson and, yes, we have AI-generated marketing plans. Um, but there's, there's more we need, we need to do and we need to keep iterating on this. Um, here, let me show you what, um, one of these marketing plans looks like. Okay, perfect. Um, okay, cool.",
+      "So, um, in this example-- So when clients are building marketing plan- AI-generated marketing plans at Symphonic, um, they'll put a new release through as, as they normally would to distribute. Um, they'll define a budget, so how much do you wanna spend? And this is important because what AI is gonna do, it's gonna allocate that budget across different tasks to say, \"You should spend this much on advertising. You should spend, you know, this much money on hiring a touring manager,\" like, things like that, depending on what your budget level is.",
+      "Um, and then we do ask for a primary goal, um, that can really affect the direction of the marketing plan. So are you trying to get a playlist placement? Are you trying to increase your active listeners? Um, you know, we wanted to make this as, as custom as possible to, to really narrow in on, on what would make a good plan for this particular artist. Um, so here, let me walk you through one. So this is one that we did for Juliet. This is a, this is a dem- a demo one, but I think it, um, it illustrates really well what, um, what this tool does.",
+      "So some things I like about this one, like, um, you know, first task, make sure your catalog's enrolled in Spotify Discovery mode. Um, when your back catalog's enrolled, you tend to get more listeners. You can get on, um, like for, uh, what's it called? Release Radar. Things like that. Like, oh, this person's been listening to your, um, back catalog. Um, so, you know, you tend to get a little bit, um, more of an algorithmic boost if you're in Discovery mode. Um, you'll see things like pre-save campaigns with, um, like this one has suggested copy based on, um, lyric- song lyrics.",
+      "Um, so it really tries to tie in certain aspects of the release, um, that's a little bit more creative. Um, let's see what else. Task four, we have, uh, playlist suggestions, like where you might wanna be pitched. Um, let's go through some more. Yeah. Um, this one's nice. So, um, on task four here, um, this is like a few weeks before the release. One thing we'll do is we'll pull in your socials.",
+      "So as an artist with Symphonic, we have a lot of your social handles, so we know where you're active, so we can suggest like, \"Hey, you know, you might wanna do something on Instagram or TikTok,\" um, you know, with a, with a concept, um, based on, based on your release. So, um, it... This is great. Like, we were really happy with the outputs that we were getting. Um, one of our, um, senior A&R leaders, I think, called this annoyingly good, which I took as a compliment. Um, like, oh my God, AI can do this. This is crazy. Um, but I will say, um, we've also learned a lot. So, um, artists are telling...",
+      "So we got a lot of feedback from from this feature. Um, and the most common sort of theme we've heard is, \"Okay. Well, now what do I do?\" Um, so it's like, \"Oh, yeah, this is great. I would love to, you know, do a TikTok and a reel. Like, can, can you create one for me?\" Um, you know, they, they want more. They want more action-oriented, um, tasks and activities rather than just like, \"Here's a laundry list of things you should do.\" Um, so that's sort of like our next challenge. How can we, how can we work in, um, more of those action-oriented things that can really help the artist, um, market their release in a, in a meaningful way?",
+      "So yeah, excited to iterate on this more. Um, we've had about like 700, um, accounts making, making plans. Um, so yeah, hopefully we can, we can get more feedback and, and keep, keep building it."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 787.5,
+    "paragraphs": [
+      "Like we mentioned earlier with the super assistant, now that this used to be grunt work, someone used to probably spend all their time making these marketing plans, and now the musicians kind of get raised up to a more executive role. They look at the plan, they're like, \"This plan looks great. Go ahead and do it.\" And then you're like, \"Oh, well, I thought you were going to do it.\" And they said, \"Well, I thought you were going to do it.\" And now it's this awkward position of like, \"Ah, okay, I guess, I guess now we need the AI to also be able to execute some of these steps.\""
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 813.6,
+    "paragraphs": [
+      "Right. Exactly."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 815.9,
+    "paragraphs": [
+      "Let's talk about distributors as gatekeepers. In September, UMG sued DistroKid over AI tracks and Symphonic signed IFPI's anti-fraud pledge for distributors. What does checking every upload look like and how much of that can AI do?"
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 834.8,
+    "paragraphs": [
+      "Yeah. Um, that UMG complaint was really interesting, and I think it drew a useful line. So it says that it's not about AI music necessarily, but that it's not clearly disclosed as AI music. Um, and a lot of DSPs are still cool with AI music on their platforms. Um, I think Kristin Robinson at Billboard has a great, um, article and, and page that she's maintaining about how different DSPs and their stance on AI music. So the problem isn't necessarily AI music, but more so music pretending to be something that it isn't. So for us, disclosure has been a huge focus for us. Um, I will say I think we were pretty ahead of the game.",
+      "Our CEO kind of saw this, this disclosure need coming pretty early. So in 2025, I think early 2025, we started asking clients when they're uploading music, um, you know, \"Is... Was this stereo audio recording generated with AI? Is the artwork generated with AI?\" Um, so we started asking for disclosure pretty early at the asset level. What we're seeing now is that it needs to be more granular. So it's one thing to say, \"Was this track generated by AI?\" But now we're seeing, \"Were the vocals AI? Was the drum track AI? Were the lyrics written by AI?\"",
+      "Um, so I think the industry is definitely moving to capture more of that granular level of disclosure, which I think is really important for consumers at the end of the day. Like, people do want that level of transparency, I think, of like, what, what am I listening to? Um, so yeah, we've, we've really leaned into that. The, um, IFPI Streaming Integrity Initiative, um, that, that's great. I think it's like, you know, a lot of us are really committed to, um, checking the content, um, implementing know your customer practices. Um, we have a whole trust and safety team at Symphonic monitoring for fraud signals.",
+      "Um, we implemented like an identity verification step when you sign up with Symphonic, so, so we can know who you are. Um, so yeah, our... We're, we're really dedicating a lot of, a lot of time to this initiative. Um, and in terms of what AI can do, I mean, it, it's really interesting, like, um, you don't really need AI for certain things. Like you, you can write a line of code that says, you know, um, \"Did this account upload 5,000 tracks in one day?\" Um, you know, like that, that's pretty basic, right?",
+      "Um, but there's a lot more nuance where I think AI can help and where we're starting to, to figure this out, which is like what are all of the other signals that might suggest that, um, you know, we need to take a look at this activity? So, um, tracks that are 31 seconds long, you know, trying to get around certain monetization loopholes, or streams are hitting, you know, that certain threshold and not a stream more over an extended period of time. Um, you know, looking for signals like that, I think, um, where AI can sort of flag things like in more of that mass volume scale has been helpful.",
+      "And the other thing, which I think is really funny, is using AI to detect AI. Um, so we've been sort of experimenting with different vendors, um, that are able to detect whether or not the recording was generated with AI. Um, so that's another interesting use case, um, that we've been experimenting with."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1062.5,
+    "paragraphs": [
+      "Talking about opt-in, not scraped. In July, Symphonic let its artists opt in to Sureel's licensed AI datasets. What should a label ask before it opts a catalog in?"
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 1074.6,
+    "paragraphs": [
+      "Yeah. So, um, I think that labels really need to think hard about consent. Um, so I think my, my position, the company's position, most people I think would agree that the default should be no in most cases. Um, so unless you are explicitly opting in to use AI, um, you know, I don't, I don't think like it's, it's fair to just deliver music to training sets or assume the music can be used in certain ways. Um, it is interesting though, like, um, in addition to consent, I think like, um, there's, there's also the name, image, and likeness issue.",
+      "So like a song can, you know, obviously like copy a real artist's voice without their permission, and that's not really a consent problem. That's more like rights infringement. Um, so being able to detect certain things and opt into certain services that are able to do that detection I, I think is wonderful. Um, so yeah, it's just, um, making sure that you know what you are opting into and how your music is going to be used is, is super important."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1149.4,
+    "paragraphs": [
+      "I was talking with Vickie Nauman last week. Do you or does Symphonic have any sort of thinking around how catalogs should be forming those contracts or those deals in training models on the music?"
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 1162.7,
+    "paragraphs": [
+      "Yeah. Um, I'm personally not as close to the licensing deals and negotiations, but I will say, um, it's really important for Symphonic to be in the room and having... Um, being able to offer our clients the option. So I think, you know, in the past we've seen a lot of like major labels, um, at the table with a lot of these bigger companies like, you know, Spotify back in the day and, and negotiating licensing agreements with them. Um, I think what's great is that more indie labels like Symphonic are able to have like we have a deal with, um, you know, through, through Merlin with, um, companies like ElevenLabs and Udio.",
+      "Um, so just having that representative voice I think is really important. In terms of how the royalty model and compensation works, um, yeah, I'll leave, I'll leave that to the lawyers."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1214.2,
+    "paragraphs": [
+      "Okay, so I've had, when I've been posting some of the clips from Vickie's episode, I've had some independent artists kind of replying and being like, \"I don't even know how to get a seat at the table.\" So for artists that work through Symphonic, that's a service that Symphonic can kind of offer is if a musician's releasing through Symphonic and they are worried or they, they want to or they're opposed to, they can talk to you and with Symphonic, they can kind of either go in with Merlin or just be able to talk and navigate this new meta of having their music training in AI."
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 1244.8,
+    "paragraphs": [
+      "Yeah. And, and that's, that's what I love about this option and giving... I, I, I love that our stance is, um, more transparent and, um, giving the autonomy to our clients. So AI is like super controversial in term- in terms of AI-generated music and how you wanna participate. Um, some distributors are taking a hard stance. \"We don't want AI. Don't give it to us. We don't want anything to do with it.\" Others are like, \"Yeah, whatever. Um, you know, do what you want.\" I think what's- Nice about our stance is we're sort of laying the options out on the table. If you wanna participate, great, here's how you can do it.",
+      "Um, you know, s-sign, sign this, uh, addendum to your contract. We'll show you which tracks are gonna be opted in. Um, you know, here, here are the details. If you wanna participate, here's how you can do it. If you don't wanna participate, um, here's another partner you can work with. We, we partnered with a company called ArtyShield, I believe, which, um, you know, you can embed, um, different signals into your audio files that's, um, you know, a, an, a model can, um, say like, \"Don't, don't use this audio in the training set.\" Um, or you can explicitly opt out through Sureel.",
+      "So there's, like, a lot of options on the table, and that's, that's what I love that we're sort of giving our clients all of the options rather than taking a hard stance."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1320.3,
+    "paragraphs": [
+      "Let's talk about can a model price an advance? Your essay says that AI can streamline underwriting for advances, and Symphonic Next now offers advances in catalog deals. Would you let a model set the number?"
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 1335.1,
+    "paragraphs": [
+      "Yes. So I will say we have an incredible team. Um, I trust Michelle and Olivia to, to, um, get the right number. I do not trust AI 100% to give the final number. What, uh, we do let models do, and what I would let a model do, is clean up the data behind the number. Um, so I think AI can help find unclaimed royalties, it can fix metadata, it can standardize different royalty statements in order to create that predictive model of how much, you know, we, we should be offering an advance at certain risk levels. Um, so I don't wanna speak for them necessarily, but, um, I don't think we're comfortable having AI set the final number.",
+      "Again, it's a great input. I think it helps us, um, assess clients faster. It helps us assess catalog in a smarter way. Like, we have a lot more, um, data analysis power than we probably otherwise would have had. But, um, the way Symphonic looks at advances, I will say it's, it's really like a relationship. It's an investment in an artist or in a catalog. So there's still that human element, um, that's really important. So, uh, yeah, again, I don't, I don't see AI giving us the, the final number, but, um, it's, it's super helpful helping us arrive at the right, the right decision."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1414.5,
+    "paragraphs": [
+      "I'm hearing this trend, like we said at the top, AI's for the grunt work, the very well-known, highly defined workflows. Advances requiring a relationship is more of an executive-level function, and that's where humans are rising up to, is spending more time on those executive-level workflows and less on the, the grunt-level tasks."
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 1432.6,
+    "paragraphs": [
+      "Yeah. I, I will say, like, one kind of caveat to that is, um, I-- and I mentioned this in my article, like I, I do use AI a lot, and a lot of us do, as, as a thought partner. Like, help me with this critical business decision. What should I be thinking about? What am I missing? But at the end of the day, I like to tell my team that, um, you know, you're-- you as a human are responsible for the outcomes and the decision. Um, you, you can't blame Claude if you make a really silly decision that, you know, tanks a P&L line.",
+      "So it's, it's great when you can use AI and really help you excel at what you do, but, um, you still obviously need those, those strong critical thinking skills. AI's gonna give you an answer no matter what, but only you can determine is that the right answer for me given the context."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1478.8,
+    "paragraphs": [
+      "Accountability is really interesting right now because these, these agents are getting really smart, and you're starting to hear this conversation in the, the broader meta of should AI have personhood? Should AI be able to vote? Should AI be treated like humans? Do they have thoughts? Are we abusing them? We already have laws. If your company hacks and steals, that's on you. If you guys are creating a model that's gonna kill humanity, that's on you. If someone prompts this AI to kill someone, that's on whoever's prompting it.",
+      "Like, there already are rules and regulations in place, and what we don't want is to give away our accountability and say, \"No, I didn't, I didn't do that.\" these are very helpful tools. You should be bouncing ideas off of it, but that shouldn't be to give away your accountability. It should be to amplify your ability to take responsibility for what you're doing."
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 1522.7,
+    "paragraphs": [
+      "Uh, 1,000%. That's, that's exactly it. Um, I also read a really good analogy about, um, equating AI to nuclear energy when it first came out, and it's like, it, it was this incredible technology that did have the power to destroy everyone and everything. Um, and like that, that's been, that's been regulated. It's, you know, still, still something that we, um, need to take accountability for, and then there's so much, um, you know, around it in terms of how it should be used, um, you know, responsibly. So I, I-- this-- I don't think it's, it's new that we have a technology that's this disruptive.",
+      "Um, and it really, yeah, just comes down to how people use it and how, how we regulate it."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1566.2,
+    "paragraphs": [
+      "Let's wrap up with some quick fire. I've got four questions here for quick fire. We'll try to keep each one under a minute. What's the task you'd hand to AI tomorrow?"
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 1576.3,
+    "paragraphs": [
+      "Ooh, the task I ha-hand AI tomorrow. Um, we talked about this, but oh my gosh, there's so many things to check when a release comes through to make sure, like, we're setting our artists up for success. Um, I want AI reviewing that completely and giving feedback to, to our artists to say like, \"Oh, you should fix this, this,\" or, you know, \"Ma-make this update.\""
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1596.9,
+    "paragraphs": [
+      "What's a task you would never hand to AI?"
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 1600.4,
+    "paragraphs": [
+      "I would never hand AI... I mean, I do hand this to AI, but one thing I keep with me is reading, um, customer interviews and support threads. So we have a support, an AI support chatbot, and reading these conversations is so enlightening. It's one of the best things that my team and I are able to do. You, um... Being a little further removed from that conversation, you know, we're building the software, we're building the tools that our artists are using. Being able to hear from them firsthand, like, how they're interacting with it and what they're frustrated about, you, you can really only internalize that when you look at it yourself.",
+      "So, um, that's something we're always gonna do by hand with our eyeballs."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1641.6,
+    "paragraphs": [
+      "What's the metadata mistake you still see the most?"
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 1645.9,
+    "paragraphs": [
+      "Uh, going back to my ISRC days, people are still using the same ISRC for different recordings, um, or assigning a new ISRC for the same recording. So if you put a same recording out on a different release, use the same ISRC. We see people changing ISRCs all the time, and it's just really making it that much harder for them to get paid."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1669.9,
+    "paragraphs": [
+      "Last question, where can people find you?"
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 1673.5,
+    "paragraphs": [
+      "Um, LinkedIn is probably the best spot. I, um, I'm pretty active there and I love to hear from other people, um, what you're up to, what you're building. So that'd be great."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1684.3,
+    "paragraphs": [
+      "Thank you for chatting with us today, Ali."
+    ]
+  },
+  {
+    "speaker": "Ali Lieberman",
+    "start": 1686.3,
+    "paragraphs": [
+      "Yeah. Thank you. It's been a pleasure."
+    ]
+  }
+]
