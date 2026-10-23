@@ -140,3 +140,12 @@ material-evidence exclusions and existing error behavior remain unchanged.
 Use the public saved-context planner's output rather than the wider low-level
 planner types. Brief document constraints follow the compiler's actual selector;
 do not advertise evidence states or coverage that it excludes.
+
+Catalog-case continuation uses the same Context exports and fixture producer.
+`save_catalog_case`, `read_catalog_case` and `list_catalog_cases` are standard-only
+MCP operations, excluded from the delegated table. Their source schemas retain
+customer assertions, revision/idempotency rules and withdrawn-evidence projections;
+keep `ContextCatalogCaseResponse` and `ContextCatalogCasesResponse` connected to
+the 200 response union. The API HTTP/MCP example pairs are synthetic artifact
+operations, not provider execution. Update `mcp.mdx` with this bounded source scope
+and keep deployment verification separate from contract checks.

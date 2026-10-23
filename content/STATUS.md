@@ -1,3 +1,16 @@
+## Catalog case artifact contracts — October 22, 2026
+
+Prepared three bounded Context operations for saving, reading and listing portable
+catalog cases, with exact request/response schemas and synthetic HTTP/MCP examples.
+The records are customer assertions; provider execution remains unsupported. The
+reference distinguishes optimistic revisions, unchanged idempotent retries, current
+workspace authorization, withdrawn-source masking and partial snapshots that cannot
+be blindly saved back. All three tools remain outside delegated OAuth.
+
+This companion requires the catalog-case API and database release. Documentation,
+source checks and synthetic fixtures do not establish deployment, provider acceptance
+or bank receipt. Existing artist/release Context operations are unchanged.
+
 ## Audience platform input contract — October 21, 2026
 
 Prepared the audience reference for the validation released in API #1082 as
