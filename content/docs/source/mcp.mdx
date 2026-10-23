@@ -38,6 +38,27 @@ blocked and has `collectionPermitted: false`. It does not fetch data, verify rig
 start collection or grant spending permission. The [Context reference](/api-reference/context/operate)
 lists all accepted compatibility values, required IDs, page cursors and the complete response.
 
+## Continue a catalog case
+
+The source contract adds `save_catalog_case`, `read_catalog_case` and
+`list_catalog_cases` to standard MCP; delegated OAuth excludes them. Discover the
+tools in the connected host before using them. They also use the `context` tool
+with the corresponding `action`. The catalog-case database and API release must
+be deployed before this source contract is available.
+
+A case keeps versioned sources, assessments, findings, proposed actions, attempts
+and outcomes for the authorized workspace. No artist or ingestion request is
+required. The stored snapshot is `customer_assertion` evidence and always returns
+`external_actions: unsupported`: saving a record does not submit a registration,
+send a claim, confirm a provider decision or verify a bank receipt.
+
+Save with the current revision and a unique idempotency key. After an uncertain
+response, retry the unchanged payload with the same key and expected revision.
+Reads can withhold withdrawn evidence and its dependent records; explicitly
+reassemble a partial snapshot before another save. The [Context reference](/api-reference/context/operate)
+defines the complete bounded schema, historical-source rules, revision conflicts,
+response fields and list pagination.
+
 ## Release Packs
 
 When deployed and exposed by the current grant, the pack catalog includes
