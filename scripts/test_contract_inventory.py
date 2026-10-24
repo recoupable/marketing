@@ -1,4 +1,4 @@
-"""Verify root/dotted routes and preflight discovery without network access."""
+"""Verify routes, preflight and static MCP discovery without network access."""
 import json
 import os
 from pathlib import Path
@@ -82,4 +82,8 @@ class InventoryTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    suite = unittest.defaultTestLoader.discover(
+        str(Path(__file__).resolve().parent), pattern='test_*_inventory.py',
+    )
+    result = unittest.TextTestRunner().run(suite)
+    raise SystemExit(0 if result.wasSuccessful() and result.testsRun else 1)

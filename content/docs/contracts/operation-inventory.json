@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "aef563479780f0d0861e613851e8c79f26e119fc",
+  "apiSourceCommit": "3c590d8bf61d2197fbbb29ef2408ab906bb59020",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -3589,6 +3589,10 @@
       "source": "lib/mcp/extension/registerRecoupExtension.ts"
     },
     {
+      "name": "open_recoup_workflows_sidebar",
+      "source": "lib/mcp/extension/registerRecoupExtension.ts"
+    },
+    {
       "name": "read_music_evidence_attachment",
       "source": "lib/mcp/tools/context/registerContextEvidenceTools.ts"
     },
@@ -3668,7 +3672,7 @@
     "content/docs/source/api-reference/openapi/context.json": "dd0a72fef32fa9abd74410caa71ac2b71df0ee36edb3a6cbc3614cde408c0593",
     "content/docs/source/api-reference/openapi/players.json": "4a4c90583fe1de6487444581b293a32b1cc04622fc929965ab90f365feb8bc94",
     "content/docs/source/api-reference/openapi/projects.json": "b059cf8baa83a7f73a3c15db19f54fa56e46a3840e91bd42979b83550f543ace",
-    "content/docs/source/api-reference/openapi/releases.json": "1adbc10c563396790974201c4c6fc16cbf3567e02c64ad3d8d6118b8e7d49237",
+    "content/docs/source/api-reference/openapi/releases.json": "7bfbdee327e8b3e27ba39cea3fcfe1fe930997d2ea05cb19a707f926ae3bdba2",
     "content/docs/source/api-reference/openapi/research.json": "ba0ebf1af7bb7cb1441d47830581c318cca770164ab7362c010e03f5fa381b20",
     "content/docs/source/api-reference/openapi/sandbox.json": "c61a2bb965b9c9a1eade2e226fdc8af0cb1aa2213f23236d8607d13b65dbec15",
     "content/docs/source/api-reference/openapi/sessions.json": "85af56cc150374b28c25541c45db15849c71fdeb6288cf90dc2beb08f494e83e",

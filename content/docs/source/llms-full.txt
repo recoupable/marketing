@@ -1979,7 +1979,7 @@ The supplied specification does not declare an OpenAPI security object for this 
             "items": {
               "$ref": "#/components/schemas/ArtistSocial"
             },
-            "description": "Social media profiles linked to the artist (embedded in the /api/artists response)"
+            "description": "Existing social media profiles linked to the artist. Missing joined profile records are omitted. A profile with an empty URL is retained with link \"\" and type \"NONE\"."
           }
         }
       },
@@ -1991,10 +1991,6 @@ The supplied specification does not declare an OpenAPI security object for this 
             "format": "uuid",
             "description": "UUID of the social profile"
           },
-          "platform": {
-            "type": "string",
-            "description": "Social media platform (e.g., instagram, twitter, tiktok)"
-          },
           "username": {
             "type": "string",
             "description": "Username on the platform"
@@ -2002,7 +1998,22 @@ The supplied specification does not declare an OpenAPI security object for this 
           "profile_url": {
             "type": "string",
             "description": "Full URL to the social media profile"
+          },
+          "link": {
+            "type": "string",
+            "description": "Profile URL mirrored from profile_url; an empty URL remains an empty string."
+          },
+          "type": {
+            "type": "string",
+            "description": "Uppercase platform identifier inferred from the profile URL, for example INSTAGRAM or LINKEDIN. Unrecognized or empty URLs produce NONE."
           }
+        },
+        "example": {
+          "id": "11111111-1111-4111-8111-111111111111",
+          "username": "river",
+          "profile_url": "https://instagram.com/river",
+          "link": "https://instagram.com/river",
+          "type": "INSTAGRAM"
         }
       }
     }
@@ -2899,7 +2910,7 @@ The supplied specification does not declare an OpenAPI security object for this 
           },
           "type": {
             "type": "string",
-            "description": "Uppercase platform identifier inferred from the profile URL: SPOTIFY, INSTAGRAM, TIKTOK, TWITTER, YOUTUBE, APPLE, FACEBOOK, THREADS, or NONE if the URL did not match a known platform."
+            "description": "Uppercase platform identifier inferred from the profile URL, for example INSTAGRAM or LINKEDIN. Unrecognized or empty URLs produce NONE."
           }
         }
       }
@@ -3244,7 +3255,7 @@ The supplied specification does not declare an OpenAPI security object for this 
           },
           "type": {
             "type": "string",
-            "description": "Uppercase platform identifier inferred from the profile URL: SPOTIFY, INSTAGRAM, TIKTOK, TWITTER, YOUTUBE, APPLE, FACEBOOK, THREADS, or NONE if the URL did not match a known platform."
+            "description": "Uppercase platform identifier inferred from the profile URL, for example INSTAGRAM or LINKEDIN. Unrecognized or empty URLs produce NONE."
           }
         }
       }
@@ -3589,7 +3600,7 @@ The supplied specification does not declare an OpenAPI security object for this 
           },
           "type": {
             "type": "string",
-            "description": "Uppercase platform identifier inferred from the profile URL: SPOTIFY, INSTAGRAM, TIKTOK, TWITTER, YOUTUBE, APPLE, FACEBOOK, THREADS, or NONE if the URL did not match a known platform."
+            "description": "Uppercase platform identifier inferred from the profile URL, for example INSTAGRAM or LINKEDIN. Unrecognized or empty URLs produce NONE."
           }
         }
       }

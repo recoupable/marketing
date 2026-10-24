@@ -341,6 +341,21 @@ The label kit narrative leads with outcomes for artists, managers, and labels. `
 
 Author platform docs in `content/docs/source`; follow [DOCUMENTATION-POLICY.md](DOCUMENTATION-POLICY.md).
 
+The shared producer freezes GET `/api/artists` and PATCH `/api/artists/{id}` social
+arrays plus the list's profile example. Run API `publishedArtistSocials.test.ts`
+after changing them. Both responses use the real shared formatter; the list uses
+`type` and `link`, omits missing joined records and retains existing empty URLs.
+Fixture/formatter checks do not establish live database or account behavior.
+The focused producer case lives in `scripts/test_artist_social_contracts.py` and
+runs through the existing `scripts/test_response_contracts.py` discovery command.
+
+The static MCP inventory includes literal tool names and both literal branches
+of simple identifier-based conditional names. Run `python3 scripts/test_contract_inventory.py`
+after changing its reader. This remains source evidence, not live tool discovery
+or a guarantee that every scope receives those tools.
+The conditional-name case lives in `scripts/test_mcp_inventory.py`; the same
+inventory CLI discovers both focused suites.
+
 `build_response_contracts.py` imports the API-owned `TaskFailureErrorResponse`
 and freezes examples with the six selected task 403 and GET/POST 500 response
 schemas. API's `publishedTaskFailures.test.ts` exercises real routes, account
