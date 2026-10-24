@@ -28,6 +28,10 @@ RESPONSE_TARGETS = [
     ('projects.json', 'GET', '/api/projects/{projectId}', 404),
     ('research.json', 'POST', '/api/chat', 500),
     ('research.json', 'GET', '/api/chat/{chatId}/stream', 500),
+    ('research.json', 'POST', '/api/chat/{chatId}/stop', 200),
+    ('research.json', 'POST', '/api/chat/{chatId}/stop', 502),
+    ('research.json', 'POST', '/api/chat/{chatId}/stop', 503),
+    ('research.json', 'POST', '/api/chat/{chatId}/stop', 504),
     ('sessions.json', 'GET', '/api/sessions/{sessionId}/chats', 500),
     ('sessions.json', 'POST', '/api/sessions/{sessionId}/chats', 500),
     ('sessions.json', 'GET', '/api/sessions/{sessionId}/chats/{chatId}', 500),
@@ -83,7 +87,8 @@ def build_response_contracts(specs, source, api, check=False):
             'mediaType': 'application/json',
             'schema': resolve_response_schema(response['content']['application/json']['schema'], document),
         }
-        if (name, method, path, status) in TASK_FAILURE_TARGETS:
+        if ((name, method, path, status) in TASK_FAILURE_TARGETS
+                or (path, status) == ('/api/chat/{chatId}/stop', 503)):
             record['examples'] = {
                 key: value['value']
                 for key, value in response['content']['application/json'].get('examples', {}).items()

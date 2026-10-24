@@ -712,7 +712,7 @@
     "/api/chat/{chatId}/stop": {
       "post": {
         "operationId": "postChatByChatIdStop",
-        "description": "Stop the response currently being generated for a chat, freeing it to accept a new message. Idempotent — returns `stopped: false` when nothing is in progress. The chat must belong to the authenticated account.\n\nThe active slot is released only after cancellation is confirmed. Cancellation failure (502) or termination timeout (504) keeps it occupied; a later stop can retry. A successful no-active stop returns stopped: false.",
+        "description": "Stop the response currently being generated for a chat, freeing it to accept a new message. Idempotent — returns `stopped: false` when nothing is in progress. The chat must belong to the authenticated account.\n\nThe active slot is released only after cancellation is confirmed. Cancellation failure (502) or termination timeout (504) keeps it occupied; a later stop can retry. A successful no-active stop returns stopped: false.\n\nWhen a workflow is still starting and has no cancellable run ID, Stop returns retryable `503` and retains the active reservation. It does not report `stopped: true`; retry Stop shortly. A local reader abort is not confirmation that server work stopped.",
         "security": [
           {
             "apiKeyAuth": []
@@ -732,7 +732,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Stop request processed",
+            "description": "No active workflow exists (`stopped: false`), or cancellation and terminal status were confirmed (`stopped: true`). A pending start returns 503 instead of successful cancellation.",
             "content": {
               "application/json": {
                 "schema": {
@@ -807,6 +807,25 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/StopChatErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Workflow start has reserved the chat but has not returned a cancellable run ID. The reservation remains held, and cancellation is not confirmed. Retry Stop shortly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StopChatErrorResponse"
+                },
+                "examples": {
+                  "pendingStart": {
+                    "summary": "Stop requested before the workflow run ID is available",
+                    "value": {
+                      "status": "error",
+                      "error": "Workflow is still starting; retry Stop shortly"
+                    }
+                  }
                 }
               }
             }

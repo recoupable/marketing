@@ -1,3 +1,18 @@
+## Pending-start Stop contract companion — October 24, 2026
+
+API #1126's startup Stop repair is merged at
+`10713a70c4e5513cf7935032a28808a4c8fa63a8`. Stop before a run ID is available
+returns retryable 503 and keeps the active reservation. The maintained reference,
+exact error example and selected 200/502/503/504 schemas now follow that contract.
+
+The shared-fixture producer and canonical API route tests are coordinated in
+API #1127, now merged at `c0cdf456263aab97118f7a297976c7ddfed0025c`.
+The inventory pins that actual API fixture merge. Marketing publication and
+retained Docs still follow their own reviewed merge order. Normal build and
+source checks are separate from hosted Stop behavior. Existing POST
+resume/admission, reader-disconnect and the broader client/lifecycle companions
+remain unchanged and independently held.
+
 ## Audience platform input contract — October 21, 2026
 
 Prepared the audience reference for the validation released in API #1082 as
