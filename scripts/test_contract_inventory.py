@@ -2,7 +2,6 @@
 import json
 import os
 from pathlib import Path
-import runpy
 import shutil
 import subprocess
 import tempfile
@@ -10,31 +9,6 @@ import unittest
 
 
 class InventoryTests(unittest.TestCase):
-    def test_literal_and_conditional_tool_names_are_preserved(self):
-        with tempfile.TemporaryDirectory() as directory:
-            api = Path(directory)
-            tools = api / 'lib/mcp'
-            tools.mkdir(parents=True)
-            (tools / 'register.ts').write_text('''
-server.registerTool('ordinary_tool', {}, handler);
-for (const sidebar of [false, true]) {
-  server.registerTool(
-    sidebar ? "open_recoup_workflows_sidebar" : "open_recoup_workflows",
-    {}, handler,
-  );
-}
-''')
-            tests = tools / '__tests__'
-            tests.mkdir()
-            (tests / 'register.test.ts').write_text('server.registerTool("test_only", {}, handler);')
-            discover = runpy.run_path(str(Path(__file__).with_name('refresh-contract-inventory.py')))[
-                'static_mcp_registrations'
-            ]
-            self.assertEqual(discover(api), [
-                {'name': name, 'source': 'lib/mcp/register.ts'}
-                for name in ['open_recoup_workflows', 'open_recoup_workflows_sidebar', 'ordinary_tool']
-            ])
-
     def test_root_dotted_routes_and_options_are_classified(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -108,4 +82,8 @@ for (const sidebar of [false, true]) {
 
 
 if __name__ == '__main__':
-    unittest.main()
+    suite = unittest.defaultTestLoader.discover(
+        str(Path(__file__).resolve().parent), pattern='test_*_inventory.py',
+    )
+    result = unittest.TextTestRunner().run(suite)
+    raise SystemExit(0 if result.wasSuccessful() and result.testsRun else 1)

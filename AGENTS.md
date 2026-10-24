@@ -353,6 +353,8 @@ The static MCP inventory includes literal tool names and both literal branches
 of simple identifier-based conditional names. Run `python3 scripts/test_contract_inventory.py`
 after changing its reader. This remains source evidence, not live tool discovery
 or a guarantee that every scope receives those tools.
+The conditional-name case lives in `scripts/test_mcp_inventory.py`; the same
+inventory CLI discovers both focused suites.
 
 `build_response_contracts.py` imports the API-owned `TaskFailureErrorResponse`
 and freezes examples with the six selected task 403 and GET/POST 500 response
