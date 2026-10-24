@@ -13,4 +13,3 @@ class ChatStopContractsTest(ResponseContractTestCase):
         self.assertEqual(responses[503]['examples']['pendingStart'], {
             'status': 'error', 'error': 'Workflow is still starting; retry Stop shortly',
         })
-
