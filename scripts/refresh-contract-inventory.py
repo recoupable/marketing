@@ -84,7 +84,13 @@ def static_mcp_registrations(api):
     for path in sorted((api / 'lib/mcp').rglob('*.ts')):
         if '__tests__' in path.parts:
             continue
-        for name in re.findall(r'\.registerTool\(\s*["\']([^"\']+)', path.read_text()):
+        text = path.read_text()
+        names = re.findall(r'\.registerTool\(\s*["\']([^"\']+)', text)
+        for choices in re.findall(
+            r'\.registerTool\(\s*[\w$]+\s*\?\s*["\']([^"\']+)["\']\s*:\s*["\']([^"\']+)["\']\s*,', text
+        ):
+            names.extend(choices)
+        for name in names:
             registrations.append({'name': name, 'source': str(path.relative_to(api))})
     return sorted(registrations, key=lambda item: (item['name'], item['source']))
 

@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "d6014341787319ec7b75f4b5048e79ed6da9da4d",
+  "apiSourceCommit": "3c590d8bf61d2197fbbb29ef2408ab906bb59020",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -3586,6 +3586,10 @@
     },
     {
       "name": "open_recoup_workflows",
+      "source": "lib/mcp/extension/registerRecoupExtension.ts"
+    },
+    {
+      "name": "open_recoup_workflows_sidebar",
       "source": "lib/mcp/extension/registerRecoupExtension.ts"
     },
     {

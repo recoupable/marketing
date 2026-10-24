@@ -349,6 +349,11 @@ Fixture/formatter checks do not establish live database or account behavior.
 The focused producer case lives in `scripts/test_artist_social_contracts.py` and
 runs through the existing `scripts/test_response_contracts.py` discovery command.
 
+The static MCP inventory includes literal tool names and both literal branches
+of simple identifier-based conditional names. Run `python3 scripts/test_contract_inventory.py`
+after changing its reader. This remains source evidence, not live tool discovery
+or a guarantee that every scope receives those tools.
+
 `build_response_contracts.py` imports the API-owned `TaskFailureErrorResponse`
 and freezes examples with the six selected task 403 and GET/POST 500 response
 schemas. API's `publishedTaskFailures.test.ts` exercises real routes, account
