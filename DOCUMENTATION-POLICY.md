@@ -148,3 +148,7 @@ material-evidence exclusions and existing error behavior remain unchanged.
 Use the public saved-context planner's output rather than the wider low-level
 planner types. Brief document constraints follow the compiler's actual selector;
 do not advertise evidence states or coverage that it excludes.
+
+## Chat admission and reader lifecycle companions
+
+API #1071 / Marketing #209 successor preparation targets reviewed API #1128 candidate `f7f856fdcb3019948c03f2148ada8f03f42188d1`. The preview inventory pin is not a released source. Keep these companions held until API #1128 actually merges, refresh the actual API/companion source pins in dependency order and complete final independent review. Retained Docs copies wait for the actual Marketing merge. Existing failed-read and pending-Stop contracts remain intact. Scope is admission 409/retryable 503, exact-single optional query opt-in on POST and reconnect GET, retained manual recovery, and authenticated server Stop distinctions. Production, native App acceptance and private deployment metadata remain separate gates.
