@@ -129,4 +129,10 @@ def build_published_docs_record(specs, source, root, schema_hash, response_schem
         'errorSchema': resolve_response_schema(research['components']['schemas']['ChatGenerateErrorResponse'], research),
         'statusSchema': resolve_response_schema(research['components']['schemas']['ChatRunStatusResponse'], research),
     }
+    record['chatLifecycle'] = {
+        name: {'method': method.upper(), 'path': path,
+               'parameters': research['paths'][path][method].get('parameters', [])}
+        for name, method, path in [('start', 'post', '/api/chat'),
+                                   ('resume', 'get', '/api/chat/{chatId}/stream')]
+    }
     return record

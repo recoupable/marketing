@@ -4532,7 +4532,7 @@ This operation requires one of the security alternatives in the specification be
       "post": {
         "operationId": "postChat",
         "summary": "Stream sandbox-driven chat (Vercel Workflow)",
-        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) — no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](https://recoupable.dev/docs/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](https://recoupable.dev/docs/api-reference/chat/runs) — the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](https://recoupable.dev/docs/api-reference/chat/workflow-stream) — reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](https://recoupable.dev/docs/api-reference/chat/runs-status) — check **whether** a headless run finished (status, not content).\n\nIf an existing workflow is running or pending, the current API can return its `200` event stream before saving the submitted new turn. That response does not confirm acceptance of a new message. Use `GET /api/chat/{chatId}/stream` for explicit reconnection and inspect the chat state before submitting another turn.",
+        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) — no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](https://recoupable.dev/docs/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](https://recoupable.dev/docs/api-reference/chat/runs) — the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](https://recoupable.dev/docs/api-reference/chat/workflow-stream) — reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](https://recoupable.dev/docs/api-reference/chat/runs-status) — check **whether** a headless run finished (status, not content).\n\nA new turn is separate from reconnecting. If the early active-run check finds an existing run whose status is running or pending, POST returns `409` before saving the new message or starting a new workflow. Keep the rejected text and attachments locally, reconnect with GET, and let the caller decide when to submit them again. Do not queue or automatically resend them, or delete persisted chat history to recover an unaccepted submission. Later start conflicts can also return `409` after work has started; inspect chat state before retrying. An unresolved startup reservation, unknown run status, failed status lookup or failed stale-slot clear returns retryable `503` before saving the submitted turn or starting a new workflow. Preserve the text and attachments for a later manual retry.\n\nTo make a reader disconnect leave the workflow running, send `?streamLifecycle=explicit-stop-v1` on this POST and every reconnect GET. Use `POST /api/chat/{chatId}/stop` for explicit cancellation; aborting the local reader is not confirmation that server work stopped. Only exactly one streamLifecycle query parameter with that exact value opts in. Omitted, empty, unknown or repeated parameters retain legacy disconnect cancellation.",
         "security": [
           {
             "apiKeyAuth": []
@@ -4551,7 +4551,7 @@ This operation requires one of the security alternatives in the specification be
         },
         "responses": {
           "200": {
-            "description": "Server-Sent Events stream of UI message parts compatible with the Vercel AI SDK `createUIMessageStreamResponse`. The `x-workflow-run-id` response header carries the durable workflow run ID for resume/stop operations. This can be the existing running or pending response rather than a newly accepted turn; the submitted new turn is not saved on that resume path.",
+            "description": "Server-Sent Events stream of UI message parts for the newly started workflow, compatible with the Vercel AI SDK `createUIMessageStreamResponse`. The `x-workflow-run-id` response header carries the durable workflow run ID for resume/stop operations. An existing active response is rejected with 409 instead of being returned as acceptance of the submitted new message.",
             "headers": {
               "x-workflow-run-id": {
                 "description": "Durable workflow run ID. Persist alongside the chat so a later `GET /api/chat/{chatId}/stream` request can resume this run after a disconnect.",
@@ -4610,7 +4610,7 @@ This operation requires one of the security alternatives in the specification be
             }
           },
           "409": {
-            "description": "A workflow/start conflict, including an unresolved existing run or a race to claim the chat. Inspect the chat state before retrying and use `GET /api/chat/{chatId}/stream` for explicit reconnection. A live run may instead be returned as a `200` stream.",
+            "description": "A response is already active, a concurrent request claimed the chat, or another conflict prevented this start. The early active-run rejection does not save the submitted message or start a new workflow. Later conflicts may occur after work starts. Preserve rejected text and attachments, inspect chat state and use GET /api/chat/{chatId}/stream to reconnect before a manual retry; no automatic replay is performed.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4628,8 +4628,30 @@ This operation requires one of the security alternatives in the specification be
                 }
               }
             }
+          },
+          "503": {
+            "description": "Run state cannot be resolved safely, including an unresolved startup reservation, unknown status, failed status lookup or failed stale-slot clear. A pending startup reservation remains held. The early rejection does not save the submitted turn or start a new workflow. Keep the text and attachments for a later manual retry; no automatic replay.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
           }
-        }
+        },
+        "parameters": [
+          {
+            "name": "streamLifecycle",
+            "in": "query",
+            "required": false,
+            "description": "Send streamLifecycle=explicit-stop-v1 exactly once on the initial POST and every reconnect GET to keep server work running when that reader disconnects. Only exactly one parameter with that exact value opts in. Omitting it, an empty or unknown value, or repeating the parameter retains legacy disconnect cancellation. Use authenticated POST /api/chat/{chatId}/stop for cancellation; a local reader abort is not confirmation that server work stopped. This is a query parameter, not a request-body field.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "explicit-stop-v1"
+          }
+        ]
       }
     }
   },
@@ -4799,7 +4821,7 @@ This operation requires one of the security alternatives in the specification be
       "get": {
         "operationId": "getChatByChatIdStream",
         "summary": "Resume a chat response stream",
-        "description": "Reconnects to an in-progress chat response without submitting another message. [`POST /api/chat`](https://recoupable.dev/docs/api-reference/chat/workflow) can currently return an existing live stream without accepting the submitted new turn; use this GET route for explicit reconnection. Returns the live Server-Sent Events stream when a response is still being generated, or a `200` finish-only SSE stream when no active response exists or the run is terminal. The chat must belong to the authenticated account.\n\n**Related endpoints**\n- [`POST /api/chat`](https://recoupable.dev/docs/api-reference/chat/workflow) — the interactive turn whose stream this resumes.\n- [`POST /api/chat/runs`](https://recoupable.dev/docs/api-reference/chat/runs) — start a **headless** run, then pass the returned `chatId` here to **watch its output live**.\n- [`GET /api/chat/runs/{runId}`](https://recoupable.dev/docs/api-reference/chat/runs-status) — check **whether** that run finished (status, not content).",
+        "description": "Reconnects to an in-progress chat response without submitting another message. POST /api/chat starts a new turn: an existing live run returns 409, while uncertain state or a startup reservation returns retryable 503. Returns a live Server-Sent Events stream while a response is being generated, or a `200` finish-only SSE stream when no active response exists or the run is terminal. The chat must belong to the authenticated account.\n\nSend `?streamLifecycle=explicit-stop-v1` on both the initial POST and this reconnect GET to keep server work running when a reader disconnects. Use the authenticated Stop endpoint for cancellation; closing or aborting this reader alone does not confirm that the workflow stopped. Only exactly one streamLifecycle parameter with the exact value opts in; omitted, empty, unknown or repeated parameters retain legacy disconnect cancellation. Keep the existing `startIndex` cursor when reconnecting an already-read response.\n\n**Related endpoints**\n- [`POST /api/chat`](https://recoupable.dev/docs/api-reference/chat/workflow) — the interactive turn whose stream this resumes.\n- [`POST /api/chat/runs`](https://recoupable.dev/docs/api-reference/chat/runs) — start a **headless** run, then pass the returned `chatId` here to **watch its output live**.\n- [`GET /api/chat/runs/{runId}`](https://recoupable.dev/docs/api-reference/chat/runs-status) — check **whether** that run finished (status, not content).",
         "security": [
           {
             "apiKeyAuth": []
@@ -4838,6 +4860,16 @@ This operation requires one of the security alternatives in the specification be
               "type": "integer",
               "minimum": 0
             }
+          },
+          {
+            "name": "streamLifecycle",
+            "in": "query",
+            "required": false,
+            "description": "Send streamLifecycle=explicit-stop-v1 exactly once on the initial POST and every reconnect GET to keep server work running when that reader disconnects. Only exactly one parameter with that exact value opts in. Omitting it, an empty or unknown value, or repeating the parameter retains legacy disconnect cancellation. Use authenticated POST /api/chat/{chatId}/stop for cancellation; a local reader abort is not confirmation that server work stopped. This is a query parameter, not a request-body field.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "explicit-stop-v1"
           }
         ],
         "responses": {
@@ -5468,7 +5500,7 @@ This operation requires one of the security alternatives in the specification be
     "/api/chat/{chatId}/stop": {
       "post": {
         "operationId": "postChatByChatIdStop",
-        "description": "Stop the response currently being generated for a chat, freeing it to accept a new message. Idempotent — returns `stopped: false` when nothing is in progress. The chat must belong to the authenticated account.\n\nThe active slot is released only after cancellation is confirmed. Cancellation failure (502) or termination timeout (504) keeps it occupied; a later stop can retry. A successful no-active stop returns stopped: false.\n\nWhen a workflow is still starting and has no cancellable run ID, Stop returns retryable `503` and retains the active reservation. It does not report `stopped: true`; retry Stop shortly. A local reader abort is not confirmation that server work stopped.",
+        "description": "Stop the response currently being generated for a chat, freeing it to accept a new message. Idempotent — returns `stopped: false` when nothing is in progress. The chat must belong to the authenticated account.\n\nThe active slot is released only after cancellation is confirmed. Cancellation failure (502) or termination timeout (504) keeps it occupied; a later stop can retry. A successful no-active stop returns stopped: false.\n\nWhen a workflow is still starting and has no cancellable run ID, Stop returns retryable `503` and retains the active reservation. It does not report `stopped: true`; retry Stop shortly. A local reader abort is not confirmation that server work stopped.\n\nFor readers using `streamLifecycle=explicit-stop-v1`, this authenticated endpoint remains the explicit cancellation path.",
         "security": [
           {
             "apiKeyAuth": []
