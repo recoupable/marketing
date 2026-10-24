@@ -1,3 +1,9 @@
+## Chat admission and reader-lifecycle companion preparation — October 24, 2026
+
+The remaining API #1071 / Marketing #209 successors are prepared against reviewed API #1128 candidate `f7f856fdcb3019948c03f2148ada8f03f42188d1`. Source/controlled SDK acceptance does not establish release: corrected App native acceptance and API production verification remain root-owned gates. The preview inventory pins API fixture candidate `b9fb9edaa9b4b76d6f80a980394f9a6904980bbb`, whose runtime base is the reviewed API #1128 candidate. That fixture candidate is local preparation, not a released source. The preview inventory is not an actual-merge pin; do not publish before actual API #1128 merge, coordinated API fixture commit, refreshed actual pins and final independent review. Retained Docs waits for actual Marketing merge.
+
+The source describes early 409 for a live existing reply, retryable 503 for uncertain run state/reservations, and exactly one `streamLifecycle=explicit-stop-v1` query on initial POST and reconnect GET. Empty, unknown, absent or repeated values retain legacy disconnect cancellation. Rejected text and attachments stay with the caller for manual recovery; no queue, automatic resend or history deletion. Explicit authenticated server Stop remains distinct from local reader abort. Earlier failed-read/Stop repairs are preserved, not rebuilt. Private deployment metadata stays held until Sidney resolves/authorizes the intended connection; no alternate account/session/transport or grants.
+
 ## Pending-start Stop contract companion — October 24, 2026
 
 API #1126's startup Stop repair is merged at
