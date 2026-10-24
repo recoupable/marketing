@@ -54,6 +54,14 @@ resume behavior and GET finish-only 200 SSE; this does not accept a newly
 submitted turn on the POST resume path. No new submission conflict/retry,
 queue, disconnect or client behavior is implied by the read-failure repair.
 
+The selected Stop 200/502/503/504 schemas and pending-start example are frozen
+through the same producer. API `publishedChatStop.test.ts` calls the canonical
+route under mocked service leaves. A pending start has no cancellable run ID:
+503 retains its reservation and does not acknowledge a successful Stop. Publish
+only after the matching server repair is released, then refresh the actual API
+source pin. This narrow correction does not accept the separate POST admission,
+client recovery or disconnect-policy changes.
+
 For coordinated changes, regenerate the API artifact and the two fixture copies:
 Marketing's `content/docs/contracts/example-cases.json` and API's
 `lib/contracts/fixtures/published-docs.json`. Run the API contract tests and
