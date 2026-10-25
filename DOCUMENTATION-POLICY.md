@@ -97,10 +97,33 @@ The API fixture uses source-file hashes; this avoids a circular commit dependenc
 These checks do not authorize merge or deployment.
 
 The same export freezes the guarded-file query/upload examples and resolved
-GET 200 / POST 200, 409 and 500 schemas in `guardedGitFiles`. The API's
-`publishedSandboxFiles.test.ts` checks those examples against the real validators,
-GET export and upload response builder under mocked service boundaries. This
-does not prove hosted Git writes, sandbox atomicity or adoption by existing clients.
+file/list GET 200 / upload POST 200, 409 and 500 schemas in `guardedGitFiles`.
+It preserves the default read query separately from explicit-account file/list
+queries, their optional UUID declarations and success examples. `account_id`
+is echoed only on successful explicit-target reads; omitted-target responses
+remain unchanged. Read delegation does not grant upload, replacement or deletion
+rights. Every explicit App override is read-only, and target-aware clients reject
+missing/mismatched echoes rather than falling back to a caller's repository. The API's
+`accountScopedFiles.test.ts` checks the scoped query examples and GET response
+schemas with the real authentication/access-policy/route code under mocked
+credential, membership, snapshot and repository boundaries.
+`publishedSandboxFiles.test.ts` retains the normal revision-read and guarded-upload
+validator/response checks. These do not prove hosted Git writes, sandbox atomicity
+or adoption by existing clients.
+
+For the Files account-scope release, API #1131 merged as
+`92b5f663506607bfb880f4d5f2e94cfe88b593c2` and App #2343 merged as
+`62d079d910135441bd9c8ba52a5711b14fbb35a7`; both production deployments were
+confirmed. The public reference and fixtures already reached Marketing through
+#226 and the retained Docs copy through #407. Marketing #231 now reconciles
+contributor guidance and preserves the actual API #1157 merge pin
+`e217c791d1735458b3720cebf4c923122f7df1dc`; both shared fixtures match that source.
+Preserve later merged contracts when refreshing Files documentation. This
+metadata-only reconciliation does not require a duplicate Files publication;
+future public source changes still follow the normal merged-source provenance
+workflow. Authentication, organization/administrator grants, revision/binary
+behavior and file-write APIs remain unchanged. Source tests and deployment
+receipts do not establish a signed-in hosted journey.
 
 `python3 scripts/build-contract-examples.py --api /path/to/api` freezes examples and
 important contract claims for API tests, including Context's public request union.

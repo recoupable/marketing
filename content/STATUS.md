@@ -1,3 +1,26 @@
+## Files account-scope release reconciliation — October 25, 2026
+
+The public Files reference, scoped examples, producer tests and generated artifacts
+are already on current Marketing main through #226 and in the retained Docs copy
+through #407. Marketing #231 now reconciles contributor guidance and the actual
+verified API source reference; it is not another Files feature publication.
+
+API #1131 merged as `92b5f663506607bfb880f4d5f2e94cfe88b593c2`; App #2343 merged as
+`62d079d910135441bd9c8ba52a5711b14fbb35a7`. Both production deployments were
+confirmed, including App deployment `7307078988` at `2026-10-25T01:32:53Z`.
+The inventory preserves API #1157's actual merge `e217c791d1735458b3720cebf4c923122f7df1dc`;
+both shared fixtures match that source byte for byte. The refresh incorporates
+Marketing main `646d5f9909f6385305d9f91e6fe7d298182f11cc`, preserving the newer
+catalog-case, application-preflight, CLI-guard, release-format, post-stats,
+podcast and Workflow trailing-delete work. No public source or generated artifact differs from that main.
+
+Selected-account Files reads retain explicit target acknowledgements and existing
+authorization; every explicit App override is read-only. Original-account drafts,
+revision checks and normal write protections remain unchanged. Source tests and
+deployment receipts do not establish authenticated hosted account switching or
+provider Git behavior. This metadata/guidance reconciliation adds no new
+retained-host feature publication, grants or production writes.
+
 ## Workflow trailing-delete contract — October 25, 2026
 
 Prepared the bounded Workflow-only reference from API #1155 actual merge `4d63f9c2248c28f0fc0974f59fb3a8f4650ee063`: ownership/account override, query UUID, inclusive timestamp/ID boundary, occupied-slot409, read500, absent/foreign404 and statement-success200. Quiescence and unknown-outcome recovery are explicit; no durable or concurrent edit/resend guarantee. API fixture companion #1157 merged as `e217c791d1735458b3720cebf4c923122f7df1dc`; the inventory now pins that actual merge. Retained Docs waits for the actual Marketing merge. Preserves main social #238/#239. Checks/reviews tracked in the publication PR; stronger #636 fencing remains unresolved.
@@ -49,6 +72,7 @@ be blindly saved back. All three tools remain outside delegated OAuth.
 This companion requires the catalog-case API and database release. Documentation,
 source checks and synthetic fixtures do not establish deployment, provider acceptance
 or bank receipt. Existing artist/release Context operations are unchanged.
+
 ## Chat admission and reader-lifecycle documentation release — October 25, 2026
 
 API #1128 is merged as `8f48a2a1d51264f2ae34a0f21db05bcaeed806ce`; its exact runtime merge has a successful production deployment. The coordinated API #1129 contract companion is merged as `971f396bab61b86411199264073aaf436cbbee5b`, and the inventory now pins that actual merge. These replace the API #1071 / Marketing #209 preview-source holds. Marketing #230 still requires final composition checks, independent review and merge approval; retained Docs must be generated from the actual Marketing merge. Source/controlled SDK acceptance and deployment receipts do not establish authenticated hosted send/reconnect/Stop or real provider cancellation. Those checks remain open; the managed App browser currently requires sign-in.
