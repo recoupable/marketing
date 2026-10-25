@@ -55,7 +55,7 @@ jobs:
       - name: Build pinned CLI source
         working-directory: .contract-cli
         run: |
-          pnpm install --frozen-lockfile
+          pnpm --ignore-workspace install --frozen-lockfile
           pnpm build
       - name: Verify candidate guide against the compiled CLI
         working-directory: .contract-cli
