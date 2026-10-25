@@ -31,14 +31,12 @@ export function EpisodeDetail({ episode, transcript }: { episode: Episode; trans
       <div className="mt-8 max-w-[680px]">
         {episode.summary.map((paragraph, index) => <p key={paragraph} className={`${index === 0 ? "" : "!mt-5"} text-[17px] !leading-[1.7] text-[#22343c]`}>{paragraph}</p>)}
       </div>
-      {episode.guestLinks.length > 0 && (
-        <div className="mt-9">
-          <p className="sp-kicker text-[#5b7886] !text-[10px]">{copy.guestLinks.replace("{guest}", episode.guest)}</p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 !mt-3">
-            {episode.guestLinks.map((link) => <li key={link.href}><a className="text-[15px] font-medium underline decoration-[#cfdde2] underline-offset-4 hover:text-[#087bab]" href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a></li>)}
-          </ul>
-        </div>
-      )}
+      <div className="mt-9">
+        <p className="sp-kicker text-[#5b7886] !text-[10px]">{copy.guestLinks.replace("{guest}", episode.guest)}</p>
+        <ul className="flex flex-wrap gap-x-6 gap-y-2 !mt-3">
+          {episode.guestLinks.map((link) => <li key={link.href}><a className="text-[15px] font-medium underline decoration-[#cfdde2] underline-offset-4 hover:text-[#087bab]" href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a></li>)}
+        </ul>
+      </div>
       {transcript && <EpisodeTranscript slug={episode.slug} transcript={transcript} youtube={episode.links.youtube} />}
       <div className="mt-11 p-7 rounded-2xl bg-[#f0f7fa] max-w-[680px]">
         <p className="sp-kicker text-[#5b7886] !text-[10px]">{copy.about.kicker}</p>
