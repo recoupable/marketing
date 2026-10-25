@@ -1,3 +1,7 @@
+## Workflow trailing-delete contract — October 25, 2026
+
+Prepared the bounded Workflow-only reference from API #1155 actual merge `4d63f9c2248c28f0fc0974f59fb3a8f4650ee063`: ownership/account override, query UUID, inclusive timestamp/ID boundary, occupied-slot409, read500, absent/foreign404 and statement-success200. Quiescence and unknown-outcome recovery are explicit; no durable or concurrent edit/resend guarantee. API fixture companion and final merge pin precede Marketing publication, then retained Docs follows the actual Marketing merge. Preserves main social #238/#239. Checks/reviews tracked in the publication PR; stronger #636 fencing remains unresolved.
+
 ## Optional release-format contract — October 25, 2026
 
 Prepared the canonical Context live-case and saved-review response schemas to accept

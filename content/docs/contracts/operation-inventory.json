@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "06a03559a7666019e92428ce690ea131a190ba46",
+  "apiSourceCommit": "4d63f9c2248c28f0fc0974f59fb3a8f4650ee063",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -3750,7 +3750,7 @@
     "content/docs/source/api-reference/openapi/players.json": "4a4c90583fe1de6487444581b293a32b1cc04622fc929965ab90f365feb8bc94",
     "content/docs/source/api-reference/openapi/projects.json": "b059cf8baa83a7f73a3c15db19f54fa56e46a3840e91bd42979b83550f543ace",
     "content/docs/source/api-reference/openapi/releases.json": "7bfbdee327e8b3e27ba39cea3fcfe1fe930997d2ea05cb19a707f926ae3bdba2",
-    "content/docs/source/api-reference/openapi/research.json": "053556fdeec5379fbaf6cfdbd37c721cd0793f08fa728b82c281e0c6af249457",
+    "content/docs/source/api-reference/openapi/research.json": "19100841a55ed3a793ce4ebc04038916f431150c529d54d38ddb1958484fbfdd",
     "content/docs/source/api-reference/openapi/sandbox.json": "c61a2bb965b9c9a1eade2e226fdc8af0cb1aa2213f23236d8607d13b65dbec15",
     "content/docs/source/api-reference/openapi/sessions.json": "85af56cc150374b28c25541c45db15849c71fdeb6288cf90dc2beb08f494e83e",
     "content/docs/source/api-reference/openapi/social.json": "5bd167a78cf6a17c46724486e2921882be20969ea32f3c0297f5b7e7ba9a30aa",
