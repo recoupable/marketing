@@ -6,6 +6,7 @@ from resolve_response_schema import resolve_response_schema
 
 
 SCHEMA_TARGETS = [
+    ('research.json', 'DeleteTrailingChatAuthenticationErrorResponse', 'AuthenticationErrorResponse'),
     ('releases.json', 'ArtistPublicProfileErrorResponse', 'ErrorResponse'),
     ('releases.json', 'TaskAuthenticationErrorResponse', 'AuthenticationErrorResponse'),
     ('releases.json', 'TaskFailureErrorResponse', 'ErrorResponse'),
@@ -21,6 +22,10 @@ TASK_FAILURE_TARGETS = [
     ('releases.json', 'DELETE', '/api/tasks', 403),
     ('releases.json', 'GET', '/api/tasks', 500),
     ('releases.json', 'POST', '/api/tasks', 500),
+]
+TRAILING_DELETE_TARGETS = [
+    ('research.json', 'DELETE', '/api/chats/{id}/messages/trailing', status)
+    for status in (200, 400, 401, 403, 404, 409, 500)
 ]
 RESPONSE_TARGETS = [
     ('releases.json', 'GET', '/api/artists/{id}/profile', 404),
@@ -44,7 +49,7 @@ RESPONSE_TARGETS = [
     ('releases.json', 'POST', '/api/tasks', 401),
     ('releases.json', 'PATCH', '/api/tasks', 401),
     ('releases.json', 'DELETE', '/api/tasks', 401),
-] + TASK_FAILURE_TARGETS
+] + TASK_FAILURE_TARGETS + TRAILING_DELETE_TARGETS
 
 
 def build_response_contracts(specs, source, api, check=False):
@@ -89,7 +94,8 @@ def build_response_contracts(specs, source, api, check=False):
             'mediaType': 'application/json',
             'schema': resolve_response_schema(response['content']['application/json']['schema'], document),
         }
-        if ((name, method, path, status) in TASK_FAILURE_TARGETS
+        if ((name, method, path, status) in TRAILING_DELETE_TARGETS
+                or (name, method, path, status) in TASK_FAILURE_TARGETS
                 or (path, status) == ('/api/chat/{chatId}/stop', 503)):
             record['examples'] = {
                 key: value['value']

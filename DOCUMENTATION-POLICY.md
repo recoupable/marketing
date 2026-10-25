@@ -116,8 +116,8 @@ For the Files account-scope release, API #1131 merged as
 `62d079d910135441bd9c8ba52a5711b14fbb35a7`; both production deployments were
 confirmed. The public reference and fixtures already reached Marketing through
 #226 and the retained Docs copy through #407. Marketing #231 now reconciles
-contributor guidance and pins actual API main
-`1742fcf7c6e508e94eafcc3390d7225ec6b52ced`; both shared fixtures match that source.
+contributor guidance and preserves the actual API #1157 merge pin
+`e217c791d1735458b3720cebf4c923122f7df1dc`; both shared fixtures match that source.
 Preserve later merged contracts when refreshing Files documentation. This
 metadata-only reconciliation does not require a duplicate Files publication;
 future public source changes still follow the normal merged-source provenance
@@ -223,3 +223,22 @@ through the existing provenance workflow.
 ## Chat admission and reader lifecycle companions
 
 API #1128 is merged as `8f48a2a1d51264f2ae34a0f21db05bcaeed806ce`, with successful production deployment of that runtime. API #1129 is merged as `971f396bab61b86411199264073aaf436cbbee5b`; the inventory pins this actual contract merge, not a preview candidate. Marketing #230 succeeds Marketing #209 and remains subject to final checks, independent review and merge approval. Retained Docs copies wait for the actual Marketing merge. Existing failed-read and pending-Stop contracts remain intact. Scope is admission 409/retryable 503, exact-single optional query opt-in on POST and reconnect GET, retained manual recovery, and authenticated server Stop distinctions. Source/deployment evidence does not prove authenticated hosted send/reconnect/Stop or real provider cancellation; those acceptance checks and private deployment access remain separate.
+
+## Workflow trailing-message deletion
+
+API #1155 merged as `4d63f9c2248c28f0fc0974f59fb3a8f4650ee063` supplies the
+Workflow-only deletion runtime. Its fixture/test-only companion API #1157 merged as
+`e217c791d1735458b3720cebf4c923122f7df1dc`; the inventory pins this actual merge
+for Marketing publication. `DELETE /api/chats/{id}/messages/trailing` requires caller
+quiescence, rejects every observed occupied slot with 409, and deletes the inclusive
+`created_at,id` suffix within the owned chat. Null-slot and successful-Stop observations
+do not prove outstanding writers are drained. 200 means statement success, including
+zero affected rows, without a durable-absence or concurrent edit/resend guarantee.
+Refresh history after an unknown outcome before deciding further action.
+
+The shared fixture freezes query declarations, bounded narrative and selected
+response schemas/examples. Run `python3 scripts/test_response_contracts.py` and API
+`publishedChatTrailingDelete.test.ts` with the generated fixture, along with the
+existing contract suite. The runtime's existing route-builder and disposable SQL
+tests are separate evidence; this publication does not add writer fencing or close
+the stronger API #636 requirement. Retained Docs waits for Marketing's actual merge.

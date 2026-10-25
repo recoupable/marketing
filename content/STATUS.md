@@ -3,23 +3,27 @@
 The public Files reference, scoped examples, producer tests and generated artifacts
 are already on current Marketing main through #226 and in the retained Docs copy
 through #407. Marketing #231 now reconciles contributor guidance and the actual
-API source pin; it is not another Files feature publication.
+verified API source reference; it is not another Files feature publication.
 
 API #1131 merged as `92b5f663506607bfb880f4d5f2e94cfe88b593c2`; App #2343 merged as
 `62d079d910135441bd9c8ba52a5711b14fbb35a7`. Both production deployments were
 confirmed, including App deployment `7307078988` at `2026-10-25T01:32:53Z`.
-The inventory now pins actual API main `1742fcf7c6e508e94eafcc3390d7225ec6b52ced`;
+The inventory preserves API #1157's actual merge `e217c791d1735458b3720cebf4c923122f7df1dc`;
 both shared fixtures match that source byte for byte. The refresh incorporates
-Marketing main `a6fd468f8bd2c2de8472c0ee6c13cf4bd550e5a0`, preserving the newer
-catalog-case, application-preflight, CLI-guard, release-format, post-stats and
-podcast work. No public source or generated artifact differs from that main.
+Marketing main `646d5f9909f6385305d9f91e6fe7d298182f11cc`, preserving the newer
+catalog-case, application-preflight, CLI-guard, release-format, post-stats,
+podcast and Workflow trailing-delete work. No public source or generated artifact differs from that main.
 
 Selected-account Files reads retain explicit target acknowledgements and existing
 authorization; every explicit App override is read-only. Original-account drafts,
 revision checks and normal write protections remain unchanged. Source tests and
 deployment receipts do not establish authenticated hosted account switching or
-provider Git behavior. This metadata/guidance PR still needs merge approval; no
-new retained-host feature publication, grants or production writes are implied.
+provider Git behavior. This metadata/guidance reconciliation adds no new
+retained-host feature publication, grants or production writes.
+
+## Workflow trailing-delete contract — October 25, 2026
+
+Prepared the bounded Workflow-only reference from API #1155 actual merge `4d63f9c2248c28f0fc0974f59fb3a8f4650ee063`: ownership/account override, query UUID, inclusive timestamp/ID boundary, occupied-slot409, read500, absent/foreign404 and statement-success200. Quiescence and unknown-outcome recovery are explicit; no durable or concurrent edit/resend guarantee. API fixture companion #1157 merged as `e217c791d1735458b3720cebf4c923122f7df1dc`; the inventory now pins that actual merge. Retained Docs waits for the actual Marketing merge. Preserves main social #238/#239. Checks/reviews tracked in the publication PR; stronger #636 fencing remains unresolved.
 
 ## Optional release-format contract — October 25, 2026
 
