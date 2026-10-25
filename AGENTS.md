@@ -343,6 +343,14 @@ The label kit narrative leads with outcomes for artists, managers, and labels. `
 
 Author platform docs in `content/docs/source`; follow [DOCUMENTATION-POLICY.md](DOCUMENTATION-POLICY.md).
 
+The pending application preflight reference uses `applications.json` and
+`api-reference/applications/validate-registration.mdx`. It validates proposals
+after authentication; it does not register applications or prove domain ownership.
+Keep normal account provisioning separate from the validator's effects. Standard
+MCP exposes the shared validator; delegated OAuth excludes it. Run
+`pnpm test tests/application-registration-docs.test.ts` and regenerate documentation
+after changing this contract. Source checks do not establish deployed availability.
+
 The shared producer freezes GET `/api/artists` and PATCH `/api/artists/{id}` social
 arrays plus the list's profile example. Run API `publishedArtistSocials.test.ts`
 after changing them. Both responses use the real shared formatter; the list uses

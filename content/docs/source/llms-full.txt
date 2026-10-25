@@ -758,6 +758,16 @@ reassemble a partial snapshot before another save. The [Context reference](https
 defines the complete bounded schema, historical-source rules, revision conflicts,
 response fields and list pagination.
 
+## Check an application proposal
+
+The pending standard MCP tool `validate_application_registration` checks an
+authorized workspace's proposed name, environment, exact origins and return URLs.
+It returns `persisted: false` and `origins_verified: false`; it does not register
+an application, prove domain ownership or issue application credentials.
+Delegated OAuth excludes this tool, including grants with `mcp:tools`. Discover
+it in a standard connection before use. See the [proposal preflight reference](https://recoupable.dev/docs/api-reference/applications/validate-registration)
+for inputs, normal authentication effects and the limits of a successful result.
+
 ## Release Packs
 
 When deployed and exposed by the current grant, the pack catalog includes
@@ -64368,6 +64378,466 @@ This operation requires one of the security alternatives in the specification be
         "in": "header",
         "name": "x-api-key",
         "description": "Your Recoup API key. [Learn more](https://recoupable.dev/docs/quickstart#api-keys)."
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
+```
+
+
+# Check an application proposal
+
+Source: https://recoupable.dev/docs/api-reference/applications/validate-registration
+
+Validate proposed app addresses in your workspace without registering or activating an application.
+
+> **Warning**
+> Pending coordinated release. This checks a proposal; it does not register an
+> app or make its origins trusted. Discover tool availability in your connected
+> host before use.
+
+Before connecting an external app, check its proposed name, environment, origins
+and return URLs. A successful result means those values passed validation for
+the selected workspace. It does not prove domain ownership.
+
+## What happens
+
+The preflight runs after normal Recoup authentication. First-time sign-in can
+perform normal account provisioning and send its welcome email. After that,
+this validator does not persist an application or issue application credentials.
+It does not edit provider callbacks, create fan identities or sessions, allocate
+capacity, or authorize purchases and spending.
+
+`workspace_id` and `billing_owner_id` come from the authenticated account or an
+organization it can access. They describe the proposed owner only. Supplying
+`organization_id` does not grant workspace access. Do not submit account or
+billing ownership overrides, secrets or tokens in the proposal.
+
+The result is flat and includes `status: "validated"`, `persisted: false` and
+`origins_verified: false`. It contains no application ID or token to install.
+
+## Addresses and environments
+
+- Choose `development` or `production` explicitly for each proposal.
+- Use exact canonical origins such as `https://music.example`, without a trailing
+  slash, wildcard, path, credentials, query or fragment. Different hosts and
+  ports are different origins.
+- HTTPS is required. Development also accepts HTTP on `localhost`, `127.0.0.1`
+  and `[::1]`; these loopback hosts are rejected in production.
+- A return URL must be an exact canonical URL on one of the proposed origins,
+  without credentials or fragments. For a bare host use its canonical trailing
+  slash, such as `https://music.example/`. Query strings are retained literally.
+- Each list takes 1–32 distinct addresses, each at most 2048 characters. The name
+  is trimmed and must then contain 1–120 characters. These are input limits,
+  not subscription or usage allowances.
+
+Matching a return URL to a caller-proposed origin does not establish that the
+caller owns either address. No DNS check, URL fetch or domain proof is performed.
+
+## Standard MCP
+
+On a standard API-key MCP connection that exposes `validate_application_registration`,
+use the same proposal fields as HTTP. Account identity comes from the connection;
+do not add `account_id` or extract a host-managed OAuth token.
+
+```json
+{
+  "name": "Release companion",
+  "environment": "production",
+  "allowed_origins": ["https://music.example"],
+  "return_urls": ["https://music.example/listen?connected=spotify"]
+}
+```
+
+Delegated OAuth excludes this tool, including connections with `mcp:tools`.
+HTTP and standard MCP share proposal validation; their transport-specific error
+envelopes differ. HTTP authentication errors can use `error` or `message`, while
+handled preflight errors use `status: "error"` and `error`. MCP failures are tool
+errors or SDK input-validation errors. None confirms registration or activation.
+
+See [authentication](https://recoupable.dev/docs/authentication) and [MCP connection guidance](https://recoupable.dev/docs/mcp).
+Application persistence, origin proof/reverification, provider configuration,
+fan bootstrap, suspension and quota policy require their own completed contracts.
+
+## POST /api/applications/registration/validate
+
+Full OpenAPI specification: https://recoupable.dev/docs/spec/applications.json
+
+## Authentication
+
+This operation requires one of the security alternatives in the specification below. Security scheme definitions are included where present in the published specification.
+
+[Authentication guide](https://recoupable.dev/docs/authentication)
+
+## Operation and referenced schemas
+
+```json
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Recoup API - Application preflight",
+    "version": "1.0.0",
+    "description": "Pending authenticated nonpersistent proposal validation. No application registry, domain proof or activation is provided by this contract."
+  },
+  "servers": [
+    {
+      "url": "https://api.recoupable.dev"
+    }
+  ],
+  "paths": {
+    "/api/applications/registration/validate": {
+      "post": {
+        "operationId": "validateApplicationRegistration",
+        "summary": "Check an application registration proposal",
+        "x-recoup-availability": "pending",
+        "description": "Pending coordinated API and documentation release. Checks an authenticated workspace’s proposed application name, explicit environment, origins and return URLs. This is a preflight, not registration or activation. After authentication, the validator does not persist an application, verify domain ownership, issue application credentials, edit provider callbacks, create fan sessions, allocate quotas or authorize spending. Normal authentication can separately provision an account and send its welcome email. A matching return URL only means it belongs to a caller-proposed origin; it does not prove domain ownership.\n\nHTTP and standard MCP validate_application_registration use the same domain validator. Delegated OAuth excludes this tool; mcp:tools does not enable it. Discover availability in the connected host.\n\nThe workspace and proposed billing owner are derived from authenticated account/authorized organization, never caller ownership overrides. Passing preflight returns persisted:false and origins_verified:false with no application ID or token. Address limits are request validation limits, not usage allowances.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationRegistrationProposal"
+              },
+              "example": {
+                "name": "Release companion",
+                "environment": "production",
+                "allowed_origins": [
+                  "https://music.example"
+                ],
+                "return_urls": [
+                  "https://music.example/listen?connected=spotify"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Proposal accepted by the validator. No application was registered and no domain was verified.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Preflight success and handled validation/workspace/infrastructure failures are private, no-store. Authentication failures return before these headers are added.",
+                "schema": {
+                  "type": "string",
+                  "const": "private, no-store"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationRegistrationPreflight"
+                },
+                "example": {
+                  "status": "validated",
+                  "persisted": false,
+                  "origins_verified": false,
+                  "workspace_id": "11111111-1111-4111-8111-111111111111",
+                  "billing_owner_id": "11111111-1111-4111-8111-111111111111",
+                  "name": "Release companion",
+                  "environment": "production",
+                  "allowed_origins": [
+                    "https://music.example"
+                  ],
+                  "return_urls": [
+                    "https://music.example/listen?connected=spotify"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid body, unknown field, invalid exact origin or return URL. Semantic URL restrictions in the field descriptions are checked by the shared validator in addition to the JSON shape.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Preflight success and handled validation/workspace/infrastructure failures are private, no-store. Authentication failures return before these headers are added.",
+                "schema": {
+                  "type": "string",
+                  "const": "private, no-store"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationRegistrationError"
+                },
+                "example": {
+                  "status": "error",
+                  "error": "Invalid application registration input"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication runs before proposal parsing. Provide exactly one of x-api-key or Authorization: Bearer. Existing authentication failures use either error or message; read the field present.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ApplicationRegistrationError"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AuthenticationMessageError"
+                    }
+                  ]
+                },
+                "examples": {
+                  "missingAuthentication": {
+                    "value": {
+                      "status": "error",
+                      "error": "Exactly one of x-api-key or Authorization must be provided"
+                    }
+                  },
+                  "invalidCredential": {
+                    "value": {
+                      "status": "error",
+                      "message": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The authenticated account cannot select the requested workspace.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Preflight success and handled validation/workspace/infrastructure failures are private, no-store. Authentication failures return before these headers are added.",
+                "schema": {
+                  "type": "string",
+                  "const": "private, no-store"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationRegistrationError"
+                },
+                "example": {
+                  "status": "error",
+                  "error": "Workspace not available"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The preflight could not complete safely. Infrastructure details are not returned.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Preflight success and handled validation/workspace/infrastructure failures are private, no-store. Authentication failures return before these headers are added.",
+                "schema": {
+                  "type": "string",
+                  "const": "private, no-store"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationRegistrationError"
+                },
+                "example": {
+                  "status": "error",
+                  "error": "Could not validate application registration"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApplicationRegistrationProposal": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "environment",
+          "allowed_origins",
+          "return_urls"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Whitespace is trimmed before requiring 1–120 characters. The response returns the trimmed name."
+          },
+          "organization_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Optional selected workspace, allowed only for the authenticated account or an organization it may access. Omit for the authenticated account. Caller-supplied account_id and billing_owner_id are rejected."
+          },
+          "environment": {
+            "type": "string",
+            "enum": [
+              "development",
+              "production"
+            ],
+            "description": "Required; this proposal checks one environment. This does not create environment resources or allowances."
+          },
+          "allowed_origins": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 32,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "format": "uri",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "description": "Distinct canonical exact origins, including the scheme and any non-default port. No wildcard, path, trailing slash, credentials, query or fragment. HTTPS is required; HTTP localhost, 127.0.0.1 and [::1] are accepted only in development. Those three hostnames are rejected in production. A proposed origin does not prove domain ownership."
+          },
+          "return_urls": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 32,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "format": "uri",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "description": "Distinct exact canonical URLs whose origin matches one of allowed_origins. Credentials and fragments are rejected. Include the URL parser’s trailing slash for a bare host. Query strings are retained literally, not used as patterns. Matching a proposed origin does not verify ownership or activate callbacks."
+          }
+        }
+      },
+      "ApplicationRegistrationPreflight": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "status",
+          "persisted",
+          "origins_verified",
+          "workspace_id",
+          "billing_owner_id",
+          "name",
+          "environment",
+          "allowed_origins",
+          "return_urls"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "validated"
+          },
+          "persisted": {
+            "type": "boolean",
+            "const": false,
+            "description": "The preflight did not persist an application or registration."
+          },
+          "origins_verified": {
+            "type": "boolean",
+            "const": false,
+            "description": "No domain-ownership proof was checked."
+          },
+          "workspace_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Workspace derived from authentication and the authorized optional organization selection."
+          },
+          "billing_owner_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Same proposed owner as workspace_id. Attribution only: no subscription, quota, top-up or spending authority is granted."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "environment": {
+            "type": "string",
+            "enum": [
+              "development",
+              "production"
+            ],
+            "description": "Required; this proposal checks one environment. This does not create environment resources or allowances."
+          },
+          "allowed_origins": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 32,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "format": "uri",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "description": "Distinct canonical exact origins, including the scheme and any non-default port. No wildcard, path, trailing slash, credentials, query or fragment. HTTPS is required; HTTP localhost, 127.0.0.1 and [::1] are accepted only in development. Those three hostnames are rejected in production. A proposed origin does not prove domain ownership."
+          },
+          "return_urls": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 32,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "format": "uri",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "description": "Distinct exact canonical URLs whose origin matches one of allowed_origins. Credentials and fragments are rejected. Include the URL parser’s trailing slash for a bare host. Query strings are retained literally, not used as patterns. Matching a proposed origin does not verify ownership or activate callbacks."
+          }
+        }
+      },
+      "ApplicationRegistrationError": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "error"
+          },
+          "error": {
+            "type": "string"
+          }
+        }
+      },
+      "AuthenticationMessageError": {
+        "type": "object",
+        "required": [
+          "status",
+          "message"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "error"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
       },
       "bearerAuth": {
         "type": "http",

@@ -487,6 +487,12 @@
         "tab": "Sites",
         "groups": [
           {
+            "group": "Application proposals",
+            "pages": [
+              "api-reference/applications/validate-registration"
+            ]
+          },
+          {
             "group": "Sites",
             "pages": [
               "api-reference/sites/overview",

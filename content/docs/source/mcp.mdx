@@ -61,6 +61,16 @@ reassemble a partial snapshot before another save. The [Context reference](/api-
 defines the complete bounded schema, historical-source rules, revision conflicts,
 response fields and list pagination.
 
+## Check an application proposal
+
+The pending standard MCP tool `validate_application_registration` checks an
+authorized workspace's proposed name, environment, exact origins and return URLs.
+It returns `persisted: false` and `origins_verified: false`; it does not register
+an application, prove domain ownership or issue application credentials.
+Delegated OAuth excludes this tool, including grants with `mcp:tools`. Discover
+it in a standard connection before use. See the [proposal preflight reference](/api-reference/applications/validate-registration)
+for inputs, normal authentication effects and the limits of a successful result.
+
 ## Release Packs
 
 When deployed and exposed by the current grant, the pack catalog includes
