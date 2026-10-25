@@ -49,10 +49,20 @@ responses, not every operation or hosted authentication.
 
 The same fixture freezes selected Research/Sessions 500 responses for failed
 chat reads. API `publishedChatReadFailures.test.ts` calls eight canonical route
-exports with synthetic service leaves. It also retains the existing POST 200
-resume behavior and GET finish-only 200 SSE; this does not accept a newly
-submitted turn on the POST resume path. No new submission conflict/retry,
-queue, disconnect or client behavior is implied by the read-failure repair.
+exports with synthetic service leaves. The read-failure repair did not itself
+change admission. The subsequent API #1128/#1129 release rejects running/pending
+POSTs with 409 and unresolved admission with retryable 503 before accepting a
+new turn; GET retains empty or terminal finish-only 200 SSE. The coordinated
+admission/lifecycle fixture below covers that successor without introducing a
+queue or automatic resend.
+
+The selected Stop 200/502/503/504 schemas and pending-start example are frozen
+through the same producer. API `publishedChatStop.test.ts` calls the canonical
+route under mocked service leaves. A pending start has no cancellable run ID:
+503 retains its reservation and does not acknowledge a successful Stop. Publish
+only after the matching server repair is released, then refresh the actual API
+source pin. This narrow correction does not accept the separate POST admission,
+client recovery or disconnect-policy changes.
 
 For coordinated changes, regenerate the API artifact and the two fixture copies:
 Marketing's `content/docs/contracts/example-cases.json` and API's
@@ -149,3 +159,7 @@ keep `ContextCatalogCaseResponse` and `ContextCatalogCasesResponse` connected to
 the 200 response union. The API HTTP/MCP example pairs are synthetic artifact
 operations, not provider execution. Update `mcp.mdx` with this bounded source scope
 and keep deployment verification separate from contract checks.
+
+## Chat admission and reader lifecycle companions
+
+API #1128 is merged as `8f48a2a1d51264f2ae34a0f21db05bcaeed806ce`, with successful production deployment of that runtime. API #1129 is merged as `971f396bab61b86411199264073aaf436cbbee5b`; the inventory pins this actual contract merge, not a preview candidate. Marketing #230 succeeds Marketing #209 and remains subject to final checks, independent review and merge approval. Retained Docs copies wait for the actual Marketing merge. Existing failed-read and pending-Stop contracts remain intact. Scope is admission 409/retryable 503, exact-single optional query opt-in on POST and reconnect GET, retained manual recovery, and authenticated server Stop distinctions. Source/deployment evidence does not prove authenticated hosted send/reconnect/Stop or real provider cancellation; those acceptance checks and private deployment access remain separate.

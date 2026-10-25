@@ -2000,7 +2000,7 @@ The supplied specification does not declare an OpenAPI security object for this 
             "items": {
               "$ref": "#/components/schemas/ArtistSocial"
             },
-            "description": "Social media profiles linked to the artist (embedded in the /api/artists response)"
+            "description": "Existing social media profiles linked to the artist. Missing joined profile records are omitted. A profile with an empty URL is retained with link \"\" and type \"NONE\"."
           }
         }
       },
@@ -2012,10 +2012,6 @@ The supplied specification does not declare an OpenAPI security object for this 
             "format": "uuid",
             "description": "UUID of the social profile"
           },
-          "platform": {
-            "type": "string",
-            "description": "Social media platform (e.g., instagram, twitter, tiktok)"
-          },
           "username": {
             "type": "string",
             "description": "Username on the platform"
@@ -2023,7 +2019,22 @@ The supplied specification does not declare an OpenAPI security object for this 
           "profile_url": {
             "type": "string",
             "description": "Full URL to the social media profile"
+          },
+          "link": {
+            "type": "string",
+            "description": "Profile URL mirrored from profile_url; an empty URL remains an empty string."
+          },
+          "type": {
+            "type": "string",
+            "description": "Uppercase platform identifier inferred from the profile URL, for example INSTAGRAM or LINKEDIN. Unrecognized or empty URLs produce NONE."
           }
+        },
+        "example": {
+          "id": "11111111-1111-4111-8111-111111111111",
+          "username": "river",
+          "profile_url": "https://instagram.com/river",
+          "link": "https://instagram.com/river",
+          "type": "INSTAGRAM"
         }
       }
     }
@@ -2920,7 +2931,7 @@ The supplied specification does not declare an OpenAPI security object for this 
           },
           "type": {
             "type": "string",
-            "description": "Uppercase platform identifier inferred from the profile URL: SPOTIFY, INSTAGRAM, TIKTOK, TWITTER, YOUTUBE, APPLE, FACEBOOK, THREADS, or NONE if the URL did not match a known platform."
+            "description": "Uppercase platform identifier inferred from the profile URL, for example INSTAGRAM or LINKEDIN. Unrecognized or empty URLs produce NONE."
           }
         }
       }
@@ -3265,7 +3276,7 @@ The supplied specification does not declare an OpenAPI security object for this 
           },
           "type": {
             "type": "string",
-            "description": "Uppercase platform identifier inferred from the profile URL: SPOTIFY, INSTAGRAM, TIKTOK, TWITTER, YOUTUBE, APPLE, FACEBOOK, THREADS, or NONE if the URL did not match a known platform."
+            "description": "Uppercase platform identifier inferred from the profile URL, for example INSTAGRAM or LINKEDIN. Unrecognized or empty URLs produce NONE."
           }
         }
       }
@@ -3610,7 +3621,7 @@ The supplied specification does not declare an OpenAPI security object for this 
           },
           "type": {
             "type": "string",
-            "description": "Uppercase platform identifier inferred from the profile URL: SPOTIFY, INSTAGRAM, TIKTOK, TWITTER, YOUTUBE, APPLE, FACEBOOK, THREADS, or NONE if the URL did not match a known platform."
+            "description": "Uppercase platform identifier inferred from the profile URL, for example INSTAGRAM or LINKEDIN. Unrecognized or empty URLs produce NONE."
           }
         }
       }
@@ -4542,7 +4553,7 @@ This operation requires one of the security alternatives in the specification be
       "post": {
         "operationId": "postChat",
         "summary": "Stream sandbox-driven chat (Vercel Workflow)",
-        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) — no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](https://recoupable.dev/docs/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](https://recoupable.dev/docs/api-reference/chat/runs) — the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](https://recoupable.dev/docs/api-reference/chat/workflow-stream) — reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](https://recoupable.dev/docs/api-reference/chat/runs-status) — check **whether** a headless run finished (status, not content).\n\nIf an existing workflow is running or pending, the current API can return its `200` event stream before saving the submitted new turn. That response does not confirm acceptance of a new message. Use `GET /api/chat/{chatId}/stream` for explicit reconnection and inspect the chat state before submitting another turn.",
+        "description": "Streams an agent loop running as a durable [Vercel Workflow](https://vercel.com/docs/workflow) against the session's sandbox. The agent uses sandbox-only tools (`bash`, `read`, `write`, `grep`, `glob`, `todo`, `task`, `ask_user_question`, `skill`, `fetch`) — no MCP or Composio. Requires a sandbox provisioned via [`POST /api/sandbox`](https://recoupable.dev/docs/api-reference/sandbox/create).\n\n**Related endpoints**\n- [`POST /api/chat/runs`](https://recoupable.dev/docs/api-reference/chat/runs) — the **headless** counterpart: it provisions its own session + sandbox and runs without a streaming client. Use that for tasks/cron/programmatic runs; use this for **interactive, streaming** turns on an existing chat.\n- [`GET /api/chat/{chatId}/stream`](https://recoupable.dev/docs/api-reference/chat/workflow-stream) — reconnect to an in-progress response.\n- [`GET /api/chat/runs/{runId}`](https://recoupable.dev/docs/api-reference/chat/runs-status) — check **whether** a headless run finished (status, not content).\n\nA new turn is separate from reconnecting. If the early active-run check finds an existing run whose status is running or pending, POST returns `409` before saving the new message or starting a new workflow. Keep the rejected text and attachments locally, reconnect with GET, and let the caller decide when to submit them again. Do not queue or automatically resend them, or delete persisted chat history to recover an unaccepted submission. Later start conflicts can also return `409` after work has started; inspect chat state before retrying. An unresolved startup reservation, unknown run status, failed status lookup or failed stale-slot clear returns retryable `503` before saving the submitted turn or starting a new workflow. Preserve the text and attachments for a later manual retry.\n\nTo make a reader disconnect leave the workflow running, send `?streamLifecycle=explicit-stop-v1` on this POST and every reconnect GET. Use `POST /api/chat/{chatId}/stop` for explicit cancellation; aborting the local reader is not confirmation that server work stopped. Only exactly one streamLifecycle query parameter with that exact value opts in. Omitted, empty, unknown or repeated parameters retain legacy disconnect cancellation.",
         "security": [
           {
             "apiKeyAuth": []
@@ -4561,7 +4572,7 @@ This operation requires one of the security alternatives in the specification be
         },
         "responses": {
           "200": {
-            "description": "Server-Sent Events stream of UI message parts compatible with the Vercel AI SDK `createUIMessageStreamResponse`. The `x-workflow-run-id` response header carries the durable workflow run ID for resume/stop operations. This can be the existing running or pending response rather than a newly accepted turn; the submitted new turn is not saved on that resume path.",
+            "description": "Server-Sent Events stream of UI message parts for the newly started workflow, compatible with the Vercel AI SDK `createUIMessageStreamResponse`. The `x-workflow-run-id` response header carries the durable workflow run ID for resume/stop operations. An existing active response is rejected with 409 instead of being returned as acceptance of the submitted new message.",
             "headers": {
               "x-workflow-run-id": {
                 "description": "Durable workflow run ID. Persist alongside the chat so a later `GET /api/chat/{chatId}/stream` request can resume this run after a disconnect.",
@@ -4620,7 +4631,7 @@ This operation requires one of the security alternatives in the specification be
             }
           },
           "409": {
-            "description": "A workflow/start conflict, including an unresolved existing run or a race to claim the chat. Inspect the chat state before retrying and use `GET /api/chat/{chatId}/stream` for explicit reconnection. A live run may instead be returned as a `200` stream.",
+            "description": "A response is already active, a concurrent request claimed the chat, or another conflict prevented this start. The early active-run rejection does not save the submitted message or start a new workflow. Later conflicts may occur after work starts. Preserve rejected text and attachments, inspect chat state and use GET /api/chat/{chatId}/stream to reconnect before a manual retry; no automatic replay is performed.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4638,8 +4649,30 @@ This operation requires one of the security alternatives in the specification be
                 }
               }
             }
+          },
+          "503": {
+            "description": "Run state cannot be resolved safely, including an unresolved startup reservation, unknown status, failed status lookup or failed stale-slot clear. A pending startup reservation remains held. The early rejection does not save the submitted turn or start a new workflow. Keep the text and attachments for a later manual retry; no automatic replay.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatStreamErrorResponse"
+                }
+              }
+            }
           }
-        }
+        },
+        "parameters": [
+          {
+            "name": "streamLifecycle",
+            "in": "query",
+            "required": false,
+            "description": "Send streamLifecycle=explicit-stop-v1 exactly once on the initial POST and every reconnect GET to keep server work running when that reader disconnects. Only exactly one parameter with that exact value opts in. Omitting it, an empty or unknown value, or repeating the parameter retains legacy disconnect cancellation. Use authenticated POST /api/chat/{chatId}/stop for cancellation; a local reader abort is not confirmation that server work stopped. This is a query parameter, not a request-body field.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "explicit-stop-v1"
+          }
+        ]
       }
     }
   },
@@ -4809,7 +4842,7 @@ This operation requires one of the security alternatives in the specification be
       "get": {
         "operationId": "getChatByChatIdStream",
         "summary": "Resume a chat response stream",
-        "description": "Reconnects to an in-progress chat response without submitting another message. [`POST /api/chat`](https://recoupable.dev/docs/api-reference/chat/workflow) can currently return an existing live stream without accepting the submitted new turn; use this GET route for explicit reconnection. Returns the live Server-Sent Events stream when a response is still being generated, or a `200` finish-only SSE stream when no active response exists or the run is terminal. The chat must belong to the authenticated account.\n\n**Related endpoints**\n- [`POST /api/chat`](https://recoupable.dev/docs/api-reference/chat/workflow) — the interactive turn whose stream this resumes.\n- [`POST /api/chat/runs`](https://recoupable.dev/docs/api-reference/chat/runs) — start a **headless** run, then pass the returned `chatId` here to **watch its output live**.\n- [`GET /api/chat/runs/{runId}`](https://recoupable.dev/docs/api-reference/chat/runs-status) — check **whether** that run finished (status, not content).",
+        "description": "Reconnects to an in-progress chat response without submitting another message. POST /api/chat starts a new turn: an existing live run returns 409, while uncertain state or a startup reservation returns retryable 503. Returns a live Server-Sent Events stream while a response is being generated, or a `200` finish-only SSE stream when no active response exists or the run is terminal. The chat must belong to the authenticated account.\n\nSend `?streamLifecycle=explicit-stop-v1` on both the initial POST and this reconnect GET to keep server work running when a reader disconnects. Use the authenticated Stop endpoint for cancellation; closing or aborting this reader alone does not confirm that the workflow stopped. Only exactly one streamLifecycle parameter with the exact value opts in; omitted, empty, unknown or repeated parameters retain legacy disconnect cancellation. Keep the existing `startIndex` cursor when reconnecting an already-read response.\n\n**Related endpoints**\n- [`POST /api/chat`](https://recoupable.dev/docs/api-reference/chat/workflow) — the interactive turn whose stream this resumes.\n- [`POST /api/chat/runs`](https://recoupable.dev/docs/api-reference/chat/runs) — start a **headless** run, then pass the returned `chatId` here to **watch its output live**.\n- [`GET /api/chat/runs/{runId}`](https://recoupable.dev/docs/api-reference/chat/runs-status) — check **whether** that run finished (status, not content).",
         "security": [
           {
             "apiKeyAuth": []
@@ -4848,6 +4881,16 @@ This operation requires one of the security alternatives in the specification be
               "type": "integer",
               "minimum": 0
             }
+          },
+          {
+            "name": "streamLifecycle",
+            "in": "query",
+            "required": false,
+            "description": "Send streamLifecycle=explicit-stop-v1 exactly once on the initial POST and every reconnect GET to keep server work running when that reader disconnects. Only exactly one parameter with that exact value opts in. Omitting it, an empty or unknown value, or repeating the parameter retains legacy disconnect cancellation. Use authenticated POST /api/chat/{chatId}/stop for cancellation; a local reader abort is not confirmation that server work stopped. This is a query parameter, not a request-body field.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "explicit-stop-v1"
           }
         ],
         "responses": {
@@ -5478,7 +5521,7 @@ This operation requires one of the security alternatives in the specification be
     "/api/chat/{chatId}/stop": {
       "post": {
         "operationId": "postChatByChatIdStop",
-        "description": "Stop the response currently being generated for a chat, freeing it to accept a new message. Idempotent — returns `stopped: false` when nothing is in progress. The chat must belong to the authenticated account.\n\nThe active slot is released only after cancellation is confirmed. Cancellation failure (502) or termination timeout (504) keeps it occupied; a later stop can retry. A successful no-active stop returns stopped: false.",
+        "description": "Stop the response currently being generated for a chat, freeing it to accept a new message. Idempotent — returns `stopped: false` when nothing is in progress. The chat must belong to the authenticated account.\n\nThe active slot is released only after cancellation is confirmed. Cancellation failure (502) or termination timeout (504) keeps it occupied; a later stop can retry. A successful no-active stop returns stopped: false.\n\nWhen a workflow is still starting and has no cancellable run ID, Stop returns retryable `503` and retains the active reservation. It does not report `stopped: true`; retry Stop shortly. A local reader abort is not confirmation that server work stopped.\n\nFor readers using `streamLifecycle=explicit-stop-v1`, this authenticated endpoint remains the explicit cancellation path.",
         "security": [
           {
             "apiKeyAuth": []
@@ -5498,7 +5541,7 @@ This operation requires one of the security alternatives in the specification be
         ],
         "responses": {
           "200": {
-            "description": "Stop request processed",
+            "description": "No active workflow exists (`stopped: false`), or cancellation and terminal status were confirmed (`stopped: true`). A pending start returns 503 instead of successful cancellation.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5563,6 +5606,25 @@ This operation requires one of the security alternatives in the specification be
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/StopChatErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Workflow start has reserved the chat but has not returned a cancellable run ID. The reservation remains held, and cancellation is not confirmed. Retry Stop shortly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StopChatErrorResponse"
+                },
+                "examples": {
+                  "pendingStart": {
+                    "summary": "Stop requested before the workflow run ID is available",
+                    "value": {
+                      "status": "error",
+                      "error": "Workflow is still starting; retry Stop shortly"
+                    }
+                  }
                 }
               }
             }
@@ -44634,7 +44696,7 @@ This operation requires one of the security alternatives in the specification be
 
 Source: https://recoupable.dev/docs/api-reference/sandboxes/list
 
-List all sandboxes associated with the authenticated account and their current statuses. Returns sandbox details including lifecycle state, timeout remaining, and creation timestamp. Pass account_id to retrieve sandboxes for a specific account the API key has access to. Authentication is handled via the x-api-key header or Authorization Bearer token.
+List all sandboxes associated with the authenticated account and their current statuses. Returns sandbox details including lifecycle state, timeout remaining, and creation timestamp. Authentication is handled via the x-api-key header or Authorization Bearer token.
 
 ## GET /api/sandboxes
 
@@ -44668,7 +44730,7 @@ The supplied specification does not declare an OpenAPI security object for this 
     "/api/sandboxes": {
       "get": {
         "operationId": "getSandboxes",
-        "description": "List all sandboxes associated with the authenticated account and their current statuses. Returns sandbox details including lifecycle state, timeout remaining, and creation timestamp. Pass account_id to retrieve sandboxes for a specific account the API key has access to. Authentication is handled via the x-api-key header or Authorization Bearer token.\n\nSet `metadata_only=true` when you only need the existing saved metadata. This skips live sandbox status lookups and returns an empty `sandboxes` array alongside `snapshot_id`, `github_repo` and `filetree`, preserving their existing nullable behavior. Stored metadata reads and the optional GitHub filetree lookup still run. The empty array in this mode does not establish whether any sandbox is running.\n\nOmitting `metadata_only` or sending literal `false` preserves normal live-status behavior. Authentication, account access checks and sandbox filters remain the same in either mode. Supplied values must be literal lowercase `true` or `false`; other values, including an empty value, return 400 through query validation.",
+        "description": "List all sandboxes associated with the authenticated account and their current statuses. Returns sandbox details including lifecycle state, timeout remaining, and creation timestamp. Authentication is handled via the x-api-key header or Authorization Bearer token.\n\nSet `metadata_only=true` when you only need the existing saved metadata. This skips live sandbox status lookups and returns an empty `sandboxes` array alongside `snapshot_id`, `github_repo` and `filetree`, preserving their existing nullable behavior. Stored metadata reads and the optional GitHub filetree lookup still run. The empty array in this mode does not establish whether any sandbox is running.\n\nOmitting `metadata_only` or sending literal `false` preserves normal live-status behavior. Authentication, account access checks and sandbox filters remain the same in either mode. Supplied values must be literal lowercase `true` or `false`; other values, including an empty value, return 400 through query validation.\n\nOmit `account_id` to read the authenticated account. An explicit UUID must pass the existing account-access policy: the caller itself, an organization the caller belongs to, a shared-organization account, or existing Recoup administrative access. Invalid UUIDs return 400; denied targets return 403 before snapshot or repository lookup. A target read never falls back to the caller's repository. Successful explicit-target reads echo `account_id`; omitted-target responses do not add that field. This delegates reads only, not upload, replacement or deletion rights.",
         "parameters": [
           {
             "name": "sandbox_id",
@@ -44683,12 +44745,13 @@ The supplied specification does not declare an OpenAPI security object for this 
           {
             "name": "account_id",
             "in": "query",
-            "description": "Filter to a specific account. Only applicable when the authenticated account has access to multiple accounts via organization membership.",
+            "description": "Optional target account UUID authorized by the existing account-access policy. Omit for the authenticated account. Successful explicit-target reads echo this value as account_id; this does not grant file-write access.",
             "required": false,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "example": "11111111-1111-4111-8111-111111111111"
           },
           {
             "name": "metadata_only",
@@ -44703,17 +44766,40 @@ The supplied specification does not declare an OpenAPI security object for this 
         ],
         "responses": {
           "200": {
-            "description": "Sandboxes retrieved successfully. In metadata_only mode, sandboxes is empty while the existing saved metadata fields are retained.",
+            "description": "Sandboxes retrieved successfully. In metadata_only mode, sandboxes is empty while the existing saved metadata fields are retained. Explicit authorized account_id requests echo that account_id; omitted-target requests keep the existing response shape.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SandboxesResponse"
+                },
+                "examples": {
+                  "ownMetadata": {
+                    "summary": "Authenticated account metadata (metadata_only=true)",
+                    "value": {
+                      "status": "success",
+                      "sandboxes": [],
+                      "snapshot_id": null,
+                      "github_repo": null,
+                      "filetree": null
+                    }
+                  },
+                  "targetMetadata": {
+                    "summary": "Authorized explicit account metadata (account_id and metadata_only=true)",
+                    "value": {
+                      "status": "success",
+                      "sandboxes": [],
+                      "snapshot_id": null,
+                      "github_repo": null,
+                      "filetree": null,
+                      "account_id": "11111111-1111-4111-8111-111111111111"
+                    }
+                  }
                 }
               }
             }
           },
           "400": {
-            "description": "Invalid query parameters, including a supplied metadata_only value other than literal lowercase true or false.",
+            "description": "Invalid query parameters, including an invalid account_id UUID or a supplied metadata_only value other than literal lowercase true or false.",
             "content": {
               "application/json": {
                 "schema": {
@@ -44733,7 +44819,7 @@ The supplied specification does not declare an OpenAPI security object for this 
             }
           },
           "403": {
-            "description": "Forbidden - account_id is not a member of the organization or account tried to filter by an account_id they don't have access to",
+            "description": "Access denied to the explicit account_id. No target snapshot/repository lookup or fallback to the caller's repository occurs.",
             "content": {
               "application/json": {
                 "schema": {
@@ -44794,6 +44880,12 @@ The supplied specification does not declare an OpenAPI security object for this 
           "error": {
             "type": "string",
             "description": "Error message (only present if status is error)"
+          },
+          "account_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "On successful GET reads only: the explicitly requested, authorized target account UUID. Present even for an explicit self target; absent when account_id was omitted. This is read scope, not write authorization.",
+            "example": "11111111-1111-4111-8111-111111111111"
           }
         }
       },
@@ -45077,6 +45169,12 @@ The supplied specification does not declare an OpenAPI security object for this 
           "error": {
             "type": "string",
             "description": "Error message (only present if status is error)"
+          },
+          "account_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "On successful GET reads only: the explicitly requested, authorized target account UUID. Present even for an explicit self target; absent when account_id was omitted. This is read scope, not write authorization.",
+            "example": "11111111-1111-4111-8111-111111111111"
           }
         }
       },
@@ -45692,7 +45790,7 @@ The supplied specification does not declare an OpenAPI security object for this 
 
 Source: https://recoupable.dev/docs/api-reference/sandboxes/get-file
 
-Read a file from the authenticated account's Git-backed repository, including resolved submodule paths, on `main`. The repository comes from the [account's snapshot](https://recoupable.dev/docs/api-reference/sandboxes/list). Authenticate with `x-api-key` or an Authorization Bearer token.
+Read a file from the authenticated account's Git-backed repository, or an explicitly authorized target account's repository, including resolved submodule paths, on `main`. The repository comes from the [account's snapshot](https://recoupable.dev/docs/api-reference/sandboxes/list). Authenticate with `x-api-key` or an Authorization Bearer token.
 
 ## GET /api/sandboxes/file
 
@@ -45726,7 +45824,7 @@ The supplied specification does not declare an OpenAPI security object for this 
     "/api/sandboxes/file": {
       "get": {
         "operationId": "getSandboxesFile",
-        "description": "Read a file from the authenticated account's Git-backed repository, including resolved submodule paths, on `main`. The repository comes from the [account's snapshot](https://recoupable.dev/docs/api-reference/sandboxes/list). Authenticate with `x-api-key` or an Authorization Bearer token.\n\nTo update an existing file without silently replacing a newer edit, set `include_revision=true`. The response pairs `content` with its blob `sha` from the same repository read. Keep that SHA with the opened draft and send it as `files[].expected_sha` when saving to the same account, resolved repository and path. Omitting the flag, or setting it to `false`, retains the legacy raw read without a SHA.\n\n**Text files are returned verbatim. Recognized binary extensions (`.mp3`, `.png`, `.jpg`, `.mp4`, `.pdf`, etc.) return base64 content with `encoding: base64`; decode those bytes before use.**\n\nVersioned reads support existing regular files whose content is returned inline by the repository service (normally up to 1 MB). Unknown binary content that is not valid UTF-8 is rejected by the versioned read rather than converted into damaged text. Missing/unsupported content, directories and symlinks return an error.\n\nThe SHA identifies the file content; it is not an editing history.",
+        "description": "Read a file from the authenticated account's Git-backed repository, or an explicitly authorized target account's repository, including resolved submodule paths, on `main`. The repository comes from the [account's snapshot](https://recoupable.dev/docs/api-reference/sandboxes/list). Authenticate with `x-api-key` or an Authorization Bearer token.\n\nOmit `account_id` to read the authenticated account. An explicit UUID must pass the existing account-access policy: the caller itself, an organization the caller belongs to, a shared-organization account, or existing Recoup administrative access. Invalid UUIDs return 400; denied targets return 403 before snapshot or repository lookup. A target read never falls back to the caller's repository. Successful explicit-target reads echo `account_id`; omitted-target responses do not add that field. This delegates reads only, not upload, replacement or deletion rights.\n\nClients selecting an account must send the same `account_id` on the list and file reads and require a matching response echo before using the result. Key cached data by authentication identity, target account and API origin. When that scope changes, reject stale in-flight results and invalidate writable revisions. Retain any unsaved replacement under its original account for manual recovery; never reuse that draft or its revision for a different account. An explicit override is a read-only view, even when it names the authenticated account. A SHA from a target read does not grant permission to write there.\n\nTo update an existing file without silently replacing a newer edit, set `include_revision=true`. The response pairs `content` with its blob `sha` from the same repository read. Keep that SHA with the opened draft and send it as `files[].expected_sha` when saving to the same account, resolved repository and path. Omitting the flag, or setting it to `false`, retains the legacy raw read without a SHA.\n\n**Text files are returned verbatim. Recognized binary extensions (`.mp3`, `.png`, `.jpg`, `.mp4`, `.pdf`, etc.) return base64 content with `encoding: base64`; decode those bytes before use.**\n\nVersioned reads support existing regular files whose content is returned inline by the repository service (normally up to 1 MB). Unknown binary content that is not valid UTF-8 is rejected by the versioned read rather than converted into damaged text. Missing/unsupported content, directories and symlinks return an error.\n\nThe SHA identifies the file content; it is not an editing history.",
         "parameters": [
           {
             "name": "path",
@@ -45749,11 +45847,22 @@ The supplied specification does not declare an OpenAPI security object for this 
               "default": false
             },
             "example": true
+          },
+          {
+            "name": "account_id",
+            "in": "query",
+            "description": "Optional target account UUID authorized by the existing account-access policy. Omit for the authenticated account. Successful explicit-target reads echo this value as account_id; this does not grant file-write access.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "11111111-1111-4111-8111-111111111111"
           }
         ],
         "responses": {
           "200": {
-            "description": "File content. Versioned reads also return sha; recognized binary extensions also return encoding: base64.",
+            "description": "File content. Versioned reads also return sha; recognized binary extensions also return encoding: base64. Explicit authorized account_id requests also echo that account_id; omitted-target requests do not.",
             "content": {
               "application/json": {
                 "schema": {
@@ -45783,13 +45892,30 @@ The supplied specification does not declare an OpenAPI security object for this 
                       "encoding": "base64",
                       "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                     }
+                  },
+                  "targetText": {
+                    "summary": "Authorized target read (account_id supplied; no revision requested)",
+                    "value": {
+                      "status": "success",
+                      "content": "Release notes",
+                      "account_id": "11111111-1111-4111-8111-111111111111"
+                    }
+                  },
+                  "targetVersionedText": {
+                    "summary": "Authorized target bytes and revision (read access only)",
+                    "value": {
+                      "status": "success",
+                      "content": "Release notes",
+                      "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "account_id": "11111111-1111-4111-8111-111111111111"
+                    }
                   }
                 }
               }
             }
           },
           "400": {
-            "description": "Missing/noncanonical path or include_revision other than true/false. Use a canonical relative path. Dot/traversal segments, backslashes, control characters, malformed Unicode and leading/trailing/doubled slashes return 400. These checks also apply to legacy requests.",
+            "description": "Invalid account_id UUID, missing/noncanonical path or include_revision other than true/false. Use a canonical relative path. Dot/traversal segments, backslashes, control characters, malformed Unicode and leading/trailing/doubled slashes return 400. These checks also apply to legacy requests.",
             "content": {
               "application/json": {
                 "schema": {
@@ -45809,7 +45935,7 @@ The supplied specification does not declare an OpenAPI security object for this 
             }
           },
           "403": {
-            "description": "Forbidden - account does not have access",
+            "description": "Access denied to the explicit account_id. No target snapshot/repository lookup or fallback to the caller's repository occurs.",
             "content": {
               "application/json": {
                 "schema": {
@@ -45819,7 +45945,7 @@ The supplied specification does not declare an OpenAPI security object for this 
             }
           },
           "404": {
-            "description": "No usable account snapshot/repository, missing file, or unsupported/failed versioned read. Guarded reads do not fall back to another branch or separately fetched bytes.",
+            "description": "No usable account snapshot/repository, missing file, or unsupported/failed versioned read. Guarded reads do not fall back to another branch or separately fetched bytes. An explicit target with no usable repository or file does not fall back to the caller's repository.",
             "content": {
               "application/json": {
                 "schema": {
@@ -45864,6 +45990,12 @@ The supplied specification does not declare an OpenAPI security object for this 
             "pattern": "^[a-f0-9]{40}$",
             "description": "Present when include_revision=true; use this reader-observed blob SHA as files[].expected_sha. Absent from legacy reads. It identifies the returned bytes, not an accepted Context source version.",
             "example": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "account_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "On successful GET reads only: the explicitly requested, authorized target account UUID. Present even for an explicit self target; absent when account_id was omitted. This is read scope, not write authorization.",
+            "example": "11111111-1111-4111-8111-111111111111"
           }
         }
       },
@@ -46032,7 +46164,7 @@ The supplied specification does not declare an OpenAPI security object for this 
     "/api/sandboxes/files": {
       "post": {
         "operationId": "postSandboxesFiles",
-        "description": "Upload one or more files to the authenticated account's Git-backed repository. Each file URL is committed separately; paths inside a submodule resolve to that repository. Authenticate with `x-api-key` or an Authorization Bearer token.\n\nFor a guarded update of an existing file:\n1. Read it with `GET /api/sandboxes/file?include_revision=true` and retain the returned `sha` with that draft.\n2. Upload the edited bytes using the [staged-file upload](https://recoupable.dev/docs/api-reference/sandboxes/stage-file), then send the resulting URL and the original SHA as `files[].expected_sha`. Guarded updates save to `main`. A conflicting save is not retried automatically.\n3. On a conflict, preserve the unsaved draft, reread the latest content and reconcile explicitly. Do not fetch a new SHA merely to force an older draft through.\n\nA batch is not a transaction. HTTP 200 can include successful `uploaded` receipts alongside `errors` and `conflicts`; inspect every file. If every upload fails only because its condition conflicts, the response is 409. If all fail with mixed conflict/other failures, it is 500 and keeps the conflicts list. Conflicts contain submitted file names; successes include resulting blob SHAs.\n\nTemporary upload blobs are deleted after every attempt, including conflicts, so retrying requires a new upload URL. Omitting `expected_sha` creates or updates the file on the repository default branch without checking the version you opened. The condition only supports updates to existing files. It protects saves that supply it; saving here does not update files in an already running sandbox.\n\nIf the target was deleted after the read, do not retry without the condition. This upload has no dedicated missing-target status: non-conflict failures return 500 when no file succeeds, or appear in `errors` alongside successful receipts in a 200 partial result. A missing target is not guaranteed to return 404 or 409; reread the path before deciding how to recover.",
+        "description": "Upload one or more files to the authenticated account's Git-backed repository. Each file URL is committed separately; paths inside a submodule resolve to that repository. Authenticate with `x-api-key` or an Authorization Bearer token.\n\nFor a guarded update of an existing file:\n1. Read it with `GET /api/sandboxes/file?include_revision=true` and retain the returned `sha` with that draft.\n2. Upload the edited bytes using the [staged-file upload](https://recoupable.dev/docs/api-reference/sandboxes/stage-file), then send the resulting URL and the original SHA as `files[].expected_sha`. Guarded updates save to `main`. A conflicting save is not retried automatically.\n3. On a conflict, preserve the unsaved draft, reread the latest content and reconcile explicitly. Do not fetch a new SHA merely to force an older draft through.\n\nA batch is not a transaction. HTTP 200 can include successful `uploaded` receipts alongside `errors` and `conflicts`; inspect every file. If every upload fails only because its condition conflicts, the response is 409. If all fail with mixed conflict/other failures, it is 500 and keeps the conflicts list. Conflicts contain submitted file names; successes include resulting blob SHAs.\n\nTemporary upload blobs are deleted after every attempt, including conflicts, so retrying requires a new upload URL. Omitting `expected_sha` creates or updates the file on the repository default branch without checking the version you opened. The condition only supports updates to existing files. It protects saves that supply it; saving here does not update files in an already running sandbox.\n\nIf the target was deleted after the read, do not retry without the condition. This upload has no dedicated missing-target status: non-conflict failures return 500 when no file succeeds, or appear in `errors` alongside successful receipts in a 200 partial result. A missing target is not guaranteed to return 404 or 409; reread the path before deciding how to recover.\n\nThe optional `account_id` on list/file reads does not delegate uploads or replacements. This upload route remains bound to its existing authenticated-account ownership checks; do not reuse a different account's draft or SHA here. File deletion behavior is also unchanged.",
         "requestBody": {
           "description": "JSON body containing file URLs and target path",
           "required": true,

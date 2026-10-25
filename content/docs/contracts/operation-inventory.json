@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "468a88b7bc27a6738e88395df9ebdf99e235aa3a",
+  "apiSourceCommit": "b828acc3e6ee78a708a78de510254a2b2d922a9b",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -3589,6 +3589,14 @@
       "source": "lib/mcp/tools/catalogs/registerCatalogStreamsTools.ts"
     },
     {
+      "name": "open_recoup_workflows",
+      "source": "lib/mcp/extension/registerRecoupExtension.ts"
+    },
+    {
+      "name": "open_recoup_workflows_sidebar",
+      "source": "lib/mcp/extension/registerRecoupExtension.ts"
+    },
+    {
       "name": "read_catalog_case",
       "source": "lib/mcp/tools/context/registerCatalogCaseTools.ts"
     },
@@ -3672,12 +3680,12 @@
   "specificationHashes": {
     "content/docs/source/api-reference/openapi/accounts.json": "1a5a04f9ec358a15b8339b7029c9fed5fe69c6f042c8b03b6b4f03f3aafdeeed",
     "content/docs/source/api-reference/openapi/ai.json": "678f649fff58a1c49c81002ea2cbe66636ad5da1044ea66261e6ab4084600687",
-    "content/docs/source/api-reference/openapi/content.json": "b89165f9296a1aa98139f64ae095eefd2a5b306950170d3f15a4826de95ed036",
+    "content/docs/source/api-reference/openapi/content.json": "a59fa965788414731d19e031ec4b44f4a83319bdc651cb0aa49fba5a534317b0",
     "content/docs/source/api-reference/openapi/context.json": "7986a997d2da4eeec358764b727d31f8b841f49db350e1357ef02289504e0bb9",
     "content/docs/source/api-reference/openapi/players.json": "4a4c90583fe1de6487444581b293a32b1cc04622fc929965ab90f365feb8bc94",
     "content/docs/source/api-reference/openapi/projects.json": "b059cf8baa83a7f73a3c15db19f54fa56e46a3840e91bd42979b83550f543ace",
-    "content/docs/source/api-reference/openapi/releases.json": "1adbc10c563396790974201c4c6fc16cbf3567e02c64ad3d8d6118b8e7d49237",
-    "content/docs/source/api-reference/openapi/research.json": "ba0ebf1af7bb7cb1441d47830581c318cca770164ab7362c010e03f5fa381b20",
+    "content/docs/source/api-reference/openapi/releases.json": "7bfbdee327e8b3e27ba39cea3fcfe1fe930997d2ea05cb19a707f926ae3bdba2",
+    "content/docs/source/api-reference/openapi/research.json": "053556fdeec5379fbaf6cfdbd37c721cd0793f08fa728b82c281e0c6af249457",
     "content/docs/source/api-reference/openapi/sandbox.json": "c61a2bb965b9c9a1eade2e226fdc8af0cb1aa2213f23236d8607d13b65dbec15",
     "content/docs/source/api-reference/openapi/sessions.json": "85af56cc150374b28c25541c45db15849c71fdeb6288cf90dc2beb08f494e83e",
     "content/docs/source/api-reference/openapi/social.json": "49c837327886827b5bc33ae4daac76f12473ecf4a6f75cc073656e9247ba73ca",

@@ -88,6 +88,18 @@ def build_published_docs_record(specs, source, root, schema_hash, response_schem
         ),
         'example': releases['components']['schemas']['ArtistFansResponse']['example'],
     }
+    record['artistSocials'] = {
+        'example': releases['components']['schemas']['ArtistSocial'].get('example'),
+        'responses': {},
+    }
+    for name, method, path in [('list', 'get', '/api/artists'), ('update', 'patch', '/api/artists/{id}')]:
+        response = releases['paths'][path][method]['responses']['200']['content']['application/json']
+        schema = resolve_response_schema(response['schema'], releases)
+        artist = schema['properties']['artists']['items'] if name == 'list' else schema['properties']['artist']
+        record['artistSocials']['responses'][name] = {
+            'method': method.upper(), 'path': path, 'status': 200,
+            'schema': artist['properties']['account_socials'],
+        }
     comments = specs['social.json']['paths']['/api/comments']['get']
     record['storedComments'] = {
         'method': 'GET', 'path': '/api/comments',
@@ -116,5 +128,11 @@ def build_published_docs_record(specs, source, root, schema_hash, response_schem
         'requestExamples': [research['components']['schemas']['ChatGenerateRequest']['example'], *research['components']['schemas']['ChatGenerateRequest'].get('examples', [])],
         'errorSchema': resolve_response_schema(research['components']['schemas']['ChatGenerateErrorResponse'], research),
         'statusSchema': resolve_response_schema(research['components']['schemas']['ChatRunStatusResponse'], research),
+    }
+    record['chatLifecycle'] = {
+        name: {'method': method.upper(), 'path': path,
+               'parameters': research['paths'][path][method].get('parameters', [])}
+        for name, method, path in [('start', 'post', '/api/chat'),
+                                   ('resume', 'get', '/api/chat/{chatId}/stream')]
     }
     return record

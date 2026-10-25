@@ -10,6 +10,26 @@ be blindly saved back. All three tools remain outside delegated OAuth.
 This companion requires the catalog-case API and database release. Documentation,
 source checks and synthetic fixtures do not establish deployment, provider acceptance
 or bank receipt. Existing artist/release Context operations are unchanged.
+## Chat admission and reader-lifecycle documentation release — October 25, 2026
+
+API #1128 is merged as `8f48a2a1d51264f2ae34a0f21db05bcaeed806ce`; its exact runtime merge has a successful production deployment. The coordinated API #1129 contract companion is merged as `971f396bab61b86411199264073aaf436cbbee5b`, and the inventory now pins that actual merge. These replace the API #1071 / Marketing #209 preview-source holds. Marketing #230 still requires final composition checks, independent review and merge approval; retained Docs must be generated from the actual Marketing merge. Source/controlled SDK acceptance and deployment receipts do not establish authenticated hosted send/reconnect/Stop or real provider cancellation. Those checks remain open; the managed App browser currently requires sign-in.
+
+The source describes early 409 for a live existing reply, retryable 503 for uncertain run state/reservations, and exactly one `streamLifecycle=explicit-stop-v1` query on initial POST and reconnect GET. Empty, unknown, absent or repeated values retain legacy disconnect cancellation. Rejected text and attachments stay with the caller for manual recovery; no queue, automatic resend or history deletion. Explicit authenticated server Stop remains distinct from local reader abort. Earlier failed-read/Stop repairs are preserved, not rebuilt. Private deployment metadata stays held until Sidney resolves/authorizes the intended connection; no alternate account/session/transport or grants.
+
+## Pending-start Stop contract companion — October 24, 2026
+
+API #1126's startup Stop repair is merged at
+`10713a70c4e5513cf7935032a28808a4c8fa63a8`. Stop before a run ID is available
+returns retryable 503 and keeps the active reservation. The maintained reference,
+exact error example and selected 200/502/503/504 schemas now follow that contract.
+
+The shared-fixture producer and canonical API route tests are coordinated in
+API #1127, now merged at `c0cdf456263aab97118f7a297976c7ddfed0025c`.
+The inventory pins that actual API fixture merge. Marketing publication and
+retained Docs still follow their own reviewed merge order. Normal build and
+source checks are separate from hosted Stop behavior. Existing POST
+resume/admission, reader-disconnect and the broader client/lifecycle companions
+remain unchanged and independently held.
 
 ## Audience platform input contract — October 21, 2026
 

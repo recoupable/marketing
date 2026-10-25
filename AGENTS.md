@@ -226,7 +226,9 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 - `scripts/build_agent_signup_metadata_contract.py` freezes the admin key-metadata route, examples and resolved response schemas through `build-contract-examples.py --api /path/to/api`; the shared record also hashes its retained availability guide. Run API `publishedAgentSignupMetadata.test.ts` with that fixture. Preserve the distinct retired `/api/admins/agent/signups` URL, admin access, no credentials, current-email selection, returned-key-record counts, UTC calendar periods and collection limits. Synthetic tests do not establish signup origin, unique agents, active keys, adoption or live data completeness.
 - `scripts/build_content_callback_contract.py` freezes the internal callback request/examples and selected response schemas/examples/CORS headers through the same shared-fixture workflow. Run API `publishedContentCallback.test.ts` to check optional `results[].imageUrl` retention and the actual route/poster with synthetic thread/media leaves, including secret-before-parse, unconfigured 503, 400 paths, normal/skipped acknowledgements and MIME filename rules. Preserve existing video selection and terminal retry limits; no stable 500, browser-preflight or delivery guarantee is implied. Receiver support and mocked posting do not prove worker deployment or live image delivery.
 - Every platform OpenAPI operation needs a unique, stable `operationId` and a description. Preserve published IDs when editing descriptions or schemas; `tests/platform-openapi.test.ts` checks coverage and collisions across the split specifications.
-- Selected Research/Sessions failed-chat-read 500 responses share the existing example fixture; run API `publishedChatReadFailures.test.ts` after changing those contracts. Preserve the existing POST resume behavior until its separate repair is accepted; synthetic checks do not prove client or hosted reconnect behavior.
+- Selected Research/Sessions failed-chat-read 500 responses share the existing example fixture; run API `publishedChatReadFailures.test.ts` after changing those contracts. API #1128/#1129 supersede the old POST resume behavior with admission rejection; retain explicit GET reconnect and its empty/terminal finish-only SSE. Synthetic checks do not prove client or hosted reconnect behavior.
+- Chat admission 409/503 and the optional POST/GET `streamLifecycle` query declaration share the published fixture. Run API publishedChatReadFailures.test.ts and publishedChatLifecycle.test.ts plus the focused lifecycle producer tests. Only one exact opt-in preserves work on reader disconnect; absent, unknown, empty or repeated values retain legacy cancellation. Callers preserve rejected input for manual recovery; source tests do not verify the App journey or production.
+- Selected Stop 200/502/503/504 schemas and the pending-start 503 example share that fixture. Run API `publishedChatStop.test.ts` and producer `scripts/test_chat_stop_contracts.py`; publish only after the matching server repair. Pending-start Stop keeps its reservation and does not report cancellation. This does not change POST admission or reader-disconnect behavior.
 - Unimplemented operations withdrawn under Mono #327 stay out of the callable specs and generated endpoint discovery. Preserve their status/migration guides and the unfinished product decisions in `operation-dispositions.json`; `tests/unsupported-operation-discovery.test.ts` guards this boundary. Removing a reference does not deliver or cancel its underlying feature.
 - Artist Profile and Projects error components come from the API-owned generated
   error schemas. Run `python3 scripts/build-contract-examples.py --api /path/to/api` to
@@ -340,6 +342,21 @@ The label kit narrative leads with outcomes for artists, managers, and labels. `
 ## Documentation ownership
 
 Author platform docs in `content/docs/source`; follow [DOCUMENTATION-POLICY.md](DOCUMENTATION-POLICY.md).
+
+The shared producer freezes GET `/api/artists` and PATCH `/api/artists/{id}` social
+arrays plus the list's profile example. Run API `publishedArtistSocials.test.ts`
+after changing them. Both responses use the real shared formatter; the list uses
+`type` and `link`, omits missing joined records and retains existing empty URLs.
+Fixture/formatter checks do not establish live database or account behavior.
+The focused producer case lives in `scripts/test_artist_social_contracts.py` and
+runs through the existing `scripts/test_response_contracts.py` discovery command.
+
+The static MCP inventory includes literal tool names and both literal branches
+of simple identifier-based conditional names. Run `python3 scripts/test_contract_inventory.py`
+after changing its reader. This remains source evidence, not live tool discovery
+or a guarantee that every scope receives those tools.
+The conditional-name case lives in `scripts/test_mcp_inventory.py`; the same
+inventory CLI discovers both focused suites.
 
 `build_response_contracts.py` imports the API-owned `TaskFailureErrorResponse`
 and freezes examples with the six selected task 403 and GET/POST 500 response
