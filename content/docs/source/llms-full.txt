@@ -64464,6 +64464,331 @@ This operation requires one of the security alternatives in the specification be
 ```
 
 
+# Get Post Stats
+
+Source: https://recoupable.dev/docs/api-reference/publishing/stats
+
+Get post stats
+
+## GET /api/posts/{id}/stats
+
+Full OpenAPI specification: https://recoupable.dev/docs/spec/social.json
+
+## Authentication
+
+This operation requires one of the security alternatives in the specification below. Security scheme definitions are included where present in the published specification.
+
+[Authentication guide](https://recoupable.dev/docs/authentication)
+
+## Operation and referenced schemas
+
+```json
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Recoup API - Social",
+    "description": "API documentation for the Recoup platform - an AI agent platform for the music industry",
+    "license": {
+      "name": "MIT"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.recoupable.dev"
+    }
+  ],
+  "paths": {
+    "/api/posts/{id}/stats": {
+      "get": {
+        "operationId": "getPostsByIdStats",
+        "summary": "Get post stats",
+        "x-recoup-availability": "pending",
+        "description": "Pending API release. The platform's own analytics for one post published with [Create Post](https://recoupable.dev/docs/api-reference/publishing/create), read live through the same connection that published it. Currently LinkedIn company-page posts only; other platforms and LinkedIn personal (member) posts return 422. Each call is a fresh read and `as_of` records when it happened. Reads cost no credits.",
+        "security": [
+          {
+            "apiKeyAuth": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The post's id, from [Create Post](https://recoupable.dev/docs/api-reference/publishing/create)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The post's current stats.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostStatsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`id` is not a valid uuid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied to this post's account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No post with that id.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The post cannot be read yet. Either it is not published (its status is not `posted` or it has no `post_url`; error `Post is not published yet, so it has no stats`), or the platform is not connected for the post's account (error `linkedin is not connected for this account`). This is checked before 422, so an unpublished post on any platform returns 409.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Stats are not supported for this post. Only LinkedIn company-page posts are supported today. Errors: `Stats are not available for <platform> posts yet` (any other platform), `Stats are available for LinkedIn company-page posts only` (a LinkedIn personal post), `post_url does not name a LinkedIn post`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "The platform rejected the stats read, for example because the connection lacks analytics access (error `LinkedIn rejected the stats read for this post`).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PostStatsResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "stats"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success"
+            ],
+            "description": "Status of the request"
+          },
+          "stats": {
+            "$ref": "#/components/schemas/PostStats"
+          }
+        }
+      },
+      "PostErrorResponse": {
+        "type": "object",
+        "required": [
+          "status",
+          "error"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "error"
+            ],
+            "description": "Always `error`"
+          },
+          "missing_fields": {
+            "type": "array",
+            "description": "JSON path segments to the first field that failed validation, e.g. `[\"description\"]`",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "error": {
+            "type": "string",
+            "description": "Human-readable error message"
+          }
+        }
+      },
+      "PostStats": {
+        "type": "object",
+        "required": [
+          "post_id",
+          "platform",
+          "post_url",
+          "impressions",
+          "unique_impressions",
+          "clicks",
+          "likes",
+          "comments",
+          "shares",
+          "engagement",
+          "as_of"
+        ],
+        "properties": {
+          "post_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The post's id.",
+            "example": "3f8e2c1a-5b7d-4e9f-a1c2-6d4b8e0f2a91"
+          },
+          "platform": {
+            "type": "string",
+            "description": "The platform the post was published to.",
+            "example": "linkedin"
+          },
+          "post_url": {
+            "type": "string",
+            "description": "The live post's URL.",
+            "example": "https://www.linkedin.com/feed/update/urn:li:share:7389012345678901248"
+          },
+          "impressions": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Times the post was shown. `null` when the platform does not report it.",
+            "example": 412
+          },
+          "unique_impressions": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Distinct members the post was shown to. `null` when the platform does not report it.",
+            "example": 287
+          },
+          "clicks": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Clicks on the post's content, company name or logo. `null` when the platform does not report it.",
+            "example": 19
+          },
+          "likes": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Likes (reactions). `null` when the platform does not report it.",
+            "example": 14
+          },
+          "comments": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Comments. `null` when the platform does not report it.",
+            "example": 3
+          },
+          "shares": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Reposts. `null` when the platform does not report it.",
+            "example": 2
+          },
+          "engagement": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "LinkedIn's engagement rate for the post, from 0 to 1. `null` when the platform does not report it.",
+            "example": 0.0922
+          },
+          "as_of": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Server time of the read.",
+            "example": "2026-10-25T18:04:12Z"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "Your Recoup API key. [Learn more](https://recoupable.dev/docs/quickstart#api-keys)."
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
+```
+
+
 # Cancel Post
 
 Source: https://recoupable.dev/docs/api-reference/publishing/cancel
