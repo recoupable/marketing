@@ -23,8 +23,19 @@ export function AudienceMode({
 
   const hasOpened = useRef(false);
 
-  function returnToHuman() {
-    setAgent(false);
+  function selectMode(nextAgent: boolean) {
+    // Reveal the selected view instead of leaving the mobile menu over it.
+    const menu = headerRoot.current?.querySelector<HTMLDetailsElement>(
+      ".ss-mobile-menu[open]",
+    );
+    if (menu) {
+      menu.querySelectorAll<HTMLDetailsElement>("details[open]").forEach((item) => {
+        item.open = false;
+      });
+      menu.open = false;
+      menu.querySelector("summary")?.focus({ preventScroll: true });
+    }
+    setAgent(nextAgent);
   }
 
   useEffect(() => {
@@ -56,7 +67,7 @@ export function AudienceMode({
     document.body.style.overflow = "hidden";
     const escape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        returnToHuman();
+        selectMode(false);
       }
     };
     document.addEventListener("keydown", escape);
@@ -125,10 +136,10 @@ export function AudienceMode({
       role="group"
       aria-label="Website viewing mode"
     >
-      <button type="button" aria-pressed={!agent} onClick={returnToHuman}>
+      <button type="button" aria-pressed={!agent} onClick={() => selectMode(false)}>
         Human
       </button>
-      <button type="button" aria-pressed={agent} onClick={() => setAgent(true)}>
+      <button type="button" aria-pressed={agent} onClick={() => selectMode(true)}>
         Agent
       </button>
     </div>

@@ -1,3 +1,16 @@
+## Mobile audience toggle dismissal — October 25, 2026
+
+Reproduced on the live homepage: selecting Agent or Human changed the view but
+left the mobile navigation panel covering it. Both selections now close the
+mobile disclosure and its expanded submenus, returning focus to Navigation.
+The document loader and desktop toggle remain unchanged.
+
+Verified locally at 390px: Agent document loads, menu closes, Human restores
+body scrolling, and focus returns to Navigation. Desktop Agent selection and
+Escape return also pass. Scoped ESLint, 13 existing Markdown tests, and the
+production build pass with the existing local environment. Pending PR review
+and merge; this fix is not deployed.
+
 ## Application proposal preflight documentation — October 25, 2026
 
 Prepared the bounded API #1136 proposal-check reference and standard MCP mapping.
