@@ -64507,8 +64507,7 @@ This operation requires one of the security alternatives in the specification be
       "get": {
         "operationId": "getPostsByIdStats",
         "summary": "Get post stats",
-        "x-recoup-availability": "pending",
-        "description": "Pending API release. The platform's own analytics for one post published with [Create Post](https://recoupable.dev/docs/api-reference/publishing/create), read live through the same connection that published it. Currently LinkedIn company-page posts only; other platforms and LinkedIn personal (member) posts return 422. Each call is a fresh read and `as_of` records when it happened. Each successful read costs $0.001 (1,000 credits), charged to the caller after LinkedIn returns the numbers. Credits are checked first; a request that fails (4xx/5xx) is not charged.",
+        "description": "The platform's own analytics for one post published with [Create Post](https://recoupable.dev/docs/api-reference/publishing/create), read live through the same connection that published it. Currently LinkedIn company-page posts only; other platforms and LinkedIn personal (member) posts return 422. Each call is a fresh read and `as_of` records when it happened. Each successful read costs $0.001 (1,000 credits), charged to the caller after LinkedIn returns the numbers. Credits are checked first; a request that fails (4xx/5xx) is not charged.",
         "security": [
           {
             "apiKeyAuth": []
