@@ -204,9 +204,9 @@ API #1128 is merged as `8f48a2a1d51264f2ae34a0f21db05bcaeed806ce`, with successf
 ## Workflow trailing-message deletion
 
 API #1155 merged as `4d63f9c2248c28f0fc0974f59fb3a8f4650ee063` supplies the
-Workflow-only deletion runtime. Its published-contract companion updates fixtures
-and tests only; the final inventory must pin that companion's actual merge before
-Marketing publication. `DELETE /api/chats/{id}/messages/trailing` requires caller
+Workflow-only deletion runtime. Its fixture/test-only companion API #1157 merged as
+`e217c791d1735458b3720cebf4c923122f7df1dc`; the inventory pins this actual merge
+for Marketing publication. `DELETE /api/chats/{id}/messages/trailing` requires caller
 quiescence, rejects every observed occupied slot with 409, and deletes the inclusive
 `created_at,id` suffix within the owned chat. Null-slot and successful-Stop observations
 do not prove outstanding writers are drained. 200 means statement success, including
