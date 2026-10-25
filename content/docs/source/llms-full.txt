@@ -64732,6 +64732,9 @@ This operation requires one of the security alternatives in the specification be
           "comments",
           "shares",
           "engagement",
+          "video_views",
+          "viewers",
+          "watch_time_ms",
           "as_of"
         ],
         "properties": {
@@ -64812,7 +64815,7 @@ This operation requires one of the security alternatives in the specification be
               "integer",
               "null"
             ],
-            "description": "Pending API release. Times the post's video was viewed; LinkedIn counts a view at 3 or more seconds. `null` for non-video posts or when LinkedIn returns none.",
+            "description": "Times the post's video was viewed; LinkedIn counts a view at 3 or more seconds. `null` for non-video posts or when LinkedIn returns none.",
             "example": 356
           },
           "viewers": {
@@ -64820,7 +64823,7 @@ This operation requires one of the security alternatives in the specification be
               "integer",
               "null"
             ],
-            "description": "Pending API release. Distinct members who viewed the post's video. `null` for non-video posts or when LinkedIn returns none.",
+            "description": "Distinct members who viewed the post's video. `null` for non-video posts or when LinkedIn returns none.",
             "example": 241
           },
           "watch_time_ms": {
@@ -64828,7 +64831,7 @@ This operation requires one of the security alternatives in the specification be
               "integer",
               "null"
             ],
-            "description": "Pending API release. Total time the post's video was watched, in milliseconds. `null` for non-video posts or when LinkedIn returns none.",
+            "description": "Total time the post's video was watched, in milliseconds. `null` for non-video posts or when LinkedIn returns none.",
             "example": 2847000
           },
           "as_of": {
