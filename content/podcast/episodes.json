@@ -166,24 +166,5 @@
         "href": "https://twitter.com/Nick_Merich"
       }
     ]
-  },
-  {
-    "slug": "sidney-swift",
-    "title": "From Grammy-winning producer to building software for the music business",
-    "guest": "Sidney Swift",
-    "role": "Cofounder, Recoup",
-    "date": "2022-07-18",
-    "durationSeconds": 3619,
-    "cover": "/podcast/sidney-swift-wide.jpg",
-    "links": {
-      "spotify": "https://open.spotify.com/episode/4KCglIfrD8i5JdN2c1gZlF",
-      "youtube": "https://www.youtube.com/watch?v=z_3qo3YVPWQ",
-      "apple": "https://podcasts.apple.com/us/podcast/from-grammy-winning-producer-to-building-software-for/id1316209308?i=1000570288536"
-    },
-    "summary": [
-      "Sidney Swift has produced records that won Grammys, holds a US patent, and now runs Recoup, where labels and rights companies come when they need an AI strategy that works. This conversation was recorded months before we started working together, and it is the origin of the way we operate: a long, specific conversation first, the contract later.",
-      "We cover what a producer learns about leverage, why most music-tech pitches fail the people who actually run catalogs, and what it takes to build something a finance team will trust with royalty data."
-    ],
-    "guestLinks": []
   }
 ]
