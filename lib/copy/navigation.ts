@@ -1,3 +1,4 @@
+import { docsUrl } from "../docsUrl.ts";
 export const headerNavigation = [
   {
     label: "Services",
@@ -51,7 +52,7 @@ export const headerNavigation = [
     links: [
       {
         label: "Docs",
-        href: "/docs",
+        href: docsUrl(),
         description: "Get started and build with Recoup.",
         icon: "docs",
       },

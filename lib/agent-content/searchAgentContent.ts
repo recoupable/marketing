@@ -18,7 +18,7 @@ export async function searchAgentContent(input: AgentSearchInput) {
     );
   if (
     input.type !== undefined &&
-    !["all", "page", "docs", "blog", "playbook"].includes(input.type)
+    !["all", "page", "blog", "playbook"].includes(input.type)
   )
     throw new AgentContentError(
       "INVALID_TYPE",

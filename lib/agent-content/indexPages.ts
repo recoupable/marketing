@@ -1,5 +1,4 @@
 import { blogEntries } from "./blogEntries.ts";
-import { docsEntries } from "./docsEntries.ts";
 import { playbookEntries } from "./playbookEntries.ts";
 import { absoluteUrl } from "../seo.ts";
 import type { AgentContentEntry } from "./types.ts";
@@ -46,31 +45,6 @@ export const indexPages: AgentContentEntry[] = [
         ...(await Promise.all(
           playbookEntries.map((entry) => entry.markdown()),
         )),
-      ].join("\n\n") + "\n",
-  },
-  {
-    metadata: {
-      id: "page:/docs/api-reference",
-      type: "page",
-      title: "The Recoup API",
-      description:
-        "Artist data, research, content creation, and tools to connect them.",
-      url: absoluteUrl("/docs/api-reference"),
-      representation: "full",
-    },
-    keywords: "API reference endpoints overview",
-    searchable: "Recoup API reference endpoint index",
-    markdown: async () =>
-      [
-        "# The Recoup API",
-        `Source: ${absoluteUrl("/docs/api-reference")}`,
-        "Artist data, research, content creation, and the tools to connect them. Find the endpoint you need and start building.",
-        ...docsEntries
-          .filter((entry) => entry.metadata.api)
-          .map(
-            ({ metadata: page }) =>
-              `- [${page.title}](${page.url}) — ${page.api!.method} ${page.api!.path}`,
-          ),
       ].join("\n\n") + "\n",
   },
 ];

@@ -1,3 +1,4 @@
+import { docsUrl } from "@/lib/docsUrl";
 import { withPageMetadata } from "@/lib/seo";
 import { SubscribeCard } from "@/components/marketing-migration/subscribe-card";
 import type { Metadata } from "next";
@@ -22,7 +23,7 @@ const reading: Resource[] = [
 ];
 
 const building: Resource[] = [
-  { type: "DOCUMENTATION", title: "Connect your systems", description: "Guides and API documentation for building with Recoup.", href: "/docs" },
+  { type: "DOCUMENTATION", title: "Connect your systems", description: "Guides and API documentation for building with Recoup.", href: docsUrl() },
   { type: "OPEN SOURCE", title: "Recoup Skills", description: "Music-industry methods you can use in your AI tools.", href: "/skills" },
   { type: "PRODUCT GUIDE", title: "Choose how to work", description: "Find the right fit: the platform, Skills, or a custom system.", href: "/compare" },
 ];

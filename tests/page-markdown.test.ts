@@ -8,7 +8,6 @@ import { agentMarkdownPath } from "../lib/agent-markdown-path";
 import { publicRoutes } from "../lib/public-routes";
 import { blogPosts } from "../lib/blog";
 import { readableAgentMarkdown } from "../lib/agent-markdown";
-import { docsRoutes } from "../lib/docs";
 import { readEpisodes } from "../lib/podcast/readEpisodes";
 import { readTranscript } from "../lib/podcast/readTranscript";
 import { playbookEntries } from "../lib/agent-content/playbookEntries";
@@ -41,7 +40,6 @@ const paths = [
   ...new Set([
     ...staticPaths,
     ...publicRoutes.map((path) => path || "/"),
-    ...docsRoutes,
     ...blogPosts.map((post) => `/blog/${post.slug}`),
     ...readEpisodes().map((episode) => `/podcast/${episode.slug}`),
   ]),
@@ -52,7 +50,6 @@ test("every actual page, sitemap route, blog, and podcast has a published Markdo
   expect(pageFiles.filter((file) => file.includes("[")).sort()).toEqual([
     "blog/[slug]/page.tsx",
     "case-studies/[slug]/page.tsx",
-    "docs/[[...slug]]/page.tsx",
     "podcast/[slug]/page.tsx",
   ]);
   for (const path of paths) {

@@ -15,7 +15,7 @@ const content = object(
       type: "string",
       description: "Stable registry ID. Supply this to read_recoup_page.",
     },
-    type: { type: "string", enum: ["page", "docs", "blog", "playbook"] },
+    type: { type: "string", enum: ["page", "blog", "playbook"] },
     title: string,
     description: string,
     url: { type: "string", format: "uri" },

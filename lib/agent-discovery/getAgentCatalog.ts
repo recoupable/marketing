@@ -1,3 +1,4 @@
+import { docsUrl } from "../docsUrl.ts";
 import { maximumBatchOperations } from "../agent-tools/maximumBatchOperations.ts";
 import { agentMarkdownPath } from "../agent-markdown-path.ts";
 import { siteConfig } from "../config.ts";
@@ -52,17 +53,17 @@ export function getAgentCatalog(index: readonly DiscoveryContent[]) {
     platform: {
       rest: {
         baseUrl: "https://api.recoupable.dev/api",
-        documentation: absoluteUrl("/docs/authentication"),
+        documentation: docsUrl("/authentication"),
         apiKeyHeader: "x-api-key",
       },
       mcp: {
         url: siteConfig.platformMcpUrl,
         transport: "streamable-http",
-        documentation: absoluteUrl("/docs/mcp-oauth"),
+        documentation: docsUrl("/mcp-oauth"),
         authentication: "Host-managed OAuth 2.0 with PKCE S256 and explicit user consent",
         apiKeyAuthentication: {
           header: "Authorization: Bearer <Recoup API key>",
-          documentation: absoluteUrl("/docs/mcp"),
+          documentation: docsUrl("/mcp"),
         },
         authorizationServerMetadata: absoluteUrl("/.well-known/oauth-authorization-server"),
         protectedResourceMetadata: absoluteUrl("/.well-known/oauth-protected-resource"),

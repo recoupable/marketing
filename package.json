@@ -12,8 +12,6 @@
     "posts:build": "node scripts/build-post-index.mjs",
     "posts:check": "node scripts/build-post-index.mjs --check",
     "lint:fix": "eslint . --fix",
-    "docs:build": "node scripts/build-docs.mjs",
-    "docs:check": "node scripts/import-docs-check.mjs",
     "agents:markdown-check": "node scripts/audit-page-markdown.mjs",
     "agents:check": "node scripts/audit-agents.mjs",
     "brand-studio": "next dev --turbopack --port 3012",

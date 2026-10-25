@@ -1,3 +1,4 @@
+import { docsUrl } from "../docsUrl.ts";
 import {
   annualDiscountPercent,
   planPrice,
@@ -76,7 +77,7 @@ export const productPages: PageSummary[] = [
       ["Discuss advisory", pricingInquiryHref("advisory")],
       ["Discuss a build", pricingInquiryHref("partner")],
       ["Discuss Enterprise", pricingInquiryHref("enterprise")],
-      ["API and MCP usage", "/docs/credits"],
+      ["API and MCP usage", docsUrl("/credits")],
     ],
   },
   {
@@ -93,8 +94,8 @@ export const productPages: PageSummary[] = [
     ],
     links: [
       ["Recoup Skills repository", siteConfig.githubUrl],
-      ["Install in Claude", "/docs/claude"],
-      ["API authentication", "/docs/authentication"],
+      ["Install in Claude", docsUrl("/claude")],
+      ["API authentication", docsUrl("/authentication")],
     ],
   },
   {
@@ -111,12 +112,12 @@ export const productPages: PageSummary[] = [
       "The CLI is installed as @recoupable/cli and uses RECOUP_API_KEY. Available commands and current beta limitations are documented. Keep API keys on the server and consult the individual endpoint's authentication requirements.",
     ],
     links: [
-      ["API reference", "/docs/api-reference"],
-      ["Platform MCP setup", "/docs/mcp"],
+      ["API reference", docsUrl("/api-reference")],
+      ["Platform MCP setup", docsUrl("/mcp")],
       ["API and MCP pricing", "/pricing#usage"],
-      ["Usage credits", "/docs/credits"],
-      ["CLI guide", "/docs/cli"],
-      ["API key setup", "/docs/authentication"],
+      ["Usage credits", docsUrl("/credits")],
+      ["CLI guide", docsUrl("/cli")],
+      ["API key setup", docsUrl("/authentication")],
     ],
   },
 ];

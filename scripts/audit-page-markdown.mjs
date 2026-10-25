@@ -39,7 +39,7 @@ await Promise.all(
     }
   }),
 );
-for (const path of ["/blog.md", "/docs/api-reference.md", "/index.md"]) {
+for (const path of ["/blog.md", "/index.md"]) {
   assert.equal(
     (await fetch(new URL(path, base), { method: "HEAD" })).status,
     200,
@@ -48,7 +48,7 @@ for (const path of ["/blog.md", "/docs/api-reference.md", "/index.md"]) {
 }
 const missing = await fetch(new URL("/blog/not-a-published-article.md", base));
 assert.equal(missing.status, 404);
-for (const path of ["/blog", "/about", "/docs/api-reference"]) {
+for (const path of ["/blog", "/about"]) {
   const response = await fetch(new URL(path, base), {
     headers: { Accept: "text/html" },
   });

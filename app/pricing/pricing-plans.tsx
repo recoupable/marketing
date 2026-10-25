@@ -1,4 +1,5 @@
 "use client";
+import { docsUrl } from "@/lib/docsUrl";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -75,7 +76,7 @@ export function PricingPlans() {
         <h2>API & MCP</h2>
         <p className="rp-usage-price">Pay for what you use.</p>
         <p>Bring Recoup’s tools into your own apps and agents. Usage is billed separately through credits.</p>
-        <Link href="/docs/credits" className="rp-route-link">How usage pricing works <SkyArrow /></Link>
+        <Link href={docsUrl("/credits")} className="rp-route-link">How usage pricing works <SkyArrow /></Link>
       </article>
     </section>
   </>;

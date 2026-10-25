@@ -1,15 +1,13 @@
 import { readFileSync } from "node:fs";
 import { test, expect } from "vitest";
 import type { BlogPost } from "../lib/blog";
-import type { DocPage } from "../lib/docs";
 import {
   blogAuthor, blogAuthorContext, blogDescription, blogIndexJsonLd, blogPostJsonLd,
-  blogPostMetadata, documentationJsonLd, documentationMetadata, relatedBlogPosts,
+  blogPostMetadata, relatedBlogPosts,
 } from "../lib/editorial-seo.ts";
 
 const siteUrl = "https://recoupable.dev";
 const posts: BlogPost[] = JSON.parse(readFileSync(new URL("../content/blog/posts.json", import.meta.url), "utf8"));
-const docs: DocPage[] = JSON.parse(readFileSync(new URL("../content/docs/manifest.json", import.meta.url), "utf8"));
 
 test("article metadata is page-specific and preserves production/preview robots inheritance", () => {
   for (const post of posts) {
@@ -73,40 +71,6 @@ test("related articles prioritize topic relevance and never recommend the curren
     expect(related.length).toBe(2);
     expect(related.every(candidate => candidate.slug !== post.slug)).toBeTruthy();
     expect(new Set(related.map(candidate => candidate.slug)).size).toBe(related.length);
-  }
-});
-
-test("all documentation metadata is unique to its URL and does not expose Markdown markup", () => {
-  const titles = new Set<string>();
-  for (const page of docs) {
-    const metadata = JSON.parse(JSON.stringify(documentationMetadata(page, page.slug, siteUrl)));
-    const url = `${siteUrl}/docs${page.slug ? `/${page.slug}` : ""}`;
-    expect(metadata.alternates.canonical).toBe(url);
-    expect(metadata.alternates.types["text/markdown"]).toBe(`${siteUrl}/docs/raw/${page.slug || "index"}.md`);
-    expect(metadata.openGraph.url).toBe(url);
-    expect(metadata.description.length > 0 && metadata.description.length <= 240).toBeTruthy();
-    expect(!/[`*]|\]\(/.test(metadata.description)).toBeTruthy();
-    expect(metadata.twitter.description).toBe(metadata.description);
-    expect(metadata.robots).toBe(undefined);
-    expect(!titles.has(metadata.title), `Repeated search title: ${metadata.title}`).toBeTruthy();
-    titles.add(metadata.title);
-  }
-  expect(documentationMetadata(undefined, "api-reference", siteUrl).alternates?.types).toBe(undefined);
-});
-
-test("documentation breadcrumbs point only to real routes; navigation groups are not fake pages", () => {
-  const realRoutes = new Set([`${siteUrl}/`, `${siteUrl}/docs`, `${siteUrl}/docs/api-reference`, ...docs.map(page => `${siteUrl}/docs${page.slug ? `/${page.slug}` : ""}`)]);
-  for (const [page, key] of [...docs.map(page => [page, page.slug] as const), [undefined, "api-reference"] as const]) {
-    const graph = JSON.parse(JSON.stringify(documentationJsonLd(page, key, siteUrl)))["@graph"];
-    const article = graph[0];
-    expect(article["@type"]).toBe(key && key !== "api-reference" ? "TechArticle" : "CollectionPage");
-    expect(article.publisher["@id"]).toBe(`${siteUrl}/#organization`);
-    expect(article.dateModified).toBe(undefined);
-    const crumbs: { item: string; position: number }[] = graph[1].itemListElement;
-    expect(crumbs.every(crumb => realRoutes.has(crumb.item))).toBeTruthy();
-    expect(crumbs.map(crumb => crumb.position)).toStrictEqual(crumbs.map((_, index) => index + 1));
-    expect(crumbs.at(-1)?.item).toBe(article.url);
-    expect(new Set(crumbs.map(crumb => crumb.item)).size).toBe(crumbs.length);
   }
 });
 

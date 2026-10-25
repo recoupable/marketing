@@ -1,7 +1,4 @@
-import { resolveSpecLinks } from "../lib/resolve-spec-links";
 import { test, expect } from "vitest";
-import { ok } from "./support/ok.ts";
-import docs from "../content/docs/manifest.json" with { type: "json" };
 import posts from "../content/blog/posts.json" with { type: "json" };
 import chapters from "../content/playbook/chapters.json" with { type: "json" };
 import { AgentContentError } from "../lib/agent-content/AgentContentError.ts";
@@ -9,9 +6,7 @@ import { getAgentContentIndex } from "../lib/agent-content/getAgentContentIndex.
 import { readAgentContent } from "../lib/agent-content/readAgentContent.ts";
 import { searchAgentContent } from "../lib/agent-content/searchAgentContent.ts";
 import type { AgentReadInput, AgentSearchInput } from "../lib/agent-content/types.ts";
-import { documentationAgentMarkdown, operationSpecification, readableAgentMarkdown } from "../lib/agent-markdown.ts";
-import { getDocSpec, type ApiObject } from "../lib/docs-server.ts";
-import type { DocPage } from "../lib/docs.ts";
+import { readableAgentMarkdown } from "../lib/agent-markdown.ts";
 import { pageEntries } from "../lib/agent-content/pageEntries.ts";
 import { siteConfig } from "../lib/config.ts";
 
@@ -36,7 +31,8 @@ async function completeRead(id: string, maxLength = 12000) {
 }
 
 test("the fixed public registry covers published content with canonical URLs and accurate representations", () => {
-  expect(index.filter(item => item.type === "docs").length).toBe(docs.length);
+  // Platform documentation is published at docs.recoupable.dev, not in this index.
+  expect(index.some(item => item.id.startsWith("docs:"))).toBe(false);
   expect(index.filter(item => item.type === "blog").length).toBe(posts.length);
   expect(index.filter(item => item.type === "playbook").length).toBe(chapters.length);
   expect(index.filter(item => item.type === "page").length).toBe(pageEntries.length);
@@ -65,28 +61,17 @@ test("workflow searches lead buyers to the relevant service and implementation",
     ["connect our CRM to catalog data", "page:/build"],
     ["agent public website search", "page:/agents"],
   ]) expect((await searchAgentContent({ query })).results[0]?.id, query).toBe(expected);
-  const musicVideo = await searchAgentContent({ query: "create music video", type: "docs" });
-  expect(musicVideo.results.some(item => item.id === "docs:workflows/generate-music-video")).toBeTruthy();
-});
-
-test("exact API method and path prioritize the correct source operation", async () => {
-  const result = await searchAgentContent({ query: "GET /api/artists", type: "docs" });
-  expect(result.results[0].id).toBe("docs:api-reference/artists/list");
-  expect(result.results[0].api?.method).toBe("GET");
-  expect(result.results[0].api?.path).toBe("/api/artists");
-  expect(result.results[0].api?.specificationUrl.startsWith(`${siteConfig.url}/docs/spec/`)).toBeTruthy();
 });
 
 test("search pagination is deterministic, filtered, and has no skipped or repeated entries", async () => {
-  const first = await searchAgentContent({ query: "artist", type: "docs", limit: 7 });
-  expect(await searchAgentContent({ query: "artist", type: "docs", limit: 7 })).toStrictEqual(first);
+  const first = await searchAgentContent({ query: "artist", type: "all", limit: 7 });
+  expect(await searchAgentContent({ query: "artist", type: "all", limit: 7 })).toStrictEqual(first);
   expect(first.total > first.results.length).toBeTruthy();
   const ids = first.results.map(item => item.id);
   let cursor = first.nextCursor;
   while (cursor !== null) {
-    const page = await searchAgentContent({ query: "artist", type: "docs", limit: 7, cursor });
+    const page = await searchAgentContent({ query: "artist", type: "all", limit: 7, cursor });
     expect(page.total).toBe(first.total);
-    expect(page.results.every(item => item.type === "docs")).toBeTruthy();
     ids.push(...page.results.map(item => item.id));
     cursor = page.nextCursor;
   }
@@ -120,7 +105,7 @@ test("reads accept exact public IDs only, with no arbitrary URL or filesystem ac
 });
 
 test("read continuation preserves complete text, including a one-character page", async () => {
-  const id = "docs:api-reference/tasks/update";
+  const id = `blog:${[...posts].sort((a, b) => b.body.length - a.body.length)[0].slug}`;
   const first = await readAgentContent({ id });
   expect(Array.from(first.markdown).length).toBe(6000);
   expect(first.nextOffset).toBe(6000);
@@ -148,96 +133,6 @@ test("homepage summary preserves the free audit scope and separate implementatio
   const result = await readAgentContent({ id: "page:/" });
   expect(result.markdown).toContain("We review one workflow and identify a practical first step.");
   expect(result.markdown).toContain("Implementation is scoped and priced separately.");
-});
-
-test("MDX presentation becomes readable Markdown without losing prose, links, or executable examples", () => {
-  const source = [
-    '<CardGroup cols={2}>',
-    '<Card title="Authentication" href="/authentication">',
-    'Keep **API keys** on the server.',
-    '</Card>',
-    '</CardGroup>',
-    '',
-    '<Note>',
-    'Read the [API operation](/api-reference/artists/list).',
-    '</Note>',
-    '',
-    '```bash',
-    'cat <<EOF',
-    '<Card title="literal code">',
-    '## Code heading',
-    'EOF',
-    '```',
-    '',
-    '| Field | Required |',
-    '| --- | --- |',
-    '| id | yes |',
-    '',
-    '[Raw guide](/quickstart.md)',
-  ].join('\n');
-  const text = readableAgentMarkdown(source, `${siteConfig.url}/docs/quickstart`, true);
-  expect(text.includes(`[Authentication](${siteConfig.url}/docs/authentication)`)).toBeTruthy();
-  expect(text.includes('Keep **API keys** on the server.')).toBeTruthy();
-  expect(text.includes(`API operation](${siteConfig.url}/docs/api-reference/artists/list)`)).toBeTruthy();
-  expect(text.includes('> **Note**')).toBeTruthy();
-  expect(!text.includes('<CardGroup')).toBeTruthy();
-  expect(text.includes('```bash\ncat <<EOF\n<Card title="literal code">\n## Code heading\nEOF\n```')).toBeTruthy();
-  expect(text.includes('| Field | Required |\n| --- | --- |\n| id | yes |')).toBeTruthy();
-  expect(text.includes(`[Raw guide](${siteConfig.url}/docs/raw/quickstart.md)`)).toBeTruthy();
-});
-
-function resolvePointer(value: ApiObject, pointer: string): unknown {
-  return pointer.slice(2).split('/').map(part => part.replaceAll('~1', '/').replaceAll('~0', '~')).reduce((result: unknown, key) => result && typeof result === 'object' ? (result as ApiObject)[key] : undefined, value);
-}
-function references(value: unknown): string[] {
-  if (!value || typeof value !== 'object') return [];
-  return [...('$ref' in value && typeof value.$ref === 'string' ? [value.$ref] : []), ...Object.values(value).flatMap(references)];
-}
-
-test("all published API slices preserve effective authentication and close every local schema reference", async () => {
-  let operations = 0;
-  let refsChecked = 0;
-  for (const page of docs as DocPage[]) {
-    if (!page.api?.spec) continue;
-    const spec = await getDocSpec(page.api.spec);
-    const slice = operationSpecification(page, spec);
-    ok(slice, page.slug);
-    const operation = spec.paths[page.api.path][page.api.method.toLowerCase()];
-    expect(slice.paths[page.api.path][page.api.method.toLowerCase()]).toStrictEqual(resolveSpecLinks(operation));
-    expect(slice.security).toStrictEqual(spec.security);
-    expect(slice.paths[page.api.path].parameters).toStrictEqual(resolveSpecLinks(spec.paths[page.api.path].parameters));
-    for (const ref of references(slice)) {
-      if (!ref.startsWith('#/')) continue;
-      expect(resolvePointer(slice, ref), `${page.slug}: unresolved ${ref}`).not.toBe(undefined);
-      refsChecked++;
-    }
-    for (const alternative of operation.security ?? spec.security ?? []) for (const scheme of Object.keys(alternative)) {
-      if (spec.components?.securitySchemes?.[scheme]) expect(slice.components.securitySchemes[scheme]).toStrictEqual(resolveSpecLinks(spec.components.securitySchemes[scheme]));
-      else expect(await documentationAgentMarkdown(page), `${page.slug}: missing security scheme must be disclosed`).toMatch(/Documentation gap:/);
-    }
-    operations++;
-  }
-  expect(operations > 150).toBeTruthy();
-  expect(refsChecked > 100).toBeTruthy();
-});
-
-test("API Markdown includes source-specific authentication and full-specification pointers", async () => {
-  const page = (docs as DocPage[]).find(page => page.slug === 'api-reference/artists/list')!;
-  const text = await documentationAgentMarkdown(page);
-  expect(text.includes(`Full OpenAPI specification: ${siteConfig.url}/docs/spec/${page.api!.spec}`)).toBeTruthy();
-  expect(text.includes(`[Authentication guide](${siteConfig.url}/docs/authentication)`)).toBeTruthy();
-  expect(text.includes('Its declared headers and parameters still apply.')).toBeTruthy();
-  expect(text.includes('The account is derived from the API key or Bearer token.')).toBeTruthy();
-  expect(await completeRead(`docs:${page.slug}`)).toBe(text);
-});
-
-test("operation slices preserve an explicit anonymous alternative without inventing a key requirement", () => {
-  const page = { api: { method: 'GET', path: '/public', spec: 'public.json' } } as DocPage;
-  const spec: ApiObject = { openapi: '3.0.3', info: { title: 'Test', version: '1' }, security: [{ ApiKey: [] }], paths: { '/public': { get: { security: [], responses: { '200': { description: 'Public response' } } } } }, components: { securitySchemes: { ApiKey: { type: 'apiKey', in: 'header', name: 'x-api-key' } } } };
-  const before = JSON.stringify(spec);
-  const slice = operationSpecification(page, spec)!;
-  expect(slice.paths['/public'].get.security).toStrictEqual([]);
-  expect(JSON.stringify(spec), 'No source mutation').toBe(before);
 });
 
 test("every public document is readable and playbook output preserves all chapter content", async () => {

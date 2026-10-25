@@ -56,7 +56,6 @@ lib/              — Site logic: config.ts (siteConfig), seo.ts, one-export dir
 agent/            — Public website assistant: Eve instructions, tools, session state and report-confirmation hook
 components/website-agent/ — Company header, chat turns, source findings, question composer and streaming report artifacts
 lib/website-agent/ — Public website reading, source validation, conversation helpers and report-readiness schemas
-lib/docs/         — Documentation helpers (llms.txt sections, llms-full corpus, markdown negotiation)
 proxy.ts          — Request proxy (Next 16 successor to middleware): serves public pages as Markdown on Accept: text/markdown or a .md suffix
 public/           — Static assets (brand/, icons/, images/)
 content/blog/posts.json — Published blog source for pages, feed, metadata and machine discovery
@@ -202,7 +201,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Sky migration (September 2026)
 
-Read `DESIGN.md` before UI changes. The approved Sky design applies to this marketing repository only. Current site components live in `components/sky`. `components/site-frame.tsx` wraps every route, `/` included, in the single header (`components/sky/site-header.tsx`, `SkySiteHeader`) and single footer (`components/sky/site-footer.tsx`, `SkySiteFooter`); pages never add their own header, footer, or main landmark; blog and docs snapshots live in `content/blog` and `content/docs`. Retained production integrations include `/api/leads` on the central API, route-scoped Privy authentication for valuation, and Vercel Analytics.
+Read `DESIGN.md` before UI changes. The approved Sky design applies to this marketing repository only. Current site components live in `components/sky`. `components/site-frame.tsx` wraps every route, `/` included, in the single header (`components/sky/site-header.tsx`, `SkySiteHeader`) and single footer (`components/sky/site-footer.tsx`, `SkySiteFooter`); pages never add their own header, footer, or main landmark; the blog snapshot lives in `content/blog`. Retained production integrations include `/api/leads` on the central API, route-scoped Privy authentication for valuation, and Vercel Analytics.
 
 Personality should come through in the directness and confidence of the writing. It shouldn’t depend on making ordinary things sound more abstract.
 
@@ -212,30 +211,11 @@ Personality should come through in the directness and confidence of the writing.
 
 The `/music-videos` offer retains PR #89’s copy, artist films, skill download, attribution, and quote capture. Offer copy lives in `lib/copy/music-videos.ts`; form and attribution logic live in `components/music-videos` and `lib/music-videos`. Keep the human page and agent content aligned. See `docs/plans/music-video-offer.md` for the funnel contract and integration receipt.
 
-API reference pages render an in-page playground under the Request section (`components/docs/playground`, pure logic in `lib/docs/playground`). It sends requests to `siteConfig.apiUrl` from the browser; the visitor's api key lives in `sessionStorage` only (`recoup:docs:api-key`) and is masked in the generated curl. Multipart uploads and event-stream endpoints show the curl and a terminal note instead of a Send button.
-
 The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `source: /footer`) and the resources, playbook, and blog `SubscribeCard` (`components/marketing-migration/subscribe-card.tsx`, name + email) are presentational wrappers over `hooks/useSubscribeForm.ts`. The hook owns the hydration guard, the single in-flight submit, the status/error state, the `subscribeToRecoup` call (`lib/marketing-subscribe.ts`, `kind: subscribe` through the central lead API with acquisition tags), the focus move onto the confirmation, and the `subscribe_submitted` event.
 
-## Documentation (`/docs`)
+## Documentation
 
-- Source of truth: `content/docs/source` (MDX pages, `docs.json` navigation, `api-reference/openapi/*.json`). Edit there; the `recoupable/docs` repository is not read.
-- After editing, run `pnpm docs:build` and commit the generated `content/docs/inventory.json`, `manifest.json`, and `navigation.json` together with the source change. `scripts/__tests__/build-docs.test.ts` fails when they drift.
-- `pnpm docs:check` validates route coverage, schema references, guide links, and request examples.
-- `scripts/build_plan_balance_contract.py` freezes the public credits/subscription response examples and guide example through the existing `build-contract-examples.py --api /path/to/api` workflow. Run the API's `publishedPlanBalances.test.ts` with the coordinated fixture; builder/example parity does not verify a real payment or current commercial offer.
-- `scripts/build_sites_lifecycle_contract.py` freezes the Sites guide's bounded lifecycle/error examples and route accounting through `build-contract-examples.py --api /path/to/api`. Run the API's `publishedSitesLifecycle.test.ts` with the shared fixture; synthetic validation/HTTP-adapter checks do not establish a real paid publish or account lifecycle.
-- `scripts/build_agent_signup_metadata_contract.py` freezes the admin key-metadata route, examples and resolved response schemas through `build-contract-examples.py --api /path/to/api`; the shared record also hashes its retained availability guide. Run API `publishedAgentSignupMetadata.test.ts` with that fixture. Preserve the distinct retired `/api/admins/agent/signups` URL, admin access, no credentials, current-email selection, returned-key-record counts, UTC calendar periods and collection limits. Synthetic tests do not establish signup origin, unique agents, active keys, adoption or live data completeness.
-- `scripts/build_content_callback_contract.py` freezes the internal callback request/examples and selected response schemas/examples/CORS headers through the same shared-fixture workflow. Run API `publishedContentCallback.test.ts` to check optional `results[].imageUrl` retention and the actual route/poster with synthetic thread/media leaves, including secret-before-parse, unconfigured 503, 400 paths, normal/skipped acknowledgements and MIME filename rules. Preserve existing video selection and terminal retry limits; no stable 500, browser-preflight or delivery guarantee is implied. Receiver support and mocked posting do not prove worker deployment or live image delivery.
-- Every platform OpenAPI operation needs a unique, stable `operationId` and a description. Preserve published IDs when editing descriptions or schemas; `tests/platform-openapi.test.ts` checks coverage and collisions across the split specifications.
-- Selected Research/Sessions failed-chat-read 500 responses share the existing example fixture; run API `publishedChatReadFailures.test.ts` after changing those contracts. API #1128/#1129 supersede the old POST resume behavior with admission rejection; retain explicit GET reconnect and its empty/terminal finish-only SSE. Synthetic checks do not prove client or hosted reconnect behavior.
-- Chat admission 409/503 and the optional POST/GET `streamLifecycle` query declaration share the published fixture. Run API publishedChatReadFailures.test.ts and publishedChatLifecycle.test.ts plus the focused lifecycle producer tests. Only one exact opt-in preserves work on reader disconnect; absent, unknown, empty or repeated values retain legacy cancellation. Callers preserve rejected input for manual recovery; source tests do not verify the App journey or production.
-- Selected Stop 200/502/503/504 schemas and the pending-start 503 example share that fixture. Run API `publishedChatStop.test.ts` and producer `scripts/test_chat_stop_contracts.py`; publish only after the matching server repair. Pending-start Stop keeps its reservation and does not report cancellation. This does not change POST admission or reader-disconnect behavior.
-- Unimplemented operations withdrawn under Mono #327 stay out of the callable specs and generated endpoint discovery. Preserve their status/migration guides and the unfinished product decisions in `operation-dispositions.json`; `tests/unsupported-operation-discovery.test.ts` guards this boundary. Removing a reference does not deliver or cancel its underlying feature.
-- Artist Profile and Projects error components come from the API-owned generated
-  error schemas. Run `python3 scripts/build-contract-examples.py --api /path/to/api` to
-  import them and refresh selected response fixtures; its `--check` mode is in CI.
-  Follow `DOCUMENTATION-POLICY.md` for the pinned API/Marketing/Docs sequence.
-  `scripts/build_response_contracts.py` owns component and status-specific reference
-  imports; `scripts/resolve_response_schema.py` resolves the selected local schemas.
+Platform documentation (guides, API reference, OpenAPI specs, contract checks) lives in [recoupable/docs-site](https://github.com/recoupable/docs-site) and is served at `siteConfig.docsUrl` (https://docs.recoupable.dev). `/docs` and `/docs/*` here are permanent redirects to it (`next.config.ts`). Link to docs with `docsUrl()` from `lib/docsUrl.ts`; do not add docs content to this repository.
 
 ## Agent discovery
 
@@ -248,20 +228,18 @@ The footer's `FooterSignup` (`components/sky/footer-signup.tsx`, email only, `so
 - `/.well-known/mcp.json` advertises the anonymous website MCP at `/mcp`, backed by the same five public tools as HTTP. `lib/website-mcp/` uses a fresh official SDK server per exchange. The account-bearing platform MCP remains separately documented; OAuth aliases redirect to its authoritative issuer/resource metadata.
 - `/agent-api/v1/batch` runs 1–10 independent public operations, preserves input order, and returns per-item results/errors. Shared dispatch is `lib/agent-tools/executeAgentTool.ts`; the whole JSON body remains limited to 16 KB.
 - Hosted public HTTP/MCP calls use Vercel SDK rule `recoup-public-tools`: 120 requests per 60 seconds per IP per region. Keep its configured quota aligned with `withAgentRateLimit.ts`. No in-process quota or invented remaining count is used; failed checks return 503, exhausted quotas return 429 with Retry-After.
-- `/llms.txt` is a compact index under 30,000 characters. Every imported document remains linked from `/docs/llms.txt`, with full text in `/llms-full.txt`.
+- `/llms.txt` is a compact index under 30,000 characters. It links the documentation site's own `llms.txt` and `llms-full.txt`; documentation is not part of the website agent index.
 - `getWhenToUseGuidance.ts` owns the task-to-tool guidance shared by `/llms.txt` and `/agents.md`. Keep its public website examples separate from authenticated platform operations.
-- The retained Mintlify host uses the compact `content/docs/source/llms.txt` override, copied through the normal provenance sync. Keep its complete-index link and distinguish the anonymous website API in `public-website-api.mdx` from authenticated platform access.
-- `pnpm docs:build` generates `content/docs/source/llms-full.txt` with the website's full operation/schema Markdown renderer. Commit the derived file; never hand-edit it. Normal provenance sync publishes the supported Mintlify override. The build check compares fresh bytes, including error responses and stable canonical links; `--out` redirects every derived artifact for validation.
-- Unknown API paths return JSON errors with recovery guidance through the optional catch-all routes. Missing negotiated pages and docs return Markdown with HTTP 404 and public recovery links. Shared error schemas live in the website OpenAPI document.
+- Unknown API paths return JSON errors with recovery guidance through the optional catch-all routes. Missing negotiated pages return Markdown with HTTP 404 and public recovery links. Shared error schemas live in the website OpenAPI document.
 - The Get Started dialog is rendered after page content in `SiteFrame`, with its ref passed to the header, so the page H1 leads the raw document heading outline.
 - Run `node scripts/audit-agent-readiness.mjs <origin>` against a built server or deployment to verify recovery responses and discovery. It reads public metadata only; it never signs in or executes platform tools.
-- Every page must resolve through `lib/agent-content/entryForPath.ts`. `tests/page-markdown.test.ts` checks actual App Router page files, public routes, all docs, every blog, and every podcast episode. Add published paths to this test when introducing a dynamic route family.
+- Every page must resolve through `lib/agent-content/entryForPath.ts`. `tests/page-markdown.test.ts` checks actual App Router page files, public routes, every blog, and every podcast episode. Add published paths to this test when introducing a dynamic route family.
 - Raw URLs append `.md`; the homepage uses `/index.md` and `/agents` uses `/agents/index.md` to preserve the site-wide `/agents.md` guide. `GET /agent-api/v1/markdown?path=/blog` returns one complete document. The Human / Agent switch uses the same raw URLs. Keep `Vary: Accept` on negotiated HTML and Markdown responses.
 - The homepage has a full entry in `homePage.ts`, generated from shared homepage copy. `tests/home-markdown.test.ts` checks every editorial field, section order, billing terms, FAQs, and complete endpoint/reader output.
-- Blog and API overview indexes are generated in `indexPages.ts`; the playbook reader combines the existing chapters. `podcastEntries.ts` reads the same summaries and published transcripts as episode pages. Keep filesystem tracing for transcripts in agent routes. Summaries must retain their representation label; never export account or purchase-link state.
+- The blog index is generated in `indexPages.ts`; the playbook reader combines the existing chapters. `podcastEntries.ts` reads the same summaries and published transcripts as episode pages. Keep filesystem tracing for transcripts in agent routes. Summaries must retain their representation label; never export account or purchase-link state.
 - Run `pnpm agents:markdown-check http://localhost:3000` against a built local server to verify every catalog page's raw URL and content negotiation.
 
-- `/llms.txt`, `/llms-full.txt`, `/agents.md`, `/agents/catalog.json`, and `/agent-api/v1/*` are built from `lib/agent-content.ts` and `lib/agent-discovery.ts`. Documentation descriptions pass through `lib/resolve-description-links.ts` so docs-root links carry the `/docs` prefix everywhere they are published.
+- `/llms.txt`, `/llms-full.txt`, `/agents.md`, `/agents/catalog.json`, and `/agent-api/v1/*` are built from `lib/agent-content.ts` and `lib/agent-discovery.ts`.
 - `/api/machine` is a permanent redirect to `/llms.txt`.
 - Legacy URLs (`/company/about`, `/company/recoup-records`, `/company/recoupable-records`, `/learn`, `/build/start`, `/advisory/book`) are 308 rules in `next.config.ts`; add new aliases there, not as redirecting page files.
 
@@ -339,69 +317,6 @@ The readiness result action takes visitors to `/contact?brief=readiness`. Only t
 
 The label kit narrative leads with outcomes for artists, managers, and labels. `audience-preview.tsx` owns the role-specific request/output examples. Keep original campaign art in `public/images/label-kit/` attributed as illustrative until verified through the shipped kit; no invented customer proof.
 
-## Documentation ownership
-
-Author platform docs in `content/docs/source`; follow [DOCUMENTATION-POLICY.md](DOCUMENTATION-POLICY.md).
-
-The pending application preflight reference uses `applications.json` and
-`api-reference/applications/validate-registration.mdx`. It validates proposals
-after authentication; it does not register applications or prove domain ownership.
-Keep normal account provisioning separate from the validator's effects. Standard
-MCP exposes the shared validator; delegated OAuth excludes it. Run
-`pnpm test tests/application-registration-docs.test.ts` and regenerate documentation
-after changing this contract. Source checks do not establish deployed availability.
-
-The shared producer freezes GET `/api/artists` and PATCH `/api/artists/{id}` social
-arrays plus the list's profile example. Run API `publishedArtistSocials.test.ts`
-after changing them. Both responses use the real shared formatter; the list uses
-`type` and `link`, omits missing joined records and retains existing empty URLs.
-Fixture/formatter checks do not establish live database or account behavior.
-The focused producer case lives in `scripts/test_artist_social_contracts.py` and
-runs through the existing `scripts/test_response_contracts.py` discovery command.
-
-The static MCP inventory includes literal tool names and both literal branches
-of simple identifier-based conditional names. Run `python3 scripts/test_contract_inventory.py`
-after changing its reader. This remains source evidence, not live tool discovery
-or a guarantee that every scope receives those tools.
-The conditional-name case lives in `scripts/test_mcp_inventory.py`; the same
-inventory CLI discovers both focused suites.
-
-`build_response_contracts.py` imports the API-owned `TaskFailureErrorResponse`
-and freezes examples with the six selected task 403 and GET/POST 500 response
-schemas. API's `publishedTaskFailures.test.ts` exercises real routes, account
-override checks and PATCH/DELETE owner-denial handlers under synthetic access,
-credential, storage and scheduler leaves. This does not prove organization
-membership policy, live sign-in, task writes or hosted provider behavior.
-
-`scripts/build_task_authentication_contract.py` freezes the four task operations'
-credential alternatives and 401 examples. Their selected response schemas import
-API's existing authentication union through `build_response_contracts.py`. Keep
-the helper in the isolated producer workspace's explicit copy list. API's
-`publishedTaskAuthentication.test.ts` uses real routes/authentication code with
-synthetic credential and task leaves; these checks do not sign in a real account,
-run a task or establish client OAuth lifecycle behavior.
-
-`scripts/build_task_validation_contract.py` freezes the task POST/PATCH 400
-schemas and examples into `taskValidation` in the shared fixture. Keep this helper
-in the isolated producer test workspace's explicit copy list. API's
-`publishedTaskValidation.test.ts` compares real request validators with these
-declarations under synthetic authentication and a network fence; it does not
-create, update or run a stored task, or establish hosted schedule acceptance.
-
-Run `pnpm docs:build` and `pnpm docs:check` after changes. Commit the maintained
-source, then use `python3 scripts/sync-legacy-docs.py --target /path/to/docs` to
-prepare a pinned publication PR in the retained Mintlify repository. Keep host
-cutover and archival separate from content reconciliation.
-
-`scripts/build_admin_coding_slack_contract.py` freezes the admin author-filter
-and author-options declarations, examples and resolved response schemas through
-the existing shared fixture producer. Keep it in the isolated producer test
-workspace's explicit helper list. API's `publishedAdminCodingSlack.test.ts`
-compares that fixture with real route/query/auth code under mocked credential,
-admin and Slack leaves; it does not verify production access, history coverage,
-latency or quotas. Preserve the admin and per-request collection limits when
-editing these references; no automatic caller is part of this contract.
-
 ## Public company map
 
 `/atlas` presents the company operating model. See `docs/company-map.md` for the public-only projection boundary and refresh checks. Never copy private atlas evidence, engineering findings or source files into this public repository.
@@ -415,6 +330,5 @@ Run Python tests against the built wheel, `twine check --strict`, and Go tests w
 `-race` plus `go vet`. See `sdk/README.md` for the account-owner PyPI setup and
 nested Go module release tag. Never describe a registry release as published until
 a clean registry installation has been verified.
-Maintain the public installation guide at `content/docs/source/sdks.mdx`, linked
-from documentation navigation and `llms.txt`; distinguish source installs from
-verified registry releases.
+The public installation guide is `sdks.mdx` in recoupable/docs-site; distinguish
+source installs from verified registry releases there.

@@ -1,3 +1,4 @@
+import { docsUrl } from "../docsUrl.ts";
 import { absoluteUrl } from "../seo.ts";
 import { accessNotes } from "./accessNotes.ts";
 import { discoveryPaths } from "./discoveryPaths.ts";
@@ -25,7 +26,7 @@ ${getWhenToUseGuidance()}
 - [Human and browser-agent guide](${absoluteUrl(discoveryPaths.hub)})
 - [Tool schemas and content index](${absoluteUrl(discoveryPaths.catalog)})
 - [Website OpenAPI](${absoluteUrl(discoveryPaths.openapi)})
-- [Recoup platform SDKs](${absoluteUrl("/docs/sdks")}): The published Python and Go SDKs and npm CLI use authenticated platform access.
+- [Recoup platform SDKs](${docsUrl("/sdks")}): The published Python and Go SDKs and npm CLI use authenticated platform access.
 - Public HTTP: GET /agent-api/v1/search, GET /agent-api/v1/read, POST /agent-api/v1/tools with JSON {"name":"TOOL_NAME","arguments":{}}.
 - [Public API base](${absoluteUrl("/agent-api/v1")}): GET returns the website specification and live quota policy. /api/v1 and its operation paths redirect to this namespace, preserving the HTTP method and query.
 - Public MCP: connect to ${absoluteUrl("/mcp")} over Streamable HTTP; no credential is required. The five tool names and schemas match the HTTP catalog.

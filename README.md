@@ -11,7 +11,7 @@ Next.js, React and Tailwind CSS. Start with [AGENTS.md](AGENTS.md),
 - [lib/config.ts](lib/config.ts) owns configured website/app/API/contact destinations; [lib/copy/navigation.ts](lib/copy/navigation.ts) owns the menu and `lib/copy/` owns shared page copy.
 - [lib/pricing.ts](lib/pricing.ts) and [app/pricing](app/pricing) own displayed offers. Purchase recurrence and monthly/annual handoff verification remain in [Mono #338](https://github.com/recoupable/mono/issues/338).
 - [content/blog/posts.json](content/blog/posts.json) is the published source for the website, feed and agent views. [content/posts/INDEX.md](content/posts/INDEX.md) is generated from it; legacy MDX and archived plans are historical.
-- [content/docs/source](content/docs/source) is the maintained documentation input. `pnpm docs:build` generates local outputs. The separate `recoupable/docs` repository is a pinned Mintlify publication copy; host cutover is separate.
+- Platform documentation lives in [recoupable/docs-site](https://github.com/recoupable/docs-site) (https://docs.recoupable.dev); `/docs/*` here redirects there.
 - [lib/leads/postLead.ts](lib/leads/postLead.ts) and [lib/inquiries/saveInquiry.ts](lib/inquiries/saveInquiry.ts) forward requests to API, which owns CRM storage and notifications. Marketing has no direct CRM client.
 - [docs/website-agent.md](docs/website-agent.md) describes the public website assistant; authenticated platform tools have a separate access contract.
 - [gtm/](gtm/README.md) holds research and independent engine tools. Start at [gtm/AGENTS.md](gtm/AGENTS.md).
@@ -35,7 +35,6 @@ pnpm start         # Serve the production build
 pnpm test          # Website tests
 pnpm lint          # ESLint checks
 pnpm format        # Prettier and lint
-pnpm docs:build    # Regenerate documentation outputs
 pnpm docs:check    # Verify documentation consistency
 pnpm posts:build   # Regenerate the published editorial inventory
 pnpm posts:check   # Reject missing, duplicate or stale inventory entries
@@ -49,7 +48,7 @@ or open `/brand-studio` in the normal development server.
 Feature branches and PRs target `main`; never push directly to `main`.
 The Vercel project uses `recoupable/marketing` with root directory `.`.
 The CLI package is `@recoupable/cli`, with executable `recoup`; its
-[maintained guide](content/docs/source/cli.mdx) separates source from registry
+[maintained guide](https://docs.recoupable.dev/cli) separates source from registry
 and installation evidence.
 
 The historical positioning, website-structure and typography documents under

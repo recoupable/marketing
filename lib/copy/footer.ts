@@ -1,3 +1,4 @@
+import { docsUrl } from "../docsUrl.ts";
 export const footerCopy = {
   description: "Your AI partner for the business of music.",
   signupLabel: "Get Recoup updates.",
@@ -19,7 +20,7 @@ export const footerCopy = {
     { title: "Resources", links: [
       { label: "Blog", href: "/blog" },
       { label: "Podcast", href: "/podcast" },
-      { label: "Documentation", href: "/docs" },
+      { label: "Documentation", href: docsUrl() },
       { label: "For agents", href: "/agents" },
       { label: "AI playbook", href: "/playbook" },
       { label: "AI readiness", href: "/audit" },

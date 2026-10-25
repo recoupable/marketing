@@ -1,6 +1,5 @@
 import { test, expect } from 'vitest';
 import { ok } from './support/ok.ts';
-import { readFileSync, existsSync } from 'node:fs';
 import { getAgentCatalog } from '../lib/agent-discovery/getAgentCatalog.ts';
 import { getAgentsMarkdown } from '../lib/agent-discovery/getAgentsMarkdown.ts';
 import { getApiCatalog } from '../lib/agent-discovery/getApiCatalog.ts';
@@ -11,12 +10,12 @@ import { discoveryHeaders } from '../lib/agent-discovery/discoveryHeaders.ts';
 import { apiCatalogMediaType } from '../lib/agent-discovery/apiCatalogMediaType.ts';
 import { agentToolDefinitions } from '../lib/agent-tools/agentToolDefinitions.ts';
 import { siteConfig } from "../lib/config.ts";
+import { platformSpecifications } from '../lib/agent-discovery/platformSpecifications.ts';
 
 const index = [
   { id: 'page:services', type: 'page', title: 'Services', description: 'AI strategy, custom systems, and team enablement.', url: '/services', representation: 'summary' },
-  { id: 'docs:authentication', type: 'docs', title: 'Authentication', description: 'Credentials for the platform.', url: '/docs/authentication', representation: 'source' },
+  { id: 'blog:agents-at-work', type: 'blog', title: 'Agents at work', description: 'How music teams use agents.', url: '/blog/agents-at-work', representation: 'full' },
 ];
-const inventory = JSON.parse(readFileSync(new URL('../content/docs/inventory.json', import.meta.url), 'utf8')) as { specifications: string[] };
 
 test('navigation and full-context summaries identify scope and separate website access from platform auth', () => {
   for (const text of [getLlmsText(index), getLlmsFullText(index), getAgentsMarkdown()]) {
@@ -31,7 +30,7 @@ test('navigation and full-context summaries identify scope and separate website 
   const full = getLlmsFullText(index);
   expect(full).toMatch(/not the full text of the website/);
   expect(full).toMatch(/Content ID: page:services/);
-  expect(!full.includes('Content ID: docs:authentication')).toBeTruthy();
+  expect(!full.includes('Content ID: blog:agents-at-work')).toBeTruthy();
   expect(!getLlmsText([{ ...index[0], title: 'A [special]\npage' }]).includes('[A [special]')).toBeTruthy();
 });
 
@@ -50,12 +49,11 @@ test('custom catalog uses actual tools and content metadata and distinguishes pu
 test('RFC 9727 catalog links the website specification and every existing imported specification', () => {
   const catalog = getApiCatalog();
   const items = catalog.linkset[0].item!;
-  expect(items.length).toBe(inventory.specifications.length + 1);
+  expect(items.length).toBe(platformSpecifications.length + 1);
   expect(new Set(items.map(item => item.href)).size).toBe(items.length);
   expect(items[0].href).toBe(new URL('/openapi.json', siteConfig.url).href);
-  for (const spec of inventory.specifications) {
-    expect(items.some(item => item.href.endsWith(`/docs/spec/${spec}`)), spec).toBeTruthy();
-    expect(existsSync(new URL(`../content/docs/source/api-reference/openapi/${spec}`, import.meta.url)), spec).toBeTruthy();
+  for (const spec of platformSpecifications) {
+    expect(items.some(item => item.href === `https://docs.recoupable.dev/spec/${spec}`), spec).toBeTruthy();
   }
   const headers = discoveryHeaders(apiCatalogMediaType);
   expect(headers['Content-Type']).toMatch(/^application\/linkset\+json;/);

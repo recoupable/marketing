@@ -8,7 +8,7 @@ const read = async (path, accept = "*/*") => {
   return { response, body: await response.text() };
 };
 
-for (const path of ["/__missing_readiness_probe", "/Missing_Readiness_Page", "/docs/missing-readiness-page"]) {
+for (const path of ["/__missing_readiness_probe", "/Missing_Readiness_Page"]) {
   const { response, body } = await read(path, "text/markdown");
   assert.equal(response.status, 404, path);
   assert.match(response.headers.get("content-type"), /text\/markdown/);

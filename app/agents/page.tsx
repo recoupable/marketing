@@ -1,3 +1,4 @@
+import { docsUrl } from "@/lib/docsUrl";
 import Link from 'next/link';
 import { withPageMetadata } from '@/lib/seo';
 import { PageButton, PageHero, PageSection } from '@/components/sky/page-ui';
@@ -14,7 +15,7 @@ export const metadata = withPageMetadata({
 
 const labels: Record<string, { title: string; description: string; href: string; linkLabel: string }> = {
   search_recoup: { title: 'Find the right information.', description: 'Search services, API guides, articles, and the music AI playbook. Every result links to its source.', href: '#search', linkLabel: 'Search Recoup' },
-  read_recoup_page: { title: 'Read the source.', description: 'Get a focused text version with its page URL. Longer documents include a continuation point.', href: '/docs', linkLabel: 'Read the docs' },
+  read_recoup_page: { title: 'Read the source.', description: 'Get a focused text version with its page URL. Longer documents include a continuation point.', href: docsUrl(), linkLabel: 'Read the docs' },
   assess_workflow_readiness: { title: 'Choose a starting point.', description: 'Answer the same seven questions as our readiness check and get practical next steps.', href: '/audit', linkLabel: 'Open the readiness check' },
   estimate_workflow_roi: { title: 'Work through the numbers.', description: 'Calculate the value of team time using your assumptions, including setup and ongoing costs.', href: '/roi', linkLabel: 'Open the ROI planner' },
   prepare_project_brief: { title: 'Bring a useful brief.', description: 'Turn the workflow and desired outcome into an editable draft. You decide whether to send it.', href: '/contact', linkLabel: 'Prepare a project brief' },
@@ -31,7 +32,7 @@ export default async function AgentsPage({ searchParams }: { searchParams: Promi
   }
   return <div className="sky-subpage agents-page">
     <PageHero eyebrow="RECOUP FOR AGENTS" title={<>Bring your agent.<br /><span>Get somewhere useful.</span></>} description="Find the right service, read the source, and work out a practical next step. Your agent can use the same information and tools you do." tone="light">
-      <PageButton href="/agents.md">Read the agent guide</PageButton><PageButton href="/docs/mcp" secondary>Connect to the platform</PageButton>
+      <PageButton href="/agents.md">Read the agent guide</PageButton><PageButton href={docsUrl("/mcp")} secondary>Connect to the platform</PageButton>
     </PageHero>
     <PageSection id="search" eyebrow="START WITH A QUESTION" title="What do you need to know?">
       <form action="/agents#search" method="get" className="agents-search">
@@ -40,7 +41,7 @@ export default async function AgentsPage({ searchParams }: { searchParams: Promi
       </form>
       <p className="agents-search-examples">Try <Link href="/agents?query=royalty%20reporting#search">royalty reporting</Link>, <Link href="/agents?query=MCP#search">MCP setup</Link>, or <Link href="/agents?query=pricing#search">pricing</Link>.</p>
       {error && <p role="alert">{error}</p>}
-      {results && <div className="agents-results"><p>{results.total} {results.total === 1 ? 'match' : 'matches'} for “{query}”</p>{results.results.map(item => <article key={item.id}><span>{item.type === 'docs' ? 'DOCUMENTATION' : item.type.toUpperCase()}</span><h3><Link href={`${new URL(item.url).pathname}${new URL(item.url).hash}`}>{item.title}</Link></h3><p>{item.excerpt}</p></article>)}{results.nextCursor && <Link className="sp-text-link" href={`/agents?${new URLSearchParams({ query, cursor: results.nextCursor })}#search`}>More results →</Link>}</div>}
+      {results && <div className="agents-results"><p>{results.total} {results.total === 1 ? 'match' : 'matches'} for “{query}”</p>{results.results.map(item => <article key={item.id}><span>{item.type.toUpperCase()}</span><h3><Link href={`${new URL(item.url).pathname}${new URL(item.url).hash}`}>{item.title}</Link></h3><p>{item.excerpt}</p></article>)}{results.nextCursor && <Link className="sp-text-link" href={`/agents?${new URLSearchParams({ query, cursor: results.nextCursor })}#search`}>More results →</Link>}</div>}
     </PageSection>
     <PageSection eyebrow="WEBSITE TOOLS" title="From a question to a next step." description="Five tools are available through the public API, MCP, and, in compatible browsers, WebMCP. No account is needed for these website tools.">
       <div className="agents-tools">{agentToolDefinitions.map(tool => <article key={tool.name}><div><h3>{labels[tool.name].title}</h3><p>{labels[tool.name].description}</p><Link href={labels[tool.name].href}>{labels[tool.name].linkLabel} →</Link></div><details><summary>{tool.name}</summary><pre>{JSON.stringify(tool.inputSchema, null, 2)}</pre></details></article>)}</div>
@@ -50,9 +51,9 @@ export default async function AgentsPage({ searchParams }: { searchParams: Promi
       <div className="agents-connections">
         <article><span className="sp-kicker">PUBLIC WEBSITE API</span><h3>Search without a browser.</h3><p>Plain HTTP and structured results. Use returned IDs to read content; use the continuation fields for longer results.</p><pre>{`curl --get '${siteConfig.url}/agent-api/v1/search' \\\n  --data-urlencode 'query=royalty reporting'`}</pre><Link href="/openapi.json">OpenAPI specification →</Link></article>
         <article><span className="sp-kicker">PUBLIC WEBSITE MCP</span><h3>Read Recoup from your agent.</h3><p>Connect with Streamable HTTP to search published information, calculate a workflow scenario, or prepare a draft brief. No signup or credential is needed.</p><pre>{`${siteConfig.url}/mcp`}</pre><Link href="/agents.md">Tools, batch requests, and limits →</Link></article>
-        <article><span className="sp-kicker">RECOUP PLATFORM</span><h3>Put your agent to work.</h3><p>Connect to the platform MCP through your host’s OAuth flow. Sign in to your Recoup account and review the requested permissions before approving access.</p><pre>{siteConfig.platformMcpUrl}</pre><Link href="/docs/mcp-oauth">Authentication and setup →</Link></article>
+        <article><span className="sp-kicker">RECOUP PLATFORM</span><h3>Put your agent to work.</h3><p>Connect to the platform MCP through your host’s OAuth flow. Sign in to your Recoup account and review the requested permissions before approving access.</p><pre>{siteConfig.platformMcpUrl}</pre><Link href={docsUrl("/mcp-oauth")}>Authentication and setup →</Link></article>
       </div>
-      <nav className="agents-resources" aria-label="Machine-readable Recoup resources"><Link href="/llms.txt">Quick index</Link><Link href="/agents/catalog.json">Content catalog</Link><Link href="/.well-known/api-catalog">API catalog</Link><Link href="/docs/api-reference">Platform API reference</Link><Link href="/skills">Recoup Skills</Link></nav>
+      <nav className="agents-resources" aria-label="Machine-readable Recoup resources"><Link href="/llms.txt">Quick index</Link><Link href="/agents/catalog.json">Content catalog</Link><Link href="/.well-known/api-catalog">API catalog</Link><Link href={docsUrl("/api-reference")}>Platform API reference</Link><Link href="/skills">Recoup Skills</Link></nav>
     </PageSection>
   </div>;
 }
