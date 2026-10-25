@@ -1,5 +1,33 @@
 [
   {
+    "slug": "ali-lieberman",
+    "title": "Nobody actually wants a marketing plan",
+    "guest": "Ali Lieberman",
+    "role": "VP of Product, Symphonic Distribution",
+    "date": "2026-10-25",
+    "durationSeconds": 1700,
+    "cover": "/podcast/ali-lieberman-wide.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/episode/2FErn1kjXmVl0ZeGzYwJDA",
+      "youtube": "https://www.youtube.com/watch?v=xcI3Am8d1uM"
+    },
+    "summary": [
+      "\"Nobody actually wants a marketing plan,\" says Ali Lieberman, VP of Product at Symphonic Distribution. \"They want the release to do well.\" That idea shaped the Release Campaign Builder, which Symphonic launched in February: a marketing plan built from a release's own data. Ali walks through one on screen, a demo release with a $500 budget and one goal, a playlist placement. One of Symphonic's senior A&R leaders called the output \"annoyingly good.\"",
+      "Before Symphonic, Ali ran the US ISRC agency at the RIAA and improved business processes at SoundExchange. Her rule for AI comes from that work: it is \"mostly an amplifier.\" Clean data and processes get faster; messy ones get you \"amplifying mess.\" She explains which work Symphonic has handed to AI, how the team defines and tests those workflows, and what stays with people.",
+      "We also cover distributors as gatekeepers after UMG sued DistroKid and IFPI launched its Streaming Integrity Initiative, why the problem is \"music pretending to be something that it isn't,\" why the default for AI training \"should be no,\" and whether a model can price an advance: \"I do not trust AI 100% to give the final number.\""
+    ],
+    "guestLinks": [
+      {
+        "label": "Symphonic",
+        "href": "https://symphonic.com/"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/ali-lieberman-608400a/"
+      }
+    ]
+  },
+  {
     "slug": "sean-peace",
     "title": "Buy at 8x, sell to fans at 20x",
     "guest": "Sean Peace",
@@ -138,24 +166,5 @@
         "href": "https://twitter.com/Nick_Merich"
       }
     ]
-  },
-  {
-    "slug": "sidney-swift",
-    "title": "From Grammy-winning producer to building software for the music business",
-    "guest": "Sidney Swift",
-    "role": "Cofounder, Recoup",
-    "date": "2022-07-18",
-    "durationSeconds": 3619,
-    "cover": "/podcast/sidney-swift-wide.jpg",
-    "links": {
-      "spotify": "https://open.spotify.com/episode/4KCglIfrD8i5JdN2c1gZlF",
-      "youtube": "https://www.youtube.com/watch?v=z_3qo3YVPWQ",
-      "apple": "https://podcasts.apple.com/us/podcast/from-grammy-winning-producer-to-building-software-for/id1316209308?i=1000570288536"
-    },
-    "summary": [
-      "Sidney Swift has produced records that won Grammys, holds a US patent, and now runs Recoup, where labels and rights companies come when they need an AI strategy that works. This conversation was recorded months before we started working together, and it is the origin of the way we operate: a long, specific conversation first, the contract later.",
-      "We cover what a producer learns about leverage, why most music-tech pitches fail the people who actually run catalogs, and what it takes to build something a finance team will trust with royalty data."
-    ],
-    "guestLinks": []
   }
 ]
