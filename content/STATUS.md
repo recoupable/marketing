@@ -1,3 +1,25 @@
+## Files account-scope companion — October 25, 2026 (draft)
+
+Prepared the list/file read reference for the paired API/App account-scope repair.
+Both GET routes accept an optional authorized account UUID and successful explicit
+targets echo `account_id`; default reads keep their existing response shape.
+Invalid targets return 400, denied targets return 403 before repository lookup,
+and a target read never falls back to the caller's repository. Client guidance
+requires matching echoes, authentication/target/API-origin cache separation and
+rejecting stale reads and invalidating writable revisions on scope changes.
+Unsaved replacements remain bound to their original account for manual recovery;
+never reuse a draft or revision for a different account. Every explicit override is
+a read-only App view; existing upload, replacement, deletion, revision and binary
+contracts are not broadened.
+
+The shared producer retains legacy read/upload examples and adds scoped queries,
+list/file response schemas and explicit-target examples for provider-free API
+checks. This is draft source evidence, not a release or hosted acceptance result.
+Release the API first, then the App; before docs publication, replace any candidate
+inventory pin with the actual merged API revision and verify deployment. Retained
+Docs still wait for the actual Marketing merge. No provider calls, credentials,
+production writes or merge authorization are part of this companion.
+
 ## Chat admission and reader-lifecycle documentation release — October 25, 2026
 
 API #1128 is merged as `8f48a2a1d51264f2ae34a0f21db05bcaeed806ce`; its exact runtime merge has a successful production deployment. The coordinated API #1129 contract companion is merged as `971f396bab61b86411199264073aaf436cbbee5b`, and the inventory now pins that actual merge. These replace the API #1071 / Marketing #209 preview-source holds. Marketing #230 still requires final composition checks, independent review and merge approval; retained Docs must be generated from the actual Marketing merge. Source/controlled SDK acceptance and deployment receipts do not establish authenticated hosted send/reconnect/Stop or real provider cancellation. Those checks remain open; the managed App browser currently requires sign-in.
