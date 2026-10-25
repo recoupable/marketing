@@ -1,10 +1,11 @@
 {
-  "navigationPages": 228,
+  "navigationPages": 229,
   "guidePages": 25,
-  "apiPages": 215,
+  "apiPages": 216,
   "specifications": [
     "accounts.json",
     "ai.json",
+    "applications.json",
     "content.json",
     "context.json",
     "players.json",

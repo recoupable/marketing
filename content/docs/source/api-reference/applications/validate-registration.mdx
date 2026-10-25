@@ -1,0 +1,74 @@
+---
+title: "Check an application proposal"
+description: "Validate proposed app addresses in your workspace without registering or activating an application."
+openapi: "/api-reference/openapi/applications.json POST /api/applications/registration/validate"
+---
+
+<Warning>
+  Pending coordinated release. This checks a proposal; it does not register an
+  app or make its origins trusted. Discover tool availability in your connected
+  host before use.
+</Warning>
+
+Before connecting an external app, check its proposed name, environment, origins
+and return URLs. A successful result means those values passed validation for
+the selected workspace. It does not prove domain ownership.
+
+## What happens
+
+The preflight runs after normal Recoup authentication. First-time sign-in can
+perform normal account provisioning and send its welcome email. After that,
+this validator does not persist an application or issue application credentials.
+It does not edit provider callbacks, create fan identities or sessions, allocate
+capacity, or authorize purchases and spending.
+
+`workspace_id` and `billing_owner_id` come from the authenticated account or an
+organization it can access. They describe the proposed owner only. Supplying
+`organization_id` does not grant workspace access. Do not submit account or
+billing ownership overrides, secrets or tokens in the proposal.
+
+The result is flat and includes `status: "validated"`, `persisted: false` and
+`origins_verified: false`. It contains no application ID or token to install.
+
+## Addresses and environments
+
+- Choose `development` or `production` explicitly for each proposal.
+- Use exact canonical origins such as `https://music.example`, without a trailing
+  slash, wildcard, path, credentials, query or fragment. Different hosts and
+  ports are different origins.
+- HTTPS is required. Development also accepts HTTP on `localhost`, `127.0.0.1`
+  and `[::1]`; these loopback hosts are rejected in production.
+- A return URL must be an exact canonical URL on one of the proposed origins,
+  without credentials or fragments. For a bare host use its canonical trailing
+  slash, such as `https://music.example/`. Query strings are retained literally.
+- Each list takes 1–32 distinct addresses, each at most 2048 characters. The name
+  is trimmed and must then contain 1–120 characters. These are input limits,
+  not subscription or usage allowances.
+
+Matching a return URL to a caller-proposed origin does not establish that the
+caller owns either address. No DNS check, URL fetch or domain proof is performed.
+
+## Standard MCP
+
+On a standard API-key MCP connection that exposes `validate_application_registration`,
+use the same proposal fields as HTTP. Account identity comes from the connection;
+do not add `account_id` or extract a host-managed OAuth token.
+
+```json
+{
+  "name": "Release companion",
+  "environment": "production",
+  "allowed_origins": ["https://music.example"],
+  "return_urls": ["https://music.example/listen?connected=spotify"]
+}
+```
+
+Delegated OAuth excludes this tool, including connections with `mcp:tools`.
+HTTP and standard MCP share proposal validation; their transport-specific error
+envelopes differ. HTTP authentication errors can use `error` or `message`, while
+handled preflight errors use `status: "error"` and `error`. MCP failures are tool
+errors or SDK input-validation errors. None confirms registration or activation.
+
+See [authentication](/authentication) and [MCP connection guidance](/mcp).
+Application persistence, origin proof/reverification, provider configuration,
+fan bootstrap, suspension and quota policy require their own completed contracts.

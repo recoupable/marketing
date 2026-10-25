@@ -1,3 +1,22 @@
+## Application proposal preflight documentation — October 25, 2026
+
+Prepared the bounded API #1136 proposal-check reference and standard MCP mapping.
+The contract checks exact caller-proposed origins/return URLs in an authenticated
+workspace; it returns persisted:false and origins_verified:false. It does not
+register an application, prove domain ownership, issue application credentials,
+create fan sessions or authorize spending. Existing authentication/account
+provisioning is separate. Delegated OAuth excludes this tool.
+
+API #1136 is merged as `62ea715108de610f7a77f294d335ad9df6f7f0c3`;
+its tree matches the reviewed `f5a0d72af876e857af60624ecfbc5ba7afd0e429`
+candidate. The inventory now pins that actual merge. Hosted availability and
+authenticated behavior remain unverified here, so the public reference stays
+pending. This is not activated registration. Registry persistence, domain
+proof/reverification, provider configuration, fan bootstrap, quotas and spending
+policy remain separate. Marketing #235 requires independent confirmation of this
+pin/status follow-up before release; retained Docs must be generated from the
+actual Marketing merge. No hosting operation is part of this change.
+
 ## Catalog case artifact contracts — October 22, 2026
 
 Prepared three bounded Context operations for saving, reading and listing portable

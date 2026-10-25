@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "b828acc3e6ee78a708a78de510254a2b2d922a9b",
+  "apiSourceCommit": "62ea715108de610f7a77f294d335ad9df6f7f0c3",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -601,6 +601,22 @@
       "documentation": null,
       "classification": "internal",
       "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/applications/registration/validate",
+      "implementation": "app/api/applications/registration/validate/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "POST",
+      "path": "/api/applications/registration/validate",
+      "implementation": "app/api/applications/registration/validate/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/applications.json",
+      "classification": "public",
+      "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
     },
     {
       "method": "OPTIONS",
@@ -3673,6 +3689,10 @@
       "source": "lib/mcp/tools/sites/registerUploadSiteAssetTool.ts"
     },
     {
+      "name": "validate_application_registration",
+      "source": "lib/mcp/tools/applications/registerValidateApplicationRegistrationTool.ts"
+    },
+    {
       "name": "web_deep_research",
       "source": "lib/mcp/tools/registerWebDeepResearchTool.ts"
     }
@@ -3680,6 +3700,7 @@
   "specificationHashes": {
     "content/docs/source/api-reference/openapi/accounts.json": "1a5a04f9ec358a15b8339b7029c9fed5fe69c6f042c8b03b6b4f03f3aafdeeed",
     "content/docs/source/api-reference/openapi/ai.json": "678f649fff58a1c49c81002ea2cbe66636ad5da1044ea66261e6ab4084600687",
+    "content/docs/source/api-reference/openapi/applications.json": "07cf7c630ca81816d73e9198b863dc0a9c8e987f4e0794375951ead06e498ad6",
     "content/docs/source/api-reference/openapi/content.json": "a59fa965788414731d19e031ec4b44f4a83319bdc651cb0aa49fba5a534317b0",
     "content/docs/source/api-reference/openapi/context.json": "7986a997d2da4eeec358764b727d31f8b841f49db350e1357ef02289504e0bb9",
     "content/docs/source/api-reference/openapi/players.json": "4a4c90583fe1de6487444581b293a32b1cc04622fc929965ab90f365feb8bc94",

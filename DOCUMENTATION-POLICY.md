@@ -1,5 +1,15 @@
 # Documentation authoring and transition
 
+Application registration preflight is a pending source contract for
+`POST /api/applications/registration/validate` and standard MCP
+`validate_application_registration`. Keep it distinct from a registry or activation:
+the validator returns `persisted: false` and `origins_verified: false`, with no
+application ID or token. Authentication happens first and can retain its existing
+account-provisioning effects. Proposed-origin matching is not ownership proof.
+Delegated OAuth excludes the tool. The reference, navigation, specification and
+generated AI text must move together; release waits for the accepted API revision
+and the normal source-pin/publication sequence.
+
 `content/docs/source` is the maintained authoring tree. Keep request and
 response descriptions in its split OpenAPI files. Reconcile with implementation
 before copying. Run `pnpm docs:build`, `pnpm docs:check`, and `pnpm build`; commit the
