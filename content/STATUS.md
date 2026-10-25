@@ -1,3 +1,15 @@
+## Catalog case artifact contracts — October 22, 2026
+
+Prepared three bounded Context operations for saving, reading and listing portable
+catalog cases, with exact request/response schemas and synthetic HTTP/MCP examples.
+The records are customer assertions; provider execution remains unsupported. The
+reference distinguishes optimistic revisions, unchanged idempotent retries, current
+workspace authorization, withdrawn-source masking and partial snapshots that cannot
+be blindly saved back. All three tools remain outside delegated OAuth.
+
+This companion requires the catalog-case API and database release. Documentation,
+source checks and synthetic fixtures do not establish deployment, provider acceptance
+or bank receipt. Existing artist/release Context operations are unchanged.
 ## Chat admission and reader-lifecycle documentation release — October 25, 2026
 
 API #1128 is merged as `8f48a2a1d51264f2ae34a0f21db05bcaeed806ce`; its exact runtime merge has a successful production deployment. The coordinated API #1129 contract companion is merged as `971f396bab61b86411199264073aaf436cbbee5b`, and the inventory now pins that actual merge. These replace the API #1071 / Marketing #209 preview-source holds. Marketing #230 still requires final composition checks, independent review and merge approval; retained Docs must be generated from the actual Marketing merge. Source/controlled SDK acceptance and deployment receipts do not establish authenticated hosted send/reconnect/Stop or real provider cancellation. Those checks remain open; the managed App browser currently requires sign-in.

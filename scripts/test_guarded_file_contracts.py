@@ -5,6 +5,47 @@ from response_contract_test_case import ResponseContractTestCase
 
 
 class GuardedFileContractsTest(ResponseContractTestCase):
+    def test_scoped_queries_and_response_examples_preserve_legacy_reads(self):
+        fixture = json.loads((self.marketing / 'content/docs/contracts/example-cases.json').read_text())['guardedGitFiles']
+        self.assertNotIn('account_id', fixture['readQuery'])
+        self.assertEqual(fixture['scopedReadQuery']['account_id'], fixture['listQuery']['account_id'])
+        self.assertEqual(fixture['scopedReadQuery']['path'], fixture['readQuery']['path'])
+        for response in fixture['responses']:
+            if response['method'] != 'GET':
+                continue
+            self.assertNotIn('account_id', response['schema']['required'])
+            self.assertEqual(response['schema']['properties']['account_id']['format'], 'uuid')
+            self.assertTrue(any('account_id' in example for example in response['examples'].values()))
+            self.assertTrue(any('account_id' not in example for example in response['examples'].values()))
+
+    def test_invalid_account_override_declarations_fail_before_freezing(self):
+        path = self.marketing / 'content/docs/source/api-reference/openapi/content.json'
+        original = path.read_bytes()
+        for route in ['/api/sandboxes', '/api/sandboxes/file']:
+            for mutation in ['missing', 'header', 'required', 'format', 'example', 'duplicate']:
+                with self.subTest(route=route, mutation=mutation):
+                    spec = json.loads(original)
+                    parameters = spec['paths'][route]['get']['parameters']
+                    account = next(parameter for parameter in parameters if parameter['name'] == 'account_id')
+                    if mutation == 'missing':
+                        parameters.remove(account)
+                    elif mutation == 'header':
+                        account['in'] = 'header'
+                    elif mutation == 'required':
+                        account['required'] = True
+                    elif mutation == 'format':
+                        account['schema']['format'] = 'uri'
+                    elif mutation == 'example':
+                        account.pop('example', None)
+                        account['schema'].pop('example', None)
+                    else:
+                        parameters.append(dict(account))
+                    path.write_text(json.dumps(spec, indent=2) + '\n')
+                    failed = subprocess.run(self.command, capture_output=True, text=True)
+                    self.assertNotEqual(failed.returncode, 0)
+                    self.assertIn('read requires one optional UUID account_id query and example', failed.stderr)
+                    path.write_bytes(original)
+
     def test_same_named_nonquery_parameters_cannot_replace_query_examples(self):
         path = self.marketing / 'content/docs/source/api-reference/openapi/content.json'
         original = path.read_bytes()
@@ -54,4 +95,3 @@ class GuardedFileContractsTest(ResponseContractTestCase):
                 self.assertNotEqual(failed.returncode, 0)
                 self.assertIn('Guarded file read requires', failed.stderr)
                 path.write_bytes(original)
-

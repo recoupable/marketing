@@ -151,6 +151,15 @@ Use the public saved-context planner's output rather than the wider low-level
 planner types. Brief document constraints follow the compiler's actual selector;
 do not advertise evidence states or coverage that it excludes.
 
+Catalog-case continuation uses the same Context exports and fixture producer.
+`save_catalog_case`, `read_catalog_case` and `list_catalog_cases` are standard-only
+MCP operations, excluded from the delegated table. Their source schemas retain
+customer assertions, revision/idempotency rules and withdrawn-evidence projections;
+keep `ContextCatalogCaseResponse` and `ContextCatalogCasesResponse` connected to
+the 200 response union. The API HTTP/MCP example pairs are synthetic artifact
+operations, not provider execution. Update `mcp.mdx` with this bounded source scope
+and keep deployment verification separate from contract checks.
+
 ## Chat admission and reader lifecycle companions
 
 API #1128 is merged as `8f48a2a1d51264f2ae34a0f21db05bcaeed806ce`, with successful production deployment of that runtime. API #1129 is merged as `971f396bab61b86411199264073aaf436cbbee5b`; the inventory pins this actual contract merge, not a preview candidate. Marketing #230 succeeds Marketing #209 and remains subject to final checks, independent review and merge approval. Retained Docs copies wait for the actual Marketing merge. Existing failed-read and pending-Stop contracts remain intact. Scope is admission 409/retryable 503, exact-single optional query opt-in on POST and reconnect GET, retained manual recovery, and authenticated server Stop distinctions. Source/deployment evidence does not prove authenticated hosted send/reconnect/Stop or real provider cancellation; those acceptance checks and private deployment access remain separate.
