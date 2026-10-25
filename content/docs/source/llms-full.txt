@@ -64508,7 +64508,7 @@ This operation requires one of the security alternatives in the specification be
         "operationId": "getPostsByIdStats",
         "summary": "Get post stats",
         "x-recoup-availability": "pending",
-        "description": "Pending API release. The platform's own analytics for one post published with [Create Post](https://recoupable.dev/docs/api-reference/publishing/create), read live through the same connection that published it. Currently LinkedIn company-page posts only; other platforms and LinkedIn personal (member) posts return 422. Each call is a fresh read and `as_of` records when it happened. Reads cost no credits.",
+        "description": "Pending API release. The platform's own analytics for one post published with [Create Post](https://recoupable.dev/docs/api-reference/publishing/create), read live through the same connection that published it. Currently LinkedIn company-page posts only; other platforms and LinkedIn personal (member) posts return 422. Each call is a fresh read and `as_of` records when it happened. Each successful read costs $0.001 (1,000 credits), charged to the caller after LinkedIn returns the numbers. Credits are checked first; a request that fails (4xx/5xx) is not charged.",
         "security": [
           {
             "apiKeyAuth": []
@@ -64556,6 +64556,16 @@ This operation requires one of the security alternatives in the specification be
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PostErrorResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient credits: the account has less than the $0.001 a read costs. Returned after the 400/401/403/404/409/422 checks and before LinkedIn is called, so nothing is read and nothing is charged.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SocialInsufficientCreditsResponse"
                 }
               }
             }
@@ -64678,6 +64688,37 @@ This operation requires one of the security alternatives in the specification be
             "description": "Human-readable error message"
           }
         }
+      },
+      "SocialInsufficientCreditsResponse": {
+        "type": "object",
+        "description": "Returned (402) when the account lacks credits for the request. Nothing is charged and no Stripe object is created. Credits must be bought explicitly via [`POST /api/credits/sessions`](https://recoupable.dev/docs/api-reference/credits/sessions-create). Examples: a scrape of one profile with posts=20 requires $0.25; one post through Create Post requires $0.01.",
+        "properties": {
+          "error": {
+            "type": "string",
+            "enum": [
+              "insufficient_credits"
+            ]
+          },
+          "remaining_credits": {
+            "type": "integer",
+            "example": 0
+          },
+          "required_credits": {
+            "type": "integer",
+            "example": 250000
+          },
+          "billingUrl": {
+            "type": "string",
+            "description": "Static link to the Recoup app, where a human can save a card and buy credits. It is a constant, not a freshly minted Stripe Checkout Session, so a credit-gated endpoint that keeps returning 402 creates nothing. To buy credits programmatically, call [`POST /api/credits/sessions`](https://recoupable.dev/docs/api-reference/credits/sessions-create).",
+            "example": "https://app.recoupable.dev"
+          }
+        },
+        "required": [
+          "error",
+          "remaining_credits",
+          "required_credits",
+          "billingUrl"
+        ]
       },
       "PostStats": {
         "type": "object",
