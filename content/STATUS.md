@@ -4,13 +4,14 @@ Prepared the canonical Context live-case and saved-review response schemas to ac
 optional saved Spotify release-format observations. The field may be absent before
 separately approved database rollout or in old immutable snapshots; reissue and physical
 format remain unknown. Generated both contract fixtures and llms-full from maintained
-source. API source pin: e24c07c852ee93ef0230c78b0be7ecfeb8f6f561 (API #1021 candidate).
+source. API source pin: c06a22ad836688de4ea27486254fe3dec434f521 (API #1021 actual merge).
 
 Validation:35 Python contract tests,508 site tests across completed dependency-repaired
 runs,docs generation/checks,inventory/fixture check modes and Node24 production build
 pass. Build used a synthetic public Privy app ID; authentication was not exercised.
-Next:release API #1021 only after root approval,refresh the API merge pin,then publish
-this source and sync the retained Docs copy from the final Marketing commit. Database
+API #1021 is merged; producer inventory and shared-fixture check modes pass against
+that actual merge. Next: root reviews and merges this source, then generate the retained
+Docs copy from the final Marketing merge commit. Database
 #109 activation is separately gated; no migration or live-account verification occurred.
 
 ## Application proposal preflight documentation — October 25, 2026
