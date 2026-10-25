@@ -1,5 +1,5 @@
 {
-  "apiSourceCommit": "c06a22ad836688de4ea27486254fe3dec434f521",
+  "apiSourceCommit": "c08416638dfd9f381b206028976a39a9119b7a35",
   "evidence": "Static source only; tool discovery and OAuth host verification remain separate. Conditional registration and scope filters mean this is not a promised catalog count.",
   "operations": [
     {
@@ -1540,6 +1540,14 @@
     },
     {
       "method": "POST",
+      "path": "/api/context/development/entitlements",
+      "implementation": "app/api/context/development/entitlements/route.ts",
+      "documentation": null,
+      "classification": "pending",
+      "reason": "Needs owning-route disposition."
+    },
+    {
+      "method": "POST",
       "path": "/api/context/guest/claim",
       "implementation": "app/api/context/guest/claim/route.ts",
       "documentation": "content/docs/source/api-reference/openapi/context.json",
@@ -1569,6 +1577,22 @@
       "documentation": "content/docs/source/api-reference/openapi/context.json",
       "classification": "public",
       "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "GET",
+      "path": "/api/credits/get",
+      "implementation": "app/api/credits/get/route.ts",
+      "documentation": null,
+      "classification": "pending",
+      "reason": "Needs owning-route disposition."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/credits/get",
+      "implementation": "app/api/credits/get/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
     },
     {
       "method": "OPTIONS",
@@ -2046,6 +2070,22 @@
       "method": "OPTIONS",
       "path": "/api/posts/{id}",
       "implementation": "app/api/posts/[id]/route.ts",
+      "documentation": null,
+      "classification": "internal",
+      "reason": "HTTP preflight handler; no public operation contract."
+    },
+    {
+      "method": "GET",
+      "path": "/api/posts/{id}/stats",
+      "implementation": "app/api/posts/[id]/stats/route.ts",
+      "documentation": "content/docs/source/api-reference/openapi/social.json",
+      "classification": "public",
+      "reason": "Split OpenAPI contract exists; alignment outside packages 1\u20137 is not assessed."
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/api/posts/{id}/stats",
+      "implementation": "app/api/posts/[id]/stats/route.ts",
       "documentation": null,
       "classification": "internal",
       "reason": "HTTP preflight handler; no public operation contract."
@@ -3481,6 +3521,10 @@
       "source": "lib/mcp/tools/tasks/registerDeleteTaskTool.ts"
     },
     {
+      "name": "dev_calculate_catalog_entitlements",
+      "source": "lib/mcp/tools/context/registerDevelopmentEntitlementTool.ts"
+    },
+    {
       "name": "edit_image",
       "source": "lib/mcp/tools/images/registerEditImageTool.ts"
     },
@@ -3709,7 +3753,7 @@
     "content/docs/source/api-reference/openapi/research.json": "053556fdeec5379fbaf6cfdbd37c721cd0793f08fa728b82c281e0c6af249457",
     "content/docs/source/api-reference/openapi/sandbox.json": "c61a2bb965b9c9a1eade2e226fdc8af0cb1aa2213f23236d8607d13b65dbec15",
     "content/docs/source/api-reference/openapi/sessions.json": "85af56cc150374b28c25541c45db15849c71fdeb6288cf90dc2beb08f494e83e",
-    "content/docs/source/api-reference/openapi/social.json": "49c837327886827b5bc33ae4daac76f12473ecf4a6f75cc073656e9247ba73ca",
+    "content/docs/source/api-reference/openapi/social.json": "dfda1239843c4e110d24e4ca05c45a9e7124513415f53ea241a8a8c008cf6bd7",
     "content/docs/source/api-reference/openapi/templates.json": "707a91faadd7fbc278afb744816a9bd553bc8ebcc2ec6fd4549ef36e766d063e"
   }
 }
