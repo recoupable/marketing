@@ -478,6 +478,7 @@
               "api-reference/publishing/create",
               "api-reference/publishing/list",
               "api-reference/publishing/get",
+              "api-reference/publishing/stats",
               "api-reference/publishing/cancel"
             ]
           }
@@ -486,6 +487,12 @@
       {
         "tab": "Sites",
         "groups": [
+          {
+            "group": "Application proposals",
+            "pages": [
+              "api-reference/applications/validate-registration"
+            ]
+          },
           {
             "group": "Sites",
             "pages": [

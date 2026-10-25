@@ -32,3 +32,35 @@ jobs:
       - run: python3 scripts/test_sync_legacy_docs.py
       - run: python3 scripts/test_contract_inventory.py
       - run: python3 scripts/test_response_contracts.py
+  cli-guide:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check out the reviewed CLI contract guard
+        uses: actions/checkout@v4
+        with:
+          repository: recoupable/cli
+          # CLI #28: includes cost-estimate checks with non-forwarding synthetic fetch.
+          ref: 39730150e88630c01832f861696e2be15e9cde72
+          path: .contract-cli
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: .contract-cli/pnpm-lock.yaml
+      - name: Build pinned CLI source
+        working-directory: .contract-cli
+        run: |
+          pnpm --ignore-workspace install --frozen-lockfile
+          pnpm build
+      - name: Verify candidate guide against the compiled CLI
+        working-directory: .contract-cli
+        env:
+          RECOUP_CLI_REFERENCE_PATH: ${{ github.workspace }}/content/docs/source/cli.mdx
+        run: pnpm exec vitest run __tests__/publishedCommands.test.ts

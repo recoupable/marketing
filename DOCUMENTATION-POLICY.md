@@ -1,5 +1,15 @@
 # Documentation authoring and transition
 
+Application registration preflight is a pending source contract for
+`POST /api/applications/registration/validate` and standard MCP
+`validate_application_registration`. Keep it distinct from a registry or activation:
+the validator returns `persisted: false` and `origins_verified: false`, with no
+application ID or token. Authentication happens first and can retain its existing
+account-provisioning effects. Proposed-origin matching is not ownership proof.
+Delegated OAuth excludes the tool. The reference, navigation, specification and
+generated AI text must move together; release waits for the accepted API revision
+and the normal source-pin/publication sequence.
+
 `content/docs/source` is the maintained authoring tree. Keep request and
 response descriptions in its split OpenAPI files. Reconcile with implementation
 before copying. Run `pnpm docs:build`, `pnpm docs:check`, and `pnpm build`; commit the
@@ -101,15 +111,19 @@ credential, membership, snapshot and repository boundaries.
 validator/response checks. These do not prove hosted Git writes, sandbox atomicity
 or adoption by existing clients.
 
-For the Files account-scope companion, API #1131 is merged as
-`92b5f663506607bfb880f4d5f2e94cfe88b593c2` with successful production deployment.
-The inventory pins that actual merge, not the reviewed candidate; its complete
-source tree matches the candidate. The account-aware App #2343 follows the API
-release and has a separately tracked rollout. Marketing #231 still requires final
-checks, independent review and merge approval; retained Docs publication waits
-for the actual Marketing merge as usual. Authentication, organization/administrator
-grants, revision/binary behavior and file-write APIs remain unchanged. Source
-tests and deployment receipts do not establish a signed-in hosted journey.
+For the Files account-scope release, API #1131 merged as
+`92b5f663506607bfb880f4d5f2e94cfe88b593c2` and App #2343 merged as
+`62d079d910135441bd9c8ba52a5711b14fbb35a7`; both production deployments were
+confirmed. The public reference and fixtures already reached Marketing through
+#226 and the retained Docs copy through #407. Marketing #231 now reconciles
+contributor guidance and pins actual API main
+`1742fcf7c6e508e94eafcc3390d7225ec6b52ced`; both shared fixtures match that source.
+Preserve later merged contracts when refreshing Files documentation. This
+metadata-only reconciliation does not require a duplicate Files publication;
+future public source changes still follow the normal merged-source provenance
+workflow. Authentication, organization/administrator grants, revision/binary
+behavior and file-write APIs remain unchanged. Source tests and deployment
+receipts do not establish a signed-in hosted journey.
 
 `python3 scripts/build-contract-examples.py --api /path/to/api` freezes examples and
 important contract claims for API tests, including Context's public request union.
@@ -169,6 +183,42 @@ material-evidence exclusions and existing error behavior remain unchanged.
 Use the public saved-context planner's output rather than the wider low-level
 planner types. Brief document constraints follow the compiler's actual selector;
 do not advertise evidence states or coverage that it excludes.
+
+Catalog-case continuation uses the same Context exports and fixture producer.
+`save_catalog_case`, `read_catalog_case` and `list_catalog_cases` are standard-only
+MCP operations, excluded from the delegated table. Their source schemas retain
+customer assertions, revision/idempotency rules and withdrawn-evidence projections;
+keep `ContextCatalogCaseResponse` and `ContextCatalogCasesResponse` connected to
+the 200 response union. The API HTTP/MCP example pairs are synthetic artifact
+operations, not provider execution. Update `mcp.mdx` with this bounded source scope
+and keep deployment verification separate from contract checks.
+
+## CLI guide compatibility
+
+The `cli-guide` job in `.github/workflows/documentation-contract.yml` builds the
+immutable CLI #28 merge and runs its existing published-command guard against
+this PR's `content/docs/source/cli.mdx`. Marketing owns candidate-guide failures;
+CLI owns command behavior and the guard. The check covers email/song/cost-estimate examples,
+`--chat-id` request mapping, and rejection of retired `--room-id` before dispatch.
+Requests are intercepted with synthetic credentials and never forwarded to an API.
+Cost-estimate examples must use GET without a body and preserve their default or
+explicit query flags. These checks do not verify real prices or create content.
+
+For intentional command changes, release and review the CLI guard first, then
+update the workflow's exact CLI commit pin and the maintained guide together.
+Run the same check locally from that CLI checkout after `pnpm build`:
+
+```sh
+RECOUP_CLI_REFERENCE_PATH=/absolute/path/to/marketing/content/docs/source/cli.mdx \
+  pnpm exec vitest run __tests__/publishedCommands.test.ts
+```
+
+This checks candidate documentation against compiled source, not an npm artifact,
+every CLI command, live authentication or customer behavior. CLI publication and
+isolated installed-artifact acceptance remain with mono#355/#361; package-family
+support and propagation policy remain with mono#352. A source version bump is not
+proof of publication. Retained Docs continues to copy the accepted Marketing guide
+through the existing provenance workflow.
 
 ## Chat admission and reader lifecycle companions
 

@@ -55,3 +55,4 @@ brand-studio/.venv/
 
 # Pinned API checkout used by the documentation contract CI job
 /.contract-api/
+/.contract-cli/

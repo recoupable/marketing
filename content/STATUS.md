@@ -1,28 +1,73 @@
-## Files account-scope companion — October 25, 2026 (API released; docs pending)
+## Files account-scope release reconciliation — October 25, 2026
 
-Prepared the list/file read reference for the paired API/App account-scope repair.
-Both GET routes accept an optional authorized account UUID and successful explicit
-targets echo `account_id`; default reads keep their existing response shape.
-Invalid targets return 400, denied targets return 403 before repository lookup,
-and a target read never falls back to the caller's repository. Client guidance
-requires matching echoes, authentication/target/API-origin cache separation and
-rejecting stale reads and invalidating writable revisions on scope changes.
-Unsaved replacements remain bound to their original account for manual recovery;
-never reuse a draft or revision for a different account. Every explicit override is
-a read-only App view; existing upload, replacement, deletion, revision and binary
-contracts are not broadened.
+The public Files reference, scoped examples, producer tests and generated artifacts
+are already on current Marketing main through #226 and in the retained Docs copy
+through #407. Marketing #231 now reconciles contributor guidance and the actual
+API source pin; it is not another Files feature publication.
 
-The shared producer retains legacy read/upload examples and adds scoped queries,
-list/file response schemas and explicit-target examples for provider-free API
-checks. API #1131 is merged as `92b5f663506607bfb880f4d5f2e94cfe88b593c2`,
-with successful production deployment. The inventory now pins that actual merge;
-its complete source tree matches the reviewed API candidate. Marketing #231
-still requires final composition checks, independent review and merge approval.
-The account-aware App #2343 follows the released API; its rollout is tracked
-separately. Retained Docs must be generated from the actual Marketing merge.
-Source checks and deployment receipts do not establish authenticated hosted
-account-switching, read-only behavior or provider Git operations. No credentials,
-production writes or additional merge authorization are part of this refresh.
+API #1131 merged as `92b5f663506607bfb880f4d5f2e94cfe88b593c2`; App #2343 merged as
+`62d079d910135441bd9c8ba52a5711b14fbb35a7`. Both production deployments were
+confirmed, including App deployment `7307078988` at `2026-10-25T01:32:53Z`.
+The inventory now pins actual API main `1742fcf7c6e508e94eafcc3390d7225ec6b52ced`;
+both shared fixtures match that source byte for byte. The refresh incorporates
+Marketing main `a6fd468f8bd2c2de8472c0ee6c13cf4bd550e5a0`, preserving the newer
+catalog-case, application-preflight, CLI-guard, release-format, post-stats and
+podcast work. No public source or generated artifact differs from that main.
+
+Selected-account Files reads retain explicit target acknowledgements and existing
+authorization; every explicit App override is read-only. Original-account drafts,
+revision checks and normal write protections remain unchanged. Source tests and
+deployment receipts do not establish authenticated hosted account switching or
+provider Git behavior. This metadata/guidance PR still needs merge approval; no
+new retained-host feature publication, grants or production writes are implied.
+
+## Optional release-format contract — October 25, 2026
+
+Prepared the canonical Context live-case and saved-review response schemas to accept
+optional saved Spotify release-format observations. The field may be absent before
+separately approved database rollout or in old immutable snapshots; reissue and physical
+format remain unknown. Generated both contract fixtures and llms-full from maintained
+source. API source pin: c06a22ad836688de4ea27486254fe3dec434f521 (API #1021 actual merge).
+
+Validation:35 Python contract tests,508 site tests across completed dependency-repaired
+runs,docs generation/checks,inventory/fixture check modes and Node24 production build
+pass. Build used a synthetic public Privy app ID; authentication was not exercised.
+API #1021 is merged; producer inventory and shared-fixture check modes pass against
+that actual merge. Next: root reviews and merges this source, then generate the retained
+Docs copy from the final Marketing merge commit. Database
+#109 activation is separately gated; no migration or live-account verification occurred.
+
+## Application proposal preflight documentation — October 25, 2026
+
+Prepared the bounded API #1136 proposal-check reference and standard MCP mapping.
+The contract checks exact caller-proposed origins/return URLs in an authenticated
+workspace; it returns persisted:false and origins_verified:false. It does not
+register an application, prove domain ownership, issue application credentials,
+create fan sessions or authorize spending. Existing authentication/account
+provisioning is separate. Delegated OAuth excludes this tool.
+
+API #1136 is merged as `62ea715108de610f7a77f294d335ad9df6f7f0c3`;
+its tree matches the reviewed `f5a0d72af876e857af60624ecfbc5ba7afd0e429`
+candidate. The inventory now pins that actual merge. Hosted availability and
+authenticated behavior remain unverified here, so the public reference stays
+pending. This is not activated registration. Registry persistence, domain
+proof/reverification, provider configuration, fan bootstrap, quotas and spending
+policy remain separate. Marketing #235 requires independent confirmation of this
+pin/status follow-up before release; retained Docs must be generated from the
+actual Marketing merge. No hosting operation is part of this change.
+
+## Catalog case artifact contracts — October 22, 2026
+
+Prepared three bounded Context operations for saving, reading and listing portable
+catalog cases, with exact request/response schemas and synthetic HTTP/MCP examples.
+The records are customer assertions; provider execution remains unsupported. The
+reference distinguishes optimistic revisions, unchanged idempotent retries, current
+workspace authorization, withdrawn-source masking and partial snapshots that cannot
+be blindly saved back. All three tools remain outside delegated OAuth.
+
+This companion requires the catalog-case API and database release. Documentation,
+source checks and synthetic fixtures do not establish deployment, provider acceptance
+or bank receipt. Existing artist/release Context operations are unchanged.
 
 ## Chat admission and reader-lifecycle documentation release — October 25, 2026
 
