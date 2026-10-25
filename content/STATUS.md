@@ -1,4 +1,4 @@
-## Files account-scope companion — October 25, 2026 (draft)
+## Files account-scope companion — October 25, 2026 (API released; docs pending)
 
 Prepared the list/file read reference for the paired API/App account-scope repair.
 Both GET routes accept an optional authorized account UUID and successful explicit
@@ -14,11 +14,15 @@ contracts are not broadened.
 
 The shared producer retains legacy read/upload examples and adds scoped queries,
 list/file response schemas and explicit-target examples for provider-free API
-checks. This is draft source evidence, not a release or hosted acceptance result.
-Release the API first, then the App; before docs publication, replace any candidate
-inventory pin with the actual merged API revision and verify deployment. Retained
-Docs still wait for the actual Marketing merge. No provider calls, credentials,
-production writes or merge authorization are part of this companion.
+checks. API #1131 is merged as `92b5f663506607bfb880f4d5f2e94cfe88b593c2`,
+with successful production deployment. The inventory now pins that actual merge;
+its complete source tree matches the reviewed API candidate. Marketing #231
+still requires final composition checks, independent review and merge approval.
+The account-aware App #2343 follows the released API; its rollout is tracked
+separately. Retained Docs must be generated from the actual Marketing merge.
+Source checks and deployment receipts do not establish authenticated hosted
+account-switching, read-only behavior or provider Git operations. No credentials,
+production writes or additional merge authorization are part of this refresh.
 
 ## Chat admission and reader-lifecycle documentation release — October 25, 2026
 

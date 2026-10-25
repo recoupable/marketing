@@ -101,13 +101,15 @@ credential, membership, snapshot and repository boundaries.
 validator/response checks. These do not prove hosted Git writes, sandbox atomicity
 or adoption by existing clients.
 
-For the Files account-scope companion, release the authorized-read API before
-the account-aware App. Keep this documentation draft until the actual API merge
-and deployment are verified; refresh the inventory from that merged source, not
-an invented future SHA. A candidate pin is review evidence only. Retained Docs
-publication then waits for the actual Marketing merge as usual. Authentication,
-organization/administrator grants, revision/binary behavior and file-write APIs
-remain unchanged; source tests do not establish a signed-in hosted journey.
+For the Files account-scope companion, API #1131 is merged as
+`92b5f663506607bfb880f4d5f2e94cfe88b593c2` with successful production deployment.
+The inventory pins that actual merge, not the reviewed candidate; its complete
+source tree matches the candidate. The account-aware App #2343 follows the API
+release and has a separately tracked rollout. Marketing #231 still requires final
+checks, independent review and merge approval; retained Docs publication waits
+for the actual Marketing merge as usual. Authentication, organization/administrator
+grants, revision/binary behavior and file-write APIs remain unchanged. Source
+tests and deployment receipts do not establish a signed-in hosted journey.
 
 `python3 scripts/build-contract-examples.py --api /path/to/api` freezes examples and
 important contract claims for API tests, including Context's public request union.
