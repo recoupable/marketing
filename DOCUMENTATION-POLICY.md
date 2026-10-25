@@ -160,6 +160,31 @@ the 200 response union. The API HTTP/MCP example pairs are synthetic artifact
 operations, not provider execution. Update `mcp.mdx` with this bounded source scope
 and keep deployment verification separate from contract checks.
 
+## CLI guide compatibility
+
+The `cli-guide` job in `.github/workflows/documentation-contract.yml` builds the
+immutable CLI #27 merge and runs its existing published-command guard against
+this PR's `content/docs/source/cli.mdx`. Marketing owns candidate-guide failures;
+CLI owns command behavior and the guard. The check covers email/song examples,
+`--chat-id` request mapping, and rejection of retired `--room-id` before dispatch.
+Requests are intercepted with synthetic credentials and never forwarded to an API.
+
+For intentional command changes, release and review the CLI guard first, then
+update the workflow's exact CLI commit pin and the maintained guide together.
+Run the same check locally from that CLI checkout after `pnpm build`:
+
+```sh
+RECOUP_CLI_REFERENCE_PATH=/absolute/path/to/marketing/content/docs/source/cli.mdx \
+  pnpm exec vitest run __tests__/publishedCommands.test.ts
+```
+
+This checks candidate documentation against compiled source, not an npm artifact,
+every CLI command, live authentication or customer behavior. CLI publication and
+isolated installed-artifact acceptance remain with mono#355/#361; package-family
+support and propagation policy remain with mono#352. A source version bump is not
+proof of publication. Retained Docs continues to copy the accepted Marketing guide
+through the existing provenance workflow.
+
 ## Chat admission and reader lifecycle companions
 
 API #1128 is merged as `8f48a2a1d51264f2ae34a0f21db05bcaeed806ce`, with successful production deployment of that runtime. API #1129 is merged as `971f396bab61b86411199264073aaf436cbbee5b`; the inventory pins this actual contract merge, not a preview candidate. Marketing #230 succeeds Marketing #209 and remains subject to final checks, independent review and merge approval. Retained Docs copies wait for the actual Marketing merge. Existing failed-read and pending-Stop contracts remain intact. Scope is admission 409/retryable 503, exact-single optional query opt-in on POST and reconnect GET, retained manual recovery, and authenticated server Stop distinctions. Source/deployment evidence does not prove authenticated hosted send/reconnect/Stop or real provider cancellation; those acceptance checks and private deployment access remain separate.
