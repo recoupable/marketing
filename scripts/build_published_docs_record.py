@@ -135,4 +135,12 @@ def build_published_docs_record(specs, source, root, schema_hash, response_schem
         for name, method, path in [('start', 'post', '/api/chat'),
                                    ('resume', 'get', '/api/chat/{chatId}/stream')]
     }
+    trailing = research['paths']['/api/chats/{id}/messages/trailing']['delete']
+    record['chatTrailingDelete'] = {
+        'method': 'DELETE', 'path': '/api/chats/{id}/messages/trailing',
+        'description': trailing['description'], 'parameters': trailing['parameters'],
+        'security': trailing['security'],
+        'responseDescriptions': {status: response['description']
+                                 for status, response in trailing['responses'].items()},
+    }
     return record
