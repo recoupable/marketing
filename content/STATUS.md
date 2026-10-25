@@ -1,3 +1,18 @@
+## Optional release-format contract — October 25, 2026
+
+Prepared the canonical Context live-case and saved-review response schemas to accept
+optional saved Spotify release-format observations. The field may be absent before
+separately approved database rollout or in old immutable snapshots; reissue and physical
+format remain unknown. Generated both contract fixtures and llms-full from maintained
+source. API source pin: e24c07c852ee93ef0230c78b0be7ecfeb8f6f561 (API #1021 candidate).
+
+Validation:35 Python contract tests,508 site tests across completed dependency-repaired
+runs,docs generation/checks,inventory/fixture check modes and Node24 production build
+pass. Build used a synthetic public Privy app ID; authentication was not exercised.
+Next:release API #1021 only after root approval,refresh the API merge pin,then publish
+this source and sync the retained Docs copy from the final Marketing commit. Database
+#109 activation is separately gated; no migration or live-account verification occurred.
+
 ## Application proposal preflight documentation — October 25, 2026
 
 Prepared the bounded API #1136 proposal-check reference and standard MCP mapping.
