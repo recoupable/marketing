@@ -64470,6 +64470,10 @@ Source: https://recoupable.dev/docs/api-reference/publishing/stats
 
 Get post stats
 
+## Data coverage
+
+LinkedIn reports organic activity only, within a rolling 12-month window; a post older than 12 months returns what LinkedIn still holds.
+
 ## GET /api/posts/{id}/stats
 
 Full OpenAPI specification: https://recoupable.dev/docs/spec/social.json
