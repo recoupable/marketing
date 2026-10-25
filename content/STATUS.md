@@ -7,12 +7,15 @@ register an application, prove domain ownership, issue application credentials,
 create fan sessions or authorize spending. Existing authentication/account
 provisioning is separate. Delegated OAuth excludes this tool.
 
-This is pending source documentation, not deployed or activated registration.
-Registry persistence, domain proof/reverification, provider configuration, fan
-bootstrap, quotas and spending policy remain separate. Release requires the
-accepted API revision, OAuth review and normal docs publication. Retained Docs
-must be generated from the actual Marketing merge; no hosting operation is part
-of this change.
+API #1136 is merged as `62ea715108de610f7a77f294d335ad9df6f7f0c3`;
+its tree matches the reviewed `f5a0d72af876e857af60624ecfbc5ba7afd0e429`
+candidate. The inventory now pins that actual merge. Hosted availability and
+authenticated behavior remain unverified here, so the public reference stays
+pending. This is not activated registration. Registry persistence, domain
+proof/reverification, provider configuration, fan bootstrap, quotas and spending
+policy remain separate. Marketing #235 requires independent confirmation of this
+pin/status follow-up before release; retained Docs must be generated from the
+actual Marketing merge. No hosting operation is part of this change.
 
 ## Catalog case artifact contracts — October 22, 2026
 
