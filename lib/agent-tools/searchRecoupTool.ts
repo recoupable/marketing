@@ -15,7 +15,7 @@ export const searchRecoupTool: AgentToolDefinition = {
       },
       type: {
         type: "string",
-        enum: ["all", "page", "docs", "blog", "playbook"],
+        enum: ["all", "page", "blog", "playbook"],
         default: "all",
       },
       limit: { type: "integer", minimum: 1, maximum: 10, default: 5 },

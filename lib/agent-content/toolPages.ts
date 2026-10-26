@@ -1,3 +1,4 @@
+import { docsUrl } from "../docsUrl.ts";
 import { workflowPlanCopy } from "../copy/workflow-plan.ts";
 import type { PageSummary } from "./types.ts";
 
@@ -77,7 +78,7 @@ export const toolPages: PageSummary[] = [
     ],
     links: [
       ["Agent access and setup", "/agents"],
-      ["Public documentation", "/docs"],
+      ["Public documentation", docsUrl()],
       ["Authenticated platform tools", "/developers"],
     ],
   },

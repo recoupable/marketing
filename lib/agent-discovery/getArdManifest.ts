@@ -1,3 +1,4 @@
+import { docsUrl } from "../docsUrl.ts";
 import { agentToolDefinitions } from "../agent-tools/agentToolDefinitions.ts";
 import { siteConfig } from "../config.ts";
 import { absoluteUrl } from "../seo.ts";
@@ -42,7 +43,7 @@ export function getArdManifest() {
         "platform-api",
         "Recoup platform API documentation",
         "text/html",
-        absoluteUrl("/docs/api-reference"),
+        docsUrl("/api-reference"),
         "Published platform endpoint references and OpenAPI specifications. Follow each endpoint authentication and permission requirements.",
         [
           "Find the Recoup API for catalog search",
@@ -53,7 +54,7 @@ export function getArdManifest() {
         "platform-mcp-guide",
         "Connect to Recoup platform MCP",
         "text/html",
-        absoluteUrl("/docs/mcp"),
+        docsUrl("/mcp"),
         "Connection instructions for the separate authenticated platform MCP server; this resource is an HTML guide.",
         [
           "Connect my AI client to Recoup MCP",

@@ -21,8 +21,8 @@ Historical brand strategy does not prescribe a replacement hero or menu.
 | Navigation and homepage | [`lib/copy/navigation.ts`](../../lib/copy/navigation.ts), [`lib/copy/home.ts`](../../lib/copy/home.ts) | Marketing; align human and Markdown copy |
 | Marketing design and fonts | [`DESIGN.md`](../../DESIGN.md), [`app/globals.css`](../../app/globals.css), [`app/layout.tsx`](../../app/layout.tsx) | Sky design; DM Sans Variable and IBM Plex Mono |
 | Published articles and planning inventory | [`content/blog/posts.json`](../blog/posts.json), [`content/posts/INDEX.md`](../posts/INDEX.md) | Editorial; generate the index after approved source changes |
-| Public platform contracts | [`content/docs/source`](../docs/source), [`AGENTS.md`](../../AGENTS.md) | Author here; API owns behavior; Docs is a pinned compatibility publication |
-| CLI identity and setup | [Maintained CLI guide](../docs/source/cli.mdx) | `@recoupable/cli` package, `recoup` executable; verify registry and installed versions separately |
+| Public platform contracts | [recoupable/docs-site](https://github.com/recoupable/docs-site) | Author in docs-site; API owns behavior |
+| CLI identity and setup | [Maintained CLI guide](https://docs.recoupable.dev/cli) | `@recoupable/cli` package, `recoup` executable; verify registry and installed versions separately |
 | Public website assistant | [`docs/website-agent.md`](../../docs/website-agent.md) | Marketing; public website tools are separate from authenticated platform access |
 | Lead and inquiry delivery | [`lib/leads/postLead.ts`](../../lib/leads/postLead.ts), [`lib/inquiries/saveInquiry.ts`](../../lib/inquiries/saveInquiry.ts) | Marketing forwards to API; API owns CRM storage/notifications |
 | GTM research and tools | [`gtm/AGENTS.md`](../../gtm/AGENTS.md) | Repository context and independent engine, not automatically public content |

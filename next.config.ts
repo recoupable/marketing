@@ -1,6 +1,5 @@
 import type { NextConfig } from "next";
 import { withEve } from "eve/next";
-import { docsVaryHeader } from "./lib/docs/docsVaryHeader";
 import { siteConfig } from "./lib/config";
 
 export const nextConfig: NextConfig = {
@@ -17,12 +16,7 @@ export const nextConfig: NextConfig = {
       "./brand-studio/*.{html,css,js,mjs,json,md}",
       "./brand-studio/assets/**/*.{html,css,js,mjs}",
     ],
-    "/docs/spec/*": ["./content/docs/source/api-reference/openapi/*.json"],
-    "/docs/raw/*": ["./content/docs/source/api-reference/openapi/*.json"],
-    "/agent-api/v1/*": [
-      "./content/docs/source/api-reference/openapi/*.json",
-      "./content/podcast/transcripts/*.json",
-    ],
+    "/agent-api/v1/*": ["./content/podcast/transcripts/*.json"],
   },
   // Legacy URLs resolve to their final page in one 308; keep every destination a real route.
   async redirects() {
@@ -31,6 +25,9 @@ export const nextConfig: NextConfig = {
       { source: "/.well-known/oauth-protected-resource", destination: siteConfig.platformResourceMetadataUrl, permanent: true },
       { source: "/auth.md", destination: siteConfig.platformAgentAuthGuideUrl, permanent: true },
       { source: "/api/v1/:path*", destination: "/agent-api/v1/:path*", permanent: true },
+      // Documentation moved to its own site (recoupable/docs-site); paths are unchanged below the root.
+      { source: "/docs", destination: siteConfig.docsUrl, permanent: true },
+      { source: "/docs/:path*", destination: `${siteConfig.docsUrl}/:path*`, permanent: true },
       { source: "/company-map", destination: "/atlas", permanent: true },
       { source: "/designs/sky", destination: "/", permanent: true },
       { source: "/company/about", destination: "/about", permanent: true },
@@ -84,7 +81,6 @@ export const nextConfig: NextConfig = {
         source: "/agent-api/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }],
       },
-      docsVaryHeader,
       { source: "/:path*", headers: [{ key: "Vary", value: "Accept" }] },
     ];
   },

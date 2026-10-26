@@ -1,7 +1,6 @@
 import { expect, test } from "vitest";
 import { GET as unknownApi, POST as unknownApiPost, OPTIONS as apiOptions } from "../app/api/[[...path]]/route";
 import { GET as unknownAgentApi, OPTIONS as agentApiOptions } from "../app/agent-api/[[...path]]/route";
-import { GET as missingDocs } from "../app/docs/raw/[...slug]/route";
 import { handleAgentRead, handleAgentSearch } from "../lib/agent-http";
 import { websiteOpenAPI } from "../lib/agent-openapi";
 import { getMcpManifest } from "../lib/agent-discovery/getMcpManifest";
@@ -23,13 +22,6 @@ test("unknown API routes and invalid public reads return typed JSON recovery", a
   expect(spec.components.schemas.ErrorResponse.properties.error).toMatchObject({ required: ["code", "message", "resolution"] });
   expect(spec.paths["/read"].get.responses[404].content["application/json"].schema).toEqual({ $ref: "#/components/schemas/ErrorResponse" });
   expect(spec.security).toEqual([]);
-});
-
-test("missing documentation offers Markdown recovery links with a real 404", async () => {
-  const response = await missingDocs(new Request("https://recoupable.dev/docs/raw/missing.md"), { params: Promise.resolve({ slug: ["missing.md"] }) });
-  expect(response.status).toBe(404);
-  expect(response.headers.get("content-type")).toContain("text/markdown");
-  expect(await response.text()).toContain("/sitemap.xml)");
 });
 
 test("unknown-route preflight supports anonymous JSON clients for each supported method", () => {

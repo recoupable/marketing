@@ -1,4 +1,4 @@
-import inventory from "../content/docs/inventory.json" with { type: "json" };
+import { platformSpecifications } from "../lib/agent-discovery/platformSpecifications.ts";
 import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 
@@ -38,7 +38,7 @@ checks.push('Documented public tools and a unique content registry');
 const { data: apiCatalog, response: apiResponse } = await json('/.well-known/api-catalog');
 assert.match(apiResponse.headers.get('content-type'), /profile="https:\/\/www.rfc-editor.org\/info\/rfc9727"/);
 const specLinks = apiCatalog.linkset[0].item;
-assert.equal(specLinks.length, inventory.specifications.length + 1);
+assert.equal(specLinks.length, platformSpecifications.length + 1);
 for (const item of specLinks) {
   const { response, data } = await json(new URL(item.href).pathname);
   assert.equal(response.status, 200);
@@ -61,11 +61,7 @@ assert.ok(follow.results.every(item => !search.results.some(first => first.id ==
 const source = await tool('read_recoup_page', { id: search.results[0].id });
 assert.equal(source.representation, 'summary');
 assert.match(source.markdown, /source|Source/);
-const apiSearch = await tool('search_recoup', { query: 'GET /api/artists', type: 'docs', limit: 1 });
-const apiRead = await tool('read_recoup_page', { id: apiSearch.results[0].id, maxLength: 12_000 });
-assert.match(apiRead.markdown, /GET \/api\/artists/);
-assert.match(apiRead.markdown, /[Aa]uthentication/);
-checks.push('Search, pagination, and source reading complete a service and API lookup');
+checks.push('Search, pagination, and source reading complete a service lookup');
 const estimate = await tool('estimate_workflow_roi', { monthlyHours: 100, hourlyCost: 60, timeReduction: 40, monthlySystemCost: 500, setupCost: 6000 });
 assert.equal(estimate.result.hoursSaved, 40);
 assert.equal(estimate.result.monthlyNetValue, 1900);

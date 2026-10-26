@@ -1,11 +1,12 @@
 import { Fragment, type ReactNode } from "react";
 import { blogPosts } from "@/lib/blog";
+import { siteConfig } from "@/lib/config";
 import { blogImageDescription } from "./blog-image-descriptions";
 
 function articleHref(href: string) {
-  if (/^https?:\/\/(?:developers|docs)\.recoupable\.(?:com|dev)(?=\/|$)/.test(href)) return href.replace(/^https?:\/\/(?:developers|docs)\.recoupable\.(?:com|dev)/, "/docs");
+  if (/^https?:\/\/(?:developers|docs)\.recoupable\.(?:com|dev)(?=\/|$)/.test(href)) return href.replace(/^https?:\/\/(?:developers|docs)\.recoupable\.(?:com|dev)/, siteConfig.docsUrl);
   const normalized = href.replace(/^https?:\/\/(?:www\.)?recoupable\.(?:com|dev)(?=\/|$)/, "") || "/";
-  if (["/", "/blog", "/skills", "/platform", "/developers", "/pricing", "/advisory", "/build", "/roi", "/audit", "/docs", "/contact"].includes(normalized.split(/[?#]/)[0])) return normalized;
+  if (["/", "/blog", "/skills", "/platform", "/developers", "/pricing", "/advisory", "/build", "/roi", "/audit", "/contact"].includes(normalized.split(/[?#]/)[0])) return normalized;
   if (normalized.startsWith("/blog/") && blogPosts.some(({ slug }) => normalized.split(/[?#]/)[0] === `/blog/${slug}`)) return normalized;
   if (normalized.startsWith("/") && !normalized.startsWith("//")) return `https://recoupable.dev${normalized}`;
   return /^(https?:\/\/|#|mailto:)/.test(href) ? href : "#";

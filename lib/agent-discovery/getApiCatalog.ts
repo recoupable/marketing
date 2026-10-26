@@ -1,4 +1,5 @@
-import inventory from "../../content/docs/inventory.json" with { type: "json" };
+import { docsUrl } from "../docsUrl.ts";
+import { platformSpecifications } from "./platformSpecifications.ts";
 import { absoluteUrl } from "../seo.ts";
 import { discoveryPaths } from "./discoveryPaths.ts";
 
@@ -13,8 +14,8 @@ export function getApiCatalog() {
             type: "application/json",
             title: "Recoup website API: public reading and utilities",
           },
-          ...inventory.specifications.map((name) => ({
-            href: absoluteUrl(`/docs/spec/${name}`),
+          ...platformSpecifications.map((name) => ({
+            href: docsUrl(`/spec/${name}`),
             type: "application/json",
             title: `Recoup platform API: ${name.replace(".json", "")}`,
           })),
@@ -40,14 +41,14 @@ export function getApiCatalog() {
       },
       {
         anchor: "https://api.recoupable.dev/api",
-        "service-desc": inventory.specifications.map((name) => ({
-          href: absoluteUrl(`/docs/spec/${name}`),
+        "service-desc": platformSpecifications.map((name) => ({
+          href: docsUrl(`/spec/${name}`),
           type: "application/json",
         })),
         "service-doc": [
-          { href: absoluteUrl("/docs"), type: "text/html" },
-          { href: absoluteUrl("/docs/authentication"), type: "text/html" },
-          { href: absoluteUrl("/docs/sdks"), type: "text/html" },
+          { href: docsUrl(), type: "text/html" },
+          { href: docsUrl("/authentication"), type: "text/html" },
+          { href: docsUrl("/sdks"), type: "text/html" },
         ],
         "terms-of-service": [
           { href: absoluteUrl("/terms"), type: "text/html" },

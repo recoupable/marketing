@@ -1,6 +1,6 @@
-import { negotiateDocsMarkdown } from "./docs/negotiateDocsMarkdown.ts";
+import { prefersMarkdown } from "./prefersMarkdown.ts";
 
-/** Reuse docs media-type preferences without importing the content corpus into Proxy. */
+/** Markdown rewrite target for a public page, without importing the content corpus into Proxy. */
 export function negotiatePageMarkdown(pathname: string, accept: string | null) {
   if (
     pathname === "/agents.md" ||
@@ -15,14 +15,10 @@ export function negotiatePageMarkdown(pathname: string, accept: string | null) {
   // Brand Studio's catch-all serves existing Markdown assets, not page summaries.
   if (path.startsWith("/brand/") && !["/brand/carousels", "/brand/experiments"].includes(path))
     return null;
-  // Keep existing docs downloads/specifications and the playbook asset intact.
-  if (
-    /^\/docs(?:\/|$)/.test(path) &&
-    !["/docs", "/docs/api-reference"].includes(path)
-  )
-    return null;
+  // /docs/* redirects to docs.recoupable.dev (next.config.ts); keep the playbook asset intact.
+  if (/^\/docs(?:\/|$)/.test(path)) return null;
   if (path === "/playbook/recoup-ai-music-playbook") return null;
-  if (!explicit && !negotiateDocsMarkdown("/docs/index", accept)) return null;
+  if (!explicit && !prefersMarkdown(accept)) return null;
   const sourcePath =
     explicit && path === "/index"
       ? "/"

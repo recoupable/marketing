@@ -18,11 +18,11 @@ export async function searchAgentContent(input: AgentSearchInput) {
     );
   if (
     input.type !== undefined &&
-    !["all", "page", "docs", "blog", "playbook"].includes(input.type)
+    !["all", "page", "blog", "playbook"].includes(input.type)
   )
     throw new AgentContentError(
       "INVALID_TYPE",
-      "Choose all, page, docs, blog, or playbook.",
+      "Choose all, page, blog, or playbook.",
     );
   const limit = input.limit === undefined ? 5 : input.limit;
   if (!Number.isInteger(limit) || limit < 1 || limit > 10)

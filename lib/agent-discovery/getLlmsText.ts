@@ -1,3 +1,4 @@
+import { docsUrl } from "../docsUrl.ts";
 import { siteConfig } from "../config.ts";
 import { absoluteUrl } from "../seo.ts";
 import { accessNotes } from "./accessNotes.ts";
@@ -29,20 +30,20 @@ ${getWhenToUseGuidance()}
 - [Public content and tool catalog](${absoluteUrl(discoveryPaths.catalog)}): Content IDs, canonical URLs, and tool input schemas.
 - [Public website MCP manifest](${absoluteUrl("/.well-known/mcp.json")}): Five anonymous website tools at /mcp.
 - [Website OpenAPI](${absoluteUrl(discoveryPaths.openapi)}): Public search, reading, and utility endpoints; no account key required.
-- [Documentation](${absoluteUrl("/docs")}): Platform guides and endpoint references.
-- [Recoup SDKs](${absoluteUrl("/docs/sdks")}): Official published Python and Go SDKs and the npm CLI, with authentication and response handling.
+- [Documentation](${docsUrl()}): Platform guides and endpoint references.
+- [Recoup SDKs](${docsUrl("/sdks")}): Official published Python and Go SDKs and the npm CLI, with authentication and response handling.
 - [Recoup Python SDK 0.1.0](https://pypi.org/project/recoupable/0.1.0/): Install with pip install recoupable==0.1.0.
 - [Recoup Go SDK v0.1.0](https://pkg.go.dev/github.com/recoupable/marketing/sdk/go@v0.1.0): Published Go module and API reference.
-- [Complete documentation index](${absoluteUrl("/docs/llms.txt")}): A link to every platform guide and API operation. Use website search to find a specific task.
+- [Documentation index](${docsUrl("/llms.txt")}): Agent entry point for the platform documentation, with [every page as one file](${docsUrl("/llms-full.txt")}).
 - [API catalog](${absoluteUrl(discoveryPaths.apiCatalog)}): Website API and the platform's published OpenAPI specifications.
-- [Marketing context summaries and full documentation](${absoluteUrl(discoveryPaths.summaries)}): Expanded navigation context followed by every documentation page as markdown.
+- [Marketing context summaries](${absoluteUrl(discoveryPaths.summaries)}): Expanded navigation context for the website pages.
 
 ## Find and read
 
 Search: GET ${absoluteUrl("/agent-api/v1/search")}?query=royalty&type=all&limit=5
 Read: GET ${absoluteUrl("/agent-api/v1/read")}?id=<ID_FROM_SEARCH>&offset=0&maxLength=6000
 
-Search returns IDs and continuation cursors. Reading returns a bounded text representation with continuation offsets. Follow those when more content is needed; retain the returned canonical URL when citing a page. The catalog's representation field distinguishes page summaries from article or documentation text.
+Search returns IDs and continuation cursors. Reading returns a bounded text representation with continuation offsets. Follow those when more content is needed; retain the returned canonical URL when citing a page. The catalog's representation field distinguishes page summaries from article text.
 
 ## Services and public pages
 

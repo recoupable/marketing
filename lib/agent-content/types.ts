@@ -1,4 +1,4 @@
-export type AgentContentType = "page" | "docs" | "blog" | "playbook";
+export type AgentContentType = "page" | "blog" | "playbook";
 export type AgentContentMetadata = {
   id: string;
   type: AgentContentType;

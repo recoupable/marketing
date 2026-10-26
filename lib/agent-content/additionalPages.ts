@@ -1,3 +1,4 @@
+import { docsUrl } from "../docsUrl.ts";
 import { siteConfig } from "../config.ts";
 import type { PageSummary } from "./types.ts";
 
@@ -98,7 +99,7 @@ export const additionalPages: PageSummary[] = [
       ["Valuation", "/valuation"],
       ["Playbook", "/playbook"],
       ["Blog", "/blog"],
-      ["Docs", "/docs"],
+      ["Docs", docsUrl()],
       ["Skills", "/skills"],
       ["Compare", "/compare"],
     ],
@@ -146,7 +147,7 @@ export const additionalPages: PageSummary[] = [
       ["Platform", "/platform"],
       ["Skills", "/skills"],
       ["Build", "/build"],
-      ["API documentation", "/docs"],
+      ["API documentation", docsUrl()],
       ["Advisory", "/advisory"],
     ],
   },

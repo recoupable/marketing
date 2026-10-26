@@ -37,8 +37,6 @@ export const siteConfig = {
   appUrl: "https://app.recoupable.dev",
   apiUrl,
   docsUrl: "https://docs.recoupable.dev",
-  /** In-site documentation route. */
-  docsPath: "/docs",
   platformMcpUrl: "https://api.recoupable.dev/mcp",
   platformOAuthMetadataUrl: "https://api.recoupable.dev/.well-known/oauth-authorization-server/api/oauth",
   platformResourceMetadataUrl: "https://api.recoupable.dev/.well-known/oauth-protected-resource/mcp",

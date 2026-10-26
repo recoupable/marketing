@@ -1,3 +1,4 @@
+import { docsUrl } from "../docsUrl.ts";
 import { absoluteUrl } from "../seo.ts";
 import { accessNotes } from "./accessNotes.ts";
 import type { DiscoveryContent } from "./DiscoveryContent.ts";
@@ -14,7 +15,7 @@ export function getLlmsFullText(
 
 > ${introduction}
 
-Scope: this file opens with the marketing page summaries used by the public content index, then carries the complete platform documentation, page by page, as served at each page's Source URL. The summaries are not the full text of the website, blog, or playbook. For authoritative detail on those, read the canonical page or use the content reading endpoint with an ID from search.
+Scope: this file carries the marketing page summaries used by the public content index. Platform documentation lives at ${docsUrl()}; its complete text is ${docsUrl("/llms-full.txt")}. The summaries are not the full text of the website, blog, or playbook. For authoritative detail on those, read the canonical page or use the content reading endpoint with an ID from search.
 
 ${pages.map((item) => `## ${oneLine(item.title)}\n\nContent ID: ${item.id}\n\n${summaries[item.id]?.replace(/^# [^\n]+\n*/, "") || `Canonical page: ${absoluteUrl(item.url)}\n\n${oneLine(item.description)}`}`).join("\n\n")}
 
@@ -22,7 +23,7 @@ ${pages.map((item) => `## ${oneLine(item.title)}\n\nContent ID: ${item.id}\n\n${
 
 [Search published content](${absoluteUrl("/agent-api/v1/search")}?query=royalty&type=all&limit=5), then pass a returned ID to ${absoluteUrl("/agent-api/v1/read")}. A response states its representation and provides a continuation offset when applicable.
 
-[Tool and content catalog](${absoluteUrl(discoveryPaths.catalog)}) | [Documentation](${absoluteUrl("/docs")}) | [Website OpenAPI](${absoluteUrl(discoveryPaths.openapi)})
+[Tool and content catalog](${absoluteUrl(discoveryPaths.catalog)}) | [Documentation](${docsUrl()}) | [Website OpenAPI](${absoluteUrl(discoveryPaths.openapi)})
 
 ${accessNotes()}
 `;

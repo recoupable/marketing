@@ -1,3 +1,4 @@
+import { docsUrl } from "@/lib/docsUrl";
 import { AppLink } from "@/components/analytics/AppLink";
 import { withPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -22,9 +23,9 @@ const firstRequest = [
 ].join("\n");
 
 const interfaces = [
-  { name: "REST API", icon: "api", description: "Put artist context, research, and music-business actions inside your application.", href: siteConfig.docsPath, link: "Read the API docs" },
-  { name: "MCP", icon: "mcp", description: "Give compatible AI clients access to Recoup’s music-native tools.", href: `${siteConfig.docsPath}/mcp`, link: "Connect your agent" },
-  { name: "CLI", icon: "cli", description: "Work from your terminal and bring structured output into your automations.", href: `${siteConfig.docsPath}/cli`, link: "Explore the CLI" },
+  { name: "REST API", icon: "api", description: "Put artist context, research, and music-business actions inside your application.", href: siteConfig.docsUrl, link: "Read the API docs" },
+  { name: "MCP", icon: "mcp", description: "Give compatible AI clients access to Recoup’s music-native tools.", href: `${siteConfig.docsUrl}/mcp`, link: "Connect your agent" },
+  { name: "CLI", icon: "cli", description: "Work from your terminal and bring structured output into your automations.", href: `${siteConfig.docsUrl}/cli`, link: "Explore the CLI" },
   { name: "Skills", icon: "skills", description: "Add complete methods for music-industry jobs to an agent’s toolkit.", href: "/skills", link: "Explore Recoup Skills" },
 ] as const;
 
@@ -48,7 +49,7 @@ function FirstRequest() {
 export default function DevelopersPage() {
   return <div className="sky-subpage developers-sky">
     <PageHero eyebrow="RECOUP FOR DEVELOPERS" title={<>Music tools.<br />Your stack.</>} description="Bring Recoup into your application, agent, or automation. Use the API, MCP server, CLI, and open-source Skills." tone="light" visual={<FirstRequest />}>
-      <PageButton href={siteConfig.docsPath}>Read the documentation</PageButton>
+      <PageButton href={siteConfig.docsUrl}>Read the documentation</PageButton>
       <AppLink placement="developers" path="/keys" cta="api_key" className="sp-button sp-button-secondary">Get your API key<span><SkyArrow /></span></AppLink>
     </PageHero>
 
@@ -66,12 +67,12 @@ export default function DevelopersPage() {
 
     <PageSection className="developer-catalog" eyebrow="THE BUILDING BLOCKS" title={<>Music context.<br />Useful actions.</>} description="Go straight to the capabilities your workflow needs. Each reference includes the request, parameters, and response.">
       <div className="developer-capability-index" data-reveal-group="">{[
-        { title: "Artists & catalogs", description: "Artist profiles, songs, and the information around your roster.", href: "/docs/api-reference/artists/list", label: "Artist reference" },
-        { title: "Research & analysis", description: "Web research and source material to inform the next decision.", href: "/docs/api-reference/research/web", label: "Research reference" },
-        { title: "Content & media", description: "Image generation and campaign material inside your application.", href: "/docs/api-reference/content/generate-image", label: "Content reference" },
-        { title: "Conversations", description: "Create chats, stream responses, and work with conversation history.", href: "/docs/api-reference/chat/create", label: "Chat reference" },
-        { title: "Recurring work", description: "Set up tasks and inspect the results of recurring work.", href: "/docs/api-reference/tasks/create", label: "Task reference" },
-        { title: "Connections", description: "Connect the services your workflow needs with authorized access.", href: "/docs/api-reference/connectors/list", label: "Connector reference" },
+        { title: "Artists & catalogs", description: "Artist profiles, songs, and the information around your roster.", href: docsUrl("/api-reference/artists/list"), label: "Artist reference" },
+        { title: "Research & analysis", description: "Web research and source material to inform the next decision.", href: docsUrl("/api-reference/research/web"), label: "Research reference" },
+        { title: "Content & media", description: "Image generation and campaign material inside your application.", href: docsUrl("/api-reference/content/generate-image"), label: "Content reference" },
+        { title: "Conversations", description: "Create chats, stream responses, and work with conversation history.", href: docsUrl("/api-reference/chat/create"), label: "Chat reference" },
+        { title: "Recurring work", description: "Set up tasks and inspect the results of recurring work.", href: docsUrl("/api-reference/tasks/create"), label: "Task reference" },
+        { title: "Connections", description: "Connect the services your workflow needs with authorized access.", href: docsUrl("/api-reference/connectors/list"), label: "Connector reference" },
       ].map((item, index) => <Link className="developer-capability-row" href={item.href} key={item.href}>
         <span className="developer-index-number" aria-hidden="true">0{index + 1}</span>
         <div><h3>{item.title}</h3><p>{item.description}</p><span className="developer-index-label">{item.label}</span></div><SkyArrow />

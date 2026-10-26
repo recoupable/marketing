@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import type { BlogPost } from "./blog";
-import type { DocPage } from "./docs";
 
 const absolute = (path: string, siteUrl: string) => new URL(path, `${siteUrl.replace(/\/$/, "")}/`).href;
 
@@ -139,55 +138,4 @@ export function relatedBlogPosts(post: BlogPost, posts: readonly BlogPost[], lim
   return posts.filter(candidate => candidate.slug !== post.slug)
     .sort((a, b) => score(b) - score(a) || b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug))
     .slice(0, limit);
-}
-
-function docsDescription(page?: DocPage) {
-  const description = (page?.description || "Explore the Recoup API: artist accounts, research, content creation, catalog tools, and integrations.")
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/[*`#]/g, "").replace(/\s+/g, " ").trim();
-  if (description.length <= 240) return description;
-  const end = description.lastIndexOf(" ", 237);
-  return `${description.slice(0, end > 0 ? end : 237)}…`;
-}
-
-function docsTitle(page?: DocPage) {
-  if (!page) return "API reference";
-  // Three endpoint labels occur on different operations. The actual request
-  // distinguishes search results without renaming the underlying API.
-  return page.api && ["Generate Image", "Transcribe Audio", "List Templates"].includes(page.title)
-    ? `${page.title}: ${page.api.method} ${page.api.path}`
-    : page.title;
-}
-
-export function documentationMetadata(page: DocPage | undefined, key: string, siteUrl: string): Metadata {
-  const title = docsTitle(page);
-  const description = docsDescription(page);
-  const url = absolute(key ? `/docs/${key}` : "/docs", siteUrl);
-  const image = absolute("/opengraph-image", siteUrl);
-  return {
-    title: `${title} | Docs`, description, alternates: { canonical: url, ...(key !== "api-reference" ? { types: { "text/markdown": absolute(`/docs/raw/${key || "index"}.md`, siteUrl) } } : {}) },
-    openGraph: { title: `${title} | Recoup Docs`, description, url, siteName: "Recoup", locale: "en_US", type: "website", images: [{ url: image, alt: "Recoup: AI transformation for music" }] },
-    twitter: { card: "summary_large_image", title: `${title} | Recoup Docs`, description, images: [image] },
-  };
-}
-
-export function documentationJsonLd(page: DocPage | undefined, key: string, siteUrl: string) {
-  const url = absolute(key ? `/docs/${key}` : "/docs", siteUrl);
-  const title = page?.title || "API reference";
-  // Categories organize the sidebar, but are not routable pages. Breadcrumbs
-  // include only real destinations and the API overview when appropriate.
-  const crumbs = [{ name: "Home", url: absolute("/", siteUrl) }, { name: "Docs", url: absolute("/docs", siteUrl) }];
-  if (page?.api) crumbs.push({ name: "API reference", url: absolute("/docs/api-reference", siteUrl) });
-  if (key) crumbs.push({ name: title, url });
-  return {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": !key || key === "api-reference" ? "CollectionPage" : "TechArticle", "@id": !key || key === "api-reference" ? url : `${url}#article`,
-        headline: title, name: title, description: docsDescription(page), url,
-        inLanguage: "en", publisher: { "@id": absolute("/#organization", siteUrl) },
-        ...(page && key ? { articleSection: page.category, mainEntityOfPage: { "@type": "WebPage", "@id": url } } : {}),
-      },
-      breadcrumb(crumbs, `${url}#breadcrumb`),
-    ],
-  };
 }
