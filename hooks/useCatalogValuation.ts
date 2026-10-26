@@ -74,7 +74,7 @@ export function useCatalogValuation(): CatalogValuationState {
     try {
       const token = await getAccessToken();
       // One bearer-authed call materializes the catalog, links the artist to the
-      // roster, and returns the value band (docs#272) — the browser no longer
+      // roster, and returns the value band (docs-legacy#272) — the browser no longer
       // orchestrates, links, or claims.
       const runResult = await runValuation(artist.id, token);
       setResult(runResult);

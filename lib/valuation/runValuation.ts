@@ -1,7 +1,7 @@
 import type { Result } from "@/components/valuation/types";
 import { siteConfig } from "@/lib/config";
 
-/** Raw `POST /api/valuation` envelope (docs#272). */
+/** Raw `POST /api/valuation` envelope (docs-legacy#272). */
 type ValuationResponse = {
   catalog?: { id?: string } | null;
   band?: { low: number; mid: number; high: number } | null;
@@ -21,7 +21,7 @@ function messageForStatus(status: number): string {
 
 /**
  * Run one catalog valuation through the consolidated, bearer-authed recoup-api
- * endpoint (`POST /api/valuation { spotify_artist_id }`, docs#272; handler
+ * endpoint (`POST /api/valuation { spotify_artist_id }`, docs-legacy#272; handler
  * api/lib/valuation/runValuationHandler.ts). One synchronous call replaces the
  * old client-side orchestration (resolve → measure → poll → compute → claim):
  * the endpoint spends the signed-in account's credits, materializes the catalog,
