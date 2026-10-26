@@ -43,8 +43,11 @@ export function createInquiryHandler(options: InquiryOptions) {
     } catch (error) {
       const status = error instanceof InquiryError ? error.status : 503;
       const message = error instanceof InquiryError ? error.message : InquiryError.unavailable().message;
+      const code = error instanceof InquiryError ? error.code
+        : error instanceof Error && error.name === "TimeoutError" ? "timeout" : "unavailable";
       // Deliberately do not log request bodies, provider errors, or credentials.
-      return Response.json({ ok: false, error: message }, { status, headers });
+      console.warn("[inquiries] rejected", { status, code });
+      return Response.json({ ok: false, error: message, code }, { status, headers });
     }
   };
 }

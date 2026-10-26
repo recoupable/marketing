@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { createInquiryHandler } from "../createInquiryHandler";
 
 const now = 1_800_000_000_000;
@@ -29,6 +29,32 @@ function handler() {
 }
 
 describe("createInquiryHandler", () => {
+  it("distinguishes validation and blocked requests without forwarding either to the CRM", async () => {
+    const { handle, calls } = handler();
+    const warning = vi.spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      expect(await (await handle(request({ ...valid, email: "invalid" }))).json()).toMatchObject({ ok: false, code: "validation" });
+      expect(await (await handle(request({ ...valid, website: "https://spam.test" }))).json()).toMatchObject({ ok: false, code: "blocked" });
+      expect(calls).toHaveLength(0);
+      expect(JSON.stringify(warning.mock.calls)).not.toContain(valid.email);
+      expect(JSON.stringify(warning.mock.calls)).not.toContain("spam.test");
+      expect(warning).toHaveBeenCalledWith("[inquiries] rejected", { status: 400, code: "blocked" });
+    } finally { warning.mockRestore(); }
+  });
+
+  it.each([
+    [new DOMException("Timed out", "TimeoutError"), "timeout"],
+    [new Error("provider payload including private@example.com"), "unavailable"],
+  ])("returns safe diagnostics for transport errors", async (error, code) => {
+    const handle = createInquiryHandler({ getApiUrl: () => "https://api.recoup.test/api", now: () => now, fetch: async () => { throw error; } });
+    const warning = vi.spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      const response = await handle(request(valid));
+      expect(response.status).toBe(503);
+      expect(await response.json()).toMatchObject({ ok: false, code });
+      expect(JSON.stringify(warning.mock.calls)).not.toContain("private@example.com");
+    } finally { warning.mockRestore(); }
+  });
   it("forwards the page the visitor submitted from as the lead source", async () => {
     const { handle, calls } = handler();
     expect((await handle(request(valid))).status).toBe(200);
