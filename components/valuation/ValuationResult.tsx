@@ -11,7 +11,7 @@ type ValuationResultProps = {
 /**
  * The full result card: artist identity, valuation band, what-we-measured
  * signal, honest-limits disclosure, and the product CTA. The valuation runs
- * fully server-side (`POST /api/valuation`, docs#272), which returns the band
+ * fully server-side (`POST /api/valuation`, docs-legacy#272), which returns the band
  * and the number of tracks measured — no per-release breakdown to render.
  */
 export function ValuationResult({ artist, result }: ValuationResultProps) {

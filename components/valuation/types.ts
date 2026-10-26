@@ -3,7 +3,7 @@ export type Artist = { id: string; name: string; image?: string; followers?: num
 export type Band = { low: number; central: number; high: number };
 
 /**
- * A completed valuation run, as returned by `POST /api/valuation` (docs#272)
+ * A completed valuation run, as returned by `POST /api/valuation` (docs-legacy#272)
  * and mapped in `lib/valuation/runValuation`. The endpoint materializes the
  * catalog and computes the band server-side, so the client only carries what
  * the result card renders — no per-album/per-track breakdown is returned.
