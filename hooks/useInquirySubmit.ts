@@ -7,6 +7,7 @@ import { currentReferralAttribution } from "@/lib/attribution/currentReferralAtt
 import { inquiryMessageWithContext } from "@/lib/attribution/inquiryMessageWithContext";
 import { prepareInquiryEmail } from "@/lib/inquiry/prepareInquiryEmail";
 import { readInquiryReceipt } from "@/lib/inquiry/readInquiryReceipt";
+import { readInquiryFailure } from "@/lib/inquiry/readInquiryFailure";
 import type { InquirySource } from "@/lib/inquiry/inquirySourceSchema";
 import { validateLeadQualification, type LeadQualification } from "@/lib/lead-qualification";
 import { siteConfig } from "@/lib/config";
@@ -20,6 +21,7 @@ const qualificationKeys = ["companyType", "role", "companyWebsite", "phone", "bu
 /** Owns the submission lifecycle and the funnel events tied to it; no visitor details reach analytics. */
 export function useInquirySubmit({ source, plan, connected, qualified, compact = false, websitePath, pricingContext }: Options) {
   const startedAt = useRef(0);
+  const pending = useRef(false);
   const [status, setStatus] = useState<InquiryStatus>("idle");
   const [preparedEmail, setPreparedEmail] = useState<PreparedEmail | null>(null);
   const [qualificationError, setQualificationError] = useState<string | null>(null);
@@ -44,7 +46,8 @@ export function useInquirySubmit({ source, plan, connected, qualified, compact =
   }
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (status === "sending") return;
+    if (pending.current || status === "sending") return;
+    markStarted();
     const fields = Object.fromEntries(new FormData(event.currentTarget).entries());
     const text = (key: string) => String(fields[key] ?? "");
     let qualification: LeadQualification | undefined;
@@ -53,7 +56,7 @@ export function useInquirySubmit({ source, plan, connected, qualified, compact =
         qualification = validateLeadQualification(Object.fromEntries(qualificationKeys.map((key) => [key, text(key)])), { requireCompanyType: !compact });
       } catch (error) {
         setQualificationError(error instanceof Error ? error.message : "Please check the company and project details.");
-        trackEvent("inquiry_failed", { source, reason: "validation" });
+        trackEvent("inquiry_rejected", { source, reason: "validation", http_status: 0 });
         return;
       }
     }
@@ -68,17 +71,23 @@ export function useInquirySubmit({ source, plan, connected, qualified, compact =
       setStatus("email");
       return;
     }
+    // A ref closes the interval before React rerenders the disabled button.
+    pending.current = true;
     setStatus("sending");
+    setQualificationError(null);
     try {
       const response = await fetch("/api/inquiries", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, source, website: text("website"), startedAt: startedAt.current || Date.now() - 5000 }),
-        signal: AbortSignal.timeout(20000),
+        // Give the server's 20-second upstream timeout time to return its diagnosis.
+        signal: AbortSignal.timeout(25000),
       });
       const receipt = await readInquiryReceipt(response);
       if (!receipt) {
-        trackEvent("inquiry_failed", { source, reason: "rejected" });
+        const failure = await readInquiryFailure(response);
+        trackEvent(failure.event, { source, reason: failure.reason, http_status: response.status });
+        setQualificationError(failure.message);
         setStatus("error");
         return;
       }
@@ -92,6 +101,8 @@ export function useInquirySubmit({ source, plan, connected, qualified, compact =
       const timedOut = error instanceof DOMException && error.name === "TimeoutError";
       trackEvent("inquiry_failed", { source, reason: timedOut ? "timeout" : "network" });
       setStatus("error");
+    } finally {
+      pending.current = false;
     }
   }
   return { status, preparedEmail, qualificationError, submit, reset, clearFeedback, markStarted };
