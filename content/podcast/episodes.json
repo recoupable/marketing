@@ -1,5 +1,37 @@
 [
   {
+    "slug": "zac-kubilus",
+    "title": "From a #4 country album to box fans",
+    "guest": "Zac Kubilus",
+    "role": "Producer and founder, Sleep Sounds",
+    "date": "2026-11-08",
+    "durationSeconds": 1437,
+    "cover": "/podcast/zac-kubilus-wide.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/episode/2Rmbz625NsqPGqvbBFCm1j",
+      "youtube": "https://www.youtube.com/watch?v=hfAY1PN-t9Q"
+    },
+    "summary": [
+      "Zac Kubilus produced Frank Foster's Rhythm and Whiskey, which reached #4 on Billboard's Top Country Albums in 2014. In 2016 he recorded a $15 box fan from Walmart and put it online. Today his top tracks are box fans, and Sleep Sounds is his full-time work.",
+      "Zac owns his recordings, his rights and his management, so he can try a new channel as soon as it opens. When Alexa arrived, Sleep Sounds became an Alexa skill. He explains why one owner now releases under three artist names after Amazon called \"Sleep Sounds\" too generic, and why the rules for functional audio now change in weeks or days instead of years.",
+      "We also cover whether AI companies should train on a catalog (his answer: it's up to the owner), whether an owner should train a model on recordings they own, Nashville writers demoing with Suno, whether AI output needs a label, and what selling direct has taught him that streaming didn't."
+    ],
+    "guestLinks": [
+      {
+        "label": "Sleep Sounds",
+        "href": "https://sleepsounds.org/"
+      },
+      {
+        "label": "Sleep Music app",
+        "href": "https://sleepmusicapp.com/"
+      },
+      {
+        "label": "Sleepy Buddy on Amazon Music",
+        "href": "https://music.amazon.com/artists/B0GLYLSGP9/sleepy-buddy"
+      }
+    ]
+  },
+  {
     "slug": "ali-lieberman",
     "title": "Nobody actually wants a marketing plan",
     "guest": "Ali Lieberman",
@@ -140,30 +172,6 @@
       {
         "label": "Spotify",
         "href": "https://open.spotify.com/artist/7c34Wg8HcWO9BWhHLwiXsr"
-      }
-    ]
-  },
-  {
-    "slug": "nick-merich",
-    "title": "Growing a music platform: what worked at Mint Songs",
-    "guest": "Nick Merich",
-    "role": "Head of Growth, Mint Songs",
-    "date": "2022-07-04",
-    "durationSeconds": 3827,
-    "cover": "/podcast/nick-merich-wide.jpg",
-    "links": {
-      "spotify": "https://open.spotify.com/episode/2BGKNlumOWCEdpcZMMnh2O",
-      "youtube": "https://www.youtube.com/watch?v=0TFRtda1xHg",
-      "apple": "https://podcasts.apple.com/us/podcast/growing-a-music-platform-what-worked-at-mint-songs/id1316209308?i=1000568762506"
-    },
-    "summary": [
-      "Nick Merich ran growth at Mint Songs while it went from a first release to a second protocol version on Ethereum. Fresh from NFT NYC, he lays out the parts of growth that were repeatable: how the team chose which artists to launch, what a release week looked like operationally, which metrics they reported to investors and which they ignored, and what a platform owes the artists who trust it with their first sale.",
-      "A candid account of building distribution from zero, from the person who had to make the numbers move."
-    ],
-    "guestLinks": [
-      {
-        "label": "X",
-        "href": "https://twitter.com/Nick_Merich"
       }
     ]
   }
