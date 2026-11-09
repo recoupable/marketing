@@ -1,4 +1,4 @@
-import type { Artist } from "@/components/valuation/types";
+import type { Artist } from "@/lib/valuation/types";
 import { formatCompact } from "@/lib/valuation/formatCompact";
 
 /**

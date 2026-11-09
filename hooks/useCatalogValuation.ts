@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePrivy } from "@privy-io/react-auth";
-import type { Artist, Result } from "@/components/valuation/types";
+import type { Artist, Result } from "@/lib/valuation/types";
 import { runValuation } from "@/lib/valuation/runValuation";
 import { trackEvent } from "@/lib/analytics/trackEvent";
 

@@ -1,4 +1,4 @@
-import type { Artist, Result } from "@/components/valuation/types";
+import type { Artist, Result } from "@/lib/valuation/types";
 import { ArtistHeader } from "@/components/valuation/ArtistHeader";
 import { GetFullReportCta } from "@/components/valuation/GetFullReportCta";
 import { formatUsd } from "@/lib/valuation/formatUsd";
