@@ -1,5 +1,66 @@
 [
   {
+    "slug": "zac-kubilus",
+    "title": "From a #4 country album to box fans",
+    "guest": "Zac Kubilus",
+    "role": "Producer · Founder, Sleep Sounds",
+    "date": "2026-11-08",
+    "durationSeconds": 1437,
+    "cover": "/podcast/zac-kubilus-wide.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/episode/2Rmbz625NsqPGqvbBFCm1j",
+      "youtube": "https://www.youtube.com/watch?v=hfAY1PN-t9Q"
+    },
+    "summary": [
+      "Zac Kubilus produced Frank Foster's Rhythm and Whiskey, which reached #4 on Billboard's Top Country Albums in 2014. In 2016 he recorded a $15 box fan from Walmart and put it online. Today his top tracks are box fans, and Sleep Sounds is his full-time work.",
+      "Zac owns his recordings, his rights and his management, so he can try a new channel as soon as it opens. When Alexa arrived, Sleep Sounds became an Alexa skill. He explains why one owner now releases under three artist names after Amazon called \"Sleep Sounds\" too generic, and why the rules for functional audio now change in weeks or days instead of years.",
+      "We also cover whether AI companies should train on a catalog (his answer: it's up to the owner), whether an owner should train a model on recordings they own, Nashville writers demoing with Suno, whether AI output needs a label, and what selling direct has taught him that streaming didn't."
+    ],
+    "guestLinks": [
+      {
+        "label": "Sleep Sounds",
+        "href": "https://sleepsounds.org/"
+      },
+      {
+        "label": "Sleep Music app",
+        "href": "https://sleepmusicapp.com/"
+      },
+      {
+        "label": "Sleepy Buddy on Amazon Music",
+        "href": "https://music.amazon.com/artists/B0GLYLSGP9/sleepy-buddy"
+      }
+    ]
+  },
+  {
+    "slug": "tom-sarig",
+    "title": "The lower multiple you pay, the more room to be wrong",
+    "guest": "Tom Sarig",
+    "role": "Founder, AntiFragile Equity Partners",
+    "date": "2026-11-01",
+    "durationSeconds": 1718,
+    "cover": "/podcast/tom-sarig-wide.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/episode/3yGIfiTnDIxHOfesREt9NJ",
+      "youtube": "https://www.youtube.com/watch?v=THwkGOP-3og"
+    },
+    "summary": [
+      "\"The lower multiple you pay, the more room you have to be wrong,\" says Tom Sarig, founder of AntiFragile Equity Partners, which buys catalogs from artists earning $100,000 to $1 million a year. He aims for 5x to 10x, runs a valuation in-house with his CFO, and must get a third-party valuation before he can draw on his credit line.",
+      "Tom managed Lou Reed, and he is precise about where that money came from: Walk on the Wild Side and Perfect Day earned about $1.5 million a year, \"100% sync.\" From his label years he tells how Cannons' \"Fire For You\" went into Netflix's Never Have I Ever for \"like $3,000 a side\" and, in his telling, went from about half a million streams to 50 or 60 million.",
+      "Then the plan for Hot Vibes, the European dance catalog his firm bought: about 180 songs earning close to $400,000 a year, 19 ideas to grow it (SoundExchange registration, Musicbed micro sync, a sync rep, paid social), a hoped-for 10 to 15% a year, and AI remixes that could take it to 500 songs by the end of next year, as long as the melody and lyrics are \"not composed by a computer.\"",
+      "We also cover why he buys the whole album where, as he sees it, Duetti buys the one biggest track, how he screens for bot streams (four or five years of history, nothing declining more than about 5%), and whether Duetti's index of 3.8x to 10.2x matches what he pays: \"That's about right.\""
+    ],
+    "guestLinks": [
+      {
+        "label": "AntiFragile Equity Partners",
+        "href": "https://www.antifragilemusic.com/equitypartners"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/tomsarig"
+      }
+    ]
+  },
+  {
     "slug": "ali-lieberman",
     "title": "Nobody actually wants a marketing plan",
     "guest": "Ali Lieberman",
