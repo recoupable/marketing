@@ -175,57 +175,5 @@
         "href": "https://www.linkedin.com/in/vnauman"
       }
     ]
-  },
-  {
-    "slug": "xcelencia",
-    "title": "The $100K playbook of an independent artist",
-    "guest": "Xcelencia",
-    "role": "Independent artist and technologist",
-    "date": "2024-12-08",
-    "durationSeconds": 2437,
-    "cover": "/podcast/xcelencia-wide.jpg",
-    "links": {
-      "spotify": "https://open.spotify.com/episode/4gIQjPCwCOpNdzoi8HQDjL",
-      "youtube": "https://www.youtube.com/watch?v=ZXLjcYggrwc",
-      "apple": "https://podcasts.apple.com/us/podcast/the-%24100k-playbook-of-an-independent-artist-w-xcelencia/id1316209308?i=1000679696884"
-    },
-    "summary": [
-      "Recorded in Miami during Art Basel 2024. Xcelencia runs his career the way a good company runs a product line: the album treated as software, distribution engineered through quests rather than playlist luck, and a direct commercial relationship with the collectors who fund the work.",
-      "We go through the numbers behind his $100K year, the tooling he built versus bought, token-bound accounts as fan infrastructure, and what he would keep if he started again. Required listening for anyone who owns a catalog and wants to see the leading edge of independent operation in practice."
-    ],
-    "guestLinks": [
-      {
-        "label": "X",
-        "href": "https://x.com/xcelencia"
-      },
-      {
-        "label": "Spotify",
-        "href": "https://open.spotify.com/artist/7c34Wg8HcWO9BWhHLwiXsr"
-      }
-    ]
-  },
-  {
-    "slug": "nick-merich",
-    "title": "Growing a music platform: what worked at Mint Songs",
-    "guest": "Nick Merich",
-    "role": "Head of Growth, Mint Songs",
-    "date": "2022-07-04",
-    "durationSeconds": 3827,
-    "cover": "/podcast/nick-merich-wide.jpg",
-    "links": {
-      "spotify": "https://open.spotify.com/episode/2BGKNlumOWCEdpcZMMnh2O",
-      "youtube": "https://www.youtube.com/watch?v=0TFRtda1xHg",
-      "apple": "https://podcasts.apple.com/us/podcast/growing-a-music-platform-what-worked-at-mint-songs/id1316209308?i=1000568762506"
-    },
-    "summary": [
-      "Nick Merich ran growth at Mint Songs while it went from a first release to a second protocol version on Ethereum. Fresh from NFT NYC, he lays out the parts of growth that were repeatable: how the team chose which artists to launch, what a release week looked like operationally, which metrics they reported to investors and which they ignored, and what a platform owes the artists who trust it with their first sale.",
-      "A candid account of building distribution from zero, from the person who had to make the numbers move."
-    ],
-    "guestLinks": [
-      {
-        "label": "X",
-        "href": "https://twitter.com/Nick_Merich"
-      }
-    ]
   }
 ]

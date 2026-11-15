@@ -42,6 +42,9 @@ export const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: "/learn", destination: "/resources", permanent: true },
+      // Pre-2026 podcast episodes were retired from the site; send their old pages to the episode list.
+      { source: "/podcast/xcelencia", destination: "/podcast", permanent: true },
+      { source: "/podcast/nick-merich", destination: "/podcast", permanent: true },
       {
         source: "/build/start",
         destination: "/start-project?workflow=Custom%20systems",
