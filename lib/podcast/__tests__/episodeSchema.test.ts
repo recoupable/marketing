@@ -2,16 +2,16 @@ import { describe, expect, test } from "vitest";
 import { episodeSchema } from "../episodeSchema.ts";
 
 const valid = {
-  slug: "xcelencia",
-  title: "The $100K playbook of an independent artist",
-  guest: "Xcelencia",
-  role: "Independent artist and technologist",
-  date: "2024-12-08",
-  durationSeconds: 2437,
-  cover: "/podcast/xcelencia-wide.jpg",
-  links: { spotify: "https://open.spotify.com/episode/4gIQjPCwCOpNdzoi8HQDjL", youtube: "https://www.youtube.com/watch?v=ZXLjcYggrwc" },
-  summary: ["Recorded in Miami during Art Basel 2024."],
-  guestLinks: [{ label: "X", href: "https://x.com/xcelencia" }],
+  slug: "zac-kubilus",
+  title: "From a #4 country album to box fans",
+  guest: "Zac Kubilus",
+  role: "Producer · Founder, Sleep Sounds",
+  date: "2026-11-08",
+  durationSeconds: 1437,
+  cover: "/podcast/zac-kubilus-wide.jpg",
+  links: { spotify: "https://open.spotify.com/episode/2Rmbz625NsqPGqvbBFCm1j", youtube: "https://www.youtube.com/watch?v=hfAY1PN-t9Q" },
+  summary: ["Zac Kubilus produced Frank Foster's Rhythm and Whiskey."],
+  guestLinks: [{ label: "Sleep Sounds", href: "https://sleepsounds.org/" }],
 };
 
 describe("episodeSchema", () => {
@@ -27,8 +27,8 @@ describe("episodeSchema", () => {
     expect(episodeSchema.safeParse({ ...valid, summary: [] }).success).toBe(false);
   });
   test("rejects a non-ISO date, an impossible calendar date, and a non-positive duration", () => {
-    expect(episodeSchema.safeParse({ ...valid, date: "Dec 8 2024" }).success).toBe(false);
-    expect(episodeSchema.safeParse({ ...valid, date: "2024-02-30" }).success).toBe(false);
+    expect(episodeSchema.safeParse({ ...valid, date: "Nov 8 2026" }).success).toBe(false);
+    expect(episodeSchema.safeParse({ ...valid, date: "2026-02-30" }).success).toBe(false);
     expect(episodeSchema.safeParse({ ...valid, durationSeconds: 0 }).success).toBe(false);
   });
 });
