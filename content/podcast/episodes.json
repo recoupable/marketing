@@ -1,5 +1,37 @@
 [
   {
+    "slug": "paula-moore",
+    "title": "The A&R veteran who built an AI army",
+    "guest": "Paula Moore",
+    "role": "Co-CEO, Greater Music Group",
+    "date": "2026-11-15",
+    "durationSeconds": 2021,
+    "cover": "/podcast/paula-moore-wide.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/episode/534UlSoxdSN325mGgJE90v",
+      "youtube": "https://www.youtube.com/watch?v=hXGKB9DlQo4"
+    },
+    "summary": [
+      "Paula Moore spent thirty years in A&R, built Warner's research platform Flypaper, then spent \"a year of 16 hour days\" building CreativeONE: a studio where every artist gets 100 specialized AI coworkers, with humans still making the calls.",
+      "Paula opens the studio live. We meet Velar, the release strategy specialist, and the general manager that hands work to the rest of the team, so an artist never has to manage \"100 new relationships\" at once. Then the catalog side: a data room that replaces the usual Dropbox folder of spreadsheets, and five years of statements from a 20-year catalog, organized for a buyer.",
+      "We also cover what her scouts read that a streaming chart misses, how she tells a real fan base from a one-song spike, whether she would license a catalog to Suno (\"it's not truly my decision\"), and the AI coworker she would hire first."
+    ],
+    "guestLinks": [
+      {
+        "label": "Greater Music Group",
+        "href": "https://greatermusicgroup.com/"
+      },
+      {
+        "label": "CreativeONE",
+        "href": "https://creativeone.world/"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/paulamooreventures/"
+      }
+    ]
+  },
+  {
     "slug": "zac-kubilus",
     "title": "From a #4 country album to box fans",
     "guest": "Zac Kubilus",
