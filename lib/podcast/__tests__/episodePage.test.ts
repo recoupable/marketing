@@ -66,6 +66,16 @@ test("every transcript file parses, belongs to an episode, and starts at the top
   }
 });
 
+test("every published episode has a transcript, and no two turns share a start and speaker", async () => {
+  const { readTranscript } = await import("../readTranscript.ts");
+  for (const episode of readEpisodes()) {
+    const transcript = readTranscript(episode.slug);
+    expect(transcript, episode.slug).toBeDefined();
+    const keys = transcript!.map((turn) => `${turn.start}-${turn.speaker}`);
+    expect(new Set(keys).size, episode.slug).toBe(keys.length);
+  }
+});
+
 test("timestamps format as m:ss and h:mm:ss", async () => {
   const { formatTimestamp } = await import("../formatTimestamp.ts");
   expect(formatTimestamp(245.7)).toBe("4:05");
