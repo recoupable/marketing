@@ -1,0 +1,341 @@
+[
+  {
+    "speaker": "Paula Moore",
+    "start": 0.0,
+    "paragraphs": [
+      "I think licensing for training is, it's a slippery slope still right now to me, and the day that I completely flat-lined the platform, and I was like, \"Oh, no.\""
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 16.0,
+    "paragraphs": [
+      "Today, I'm chatting with Paula Moore, co-CEO of Greater Music Group, makers of CreativeOne, a platform that gives artists and labels a team of over a hundred specialized AI coworkers to handle everything from release strategy to scouting. Welcome, Paula."
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 31.3,
+    "paragraphs": [
+      "Thanks for having me, Patrick."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 33.7,
+    "paragraphs": [
+      "Let's talk about your transition from scout to AI developer. At Warner, you built the A&R research platform, Flypaper, and your scouts discovered and presented The Killers. What did thirty years of scouting teach you that you then had to teach software building CreativeOne?"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 51.0,
+    "paragraphs": [
+      "Oh, well, a lot. You know, it's not, it's not just one, one way of, of doing the job. It's identifying all the different aspects of, of each individual artist and then being able to determine if there is a way forward that you can help them. I think coming from A&R, but then also from marketing, from the live music business, all the way through, you know, the entire scope of running and operating a label, running and operating a distribution company, the A&R process is still the same across the board.",
+      "Is this the right fit? Can I help this artist? And, um, what are the identifying characteristics that make us a good match? Um, it's, it's very much a matchmaking game, but also determining whether or not the, the artist has the song. The- do they even have the songs that are gonna be able to break through all of the noise in today's You know, in, in today's creator marketplace, it's, it's massive, right? There's a massive amount of artists.",
+      "There's a massive amount of releases. Can I help them break through and, and have success? So that's, you know, at the end of the day, that's what we're training our A&R scout fleet and the entire AI army around how to help an artist break through and have results that they're seeking. It's really about putting an entire company operating around every individual artist in their own studio in CreativeOne."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 145.0,
+    "paragraphs": [
+      "And it sounds like you have all the experience to know when that's effective and not. One thing we've seen with a lot of these AI swarms and workflows is if you chuck a lot of compute and a lot of AI at a bad workflow, you're just gonna get slop out of it. But if you have a well-defined and you have good experience and you have high taste and you have well-defined workflows, and then you throw AI on top of that, you're gonna automate, you're gonna increase the process, you're gonna amplify the outcomes.",
+      "Are you-- Is that what you're seeing in your experience of working with these AI"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 174.2,
+    "paragraphs": [
+      "Well, absolutely, because the way that we formulated this entire platform is to be in service of the artist. What artists needs are to be able to, you know, uh, even be be able to create and take everything else off their plate. Like, that's a big pain point that we wanted to solve. How can we put this technology to work to benefit and serve the artist 24/7 so that they get the time back that they need to do what they do best, which is create? A lot of these artists are having to spend their time being an admin for themselves, you know, running and operating their marketing team, their, as themselves, coming up with the ideas of how to operate their business.",
+      "Operationally, you know, they're, they're just overloaded, and how is it possible for them to run everything and then also be the creative, um, that they're supposed to be? So that's, that was really the driving message of what we wanted to create, and then how we were going to distinctively build an army and, you know, a swarm, yes. But these are individualized, personalized, um, creative-minded, creative mindset trained, um, agents, you know?",
+      "And, and those agents already know what's important to an artist, but they also know what's important for the artist to succeed through a label system or through a distribution system, and also on, you know, through social media initiatives, marketing, all of that stuff. They've been trained for over a year to understand what the needs of an artist are and how to be there and super serve 24/7.",
+      "Once they get to know the artist and the artist can trust them, then they can do more for the artist and, and create more benefits, um, along, you know, along through that relationship that they're building together."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 289.0,
+    "paragraphs": [
+      "You've had a year of sixteen-hour days. You wrote that building CreativeOne was, in quotes, \"A year of sixteen-hour days of building, breaking, rebuilding on scouting IP you kept from your years at Warner.\" What broke and what did you rebuild with CreativeOne?"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 305.0,
+    "paragraphs": [
+      "Well, I mean, the whole platform broke at one point. I was just like, the amount of information and service, um, just at, in the development of this, it's so robust. I and I can't wait to show you. It, to some people, it kinda feels overwhelming because we've put everything we could think of in there to help, help an artist have the transparent view into their entire world of business.",
+      "And I think as we were building that, like at one point, I just completely flatlined the platform, um, because I was like, \"It needs to do this, but it needs to do this,\" and, you know, all of the, all of the, the nuances that I was plugging into the training, into the, into the vibe code and, and into the actual coding. It was just, it's a big combination of a lot of information and in, in this one, all in this kind of one nucleus of a studio.",
+      "So yeah, I I broke a lot of things a lot of times. Um, but now After breaking, you know, all of the different things that, that happened, um, it turned out to be this wonderful nucleus for, for an artist to you know, have what they need at their fingertips 24/7. So I, I mean, I can't think of one thing in particular that I broke other than the day that I completely flat-lined the platform, and I was like, \"Oh, no.\" But, uh, yeah, a lot of things broke.",
+      "I have- I haven't, I haven't coded in, or, or built a technology platform in 15, 20 years. So I, I've just been in creative executive mode for, you know, the last decade or so. Um, and putting my tech hat back on and, and digging in, it was, it was, it was intimidating, I will say that. Because technology has changed so much since what I built at Warner's.",
+      "Like, last year was the 20-year anniversary of my platform that I built at Warner's, that I won, like, you know, top four global tech initiatives in the music industry that year because it was so, so groundbreaking. And I was like, \"I don't know.\" I, uh, when I walked away from that, I built a couple of other things, but then I just started, like, building, like, creative solutions, not necessarily technology.",
+      "Um, and then launched a distribution company, launched another label. Like, just did kind of went back to, like, my traditional roots, like touring, you know, creating opportunity for emerging artists. But when the technology, when I saw this, like about, I don't know, it was probably like 18 months ago, I was like, \"Oh, the technology's finally catching up with what I really have the vision to build, and let me, let me get excited again and go build that.\" And I did.",
+      "I mean, it's patent pending. My platform is patent pending. My methodologies are patent pending. Um, it's just, it, it, it's enormously successful in, in how we're delivering it to, in a studio format for artists and for labels and for, you know, for, for distribution companies as well. It's just, it's a game changer. And I have to tell you, it's really rewarding after these 16-hour days. I mean, listen, I was in tears.",
+      "There were a lot of days where I, you know, like, I could, I didn't get up for days. Just sat at the computer coding, and I just... It's so rewarding now that I'm showing it to people, and we've been, you know, doing a lot of demos the past couple of weeks. Everyone has just been blown away. Like, everyone. And I, believe me, I took it to some of the biggest critics, like experienced critics in the music industry first, because I need that feedback when you're building something that you want people to care about.",
+      "And even, even those people were just like, \"This is impressive. I... And no offense, but can't believe you built this.\" Because I did build it myself. I had one support engineer that helped me, um, throughout, but, but I, I built this myself. And it I just can't wait to show it, show it to everyone. It's so exciting. It's so exciting now that it's, it's here and live and real."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 560.0,
+    "paragraphs": [
+      "CreativeOne offers coworkers, not tools. CreativeOne gives each member one hundred specialized AI coworkers like Velar, the release strategy specialist, with the humans still leading the way. Walk us through one release, what Velar does, and where a person steps in, and how you know an AI coworker's work is actually good."
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 578.0,
+    "paragraphs": [
+      "Well, I think I should show you the actual studio, and how artists can interact with, with the Army, and specifically with Vlar. You know, she's a great example of how, of how you can get with her and create an entire campaign, a release strategy campaign, in minutes. So, um, Jack, if you wouldn't mind taking us into the, um, Industry OS, uh, studio. So this is my personal studio, and from here I'm just gonna show you one thing, because you can't see it on the, on the, when we go into the artist studio right now.",
+      "Jack, if you'll scroll down, there's a mission control just right there. So this is where you get your first introduction to the Army. Um, and these are the individuals and specialists in these these, their particular areas that they've been trained in, and this is where you can start interacting with them individually. But Jack, if you go back up, please, to G. The most important, the most important one in the Army is the general manager.",
+      "So My G is your general manager. He can actually interact on your behalf with every single Army fleet member. And you can actually set up your phone, if you click that text button, Jack. You can set up your phone and connect straight to text with My G. So for me, this is a huge help for artists, but for, you know, for, or executives like myself. If I wake up at 2:00 AM with the Sunday scaries and I need to see seven artist red alert reports tomorrow, I'm, I can just text him from my phone.",
+      "I don't have to go back into the system and go, \"Hey, G, can you make sure I have these seven reports ready at 7:00 AM?\" And then I can go back to sleep. And just texting, that capability to text with the entire Army, um, and have them text back and go, \"Got you. Reports are ready. Go back to sleep.\" Like, it's a very, like, social, um, experience with, with our agents in particular.",
+      "So if you click out of that, you can also email him. Um, I just like, I prefer text. So if you click the X, Jack And then we can go into Koa Studio. So this is a professional, um, executive type of studio, and then we're gonna go into an artist studio. So this is, this is our basic artist studio, and from here, um, you can actually interact with the entire army.",
+      "So I'll, I'll take you to, um, down on the nav at the bottom is where the army command center is, Jack. On the nav, yeah. So if you click on that, this is where you can access every member of the army, and if you scroll, there, there she is. There's our girl, new music, VLAR, right there. If you click on her, then this is where you can interact specifically. You can see what she does.",
+      "You can interact with her, give her direct, um, you know, input on what you'd like her to do. She can give you reports, and she will go get things done for you. So if you click out of that, we're gonna go look at a campaign that VLAR created for our fake demo artist, um, Koa. So click on the X. Yep. And then go back to the nav and go up to catalog, to... I'm sorry, keep going. To Campaign OS. Click on Campaign OS.",
+      "And scroll down a little bit, please. The second to the bottom campaign, open it. And yep, keep, yep, sec- Yep. There we go. So this is a campaign that VLAR did for our you know, demo artist. Um, we do a lot of testing, obviously, to make sure we've got it right for artists. So this is, um, our demo artist named Koa. She's not real, but she is, she knows she's training, um, our, our, our fleet team to be able to help artists, so that's what, that's the purpose of, of this particular, uh, agentic experience.",
+      "So VLAR created this entire campaign. As you can see, we've got a whole robust campaign builder. You can make adjustments. You can schedule it. It all requires the artist to be interactive, at least in the initial campaigns. Um, after the team, um, after the artist is comfortable with the AI team, they can elect to have this go into autopilot, and then VLAR and everyone else that, um, they're working with can actually execute on their behalf and post on their behalf across all platforms.",
+      "I think the other thing really interesting that happens when you're setting up a release or you're setting up some sort of campaign is you want to... A lot of artists, um, miss a few platforms, right? Like, they don't go update their SoundCloud, or they don't go update, uh, Bandcamp. So we created an asset kit. If you click on the asset kit on the left there, open asset kit.",
+      "We created an asset kit where you can select your artwork, so just pick any one of those, Jack. And that art will now be, um, completely across every platform you'd like to have it appear on, will be completely resized in real time for you. Jack, if you scroll back up to a little bit above. Nope. There you go. And then click on, um, click on the third button at the top right there. Yep.",
+      "So this resizes everything for you automatically for every platform that you choose. Um, go back. Go ahead and click on that, Jack. Yep. And then, you know, it can generate for every platform that we selected for her. So if you click on the second button, the platforms, Jack, up at the top. So this shows you we've got the specifications for every single platform an artist needs to completely, you know, blanket, um, with a new release or anything that they wanna update across all those platforms. They can select all of them, a few of them, and then boom, in a moment's time, have every single platform updated.",
+      "So that's just a cool thing that VLAR specifically can make sure happens for an artist, whether that's, um, as a co-pilot type of situation where they're a collaborative effort, or an artist says, \"I trust you. You can do it for me,\" and has it on autopilot to do all of these things, just by a text even."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 965.0,
+    "paragraphs": [
+      "And also taking actions. 'Cause I talk with some platform builders and they're like, \"I built this AI platform, and I started delivering people reports.\" And then once people started to get the reports and the plans, then they said, \"Okay, well now who's gonna execute the plan? Like, this plan looks great, but I don't wanna do all that stuff. I'm already having other people, labels, my manager tell me I need to get in front of a camera and make this content and do these thumbnails, but I don't wanna do that.",
+      "I wanna stay in the studio making music. I wanna be writing my songs.\" So to have an assistant that actually not only gives you the plan but can execute the plan is essential."
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 998.7,
+    "paragraphs": [
+      "Yeah."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 999.0,
+    "paragraphs": [
+      "It's, it's where"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 1000.1,
+    "paragraphs": [
+      "Yeah,"
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1000.6,
+    "paragraphs": [
+      "the industry's"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 1001.5,
+    "paragraphs": [
+      "and"
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1001.9,
+    "paragraphs": [
+      "moving to."
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 1002.6,
+    "paragraphs": [
+      "exactly, and, and an artist can choose... Look, 100 new relationships in your life, that's a lot, right? All at once. So you can choose which ones you wanna build a relationship with, or not at all, and just have the general manager take care of all of those, you know, different services and different team members for you. Just say, \"I don't care who it is, the marketing team person that does this, can you assign it?\" And my G will be like, \"Yeah, I got you.",
+      "It's VLAR, but you don't need to care about that.\" So, you know, it's very much like at whatever level, whatever comfort level, you know, the, the artist or the user has in, in interacting with the team. And speaking of team, you know, this is, these studios are built so that your manager, your business manager, your attorney, your whole team, if you have an outside, you know, third party, uh, social media agency, they can all...",
+      "It's built so they can all be in here with you working in real time, and you can, as an artist, see all of their work and know what's happening instead of multiple phone calls and emails and, you know, you know, recurring questions of, \"Did you do this? Did you do that? Did that happen?\" Now, we can show you that it's happening. If you go out back to the studio really quick, Jack.",
+      "At the very bottom. Out, back out one more, out of the campaigns. Yeah. And then go all the way down to the black box. We built in this really cool feature that I think just answers a lot of questions that artists have just pining away all the time. Did that get handled? Did this get handled? did this happen, or what happened with this? So this is their black box.",
+      "It is a complete record, business record of all activity from the AI team, from the human team, from decisions they made or didn't make. It is a full black box record of their business actions built into their studio. So I think that's really helpful and, and a really cool feature too. I'd love to show you, um, a catalog view. So this is a... This is what every artist gets.",
+      "Now, if it's an artist with a catalog, a, an expansive catalog, maybe they, you know, maybe they still own it, maybe they're preparing to sell it, or maybe eventually one day they know they're gonna sell it, we've built in an amazing, and it's invitation only for the catalog part, um, a very immersive experience for, for catalog, um, artists that, that need more than just, you know, a basic business studio.",
+      "Maybe they have multiple businesses, um, like this artist does. So if we're gonna go back real quick to, um, the membership home, So in, um, in this, this is where, you know, a ton of business can, can be dealt with for an artist with, with a massive catalog. We can resurface, um, an entire, you know, album or several albums into campaign activity and operate, you know, new revitalization of the catalog, and the value of the catalog, trying to increase it or, you know, build it out more.",
+      "You can have a strategic roadmap. This is an operating roadmap for an entire year of how we're gonna optimize the catalog. Um, there's just a lot of cool extra business, um, built into the catalog system. If you'll go to the catalog value room. Yeah. So this is where we organize, um... And then if you'll click into the data room. This is where we organize all of the information, um, about the catalog in one place. So if you scroll up and go...",
+      "Keep, no, keep going. Yeah. This shows you, like, the full scope visual of what's going on with this particular catalog. And then if you continue. Keep going a little bit further. This is, um, this is the agent that knows everything about this catalog. So every catalog artist gets their own dedicated knowledge base about their catalog, so, um, they can do whatever they need to do that, in the full scope of their catalog, not just with, you know, knowing the analytics, but everything about the catalog and the history of it is, is infused into this particular agent.",
+      "Keep going. And buyers can interact with that agent, um, as well. So this is the cool thing. This is the virtual data room. This has never existed before. If you're talking about looking at a catalog and the value of a catalog, there's a lot that goes into the data room. Um, when you're, when you're positioning a catalog for sale and taking it to buyers, it's traditionally, um, a Dropbox folder or, you know, some sort of folder that they access a bunch of spreadsheets and statements in.",
+      "So now we have a way to automate and organize that entire process. So this is a really cool feature. Statements are really hard to track if you have multiple revenue sources. Like, this particular artist has a lot of revenue sources, a 20-year catalog to be organized here. Now it is fully organized. You can click on, just click on Merlin, and this has organized five years of statements that are viewable and downloadable, um, at at any point, whether the artist needs it, whether the business manager needs it, whether a buyer wants to look at it.",
+      "This is all, like, highly organized. This has never been done before, by the way. So as we've been showing it to, um, catalog reps, it's just, you know, mind-blowing how, um, how great this is, the value of this for the entire team and also for a potential buyer. Um, it's just, you know, it's a game changer. The, you know... And all of the legal stuff is built in here.",
+      "It's all, you know, just, it's an amazing, it's an amazing way to operate your catalog and continue to have it organized if and when you're ready to sell it. You can scroll down a little bit, Jack, and just show a little bit more. It goes through valuation. Um, we've got a specific catalog OS army that's just dedicated to organizing all this information, keeping you up to date on where your catalog is at.",
+      "And just the organization is phenomenal, but also the valuation and being able to crunch the numbers for you and have that, you know, actuals, um, instead of having, you know, having to labor over it for months and months and months, which is what we had to do for this catalog to get it prepared. Um, now it's, now it goes down from the months we spent, now it's just minutes.",
+      "Minutes to this level of, um, having everything in one place organized and tracking and automated. Um, will you go to Fan OS real quick? Get out of the data room and go to Fan OS, on this artist. So the cool thing about, especially for catalog artists, but for every artist, we built in a fan tracking system, so you can really see what your fans want, what they, what they love about you, what they don't love, you know, maybe what they're pushing back on, all of the sentiment of your fan interactions across all of the social media platforms.",
+      "Plus we do additional data scraping for mentions and, you know, any sort of like online activity outside of the social platforms. And here, you know, you learn everything about what your fans, how they're interacting, what they want, what they're focused on, and it produces a ton of reporting. So if you, you know, were to click on, you know, what fans are posting, but then, um, there should be...",
+      "Read the full report. Go up a little bit. Read the full report. Click that. Yeah. So you can see like a ton of interaction for this particular artist, and you can also measure the sentiment through the Fan OS and the audi- the Audience OS also gives you like your top markets and, you know, a ton of like deep dive into just the audience overview that you may not see just by going to your individual social platforms. It's all in one place here and can help artists and their teams make improved and exact decisions versus the guesswork of just looking at social media analytics and your, you know, and your Spotify numbers."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1515.0,
+    "paragraphs": [
+      "For catalog owners and music rights holders, if they come into CreativeOne, they can bring their catalog. They're gonna get data rooms that were impossible to generate before. If they're trying to sell a catalog, they can invite people who are trying to purchase the catalog directly into here to be able to talk with the agents and get information about the catalog. They'll get fan insights across the catalog.",
+      "Is there anything else that catalog owners or music rights holders need to know about CreativeOne before we move on to the other questions?"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 1543.0,
+    "paragraphs": [
+      "Um, I mean, th-this-- I think there's, there's quite a bit more in here. For example, if, uh, if you go to... Jack, if you go to, um, the merchandise and inventory. So it can track all of your inventory. If you have a big merchandise business, that can be, you know, in-included in what you are integrating into the studio, so you can see your merchandise sales in real time. If you have other, you know, aspects of your business, if you're touring, if you go to touring, the Tour OS, if you're a touring artist, um, you can integrate all of that data in here too.",
+      "You can build out everything that you need, um, on the tour routing. We have a whole touring team fleet that's being developed right now. It's not live yet, but it's being developed, um, along with a, a longtime high-profile touring executive, um, is helping to build this part out and train the team for touring. So everything that, that a larger scale artist, mid to, you know, um, larger scale artist needs, um, is, is built in here for, for that particular catalog part of the system.",
+      "Jack, you can go back to, um, Industry OS. Okay."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1620.0,
+    "paragraphs": [
+      "You also have experience scouting past the spike. Greater Music Group's Rock Steady Scouts research scenes, sounds, and fans, and Human AR Decides. What do they read that a streaming chart misses, and what makes you pass on a viral artist?"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 1633.0,
+    "paragraphs": [
+      "Well, what, what our scouting team reads beyond analytics, so we're not just looking at numbers, and I've never agreed with the just looking at numbers, um, process necessarily, um, as, as some of the major labels have kind of shifted to. It really is about fan sentiment. Are they touring now, you know, now or ever? Do they have, um, a local following? Is it a regional following? Do they have followings in different markets? You know, what is their, what does their fan scope look like? And is it growing or is it declining?",
+      "Um, is it based on one song or do they have multiple songs out that, that are resonating with their fans and keeping their fans engaged? There's a lot of sentiment specifically that our AI scouts are looking for, um, just beyond, beyond the fray of, of just what are the numbers. It's got a-- They're painting the whole picture. They really are. They're able to also identify song quality, um, song competitiveness, uh, you know, a lot of things that a human scout needs to-- has to be trained to identify.",
+      "They're trained the same way that I've trained scouts my entire career."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1706.2,
+    "paragraphs": [
+      "Let's talk about what's in the news. Half of all uploads are AI. In July, Deezer said fully AI tracks passed half of its daily uploads, but draw only one to 3% of all streams. Spotify now labels likely AI profiles. How does an AI native label keep its artists from being filed under AI music?"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 1723.0,
+    "paragraphs": [
+      "Well, I mean, that's a great question. It's, it's, it, that's gonna be a hard, a hard thing to do, and it's gonna be on a case-by-case basis. I mean, what I can say is part of what we do within the studios is provide that, the visibility for artists to say, \"You know, this is, this is all human-made,\" or, \"I did use AI music in this one,\" and helps us be prepared to go fight the battle if we need to.",
+      "If, if it is all human-made music, then, um, I think the best thing that, that I can do is have the artist tell me, you know, honestly, if it was AI or not, so that we can go make the phone calls we need to make and do the human interaction that it's gonna take to make sure that they're not labeled AI music if it's not."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1772.0,
+    "paragraphs": [
+      "Let's talk about licensing to Suno. In August, BMG signed a licensing deal with Suno while UMG and Sony are still suing it. Would you license"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 1779.6,
+    "paragraphs": [
+      "Mm-hmm."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1780.0,
+    "paragraphs": [
+      "a catalog for training, and on what terms?"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 1782.6,
+    "paragraphs": [
+      "I don't know that I would do that just yet. I I think, first of all, it's not, it's not truly my decision. I, if an artist wants to use their catalog to help train AI, uh, and AI music, then, then that's their call, and I can help facilitate that. I just don't think that that's really my call to, to make that decision. The future of AI music is, is here, and it's happening, but I want it to be done in a way, I would hope it's gonna be done in a way that's respectful to artists.",
+      "I think that using the technology to help artists facilitate their career is a way better use of the technology as it is right now, and I know it's incredible to some artists to be able to create utilizing technology to help them, you know, get it done faster or, you know, even improve their skills. But I think licensing for training is, it's a slippery slope still right now to me, and I, and it wouldn't be my call, I don't think.",
+      "It would be an artist-by-artist call."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1851.0,
+    "paragraphs": [
+      "About pushing that decision-making to the edges, not necessarily centralizing it and doing a blanket statement of all in or all out. Sounds like in CreativeOne, you have the option if you're really on the edge on the, the radical side, you can let the AI run free and do everything. If you wanna stay in the decision-making loop, you can. Same thing here on the licensing. Some artists might want it, other artists might be opposed, and you want to be able to build systems that meet artists where they are rather than forcing them to fit inside of whatever box you hold."
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 1880.0,
+    "paragraphs": [
+      "Well said, Patrick. Absolutely."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1882.3,
+    "paragraphs": [
+      "Let's transition into the quick fire. I've got four questions. First question: What is the AI coworker you'd hire first?"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 1890.0,
+    "paragraphs": [
+      "Office administrator. Always. Well, I mean, or a marketer. I think those two are, are really critical, um, you know, first hires, for sure."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1900.0,
+    "paragraphs": [
+      "What's the task you would never hand to an AI?"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 1904.0,
+    "paragraphs": [
+      "I think, hmm, that's a hard one. I really think it is, like, identity, brand identity, uh, brand creative. Um, for example, AI did not name my platform. I did. I, I let my brain create what I was gonna call it and what the brand was gonna be. CreativeOne came from my brain exclusively. And the other, the other thing, the crystal ball that we've, that we've just launched, which is, you know, a collection of all the intelligence that we gather and creates a crystal ball effect for artists to know historically what happened, what's happening now, and hopefully predicting, helping them predict what to do next, um, I named that. My AI actually tried to name it, and it was awful. So I think the creative part I really would never hand over fully to an AI."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1958.0,
+    "paragraphs": [
+      "What's... The industry CreativeOne goes after once they fully tackle music?"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 1962.0,
+    "paragraphs": [
+      "Well, we're already exploring a few other, uh, areas of the creative industry, so one is sports. Um, and the other that we're really focused on right now is for authors. So publishing and, and authors I think experiencing, are experiencing the same thing that the music industry and music artists are experiencing. There's, you know, millions and millions and millions of books coming out, millions of, of authors trying to, you know, get their books, uh, out there in the forefront.",
+      "Um, they have the same, they have the same struggles as a music artist, so the, that's what we're focusing on next, sports, athletes, and auth- and authors."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 1998.0,
+    "paragraphs": [
+      "Last question as we wrap up. Where can people find you?"
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 2002.0,
+    "paragraphs": [
+      "creativeone.world."
+    ]
+  },
+  {
+    "speaker": "Patrick Sweetman",
+    "start": 2003.4,
+    "paragraphs": [
+      "Thank you for joining us today, Paula."
+    ]
+  },
+  {
+    "speaker": "Paula Moore",
+    "start": 2006.0,
+    "paragraphs": [
+      "Thanks for having me. It was fun, Patrick."
+    ]
+  }
+]
