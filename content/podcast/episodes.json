@@ -1,5 +1,47 @@
 [
   {
+    "slug": "marcelo-mazzini",
+    "title": "Every song is a brick in your estate",
+    "guest": "Marcelo Mazzini",
+    "role": "Founder & CEO, Marmaz Records",
+    "date": "2026-11-22",
+    "durationSeconds": 2369,
+    "cover": "/podcast/marcelo-mazzini-wide.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/episode/1ULSVy91AiifaGK62IFYg0",
+      "youtube": "https://www.youtube.com/watch?v=nCtMk58bTdU"
+    },
+    "spanish": {
+      "title": "Cada canción es un ladrillo de tu patrimonio",
+      "youtube": "https://www.youtube.com/watch?v=YYiYg9nEMj0",
+      "spotify": "https://open.spotify.com/episode/4XJf5UMhpElwyubWFdGZXr"
+    },
+    "summary": [
+      "Marcelo Mazzini runs Marmaz Records, an independent label and publisher with more than 5,000 songs of llanera music and vallenato. He started out selling cassettes in Montevideo in 1996, worked at PolyGram and on the Shakira and Juanes tours, and was executive producer of Sanalejo's Grammy-nominated \"Seguir latiendo\".",
+      "He explains how they recover rights song by song in a genre full of unregistered contracts and music uploaded by third parties, and why a hundred well-managed works earn more than a thousand with no information. By his figures, the United States is ten to fifteen percent of their streams and more than sixty percent of their revenue.",
+      "He also covers what changed when Spotify launched in Venezuela in November 2021, what they use AI for and what they never use it for, and the song by a composer who used to sing on buses in Bogotá that they licensed to Sony in Germany.",
+      "Recorded in Spanish. This edition is an English AI dub of the original conversation."
+    ],
+    "guestLinks": [
+      {
+        "label": "marcelomazzini.com",
+        "href": "https://marcelomazzini.com"
+      },
+      {
+        "label": "Marmaz Records",
+        "href": "https://corpmarmaz.com"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/marcelo-mazzini-43874a28"
+      },
+      {
+        "label": "Instagram",
+        "href": "https://www.instagram.com/marmazrecords"
+      }
+    ]
+  },
+  {
     "slug": "paula-moore",
     "title": "The A&R veteran who built an AI army",
     "guest": "Paula Moore",

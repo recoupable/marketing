@@ -3,6 +3,7 @@ import { readTranscript } from "../podcast/readTranscript.ts";
 import { formatTimestamp } from "../podcast/formatTimestamp.ts";
 import { formatDuration } from "../podcast/formatDuration.ts";
 import { absoluteUrl } from "../seo.ts";
+import { spanishEditionLines } from "./spanishEditionLines.ts";
 import type { AgentContentEntry } from "./types.ts";
 
 export const podcastEntries: AgentContentEntry[] = readEpisodes().map(
@@ -34,6 +35,7 @@ export const podcastEntries: AgentContentEntry[] = readEpisodes().map(
             ...Object.entries(episode.links).map(
               ([label, href]) => `- [${label}](${href})`,
             ),
+            ...spanishEditionLines(episode),
             ...episode.guestLinks.map(
               (link) => `- [${link.label}](${link.href})`,
             ),

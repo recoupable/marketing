@@ -13,6 +13,7 @@ export const podcastCopy = {
   episode: {
     back: "All episodes",
     listen: "Listen and watch",
+    spanish: { kicker: "En español", youtube: "YouTube", spotify: "Spotify" },
     guestLinks: "Find {guest}",
     about: {
       kicker: "About Recoup",
