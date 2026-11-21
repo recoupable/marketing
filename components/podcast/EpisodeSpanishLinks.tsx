@@ -18,6 +18,7 @@ export function EpisodeSpanishLinks({ slug, spanish }: { slug: string; spanish: 
           key={platform}
           className="ml-4 font-medium underline decoration-[#cfdde2] underline-offset-4 hover:text-[#087bab]"
           href={spanish[platform]}
+          aria-label={`${copy[platform]} (${copy.kicker})`}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackEvent("podcast_episode_clicked", { slug, platform: `${platform}-es` })}

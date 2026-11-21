@@ -12,6 +12,8 @@ test("a bilingual episode carries its Spanish title, YouTube and Spotify links",
 test("the Spanish edition is optional and its links must be URLs", () => {
   const episode = readEpisode("paula-moore")!;
   expect(episode.spanish).toBeUndefined();
-  const spanish = { title: "Título", youtube: "not a url", spotify: "https://open.spotify.com/episode/x" };
-  expect(episodeSchema.safeParse({ ...episode, spanish }).success).toBe(false);
+  const valid = { title: "Título", youtube: "https://www.youtube.com/watch?v=x", spotify: "https://open.spotify.com/episode/x" };
+  expect(episodeSchema.safeParse({ ...episode, spanish: valid }).success).toBe(true);
+  expect(episodeSchema.safeParse({ ...episode, spanish: { ...valid, youtube: "not a url" } }).success).toBe(false);
+  expect(episodeSchema.safeParse({ ...episode, spanish: { ...valid, spotify: "not a url" } }).success).toBe(false);
 });
