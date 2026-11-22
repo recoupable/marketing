@@ -1,4 +1,4 @@
-import type { Artist } from "@/components/valuation/types";
+import type { Artist } from "@/lib/valuation/types";
 import type { SpotifyArtist } from "@/lib/spotify/types";
 
 /** Map a Spotify search result to the valuation `Artist` shape. */

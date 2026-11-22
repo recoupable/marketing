@@ -1,4 +1,4 @@
-import type { Result } from "@/components/valuation/types";
+import type { Result } from "@/lib/valuation/types";
 import { siteConfig } from "@/lib/config";
 
 /** Raw `POST /api/valuation` envelope (docs-legacy#272). */

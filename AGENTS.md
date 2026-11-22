@@ -173,6 +173,8 @@ the route-scoped Privy authentication provider.
 - **Analytics:** Vercel Web Analytics (`<Analytics />` in `app/layout.tsx`); custom events go through `lib/analytics/trackEvent.ts` only, and props never carry visitor details. Funnel events: `cta_clicked {cta, placement, plan?}` (`<TrackedLink>`), `pricing_billing_toggled {billing}`, `inquiry_started {source, plan?}`, `inquiry_submitted {source, plan?, budget?, timeline?, company_type?, submission_id}`, `inquiry_failed {source, reason: validation|network|rejected|timeout}`, `subscribe_submitted {source}`, `audit_completed {score}`, `roi_calculated {recommended_plan}`, `podcast_platform_clicked {platform}`, `podcast_episode_clicked {slug, platform}`, `podcast_guest_requested {placement}`.
 - **Background work:** new platform scheduled/background jobs belong in API Vercel Workflows under Mono's architecture rules. Existing Trigger.dev jobs and Marketing's `workflows/` helpers are retained implementations, not the default location for new platform jobs.
 
+Valuation request helpers, hooks, and cards share `lib/valuation/types.ts`; keep these domain contracts independent of component locations. Website OpenAPI search/read metadata references named tool definitions, not their order in the discovery list.
+
 ## Code Principles
 
 - SRP: one function per file

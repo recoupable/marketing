@@ -1,5 +1,7 @@
 import { maximumBatchOperations } from "./agent-tools/maximumBatchOperations.ts";
 import { agentToolDefinitions } from "./agent-tools/agentToolDefinitions.ts";
+import { searchRecoupTool } from "./agent-tools/searchRecoupTool.ts";
+import { readRecoupPageTool } from "./agent-tools/readRecoupPageTool.ts";
 import { siteConfig } from "./config.ts";
 import { deprecationPolicyLink } from "./agent-api/deprecationPolicyLink";
 
@@ -291,7 +293,7 @@ export function websiteOpenAPI() {
           deprecated: false,
           operationId: "search_recoup",
           summary: "Find relevant public Recoup content",
-          description: agentToolDefinitions[0].description,
+          description: searchRecoupTool.description,
           parameters: queryParameters("search_recoup"),
           responses: {
             "200": jsonResponse(
@@ -307,7 +309,7 @@ export function websiteOpenAPI() {
           deprecated: false,
           operationId: "read_recoup_page",
           summary: "Read public content by registry ID",
-          description: agentToolDefinitions[1].description,
+          description: readRecoupPageTool.description,
           parameters: queryParameters("read_recoup_page"),
           responses: {
             "200": jsonResponse(
