@@ -17,8 +17,12 @@ export const podcastCopy = {
     /** The EN/ES switch on a bilingual episode; each edition's own words for the title and listen links. */
     editions: {
       label: "Episode language",
-      en: { short: "EN", name: "English", with: "w/", youtube: "Watch on YouTube", spotify: "Spotify", apple: "Apple Podcasts" },
-      es: { short: "ES", name: "Español", with: "con", youtube: "Ver en YouTube", spotify: "Spotify", apple: "Apple Podcasts" },
+      en: { short: "EN", name: "English", with: "w/", youtube: "Watch on YouTube", spotify: "Spotify", apple: "Apple Podcasts",
+        transcript: { heading: "Full transcript", show: "Show", hide: "Hide", note: "Machine transcribed from the published episode.", copy: "Copy transcript", copied: "Copied" },
+      },
+      es: { short: "ES", name: "Español", with: "con", youtube: "Ver en YouTube", spotify: "Spotify", apple: "Apple Podcasts",
+        transcript: { heading: "Transcripción completa", show: "Mostrar", hide: "Ocultar", note: "Transcrita a máquina de la grabación original en español.", copy: "Copiar transcripción", copied: "Copiado" },
+      },
     },
     guestLinks: "Find {guest}",
     about: {
@@ -28,6 +32,5 @@ export const podcastCopy = {
       href: "/audit",
     },
     credits: { guest: "Guest", host: "Host", hostName: "Patrick Sweetman, Cofounder, Recoup" },
-    transcript: { heading: "Full transcript", show: "Show", hide: "Hide", note: "Machine transcribed from the published episode.", copy: "Copy transcript", copied: "Copied" },
   },
 };

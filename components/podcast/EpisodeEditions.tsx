@@ -25,10 +25,10 @@ function subscribe(onChange: () => void) {
 /**
  * The part of an episode page that changes with its language: title, listen links, the embedded video and the
  * summary. English renders on the server; a bilingual episode adds the EN/ES switch, and `?lang=es` opens Spanish.
- * `children` (the guest's links) follow the summary in every edition; `englishOnly` (the English edition's
- * transcript, whose timestamps open the English video) shows with the English edition only.
+ * `children` (the guest's links) follow the summary in every edition; `transcripts` holds each edition's own
+ * transcript, whose timestamps open that edition's video, and shows only the one for the language on screen.
  */
-export function EpisodeEditions({ slug, guest, meta, cover, editions, children, englishOnly }: { slug: string; guest: string; meta: string; cover: string; editions: EpisodeEdition[]; children?: ReactNode; englishOnly?: ReactNode }) {
+export function EpisodeEditions({ slug, guest, meta, cover, editions, children, transcripts }: { slug: string; guest: string; meta: string; cover: string; editions: EpisodeEdition[]; children?: ReactNode; transcripts?: Partial<Record<EditionLang, ReactNode>> }) {
   const search = useSyncExternalStore(subscribe, () => window.location.search, () => "");
   const lang = editionLangFromSearch(search, editions);
   const edition = editions.find((candidate) => candidate.lang === lang) ?? editions[0];
@@ -63,7 +63,7 @@ export function EpisodeEditions({ slug, guest, meta, cover, editions, children, 
         </div>
       </div>
       {children}
-      {edition.lang === "en" && englishOnly}
+      {transcripts?.[edition.lang]}
     </>
   );
 }
