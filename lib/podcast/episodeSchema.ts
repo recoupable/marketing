@@ -14,6 +14,8 @@ export const episodeSchema = z.object({
     youtube: z.string().url().optional(),
     apple: z.string().url().optional(),
   }),
+  /** The original Spanish recording of a dubbed episode, linked from its page. */
+  spanish: z.object({ title: z.string().min(1), youtube: z.string().url(), spotify: z.string().url() }).optional(),
   /** The episode page's summary, one string per paragraph (the published episode description, without links). */
   summary: z.array(z.string().min(1)).min(1),
   /** The guest's own links, shown on the episode page. */

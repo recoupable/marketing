@@ -6,6 +6,7 @@ import type { Episode } from "@/lib/podcast/episodeSchema";
 import { episodeMeta } from "@/lib/podcast/episodeMeta";
 import { youtubeEmbedUrl } from "@/lib/podcast/youtubeEmbedUrl";
 import { EpisodeListenLinks } from "./EpisodeListenLinks";
+import { EpisodeSpanishLinks } from "./EpisodeSpanishLinks";
 import { EpisodeTranscript } from "./EpisodeTranscript";
 import type { Transcript } from "@/lib/podcast/transcriptSchema";
 
@@ -23,6 +24,7 @@ export function EpisodeDetail({ episode, transcript }: { episode: Episode; trans
       <p className="!mt-7 text-[13px] font-medium text-[#586f78]">{episodeMeta(episode)}</p>
       <h1 id="episode-title" className="!mt-3 !text-[clamp(36px,3.6vw,52px)] !font-[450] !leading-[1.08] !tracking-[-0.05em]">{episode.title} <span className="text-[#586f78]">w/ {episode.guest}</span></h1>
       <EpisodeListenLinks slug={episode.slug} links={episode.links} />
+      {episode.spanish && <EpisodeSpanishLinks slug={episode.slug} spanish={episode.spanish} />}
       {embed ? (
         <iframe className="w-full aspect-video rounded-2xl mt-8 border-0 bg-[#132b26]" src={embed} title={`${episode.title} w/ ${episode.guest} (YouTube video)`} allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen loading="lazy" />
       ) : (
