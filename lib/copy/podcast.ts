@@ -14,6 +14,12 @@ export const podcastCopy = {
     back: "All episodes",
     listen: "Listen and watch",
     spanish: { kicker: "En español", youtube: "YouTube", spotify: "Spotify" },
+    /** The EN/ES switch on a bilingual episode; each edition's own words for the title and listen links. */
+    editions: {
+      label: "Episode language",
+      en: { short: "EN", name: "English", with: "w/", youtube: "Watch on YouTube", spotify: "Spotify", apple: "Apple Podcasts" },
+      es: { short: "ES", name: "Español", with: "con", youtube: "Ver en YouTube", spotify: "Spotify", apple: "Apple Podcasts" },
+    },
     guestLinks: "Find {guest}",
     about: {
       kicker: "About Recoup",
