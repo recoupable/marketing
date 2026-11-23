@@ -3,7 +3,7 @@ import { SkyArrow } from "@/components/sky/arrow";
 import { podcastCopy } from "@/lib/copy/podcast";
 import type { Episode } from "@/lib/podcast/episodeSchema";
 import { episodeMeta } from "@/lib/podcast/episodeMeta";
-import { episodeEditions } from "@/lib/podcast/episodeEditions";
+import { episodeEditions, type EditionLang } from "@/lib/podcast/episodeEditions";
 import { EpisodeEditions } from "./EpisodeEditions";
 import { EpisodeTranscript } from "./EpisodeTranscript";
 import type { Transcript } from "@/lib/podcast/transcriptSchema";
@@ -11,10 +11,17 @@ import type { Transcript } from "@/lib/podcast/transcriptSchema";
 /**
  * One episode, laid out like the show's reference (Standard Innovation's episode pages): date, title,
  * where to listen, the summary, the guest's links, the full transcript (closed by default), a short About block
- * with one call to action, and credits.
+ * with one call to action, and credits. Each language edition shows its own transcript, linked to its own video.
  */
-export function EpisodeDetail({ episode, transcript }: { episode: Episode; transcript?: Transcript }) {
+export function EpisodeDetail({ episode, transcripts }: { episode: Episode; transcripts: Partial<Record<EditionLang, Transcript>> }) {
   const copy = podcastCopy.episode;
+  const editions = episodeEditions(episode);
+  const transcriptViews = Object.fromEntries(
+    editions.flatMap((edition) => {
+      const transcript = transcripts[edition.lang];
+      return transcript ? [[edition.lang, <EpisodeTranscript key={edition.lang} slug={episode.slug} lang={edition.lang} transcript={transcript} youtube={edition.links.youtube} />]] : [];
+    }),
+  );
   return (
     <article className="col-start-2 row-start-1 min-w-0 pt-11 max-[760px]:pt-4" aria-labelledby="episode-title">
       <Link className="inline-flex items-center gap-2 text-sm font-medium text-[#53707d] hover:text-[#087bab] [&_svg]:!w-4 [&_svg]:!h-4" href="/podcast"><SkyArrow direction="left" /> {copy.back}</Link>
@@ -23,8 +30,8 @@ export function EpisodeDetail({ episode, transcript }: { episode: Episode; trans
         guest={episode.guest}
         meta={episodeMeta(episode)}
         cover={episode.cover}
-        editions={episodeEditions(episode)}
-        englishOnly={transcript && <EpisodeTranscript slug={episode.slug} transcript={transcript} youtube={episode.links.youtube} />}
+        editions={editions}
+        transcripts={transcriptViews}
       >
         <div className="mt-9">
           <p className="sp-kicker text-[#5b7886] !text-[10px]">{copy.guestLinks.replace("{guest}", episode.guest)}</p>

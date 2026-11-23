@@ -1,15 +1,17 @@
 import { podcastCopy } from "@/lib/copy/podcast";
 import { formatTimestamp } from "@/lib/podcast/formatTimestamp";
+import type { EditionLang } from "@/lib/podcast/episodeEditions";
 import type { Transcript } from "@/lib/podcast/transcriptSchema";
 import { CopyTranscriptButton } from "./CopyTranscriptButton";
 
 /**
  * The full transcript in a closed <details>: server-rendered, so the text is in the page's HTML for search
- * while staying out of the reader's way. Timestamps open the video at that moment when there is one.
+ * while staying out of the reader's way. Labels follow the edition's language, and timestamps open that edition's
+ * video at that moment when there is one.
  */
-export function EpisodeTranscript({ slug, transcript, youtube }: { slug: string; transcript: Transcript; youtube?: string }) {
-  const copy = podcastCopy.episode.transcript;
-  const id = `transcript-${slug}`;
+export function EpisodeTranscript({ slug, lang = "en", transcript, youtube }: { slug: string; lang?: EditionLang; transcript: Transcript; youtube?: string }) {
+  const copy = podcastCopy.episode.editions[lang].transcript;
+  const id = `transcript-${slug}-${lang}`;
   const at = (seconds: number) => (youtube ? `${youtube}${youtube.includes("?") ? "&" : "?"}t=${Math.floor(seconds)}s` : undefined);
   return (
     <details className="group mt-10 max-w-[680px] rounded-2xl border border-[#deeaee]">
