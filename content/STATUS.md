@@ -1,3 +1,9 @@
+## Inquiry delivery diagnostics — October 25, 2026
+
+Separated invalid/blocked submissions (`inquiry_rejected`) from delivery failures (`inquiry_failed`), added safe HTTP-status/error-code diagnostics, and preserved the exact CRM-backed success receipt. The shared hook now locks concurrent submissions before a render and gives the server timeout time to return. Existing recovery UI retains the inquiry and presents fixed, actionable error copy.
+
+Controlled production HTTP submissions through `/contact` and `/start-project` returned valid receipts, and their corresponding notes were read back in the CRM. This verifies current HTTP-to-CRM delivery, not every browser interaction or the cause of historical rejected traffic. Private test receipts remain in Business. 74 focused tests, scoped ESLint, TypeScript and the production build (115 pages) pass. Code changes are pending review/deployment; historical failure totals cannot be retrospectively reclassified.
+
 ## Files account-scope release reconciliation — October 25, 2026
 
 The public Files reference, scoped examples, producer tests and generated artifacts

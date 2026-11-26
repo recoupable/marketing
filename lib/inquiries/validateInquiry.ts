@@ -24,7 +24,7 @@ function isObject(value: unknown): value is Record<string, unknown> {
 
 export function validateInquiry(input: unknown, now = Date.now()): Inquiry {
   if (!isObject(input)) throw new InquiryError(400);
-  if (input.website !== "") throw new InquiryError(400);
+  if (input.website !== "") throw new InquiryError(400, undefined, "blocked");
   const source = inquirySourceSchema.safeParse(input.source);
   if (!source.success) throw new InquiryError(400);
   const compactProject = source.data === "/start-project" && input.interest !== podcastGuestInterest;
